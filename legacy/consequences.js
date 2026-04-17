@@ -1,3 +1,10 @@
+---
+> **ARCHIVED — V28_4 SCAFFOLD**
+> This file is kept for historical reference only.
+> It is not part of the active runtime (V28_8).
+> The active runtime uses data.js, background-locality-map.js, stage2-backgrounds.js, and narrative.js instead.
+---
+
 // ═══════════════════════════════════════════════════════
 // CONSEQUENCES — Story resolution database
 // TEXT RULE: No apostrophes. Use full words only.

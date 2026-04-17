@@ -1,8 +1,10 @@
 # Ledger of Ash
 
-A text-based RPG set in the V28_4 Material Planet canon. You are a capable person
+A text-based RPG set in the **V28_8** Material Planet canon. You are a capable person
 in an unstable world. The eastern route has gone wrong. The city knows.
 Your job is to understand what happened and decide what to do about it.
+
+**Current build:** 31 archetypes × 3 backgrounds = 93 backgrounds; 11 canonical localities; Stage I–V progression; V28_8 canon alignment; Stage I locality grounding.
 
 ## Play
 
@@ -14,7 +16,8 @@ Save system uses localStorage with a 4-digit passcode. Schema version 5.
 ```bash
 cd /path/to/loa
 python3 build.py
-# Output: dist/index.html (~506 KB single file)
+# Output: dist/index.html (~230 KB single file)
+# Bundles: data.js, background-locality-map.js, stage2-backgrounds.js, narrative.js, party.js, combat.js, engine.js
 ```
 
 ## Deploy
@@ -37,65 +40,153 @@ docker compose up -d
 
 Upload `dist/index.html` to any web host. No backend needed for Phase 1.
 
-## Current state
+## Architecture
 
-**25 archetypes, 75 backgrounds, 75 opening scenes, 85 consequence nodes, 11 localities, 4 recruitable companions.**
+### Active Runtime (Bundled into dist/index.html)
 
-See `docs/CANON_UPDATE.md` for full build numbers and canon manifest.
-See `docs/CURRENT_BUILD_UPGRADE_PLAN.md` for what was changed and what remains.
-See `docs/PLAYTEST_MATRIX.md` for documented playtests of all 4 key archetypes.
+**Core Data & Mapping:**
+- `js/data.js` — ARCHETYPES (31), KEY_LOCALITIES (11 V28_8-canonical), ADJACENCY map, NPC_PLACEMENTS, BESTIARY, HAZARDS
+- `js/background-locality-map.js` — V28_8 Stage I locality grounding: maps all 93 backgrounds to their canonical starting localities (not hardcoded to Shelkopolis)
 
-## File structure
+**Game Content:**
+- `js/stage2-backgrounds.js` — Stage II content templates for 31 archetype families (shared + family-specific pressure chains)
+- `js/narrative.js` — Dynamic scene narration generator: composes scene text from locality, pressure state, hazards, NPCs, route hints
+
+**Systems:**
+- `js/engine.js` — Core engine: state initialization, level-up, save/load, character creation, stage progression, objective cycling, threat/rescue logic
+- `js/party.js` — Companion system: definitions, recruitment flow, camp talk, party overlay, trust/injury mechanics
+- `js/combat.js` — Combat system with 31 archetype-specific abilities
+
+**Deployment:**
+- `index.html` — HTML shell with overlays (journal, notices, NPCs, party, sheet, map); inline CSS; script imports
+- `build.py` — Bundles all active JS files and generates single-file `dist/index.html`
+
+### Archived Files (Historical Reference Only)
+
+The following files were part of V28_4 implementation and are kept in `legacy/` for historical reference:
+- `legacy/world.js` — V28_4 notice templates, faction clocks, encounter weighting (replaced by inlined systems in engine.js)
+- `legacy/world-data.js` — V28_4 archetype/background database (replaced by augmented data.js with V28_8 grounding)
+- `legacy/scenes.js` — V28_4 opening scenes with incorrect starting localities (replaced by background-locality-map.js routing)
+- `legacy/consequences.js` — V28_4 consequence node database (replaced by stage2-backgrounds.js content)
+
+**Do not include archived files in the build pipeline.** They are provided for reference only.
+
+### Directory Structure
 
 ```
 js/
-  party.js          Companion definitions, recruit flow, camp talk, party overlay
-  world.js          World notices, faction clocks, archetype encounter weighting
-  combat.js         Full TTRPG combat with archetype-specific abilities (75 total)
-  world-data.js     Archetypes, backgrounds, locations, factions, ability trees (105)
-  scenes.js         75 opening scenes — one per background, all with archetype-family choice
-  consequences.js   85 consequence nodes — shared + family-level + archetype-specific
-  engine.js         Core engine: state, level-up, save/load, shop, NPCs, dynamic scene text
-css/
-  style.css         Full stylesheet including party/companion UI
-index.html          HTML shell — overlays for journal, notices, NPCs, party, sheet, map
-build.py            Builds single-file dist/index.html
+  data.js                      [ACTIVE] V28_8 canonical data: archetypes, localities, adjacency, NPCs, hazards
+  background-locality-map.js   [ACTIVE] All 93 backgrounds → V28_8 starting localities
+  stage2-backgrounds.js        [ACTIVE] Stage II content templates (family-based pressure chains)
+  narrative.js                 [ACTIVE] Dynamic scene narration generator
+  party.js                     [ACTIVE] Companions: recruitment, trust, camp, party overlay
+  combat.js                    [ACTIVE] Combat system with archetype abilities
+  engine.js                    [ACTIVE] Core game engine
+  
+css/ (was style.css)           [ARCHIVED] CSS is now fully inlined in index.html
+
+legacy/
+  world.js                     [ARCHIVED] V28_4 scaffold
+  world-data.js                [ARCHIVED] V28_4 scaffold
+  scenes.js                    [ARCHIVED] V28_4 opening scenes
+  consequences.js              [ARCHIVED] V28_4 consequence nodes
+  [other archived docs]
+
+dist/
+  index.html                   [GENERATED] Single-file deployable (230 KB)
+  assets/                      [STATIC] Image, audio, data assets
+
 docs/
-  ARCHITECTURE.md           Technical architecture and Phase 2 stack
-  API_CONTRACTS.md          Phase 2 API endpoint definitions
-  NARRATION_PACKET.md       Claude boundary contract for Phase 2
-  CURRENT_BUILD_UPGRADE_PLAN.md  What was upgraded and what remains
-  PLAYTEST_MATRIX.md        Documented playtests for 4 key archetypes
-  CANON_UPDATE.md           Canon manifest: V28_4 source, extractions, inference rules
-  QA_CHECKLIST.md           Pre-deploy quality checklist
+  ARCHITECTURE.md              Technical design and Phase 2 planning
+  API_CONTRACTS.md             Phase 2 API specifications
+  CANON_UPDATE.md              V28_8 canon alignment notes
+  QA_CHECKLIST.md              Pre-deploy quality checklist
+  [other documentation]
+
+build.py                       Python build script: bundles active JS + generates dist/index.html
+index.html                     HTML shell: overlays, inline CSS, script imports
+README.md                      This file
 ```
 
-## Game systems
+## Game Content
 
-- **25 archetypes** — 4 families (combat, magic, stealth, support)
-- **75 backgrounds** — 3 per archetype, each with unique canon-grounded opening
-- **Archetype-family branching** — all 75 openings route to family-specific first node
-- **Per-archetype mid-spines** — Archer, Healer, Elementalist, Warrior have 3-node dedicated paths
-- **4 recruitable companions** — Vera Wren, Toriel Palevow, Neren Rimebridge, Elyra Mossbane
-- **Companion mechanics** — trust threshold, join/refuse scenes, party HUD, camp talk, passive roll bonuses, leave conditions
-- **85 consequence nodes** — 73 shared investigation + 12 archetype-specific Stage I nodes
-- **105 archetype abilities** — passive/active split, applied at level-up
-- **Dynamic scene text** — env panel reflects faction clock pressure, rival activity, locality tone
-- **Journal typed records** — deduplication, categories, locality+day stamps
-- **Stage I–V progression** — Stage II at L6, Stage V at L19 with three quest spines
-- **World notices board** — faction clock events, rival postings, auto-updating
-- **Save schema v5** — full migration chain v1→v5
+**31 Archetypes** across 4 families:
+- Combat: Warrior, Knight, Ranger, Paladin, Archer, Berserker, Warden, Warlord, Death Knight
+- Magic: Wizard, Cleric, Priest, Necromancer, Illusionist, Inquisitor, Elementalist, Oracle
+- Stealth: Rogue, Assassin, Spellthief, Scout, Thief, Trickster, Beastmaster (7)
+- Support: Healer, Artificer, Engineer, Tactician, Alchemist, Saint, Bard (7)
 
-## Canon
+**93 Backgrounds** (3 per archetype): Civic, Frontier, Occult
 
-V28_4 DnD World Repository. All settlement names, faction IDs, NPC names, deity references
-grounded in canon. No Psanan starting localities. No invented factions.
+**Stage I Locality Grounding (V28_8):**
+Each background now starts in its V28_8-canonical starting locality instead of hardcoded Shelkopolis:
+- Warfare/Roaz backgrounds → Ithtananalor
+- Soreheim backgrounds → Soreheim Proper + frontier routes
+- Panim backgrounds → Panim Haven + memorials
+- Aurora backgrounds → Aurora / Sheresh localities
+- Guildheart backgrounds → Guildheart Hub
+- etc.
 
-## What is not done yet
+**11 Canonical Localities** (V28_8):
+Panim Haven, Soreheim Proper, Sunspire Haven, Shelkopolis, Fairhaven, Mimolot Academy, 
+Ithtananalor, Guildheart Hub, Cosmoria, Aurora, and one more (see `js/data.js` KEY_LOCALITIES)
 
-- 6 additional archetypes (spec targets 31)
-- 18 additional backgrounds (spec targets 93)
-- Per-archetype mid-spines for 21 remaining archetypes
-- Locality-specific nodes for Soreheim, Cosmoria, Shirshal, Mimolot, Guildheart
-- Route graph (currently polity-gating; adjacency-based travel planned for Phase 2)
-- First-class combat entry (combat system exists; entry experience thin)
+**Stage I–V Progression:**
+- Stage I: 4+ pressure rolls to advance
+- Stage II: Adjacent locality pressure (region-specific)
+- Stage III: Wider route pressure
+- Stage IV: Family milestone unlocks + faction consequences
+- Stage V: Permadeath mode; 3 quest spines; family edge unlocks
+
+**Companion System:**
+- 4 recruitable companions with trust, injury, and leave mechanics
+- Camp conversations deepen based on bond level
+- Party bonuses apply to skill rolls
+
+**105 Archetype Abilities:** Passive + active split; applied at level-up
+
+**Combat System:** TTRPG-style with archetype-specific tactics
+
+**Save Schema v5:** Full migration chain; localStorage-based with 4-digit passcode
+
+## Canon Authority
+
+**V28_8 DnD World Repository** is the source of truth for:
+- Settlement names and polity identity
+- Locality definitions and district composition
+- Faction references, law, economy, faith, infrastructure
+- Route identity and polity gating
+- NPC placement and role
+- Archetype/background locality grounding
+
+See `docs/CANON_UPDATE.md` for detailed canon alignment notes.
+
+## What is not done yet (Phase 2+)
+
+- Opening scene text rewrite (scenes.js was V28_4; needs locality-specific rewrites for V28_8 starting positions)
+- Stage I consequence nodes audit (verify they don't silently relocate players away from background locality)
+- Per-archetype mid-spines for all 31 archetypes (currently: shared family chains)
+- Full route graph (currently: polity-based gating; planned: adjacency-based travel)
+- First-class combat entry (combat system exists; early-game entry experience thin)
+- Phase 2 API backend (Phase 1 is single-file, localStorage-based)
+
+## Current state summary
+
+**This is a complete, single-file, browser-based RPG with:**
+- V28_8 canonical world grounding
+- Stage I locality grounding: each of 93 backgrounds starts in its own V28_8-canonical starting locality
+- 31 playable archetypes with distinct progression paths
+- Dynamic narrative generation based on pressure, hazards, NPCs, and routes
+- Companion system with trust, camp conversations, and party mechanics
+- Full 5-stage progression with permadeath at Stage V
+- Combat system with archetype-specific abilities
+- localStorage save system with migration support
+- Responsive design (desktop + mobile)
+- Zero server/database requirements
+
+**To contribute:**
+1. Identify which system you want to work on (see Architecture section)
+2. Active runtime files are in `js/`; never edit archived files in `legacy/`
+3. Rebuild with `python build.py` after changes
+4. Test in `dist/index.html` 
+5. When complete, see the "What is not done yet" section for priority areas

@@ -1,3 +1,10 @@
+---
+> **ARCHIVED — V28_4 SCAFFOLD**
+> This file is kept for historical reference only.
+> It is not part of the active runtime (V28_8).
+> The active runtime uses data.js, background-locality-map.js, stage2-backgrounds.js, and narrative.js instead.
+---
+
 // ═══════════════════════════════════════════════════════
 // OPENING SCENES — One unique scene per background ID
 // 31 archetypes x 3 backgrounds = 93 scenes
