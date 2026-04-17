@@ -1,9 +1,0 @@
-{
-  "name": "Scarlet Descent Gate",
-  "inside": "Descent rosters, gear halls, emergency braziers, and wound-tally walls dominate over comfort.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal",
-    "ai_source_pdf"
-  ]
-}

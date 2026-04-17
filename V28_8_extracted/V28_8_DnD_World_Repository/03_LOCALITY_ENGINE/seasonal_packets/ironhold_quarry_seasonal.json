@@ -1,9 +1,0 @@
-{
-  "name": "Ironhold Quarry",
-  "seasonal_change": "Winter slows extraction and movement.",
-  "sources": [
-    "principality_roaz",
-    "principalities",
-    "spatial_seasonal"
-  ]
-}

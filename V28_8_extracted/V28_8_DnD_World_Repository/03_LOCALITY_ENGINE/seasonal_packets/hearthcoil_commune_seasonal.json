@@ -1,8 +1,0 @@
-{
-  "name": "Hearthcoil Commune",
-  "seasonal_change": "Severe cold magnifies internal inequity and equipment strain.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

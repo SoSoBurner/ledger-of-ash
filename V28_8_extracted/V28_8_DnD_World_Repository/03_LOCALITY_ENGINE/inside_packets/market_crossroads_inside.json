@@ -1,9 +1,0 @@
-{
-  "name": "Market Crossroads",
-  "inside": "The settlement breathes in waves of arrival, unloading, short-term lodging, and renegotiated destination.",
-  "truth_layer": "conservative_inference",
-  "sources": [
-    "principalities",
-    "topatch_v22_6_spec"
-  ]
-}

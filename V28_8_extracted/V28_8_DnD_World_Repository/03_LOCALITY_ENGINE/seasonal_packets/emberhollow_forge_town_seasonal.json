@@ -1,8 +1,0 @@
-{
-  "name": "Emberhollow Forge Town",
-  "seasonal_change": "Cooling periods allow major maintenance and transit.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

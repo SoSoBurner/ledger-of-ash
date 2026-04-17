@@ -1,9 +1,0 @@
-{
-  "name": "Market Crossroads",
-  "seasonal_change": "Floods, heat, and flip-season congestion alter which lanes and ferries are usable.",
-  "truth_layer": "conservative_inference",
-  "sources": [
-    "principalities",
-    "topatch_v22_6_spec"
-  ]
-}

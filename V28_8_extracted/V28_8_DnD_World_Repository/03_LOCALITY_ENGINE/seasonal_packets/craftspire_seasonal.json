@@ -1,9 +1,0 @@
-{
-  "name": "Craftspire",
-  "seasonal_change": "Demand surges during summit, school, and route-open seasons.",
-  "truth_layer": "conservative_inference",
-  "sources": [
-    "principalities",
-    "topatch_v22_6_spec"
-  ]
-}

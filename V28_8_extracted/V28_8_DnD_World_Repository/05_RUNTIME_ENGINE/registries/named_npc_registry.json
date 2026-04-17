@@ -1,7 +1,0 @@
-{
-  "build_version": "V28_8",
-  "master_ledger_path": "02_CANON_BASELINE/npc_master/master_named_npc_ledger.json",
-  "record_count": 425,
-  "relationship_web_path": "11_REFERENCE_VIEWS/npc_system/relationship_webs/named_npc_relationship_edges.jsonl",
-  "hook_bank_path": "11_REFERENCE_VIEWS/npc_system/hook_bank/shared_named_npc_hook_bank.json"
-}

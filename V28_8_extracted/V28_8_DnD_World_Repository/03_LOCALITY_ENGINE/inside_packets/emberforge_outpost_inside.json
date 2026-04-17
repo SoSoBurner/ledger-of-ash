@@ -1,7 +1,0 @@
-{
-  "name": "Emberforge Outpost",
-  "inside": "Repair tools, barracks routines, patrol briefings, and shrine visits structure daily activity.",
-  "sources": [
-    "locations_catalog"
-  ]
-}

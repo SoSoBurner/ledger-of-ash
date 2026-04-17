@@ -1,9 +1,0 @@
-{
-  "build_version": "V28_8",
-  "truth_layer_distribution": {
-    "conservative_inference": 312,
-    "direct_canon": 38,
-    "source_backed_canon_baseline": 75
-  },
-  "status": "pass"
-}

@@ -1,188 +1,171 @@
 // ═══════════════════════════════════════════════════════
 // BACKGROUND → STARTING LOCALITY MAPPING
 // V28_8 Canon-Aligned Stage I Grounding
-// Maps each background to its correct starting locality per V28_8
+// Keys match data.js background ID scheme: {archetype}_{civic|frontier|occult}
 // ═══════════════════════════════════════════════════════
 
 (function(){
-  // Region to Locality ID mapping (V28_8 canonical mapping)
-  const REGION_TO_LOCALITY = {
-    'Shelkopolis': 'shelkopolis',
-    'Ithtananalor': 'ithtananalor',
-    'Panim Haven': 'panim_haven',
-    'Fairhaven': 'fairhaven',
-    'Soreheim Proper': 'soreheim_proper',
-    'Aurora Crown Commune': 'aurora_crown_commune',
-    'Sunspire Haven': 'sunspire_haven',
-    'Mimolot Academy': 'mimolot_academy',
-    'Shirshal': 'shirshal',
-    'Guildheart Hub': 'guildheart_hub',
-    'Cosmoria': 'cosmoria'
-  };
-
-  // Explicit background to locality mapping (from world-data.js regions)
   const BACKGROUND_STARTING_LOCALITY = {
     // WARRIOR
-    'w_garrison': 'shelkopolis',
-    'w_roaz': 'ithtananalor',
-    'w_frontier': 'soreheim_proper',
+    warrior_civic:      'shelkopolis',
+    warrior_frontier:   'soreheim_proper',
+    warrior_occult:     'ithtananalor',
 
     // KNIGHT
-    'k_shelk': 'shelkopolis',
-    'k_roaz': 'ithtananalor',
-    'k_order': 'panim_haven',
+    knight_civic:       'shelkopolis',
+    knight_frontier:    'ithtananalor',
+    knight_occult:      'panim_haven',
 
     // RANGER
-    'r_shelk': 'fairhaven',
-    'r_soreheim': 'soreheim_proper',
-    'r_sheresh': 'aurora_crown_commune',
+    ranger_civic:       'fairhaven',
+    ranger_frontier:    'soreheim_proper',
+    ranger_occult:      'aurora_crown_commune',
 
     // PALADIN
-    'p_cysur': 'shelkopolis',
-    'p_eloljaro': 'ithtananalor',
-    'p_gwybodaeth': 'mimolot_academy',
+    paladin_civic:      'shelkopolis',
+    paladin_frontier:   'ithtananalor',
+    paladin_occult:     'mimolot_academy',
 
     // ARCHER
-    'a_roadwarden': 'shelkopolis',
-    'a_frontier': 'sunspire_haven',
-    'a_nomdara': 'guildheart_hub',
+    archer_civic:       'shelkopolis',
+    archer_frontier:    'sunspire_haven',
+    archer_occult:      'guildheart_hub',
 
     // BERSERKER
-    'b_soreheim': 'soreheim_proper',
-    'b_frontier': 'sunspire_haven',
-    'b_cosmouth': 'cosmoria',
+    berserker_civic:    'soreheim_proper',
+    berserker_frontier: 'sunspire_haven',
+    berserker_occult:   'cosmoria',
 
     // WIZARD
-    'wz_mimolot': 'mimolot_academy',
-    'wz_shelk': 'shelkopolis',
-    'wz_field': 'soreheim_proper',  // Zootian Expanse approximates Soreheim research
+    wizard_civic:       'mimolot_academy',
+    wizard_frontier:    'shelkopolis',
+    wizard_occult:      'soreheim_proper',
 
     // CLERIC
-    'cl_cysur': 'shelkopolis',
-    'cl_eloljaro': 'ithtananalor',
-    'cl_remeny': 'guildheart_hub',
+    cleric_civic:       'shelkopolis',
+    cleric_frontier:    'ithtananalor',
+    cleric_occult:      'guildheart_hub',
 
     // PRIEST
-    'pr_panim': 'panim_haven',
-    'pr_community': 'fairhaven',
-    'pr_soreheim': 'soreheim_proper',
+    priest_civic:       'panim_haven',
+    priest_frontier:    'fairhaven',
+    priest_occult:      'soreheim_proper',
 
     // NECROMANCER
-    'nc_panim': 'panim_haven',
-    'nc_mimolot': 'mimolot_academy',
-    'nc_sheresh': 'aurora_crown_commune',
+    necromancer_civic:      'panim_haven',
+    necromancer_frontier:   'mimolot_academy',
+    necromancer_occult:     'aurora_crown_commune',
 
     // ILLUSIONIST
-    'il_shelk': 'shelkopolis',
-    'il_union': 'guildheart_hub',
-    'il_twyll': 'shelkopolis',
+    illusionist_civic:      'shelkopolis',
+    illusionist_frontier:   'guildheart_hub',
+    illusionist_occult:     'shirshal',
 
     // INQUISITOR
-    'iq_shirsh': 'shirshal',
-    'iq_mimolot': 'mimolot_academy',
-    'iq_union': 'guildheart_hub',
+    inquisitor_civic:       'shirshal',
+    inquisitor_frontier:    'mimolot_academy',
+    inquisitor_occult:      'guildheart_hub',
 
     // ELEMENTALIST
-    'el_axis': 'sunspire_haven',
-    'el_sheresh': 'aurora_crown_commune',
-    'el_mimolot': 'mimolot_academy',
+    elementalist_civic:     'sunspire_haven',
+    elementalist_frontier:  'aurora_crown_commune',
+    elementalist_occult:    'mimolot_academy',
 
     // ROGUE
-    'ro_shelk': 'shelkopolis',
-    'ro_union': 'guildheart_hub',
-    'ro_nomdara': 'guildheart_hub',
+    rogue_civic:        'shelkopolis',
+    rogue_frontier:     'guildheart_hub',
+    rogue_occult:       'fairhaven',
 
     // ASSASSIN
-    'as_shadowhands': 'shelkopolis',
-    'as_redhoodguild': 'shelkopolis',
-    'as_shirsh': 'shirshal',
+    assassin_civic:     'shelkopolis',
+    assassin_frontier:  'shelkopolis',
+    assassin_occult:    'shirshal',
 
     // SPELLTHIEF
-    'st_mimolot': 'mimolot_academy',
-    'st_court': 'shelkopolis',
+    spellthief_civic:   'mimolot_academy',
+    spellthief_frontier:'shelkopolis',
+    spellthief_occult:  'guildheart_hub',
 
     // SCOUT
-    'sc_field': 'soreheim_proper',
-    'sc_mimolot': 'mimolot_academy',
-    'sc_fairhaven': 'fairhaven',
+    scout_civic:        'soreheim_proper',
+    scout_frontier:     'mimolot_academy',
+    scout_occult:       'fairhaven',
 
     // THIEF
-    'th_shelk': 'shelkopolis',
-    'th_union': 'guildheart_hub',
-    'th_shirsh': 'shirshal',
+    thief_civic:        'shelkopolis',
+    thief_frontier:     'guildheart_hub',
+    thief_occult:       'shirshal',
 
     // TRICKSTER
-    'tr_shelk': 'shelkopolis',
-    'tr_union': 'guildheart_hub',
-    'tr_panim': 'panim_haven',
-
-    // HEALER
-    'he_shelk': 'shelkopolis',
-    'he_panim': 'panim_haven',
-    'he_mimolot': 'mimolot_academy',
-
-    // ARTIFICER
-    'ar_shelk': 'shelkopolis',
-    'ar_soreheim': 'soreheim_proper',
-    'ar_guild': 'guildheart_hub',
-
-    // ENGINEER
-    'en_soreheim': 'soreheim_proper',
-    'en_sheresh': 'aurora_crown_commune',
-    'en_guild': 'guildheart_hub',
-
-    // TACTICIAN
-    'ta_shelk': 'shelkopolis',
-    'ta_panim': 'panim_haven',
-    'ta_mimolot': 'mimolot_academy',
-
-    // ALCHEMIST
-    'al_shelk': 'shelkopolis',
-    'al_mimolot': 'mimolot_academy',
-    'al_guild': 'guildheart_hub',
-
-    // SAINT
-    'sa_shelk': 'shelkopolis',
-    'sa_panim': 'panim_haven',
-    'sa_guild': 'guildheart_hub',
-
-    // WARDEN
-    'wa_shelk': 'shelkopolis',
-    'wa_roaz': 'ithtananalor',
-    'wa_guild': 'guildheart_hub',
-
-    // WARLORD
-    'wl_shelk': 'shelkopolis',
-    'wl_soreheim': 'soreheim_proper',
-    'wl_roaz': 'ithtananalor',
-
-    // DEATH KNIGHT
-    'dk_panim': 'panim_haven',
-    'dk_roaz': 'ithtananalor',
-    'dk_shirsh': 'shirshal',
+    trickster_civic:    'shelkopolis',
+    trickster_frontier: 'guildheart_hub',
+    trickster_occult:   'panim_haven',
 
     // BEASTMASTER
-    'bm_soreheim': 'soreheim_proper',
-    'bm_sheresh': 'aurora_crown_commune',
-    'bm_fairhaven': 'fairhaven',
+    beastmaster_civic:      'soreheim_proper',
+    beastmaster_frontier:   'aurora_crown_commune',
+    beastmaster_occult:     'fairhaven',
+
+    // HEALER
+    healer_civic:       'shelkopolis',
+    healer_frontier:    'panim_haven',
+    healer_occult:      'mimolot_academy',
+
+    // ARTIFICER
+    artificer_civic:    'shelkopolis',
+    artificer_frontier: 'soreheim_proper',
+    artificer_occult:   'guildheart_hub',
+
+    // ENGINEER
+    engineer_civic:     'soreheim_proper',
+    engineer_frontier:  'aurora_crown_commune',
+    engineer_occult:    'guildheart_hub',
+
+    // TACTICIAN
+    tactician_civic:    'shelkopolis',
+    tactician_frontier: 'panim_haven',
+    tactician_occult:   'mimolot_academy',
+
+    // ALCHEMIST
+    alchemist_civic:    'shelkopolis',
+    alchemist_frontier: 'mimolot_academy',
+    alchemist_occult:   'guildheart_hub',
+
+    // SAINT
+    saint_civic:        'shelkopolis',
+    saint_frontier:     'panim_haven',
+    saint_occult:       'guildheart_hub',
+
+    // WARDEN
+    warden_civic:       'shelkopolis',
+    warden_frontier:    'ithtananalor',
+    warden_occult:      'guildheart_hub',
+
+    // WARLORD
+    warlord_civic:      'shelkopolis',
+    warlord_frontier:   'soreheim_proper',
+    warlord_occult:     'ithtananalor',
+
+    // DEATH KNIGHT
+    death_knight_civic:     'panim_haven',
+    death_knight_frontier:  'ithtananalor',
+    death_knight_occult:    'shirshal',
 
     // ORACLE
-    'or_shelk': 'shelkopolis',
-    'or_panim': 'panim_haven',
-    'or_mimolot': 'mimolot_academy',
+    oracle_civic:       'shelkopolis',
+    oracle_frontier:    'panim_haven',
+    oracle_occult:      'mimolot_academy',
 
     // BARD
-    'bd_shelk': 'shelkopolis',
-    'bd_guild': 'guildheart_hub',
-    'bd_panim': 'panim_haven'
+    bard_civic:         'shelkopolis',
+    bard_frontier:      'guildheart_hub',
+    bard_occult:        'panim_haven'
   };
 
-  // Utility function to get starting locality for a background
   function getStartingLocality(backgroundId) {
-    return BACKGROUND_STARTING_LOCALITY[backgroundId] || 'shelkopolis'; // Default fallback
+    return BACKGROUND_STARTING_LOCALITY[backgroundId] || 'shelkopolis';
   }
 
   window.BACKGROUND_STARTING_LOCALITY = BACKGROUND_STARTING_LOCALITY;
-  window.REGION_TO_LOCALITY = REGION_TO_LOCALITY;
   window.getStartingLocality = getStartingLocality;
 })();

@@ -16,12 +16,12 @@
         {label:'A garrison squad rotating out this week passed through the route change point. Find their barracks.',mode:'stealth',skill:'stealth',success:'Drunk squad stories reveal a creature encounter on the eastern route that was never officially logged.',fail:'The squad disperses before your questions settle into anything useful.'}
       ]
     },
-    warrior_roaz:{
+    warrior_occult:{
       choices:[
-        {label:'Ithtananalor extraction workers respect visible strength. Show up at the work yard and ask direct questions.',mode:'place',skill:'combat',success:'The extraction crew defers to your bearing and admits they have not moved goods east in eight days.',fail:'The crew holds their line and offers nothing useful.'},
-        {label:'Find a Roazian merchant who still moves goods through Shelkopolis. They maintain private routes.',mode:'person',skill:'persuasion',success:'The merchant gives you a map showing where their route bypasses the official checkpoint.',fail:'The merchant is cautious and offers only vague assurances.'},
-        {label:'Extraction sites require permits that follow specific paper trails. Pressure the Shelk trade office about route closures.',mode:'records',skill:'craft',success:'The trade office records show permits were revoked for eastern access as of eight days past.',fail:'The office staff closes ranks behind procedure and courtesy.'},
-        {label:'Ithtananalor pressure is always about vertical height and leverage. Find the highest vantage in Shelkopolis that watches the eastern road.',mode:'place',skill:'survival',success:'From elevation you read the pattern: the route is physically blocked, not just administratively closed.',fail:'The elevated view reveals nothing but normal city activity.'}
+        {label:'Ithtananalor extraction workers respect visible strength. Show up at the work yard and ask direct questions.',mode:'place',skill:'combat',success:'The extraction crew defers to your bearing and admits they have not moved goods through the contested route in eight days.',fail:'The crew holds their line and offers nothing useful.'},
+        {label:'Find a Roazian merchant who still moves goods through the enforcement checkpoints. They maintain private routes.',mode:'person',skill:'persuasion',success:'The merchant gives you a map showing where their route bypasses the official checkpoint.',fail:'The merchant is cautious and offers only vague assurances.'},
+        {label:'Extraction sites require permits that follow specific paper trails. Pressure the enforcement records office about route closures.',mode:'records',skill:'craft',success:'The records show permits were revoked for contested access as of eight days past.',fail:'The office staff closes ranks behind procedure and courtesy.'},
+        {label:'Ithtananalor pressure is always about vertical height and leverage. Find the highest enforcement vantage that watches the contested road.',mode:'place',skill:'survival',success:'From elevation you read the pattern: the route is physically blocked, not just administratively closed.',fail:'The elevated view reveals nothing but normal checkpoint activity.'}
       ]
     },
     warrior_frontier:{
@@ -34,7 +34,7 @@
     },
 
     // ── KNIGHT ──
-    knight_shelk:{
+    knight_civic:{
       choices:[
         {label:'House Shelk papers mean institutional access. Demand a meeting with the House Shelk administrator about the route situation.',mode:'person',skill:'persuasion',success:'The administrator admits House Shelk closed the route to contain something. A creature was sighted.',fail:'The administrator maintains diplomatic courtesy and says nothing direct.'},
         {label:'The other house representatives know the real story. Find them and read what they are not saying aloud.',mode:'stealth',skill:'stealth',success:'The rival house is using the closure to press advantage in a competing contract. They orchestrated the silence.',fail:'The other representatives reveal nothing useful.'},
@@ -42,17 +42,17 @@
         {label:'Nobility relies on reputation. Find out what damage House Shelk fears if the route situation becomes public knowledge.',mode:'lore',skill:'lore',success:'A servant admits House Shelk fears their security posture will be questioned if this reaches the wrong ears.',fail:'Nobody will discuss House Shelk internal concerns.'}
       ]
     },
-    knight_roaz:{
+    knight_frontier:{
       choices:[
-        {label:'Iron Accord credentials open Iron Accord doors. Demand a meeting with the Roazian enforcement liaison in Shelkopolis.',mode:'person',skill:'persuasion',success:'The liaison admits the Accord closed the route because a creature escaped their containment work.',fail:'The liaison denies knowledge and suggests you stop asking.'},
-        {label:'Your reassignment never happened officially. Use that ambiguity to pressure the Accord hierarchy for truth.',mode:'records',skill:'lore',success:'The Accord keeps secret records of creature escapes. The eastern route had one.',fail:'The records are sealed and the inquiry alerts the wrong people to your interest.'},
+        {label:'Iron Accord credentials open Iron Accord doors. Demand a meeting with the Roazian enforcement liaison.',mode:'person',skill:'persuasion',success:'The liaison admits the Accord closed the route because a creature escaped their containment work.',fail:'The liaison denies knowledge and suggests you stop asking.'},
+        {label:'Your reassignment never happened officially. Use that ambiguity to pressure the Accord hierarchy for truth.',mode:'records',skill:'lore',success:'The Accord keeps secret records of creature escapes. The contested route had one.',fail:'The records are sealed and the inquiry alerts the wrong people to your interest.'},
         {label:'Counting houses track what moves and what does not. Find a counting house agent and offer them a reason to share route intelligence.',mode:'stealth',skill:'stealth',success:'An agent admits counting houses profit from route closures and knew about this one in advance.',fail:'The agent will not meet with you after an initial cautious conversation.'},
-        {label:'The Roadwardens answer to multiple masters. Use that divided loyalty to pressure a high-ranked officer.',mode:'combat',skill:'combat',success:'A Roadwarden commander admits they were ordered to enforce the closure but not the reason.',fail:'The commander shuts down the conversation and marks you as a security concern.'}
+        {label:'Enforcement answers to multiple masters. Use that divided loyalty to pressure a high-ranked checkpoint officer.',mode:'combat',skill:'combat',success:'A commander admits they were ordered to enforce the closure but not told the reason.',fail:'The commander shuts down the conversation and marks you as a security concern.'}
       ]
     },
-    knight_order:{
+    knight_occult:{
       choices:[
-        {label:'Panim order-knights are servants of the death registry. Use that to access what the registry knows about irregular deaths near the route.',mode:'records',skill:'lore',success:'The registry shows increased death records from the eastern route area eight days past.',fail:'The registry access is restricted and the attempt marks you as someone with questions.'},
+        {label:'Panim order-knights are servants of the death registry. Use that to access what the registry knows about irregular deaths near the route.',mode:'records',skill:'lore',success:'The registry shows increased death records from the contested route area eight days past.',fail:'The registry access is restricted and the attempt marks you as someone with questions.'},
         {label:'The Panim Haven representative might share information with another knight. Press for details about the route closure.',mode:'person',skill:'persuasion',success:'The representative admits the closure is linked to an irregular death pattern the registry was investigating.',fail:'The representative maintains shrine discretion and offers nothing.'},
         {label:'Your mandate was to investigate irregular memorial patterns. Connect the route closure to the memorial spike.',mode:'stealth',skill:'stealth',success:'The two events are directly linked: the creature event triggered irregular deaths that triggered memorial requests.',fail:'The connection stays unclear despite the research.'},
         {label:'Death comes to all. Offer to perform a private rite for the recent dead if the Panim shrine will share what they know.',mode:'ritual',skill:'craft',success:'A shrine attendant shares that the irregular deaths were caused by something that the route closure contained.',fail:'The shrine staff treats the offer as presumption and refuses to engage.'}
@@ -60,56 +60,64 @@
     },
 
     // ── RANGER ──
-    ranger_shelk:{
+    ranger_civic:{
       choices:[
         {label:'The Fairhaven route charts show waypoint sequences. Find where the charted sequence breaks.',mode:'records',skill:'lore',success:'The charts show a waypoint sealed off eight days ago. Someone drew a line through it and signed initials nobody recognizes.',fail:'The charts show only normal variations and suggest no rupture.'},
         {label:'Caravan captains know routes better than any chart. Find a captain who ran the Fairhaven circuit and ask them directly what changed.',mode:'person',skill:'persuasion',success:'A captain admits they rerouted around an obstruction that appeared overnight at a waypoint.',fail:'A captain will not discuss the route change directly.'},
-        {label:'You know every waypoint on Fairhaven. Go to the sealed one personally and read what happened there.',mode:'place',skill:'survival',success:'At the sealed waypoint you find evidence of a creature passage: scat, claw marks, something large moved through.',fail:'The sealed waypoint reveals nothing unusual to your reading.'},
-        {label:'The eastern run connects to Fairhaven. Travel to the connection point and scout backward from there.',mode:'travel',skill:'survival',success:'Scouting backward shows the closure was meant to cut something off from escaping further east.',fail:'The scouting provides no clear picture of intent.'}
+        {label:'You know every waypoint on the Fairhaven circuit. Go to the sealed one personally and read what happened there.',mode:'place',skill:'survival',success:'At the sealed waypoint you find evidence of a creature passage: scat, claw marks, something large moved through.',fail:'The sealed waypoint reveals nothing unusual to your reading.'},
+        {label:'The circuit connects east and west. Scout the connection point and read backward from there.',mode:'stealth',skill:'survival',success:'Scouting backward shows the closure was meant to cut something off from escaping further along the route.',fail:'The scouting provides no clear picture of intent.'}
       ]
     },
-    ranger_soreheim:{
+    ranger_frontier:{
       choices:[
-        {label:'Your corrections to the Shelk-Soreheim corridor map are valuable. Use them as leverage to demand route information from the trade registry.',mode:'records',skill:'craft',success:'The registry admits they used your corrections to identify a dangerous corridor variance. The route is closed to contain it.',fail:'The registry thanks you for the corrections but offers nothing about the closure.'},
-        {label:'Giant Council survey work means you understand axis mechanics. Press the Roadwardens for information about axis instability near the route.',mode:'person',skill:'persuasion',success:'A Roadwarden admits they suspect axis variance caused something to emerge on the eastern approach.',fail:'The Roadwarden suggests you are drawing dangerous conclusions from insufficient data.'},
-        {label:'The allocation board shows supply route changes. Read it and determine what supply pattern shifted.',mode:'records',skill:'lore',success:'The allocation board shows all eastern supply routes were rerouted simultaneously. Someone central made this decision.',fail:'The allocation board shows normal variations and suggests nothing unusual.'},
-        {label:'File your corrections and then read what subsequent route assignments change because of them.',mode:'stealth',skill:'stealth',success:'Once your corrections are filed, subsequent route assignments avoid the eastern corridor entirely.',fail:'No clear pattern emerges from reading the filed assignments.'}
+        {label:'Your corrections to the corridor map are valuable. Use them as leverage to demand route information from the trade registry.',mode:'records',skill:'craft',success:'The registry admits they used your corrections to identify a dangerous corridor variance. The route is closed to contain it.',fail:'The registry thanks you for the corrections but offers nothing about the closure.'},
+        {label:'Giant Council survey work means you understand axis mechanics. Press local officials for information about axis instability near the route.',mode:'person',skill:'persuasion',success:'An official admits they suspect axis variance caused something to emerge on the approach.',fail:'The official suggests you are drawing dangerous conclusions from insufficient data.'},
+        {label:'The allocation board shows supply route changes. Read it and determine what supply pattern shifted.',mode:'records',skill:'lore',success:'The allocation board shows all routes through the contested zone were rerouted simultaneously. Someone central made this decision.',fail:'The allocation board shows normal variations and suggests nothing unusual.'},
+        {label:'File your corrections and then read what subsequent route assignments change because of them.',mode:'stealth',skill:'stealth',success:'Once your corrections are filed, subsequent route assignments avoid the contested corridor entirely.',fail:'No clear pattern emerges from reading the filed assignments.'}
       ]
     },
-    ranger_sheresh:{
+    ranger_occult:{
       choices:[
-        {label:'The dome stewards sent you south to investigate supply disruptions. Document exactly what the axis data says about pressure.',mode:'records',skill:'lore',success:'The axis data shows an inversion cycle spike that began eight days ago at the eastern access point.',fail:'The axis data shows background noise and nothing conclusive.'},
-        {label:'Find a scholar in Shelkopolis who studies axis inversion and show them your axis data.',mode:'person',skill:'persuasion',success:'The scholar warns that your data suggests a creature breach that the route closure is meant to contain.',fail:'The scholar says your data is incomplete and cannot draw conclusions.'},
-        {label:'Domes rely on trade routes that bypass axis variance zones. Check which trade agreements changed because of the route closure.',mode:'records',skill:'craft',success:'Trade agreements were rewritten to bypass the eastern approach entirely. Multiple houses coordinated this.',fail:'The trade agreements show only standard variations.'},
-        {label:'The dome perimeter was hostile when you learned to work it. Use that knowledge to read if the threat has shifted.',mode:'survival',skill:'survival',success:'You sense the threat has shifted: something escaped from its former boundary and the eastern route closure was a response.',fail:'Your sense of the threat shows no change from previous readings.'}
+        {label:'The dome stewards sent you to investigate supply disruptions. Document exactly what the axis data says about pressure.',mode:'records',skill:'lore',success:'The axis data shows an inversion cycle spike that began eight days ago at the contested access point.',fail:'The axis data shows background noise and nothing conclusive.'},
+        {label:'Find a scholar who studies axis inversion and show them your axis data.',mode:'person',skill:'persuasion',success:'The scholar warns that your data suggests a creature breach that the route closure is meant to contain.',fail:'The scholar says your data is incomplete and cannot draw conclusions.'},
+        {label:'Dome settlements rely on trade routes that bypass axis variance zones. Check which trade agreements changed because of the route closure.',mode:'records',skill:'craft',success:'Trade agreements were rewritten to bypass the contested approach entirely. Multiple parties coordinated this.',fail:'The trade agreements show only standard variations.'},
+        {label:'The dome perimeter was hostile when you learned to work it. Use that knowledge to read if the threat has shifted.',mode:'survival',skill:'survival',success:'You sense the threat has shifted: something escaped from its former boundary and the route closure was a response.',fail:'Your sense of the threat shows no change from previous readings.'}
       ]
     },
 
     // ── PALADIN ──
-    paladin_cysur:{
+    paladin_civic:{
       choices:[
-        {label:'Sera at the memorial counter hears everything. Sit with her and listen to what the memorial pattern really means.',mode:'person',skill:'persuasion',success:'Sera admits the memorial pattern corresponds to people who vanished from the eastern route area. They are being recorded as dead.',fail:'Sera maintains shrine discretion and offers only vague observations.'},
-        {label:'The families filing memorials carry the real story. Find a grieving family and offer to sit with them.',mode:'ritual',skill:'craft',success:'A family admits their relative was caught in something on the eastern route and has been silent since. They assume death.',fail:'A family will not speak to a stranger about their loss.'},
-        {label:'Aurora Light Cathedral blessing gives you access to ceremony records. Check what rituals were performed for recent dead.',mode:'records',skill:'lore',success:'Ceremony records show three emergency blessings for dead from the eastern route in the past eight days.',fail:'The ceremony records show only normal variations in blessing traffic.'},
-        {label:'Cysur demands communal bonds. Speak directly with a settlement leader about what happened on the eastern route.',mode:'person',skill:'combat',success:'A settlement leader admits the route was closed after a creature escaped. They were ordered not to speak of it.',fail:'The settlement leader deflects with courtesy and stops engaging.'}
+        {label:'Sera at the memorial counter hears everything. Sit with her and listen to what the memorial pattern really means.',mode:'person',skill:'persuasion',success:'Sera admits the memorial pattern corresponds to people who vanished from the contested route area. They are being recorded as dead.',fail:'Sera maintains shrine discretion and offers only vague observations.'},
+        {label:'The families filing memorials carry the real story. Find a grieving family and offer to sit with them.',mode:'ritual',skill:'craft',success:'A family admits their relative was caught in something on the route and has been silent since. They assume death.',fail:'A family will not speak to a stranger about their loss.'},
+        {label:'Aurora Light Cathedral blessing gives you access to ceremony records. Check what rituals were performed for recent dead.',mode:'records',skill:'lore',success:'Ceremony records show three emergency blessings for dead from the contested route in the past eight days.',fail:'The ceremony records show only normal variations in blessing traffic.'},
+        {label:'Cysur demands communal bonds. Speak directly with a settlement leader about what happened on the route.',mode:'person',skill:'combat',success:'A settlement leader admits the route was closed after a creature escaped. They were ordered not to speak of it.',fail:'The settlement leader deflects with courtesy and stops engaging.'}
       ]
     },
-    paladin_eloljaro:{
+    paladin_frontier:{
       choices:[
-        {label:'Two names appear in both the Roazian enforcement records and Shelk administrative files. Trace their current location.',mode:'stealth',skill:'stealth',success:'Both names lead to a Shelk administrator who is coordinating with Iron Accord enforcement on the route closure.',fail:'Both names go cold and lead to no current location.'},
-        {label:'Eloljaro opens doors. Use those doors to access sealed Shelk administrative files about the route closure.',mode:'records',skill:'lore',success:'The files show Shelk and Iron Accord jointly orchestrated the route closure to contain a creature escape.',fail:'The files are sealed and the attempt to access them marks you for surveillance.'},
-        {label:'The Roadwardens answer to both Shelk and the Accord. Pressure a Roadwarden commander to choose which loyalty wins.',mode:'person',skill:'persuasion',success:'A commander admits they enforce the route closure because two powers aligned on it. Nothing gets through.',fail:'The commander suggests you are asking for information you should not have.'},
+        {label:'Two names appear in both the Roazian enforcement records and institutional administrative files. Trace their current location.',mode:'stealth',skill:'stealth',success:'Both names lead to an administrator coordinating with Iron Accord enforcement on the route closure.',fail:'Both names go cold and lead to no current location.'},
+        {label:'Eloljaro opens doors. Use those doors to access sealed administrative files about the route closure.',mode:'records',skill:'lore',success:'The files show two polities jointly orchestrated the route closure to contain a creature escape.',fail:'The files are sealed and the attempt to access them marks you for surveillance.'},
+        {label:'The enforcement order answers to multiple powers. Pressure a checkpoint commander to choose which loyalty wins.',mode:'person',skill:'persuasion',success:'A commander admits they enforce the route closure because two powers aligned on it. Nothing gets through.',fail:'The commander suggests you are asking for information you should not have.'},
         {label:'Eloljaro and Cysur maintain contact through shared institutions. Find a shrine attendant who knows both and ask for perspective.',mode:'ritual',skill:'craft',success:'An attendant admits both institutions agreed to maintain the route closure for mutual security.',fail:'An attendant will not discuss institutional agreements with an outsider.'}
+      ]
+    },
+    paladin_occult:{
+      choices:[
+        {label:'Mimolot has records of doctrinal exceptions and secret rites. Pressure the archive to surface what was applied to the route situation.',mode:'records',skill:'lore',success:'Archive records describe a ritual failure that released something onto the route, triggering the closure.',fail:'Archive access is refused without proper scholarium clearance.'},
+        {label:'A shrine attendant with archive access might share what the institution knows about the closure.',mode:'person',skill:'persuasion',success:'An attendant admits the closure is protecting against a ritual breach the academy is studying.',fail:'An attendant maintains institutional discretion and says nothing actionable.'},
+        {label:'Sacred resolve under pressure. Use the authority of your oath to demand the hidden truth from those who know it.',mode:'ritual',skill:'craft',success:'The oath carries enough institutional weight that a faculty member confirms the breach and names its source.',fail:'The faculty member considers you outside the chain of institutional authority.'},
+        {label:'Dangerous knowledge serves those with the resolve to hold it. Find the sealed archive that holds the breach records.',mode:'stealth',skill:'stealth',success:'The sealed archive contains the full record of the ritual breach and the creature it released.',fail:'The archive seal resists your approach and alerts internal security.'}
       ]
     },
 
     // ── ARCHER ──
-    archer_roadwarden:{
+    archer_civic:{
       choices:[
-        {label:'You held elevated positions on three route circuits. Go to the highest point in Shelkopolis and read the eastern approach.',mode:'place',skill:'survival',success:'From elevation you see clear signs of deliberate obstruction and active guard positions blocking the route.',fail:'From elevation the eastern approach looks ordinary and reveals no special pressure.'},
-        {label:'Marksmen work ranges and sightlines. Find a Roadwarden officer and press them about sight-line changes on the eastern route.',mode:'person',skill:'persuasion',success:'An officer admits the route sight-lines were deliberately modified to prevent creature escape into the wider territory.',fail:'An officer deflects and stops engaging.'},
-        {label:'The Roadwardens maintain sighting logs for route security. Access the logs for the eastern approach.',mode:'records',skill:'lore',success:'The sighting logs show a massive anomaly recorded eight days ago at the eastern approach, then all logs for that zone were sealed.',fail:'The sighting logs show only normal traffic and reveal nothing.'},
-        {label:'Off-duty Roadwardens are more honest about what the official channels hide. Find one and offer them a drink.',mode:'stealth',skill:'stealth',success:'An off-duty warden admits something escaped its cage on the eastern route and the closure is containment protocol.',fail:'An off-duty warden will not discuss official security with an archer.'}
+        {label:'You held elevated positions on three route circuits. Go to the highest point and read the contested approach.',mode:'place',skill:'survival',success:'From elevation you see clear signs of deliberate obstruction and active guard positions blocking the route.',fail:'From elevation the approach looks ordinary and reveals no special pressure.'},
+        {label:'Marksmen work ranges and sightlines. Find a Roadwarden officer and press them about sight-line changes on the contested route.',mode:'person',skill:'persuasion',success:'An officer admits the route sight-lines were deliberately modified to prevent creature escape into the wider territory.',fail:'An officer deflects and stops engaging.'},
+        {label:'The Roadwardens maintain sighting logs for route security. Access the logs for the contested approach.',mode:'records',skill:'lore',success:'The sighting logs show a massive anomaly recorded eight days ago, then all logs for that zone were sealed.',fail:'The sighting logs show only normal traffic and reveal nothing.'},
+        {label:'Off-duty Roadwardens are more honest about what the official channels hide. Find one and offer them a drink.',mode:'stealth',skill:'stealth',success:'An off-duty warden admits something escaped its cage on the route and the closure is containment protocol.',fail:'An off-duty warden will not discuss official security with an archer.'}
       ]
     },
     archer_frontier:{
@@ -120,12 +128,12 @@
         {label:'The route was changed eight days ago. Check Frontier Ranging Company dispatch logs for what operations were canceled that day.',mode:'records',skill:'craft',success:'Dispatch logs show six planned operations were canceled with a code meaning creature sighting and reroute.','fail':'Dispatch logs show normal cancellations and suggest no special event.'}
       ]
     },
-    archer_nomdara:{
+    archer_occult:{
       choices:[
-        {label:'Caravan guard work means you know every approach to every settlement. Read the approaches to Shelkopolis from an archers perspective.',mode:'place',skill:'combat',success:'From your perspective, the routes are being actively guarded against creature escape. Something is contained here.','fail':'The approaches read as ordinary guard positions and reveal no special pressure.'},
-        {label:'The original caravan route from Guildheart changed eight days ago. Find a caravan captain and ask them to compare old versus new route.',mode:'records',skill:'lore',success:'The new route deliberately avoids the eastern approach that the old route used to use.','fail':'Caravan routes change regularly and the captain sees nothing special about the current variation.'},
-        {label:'You took your pay and followed the original route to find out why it changed. Did you see what changed it?',mode:'stealth',skill:'stealth',success:'Following the original route, you found the creature sign and understood immediately why caravans avoid it now.','fail':'Following the original route revealed nothing that explained the route change.'},
-        {label:'Caravan guards are hired muscle who keep quiet. Find an off-duty caravan guard and ask what they really know.',mode:'person',skill:'persuasion',success:'An off-duty guard admits they evacuated the original route because something escaped its natural boundaries.','fail':'An off-duty guard will not discuss caravan security with someone not in the trade.'}
+        {label:'Caravan guard work means you know every approach to every settlement. Read the approaches to Guildheart from an archers perspective.',mode:'place',skill:'combat',success:'From your perspective, the routes are being actively guarded against creature escape. Something is contained here.',fail:'The approaches read as ordinary guard positions and reveal no special pressure.'},
+        {label:'The original caravan route from Guildheart changed eight days ago. Find a caravan captain and ask them to compare old versus new route.',mode:'records',skill:'lore',success:'The new route deliberately avoids the contested approach that the old route used to use.',fail:'Caravan routes change regularly and the captain sees nothing special about the current variation.'},
+        {label:'You took your pay and followed the original route to find out why it changed. Did you see what changed it?',mode:'stealth',skill:'stealth',success:'Following the original route, you found the creature sign and understood immediately why caravans avoid it now.',fail:'Following the original route revealed nothing that explained the route change.'},
+        {label:'Caravan guards are hired muscle who keep quiet. Find an off-duty caravan guard and ask what they really know.',mode:'person',skill:'persuasion',success:'An off-duty guard admits they evacuated the original route because something escaped its natural boundaries.',fail:'An off-duty guard will not discuss caravan security with someone not in the trade.'}
       ]
     },
 
@@ -148,10 +156,10 @@
     },
     berserker_occult:{
       choices:[
-        {label:'Occult knowledge teaches that hidden rites protect what must remain hidden. Find an occult practitioner and press them for truth.',mode:'person',skill:'lore',success:'An occult practitioner admits the closure is protecting against something that rituals alone cannot contain.','fail:'An occult practitioner deflects with mysticism and offers no real answer.'},
+        {label:'Occult knowledge teaches that hidden rites protect what must remain hidden. Find an occult practitioner and press them for truth.',mode:'person',skill:'lore',success:'An occult practitioner admits the closure is protecting against something that rituals alone cannot contain.',fail:'An occult practitioner deflects with mysticism and offers no real answer.'},
         {label:'Dangerous knowledge serves those bold enough to pursue it. Break into an occult shrine and read what their records say about the closure.',mode:'stealth',skill:'stealth',success:'Shrine records describe a creature emerging from the axis that local rituals are containing.','fail':'The shrine is sealed too tightly to access without raising alarms.'},
         {label:'Occult practitioners see what others miss. Offer your berserker strength as protection and ask them what they are protecting against.','mode':'ritual',skill:'craft',success:'A practitioner trusts your offer and reveals the closure is concealing a ritual failure that let something through.','fail':'A practitioner considers your offer suspicious and refuses to engage.'},
-        {label:'The hidden rite path leads to dangerous knowledge. Follow the signs and trace them to their source.',mode:'records',skill:'lore',success:'The signs lead to a sealed ritual site where containment magic is barely holding something in place.','fail:'The signs go cold and lead nowhere clear.'}
+        {label:'The hidden rite path leads to dangerous knowledge. Follow the signs and trace them to their source.',mode:'records',skill:'lore',success:'The signs lead to a sealed ritual site where containment magic is barely holding something in place.',fail:'The signs go cold and lead nowhere clear.'}
       ]
     },
 

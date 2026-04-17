@@ -1,9 +1,0 @@
-{
-  "build_version": "V28_8",
-  "named_npc_support_fields": {
-    "appearance_non_null": 6,
-    "manner_non_null": 425,
-    "hidden_pressure_non_null": 425
-  },
-  "status": "pass"
-}

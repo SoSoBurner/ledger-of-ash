@@ -1,9 +1,0 @@
-{
-  "name": "Ashforge Citadel",
-  "approach": "Black-red ramparts, forge smoke, and ash-banner civic markers announce a city accustomed to heat, rebuilding, and rule.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal",
-    "ai_source_pdf"
-  ]
-}

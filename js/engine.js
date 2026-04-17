@@ -101,6 +101,42 @@
       {label:'Call on a settlement service before pushing further',tags:['Service','Adjacent'],fn(){ G.lastResult='A return through the current settlement services sharpens the next move.'; }}
     ].slice(0,9);
   }
+  function campChoices(state){
+    const loc=getLocality(state.location);
+    return [
+      {label:`Rest at ${state.currentSafeZone} and recover`,tags:['Rest','HP'],fn(){ advanceTime(1); state.hp=Math.min(state.maxHp,state.hp+Math.max(3,Math.floor(state.maxHp*0.3))); state.fatigue=Math.max(0,state.fatigue-1); state.lastResult=`${state.currentSafeZone} steadies the body. The next move starts from a better place.`; addJournal('camp',`Rested at ${state.currentSafeZone}.`,`camp-rest-${state.dayCount}`); }},
+      {label:`Review the journal and sharpen the approach`,tags:['Reflect','Lore'],fn(){ advanceTime(1); gainXp(1,'careful reflection'); state.lastResult=`The journal yields one pattern that was not visible in motion.`; addJournal('camp','Reviewed field notes and updated the approach.',`camp-reflect-${state.dayCount}`); }},
+      {label:`Scout the immediate area around ${loc.name}`,tags:['Scout','Survival'],fn(){ advanceTime(1); state.telemetry.scouts++; state.skills.survival=(state.skills.survival||0)+1; const t=chooseThreat(); state.currentThreat=t; state.lastResult=`The perimeter of ${loc.name} gives up one useful detail about what is moving and what is holding still.`; }},
+      {label:`Maintain equipment and prepare for the next push`,tags:['Craft','Prep'],fn(){ advanceTime(1); state.skills.craft=(state.skills.craft||0)+1; gainXp(1,'field maintenance'); state.lastResult=`Gear is clean, edges are sound, and the next move starts with better tools than the last one.`; }}
+    ];
+  }
+
+  function beginEncounter(state, kind, name, tier){
+    state.encounter={ kind, name:name||'unknown threat', tier:tier||'standard', round:1, started:state.dayCount, hp:kind==='creature'?(window.BESTIARY&&window.BESTIARY[name]?window.BESTIARY[name].hp:12):(window.HAZARDS&&window.HAZARDS[name]?window.HAZARDS[name].severity*4:8), maxHp:kind==='creature'?(window.BESTIARY&&window.BESTIARY[name]?window.BESTIARY[name].hp:12):(window.HAZARDS&&window.HAZARDS[name]?window.HAZARDS[name].severity*4:8) };
+    const desc=kind==='creature'?(window.BESTIARY&&window.BESTIARY[name]?window.BESTIARY[name].text:'A threat emerges from the pressure.'):(window.HAZARDS&&window.HAZARDS[name]?window.HAZARDS[name].text:'A hazard breaks into the open.');
+    state.lastResult=`${desc} The encounter demands an immediate answer.`;
+  }
+
+  function encounterChoices(state){
+    const enc=state.encounter;
+    if(!enc) return stage1Choices();
+    const arch=getArchetype(state.archetype);
+    const tierBonus=enc.tier==='elite'?3:enc.tier==='boss'?6:0;
+    function resolve(skill,label,xpAmt,successText,failText){
+      const roll=1+rand(20)+(state.skills[skill]||0)+Math.floor(state.level/3)+tierBonus;
+      const target=enc.tier==='boss'?18:enc.tier==='elite'?15:12;
+      const success=roll>=target;
+      if(success){ gainXp(xpAmt,'encounter'); enc.hp=Math.max(0,enc.hp-Math.floor(state.level*1.5+5)); if(enc.hp<=0){ state.encounter=null; state.telemetry.wins++; state.gold+=rand(8)+3; state.lastResult=successText+` The threat is broken. (+${xpAmt} xp, gold gained)`; markMoment(`Defeated ${enc.name} at ${getLocality(state.location).name}`); } else { state.lastResult=successText+` The threat weakens but holds.`; } } else { const dmg=Math.max(1,rand(6)+enc.tier==='boss'?6:enc.tier==='elite'?4:2); state.hp=Math.max(0,state.hp-dmg); state.lastResult=failText+` You take ${dmg} damage (HP: ${state.hp}/${state.maxHp}).`; enc.round++; }
+    }
+    const choices=[
+      {label:`Press forward directly — force the issue`,tags:['Combat','Direct'],fn(){ resolve('combat','direct assault',enc.tier==='boss'?4:2,'The line breaks under direct force.',`The direct approach costs something.`); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Find the weakness and work it precisely`,tags:['Stealth','Precise'],fn(){ resolve('stealth','precision approach',enc.tier==='boss'?3:2,'The weak point opens and the threat unravels.','The precision read fails under pressure.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Apply knowledge and read the threat structure`,tags:['Lore','Read'],fn(){ resolve('lore','analytical approach',enc.tier==='boss'?3:2,'The threat logic becomes legible and the answer follows.','The analytical read produces theory without enough time.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Withdraw and regroup at the safe zone`,tags:['Retreat','Safe'],fn(){ state.encounter=null; advanceTime(1); state.hp=Math.max(1,state.hp); state.lastResult=`The threat is left behind. The safe zone holds for now.`; setThreat();setObjective();persist();render(); }}
+    ];
+    return choices;
+  }
+
   function stage3to5Choices(stage){ const arr=objectiveWebChoices(stage).slice(0,5); if(stage===5 && G.finalBreak){ arr.push({label:'Commit to the final boss confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }}); arr.push({label:'Commit to the final hazard confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }}); } else { arr.push({label:'Force an elite confrontation now',tags:['Encounter','Elite'],fn(){ startThreatEncounter('elite'); }}); } arr.push({label:'Camp and re-form the line',tags:['Camp'],fn(){ G.lastResult='The camp settles nerves but the wider pressure does not stop moving.'; }}); return arr.slice(0,8); }
   function maybeStageAdvance(){ if(G.stage===1 && G.stageProgress[1]>=4 && G.level>=5){ G.stage=2; updateStage(); addNotice('Stage II begins. Adjacent pressure opens.'); markMoment('Stage II began'); } if(G.stage===2 && G.stageProgress[2]>=4 && G.level>=9){ G.stage=3; updateStage(); addNotice('Stage III begins. The world grows wider and less forgiving.'); markMoment('Stage III began'); } if(G.stage===3 && G.familyMilestones.stage3>=3 && G.level>=13){ G.stage=4; updateStage(); addNotice('Stage IV begins. Your name now changes what institutions dare.'); markMoment('Stage IV began'); } if(G.stage===4 && G.familyMilestones.stage4>=3 && G.level>=17){ G.stage=5; updateStage(); addNotice('Stage V begins. Death is now final.'); markMoment('Stage V began'); } setObjective(); }
   function currentChoices(){ if(G.encounter) return encounterChoices(G); if(G.stage===1) return stage1Choices(); if(G.stage===2) return stage2Choices(); if(G.stage===3) return stage3to5Choices(3); if(G.stage===4) return stage3to5Choices(4); return stage3to5Choices(5); }

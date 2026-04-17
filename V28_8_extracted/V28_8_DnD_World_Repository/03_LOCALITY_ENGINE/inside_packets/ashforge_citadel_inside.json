@@ -1,9 +1,0 @@
-{
-  "name": "Ashforge Citadel",
-  "inside": "Citadel courts, dedication halls, memorial arches, and weapon forges sit beside plazas made for public processions and ember dances.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal",
-    "ai_source_pdf"
-  ]
-}

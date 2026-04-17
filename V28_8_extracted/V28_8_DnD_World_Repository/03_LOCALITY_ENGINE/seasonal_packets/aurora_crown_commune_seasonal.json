@@ -1,8 +1,0 @@
-{
-  "name": "Aurora Crown Commune",
-  "seasonal_change": "Axial shifts, blizzards, and thaw windows alter dome strain and movement schedules.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

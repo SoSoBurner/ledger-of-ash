@@ -1,9 +1,0 @@
-{
-  "npc_id": "issa_waycord",
-  "compatibility_surface": "named_npc_reference",
-  "truth_layer": "engine_canon",
-  "support_type": "named_interface_compatibility",
-  "version": "V28_8",
-  "generation_timestamp": "2026-04-16T05:20:57Z",
-  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
-}

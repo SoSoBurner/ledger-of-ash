@@ -1,9 +1,0 @@
-{
-  "name": "Shelkopolis",
-  "seasonal_change": "Balanced seasonal weather preserves outdoor markets and floral ornamentation; observance bands intensify noble and artisan gatherings.",
-  "sources": [
-    "psc_shelkopolis",
-    "locations_catalog",
-    "principality_shelk"
-  ]
-}

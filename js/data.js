@@ -318,7 +318,10 @@
     fairhaven:{rescuer:'stallholders and chapel volunteers', aftermath:'Market rumor outruns the facts almost immediately.', safeZone:'Market Chapel Cellar'},
     mimolot_academy:{rescuer:'archive adjutants and lamp-bearers', aftermath:'Access changes while faculty decide who is to blame.', safeZone:'Archive Convalescence Alcove'},
     soreheim_proper:{rescuer:'lift crews and forge wardens', aftermath:'Production time is lost and the ledger of fault stays open.', safeZone:'Forge Rest Gallery'},
-    shirshal:{rescuer:'witness guards and side-hall clerks', aftermath:'A formal account is demanded before anything moves again.', safeZone:'Witness Court Side Hall'}
+    shirshal:{rescuer:'witness guards and side-hall clerks', aftermath:'A formal account is demanded before anything moves again.', safeZone:'Witness Court Side Hall'},
+    ithtananalor:{rescuer:'enforcement checkpoint wardens', aftermath:'A formal incident report is filed and scrutiny follows you into the next jurisdiction.', safeZone:'Enforcement Checkpoint Ward'},
+    guildheart_hub:{rescuer:'guild brokers and tariff runners', aftermath:'The rescue becomes a debt in the ledger and someone will collect.', safeZone:'Guild Hall Archive Chamber'},
+    cosmoria:{rescuer:'maritime hands and archive runners', aftermath:'The recovery is noted in the ship log and the scholarly community knows your business.', safeZone:'Maritime Archive Hall'}
   };
 
   const STAGE2_FAMILY_CONTENT = {
@@ -457,6 +460,30 @@
       progression:{name:'Procedure Yard',text:'Questioning craft, patience, route reading, and controlled force are drilled here.'},
       flavor:{name:'Oath Fountain Walk',text:'Measured greetings and water-touch rituals make emotion visible without chaos.'},
       secret:{name:'Broken Seal Archive',text:'A side repository where invalid truth is stored instead of destroyed.'}
+    },
+    ithtananalor:{
+      recovery:{name:'Enforcement Checkpoint Ward',text:'Supervised rest under Roazian authority comes with medical care and an open file.'},
+      equipment:{name:'Iron Accord Armory',text:'Heavy enforcement gear, cuffs, seals, containment tools, and industrial-grade weapons.'},
+      info:{name:'Enforcement Records Office',text:'Incident logs and permit trails show where the system is leaking before it admits it.'},
+      progression:{name:'Inspection Yard',text:'Interrogation posture, containment holds, enforcement law, and checkpoint discipline are drilled here.'},
+      flavor:{name:'Gate Seal Walk',text:'Document checks and formal acknowledgements turn every passage into a small performance of order.'},
+      secret:{name:'Confiscation Vault Annex',text:'A sealed room where confiscated goods and buried complaints share the same shelf.'}
+    },
+    guildheart_hub:{
+      recovery:{name:'Guild Hall Archive Chamber',text:'A guarded recovery space where healing and paperwork happen at the same time.'},
+      equipment:{name:'Tariff Row Outfitters',text:'Contract tools, freight leathers, cargo hooks, locked ledgers, and discreet trade-road weapons.'},
+      info:{name:'Sanction Board Counter',text:'Trade disputes and missing manifests reveal more than anyone filing them intended.'},
+      progression:{name:'Broker Drill Floor',text:'Contract reading, freight defense, negotiation pressure, and route authority are sharpened here.'},
+      flavor:{name:'Sanction Notice Board',text:'Printed citations and verified seals turn civic authority into visible text.'},
+      secret:{name:'Legacy Claim Repository',text:'Old Mal-era documents and unresolved union debts sit in an unreachable corner of institutional memory.'}
+    },
+    cosmoria:{
+      recovery:{name:'Maritime Archive Hall',text:'Maritime hands and archivists keep the injured stable with sea-remedy and scholarly calm.'},
+      equipment:{name:'Shipwright Dock Supply',text:'Rigging tools, salt-treated leathers, navigation instruments, archival bindings, and deck weapons.'},
+      info:{name:'Grand Archive Reading Room',text:'Maritime records and scholarly correspondence trace routes and relationships nobody officially acknowledges.'},
+      progression:{name:'Deck Drill Yard',text:'Shipboard footing, nautical navigation, archive protocol, and weather reading are practiced here.'},
+      flavor:{name:'Harbor Blessing Pier',text:'Maritime rites and sea-scholars share the same dock language between tides.'},
+      secret:{name:'Submerged Annex Passage',text:'A flooded lower archive where suppressed maritime histories and dangerous charts are stored.'}
     }
   };
 
@@ -486,7 +513,10 @@ const LOCALITY_LINEAGES = {
   fairhaven:['Human','Bridgefolk','Market-Born'],
   mimolot_academy:['Human','Scholarium-Born','Ink-Blooded'],
   soreheim_proper:['Human','Towerfolk','Forge-Blooded'],
-  shirshal:['Human','Courtfolk','Witness-Blooded']
+  shirshal:['Human','Courtfolk','Witness-Blooded'],
+  ithtananalor:['Human','Roazian-Born','Enforcement-Blooded'],
+  guildheart_hub:['Human','Guild-Born','Contract-Marked'],
+  cosmoria:['Human','Maritime-Born','Archive-Touched']
 };
 
 const SERVICE_ITEM_POOLS = {
@@ -553,6 +583,18 @@ const LOCALITY_SERVICE_ITEM_OVERRIDES = {
   shirshal:{
     stealth:[{id:'quiet_oath_blade',name:'Quiet Oath Blade',slot:'weapon',cost:8,bonus:{stealth:1,person:1},text:'A narrow blade meant for controlled presence, not spectacle.'}],
     support:[{id:'seal_test_kit',name:'Seal Test Kit',slot:'kit',cost:8,bonus:{lore:1,craft:1},text:'Tools for reading false seals, procedural tampering, and brittle truths.'}]
+  },
+  ithtananalor:{
+    combat:[{id:'iron_accord_baton',name:'Iron Accord Baton',slot:'weapon',cost:9,bonus:{attack:1,contain:1},text:'Standard enforcement tool that communicates authority before violence.'}],
+    stealth:[{id:'permit_forger_kit',name:'Permit Forger Kit',slot:'kit',cost:10,bonus:{stealth:1,person:1},text:'Tools for generating documents that pass checkpoint inspection.'}]
+  },
+  guildheart_hub:{
+    support:[{id:'tariff_ledger_rig',name:'Tariff Ledger Rig',slot:'belt',cost:9,bonus:{info:1,person:1,coordination:1},text:'A fast-write contract board with official-looking stamps and seal tabs.'}],
+    stealth:[{id:'freight_runner_cloak',name:'Freight Runner Cloak',slot:'armor',cost:8,bonus:{concealment:1,route:1},text:'Nondescript cargo-worker wear that vanishes into loading dock crowds.'}]
+  },
+  cosmoria:{
+    magic:[{id:'tide_focus',name:'Tide Focus',slot:'focus',cost:10,bonus:{arcana:1,ward:1},text:'A salt-glass implement that channels maritime elemental patterns.'}],
+    support:[{id:'archive_seal_kit',name:'Archive Seal Kit',slot:'kit',cost:8,bonus:{craft:1,info:1},text:'Scholarly tools for document authentication, archival access, and record repair.'}]
   }
 };
 
@@ -609,7 +651,8 @@ const STAGE2_DESTINATION_CONTENT = {
     stage2FamilyContentCount: Object.keys(STAGE2_FAMILY_CONTENT).length,
     familyEdgeRewardCount: Object.keys(FAMILY_EDGE_REWARDS).length,
     stage2DestinationContentCount: Object.keys(STAGE2_DESTINATION_CONTENT).length,
-    localityServiceOverrideCount: Object.keys(LOCALITY_SERVICE_ITEM_OVERRIDES).length
+    localityServiceOverrideCount: Object.keys(LOCALITY_SERVICE_ITEM_OVERRIDES).length,
+    localityStartingPOICount: Object.keys(SETTLEMENT_POIS).length
   };
 
   const FAMILY_NAMES = {
@@ -624,22 +667,45 @@ const STAGE2_DESTINATION_CONTENT = {
     return a ? a.group : 'combat';
   }
 
-  function stage1LocalityForGroup(group, idx){
-    const map = {
-      combat:['shelkopolis','sunspire_haven','soreheim_proper'],
-      magic:['aurora_crown_commune','glasswake_commune','mimolot_academy'],
-      stealth:['fairhaven','shirshal','harvest_circle'],
-      support:['panim_haven','sunspire_haven','shelkopolis']
-    };
-    const arr = map[group] || LOCALITY_IDS;
-    return arr[idx % arr.length];
-  }
+  const ARCHETYPE_ORIGIN_LOCALITIES = {
+    warrior:     ['shelkopolis','soreheim_proper','ithtananalor'],
+    knight:      ['shelkopolis','ithtananalor','panim_haven'],
+    ranger:      ['fairhaven','soreheim_proper','aurora_crown_commune'],
+    paladin:     ['shelkopolis','ithtananalor','mimolot_academy'],
+    archer:      ['shelkopolis','sunspire_haven','guildheart_hub'],
+    berserker:   ['soreheim_proper','sunspire_haven','cosmoria'],
+    wizard:      ['mimolot_academy','shelkopolis','soreheim_proper'],
+    cleric:      ['shelkopolis','ithtananalor','guildheart_hub'],
+    priest:      ['panim_haven','fairhaven','soreheim_proper'],
+    necromancer: ['panim_haven','mimolot_academy','aurora_crown_commune'],
+    illusionist: ['shelkopolis','guildheart_hub','shirshal'],
+    inquisitor:  ['shirshal','mimolot_academy','guildheart_hub'],
+    elementalist:['sunspire_haven','aurora_crown_commune','mimolot_academy'],
+    rogue:       ['shelkopolis','guildheart_hub','fairhaven'],
+    assassin:    ['shelkopolis','shelkopolis','shirshal'],
+    spellthief:  ['mimolot_academy','shelkopolis','guildheart_hub'],
+    scout:       ['soreheim_proper','mimolot_academy','fairhaven'],
+    thief:       ['shelkopolis','guildheart_hub','shirshal'],
+    trickster:   ['shelkopolis','guildheart_hub','panim_haven'],
+    beastmaster: ['soreheim_proper','aurora_crown_commune','fairhaven'],
+    healer:      ['shelkopolis','panim_haven','mimolot_academy'],
+    artificer:   ['shelkopolis','soreheim_proper','guildheart_hub'],
+    engineer:    ['soreheim_proper','aurora_crown_commune','guildheart_hub'],
+    tactician:   ['shelkopolis','panim_haven','mimolot_academy'],
+    alchemist:   ['shelkopolis','mimolot_academy','guildheart_hub'],
+    saint:       ['shelkopolis','panim_haven','guildheart_hub'],
+    warden:      ['shelkopolis','ithtananalor','guildheart_hub'],
+    warlord:     ['shelkopolis','soreheim_proper','ithtananalor'],
+    death_knight:['panim_haven','ithtananalor','shirshal'],
+    oracle:      ['shelkopolis','panim_haven','mimolot_academy'],
+    bard:        ['shelkopolis','guildheart_hub','panim_haven']
+  };
 
   const BACKGROUNDS = {};
   const BACKGROUND_ROUTE_SIGNATURES = {};
 
   ARCHETYPES.forEach((a, ai)=>{
-    const origin = stage1LocalityForGroup(a.group, ai);
+    const localitySet = ARCHETYPE_ORIGIN_LOCALITIES[a.id] || ['shelkopolis','shelkopolis','shelkopolis'];
     const familyCycle = STAGE_FAMILIES.stage2;
     const baseIndex = ai % familyCycle.length;
     const backgrounds = [
@@ -648,11 +714,11 @@ const STAGE2_DESTINATION_CONTENT = {
       {id:`${a.id}_occult`,name:'Occult Hand',theme:'hidden rites and dangerous knowledge',stage1Plot:'hidden_rite',bonus:'lore'}
     ].map((b, bi)=>({
       ...b,
-      originLocality: origin,
-      firstNpc: (NPC_PLACEMENTS[origin]||[])[0]?.id || null,
-      firstSafeZone: KEY_LOCALITIES[origin].safeZone,
-      firstContradiction: `${KEY_LOCALITIES[origin].pressures[bi % KEY_LOCALITIES[origin].pressures.length]} is worse than locals will say aloud.`,
-      firstObjective: `Find the true hand behind ${KEY_LOCALITIES[origin].pressures[(bi+1) % KEY_LOCALITIES[origin].pressures.length]}.`,
+      originLocality: localitySet[bi],
+      firstNpc: (NPC_PLACEMENTS[localitySet[bi]]||[])[0]?.id || null,
+      firstSafeZone: KEY_LOCALITIES[localitySet[bi]].safeZone,
+      firstContradiction: `${KEY_LOCALITIES[localitySet[bi]].pressures[bi % KEY_LOCALITIES[localitySet[bi]].pressures.length]} is worse than locals will say aloud.`,
+      firstObjective: `Find the true hand behind ${KEY_LOCALITIES[localitySet[bi]].pressures[(bi+1) % KEY_LOCALITIES[localitySet[bi]].pressures.length]}.`,
       firstFailure: `A failed push hands time and visibility to whoever benefits from the present confusion.`
     }));
     BACKGROUNDS[a.id] = backgrounds;
@@ -691,5 +757,7 @@ const STAGE2_DESTINATION_CONTENT = {
   window.BACKGROUND_ROUTE_SIGNATURES = BACKGROUND_ROUTE_SIGNATURES;
   window.LOCALITY_LINEAGES = LOCALITY_LINEAGES;
   window.SERVICE_ITEM_POOLS = SERVICE_ITEM_POOLS;
+  window.LOCALITY_SERVICE_ITEM_OVERRIDES = LOCALITY_SERVICE_ITEM_OVERRIDES;
+  window.STAGE2_DESTINATION_CONTENT = STAGE2_DESTINATION_CONTENT;
   window.BUILD_VERIFICATION = BUILD_VERIFICATION;
 })();

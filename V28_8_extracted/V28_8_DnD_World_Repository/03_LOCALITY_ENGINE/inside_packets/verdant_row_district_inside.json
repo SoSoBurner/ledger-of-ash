@@ -1,8 +1,0 @@
-{
-  "name": "Verdant Row District",
-  "inside": "Workshops, guildhalls, inns, shrines, and children weaving through market life create a welcoming but hardworking district.",
-  "sources": [
-    "psc_shelkopolis",
-    "locations_catalog"
-  ]
-}
