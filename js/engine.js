@@ -19,11 +19,13 @@
   const persist=()=>{ const all=storage(); all[G.passcode]=G; localStorage.setItem(SAVE_KEY, JSON.stringify(all)); };
 
   function defaultState(){
+    const defaultBgId = 'warrior_civic';
+    const startingLocation = (window.getStartingLocality && window.getStartingLocality(defaultBgId)) || 'shelkopolis';
     return {
-      name:'', passcode:'', archetype:'warrior', backgroundId:'warrior_civic', level:1, xp:0, renown:0,
+      name:'', passcode:'', archetype:'warrior', backgroundId:defaultBgId, level:1, xp:0, renown:0,
       hp:22, maxHp:22, gold:20, stage:1, stageLabel:STAGES[0].label, currentObjective:'', dayCount:1, timeIndex:0,
       age:'24', presentation:'Male', lineage:'Human', lifeOverview:'',
-      location:'shelkopolis', currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
+      location:startingLocation, currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
       journalRecords:[], notices:[], legends:[], quests:[], factions:{}, morality:0, order:0,
       skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1}, companions:[], recruitableSeen:{},
       wounds:[], fatigue:0, deathCount:0, stage5Dead:false, rescueLog:[], trainingDisadvantage:0,

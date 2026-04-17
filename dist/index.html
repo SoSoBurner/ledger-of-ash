@@ -229,6 +229,30 @@
       greetings:['measured witness greetings','formal truth-invocations at doors'],
       rituals:['water-touch before testimony','quiet oath phrases in queue'],
       hazards:['seal_feedback','crowd_break'], creatures:['court_leech','record_hunter']
+    },
+    ithtananalor: {
+      id:'ithtananalor', name:'Ithtananalor', polity:'Principality of Roaz', safeZone:'Enforcement Checkpoint Ward',
+      summary:'Fortified administrative heart where legal identity, industry, and enforcement culture visibly merge.',
+      pressures:['illicit magic detection','smuggling routes','enforcement accountability','inspection intensity'],
+      greetings:['brief formal acknowledgements at checkpoints','work-ready nods between guards'],
+      rituals:['document verification before entry','seal inspection at gates'],
+      hazards:['enforcement_raid','containment_breach'], creatures:['ore_hound','guard_construct']
+    },
+    guildheart_hub: {
+      id:'guildheart_hub', name:'Guildheart Hub', polity:'The Union', safeZone:'Guild Hall Archive Chamber',
+      summary:'Dense industrial nerve center of the Union where contract legitimacy, tariff politics, and freight administration dominate.',
+      pressures:['tariff disputes','Red Hood rumor presence','legacy Mal claims','imperial oversight'],
+      greetings:['merchant queue courtesies','cargo manifest discussions'],
+      rituals:['sanction notice reading','contract seal verification'],
+      hazards:['warehouse_collapse','fire_break'], creatures:['guild_enforcer','contract_bound']
+    },
+    cosmoria: {
+      id:'cosmoria', name:'Cosmoria', polity:'House Cosmouth', safeZone:'Maritime Archive Hall',
+      summary:'Floating intellectual and shipwright metropolis where archives, scholarship, and maritime trade interweave.',
+      pressures:['storm weather','trade vulnerability','archive access disputes','cargo timing'],
+      greetings:['sea-blessed nods between mariners','scholarly courtesy at archival doors'],
+      rituals:['maritime blessing before passage','archive respect protocols'],
+      hazards:['storm_surge','deck_collapse'], creatures:['sea_leech','floating_scavenger']
     }
   };
 
@@ -274,7 +298,10 @@
     fairhaven:['shelkopolis','sunspire_haven','panim_haven'],
     mimolot_academy:['fairhaven','shirshal'],
     soreheim_proper:['harvest_circle','sunspire_haven'],
-    shirshal:['panim_haven','shelkopolis','mimolot_academy']
+    shirshal:['panim_haven','shelkopolis','mimolot_academy'],
+    ithtananalor:['shelkopolis','shirshal'],
+    guildheart_hub:['fairhaven','shirshal'],
+    cosmoria:['guildheart_hub','fairhaven']
   };
 
   const NPC_PLACEMENTS = {
@@ -287,7 +314,10 @@
     fairhaven:[{id:'steward_mel',office:'Market Permit Hall',role:'permit steward'}],
     mimolot_academy:[{id:'scribe_tel',office:'Lower Archive',role:'catalog scribe'}],
     soreheim_proper:[{id:'foreman_bras',office:'Lift Quarter',role:'foreman'}],
-    shirshal:[{id:'witness_clerk_anrel',office:'Witness Court',role:'clerk'}]
+    shirshal:[{id:'witness_clerk_anrel',office:'Witness Court',role:'clerk'}],
+    ithtananalor:[{id:'captain_darian_roaz',office:'Enforcement Headquarters',role:'enforcement captain'},{id:'sir_velden_ironspike',office:'Iron Accord Hall',role:'knight inspector'}],
+    guildheart_hub:[{id:'auditor_kelm',office:'Guild Sanction Board',role:'trade auditor'}],
+    cosmoria:[{id:'archivist_tel',office:'Grand Archive',role:'senior archivist'},{id:'captain_harrow',office:'Shipwright Dock',role:'ship captain'}]
   };
 
   const COMPANION_CANDIDATES = {
@@ -300,7 +330,10 @@
     fairhaven:{id:'market_runner',name:'Market Runner',bonus:'stealth'},
     mimolot_academy:{id:'archive_adjunct',name:'Archive Adjunct',bonus:'lore'},
     soreheim_proper:{id:'catwalk_guide',name:'Catwalk Guide',bonus:'combat'},
-    shirshal:{id:'witness_guard',name:'Witness Guard',bonus:'persuasion'}
+    shirshal:{id:'witness_guard',name:'Witness Guard',bonus:'persuasion'},
+    ithtananalor:{id:'enforcement_scout',name:'Enforcement Scout',bonus:'combat'},
+    guildheart_hub:{id:'merchant_broker',name:'Merchant Broker',bonus:'persuasion'},
+    cosmoria:{id:'shipwright_hand',name:'Shipwright Hand',bonus:'craft'}
   };
 
   const BESTIARY = {
@@ -323,7 +356,13 @@
     slag_hound:{hp:15,attack:5,text:'A furnace-scored beast lunges through the heat.',weakness:'quench'},
     quarry_coloss:{hp:20,attack:6,text:'A massive labor-haunt turns its bulk into a threat.',weakness:'joints'},
     court_leech:{hp:12,attack:4,text:'A whisper-fed parasite blooms under false testimony.',weakness:'truth'},
-    record_hunter:{hp:15,attack:5,text:'A procedural predator tears after sealed knowledge.',weakness:'paper'}
+    record_hunter:{hp:15,attack:5,text:'A procedural predator tears after sealed knowledge.',weakness:'paper'},
+    ore_hound:{hp:16,attack:5,text:'An extraction beast wreathed in stone dust and rage.',weakness:'impact'},
+    guard_construct:{hp:18,attack:6,text:'An enforcer-built construct moves with mechanical purpose.',weakness:'disruption'},
+    guild_enforcer:{hp:14,attack:5,text:'A tariff collector turned predator guards the shipment.',weakness:'witness'},
+    contract_bound:{hp:12,attack:4,text:'A creature enslaved by Guild seals struggles in binding.',weakness:'seal_breaking'},
+    sea_leech:{hp:13,attack:4,text:'A brine-bloated parasite clings to floating wood.',weakness:'fresh_water'},
+    floating_scavenger:{hp:15,attack:5,text:'A storm-born predator circles the floating platforms.',weakness:'grounding'}
   };
 
   const HAZARDS = {
@@ -346,7 +385,13 @@
     quench_burst:{severity:3,text:'Steam and slag erupt where the line should hold.',weakness:'distance'},
     lift_shear:{severity:3,text:'A vertical line threatens to tear itself apart.',weakness:'load'},
     seal_feedback:{severity:2,text:'Court seals begin arguing with each other.',weakness:'sequence'},
-    crowd_break:{severity:2,text:'Civic pressure outruns the room meant to hold it.',weakness:'space'}
+    crowd_break:{severity:2,text:'Civic pressure outruns the room meant to hold it.',weakness:'space'},
+    enforcement_raid:{severity:3,text:'Roazian enforcement sweeps through with checkpoints and seizures.',weakness:'anonymity'},
+    containment_breach:{severity:3,text:'Sealed systems give way and something escapes.',weakness:'procedure'},
+    warehouse_collapse:{severity:3,text:'Stacked crates and tariffs come down all at once.',weakness:'bracing'},
+    fire_break:{severity:3,text:'A trade-house fire spreads through dense wooden blocks.',weakness:'water'},
+    storm_surge:{severity:3,text:'Sea weather threatens floating structures.',weakness:'ballast'},
+    deck_collapse:{severity:2,text:'Floating platforms strain under storm and cargo weight.',weakness:'reinforcement'}
   };
 
   const STAGE_FAMILIES = {
@@ -766,6 +811,195 @@ const STAGE2_DESTINATION_CONTENT = {
 })();
 </script>
   <script>// ═══════════════════════════════════════════════════════
+// BACKGROUND → STARTING LOCALITY MAPPING
+// V28_8 Canon-Aligned Stage I Grounding
+// Maps each background to its correct starting locality per V28_8
+// ═══════════════════════════════════════════════════════
+
+(function(){
+  // Region to Locality ID mapping (V28_8 canonical mapping)
+  const REGION_TO_LOCALITY = {
+    'Shelkopolis': 'shelkopolis',
+    'Ithtananalor': 'ithtananalor',
+    'Panim Haven': 'panim_haven',
+    'Fairhaven': 'fairhaven',
+    'Soreheim Proper': 'soreheim_proper',
+    'Aurora Crown Commune': 'aurora_crown_commune',
+    'Sunspire Haven': 'sunspire_haven',
+    'Mimolot Academy': 'mimolot_academy',
+    'Shirshal': 'shirshal',
+    'Guildheart Hub': 'guildheart_hub',
+    'Cosmoria': 'cosmoria'
+  };
+
+  // Explicit background to locality mapping (from world-data.js regions)
+  const BACKGROUND_STARTING_LOCALITY = {
+    // WARRIOR
+    'w_garrison': 'shelkopolis',
+    'w_roaz': 'ithtananalor',
+    'w_frontier': 'soreheim_proper',
+
+    // KNIGHT
+    'k_shelk': 'shelkopolis',
+    'k_roaz': 'ithtananalor',
+    'k_order': 'panim_haven',
+
+    // RANGER
+    'r_shelk': 'fairhaven',
+    'r_soreheim': 'soreheim_proper',
+    'r_sheresh': 'aurora_crown_commune',
+
+    // PALADIN
+    'p_cysur': 'shelkopolis',
+    'p_eloljaro': 'ithtananalor',
+    'p_gwybodaeth': 'mimolot_academy',
+
+    // ARCHER
+    'a_roadwarden': 'shelkopolis',
+    'a_frontier': 'sunspire_haven',
+    'a_nomdara': 'guildheart_hub',
+
+    // BERSERKER
+    'b_soreheim': 'soreheim_proper',
+    'b_frontier': 'sunspire_haven',
+    'b_cosmouth': 'cosmoria',
+
+    // WIZARD
+    'wz_mimolot': 'mimolot_academy',
+    'wz_shelk': 'shelkopolis',
+    'wz_field': 'soreheim_proper',  // Zootian Expanse approximates Soreheim research
+
+    // CLERIC
+    'cl_cysur': 'shelkopolis',
+    'cl_eloljaro': 'ithtananalor',
+    'cl_remeny': 'guildheart_hub',
+
+    // PRIEST
+    'pr_panim': 'panim_haven',
+    'pr_community': 'fairhaven',
+    'pr_soreheim': 'soreheim_proper',
+
+    // NECROMANCER
+    'nc_panim': 'panim_haven',
+    'nc_mimolot': 'mimolot_academy',
+    'nc_sheresh': 'aurora_crown_commune',
+
+    // ILLUSIONIST
+    'il_shelk': 'shelkopolis',
+    'il_union': 'guildheart_hub',
+    'il_twyll': 'shelkopolis',
+
+    // INQUISITOR
+    'iq_shirsh': 'shirshal',
+    'iq_mimolot': 'mimolot_academy',
+    'iq_union': 'guildheart_hub',
+
+    // ELEMENTALIST
+    'el_axis': 'sunspire_haven',
+    'el_sheresh': 'aurora_crown_commune',
+    'el_mimolot': 'mimolot_academy',
+
+    // ROGUE
+    'ro_shelk': 'shelkopolis',
+    'ro_union': 'guildheart_hub',
+    'ro_nomdara': 'guildheart_hub',
+
+    // ASSASSIN
+    'as_shadowhands': 'shelkopolis',
+    'as_redhoodguild': 'shelkopolis',
+    'as_shirsh': 'shirshal',
+
+    // SPELLTHIEF
+    'st_mimolot': 'mimolot_academy',
+    'st_court': 'shelkopolis',
+
+    // SCOUT
+    'sc_field': 'soreheim_proper',
+    'sc_mimolot': 'mimolot_academy',
+    'sc_fairhaven': 'fairhaven',
+
+    // THIEF
+    'th_shelk': 'shelkopolis',
+    'th_union': 'guildheart_hub',
+    'th_shirsh': 'shirshal',
+
+    // TRICKSTER
+    'tr_shelk': 'shelkopolis',
+    'tr_union': 'guildheart_hub',
+    'tr_panim': 'panim_haven',
+
+    // HEALER
+    'he_shelk': 'shelkopolis',
+    'he_panim': 'panim_haven',
+    'he_mimolot': 'mimolot_academy',
+
+    // ARTIFICER
+    'ar_shelk': 'shelkopolis',
+    'ar_soreheim': 'soreheim_proper',
+    'ar_guild': 'guildheart_hub',
+
+    // ENGINEER
+    'en_soreheim': 'soreheim_proper',
+    'en_sheresh': 'aurora_crown_commune',
+    'en_guild': 'guildheart_hub',
+
+    // TACTICIAN
+    'ta_shelk': 'shelkopolis',
+    'ta_panim': 'panim_haven',
+    'ta_mimolot': 'mimolot_academy',
+
+    // ALCHEMIST
+    'al_shelk': 'shelkopolis',
+    'al_mimolot': 'mimolot_academy',
+    'al_guild': 'guildheart_hub',
+
+    // SAINT
+    'sa_shelk': 'shelkopolis',
+    'sa_panim': 'panim_haven',
+    'sa_guild': 'guildheart_hub',
+
+    // WARDEN
+    'wa_shelk': 'shelkopolis',
+    'wa_roaz': 'ithtananalor',
+    'wa_guild': 'guildheart_hub',
+
+    // WARLORD
+    'wl_shelk': 'shelkopolis',
+    'wl_soreheim': 'soreheim_proper',
+    'wl_roaz': 'ithtananalor',
+
+    // DEATH KNIGHT
+    'dk_panim': 'panim_haven',
+    'dk_roaz': 'ithtananalor',
+    'dk_shirsh': 'shirshal',
+
+    // BEASTMASTER
+    'bm_soreheim': 'soreheim_proper',
+    'bm_sheresh': 'aurora_crown_commune',
+    'bm_fairhaven': 'fairhaven',
+
+    // ORACLE
+    'or_shelk': 'shelkopolis',
+    'or_panim': 'panim_haven',
+    'or_mimolot': 'mimolot_academy',
+
+    // BARD
+    'bd_shelk': 'shelkopolis',
+    'bd_guild': 'guildheart_hub',
+    'bd_panim': 'panim_haven'
+  };
+
+  // Utility function to get starting locality for a background
+  function getStartingLocality(backgroundId) {
+    return BACKGROUND_STARTING_LOCALITY[backgroundId] || 'shelkopolis'; // Default fallback
+  }
+
+  window.BACKGROUND_STARTING_LOCALITY = BACKGROUND_STARTING_LOCALITY;
+  window.REGION_TO_LOCALITY = REGION_TO_LOCALITY;
+  window.getStartingLocality = getStartingLocality;
+})();
+</script>
+  <script>// ═══════════════════════════════════════════════════════
 // STAGE II BACKGROUND CONTENT — Unique per archetype/background
 // 93 backgrounds × 4 unique choices per background
 // TEXT RULE: No apostrophes. Full words only.
@@ -1097,147 +1331,924 @@ const STAGE2_DESTINATION_CONTENT = {
   window.legendSummary = legendSummary;
 })();
 </script>
-  <script>
-(function(){
-  function currentCompanionCandidate(state){ return window.COMPANION_CANDIDATES[state.location] || null; }
-  function recruitChoice(state){
-    const c = currentCompanionCandidate(state); if(!c) return null;
-    if(state.companions.some(x=>x.id===c.id)) return null;
-    const trust = state.recruitableSeen[c.id] || 0;
-    return {
-      label: trust >= 2 ? `Ask ${c.name} to join the road` : `Build trust with ${c.name}`,
-      tags:['Safe','Companion'],
-      fn(){
-        if(trust >= 2){
-          state.companions.push({id:c.id,name:c.name,bonus:c.bonus,trust:2,injured:false,available:true});
-          state.lastResult = `${c.name} joins the road and begins shaping ${c.bonus} pressure with the rest of the party.`;
-        } else {
-          state.recruitableSeen[c.id] = trust + 1;
-          state.lastResult = `${c.name} does not commit yet, but the exchange shifts future trust.`;
-        }
+  <script>// ═══════════════════════════════════════════════════════
+// LEDGER OF ASH — PARTY & COMPANION SYSTEM
+// Persistent companion state, recruit flows, camp talk
+// ═══════════════════════════════════════════════════════
+
+// ── COMPANION DEFINITIONS ───────────────────────────────
+// Recruitable NPCs. Trust required = 15. At least one per key locality.
+const COMPANION_DEFS = {
+  // Shelkopolis
+  vera_wren: {
+    id: 'vera_wren',
+    name: 'Vera Wren',
+    role: 'Tavern Keeper & Street Informant',
+    locality: 'shelkopolis',
+    npcId: 'Vera Wren',
+    joinScene: {
+      text: "Vera sets down the last glass and looks at you squarely. She's been piecing together what you're doing here. 'I know this city better than any Roadwarden. I also know what happened to Wes Brennach — the family came to me first, before the memorial notice went up. If you're serious about this, you could use someone who hears things before they become official.' She waits.",
+      choices: [
+        { text: "Accept. Her network is exactly what this needs.", outcome: 'join' },
+        { text: "Ask what she wants in return.", outcome: 'negotiate' },
+        { text: "Tell her it's too dangerous to involve a civilian.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "Vera nods once, unsurprised. 'The offer stands if you change your mind.' She goes back to work.",
+    leaveConditions: ['morality < -40', 'order < -50', 'vera_trust < 5'],
+    leaveScene: "Vera finds you after a long silence. 'I signed up to help find out what happened. I didn't sign up for this.' She leaves her key on the table and walks out.",
+    abilities: [
+      { type: 'passive', desc: "Shelkopolis street network: learn one piece of local intelligence per day for free." },
+      { type: 'active',  desc: "Once per scene: Vera's contact confirms or denies any claim about a named Shelkopolis figure. Persuasion -2 on all social checks replaced by automatic partial success." }
+    ],
+    campLines: [
+      "Vera is quiet for a while, then: 'The Brennach family will want to know what we find. Whatever it is.'",
+      "'I've been keeping a list of names. People who asked after the eastern shipments before the official notice. Two of them have left the city since.'",
+      "She pulls out a folded paper. 'Delivery records from the Rusted Loom. Someone was receiving packages the week before the route closure. I held onto these.'",
+    ],
+    injuredText: "Vera took a hit she wasn't trained for. She's resting. Her network is still available but she won't be on scene.",
+    role_tag: 'informant'
+  },
+
+  // Panim Haven
+  toriel_palevow: {
+    id: 'toriel_palevow',
+    name: 'Toriel Palevow',
+    role: 'Street Physician & Registry Witness',
+    locality: 'panim',
+    npcId: 'Toriel Palevow',
+    joinScene: {
+      text: "Toriel finishes binding the wound, takes his tools back without hurry. 'I've certified three deaths in the last cycle that didn't match what the families described. The registry accepted my reports. That doesn't mean the reports were right — it means no one looked twice.' He meets your eye. 'I'd like someone to look twice. Are you that?'",
+      choices: [
+        { text: "Tell him you're exactly that, and you need his access to the registry.", outcome: 'join' },
+        { text: "Ask what he's seen specifically.", outcome: 'negotiate' },
+        { text: "Tell him this investigation doesn't require medical expertise.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "Toriel shrugs without offense. 'The offer was practical, not personal. Good luck.'",
+    leaveConditions: ['morality < -30', 'G.quests includes registry_corruption_ignored'],
+    leaveScene: "'You had the information and chose not to act on it,' Toriel says. 'That's a medical decision too. I can't work with that.' He takes his bag and goes.",
+    abilities: [
+      { type: 'passive', desc: "Panim registry access: can read death records, flag discrepancies, and request secondary review without institutional clearance." },
+      { type: 'active',  desc: "Once per scene: field medical assessment. Stabilize any wound, identify cause of injury/death from physical evidence. Lore checks relating to bodies and cause of death auto-succeed." }
+    ],
+    campLines: [
+      "'There's a pattern in the injury types. The missing persons from the eastern route — the ones who came back injured — they all have the same kind of damage. Not accidental. Purposeful.'",
+      "'The Panim afterlife registry is a legal record. If someone filed false cause-of-death reports, that's a prosecutable act under Panim civil code. I can testify.'",
+      "Toriel is reading his notes by firelight. 'I need to send word to the registry clerk. If she notices what I noticed, she'll be at risk.'",
+    ],
+    injuredText: "Toriel is treating his own injuries. He won't leave camp but registry access is delayed.",
+    role_tag: 'physician'
+  },
+
+  // Aurora Crown Commune
+  neren_rimebridge: {
+    id: 'neren_rimebridge',
+    name: 'Neren Rimebridge',
+    role: 'Commune Mediator & Dome Operations Liaison',
+    locality: 'aurora',
+    npcId: 'Neren Rimebridge',
+    joinScene: {
+      text: "Neren pulls the dome status report down from the operations board and hands it to you without preamble. 'The axis readings in the eastern corridor are not natural variation. Someone is using the inversion window deliberately. I've flagged it three times. The Warden has filed it as under review.' He folds his hands. 'Under review means waiting. I've stopped being willing to wait.'",
+      choices: [
+        { text: "Ask him to come with you. His technical knowledge is essential.", outcome: 'join' },
+        { text: "Ask for the data he's collected instead.", outcome: 'negotiate' },
+        { text: "Tell him the investigation is already moving and doesn't need another voice.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "Neren nods. 'The data is yours regardless. Come back if that changes.' He pins the readings back to the board.",
+    leaveConditions: ['G.axisTick > 60 without acting', 'morality < -20'],
+    leaveScene: "'The dome stabilizers are failing and we're investigating politics,' Neren says quietly. 'I have to go back. The commune needs me more than this does.' He leaves at dawn.",
+    abilities: [
+      { type: 'passive', desc: "Axis attunement: always know exact axis state, time to next event, and corridor anomaly readings. Axis events give +2 to all rolls instead of penalties." },
+      { type: 'active',  desc: "Once per day: technical analysis of any elemental or structural anomaly. Produces a lore-equivalent finding without requiring a roll." }
+    ],
+    campLines: [
+      "'The pre-inversion window lasts approximately three hours. Whatever moves through the eastern corridor moves in that window. That's not improvisation — that's someone with dome-level knowledge.'",
+      "Neren has been drawing diagrams in the dirt. 'The axis deviation correlates with the cargo timing. I can show you the math if it helps.'",
+      "'The containment research team in Glasswake reported the same anomaly two cycles ago. Their report was also filed as under review.' He stares at the fire. 'There's a pattern to what gets buried.'",
+    ],
+    injuredText: "Neren is dealing with a containment emergency at the dome. He'll rejoin when it's stable.",
+    role_tag: 'analyst'
+  },
+
+  // Sunspire Haven
+  elyra_mossbane: {
+    id: 'elyra_mossbane',
+    name: 'Elyra Mossbane',
+    role: 'Frontier Guardian & Wilderness Expert',
+    locality: 'sunspire',
+    npcId: 'Elyra Mossbane',
+    joinScene: {
+      text: "Elyra has been watching the frontier roads for a decade. She doesn't negotiate or preamble. 'I've tracked three groups through the eastern waypoints in the last month. None of them were on any manifest I've seen. Two groups I never saw come back out.' She unsheathes her blade, checks the edge, sheathes it. 'You're the first person who's come through here asking the right questions. I'll come with you if you're actually going to do something.'",
+      choices: [
+        { text: "She's in. You need someone who knows the frontier terrain.", outcome: 'join' },
+        { text: "Ask what she means by 'actually doing something.'", outcome: 'negotiate' },
+        { text: "Tell her you work better alone in the field.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "Elyra nods once. 'Fair enough. Watch the southern waypoint — something comes through there every three days, regular as a patrol schedule.' She goes back to watching the road.",
+    leaveConditions: ['order > 70 and morality < -10'],
+    leaveScene: "'You're doing this the wrong way,' Elyra says. 'I'll make sure the frontier is still there when you come back.' She takes the southern route at dusk.",
+    abilities: [
+      { type: 'passive', desc: "Frontier navigation: travel never costs more than 1 axis tick. Automatically identify ambushes, track groups through wilderness, and find hidden waypoints." },
+      { type: 'active',  desc: "Once per scene: Elyra scouts ahead. Learn the next location's threat level, dominant faction presence, and one hidden detail before you arrive." }
+    ],
+    campLines: [
+      "'I mapped the eastern waypoints after the third group went through. There are twelve active crossing points not on any official chart. Someone built them.'",
+      "Elyra cleans her blade and says, without looking up: 'The frontier militia knows something's wrong. They're not talking because they don't know who to trust.'",
+      "'Two of the people who went through and didn't come back were registered with the Frontier Hammer Companies. That's a protected status. Someone chose to ignore it.'",
+    ],
+    injuredText: "Elyra is tracking a lead at the southern waypoint. She'll be back by Dawnrise.",
+    role_tag: 'scout'
+  }
+};
+
+// ── COMPANION STATE MANAGEMENT ──────────────────────────
+function initCompanions() {
+  if (!G.companions) G.companions = {};
+}
+
+function getCompanion(id) {
+  if (!G.companions) return null;
+  return G.companions[id] || null;
+}
+
+function hasCompanion(id) {
+  return !!(G.companions && G.companions[id] && G.companions[id].status === 'active');
+}
+
+function getActiveCompanions() {
+  if (!G.companions) return [];
+  return Object.values(G.companions).filter(c => c.status === 'active');
+}
+
+function canRecruit(npcId) {
+  const def = Object.values(COMPANION_DEFS).find(d => d.npcId === npcId);
+  if (!def) return false;
+  if (hasCompanion(def.id)) return false;
+  const trust = G.npcMemory && G.npcMemory[npcId] ? G.npcMemory[npcId].trust : 0;
+  return trust >= 15;
+}
+
+function showRecruitScene(npcId) {
+  const def = Object.values(COMPANION_DEFS).find(d => d.npcId === npcId);
+  if (!def) return;
+
+  document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+  addNarration(def.name, def.joinScene.text);
+
+  const choices = def.joinScene.choices.map(c => ({
+    text: c.text,
+    skill: 'persuasion',
+    tag: c.outcome === 'join' ? 'safe' : c.outcome === 'negotiate' ? 'risky' : 'bold',
+    align: c.outcome === 'join' ? 'good' : 'neutral',
+    cid: '__recruit__' + def.id + '__' + c.outcome
+  }));
+
+  setTimeout(() => renderChoices(choices), 300);
+}
+
+function resolveRecruitChoice(defId, outcome) {
+  const def = COMPANION_DEFS[defId];
+  if (!def) return;
+  initCompanions();
+
+  if (outcome === 'join' || outcome === 'negotiate') {
+    // Join (negotiate leads to same outcome — they still join)
+    G.companions[defId] = {
+      id: defId,
+      name: def.name,
+      role: def.role,
+      status: 'active',
+      trust: G.npcMemory && G.npcMemory[def.npcId] ? G.npcMemory[def.npcId].trust : 15,
+      campLineIdx: 0,
+      injured: false,
+      injuredDay: null,
+      joinedDay: G.dayCount || 0,
+      locality: def.locality,
+      role_tag: def.role_tag
+    };
+
+    const joinText = outcome === 'negotiate'
+      ? def.name + ' considers for a moment, then nods. They join you.'
+      : def.name + ' stands and gathers their things. They are with you now.';
+
+    addNarration('', joinText, 'success');
+    addJournal('Companion joined: ' + def.name + ' (' + def.role + ').');
+    G.history.push('Recruited ' + def.name + ' at ' + (G.dayCount||0) + '.');
+    addWorldNotice('[PARTY] ' + def.name + ' has joined your investigation.');
+
+    if (typeof updateHUD === 'function') updateHUD();
+    if (typeof saveGame === 'function') saveGame();
+
+    setTimeout(() => renderChoices([
+      { text: 'Continue the investigation together.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
+      { text: 'Camp and hear what they know before moving.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__camp_talk__' }
+    ]), 400);
+
+  } else {
+    addNarration('', def.refusalScene);
+    setTimeout(() => renderChoices([
+      { text: 'Continue alone.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' }
+    ]), 300);
+  }
+}
+
+// Check companion leave conditions
+function checkCompanionLeave() {
+  if (!G.companions) return;
+  Object.values(G.companions).forEach(comp => {
+    if (comp.status !== 'active') return;
+    const def = COMPANION_DEFS[comp.id];
+    if (!def) return;
+    def.leaveConditions.forEach(condition => {
+      let shouldLeave = false;
+      if (condition === 'morality < -40' && (G.morality||0) < -40) shouldLeave = true;
+      if (condition === 'morality < -30' && (G.morality||0) < -30) shouldLeave = true;
+      if (condition === 'morality < -20' && (G.morality||0) < -20) shouldLeave = true;
+      if (condition === 'order < -50' && (G.order||0) < -50) shouldLeave = true;
+      if (condition === 'order > 70 and morality < -10' && (G.order||0) > 70 && (G.morality||0) < -10) shouldLeave = true;
+      if (shouldLeave) {
+        comp.status = 'left';
+        addNarration(comp.name, def.leaveScene);
+        addJournal(comp.name + ' has left the party.');
+        addWorldNotice('[PARTY] ' + comp.name + ' has left your investigation.');
+        if (typeof updateHUD === 'function') updateHUD();
       }
-    };
+    });
+  });
+}
+
+// ── CAMP TALK ──────────────────────────────────────────
+function showCampTalk() {
+  const active = getActiveCompanions();
+  if (!active.length) {
+    addNarration('Camp', 'You are traveling alone. No companions to talk to.');
+    renderChoices([{ text: 'Break camp.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' }]);
+    return;
   }
-  function companionBonus(state, skill){ return state.companions.filter(c=>c.available && !c.injured && c.bonus===skill).length; }
-  function campChoices(state){
-    const arr = [
-      {label:'Rest and bind wounds',tags:['Safe','Camp'],fn(){ state.hp=Math.min(state.maxHp,state.hp+4); state.fatigue=Math.max(0,state.fatigue-1); state.lastResult='Rest turns the edge back into something usable.'; }},
-      {label:'Review the route and next pressure',tags:['Camp','Route'],fn(){ state.routeScoutLog.unshift(`Reviewed route pressure at ${state.currentSafeZone}`); state.routeScoutLog=state.routeScoutLog.slice(0,20); state.lastResult='The route is re-read in quiet detail until the next opening becomes clearer.'; }},
-      {label:'Train under pressure',tags:['Risky','Camp'],fn(){ state.trainingDisadvantage=5; state.lastResult='Training sharpens the line, but leaves the next few turns more exposed.'; }}
-    ];
-    if(state.companions.length){
-      arr.push({label:'Speak with the party',tags:['Camp','Companion'],fn(){ state.companions.forEach(c=>{ if(!c.injured) c.trust=(c.trust||1)+1; }); state.lastResult='Camp talk turns strain into usable trust and sharper expectations.'; }});
-      if(state.companions.some(c=>c.injured)) arr.push({label:'Treat injured companions',tags:['Camp','Recovery'],fn(){ state.companions.forEach(c=>{ if(c.injured){ c.injured=false; c.available=true; }}); state.lastResult='Field care returns injured companions to the line.'; }});
-    }
-    return arr;
-  }
-  window.recruitChoice = recruitChoice;
-  window.companionBonus = companionBonus;
-  window.campChoices = campChoices;
-})();
-</script>
-  <script>
-(function(){
-  function rand(n){ return Math.floor(Math.random()*n); }
-  function archetype(state){ return (window.ARCHETYPES||[]).find(a=>a.id===state.archetype) || {group:'combat',focus:'combat'}; }
-  function gearBonus(state, key){
-    const eq = state.equipment || {};
-    let bonus = 0;
-    Object.values(eq).forEach(item=>{ if(item && item.bonus && item.bonus[key]) bonus += item.bonus[key]; });
-    return bonus;
-  }
-  function beginEncounter(state, kind, name, tier){
-    const t = kind==='creature' ? (window.BESTIARY[name]||{}) : (window.HAZARDS[name]||{});
-    const bias = {easy:-2, standard:0, elite:3, boss:6}[tier] || 0;
-    const enemyHp = (kind==='creature' ? (t.hp||12) : 8 + (t.severity||2)*3) + bias + state.stage;
-    state.encounter = {kind,name,tier,phase:1,enemyHp,enemyMaxHp:enemyHp,enemyAttack:(t.attack||3)+Math.floor(state.stage/2)+Math.max(0,bias/2),weakness:t.weakness||'timing',text:t.text||'',canRetreat:tier!=='boss'};
-    state.lastResult = `${name.replace(/_/g,' ')} becomes immediate. ${state.encounter.text}`;
-  }
-  function encounterPower(state){
-    const a = archetype(state); const focus = a.focus || 'combat';
-    const comp = window.companionBonus ? companionBonus(state, focus) : 0;
-    const penalty = state.trainingDisadvantage>0 ? -1 : 0;
-    return (state.skills.combat||0) + (state.skills[focus]||0) + Math.floor(state.level/2) + comp + penalty;
-  }
-  function resolveEncounterAction(state, action){
-    const e=state.encounter; if(!e) return;
-    const a = archetype(state); const focus = a.focus || 'combat';
-    const base = encounterPower(state);
-    const rolls = {
-      attack: base + 2 + gearBonus(state,'attack'),
-      ability: base + 3,
-      guard: base + 1 + gearBonus(state,'guard'),
-      study: base + (state.skills.lore||0) + gearBonus(state,'exploit'),
-      exploit: base + 2 + (e.phase>1?2:0) + gearBonus(state,'exploit'),
-      background: base + ((state.skills[focus]||0)),
-      intimidate: base + (state.skills.persuasion||0),
-      bait: base + (state.skills.stealth||0),
-      contain: base + (state.skills.craft||0),
-      redirect: base + (state.skills.survival||0),
-      environment: base + (state.skills.survival||0),
-      ritual: base + (state.skills.lore||0) + gearBonus(state,'ritual'),
-      command: base + (state.skills.persuasion||0) + gearBonus(state,'command'),
-      protect: base + (state.skills.combat||0) + gearBonus(state,'protect'),
-      route_cut: base + (state.skills.survival||0),
-      split_route: base + (state.skills.stealth||0),
-      brace: base + 2 + gearBonus(state,'brace'),
-      ward: base + (state.skills.lore||0) + gearBonus(state,'ward'),
-      vanish: base + (state.skills.stealth||0) + gearBonus(state,'vanish'),
-      fieldkit: base + (state.skills.craft||0) + gearBonus(state,'recovery'),
-      companion: base + (state.companions.filter(c=>c.available&&!c.injured).length*2),
-      retreat: base + (state.skills.survival||0) + gearBonus(state,'retreat'),
-      intercept: base + (state.skills.combat||0) + gearBonus(state,'protect') + gearBonus(state,'guard'),
-      focus_cast: base + (state.skills.lore||0) + gearBonus(state,'arcana') + gearBonus(state,'ward'),
-      precision_disable: base + (state.skills.stealth||0) + gearBonus(state,'tools') + gearBonus(state,'vanish'),
-      rally_line: base + (state.skills.persuasion||0) + gearBonus(state,'coordination') + gearBonus(state,'command')
-    };
-    const total = (rolls[action]||base) + (rand(20)+1);
-    let success = total >= 13 + state.stage + (e.tier==='boss'?4:e.tier==='elite'?2:0);
-    if(action==='retreat' && success){ state.lastResult='The line breaks away in usable order.'; state.encounter=null; return; }
-    if(success){
-      let damage = 3 + Math.floor(total/8);
-      if(['exploit','route_cut','split_route','ward','vanish','focus_cast','precision_disable'].includes(action)) damage += 1;
-      if(action==='intercept') damage = 2 + Math.floor(total/10);
-      if(action==='rally_line') damage = 2 + Math.floor(total/10);
-      e.enemyHp -= damage;
-      if(action==='fieldkit') state.hp=Math.min(state.maxHp,state.hp+2);
-      if(action==='intercept') state.hp=Math.min(state.maxHp,state.hp+1);
-      if(action==='focus_cast') state.worldClocks.omens = Math.max(0,(state.worldClocks.omens||0)-1);
-      if(action==='precision_disable') state.worldClocks.rival = Math.max(0,(state.worldClocks.rival||0)-1);
-      if(action==='rally_line') state.companions.forEach(c=>{ if(c.available && !c.injured) c.trust=(c.trust||1)+1; });
-      state.lastResult = `${action.replace(/_/g,' ')} lands. ${e.name.replace(/_/g,' ')} loses ${damage} pressure.`;
+
+  const lines = [];
+  active.forEach(comp => {
+    const def = COMPANION_DEFS[comp.id];
+    if (!def) return;
+    if (comp.injured) {
+      lines.push({ name: comp.name, text: def.injuredText, injured: true });
     } else {
-      const hit = Math.max(1, e.enemyAttack - Math.floor(state.level/5) - (action==='guard'||action==='brace'?1:0));
-      state.hp -= hit; state.fatigue += 1;
-      state.lastResult = `${action.replace(/_/g,' ')} fails to settle the matter. The counterblow costs ${hit} HP.`;
+      const idx = comp.campLineIdx % def.campLines.length;
+      lines.push({ name: comp.name, text: def.campLines[idx], injured: false });
+      comp.campLineIdx++;
     }
-    e.phase = e.enemyHp <= Math.floor(e.enemyMaxHp/3) ? 3 : e.enemyHp <= Math.floor(e.enemyMaxHp/2) ? 2 : 1;
-    if(e.enemyHp<=0){
-      state.encounter=null; state.renown += e.tier==='boss'?5:e.tier==='elite'?3:1;
-      if(state.telemetry) state.telemetry.wins=(state.telemetry.wins||0)+1;
-      state.lastResult=`${e.name.replace(/_/g,' ')} is overcome. The route remembers it.`;
-      state.keyMoments.unshift(`Defeated ${e.name.replace(/_/g,' ')}`); state.keyMoments=state.keyMoments.slice(0,20);
+  });
+
+  let html = '<div style="margin-bottom:12px;color:var(--gold-dim);font-family:Cinzel,serif;font-size:10px;letter-spacing:2px">AROUND THE FIRE</div>';
+  lines.forEach(l => {
+    html += '<div class="camp-talk-line' + (l.injured ? ' injured' : '') + '">';
+    html += '<div class="ct-name">' + l.name + (l.injured ? ' (injured)' : '') + '</div>';
+    html += '<div class="ct-text">' + l.text + '</div></div>';
+  });
+
+  addNarration('Camp Talk', html);
+
+  // After talk: skills can improve
+  const choices = [
+    { text: 'Press on. The fire has told you enough.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
+    { text: 'Ask them directly about the investigation.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'probe_order_origin' }
+  ];
+
+  // Add companion ability choices
+  active.forEach(comp => {
+    const def = COMPANION_DEFS[comp.id];
+    if (!def || comp.injured) return;
+    def.abilities.filter(a => a.type === 'active').forEach(ability => {
+      choices.push({
+        text: '[' + comp.name + '] ' + ability.desc.split(':')[0] + '.',
+        skill: 'persuasion', tag: 'safe', align: 'neutral',
+        cid: 'passive_intel'  // feeds into normal flow
+      });
+    });
+  });
+
+  setTimeout(() => renderChoices(choices.slice(0, 4)), 300);
+}
+
+// ── PARTY HUD + OVERLAY ────────────────────────────────
+function updatePartyHUD() {
+  const el = document.getElementById('party-hud');
+  if (!el) return;
+  const active = getActiveCompanions();
+  if (!active.length) { el.innerHTML = ''; return; }
+  el.innerHTML = '<div class="party-label">Party</div>' +
+    active.map(c => {
+      const statusClass = c.injured ? 'injured' : 'active';
+      return '<div class="party-member ' + statusClass + '">' +
+        '<span class="pm-name">' + c.name + '</span>' +
+        '<span class="pm-role">' + (COMPANION_DEFS[c.id] ? COMPANION_DEFS[c.id].role_tag : '') + '</span>' +
+        (c.injured ? '<span class="pm-status">injured</span>' : '') +
+        '</div>';
+    }).join('');
+}
+
+function showPartyOverlay() {
+  const el = document.getElementById('party-overlay-body');
+  if (!el) return;
+  const active = getActiveCompanions();
+  const all = G.companions ? Object.values(G.companions) : [];
+
+  if (!all.length) {
+    el.innerHTML = '<div style="color:var(--ink-faint);font-style:italic;font-size:13px">No companions recruited yet. Approach local contacts and build trust to unlock recruit scenes.</div>';
+  } else {
+    el.innerHTML = all.map(comp => {
+      const def = COMPANION_DEFS[comp.id];
+      if (!def) return '';
+      const statusLabel = comp.status === 'active' ? (comp.injured ? 'Injured' : 'Active') : 'Left the party';
+      const statusColor = comp.status === 'active' ? (comp.injured ? 'var(--blood-bright)' : 'var(--jade-bright)') : 'var(--ink-faint)';
+      return '<div class="companion-card">' +
+        '<div class="companion-name">' + comp.name + '</div>' +
+        '<div class="companion-role">' + def.role + '</div>' +
+        '<div style="color:' + statusColor + ';font-size:11px;font-family:Cinzel,serif;letter-spacing:1px;margin:4px 0">' + statusLabel + '</div>' +
+        '<div class="companion-abilities">' +
+          def.abilities.map(a => '<div class="comp-ability"><strong>' + a.type + ':</strong> ' + a.desc + '</div>').join('') +
+        '</div>' +
+        (comp.status === 'active' && !comp.injured ? '<div style="font-size:11px;color:var(--ink-faint);margin-top:6px">Joined day ' + comp.joinedDay + '</div>' : '') +
+        '</div>';
+    }).join('');
+  }
+
+  showOverlay('overlay-party');
+}
+
+// Companion ability passive bonuses applied to rolls
+function getCompanionRollBonus(skill) {
+  const active = getActiveCompanions();
+  let bonus = 0;
+  active.forEach(comp => {
+    if (comp.injured) return;
+    const def = COMPANION_DEFS[comp.id];
+    if (!def) return;
+    // Vera: persuasion in Shelkopolis
+    if (def.id === 'vera_wren' && skill === 'persuasion' && G.location === 'shelkopolis') bonus += 1;
+    // Toriel: lore relating to bodies (lore checks generally)
+    if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
+    // Neren: survival during axis events
+    if (def.id === 'neren_rimebridge' && skill === 'survival' && G.axisInverted) bonus += 2;
+    // Elyra: survival always, stealth in wilderness
+    if (def.id === 'elyra_mossbane' && skill === 'survival') bonus += 1;
+    if (def.id === 'elyra_mossbane' && skill === 'stealth') bonus += 1;
+  });
+  return bonus;
+}
+</script>
+  <script>// ═══════════════════════════════════════════════════════
+// LEDGER OF ASH — COMBAT SYSTEM v1
+// Full TTRPG multi-round combat with archetype abilities
+// TEXT RULE: No apostrophes in string values.
+// ═══════════════════════════════════════════════════════
+
+// ── ENEMY TEMPLATES ─────────────────────────────────────
+const ENEMY_TEMPLATES = {
+  patrol_guard:{
+    name:'Roadwarden Patrol Guard', hp:18, maxHp:18,
+    attack:4, defense:6, morale:10,
+    desc:'Armored and disciplined. Follows procedure until procedure fails.',
+    loot:{gold:8, item:'Patrol Report (evidence)'},
+    fleeThreshold:0.3,
+    abilities:[{name:'Formation Block', effect:'defense+2 if allies present'}]
+  },
+  private_security:{
+    name:'Private Security Agent', hp:14, maxHp:14,
+    attack:5, defense:5, morale:8,
+    desc:'Well paid and poorly motivated. Fights until it is no longer worth it.',
+    loot:{gold:12, item:'Sealed House Crest (evidence)'},
+    fleeThreshold:0.4,
+    abilities:[{name:'Paid Aggression', effect:'first attack+2'}]
+  },
+  iron_accord_enforcer:{
+    name:'Iron Accord Enforcer', hp:20, maxHp:20,
+    attack:6, defense:7, morale:14,
+    desc:'Roazian law and stone. Does not negotiate. Does not retreat easily.',
+    loot:{gold:6, item:'Iron Accord Papers (access)'},
+    fleeThreshold:0.2,
+    abilities:[{name:'Iron Stance', effect:'cannot be pushed back'}]
+  },
+  red_hood_operative:{
+    name:'Red Hood Guild Operative', hp:12, maxHp:12,
+    attack:7, defense:4, morale:7,
+    desc:'Fast, experienced, professionally pragmatic.',
+    loot:{gold:20, item:'Contract Fragment (intel)'},
+    fleeThreshold:0.5,
+    abilities:[{name:'Dirty Strike', effect:'on hit 50% chance target loses next action'}]
+  },
+  frontier_militia:{
+    name:'Frontier Hammer Militia', hp:22, maxHp:22,
+    attack:5, defense:5, morale:12,
+    desc:'Built for brutal terrain work. Hits harder when cornered.',
+    loot:{gold:5, item:'Frontier Survey Map'},
+    fleeThreshold:0.25,
+    abilities:[{name:'Hammer Down', effect:'attack+3 when below half HP'}]
+  },
+  shadowhands_watcher:{
+    name:'Shadowhands Watcher', hp:10, maxHp:10,
+    attack:6, defense:6, morale:6,
+    desc:'Prefers not to be seen at all. Fights only when exposure is inevitable.',
+    loot:{gold:15, item:'Shadowhands Drop Key'},
+    fleeThreshold:0.6,
+    abilities:[{name:'Vanish', effect:'may disengage without attack of opportunity'}]
+  },
+  hostile_debtor:{
+    name:'Desperate Debtor', hp:8, maxHp:8,
+    attack:3, defense:2, morale:4,
+    desc:'Nothing to lose. Dangerous for exactly that reason.',
+    loot:{gold:2, item:null},
+    fleeThreshold:0.1,
+    abilities:[]
+  }
+};
+
+// ── ARCHETYPE COMBAT ABILITIES ───────────────────────────
+const ARCHETYPE_COMBAT_ABILITIES = {
+  warrior:[
+    {id:'shield_press', name:'Shield Press', cost:'action', effect:'push enemy back, gain +2 defense this round', skillReq:'combat', minSkill:2},
+    {id:'battle_cry',   name:'Battle Cry',   cost:'bonus',  effect:'all allies gain +1 attack this round', skillReq:'persuasion', minSkill:1},
+    {id:'disarm',       name:'Disarm',       cost:'action', effect:'enemy loses attack next round on success', skillReq:'combat', minSkill:3}
+  ],
+  knight:[
+    {id:'challenge',    name:'Challenge',    cost:'action', effect:'enemy must target you this round. You gain +1 defense vs their attacks.', skillReq:'persuasion', minSkill:2},
+    {id:'oath_strike',  name:'Oath Strike',  cost:'action', effect:'+4 attack vs enemies who have attacked an ally', skillReq:'combat', minSkill:2},
+    {id:'parry',        name:'Parry',        cost:'reaction', effect:'negate one attack this round', skillReq:'combat', minSkill:3}
+  ],
+  ranger:[
+    {id:'marked_shot',  name:'Marked Shot',  cost:'action', effect:'+3 attack if you did not move this round', skillReq:'combat', minSkill:2},
+    {id:'set_trap',     name:'Set Trap',     cost:'bonus',  effect:'enemy disadvantage next round', skillReq:'survival', minSkill:2},
+    {id:'withdraw',     name:'Withdraw',     cost:'action', effect:'disengage safely, force enemy to expose flank', skillReq:'stealth', minSkill:1}
+  ],
+  paladin:[
+    {id:'smite',        name:'Smite',        cost:'action', effect:'+5 attack vs unjust targets. Costs 3 HP.', skillReq:'combat', minSkill:3},
+    {id:'lay_on_hands', name:'Lay On Hands', cost:'action', effect:'restore 1d8+persuasion HP to self or ally', skillReq:'persuasion', minSkill:1},
+    {id:'divine_ward',  name:'Divine Ward',  cost:'bonus',  effect:'ally gains +3 defense this round', skillReq:'lore', minSkill:2}
+  ],
+  archer:[
+    {id:'cover_shot',   name:'Cover Shot',   cost:'action', effect:'attack while behind cover. Defense+3 this round.', skillReq:'stealth', minSkill:1},
+    {id:'pinning_shot', name:'Pinning Shot', cost:'action', effect:'enemy cannot advance this round', skillReq:'combat', minSkill:2},
+    {id:'rapid_fire',   name:'Rapid Fire',   cost:'action', effect:'two attacks at -2 each', skillReq:'combat', minSkill:3}
+  ],
+  berserker:[
+    {id:'rage_surge',   name:'Rage Surge',   cost:'bonus',  effect:'spend 4 HP for +4 attack and +2 damage', skillReq:'combat', minSkill:2},
+    {id:'cleave',       name:'Cleave',       cost:'action', effect:'attack all adjacent enemies', skillReq:'combat', minSkill:3},
+    {id:'pain_feed',    name:'Pain Feed',    cost:'passive',effect:'gain +1 attack for each wound you carry', skillReq:'survival', minSkill:1}
+  ],
+  wizard:[
+    {id:'force_push',   name:'Force Push',   cost:'action', effect:'ranged attack. Enemy pushed back and disoriented (-2 next round)', skillReq:'lore', minSkill:2},
+    {id:'arcane_shield',name:'Arcane Shield',cost:'bonus',  effect:'+3 defense vs one attack. Costs 2 HP.', skillReq:'lore', minSkill:1},
+    {id:'identify_weakness', name:'Identify Weakness', cost:'bonus', effect:'learn enemy ability. +2 attack for rest of combat.', skillReq:'lore', minSkill:3}
+  ],
+  cleric:[
+    {id:'sacred_strike',name:'Sacred Strike',cost:'action', effect:'+3 attack vs undead or those who broke oaths', skillReq:'combat', minSkill:2},
+    {id:'blessing',     name:'Blessing',     cost:'bonus',  effect:'ally +2 to all rolls this round', skillReq:'persuasion', minSkill:1},
+    {id:'turn_hostile', name:'Turn Hostile', cost:'action', effect:'force fearful or weak-willed enemies to retreat', skillReq:'lore', minSkill:2}
+  ],
+  priest:[
+    {id:'ward_off',     name:'Ward Off',     cost:'action', effect:'+2 defense for allies in melee. Persuasion check.', skillReq:'persuasion', minSkill:2},
+    {id:'censure',      name:'Censure',      cost:'action', effect:'enemy morale check. On fail, they hesitate.', skillReq:'persuasion', minSkill:2},
+    {id:'communal_aid', name:'Communal Aid', cost:'bonus',  effect:'restore 4 HP to an ally', skillReq:'persuasion', minSkill:1}
+  ],
+  necromancer:[
+    {id:'drain_will',   name:'Drain Will',   cost:'action', effect:'enemy -2 to all rolls this round. Lore check.', skillReq:'lore', minSkill:3},
+    {id:'death_sight',  name:'Death Sight',  cost:'passive',effect:'immune to fear effects from undead', skillReq:'lore', minSkill:1},
+    {id:'decay_touch',  name:'Decay Touch',  cost:'action', effect:'melee attack: +0 damage but wounding. Enemy -1 per round.', skillReq:'combat', minSkill:2}
+  ],
+  illusionist:[
+    {id:'phantom_double', name:'Phantom Double', cost:'action', effect:'50% chance enemy attacks illusion this round', skillReq:'stealth', minSkill:2},
+    {id:'fear_image',   name:'Fear Image',   cost:'action', effect:'morale check. Low morale enemies flee.', skillReq:'persuasion', minSkill:2},
+    {id:'blind_spot',   name:'Blind Spot',   cost:'bonus',  effect:'enemy cannot detect you next round if you disengage', skillReq:'stealth', minSkill:1}
+  ],
+  inquisitor:[
+    {id:'interrogate_combat', name:'Interrogate', cost:'action', effect:'demand surrender. On success enemy surrenders. On fail, combat bonus +2.', skillReq:'persuasion', minSkill:3},
+    {id:'read_intent',  name:'Read Intent',  cost:'passive',effect:'+1 defense at start of each combat round (reads telegraphed attacks)', skillReq:'lore', minSkill:1},
+    {id:'command_stop', name:'Command Stop', cost:'action', effect:'one enemy must stop advancing. Lore check vs morale.', skillReq:'lore', minSkill:2}
+  ],
+  elementalist:[
+    {id:'axis_surge',   name:'Axis Surge',   cost:'action', effect:'+4 attack during axis events. Normal: +2 attack', skillReq:'lore', minSkill:2},
+    {id:'force_field',  name:'Force Field',  cost:'bonus',  effect:'+2 defense this round. Costs 2 HP.', skillReq:'survival', minSkill:1},
+    {id:'elemental_shock', name:'Elemental Shock', cost:'action', effect:'area attack. All enemies -1 next round.', skillReq:'lore', minSkill:3}
+  ],
+  rogue:[
+    {id:'backstab',     name:'Backstab',     cost:'action', effect:'+4 attack from concealment or flanking', skillReq:'stealth', minSkill:2},
+    {id:'smoke_out',    name:'Smoke Out',    cost:'bonus',  effect:'create diversion. Enemy loses next action.', skillReq:'stealth', minSkill:1},
+    {id:'pickpocket_fight', name:'Lift Item', cost:'action', effect:'steal one item or weapon component during combat', skillReq:'stealth', minSkill:3}
+  ],
+  assassin:[
+    {id:'precise_strike', name:'Precise Strike', cost:'action', effect:'+3 attack if target has not acted yet this round', skillReq:'stealth', minSkill:2},
+    {id:'poison_blade',  name:'Poison Blade',  cost:'bonus',  effect:'next hit adds ongoing 1 HP/round for 3 rounds', skillReq:'craft', minSkill:2},
+    {id:'silent_kill',   name:'Silent Kill',   cost:'action', effect:'instant kill if target below 30% HP and you are unseen', skillReq:'stealth', minSkill:4}
+  ],
+  spellthief:[
+    {id:'steal_technique', name:'Steal Technique', cost:'action', effect:'copy one enemy ability for use this combat', skillReq:'stealth', minSkill:3},
+    {id:'arcane_disruption', name:'Arcane Disruption', cost:'action', effect:'enemy caster cannot use abilities next round', skillReq:'lore', minSkill:2},
+    {id:'redirect',       name:'Redirect',      cost:'reaction', effect:'redirect one magical effect to different target', skillReq:'lore', minSkill:3}
+  ],
+  scout_c:[
+    {id:'ambush_prep',  name:'Ambush Prep',  cost:'bonus',  effect:'+3 attack if combat initiated by you', skillReq:'stealth', minSkill:2},
+    {id:'flank_call',   name:'Flank Call',   cost:'bonus',  effect:'identify weak point. All attacks gain +1 for 2 rounds.', skillReq:'survival', minSkill:1},
+    {id:'cover_break',  name:'Cover Break',  cost:'action', effect:'deny enemy use of cover this round', skillReq:'stealth', minSkill:2}
+  ],
+  thief:[
+    {id:'misdirect',    name:'Misdirect',    cost:'action', effect:'enemy attacks wrong target this round', skillReq:'stealth', minSkill:2},
+    {id:'quick_hands',  name:'Quick Hands',  cost:'bonus',  effect:'disarm or trip enemy as bonus action', skillReq:'craft', minSkill:2},
+    {id:'vanishing_act',name:'Vanishing Act',cost:'action', effect:'disengage and become hidden if cover is available', skillReq:'stealth', minSkill:3}
+  ],
+  trickster:[
+    {id:'mock',         name:'Mock',         cost:'bonus',  effect:'enemy morale -2. They must target you this round.', skillReq:'persuasion', minSkill:2},
+    {id:'bait_and_switch', name:'Bait and Switch', cost:'action', effect:'force enemy to attack position you just left', skillReq:'persuasion', minSkill:2},
+    {id:'crowd_favor',  name:'Crowd Favor',  cost:'action', effect:'if witnesses present, enemy cannot make violent move without renown cost', skillReq:'persuasion', minSkill:3}
+  ],
+  healer:[
+    {id:'field_triage', name:'Field Triage', cost:'action', effect:'restore 1d8+2 HP to self or ally. Can stabilize dying.', skillReq:'lore', minSkill:1},
+    {id:'pain_block',   name:'Pain Block',   cost:'bonus',  effect:'ally ignores wound penalties this round', skillReq:'craft', minSkill:2},
+    {id:'expose_wound', name:'Expose Wound', cost:'action', effect:'enemy -2 defense by targeting existing injury', skillReq:'lore', minSkill:3}
+  ],
+  artificer:[
+    {id:'deploy_device',name:'Deploy Device',cost:'action', effect:'improvised mechanism. Effect varies (trap, distraction, shield)', skillReq:'craft', minSkill:2},
+    {id:'structural_blow', name:'Structural Blow', cost:'action', effect:'+3 attack vs armored enemies. Degrades their protection.', skillReq:'craft', minSkill:2},
+    {id:'emergency_repair', name:'Emergency Repair', cost:'bonus', effect:'restore 4 HP using available materials', skillReq:'craft', minSkill:1}
+  ],
+  engineer:[
+    {id:'terrain_use',  name:'Terrain Use',  cost:'bonus',  effect:'+2 defense by using environment intelligently', skillReq:'craft', minSkill:1},
+    {id:'collapse_structure', name:'Collapse', cost:'action', effect:'structural damage to area. All in range take 1d6 damage.', skillReq:'craft', minSkill:3},
+    {id:'fortify_position', name:'Fortify',  cost:'action', effect:'create cover. Allies gain +2 defense for 2 rounds.', skillReq:'craft', minSkill:2}
+  ],
+  tactician:[
+    {id:'coordinate',   name:'Coordinate',   cost:'bonus',  effect:'one ally may take an extra action this round', skillReq:'lore', minSkill:2},
+    {id:'suppress',     name:'Suppress',     cost:'action', effect:'enemy cannot advance and loses 1 action', skillReq:'lore', minSkill:2},
+    {id:'battle_plan',  name:'Battle Plan',  cost:'action', effect:'set up: next round all allies +2 attack and defense', skillReq:'lore', minSkill:3}
+  ],
+  alchemist:[
+    {id:'throw_compound', name:'Throw Compound', cost:'action', effect:'area effect: 1d6 damage or condition (acid/sleep/blind)', skillReq:'craft', minSkill:2},
+    {id:'antidote_burst', name:'Antidote Burst', cost:'bonus', effect:'self or ally clears one condition immediately', skillReq:'craft', minSkill:1},
+    {id:'volatile_mix',   name:'Volatile Mix',   cost:'action', effect:'+4 damage but 1-in-6 chance of self-splash', skillReq:'craft', minSkill:3}
+  ],
+  saint:[
+    {id:'presence',     name:'Presence',     cost:'passive',effect:'hostile non-fanatics must succeed morale check to attack you', skillReq:'persuasion', minSkill:3},
+    {id:'appeal',       name:'Appeal',       cost:'action', effect:'demand enemy surrender. Common enemies: high success rate.', skillReq:'persuasion', minSkill:2},
+    {id:'sanctified_ground', name:'Sanctified Ground', cost:'action', effect:'enemies in area -2 morale, allies +2 defense', skillReq:'lore', minSkill:2}
+  ],
+
+  bard:[
+    {id:'bd_distraction', name:'Distraction', cost:'bonus', effect:'enemy loses focus — -2 to their next action', skillReq:'persuasion', minSkill:2},
+    {id:'bd_rally_cry', name:'Rally Cry', cost:'action', effect:'all allies gain +1 to their next action this round', skillReq:'persuasion', minSkill:3},
+    {id:'bd_taunt', name:'Taunt', cost:'bonus', effect:'enemy must target you this round. You gain +1 defense.', skillReq:'persuasion', minSkill:2}
+  ],
+  oracle:[
+    {id:'or_foresee', name:'Foresee Attack', cost:'passive', effect:'+1 defense at start of each combat round — you read the telegraphed movement', skillReq:'lore', minSkill:2},
+    {id:'or_predicted', name:'Predicted Move', cost:'action', effect:'declare enemy action before they act. If correct, auto-succeed your counter.', skillReq:'lore', minSkill:3},
+    {id:'or_outcome', name:'See the Outcome', cost:'bonus', effect:'learn whether attacking or defending will produce better results this round. No roll.', skillReq:'lore', minSkill:2}
+  ],
+  warden:[
+    {id:'wd_cover', name:'Cover Ally', cost:'reaction', effect:'negate one attack that would hit an ally. Take half the damage instead.', skillReq:'combat', minSkill:2},
+    {id:'wd_push_back', name:'Push Back', cost:'action', effect:'force enemy back two positions. They cannot advance next round.', skillReq:'combat', minSkill:3},
+    {id:'wd_fortify', name:'Fortify Position', cost:'action', effect:'all allies in current position gain +3 defense for 2 rounds', skillReq:'survival', minSkill:2}
+  ],
+  warlord:[
+    {id:'wl_coordinate_w', name:'Coordinate', cost:'bonus', effect:'one ally takes an extra action this round', skillReq:'lore', minSkill:2},
+    {id:'wl_press', name:'Press the Advantage', cost:'action', effect:'after any success this round, immediate follow-up attack at +2', skillReq:'combat', minSkill:3},
+    {id:'wl_suppress_w', name:'Suppress', cost:'action', effect:'enemy cannot advance and loses one action next round', skillReq:'lore', minSkill:2}
+  ],
+  death_knight:[
+    {id:'dk_relentless', name:'Relentless', cost:'passive', effect:'cannot be stunned or stopped by non-lethal effects. Always act on your turn.', skillReq:'combat', minSkill:3},
+    {id:'dk_intimidate', name:'Intimidate', cost:'bonus', effect:'enemy morale -3. Low-morale enemies must check before continuing.', skillReq:'combat', minSkill:2},
+    {id:'dk_oath_strike_dk', name:'Oath Strike', cost:'action', effect:'+4 attack against the target of your declared objective', skillReq:'combat', minSkill:3}
+  ],
+  beastmaster:[
+    {id:'bm_flank', name:'Flanking Read', cost:'passive', effect:'always know enemy position relative to you. Cannot be flanked or surprised.', skillReq:'stealth', minSkill:2},
+    {id:'bm_terrain_adv', name:'Terrain Advantage', cost:'bonus', effect:'+2 to all rolls when fighting in wilderness or exterior terrain', skillReq:'survival', minSkill:2},
+    {id:'bm_tracking_shot', name:'Tracking Strike', cost:'action', effect:'+3 attack — you have been reading this target for at least one round', skillReq:'stealth', minSkill:3}
+  ]
+
+};
+
+// ── COMBAT STATE ─────────────────────────────────────────
+let CS = null; // active combat session
+
+function startCombat(enemyTemplateId, context) {
+  const tpl = ENEMY_TEMPLATES[enemyTemplateId];
+  if (!tpl) return;
+  const entryBonus = (context && context.entryBonus) ? context.entryBonus : 0;
+  CS = {
+    enemy: Object.assign({}, tpl, { id: enemyTemplateId }),
+    round: 1,
+    entryBonus: entryBonus,
+    playerActed: false,
+    context: context || {},
+    log: []
+  };
+  document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
+  renderCombatRound();
+}
+
+function renderCombatRound() {
+  if (!CS) return;
+  const archId = G.archetype ? G.archetype.id : 'warrior';
+  const abilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
+  const usableAbilities = abilities.filter(a => {
+    const sk = G.skills[a.skillReq] || 0;
+    return sk >= a.minSkill;
+  });
+
+  const pct = CS.enemy.hp / CS.enemy.maxHp;
+  const ePct = Math.round(pct * 100);
+  const eStatus = pct > 0.6 ? 'Active' : pct > 0.3 ? 'Wounded' : 'Critical';
+
+  let html = '<div class="combat-header">' +
+    '<div class="combat-title">&#x2694; COMBAT &#x2014; Round ' + CS.round + '</div>' +
+    '<div class="combat-enemy">' +
+      '<div class="enemy-name">' + CS.enemy.name + '</div>' +
+      '<div class="enemy-desc">' + CS.enemy.desc + '</div>' +
+      '<div class="enemy-hp-row">' +
+        '<div class="enemy-hp-bar"><div class="enemy-hp-fill" style="width:' + ePct + '%"></div></div>' +
+        '<span class="enemy-status ' + (pct < 0.3 ? 'danger' : '') + '">' + eStatus + '</span>' +
+      '</div>' +
+    '</div>' +
+    '</div>';
+
+  // Show d20 roll info
+  html += '<div class="combat-actions"><div class="choice-label">Choose your action:</div><div class="choices">';
+
+  // Base attacks
+  html += '<button class="choice-btn combat-btn" data-action="attack">' +
+    '<span class="choice-text">Strike — direct attack</span>' +
+    '<span class="choice-meta"><span class="choice-skill">combat</span><span class="choice-tag bold">attack</span></span>' +
+    '</button>';
+
+  // Defend
+  html += '<button class="choice-btn combat-btn" data-action="defend">' +
+    '<span class="choice-text">Defend — focus on protection this round</span>' +
+    '<span class="choice-meta"><span class="choice-skill">survival</span><span class="choice-tag safe">defense</span></span>' +
+    '</button>';
+
+  // Archetype abilities
+  usableAbilities.slice(0,2).forEach(ab => {
+    html += '<button class="choice-btn combat-btn" data-action="ability" data-ability="' + ab.id + '">' +
+      '<span class="choice-text">' + ab.name + ' — ' + ab.effect + '</span>' +
+      '<span class="choice-meta"><span class="choice-skill">' + ab.skillReq + '</span><span class="choice-tag risky">ability</span></span>' +
+      '</button>';
+  });
+
+  // Attempt to flee
+  html += '<button class="choice-btn combat-btn" data-action="flee">' +
+    '<span class="choice-text">Flee — break from combat</span>' +
+    '<span class="choice-meta"><span class="choice-skill">survival</span><span class="choice-tag risky">risky</span></span>' +
+    '</button>';
+
+  html += '</div></div>';
+
+  const el = document.getElementById('narrative-content');
+  const block = document.createElement('div');
+  block.className = 'scene-block combat-block';
+  block.innerHTML = html;
+  block.querySelectorAll('.combat-btn').forEach(btn => {
+    btn.addEventListener('click', () => resolveCombatAction(btn.dataset.action, btn.dataset.ability));
+  });
+  el.appendChild(block);
+  scrollNarrative();
+}
+
+function resolveCombatAction(action, abilityId) {
+  document.querySelectorAll('.combat-block').forEach(b => b.remove());
+  const archId = G.archetype ? G.archetype.id : 'warrior';
+  const combatSkill = G.skills.combat || 0;
+  const survSkill = G.skills.survival || 0;
+  const traitCombatBonus = getTraitBonus('combat');
+
+  let resultText = '';
+  let playerDamage = 0;
+  let enemyDamage = 0;
+  let isVictory = false;
+  let isFled = false;
+  let resultType = 'success';
+
+  const d20 = () => Math.floor(Math.random() * 20) + 1;
+
+  if (action === 'attack') {
+    const roll = d20();
+    const total = roll + combatSkill + traitCombatBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
+    if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
+    const hit = total >= CS.enemy.defense + 5;
+    const baseDmg = hit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
+
+    // Enemy counter-attack
+    const eRoll = d20();
+    const eHit = eRoll + CS.enemy.attack >= (combatSkill + survSkill + 8);
+    enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
+    enemyDamage = Math.max(0, enemyDamage);
+
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + combat ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + ' = <strong>' + total + '</strong><br>';
+
+    if (hit) {
+      CS.enemy.hp = Math.max(0, CS.enemy.hp - baseDmg);
+      playerDamage = baseDmg;
+      resultText += 'Your strike connects. <em>' + CS.enemy.name + '</em> takes ' + baseDmg + ' damage.';
+      resultType = 'success';
+    } else {
+      resultText += 'Your strike is deflected. ' + CS.enemy.name + ' holds their ground.';
+      resultType = 'failure';
+    }
+
+    if (enemyDamage > 0) {
+      resultText += '<br>The enemy retaliates — you take ' + enemyDamage + ' damage.';
+      applyWound(enemyDamage, 'from ' + CS.enemy.name);
+    }
+
+  } else if (action === 'defend') {
+    const roll = d20();
+    const total = roll + survSkill;
+    const defended = total >= 10;
+    // Enemy still attacks but reduced
+    const eRoll = d20();
+    const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
+    enemyDamage = defended ? Math.max(0, Math.floor(eBase * 0.4)) : Math.max(0, eBase);
+
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + survival ' + survSkill + ' = <strong>' + total + '</strong><br>';
+    resultText += defended ? 'You take a defensive stance. ' : 'Your guard is pushed.';
+    if (enemyDamage > 0) {
+      resultText += ' You take ' + enemyDamage + ' damage.';
+      applyWound(enemyDamage, 'from ' + CS.enemy.name);
+    } else {
+      resultText += ' You absorb the assault unscathed.';
+    }
+    resultType = defended ? 'success' : 'partial';
+
+  } else if (action === 'ability' && abilityId) {
+    const allAbilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
+    const ab = allAbilities.find(a => a.id === abilityId);
+    if (ab) {
+      const sk = G.skills[ab.skillReq] || 0;
+      const roll = d20();
+      const total = roll + sk;
+      const success = total >= 10;
+
+      resultText = '<strong>' + ab.name + '</strong>: d20 roll ' + roll + ' + ' + ab.skillReq + ' ' + sk + ' = ' + total + '<br>';
+
+      if (success) {
+        // Apply ability effects
+        if (ab.id === 'lay_on_hands' || ab.id === 'communal_aid' || ab.id === 'field_triage' || ab.id === 'emergency_repair') {
+          const healed = Math.floor(Math.random() * 8) + (G.skills.persuasion || G.skills.craft || 1);
+          G.hp = Math.min(G.maxHp, G.hp + healed);
+          resultText += 'You restore ' + healed + ' HP. ' + ab.effect;
+          updateHUD();
+        } else if (ab.id === 'rage_surge' || ab.id === 'smite') {
+          const costHp = ab.id === 'rage_surge' ? 4 : 3;
+          G.hp = Math.max(1, G.hp - costHp);
+          const bonusDmg = Math.floor(Math.random() * 6) + (ab.id === 'rage_surge' ? 4 : 5);
+          CS.enemy.hp = Math.max(0, CS.enemy.hp - bonusDmg);
+          resultText += 'Cost ' + costHp + ' HP. Deal ' + bonusDmg + ' bonus damage. ' + ab.effect;
+          updateHUD();
+        } else {
+          // Generic ability success — deal moderate damage + effect
+          const bonusDmg = Math.floor(Math.random() * 4) + sk;
+          CS.enemy.hp = Math.max(0, CS.enemy.hp - bonusDmg);
+          resultText += 'Success. ' + ab.effect + '. Enemy takes ' + bonusDmg + ' damage.';
+        }
+        resultType = 'success';
+      } else {
+        // Enemy counter
+        const eRoll = d20();
+        enemyDamage = Math.max(0, Math.floor(Math.random() * 4) + CS.enemy.attack - 3);
+        resultText += 'The ability misfires. The enemy exploits the opening. You take ' + enemyDamage + ' damage.';
+        applyWound(enemyDamage, 'from ' + CS.enemy.name);
+        resultType = 'failure';
+      }
+    }
+
+  } else if (action === 'flee') {
+    const roll = d20();
+    const total = roll + survSkill;
+    const success = total >= 12;
+
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + survival ' + survSkill + ' = <strong>' + total + '</strong><br>';
+
+    if (success) {
+      resultText += 'You break from the fight. The ' + CS.enemy.name + ' does not pursue.';
+      isFled = true;
+      resultType = 'partial';
+      // Fleeing costs renown and alignment
+      G.renown = Math.max(0, G.renown - 1);
+      shiftAlignment(-3, -3);
+    } else {
+      // Takes a hit while fleeing
+      enemyDamage = Math.floor(Math.random() * 6) + 2;
+      applyWound(enemyDamage, 'attack of opportunity from ' + CS.enemy.name);
+      resultText += 'You are struck as you attempt to break. You take ' + enemyDamage + ' damage and barely escape.';
+      isFled = true;
+      resultType = 'failure';
     }
   }
-  function encounterChoices(state){
-    const e=state.encounter; if(!e) return [];
-    const a=archetype(state);
-    const choices = [
-      ['Strike','attack'], ['Use ability','ability'], ['Guard','guard'], ['Study','study'], ['Exploit weakness','exploit'],
-      ['Use background leverage','background'], ['Intimidate','intimidate'], ['Contain','contain'], ['Redirect','redirect'], ['Use the environment','environment'], ['Protect the line','protect']
-    ];
-    if(a.group==='combat') choices.push(['Brace shield and hold','brace'], ['Command the crush','command'], ['Intercept the pressure line','intercept']);
-    if(a.group==='magic') choices.push(['Raise a ward','ward'], ['Ritual procedure','ritual'], ['Channel a focused cast','focus_cast']);
-    if(a.group==='stealth') choices.push(['Vanish across the line','vanish'], ['Split the route','split_route'], ['Disable the weak joint','precision_disable']);
-    if(a.group==='support') choices.push(['Use the field kit','fieldkit'], ['Direct companion pressure','companion'], ['Rally the line','rally_line']);
-    const out = choices.map(([label,action])=>({label:`${label}: ${e.name.replace(/_/g,' ')}`,tags:['Encounter'],fn(){resolveEncounterAction(state,action);}}));
-    if(state.companions.length && !out.some(o=>/companion/i.test(o.label))) out.push({label:'Call companion support',tags:['Encounter','Companion'],fn(){resolveEncounterAction(state,'companion');}});
-    if(e.canRetreat) out.push({label:'Withdraw in good order',tags:['Safe','Encounter'],fn(){resolveEncounterAction(state,'retreat');}});
-    return out.slice(0,9);
+
+  CS.log.push({ round: CS.round, action, result: resultType });
+  addNarration('Round ' + CS.round, resultText, resultType);
+
+  // Check enemy flee
+  const eFleePct = CS.enemy.hp / CS.enemy.maxHp;
+  if (!isFled && CS.enemy.hp <= 0) {
+    isVictory = true;
+    endCombat(true);
+    return;
   }
-  window.beginEncounter = beginEncounter;
-  window.encounterChoices = encounterChoices;
-})();
+  if (!isFled && eFleePct <= CS.enemy.fleeThreshold) {
+    const eFlee = d20() <= 10;
+    if (eFlee) {
+      addNarration('', '<em>' + CS.enemy.name + ' breaks and retreats. The fight is over.</em>', 'success');
+      endCombat(true);
+      return;
+    }
+  }
+
+  if (isFled) {
+    endCombat(false);
+    return;
+  }
+
+  CS.round++;
+  setTimeout(() => renderCombatRound(), 500);
+}
+
+function applyWound(damage, source) {
+  if (damage <= 0) return;
+  G.hp = Math.max(0, G.hp - damage);
+  // Track wounds
+  if (!G.wounds) G.wounds = [];
+  if (damage >= 5) {
+    G.wounds.push({ desc: source, severity: damage >= 8 ? 'severe' : 'minor', round: CS ? CS.round : 0 });
+    if (damage >= 8) {
+      if (!G.fatigue) G.fatigue = 0;
+      G.fatigue = Math.min(10, G.fatigue + 2);
+    }
+  }
+  if (G.hp <= 0) {
+    G.hp = 1;
+    G.recoveryState = 'critical';
+    addNarration('', '<em style="color:var(--blood-bright)">You are critically wounded. You need immediate recovery.</em>');
+  }
+  updateHUD();
+}
+
+function endCombat(victory) {
+  const enemy = CS.enemy;
+  CS = null;
+
+  if (victory) {
+    const xpGain = Math.min(8, Math.floor(Math.random() * 4) + 4);
+    const goldGain = enemy.loot ? enemy.loot.gold : 0;
+    gainXP(xpGain);
+    modGold(goldGain);
+    G.renown = (G.renown || 0) + 1;
+
+    let victText = 'You have defeated the <strong>' + enemy.name + '</strong>. ';
+    if (goldGain) victText += '+' + goldGain + ' gold.';
+    if (enemy.loot && enemy.loot.item) {
+      if (!G.inventory) G.inventory = [];
+      G.inventory.push({ name: enemy.loot.item, type: 'evidence', equipped: false });
+      victText += ' Found: ' + enemy.loot.item + '.';
+    }
+    addNarration('Combat Over', victText, 'success');
+    addJournal('Defeated ' + enemy.name + ' in ' + (CS ? CS.round : 'unknown') + ' rounds. Renown +1.');
+    shiftAlignment(-5, 0); // violence costs morality slightly
+    saveGame(); updateHUD();
+
+    setTimeout(() => renderChoices([
+      { text:'Search the area for more information.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' },
+      { text:'Take what you need and move before anyone arrives.', skill:'stealth', tag:'risky', align:'chaotic', cid:'east_road' },
+      { text:'Report what happened to the local authority.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact' }
+    ]), 400);
+  } else {
+    addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
+    saveGame();
+    setTimeout(() => renderChoices([
+      { text:'Make camp immediately.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover' },
+      { text:'Find a healer in the settlement.', skill:'persuasion', tag:'safe', align:'neutral', cid:'shrine_service' },
+      { text:'Push forward despite the wounds.', skill:'combat', tag:'bold', align:'chaotic', cid:'passive_intel' }
+    ]), 400);
+  }
+}
+
+// Called from consequence nodes with: { type:'combat', enemy:'patrol_guard', context:{...} }
+function triggerCombatEncounter(enemyId, context) {
+  // Show combat entry opportunity first (TTRPG-consistent)
+  document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+  const tpl = ENEMY_TEMPLATES[enemyId];
+  if (!tpl) return;
+
+  addNarration('', '<em style="color:var(--blood-bright)">A confrontation is imminent. <strong>' + tpl.name + '</strong> moves to intercept. ' + tpl.desc + '</em>');
+
+  setTimeout(() => renderChoices([
+    { text:'Stand your ground. This is a fight.', skill:'combat', tag:'bold', align:'chaotic',
+      cid:'__combat__' + enemyId },
+    { text:'Try to talk your way through before it comes to blows.', skill:'persuasion', tag:'risky', align:'lawful',
+      cid:'garrison_contact' },
+    { text:'Look for a way around before committing.', skill:'stealth', tag:'risky', align:'neutral',
+      cid:'passive_intel' }
+  ]), 300);
+}
 </script>
   <script>
 (function(){
@@ -1260,11 +2271,13 @@ const STAGE2_DESTINATION_CONTENT = {
   const persist=()=>{ const all=storage(); all[G.passcode]=G; localStorage.setItem(SAVE_KEY, JSON.stringify(all)); };
 
   function defaultState(){
+    const defaultBgId = 'warrior_civic';
+    const startingLocation = (window.getStartingLocality && window.getStartingLocality(defaultBgId)) || 'shelkopolis';
     return {
-      name:'', passcode:'', archetype:'warrior', backgroundId:'warrior_civic', level:1, xp:0, renown:0,
+      name:'', passcode:'', archetype:'warrior', backgroundId:defaultBgId, level:1, xp:0, renown:0,
       hp:22, maxHp:22, gold:20, stage:1, stageLabel:STAGES[0].label, currentObjective:'', dayCount:1, timeIndex:0,
       age:'24', presentation:'Male', lineage:'Human', lifeOverview:'',
-      location:'shelkopolis', currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
+      location:startingLocation, currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
       journalRecords:[], notices:[], legends:[], quests:[], factions:{}, morality:0, order:0,
       skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1}, companions:[], recruitableSeen:{},
       wounds:[], fatigue:0, deathCount:0, stage5Dead:false, rescueLog:[], trainingDisadvantage:0,

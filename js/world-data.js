@@ -962,3 +962,123 @@ const ARCHETYPE_ABILITY_TREES = {
 
 };
 
+
+// ═══════════════════════════════════════════════════════
+// POST-PROCESS: Augment Backgrounds with Stage I Metadata
+// Maps background IDs to originLocality, firstSafeZone, firstObjective
+// ═══════════════════════════════════════════════════════
+
+(function(){
+  const BACKGROUND_STAGE_I_METADATA = {
+    'w_garrison': {originLocality:'shelkopolis', firstSafeZone:'Roadwarden Annex Ward', firstObjective:'Establish yourself in Shelkopolis'},
+    'w_roaz': {originLocality:'ithtananalor', firstSafeZone:'Iron Stronghold District', firstObjective:'Navigate Roazian politics in Ithtananalor'},
+    'w_frontier': {originLocality:'soreheim_proper', firstSafeZone:'Giant Council Settlement Outpost', firstObjective:'Prove yourself to the Frontier Hammer'},
+    'k_shelk': {originLocality:'shelkopolis', firstSafeZone:'House Shelk Chambers', firstObjective:'Serve House Shelk interests'},
+    'k_roaz': {originLocality:'ithtananalor', firstSafeZone:'Iron Accord Fortress', firstObjective:'Enforce the Iron Accord'},
+    'k_order': {originLocality:'panim_haven', firstSafeZone:'Order Sanctuary', firstObjective:'Complete your order trial'},
+    'r_shelk': {originLocality:'fairhaven', firstSafeZone:'Route House', firstObjective:'Scout the Fairhaven run'},
+    'r_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Survey Camp', firstObjective:'Map Soreheim territory'},
+    'r_sheresh': {originLocality:'aurora_crown_commune', firstSafeZone:'Dome Observation Post', firstObjective:'Monitor the Aurora perimeter'},
+    'p_cysur': {originLocality:'shelkopolis', firstSafeZone:'Aurora Light Cathedral', firstObjective:'Serve Cysur teachings'},
+    'p_eloljaro': {originLocality:'ithtananalor', firstSafeZone:'Correction House', firstObjective:'Correct Roazian injustice'},
+    'p_gwybodaeth': {originLocality:'mimolot_academy', firstSafeZone:'Archive Wing', firstObjective:'Chronicle knowledge'},
+    'a_roadwarden': {originLocality:'shelkopolis', firstSafeZone:'Roadwarden Archery Post', firstObjective:'Guard the eastern route'},
+    'a_frontier': {originLocality:'sunspire_haven', firstSafeZone:'Frontier Base Camp', firstObjective:'Scout for the frontier'},
+    'a_nomdara': {originLocality:'guildheart_hub', firstSafeZone:'Caravan Depot', firstObjective:'Guard the Nomdara trade route'},
+    'b_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Labor Gang Camp', firstObjective:'Work the Soreheim extraction'},
+    'b_frontier': {originLocality:'sunspire_haven', firstSafeZone:'Breacher Barracks', firstObjective:'Breach Frontier obstacles'},
+    'b_cosmouth': {originLocality:'cosmoria', firstSafeZone:'Cosmouth Harbor', firstObjective:'Survive the sea trade'},
+    'wz_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Academy Quarters', firstObjective:'Advance in Mimolot study'},
+    'wz_shelk': {originLocality:'shelkopolis', firstSafeZone:'Court Magician Tower', firstObjective:'Maintain your court position'},
+    'wz_field': {originLocality:'soreheim_proper', firstSafeZone:'Research Outpost', firstObjective:'Document field phenomena'},
+    'cl_cysur': {originLocality:'shelkopolis', firstSafeZone:'Aurora Light Cathedral', firstObjective:'Serve compassion in the capital'},
+    'cl_eloljaro': {originLocality:'ithtananalor', firstSafeZone:'Correction Shrine', firstObjective:'Restore balance in Roaz'},
+    'cl_remeny': {originLocality:'guildheart_hub', firstSafeZone:'Remeny Temple', firstObjective:'Bring hope to the trade hub'},
+    'pr_panim': {originLocality:'panim_haven', firstSafeZone:'Death Registry Hall', firstObjective:'Maintain Panim records'},
+    'pr_community': {originLocality:'fairhaven', firstSafeZone:'Congregation Hall', firstObjective:'Serve the Fairhaven faithful'},
+    'pr_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Allocation Shrine', firstObjective:'Minister to the workers'},
+    'nc_panim': {originLocality:'panim_haven', firstSafeZone:'Registry Sanctum', firstObjective:'Uncover registry secrets'},
+    'nc_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Restricted Archives', firstObjective:'Access forbidden knowledge'},
+    'nc_sheresh': {originLocality:'aurora_crown_commune', firstSafeZone:'Containment Lab', firstObjective:'Study the contained'},
+    'il_shelk': {originLocality:'shelkopolis', firstSafeZone:'Court Theater', firstObjective:'Perform for nobility'},
+    'il_union': {originLocality:'guildheart_hub', firstSafeZone:'Trade Fair Stage', firstObjective:'Read the trade fair crowds'},
+    'il_panim': {originLocality:'panim_haven', firstSafeZone:'Performance Hall', firstObjective:'Master Panim illusions'},
+    'in_shelk': {originLocality:'shelkopolis', firstSafeZone:'Inquisitor Office', firstObjective:'Investigate for House Shelk'},
+    'in_panim': {originLocality:'panim_haven', firstSafeZone:'Truth Chamber', firstObjective:'Extract Panim truth'},
+    'in_roaz': {originLocality:'ithtananalor', firstSafeZone:'Interrogation House', firstObjective:'Question Roazian subjects'},
+    'el_axis': {originLocality:'soreheim_proper', firstSafeZone:'Axis Research Station', firstObjective:'Study axis phenomena'},
+    'el_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Elemental Lab', firstObjective:'Research elements'},
+    'el_aurora': {originLocality:'aurora_crown_commune', firstSafeZone:'Aurora Observatory', firstObjective:'Monitor the domes'},
+    'ro_shelk': {originLocality:'shelkopolis', firstSafeZone:'Shadow Market', firstObjective:'Work Shelkopolis underworld'},
+    'ro_guild': {originLocality:'guildheart_hub', firstSafeZone:'Trade District Hideout', firstObjective:'Navigate union politics'},
+    'ro_panim': {originLocality:'panim_haven', firstSafeZone:'Silent District', firstObjective:'Survive Panim shadows'},
+    'as_contract': {originLocality:'shelkopolis', firstSafeZone:'Contract House', firstObjective:'Accept your next contract'},
+    'as_guild': {originLocality:'guildheart_hub', firstSafeZone:'Guild Quarters', firstObjective:'Fulfill union assignments'},
+    'as_independent': {originLocality:'shirshal', firstSafeZone:'Freelancer Safe House', firstObjective:'Build independent reputation'},
+    'st_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Library Stacks', firstObjective:'Steal magical knowledge'},
+    'st_court': {originLocality:'shelkopolis', firstSafeZone:'Court Chambers', firstObjective:'Acquire court secrets'},
+    'st_union': {originLocality:'guildheart_hub', firstSafeZone:'Merchant Guild Hall', firstObjective:'Steal trade secrets'},
+    'sc_field': {originLocality:'soreheim_proper', firstSafeZone:'Field Outpost', firstObjective:'Scout dangerous territory'},
+    'sc_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Archive Exploration Base', firstObjective:'Scout hidden archives'},
+    'sc_fairhaven': {originLocality:'fairhaven', firstSafeZone:'Route Waystations', firstObjective:'Scout the trade routes'},
+    'th_shelk': {originLocality:'shelkopolis', firstSafeZone:'Black Market Den', firstObjective:'Steal in Shelkopolis'},
+    'th_union': {originLocality:'guildheart_hub', firstSafeZone:'Thieves Guild', firstObjective:'Join the thieves collective'},
+    'th_shirsh': {originLocality:'shirshal', firstSafeZone:'Safe House', firstObjective:'Build Shirshal reputation'},
+    'tr_shelk': {originLocality:'shelkopolis', firstSafeZone:'Tavern Haven', firstObjective:'Trick Shelkopolis folk'},
+    'tr_union': {originLocality:'guildheart_hub', firstSafeZone:'Trade Fair Market', firstObjective:'Fool the traders'},
+    'tr_panim': {originLocality:'panim_haven', firstSafeZone:'Performance District', firstObjective:'Deceive Panim society'},
+    'he_shelk': {originLocality:'shelkopolis', firstSafeZone:'Healing House', firstObjective:'Tend Shelkopolis wounded'},
+    'he_panim': {originLocality:'panim_haven', firstSafeZone:'Death Midwife Station', firstObjective:'Serve Panim healing arts'},
+    'he_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Academy Infirmary', firstObjective:'Heal the scholars'},
+    'ar_shelk': {originLocality:'shelkopolis', firstSafeZone:'Artisan Workshop', firstObjective:'Build in Shelkopolis'},
+    'ar_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Craft Hall', firstObjective:'Craft for the giants'},
+    'ar_guild': {originLocality:'guildheart_hub', firstSafeZone:'Union Workshop', firstObjective:'Supply the traders'},
+    'en_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Engineering Base', firstObjective:'Build Soreheim infrastructure'},
+    'en_sheresh': {originLocality:'aurora_crown_commune', firstSafeZone:'Dome Engineering Post', firstObjective:'Maintain the domes'},
+    'en_guild': {originLocality:'guildheart_hub', firstSafeZone:'Trade Hub Structures', firstObjective:'Engineer union facilities'},
+    'ta_shelk': {originLocality:'shelkopolis', firstSafeZone:'War Room', firstObjective:'Plan for House Shelk'},
+    'ta_panim': {originLocality:'panim_haven', firstSafeZone:'Strategic Council', firstObjective:'Advise Panim leaders'},
+    'ta_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Academy War Room', firstObjective:'Plan for the academy'},
+    'al_shelk': {originLocality:'shelkopolis', firstSafeZone:'Alchemy Laboratory', firstObjective:'Craft for House Shelk'},
+    'al_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Alchemy Tower', firstObjective:'Study formal alchemy'},
+    'al_guild': {originLocality:'guildheart_hub', firstSafeZone:'Union Lab', firstObjective:'Supply the union'},
+    'sa_shelk': {originLocality:'shelkopolis', firstSafeZone:'Sacred Sanctuary', firstObjective:'Spread faith in Shelkopolis'},
+    'sa_panim': {originLocality:'panim_haven', firstSafeZone:'Shrine of the Dead', firstObjective:'Honor the departed'},
+    'sa_guild': {originLocality:'guildheart_hub', firstSafeZone:'Hope Shrine', firstObjective:'Inspire the hopeless'},
+    'wa_shelk': {originLocality:'shelkopolis', firstSafeZone:'Roadwarden Court', firstObjective:'Judge for the roadwardens'},
+    'wa_roaz': {originLocality:'ithtananalor', firstSafeZone:'Iron Court', firstObjective:'Administer Roazian law'},
+    'wa_guild': {originLocality:'guildheart_hub', firstSafeZone:'Union Court', firstObjective:'Enforce trade agreements'},
+    'wl_shelk': {originLocality:'shelkopolis', firstSafeZone:'Military Keep', firstObjective:'Command for House Shelk'},
+    'wl_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Giant Council Command', firstObjective:'Lead in Soreheim'},
+    'wl_roaz': {originLocality:'ithtananalor', firstSafeZone:'Roaz War Chamber', firstObjective:'Command Roazian forces'},
+    'dk_panim': {originLocality:'panim_haven', firstSafeZone:'Undead Garrison', firstObjective:'Control the dead in Panim'},
+    'dk_roaz': {originLocality:'ithtananalor', firstSafeZone:'Necropolis Fort', firstObjective:'Raise the Roazian fallen'},
+    'dk_shirsh': {originLocality:'shirshal', firstSafeZone:'Dark Keep', firstObjective:'Command the undead'},
+    'bm_soreheim': {originLocality:'soreheim_proper', firstSafeZone:'Beast Corral', firstObjective:'Bond with Soreheim beasts'},
+    'bm_sheresh': {originLocality:'aurora_crown_commune', firstSafeZone:'Aurora Wildlife Sanctuary', firstObjective:'Study Aurora creatures'},
+    'bm_fairhaven': {originLocality:'fairhaven', firstSafeZone:'Wilderness Camp', firstObjective:'Bond with route creatures'},
+    'or_shelk': {originLocality:'shelkopolis', firstSafeZone:'Divination Chamber', firstObjective:'Advise for House Shelk'},
+    'or_panim': {originLocality:'panim_haven', firstSafeZone:'Fate Reading Hall', firstObjective:'Read Panim destinies'},
+    'or_mimolot': {originLocality:'mimolot_academy', firstSafeZone:'Pattern Library', firstObjective:'Study pattern archives'},
+    'bd_shelk': {originLocality:'shelkopolis', firstSafeZone:'Court Theater', firstObjective:'Perform for nobility'},
+    'bd_guild': {originLocality:'guildheart_hub', firstSafeZone:'Trade Fair Stage', firstObjective:'Perform for traders'},
+    'bd_panim': {originLocality:'panim_haven', firstSafeZone:'Memorial Hall', firstObjective:'Chronicle Panim history'}
+  };
+  
+  // Augment backgrounds with these fields
+  for (const archType in BACKGROUNDS) {
+    const bgList = BACKGROUNDS[archType];
+    for (const bg of bgList) {
+      const meta = BACKGROUND_STAGE_I_METADATA[bg.id];
+      if (meta) {
+        bg.originLocality = meta.originLocality;
+        bg.firstSafeZone = meta.firstSafeZone;
+        bg.firstObjective = meta.firstObjective;
+      } else {
+        bg.originLocality = 'shelkopolis';
+        bg.firstSafeZone = 'Unknown Safe Zone';
+        bg.firstObjective = 'Establish yourself in your new home';
+      }
+    }
+  }
+})();

@@ -113,6 +113,30 @@
       greetings:['measured witness greetings','formal truth-invocations at doors'],
       rituals:['water-touch before testimony','quiet oath phrases in queue'],
       hazards:['seal_feedback','crowd_break'], creatures:['court_leech','record_hunter']
+    },
+    ithtananalor: {
+      id:'ithtananalor', name:'Ithtananalor', polity:'Principality of Roaz', safeZone:'Enforcement Checkpoint Ward',
+      summary:'Fortified administrative heart where legal identity, industry, and enforcement culture visibly merge.',
+      pressures:['illicit magic detection','smuggling routes','enforcement accountability','inspection intensity'],
+      greetings:['brief formal acknowledgements at checkpoints','work-ready nods between guards'],
+      rituals:['document verification before entry','seal inspection at gates'],
+      hazards:['enforcement_raid','containment_breach'], creatures:['ore_hound','guard_construct']
+    },
+    guildheart_hub: {
+      id:'guildheart_hub', name:'Guildheart Hub', polity:'The Union', safeZone:'Guild Hall Archive Chamber',
+      summary:'Dense industrial nerve center of the Union where contract legitimacy, tariff politics, and freight administration dominate.',
+      pressures:['tariff disputes','Red Hood rumor presence','legacy Mal claims','imperial oversight'],
+      greetings:['merchant queue courtesies','cargo manifest discussions'],
+      rituals:['sanction notice reading','contract seal verification'],
+      hazards:['warehouse_collapse','fire_break'], creatures:['guild_enforcer','contract_bound']
+    },
+    cosmoria: {
+      id:'cosmoria', name:'Cosmoria', polity:'House Cosmouth', safeZone:'Maritime Archive Hall',
+      summary:'Floating intellectual and shipwright metropolis where archives, scholarship, and maritime trade interweave.',
+      pressures:['storm weather','trade vulnerability','archive access disputes','cargo timing'],
+      greetings:['sea-blessed nods between mariners','scholarly courtesy at archival doors'],
+      rituals:['maritime blessing before passage','archive respect protocols'],
+      hazards:['storm_surge','deck_collapse'], creatures:['sea_leech','floating_scavenger']
     }
   };
 
@@ -158,7 +182,10 @@
     fairhaven:['shelkopolis','sunspire_haven','panim_haven'],
     mimolot_academy:['fairhaven','shirshal'],
     soreheim_proper:['harvest_circle','sunspire_haven'],
-    shirshal:['panim_haven','shelkopolis','mimolot_academy']
+    shirshal:['panim_haven','shelkopolis','mimolot_academy'],
+    ithtananalor:['shelkopolis','shirshal'],
+    guildheart_hub:['fairhaven','shirshal'],
+    cosmoria:['guildheart_hub','fairhaven']
   };
 
   const NPC_PLACEMENTS = {
@@ -171,7 +198,10 @@
     fairhaven:[{id:'steward_mel',office:'Market Permit Hall',role:'permit steward'}],
     mimolot_academy:[{id:'scribe_tel',office:'Lower Archive',role:'catalog scribe'}],
     soreheim_proper:[{id:'foreman_bras',office:'Lift Quarter',role:'foreman'}],
-    shirshal:[{id:'witness_clerk_anrel',office:'Witness Court',role:'clerk'}]
+    shirshal:[{id:'witness_clerk_anrel',office:'Witness Court',role:'clerk'}],
+    ithtananalor:[{id:'captain_darian_roaz',office:'Enforcement Headquarters',role:'enforcement captain'},{id:'sir_velden_ironspike',office:'Iron Accord Hall',role:'knight inspector'}],
+    guildheart_hub:[{id:'auditor_kelm',office:'Guild Sanction Board',role:'trade auditor'}],
+    cosmoria:[{id:'archivist_tel',office:'Grand Archive',role:'senior archivist'},{id:'captain_harrow',office:'Shipwright Dock',role:'ship captain'}]
   };
 
   const COMPANION_CANDIDATES = {
@@ -184,7 +214,10 @@
     fairhaven:{id:'market_runner',name:'Market Runner',bonus:'stealth'},
     mimolot_academy:{id:'archive_adjunct',name:'Archive Adjunct',bonus:'lore'},
     soreheim_proper:{id:'catwalk_guide',name:'Catwalk Guide',bonus:'combat'},
-    shirshal:{id:'witness_guard',name:'Witness Guard',bonus:'persuasion'}
+    shirshal:{id:'witness_guard',name:'Witness Guard',bonus:'persuasion'},
+    ithtananalor:{id:'enforcement_scout',name:'Enforcement Scout',bonus:'combat'},
+    guildheart_hub:{id:'merchant_broker',name:'Merchant Broker',bonus:'persuasion'},
+    cosmoria:{id:'shipwright_hand',name:'Shipwright Hand',bonus:'craft'}
   };
 
   const BESTIARY = {
@@ -207,7 +240,13 @@
     slag_hound:{hp:15,attack:5,text:'A furnace-scored beast lunges through the heat.',weakness:'quench'},
     quarry_coloss:{hp:20,attack:6,text:'A massive labor-haunt turns its bulk into a threat.',weakness:'joints'},
     court_leech:{hp:12,attack:4,text:'A whisper-fed parasite blooms under false testimony.',weakness:'truth'},
-    record_hunter:{hp:15,attack:5,text:'A procedural predator tears after sealed knowledge.',weakness:'paper'}
+    record_hunter:{hp:15,attack:5,text:'A procedural predator tears after sealed knowledge.',weakness:'paper'},
+    ore_hound:{hp:16,attack:5,text:'An extraction beast wreathed in stone dust and rage.',weakness:'impact'},
+    guard_construct:{hp:18,attack:6,text:'An enforcer-built construct moves with mechanical purpose.',weakness:'disruption'},
+    guild_enforcer:{hp:14,attack:5,text:'A tariff collector turned predator guards the shipment.',weakness:'witness'},
+    contract_bound:{hp:12,attack:4,text:'A creature enslaved by Guild seals struggles in binding.',weakness:'seal_breaking'},
+    sea_leech:{hp:13,attack:4,text:'A brine-bloated parasite clings to floating wood.',weakness:'fresh_water'},
+    floating_scavenger:{hp:15,attack:5,text:'A storm-born predator circles the floating platforms.',weakness:'grounding'}
   };
 
   const HAZARDS = {
@@ -230,7 +269,13 @@
     quench_burst:{severity:3,text:'Steam and slag erupt where the line should hold.',weakness:'distance'},
     lift_shear:{severity:3,text:'A vertical line threatens to tear itself apart.',weakness:'load'},
     seal_feedback:{severity:2,text:'Court seals begin arguing with each other.',weakness:'sequence'},
-    crowd_break:{severity:2,text:'Civic pressure outruns the room meant to hold it.',weakness:'space'}
+    crowd_break:{severity:2,text:'Civic pressure outruns the room meant to hold it.',weakness:'space'},
+    enforcement_raid:{severity:3,text:'Roazian enforcement sweeps through with checkpoints and seizures.',weakness:'anonymity'},
+    containment_breach:{severity:3,text:'Sealed systems give way and something escapes.',weakness:'procedure'},
+    warehouse_collapse:{severity:3,text:'Stacked crates and tariffs come down all at once.',weakness:'bracing'},
+    fire_break:{severity:3,text:'A trade-house fire spreads through dense wooden blocks.',weakness:'water'},
+    storm_surge:{severity:3,text:'Sea weather threatens floating structures.',weakness:'ballast'},
+    deck_collapse:{severity:2,text:'Floating platforms strain under storm and cargo weight.',weakness:'reinforcement'}
   };
 
   const STAGE_FAMILIES = {
