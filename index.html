@@ -1,118 +1,296 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Ledger of Ash — Upgrade Batch 27</title>
-  <style>
-    :root{--bg:#0f0d0a;--panel:#17120d;--panel2:#1d1711;--line:#4d3b25;--line2:#6d5637;--text:#f0e7d0;--muted:#c9b99b;--accent:#d4b67a;--good:#98c18f;--warn:#c9a46b;--bad:#c27f7f}
-    *{box-sizing:border-box}
-    body{margin:0;background:radial-gradient(circle at top,#18120c 0%,#0f0d0a 60%);color:var(--text);font:16px/1.45 Georgia,serif}
-    .wrap{max-width:1180px;margin:0 auto;padding:14px}
-    .top{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between}
-    .titleBlock h1{margin:0 0 4px 0;font-size:28px}
-    .muted{color:var(--muted)}
-    .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-    .bar button,.choice,.small,.inlineBtn{background:linear-gradient(180deg,#241b12,#1a140e);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.03) inset}
-    .bar button.active{border-color:var(--accent);color:#fff8e6}
-    .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:12px;padding:12px;margin:8px 0}
-    .hero{display:grid;grid-template-columns:1fr;gap:10px}
-    .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:14px;align-items:start}
-    .stack{display:grid;gap:8px}
-    .panel{display:none}
-    .panel.active{display:block}
-    .sectionTitle{font-weight:bold;letter-spacing:.04em;text-transform:uppercase;color:#ead9b5;font-size:13px;margin-bottom:6px}
-    .choice{display:block;width:100%;text-align:left;margin:8px 0}
-    .choice small{display:block;color:var(--muted);margin-top:4px}
-    .pillRow{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-    .pill{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid var(--line2);background:#130f0b;color:#e8dcc5}
-    .pill.good{border-color:#5a7b53;color:#cfe7c8}
-    .pill.warn{border-color:#8b7042;color:#efd5aa}
-    .pill.bad{border-color:#8a5555;color:#f0c3c3}
-    input,select{background:#0f0d0b;color:var(--text);border:1px solid var(--line2);border-radius:8px;padding:9px 10px;min-width:0}
-    .form{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
-    .subgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .poiline{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-top:1px solid rgba(255,255,255,.05)}
-    .poiline:first-child{border-top:none;padding-top:0}
-    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, monospace}
-    @media (max-width:940px){.grid,.form,.subgrid{grid-template-columns:1fr}.bar{justify-content:flex-start}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Ledger of Ash — A Living World RPG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class='wrap'>
-    <div class='top'>
-      <div class='titleBlock'>
-        <h1 id='title'>Ledger of Ash</h1>
-        <div id='header' class='muted'></div>
-        <div id='stats' class='muted'></div>
+<div class="screen active" id="screen-title" style="background-image:url('assets/cover.jpg');background-size:cover;background-position:center 30%;background-repeat:no-repeat;">
+  <div class="title-grain"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,7,10,0.72) 0%, rgba(8,7,10,0.60) 40%, rgba(8,7,10,0.85) 100%);z-index:1;pointer-events:none"></div>
+  <div class="title-glow"></div>
+  <div class="title-content">
+    <div class="title-eyebrow">The Material Planet</div>
+    <h1 class="title-main">Ledger of Ash</h1>
+    <div class="title-sub">A Living World RPG</div>
+    <div class="title-divider"></div>
+    <div class="title-entry" id="title-entry">
+      <div class="title-entry-label">Enter your passcode to load your legend,<br>or begin a new one below.</div>
+      <div class="title-pin-row">
+        <input type="password" id="title-passcode" maxlength="4" pattern="[0-9]{4}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="off" inputmode="numeric">
+        <button class="btn btn-primary btn-sm" id="btn-enter-code">Enter</button>
       </div>
-      <div class='bar'>
-        <button data-panel='mapPanel'>Map</button>
-        <button data-panel='servicesPanel'>Services</button>
-        <button data-panel='sheetPanel' class='active'>Sheet</button>
-        <button data-panel='journalPanel'>Journal</button>
-        <button data-panel='npcsPanel'>NPCs</button>
-        <button data-panel='noticesPanel'>Notices</button>
-        <button data-panel='campPanel'>Camp</button>
-        <button data-panel='legendsPanel'>Legends</button>
+      <div id="title-code-error" class="title-error" style="display:none">No legend found for that code.</div>
+      <div id="title-legend-list" style="display:none"></div>
+    </div>
+    <div class="title-divider-sm"></div>
+    <div style="display:flex;flex-direction:column;gap:10px;animation:fadeUp .8s .5s ease both">
+      <button class="btn btn-primary" id="btn-new-legend">Begin New Legend</button>
+      <button class="btn btn-ghost btn-sm" id="btn-hall">Hall of Legends</button>
+    </div>
+    <div class="title-version">Stage I&#x2013;II &#x2014; V28_8 Canon &#x2014; v2.0</div>
+  </div>
+</div>
+
+<div class="screen" id="screen-create">
+  <div class="create-wrap">
+    <div class="create-header">
+      <h2>Begin Your Ledger</h2>
+      <p>Your name, your passcode, your class, your origin. The world will remember all four.</p>
+    </div>
+    <div class="create-step">
+      <div class="step-label">I &#x2014; Your Name</div>
+      <input type="text" class="name-input" id="char-name" placeholder="Enter your name..." maxlength="40" autocomplete="off">
+    </div>
+    <div class="create-step">
+      <div class="step-label">II &#x2014; Passcode</div>
+      <p style="color:var(--ink-faint);font-size:13px;margin-bottom:12px;line-height:1.5">Choose a 4-digit code to save and reload this legend. Write it down.</p>
+      <input type="password" class="name-input" id="char-passcode" placeholder="4 digits" maxlength="4" pattern="[0-9]{4}" autocomplete="off" inputmode="numeric" style="letter-spacing:10px;font-size:22px;max-width:200px">
+    </div>
+    <div class="create-step" id="stat-boost-step" style="display:none">
+      <div class="step-label">III &#x2014; Starting Bonus</div>
+      <p style="color:var(--ink-faint);font-size:13px;margin-bottom:12px;line-height:1.5">Choose one skill to improve by +1 before play begins.</p>
+      <div class="card-grid" id="stat-boost-grid" style="grid-template-columns:repeat(3,1fr)"></div>
+    </div>
+    <div class="create-step">
+      <div class="step-label">IV &#x2014; Class</div>
+      <div id="archetype-grid"></div>
+    </div>
+    <div class="create-step" id="bg-step" style="display:none">
+      <div class="step-label">V &#x2014; Background</div>
+      <div class="card-grid" id="background-grid"></div>
+    </div>
+    <div class="create-narrative" id="create-narrative"></div>
+    <div class="create-actions">
+      <button class="btn btn-ghost" id="btn-back-title">&#x2190; Return</button>
+      <button class="btn btn-primary" id="begin-btn" style="display:none">Begin Your Legend &#x2192;</button>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="screen-game">
+  <div id="topbar">
+    <div class="topbar-left">
+      <span class="game-title">Ledger of Ash</span>
+      <span class="stage-pill" id="topbar-stage">Stage I</span>
+    </div>
+    <div class="topbar-right">
+      <button class="btn btn-ghost btn-xs" id="btn-map">Map</button>
+      <button class="btn btn-ghost btn-xs" id="btn-journal">Journal</button>
+      <button class="btn btn-ghost btn-xs" id="btn-npcs">NPCs</button>
+      <button class="btn btn-ghost btn-xs" id="btn-notices">Notices</button>
+      <button class="btn btn-ghost btn-xs" id="btn-party">Party</button>
+      <button class="btn btn-ghost btn-xs" id="btn-camp">Camp</button>
+      <button class="btn btn-ghost btn-xs" id="btn-charsheet">Sheet</button>
+      <button class="btn btn-danger btn-xs" id="btn-end-legend">End</button>
+    </div>
+  </div>
+  <div class="game-body">
+    <div id="panel-left">
+      <div class="panel-section">
+        <div class="panel-title">Character</div>
+        <div class="stat-row"><span class="stat-key">Name</span><span class="stat-val" id="hud-name">&#x2014;</span></div>
+        <div class="stat-row"><span class="stat-key">Class</span><span class="stat-val" id="hud-class">&#x2014;</span></div>
+        <div class="stat-row"><span class="stat-key">Level</span><span class="stat-val gold" id="hud-level">1</span></div>
+        <div class="stat-row"><span class="stat-key">Renown</span><span class="stat-val" id="hud-renown">0</span></div>
+        <div class="stat-row"><span class="stat-key">Align</span><span id="hud-alignment" class="align-label">True Neutral</span></div>
+      </div>
+      <div class="panel-section">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="stat-key">HP</span><span class="stat-val" id="hud-hp">&#x2014;</span></div>
+        <div class="hp-bar"><div class="hp-fill" id="hud-hpbar" style="width:100%"></div></div>
+        <div class="stat-row"><span class="stat-key">Status</span><span class="stat-val good" id="hud-status">Stable</span></div>
+        <div class="stat-row"><span class="stat-key">Gold</span><span class="stat-val gold" id="hud-gold">0</span></div>
+      </div>
+      <div class="panel-section">
+        <div class="axis-display">
+          <div class="axis-state" id="hud-axis">Normal</div>
+          <div class="axis-tick">Axis &#x00B7; Tick <span id="hud-tick">0</span>/73</div>
+        </div>
+      </div>
+      <div class="panel-section">
+        <div class="panel-title">Skills</div>
+        <div id="hud-skills"></div>
+      </div>
+      <div class="loc-block">
+        <div class="loc-label">Location</div>
+        <div class="loc-val" id="hud-location">&#x2014;</div>
+        <div class="loc-label" style="margin-top:8px">Time</div>
+        <div class="loc-val" id="hud-time">Dawnrise</div>
       </div>
     </div>
-
-    <div class='card'>
-      <div class='sectionTitle'>Load Legend</div>
-      <div class='subgrid'>
-        <input id='loadCode' placeholder='Passcode'>
-        <button id='loadBtn' class='inlineBtn'>Load</button>
+    <div id="panel-center">
+      <div id="env-panel">
+        <div class="env-location">&#x2014;</div>
+        <div class="env-region"></div>
+        <div class="env-desc"></div>
+        <div class="env-status"></div>
+        <div id="local-locations" class="local-locs"></div>
       </div>
+      <div id="narrative-scroll"><div id="narrative-content"></div></div>
     </div>
-
-    <div class='card'>
-      <div class='sectionTitle'>Begin New Legend</div>
-      <div class='form'>
-        <input id='newName' placeholder='Name'>
-        <input id='newCode' placeholder='Passcode'>
-        <select id='archSelect'></select>
-        <select id='bgSelect'></select>
-        <select id='ageSelect'></select>
-        <select id='presentationSelect'></select>
-        <button id='beginBtn'>Begin Your Legend</button>
+    <div id="panel-right">
+      <div class="panel-section">
+        <div class="panel-title">Quests</div>
+        <div id="quest-list"><div class="journal-entry" style="font-style:normal;color:var(--ink-faint);font-size:12px">No active quests.</div></div>
       </div>
-    </div>
-
-    <div class='grid'>
-      <div class='hero'>
-        <div id='narrative' class='card'></div>
-        <div id='result' class='card'></div>
-        <div id='choices'></div>
+      <div class="panel-section">
+        <div class="panel-title">Factions</div>
+        <div id="faction-list"></div>
       </div>
-      <div class='stack'>
-        <div id='mapPanel' class='panel'></div>
-        <div id='servicesPanel' class='panel'></div>
-        <div id='sheetPanel' class='panel active'></div>
-        <div id='journalPanel' class='panel'></div>
-        <div id='npcsPanel' class='panel'></div>
-        <div id='noticesPanel' class='panel'></div>
-        <div id='campPanel' class='panel'></div>
-        <div id='legendsPanel' class='panel'></div>
+      <div class="panel-section" id="party-hud"></div>
+      <div class="panel-section">
+        <div class="panel-title">Journal</div>
+        <div id="journal-list"><div class="journal-entry">Your ledger awaits its first entry.</div></div>
       </div>
     </div>
   </div>
-  <script>
-    document.addEventListener('click', (e)=>{
-      const btn = e.target.closest('[data-panel]');
-      if(!btn) return;
-      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-      document.querySelectorAll('.bar button').forEach(b=>b.classList.remove('active'));
-      const target = document.getElementById(btn.dataset.panel);
-      if(target) target.classList.add('active');
-      btn.classList.add('active');
-    });
-  </script>
-  <script src='js/data.js'></script>
-  <script src='js/stage2-backgrounds.js'></script>
-  <script src='js/narrative.js'></script>
-  <script src='js/party.js'></script>
-  <script src='js/combat.js'></script>
-  <script src='js/engine.js'></script>
+</div>
+
+<div class="overlay" id="overlay-journal">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">The Ledger</span>
+      <button class="overlay-close" data-close="overlay-journal">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="journal-overlay-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-map">
+  <div class="overlay-box" style="max-width:700px">
+    <div class="overlay-header">
+      <span class="overlay-title">The Material Planet</span>
+      <button class="overlay-close" data-close="overlay-map">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="map-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-charsheet">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title" id="sheet-title">Character</span>
+      <button class="overlay-close" data-close="overlay-charsheet">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-camp">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">Make Camp</span>
+      <button class="overlay-close" data-close="overlay-camp">&#x00D7;</button>
+    </div>
+    <div class="overlay-body">
+      <p style="color:var(--ink-dim);font-style:italic;margin-bottom:20px;font-size:14px">The fire is low. The road can wait.</p>
+      <div class="camp-grid">
+        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x1F319;</div><div class="ca-title">Rest</div><div class="ca-desc">Restore HP. Axis ticks forward.</div></button>
+        <button class="camp-action" data-camp="talk"><div class="ca-icon">&#x1F4AC;</div><div class="ca-title">Companions</div><div class="ca-desc">Hear their minds. Unlocks at Level 3.</div></button>
+        <button class="camp-action" data-camp="train"><div class="ca-icon">&#x2694;</div><div class="ca-title">Train</div><div class="ca-desc">Improve a skill. Costs one tick.</div></button>
+        <button class="camp-action" data-camp="recover"><div class="ca-icon">&#x1FA79;</div><div class="ca-title">Seek Care</div><div class="ca-desc">Find a healer in the settlement.</div></button>
+        <button class="camp-action" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare equipment. Unlocks at Level 2.</div></button>
+      </div>
+      <div style="margin-top:16px;text-align:center">
+        <button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-party">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">Party</span>
+      <button class="overlay-close" data-close="overlay-party">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="party-overlay-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-notices">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">Notice Board</span>
+      <button class="overlay-close" data-close="overlay-notices">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="notices-overlay-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-npcs">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">Local Contacts</span>
+      <button class="overlay-close" data-close="overlay-npcs">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="npc-overlay-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-hall">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">Hall of Legends</span>
+      <button class="overlay-close" data-close="overlay-hall">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="hall-body">
+      <p style="color:var(--ink-faint);font-style:italic">No legends recorded yet.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-death">
+  <div class="overlay-box" style="max-width:400px">
+    <div class="overlay-header">
+      <span class="overlay-title" style="color:var(--blood-bright)">Your Legend Ends</span>
+      <button class="overlay-close" data-close="overlay-death">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" style="text-align:center">
+      <p style="color:var(--ink-dim);font-style:italic;margin-bottom:24px;font-size:15px;line-height:1.7">Here ends the tale. The Ledger will remember what you were.</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button class="btn btn-danger" id="btn-confirm-end">Record My End</button>
+        <button class="btn btn-ghost btn-sm" data-close="overlay-death">Not yet.</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/party.js"></script>
+<script src="js/world.js"></script>
+<script src="js/combat.js"></script>
+<script src="js/world-data.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/consequences.js"></script>
+<script src="js/engine.js"></script>
+<script>
+document.getElementById('btn-new-legend').addEventListener('click', () => { showScreen('screen-create'); initCreate(); });
+document.getElementById('btn-hall').addEventListener('click', showHallOfLegends);
+document.getElementById('btn-enter-code').addEventListener('click', enterPasscode);
+document.getElementById('title-passcode').addEventListener('keydown', e => { if (e.key === 'Enter') enterPasscode(); });
+document.getElementById('title-passcode').addEventListener('input', () => { document.getElementById('title-code-error').style.display = 'none'; document.getElementById('title-legend-list').style.display = 'none'; });
+document.getElementById('char-name').addEventListener('input', updateCreateNarrative);
+document.getElementById('char-passcode').addEventListener('input', checkBeginReady);
+document.getElementById('btn-back-title').addEventListener('click', () => showScreen('screen-title'));
+document.getElementById('begin-btn').addEventListener('click', beginLegend);
+document.getElementById('btn-map').addEventListener('click', showMap);
+document.getElementById('btn-journal').addEventListener('click', showJournal);
+document.getElementById('btn-npcs').addEventListener('click', showNPCMenu);
+document.getElementById('btn-notices').addEventListener('click', showNoticesOverlay);
+document.getElementById('btn-party').addEventListener('click', showPartyOverlay);
+document.getElementById('btn-camp').addEventListener('click', showCamp);
+document.getElementById('btn-charsheet').addEventListener('click', showCharSheet);
+document.getElementById('btn-end-legend').addEventListener('click', confirmDeath);
+document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeOverlay(btn.dataset.close)));
+document.querySelectorAll('[data-camp]').forEach(btn => btn.addEventListener('click', () => campAction(btn.dataset.camp)));
+document.getElementById('btn-confirm-end').addEventListener('click', endLegend);
+</script>
 </body>
 </html>
