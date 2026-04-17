@@ -701,6 +701,189 @@ const STAGE2_DESTINATION_CONTENT = {
     bard:        ['shelkopolis','guildheart_hub','panim_haven']
   };
 
+  const STAGE1_BACKGROUND_CONTENT = {
+    warrior: {
+      civic: {
+        theme: 'public discipline and visible duty',
+        contradiction: 'garrison orders contradict what the street admits is happening',
+        objective: 'Trace the eastern route closure to its real authority and find who authorized the silence.',
+        narrative: 'The garrison in Shelkopolis holds its lines with practiced precision. Orders flow through the command structure with military clarity, but something underneath has cracked.'
+      },
+      frontier: {
+        theme: 'route discipline and survival priority',
+        contradiction: 'the supply line shortage is worse than the official reports allow',
+        objective: 'Find where the eastern route was truly blocked and by what hand.',
+        narrative: 'Soreheim Proper moves to the rhythm of industrial quotas. Warriors are valued here as keepers of the line, but the line itself has broken somewhere upstream.'
+      },
+      occult: {
+        theme: 'discipline wielded against hidden threats',
+        contradiction: 'enforcement checkpoints are watching something they will not name',
+        objective: 'Discover what creature or force the enforcement apparatus is actually containing.',
+        narrative: 'Ithtananalor runs on procedure and authority. The Iron Accord maintains order through visible strength, but underground something moves that requires their full attention.'
+      }
+    },
+    knight: {
+      civic: {
+        theme: 'oath-bound service and institutional loyalty',
+        contradiction: 'House Shelk promises and House Shelk actions have diverged sharply',
+        objective: 'Find what House Shelk is protecting by closing the eastern route.',
+        narrative: 'Shelkopolis breathes ritual and ceremony. Knights serve the houses and houses serve procedure, but one house has broken its own rules for reasons nobody will state.'
+      },
+      frontier: {
+        theme: 'oath to survival against larger forces',
+        contradiction: 'the Iron Accord is lying about why the route was closed',
+        objective: 'Extract the real reason from the Roazian enforcement hierarchy.',
+        narrative: 'Ithtananalor operates on power and protocol. Knights recognize authority here, but the authority itself is fractured and hiding something significant.'
+      },
+      occult: {
+        theme: 'oath tested against sacred knowledge',
+        contradiction: 'the memorial pattern shows deaths that the records do not account for',
+        objective: 'Connect the hidden deaths to the route closure and learn what caused them.',
+        narrative: 'Panim Haven speaks in the language of ritual and registry. Death is business here, but something recent has broken the careful accounting and no one will admit the failure.'
+      }
+    },
+    ranger: {
+      civic: {
+        theme: 'route knowledge and waypoint navigation',
+        contradiction: 'the official route charts have been deliberately altered',
+        objective: 'Find the original waypoint and learn what it was closed to contain.',
+        narrative: 'Fairhaven trades in movement and passage. Rangers read routes for a living, but someone has redrawn this one and the alteration does not feel like routine maintenance.'
+      },
+      frontier: {
+        theme: 'axis knowledge and corridor mapping',
+        contradiction: 'the allocation board shows coordinated changes that should not be coordinated',
+        objective: 'Discover what central authority orchestrated the supply route shift.',
+        narrative: 'The frontier operates on individual survival, but Soreheim Proper moves on quotas and centralized control. The supply corridor changes were orchestrated from above.'
+      },
+      occult: {
+        theme: 'containment reading and breach detection',
+        contradiction: 'the axis data shows inversion that the officials deny',
+        objective: 'Prove that a creature breach forced the containment response.',
+        narrative: 'Aurora Crown Commune lives in terror of contamination. Rangers understand trade routes but they also read the signs that others miss. Something crossed a boundary here.'
+      }
+    },
+    paladin: {
+      civic: {
+        theme: 'sacred witness to community pressure',
+        contradiction: 'memorial filings show vanished people that civic records claim never existed',
+        objective: 'Connect the memorial spike to the route closure and find where the vanished ones are.',
+        narrative: 'Shelkopolis holds ceremony and memorial service in high regard. Paladins serve community bonds, but the memorials accumulating for the vanished are being processed in an oddly deliberate silence.'
+      },
+      frontier: {
+        theme: 'oath to survival when systems fail',
+        contradiction: 'two names appear in records suggesting institutional coordination across polities',
+        objective: 'Trace those administrators and learn what coordination happened.',
+        narrative: 'Ithtananalor runs on enforcement and order. Paladins recognize when that order is being bent toward specific purpose. Two officials coordinating between jurisdictions suggests something intentional.'
+      },
+      occult: {
+        theme: 'sacred response to forbidden knowledge',
+        contradiction: 'forbidden practices appear in the records if one knows where to look',
+        objective: 'Learn what forbidden practice was being used and whether it caused or contained the crisis.',
+        narrative: 'Mimolot Academy pursues knowledge carefully. Paladins serve sacred purposes but this place keeps dangerous texts. Something is happening that the careful cataloging cannot quite hide.'
+      }
+    },
+    archer: {
+      civic: {
+        theme: 'precision distance and careful sight lines',
+        contradiction: 'permit stamps do not match actual passage timelines',
+        objective: 'Find the hand operating outside the official permit system.',
+        narrative: 'Shelkopolis operates on visible order and documented passage. Archers understand distance and sight lines. Something is moving through the city outside the normal channels.'
+      },
+      frontier: {
+        theme: 'survival through disciplined ranged approach',
+        contradiction: 'the eastern route obstruction is not natural or official',
+        objective: 'Discover who placed the physical blockade and why.',
+        narrative: 'Sunspire Haven moves freight through weather and pressure. Archers survive through discipline and accuracy. The obstruction on the eastern route was placed deliberately by human hands.'
+      },
+      occult: {
+        theme: 'ranged power against hidden threats',
+        contradiction: 'guild contract changes suggest foreknowledge of the route closure',
+        objective: 'Find which guild houses knew about the closure in advance.',
+        narrative: 'Guildheart Hub operates on contracts and forward knowledge. Archers understand that power often lies in seeing problems before they arrive. The guild shifted its routes before the crisis was public.'
+      }
+    },
+    berserker: {
+      civic: {
+        theme: 'aggressive pressure and the breaking point',
+        contradiction: 'visible aggression in official handling is worse than the underlying crisis',
+        objective: 'Push through the artificial barriers and find the real threat underneath.',
+        narrative: 'Soreheim Proper moves on force and production. Berserkers understand aggression and its uses. The enforcement around the closure is disproportionate, hiding something worse than the crisis itself.'
+      },
+      frontier: {
+        theme: 'violence answering hidden violence',
+        contradiction: 'the creatures sighted near the closure are more dangerous than reported',
+        objective: 'Find the creature and learn what it has actually done.',
+        narrative: 'Sunspire Haven survives through rough adaptation. Berserkers know that violence in the frontier is honest. The creature threat is real but authorities are underselling exactly how lethal it has become.'
+      },
+      occult: {
+        theme: 'fury against things that move in darkness',
+        contradiction: 'binding magic is being used to keep something contained rather than killed',
+        objective: 'Determine whether the containment is holding or if something is breaking free.',
+        narrative: 'Cosmoria sits on maritime knowledge and scholarly record. Berserkers rage at obstacles. The creature is bound by magic, not dead, which means the magic could fail at any moment.'
+      }
+    },
+    warden: {
+      civic: {
+        theme: 'boundary enforcement and custody authority',
+        contradiction: 'the checkpoint is holding something inside rather than protecting outside',
+        objective: 'Determine what authority ordered the inward containment.',
+        narrative: 'Shelkopolis runs on order and permission. Wardens enforce boundaries carefully. This checkpoint is a containment mechanism, not a protection mechanism, and someone above gave that order.'
+      },
+      frontier: {
+        theme: 'custody of harsh territory and rough discipline',
+        contradiction: 'the enforcement presence is maintaining a perimeter rather than protecting a route',
+        objective: 'Learn what is at the center of the perimeter being maintained.',
+        narrative: 'Ithtananalor runs through inspection and control. Wardens understand containment. The enforcement around the closure is not stopping people from leaving, it is stopping something from escaping.'
+      },
+      occult: {
+        theme: 'custody of dangerous knowledge and sealed practices',
+        contradiction: 'guild records show authority protocols for creature containment and binding',
+        objective: 'Access those protocols and learn what creature is being held.',
+        narrative: 'Guildheart Hub moves contracts and goods, but also knowledge. Wardens know custody. The guild has procedures for this kind of containment, which means this has happened before.'
+      }
+    },
+    warlord: {
+      civic: {
+        theme: 'command authority and civic power projection',
+        contradiction: 'the closure demonstrates military command overriding civic authority',
+        objective: 'Identify which military authority made the closure decision.',
+        narrative: 'Shelkopolis maintains ceremony and order, but beneath it runs real power. Warlords understand command. The closure was not a civic decision, it was military, and that shift in authority matters.'
+      },
+      frontier: {
+        theme: 'field command and morale pressure under crisis',
+        contradiction: 'military supply records show emergency positioning rather than standard operations',
+        objective: 'Learn what military threat prompted emergency positioning.',
+        narrative: 'Soreheim Proper runs on production and order. Warlords lead through presence and decisiveness. The military position around the closure is defensive, concentrated, ready for something specific.'
+      },
+      occult: {
+        theme: 'command against supernatural force and hidden threat',
+        contradiction: 'enforcement records describe magical containment and binding operations',
+        objective: 'Understand the scale and nature of what is being magically contained.',
+        narrative: 'Ithtananalor speaks law and procedure. Warlords recognize that some threats require coordinated magical response. The containment here is military-grade magical binding.'
+      }
+    },
+    death_knight: {
+      civic: {
+        theme: 'terrible oath and ruinous response to death',
+        contradiction: 'death records have been edited to hide the scale of recent casualties',
+        objective: 'Restore the true death count and learn what caused it.',
+        narrative: 'Panim Haven serves death and remembrance. Death Knights take oaths that lead to ruin. The recent deaths here were significant enough to warrant editing the very records of the dead.'
+      },
+      frontier: {
+        theme: 'death as path and grave-marking',
+        contradiction: 'frontier graves are being hidden or relocated outside normal process',
+        objective: 'Find the hidden graves and learn who was buried in secret.',
+        narrative: 'Ithtananalor runs on order and record. Death Knights serve death itself. Graves from the closure are being moved off the books, which means powerful people are erasing evidence.'
+      },
+      occult: {
+        theme: 'death oath and binding magic against dissolution',
+        contradiction: 'occult death-binding practices are being used in the containment operation',
+        objective: 'Determine if the death-binding is holding or if resurrection waits.',
+        narrative: 'Shirshal operates on testimony and sealed records. Death Knights swear terrible oaths. The creature or force is not merely contained, it is death-bound, which suggests it was never supposed to be seen in this world again.'
+      }
+    }
+  };
+
   const BACKGROUNDS = {};
   const BACKGROUND_ROUTE_SIGNATURES = {};
 
@@ -708,25 +891,32 @@ const STAGE2_DESTINATION_CONTENT = {
     const localitySet = ARCHETYPE_ORIGIN_LOCALITIES[a.id] || ['shelkopolis','shelkopolis','shelkopolis'];
     const familyCycle = STAGE_FAMILIES.stage2;
     const baseIndex = ai % familyCycle.length;
+    const stage1Content = STAGE1_BACKGROUND_CONTENT[a.id] || {};
     const backgrounds = [
-      {id:`${a.id}_civic`,name:'Civic Hand',theme:'public procedure and obligation',stage1Plot:'local_contradiction',bonus:'persuasion'},
-      {id:`${a.id}_frontier`,name:'Frontier Hand',theme:'route pressure and rough adaptation',stage1Plot:'route_pressure',bonus:'survival'},
-      {id:`${a.id}_occult`,name:'Occult Hand',theme:'hidden rites and dangerous knowledge',stage1Plot:'hidden_rite',bonus:'lore'}
-    ].map((b, bi)=>({
-      ...b,
-      originLocality: localitySet[bi],
-      firstNpc: (NPC_PLACEMENTS[localitySet[bi]]||[])[0]?.id || null,
-      firstSafeZone: KEY_LOCALITIES[localitySet[bi]].safeZone,
-      firstContradiction: `${KEY_LOCALITIES[localitySet[bi]].pressures[bi % KEY_LOCALITIES[localitySet[bi]].pressures.length]} is worse than locals will say aloud.`,
-      firstObjective: `Find the true hand behind ${KEY_LOCALITIES[localitySet[bi]].pressures[(bi+1) % KEY_LOCALITIES[localitySet[bi]].pressures.length]}.`,
-      firstFailure: `A failed push hands time and visibility to whoever benefits from the present confusion.`
-    }));
+      {id:`${a.id}_civic`,name:'Civic Hand',type:'civic'},
+      {id:`${a.id}_frontier`,name:'Frontier Hand',type:'frontier'},
+      {id:`${a.id}_occult`,name:'Occult Hand',type:'occult'}
+    ].map((b, bi)=>{
+      const s1 = stage1Content[b.type] || {theme:'local pressure and adaptation',contradiction:'something is wrong and getting worse',objective:'Find the hidden hand behind the pressure.',narrative:'Something has broken here.'};
+      return {
+        ...b,
+        theme: s1.theme,
+        originLocality: localitySet[bi],
+        firstNpc: (NPC_PLACEMENTS[localitySet[bi]]||[])[0]?.id || null,
+        firstSafeZone: KEY_LOCALITIES[localitySet[bi]].safeZone,
+        firstContradiction: s1.contradiction,
+        firstObjective: s1.objective,
+        firstFailure: `A failed push hands time and visibility to whoever benefits from the present confusion.`,
+        stage1Narrative: s1.narrative,
+        bonus: a.focus
+      };
+    });
     BACKGROUNDS[a.id] = backgrounds;
     backgrounds.forEach((b, bi)=>{
       BACKGROUND_ROUTE_SIGNATURES[b.id] = {
         backgroundId:b.id,
         originLocality:b.originLocality,
-        stage1Plot:b.stage1Plot,
+        stage1Plot:b.type,
         stage2Vector:Object.keys(ROUTE_NAMES)[(baseIndex+bi) % Object.keys(ROUTE_NAMES).length],
         stage3Family:familyCycle[(baseIndex+bi)%familyCycle.length],
         stage4Family:familyCycle[(baseIndex+bi+2)%familyCycle.length],
