@@ -4,7 +4,7 @@ A text-based RPG set in the **V28_8** Material Planet canon. You are a capable p
 in an unstable world. The eastern route has gone wrong. The city knows.
 Your job is to understand what happened and decide what to do about it.
 
-**Current build:** 31 archetypes × 3 backgrounds = 93 backgrounds; 11 canonical localities; Stage I–V progression; V28_8 canon alignment; Stage I locality grounding.
+**Current build:** 31 archetypes × 3 backgrounds = 93 backgrounds; 13 canonical localities; Stage I–V progression; V28_8 canon alignment; Stage I locality grounding.
 
 ## Play
 
@@ -54,8 +54,8 @@ Upload `dist/index.html` to any web host. No backend needed for Phase 1.
 
 **Systems:**
 - `js/engine.js` — Core engine: state initialization, level-up, save/load, character creation, stage progression, objective cycling, threat/rescue logic
-- `js/party.js` — Companion system: definitions, recruitment flow, camp talk, party overlay, trust/injury mechanics
-- `js/combat.js` — Combat system with 31 archetype-specific abilities
+- `js/party.js` — Companion definitions (4 recruitable NPCs), skill bonus logic (`window.companionBonus`); recruitment/camp/overlay flows defined but use legacy DOM API not connected to current engine
+- `js/combat.js` — 93 archetype combat abilities (3 per archetype) + full TTRPG multi-round combat system; combat abilities defined, multi-round flow not integrated into engine.js encounter choices
 
 **Deployment:**
 - `index.html` — HTML shell with overlays (journal, notices, NPCs, party, sheet, map); inline CSS; script imports
@@ -127,27 +127,26 @@ Each background now starts in its V28_8-canonical starting locality instead of h
 - Guildheart backgrounds → Guildheart Hub
 - etc.
 
-**11 Canonical Localities** (V28_8):
-Panim Haven, Soreheim Proper, Sunspire Haven, Shelkopolis, Fairhaven, Mimolot Academy, 
-Ithtananalor, Guildheart Hub, Cosmoria, Aurora, and one more (see `js/data.js` KEY_LOCALITIES)
+**13 Canonical Localities** (V28_8):
+Panim Haven, Soreheim Proper, Sunspire Haven, Shelkopolis, Fairhaven, Mimolot Academy,
+Ithtananalor, Guildheart Hub, Cosmoria, Aurora Crown Commune, Glasswake Commune, Shirshal, Harvest Circle
 
 **Stage I–V Progression:**
-- Stage I: 4+ pressure rolls to advance
-- Stage II: Adjacent locality pressure (region-specific)
-- Stage III: Wider route pressure
-- Stage IV: Family milestone unlocks + faction consequences
-- Stage V: Permadeath mode; 3 quest spines; family edge unlocks
+- Stage I: 4+ objective-web actions + Level 5 to advance; locality-grounded pressure chains
+- Stage II: Adjacent locality pressure; background-specific route content; destination scouting
+- Stage III–IV: Family milestone tracking (3 milestones each); family edge unlocks at milestone 2
+- Stage V: Permadeath; final boss/hazard confrontation after 4 milestones; legend saved on death
 
-**Companion System:**
-- 4 recruitable companions with trust, injury, and leave mechanics
-- Camp conversations deepen based on bond level
-- Party bonuses apply to skill rolls
+**Companion System (defined, partial integration):**
+- 4 companions defined in `party.js` with trust, injury, and leave mechanics
+- Companion skill bonuses apply to rolls via `window.companionBonus`
+- Full recruitment flow and camp talk UI use legacy API; not yet connected to the active engine.js architecture
 
-**105 Archetype Abilities:** Passive + active split; applied at level-up
+**93 Archetype Combat Abilities:** 3 per archetype (passive/active/reaction split) defined in `combat.js`
 
-**Combat System:** TTRPG-style with archetype-specific tactics
+**Encounter System:** Skill-check-based encounters (combat/stealth/lore/retreat) via engine.js `encounterChoices`; full TTRPG multi-round combat defined in `combat.js` but not yet integrated into the active engine
 
-**Save Schema v5:** Full migration chain; localStorage-based with 4-digit passcode
+**Save System:** localStorage-based with 4-digit passcode; no migration chain in current build
 
 ## Canon Authority
 
@@ -172,17 +171,20 @@ See `docs/CANON_UPDATE.md` for detailed canon alignment notes.
 
 ## Current state summary
 
-**This is a complete, single-file, browser-based RPG with:**
+**This is a functional, single-file, browser-based RPG with:**
 - V28_8 canonical world grounding
 - Stage I locality grounding: each of 93 backgrounds starts in its own V28_8-canonical starting locality
 - 31 playable archetypes with distinct progression paths
-- Dynamic narrative generation based on pressure, hazards, NPCs, and routes
-- Companion system with trust, camp conversations, and party mechanics
+- Dynamic narrative generation based on locality, pressure, hazards, NPCs, and routes
 - Full 5-stage progression with permadeath at Stage V
-- Combat system with archetype-specific abilities
-- localStorage save system with migration support
+- Skill-check encounter system with archetype-matched choices
+- localStorage save system with passcode
 - Responsive design (desktop + mobile)
 - Zero server/database requirements
+
+**What is defined but not yet fully integrated:**
+- Full TTRPG multi-round combat system (combat.js — defined, not called by engine.js)
+- Companion recruitment flow, camp talk, and party overlay (party.js — defined, uses legacy DOM API not present in current engine.js)
 
 **To contribute:**
 1. Identify which system you want to work on (see Architecture section)

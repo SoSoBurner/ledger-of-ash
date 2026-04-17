@@ -146,7 +146,7 @@ const ARCHETYPE_COMBAT_ABILITIES = {
     {id:'arcane_disruption', name:'Arcane Disruption', cost:'action', effect:'enemy caster cannot use abilities next round', skillReq:'lore', minSkill:2},
     {id:'redirect',       name:'Redirect',      cost:'reaction', effect:'redirect one magical effect to different target', skillReq:'lore', minSkill:3}
   ],
-  scout_c:[
+  scout:[
     {id:'ambush_prep',  name:'Ambush Prep',  cost:'bonus',  effect:'+3 attack if combat initiated by you', skillReq:'stealth', minSkill:2},
     {id:'flank_call',   name:'Flank Call',   cost:'bonus',  effect:'identify weak point. All attacks gain +1 for 2 rounds.', skillReq:'survival', minSkill:1},
     {id:'cover_break',  name:'Cover Break',  cost:'action', effect:'deny enemy use of cover this round', skillReq:'stealth', minSkill:2}
@@ -246,7 +246,7 @@ function startCombat(enemyTemplateId, context) {
 
 function renderCombatRound() {
   if (!CS) return;
-  const archId = G.archetype ? G.archetype.id : 'warrior';
+  const archId = G.archetype || 'warrior';
   const abilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
   const usableAbilities = abilities.filter(a => {
     const sk = G.skills[a.skillReq] || 0;
@@ -313,7 +313,7 @@ function renderCombatRound() {
 
 function resolveCombatAction(action, abilityId) {
   document.querySelectorAll('.combat-block').forEach(b => b.remove());
-  const archId = G.archetype ? G.archetype.id : 'warrior';
+  const archId = G.archetype || 'warrior';
   const combatSkill = G.skills.combat || 0;
   const survSkill = G.skills.survival || 0;
   const traitCombatBonus = getTraitBonus('combat');

@@ -366,3 +366,24 @@ function getCompanionRollBonus(skill) {
   });
   return bonus;
 }
+
+// Engine interface: engine.js calls window.companionBonus(state, skill)
+// state.companions is an array of {id, ...} in engine.js architecture
+function companionBonus(state, skill) {
+  if (!state || !state.companions || !state.companions.length) return 0;
+  let bonus = 0;
+  state.companions.forEach(comp => {
+    if (comp.injured || comp.available === false) return;
+    const def = COMPANION_DEFS[comp.id];
+    if (!def) return;
+    if (def.id === 'vera_wren' && skill === 'persuasion' && state.location === 'shelkopolis') bonus += 1;
+    if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
+    if (def.id === 'neren_rimebridge' && skill === 'survival') bonus += 1;
+    if (def.id === 'elyra_mossbane' && skill === 'survival') bonus += 1;
+    if (def.id === 'elyra_mossbane' && skill === 'stealth') bonus += 1;
+  });
+  return bonus;
+}
+
+window.COMPANION_DEFS = COMPANION_DEFS;
+window.companionBonus = companionBonus;

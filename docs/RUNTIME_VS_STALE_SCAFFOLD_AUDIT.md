@@ -1,5 +1,7 @@
 # RUNTIME VS STALE SCAFFOLD AUDIT
 
+> **HISTORICAL RECORD** — This audit was written against the pre-cleanup state. Since this audit was completed: build.py was fixed (no longer reads legacy files), js/world.js + js/scenes.js + js/world-data.js + js/consequences.js were moved to legacy/, and background-locality-map.js keys were aligned to the data.js ID scheme. The current active state is described in README.md.
+
 ## Audit goal
 This document classifies the current repo into three required buckets:
 

@@ -1,10 +1,12 @@
 # Ledger of Ash — Canon Update
 
-## Active canon version: V28_4_DnD_World_Repository
+## Active canon version: V28_8_DnD_World_Repository
+
+> Previous extractions were from V28_4. All locality names, polity identities, faction references, route identity, NPC placement, and archetype/background locality grounding now align to V28_8.
 
 ---
 
-## What was extracted from V28_4
+## What was extracted from V28_8 (formerly V28_4)
 
 ### Settlements used as playable localities (11)
 - Shelkopolis (House Shelk capital, Principality of Shelk)
@@ -105,11 +107,10 @@ Eastern route (unnamed in canon but consistent with Ironroot Crossing corridor),
 
 | Metric | Count |
 |--------|-------|
-| Archetypes | 25 (spec targets 31 — 6 pending) |
-| Backgrounds | 75 (spec targets 93 — 18 pending) |
-| Opening scenes | 75 (one per background) |
-| Consequence nodes | 85 (73 shared investigation, 12 archetype-specific) |
+| Archetypes | 31 |
+| Backgrounds | 93 (3 per archetype: Civic, Frontier, Occult) |
+| Starting locality assignments | 93 (all V28_8-canonical via background-locality-map.js) |
 | Playable localities | 11 |
-| Recruitable companions | 4 |
-| Archetype ability trees | 105 abilities across 25 archetypes |
-| Schema version | 5 |
+| Recruitable companions | 4 (defined in party.js; recruitment flow uses legacy API) |
+| Archetype combat abilities | 93 (31 archetypes × 3 abilities each, in combat.js) |
+| Stage II background content entries | 31+ archetype families in stage2-backgrounds.js |

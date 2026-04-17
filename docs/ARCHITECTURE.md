@@ -1,36 +1,42 @@
 # Ledger of Ash — Architecture
 
-## Current state (HTML phase)
+## Current state (HTML phase — V28_8)
 Single-file static HTML game. Deployed to:
 - Production: www.sosothervguy.com/ledger-of-ash (via Azure + GitHub)
-- Canon: V28_4_DnD_World_Repository
+- Canon: V28_8_DnD_World_Repository
 
-### Files
+### Active runtime files
 ```
-/js/combat.js        — Combat system, enemy templates, archetype abilities
-/js/world-data.js    — Archetypes, backgrounds, locations, factions
-/js/scenes.js        — 75 opening scenes (1 per background)
-/js/consequences.js  — 61+ consequence nodes with success/failure/partial branches
-/js/engine.js        — Core engine: state, HUD, save/load, level-up, alignment
-/css/style.css       — Full stylesheet
-/index.html          — HTML shell with overlay structure
+js/data.js                    — ARCHETYPES (31), KEY_LOCALITIES (11 V28_8), ADJACENCY, NPC_PLACEMENTS, BESTIARY, HAZARDS, SETTLEMENT_POIS
+js/background-locality-map.js — V28_8 Stage I locality grounding: all 93 backgrounds → canonical starting localities
+js/stage2-backgrounds.js      — Stage II content templates (archetype family pressure chains)
+js/narrative.js               — Dynamic scene narration generator (locality, pressure, hazards, NPCs, route)
+js/party.js                   — 4 companion definitions + companionBonus skill integration
+js/combat.js                  — 93 archetype combat abilities + multi-round combat system (not integrated into engine.js)
+js/engine.js                  — Core engine: state init, level-up, save/load, stage progression, encounter choices
+index.html                    — HTML shell: inline CSS, script imports, Story screen layout
+build.py                      — Bundles active JS into dist/index.html
+
+legacy/                       — V28_4 archived files: world.js, world-data.js, scenes.js, consequences.js
 ```
 
 ### Save system (Phase 1 — localStorage)
-Key format: `loa_save_{name}_{4digitPIN}`
-Schema version: 3
-Migration: `Object.assign(G, parsed)` — forward-compatible
+Key format: `loa_upgrade_batch27` (single key, JSON object of all saves by passcode)
+Schema: no explicit version; forward-compatible via default state merge on load
 
 ### State object (G)
-See engine.js G declaration. Key fields:
-- `schemaVersion`: 3
-- `wounds`, `fatigue`, `recoveryState`: injury tracking
-- `npcMemory`: {npcId: {trust, seen, lastNote}}
-- `inventory`, `equipped`: item system
-- `morality`, `order`: -100 to +100 alignment
-- `trainingDisadvantage`: 0-5 choices with -2 penalty
-- `rivalAdventurers`: [{name, archetype, hook, renown, active}]
-- `stage`, `stageLabel`: Stage I (Grass Roots) through Stage V
+See engine.js `defaultState()`. Key fields:
+- `archetype`, `backgroundId`: player identity
+- `location`: current locality ID (V28_8-canonical)
+- `stage`, `stageLabel`: Stage I–V
+- `stageProgress`: milestone counts per stage
+- `skills`: {combat, survival, persuasion, lore, stealth, craft}
+- `wounds`, `fatigue`: injury tracking
+- `worldClocks`: {pressure, rival, omens}
+- `encounter`: active encounter state (null when not in encounter)
+- `companions`: array of companion objects (engine.js schema)
+- `journalRecords`, `notices`, `legends`, `quests`: log arrays
+- `telemetry`: action/encounter/service counters
 
 ---
 

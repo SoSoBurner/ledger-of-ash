@@ -1,6 +1,8 @@
 # Ledger of Ash — Current Build Upgrade Plan
 
-## Status: Active patch cycle on static HTML prototype
+> **HISTORICAL RECORD (pre-Batch 27 era).** This document describes the upgrade pass that transitioned the game from scenes.js/consequences.js architecture to the current data.js/engine.js architecture. Current runtime state is in `README.md`. This document is kept for development history; do not treat its file lists or counts as current.
+
+## Status: Historical — Active patch cycle on static HTML prototype (completed)
 
 This document tracks the current upgrade pass against the spec requirements.
 It is not a future architecture vision — it describes what was done and what remains.
