@@ -1,0 +1,30 @@
+{
+  "name": "Zootia Harvest Measures Board",
+  "type": "Zootia agricultural standards institution",
+  "truth_layer": "conservative_inference",
+  "summary": "Institution tracking measures, yields, and standards for Zootia’s raw-material economy.",
+  "day_to_day": "Records crop totals, herd counts, and outgoing material standards.",
+  "who_works_there": "Measurers, record clerks, livestock assessors, granary agents.",
+  "who_uses_it": "Farmers, herders, merchants, neighboring houses dependent on Zootia output.",
+  "authority": "Can certify measures and influence distribution priorities or disputes.",
+  "public_manifestation": "Weights, ledgers, granary inspections, counting yards.",
+  "conflict_or_bottleneck": "When prices rise, trust in measurements becomes politically explosive.",
+  "party_actions": [
+    "verify a shipment",
+    "investigate falsified measures",
+    "guard harvest transfer",
+    "resolve a herd dispute"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "nella_fieldmere"
+  ],
+  "npc_interfaces": [
+    "nella_fieldmere"
+  ]
+}

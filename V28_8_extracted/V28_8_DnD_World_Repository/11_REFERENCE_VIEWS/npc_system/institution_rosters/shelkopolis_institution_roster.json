@@ -1,0 +1,12 @@
+{
+  "build_version": "V28_8",
+  "institution": "Shelkopolis",
+  "record_count": 5,
+  "npc_ids": [
+    "corin_lightloom",
+    "elandra_sunweave",
+    "maelis_starbloom",
+    "maelis_threadmere",
+    "sera_aurorine"
+  ]
+}

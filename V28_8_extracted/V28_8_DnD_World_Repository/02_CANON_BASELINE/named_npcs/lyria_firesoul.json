@@ -1,0 +1,75 @@
+{
+  "npc_id": "lyria_firesoul",
+  "canonical_name": "Lyria Firesoul",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Soreheim export operations master",
+  "profession_discipline": "Soreheim export operations master",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper",
+    "tower export yards"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as soreheim export operations master.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper",
+      "tower export yards"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a soreheim export operations master still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of soreheim export operations master in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of soreheim export operations master while managing the immediate pressure of quota demands in Soreheim Alliance.",
+  "hidden_pressure": "Must keep the underlying system working while everyone notices it only when stress, wear, or neglect begin to show. Around Soreheim Proper, that usually means carrying quota demands, political rivalry, foreign pressure without letting the role of soreheim export operations master visibly slip.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Lyria Firesoul can draw the party into crew discipline, resource shortage, or blame transfer around Soreheim Proper."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Lyria Firesoul can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "lyria_firesoul",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Lyria Firesoul visibly responsible for keeping something larger from failing. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

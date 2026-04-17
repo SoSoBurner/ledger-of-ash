@@ -1,0 +1,24 @@
+{
+  "name": "Duneshade Outpost",
+  "who_belongs": [
+    "route guards",
+    "water crews",
+    "beast handlers",
+    "heat scouts",
+    "ration families"
+  ],
+  "who_is_out_of_place": [
+    "wastrels",
+    "the underprepared",
+    "anyone who treats water law as negotiable"
+  ],
+  "expected_behavior": [
+    "report hazards quickly",
+    "respect ration order",
+    "show deference to whichever family or captain controls your shelter lane"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Frozen Quagmires",
+  "parent_polity": "The Principalities",
+  "summary": "Treacherous northern cold terrain shaping travel and conflict.",
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "pela_field"
+  ],
+  "npc_interfaces": [
+    "pela_field"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

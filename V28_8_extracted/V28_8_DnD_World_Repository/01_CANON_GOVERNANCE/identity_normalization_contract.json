@@ -1,0 +1,22 @@
+{
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "normalize_variants_for": [
+    "singular_plural_variants",
+    "punctuation_variants",
+    "capitalization_variants",
+    "alternate_transliterations",
+    "route_names_with_possessive_variants",
+    "locality_abbreviations"
+  ],
+  "enforce": [
+    "one_canonical_id",
+    "optional_aliases",
+    "one_display_name",
+    "one_type_classification"
+  ],
+  "release_rule": "Near-duplicate packet identities must be treated as dangerous and caught before release.",
+  "v23_4_identity_interface_fix": "enabled",
+  "synthetic_locality_person_placeholders_forbidden": true
+}

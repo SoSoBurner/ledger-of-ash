@@ -1,0 +1,8 @@
+{
+  "package_name": "V28_8_DnD_World_Repository",
+  "build_version": "V28_8",
+  "generated_at": "2026-04-16T05:20:57Z",
+  "status": "current definitive universe-setting refinement release",
+  "release_notes": "V28_8_RELEASE_NOTES.md",
+  "npc_distribution": "npc_distribution_v28_8.json"
+}

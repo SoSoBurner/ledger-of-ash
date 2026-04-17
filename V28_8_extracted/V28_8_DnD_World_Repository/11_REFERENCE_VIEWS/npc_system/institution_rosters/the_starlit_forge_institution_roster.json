@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "The Starlit Forge",
+  "record_count": 2,
+  "npc_ids": [
+    "corin_mere",
+    "mira_mere"
+  ]
+}

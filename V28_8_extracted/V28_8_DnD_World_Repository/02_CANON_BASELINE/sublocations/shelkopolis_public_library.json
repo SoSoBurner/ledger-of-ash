@@ -1,0 +1,22 @@
+{
+  "name": "Shelkopolis Public Library",
+  "parent_district": "Verdant Row District",
+  "type": "library",
+  "summary": "Public library of history, artistry, and arcane study, with tariff-linked law pressure.",
+  "npc_interfaces": [
+    "maren_threadmere",
+    "velis_petalglass"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "maren_threadmere",
+    "velis_petalglass"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

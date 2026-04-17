@@ -1,0 +1,8 @@
+{
+  "name": "Aurora Heights District",
+  "inside": "Wide boulevards, wrought-iron gates, bespoke shops, noble strolls, and culture-centered public life.",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

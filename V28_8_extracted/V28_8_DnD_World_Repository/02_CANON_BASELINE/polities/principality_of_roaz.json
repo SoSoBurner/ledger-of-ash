@@ -1,0 +1,55 @@
+{
+  "name": "Principality of Roaz",
+  "type": "sub-polity / house-territory",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "reconciled_canon",
+  "summary": "Humans remain primary, while Half-Elves, Elves, and Gnomes align with Roazian law, industry, and anti-magic technical culture.",
+  "ruling_structure": [
+    "Lord Aric Roaz",
+    "Office of Roazian Enforcement",
+    "Iron Accord"
+  ],
+  "magic_policy": "Unsanctioned magic prohibited; state-controlled magical countermeasure work permitted.",
+  "sources": [
+    "principality_roaz",
+    "principalities"
+  ],
+  "named_npc_refs": [
+    "mira_gateburn",
+    "casvel_chainwell"
+  ],
+  "npc_interfaces": [
+    "mira_gateburn",
+    "casvel_chainwell"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "population_status": {
+    "nation_level_enumeration_status": "explicit",
+    "explicit_population_roster": {
+      "dominant_populations": [
+        "Humans"
+      ],
+      "secondary_populations": [
+        "Half-Elves",
+        "Elves",
+        "Gnomes"
+      ],
+      "canonical_roster": [
+        "Humans",
+        "Half-Elves",
+        "Elves",
+        "Gnomes"
+      ]
+    },
+    "bounded_population_signals": [
+      "field-level support classification preserved in demography layer",
+      "runtime packets must not contradict canonical roster"
+    ],
+    "notes": "Humans remain primary, while Half-Elves, Elves, and Gnomes align with Roazian law, industry, and anti-magic technical culture.",
+    "truth_layer": "corrected_canon"
+  },
+  "resolution_status": "resolved world-standard roster",
+  "canon_note": "See corresponding demography record for support classification and contradiction-safe reconciliation trail."
+}

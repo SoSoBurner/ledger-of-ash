@@ -1,0 +1,32 @@
+{
+  "name": "Union Trade Arbitration Guild",
+  "type": "Union arbitration institution",
+  "truth_layer": "direct_canon",
+  "summary": "Institutional dispute-resolution body helping keep trade agreements moving across the Union network.",
+  "day_to_day": "Mediates contracts, hears merchant disputes, and drafts settlements.",
+  "who_works_there": "Arbiters, mediators, contract scribes, witness clerks.",
+  "who_uses_it": "Merchants, caravans, guilds, houses needing commercial settlement.",
+  "authority": "Can issue binding trade settlements under Union rules.",
+  "public_manifestation": "Crowded hearing rooms, witness benches, sealed settlements, angry merchants pretending calm.",
+  "conflict_or_bottleneck": "Speed is valued, but rushed settlements create long-tail resentment and reputational harm.",
+  "party_actions": [
+    "argue a claim",
+    "carry witness testimony",
+    "stop tampering",
+    "escort a settlement payment"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "porter_brokerwell",
+    "renn_tinmarch"
+  ],
+  "npc_interfaces": [
+    "porter_brokerwell",
+    "renn_tinmarch"
+  ]
+}

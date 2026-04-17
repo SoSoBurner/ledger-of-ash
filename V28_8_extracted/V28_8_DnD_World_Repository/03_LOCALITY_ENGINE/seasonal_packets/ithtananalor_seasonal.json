@@ -1,0 +1,9 @@
+{
+  "name": "Ithtananalor",
+  "seasonal_change": "Winter constrains transport and mining; productive rhythm intensifies in spring and summer.",
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Soreheim Alliance",
+  "record_count": 2,
+  "npc_ids": [
+    "dema_ashmason",
+    "korin_stonecarve"
+  ]
+}

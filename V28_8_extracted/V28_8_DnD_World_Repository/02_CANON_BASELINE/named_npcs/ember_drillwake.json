@@ -1,0 +1,90 @@
+{
+  "npc_id": "ember_drillwake",
+  "canonical_name": "Ember Drillwake",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "governance_actor",
+  "office_or_role": "Petition Reader",
+  "profession_discipline": "Petition Reader",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": null,
+  "locality_scope": "Giant Council",
+  "institutional_ties": [
+    "Giant Council"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as petition reader.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Giant Council"
+    ],
+    "institutions": [
+      "Giant Council"
+    ],
+    "factions": []
+  },
+  "appearance": "Status-conscious attire, controlled insignia, and the kind of detail others read before the first word make authority obvious.",
+  "manner": "Speaks in controlled terms that leave room for maneuver while still sounding decisive. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a petition reader still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of petition reader in and around Giant Council, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Giant Council workable through the obligations of petition reader while managing the immediate pressure of resource depletion in Soreheim Alliance.",
+  "hidden_pressure": "Must keep status, precedent, and practical necessity from openly tearing against one another. Around Giant Council, that usually means carrying resource depletion, sabotage, predatory frontier ecology without letting the role of petition reader visibly slip.",
+  "relationship_refs": [
+    "rel_0260",
+    "rel_0263",
+    "rel_0265",
+    "rel_0267",
+    "rel_0908",
+    "rel_0914",
+    "rel_0915",
+    "rel_0916",
+    "rel_0917",
+    "rel_0918"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Ember Drillwake needs discreet outside help to contain political strain, prestige loss, or institutional damage before it spreads through Giant Council."
+    },
+    {
+      "hook_type": "complication_trigger",
+      "summary": "Getting entangled with Ember Drillwake can pull the party into protocol, alliance pressure, or public consequence centered on Giant Council."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Ember Drillwake can trade usable insight about Giant Council if the party solves a problem that cannot be addressed openly through the office they hold."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "ember_drillwake",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Dress quality, attention from others, and practiced command of protocol signal that Ember Drillwake carries civic or noble weight.",
+  "encounter_context": {
+    "usual_environment": "Giant Council: estates, audience spaces, council rooms, protocol-heavy gatherings, or civic seats",
+    "who_seeks_them_out": [
+      "petitioners",
+      "envoys",
+      "subordinates",
+      "allies needing cover"
+    ],
+    "who_avoids_them": [
+      "the indiscreet",
+      "the openly disrespectful",
+      "those seeking shortcuts around protocol"
+    ],
+    "interaction_anchor": "authority, precedent, and political management"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

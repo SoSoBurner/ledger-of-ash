@@ -1,0 +1,10 @@
+{
+  "build_version": "V28_8",
+  "institution": "Ironspool Ward District",
+  "record_count": 3,
+  "npc_ids": [
+    "cevrin_silkgate",
+    "roswen_velvetmere",
+    "thalen_petalglass"
+  ]
+}

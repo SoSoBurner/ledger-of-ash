@@ -1,0 +1,85 @@
+{
+  "npc_id": "sel_march",
+  "canonical_name": "Sel March",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Moon-Liturgy Keeper",
+  "profession_discipline": "Moon-Liturgy Keeper",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": null,
+  "locality_scope": "Planet of Ocean",
+  "institutional_ties": [
+    "Planet of Ocean"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as moon-liturgy keeper.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Planet of Ocean"
+    ],
+    "institutions": [
+      "Planet of Ocean"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a moon-liturgy keeper still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of moon-liturgy keeper in and around Planet of Ocean, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Planet of Ocean workable through the obligations of moon-liturgy keeper while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Planet of Ocean, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of moon-liturgy keeper visibly slip.",
+  "relationship_refs": [
+    "rel_0657",
+    "rel_0666",
+    "rel_0674",
+    "rel_0681",
+    "rel_0687",
+    "rel_0692",
+    "rel_0696",
+    "rel_0699",
+    "rel_0701",
+    "rel_0702"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Sel March can draw the party into crew discipline, resource shortage, or blame transfer around Planet of Ocean."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Sel March can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "pantheon_story",
+    "doomsday_planets"
+  ],
+  "compatibility_interface_id": "sel_march",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Sel March visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Planet of Ocean: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

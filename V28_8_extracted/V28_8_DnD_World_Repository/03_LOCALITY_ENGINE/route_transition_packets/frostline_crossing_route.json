@@ -1,0 +1,18 @@
+{
+  "name": "Frostline Crossing Route",
+  "route_type": "frozen crossing",
+  "feel": "The crossing rewards accuracy over bravery; launch windows, rescue readiness, and loss records define the route more than raw distance does.",
+  "hazards": [
+    "ice failure",
+    "visibility collapse",
+    "expedition loss"
+  ],
+  "who_controls_it": [
+    "route warden compacts",
+    "loss ledger circles"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "v22_5_repository_zip"
+  ]
+}

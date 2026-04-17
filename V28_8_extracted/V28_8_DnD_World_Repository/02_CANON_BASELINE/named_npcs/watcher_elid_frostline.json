@@ -1,0 +1,74 @@
+{
+  "npc_id": "watcher_elid_frostline",
+  "canonical_name": "Elid Frostline",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Frozen Crossing Warden",
+  "profession_discipline": "Frozen Crossing Warden",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": null,
+  "locality_scope": "Frostline Crossing",
+  "institutional_ties": [
+    "Frostline Crossing"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as frozen crossing warden.",
+  "linked_systems": {
+    "polities": [],
+    "localities": [
+      "Frostline Crossing"
+    ],
+    "institutions": [
+      "Frostline Crossing"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Keeps speech clipped and threshold-focused, reading every arrival for risk, weakness, or breach. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a frozen crossing warden still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of frozen crossing warden in and around Frostline Crossing, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Frostline Crossing workable through the obligations of frozen crossing warden while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must hold procedure, public trust, and immediate response together when any one of them would be easier to sacrifice. Around Frostline Crossing, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of frozen crossing warden visibly slip.",
+  "relationship_refs": [
+    "rel_1095"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Elid Frostline can draw the party into contraband, false papers, or a suspicious cargo problem tied to Frostline Crossing."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Elid Frostline may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "watcher_elid_frostline",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Elid Frostline as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "Frostline Crossing: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

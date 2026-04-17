@@ -1,0 +1,80 @@
+{
+  "npc_id": "hest_rookbraid",
+  "canonical_name": "Hest Rookbraid",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Artificers",
+  "profession_discipline": "Artificers",
+  "grouping": "Support & Leadership",
+  "polity": "Roaz",
+  "settlement": "Veilforged Bastion",
+  "locality_scope": "Veilforged Bastion, Roaz",
+  "institutional_ties": [],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Artificer whose work suppresses magic as often as it channels it.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Veilforged Bastion, Roaz"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Work-worn layers, repair marks, and tools or soot traces show responsibility for systems that fail loudly when neglected.",
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a artificers still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of artificers in and around Veilforged Bastion, Roaz, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Veilforged Bastion, Roaz workable through the obligations of artificers while managing the immediate pressure of institutional scrutiny in Roaz.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Veilforged Bastion, Roaz, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of artificers visibly slip.",
+  "relationship_refs": [
+    "rel_1302"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Hest Rookbraid can draw the party into crew discipline, resource shortage, or blame transfer around Veilforged Bastion, Roaz."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Hest Rookbraid can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Hest Rookbraid needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Veilforged Bastion, Roaz."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Hest Rookbraid needs help with a problem in Veilforged Bastion, Roaz that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Hest Rookbraid visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Veilforged Bastion, Roaz: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

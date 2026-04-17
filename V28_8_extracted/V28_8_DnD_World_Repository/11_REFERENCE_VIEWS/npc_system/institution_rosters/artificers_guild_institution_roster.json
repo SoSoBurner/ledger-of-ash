@@ -1,0 +1,10 @@
+{
+  "build_version": "V28_8",
+  "institution": "Artificers’ Guild",
+  "record_count": 3,
+  "npc_ids": [
+    "varik_ironslope",
+    "vorga_coalward",
+    "vorga_ironslope"
+  ]
+}

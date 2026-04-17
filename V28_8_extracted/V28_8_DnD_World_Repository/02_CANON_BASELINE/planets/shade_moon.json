@@ -1,0 +1,18 @@
+{
+  "id": "planet.shade_moon",
+  "name": "Shade Moon",
+  "truth_layer": "direct_canon",
+  "function": "Talalmany’s alternate moon experiment; only one of the paired moons is visible at a time.",
+  "sources": [
+    "pantheon_story"
+  ],
+  "named_npc_refs": [
+    "arin_field"
+  ],
+  "npc_interfaces": [
+    "arin_field"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

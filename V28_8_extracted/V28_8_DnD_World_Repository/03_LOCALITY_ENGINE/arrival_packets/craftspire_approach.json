@@ -1,0 +1,9 @@
+{
+  "name": "Craftspire",
+  "approach": "Tall workhouses, ink-scented air, carted timber, and stacked copyrooms rise around a district where labor skill becomes visible prestige.",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

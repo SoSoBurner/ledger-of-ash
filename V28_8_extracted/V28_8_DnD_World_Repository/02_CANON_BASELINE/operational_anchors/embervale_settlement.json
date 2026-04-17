@@ -1,0 +1,17 @@
+{
+  "name": "Embervale Settlement",
+  "parent_polity": "Soreheim Alliance",
+  "type": "operational_anchor",
+  "anchor_kind": "worker_haven",
+  "truth_layer": "reconciled_canon",
+  "anchor_status": "baseline_anchor",
+  "roles_allocated": 8,
+  "territory": "Eternal Lands",
+  "operational_profile": "Geothermal worker haven where shift-boss families, repair crews, and recovery stewards rotate labor back toward quarry and tower fronts.",
+  "role_density_note": "Emitted as matrix-stage administrative thickening rather than full office ledger.",
+  "supporting_logic": "Built from existing polity logic as downward-and-outward operational fill.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

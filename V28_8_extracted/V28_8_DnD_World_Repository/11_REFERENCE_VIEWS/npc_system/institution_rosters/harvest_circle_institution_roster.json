@@ -1,0 +1,14 @@
+{
+  "build_version": "V28_8",
+  "institution": "Harvest Circle",
+  "record_count": 7,
+  "npc_ids": [
+    "elyra_mossbane",
+    "farlan_inkshade",
+    "garren_ashmason",
+    "jorva_helmrune",
+    "svala_coalward",
+    "varik_stonecarve",
+    "velrik_durnshade"
+  ]
+}

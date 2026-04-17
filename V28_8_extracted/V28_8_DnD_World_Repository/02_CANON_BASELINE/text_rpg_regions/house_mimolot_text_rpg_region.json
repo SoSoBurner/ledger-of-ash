@@ -1,0 +1,77 @@
+{
+  "name": "House Mimolot",
+  "major_bloc": "Mimolot",
+  "truth_layer": "conservative_inference",
+  "content_family": "text_rpg_region_surface",
+  "street_level_faction_presence": {
+    "major_factions": [
+      "House Mimolot",
+      "Mimolot Book Tariff Office"
+    ],
+    "what_people_notice": [
+      "House Mimolot",
+      "Mimolot Book Tariff Office"
+    ],
+    "street_signals": "Symbols, uniform cues, work marks, and rumor shorthand make power visible in daily movement."
+  },
+  "social_behavior_norms": {
+    "greetings": [
+      "Scholarly acknowledgment, titles, and affiliation markers matter."
+    ],
+    "hospitality_rules": [
+      "Visitors are often welcomed through procedure: sign-in, sponsorship, reading access, then actual warmth."
+    ],
+    "insult_triggers": [
+      "careless damage to books",
+      "boastful ignorance",
+      "attempting to bypass tariff or catalog rules"
+    ],
+    "taboo_topics": [
+      "public dismissal of education as wasteful",
+      "openly trafficking forbidden texts"
+    ],
+    "class_expectations": [
+      "nobles, tutors, and apprentices are judged by composure, curiosity, and disciplined handling of knowledge"
+    ],
+    "faith_etiquette": [
+      "quiet contemplation and respect for study spaces matter more than visible zeal"
+    ],
+    "suspicious_behavior": [
+      "copying restricted diagrams",
+      "smuggling books",
+      "appearing in archive spaces without proper chain of access"
+    ],
+    "outsider_mistakes": [
+      "assuming scholarship is neutral rather than political and revenue-linked"
+    ]
+  },
+  "occupation_and_daily_life": {
+    "daily_rhythm": "Instruction, copying, catalog review, tariff administration, debate, and magical training dominate the rhythm of Mimolot life.",
+    "work_rhythm_by_calendar_or_season": "Academic cycles and tariff surges shape movement, hiring, and public tension.",
+    "ordinary_texture": "The texture is quieter: paper dust, lamp oil, polished desks, muttered debate, and courier traffic carrying sealed packets."
+  },
+  "rumor_and_local_talk": [
+    "restricted syllabus leaks",
+    "tariff evasion",
+    "student scandals",
+    "faculty rivalry"
+  ],
+  "conflict_surfaces": [
+    "knowledge versus access",
+    "scholarship versus privilege",
+    "precision versus curiosity"
+  ],
+  "travel_and_transition_texture": "Travelers bound for Mimolot increasingly encounter archive rules, sponsorship expectations, and scrutiny over what they carry and copy.",
+  "dwelling_and_settlement_life": "Households keep reading desks, small shrines or reflection corners, secured shelves, and class-marked guest etiquette.",
+  "relationship_and_reputation_logic": "People are remembered for citation discipline, discretion, and whether they use learning to clarify or manipulate.",
+  "region_specific_emotional_tone": "Mimolot stories naturally become dramas of study, ambition, secrecy, intellectual gatekeeping, and dangerous curiosity.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ]
+}

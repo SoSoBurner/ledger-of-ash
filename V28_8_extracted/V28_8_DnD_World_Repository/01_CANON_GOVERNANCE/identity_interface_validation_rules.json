@@ -1,0 +1,17 @@
+{
+  "forbidden_placeholder_prefixes": [
+    "Maro",
+    "Elen",
+    "Thane",
+    "Ivara",
+    "Sel",
+    "Corin"
+  ],
+  "forbidden_pattern": "<SyntheticGivenName> <LocalityLikeToken>",
+  "allowed_locality_npc_interface_values": [
+    "role_id",
+    "npc_id"
+  ],
+  "hard_gate": true,
+  "truth_layer": "engine_canon"
+}

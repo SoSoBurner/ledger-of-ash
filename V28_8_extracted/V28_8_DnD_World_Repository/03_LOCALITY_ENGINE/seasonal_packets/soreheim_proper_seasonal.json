@@ -1,0 +1,8 @@
+{
+  "name": "Soreheim Proper",
+  "seasonal_change": "Soreheim Proper coordinates seasonal burdens across the alliance, shifting quotas, bridge priority, and emergency production rather than suffering them evenly.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

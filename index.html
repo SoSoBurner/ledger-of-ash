@@ -15,6 +15,7 @@
     .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
     .bar button,.choice,.small,.inlineBtn{background:linear-gradient(180deg,#241b12,#1a140e);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.03) inset}
     .bar button.active{border-color:var(--accent);color:#fff8e6}
+    #narrative{border-left:4px solid var(--accent);background:linear-gradient(90deg,rgba(212,165,116,.06),rgba(212,165,116,.02));font-size:16px;line-height:1.6;color:#f0e7d0}
     .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:12px;padding:12px;margin:8px 0}
     .hero{display:grid;grid-template-columns:1fr;gap:10px}
     .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:14px;align-items:start}
@@ -35,7 +36,12 @@
     .poiline{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-top:1px solid rgba(255,255,255,.05)}
     .poiline:first-child{border-top:none;padding-top:0}
     .mono{font-family:ui-monospace, SFMono-Regular, Menlo, monospace}
-    @media (max-width:940px){.grid,.form,.subgrid{grid-template-columns:1fr}.bar{justify-content:flex-start}}
+    .notice-list{display:grid;gap:0}
+    .notice-list .card{margin:0;border-bottom:1px solid var(--line);border-radius:0;border-left:3px solid var(--accent);padding:14px 12px;background:linear-gradient(90deg,rgba(212,165,116,.03),rgba(212,165,116,.01))}
+    .notice-list .card:first-child{border-top-left-radius:12px;border-top-right-radius:12px}
+    .notice-list .card:last-child{border-bottom-left-radius:12px;border-bottom-right-radius:12px;border-bottom:1px solid var(--line)}
+    .notice-list .card:hover{border-left-color:#f0e7d0;background:linear-gradient(90deg,rgba(212,165,116,.08),rgba(212,165,116,.04))}
+    @media (max-width:940px){.grid,.form,.subgrid{grid-template-columns:1fr}.bar{justify-content:flex-start}.card{padding:10px;margin:6px 0}.notice-list .card{padding:12px 10px;margin:0}}
   </style>
 </head>
 <body>

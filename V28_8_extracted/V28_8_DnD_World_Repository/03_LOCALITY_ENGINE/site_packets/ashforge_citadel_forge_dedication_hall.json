@@ -1,0 +1,25 @@
+{
+  "name": "Forge Dedication Hall",
+  "parent_settlement": "Ashforge Citadel",
+  "type": "civic-forge ceremonial hall",
+  "truth_layer": "conservative_inference",
+  "identity": "A civic-forge ceremonial hall in Ashforge Citadel that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "Forge Dedication Hall Scribe",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Ashforge Citadel’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Forge Dedication Hall Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

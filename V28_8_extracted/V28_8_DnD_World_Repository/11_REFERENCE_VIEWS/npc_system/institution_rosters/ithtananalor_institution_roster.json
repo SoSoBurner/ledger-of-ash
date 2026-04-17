@@ -1,0 +1,12 @@
+{
+  "build_version": "V28_8",
+  "institution": "Ithtananalor",
+  "record_count": 5,
+  "npc_ids": [
+    "casvel_redhinge",
+    "mira_steelmarch",
+    "rhodra_ironspike",
+    "torren_stonewake",
+    "veyra_boltmere"
+  ]
+}

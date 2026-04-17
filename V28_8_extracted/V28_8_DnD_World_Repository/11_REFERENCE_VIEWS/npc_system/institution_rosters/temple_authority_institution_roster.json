@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Temple Authority",
+  "record_count": 2,
+  "npc_ids": [
+    "registrar_confessor_othan_mire",
+    "templar_esh_navarre"
+  ]
+}

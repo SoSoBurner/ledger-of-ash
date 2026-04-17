@@ -1,0 +1,24 @@
+{
+  "name": "Harvest Circle",
+  "who_belongs": [
+    "farmers",
+    "carters",
+    "grain factors",
+    "festival stewards",
+    "family brokers"
+  ],
+  "who_is_out_of_place": [
+    "cheats",
+    "panic buyers",
+    "people who insult local rites or cut market lines"
+  ],
+  "expected_behavior": [
+    "declare loads honestly",
+    "respect family-controlled stalls and convoy order",
+    "treat festival exchange as civic duty as well as profit"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Emberforge Outpost",
+  "approach": "Functional depot architecture with military-resupply emphasis.",
+  "sources": [
+    "locations_catalog"
+  ]
+}

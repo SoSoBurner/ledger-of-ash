@@ -1,0 +1,31 @@
+{
+  "name": "House Mal",
+  "type": "fallen legacy principality",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "deprecated_material",
+  "summary": "Former trade-and-banking principality preserved as a fallen predecessor whose infrastructure, claims, and memory still shape the Union successor heartland.",
+  "status": "legacy_fallen_predecessor",
+  "active_role": "None as coequal present polity.",
+  "legacy_persistence": [
+    "ruined trade halls",
+    "residual property and tax claims",
+    "loyalist memory",
+    "cautionary precedent for noble stagnation"
+  ],
+  "sources": [
+    "ai_source_pdf",
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "named_npc_refs": [
+    "pela_march",
+    "arin_march"
+  ],
+  "npc_interfaces": [
+    "pela_march",
+    "arin_march"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

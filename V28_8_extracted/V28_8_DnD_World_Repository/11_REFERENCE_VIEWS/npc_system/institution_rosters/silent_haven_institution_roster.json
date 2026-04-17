@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Silent Haven",
+  "record_count": 2,
+  "npc_ids": [
+    "helm_steelmarch",
+    "talia_stonewake"
+  ]
+}

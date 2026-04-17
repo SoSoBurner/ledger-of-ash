@@ -1,0 +1,80 @@
+{
+  "npc_id": "helga_ironslope",
+  "canonical_name": "Helga Ironslope",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Stable Factor",
+  "profession_discipline": "Stable Factor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as stable factor.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a stable factor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of stable factor in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of stable factor while managing the immediate pressure of quota demands in Soreheim Alliance.",
+  "hidden_pressure": "Must balance relationship value against immediate margin without losing either entirely. Around Soreheim Proper, that usually means carrying quota demands, political rivalry, foreign pressure without letting the role of stable factor visibly slip.",
+  "relationship_refs": [
+    "rel_0389",
+    "rel_0390",
+    "rel_0391",
+    "rel_0392",
+    "rel_0393"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "market_information",
+      "summary": "Helga Ironslope will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    },
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Helga Ironslope needs help protecting a shipment, recovering leverage, or stabilizing exchange around Soreheim Proper before trust collapses."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "helga_ironslope",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Helga Ironslope read as someone who lives by exchange and reputation. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  }
+}

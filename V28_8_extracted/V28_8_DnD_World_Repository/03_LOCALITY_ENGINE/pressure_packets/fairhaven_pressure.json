@@ -1,0 +1,11 @@
+{
+  "name": "Fairhaven",
+  "pressure": [
+    "glyph corruption",
+    "celestial creatures at Watcher’s Perch",
+    "suspicious travelers in taverns"
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

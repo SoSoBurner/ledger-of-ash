@@ -1,0 +1,45 @@
+{
+  "name": "Red Hood Guild",
+  "type": "criminal or covert independent faction",
+  "truth_layer": "direct_canon",
+  "summary": "Elusive independent guild operating in shadowed relation to trade, intrigue, and forbidden or covert work.",
+  "motive": "Exploit the gaps created by rigid law, secret demand, and elite hypocrisy.",
+  "methods": [
+    "smuggling",
+    "covert access",
+    "information exchange",
+    "deniable operations"
+  ],
+  "geography": [
+    "principalities-wide shadow network",
+    "guild gatherings",
+    "border and port interfaces"
+  ],
+  "power_relations": [
+    "Independent but entangled with houses, guilds, and magical resistance networks"
+  ],
+  "current_pressure": [
+    "law crackdowns",
+    "competition with official power",
+    "need to stay deniable"
+  ],
+  "visible_membership_base": "Fixers, smugglers, discreet couriers, rumor brokers.",
+  "civilian_contact_surface": [
+    "black-market access",
+    "quiet hires",
+    "contraband placement"
+  ],
+  "current_tension_or_vulnerability": "The guild thrives on opacity; every exposed cell threatens the myth of reach that protects the whole network.",
+  "sources": [
+    "principalities"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "sel_stone"
+  ],
+  "npc_interfaces": [
+    "sel_stone"
+  ]
+}

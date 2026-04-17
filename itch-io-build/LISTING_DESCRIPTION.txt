@@ -1,0 +1,30 @@
+Ledger of Ash is a text-first, route-driven dark fantasy RPG for browser.
+
+You begin as a capable person in an unstable world. The eastern route has gone wrong. 
+Thirty-one missing persons. Someone knows what happened. The world is still moving 
+while you stand there deciding what to do about it.
+
+FEATURES
+• 31 archetypes across 4 class families — each with distinct Stage I gameplay paths
+• 93 backgrounds — every origin is a different way into the same living world
+• 124 consequence nodes — branching investigation with real archetype differentiation
+• 4 recruitable companions — world-rooted, naturally encountered, any build can find them
+• Living world — faction clocks, rival adventurers, world notices, dynamic scene text
+• Party system — trust thresholds, camp talk, companion abilities, leave conditions
+• First-class combat — encounter setup, enemy intent, ability selection, retreat options
+• Journal with typed records — deduplication, categories, locality stamps
+• Stage I–II progression — grassroots origins widen into regional consequence
+• Hall of Legends — your completed runs are permanently remembered
+• Browser-playable — no install, no server, works on desktop and mobile
+
+THE WORLD
+Based on V28_8 Material Planet canon. Eleven playable localities, eight distinct 
+polities, fifteen canonical factions. The world keeps moving whether you act or not.
+
+STAGE I — Grassroots
+Your local situation. Intimate, survival-oriented, socially grounded.
+Each background has a distinct opening path before the shared investigation emerges.
+
+STAGE II — Regional Name  
+Your reputation precedes you. Denser, more factional, more dangerous, more public.
+Travel opens. Stakes widen. The world has noticed what you've been doing.

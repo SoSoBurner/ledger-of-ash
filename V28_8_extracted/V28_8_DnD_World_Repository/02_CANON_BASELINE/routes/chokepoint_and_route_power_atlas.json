@@ -1,0 +1,50 @@
+{
+  "name": "Chokepoint and Route-Power Atlas",
+  "truth_layer": "reconciled_canon",
+  "chokepoints": [
+    {
+      "name": "King’s roads under Shelk",
+      "power": "road security, merchant flow, ceremonial visibility"
+    },
+    {
+      "name": "Mimolot book-tax borders",
+      "power": "knowledge control, copying tariffs, magical licensing"
+    },
+    {
+      "name": "Brineland crossings and floating-city lanes",
+      "power": "maritime trade and inland sea diplomacy"
+    },
+    {
+      "name": "Nomdara whirlpool and leviathan routes",
+      "power": "mobile nation survival and long-range trade"
+    },
+    {
+      "name": "Mother Storm",
+      "power": "extreme navigational exclusion and mythic sea control"
+    },
+    {
+      "name": "North and South Swirling Seas",
+      "power": "intercontinental routing risk"
+    },
+    {
+      "name": "Soreheim bridge and relay infrastructures",
+      "power": "industrial distribution and ration stability"
+    }
+  ],
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "ai_source_pdf",
+    "topatch_v22_6_spec"
+  ],
+  "named_npc_refs": [
+    "nora_hart"
+  ],
+  "npc_interfaces": [
+    "nora_hart"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

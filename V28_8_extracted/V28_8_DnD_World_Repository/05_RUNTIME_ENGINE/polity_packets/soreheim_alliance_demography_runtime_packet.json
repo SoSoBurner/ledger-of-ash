@@ -1,0 +1,63 @@
+{
+  "object_id": "soreheim_alliance_demography_runtime_packet",
+  "build_version": "V28_8",
+  "truth_layer": "runtime_derivative",
+  "derived_from": [
+    "soreheim_alliance_demography"
+  ],
+  "canon_source_objects": [
+    "soreheim_alliance_demography"
+  ],
+  "claim_ids_used": [
+    "claim::soreheim_alliance_demography::storm_giants",
+    "claim::soreheim_alliance_demography::cloud_giants",
+    "claim::soreheim_alliance_demography::fire_giants",
+    "claim::soreheim_alliance_demography::hill_giants",
+    "claim::soreheim_alliance_demography::humans",
+    "claim::soreheim_alliance_demography::dwarves",
+    "claim::soreheim_alliance_demography::gnomes",
+    "claim::soreheim_alliance_demography::orcs",
+    "claim::soreheim_alliance_demography::half_orcs",
+    "claim::soreheim_alliance_demography::goblins",
+    "claim::soreheim_alliance_demography::hobgoblins",
+    "claim::soreheim_alliance_demography::kobolds",
+    "claim::soreheim_alliance_demography::lizardfolk",
+    "claim::soreheim_alliance_demography::kenku",
+    "claim::soreheim_alliance_demography::firbolgs",
+    "claim::soreheim_alliance_demography::bugbears",
+    "claim::soreheim_alliance_demography::goliaths",
+    "claim::soreheim_alliance_demography::dragonborn"
+  ],
+  "polity": "Soreheim Alliance",
+  "dominant_races": [
+    "Storm Giants",
+    "Cloud Giants",
+    "Fire Giants",
+    "Hill Giants"
+  ],
+  "secondary_races": [
+    "Humans",
+    "Dwarves",
+    "Gnomes",
+    "Orcs",
+    "Half-Orcs",
+    "Goblins",
+    "Hobgoblins",
+    "Kobolds",
+    "Lizardfolk",
+    "Kenku",
+    "Firbolgs",
+    "Bugbears",
+    "Goliaths",
+    "Dragonborn"
+  ],
+  "excluded_or_shunned_groups": [],
+  "visible_public_consequences": [
+    "Soreheim Alliance public life visibly reflects the dominant populations listed in canon.",
+    "Secondary populations appear as durable resident blocs rather than polity-defining majorities."
+  ],
+  "institutional_visibility": "Institutions and street-level expectations align with the canonical demographic balance.",
+  "adjacency_influence": "The roster is treated as explicit nation-level canon because the source set already strongly supports giant and broad mortal population enumeration.",
+  "visitor_facing_observations": "A visitor would notice the dominant bloc first, then the stable secondary populations and any explicit exclusions or shunned groups.",
+  "setting_use_summary": "Use Soreheim Alliance with the roster exactly as resolved in canon; do not broaden or soften exclusions without explicit corrective release."
+}

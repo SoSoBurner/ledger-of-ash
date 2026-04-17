@@ -1,0 +1,21 @@
+{
+  "name": "North Swirling Sea",
+  "parent_polity": "Between Roaz and Sheresh",
+  "summary": "Treacherous northern sea of whirlpools and frigid winds.",
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "mira_field"
+  ],
+  "npc_interfaces": [
+    "mira_field"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

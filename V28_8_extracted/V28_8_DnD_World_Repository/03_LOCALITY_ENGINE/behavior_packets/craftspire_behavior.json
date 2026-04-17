@@ -1,0 +1,25 @@
+{
+  "name": "Craftspire",
+  "who_belongs": [
+    "artisans",
+    "copyists",
+    "licensed enchanters",
+    "materials brokers",
+    "inspectors"
+  ],
+  "who_is_out_of_place": [
+    "anti-intellectual raiders",
+    "careless fire-users",
+    "nobles seeking obedience without payment"
+  ],
+  "expected_behavior": [
+    "respect queue and workshop boundaries",
+    "do not touch commissioned work",
+    "observe tariff marking rules"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

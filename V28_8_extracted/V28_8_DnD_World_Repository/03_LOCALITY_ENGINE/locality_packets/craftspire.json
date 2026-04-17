@@ -1,0 +1,174 @@
+{
+  "name": "Craftspire",
+  "type": "settlement",
+  "parent_polity": "The Union",
+  "identity": "Highly urbanized production district where artisan output, book-copy bureaucracy, and licensed knowledge trade converge into industrial economic authority.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "The Principalities",
+    "territory": "Union Successor Heartland",
+    "settlement": "Craftspire",
+    "district": null
+  },
+  "approach": "Tall workhouses, copy towers, materials yards, ledger balconies, and cart-choked service lanes rise around a district where skilled labor and regulated output become visible prestige.",
+  "inside": "The district hums with cutters, binders, copyists, enchanters, inspectors, and porters moving through dense multi-level production spaces tied directly to storage and dispatch systems.",
+  "who_belongs": [
+    "artisans",
+    "copyists",
+    "licensed enchanters",
+    "materials brokers",
+    "inspectors"
+  ],
+  "who_is_out_of_place": [
+    "anti-intellectual raiders",
+    "careless fire-users",
+    "nobles seeking obedience without payment"
+  ],
+  "expected_behavior": [
+    "respect queue and workshop boundaries",
+    "do not touch commissioned work",
+    "observe tariff marking rules"
+  ],
+  "visible_power": [
+    "The Union",
+    "copying offices",
+    "licensed guild houses"
+  ],
+  "economy": [
+    "book copying",
+    "regulated magical trade",
+    "artisan showcase production",
+    "warehouse integration"
+  ],
+  "faith": [
+    [
+      "Practical devotion survives in workshop alcoves and opening rites before major work runs."
+    ]
+  ],
+  "seasonal_change": "Demand surges during summit, school, and route-open seasons, pushing longer work runs and heavier freight circulation through already dense urban workshops.",
+  "pressure": [
+    "copy theft",
+    "intellectual property disputes",
+    "material shortages",
+    "sabotage"
+  ],
+  "law_context": [
+    "Book-tax and copy-right enforcement are visible and economically central."
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "Highly urbanized production district where artisan output, book-copy bureaucracy, and licensed knowledge trade converge into industrial economic authority.",
+    "approach": "Tall workhouses, copy towers, materials yards, ledger balconies, and cart-choked service lanes rise around a district where skilled labor and regulated output become visible prestige.",
+    "inside": "The district hums with cutters, binders, copyists, enchanters, inspectors, and porters moving through dense multi-level production spaces tied directly to storage and dispatch systems.",
+    "who_belongs": [
+      "artisans",
+      "copyists",
+      "licensed enchanters",
+      "materials brokers",
+      "inspectors"
+    ],
+    "who_is_out_of_place": [
+      "anti-intellectual raiders",
+      "careless fire-users",
+      "nobles seeking obedience without payment"
+    ],
+    "expected_behavior": [
+      "respect queue and workshop boundaries",
+      "do not touch commissioned work",
+      "observe tariff marking rules"
+    ],
+    "visible_power": [
+      "The Union",
+      "copying offices",
+      "licensed guild houses"
+    ],
+    "economy": [
+      "book copying",
+      "regulated magical trade",
+      "artisan showcase production",
+      "warehouse integration"
+    ],
+    "faith": [
+      [
+        "Practical devotion survives in workshop alcoves and opening rites before major work runs."
+      ]
+    ],
+    "seasonal_change": "Demand surges during summit, school, and route-open seasons, pushing longer work runs and heavier freight circulation through already dense urban workshops.",
+    "pressure": [
+      "copy theft",
+      "intellectual property disputes",
+      "material shortages",
+      "sabotage"
+    ],
+    "law_context": [
+      "Book-tax and copy-right enforcement are visible and economically central."
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Tall workhouses, copy towers, materials yards, ledger balconies, and cart-choked service lanes rise around a district where skilled labor and regulated output become visible prestige.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "The district hums with cutters, binders, copyists, enchanters, inspectors, and porters moving through dense multi-level production spaces tied directly to storage and dispatch systems.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "copy theft",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "intellectual property disputes",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "material shortages",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "sabotage",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "respect queue and workshop boundaries",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "do not touch commissioned work",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "observe tariff marking rules",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "npc_interfaces": [],
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually artisans, copyists, licensed enchanters, and public conduct is read through expectations such as respect queue and workshop boundaries, do not touch commissioned work.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by The Union, copying offices, licensed guild houses.",
+  "local_tension_surface": "The place feels stable only until pressures such as copy theft, intellectual property disputes, material shortages begin showing through daily routines.",
+  "differentiator": "Craftspire stands apart because its economy leans on book copying, regulated magical trade; public faith remains visible through Practical devotion survives in workshop alcoves and opening rites before major work runs.; outsiders are noticed fastest when they resemble anti-intellectual raiders, careless fire-users.",
+  "encounter_rhythm": "Most first scenes in Craftspire begin through settlement rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

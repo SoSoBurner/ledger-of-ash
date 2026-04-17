@@ -1,0 +1,4 @@
+{
+  "branch_rule": "Branches persist separately until promoted.",
+  "mainline_rule": "Mainline only changes through validated promotion."
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Craftspire",
+  "authority": [
+    "The Union",
+    "copying offices",
+    "licensed guild houses"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

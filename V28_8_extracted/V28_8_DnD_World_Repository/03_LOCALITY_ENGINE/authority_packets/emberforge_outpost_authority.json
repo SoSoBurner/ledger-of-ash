@@ -1,0 +1,12 @@
+{
+  "name": "Emberforge Outpost",
+  "visible_power": [
+    "Roadwarden patrol leaders"
+  ],
+  "law_context": [
+    "route safety and public-order sabotage law are strongly felt."
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "civilization": "The Principalities",
+  "day_divisions": [
+    "Dawnrise",
+    "Midlight",
+    "Duskcall",
+    "Nightwatch"
+  ],
+  "week_cycle": [
+    "Windai",
+    "Fadai",
+    "Fzdai",
+    "Freedai",
+    "Radai",
+    "Rzdai",
+    "Res’tdai",
+    "Wadai",
+    "Wzdai"
+  ],
+  "months_per_year": 10,
+  "days_per_month": 36,
+  "intercalary_period": "Ujra (5 days)",
+  "days_per_year": 365,
+  "month_examples": [
+    "Apatite",
+    "Carnelian"
+  ],
+  "festival_logic": [
+    "Apatite’s Dawn marks the year start.",
+    "Freedai is a market day.",
+    "Res’tdai is a rest and reflection day.",
+    "Wadai aligns ritual feasts with celestial phenomena."
+  ],
+  "labor_bindings": [
+    "Freedai intensifies trade and negotiation.",
+    "Market and guild rhythms cluster around week turnover and observance bands."
+  ],
+  "ritual_bindings": [
+    "Morning devotion leans toward Cysur.",
+    "Evening omen and vigilance rites lean toward Felelem.",
+    "House Panim oversees major afterlife and divine balance festivals."
+  ],
+  "travel_bindings": [
+    "Route traffic peaks around market cadence and festival windows.",
+    "Aurora Meadows and moon cycles affect travel attention and celebratory gatherings."
+  ],
+  "legal_bindings": [
+    "Festival surges create extra clerk deployment in shared civic halls.",
+    "Ceremonial attire rules intensify around noble and ritual observances."
+  ],
+  "sources": [
+    "calendars_world",
+    "principalities",
+    "additional_legal",
+    "psc_shelkopolis"
+  ]
+}

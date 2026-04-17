@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "summary": [
+    "Regenerated release-manifest, inventory, and checksum layers from the live repository tree.",
+    "Removed stale release-note artifacts and resolved duplicate Soreheim roster labeling.",
+    "Rebuilt polity rosters, master NPC ledgers, hook banks, and current-release views from the source NPC records.",
+    "Expanded named-NPC manner and hidden-pressure coverage across the full corpus, with direct-canon appearance enrichments where explicit source support exists."
+  ]
+}

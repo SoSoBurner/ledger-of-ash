@@ -1,0 +1,79 @@
+{
+  "npc_id": "tavian_silkgate",
+  "canonical_name": "Tavian Silkgate",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "investigator",
+  "office_or_role": "Night-Lantern Inspector",
+  "profession_discipline": "Night-Lantern Inspector",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Fairhaven",
+  "locality_scope": "Fairhaven",
+  "institutional_ties": [
+    "Fairhaven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as night-lantern inspector.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Fairhaven"
+    ],
+    "institutions": [
+      "Fairhaven"
+    ],
+    "factions": []
+  },
+  "appearance": "Practical layers, inspection tools, and a habit of carrying evidence or notes keep inquiry visibly close at hand.",
+  "manner": "Asks more than they answer, preserving doubt until the evidence can bear weight. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a night-lantern inspector still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of night-lantern inspector in and around Fairhaven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Fairhaven workable through the obligations of night-lantern inspector while managing the immediate pressure of glyph corruption in Shelk.",
+  "hidden_pressure": "Must move carefully enough to stay accurate and quickly enough not to lose the trail entirely. Around Fairhaven, that usually means carrying glyph corruption, celestial creatures at Watcher’s Perch, suspicious travelers in taverns without letting the role of night-lantern inspector visibly slip.",
+  "relationship_refs": [
+    "rel_0268",
+    "rel_0269",
+    "rel_1117",
+    "rel_1118"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "inquiry",
+      "summary": "Tavian Silkgate needs discreet assistance following contradictory evidence, frightened witnesses, or a lead too politically awkward to pursue openly in Fairhaven."
+    },
+    {
+      "hook_type": "suspect_pressure",
+      "summary": "Working with Tavian Silkgate can place the party inside an active inquiry where every answer creates new exposure."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "tavian_silkgate",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Questioning silence, inspection habits, and careful note-taking make Tavian Silkgate look like inquiry before accusation. In Fairhaven, this lands inside a public field already shaped by local clergy, market elders.",
+  "encounter_context": {
+    "usual_environment": "Fairhaven: inquiry rooms, witness routes, guarded evidence sites, or contested scenes",
+    "who_seeks_them_out": [
+      "witnesses",
+      "superiors",
+      "those needing a problem solved quietly"
+    ],
+    "who_avoids_them": [
+      "the implicated",
+      "the panicked",
+      "the politically exposed"
+    ],
+    "interaction_anchor": "evidence-gathering and contradiction testing"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

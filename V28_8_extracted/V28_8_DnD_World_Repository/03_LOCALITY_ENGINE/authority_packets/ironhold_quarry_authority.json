@@ -1,0 +1,15 @@
+{
+  "name": "Ironhold Quarry",
+  "visible_power": [
+    "ORE",
+    "Iron Accord"
+  ],
+  "law_context": [
+    "high enforcement visibility"
+  ],
+  "sources": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

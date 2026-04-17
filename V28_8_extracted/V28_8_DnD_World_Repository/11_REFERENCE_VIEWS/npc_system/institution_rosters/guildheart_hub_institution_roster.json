@@ -1,0 +1,12 @@
+{
+  "build_version": "V28_8",
+  "institution": "Guildheart Hub",
+  "record_count": 5,
+  "npc_ids": [
+    "guilden_ledgermere",
+    "halv_ledgermere",
+    "mira_ledgermere",
+    "porter_ledgermere",
+    "sena_ledgermere"
+  ]
+}

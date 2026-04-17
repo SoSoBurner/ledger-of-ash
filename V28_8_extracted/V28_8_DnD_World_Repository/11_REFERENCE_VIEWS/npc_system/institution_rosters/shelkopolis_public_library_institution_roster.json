@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Shelkopolis Public Library",
+  "record_count": 2,
+  "npc_ids": [
+    "maren_threadmere",
+    "velis_petalglass"
+  ]
+}

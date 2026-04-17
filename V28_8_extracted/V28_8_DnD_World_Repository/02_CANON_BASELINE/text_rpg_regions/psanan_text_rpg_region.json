@@ -1,0 +1,77 @@
+{
+  "name": "Psanan",
+  "major_bloc": "Psanan",
+  "truth_layer": "conservative_inference",
+  "content_family": "text_rpg_region_surface",
+  "street_level_faction_presence": {
+    "major_factions": [
+      "Great House Citadel Circle",
+      "Queen’s Court of Psanan"
+    ],
+    "what_people_notice": [
+      "Great House Citadel Circle",
+      "Queen’s Court of Psanan"
+    ],
+    "street_signals": "Symbols, uniform cues, work marks, and rumor shorthand make power visible in daily movement."
+  },
+  "social_behavior_norms": {
+    "greetings": [
+      "Respect is shown through endurance, heat tolerance, and correct acknowledgment of House precedence."
+    ],
+    "hospitality_rules": [
+      "Hosts offer shade, water, and forge-safe food first; comfort is proven through survival competence."
+    ],
+    "insult_triggers": [
+      "public cowardice",
+      "disrespect toward House rank",
+      "carelessness in forge or descent zones"
+    ],
+    "taboo_topics": [
+      "speaking lightly of the dead in ashfall zones",
+      "undercutting public renewal vows"
+    ],
+    "class_expectations": [
+      "matriarchs command, crafters endure, and laborers are expected to withstand heat and hierarchy without disorder"
+    ],
+    "faith_etiquette": [
+      "ancestral and civic renewal practices require seriousness, especially around memorial and rebuilding markers"
+    ],
+    "suspicious_behavior": [
+      "moving through descent gates without sanction",
+      "unmarked weapons dealings",
+      "ritual mask misuse"
+    ],
+    "outsider_mistakes": [
+      "reading harshness as simple cruelty rather than heat, danger, and precedent-driven rule"
+    ]
+  },
+  "occupation_and_daily_life": {
+    "daily_rhythm": "Life turns on forging, ash cleanup, rebuilding, House service, harbor timing, and underworld risk management.",
+    "work_rhythm_by_calendar_or_season": "Volcanic cooling and ash periods sharply alter labor, travel, and public ritual.",
+    "ordinary_texture": "Ash, sulfur, heated metal, lamp smoke, dried spice, and wet stone dominate the air. Streets sound like hammers, shouted crews, braziers, and processional drums."
+  },
+  "rumor_and_local_talk": [
+    "House betrayal",
+    "descent losses",
+    "forge accidents",
+    "renewal politics"
+  ],
+  "conflict_surfaces": [
+    "progress versus tradition",
+    "House ambition versus civic rebuilding",
+    "endurance versus compassion"
+  ],
+  "travel_and_transition_texture": "Travel is shaped by ashfall, escorted descent chains, harbor windows, and visible threshold customs tied to danger.",
+  "dwelling_and_settlement_life": "Homes differ by House rank but commonly include heat-managed courtyards, ash-control measures, household shrines, and multi-generational obligation spaces.",
+  "relationship_and_reputation_logic": "People are remembered for endurance, oath-keeping, and whether they rebuild or merely benefit.",
+  "region_specific_emotional_tone": "Psanan stories are severe, intimate, and ceremonial: volcanic danger, matriarchal pressure, rivalry under heat, and renewal earned through damage.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ]
+}

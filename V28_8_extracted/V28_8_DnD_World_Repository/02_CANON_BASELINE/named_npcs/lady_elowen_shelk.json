@@ -1,0 +1,84 @@
+{
+  "npc_id": "lady_elowen_shelk",
+  "canonical_name": "Lady Elowen Shelk",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Fashion icon and guild chairwoman",
+  "profession_discipline": "Fashion icon and guild chairwoman",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Market Row Guildhall",
+  "locality_scope": "Market Row Guildhall",
+  "institutional_ties": [
+    "Market Row Guildhall",
+    "Shelk fashion economy"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a fashion icon and guild chairwoman of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Market Row Guildhall"
+    ],
+    "institutions": [
+      "Market Row Guildhall",
+      "Shelk fashion economy"
+    ],
+    "factions": []
+  },
+  "appearance": "A vibrant elf with an artistic flair, wearing avant-garde fashion that showcases her role as a cultural icon.",
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a fashion icon and guild chairwoman still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of fashion icon and guild chairwoman in and around Market Row Guildhall, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Market Row Guildhall workable through the obligations of fashion icon and guild chairwoman while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Market Row Guildhall, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of fashion icon and guild chairwoman visibly slip.",
+  "relationship_refs": [
+    "rel_0005",
+    "rel_0006",
+    "rel_0007",
+    "rel_0008",
+    "rel_1041",
+    "rel_1042"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Lady Elowen Shelk needs help with a problem in Market Row Guildhall that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Lady Elowen Shelk can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Lady Elowen Shelk can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Appearance expanded from direct canon support in PSC_Shelkopolis. Manner and pressure remain conservative operational inference anchored to her fashion leadership role.",
+  "source_object_ids": [
+    "psc_shelkopolis"
+  ],
+  "compatibility_interface_id": "lady_elowen_shelk",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Lady Elowen Shelk carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Market Row Guildhall: the part of Market Row Guildhall where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

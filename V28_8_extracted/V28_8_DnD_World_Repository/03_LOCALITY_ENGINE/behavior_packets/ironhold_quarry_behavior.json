@@ -1,0 +1,22 @@
+{
+  "name": "Ironhold Quarry",
+  "who_belongs": [
+    "miners",
+    "guards",
+    "prison laborers",
+    "engineers"
+  ],
+  "who_is_out_of_place": [
+    "saboteurs",
+    "smugglers",
+    "unvetted observers"
+  ],
+  "expected_behavior": [
+    "obey labor zones and guard instructions"
+  ],
+  "sources": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

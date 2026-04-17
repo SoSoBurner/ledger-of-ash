@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 111",
+  "title": "Cultural Insensitivity",
+  "severity": "misdemeanor",
+  "description": "Disrespectful behavior toward local artisanal, noble, civic, or religious norms.",
+  "jurisdictions": [
+    "multiple Shelk sites"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

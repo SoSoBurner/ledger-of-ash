@@ -1,0 +1,9 @@
+{
+  "name": "Silent Haven",
+  "inside": "Refuge logic, dock vigilance, and law-heavy calm define it.",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

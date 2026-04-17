@@ -1,0 +1,13 @@
+{
+  "build_version": "V28_8",
+  "institution": "Sunspire Haven",
+  "record_count": 6,
+  "npc_ids": [
+    "garren_forgebound",
+    "kael_emberthrone",
+    "orvak_strone",
+    "taldan_veyst",
+    "torma_coalward",
+    "varik_drillwake"
+  ]
+}

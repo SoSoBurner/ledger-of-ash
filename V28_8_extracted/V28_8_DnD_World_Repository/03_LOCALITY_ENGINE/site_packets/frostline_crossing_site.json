@@ -1,0 +1,38 @@
+{
+  "name": "Frostline Crossing",
+  "parent_district": "Whitebridge Commune",
+  "type": "frozen crossing",
+  "approach": "Tall marker poles and burial cairns line an ice path that is never safe for long.",
+  "inside": "Crossing stations, rope anchors, and emergency caches make the route barely viable.",
+  "who_belongs": [
+    "route wardens",
+    "licensed haulers",
+    "expedition crews"
+  ],
+  "who_is_out_of_place": [
+    "the unregistered",
+    "reckless thrill-seekers"
+  ],
+  "expected_behavior": [
+    "travel only on marked windows",
+    "yield to rescue operations"
+  ],
+  "visible_power": [
+    "Route Warden Compacts"
+  ],
+  "economy_or_function": "transit and survival route",
+  "law_context": [
+    "crossing declaration law"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet": "Frostline Crossing Scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Frostline Crossing Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

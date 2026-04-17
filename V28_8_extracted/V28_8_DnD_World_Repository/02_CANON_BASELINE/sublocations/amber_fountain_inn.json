@@ -1,0 +1,22 @@
+{
+  "name": "Amber Fountain Inn",
+  "parent_district": "Verdant Row District",
+  "type": "inn",
+  "summary": "Warm inn for traders and scholars with practical welcome and local custom pressure.",
+  "npc_interfaces": [
+    "pela_vale",
+    "arin_vale"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "pela_vale",
+    "arin_vale"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

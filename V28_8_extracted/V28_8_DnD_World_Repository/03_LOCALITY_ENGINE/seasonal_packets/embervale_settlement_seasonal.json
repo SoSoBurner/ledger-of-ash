@@ -1,0 +1,8 @@
+{
+  "name": "Embervale Settlement",
+  "seasonal_change": "freeze and storm periods turn Embervale into a packed refuge, triage node, and labor rebalancing center.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

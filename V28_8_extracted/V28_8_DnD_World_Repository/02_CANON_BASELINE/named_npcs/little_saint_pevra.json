@@ -1,0 +1,72 @@
+{
+  "npc_id": "little_saint_pevra",
+  "canonical_name": "Little Saint Pevra",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "religious_figure",
+  "office_or_role": "Saint",
+  "profession_discipline": "Saint",
+  "grouping": "Support & Leadership",
+  "polity": "Psanan",
+  "settlement": "Cinder depots",
+  "locality_scope": "Cinder depots, Psanan",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "recognized_religious_office",
+  "public_reputation": "Uncanonized by any court, but laborers still leave offerings at her bench because people survive after her prayers.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Cinder depots, Psanan"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Ash-touched ritual wear, heat-hardened ornament, and severe ceremonial lines signal renewal through endurance.",
+  "manner": "Carries conviction without hurry, treating speech as something that should alter conduct rather than fill space. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a saint still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of saint in and around Cinder depots, Psanan, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cinder depots, Psanan workable through the obligations of saint while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must absorb projected hope, fear, and reverence without letting any single demand seize the whole office. Around Cinder depots, Psanan, that usually means carrying eruption risk, resource access, underworld danger without letting the role of saint visibly slip.",
+  "relationship_refs": [
+    "rel_1311"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "vision_or_omen",
+      "summary": "Little Saint Pevra can draw the party into an omen, warning, or spiritual disturbance whose meaning is still contested in Cinder depots, Psanan."
+    },
+    {
+      "hook_type": "community_pressure",
+      "summary": "Little Saint Pevra needs outside help where faith, fear, and public expectation are beginning to pull against one another."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Devotional bearing and the way conversation settles around them make Little Saint Pevra read as someone carrying spiritual consequence.",
+  "encounter_context": {
+    "usual_environment": "Cinder depots, Psanan: sacred chambers, public observances, or contemplative retreats",
+    "who_seeks_them_out": [
+      "the fearful",
+      "the doubtful",
+      "those seeking meaning"
+    ],
+    "who_avoids_them": [
+      "those demanding spectacle",
+      "the contemptuous",
+      "those who only want endorsement"
+    ],
+    "interaction_anchor": "interpretation of spiritual meaning"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

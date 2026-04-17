@@ -1,0 +1,23 @@
+{
+  "name": "Ironroot Crossing",
+  "type": "major Soreheim trade bridge",
+  "jurisdictions": [
+    "Soreheim Alliance"
+  ],
+  "hazards": [
+    "industrial bottleneck",
+    "production priority conflicts"
+  ],
+  "sources": [
+    "soreheim_review"
+  ],
+  "named_npc_refs": [
+    "garren_rimeclasp"
+  ],
+  "npc_interfaces": [
+    "garren_rimeclasp"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

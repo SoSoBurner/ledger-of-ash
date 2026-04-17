@@ -1,0 +1,9 @@
+{
+  "name": "Ironhold Quarry",
+  "inside": "Ore flows, guarded labor, and infrastructure support make the quarry a blunt expression of Roazian order.",
+  "sources": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

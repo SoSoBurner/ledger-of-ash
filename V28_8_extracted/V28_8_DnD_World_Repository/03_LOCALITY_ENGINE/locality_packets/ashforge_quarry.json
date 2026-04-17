@@ -1,0 +1,186 @@
+{
+  "name": "Ashforge Quarry",
+  "type": "mining settlement",
+  "parent_polity": "Soreheim Alliance",
+  "truth_layer": "reconciled_canon",
+  "identity": "Fortified quarry-settlement where ore extraction, partial refinement, predator defense, and hard clan-family patronage dominate daily survival.",
+  "approach": "High walls, ore lifts, beacon chains, and blackened roadbeds cut through a rocky valley alive with hauling noise and watch calls.",
+  "inside": "Smelter yards, bunk rows, counting sheds, armament lockers, and family-held crew barracks sit under constant hazard posture.",
+  "who_belongs": [
+    "miners",
+    "guards",
+    "engineers",
+    "haulers",
+    "repair crews",
+    "crew-family dependents"
+  ],
+  "who_is_out_of_place": [
+    "wasteful outsiders",
+    "the soft-handed",
+    "people who break tool discipline or favor chains"
+  ],
+  "expected_behavior": [
+    "contribute or clear the lane",
+    "respect foremen, signal calls, and family claims over crews and bunks"
+  ],
+  "visible_power": [
+    "Hill Giant foremen",
+    "industrial clans",
+    "regional bosses",
+    "patron-families tied to extraction crews"
+  ],
+  "economy": [
+    "ore extraction",
+    "partial refinement",
+    "armament supply",
+    "hazard salvage"
+  ],
+  "faith": [
+    "resilience and ambition rites are short, loud, and tied to shifts, losses, and return from danger"
+  ],
+  "seasonal_change": "storms, eruptions, and avalanche risk reorder work gangs and sleeping patterns through much of the year.",
+  "pressure": [
+    "predators",
+    "avalanches",
+    "geothermal bursts",
+    "sabotage",
+    "crew rivalries"
+  ],
+  "npc_interfaces": [
+    "tharim_coalforge",
+    "varric_icevein",
+    "gryndal_vesskar",
+    "hildran_wyvernharn",
+    "gorath_myrn"
+  ],
+  "law_context": [
+    "communal asset protection enforced through central decrees, foreman violence, and family accountability for crew failure"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "settlement": "Ashforge Quarry",
+    "district": null
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "canonical_identity": {
+    "truth_layer": "reconciled_canon",
+    "identity": "Fortified quarry-settlement where ore extraction, partial refinement, predator defense, and hard clan-family patronage dominate daily survival.",
+    "approach": "High walls, ore lifts, beacon chains, and blackened roadbeds cut through a rocky valley alive with hauling noise and watch calls.",
+    "inside": "Smelter yards, bunk rows, counting sheds, armament lockers, and family-held crew barracks sit under constant hazard posture.",
+    "who_belongs": [
+      "miners",
+      "guards",
+      "engineers",
+      "haulers",
+      "repair crews",
+      "crew-family dependents"
+    ],
+    "who_is_out_of_place": [
+      "wasteful outsiders",
+      "the soft-handed",
+      "people who break tool discipline or favor chains"
+    ],
+    "expected_behavior": [
+      "contribute or clear the lane",
+      "respect foremen, signal calls, and family claims over crews and bunks"
+    ],
+    "visible_power": [
+      "Hill Giant foremen",
+      "industrial clans",
+      "regional bosses",
+      "patron-families tied to extraction crews"
+    ],
+    "economy": [
+      "ore extraction",
+      "partial refinement",
+      "armament supply",
+      "hazard salvage"
+    ],
+    "faith": [
+      "resilience and ambition rites are short, loud, and tied to shifts, losses, and return from danger"
+    ],
+    "seasonal_change": "storms, eruptions, and avalanche risk reorder work gangs and sleeping patterns through much of the year.",
+    "pressure": [
+      "predators",
+      "avalanches",
+      "geothermal bursts",
+      "sabotage",
+      "crew rivalries"
+    ],
+    "law_context": [
+      "communal asset protection enforced through central decrees, foreman violence, and family accountability for crew failure"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "High walls, ore lifts, beacon chains, and blackened roadbeds cut through a rocky valley alive with hauling noise and watch calls.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Smelter yards, bunk rows, counting sheds, armament lockers, and family-held crew barracks sit under constant hazard posture.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "predators",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "avalanches",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "geothermal bursts",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "sabotage",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "crew rivalries",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "contribute or clear the lane",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "respect foremen, signal calls, and family claims over crews and bunks",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "tharim_coalforge",
+    "varric_icevein",
+    "gryndal_vesskar",
+    "hildran_wyvernharn",
+    "gorath_myrn"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually miners, guards, engineers, and public conduct is read through expectations such as contribute or clear the lane, respect foremen, signal calls, and family claims over crews and bunks.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Hill Giant foremen, industrial clans, regional bosses.",
+  "local_tension_surface": "The place feels stable only until pressures such as predators, avalanches, geothermal bursts begin showing through daily routines.",
+  "differentiator": "Ashforge Quarry stands apart because its economy leans on ore extraction, partial refinement; public faith remains visible through resilience and ambition rites are short, loud, and tied to shifts, losses, and return from danger; outsiders are noticed fastest when they resemble wasteful outsiders, the soft-handed.",
+  "encounter_rhythm": "Most first scenes in Ashforge Quarry begin through mining settlement rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

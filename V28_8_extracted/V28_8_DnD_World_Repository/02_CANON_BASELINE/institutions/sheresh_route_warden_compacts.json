@@ -1,0 +1,31 @@
+{
+  "name": "Sheresh Route Warden Compacts",
+  "type": "Sheresh route institution",
+  "truth_layer": "conservative_inference",
+  "summary": "Institutional framework for life-preserving movement, launch windows, and loss-reporting between Sheresh domes.",
+  "day_to_day": "Approves crossings, assigns escorts, updates route conditions, and processes loss declarations.",
+  "who_works_there": "Wardens, weather readers, crossing clerks, shelter officers, escort leaders.",
+  "who_uses_it": "Travelers, relief caravans, researchers, families moving between domes.",
+  "authority": "Can delay or deny travel when route conditions threaten communal survival.",
+  "public_manifestation": "Departure boards, escort rosters, heated shelter queues, route advisories.",
+  "conflict_or_bottleneck": "Every delay feels personal when someone desperately needs to move.",
+  "party_actions": [
+    "secure crossing approval",
+    "appeal a delay",
+    "escort a convoy",
+    "investigate missing travelers"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "rime_frostglass"
+  ],
+  "npc_interfaces": [
+    "rime_frostglass"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Roadwardens Order",
+  "type": "route security institution",
+  "truth_layer": "direct_canon",
+  "summary": "Institutional road police and escort authority aligned with Shelk’s commitment to safe commerce.",
+  "day_to_day": "Patrols roads, staffs barracks, escorts caravans, issues route guidance, and secures major gatherings.",
+  "who_works_there": "Roadwardens, patrol captains, clerks, armorers, stablehands, route officers.",
+  "who_uses_it": "Travelers, merchants, nobles, pilgrims, settlements depending on safe roads.",
+  "authority": "Can inspect cargo, enforce road law, and intervene in route disorder or public danger.",
+  "public_manifestation": "Bright plumes, patrol relays, barracks traffic, checkpoint questions, route notices.",
+  "conflict_or_bottleneck": "The institution must stay visible enough to deter threats without suffocating the commerce it protects.",
+  "party_actions": [
+    "take a patrol contract",
+    "request escort",
+    "file a road complaint",
+    "trace caravan disappearances"
+  ],
+  "sources": [
+    "principality_shelk",
+    "locations_catalog",
+    "psc_shelkopolis"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "velis_warderose",
+    "tavian_dawnsilk"
+  ],
+  "npc_interfaces": [
+    "velis_warderose",
+    "tavian_dawnsilk"
+  ]
+}

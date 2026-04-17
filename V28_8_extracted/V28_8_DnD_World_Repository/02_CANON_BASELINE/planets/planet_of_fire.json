@@ -1,0 +1,19 @@
+{
+  "id": "planet.planet_of_fire",
+  "name": "Planet of Fire",
+  "truth_layer": "direct_canon",
+  "function": "Supports day-night cycles and countered catastrophic floods by evaporation and heat balancing.",
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ],
+  "named_npc_refs": [
+    "pela_hart"
+  ],
+  "npc_interfaces": [
+    "pela_hart"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

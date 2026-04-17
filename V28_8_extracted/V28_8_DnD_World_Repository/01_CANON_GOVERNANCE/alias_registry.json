@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-04-16T05:20:57Z",
+  "aliases": [
+    {
+      "canonical": "Psanan",
+      "alias": "Phoenix Island",
+      "status": "deprecated_legacy_alias",
+      "reason": "Older seed naming layer replaced by later active polity naming."
+    },
+    {
+      "canonical": "Sheresh Communes",
+      "alias": "Sherash Comunes",
+      "status": "deprecated_spelling_drift",
+      "reason": "Orthographic drift across early materials."
+    },
+    {
+      "canonical": "The Union",
+      "alias": "Principality of Mal",
+      "status": "not_alias_successor_transition",
+      "reason": "Union is the sanctioned successor power in the former Mal sphere, not merely an alternate name."
+    },
+    {
+      "canonical": "Shelkopolis",
+      "alias": "Shelkanis",
+      "status": "deprecated_or_unconfirmed_alt_name",
+      "reason": "Dense locality packet and repeated locality support anchor Shelkopolis as the active city object."
+    },
+    {
+      "canonical": "Panim",
+      "alias": "Panem",
+      "status": "deprecated_spelling_drift",
+      "reason": "Later polity and locality material stabilizes Panim."
+    },
+    {
+      "canonical": "Vonalzo",
+      "alias": "Volnazo",
+      "status": "deprecated_spelling_drift",
+      "reason": "Later corrective and polity-aware files stabilize Vonalzo spelling."
+    },
+    {
+      "canonical": "The Principalities",
+      "alias": "Original DnD World imperial seed stack",
+      "status": "ancestral_seed_reference",
+      "reason": "Preserved for lineage, not active label replacement."
+    }
+  ]
+}

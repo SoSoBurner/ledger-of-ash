@@ -1,0 +1,20 @@
+{
+  "id": "deity.vonalzo",
+  "name": "Vonalzo",
+  "domain": "Ambition",
+  "desire": "Win through power, supremacy, and conquest",
+  "truth_layer": "corrected_canon",
+  "public_belief_record": "Remembered in some records as slain by Remeny.",
+  "corrected_state": "Faked death through deception involving Twyll and retains active agency plus absorbed-seed understanding.",
+  "absorbed_seeds": [
+    "Hope / Remeny",
+    "Obsession",
+    "Solitude / Magány"
+  ],
+  "contradiction_package": "pantheon.vonalzo_remeny_truth_package",
+  "sources": [
+    "pantheon_story",
+    "gwybodaeth_missing",
+    "ai_source_pdf"
+  ]
+}

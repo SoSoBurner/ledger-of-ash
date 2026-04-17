@@ -1,0 +1,88 @@
+{
+  "npc_id": "corin_wren",
+  "canonical_name": "Corin Wren",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Door Warden",
+  "profession_discipline": "Door Warden",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Roadwardens’ Central Command",
+  "locality_scope": "Roadwardens’ Central Command",
+  "institutional_ties": [
+    "Roadwardens’ Central Command"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as door warden.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Roadwardens’ Central Command"
+    ],
+    "institutions": [
+      "Roadwardens’ Central Command"
+    ],
+    "factions": []
+  },
+  "appearance": "Typically appears in the bright colors and tall plumes associated with Shelk’s Roadwardens.",
+  "manner": "Keeps speech clipped and threshold-focused, reading every arrival for risk, weakness, or breach. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a door warden still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of door warden in and around Roadwardens’ Central Command, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Roadwardens’ Central Command workable through the obligations of door warden while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must notice trouble early enough that force remains legitimate rather than merely reactive. Around Roadwardens’ Central Command, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of door warden visibly slip.",
+  "relationship_refs": [
+    "rel_0478",
+    "rel_0487",
+    "rel_0495",
+    "rel_0502",
+    "rel_0508",
+    "rel_0513",
+    "rel_0518",
+    "rel_0519",
+    "rel_0520",
+    "rel_0521",
+    "rel_0902",
+    "rel_0905",
+    "rel_0906"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Corin Wren may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "incident_response",
+      "summary": "Corin Wren needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Roadwardens’ Central Command."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance conservatively derived from explicit office, organizational attire, or species/station cues already present in corpus support.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "corin_wren",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Corin Wren as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "Roadwardens’ Central Command: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  }
+}

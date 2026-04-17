@@ -1,0 +1,253 @@
+{
+  "name": "Guildheart Hub",
+  "type": "settlement",
+  "parent_polity": "The Union",
+  "identity": "Dense industrial-urban nerve center of the Union successor order where contract legitimacy, merchant standing, tariff politics, and freight administration are made visible.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "The Principalities",
+    "territory": "Union Successor Heartland",
+    "settlement": "Guildheart Hub",
+    "district": null
+  },
+  "approach": "Multi-story counting halls, bonded warehouse blocks, canal-side loading lanes, registry towers, and arbitration pavilions announce that cargo paper, inspection rhythm, and freight infrastructure rule this place.",
+  "inside": "Clerks, brokers, arbiters, haulers, and guarded petitioners move through dense administrative floors, storage courts, and hearing chambers where guild insignia matters more than noble heraldry.",
+  "who_belongs": [
+    "guild officers",
+    "licensed merchants",
+    "arbiters",
+    "copyists",
+    "tariff clerks"
+  ],
+  "who_is_out_of_place": [
+    "idle aristocrats demanding inherited deference",
+    "unregistered traders",
+    "romantic loyalists who refuse contract order"
+  ],
+  "expected_behavior": [
+    "declare business plainly",
+    "observe queue and hearing order",
+    "produce records when challenged",
+    "respect sanction notices"
+  ],
+  "visible_power": [
+    "The Union",
+    "Guild Sanction Board",
+    "merchant houses",
+    "imperial revenue observers"
+  ],
+  "economy": [
+    "arbitration",
+    "tariff mediation",
+    "warehouse registration",
+    "trade sanctioning"
+  ],
+  "faith": [
+    [
+      "Public devotion is present but subordinated to civic contract rhythm."
+    ]
+  ],
+  "seasonal_change": "Peak caravan seasons thicken hearings, storage disputes, night-loading, and temporary freight overflow into adjacent urban blocks.",
+  "pressure": [
+    "legacy Mal claims",
+    "smuggling",
+    "Red Hood rumor presence",
+    "imperial oversight"
+  ],
+  "law_context": [
+    "Contract and sanction logic are publicly legible.",
+    "Failure to register goods or hearings attracts rapid administrative consequences."
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "Dense industrial-urban nerve center of the Union successor order where contract legitimacy, merchant standing, tariff politics, and freight administration are made visible.",
+    "approach": "Multi-story counting halls, bonded warehouse blocks, canal-side loading lanes, registry towers, and arbitration pavilions announce that cargo paper, inspection rhythm, and freight infrastructure rule this place.",
+    "inside": "Clerks, brokers, arbiters, haulers, and guarded petitioners move through dense administrative floors, storage courts, and hearing chambers where guild insignia matters more than noble heraldry.",
+    "who_belongs": [
+      "guild officers",
+      "licensed merchants",
+      "arbiters",
+      "copyists",
+      "tariff clerks"
+    ],
+    "who_is_out_of_place": [
+      "idle aristocrats demanding inherited deference",
+      "unregistered traders",
+      "romantic loyalists who refuse contract order"
+    ],
+    "expected_behavior": [
+      "declare business plainly",
+      "observe queue and hearing order",
+      "produce records when challenged",
+      "respect sanction notices"
+    ],
+    "visible_power": [
+      "The Union",
+      "Guild Sanction Board",
+      "merchant houses",
+      "imperial revenue observers"
+    ],
+    "economy": [
+      "arbitration",
+      "tariff mediation",
+      "warehouse registration",
+      "trade sanctioning"
+    ],
+    "faith": [
+      [
+        "Public devotion is present but subordinated to civic contract rhythm."
+      ]
+    ],
+    "seasonal_change": "Peak caravan seasons thicken hearings, storage disputes, night-loading, and temporary freight overflow into adjacent urban blocks.",
+    "pressure": [
+      "legacy Mal claims",
+      "smuggling",
+      "Red Hood rumor presence",
+      "imperial oversight"
+    ],
+    "law_context": [
+      "Contract and sanction logic are publicly legible.",
+      "Failure to register goods or hearings attracts rapid administrative consequences."
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Multi-story counting halls, bonded warehouse blocks, canal-side loading lanes, registry towers, and arbitration pavilions announce that cargo paper, inspection rhythm, and freight infrastructure rule this place.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Clerks, brokers, arbiters, haulers, and guarded petitioners move through dense administrative floors, storage courts, and hearing chambers where guild insignia matters more than noble heraldry.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "legacy Mal claims",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "smuggling",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Red Hood rumor presence",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "imperial oversight",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "declare business plainly",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "observe queue and hearing order",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "produce records when challenged",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "respect sanction notices",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "npc_interfaces": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "named_npc_refs": [],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "local_role_expression": {
+    "innkeeper": {
+      "demeanor": "practical, hospitable, observant",
+      "visible_concerns": [
+        "lodging pressure",
+        "traveler gossip",
+        "unusual arrivals"
+      ],
+      "institutional_tie": "Guildheart Hub"
+    },
+    "market_clerk": {
+      "demeanor": "order-minded, queue-aware, attentive",
+      "visible_concerns": [
+        "stall flow",
+        "forms and seals",
+        "disrupted trade rhythm"
+      ],
+      "institutional_tie": "Guildheart Hub"
+    },
+    "shrine_attendant": {
+      "demeanor": "quiet, observant, correction-minded",
+      "visible_concerns": [
+        "offering order",
+        "purification lapses",
+        "ritual irregularity"
+      ],
+      "institutional_tie": "Guildheart Hub"
+    },
+    "porter": {
+      "demeanor": "hurried, grounded, load-aware",
+      "visible_concerns": [
+        "freight strain",
+        "delayed movement",
+        "suspicious cargo"
+      ],
+      "institutional_tie": "Guildheart Hub"
+    },
+    "scribe": {
+      "demeanor": "precise, discreet, patient",
+      "visible_concerns": [
+        "record integrity",
+        "testimony wording",
+        "missing signatures"
+      ],
+      "institutional_tie": "Guildheart Hub"
+    },
+    "labor_foreman": {
+      "demeanor": "blunt, protective, schedule-bound",
+      "visible_concerns": [
+        "crew discipline",
+        "equipment strain",
+        "blame transfer"
+      ],
+      "institutional_tie": "Guildheart Hub"
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually guild officers, licensed merchants, arbiters, and public conduct is read through expectations such as declare business plainly, observe queue and hearing order.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by The Union, Guild Sanction Board, merchant houses.",
+  "local_tension_surface": "The place feels stable only until pressures such as legacy Mal claims, smuggling, Red Hood rumor presence begin showing through daily routines.",
+  "differentiator": "Guildheart Hub stands apart because its economy leans on arbitration, tariff mediation; public faith remains visible through Public devotion is present but subordinated to civic contract rhythm.; outsiders are noticed fastest when they resemble idle aristocrats demanding inherited deference, unregistered traders.",
+  "encounter_rhythm": "Most first scenes in Guildheart Hub begin through settlement rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

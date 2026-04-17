@@ -1,0 +1,8 @@
+{
+  "name": "Ironspool Ward District",
+  "inside": "Labor garments, rough taverns, hidden fear shrines, and second-hand trade define the ward.",
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "npc_id": "thora_rimebridge",
+  "canonical_name": "Thora Rimebridge",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "healer",
+  "office_or_role": "Street Physician",
+  "profession_discipline": "Street Physician",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Glasswake Commune",
+  "locality_scope": "Glasswake Commune",
+  "institutional_ties": [
+    "Glasswake Commune"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as street physician.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Glasswake Commune"
+    ],
+    "institutions": [
+      "Glasswake Commune"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a street physician still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of street physician in and around Glasswake Commune, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Glasswake Commune workable through the obligations of street physician while managing the immediate pressure of exposure incidents in Sheresh Communes.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Glasswake Commune, that usually means carrying exposure incidents, quarantine fatigue, instrument failure without letting the role of street physician visibly slip.",
+  "relationship_refs": [
+    "rel_0111",
+    "rel_0120",
+    "rel_0128",
+    "rel_0135",
+    "rel_0141",
+    "rel_0147",
+    "rel_0148",
+    "rel_0149",
+    "rel_0150",
+    "rel_0151",
+    "rel_1085",
+    "rel_1087",
+    "rel_1088"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Thora Rimebridge needs help with a problem in Glasswake Commune that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Thora Rimebridge can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "thora_rimebridge",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Thora Rimebridge carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Glasswake Commune, this lands inside a public field already shaped by Containment Research Concord.",
+  "encounter_context": {
+    "usual_environment": "Glasswake Commune: the part of Glasswake Commune where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

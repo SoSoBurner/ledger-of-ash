@@ -1,0 +1,71 @@
+{
+  "npc_id": "joric_fenbow",
+  "canonical_name": "Joric Fenbow",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Rangers",
+  "profession_discipline": "Rangers",
+  "grouping": "Classic Combat",
+  "polity": "Zootia",
+  "settlement": null,
+  "locality_scope": "Zootia range-lands",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Fence-running beast spotter who keeps herds off sabotage paths and washed-out routes.",
+  "linked_systems": {
+    "polities": [
+      "Zootia"
+    ],
+    "localities": [
+      "Zootia range-lands"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in movement, timing, and obstacle management, treating delay as a concrete threat. In Zootia, that reads as someone practical, supply-aware, and season-conscious, attentive to material reliability over display, and the habits of a rangers still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of rangers in and around Zootia range-lands, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Zootia range-lands workable through the obligations of rangers while managing the immediate pressure of institutional scrutiny in Zootia.",
+  "hidden_pressure": "Must turn uncertain terrain and changing terms into something people can actually traverse. Around Zootia range-lands, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of rangers visibly slip.",
+  "relationship_refs": [
+    "rel_1267"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "route_problem",
+      "summary": "Joric Fenbow needs help reading a blocked path, escorting traffic, or reopening safe movement through Zootia range-lands."
+    },
+    {
+      "hook_type": "travel_complication",
+      "summary": "Joric Fenbow can pull the party into chokepoints, timing failures, or rival claims over how movement should happen."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Joric Fenbow lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Zootia range-lands: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Maskscar Plaza District",
+  "seasonal_change": "Midyear observance turns the district into the loudest civic space in Psanan.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

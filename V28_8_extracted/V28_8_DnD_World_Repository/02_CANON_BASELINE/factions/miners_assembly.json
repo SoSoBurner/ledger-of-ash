@@ -1,0 +1,49 @@
+{
+  "name": "Miners’ Assembly",
+  "type": "Soreheim extraction faction",
+  "truth_layer": "direct_canon",
+  "summary": "The principal extraction organization for the Alliance’s mining zones, especially in the Eternal Lands.",
+  "motive": "Keep ore, crystal, and geothermal resource streams flowing without collapsing the frontier.",
+  "methods": [
+    "quarry management",
+    "labor allocation",
+    "hazard discipline",
+    "resource reporting"
+  ],
+  "geography": [
+    "Eternal Lands",
+    "Ashforge Quarry",
+    "Molten Span",
+    "Glacier’s Vein-style waypoints"
+  ],
+  "power_relations": [
+    "Operates under giant authority and coordinates with engineers, frontier crews, and transport networks"
+  ],
+  "current_pressure": [
+    "resource depletion",
+    "cave-ins",
+    "predator attacks",
+    "quota pressure"
+  ],
+  "visible_membership_base": "Miners, foremen, haulers, safety crews, survey teams.",
+  "civilian_contact_surface": [
+    "ore contracts",
+    "labor assignments",
+    "injury and death notifications",
+    "camp provisioning"
+  ],
+  "current_tension_or_vulnerability": "Deeper extraction buys short-term productivity at the cost of long-term instability and crew morale.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "helga_drillwake"
+  ],
+  "npc_interfaces": [
+    "helga_drillwake"
+  ]
+}

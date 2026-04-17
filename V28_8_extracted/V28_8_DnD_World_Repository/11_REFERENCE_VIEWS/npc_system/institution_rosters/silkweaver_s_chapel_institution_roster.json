@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Silkweaver’s Chapel",
+  "record_count": 2,
+  "npc_ids": [
+    "sel_mere",
+    "taren_mere"
+  ]
+}

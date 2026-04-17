@@ -1,0 +1,90 @@
+{
+  "name": "Harvest Circle",
+  "type": "market harvest town",
+  "parent_polity": "Soreheim Alliance",
+  "territory": "Unternal Lands",
+  "truth_layer": "reconciled_canon",
+  "identity": "Cultural and market town where harvest patron-families, quota clerks, and festival brokers turn field output into alliance redistribution.",
+  "approach": "Open market rings, wagon circles, drying racks, and shrine lawns announce a town built for exchange as much as storage.",
+  "inside": "Granaries, counting courts, communal tables, festival grounds, and family compounds share one busy civic center.",
+  "who_belongs": [
+    "farmers",
+    "carters",
+    "grain factors",
+    "festival stewards",
+    "family brokers"
+  ],
+  "who_is_out_of_place": [
+    "cheats",
+    "panic buyers",
+    "people who insult local rites or cut market lines"
+  ],
+  "expected_behavior": [
+    "declare loads honestly",
+    "respect family-controlled stalls and convoy order",
+    "treat festival exchange as civic duty as well as profit"
+  ],
+  "visible_power": [
+    "harvest stewards",
+    "quota clerks",
+    "patron-families",
+    "regional arbiters"
+  ],
+  "economy": [
+    "grain redistribution",
+    "festival trade",
+    "storage",
+    "convoy assembly"
+  ],
+  "faith": [
+    "unity and harvest rites are public, crowded, and used to reset debts, favors, and work pledges"
+  ],
+  "seasonal_change": "the town swells dramatically at harvest and tightens into reserve-counting discipline when shortages threaten.",
+  "pressure": [
+    "spoilage",
+    "price pressure",
+    "favor feuds",
+    "route congestion"
+  ],
+  "npc_interfaces": [
+    "elyra_mossbane",
+    "jorva_helmrune",
+    "velrik_durnshade",
+    "farlan_inkshade",
+    "svala_coalward",
+    "garren_ashmason",
+    "varik_stonecarve"
+  ],
+  "law_context": [
+    "market peace is enforced through communal law, clerk records, and family responsibility for stall, storage, and convoy conduct"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "elyra_mossbane",
+    "jorva_helmrune",
+    "velrik_durnshade",
+    "farlan_inkshade",
+    "svala_coalward",
+    "garren_ashmason",
+    "varik_stonecarve"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_behavior_texture": "People who belong here are usually farmers, carters, grain factors, and public conduct is read through expectations such as declare loads honestly, respect family-controlled stalls and convoy order.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by harvest stewards, quota clerks, patron-families.",
+  "local_tension_surface": "The place feels stable only until pressures such as spoilage, price pressure, favor feuds begin showing through daily routines.",
+  "differentiator": "Harvest Circle stands apart because its economy leans on grain redistribution, festival trade; public faith remains visible through unity and harvest rites are public, crowded, and used to reset debts, favors, and work pledges; outsiders are noticed fastest when they resemble cheats, panic buyers.",
+  "encounter_rhythm": "Most first scenes in Harvest Circle begin through market harvest town rhythms: arrival, observation, minor correction, and only then deeper access."
+}

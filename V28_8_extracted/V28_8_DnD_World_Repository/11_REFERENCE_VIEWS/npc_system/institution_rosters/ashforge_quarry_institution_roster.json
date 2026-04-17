@@ -1,0 +1,14 @@
+{
+  "build_version": "V28_8",
+  "institution": "Ashforge Quarry",
+  "record_count": 7,
+  "npc_ids": [
+    "dema_coalward",
+    "gorath_myrn",
+    "gryndal_vesskar",
+    "hildran_wyvernharn",
+    "korin_ashmason",
+    "tharim_coalforge",
+    "varric_icevein"
+  ]
+}

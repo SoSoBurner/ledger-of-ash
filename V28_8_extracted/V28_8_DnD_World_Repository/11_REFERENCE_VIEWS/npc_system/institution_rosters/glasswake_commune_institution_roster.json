@@ -1,0 +1,11 @@
+{
+  "build_version": "V28_8",
+  "institution": "Glasswake Commune",
+  "record_count": 4,
+  "npc_ids": [
+    "ilya_rimebridge",
+    "ostra_rimebridge",
+    "researcher_toman_iceveil",
+    "thora_rimebridge"
+  ]
+}

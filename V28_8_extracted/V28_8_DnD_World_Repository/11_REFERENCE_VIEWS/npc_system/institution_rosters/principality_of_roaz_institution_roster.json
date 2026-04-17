@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Principality of Roaz",
+  "record_count": 2,
+  "npc_ids": [
+    "casvel_chainwell",
+    "mira_gateburn"
+  ]
+}

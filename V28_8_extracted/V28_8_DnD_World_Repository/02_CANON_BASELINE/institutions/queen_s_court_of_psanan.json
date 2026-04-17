@@ -1,0 +1,30 @@
+{
+  "name": "Queen’s Court of Psanan",
+  "type": "Psanan high court institution",
+  "truth_layer": "conservative_inference",
+  "summary": "High ceremonial and political court anchoring Psanan’s matriarchal authority and formal judgments.",
+  "day_to_day": "Hears major disputes, ratifies public oaths, and sets civic tone during crisis or rebuilding.",
+  "who_works_there": "Matriarchal judges, heralds, oath keepers, security retinues, scribes.",
+  "who_uses_it": "Great Houses, claimants, oath bearers, civic petitioners.",
+  "authority": "High authority over formal dispute, sanction, and public legitimacy in Psanan.",
+  "public_manifestation": "Court processions, ash-chamber hearings, posted decrees, witnessed vows.",
+  "conflict_or_bottleneck": "Ceremonial power can become brittle when practical scarcity outruns rhetoric.",
+  "party_actions": [
+    "petition the court",
+    "carry evidence",
+    "stand oath witness",
+    "defend a condemned ally"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "rhaz_cindercrest"
+  ],
+  "npc_interfaces": [
+    "rhaz_cindercrest"
+  ]
+}

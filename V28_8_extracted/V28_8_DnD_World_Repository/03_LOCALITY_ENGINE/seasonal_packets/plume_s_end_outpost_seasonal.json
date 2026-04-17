@@ -1,0 +1,7 @@
+{
+  "name": "Plume’s End Outpost",
+  "seasonal_change": "Traffic surges with trade windows and contracts under changing weather.",
+  "sources": [
+    "locations_catalog"
+  ]
+}

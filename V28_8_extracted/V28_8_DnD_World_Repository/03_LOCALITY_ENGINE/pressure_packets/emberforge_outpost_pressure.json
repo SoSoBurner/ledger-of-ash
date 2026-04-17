@@ -1,0 +1,10 @@
+{
+  "name": "Emberforge Outpost",
+  "pressure": [
+    "celestial activity on routes",
+    "need for caravan coordination"
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Stoneforge Depot",
+  "record_count": 2,
+  "npc_ids": [
+    "lysa_mere",
+    "vera_stone"
+  ]
+}

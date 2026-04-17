@@ -1,0 +1,25 @@
+{
+  "name": "Cindermount Descent Chain",
+  "type": "volcanic industrial route",
+  "jurisdictions": [
+    "Psanan"
+  ],
+  "hazards": [
+    "lava surge",
+    "ashfall",
+    "wartime closure"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "named_npc_refs": [
+    "istran_emberlash"
+  ],
+  "npc_interfaces": [
+    "istran_emberlash"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

@@ -1,0 +1,89 @@
+{
+  "npc_id": "velka_ashvein",
+  "canonical_name": "Velka Ashvein",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "religious_officiant",
+  "office_or_role": "Shrine Caretaker",
+  "profession_discipline": "Shrine Caretaker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Scarlet Descent Gate",
+  "locality_scope": "Scarlet Descent Gate",
+  "institutional_ties": [
+    "Scarlet Descent Gate"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Scarlet Descent Gate"
+    ],
+    "institutions": [
+      "Scarlet Descent Gate"
+    ],
+    "factions": []
+  },
+  "appearance": "Ash-touched ritual wear, heat-hardened ornament, and severe ceremonial lines signal renewal through endurance.",
+  "manner": "Speaks with ritual calm and practiced reassurance, but watches closely for signs of spiritual or civic disturbance. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of shrine caretaker in and around Scarlet Descent Gate, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Scarlet Descent Gate workable through the obligations of shrine caretaker while managing the immediate pressure of shaft collapse in Psanan.",
+  "hidden_pressure": "Must ensure that rite remains trustworthy even when civic pressure tries to convert it into mere administration. Around Scarlet Descent Gate, that usually means carrying shaft collapse, lava surge, crew loss without letting the role of shrine caretaker visibly slip.",
+  "relationship_refs": [
+    "rel_0024",
+    "rel_0033",
+    "rel_0041",
+    "rel_0048",
+    "rel_0054",
+    "rel_0059",
+    "rel_0063",
+    "rel_0066",
+    "rel_0068",
+    "rel_0070",
+    "rel_0930",
+    "rel_0931"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "doctrinal_complication",
+      "summary": "Any alliance with Velka Ashvein can expose the party to taboo, doctrine, or institutional expectation centered on Scarlet Descent Gate."
+    },
+    {
+      "hook_type": "ritual_disruption",
+      "summary": "Velka Ashvein needs discreet aid to prevent a ritual lapse, desecration, or public crisis of trust around Scarlet Descent Gate."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "compatibility_interface_id": "velka_ashvein",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Ritual dress, offering marks, and devotional cadence make Velka Ashvein immediately legible as a spiritual intermediary. In Scarlet Descent Gate, this lands inside a public field already shaped by Descent Charter Compacts, Frontier Hammer Companies.",
+  "encounter_context": {
+    "usual_environment": "Scarlet Descent Gate: shrines, cathedrals, funerary halls, or ritual precincts",
+    "who_seeks_them_out": [
+      "mourners",
+      "petitioners",
+      "those seeking rite or absolution"
+    ],
+    "who_avoids_them": [
+      "the openly impious",
+      "ritual disturbers",
+      "those asking for sacred shortcuts"
+    ],
+    "interaction_anchor": "ritual mediation or doctrinal reassurance"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

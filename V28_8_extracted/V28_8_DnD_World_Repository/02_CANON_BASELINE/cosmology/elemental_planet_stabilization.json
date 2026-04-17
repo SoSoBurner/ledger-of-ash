@@ -1,0 +1,16 @@
+{
+  "id": "cosmology.elemental_planet_stabilization",
+  "name": "Elemental Planet Stabilization",
+  "truth_layer": "direct_canon",
+  "summary": "The gods contained runaway elemental force by isolating Fire, Ocean, Wind, and Rock into visible planetary bodies whose continuing influence structures day-night cycles, weather, water regularity, and orbital stability.",
+  "stabilization_roles": {
+    "Planet of Fire": "supports day-night cycles and countered catastrophic flooding through heat and evaporation",
+    "Planet of Ocean": "countered infernos and volcanic devastation and preserves water-cycle regularity",
+    "Planet of Wind": "dispersed astral storms and established normal airflow",
+    "Planet of Rock": "sealed fissures and stabilized orbital and tectonic structure"
+  },
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ]
+}

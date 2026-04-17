@@ -1,0 +1,100 @@
+{
+  "name": "Shelkopolis",
+  "type": "city",
+  "parent_polity": "Principality of Shelk",
+  "territory": "House Shelk",
+  "truth_layer": "direct_canon",
+  "identity": "Largest metropolis of Shelk and one of the major urban engines of the Principalities, defined by fashion, trade, refined civic order, and visible devotional plurality.",
+  "approach": "Pale stone walls rise from meadows with golden accents, indigo and emerald banners, and flower-lined roads watched by bright-plumed Roadwardens.",
+  "inside": "Curving smooth streets link elegant upper quarters, busy workshop districts, and purposeful lower wards. Textiles, tools, shrines, taverns, and scholars give the city constant motion.",
+  "who_belongs": [
+    "artisans",
+    "merchants",
+    "nobles",
+    "Roadwardens",
+    "students",
+    "traveling scholars"
+  ],
+  "who_is_out_of_place": [
+    "those ignoring decorum at noble sites",
+    "open saboteurs",
+    "careless magic users near protected institutions",
+    "caravan raiders"
+  ],
+  "expected_behavior": [
+    "observe site-specific decorum",
+    "respect local fashion and craft traditions",
+    "follow Roadwarden road and market order",
+    "treat shrines and archives with reverence"
+  ],
+  "visible_power": [
+    "House Shelk nobility",
+    "Roadwardens Order",
+    "Fashion Artisans Collective",
+    "clerical institutions of Cysur, Cyfoes, Felujitas, and Felelem"
+  ],
+  "economy": [
+    "fashion production",
+    "enchanted tailoring",
+    "merchant exchange",
+    "craft education",
+    "Roadwarden support industry"
+  ],
+  "faith": [
+    "Compassion, contemplation, renewal, and fear each have visible public spaces and offerings."
+  ],
+  "seasonal_change": "Balanced seasonal weather preserves outdoor markets and floral ornamentation; observance bands intensify noble and artisan gatherings.",
+  "pressure": [
+    "glyph corruption beyond the city",
+    "trade security obligations",
+    "noble rivalry",
+    "festival traffic"
+  ],
+  "npc_interfaces": [
+    "lady_isabella_shelk",
+    "lady_elowen_shelk",
+    "captain_thalion_windrider",
+    "high_priestess_lyara_dawnlight",
+    "sera_aurorine",
+    "elandra_sunweave",
+    "corin_lightloom",
+    "maelis_threadmere",
+    "maelis_starbloom"
+  ],
+  "law_context": [
+    "Fashion and decorum law intensify in noble and ceremonial spaces.",
+    "Intellectual property and espionage law are serious in elite and archival sites."
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog",
+    "principality_shelk"
+  ],
+  "named_npc_refs": [
+    "lady_isabella_shelk",
+    "lady_elowen_shelk",
+    "captain_thalion_windrider",
+    "high_priestess_lyara_dawnlight",
+    "sera_aurorine",
+    "elandra_sunweave",
+    "corin_lightloom",
+    "maelis_threadmere",
+    "maelis_starbloom"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_behavior_texture": "People who belong here are usually artisans, merchants, nobles, and public conduct is read through expectations such as observe site-specific decorum, respect local fashion and craft traditions.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by House Shelk nobility, Roadwardens Order, Fashion Artisans Collective.",
+  "local_tension_surface": "The place feels stable only until pressures such as glyph corruption beyond the city, trade security obligations, noble rivalry begin showing through daily routines.",
+  "differentiator": "Shelkopolis stands apart because its economy leans on fashion production, enchanted tailoring; public faith remains visible through Compassion, contemplation, renewal, and fear each have visible public spaces and offerings.; outsiders are noticed fastest when they resemble those ignoring decorum at noble sites, open saboteurs.",
+  "encounter_rhythm": "Most first scenes in Shelkopolis begin through city rhythms: arrival, observation, minor correction, and only then deeper access."
+}

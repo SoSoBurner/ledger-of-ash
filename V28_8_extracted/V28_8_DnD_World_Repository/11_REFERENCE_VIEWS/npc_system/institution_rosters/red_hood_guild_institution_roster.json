@@ -1,0 +1,10 @@
+{
+  "build_version": "V28_8",
+  "institution": "Red Hood Guild",
+  "record_count": 3,
+  "npc_ids": [
+    "nora_stone",
+    "pela_stone",
+    "sel_stone"
+  ]
+}

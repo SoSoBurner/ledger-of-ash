@@ -1,0 +1,86 @@
+{
+  "npc_id": "leni_waycord",
+  "canonical_name": "Leni Waycord",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Signal Reader",
+  "profession_discipline": "Signal Reader",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": null,
+  "locality_scope": "Psanan Ash-Route Mediation Fleet",
+  "institutional_ties": [
+    "Psanan Ash-Route Mediation Fleet"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as signal reader.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "Psanan Ash-Route Mediation Fleet"
+    ],
+    "institutions": [
+      "Psanan Ash-Route Mediation Fleet"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in movement, timing, and obstacle management, treating delay as a concrete threat. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a signal reader still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of signal reader in and around Psanan Ash-Route Mediation Fleet, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Psanan Ash-Route Mediation Fleet workable through the obligations of signal reader while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must turn uncertain terrain and changing terms into something people can actually traverse. Around Psanan Ash-Route Mediation Fleet, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of signal reader visibly slip.",
+  "relationship_refs": [
+    "rel_0715",
+    "rel_0724",
+    "rel_0732",
+    "rel_0739",
+    "rel_0745",
+    "rel_0750",
+    "rel_0754",
+    "rel_0757",
+    "rel_0759",
+    "rel_0760"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "travel_complication",
+      "summary": "Leni Waycord can pull the party into chokepoints, timing failures, or rival claims over how movement should happen."
+    },
+    {
+      "hook_type": "wayfinding_information",
+      "summary": "Leni Waycord will share route intelligence, hidden timing, or safer alternatives if the party proves useful under travel pressure."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "leni_waycord",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Leni Waycord lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Psanan Ash-Route Mediation Fleet: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  }
+}

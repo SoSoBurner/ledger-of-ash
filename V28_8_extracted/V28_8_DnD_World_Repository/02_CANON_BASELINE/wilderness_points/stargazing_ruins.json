@@ -1,0 +1,8 @@
+{
+  "name": "Stargazing Ruins",
+  "parent": "Meadow of Lyra",
+  "summary": "Corrupted elven monoliths and observation ruins pulsing with celestial glyph energy.",
+  "sources": [
+    "locations_catalog"
+  ]
+}

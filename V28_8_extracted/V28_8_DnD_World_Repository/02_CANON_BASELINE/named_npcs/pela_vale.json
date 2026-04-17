@@ -1,0 +1,87 @@
+{
+  "npc_id": "pela_vale",
+  "canonical_name": "Pela Vale",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Door Warden",
+  "profession_discipline": "Door Warden",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Amber Fountain Inn",
+  "locality_scope": "Amber Fountain Inn",
+  "institutional_ties": [
+    "Amber Fountain Inn"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as door warden.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Amber Fountain Inn"
+    ],
+    "institutions": [
+      "Amber Fountain Inn"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Keeps speech clipped and threshold-focused, reading every arrival for risk, weakness, or breach. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a door warden still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of door warden in and around Amber Fountain Inn, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Amber Fountain Inn workable through the obligations of door warden while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep visible order credible while absorbing the first shock of disorder, contraband, sabotage, or violence. Around Amber Fountain Inn, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of door warden visibly slip.",
+  "relationship_refs": [
+    "rel_0418",
+    "rel_0419",
+    "rel_0420",
+    "rel_0421",
+    "rel_0422",
+    "rel_0423",
+    "rel_0424",
+    "rel_0425",
+    "rel_0426",
+    "rel_0427",
+    "rel_1180"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Pela Vale may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "incident_response",
+      "summary": "Pela Vale needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Amber Fountain Inn."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "pela_vale",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Pela Vale as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "Amber Fountain Inn: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

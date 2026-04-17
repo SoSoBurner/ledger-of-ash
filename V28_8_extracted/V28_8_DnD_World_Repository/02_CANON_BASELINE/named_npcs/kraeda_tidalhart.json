@@ -1,0 +1,81 @@
+{
+  "npc_id": "kraeda_tidalhart",
+  "canonical_name": "Kraeda Tidalhart",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Maritime and water-safety steward",
+  "profession_discipline": "Maritime and water-safety steward",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Duneshade Outpost",
+  "locality_scope": "Duneshade Outpost",
+  "institutional_ties": [
+    "Duneshade Outpost",
+    "southern water lanes"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as maritime and water-safety steward.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Duneshade Outpost"
+    ],
+    "institutions": [
+      "Duneshade Outpost",
+      "southern water lanes"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a maritime and water-safety steward still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of maritime and water-safety steward in and around Duneshade Outpost, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Duneshade Outpost workable through the obligations of maritime and water-safety steward while managing the immediate pressure of water scarcity in Soreheim Alliance.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Duneshade Outpost, that usually means carrying water scarcity, subterranean predators, convoy delay without letting the role of maritime and water-safety steward visibly slip.",
+  "relationship_refs": [
+    "rel_0997",
+    "rel_1001",
+    "rel_1005",
+    "rel_1006",
+    "rel_1007"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Kraeda Tidalhart needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Duneshade Outpost."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Kraeda Tidalhart can draw the party into crew discipline, resource shortage, or blame transfer around Duneshade Outpost."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "kraeda_tidalhart",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Kraeda Tidalhart visibly responsible for keeping something larger from failing. In Duneshade Outpost, this lands inside a public field already shaped by route captains, rationing families.",
+  "encounter_context": {
+    "usual_environment": "Duneshade Outpost: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

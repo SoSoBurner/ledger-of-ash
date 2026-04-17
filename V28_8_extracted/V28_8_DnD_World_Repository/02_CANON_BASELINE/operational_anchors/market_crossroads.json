@@ -1,0 +1,10 @@
+{
+  "name": "Market Crossroads",
+  "type": "union operational anchor",
+  "summary": "Traffic-heavy urban transshipment junction linking road caravans, river movement, and guild-monitored warehousing through dense freight staging and relay infrastructure.",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

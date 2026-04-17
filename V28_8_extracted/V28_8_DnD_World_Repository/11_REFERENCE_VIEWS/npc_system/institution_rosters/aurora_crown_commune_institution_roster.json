@@ -1,0 +1,11 @@
+{
+  "build_version": "V28_8",
+  "institution": "Aurora Crown Commune",
+  "record_count": 4,
+  "npc_ids": [
+    "neren_rimebridge",
+    "talin_rimebridge",
+    "vassa_rimebridge",
+    "warden_sera_whiteglass"
+  ]
+}

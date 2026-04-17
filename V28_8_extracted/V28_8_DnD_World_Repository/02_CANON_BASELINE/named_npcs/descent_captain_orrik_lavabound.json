@@ -1,0 +1,85 @@
+{
+  "npc_id": "descent_captain_orrik_lavabound",
+  "canonical_name": "Descent-Captain Orrik Lavabound",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Underworld Edge Expedition Captain",
+  "profession_discipline": "Underworld Edge Expedition Captain",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Scarlet Descent Gate",
+  "locality_scope": "Scarlet Descent Gate",
+  "institutional_ties": [
+    "Scarlet Descent Gate"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a underworld edge expedition captain of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Scarlet Descent Gate"
+    ],
+    "institutions": [
+      "Scarlet Descent Gate"
+    ],
+    "factions": []
+  },
+  "appearance": "Heat-scarred protection, ash-set layers, and house-marked gear read as survival equipment first and status second.",
+  "manner": "Keeps speech clipped and threshold-focused, reading every arrival for risk, weakness, or breach. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a underworld edge expedition captain still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of underworld edge expedition captain in and around Scarlet Descent Gate, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Scarlet Descent Gate workable through the obligations of underworld edge expedition captain while managing the immediate pressure of shaft collapse in Psanan.",
+  "hidden_pressure": "Must notice trouble early enough that force remains legitimate rather than merely reactive. Around Scarlet Descent Gate, that usually means carrying shaft collapse, lava surge, crew loss without letting the role of underworld edge expedition captain visibly slip.",
+  "relationship_refs": [
+    "rel_0929",
+    "rel_0930"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "incident_response",
+      "summary": "Descent-Captain Orrik Lavabound needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Scarlet Descent Gate."
+    },
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Descent-Captain Orrik Lavabound can draw the party into contraband, false papers, or a suspicious cargo problem tied to Scarlet Descent Gate."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Descent-Captain Orrik Lavabound may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Descent-Captain Orrik Lavabound needs help with a problem in Scarlet Descent Gate that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "descent_captain_orrik_lavabound",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Descent-Captain Orrik Lavabound as visible enforcement before rank ever needs to be named. In Scarlet Descent Gate, this lands inside a public field already shaped by Descent Charter Compacts, Frontier Hammer Companies.",
+  "encounter_context": {
+    "usual_environment": "Scarlet Descent Gate: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

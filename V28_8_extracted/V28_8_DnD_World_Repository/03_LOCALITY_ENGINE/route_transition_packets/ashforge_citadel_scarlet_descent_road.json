@@ -1,0 +1,14 @@
+{
+  "name": "Ashforge Citadel - Scarlet Descent road",
+  "from_locality": "Ashforge Citadel",
+  "route_name": "Scarlet Descent road",
+  "truth_layer": "conservative_inference",
+  "transition_feel": "Travel out of Ashforge Citadel along Scarlet Descent road makes local power, escort custom, and risk tolerance immediately legible.",
+  "handoff_custom": "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment.",
+  "sources": [
+    "spatial_seasonal",
+    "principalities",
+    "soreheim_review",
+    "ai_source_pdf"
+  ]
+}

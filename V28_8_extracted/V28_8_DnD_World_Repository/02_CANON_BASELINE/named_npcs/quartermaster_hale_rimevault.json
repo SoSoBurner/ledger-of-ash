@@ -1,0 +1,75 @@
+{
+  "npc_id": "quartermaster_hale_rimevault",
+  "canonical_name": "Quartermaster Hale Rimevault",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Resource Allocator",
+  "profession_discipline": "Resource Allocator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Hearthcoil Commune",
+  "locality_scope": "Hearthcoil Commune",
+  "institutional_ties": [
+    "Hearthcoil Commune"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as resource allocator.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Hearthcoil Commune"
+    ],
+    "institutions": [
+      "Hearthcoil Commune"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a resource allocator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of resource allocator in and around Hearthcoil Commune, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Hearthcoil Commune workable through the obligations of resource allocator while managing the immediate pressure of coil failure in Sheresh Communes.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Hearthcoil Commune, that usually means carrying coil failure, ration conflict, out-migration without letting the role of resource allocator visibly slip.",
+  "relationship_refs": [
+    "rel_1079",
+    "rel_1081",
+    "rel_1082"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Quartermaster Hale Rimevault can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Quartermaster Hale Rimevault needs help with a problem in Hearthcoil Commune that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "quartermaster_hale_rimevault",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Quartermaster Hale Rimevault carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Hearthcoil Commune, this lands inside a public field already shaped by Communal Ration Allocators.",
+  "encounter_context": {
+    "usual_environment": "Hearthcoil Commune: the part of Hearthcoil Commune where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

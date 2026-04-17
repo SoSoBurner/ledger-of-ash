@@ -1,0 +1,9 @@
+{
+  "name": "Unity Square",
+  "inside": "Voices overlap across a managed sprawl of bargaining circles, inspection tables, carrier lanes, and sanctioned dispute corners.",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

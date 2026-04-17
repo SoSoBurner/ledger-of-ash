@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Shirshal",
+  "record_count": 2,
+  "npc_ids": [
+    "nira_veilthorn",
+    "veyn_veilthorn"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "The Tattered Banner",
+  "parent_district": "Ironspool Ward District",
+  "type": "tavern",
+  "summary": "Meeting place for low-level sellswords.",
+  "npc_interfaces": [
+    "taren_stone",
+    "lysa_stone"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "taren_stone",
+    "lysa_stone"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

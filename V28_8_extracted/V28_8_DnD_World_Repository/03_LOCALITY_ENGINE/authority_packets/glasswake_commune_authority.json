@@ -1,0 +1,14 @@
+{
+  "name": "Glasswake Commune",
+  "visible_power": [
+    "Containment Research Concord"
+  ],
+  "law_context": [
+    "quarantine law",
+    "research containment protocol"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

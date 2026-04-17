@@ -1,0 +1,8 @@
+{
+  "name": "Stone Dais of Lyra",
+  "parent": "Meadow of Lyra",
+  "summary": "Central stone platform radiating strong celestial energy and defending enforcer manifestations.",
+  "sources": [
+    "locations_catalog"
+  ]
+}

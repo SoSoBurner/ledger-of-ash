@@ -1,0 +1,32 @@
+{
+  "build_version": "V28_8",
+  "record_count": 25,
+  "path": "11_REFERENCE_VIEWS/npc_system/historical_legacy_rosters/all_historical_legacy_named_npcs.json",
+  "npc_ids": [
+    "archmagister_leth_quillfire",
+    "coral_jack_neris",
+    "dame_orsella_roaz",
+    "dean_arturon_valegear",
+    "forge_voice_malzara",
+    "general_maer_rovik",
+    "ilyra_foamveil",
+    "kordr_vulkhand",
+    "marshal_builder_korrin_wex",
+    "matron_heshka_emberreign",
+    "mother_eliane_threadmercy",
+    "old_marrow_jex",
+    "orem_lantern_step",
+    "ossarch_veyn_halcyon",
+    "pashko_many_routes",
+    "saint_edris_of_the_unblinking_record",
+    "saint_physician_orel_vaunt",
+    "ser_caldrin_vey",
+    "seraphine_of_the_quiet_pyre",
+    "tessa_grainmark",
+    "the_ash_red_widow",
+    "vael_snowtrace",
+    "vatra_sul",
+    "vaud_serrik",
+    "veyla_inkhand"
+  ]
+}

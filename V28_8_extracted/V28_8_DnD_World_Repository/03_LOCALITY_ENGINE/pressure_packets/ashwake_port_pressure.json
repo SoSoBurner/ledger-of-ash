@@ -1,0 +1,12 @@
+{
+  "name": "Ashwake Port",
+  "pressure": [
+    "harbor ash clogging",
+    "storm-whirlpool risk",
+    "port rivalry"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

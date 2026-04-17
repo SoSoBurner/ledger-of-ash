@@ -1,0 +1,31 @@
+{
+  "name": "Sheresh Containment Research Concord",
+  "type": "Sheresh survival-research institution",
+  "truth_layer": "conservative_inference",
+  "summary": "Institution coordinating contamination measurement, shield testing, and controlled dangerous study across the domes.",
+  "day_to_day": "Runs experiments, calibrates shields, logs residue patterns, and issues containment advisories.",
+  "who_works_there": "Researchers, ward technicians, archive keepers, expedition leads, maintenance partners.",
+  "who_uses_it": "Commune leadership, route wardens, repair crews, families depending on dome safety.",
+  "authority": "Can advise or trigger containment restrictions and shape research priorities.",
+  "public_manifestation": "Testing wards, sealed chambers, expedition briefings, public notices after anomalies.",
+  "conflict_or_bottleneck": "Scientific necessity and public fear are in constant friction.",
+  "party_actions": [
+    "escort an experiment team",
+    "retrieve samples",
+    "shut down a failing test",
+    "investigate a breach"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "kelm_starice"
+  ],
+  "npc_interfaces": [
+    "kelm_starice"
+  ]
+}

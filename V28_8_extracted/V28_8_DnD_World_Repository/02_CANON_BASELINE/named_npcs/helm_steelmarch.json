@@ -1,0 +1,80 @@
+{
+  "npc_id": "helm_steelmarch",
+  "canonical_name": "Helm Steelmarch",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Market Broker",
+  "profession_discipline": "Market Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Roaz",
+  "settlement": "Silent Haven",
+  "locality_scope": "Silent Haven",
+  "institutional_ties": [
+    "Silent Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as market broker.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Silent Haven"
+    ],
+    "institutions": [
+      "Silent Haven"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a market broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of market broker in and around Silent Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Silent Haven workable through the obligations of market broker while managing the immediate pressure of sea threat in Roaz.",
+  "hidden_pressure": "Must read timing, trust, and supply pressure early enough that a market problem does not become a civic one. Around Silent Haven, that usually means carrying sea threat, northern route vulnerability, strict Roazian order without letting the role of market broker visibly slip.",
+  "relationship_refs": [
+    "rel_0335",
+    "rel_0338",
+    "rel_0339",
+    "rel_1169"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Helm Steelmarch needs help protecting a shipment, recovering leverage, or stabilizing exchange around Silent Haven before trust collapses."
+    },
+    {
+      "hook_type": "contract_complication",
+      "summary": "Helm Steelmarch can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ],
+  "compatibility_interface_id": "helm_steelmarch",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Helm Steelmarch read as someone who lives by exchange and reputation. In Silent Haven, this lands inside a public field already shaped by Roazian enforcers.",
+  "encounter_context": {
+    "usual_environment": "Silent Haven: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Glacial Fissures",
+  "parent": "Northern Frozen Quagmires",
+  "summary": "Icy crevices with concealed glyph markings and mutated creatures.",
+  "sources": [
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "nora_field"
+  ],
+  "npc_interfaces": [
+    "nora_field"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

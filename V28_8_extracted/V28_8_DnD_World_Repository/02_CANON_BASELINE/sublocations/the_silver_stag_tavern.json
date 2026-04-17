@@ -1,0 +1,22 @@
+{
+  "name": "The Silver Stag Tavern",
+  "parent_district": "Verdant Row District",
+  "type": "tavern",
+  "summary": "Popular stories-and-news tavern for adventurers and traders.",
+  "npc_interfaces": [
+    "arin_stone",
+    "mira_stone"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "arin_stone",
+    "mira_stone"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

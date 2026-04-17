@@ -1,0 +1,155 @@
+{
+  "name": "Emberhollow Forge Town",
+  "type": "forge town",
+  "parent_polity": "Psanan",
+  "territory": "Cooled-Stone Belt",
+  "truth_layer": "conservative_inference",
+  "identity": "A forge-centered town built on older burn layers where prestige comes from making durable goods from former ruin.",
+  "approach": "Cooled black stone terraces, open furnace yards, and rebuilt retaining walls frame the settlement.",
+  "inside": "Smithing yards, labor barracks, family compounds, and dedication braziers create a blunt but proud civic rhythm.",
+  "who_belongs": [
+    "smiths",
+    "ore haulers",
+    "family labor crews"
+  ],
+  "who_is_out_of_place": [
+    "those disrespecting forge lineage",
+    "lazy buyers seeking prestige without labor"
+  ],
+  "expected_behavior": [
+    "honor forge schedules",
+    "maintain shared heatworks"
+  ],
+  "visible_power": [
+    "Forge Dedication Halls",
+    "Frontier Hammer Companies"
+  ],
+  "economy": [
+    "weapons",
+    "industrial tools",
+    "repair work"
+  ],
+  "faith": [
+    "forge-linked ceremonies are public custom rather than temple hierarchy"
+  ],
+  "seasonal_change": "Cooling periods allow major maintenance and transit.",
+  "pressure": [
+    "furnace failure",
+    "labor disputes",
+    "ash burial"
+  ],
+  "npc_interfaces": [
+    "forge_master_telan_pyrehand"
+  ],
+  "law_context": [
+    "forge safety discipline",
+    "shared furnace claims"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Psanan",
+    "territory": "Cooled-Stone Belt",
+    "settlement": "Emberhollow Forge Town",
+    "district": null
+  },
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "A forge-centered town built on older burn layers where prestige comes from making durable goods from former ruin.",
+    "approach": "Cooled black stone terraces, open furnace yards, and rebuilt retaining walls frame the settlement.",
+    "inside": "Smithing yards, labor barracks, family compounds, and dedication braziers create a blunt but proud civic rhythm.",
+    "who_belongs": [
+      "smiths",
+      "ore haulers",
+      "family labor crews"
+    ],
+    "who_is_out_of_place": [
+      "those disrespecting forge lineage",
+      "lazy buyers seeking prestige without labor"
+    ],
+    "expected_behavior": [
+      "honor forge schedules",
+      "maintain shared heatworks"
+    ],
+    "visible_power": [
+      "Forge Dedication Halls",
+      "Frontier Hammer Companies"
+    ],
+    "economy": [
+      "weapons",
+      "industrial tools",
+      "repair work"
+    ],
+    "faith": [
+      "forge-linked ceremonies are public custom rather than temple hierarchy"
+    ],
+    "seasonal_change": "Cooling periods allow major maintenance and transit.",
+    "pressure": [
+      "furnace failure",
+      "labor disputes",
+      "ash burial"
+    ],
+    "law_context": [
+      "forge safety discipline",
+      "shared furnace claims"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Cooled black stone terraces, open furnace yards, and rebuilt retaining walls frame the settlement.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Smithing yards, labor barracks, family compounds, and dedication braziers create a blunt but proud civic rhythm.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "furnace failure",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "labor disputes",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "ash burial",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "honor forge schedules",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "maintain shared heatworks",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "forge_master_telan_pyrehand"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually smiths, ore haulers, family labor crews, and public conduct is read through expectations such as honor forge schedules, maintain shared heatworks.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Forge Dedication Halls, Frontier Hammer Companies.",
+  "local_tension_surface": "The place feels stable only until pressures such as furnace failure, labor disputes, ash burial begin showing through daily routines.",
+  "differentiator": "Emberhollow Forge Town stands apart because its economy leans on weapons, industrial tools; public faith remains visible through forge-linked ceremonies are public custom rather than temple hierarchy; outsiders are noticed fastest when they resemble those disrespecting forge lineage, lazy buyers seeking prestige without labor.",
+  "encounter_rhythm": "Most first scenes in Emberhollow Forge Town begin through forge town rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

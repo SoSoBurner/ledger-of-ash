@@ -1,0 +1,88 @@
+{
+  "npc_id": "sel_vale",
+  "canonical_name": "Sel Vale",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Quiet-Room Mediator",
+  "profession_discipline": "Quiet-Room Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Aurora Light Cathedral",
+  "locality_scope": "Aurora Light Cathedral",
+  "institutional_ties": [
+    "Aurora Light Cathedral"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Aurora Light Cathedral"
+    ],
+    "institutions": [
+      "Aurora Light Cathedral"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quiet-room mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quiet-room mediator in and around Aurora Light Cathedral, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Aurora Light Cathedral workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Aurora Light Cathedral, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quiet-room mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0421",
+    "rel_0430",
+    "rel_0438",
+    "rel_0445",
+    "rel_0452",
+    "rel_0453",
+    "rel_0454",
+    "rel_0455",
+    "rel_0456",
+    "rel_0457",
+    "rel_1015",
+    "rel_1019",
+    "rel_1022",
+    "rel_1024",
+    "rel_1025"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Sel Vale can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Sel Vale can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "sel_vale",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Sel Vale carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Aurora Light Cathedral: the part of Aurora Light Cathedral where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

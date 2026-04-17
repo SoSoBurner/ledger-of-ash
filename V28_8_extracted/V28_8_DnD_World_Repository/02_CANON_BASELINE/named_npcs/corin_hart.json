@@ -1,0 +1,84 @@
+{
+  "npc_id": "corin_hart",
+  "canonical_name": "Corin Hart",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Observatory Witness",
+  "profession_discipline": "Observatory Witness",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": null,
+  "locality_scope": "Fey Moon",
+  "institutional_ties": [
+    "Fey Moon"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as observatory witness.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Fey Moon"
+    ],
+    "institutions": [
+      "Fey Moon"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a observatory witness still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of observatory witness in and around Fey Moon, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Fey Moon workable through the obligations of observatory witness while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep records, witness, or account integrity credible while people try to hurry, blur, or weaponize the paper trail. Around Fey Moon, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of observatory witness visibly slip.",
+  "relationship_refs": [
+    "rel_0794",
+    "rel_0802",
+    "rel_0809",
+    "rel_0815",
+    "rel_0820",
+    "rel_0824",
+    "rel_0827",
+    "rel_0829",
+    "rel_0831"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "document_pressure",
+      "summary": "Corin Hart can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Corin Hart can trade precise, actionable information once the party secures or clarifies the record they protect."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "pantheon_story",
+    "principalities"
+  ],
+  "compatibility_interface_id": "corin_hart",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Corin Hart communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Fey Moon: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  }
+}

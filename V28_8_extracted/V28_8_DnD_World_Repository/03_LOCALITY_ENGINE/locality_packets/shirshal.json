@@ -1,0 +1,201 @@
+{
+  "name": "Shirshal",
+  "type": "magical investigation hub",
+  "parent_polity": "House Shirsh",
+  "identity": "Investigative magical-law center of House Shirsh.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "House Shirsh",
+    "territory": "The Principalities",
+    "settlement": "Shirshal",
+    "district": null
+  },
+  "approach": "Arcane scrutiny and guarded curiosity.",
+  "inside": "Cases, magical anomalies, and private investigations drive civic motion.",
+  "who_belongs": [
+    "investigators",
+    "magistrates",
+    "arcane specialists"
+  ],
+  "who_is_out_of_place": [
+    "illicit magical actors"
+  ],
+  "expected_behavior": [
+    "cooperate with inquiries"
+  ],
+  "visible_power": [
+    "Magi Magistratus"
+  ],
+  "economy": [
+    "investigation",
+    "magical research"
+  ],
+  "faith": [
+    "secondary to investigative mandate"
+  ],
+  "seasonal_change": "Celestial study periods matter.",
+  "pressure": [
+    "magical law violations"
+  ],
+  "npc_interfaces": [
+    "investigators",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "law_context": [
+    "magical compliance"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "principalities"
+  ],
+  "canonical_identity": {
+    "truth_layer": "direct_canon",
+    "identity": "Investigative magical-law center of House Shirsh.",
+    "approach": "Arcane scrutiny and guarded curiosity.",
+    "inside": "Cases, magical anomalies, and private investigations drive civic motion.",
+    "who_belongs": [
+      "investigators",
+      "magistrates",
+      "arcane specialists"
+    ],
+    "who_is_out_of_place": [
+      "illicit magical actors"
+    ],
+    "expected_behavior": [
+      "cooperate with inquiries"
+    ],
+    "visible_power": [
+      "Magi Magistratus"
+    ],
+    "economy": [
+      "investigation",
+      "magical research"
+    ],
+    "faith": [
+      "secondary to investigative mandate"
+    ],
+    "seasonal_change": "Celestial study periods matter.",
+    "pressure": [
+      "magical law violations"
+    ],
+    "law_context": [
+      "magical compliance"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Arcane scrutiny and guarded curiosity.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Cases, magical anomalies, and private investigations drive civic motion.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "magical law violations",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "cooperate with inquiries",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [],
+  "local_interface_roles": [
+    "investigators",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "local_role_expression": {
+    "investigators": {
+      "demeanor": "local, practical, role-bound",
+      "institutional_tie": "Shirshal",
+      "visible_concerns": [
+        "ordinary locality pressure"
+      ]
+    },
+    "innkeeper": {
+      "demeanor": "practical, hospitable, observant",
+      "visible_concerns": [
+        "lodging pressure",
+        "traveler gossip",
+        "unusual arrivals"
+      ],
+      "institutional_tie": "Shirshal"
+    },
+    "market_clerk": {
+      "demeanor": "order-minded, queue-aware, attentive",
+      "visible_concerns": [
+        "stall flow",
+        "forms and seals",
+        "disrupted trade rhythm"
+      ],
+      "institutional_tie": "Shirshal"
+    },
+    "shrine_attendant": {
+      "demeanor": "quiet, observant, correction-minded",
+      "visible_concerns": [
+        "offering order",
+        "purification lapses",
+        "ritual irregularity"
+      ],
+      "institutional_tie": "Shirshal"
+    },
+    "porter": {
+      "demeanor": "hurried, grounded, load-aware",
+      "visible_concerns": [
+        "freight strain",
+        "delayed movement",
+        "suspicious cargo"
+      ],
+      "institutional_tie": "Shirshal"
+    },
+    "scribe": {
+      "demeanor": "precise, discreet, patient",
+      "visible_concerns": [
+        "record integrity",
+        "testimony wording",
+        "missing signatures"
+      ],
+      "institutional_tie": "Shirshal"
+    },
+    "labor_foreman": {
+      "demeanor": "blunt, protective, schedule-bound",
+      "visible_concerns": [
+        "crew discipline",
+        "equipment strain",
+        "blame transfer"
+      ],
+      "institutional_tie": "Shirshal"
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually investigators, magistrates, arcane specialists, and public conduct is read through expectations such as cooperate with inquiries.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Magi Magistratus.",
+  "local_tension_surface": "The place feels stable only until pressures such as magical law violations begin showing through daily routines.",
+  "differentiator": "Shirshal stands apart because its economy leans on investigation, magical research; public faith remains visible through secondary to investigative mandate; outsiders are noticed fastest when they resemble illicit magical actors.",
+  "encounter_rhythm": "Most first scenes in Shirshal begin through magical investigation hub rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

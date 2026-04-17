@@ -1,0 +1,33 @@
+{
+  "name": "Panim Temporal Identity",
+  "truth_layer": "conservative_inference",
+  "calendar_parent": "Principalities temporal frame",
+  "work_cycles": [
+    "Pilgrimage, funerary preparation, and mediator appointments shape daily tempo"
+  ],
+  "feast_days": [
+    "Afterlife and divine-balance observances intensify year-end and life-cycle periods"
+  ],
+  "legal_deadlines": [
+    "Registry and coffin custody timelines can matter more than market time for grieving families"
+  ],
+  "shipping_windows": [
+    "Pilgrim and funerary goods traffic rises around major observances"
+  ],
+  "weather_expectations": [
+    "Travelable periods matter because the grieving still need to arrive"
+  ],
+  "mourning_and_renewal_customs": [
+    "The polity is itself heavily oriented around death preparation and structured remembrance"
+  ],
+  "public_language_about_time": [
+    "People speak in rite days, preparation windows, and burial readiness"
+  ],
+  "sources": [
+    "principalities",
+    "additional_legal"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

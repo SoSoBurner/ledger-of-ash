@@ -1,0 +1,29 @@
+{
+  "name": "Union Successor Heartland",
+  "type": "internal successor region",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "conservative_inference",
+  "summary": "The post-Mal internal region whose main population areas are highly industrialized and urban, where guild courts, converted banking districts, warehousing, mediation halls, and contract culture replaced the old house-centered trade order.",
+  "governed_by": "The Union",
+  "legacy_underlayer": "House Mal",
+  "visible_tensions": [
+    "aristocratic legitimacy versus economic legitimacy",
+    "old Mal loyalties versus guild utility",
+    "imperial revenue stability versus local memory",
+    "contract order versus inherited obligation"
+  ],
+  "sources": [
+    "principalities",
+    "ai_source_pdf",
+    "topatch_v22_6_spec"
+  ],
+  "named_npc_refs": [
+    "taren_march"
+  ],
+  "npc_interfaces": [
+    "taren_march"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

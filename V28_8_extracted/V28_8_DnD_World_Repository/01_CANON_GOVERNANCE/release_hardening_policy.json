@@ -1,0 +1,39 @@
+{
+  "version": "V28_8",
+  "purpose": "Defines release gates for standalone hardening builds with adversarial validation, explicit active-versus-lineage separation, and frozen-snapshot regeneration requirements.",
+  "active_release_zones": [
+    "README.md",
+    "00_PACKAGE_MANIFEST",
+    "01_CANON_GOVERNANCE",
+    "02_CANON_BASELINE",
+    "03_LOCALITY_ENGINE",
+    "04_RUNTIME_ENGINE",
+    "06_VALIDATION"
+  ],
+  "allowed_legacy_zones": [
+    "06_VALIDATION/lineage_retained",
+    "07_REFERENCE/legacy_release_history",
+    "02_CANON_BASELINE/chronology",
+    "02_CANON_BASELINE/legacy",
+    "05_PROVENANCE"
+  ],
+  "gates": [
+    "All active package metadata must identify the build as current_release.",
+    "Manifest counts, validation counts, provenance counts, and filesystem counts must be compared in a gold-master consistency manifest.",
+    "Older version tokens are permitted only in explicit lineage-retained, reference-history, chronology, legacy, or provenance zones.",
+    "Active validation artifacts must be regenerated from one frozen final filesystem snapshot.",
+    "Truth-layer overreach checks must flag any enriched expression mislabeled as direct canon.",
+    "Critical object classes must meet saturation contracts before release.",
+    "Runtime-ready branches must emit validated world effects and world deltas or remain explicitly candidate-only.",
+    "Cross-world system layers for magic, language, infrastructure, and conflict must exist as standalone baseline files."
+  ],
+  "fail_if": [
+    "active files contain stale version tokens",
+    "distribution root does not match package manifest",
+    "zip package is incomplete or not standalone",
+    "active validation is not regenerated from the frozen snapshot",
+    "governance policy and package state disagree",
+    "critical object saturation gates are unmet",
+    "usable runtime branches lack validated world deltas"
+  ]
+}

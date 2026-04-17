@@ -1,0 +1,11 @@
+{
+  "id": "deity.cyfoes",
+  "name": "Cyfoes",
+  "domain": "Contemplation",
+  "desire": "Puzzles, thought, and reflection",
+  "current_state": "Central to philosophical rites and scholarly games.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

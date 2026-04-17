@@ -1,0 +1,80 @@
+{
+  "npc_id": "draknor_leafward",
+  "canonical_name": "Draknor Leafward",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Tundra crop and rite steward",
+  "profession_discipline": "Tundra crop and rite steward",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Embervale Settlement",
+  "locality_scope": "Embervale Settlement",
+  "institutional_ties": [
+    "Embervale Settlement",
+    "Eternal tundra margins"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as tundra crop and rite steward.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Embervale Settlement"
+    ],
+    "institutions": [
+      "Embervale Settlement",
+      "Eternal tundra margins"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a tundra crop and rite steward still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of tundra crop and rite steward in and around Embervale Settlement, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Embervale Settlement workable through the obligations of tundra crop and rite steward while managing the immediate pressure of overcrowding in Soreheim Alliance.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Embervale Settlement, that usually means carrying overcrowding, sickness, heat-failure risk without letting the role of tundra crop and rite steward visibly slip.",
+  "relationship_refs": [
+    "rel_0932",
+    "rel_0933",
+    "rel_0934",
+    "rel_0935"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Draknor Leafward can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Draknor Leafward needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Embervale Settlement."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "draknor_leafward",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Draknor Leafward visibly responsible for keeping something larger from failing. In Embervale Settlement, this lands inside a public field already shaped by regional quartermasters, shift-boss families.",
+  "encounter_context": {
+    "usual_environment": "Embervale Settlement: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

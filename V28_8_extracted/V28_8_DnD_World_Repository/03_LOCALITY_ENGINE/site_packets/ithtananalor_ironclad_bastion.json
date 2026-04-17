@@ -1,0 +1,25 @@
+{
+  "name": "Ironclad Bastion",
+  "parent_settlement": "Ithtananalor",
+  "type": "enforcement fortress",
+  "truth_layer": "conservative_inference",
+  "identity": "A enforcement fortress in Ithtananalor that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "Ironclad Bastion Scribe",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Ithtananalor’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Ironclad Bastion Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

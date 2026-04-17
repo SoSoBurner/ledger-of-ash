@@ -1,0 +1,106 @@
+{
+  "name": "The Principalities",
+  "type": "umbrella polity",
+  "hierarchy_parent": "Material Planet",
+  "truth_layer": "corrected_canon",
+  "summary": "Imperial umbrella polity of noble territorial powers, imperial central authority, and a successor trade order centered on The Union, now carrying an explicit umbrella demographic canon.",
+  "identity": [
+    "imperial umbrella polity",
+    "noble house territorial order",
+    "guild-mediated successor economy",
+    "mixed legal and magical posture by territory",
+    "house-structured social identity stronger than a single unified civic demographic identity"
+  ],
+  "governance_model": {
+    "central_core": "Emperor, imperial army, and imperial adjudication set umbrella-level sovereignty.",
+    "subordinate_layers": [
+      "active noble houses controlling major territories",
+      "The Union as sanctioned guild-governed economic authority",
+      "regional institutions such as Roadwardens, ORE, Panim registries, and Magi Magistratus"
+    ]
+  },
+  "population_status": {
+    "nation_level_enumeration_status": "explicit",
+    "explicit_population_roster": {
+      "main_civilizational_base": [
+        "Humans",
+        "Elves",
+        "Half-Elves",
+        "Yuan-Ti"
+      ],
+      "secondary_non_defining": [
+        "Gnomes",
+        "Dragonborn",
+        "Tieflings",
+        "Changelings",
+        "Kalashtar",
+        "Shifters",
+        "Genasi",
+        "Firbolgs",
+        "Tabaxi",
+        "Tritons",
+        "Satyrs",
+        "Tortles"
+      ]
+    },
+    "bounded_population_signals": [
+      "umbrella-level demographic canon now explicit in prior_release",
+      "narrower polity records override umbrella generalization where applicable"
+    ],
+    "notes": "prior_release formalizes the umbrella demographic base of the Principalities while preserving subordinate polity specificity.",
+    "truth_layer": "corrected_canon"
+  },
+  "cultural_posture": "House duty, hierarchy, regional cultural distinction, public ritual, and negotiated coexistence across unequal powers define social life.",
+  "legal_posture": "Law is uneven by territory: strong Roazian enforcement, broader imperial pressure, guild mediation, and localized legal cultures coexist.",
+  "magic_posture": "Magic posture is mixed: broad social restriction, covert enforcement, selective elite use, and necromantic state use remain simultaneously true.",
+  "religious_posture": "Divine appeasement, afterlife economy, contemplation, fear, and house-linked worship practices all shape public life.",
+  "economic_posture": "Interdependent trade among house territories, guild mediation, and successor-market institutions drive the umbrella economy.",
+  "military_security_posture": "Security posture mixes imperial force, Roadwardens, ORE, covert enforcement, house militaries, and guild pressure.",
+  "mobility_settlement_posture": "A dense mesh of cities, roads, ports, floating cities, market hubs, and house territories defines mobility and settlement.",
+  "major_settlements_or_operating_nodes": [
+    "Shelkopolis",
+    "Ithtananalor",
+    "Cosmoria",
+    "Panim Haven",
+    "Guildheart Hub",
+    "house territories including Shelk, Roaz, Panim, Mimolot, Cosmouth, Zootia, Shirsh"
+  ],
+  "external_tensions": [
+    "house rivalry",
+    "guild legitimacy versus aristocratic legitimacy",
+    "magic restriction conflict",
+    "legacy Mal memory",
+    "imperial revenue and obedience pressure"
+  ],
+  "truth_status": "corrected_canon",
+  "source_scope_notes": {
+    "demography_resolution": "sub-polity stronger than nation level",
+    "strongest_authority_objects": [
+      "02_CANON_BASELINE/polities/the_principalities.json",
+      "02_CANON_BASELINE/polities/principality_of_shelk.json",
+      "02_CANON_BASELINE/polities/principality_of_roaz.json"
+    ],
+    "known_absences": [
+      "no full umbrella-polity race roster explicitly enumerated at nation level"
+    ]
+  },
+  "unresolved_identity_gaps": [
+    "Nation-level demographic enumeration remains incomplete; strongest population signals remain territorial, local, or institutional."
+  ],
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "version_anchor": "prior_release",
+  "named_npc_refs": [
+    "sel_hart"
+  ],
+  "npc_interfaces": [
+    "sel_hart"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "resolution_status": "resolved umbrella demographic canon",
+  "canon_note": "Use polity-level demography files for narrow interpretation and the umbrella record only for empire-wide statements."
+}

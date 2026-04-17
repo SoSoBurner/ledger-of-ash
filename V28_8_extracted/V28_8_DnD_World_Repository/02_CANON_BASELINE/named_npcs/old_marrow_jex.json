@@ -1,0 +1,74 @@
+{
+  "npc_id": "old_marrow_jex",
+  "canonical_name": "Old Marrow Jex",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "covert_actor",
+  "office_or_role": "Rogue",
+  "profession_discipline": "Rogue",
+  "grouping": "Stealth & Precision",
+  "polity": "The Union",
+  "settlement": "Guildheart Hub",
+  "locality_scope": "Guildheart Hub, The Union",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Smuggled ledgers instead of jewels and became the cautionary tale behind three generations of contract fraud law.",
+  "linked_systems": {
+    "polities": [
+      "The Union"
+    ],
+    "localities": [
+      "Guildheart Hub, The Union"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In The Union, that reads as someone deal-aware, balanced, and procedurally diplomatic, with an eye on leverage and precedent, and the habits of a rogue still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of rogue in and around Guildheart Hub, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Guildheart Hub workable through the obligations of rogue while managing the immediate pressure of institutional scrutiny in The Union.",
+  "hidden_pressure": "Must keep their piece of the world working while larger systems push stress downward. Around Guildheart Hub, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of rogue visibly slip.",
+  "relationship_refs": [
+    "rel_1288",
+    "rel_1289"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Old Marrow Jex needs help with a problem in Guildheart Hub that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Old Marrow Jex can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Old Marrow Jex can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Old Marrow Jex carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Guildheart Hub: the part of Guildheart Hub where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

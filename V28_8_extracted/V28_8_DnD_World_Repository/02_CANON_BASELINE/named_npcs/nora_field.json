@@ -1,0 +1,82 @@
+{
+  "npc_id": "nora_field",
+  "canonical_name": "Nora Field",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Cache Keeper",
+  "profession_discipline": "Cache Keeper",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": null,
+  "locality_scope": "Glacial Fissures",
+  "institutional_ties": [
+    "Glacial Fissures"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as cache keeper.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Glacial Fissures"
+    ],
+    "institutions": [
+      "Glacial Fissures"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a cache keeper still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of cache keeper in and around Glacial Fissures, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Glacial Fissures workable through the obligations of cache keeper while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Glacial Fissures, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of cache keeper visibly slip.",
+  "relationship_refs": [
+    "rel_0856",
+    "rel_0863",
+    "rel_0870",
+    "rel_0871",
+    "rel_0872",
+    "rel_0873",
+    "rel_0874",
+    "rel_0875"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Nora Field needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Glacial Fissures."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Nora Field can draw the party into crew discipline, resource shortage, or blame transfer around Glacial Fissures."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "nora_field",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Nora Field visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Glacial Fissures: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

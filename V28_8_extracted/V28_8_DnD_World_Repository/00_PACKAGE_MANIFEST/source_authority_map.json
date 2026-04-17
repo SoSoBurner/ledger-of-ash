@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "authority_note": "Structured canon remains primary. Derived guides and runtime surfaces are subordinate to structured canon and source truth rules.",
+  "derived_views_subordinate_to": [
+    "02_CANON_BASELINE",
+    "03_RECONCILIATION_LAYER",
+    "01_CANON_GOVERNANCE"
+  ]
+}

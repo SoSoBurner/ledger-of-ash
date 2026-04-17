@@ -1,0 +1,10 @@
+{
+  "build_version": "V28_8",
+  "truth_zones": [
+    "source_backed_canon_baseline",
+    "reconciliation_layer",
+    "conservative_inference_support",
+    "runtime_derivative",
+    "administrative_release"
+  ]
+}

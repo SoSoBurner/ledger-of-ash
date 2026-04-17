@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "House Mimolot",
+  "record_count": 2,
+  "npc_ids": [
+    "ithra_quillmark",
+    "quillan_spellward"
+  ]
+}

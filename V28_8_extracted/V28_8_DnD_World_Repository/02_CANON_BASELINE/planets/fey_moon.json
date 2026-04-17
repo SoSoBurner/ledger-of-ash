@@ -1,0 +1,19 @@
+{
+  "id": "planet.fey_moon",
+  "name": "Fey Moon",
+  "truth_layer": "direct_canon",
+  "function": "One of Talalmany’s experimental moons; visibility affects celestial atmospheres and events such as Aurora Meadows.",
+  "sources": [
+    "pantheon_story",
+    "principalities"
+  ],
+  "named_npc_refs": [
+    "corin_hart"
+  ],
+  "npc_interfaces": [
+    "corin_hart"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

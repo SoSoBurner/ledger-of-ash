@@ -1,0 +1,72 @@
+{
+  "npc_id": "oruk_hailspine",
+  "canonical_name": "Oruk Hailspine",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "martial_actor",
+  "office_or_role": "Berserker",
+  "profession_discipline": "Berserker",
+  "grouping": "Classic Combat",
+  "polity": "Sheresh Communes",
+  "settlement": "Off-grid camp chains",
+  "locality_scope": "Off-grid camp chains, Sheresh",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Salvage bruiser who fights in layered shielding and laughs at sane people’s retreat instincts.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Off-grid camp chains, Sheresh"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Cold-ready layered gear, ward-conscious fastening, and containment-minded kit signal disciplined caution.",
+  "manner": "Projects readiness without theatricality, as if discipline matters more than spectacle. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a berserker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of berserker in and around Off-grid camp chains, Sheresh, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Off-grid camp chains, Sheresh workable through the obligations of berserker while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must prepare for violence without letting the surrounding institution look openly unstable. Around Off-grid camp chains, Sheresh, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of berserker visibly slip.",
+  "relationship_refs": [
+    "rel_1273"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "defense_request",
+      "summary": "Oruk Hailspine needs help hardening a position, drilling unreliable auxiliaries, or reading an approaching threat around Off-grid camp chains, Sheresh."
+    },
+    {
+      "hook_type": "rival_command_tension",
+      "summary": "Oruk Hailspine can pull the party into a dispute over readiness, chain of command, or blamed failure near Off-grid camp chains, Sheresh."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Weapon discipline, drilled stillness, and practiced readiness mark Oruk Hailspine as someone tied to organized force rather than casual violence.",
+  "encounter_context": {
+    "usual_environment": "Off-grid camp chains, Sheresh: drill yards, fortifications, command posts, or exposed routes",
+    "who_seeks_them_out": [
+      "subordinates",
+      "messengers",
+      "worried local leaders"
+    ],
+    "who_avoids_them": [
+      "the undisciplined",
+      "the unprepared",
+      "rivals probing weakness"
+    ],
+    "interaction_anchor": "defensive planning or force-readiness"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

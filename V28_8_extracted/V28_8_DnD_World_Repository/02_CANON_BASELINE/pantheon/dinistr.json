@@ -1,0 +1,11 @@
+{
+  "id": "deity.dinistr",
+  "name": "Dinistr",
+  "domain": "Destruction",
+  "desire": "Destroy and toy with Material denizens",
+  "current_state": "Rules abyssal realms and helps contain Mega-Terozash.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

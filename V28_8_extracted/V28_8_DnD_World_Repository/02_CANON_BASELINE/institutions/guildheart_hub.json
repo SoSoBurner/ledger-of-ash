@@ -1,0 +1,32 @@
+{
+  "name": "Guildheart Hub",
+  "type": "Union central institution",
+  "truth_layer": "direct_canon",
+  "summary": "The central meeting and arbitration node of the Union successor order.",
+  "day_to_day": "Hosts negotiations, sanctions, contract reviews, and guild coordination.",
+  "who_works_there": "Arbiters, delegates, clerks, sanction officers, merchant advocates.",
+  "who_uses_it": "Guilds, merchants, caravan leaders, debt claimants, disputing houses.",
+  "authority": "Can mediate and sanction market actors under Union authority.",
+  "public_manifestation": "Constant dealmaking, posted rulings, crowding during summit periods, and reputational rumor.",
+  "conflict_or_bottleneck": "Speed and fairness are constantly in tension when too many interests converge.",
+  "party_actions": [
+    "file a dispute",
+    "seek market access",
+    "follow a bribery trail",
+    "protect a negotiation"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "guilden_ledgermere",
+    "mira_ledgermere"
+  ],
+  "npc_interfaces": [
+    "guilden_ledgermere",
+    "mira_ledgermere"
+  ]
+}

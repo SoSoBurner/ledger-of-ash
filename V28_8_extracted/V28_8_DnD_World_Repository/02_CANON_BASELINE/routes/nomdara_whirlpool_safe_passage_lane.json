@@ -1,0 +1,27 @@
+{
+  "name": "Nomdara Whirlpool Safe-Passage Lane",
+  "type": "maritime convoy lane",
+  "jurisdictions": [
+    "Nomdara Caravan",
+    "Edict Ocean",
+    "South Swirling Sea"
+  ],
+  "hazards": [
+    "whirlpool fields",
+    "hurricanes",
+    "safe-passage bargaining failures"
+  ],
+  "sources": [
+    "ai_source_pdf",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "nim_waycord"
+  ],
+  "npc_interfaces": [
+    "nim_waycord"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

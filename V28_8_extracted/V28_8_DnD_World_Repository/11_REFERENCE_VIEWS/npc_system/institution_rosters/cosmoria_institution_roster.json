@@ -1,0 +1,13 @@
+{
+  "build_version": "V28_8",
+  "institution": "Cosmoria",
+  "record_count": 6,
+  "npc_ids": [
+    "aurek_tidereach",
+    "coralyn_foamglass",
+    "maris_coralwake",
+    "nerissa_bluefin",
+    "sevrin_shellmark",
+    "tideon_anchorlight"
+  ]
+}

@@ -1,0 +1,42 @@
+# Ledger of Ash — How to Play
+
+## Starting
+
+1. Open index.html in any modern web browser (Chrome, Firefox, Safari, Edge)
+2. Choose "Begin New Legend" to start a new run
+3. Enter your name, a 4-digit save passcode, your class, and your background
+4. Your legend begins in your starting location
+
+## Saving
+
+Your progress saves automatically using your 4-digit passcode.
+To load a previous legend: enter your passcode on the title screen and press Enter.
+
+## Controls
+
+- Click/tap choices to make decisions
+- Use the top bar buttons to access: Map, Journal, NPCs, Notices, Party, Camp, Sheet
+- Camp to rest, train, and talk with companions
+- Hall of Legends preserves all completed runs
+
+## Class Families
+
+**Classic Combat** (Warrior, Knight, Ranger, Paladin, Archer, Berserker, Warden, Warlord, Death Knight)
+Direct force, weapon mastery, threat control, protection
+
+**Magic and Spellcasting** (Wizard, Cleric, Priest, Necromancer, Illusionist, Inquisitor, Elementalist, Oracle)
+Pattern reading, elemental authority, ritual solving, arcane evidence
+
+**Stealth and Precision** (Rogue, Assassin, Spellthief, Scout, Thief, Trickster, Beastmaster)
+Infiltration, surveillance, shadow economy, terrain reading
+
+**Support and Leadership** (Healer, Artificer, Engineer, Tactician, Alchemist, Saint, Bard)
+Community networks, technical analysis, coordination, chronicle
+
+## Settings
+
+No additional setup required. Browser-playable, no server needed.
+Works on desktop and mobile browsers.
+
+---
+Stage I–II Build · V28_8 Canon · v2.0

@@ -1,0 +1,82 @@
+{
+  "npc_id": "brala_ironslope",
+  "canonical_name": "Brala Ironslope",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Internal Skeptic",
+  "profession_discipline": "Internal Skeptic",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": null,
+  "locality_scope": "Engineers’ Consortium",
+  "institutional_ties": [
+    "Engineers’ Consortium"
+  ],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as internal skeptic.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Engineers’ Consortium"
+    ],
+    "institutions": [
+      "Engineers’ Consortium"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a internal skeptic still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of internal skeptic in and around Engineers’ Consortium, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Engineers’ Consortium workable through the obligations of internal skeptic while managing the immediate pressure of resource depletion in Soreheim Alliance.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Engineers’ Consortium, that usually means carrying resource depletion, sabotage, predatory frontier ecology without letting the role of internal skeptic visibly slip.",
+  "relationship_refs": [
+    "rel_0391",
+    "rel_0395",
+    "rel_0398",
+    "rel_0401",
+    "rel_0402",
+    "rel_1208",
+    "rel_1209"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Brala Ironslope can draw the party into crew discipline, resource shortage, or blame transfer around Engineers’ Consortium."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Brala Ironslope can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "brala_ironslope",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Brala Ironslope visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Engineers’ Consortium: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

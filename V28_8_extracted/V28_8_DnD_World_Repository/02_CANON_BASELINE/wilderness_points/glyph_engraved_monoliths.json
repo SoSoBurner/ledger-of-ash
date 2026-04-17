@@ -1,0 +1,17 @@
+{
+  "name": "Glyph-Engraved Monoliths",
+  "parent": "Verdant Caves",
+  "summary": "Ancient glowing stone structures central to understanding Shelk glyph corruption.",
+  "sources": [
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "liora_lightloom"
+  ],
+  "npc_interfaces": [
+    "liora_lightloom"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

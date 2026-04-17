@@ -1,0 +1,10 @@
+{
+  "id": "cosmology.infinite_staircase",
+  "name": "Infinite Staircase",
+  "truth_layer": "direct_canon",
+  "summary": "A cloud-bound network of bridges, stairs, and floating islands patrolled by the Living Fog and associated with Ataliad’s stillness logic.",
+  "sources": [
+    "pantheon_story",
+    "ai_source_pdf"
+  ]
+}

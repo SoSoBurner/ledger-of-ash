@@ -1,0 +1,19 @@
+LEDGER OF ASH — RELEASE PACKAGE
+Stage I–II Build
+V28_8 Material Planet Canon
+Version 2.0
+
+Files:
+  index.html          — Main game (open this in browser to play)
+  assets/cover.jpg    — Title screen artwork
+  HOW_TO_PLAY.txt     — Player instructions
+  LISTING_DESCRIPTION.txt — itch.io store description
+
+Browser requirements:
+  Any modern browser with JavaScript enabled.
+  No internet connection required during play.
+  Save data stored in browser localStorage (persists per browser/device).
+
+Compatibility tested:
+  Chrome 120+, Firefox 120+, Safari 17+, Edge 120+
+  Mobile: iOS Safari, Android Chrome

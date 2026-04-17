@@ -1,0 +1,26 @@
+{
+  "name": "Amber Tides River",
+  "type": "southern trade river",
+  "jurisdictions": [
+    "Southernmost Unternal Lands",
+    "Psanan-linked south routes"
+  ],
+  "hazards": [
+    "monsoons",
+    "storm sea interfaces"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "lysa_march",
+    "vera_hart"
+  ],
+  "npc_interfaces": [
+    "lysa_march",
+    "vera_hart"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

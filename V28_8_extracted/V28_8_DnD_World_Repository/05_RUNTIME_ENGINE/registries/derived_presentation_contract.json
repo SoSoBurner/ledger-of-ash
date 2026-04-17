@@ -1,0 +1,17 @@
+{
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "required_tracking": [
+    "direct_canon_percentage",
+    "reconciled_canon_percentage",
+    "conservative_inference_percentage",
+    "unresolved_ambiguity_flag"
+  ],
+  "threshold_examples": {
+    "core_identity_objects": "very_low_inference_allowed",
+    "scene_rendering_packets": "higher_inference_allowed",
+    "law_governance_answers": "low_inference_allowed",
+    "rumor_public_belief_packets": "inference_allowed_but_labeled"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "npc_id": "cevrin_dawnsilk",
+  "canonical_name": "Cevrin Dawnsilk",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Quartermaster",
+  "profession_discipline": "Quartermaster",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Emberforge Outpost",
+  "locality_scope": "Emberforge Outpost",
+  "institutional_ties": [
+    "Emberforge Outpost"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quartermaster.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Emberforge Outpost"
+    ],
+    "institutions": [
+      "Emberforge Outpost"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a quartermaster still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quartermaster in and around Emberforge Outpost, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Emberforge Outpost workable through the obligations of quartermaster while managing the immediate pressure of celestial activity on routes in Shelk.",
+  "hidden_pressure": "Must read timing, trust, and supply pressure early enough that a market problem does not become a civic one. Around Emberforge Outpost, that usually means carrying celestial activity on routes, need for caravan coordination, route safety and public-order sabotage law are strongly felt. without letting the role of quartermaster visibly slip.",
+  "relationship_refs": [
+    "rel_0249",
+    "rel_0250",
+    "rel_1112"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Cevrin Dawnsilk can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Cevrin Dawnsilk will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "cevrin_dawnsilk",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Cevrin Dawnsilk read as someone who lives by exchange and reputation. In Emberforge Outpost, this lands inside a public field already shaped by Roadwarden patrol leaders.",
+  "encounter_context": {
+    "usual_environment": "Emberforge Outpost: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "npc_id": "istran_ashvein",
+  "canonical_name": "Istran Ashvein",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "religious_officiant",
+  "office_or_role": "Shrine Caretaker",
+  "profession_discipline": "Shrine Caretaker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Maskscar Plaza District",
+  "locality_scope": "Maskscar Plaza District",
+  "institutional_ties": [
+    "Maskscar Plaza District"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Maskscar Plaza District"
+    ],
+    "institutions": [
+      "Maskscar Plaza District"
+    ],
+    "factions": []
+  },
+  "appearance": "Ash-touched ritual wear, heat-hardened ornament, and severe ceremonial lines signal renewal through endurance.",
+  "manner": "Balances comfort with correction, sounding gentle until rite, taboo, or consequence is threatened. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of shrine caretaker in and around Maskscar Plaza District, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Maskscar Plaza District workable through the obligations of shrine caretaker while managing the immediate pressure of house rivalry over symbolism in Psanan.",
+  "hidden_pressure": "Must keep sacred procedure credible while grief, fear, or opportunism press for shortcuts. Around Maskscar Plaza District, that usually means carrying house rivalry over symbolism, crowd control, heat damage to stored materials without letting the role of shrine caretaker visibly slip.",
+  "relationship_refs": [
+    "rel_0023",
+    "rel_0032",
+    "rel_0040",
+    "rel_0047",
+    "rel_0053",
+    "rel_0058",
+    "rel_0062",
+    "rel_0065",
+    "rel_0068",
+    "rel_0069",
+    "rel_1142"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "doctrinal_complication",
+      "summary": "Any alliance with Istran Ashvein can expose the party to taboo, doctrine, or institutional expectation centered on Maskscar Plaza District."
+    },
+    {
+      "hook_type": "ritual_disruption",
+      "summary": "Istran Ashvein needs discreet aid to prevent a ritual lapse, desecration, or public crisis of trust around Maskscar Plaza District."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "istran_ashvein",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Ritual dress, offering marks, and devotional cadence make Istran Ashvein immediately legible as a spiritual intermediary. In Maskscar Plaza District, this lands inside a public field already shaped by Rebuilding Oath Courts, Great House Citadel Circle.",
+  "encounter_context": {
+    "usual_environment": "Maskscar Plaza District: shrines, cathedrals, funerary halls, or ritual precincts",
+    "who_seeks_them_out": [
+      "mourners",
+      "petitioners",
+      "those seeking rite or absolution"
+    ],
+    "who_avoids_them": [
+      "the openly impious",
+      "ritual disturbers",
+      "those asking for sacred shortcuts"
+    ],
+    "interaction_anchor": "ritual mediation or doctrinal reassurance"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

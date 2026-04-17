@@ -1,0 +1,10 @@
+{
+  "build_version": "V28_8",
+  "institution": "Scarlet Descent Gate",
+  "record_count": 3,
+  "npc_ids": [
+    "descent_captain_orrik_lavabound",
+    "kaiva_cindercrest",
+    "velka_ashvein"
+  ]
+}

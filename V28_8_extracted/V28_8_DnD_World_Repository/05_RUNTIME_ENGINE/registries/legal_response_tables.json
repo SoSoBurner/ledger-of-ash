@@ -1,0 +1,9 @@
+{
+  "tracks": [
+    "Roaz anti-magic response",
+    "Shelk decorum and espionage response",
+    "Union contract enforcement",
+    "Sheresh containment breach response"
+  ],
+  "default_state": "baseline_pending_runtime_change"
+}

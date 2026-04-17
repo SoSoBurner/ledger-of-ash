@@ -1,0 +1,47 @@
+{
+  "name": "Silkweaver’s Chapel",
+  "parent_district": "Verdant Row District",
+  "type": "chapel",
+  "approach": "Modest Felujitas chapel for artisans seeking renewal..",
+  "inside": "Modest Felujitas chapel for artisans seeking renewal.",
+  "who_belongs": [
+    "staff",
+    "petitioners",
+    "customers",
+    "clergy",
+    "guild members"
+  ],
+  "who_is_out_of_place": [
+    "blasphemers",
+    "ritual disruptors",
+    "harmful magic users"
+  ],
+  "expected_behavior": [
+    "respect the function of the site",
+    "follow local decorum"
+  ],
+  "visible_power": [
+    "site stewards"
+  ],
+  "economy_or_function": "chapel",
+  "law_context": [
+    "Principle Code § 104",
+    "Principle Code § 109",
+    "Principle Code § 111",
+    "Principle Code § 203",
+    "Principle Code § 204",
+    "Principle Code § 207"
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "local_interface_role": "shrine_attendant",
+  "who_you_meet": "Silkweaver’s Chapel Attendant",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "shrine_attendant",
+    "display_name": "Silkweaver’s Chapel Attendant",
+    "truth_layer": "conservative_inference"
+  }
+}

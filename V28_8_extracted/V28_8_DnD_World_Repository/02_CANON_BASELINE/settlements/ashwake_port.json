@@ -1,0 +1,78 @@
+{
+  "name": "Ashwake Port",
+  "type": "ash-port",
+  "parent_polity": "Psanan",
+  "territory": "Southern Volcanic Coast",
+  "truth_layer": "conservative_inference",
+  "identity": "Psanan ash-port where trade survives between cooling windows, soot tides, and public renewal display.",
+  "approach": "Dark quays, soot-streaked cranes, and renewal-marked public ways guide travelers through a port built to recover quickly from damage.",
+  "inside": "Port ledgers, storage vaults, ash-dye houses, and processional squares give the harbor both commerce and ceremony.",
+  "who_belongs": [
+    "porters",
+    "factors",
+    "ship crews",
+    "ash-dye laborers"
+  ],
+  "who_is_out_of_place": [
+    "those ignoring ashfall signals",
+    "smugglers bypassing House tariffs"
+  ],
+  "expected_behavior": [
+    "heed cooling bells",
+    "yield public ways during renewal processions"
+  ],
+  "visible_power": [
+    "Ash Port Factors",
+    "Great House Citadel Circle"
+  ],
+  "economy": [
+    "trade",
+    "ash dye",
+    "metal export",
+    "ship resupply"
+  ],
+  "faith": [
+    "renewal-marked banners serve civic identity and public recovery rather than worship"
+  ],
+  "seasonal_change": "Trade surges during dormant periods and contracts under violent heat.",
+  "pressure": [
+    "harbor ash clogging",
+    "storm-whirlpool risk",
+    "port rivalry"
+  ],
+  "npc_interfaces": [
+    "port_factor_nemra_sootwake",
+    "cindri_ashvein",
+    "morra_ashvein"
+  ],
+  "law_context": [
+    "port tariff law",
+    "public way clearance during observances"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "named_npc_refs": [
+    "port_factor_nemra_sootwake",
+    "cindri_ashvein",
+    "morra_ashvein"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_behavior_texture": "People who belong here are usually porters, factors, ship crews, and public conduct is read through expectations such as heed cooling bells, yield public ways during renewal processions.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Ash Port Factors, Great House Citadel Circle.",
+  "local_tension_surface": "The place feels stable only until pressures such as harbor ash clogging, storm-whirlpool risk, port rivalry begin showing through daily routines.",
+  "differentiator": "Ashwake Port stands apart because its economy leans on trade, ash dye; public faith remains visible through renewal-marked banners serve civic identity and public recovery rather than worship; outsiders are noticed fastest when they resemble those ignoring ashfall signals, smugglers bypassing House tariffs.",
+  "encounter_rhythm": "Most first scenes in Ashwake Port begin through ash-port rhythms: arrival, observation, minor correction, and only then deeper access."
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Sheresh Dome Road",
+  "type": "inter-commune ice route",
+  "jurisdictions": [
+    "Sheresh Communes"
+  ],
+  "hazards": [
+    "whiteouts",
+    "surface cracking",
+    "contamination drifts"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "sylvi_rimebridge"
+  ],
+  "npc_interfaces": [
+    "sylvi_rimebridge"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

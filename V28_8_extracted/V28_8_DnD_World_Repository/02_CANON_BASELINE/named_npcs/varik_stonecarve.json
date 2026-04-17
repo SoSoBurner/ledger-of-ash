@@ -1,0 +1,86 @@
+{
+  "npc_id": "varik_stonecarve",
+  "canonical_name": "Varik Stonecarve",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Market Broker",
+  "profession_discipline": "Market Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Harvest Circle",
+  "locality_scope": "Harvest Circle",
+  "institutional_ties": [
+    "Harvest Circle"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as market broker.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Harvest Circle"
+    ],
+    "institutions": [
+      "Harvest Circle"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a market broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of market broker in and around Harvest Circle, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Harvest Circle workable through the obligations of market broker while managing the immediate pressure of spoilage in Soreheim Alliance.",
+  "hidden_pressure": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Harvest Circle, that usually means carrying spoilage, price pressure, favor feuds without letting the role of market broker visibly slip.",
+  "relationship_refs": [
+    "rel_0277",
+    "rel_0278",
+    "rel_0279",
+    "rel_0280",
+    "rel_0281",
+    "rel_0946",
+    "rel_0951",
+    "rel_0955",
+    "rel_0958",
+    "rel_0960",
+    "rel_0962"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Varik Stonecarve can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Varik Stonecarve will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "varik_stonecarve",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Varik Stonecarve read as someone who lives by exchange and reputation. In Harvest Circle, this lands inside a public field already shaped by harvest stewards, quota clerks.",
+  "encounter_context": {
+    "usual_environment": "Harvest Circle: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  }
+}

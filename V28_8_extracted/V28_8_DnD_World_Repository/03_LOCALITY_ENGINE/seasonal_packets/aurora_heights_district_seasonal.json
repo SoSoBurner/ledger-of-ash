@@ -1,0 +1,8 @@
+{
+  "name": "Aurora Heights District",
+  "seasonal_change": "Seasonal gala coloration shifts through high-status social calendars.",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

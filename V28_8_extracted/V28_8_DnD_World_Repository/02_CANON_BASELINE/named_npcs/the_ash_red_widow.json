@@ -1,0 +1,74 @@
+{
+  "npc_id": "the_ash_red_widow",
+  "canonical_name": "The Ash-Red Widow",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "covert_actor",
+  "office_or_role": "Assassins",
+  "profession_discipline": "Assassins",
+  "grouping": "Stealth & Precision",
+  "polity": "Roaz",
+  "settlement": null,
+  "locality_scope": "remembered across Roaz corridors",
+  "institutional_ties": [],
+  "legal_standing": "extralegal_or_denied_covert_actor",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Her confirmed kills mattered less than the terror her sightings created.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "remembered across Roaz corridors"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a assassins still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of assassins in and around remembered across Roaz corridors, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep remembered across Roaz corridors workable through the obligations of assassins while managing the immediate pressure of institutional scrutiny in Roaz.",
+  "hidden_pressure": "Must keep their piece of the world working while larger systems push stress downward. Around remembered across Roaz corridors, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of assassins visibly slip.",
+  "relationship_refs": [
+    "rel_1290",
+    "rel_1291"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "The Ash-Red Widow can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "The Ash-Red Widow needs help with a problem in remembered across Roaz corridors that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with The Ash-Red Widow can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "The Ash-Red Widow carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "remembered across Roaz corridors: the part of remembered across Roaz corridors where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Red Hood Guild",
+  "type": "covert network institution",
+  "truth_layer": "direct_canon",
+  "summary": "Independent clandestine institution of smugglers, brokers, and covert specialists moving through the cracks of official order.",
+  "day_to_day": "Moves information, contraband, discreet contracts, and shadow logistics.",
+  "who_works_there": "Fixers, couriers, brokers, smugglers, deniable agents.",
+  "who_uses_it": "Those avoiding public systems, including criminals, desperate merchants, and politically constrained clients.",
+  "authority": "No lawful authority; power rests on access, deniability, and fear of exposure.",
+  "public_manifestation": "Rumor, hidden signs, sudden access to forbidden goods, missing paperwork that somehow still resolves.",
+  "conflict_or_bottleneck": "Network secrecy is both its shield and its biggest weakness under sustained investigation.",
+  "party_actions": [
+    "hire a fixer",
+    "penetrate a smuggling ring",
+    "recover stolen goods",
+    "use or betray a covert route"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "nora_stone",
+    "pela_stone"
+  ],
+  "npc_interfaces": [
+    "nora_stone",
+    "pela_stone"
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "name": "Sunspire Haven",
+  "region": "Soreheim Alliance",
+  "capital_class": false,
+  "truth_layer": "conservative_inference",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "innkeeper",
+      "display_name": "Sunspire Haven Innkeeper",
+      "role": "Innkeeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Innkeeper is the locality-facing innkeeper interface in Sunspire Haven, useful for provides lodging, local gossip, traveler warnings, and emergency favors."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "market_clerk",
+      "display_name": "Sunspire Haven Market Clerk",
+      "role": "Market Clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Market Clerk is the locality-facing market clerk interface in Sunspire Haven, useful for manages queues, forms, stall assignments, and the practical memory of who came through."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "shrine_attendant",
+      "display_name": "Sunspire Haven Shrine Attendant",
+      "role": "Shrine Attendant",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Shrine Attendant is the locality-facing shrine attendant interface in Sunspire Haven, useful for maintains offerings, notices breaches, and guides minor local rites."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "porter",
+      "display_name": "Sunspire Haven Porter",
+      "role": "Porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Porter is the locality-facing porter interface in Sunspire Haven, useful for moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes."
+    }
+  ],
+  "street_level_faction_presence": {
+    "visible_factions": [
+      "Giant Council",
+      "Engineers’ Consortium",
+      "Miners’ Assembly",
+      "Agricultural Syndicate",
+      "Artificers’ Guild"
+    ],
+    "what_they_look_like_in_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "who_benefits": "Those who know the rules, fulfill obligations, or ride aligned patronage tend to benefit first.",
+    "who_fears_them": "Debtors, irregular operators, exposed workers, and those with fragile standing often fear enforcement or scrutiny most."
+  },
+  "social_norm_surface": {
+    "greetings": [
+      "Status is established through contribution and assignment before ease."
+    ],
+    "hospitality_rules": [
+      "Guests are fed and housed according to usefulness, duty, and available communal provision."
+    ],
+    "insult_triggers": [
+      "idleness",
+      "hoarding",
+      "waste",
+      "disrespect toward assigned labor or giant authority"
+    ],
+    "taboo_topics": [
+      "open contempt for communal ownership",
+      "boasting about selfish accumulation"
+    ],
+    "faith_etiquette": [
+      "rites are tied to work, ambition, unity, and retribution rather than private ornamental piety"
+    ],
+    "suspicious_behavior": [
+      "unaccounted stockpiles",
+      "sabotage signs",
+      "illicit magic or relic handling"
+    ],
+    "outsider_mistakes": [
+      "reading communal culture as soft when enforcement is severe"
+    ]
+  },
+  "ordinary_life_surface": {
+    "what_people_do_all_day": "Shifts, quotas, repair cycles, hauling, planning, and ritualized contribution define ordinary life from quarries to towers to farm zones.",
+    "what_places_feel_like": "Air carries slag, grain mash, machine grease, smoke, wet stone, and cooked communal meals. Sounds are horns, hammers, rolling freight, and shouted shift orders.",
+    "home_and_guest_norms": "Communal halls, crew bunks, family-linked barracks, heated worker houses, and contribution-marked living quarters dominate."
+  },
+  "rumor_pool": {
+    "public_rumors": [
+      "People say something in Sunspire Haven has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Sunspire Haven left someone unpaid or publicly embarrassed."
+    ],
+    "half_true_rumors": [
+      "A respected local figure in Sunspire Haven is said to be protecting someone they should have exposed."
+    ],
+    "faction_planted_rumors": [
+      "A faction-friendly story in Sunspire Haven insists that harsher oversight is the only thing keeping things from collapse."
+    ],
+    "religious_warnings": [
+      "Some locals in Sunspire Haven treat current unease as a warning rather than ordinary trouble."
+    ],
+    "trade_concerns": [
+      "Freight, labor, or supply movement around Sunspire Haven is said to be more fragile than the ledgers suggest."
+    ],
+    "criminal_whispers": [
+      "Quiet talk in Sunspire Haven says favors can still be bought if one knows who keeps the informal door open."
+    ],
+    "historical_misconceptions": [
+      "Older residents of Sunspire Haven repeat a version of local history that does not fully match corrective or official accounts."
+    ],
+    "contradiction_aware_myth_versions": [
+      {
+        "claim": "Older residents of Sunspire Haven repeat a version of local history that does not fully match corrective or official accounts.",
+        "truth_layer": "public_belief_record"
+      }
+    ]
+  },
+  "conflict_surfaces": [
+    "ambition versus communal obligation",
+    "progress versus tradition",
+    "resource demand versus local survival"
+  ],
+  "travel_and_transition_texture": {
+    "feel": "Travel through the Alliance is dangerous, scheduled, supervised, and deeply shaped by escort expectations and work infrastructure.",
+    "checkpoint_behavior": "Checkpoint, gate, dock, or entry custom reveals who is trusted, who is processed, and who is delayed.",
+    "caravan_or_route_custom": "Route handoff norms matter; escorts, seals, witnesses, or weather-reading often determine who moves next.",
+    "regional_handoff_custom": "Responsibility for travelers and goods visibly changes at territorial boundaries."
+  },
+  "text_rpg_ready_locality_hooks": {
+    "who_you_talk_to_first": "Sunspire Haven Innkeeper",
+    "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+    "public_notice_drawing_attention": "A new notice in Sunspire Haven is drawing comment because it changes someone’s movement, cost, or safety.",
+    "visible_tension": "People in Sunspire Haven are acting as though a pressure everyone knows about has become harder to ignore.",
+    "private_trouble": "Someone respectable in Sunspire Haven is privately entangled in an obligation they cannot publicly explain.",
+    "one_hour_entanglement": "A newcomer in Sunspire Haven could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+  },
+  "relationship_and_reputation_consequences": {
+    "trust": "People are remembered for whether they produce, endure, repair, and share under pressure.",
+    "what_causes_good_memory": "Keeping one’s word under visible pressure, showing correct public respect, and not creating avoidable trouble.",
+    "what_causes_bad_memory": "Public embarrassment, broken obligations, opportunism during crisis, and forcing others to absorb avoidable risk.",
+    "what_favors_matter": "Timely introductions, queue priority, sealed testimony, repair help, escorting, storage, ritual guidance, and quiet omission when deserved."
+  },
+  "scene_starter_inventory": [
+    "overheard dispute at a public threshold",
+    "public ceremony under pressure",
+    "missing person or missing ledger concern",
+    "labor stoppage or delayed shipment",
+    "funeral procession or shrine petition",
+    "bureaucratic friction with real stakes",
+    "trade dispute with witnesses",
+    "faction test of loyalty or usefulness",
+    "strange celestial sign interpreted three different ways"
+  ],
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "named_npc_refs": [],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter"
+  ],
+  "ordinary_interface_surface": [
+    {
+      "interface_type": "local_role",
+      "ref": "innkeeper",
+      "display_name": "Sunspire Haven Innkeeper",
+      "role": "Innkeeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Innkeeper is the locality-facing innkeeper interface in Sunspire Haven, useful for provides lodging, local gossip, traveler warnings, and emergency favors."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "market_clerk",
+      "display_name": "Sunspire Haven Market Clerk",
+      "role": "Market Clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Market Clerk is the locality-facing market clerk interface in Sunspire Haven, useful for manages queues, forms, stall assignments, and the practical memory of who came through."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "shrine_attendant",
+      "display_name": "Sunspire Haven Shrine Attendant",
+      "role": "Shrine Attendant",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Shrine Attendant is the locality-facing shrine attendant interface in Sunspire Haven, useful for maintains offerings, notices breaches, and guides minor local rites."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "porter",
+      "display_name": "Sunspire Haven Porter",
+      "role": "Porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Sunspire Haven Porter is the locality-facing porter interface in Sunspire Haven, useful for moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes."
+    }
+  ]
+}

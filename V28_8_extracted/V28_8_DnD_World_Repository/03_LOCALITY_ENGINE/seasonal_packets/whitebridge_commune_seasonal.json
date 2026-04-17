@@ -1,0 +1,8 @@
+{
+  "name": "Whitebridge Commune",
+  "seasonal_change": "The commune swells during brief viable crossing windows and shrinks under severe storms.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

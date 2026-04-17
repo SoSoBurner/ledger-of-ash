@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "The Rusted Loom Tavern",
+  "record_count": 2,
+  "npc_ids": [
+    "kest_wren",
+    "vera_wren"
+  ]
+}

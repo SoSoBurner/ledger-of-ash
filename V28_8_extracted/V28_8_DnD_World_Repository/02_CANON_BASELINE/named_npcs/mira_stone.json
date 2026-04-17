@@ -1,0 +1,86 @@
+{
+  "npc_id": "mira_stone",
+  "canonical_name": "Mira Stone",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Inventory Steward",
+  "profession_discipline": "Inventory Steward",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "The Silver Stag Tavern",
+  "locality_scope": "The Silver Stag Tavern",
+  "institutional_ties": [
+    "The Silver Stag Tavern"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as inventory steward.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "The Silver Stag Tavern"
+    ],
+    "institutions": [
+      "The Silver Stag Tavern"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a inventory steward still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of inventory steward in and around The Silver Stag Tavern, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep The Silver Stag Tavern workable through the obligations of inventory steward while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around The Silver Stag Tavern, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of inventory steward visibly slip.",
+  "relationship_refs": [
+    "rel_0595",
+    "rel_0604",
+    "rel_0612",
+    "rel_0620",
+    "rel_0621",
+    "rel_0622",
+    "rel_0623",
+    "rel_0624",
+    "rel_0625",
+    "rel_0626",
+    "rel_1194"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Mira Stone can draw the party into crew discipline, resource shortage, or blame transfer around The Silver Stag Tavern."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Mira Stone can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "mira_stone",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Mira Stone visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "The Silver Stag Tavern: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Nomdara Northern Tundra Circuit",
+  "type": "mobile caravan circuit",
+  "jurisdictions": [
+    "Nomdara Caravan",
+    "Principality of Shelk",
+    "Sheresh Communes"
+  ],
+  "hazards": [
+    "whiteouts",
+    "supply exhaustion",
+    "road-strain between settled and mobile law"
+  ],
+  "sources": [
+    "ai_source_pdf",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "torv_waycord"
+  ],
+  "npc_interfaces": [
+    "torv_waycord"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

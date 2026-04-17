@@ -1,0 +1,80 @@
+{
+  "npc_id": "vekka_glassmelt",
+  "canonical_name": "Vekka Glassmelt",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Oath Witness",
+  "profession_discipline": "Oath Witness",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": null,
+  "locality_scope": "Rebuilding Oath Courts",
+  "institutional_ties": [
+    "Rebuilding Oath Courts"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as oath witness.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Rebuilding Oath Courts"
+    ],
+    "institutions": [
+      "Rebuilding Oath Courts"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Keeps language exact, as if wording itself is part of the custody chain. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a oath witness still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of oath witness in and around Rebuilding Oath Courts, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Rebuilding Oath Courts workable through the obligations of oath witness while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Rebuilding Oath Courts, that usually means carrying eruption risk, resource access, underworld danger without letting the role of oath witness visibly slip.",
+  "relationship_refs": [
+    "rel_0771",
+    "rel_0775",
+    "rel_0779",
+    "rel_0780",
+    "rel_0781"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "document_pressure",
+      "summary": "Vekka Glassmelt can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Vekka Glassmelt can trade precise, actionable information once the party secures or clarifies the record they protect."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "compatibility_interface_id": "vekka_glassmelt",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Vekka Glassmelt communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Rebuilding Oath Courts: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  }
+}

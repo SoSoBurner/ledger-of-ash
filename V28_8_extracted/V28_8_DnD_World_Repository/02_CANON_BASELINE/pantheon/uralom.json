@@ -1,0 +1,11 @@
+{
+  "id": "deity.uralom",
+  "name": "Uralom",
+  "domain": "Domination",
+  "desire": "Make the strongest champions and defeat them",
+  "current_state": "Central to Soreheim and Roadwarden strength motifs.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

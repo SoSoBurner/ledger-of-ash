@@ -1,0 +1,29 @@
+{
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "delta_object_required_fields": [
+    "delta_id",
+    "effect_id",
+    "what_changed",
+    "where",
+    "who_is_affected",
+    "permanence_level",
+    "visibility_level",
+    "when_it_occurred",
+    "source_session",
+    "canonized_into_mainline"
+  ],
+  "delta_types": [
+    "npc_status_changed",
+    "faction_reputation_shifted",
+    "objective_advanced_or_failed",
+    "law_pressure_increased",
+    "local_rumor_activated",
+    "trade_route_disrupted",
+    "district_tension_escalated",
+    "religious_activity_intensified",
+    "location_accessibility_changed"
+  ],
+  "rule": "Every session change must either produce no persistent world effect or emit a validated world delta object."
+}

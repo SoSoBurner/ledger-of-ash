@@ -1,0 +1,78 @@
+{
+  "npc_id": "forge_master_telan_pyrehand",
+  "canonical_name": "Forge Master Telan Pyrehand",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "oathbound_defender",
+  "office_or_role": "Forge Dedication Master",
+  "profession_discipline": "Forge Dedication Master",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Cindervow Quarter",
+  "locality_scope": "Cindervow Quarter",
+  "institutional_ties": [
+    "Cindervow Quarter"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as forge dedication master.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Cindervow Quarter"
+    ],
+    "institutions": [
+      "Cindervow Quarter"
+    ],
+    "factions": []
+  },
+  "appearance": "Heat-scarred protection, ash-set layers, and house-marked gear read as survival equipment first and status second.",
+  "manner": "Carries ritual seriousness into ordinary interaction, making obligation feel present even in small talk. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a forge dedication master still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of forge dedication master in and around Cindervow Quarter, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cindervow Quarter workable through the obligations of forge dedication master while managing the immediate pressure of rebuilding backlog in Psanan.",
+  "hidden_pressure": "Must keep oath, threshold, and public trust aligned even when expediency would be easier and more rewarding. Around Cindervow Quarter, that usually means carrying rebuilding backlog, house competition over visibility, structural heat stress without letting the role of forge dedication master visibly slip.",
+  "relationship_refs": [
+    "rel_0969",
+    "rel_0970",
+    "rel_0971"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "sanctuary_or_threshold",
+      "summary": "Forge Master Telan Pyrehand needs help holding a threshold, escorting the vulnerable, or investigating a breach of sworn protection near Cindervow Quarter."
+    },
+    {
+      "hook_type": "moral_test",
+      "summary": "Working with Forge Master Telan Pyrehand can force the party to choose between expediency and the stricter obligations that govern Cindervow Quarter."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "forge_master_telan_pyrehand",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Oath-signs, defensive bearing, and ritualized readiness make Forge Master Telan Pyrehand read as a sworn protector rather than a mere combatant. In Cindervow Quarter, this lands inside a public field already shaped by Rebuilding Oath Courts, Forge Dedication Halls.",
+  "encounter_context": {
+    "usual_environment": "Cindervow Quarter: gates, sacred thresholds, escorts, or defended chambers",
+    "who_seeks_them_out": [
+      "petitioners needing protection",
+      "ritual authorities",
+      "those seeking safe passage"
+    ],
+    "who_avoids_them": [
+      "oath-breakers",
+      "opportunists",
+      "casual violators of protected space"
+    ],
+    "interaction_anchor": "protection under rule or vow"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

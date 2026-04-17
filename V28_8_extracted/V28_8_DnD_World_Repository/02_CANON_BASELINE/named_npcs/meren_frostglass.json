@@ -1,0 +1,77 @@
+{
+  "npc_id": "meren_frostglass",
+  "canonical_name": "Meren Frostglass",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Caravan Outrider",
+  "profession_discipline": "Caravan Outrider",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": null,
+  "locality_scope": "Frostline Crossing Route",
+  "institutional_ties": [
+    "Frostline Crossing Route"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as caravan outrider.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Frostline Crossing Route"
+    ],
+    "institutions": [
+      "Frostline Crossing Route"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads roads, loads, and people as one shared logistics problem rather than separate categories. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a caravan outrider still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of caravan outrider in and around Frostline Crossing Route, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Frostline Crossing Route workable through the obligations of caravan outrider while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must turn uncertain terrain and changing terms into something people can actually traverse. Around Frostline Crossing Route, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of caravan outrider visibly slip.",
+  "relationship_refs": [
+    "rel_0762",
+    "rel_0764",
+    "rel_0766"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "wayfinding_information",
+      "summary": "Meren Frostglass will share route intelligence, hidden timing, or safer alternatives if the party proves useful under travel pressure."
+    },
+    {
+      "hook_type": "route_problem",
+      "summary": "Meren Frostglass needs help reading a blocked path, escorting traffic, or reopening safe movement through Frostline Crossing Route."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "meren_frostglass",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Meren Frostglass lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Frostline Crossing Route: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  }
+}

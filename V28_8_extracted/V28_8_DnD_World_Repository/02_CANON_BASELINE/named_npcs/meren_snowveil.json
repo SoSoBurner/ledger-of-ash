@@ -1,0 +1,87 @@
+{
+  "npc_id": "meren_snowveil",
+  "canonical_name": "Meren Snowveil",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Watch Sergeant",
+  "profession_discipline": "Watch Sergeant",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Hearthcoil Commune",
+  "locality_scope": "Hearthcoil Commune",
+  "institutional_ties": [
+    "Hearthcoil Commune"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as watch sergeant.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Hearthcoil Commune"
+    ],
+    "institutions": [
+      "Hearthcoil Commune"
+    ],
+    "factions": []
+  },
+  "appearance": "Cold-ready layered gear, ward-conscious fastening, and containment-minded kit signal disciplined caution.",
+  "manner": "Treats routine contact like the first layer of incident response, never fully relaxing into casual talk. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a watch sergeant still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of watch sergeant in and around Hearthcoil Commune, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Hearthcoil Commune workable through the obligations of watch sergeant while managing the immediate pressure of coil failure in Sheresh Communes.",
+  "hidden_pressure": "Must hold procedure, public trust, and immediate response together when any one of them would be easier to sacrifice. Around Hearthcoil Commune, that usually means carrying coil failure, ration conflict, out-migration without letting the role of watch sergeant visibly slip.",
+  "relationship_refs": [
+    "rel_0292",
+    "rel_0293",
+    "rel_0294",
+    "rel_0295",
+    "rel_0296",
+    "rel_0297",
+    "rel_0298",
+    "rel_0299",
+    "rel_1078",
+    "rel_1080",
+    "rel_1082"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "incident_response",
+      "summary": "Meren Snowveil needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Hearthcoil Commune."
+    },
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Meren Snowveil can draw the party into contraband, false papers, or a suspicious cargo problem tied to Hearthcoil Commune."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V28_8 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "meren_snowveil",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Meren Snowveil as visible enforcement before rank ever needs to be named. In Hearthcoil Commune, this lands inside a public field already shaped by Communal Ration Allocators.",
+  "encounter_context": {
+    "usual_environment": "Hearthcoil Commune: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal"
+}

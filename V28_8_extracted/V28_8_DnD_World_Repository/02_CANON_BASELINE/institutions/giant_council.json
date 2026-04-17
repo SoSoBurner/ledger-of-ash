@@ -1,0 +1,32 @@
+{
+  "name": "Giant Council",
+  "type": "supreme governing institution",
+  "truth_layer": "direct_canon",
+  "summary": "Storm Giant-led central governing institution of the Soreheim Alliance.",
+  "day_to_day": "Issues decrees, hears strategic reports, assigns regional priorities, and adjudicates major disputes.",
+  "who_works_there": "Council members, giant aides, regional envoys, planners, guarded clerks.",
+  "who_uses_it": "Regional leaders, industrial bodies, military commanders, petitioners of extraordinary rank.",
+  "authority": "Ultimate Alliance authority over law, labor expectation, and strategic direction.",
+  "public_manifestation": "Council announcements, quota shifts, giant escorts, festival recognition or punishment.",
+  "conflict_or_bottleneck": "Distance from common life makes the Council powerful but vulnerable to blind spots and delegated abuse.",
+  "party_actions": [
+    "petition for relief",
+    "deliver strategic intelligence",
+    "earn council recognition",
+    "be judged for grave offenses"
+  ],
+  "sources": [
+    "soreheim_review"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "named_npc_refs": [
+    "norr_forgebound",
+    "ember_drillwake"
+  ],
+  "npc_interfaces": [
+    "norr_forgebound",
+    "ember_drillwake"
+  ]
+}

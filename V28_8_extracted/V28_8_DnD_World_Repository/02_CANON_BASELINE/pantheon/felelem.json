@@ -1,0 +1,11 @@
+{
+  "id": "deity.felelem",
+  "name": "Felelem",
+  "domain": "Fear",
+  "desire": "Protection, prophecy, and doomspeech",
+  "current_state": "Associated with omens, vigilance, and fear rites.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

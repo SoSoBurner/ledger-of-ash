@@ -1,0 +1,20 @@
+{
+  "name": "Twilight Threadmill",
+  "parent_district": "Ironspool Ward District",
+  "type": "mill",
+  "summary": "Affordable garment production for laborers and soldiers.",
+  "npc_interfaces": [
+    "kest_mere"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "kest_mere"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

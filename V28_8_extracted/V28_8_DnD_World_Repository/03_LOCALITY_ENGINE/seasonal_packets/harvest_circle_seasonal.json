@@ -1,0 +1,8 @@
+{
+  "name": "Harvest Circle",
+  "seasonal_change": "the town swells dramatically at harvest and tightens into reserve-counting discipline when shortages threaten.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

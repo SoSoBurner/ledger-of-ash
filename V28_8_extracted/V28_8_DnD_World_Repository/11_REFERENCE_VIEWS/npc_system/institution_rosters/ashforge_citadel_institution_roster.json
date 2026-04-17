@@ -1,0 +1,10 @@
+{
+  "build_version": "V28_8",
+  "institution": "Ashforge Citadel",
+  "record_count": 3,
+  "npc_ids": [
+    "ashra_ashvein",
+    "matriarch_ashvara_citadel",
+    "vekka_ashvein"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "npc_id": "nora_mere",
+  "canonical_name": "Nora Mere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Quiet-Room Mediator",
+  "profession_discipline": "Quiet-Room Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Velvet Pinnacle Hall",
+  "locality_scope": "Velvet Pinnacle Hall",
+  "institutional_ties": [
+    "Velvet Pinnacle Hall"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Velvet Pinnacle Hall"
+    ],
+    "institutions": [
+      "Velvet Pinnacle Hall"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quiet-room mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quiet-room mediator in and around Velvet Pinnacle Hall, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Velvet Pinnacle Hall workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Velvet Pinnacle Hall, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quiet-room mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0541",
+    "rel_0550",
+    "rel_0558",
+    "rel_0565",
+    "rel_0571",
+    "rel_0576",
+    "rel_0580",
+    "rel_0583",
+    "rel_0585",
+    "rel_0586",
+    "rel_1067",
+    "rel_1069",
+    "rel_1070"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Nora Mere can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Nora Mere needs help with a problem in Velvet Pinnacle Hall that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "nora_mere",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Nora Mere carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Velvet Pinnacle Hall: the part of Velvet Pinnacle Hall where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

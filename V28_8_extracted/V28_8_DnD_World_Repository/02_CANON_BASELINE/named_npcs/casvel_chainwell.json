@@ -1,0 +1,75 @@
+{
+  "npc_id": "casvel_chainwell",
+  "canonical_name": "Casvel Chainwell",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Minor Envoy",
+  "profession_discipline": "Minor Envoy",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Roaz",
+  "settlement": null,
+  "locality_scope": "Principality of Roaz",
+  "institutional_ties": [
+    "Principality of Roaz"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as minor envoy.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Principality of Roaz"
+    ],
+    "institutions": [
+      "Principality of Roaz"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a minor envoy still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of minor envoy in and around Principality of Roaz, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Principality of Roaz workable through the obligations of minor envoy while managing the immediate pressure of institutional scrutiny in Roaz.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Principality of Roaz, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of minor envoy visibly slip.",
+  "relationship_refs": [
+    "rel_0785",
+    "rel_1255"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Casvel Chainwell can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Casvel Chainwell can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principality_roaz",
+    "principalities"
+  ],
+  "compatibility_interface_id": "casvel_chainwell",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Casvel Chainwell carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Principality of Roaz: the part of Principality of Roaz where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

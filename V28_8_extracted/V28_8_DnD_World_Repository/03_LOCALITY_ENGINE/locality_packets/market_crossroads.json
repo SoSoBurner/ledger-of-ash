@@ -1,0 +1,174 @@
+{
+  "name": "Market Crossroads",
+  "type": "settlement",
+  "parent_polity": "The Union",
+  "identity": "An urbanized route-knot settlement where road, river, and guild carriage systems exchange goods, rumor, and obligation through dense freight procedure.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "The Principalities",
+    "territory": "Union Successor Heartland",
+    "settlement": "Market Crossroads",
+    "district": null
+  },
+  "approach": "Wheel-rut geometry, ferry callouts, stacked relay barns, bonded storehouses, and cramped loading courts make it obvious that nothing here exists without movement and managed turnover.",
+  "inside": "The settlement breathes in waves of arrival, unloading, short-term lodging, warehousing, and renegotiated destination amid dense carrier traffic and clerical oversight.",
+  "who_belongs": [
+    "caravan crews",
+    "riverfolk",
+    "relay clerks",
+    "stable hands",
+    "short-stay merchants"
+  ],
+  "who_is_out_of_place": [
+    "people who need privacy",
+    "those who refuse transit discipline",
+    "status-seekers without practical business"
+  ],
+  "expected_behavior": [
+    "respect relay order",
+    "do not block lanes",
+    "pay storage and crossing fees promptly"
+  ],
+  "visible_power": [
+    "route wardens",
+    "Union clerks",
+    "carrier guilds"
+  ],
+  "economy": [
+    "transshipment",
+    "storage",
+    "lodging",
+    "haulage matching"
+  ],
+  "faith": [
+    [
+      "Roadside shrines survive because movement is dangerous and delay is expensive."
+    ]
+  ],
+  "seasonal_change": "Floods, heat, and flip-season congestion alter which lanes and ferries are usable, compressing even more traffic into the surviving urban freight corridors.",
+  "pressure": [
+    "route bottlenecks",
+    "bandit intelligence leakage",
+    "cargo spoilage",
+    "licensed smuggling"
+  ],
+  "law_context": [
+    "Transit fees, manifest records, and storage liability define public law here."
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "An urbanized route-knot settlement where road, river, and guild carriage systems exchange goods, rumor, and obligation through dense freight procedure.",
+    "approach": "Wheel-rut geometry, ferry callouts, stacked relay barns, bonded storehouses, and cramped loading courts make it obvious that nothing here exists without movement and managed turnover.",
+    "inside": "The settlement breathes in waves of arrival, unloading, short-term lodging, warehousing, and renegotiated destination amid dense carrier traffic and clerical oversight.",
+    "who_belongs": [
+      "caravan crews",
+      "riverfolk",
+      "relay clerks",
+      "stable hands",
+      "short-stay merchants"
+    ],
+    "who_is_out_of_place": [
+      "people who need privacy",
+      "those who refuse transit discipline",
+      "status-seekers without practical business"
+    ],
+    "expected_behavior": [
+      "respect relay order",
+      "do not block lanes",
+      "pay storage and crossing fees promptly"
+    ],
+    "visible_power": [
+      "route wardens",
+      "Union clerks",
+      "carrier guilds"
+    ],
+    "economy": [
+      "transshipment",
+      "storage",
+      "lodging",
+      "haulage matching"
+    ],
+    "faith": [
+      [
+        "Roadside shrines survive because movement is dangerous and delay is expensive."
+      ]
+    ],
+    "seasonal_change": "Floods, heat, and flip-season congestion alter which lanes and ferries are usable, compressing even more traffic into the surviving urban freight corridors.",
+    "pressure": [
+      "route bottlenecks",
+      "bandit intelligence leakage",
+      "cargo spoilage",
+      "licensed smuggling"
+    ],
+    "law_context": [
+      "Transit fees, manifest records, and storage liability define public law here."
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Wheel-rut geometry, ferry callouts, stacked relay barns, bonded storehouses, and cramped loading courts make it obvious that nothing here exists without movement and managed turnover.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "The settlement breathes in waves of arrival, unloading, short-term lodging, warehousing, and renegotiated destination amid dense carrier traffic and clerical oversight.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "route bottlenecks",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "bandit intelligence leakage",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "cargo spoilage",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "licensed smuggling",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "respect relay order",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "do not block lanes",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "pay storage and crossing fees promptly",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "npc_interfaces": [],
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually caravan crews, riverfolk, relay clerks, and public conduct is read through expectations such as respect relay order, do not block lanes.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by route wardens, Union clerks, carrier guilds.",
+  "local_tension_surface": "The place feels stable only until pressures such as route bottlenecks, bandit intelligence leakage, cargo spoilage begin showing through daily routines.",
+  "differentiator": "Market Crossroads stands apart because its economy leans on transshipment, storage; public faith remains visible through Roadside shrines survive because movement is dangerous and delay is expensive.; outsiders are noticed fastest when they resemble people who need privacy, those who refuse transit discipline.",
+  "encounter_rhythm": "Most first scenes in Market Crossroads begin through settlement rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

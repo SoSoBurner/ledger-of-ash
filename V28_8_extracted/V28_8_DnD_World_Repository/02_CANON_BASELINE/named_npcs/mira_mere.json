@@ -1,0 +1,86 @@
+{
+  "npc_id": "mira_mere",
+  "canonical_name": "Mira Mere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Quiet-Room Mediator",
+  "profession_discipline": "Quiet-Room Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "The Starlit Forge",
+  "locality_scope": "The Starlit Forge",
+  "institutional_ties": [
+    "The Starlit Forge"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "The Starlit Forge"
+    ],
+    "institutions": [
+      "The Starlit Forge"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quiet-room mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quiet-room mediator in and around The Starlit Forge, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep The Starlit Forge workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around The Starlit Forge, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quiet-room mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0538",
+    "rel_0547",
+    "rel_0555",
+    "rel_0562",
+    "rel_0568",
+    "rel_0573",
+    "rel_0577",
+    "rel_0581",
+    "rel_0582",
+    "rel_0583",
+    "rel_1195"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Mira Mere can draw the party into crew discipline, resource shortage, or blame transfer around The Starlit Forge."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Mira Mere can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "mira_mere",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Mira Mere visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "The Starlit Forge: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  }
+}

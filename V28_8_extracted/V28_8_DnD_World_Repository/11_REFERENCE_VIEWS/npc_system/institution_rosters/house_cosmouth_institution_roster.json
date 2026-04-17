@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "House Cosmouth",
+  "record_count": 2,
+  "npc_ids": [
+    "miraen_seabraid",
+    "sevrin_tidereach"
+  ]
+}

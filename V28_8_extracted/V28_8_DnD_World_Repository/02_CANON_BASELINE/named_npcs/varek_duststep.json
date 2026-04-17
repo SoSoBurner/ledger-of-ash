@@ -1,0 +1,77 @@
+{
+  "npc_id": "varek_duststep",
+  "canonical_name": "Varek Duststep",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Deck Broker",
+  "profession_discipline": "Deck Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": null,
+  "locality_scope": "South Swirling Fleet",
+  "institutional_ties": [
+    "South Swirling Fleet"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as deck broker.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "South Swirling Fleet"
+    ],
+    "institutions": [
+      "South Swirling Fleet"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a deck broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of deck broker in and around South Swirling Fleet, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep South Swirling Fleet workable through the obligations of deck broker while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around South Swirling Fleet, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of deck broker visibly slip.",
+  "relationship_refs": [
+    "rel_0854"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "market_information",
+      "summary": "Varek Duststep will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    },
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Varek Duststep needs help protecting a shipment, recovering leverage, or stabilizing exchange around South Swirling Fleet before trust collapses."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "varek_duststep",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Varek Duststep read as someone who lives by exchange and reputation.",
+  "encounter_context": {
+    "usual_environment": "South Swirling Fleet: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  }
+}

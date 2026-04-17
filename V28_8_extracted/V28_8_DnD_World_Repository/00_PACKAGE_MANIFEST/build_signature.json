@@ -1,0 +1,14 @@
+{
+  "build_version": "V28_8",
+  "signature": "definitive_universe_setting_refinement_complete",
+  "generated_at": "2026-04-16T05:32:33Z",
+  "root_tree_sha256": "efe0095fcae39b0368b0939ff436ba831e05625f5e528205be2a2ab4761d7fcf",
+  "hash_policy": {
+    "root_tree_hash_includes": "all live files except 00_PACKAGE_MANIFEST/build_signature.json and 05_PROVENANCE/source_checksum_registry.json",
+    "checksum_registry_excludes": [
+      "05_PROVENANCE/source_checksum_registry.json"
+    ],
+    "reason": "avoid recursive self-reference while preserving full live-tree accountability"
+  },
+  "package_sha256_note": "Zip-level self-hash intentionally omitted to avoid recursive drift. Verify release integrity with root_tree_sha256 plus the source checksum registry."
+}

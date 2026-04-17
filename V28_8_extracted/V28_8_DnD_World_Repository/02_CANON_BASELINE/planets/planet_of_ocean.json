@@ -1,0 +1,19 @@
+{
+  "id": "planet.planet_of_ocean",
+  "name": "Planet of Ocean",
+  "truth_layer": "direct_canon",
+  "function": "Maintains regularity of the water cycle and countered infernos and volcanic devastation.",
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ],
+  "named_npc_refs": [
+    "sel_march"
+  ],
+  "npc_interfaces": [
+    "sel_march"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

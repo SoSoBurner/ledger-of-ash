@@ -1,0 +1,75 @@
+{
+  "npc_id": "sevrin_tidereach",
+  "canonical_name": "Sevrin Tidereach",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Public Herald",
+  "profession_discipline": "Public Herald",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Cosmouth",
+  "settlement": null,
+  "locality_scope": "House Cosmouth",
+  "institutional_ties": [
+    "House Cosmouth"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as public herald.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "House Cosmouth"
+    ],
+    "institutions": [
+      "House Cosmouth"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a public herald still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of public herald in and around House Cosmouth, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep House Cosmouth workable through the obligations of public herald while managing the immediate pressure of institutional scrutiny in Cosmouth.",
+  "hidden_pressure": "Must keep their piece of the world working while larger systems push stress downward. Around House Cosmouth, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of public herald visibly slip.",
+  "relationship_refs": [
+    "rel_0190",
+    "rel_1234"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Sevrin Tidereach needs help with a problem in House Cosmouth that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Sevrin Tidereach can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "sevrin_tidereach",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Sevrin Tidereach carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "House Cosmouth: the part of House Cosmouth where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

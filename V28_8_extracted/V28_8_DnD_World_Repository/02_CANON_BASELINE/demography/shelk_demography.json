@@ -1,0 +1,109 @@
+{
+  "name": "Shelk",
+  "object_type": "polity_demography_record",
+  "build_version": "V28_8",
+  "truth_layer": "corrected_canon",
+  "resolution_status": "resolved world-standard roster",
+  "canonical_roster": [
+    "Elves",
+    "Half-Elves",
+    "Humans",
+    "Gnomes",
+    "Firbolgs"
+  ],
+  "dominant_populations": [
+    "Elves"
+  ],
+  "secondary_populations": [
+    "Half-Elves",
+    "Humans",
+    "Gnomes",
+    "Firbolgs"
+  ],
+  "support_classification": {
+    "dominant_populations": "direct_canon",
+    "secondary_populations": "reconciled_canon"
+  },
+  "source_ids": [
+    "principality_shelk",
+    "principalities",
+    "psc_shelkopolis"
+  ],
+  "resolution_reason": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+  "supersedes": [
+    "implicit_or_partial_demography_in_prior_repository_versions"
+  ],
+  "future_rule": "This demographic record may be superseded only by an explicit corrective release preserving contradiction history and source-backed support.",
+  "claim_level_support": {
+    "Elves": {
+      "population_status": "dominant",
+      "support_type": "direct_canon",
+      "rationale": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+      "claim_id": "claim::shelk_demography::elves",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principality_shelk",
+        "principalities",
+        "psc_shelkopolis"
+      ],
+      "source_passage_ids": []
+    },
+    "Half-Elves": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+      "claim_id": "claim::shelk_demography::half_elves",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principality_shelk",
+        "principalities",
+        "psc_shelkopolis"
+      ],
+      "source_passage_ids": []
+    },
+    "Humans": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+      "claim_id": "claim::shelk_demography::humans",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principality_shelk",
+        "principalities",
+        "psc_shelkopolis"
+      ],
+      "source_passage_ids": []
+    },
+    "Gnomes": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+      "claim_id": "claim::shelk_demography::gnomes",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principality_shelk",
+        "principalities",
+        "psc_shelkopolis"
+      ],
+      "source_passage_ids": []
+    },
+    "Firbolgs": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+      "claim_id": "claim::shelk_demography::firbolgs",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principality_shelk",
+        "principalities",
+        "psc_shelkopolis"
+      ],
+      "source_passage_ids": []
+    }
+  },
+  "schema_version": "prior_release.demography_record.v1",
+  "repository_id": "V28_8_DnD_World_Repository",
+  "object_id": "shelk_demography",
+  "lineage_policy": "Historical version references are confined to explicit lineage and supersession zones.",
+  "source_authority_mode": "claim_level_traceable"
+}

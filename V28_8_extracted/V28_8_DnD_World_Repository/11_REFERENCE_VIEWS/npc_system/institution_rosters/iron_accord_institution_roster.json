@@ -1,0 +1,9 @@
+{
+  "build_version": "V28_8",
+  "institution": "Iron Accord",
+  "record_count": 2,
+  "npc_ids": [
+    "rhodra_redhinge",
+    "veyra_steelmarch"
+  ]
+}

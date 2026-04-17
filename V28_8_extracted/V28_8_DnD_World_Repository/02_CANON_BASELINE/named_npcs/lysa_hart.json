@@ -1,0 +1,87 @@
+{
+  "npc_id": "lysa_hart",
+  "canonical_name": "Lysa Hart",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Milepost Keeper",
+  "profession_discipline": "Milepost Keeper",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": null,
+  "locality_scope": "Route and Travel Atlas",
+  "institutional_ties": [
+    "Route and Travel Atlas"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as milepost keeper.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Route and Travel Atlas"
+    ],
+    "institutions": [
+      "Route and Travel Atlas"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Keeps attention split between conversation and the next necessary movement. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a milepost keeper still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of milepost keeper in and around Route and Travel Atlas, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Route and Travel Atlas workable through the obligations of milepost keeper while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep movement possible despite weather, chokepoints, rumor, and shifting authority. Around Route and Travel Atlas, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of milepost keeper visibly slip.",
+  "relationship_refs": [
+    "rel_0790",
+    "rel_0798",
+    "rel_0805",
+    "rel_0811",
+    "rel_0817",
+    "rel_0818",
+    "rel_0819",
+    "rel_0820",
+    "rel_0821"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "wayfinding_information",
+      "summary": "Lysa Hart will share route intelligence, hidden timing, or safer alternatives if the party proves useful under travel pressure."
+    },
+    {
+      "hook_type": "route_problem",
+      "summary": "Lysa Hart needs help reading a blocked path, escorting traffic, or reopening safe movement through Route and Travel Atlas."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "locations_catalog",
+    "spatial_seasonal",
+    "soreheim_review",
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "compatibility_interface_id": "lysa_hart",
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Lysa Hart lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Route and Travel Atlas: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  }
+}

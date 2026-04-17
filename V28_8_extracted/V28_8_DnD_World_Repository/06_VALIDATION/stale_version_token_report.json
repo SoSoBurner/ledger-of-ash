@@ -1,0 +1,15 @@
+{
+  "build_version": "V28_8",
+  "archival_exclusions": [
+    "10_LINEAGE_HISTORY/",
+    "11_REFERENCE_VIEWS/legacy_release_history/",
+    "08_RELEASE_NOTES/"
+  ],
+  "derived_exclusions": [
+    "00_PACKAGE_MANIFEST/filesystem_inventory.json",
+    "05_PROVENANCE/source_checksum_registry.json"
+  ],
+  "stale_tokens_found": 0,
+  "files": [],
+  "status": "pass"
+}

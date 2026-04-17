@@ -1,0 +1,11 @@
+{
+  "id": "deity.gwybodaeth",
+  "name": "Gwybodaeth",
+  "domain": "Knowledge",
+  "desire": "Chronicle everything and uncover truth",
+  "current_state": "Maintains libraries and seeks missing records.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

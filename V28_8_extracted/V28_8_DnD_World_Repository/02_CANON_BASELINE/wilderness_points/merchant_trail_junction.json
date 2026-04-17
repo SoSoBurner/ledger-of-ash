@@ -1,0 +1,17 @@
+{
+  "name": "Merchant Trail Junction",
+  "parent": "Rolling Plains",
+  "summary": "Trade crossroads prone to ambushes and glyph-affected faction pressure.",
+  "sources": [
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "arin_hart"
+  ],
+  "npc_interfaces": [
+    "arin_hart"
+  ],
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+}

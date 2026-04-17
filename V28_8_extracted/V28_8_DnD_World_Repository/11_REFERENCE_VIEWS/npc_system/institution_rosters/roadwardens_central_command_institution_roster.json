@@ -1,0 +1,11 @@
+{
+  "build_version": "V28_8",
+  "institution": "Roadwardens’ Central Command",
+  "record_count": 4,
+  "npc_ids": [
+    "captain_thalion_windrider",
+    "corin_wren",
+    "sel_wren",
+    "taren_wren"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "npc_id": "pell_rookglass",
+  "canonical_name": "Pell Rookglass",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "covert_actor",
+  "office_or_role": "Spellthief",
+  "profession_discipline": "Spellthief",
+  "grouping": "Stealth & Precision",
+  "polity": "Shirsh",
+  "settlement": "Shirshal",
+  "locality_scope": "Shirshal, Shirsh",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Evidence-snatcher who specializes in removing contraband spells before suspects can burn them.",
+  "linked_systems": {
+    "polities": [
+      "Shirsh"
+    ],
+    "localities": [
+      "Shirshal, Shirsh"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shirsh, that reads as someone investigative, magically literate, and discreet, balancing inquiry with regulation, and the habits of a spellthief still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of spellthief in and around Shirshal, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Shirshal workable through the obligations of spellthief while managing the immediate pressure of magical law violations in Shirsh.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Shirshal, that usually means carrying magical law violations, magical compliance, institutional scrutiny without letting the role of spellthief visibly slip.",
+  "relationship_refs": [
+    "rel_1292"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Pell Rookglass can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Pell Rookglass can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Pell Rookglass needs help with a problem in Shirshal that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V28_8",
+  "generation_timestamp": "2026-04-16T05:20:57Z",
+  "build_signature": "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE",
+  "public_signal": "Pell Rookglass carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Shirshal, this lands inside a public field already shaped by Magi Magistratus.",
+  "encounter_context": {
+    "usual_environment": "Shirshal: the part of Shirshal where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  }
+}

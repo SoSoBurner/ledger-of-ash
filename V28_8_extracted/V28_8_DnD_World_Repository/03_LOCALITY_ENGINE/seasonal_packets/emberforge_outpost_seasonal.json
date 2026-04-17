@@ -1,0 +1,7 @@
+{
+  "name": "Emberforge Outpost",
+  "seasonal_change": "Traffic varies with patrol intensity and caravan pressure.",
+  "sources": [
+    "locations_catalog"
+  ]
+}
