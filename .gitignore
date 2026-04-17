@@ -2,3 +2,12 @@
 node_modules/
 .env
 *.log
+
+V28_8_extracted/
+claude.exe
+*.exe
+.claude/
+.mcp.json
+dist_base_tmp/
+itch-io-build/
+bundle.min.js

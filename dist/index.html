@@ -434,7 +434,10 @@
     fairhaven:{rescuer:'stallholders and chapel volunteers', aftermath:'Market rumor outruns the facts almost immediately.', safeZone:'Market Chapel Cellar'},
     mimolot_academy:{rescuer:'archive adjutants and lamp-bearers', aftermath:'Access changes while faculty decide who is to blame.', safeZone:'Archive Convalescence Alcove'},
     soreheim_proper:{rescuer:'lift crews and forge wardens', aftermath:'Production time is lost and the ledger of fault stays open.', safeZone:'Forge Rest Gallery'},
-    shirshal:{rescuer:'witness guards and side-hall clerks', aftermath:'A formal account is demanded before anything moves again.', safeZone:'Witness Court Side Hall'}
+    shirshal:{rescuer:'witness guards and side-hall clerks', aftermath:'A formal account is demanded before anything moves again.', safeZone:'Witness Court Side Hall'},
+    ithtananalor:{rescuer:'enforcement checkpoint wardens', aftermath:'A formal incident report is filed and scrutiny follows you into the next jurisdiction.', safeZone:'Enforcement Checkpoint Ward'},
+    guildheart_hub:{rescuer:'guild brokers and tariff runners', aftermath:'The rescue becomes a debt in the ledger and someone will collect.', safeZone:'Guild Hall Archive Chamber'},
+    cosmoria:{rescuer:'maritime hands and archive runners', aftermath:'The recovery is noted in the ship log and the scholarly community knows your business.', safeZone:'Maritime Archive Hall'}
   };
 
   const STAGE2_FAMILY_CONTENT = {
@@ -573,6 +576,30 @@
       progression:{name:'Procedure Yard',text:'Questioning craft, patience, route reading, and controlled force are drilled here.'},
       flavor:{name:'Oath Fountain Walk',text:'Measured greetings and water-touch rituals make emotion visible without chaos.'},
       secret:{name:'Broken Seal Archive',text:'A side repository where invalid truth is stored instead of destroyed.'}
+    },
+    ithtananalor:{
+      recovery:{name:'Enforcement Checkpoint Ward',text:'Supervised rest under Roazian authority comes with medical care and an open file.'},
+      equipment:{name:'Iron Accord Armory',text:'Heavy enforcement gear, cuffs, seals, containment tools, and industrial-grade weapons.'},
+      info:{name:'Enforcement Records Office',text:'Incident logs and permit trails show where the system is leaking before it admits it.'},
+      progression:{name:'Inspection Yard',text:'Interrogation posture, containment holds, enforcement law, and checkpoint discipline are drilled here.'},
+      flavor:{name:'Gate Seal Walk',text:'Document checks and formal acknowledgements turn every passage into a small performance of order.'},
+      secret:{name:'Confiscation Vault Annex',text:'A sealed room where confiscated goods and buried complaints share the same shelf.'}
+    },
+    guildheart_hub:{
+      recovery:{name:'Guild Hall Archive Chamber',text:'A guarded recovery space where healing and paperwork happen at the same time.'},
+      equipment:{name:'Tariff Row Outfitters',text:'Contract tools, freight leathers, cargo hooks, locked ledgers, and discreet trade-road weapons.'},
+      info:{name:'Sanction Board Counter',text:'Trade disputes and missing manifests reveal more than anyone filing them intended.'},
+      progression:{name:'Broker Drill Floor',text:'Contract reading, freight defense, negotiation pressure, and route authority are sharpened here.'},
+      flavor:{name:'Sanction Notice Board',text:'Printed citations and verified seals turn civic authority into visible text.'},
+      secret:{name:'Legacy Claim Repository',text:'Old Mal-era documents and unresolved union debts sit in an unreachable corner of institutional memory.'}
+    },
+    cosmoria:{
+      recovery:{name:'Maritime Archive Hall',text:'Maritime hands and archivists keep the injured stable with sea-remedy and scholarly calm.'},
+      equipment:{name:'Shipwright Dock Supply',text:'Rigging tools, salt-treated leathers, navigation instruments, archival bindings, and deck weapons.'},
+      info:{name:'Grand Archive Reading Room',text:'Maritime records and scholarly correspondence trace routes and relationships nobody officially acknowledges.'},
+      progression:{name:'Deck Drill Yard',text:'Shipboard footing, nautical navigation, archive protocol, and weather reading are practiced here.'},
+      flavor:{name:'Harbor Blessing Pier',text:'Maritime rites and sea-scholars share the same dock language between tides.'},
+      secret:{name:'Submerged Annex Passage',text:'A flooded lower archive where suppressed maritime histories and dangerous charts are stored.'}
     }
   };
 
@@ -602,7 +629,10 @@ const LOCALITY_LINEAGES = {
   fairhaven:['Human','Bridgefolk','Market-Born'],
   mimolot_academy:['Human','Scholarium-Born','Ink-Blooded'],
   soreheim_proper:['Human','Towerfolk','Forge-Blooded'],
-  shirshal:['Human','Courtfolk','Witness-Blooded']
+  shirshal:['Human','Courtfolk','Witness-Blooded'],
+  ithtananalor:['Human','Roazian-Born','Enforcement-Blooded'],
+  guildheart_hub:['Human','Guild-Born','Contract-Marked'],
+  cosmoria:['Human','Maritime-Born','Archive-Touched']
 };
 
 const SERVICE_ITEM_POOLS = {
@@ -669,6 +699,18 @@ const LOCALITY_SERVICE_ITEM_OVERRIDES = {
   shirshal:{
     stealth:[{id:'quiet_oath_blade',name:'Quiet Oath Blade',slot:'weapon',cost:8,bonus:{stealth:1,person:1},text:'A narrow blade meant for controlled presence, not spectacle.'}],
     support:[{id:'seal_test_kit',name:'Seal Test Kit',slot:'kit',cost:8,bonus:{lore:1,craft:1},text:'Tools for reading false seals, procedural tampering, and brittle truths.'}]
+  },
+  ithtananalor:{
+    combat:[{id:'iron_accord_baton',name:'Iron Accord Baton',slot:'weapon',cost:9,bonus:{attack:1,contain:1},text:'Standard enforcement tool that communicates authority before violence.'}],
+    stealth:[{id:'permit_forger_kit',name:'Permit Forger Kit',slot:'kit',cost:10,bonus:{stealth:1,person:1},text:'Tools for generating documents that pass checkpoint inspection.'}]
+  },
+  guildheart_hub:{
+    support:[{id:'tariff_ledger_rig',name:'Tariff Ledger Rig',slot:'belt',cost:9,bonus:{info:1,person:1,coordination:1},text:'A fast-write contract board with official-looking stamps and seal tabs.'}],
+    stealth:[{id:'freight_runner_cloak',name:'Freight Runner Cloak',slot:'armor',cost:8,bonus:{concealment:1,route:1},text:'Nondescript cargo-worker wear that vanishes into loading dock crowds.'}]
+  },
+  cosmoria:{
+    magic:[{id:'tide_focus',name:'Tide Focus',slot:'focus',cost:10,bonus:{arcana:1,ward:1},text:'A salt-glass implement that channels maritime elemental patterns.'}],
+    support:[{id:'archive_seal_kit',name:'Archive Seal Kit',slot:'kit',cost:8,bonus:{craft:1,info:1},text:'Scholarly tools for document authentication, archival access, and record repair.'}]
   }
 };
 
@@ -725,7 +767,8 @@ const STAGE2_DESTINATION_CONTENT = {
     stage2FamilyContentCount: Object.keys(STAGE2_FAMILY_CONTENT).length,
     familyEdgeRewardCount: Object.keys(FAMILY_EDGE_REWARDS).length,
     stage2DestinationContentCount: Object.keys(STAGE2_DESTINATION_CONTENT).length,
-    localityServiceOverrideCount: Object.keys(LOCALITY_SERVICE_ITEM_OVERRIDES).length
+    localityServiceOverrideCount: Object.keys(LOCALITY_SERVICE_ITEM_OVERRIDES).length,
+    localityStartingPOICount: Object.keys(SETTLEMENT_POIS).length
   };
 
   const FAMILY_NAMES = {
@@ -740,22 +783,45 @@ const STAGE2_DESTINATION_CONTENT = {
     return a ? a.group : 'combat';
   }
 
-  function stage1LocalityForGroup(group, idx){
-    const map = {
-      combat:['shelkopolis','sunspire_haven','soreheim_proper'],
-      magic:['aurora_crown_commune','glasswake_commune','mimolot_academy'],
-      stealth:['fairhaven','shirshal','harvest_circle'],
-      support:['panim_haven','sunspire_haven','shelkopolis']
-    };
-    const arr = map[group] || LOCALITY_IDS;
-    return arr[idx % arr.length];
-  }
+  const ARCHETYPE_ORIGIN_LOCALITIES = {
+    warrior:     ['shelkopolis','soreheim_proper','ithtananalor'],
+    knight:      ['shelkopolis','ithtananalor','panim_haven'],
+    ranger:      ['fairhaven','soreheim_proper','aurora_crown_commune'],
+    paladin:     ['shelkopolis','ithtananalor','mimolot_academy'],
+    archer:      ['shelkopolis','sunspire_haven','guildheart_hub'],
+    berserker:   ['soreheim_proper','sunspire_haven','cosmoria'],
+    wizard:      ['mimolot_academy','shelkopolis','soreheim_proper'],
+    cleric:      ['shelkopolis','ithtananalor','guildheart_hub'],
+    priest:      ['panim_haven','fairhaven','soreheim_proper'],
+    necromancer: ['panim_haven','mimolot_academy','aurora_crown_commune'],
+    illusionist: ['shelkopolis','guildheart_hub','shirshal'],
+    inquisitor:  ['shirshal','mimolot_academy','guildheart_hub'],
+    elementalist:['sunspire_haven','aurora_crown_commune','mimolot_academy'],
+    rogue:       ['shelkopolis','guildheart_hub','fairhaven'],
+    assassin:    ['shelkopolis','shelkopolis','shirshal'],
+    spellthief:  ['mimolot_academy','shelkopolis','guildheart_hub'],
+    scout:       ['soreheim_proper','mimolot_academy','fairhaven'],
+    thief:       ['shelkopolis','guildheart_hub','shirshal'],
+    trickster:   ['shelkopolis','guildheart_hub','panim_haven'],
+    beastmaster: ['soreheim_proper','aurora_crown_commune','fairhaven'],
+    healer:      ['shelkopolis','panim_haven','mimolot_academy'],
+    artificer:   ['shelkopolis','soreheim_proper','guildheart_hub'],
+    engineer:    ['soreheim_proper','aurora_crown_commune','guildheart_hub'],
+    tactician:   ['shelkopolis','panim_haven','mimolot_academy'],
+    alchemist:   ['shelkopolis','mimolot_academy','guildheart_hub'],
+    saint:       ['shelkopolis','panim_haven','guildheart_hub'],
+    warden:      ['shelkopolis','ithtananalor','guildheart_hub'],
+    warlord:     ['shelkopolis','soreheim_proper','ithtananalor'],
+    death_knight:['panim_haven','ithtananalor','shirshal'],
+    oracle:      ['shelkopolis','panim_haven','mimolot_academy'],
+    bard:        ['shelkopolis','guildheart_hub','panim_haven']
+  };
 
   const BACKGROUNDS = {};
   const BACKGROUND_ROUTE_SIGNATURES = {};
 
   ARCHETYPES.forEach((a, ai)=>{
-    const origin = stage1LocalityForGroup(a.group, ai);
+    const localitySet = ARCHETYPE_ORIGIN_LOCALITIES[a.id] || ['shelkopolis','shelkopolis','shelkopolis'];
     const familyCycle = STAGE_FAMILIES.stage2;
     const baseIndex = ai % familyCycle.length;
     const backgrounds = [
@@ -764,11 +830,11 @@ const STAGE2_DESTINATION_CONTENT = {
       {id:`${a.id}_occult`,name:'Occult Hand',theme:'hidden rites and dangerous knowledge',stage1Plot:'hidden_rite',bonus:'lore'}
     ].map((b, bi)=>({
       ...b,
-      originLocality: origin,
-      firstNpc: (NPC_PLACEMENTS[origin]||[])[0]?.id || null,
-      firstSafeZone: KEY_LOCALITIES[origin].safeZone,
-      firstContradiction: `${KEY_LOCALITIES[origin].pressures[bi % KEY_LOCALITIES[origin].pressures.length]} is worse than locals will say aloud.`,
-      firstObjective: `Find the true hand behind ${KEY_LOCALITIES[origin].pressures[(bi+1) % KEY_LOCALITIES[origin].pressures.length]}.`,
+      originLocality: localitySet[bi],
+      firstNpc: (NPC_PLACEMENTS[localitySet[bi]]||[])[0]?.id || null,
+      firstSafeZone: KEY_LOCALITIES[localitySet[bi]].safeZone,
+      firstContradiction: `${KEY_LOCALITIES[localitySet[bi]].pressures[bi % KEY_LOCALITIES[localitySet[bi]].pressures.length]} is worse than locals will say aloud.`,
+      firstObjective: `Find the true hand behind ${KEY_LOCALITIES[localitySet[bi]].pressures[(bi+1) % KEY_LOCALITIES[localitySet[bi]].pressures.length]}.`,
       firstFailure: `A failed push hands time and visibility to whoever benefits from the present confusion.`
     }));
     BACKGROUNDS[a.id] = backgrounds;
@@ -807,195 +873,180 @@ const STAGE2_DESTINATION_CONTENT = {
   window.BACKGROUND_ROUTE_SIGNATURES = BACKGROUND_ROUTE_SIGNATURES;
   window.LOCALITY_LINEAGES = LOCALITY_LINEAGES;
   window.SERVICE_ITEM_POOLS = SERVICE_ITEM_POOLS;
+  window.LOCALITY_SERVICE_ITEM_OVERRIDES = LOCALITY_SERVICE_ITEM_OVERRIDES;
+  window.STAGE2_DESTINATION_CONTENT = STAGE2_DESTINATION_CONTENT;
   window.BUILD_VERIFICATION = BUILD_VERIFICATION;
 })();
 </script>
   <script>// ═══════════════════════════════════════════════════════
 // BACKGROUND → STARTING LOCALITY MAPPING
 // V28_8 Canon-Aligned Stage I Grounding
-// Maps each background to its correct starting locality per V28_8
+// Keys match data.js background ID scheme: {archetype}_{civic|frontier|occult}
 // ═══════════════════════════════════════════════════════
 
 (function(){
-  // Region to Locality ID mapping (V28_8 canonical mapping)
-  const REGION_TO_LOCALITY = {
-    'Shelkopolis': 'shelkopolis',
-    'Ithtananalor': 'ithtananalor',
-    'Panim Haven': 'panim_haven',
-    'Fairhaven': 'fairhaven',
-    'Soreheim Proper': 'soreheim_proper',
-    'Aurora Crown Commune': 'aurora_crown_commune',
-    'Sunspire Haven': 'sunspire_haven',
-    'Mimolot Academy': 'mimolot_academy',
-    'Shirshal': 'shirshal',
-    'Guildheart Hub': 'guildheart_hub',
-    'Cosmoria': 'cosmoria'
-  };
-
-  // Explicit background to locality mapping (from world-data.js regions)
   const BACKGROUND_STARTING_LOCALITY = {
     // WARRIOR
-    'w_garrison': 'shelkopolis',
-    'w_roaz': 'ithtananalor',
-    'w_frontier': 'soreheim_proper',
+    warrior_civic:      'shelkopolis',
+    warrior_frontier:   'soreheim_proper',
+    warrior_occult:     'ithtananalor',
 
     // KNIGHT
-    'k_shelk': 'shelkopolis',
-    'k_roaz': 'ithtananalor',
-    'k_order': 'panim_haven',
+    knight_civic:       'shelkopolis',
+    knight_frontier:    'ithtananalor',
+    knight_occult:      'panim_haven',
 
     // RANGER
-    'r_shelk': 'fairhaven',
-    'r_soreheim': 'soreheim_proper',
-    'r_sheresh': 'aurora_crown_commune',
+    ranger_civic:       'fairhaven',
+    ranger_frontier:    'soreheim_proper',
+    ranger_occult:      'aurora_crown_commune',
 
     // PALADIN
-    'p_cysur': 'shelkopolis',
-    'p_eloljaro': 'ithtananalor',
-    'p_gwybodaeth': 'mimolot_academy',
+    paladin_civic:      'shelkopolis',
+    paladin_frontier:   'ithtananalor',
+    paladin_occult:     'mimolot_academy',
 
     // ARCHER
-    'a_roadwarden': 'shelkopolis',
-    'a_frontier': 'sunspire_haven',
-    'a_nomdara': 'guildheart_hub',
+    archer_civic:       'shelkopolis',
+    archer_frontier:    'sunspire_haven',
+    archer_occult:      'guildheart_hub',
 
     // BERSERKER
-    'b_soreheim': 'soreheim_proper',
-    'b_frontier': 'sunspire_haven',
-    'b_cosmouth': 'cosmoria',
+    berserker_civic:    'soreheim_proper',
+    berserker_frontier: 'sunspire_haven',
+    berserker_occult:   'cosmoria',
 
     // WIZARD
-    'wz_mimolot': 'mimolot_academy',
-    'wz_shelk': 'shelkopolis',
-    'wz_field': 'soreheim_proper',  // Zootian Expanse approximates Soreheim research
+    wizard_civic:       'mimolot_academy',
+    wizard_frontier:    'shelkopolis',
+    wizard_occult:      'soreheim_proper',
 
     // CLERIC
-    'cl_cysur': 'shelkopolis',
-    'cl_eloljaro': 'ithtananalor',
-    'cl_remeny': 'guildheart_hub',
+    cleric_civic:       'shelkopolis',
+    cleric_frontier:    'ithtananalor',
+    cleric_occult:      'guildheart_hub',
 
     // PRIEST
-    'pr_panim': 'panim_haven',
-    'pr_community': 'fairhaven',
-    'pr_soreheim': 'soreheim_proper',
+    priest_civic:       'panim_haven',
+    priest_frontier:    'fairhaven',
+    priest_occult:      'soreheim_proper',
 
     // NECROMANCER
-    'nc_panim': 'panim_haven',
-    'nc_mimolot': 'mimolot_academy',
-    'nc_sheresh': 'aurora_crown_commune',
+    necromancer_civic:      'panim_haven',
+    necromancer_frontier:   'mimolot_academy',
+    necromancer_occult:     'aurora_crown_commune',
 
     // ILLUSIONIST
-    'il_shelk': 'shelkopolis',
-    'il_union': 'guildheart_hub',
-    'il_twyll': 'shelkopolis',
+    illusionist_civic:      'shelkopolis',
+    illusionist_frontier:   'guildheart_hub',
+    illusionist_occult:     'shirshal',
 
     // INQUISITOR
-    'iq_shirsh': 'shirshal',
-    'iq_mimolot': 'mimolot_academy',
-    'iq_union': 'guildheart_hub',
+    inquisitor_civic:       'shirshal',
+    inquisitor_frontier:    'mimolot_academy',
+    inquisitor_occult:      'guildheart_hub',
 
     // ELEMENTALIST
-    'el_axis': 'sunspire_haven',
-    'el_sheresh': 'aurora_crown_commune',
-    'el_mimolot': 'mimolot_academy',
+    elementalist_civic:     'sunspire_haven',
+    elementalist_frontier:  'aurora_crown_commune',
+    elementalist_occult:    'mimolot_academy',
 
     // ROGUE
-    'ro_shelk': 'shelkopolis',
-    'ro_union': 'guildheart_hub',
-    'ro_nomdara': 'guildheart_hub',
+    rogue_civic:        'shelkopolis',
+    rogue_frontier:     'guildheart_hub',
+    rogue_occult:       'fairhaven',
 
     // ASSASSIN
-    'as_shadowhands': 'shelkopolis',
-    'as_redhoodguild': 'shelkopolis',
-    'as_shirsh': 'shirshal',
+    assassin_civic:     'shelkopolis',
+    assassin_frontier:  'shelkopolis',
+    assassin_occult:    'shirshal',
 
     // SPELLTHIEF
-    'st_mimolot': 'mimolot_academy',
-    'st_court': 'shelkopolis',
+    spellthief_civic:   'mimolot_academy',
+    spellthief_frontier:'shelkopolis',
+    spellthief_occult:  'guildheart_hub',
 
     // SCOUT
-    'sc_field': 'soreheim_proper',
-    'sc_mimolot': 'mimolot_academy',
-    'sc_fairhaven': 'fairhaven',
+    scout_civic:        'soreheim_proper',
+    scout_frontier:     'mimolot_academy',
+    scout_occult:       'fairhaven',
 
     // THIEF
-    'th_shelk': 'shelkopolis',
-    'th_union': 'guildheart_hub',
-    'th_shirsh': 'shirshal',
+    thief_civic:        'shelkopolis',
+    thief_frontier:     'guildheart_hub',
+    thief_occult:       'shirshal',
 
     // TRICKSTER
-    'tr_shelk': 'shelkopolis',
-    'tr_union': 'guildheart_hub',
-    'tr_panim': 'panim_haven',
-
-    // HEALER
-    'he_shelk': 'shelkopolis',
-    'he_panim': 'panim_haven',
-    'he_mimolot': 'mimolot_academy',
-
-    // ARTIFICER
-    'ar_shelk': 'shelkopolis',
-    'ar_soreheim': 'soreheim_proper',
-    'ar_guild': 'guildheart_hub',
-
-    // ENGINEER
-    'en_soreheim': 'soreheim_proper',
-    'en_sheresh': 'aurora_crown_commune',
-    'en_guild': 'guildheart_hub',
-
-    // TACTICIAN
-    'ta_shelk': 'shelkopolis',
-    'ta_panim': 'panim_haven',
-    'ta_mimolot': 'mimolot_academy',
-
-    // ALCHEMIST
-    'al_shelk': 'shelkopolis',
-    'al_mimolot': 'mimolot_academy',
-    'al_guild': 'guildheart_hub',
-
-    // SAINT
-    'sa_shelk': 'shelkopolis',
-    'sa_panim': 'panim_haven',
-    'sa_guild': 'guildheart_hub',
-
-    // WARDEN
-    'wa_shelk': 'shelkopolis',
-    'wa_roaz': 'ithtananalor',
-    'wa_guild': 'guildheart_hub',
-
-    // WARLORD
-    'wl_shelk': 'shelkopolis',
-    'wl_soreheim': 'soreheim_proper',
-    'wl_roaz': 'ithtananalor',
-
-    // DEATH KNIGHT
-    'dk_panim': 'panim_haven',
-    'dk_roaz': 'ithtananalor',
-    'dk_shirsh': 'shirshal',
+    trickster_civic:    'shelkopolis',
+    trickster_frontier: 'guildheart_hub',
+    trickster_occult:   'panim_haven',
 
     // BEASTMASTER
-    'bm_soreheim': 'soreheim_proper',
-    'bm_sheresh': 'aurora_crown_commune',
-    'bm_fairhaven': 'fairhaven',
+    beastmaster_civic:      'soreheim_proper',
+    beastmaster_frontier:   'aurora_crown_commune',
+    beastmaster_occult:     'fairhaven',
+
+    // HEALER
+    healer_civic:       'shelkopolis',
+    healer_frontier:    'panim_haven',
+    healer_occult:      'mimolot_academy',
+
+    // ARTIFICER
+    artificer_civic:    'shelkopolis',
+    artificer_frontier: 'soreheim_proper',
+    artificer_occult:   'guildheart_hub',
+
+    // ENGINEER
+    engineer_civic:     'soreheim_proper',
+    engineer_frontier:  'aurora_crown_commune',
+    engineer_occult:    'guildheart_hub',
+
+    // TACTICIAN
+    tactician_civic:    'shelkopolis',
+    tactician_frontier: 'panim_haven',
+    tactician_occult:   'mimolot_academy',
+
+    // ALCHEMIST
+    alchemist_civic:    'shelkopolis',
+    alchemist_frontier: 'mimolot_academy',
+    alchemist_occult:   'guildheart_hub',
+
+    // SAINT
+    saint_civic:        'shelkopolis',
+    saint_frontier:     'panim_haven',
+    saint_occult:       'guildheart_hub',
+
+    // WARDEN
+    warden_civic:       'shelkopolis',
+    warden_frontier:    'ithtananalor',
+    warden_occult:      'guildheart_hub',
+
+    // WARLORD
+    warlord_civic:      'shelkopolis',
+    warlord_frontier:   'soreheim_proper',
+    warlord_occult:     'ithtananalor',
+
+    // DEATH KNIGHT
+    death_knight_civic:     'panim_haven',
+    death_knight_frontier:  'ithtananalor',
+    death_knight_occult:    'shirshal',
 
     // ORACLE
-    'or_shelk': 'shelkopolis',
-    'or_panim': 'panim_haven',
-    'or_mimolot': 'mimolot_academy',
+    oracle_civic:       'shelkopolis',
+    oracle_frontier:    'panim_haven',
+    oracle_occult:      'mimolot_academy',
 
     // BARD
-    'bd_shelk': 'shelkopolis',
-    'bd_guild': 'guildheart_hub',
-    'bd_panim': 'panim_haven'
+    bard_civic:         'shelkopolis',
+    bard_frontier:      'guildheart_hub',
+    bard_occult:        'panim_haven'
   };
 
-  // Utility function to get starting locality for a background
   function getStartingLocality(backgroundId) {
-    return BACKGROUND_STARTING_LOCALITY[backgroundId] || 'shelkopolis'; // Default fallback
+    return BACKGROUND_STARTING_LOCALITY[backgroundId] || 'shelkopolis';
   }
 
   window.BACKGROUND_STARTING_LOCALITY = BACKGROUND_STARTING_LOCALITY;
-  window.REGION_TO_LOCALITY = REGION_TO_LOCALITY;
   window.getStartingLocality = getStartingLocality;
 })();
 </script>
@@ -1017,12 +1068,12 @@ const STAGE2_DESTINATION_CONTENT = {
         {label:'A garrison squad rotating out this week passed through the route change point. Find their barracks.',mode:'stealth',skill:'stealth',success:'Drunk squad stories reveal a creature encounter on the eastern route that was never officially logged.',fail:'The squad disperses before your questions settle into anything useful.'}
       ]
     },
-    warrior_roaz:{
+    warrior_occult:{
       choices:[
-        {label:'Ithtananalor extraction workers respect visible strength. Show up at the work yard and ask direct questions.',mode:'place',skill:'combat',success:'The extraction crew defers to your bearing and admits they have not moved goods east in eight days.',fail:'The crew holds their line and offers nothing useful.'},
-        {label:'Find a Roazian merchant who still moves goods through Shelkopolis. They maintain private routes.',mode:'person',skill:'persuasion',success:'The merchant gives you a map showing where their route bypasses the official checkpoint.',fail:'The merchant is cautious and offers only vague assurances.'},
-        {label:'Extraction sites require permits that follow specific paper trails. Pressure the Shelk trade office about route closures.',mode:'records',skill:'craft',success:'The trade office records show permits were revoked for eastern access as of eight days past.',fail:'The office staff closes ranks behind procedure and courtesy.'},
-        {label:'Ithtananalor pressure is always about vertical height and leverage. Find the highest vantage in Shelkopolis that watches the eastern road.',mode:'place',skill:'survival',success:'From elevation you read the pattern: the route is physically blocked, not just administratively closed.',fail:'The elevated view reveals nothing but normal city activity.'}
+        {label:'Ithtananalor extraction workers respect visible strength. Show up at the work yard and ask direct questions.',mode:'place',skill:'combat',success:'The extraction crew defers to your bearing and admits they have not moved goods through the contested route in eight days.',fail:'The crew holds their line and offers nothing useful.'},
+        {label:'Find a Roazian merchant who still moves goods through the enforcement checkpoints. They maintain private routes.',mode:'person',skill:'persuasion',success:'The merchant gives you a map showing where their route bypasses the official checkpoint.',fail:'The merchant is cautious and offers only vague assurances.'},
+        {label:'Extraction sites require permits that follow specific paper trails. Pressure the enforcement records office about route closures.',mode:'records',skill:'craft',success:'The records show permits were revoked for contested access as of eight days past.',fail:'The office staff closes ranks behind procedure and courtesy.'},
+        {label:'Ithtananalor pressure is always about vertical height and leverage. Find the highest enforcement vantage that watches the contested road.',mode:'place',skill:'survival',success:'From elevation you read the pattern: the route is physically blocked, not just administratively closed.',fail:'The elevated view reveals nothing but normal checkpoint activity.'}
       ]
     },
     warrior_frontier:{
@@ -1035,7 +1086,7 @@ const STAGE2_DESTINATION_CONTENT = {
     },
 
     // ── KNIGHT ──
-    knight_shelk:{
+    knight_civic:{
       choices:[
         {label:'House Shelk papers mean institutional access. Demand a meeting with the House Shelk administrator about the route situation.',mode:'person',skill:'persuasion',success:'The administrator admits House Shelk closed the route to contain something. A creature was sighted.',fail:'The administrator maintains diplomatic courtesy and says nothing direct.'},
         {label:'The other house representatives know the real story. Find them and read what they are not saying aloud.',mode:'stealth',skill:'stealth',success:'The rival house is using the closure to press advantage in a competing contract. They orchestrated the silence.',fail:'The other representatives reveal nothing useful.'},
@@ -1043,17 +1094,17 @@ const STAGE2_DESTINATION_CONTENT = {
         {label:'Nobility relies on reputation. Find out what damage House Shelk fears if the route situation becomes public knowledge.',mode:'lore',skill:'lore',success:'A servant admits House Shelk fears their security posture will be questioned if this reaches the wrong ears.',fail:'Nobody will discuss House Shelk internal concerns.'}
       ]
     },
-    knight_roaz:{
+    knight_frontier:{
       choices:[
-        {label:'Iron Accord credentials open Iron Accord doors. Demand a meeting with the Roazian enforcement liaison in Shelkopolis.',mode:'person',skill:'persuasion',success:'The liaison admits the Accord closed the route because a creature escaped their containment work.',fail:'The liaison denies knowledge and suggests you stop asking.'},
-        {label:'Your reassignment never happened officially. Use that ambiguity to pressure the Accord hierarchy for truth.',mode:'records',skill:'lore',success:'The Accord keeps secret records of creature escapes. The eastern route had one.',fail:'The records are sealed and the inquiry alerts the wrong people to your interest.'},
+        {label:'Iron Accord credentials open Iron Accord doors. Demand a meeting with the Roazian enforcement liaison.',mode:'person',skill:'persuasion',success:'The liaison admits the Accord closed the route because a creature escaped their containment work.',fail:'The liaison denies knowledge and suggests you stop asking.'},
+        {label:'Your reassignment never happened officially. Use that ambiguity to pressure the Accord hierarchy for truth.',mode:'records',skill:'lore',success:'The Accord keeps secret records of creature escapes. The contested route had one.',fail:'The records are sealed and the inquiry alerts the wrong people to your interest.'},
         {label:'Counting houses track what moves and what does not. Find a counting house agent and offer them a reason to share route intelligence.',mode:'stealth',skill:'stealth',success:'An agent admits counting houses profit from route closures and knew about this one in advance.',fail:'The agent will not meet with you after an initial cautious conversation.'},
-        {label:'The Roadwardens answer to multiple masters. Use that divided loyalty to pressure a high-ranked officer.',mode:'combat',skill:'combat',success:'A Roadwarden commander admits they were ordered to enforce the closure but not the reason.',fail:'The commander shuts down the conversation and marks you as a security concern.'}
+        {label:'Enforcement answers to multiple masters. Use that divided loyalty to pressure a high-ranked checkpoint officer.',mode:'combat',skill:'combat',success:'A commander admits they were ordered to enforce the closure but not told the reason.',fail:'The commander shuts down the conversation and marks you as a security concern.'}
       ]
     },
-    knight_order:{
+    knight_occult:{
       choices:[
-        {label:'Panim order-knights are servants of the death registry. Use that to access what the registry knows about irregular deaths near the route.',mode:'records',skill:'lore',success:'The registry shows increased death records from the eastern route area eight days past.',fail:'The registry access is restricted and the attempt marks you as someone with questions.'},
+        {label:'Panim order-knights are servants of the death registry. Use that to access what the registry knows about irregular deaths near the route.',mode:'records',skill:'lore',success:'The registry shows increased death records from the contested route area eight days past.',fail:'The registry access is restricted and the attempt marks you as someone with questions.'},
         {label:'The Panim Haven representative might share information with another knight. Press for details about the route closure.',mode:'person',skill:'persuasion',success:'The representative admits the closure is linked to an irregular death pattern the registry was investigating.',fail:'The representative maintains shrine discretion and offers nothing.'},
         {label:'Your mandate was to investigate irregular memorial patterns. Connect the route closure to the memorial spike.',mode:'stealth',skill:'stealth',success:'The two events are directly linked: the creature event triggered irregular deaths that triggered memorial requests.',fail:'The connection stays unclear despite the research.'},
         {label:'Death comes to all. Offer to perform a private rite for the recent dead if the Panim shrine will share what they know.',mode:'ritual',skill:'craft',success:'A shrine attendant shares that the irregular deaths were caused by something that the route closure contained.',fail:'The shrine staff treats the offer as presumption and refuses to engage.'}
@@ -1061,56 +1112,64 @@ const STAGE2_DESTINATION_CONTENT = {
     },
 
     // ── RANGER ──
-    ranger_shelk:{
+    ranger_civic:{
       choices:[
         {label:'The Fairhaven route charts show waypoint sequences. Find where the charted sequence breaks.',mode:'records',skill:'lore',success:'The charts show a waypoint sealed off eight days ago. Someone drew a line through it and signed initials nobody recognizes.',fail:'The charts show only normal variations and suggest no rupture.'},
         {label:'Caravan captains know routes better than any chart. Find a captain who ran the Fairhaven circuit and ask them directly what changed.',mode:'person',skill:'persuasion',success:'A captain admits they rerouted around an obstruction that appeared overnight at a waypoint.',fail:'A captain will not discuss the route change directly.'},
-        {label:'You know every waypoint on Fairhaven. Go to the sealed one personally and read what happened there.',mode:'place',skill:'survival',success:'At the sealed waypoint you find evidence of a creature passage: scat, claw marks, something large moved through.',fail:'The sealed waypoint reveals nothing unusual to your reading.'},
-        {label:'The eastern run connects to Fairhaven. Travel to the connection point and scout backward from there.',mode:'travel',skill:'survival',success:'Scouting backward shows the closure was meant to cut something off from escaping further east.',fail:'The scouting provides no clear picture of intent.'}
+        {label:'You know every waypoint on the Fairhaven circuit. Go to the sealed one personally and read what happened there.',mode:'place',skill:'survival',success:'At the sealed waypoint you find evidence of a creature passage: scat, claw marks, something large moved through.',fail:'The sealed waypoint reveals nothing unusual to your reading.'},
+        {label:'The circuit connects east and west. Scout the connection point and read backward from there.',mode:'stealth',skill:'survival',success:'Scouting backward shows the closure was meant to cut something off from escaping further along the route.',fail:'The scouting provides no clear picture of intent.'}
       ]
     },
-    ranger_soreheim:{
+    ranger_frontier:{
       choices:[
-        {label:'Your corrections to the Shelk-Soreheim corridor map are valuable. Use them as leverage to demand route information from the trade registry.',mode:'records',skill:'craft',success:'The registry admits they used your corrections to identify a dangerous corridor variance. The route is closed to contain it.',fail:'The registry thanks you for the corrections but offers nothing about the closure.'},
-        {label:'Giant Council survey work means you understand axis mechanics. Press the Roadwardens for information about axis instability near the route.',mode:'person',skill:'persuasion',success:'A Roadwarden admits they suspect axis variance caused something to emerge on the eastern approach.',fail:'The Roadwarden suggests you are drawing dangerous conclusions from insufficient data.'},
-        {label:'The allocation board shows supply route changes. Read it and determine what supply pattern shifted.',mode:'records',skill:'lore',success:'The allocation board shows all eastern supply routes were rerouted simultaneously. Someone central made this decision.',fail:'The allocation board shows normal variations and suggests nothing unusual.'},
-        {label:'File your corrections and then read what subsequent route assignments change because of them.',mode:'stealth',skill:'stealth',success:'Once your corrections are filed, subsequent route assignments avoid the eastern corridor entirely.',fail:'No clear pattern emerges from reading the filed assignments.'}
+        {label:'Your corrections to the corridor map are valuable. Use them as leverage to demand route information from the trade registry.',mode:'records',skill:'craft',success:'The registry admits they used your corrections to identify a dangerous corridor variance. The route is closed to contain it.',fail:'The registry thanks you for the corrections but offers nothing about the closure.'},
+        {label:'Giant Council survey work means you understand axis mechanics. Press local officials for information about axis instability near the route.',mode:'person',skill:'persuasion',success:'An official admits they suspect axis variance caused something to emerge on the approach.',fail:'The official suggests you are drawing dangerous conclusions from insufficient data.'},
+        {label:'The allocation board shows supply route changes. Read it and determine what supply pattern shifted.',mode:'records',skill:'lore',success:'The allocation board shows all routes through the contested zone were rerouted simultaneously. Someone central made this decision.',fail:'The allocation board shows normal variations and suggests nothing unusual.'},
+        {label:'File your corrections and then read what subsequent route assignments change because of them.',mode:'stealth',skill:'stealth',success:'Once your corrections are filed, subsequent route assignments avoid the contested corridor entirely.',fail:'No clear pattern emerges from reading the filed assignments.'}
       ]
     },
-    ranger_sheresh:{
+    ranger_occult:{
       choices:[
-        {label:'The dome stewards sent you south to investigate supply disruptions. Document exactly what the axis data says about pressure.',mode:'records',skill:'lore',success:'The axis data shows an inversion cycle spike that began eight days ago at the eastern access point.',fail:'The axis data shows background noise and nothing conclusive.'},
-        {label:'Find a scholar in Shelkopolis who studies axis inversion and show them your axis data.',mode:'person',skill:'persuasion',success:'The scholar warns that your data suggests a creature breach that the route closure is meant to contain.',fail:'The scholar says your data is incomplete and cannot draw conclusions.'},
-        {label:'Domes rely on trade routes that bypass axis variance zones. Check which trade agreements changed because of the route closure.',mode:'records',skill:'craft',success:'Trade agreements were rewritten to bypass the eastern approach entirely. Multiple houses coordinated this.',fail:'The trade agreements show only standard variations.'},
-        {label:'The dome perimeter was hostile when you learned to work it. Use that knowledge to read if the threat has shifted.',mode:'survival',skill:'survival',success:'You sense the threat has shifted: something escaped from its former boundary and the eastern route closure was a response.',fail:'Your sense of the threat shows no change from previous readings.'}
+        {label:'The dome stewards sent you to investigate supply disruptions. Document exactly what the axis data says about pressure.',mode:'records',skill:'lore',success:'The axis data shows an inversion cycle spike that began eight days ago at the contested access point.',fail:'The axis data shows background noise and nothing conclusive.'},
+        {label:'Find a scholar who studies axis inversion and show them your axis data.',mode:'person',skill:'persuasion',success:'The scholar warns that your data suggests a creature breach that the route closure is meant to contain.',fail:'The scholar says your data is incomplete and cannot draw conclusions.'},
+        {label:'Dome settlements rely on trade routes that bypass axis variance zones. Check which trade agreements changed because of the route closure.',mode:'records',skill:'craft',success:'Trade agreements were rewritten to bypass the contested approach entirely. Multiple parties coordinated this.',fail:'The trade agreements show only standard variations.'},
+        {label:'The dome perimeter was hostile when you learned to work it. Use that knowledge to read if the threat has shifted.',mode:'survival',skill:'survival',success:'You sense the threat has shifted: something escaped from its former boundary and the route closure was a response.',fail:'Your sense of the threat shows no change from previous readings.'}
       ]
     },
 
     // ── PALADIN ──
-    paladin_cysur:{
+    paladin_civic:{
       choices:[
-        {label:'Sera at the memorial counter hears everything. Sit with her and listen to what the memorial pattern really means.',mode:'person',skill:'persuasion',success:'Sera admits the memorial pattern corresponds to people who vanished from the eastern route area. They are being recorded as dead.',fail:'Sera maintains shrine discretion and offers only vague observations.'},
-        {label:'The families filing memorials carry the real story. Find a grieving family and offer to sit with them.',mode:'ritual',skill:'craft',success:'A family admits their relative was caught in something on the eastern route and has been silent since. They assume death.',fail:'A family will not speak to a stranger about their loss.'},
-        {label:'Aurora Light Cathedral blessing gives you access to ceremony records. Check what rituals were performed for recent dead.',mode:'records',skill:'lore',success:'Ceremony records show three emergency blessings for dead from the eastern route in the past eight days.',fail:'The ceremony records show only normal variations in blessing traffic.'},
-        {label:'Cysur demands communal bonds. Speak directly with a settlement leader about what happened on the eastern route.',mode:'person',skill:'combat',success:'A settlement leader admits the route was closed after a creature escaped. They were ordered not to speak of it.',fail:'The settlement leader deflects with courtesy and stops engaging.'}
+        {label:'Sera at the memorial counter hears everything. Sit with her and listen to what the memorial pattern really means.',mode:'person',skill:'persuasion',success:'Sera admits the memorial pattern corresponds to people who vanished from the contested route area. They are being recorded as dead.',fail:'Sera maintains shrine discretion and offers only vague observations.'},
+        {label:'The families filing memorials carry the real story. Find a grieving family and offer to sit with them.',mode:'ritual',skill:'craft',success:'A family admits their relative was caught in something on the route and has been silent since. They assume death.',fail:'A family will not speak to a stranger about their loss.'},
+        {label:'Aurora Light Cathedral blessing gives you access to ceremony records. Check what rituals were performed for recent dead.',mode:'records',skill:'lore',success:'Ceremony records show three emergency blessings for dead from the contested route in the past eight days.',fail:'The ceremony records show only normal variations in blessing traffic.'},
+        {label:'Cysur demands communal bonds. Speak directly with a settlement leader about what happened on the route.',mode:'person',skill:'combat',success:'A settlement leader admits the route was closed after a creature escaped. They were ordered not to speak of it.',fail:'The settlement leader deflects with courtesy and stops engaging.'}
       ]
     },
-    paladin_eloljaro:{
+    paladin_frontier:{
       choices:[
-        {label:'Two names appear in both the Roazian enforcement records and Shelk administrative files. Trace their current location.',mode:'stealth',skill:'stealth',success:'Both names lead to a Shelk administrator who is coordinating with Iron Accord enforcement on the route closure.',fail:'Both names go cold and lead to no current location.'},
-        {label:'Eloljaro opens doors. Use those doors to access sealed Shelk administrative files about the route closure.',mode:'records',skill:'lore',success:'The files show Shelk and Iron Accord jointly orchestrated the route closure to contain a creature escape.',fail:'The files are sealed and the attempt to access them marks you for surveillance.'},
-        {label:'The Roadwardens answer to both Shelk and the Accord. Pressure a Roadwarden commander to choose which loyalty wins.',mode:'person',skill:'persuasion',success:'A commander admits they enforce the route closure because two powers aligned on it. Nothing gets through.',fail:'The commander suggests you are asking for information you should not have.'},
+        {label:'Two names appear in both the Roazian enforcement records and institutional administrative files. Trace their current location.',mode:'stealth',skill:'stealth',success:'Both names lead to an administrator coordinating with Iron Accord enforcement on the route closure.',fail:'Both names go cold and lead to no current location.'},
+        {label:'Eloljaro opens doors. Use those doors to access sealed administrative files about the route closure.',mode:'records',skill:'lore',success:'The files show two polities jointly orchestrated the route closure to contain a creature escape.',fail:'The files are sealed and the attempt to access them marks you for surveillance.'},
+        {label:'The enforcement order answers to multiple powers. Pressure a checkpoint commander to choose which loyalty wins.',mode:'person',skill:'persuasion',success:'A commander admits they enforce the route closure because two powers aligned on it. Nothing gets through.',fail:'The commander suggests you are asking for information you should not have.'},
         {label:'Eloljaro and Cysur maintain contact through shared institutions. Find a shrine attendant who knows both and ask for perspective.',mode:'ritual',skill:'craft',success:'An attendant admits both institutions agreed to maintain the route closure for mutual security.',fail:'An attendant will not discuss institutional agreements with an outsider.'}
+      ]
+    },
+    paladin_occult:{
+      choices:[
+        {label:'Mimolot has records of doctrinal exceptions and secret rites. Pressure the archive to surface what was applied to the route situation.',mode:'records',skill:'lore',success:'Archive records describe a ritual failure that released something onto the route, triggering the closure.',fail:'Archive access is refused without proper scholarium clearance.'},
+        {label:'A shrine attendant with archive access might share what the institution knows about the closure.',mode:'person',skill:'persuasion',success:'An attendant admits the closure is protecting against a ritual breach the academy is studying.',fail:'An attendant maintains institutional discretion and says nothing actionable.'},
+        {label:'Sacred resolve under pressure. Use the authority of your oath to demand the hidden truth from those who know it.',mode:'ritual',skill:'craft',success:'The oath carries enough institutional weight that a faculty member confirms the breach and names its source.',fail:'The faculty member considers you outside the chain of institutional authority.'},
+        {label:'Dangerous knowledge serves those with the resolve to hold it. Find the sealed archive that holds the breach records.',mode:'stealth',skill:'stealth',success:'The sealed archive contains the full record of the ritual breach and the creature it released.',fail:'The archive seal resists your approach and alerts internal security.'}
       ]
     },
 
     // ── ARCHER ──
-    archer_roadwarden:{
+    archer_civic:{
       choices:[
-        {label:'You held elevated positions on three route circuits. Go to the highest point in Shelkopolis and read the eastern approach.',mode:'place',skill:'survival',success:'From elevation you see clear signs of deliberate obstruction and active guard positions blocking the route.',fail:'From elevation the eastern approach looks ordinary and reveals no special pressure.'},
-        {label:'Marksmen work ranges and sightlines. Find a Roadwarden officer and press them about sight-line changes on the eastern route.',mode:'person',skill:'persuasion',success:'An officer admits the route sight-lines were deliberately modified to prevent creature escape into the wider territory.',fail:'An officer deflects and stops engaging.'},
-        {label:'The Roadwardens maintain sighting logs for route security. Access the logs for the eastern approach.',mode:'records',skill:'lore',success:'The sighting logs show a massive anomaly recorded eight days ago at the eastern approach, then all logs for that zone were sealed.',fail:'The sighting logs show only normal traffic and reveal nothing.'},
-        {label:'Off-duty Roadwardens are more honest about what the official channels hide. Find one and offer them a drink.',mode:'stealth',skill:'stealth',success:'An off-duty warden admits something escaped its cage on the eastern route and the closure is containment protocol.',fail:'An off-duty warden will not discuss official security with an archer.'}
+        {label:'You held elevated positions on three route circuits. Go to the highest point and read the contested approach.',mode:'place',skill:'survival',success:'From elevation you see clear signs of deliberate obstruction and active guard positions blocking the route.',fail:'From elevation the approach looks ordinary and reveals no special pressure.'},
+        {label:'Marksmen work ranges and sightlines. Find a Roadwarden officer and press them about sight-line changes on the contested route.',mode:'person',skill:'persuasion',success:'An officer admits the route sight-lines were deliberately modified to prevent creature escape into the wider territory.',fail:'An officer deflects and stops engaging.'},
+        {label:'The Roadwardens maintain sighting logs for route security. Access the logs for the contested approach.',mode:'records',skill:'lore',success:'The sighting logs show a massive anomaly recorded eight days ago, then all logs for that zone were sealed.',fail:'The sighting logs show only normal traffic and reveal nothing.'},
+        {label:'Off-duty Roadwardens are more honest about what the official channels hide. Find one and offer them a drink.',mode:'stealth',skill:'stealth',success:'An off-duty warden admits something escaped its cage on the route and the closure is containment protocol.',fail:'An off-duty warden will not discuss official security with an archer.'}
       ]
     },
     archer_frontier:{
@@ -1121,12 +1180,12 @@ const STAGE2_DESTINATION_CONTENT = {
         {label:'The route was changed eight days ago. Check Frontier Ranging Company dispatch logs for what operations were canceled that day.',mode:'records',skill:'craft',success:'Dispatch logs show six planned operations were canceled with a code meaning creature sighting and reroute.','fail':'Dispatch logs show normal cancellations and suggest no special event.'}
       ]
     },
-    archer_nomdara:{
+    archer_occult:{
       choices:[
-        {label:'Caravan guard work means you know every approach to every settlement. Read the approaches to Shelkopolis from an archers perspective.',mode:'place',skill:'combat',success:'From your perspective, the routes are being actively guarded against creature escape. Something is contained here.','fail':'The approaches read as ordinary guard positions and reveal no special pressure.'},
-        {label:'The original caravan route from Guildheart changed eight days ago. Find a caravan captain and ask them to compare old versus new route.',mode:'records',skill:'lore',success:'The new route deliberately avoids the eastern approach that the old route used to use.','fail':'Caravan routes change regularly and the captain sees nothing special about the current variation.'},
-        {label:'You took your pay and followed the original route to find out why it changed. Did you see what changed it?',mode:'stealth',skill:'stealth',success:'Following the original route, you found the creature sign and understood immediately why caravans avoid it now.','fail':'Following the original route revealed nothing that explained the route change.'},
-        {label:'Caravan guards are hired muscle who keep quiet. Find an off-duty caravan guard and ask what they really know.',mode:'person',skill:'persuasion',success:'An off-duty guard admits they evacuated the original route because something escaped its natural boundaries.','fail':'An off-duty guard will not discuss caravan security with someone not in the trade.'}
+        {label:'Caravan guard work means you know every approach to every settlement. Read the approaches to Guildheart from an archers perspective.',mode:'place',skill:'combat',success:'From your perspective, the routes are being actively guarded against creature escape. Something is contained here.',fail:'The approaches read as ordinary guard positions and reveal no special pressure.'},
+        {label:'The original caravan route from Guildheart changed eight days ago. Find a caravan captain and ask them to compare old versus new route.',mode:'records',skill:'lore',success:'The new route deliberately avoids the contested approach that the old route used to use.',fail:'Caravan routes change regularly and the captain sees nothing special about the current variation.'},
+        {label:'You took your pay and followed the original route to find out why it changed. Did you see what changed it?',mode:'stealth',skill:'stealth',success:'Following the original route, you found the creature sign and understood immediately why caravans avoid it now.',fail:'Following the original route revealed nothing that explained the route change.'},
+        {label:'Caravan guards are hired muscle who keep quiet. Find an off-duty caravan guard and ask what they really know.',mode:'person',skill:'persuasion',success:'An off-duty guard admits they evacuated the original route because something escaped its natural boundaries.',fail:'An off-duty guard will not discuss caravan security with someone not in the trade.'}
       ]
     },
 
@@ -1149,10 +1208,10 @@ const STAGE2_DESTINATION_CONTENT = {
     },
     berserker_occult:{
       choices:[
-        {label:'Occult knowledge teaches that hidden rites protect what must remain hidden. Find an occult practitioner and press them for truth.',mode:'person',skill:'lore',success:'An occult practitioner admits the closure is protecting against something that rituals alone cannot contain.','fail:'An occult practitioner deflects with mysticism and offers no real answer.'},
+        {label:'Occult knowledge teaches that hidden rites protect what must remain hidden. Find an occult practitioner and press them for truth.',mode:'person',skill:'lore',success:'An occult practitioner admits the closure is protecting against something that rituals alone cannot contain.',fail:'An occult practitioner deflects with mysticism and offers no real answer.'},
         {label:'Dangerous knowledge serves those bold enough to pursue it. Break into an occult shrine and read what their records say about the closure.',mode:'stealth',skill:'stealth',success:'Shrine records describe a creature emerging from the axis that local rituals are containing.','fail':'The shrine is sealed too tightly to access without raising alarms.'},
         {label:'Occult practitioners see what others miss. Offer your berserker strength as protection and ask them what they are protecting against.','mode':'ritual',skill:'craft',success:'A practitioner trusts your offer and reveals the closure is concealing a ritual failure that let something through.','fail':'A practitioner considers your offer suspicious and refuses to engage.'},
-        {label:'The hidden rite path leads to dangerous knowledge. Follow the signs and trace them to their source.',mode:'records',skill:'lore',success:'The signs lead to a sealed ritual site where containment magic is barely holding something in place.','fail:'The signs go cold and lead nowhere clear.'}
+        {label:'The hidden rite path leads to dangerous knowledge. Follow the signs and trace them to their source.',mode:'records',skill:'lore',success:'The signs lead to a sealed ritual site where containment magic is barely holding something in place.',fail:'The signs go cold and lead nowhere clear.'}
       ]
     },
 
@@ -2353,6 +2412,42 @@ function triggerCombatEncounter(enemyId, context) {
       {label:'Call on a settlement service before pushing further',tags:['Service','Adjacent'],fn(){ G.lastResult='A return through the current settlement services sharpens the next move.'; }}
     ].slice(0,9);
   }
+  function campChoices(state){
+    const loc=getLocality(state.location);
+    return [
+      {label:`Rest at ${state.currentSafeZone} and recover`,tags:['Rest','HP'],fn(){ advanceTime(1); state.hp=Math.min(state.maxHp,state.hp+Math.max(3,Math.floor(state.maxHp*0.3))); state.fatigue=Math.max(0,state.fatigue-1); state.lastResult=`${state.currentSafeZone} steadies the body. The next move starts from a better place.`; addJournal('camp',`Rested at ${state.currentSafeZone}.`,`camp-rest-${state.dayCount}`); }},
+      {label:`Review the journal and sharpen the approach`,tags:['Reflect','Lore'],fn(){ advanceTime(1); gainXp(1,'careful reflection'); state.lastResult=`The journal yields one pattern that was not visible in motion.`; addJournal('camp','Reviewed field notes and updated the approach.',`camp-reflect-${state.dayCount}`); }},
+      {label:`Scout the immediate area around ${loc.name}`,tags:['Scout','Survival'],fn(){ advanceTime(1); state.telemetry.scouts++; state.skills.survival=(state.skills.survival||0)+1; const t=chooseThreat(); state.currentThreat=t; state.lastResult=`The perimeter of ${loc.name} gives up one useful detail about what is moving and what is holding still.`; }},
+      {label:`Maintain equipment and prepare for the next push`,tags:['Craft','Prep'],fn(){ advanceTime(1); state.skills.craft=(state.skills.craft||0)+1; gainXp(1,'field maintenance'); state.lastResult=`Gear is clean, edges are sound, and the next move starts with better tools than the last one.`; }}
+    ];
+  }
+
+  function beginEncounter(state, kind, name, tier){
+    state.encounter={ kind, name:name||'unknown threat', tier:tier||'standard', round:1, started:state.dayCount, hp:kind==='creature'?(window.BESTIARY&&window.BESTIARY[name]?window.BESTIARY[name].hp:12):(window.HAZARDS&&window.HAZARDS[name]?window.HAZARDS[name].severity*4:8), maxHp:kind==='creature'?(window.BESTIARY&&window.BESTIARY[name]?window.BESTIARY[name].hp:12):(window.HAZARDS&&window.HAZARDS[name]?window.HAZARDS[name].severity*4:8) };
+    const desc=kind==='creature'?(window.BESTIARY&&window.BESTIARY[name]?window.BESTIARY[name].text:'A threat emerges from the pressure.'):(window.HAZARDS&&window.HAZARDS[name]?window.HAZARDS[name].text:'A hazard breaks into the open.');
+    state.lastResult=`${desc} The encounter demands an immediate answer.`;
+  }
+
+  function encounterChoices(state){
+    const enc=state.encounter;
+    if(!enc) return stage1Choices();
+    const arch=getArchetype(state.archetype);
+    const tierBonus=enc.tier==='elite'?3:enc.tier==='boss'?6:0;
+    function resolve(skill,label,xpAmt,successText,failText){
+      const roll=1+rand(20)+(state.skills[skill]||0)+Math.floor(state.level/3)+tierBonus;
+      const target=enc.tier==='boss'?18:enc.tier==='elite'?15:12;
+      const success=roll>=target;
+      if(success){ gainXp(xpAmt,'encounter'); enc.hp=Math.max(0,enc.hp-Math.floor(state.level*1.5+5)); if(enc.hp<=0){ state.encounter=null; state.telemetry.wins++; state.gold+=rand(8)+3; state.lastResult=successText+` The threat is broken. (+${xpAmt} xp, gold gained)`; markMoment(`Defeated ${enc.name} at ${getLocality(state.location).name}`); } else { state.lastResult=successText+` The threat weakens but holds.`; } } else { const dmg=Math.max(1,rand(6)+enc.tier==='boss'?6:enc.tier==='elite'?4:2); state.hp=Math.max(0,state.hp-dmg); state.lastResult=failText+` You take ${dmg} damage (HP: ${state.hp}/${state.maxHp}).`; enc.round++; }
+    }
+    const choices=[
+      {label:`Press forward directly — force the issue`,tags:['Combat','Direct'],fn(){ resolve('combat','direct assault',enc.tier==='boss'?4:2,'The line breaks under direct force.',`The direct approach costs something.`); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Find the weakness and work it precisely`,tags:['Stealth','Precise'],fn(){ resolve('stealth','precision approach',enc.tier==='boss'?3:2,'The weak point opens and the threat unravels.','The precision read fails under pressure.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Apply knowledge and read the threat structure`,tags:['Lore','Read'],fn(){ resolve('lore','analytical approach',enc.tier==='boss'?3:2,'The threat logic becomes legible and the answer follows.','The analytical read produces theory without enough time.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Withdraw and regroup at the safe zone`,tags:['Retreat','Safe'],fn(){ state.encounter=null; advanceTime(1); state.hp=Math.max(1,state.hp); state.lastResult=`The threat is left behind. The safe zone holds for now.`; setThreat();setObjective();persist();render(); }}
+    ];
+    return choices;
+  }
+
   function stage3to5Choices(stage){ const arr=objectiveWebChoices(stage).slice(0,5); if(stage===5 && G.finalBreak){ arr.push({label:'Commit to the final boss confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }}); arr.push({label:'Commit to the final hazard confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }}); } else { arr.push({label:'Force an elite confrontation now',tags:['Encounter','Elite'],fn(){ startThreatEncounter('elite'); }}); } arr.push({label:'Camp and re-form the line',tags:['Camp'],fn(){ G.lastResult='The camp settles nerves but the wider pressure does not stop moving.'; }}); return arr.slice(0,8); }
   function maybeStageAdvance(){ if(G.stage===1 && G.stageProgress[1]>=4 && G.level>=5){ G.stage=2; updateStage(); addNotice('Stage II begins. Adjacent pressure opens.'); markMoment('Stage II began'); } if(G.stage===2 && G.stageProgress[2]>=4 && G.level>=9){ G.stage=3; updateStage(); addNotice('Stage III begins. The world grows wider and less forgiving.'); markMoment('Stage III began'); } if(G.stage===3 && G.familyMilestones.stage3>=3 && G.level>=13){ G.stage=4; updateStage(); addNotice('Stage IV begins. Your name now changes what institutions dare.'); markMoment('Stage IV began'); } if(G.stage===4 && G.familyMilestones.stage4>=3 && G.level>=17){ G.stage=5; updateStage(); addNotice('Stage V begins. Death is now final.'); markMoment('Stage V began'); } setObjective(); }
   function currentChoices(){ if(G.encounter) return encounterChoices(G); if(G.stage===1) return stage1Choices(); if(G.stage===2) return stage2Choices(); if(G.stage===3) return stage3to5Choices(3); if(G.stage===4) return stage3to5Choices(4); return stage3to5Choices(5); }
