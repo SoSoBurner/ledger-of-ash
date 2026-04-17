@@ -7,6 +7,7 @@ def build():
     
     with open('css/style.css', encoding='utf-8') as f: css = f.read()
     with open('js/data.js', encoding='utf-8') as f: da = f.read()
+    with open('js/stage2-backgrounds.js', encoding='utf-8') as f: s2bg = f.read()
     with open('js/narrative.js', encoding='utf-8') as f: na = f.read()
     with open('js/party.js', encoding='utf-8') as f: pj = f.read()
     with open('js/world.js', encoding='utf-8') as f: wj = f.read()
@@ -23,6 +24,8 @@ def build():
     out = out.replace('<link rel="stylesheet" href="css/style.css">', '<style>' + css + '</style>')
     out = out.replace('<script src="js/data.js"></script>', '<script>' + da + '</script>')
     out = out.replace("<script src='js/data.js'></script>", '<script>' + da + '</script>')
+    out = out.replace('<script src="js/stage2-backgrounds.js"></script>', '<script>' + s2bg + '</script>')
+    out = out.replace("<script src='js/stage2-backgrounds.js'></script>", '<script>' + s2bg + '</script>')
     out = out.replace('<script src="js/narrative.js"></script>', '<script>' + na + '</script>')
     out = out.replace("<script src='js/narrative.js'></script>", '<script>' + na + '</script>')
     out = out.replace('<script src="js/party.js"></script>', '<script>' + pj + '</script>')
