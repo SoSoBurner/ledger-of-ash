@@ -1,0 +1,46 @@
+version: '3.8'
+
+# ── Phase 1: Static frontend only ──
+# For Phase 2, add: api, worker, postgres services
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
+# ── Phase 2 scaffold (commented) ──
+# api:
+#   build: ./packages/api
+#   ports:
+#     - "3001:3001"
+#   environment:
+#     - DATABASE_URL=postgresql://loa:${DB_PASSWORD}@postgres:5432/ledger_of_ash
+#     - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+#     - NODE_ENV=production
+#   depends_on:
+#     - postgres
+#
+# worker:
+#   build: ./packages/worker
+#   environment:
+#     - DATABASE_URL=postgresql://loa:${DB_PASSWORD}@postgres:5432/ledger_of_ash
+#   depends_on:
+#     - postgres
+#
+# postgres:
+#   image: postgres:16-alpine
+#   volumes:
+#     - postgres_data:/var/lib/postgresql/data
+#   environment:
+#     - POSTGRES_DB=ledger_of_ash
+#     - POSTGRES_USER=loa
+#     - POSTGRES_PASSWORD=${DB_PASSWORD}
+#   ports:
+#     - "5432:5432"
+#
+# volumes:
+#   postgres_data:

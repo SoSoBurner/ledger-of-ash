@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Ledger of Ash — Upgrade Batch 27</title>
+  <style>
+    :root{--bg:#0f0d0a;--panel:#17120d;--panel2:#1d1711;--line:#4d3b25;--line2:#6d5637;--text:#f0e7d0;--muted:#c9b99b;--accent:#d4b67a;--good:#98c18f;--warn:#c9a46b;--bad:#c27f7f}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at top,#18120c 0%,#0f0d0a 60%);color:var(--text);font:16px/1.45 Georgia,serif}
+    .wrap{max-width:1180px;margin:0 auto;padding:14px}
+    .top{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between}
+    .titleBlock h1{margin:0 0 4px 0;font-size:28px}
+    .muted{color:var(--muted)}
+    .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .bar button,.choice,.small,.inlineBtn{background:linear-gradient(180deg,#241b12,#1a140e);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.03) inset}
+    .bar button.active{border-color:var(--accent);color:#fff8e6}
+    .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:12px;padding:12px;margin:8px 0}
+    .hero{display:grid;grid-template-columns:1fr;gap:10px}
+    .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:14px;align-items:start}
+    .stack{display:grid;gap:8px}
+    .panel{display:none}
+    .panel.active{display:block}
+    .sectionTitle{font-weight:bold;letter-spacing:.04em;text-transform:uppercase;color:#ead9b5;font-size:13px;margin-bottom:6px}
+    .choice{display:block;width:100%;text-align:left;margin:8px 0}
+    .choice small{display:block;color:var(--muted);margin-top:4px}
+    .pillRow{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .pill{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid var(--line2);background:#130f0b;color:#e8dcc5}
+    .pill.good{border-color:#5a7b53;color:#cfe7c8}
+    .pill.warn{border-color:#8b7042;color:#efd5aa}
+    .pill.bad{border-color:#8a5555;color:#f0c3c3}
+    input,select{background:#0f0d0b;color:var(--text);border:1px solid var(--line2);border-radius:8px;padding:9px 10px;min-width:0}
+    .form{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+    .subgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .poiline{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-top:1px solid rgba(255,255,255,.05)}
+    .poiline:first-child{border-top:none;padding-top:0}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, monospace}
+    @media (max-width:940px){.grid,.form,.subgrid{grid-template-columns:1fr}.bar{justify-content:flex-start}}
+  </style>
+</head>
+<body>
+  <div class='wrap'>
+    <div class='top'>
+      <div class='titleBlock'>
+        <h1 id='title'>Ledger of Ash</h1>
+        <div id='header' class='muted'></div>
+        <div id='stats' class='muted'></div>
+      </div>
+      <div class='bar'>
+        <button data-panel='mapPanel'>Map</button>
+        <button data-panel='servicesPanel'>Services</button>
+        <button data-panel='sheetPanel' class='active'>Sheet</button>
+        <button data-panel='journalPanel'>Journal</button>
+        <button data-panel='npcsPanel'>NPCs</button>
+        <button data-panel='noticesPanel'>Notices</button>
+        <button data-panel='campPanel'>Camp</button>
+        <button data-panel='legendsPanel'>Legends</button>
+      </div>
+    </div>
+
+    <div class='card'>
+      <div class='sectionTitle'>Load Legend</div>
+      <div class='subgrid'>
+        <input id='loadCode' placeholder='Passcode'>
+        <button id='loadBtn' class='inlineBtn'>Load</button>
+      </div>
+    </div>
+
+    <div class='card'>
+      <div class='sectionTitle'>Begin New Legend</div>
+      <div class='form'>
+        <input id='newName' placeholder='Name'>
+        <input id='newCode' placeholder='Passcode'>
+        <select id='archSelect'></select>
+        <select id='bgSelect'></select>
+        <select id='ageSelect'></select>
+        <select id='presentationSelect'></select>
+        <button id='beginBtn'>Begin Your Legend</button>
+      </div>
+    </div>
+
+    <div class='grid'>
+      <div class='hero'>
+        <div id='narrative' class='card'></div>
+        <div id='result' class='card'></div>
+        <div id='choices'></div>
+      </div>
+      <div class='stack'>
+        <div id='mapPanel' class='panel'></div>
+        <div id='servicesPanel' class='panel'></div>
+        <div id='sheetPanel' class='panel active'></div>
+        <div id='journalPanel' class='panel'></div>
+        <div id='npcsPanel' class='panel'></div>
+        <div id='noticesPanel' class='panel'></div>
+        <div id='campPanel' class='panel'></div>
+        <div id='legendsPanel' class='panel'></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-panel]');
+      if(!btn) return;
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      document.querySelectorAll('.bar button').forEach(b=>b.classList.remove('active'));
+      const target = document.getElementById(btn.dataset.panel);
+      if(target) target.classList.add('active');
+      btn.classList.add('active');
+    });
+  </script>
+  <script src='js/data.js'></script>
+  <script src='js/narrative.js'></script>
+  <script src='js/party.js'></script>
+  <script src='js/combat.js'></script>
+  <script src='js/engine.js'></script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+{
+  "deities": [
+    {
+      "id": "deity.dinistr",
+      "name": "Dinistr",
+      "domain": "Destruction",
+      "desire": "Destroy and toy with Material denizens"
+    },
+    {
+      "id": "deity.cyfoes",
+      "name": "Cyfoes",
+      "domain": "Contemplation",
+      "desire": "Puzzles, thought, and reflection"
+    },
+    {
+      "id": "deity.felujitas",
+      "name": "Felujitas",
+      "domain": "Renewal",
+      "desire": "Fix and rejuvenate what is broken"
+    },
+    {
+      "id": "",
+      "name": "Pantheon Truth-Layer Index",
+      "domain": "",
+      "desire": ""
+    },
+    {
+      "id": "deity.twyll",
+      "name": "Twyll",
+      "domain": "Trickery",
+      "desire": "Make others feel foolish through deception"
+    },
+    {
+      "id": "pantheon.vonalzo_remeny_truth_package",
+      "name": "Vonalzo / Remeny Truth Package",
+      "domain": "",
+      "desire": ""
+    },
+    {
+      "id": "deity.eloljaro",
+      "name": "Eloljaro",
+      "domain": "Retribution",
+      "desire": "Correct what has gone wrong"
+    },
+    {
+      "id": "deity.forgotten_obsession",
+      "name": "Forgotten Obsession",
+      "domain": "Obsession",
+      "desire": "Make things the right way with nothing out of line"
+    },
+    {
+      "id": "deity.gwybodaeth",
+      "name": "Gwybodaeth",
+      "domain": "Knowledge",
+      "desire": "Chronicle everything and uncover truth"
+    },
+    {
+      "id": "deity.lahar",
+      "name": "Lahar",
+      "domain": "Sloth",
+      "desire": "Apathy and inaction"
+    },
+    {
+      "id": "deity.mag_ny",
+      "name": "Mag\u00e1ny",
+      "domain": "Solitude",
+      "desire": "Quiet reflection and self-discovery"
+    },
+    {
+      "id": "deity.felelem",
+      "name": "Felelem",
+      "domain": "Fear",
+      "desire": "Protection, prophecy, and doomspeech"
+    },
+    {
+      "id": "deity.cysur",
+      "name": "Cysur",
+      "domain": "Compassion",
+      "desire": "Comfort and communal bonds"
+    },
+    {
+      "id": "deity.zurzavar",
+      "name": "Zurzavar",
+      "domain": "Turmoil",
+      "desire": "Perpetuate and spread chaos"
+    },
+    {
+      "id": "deity.vonalzo",
+      "name": "Vonalzo",
+      "domain": "Ambition",
+      "desire": "Win through power, supremacy, and conquest"
+    },
+    {
+      "id": "deity.fajdalom",
+      "name": "Fajdalom",
+      "domain": "Agony",
+      "desire": "Torture denizens of the Material Plane"
+    },
+    {
+      "id": "deity.talalmany",
+      "name": "Talalmany",
+      "domain": "Creation",
+      "desire": "Make new things through experimentation"
+    },
+    {
+      "id": "deity.mega_terozash",
+      "name": "Mega-Terozash",
+      "domain": "Desperation",
+      "desire": "Return to the original Primordial Unity"
+    },
+    {
+      "id": "deity.remeny",
+      "name": "Remeny",
+      "domain": "Hope and Power",
+      "desire": "Optimism, inspiration, and power"
+    },
+    {
+      "id": "pantheon.speaker_of_remeny",
+      "name": "Speaker of Remeny",
+      "domain": "",
+      "desire": ""
+    },
+    {
+      "id": "deity.mamor",
+      "name": "Mamor",
+      "domain": "Joy",
+      "desire": "Eternal revelry and bliss"
+    },
+    {
+      "id": "deity.ataliad",
+      "name": "Ataliad",
+      "domain": "Sustain",
+      "desire": "Keep things the same, unmoving, unchanging"
+    },
+    {
+      "id": "deity.uralom",
+      "name": "Uralom",
+      "domain": "Domination",
+      "desire": "Make the strongest champions and defeat them"
+    },
+    {
+      "id": "deity.ymholi",
+      "name": "Ymholi",
+      "domain": "Intrigue",
+      "desire": "Know how everything works"
+    },
+    {
+      "id": "pantheon.divine_seed_and_superego_destruction",
+      "name": "Divine Seed and Superego Destruction Mechanism",
+      "domain": "",
+      "desire": ""
+    }
+  ],
+  "factions": [
+    {
+      "name": "House Panim",
+      "type": "noble house faction",
+      "summary": "Divine mediation and afterlife-preparation house whose services bind religion, status, and commerce together.",
+      "motive": "Preserve indispensable control over afterlife preparation and god-facing mediation."
+    },
+    {
+      "name": "House Shirsh",
+      "type": "noble house faction",
+      "summary": "Magic-investigative house tied to the Magi Magistratus and celestial-mystical study.",
+      "motive": "Keep magical misconduct legible and maintain Shirsh authority over sensitive arcane inquiry."
+    },
+    {
+      "name": "Roadwardens Order",
+      "type": "Shelk route-security faction",
+      "summary": "The largest peacekeeping army spread through the empire as road police, securing trade routes and public order under She",
+      "motive": "Keep roads safe, commerce moving, and Shelk\u2019s authority visibly credible."
+    },
+    {
+      "name": "Red Hood Guild",
+      "type": "criminal or covert independent faction",
+      "summary": "Elusive independent guild operating in shadowed relation to trade, intrigue, and forbidden or covert work.",
+      "motive": "Exploit the gaps created by rigid law, secret demand, and elite hypocrisy."
+    },
+    {
+      "name": "Shadowhands",
+      "type": "ORE covert branch faction",
+      "summary": "Covert branch of ORE specialized in corruption, contraband, and illicit magic investigations.",
+      "motive": "Neutralize hidden threats before they become public destabilizers."
+    },
+    {
+      "name": "Communal Ration Allocators",
+      "type": "Sheresh civic-distribution faction",
+      "summary": "Sheresh quartermasters and ration judges who keep dome survival stores, heat budgets, and emergency reserves balanced.",
+      "motive": "Prevent scarcity cascades by keeping heat, food, and repair materials distributed according to survi"
+    },
+    {
+      "name": "Forge Dedication Halls",
+      "type": "Psanan forge-civic faction",
+      "summary": "Ceremonial forge communities where craft, oath, and renewal are bound together under public House supervision.",
+      "motive": "Keep forge labor sacred, socially legible, and politically loyal to the rebuilding order."
+    },
+    {
+      "name": "Artificers\u2019 Guild",
+      "type": "Soreheim relic-technology and magical integration faction",
+      "summary": "Alliance artificers tasked with integrating relics and rare controlled magic into industry under strict oversight.",
+      "motive": "Convert rare magical knowledge into durable Alliance advantage without allowing uncontrolled arcane "
+    },
+    {
+      "name": "Guild Sanction Board",
+      "type": "Union regulatory faction",
+      "summary": "Union-facing sanction authority that disciplines guild misbehavior, contract breaches, and destabilizing market conduct.",
+      "motive": "Preserve network trust by proving that commercial power remains governable."
+    },
+    {
+      "name": "Frontier Hammer Companies",
+      "type": "Soreheim frontier labor-militia faction",
+      "summary": "Mixed crews that defend, repair, and push dangerous industrial frontiers in the Eternal Lands.",
+      "motive": "Secure extraction zones and keep remote infrastructure alive in lands where predators and geothermal"
+    },
+    {
+      "name": "Engineers\u2019 Consortium",
+      "type": "Soreheim infrastructure faction",
+      "summary": "Primary infrastructure planners and maintainers for Titan Towers, spans, depots, and industrial systems.",
+      "motive": "Keep the Alliance physically functional and expansion-capable through disciplined engineering."
+    },
+    {
+      "name": "Loss Ledger Circles",
+      "type": "Sheresh mourning-accountability faction",
+      "summary": "Sheresh circles that record deaths, disappearances, and irrecoverable losses so survival decisions remain socially remem",
+      "motive": "Prevent the harsh arithmetic of survival from erasing grief, accountability, or cautionary memory."
+    },
+    {
+      "name": "Agricultural Syndicate",
+      "type": "Soreheim agricultural coordination faction",
+      "summary": "Alliance-wide coordinators of communal food production, irrigation discipline, and harvest distribution across the Unter",
+      "motive": "Maintain food stability, preserve productive land, and keep communal supply obligations met."
+    },
+    {
+      "name": "Iron Accord",
+      "type": "Roaz fortification faction",
+      "summary": "Roazian coalition of military architects and engineers responsible for fortifications, strategic facilities, and antimag",
+      "motive": "Keep Roaz defensible, logistically efficient, and superior in managing physical and arcane threats."
+    },
+    {
+      "name": "Office of Roazian Enforcement",
+      "type": "Roaz enforcement faction",
+      "summary": "The main law-and-order arm of Roaz, responsible for anti-magic enforcement, trade security, prisoner management, and jud",
+      "motive": "Preserve lawful order and state control over risk, especially magical risk."
+    },
+    {
+      "name": "House Mimolot",
+      "type": "noble house faction",
+      "summary": "Scholarly-magic house centered on education, book tariff systems, and controlled magical production.",
+      "motive": "Maintain educational authority and magical legitimacy while controlling access to dangerous knowledg"
+    },
+    {
+      "name": "House Cosmouth",
+      "type": "noble house faction",
+      "summary": "Maritime archival and shipbuilding house anchoring Cosmouth\u2019s trade, recordkeeping, and ocean-facing power.",
+      "motive": "Preserve maritime influence, archive legitimacy, and shipwright strength within the Principalities."
+    },
+    {
+      "name": "Magi Magistratus",
+      "type": "Shirsh magic-law faction",
+      "summary": "Magical law investigators and enforcers operating across houses to pursue misconduct and arcane irregularity.",
+      "motive": "Keep dangerous or illicit magic within legible boundaries and preserve Shirsh authority over magical"
+    },
+    {
+      "name": "House Zootia",
+      "type": "noble house faction",
+      "summary": "Raw-material and agricultural house supplying wool, crops, livestock, and other essential inputs to the Principalities.",
+      "motive": "Remain indispensable by feeding and supplying the broader house network."
+    },
+    {
+      "name": "House Shelk",
+      "type": "noble house faction",
+      "summary": "Road-policing, fashion-patronage, and harmony-centered noble house governing Shelk\u2019s cultural power.",
+      "motive": "Keep trade secure, fashion prestigious, and Shelk visibly harmonious without surrendering political "
+    },
+    {
+      "name": "Descent Charter Compacts",
+      "type": "Psanan sanctioned descent faction",
+      "summary": "Interlocking charters governing who may enter the Scarlet Depths, what is owed after descent, and how recovered material",
+      "motive": "Keep underworld extraction productive without letting unsanctioned descent destabilize House order."
+    },
+    {
+      "name": "House Roaz",
+      "type": "noble house faction",
+      "summary": "Legal-industrial noble house anchoring strict enforcement, quarry extraction, and strategic antimagic development.",
+      "motive": "Preserve order, expand strategic strength, and ensure magic never outruns state control."
+    },
+    {
+      "name": "Route Warden Compacts",
+      "type": "Sheresh route-governance faction",
+      "summary": "Sheresh cross-commune agreements governing launch windows, escorts, and loss reporting between domes.",
+      "motive": "Keep necessary travel survivable and socially accountable in a lethal environment."
+    },
+    {
+      "name": "Rebuilding Oath Courts",
+      "type": "Psanan renewal-judgment faction",
+      "summary": "Public oath forums where rebuilding obligations, restitution, and civic renewal promises are witnessed and judged.",
+      "motive": "Turn destruction into accountable renewal instead of endless vengeance or neglect."
+    },
+    {
+      "name": "Great House Citadel Circle",
+      "type": "Psanan great-house faction",
+      "summary": "The public ring of matriarchal Great Houses whose citadels define status, rivalries, and production power on Psanan.",
+      "motive": "Preserve House precedence while extracting strength, loyalty, and legitimacy from volcanic endurance"
+    },
+    {
+      "name": "Giant Council",
+      "type": "Soreheim ruling faction",
+      "summary": "Storm Giant-led supreme governing body of the Soreheim Alliance, advised by Decon Von Reckshem.",
+      "motive": "Drive progress, enforce communal hierarchy, and keep the Alliance expanding under giant authority."
+    },
+    {
+      "name": "Ash Port Factors",
+      "type": "Psanan trade-broker faction",
+      "summary": "Harbor-facing brokers who move volcanic exports, ration incoming necessities, and negotiate ash-window shipping from Psa",
+      "motive": "Keep Psanan\u2019s dangerous export economy functioning despite ashfall, heat, and route volatility."
+    },
+    {
+      "name": "Miners\u2019 Assembly",
+      "type": "Soreheim extraction faction",
+      "summary": "The principal extraction organization for the Alliance\u2019s mining zones, especially in the Eternal Lands.",
+      "motive": "Keep ore, crystal, and geothermal resource streams flowing without collapsing the frontier."
+    },
+    {
+      "name": "Fashion Artisans Collective",
+      "type": "Shelk artisan-faction",
+      "summary": "House Shelk-aligned fashion network that organizes designers, workshops, apprentices, and cultural showcases.",
+      "motive": "Preserve Shelk\u2019s artistic prestige while turning fashion into durable political and economic power."
+    },
+    {
+      "name": "Containment Research Concord",
+      "type": "Sheresh containment science faction",
+      "summary": "Sheresh research bloc coordinating contamination measurement, shield experimentation, and controlled study of dangerous ",
+      "motive": "Understand and survive magical contamination without letting inquiry endanger the domes."
+    },
+    {
+      "name": "House Mal Remnant Claimants",
+      "type": "legacy claimant faction",
+      "summary": "Residual Mal-aligned claimants who preserve debt, title, or memory claims after the Union successor transition.",
+      "motive": "Recover lost standing, settle old obligations in their favor, or resist total absorption into the Un"
+    },
+    {
+      "name": "The Union",
+      "type": "successor guild-governed faction",
+      "summary": "Guild-backed successor order replacing Mal\u2019s active trade-mediation role across the former Mal sphere.",
+      "motive": "Keep trade moving, disputes arbitrated, and guild power coordinated without returning to fallen-hous"
+    },
+    {
+      "name": "Sheresh Dome Stewards",
+      "type": "Sheresh civic survival faction",
+      "summary": "Steward-administrators who keep dome life functioning through maintenance law, heat discipline, and communal survival pr",
+      "motive": "Keep domes alive first, comfortable second, and politically stable throughout crisis."
+    }
+  ],
+  "locations": {
+    "Aurora Crown Commune": {
+      "region": "Sheresh Communes",
+      "norms": [
+        "Survival-aware greetings often include weather, dome status, or route condition before personal matters."
+      ],
+      "rumors": [
+        "People say something in Aurora Crown Commune has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Aurora Crown Commune left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Aurora Crown Commune Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Aurora Crown Commune is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Aurora Crown Commune are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Aurora Crown Commune is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Aurora Crown Commune could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Shelkopolis": {
+      "region": "Principality of Shelk",
+      "norms": [
+        "Measured compliments on attire are normal among strangers of equal standing."
+      ],
+      "rumors": [
+        "People say something in Shelkopolis has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Shelkopolis left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Amber Fountain Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Shelkopolis is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Shelkopolis are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Shelkopolis is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Shelkopolis could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Cosmoria": {
+      "region": "House Cosmouth",
+      "norms": [
+        "Harbor greetings, deck etiquette, and commercial courtesy mix with archival formality."
+      ],
+      "rumors": [
+        "People say something in Cosmoria has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Cosmoria left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Cosmoria Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Cosmoria is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Cosmoria are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Cosmoria is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Cosmoria could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Ithtananalor": {
+      "region": "Principality of Roaz",
+      "norms": [
+        "Direct acknowledgment and role-first introductions are favored over ornament."
+      ],
+      "rumors": [
+        "People say something in Ithtananalor has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Ithtananalor left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Ithtananalor Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Ithtananalor is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Ithtananalor are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Ithtananalor is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Ithtananalor could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Mimolot Academy": {
+      "region": "House Mimolot",
+      "norms": [
+        "Scholarly acknowledgment, titles, and affiliation markers matter."
+      ],
+      "rumors": [
+        "People say something in Mimolot Academy has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Mimolot Academy left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Mimolot Academy Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Mimolot Academy is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Mimolot Academy are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Mimolot Academy is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Mimolot Academy could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Ashwake Port": {
+      "region": "Psanan",
+      "norms": [
+        "Respect is shown through endurance, heat tolerance, and correct acknowledgment of House precedence."
+      ],
+      "rumors": [
+        "People say something in Ashwake Port has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Ashwake Port left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Ashwake Port Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Ashwake Port is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Ashwake Port are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Ashwake Port is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Ashwake Port could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Shirshal": {
+      "region": "House Shirsh",
+      "norms": [
+        "Polite but probing introductions are common; people listen for evasion."
+      ],
+      "rumors": [
+        "People say something in Shirshal has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Shirshal left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Shirshal Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Shirshal is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Shirshal are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Shirshal is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Shirshal could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Guildheart Hub": {
+      "region": "The Union",
+      "norms": [
+        "Introductions often include trade function, guild tie, or route purpose before personal warmth."
+      ],
+      "rumors": [
+        "People say something in Guildheart Hub has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Guildheart Hub left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Guildheart Hub Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Guildheart Hub is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Guildheart Hub are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Guildheart Hub is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Guildheart Hub could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Soreheim Proper": {
+      "region": "Soreheim Alliance",
+      "norms": [
+        "Status is established through contribution and assignment before ease."
+      ],
+      "rumors": [
+        "People say something in Soreheim Proper has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Soreheim Proper left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Soreheim Proper Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Soreheim Proper is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Soreheim Proper are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Soreheim Proper is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Soreheim Proper could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Ashforge Citadel": {
+      "region": "Psanan",
+      "norms": [
+        "Respect is shown through endurance, heat tolerance, and correct acknowledgment of House precedence."
+      ],
+      "rumors": [
+        "People say something in Ashforge Citadel has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Ashforge Citadel left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Ashforge Citadel Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Ashforge Citadel is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Ashforge Citadel are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Ashforge Citadel is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Ashforge Citadel could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Zootian Expanse": {
+      "region": "House Zootia",
+      "norms": [
+        "Work and weather are normal first topics."
+      ],
+      "rumors": [
+        "A shipment was short before it ever reached town."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Zootian Expanse Innkeeper",
+        "where_strangers_gather": "At the inn bench, wagon yard, or storehouse queue.",
+        "public_notice_drawing_attention": "A tally notice has changed what leaves next.",
+        "visible_tension": "People are watching whether local need or scheduled export wins.",
+        "private_trouble": "A respected family may be hiding a shortfall.",
+        "one_hour_entanglement": "A newcomer could be pulled into a freight dispute or missing stock accusation quickly."
+      }
+    },
+    "Fairhaven": {
+      "region": "Principality of Shelk",
+      "norms": [
+        "Measured compliments on attire are normal among strangers of equal standing."
+      ],
+      "rumors": [
+        "People say something in Fairhaven has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Fairhaven left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "The Gilded Plough Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Fairhaven is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Fairhaven are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Fairhaven is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Fairhaven could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Sunspire Haven": {
+      "region": "Soreheim Alliance",
+      "norms": [
+        "Status is established through contribution and assignment before ease."
+      ],
+      "rumors": [
+        "People say something in Sunspire Haven has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Sunspire Haven left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Sunspire Haven Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Sunspire Haven is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Sunspire Haven are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Sunspire Haven is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Sunspire Haven could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    },
+    "Panim Haven": {
+      "region": "House Panim",
+      "norms": [
+        "Mournful courtesy and measured acknowledgment of family lines, vows, or dead kin are common."
+      ],
+      "rumors": [
+        "People say something in Panim Haven has grown more tense than the officials admit.",
+        "Merchants claim the last busy cycle in Panim Haven left someone unpaid or publicly embarrassed."
+      ],
+      "hooks": {
+        "who_you_talk_to_first": "Panim Haven Innkeeper",
+        "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+        "public_notice_drawing_attention": "A new notice in Panim Haven is drawing comment because it changes someone\u2019s movement, cost, or safety.",
+        "visible_tension": "People in Panim Haven are acting as though a pressure everyone knows about has become harder to ignore.",
+        "private_trouble": "Someone respectable in Panim Haven is privately entangled in an obligation they cannot publicly explain.",
+        "one_hour_entanglement": "A newcomer in Panim Haven could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+      }
+    }
+  },
+  "polities": [
+    {
+      "name": "House Panim",
+      "type": "house-territory",
+      "summary": "Half-Elves remain primary, with Humans and Elves retained as the most coherent secondary populations for a central religious and afterlife-mediating p"
+    },
+    {
+      "name": "House Shirsh",
+      "type": "house-territory",
+      "summary": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture."
+    },
+    {
+      "name": "Psanan",
+      "type": "top-government polity",
+      "summary": "Volcanic island polity of matriarchal Great Houses, forge industry, underworld exploration, endurance custom, and cyclic renewal under harsh ash and h"
+    },
+    {
+      "name": "House Mal",
+      "type": "fallen legacy principality",
+      "summary": "Former trade-and-banking principality preserved as a fallen predecessor whose infrastructure, claims, and memory still shape the Union successor heart"
+    },
+    {
+      "name": "Sheresh Communes",
+      "type": "top-government polity",
+      "summary": "Humans, Elves, and Halflings are resolved as the core, with Half-Elves retained as a conservative adjacency-based secondary race."
+    },
+    {
+      "name": "House Mimolot",
+      "type": "house-territory",
+      "summary": "Mimolot is explicitly reconciled as a mixed polity in which Elves, Humans, and Gnomes all hold stable demographic presence under differentiated functi"
+    },
+    {
+      "name": "House Cosmouth",
+      "type": "house-territory",
+      "summary": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state."
+    },
+    {
+      "name": "House Zootia",
+      "type": "house-territory",
+      "summary": "Yuan-Ti remain the defining race, with Humans, Half-Elves, and Elves preserved as secondary populations through labor, trade, and imperial integration"
+    },
+    {
+      "name": "Union Successor Heartland",
+      "type": "internal successor region",
+      "summary": "The post-Mal internal region whose main population areas are highly industrialized and urban, where guild courts, converted banking districts, warehou"
+    },
+    {
+      "name": "Principality of Roaz",
+      "type": "sub-polity / house-territory",
+      "summary": "Humans remain primary, while Half-Elves, Elves, and Gnomes align with Roazian law, industry, and anti-magic technical culture."
+    },
+    {
+      "name": "Soreheim Alliance",
+      "type": "top-government polity",
+      "summary": "Giant-led alliance ruled from Soreheim Proper, where central quota authority, industrial hierarchy, and regional mediation hold together a large multi"
+    },
+    {
+      "name": "Principality of Shelk",
+      "type": "sub-polity / house-territory",
+      "summary": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk\u2019s urban, artistic, and nature-li"
+    },
+    {
+      "name": "Nomdara Caravan",
+      "type": "mobile connective polity",
+      "summary": "A mobile connective polity organized as a colossal caravan-city on wheels, with trade expeditions, council-of-elders governance, consensus procedure, "
+    },
+    {
+      "name": "The Union",
+      "type": "guild-governed successor power",
+      "summary": "Humans and Gnomes remain primary; Half-Elves, Elves, and Yuan-Ti are formalized as durable resident blocs in the exchange and mediation core."
+    },
+    {
+      "name": "The Principalities",
+      "type": "umbrella polity",
+      "summary": "Imperial umbrella polity of noble territorial powers, imperial central authority, and a successor trade order centered on The Union, now carrying an e"
+    }
+  ]
+}
