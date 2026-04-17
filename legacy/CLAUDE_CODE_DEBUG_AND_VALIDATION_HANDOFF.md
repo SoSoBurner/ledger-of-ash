@@ -1,3 +1,10 @@
+---
+> **ARCHIVED FOR HISTORY ONLY**
+> This document is kept for reference and context only.
+> It reflects planning or spec work from prior sessions.
+> Do not treat this as current documentation.
+---
+
 # CLAUDE CODE DEBUG AND VALIDATION HANDOFF
 
 ## Role of This Pass

@@ -1,3 +1,10 @@
+---
+> **ARCHIVED FOR HISTORY ONLY**
+> This document is kept for reference and context only.
+> It reflects planning or spec work from prior sessions.
+> Do not treat this as current documentation.
+---
+
 # Ledger of Ash — Staged Build Spec
 
 ## 1. Purpose of This File
