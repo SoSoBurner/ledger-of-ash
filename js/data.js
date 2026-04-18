@@ -881,6 +881,446 @@ const STAGE2_DESTINATION_CONTENT = {
         objective: 'Determine if the death-binding is holding or if resurrection waits.',
         narrative: 'Shirshal operates on testimony and sealed records. Death Knights swear terrible oaths. The creature or force is not merely contained, it is death-bound, which suggests it was never supposed to be seen in this world again.'
       }
+    },
+    wizard: {
+      civic: {
+        theme: 'arcane scholarship trapped in institutional silence',
+        contradiction: 'the academy has sealed restricted archives and refuses to explain the failure of protections',
+        objective: 'Investigate the sealed archives and learn what knowledge triggered the security lockdown.',
+        narrative: 'Mimolot Academy holds itself as the center of careful knowledge. Wizards understand that power lives in understanding. The archives have been sealed and the official explanation does not account for the urgency.'
+      },
+      frontier: {
+        theme: 'ritual knowledge versus civic order',
+        contradiction: 'officials claim routine route closure but wizards sense deep magical disturbance',
+        objective: 'Cast ritual diagnostics and discover what magical event prompted the closure.',
+        narrative: 'Shelkopolis runs on order and ceremony. Wizards know ritual shapes reality. The route closure feels wrong in ways the official story cannot explain.'
+      },
+      occult: {
+        theme: 'structured arcane understanding against chaos',
+        contradiction: 'industrial contamination is behaving according to patterns that suggest deliberate magical guidance',
+        objective: 'Determine if the contamination spread is natural or if it is being deliberately shaped by magic.',
+        narrative: 'Soreheim Proper moves on quota and output. Wizards parse the patterns beneath surface chaos. The contamination patterns follow mathematical progressions that industrial accident cannot explain.'
+      }
+    },
+    cleric: {
+      civic: {
+        theme: 'divine doctrine and institutional healing power',
+        contradiction: 'the shrine is barring priests from sections of the sanctuary and the blessing rites have changed',
+        objective: 'Access the restricted sanctuary areas and learn what the priesthood is hiding.',
+        narrative: 'Shelkopolis breathes ritual and ceremony. Clerics serve institutional doctrine and healing. The shrine has compartmentalized itself and something about the new blessing rites feels wrong to sacred senses.'
+      },
+      frontier: {
+        theme: 'divine authority invoked against enforcement power',
+        contradiction: 'the Iron Accord is preventing clergy from ministering to prisoners and the route closure is cutting off supply to shrine networks',
+        objective: 'Restore clerical access and determine what the Accord is trying to prevent.',
+        narrative: 'Ithtananalor runs on power and control. Clerics answer to divine mandate. The enforcement hierarchy has isolated their ability to minister, which suggests they fear what clergy might discover.'
+      },
+      occult: {
+        theme: 'healing power corrupted by hidden damage',
+        contradiction: 'guild healers report cases they cannot treat and symptoms that persist despite blessed intervention',
+        objective: 'Find what damage or curse is evading normal healing and determine its source.',
+        narrative: 'Guildheart Hub runs on contracts and mutual obligation. Clerics heal through divine power but some wounds resist blessing. The healers are encountering something that sacred arts cannot reach.'
+      }
+    },
+    priest: {
+      civic: {
+        theme: 'ritual authority as social anchor',
+        contradiction: 'the memorial processionals are being restricted and priests are forbidden from visiting certain areas',
+        objective: 'Discover what the authorities fear the processionals will reveal.',
+        narrative: 'Panim Haven speaks in ritual and remembrance. Priests bind community through public rite. The authorities are preventing access to areas where ritual might be performed, which means they fear what witness might occur.'
+      },
+      frontier: {
+        theme: 'portable faith and community protection through ritual',
+        contradiction: 'traveling shrine caravans are being turned back and blessed road stations have been sealed',
+        objective: 'Reopen the shrine network and learn why the route was closed to faith.',
+        narrative: 'Fairhaven trades in movement and passage. Priests carry ritual into the frontier spaces. The closure has isolated the shrine network, which suggests powerful people do not want blessing or witness on that road.'
+      },
+      occult: {
+        theme: 'ritual counter-pressure against industrial corruption',
+        contradiction: 'forge workers report that benediction rites are failing and protective marks are darkening',
+        objective: 'Investigate the spiritual corruption of protective rites and its source.',
+        narrative: 'Soreheim Proper moves on force and quotas. Priests invoke ritual authority against chaos. The protective marks that should shield workers are failing, which suggests something powerful is actively corrupting blessings.'
+      }
+    },
+    necromancer: {
+      civic: {
+        theme: 'death knowledge and forbidden records',
+        contradiction: 'the memorial ledgers show edited entries and some death records have been physically removed',
+        objective: 'Reconstruct the removed records and learn what deaths are being hidden.',
+        narrative: 'Panim Haven serves death and memorial registry. Necromancers understand death as knowledge. The death records have been edited and pages have been removed, which means someone wants the dead forgotten.'
+      },
+      frontier: {
+        theme: 'grave knowledge and unquiet spirits',
+        contradiction: 'academy necrologists report unusual spirit activity near the sealed areas',
+        objective: 'Speak with spirits that others cannot hear and learn what they witnessed.',
+        narrative: 'Mimolot Academy pursues knowledge carefully. Necromancers walk the boundary between death and knowledge. Scholars have sensed spirit activity that their normal tools cannot explain.'
+      },
+      occult: {
+        theme: 'death magic as containment leverage',
+        contradiction: 'the dome communities are reporting seal failures that appear to correlate with death of complex creatures',
+        objective: 'Determine if death-binding magic is keeping something contained and if that magic is failing.',
+        narrative: 'Aurora Crown Commune lives in fear of contamination. Necromancers know that binding the dead can contain the living. The seal failures correlate too closely to creature death to be coincidence.'
+      }
+    },
+    illusionist: {
+      civic: {
+        theme: 'perception as truth and visible deception',
+        contradiction: 'the civic record keepers are maintaining two versions of important documents and contradictions are showing',
+        objective: 'Expose which record version is false and who benefits from the deception.',
+        narrative: 'Shelkopolis operates on visible order and official truth. Illusionists understand that perception shapes reality. There are two versions of important records and they cannot both be true.'
+      },
+      frontier: {
+        theme: 'hidden routes and displaced sight lines',
+        contradiction: 'guild maps show routes that do not match what travelers actually navigate',
+        objective: 'Map the true routes beneath the false guild knowledge and learn who diverted the traffic.',
+        narrative: 'Guildheart Hub operates on contracts and documented passage. Illusionists read what others miss seeing. The guild maps are incomplete or deliberately misleading about how traffic actually flows.'
+      },
+      occult: {
+        theme: 'illusion magic and hidden truth in sealed records',
+        contradiction: 'witness testimony records show contradictions that suggest false testimony or magical influence on memory',
+        objective: 'Separate true witness account from magical distortion and identify who shaped the testimony.',
+        narrative: 'Shirshal operates on witness testimony and sealed records. Illusionists know that perception can be shaped. The witness records contain contradictions that suggest magical influence on the very memory of events.'
+      }
+    },
+    inquisitor: {
+      civic: {
+        theme: 'doctrinal truth and interrogatory pressure',
+        contradiction: 'court officials are reluctant to discuss certain cases and testimony has been officially restricted',
+        objective: 'Access the restricted testimony and learn what doctrine it violates.',
+        narrative: 'Shirshal operates through testimony and judgment. Inquisitors pursue truth through pressure and doctrine. Official testimony has been restricted, which means they fear what truth might emerge.'
+      },
+      frontier: {
+        theme: 'truth extracted through judgment authority',
+        contradiction: 'academy investigation records were sealed and students who asked questions have been dismissed',
+        objective: 'Investigate the sealed records and learn what truth the academy wanted hidden.',
+        narrative: 'Mimolot Academy pursues knowledge through careful channels. Inquisitors know that truth often lies behind restriction. Students were dismissed for asking questions and records were sealed to prevent answers.'
+      },
+      occult: {
+        theme: 'judgment authority enforced against deception',
+        contradiction: 'guild contracts show deceptions that break doctrinal law and high guild officials are avoiding questioning',
+        objective: 'Force the guild officials to face judgment for the deceptions in their contracts.',
+        narrative: 'Guildheart Hub operates on contracts and mutual obligation. Inquisitors know that judgment is the final authority. The contracts contain clear deceptions yet high officials are avoiding official scrutiny.'
+      }
+    },
+    elementalist: {
+      civic: {
+        theme: 'elemental force channeled through industrial systems',
+        contradiction: 'the cargo network shows elemental damage that does not match reported incidents',
+        objective: 'Trace elemental damage to its source and learn what force is moving through the convoys.',
+        narrative: 'Sunspire Haven moves freight through quota and pressure. Elementalists understand that force shapes the world. The cargo damage patterns suggest elemental power is being channeled somewhere deliberately.'
+      },
+      frontier: {
+        theme: 'environmental transformation and barrier breaking',
+        contradiction: 'dome seals are weakening in ways that suggest external elemental pressure rather than internal failure',
+        objective: 'Determine if natural forces or deliberate magical pressure is threatening the dome.',
+        narrative: 'Aurora Crown Commune fears contamination. Elementalists know that forces can be shaped and directed. The seal weakening feels driven by external pressure rather than random failure.'
+      },
+      occult: {
+        theme: 'ritual channeling of elements against order',
+        contradiction: 'academy scholars report rituals that channel raw element in ways forbidden by doctrine',
+        objective: 'Learn what forbidden element ritual is being performed and why doctrine forbids it.',
+        narrative: 'Mimolot Academy pursues knowledge carefully. Elementalists know forbidden power. Scholars are secretly channeling raw element in direct violation of academy doctrine.'
+      }
+    },
+    oracle: {
+      civic: {
+        theme: 'prophecy and fated vision made public',
+        contradiction: 'prophetic warnings were circulated through the shrine network and the route was closed the next day',
+        objective: 'Learn what the prophecies foretold and whether the closure was preparation or cover.',
+        narrative: 'Shelkopolis holds ceremony and order. Oracles see what others cannot perceive. Prophecies warning of danger were shared, then the route closed immediately. The connection is too direct to ignore.'
+      },
+      frontier: {
+        theme: 'prophecy written in death and memorial',
+        contradiction: 'memorial surge follows an oracle prophecy by exactly three days with precise timing',
+        objective: 'Determine if the oracle prophecy caused the deaths or merely foretold them.',
+        narrative: 'Panim Haven speaks in death and registry. Oracles see futures as certainly as past. An oracle prophecy was shared, and three days later the memorial spike arrived with mathematical precision.'
+      },
+      occult: {
+        theme: 'divination as revealed fate and academic truth',
+        contradiction: 'sealed academy divination records predict specific dates that correlate with the closure and aftermath',
+        objective: 'Access the sealed divination texts and learn what fate was foretold.',
+        narrative: 'Mimolot Academy pursues knowledge and careful study. Oracles see paths that others cannot choose. The sealed divination records contain predictions that proved accurate, which means the future is not open but written.'
+      }
+    },
+    healer: {
+      civic: {
+        theme: 'body knowledge and trauma pattern recognition',
+        contradiction: 'intake logs show a cluster of creature-wound injuries being recorded under vague trauma categories',
+        objective: 'Trace the wound pattern to its source and learn what caused the injuries on the eastern approach.',
+        narrative: 'Shelkopolis runs on civic order and careful record. Healers read the body as evidence. Injury records from the eastern approach are being miscategorized, which means someone wants the wound type hidden.'
+      },
+      frontier: {
+        theme: 'pilgrimage medicine and road trauma response',
+        contradiction: 'Panim Haven pilgrimage healers report treating injuries they were told not to document',
+        objective: 'Find the undocumented cases and learn what is injuring people on the closed route.',
+        narrative: 'Panim Haven serves death and memorial. Healers who walk the pilgrimage roads treat what they find. Injuries from the closure zone are going unrecorded at the instruction of officials who fear the pattern.'
+      },
+      occult: {
+        theme: 'arcane wound treatment and restricted ward access',
+        contradiction: 'Mimolot Academy ward healers have been barred from treating specific injury categories now appearing in the corridor',
+        objective: 'Access the restricted ward records and learn what wound category is being suppressed.',
+        narrative: 'Mimolot Academy pursues knowledge under careful hierarchy. Healers who work the restricted wards know what the institution wants hidden. The ward restriction is new and corresponds precisely to the closure date.'
+      }
+    },
+    artificer: {
+      civic: {
+        theme: 'craft permits and sealed device inventory',
+        contradiction: 'craft license records show devices checked out of civic storage that were never returned and the checkout dates match the closure',
+        objective: 'Trace the missing devices and learn what they were deployed to do.',
+        narrative: 'Shelkopolis maintains careful records of sealed devices and licensed tools. Artificers know what each device does. The missing inventory from the closure week points to a deliberate deployment.'
+      },
+      frontier: {
+        theme: 'industrial deployment records and field modifications',
+        contradiction: 'Soreheim maintenance logs show unauthorized device modifications before the eastern route incident',
+        objective: 'Find the modified devices and learn what they were changed to accomplish.',
+        narrative: 'Soreheim Proper runs on specification and quota. Artificers who work the industrial systems know when modifications break the specification. The unauthorized changes are directly connected to the closure.'
+      },
+      occult: {
+        theme: 'arcane mechanism and guild device certification',
+        contradiction: 'Guildheart Hub certification records show devices licensed for one purpose that were deployed for another',
+        objective: 'Find the misdeployed devices and determine what they were actually used for on the eastern route.',
+        narrative: 'Guildheart Hub runs on contract and certified practice. Artificers know the difference between a device as certified and a device as deployed. The certification records have been falsified to cover a different purpose entirely.'
+      }
+    },
+    engineer: {
+      civic: {
+        theme: 'infrastructure audit and route works knowledge',
+        contradiction: 'Soreheim construction records show maintenance completed on the eastern approach that does not match the actual state of the route',
+        objective: 'Find what actually happened to the route infrastructure and why the records were falsified.',
+        narrative: 'Soreheim Proper runs on industrial specification and record. Engineers audit what was built against what was documented. The maintenance records are false and the discrepancy is significant enough to explain the closure.'
+      },
+      frontier: {
+        theme: 'dome infrastructure and containment system pressure',
+        contradiction: 'Aurora Crown Commune engineering logs show containment system strain that was logged then deleted',
+        objective: 'Recover the deleted containment logs and determine what was contained and whether it held.',
+        narrative: 'Aurora Crown Commune lives by its containment systems. Engineers know what the logs show when they are honest. The deleted records from the closure week describe something the dome leadership did not want preserved.'
+      },
+      occult: {
+        theme: 'guild infrastructure and authorized route modification',
+        contradiction: 'Guildheart Hub route engineering records show modifications to the eastern approach that were never submitted for sanction',
+        objective: 'Establish what route modifications were made and whether they were intended to block or to hide.',
+        narrative: 'Guildheart Hub routes are modified through formal sanction. Engineers who bypass the sanction board are covering something. The unsanctioned modifications predate the official closure announcement by four days.'
+      }
+    },
+    tactician: {
+      civic: {
+        theme: 'formation logic and garrison command authority',
+        contradiction: 'garrison tactical logs show order changes that overrode standing defensive protocols without standard command authorization',
+        objective: 'Find who issued the override orders and what they were actually protecting.',
+        narrative: 'Shelkopolis maintains garrison order through documented command chains. Tacticians read formations and authority. The protocol overrides came from outside the standard chain and the timing aligns exactly with the closure.'
+      },
+      frontier: {
+        theme: 'field command and tactical response documentation',
+        contradiction: 'Panim Haven tactical records show a force deployment that was never officially acknowledged and has been removed from the active logs',
+        objective: 'Reconstruct the erased deployment and determine what force was committed to the eastern approach.',
+        narrative: 'Panim Haven coordinates memorial and civic authority. Tacticians who read deployment records know when a force was committed and then forgotten. The erased deployment used real resources and left real evidence.'
+      },
+      occult: {
+        theme: 'arcane threat assessment and doctrinal command structure',
+        contradiction: 'Mimolot Academy threat assessment reports were requisitioned by an external command authority and never returned',
+        objective: 'Recover or reconstruct the threat assessments and learn what danger they documented.',
+        narrative: 'Mimolot Academy produces careful threat analysis. Tacticians know that when assessments are requisitioned and never returned, the information was used for something not authorized by the academy hierarchy.'
+      }
+    },
+    alchemist: {
+      civic: {
+        theme: 'compound inventory and reagent supply chain',
+        contradiction: 'Shelkopolis alchemical supply records show a large reagent requisition linked to the eastern approach that was classified immediately after processing',
+        objective: 'Uncover what the classified requisition contained and what it was intended to accomplish.',
+        narrative: 'Shelkopolis runs on civic order and careful license. Alchemists who track reagent supply know when a compound movement is classified above its routine importance. The classification happened hours after the route closure.'
+      },
+      frontier: {
+        theme: 'field compound application and containment reagents',
+        contradiction: 'Mimolot Academy field operations logs show unusual compound deployment on the eastern approach without standard safety protocols',
+        objective: 'Determine what compounds were deployed and what they were used to contain or treat.',
+        narrative: 'Mimolot Academy uses field compounds under careful protocol. Alchemists who bypass safety procedure in deployment are dealing with something that cannot wait for proper process. The bypass implies extreme urgency.'
+      },
+      occult: {
+        theme: 'occult reagent sourcing and forbidden compound work',
+        contradiction: 'Guildheart Hub reagent certification records show compounds sourced from banned suppliers in the period before the closure',
+        objective: 'Identify the banned compounds and determine what occult application they serve.',
+        narrative: 'Guildheart Hub certifies reagent legitimacy. Alchemists who source from banned suppliers are working with compounds that certified channels will not provide. The banned sourcing happened in the week before the route closed.'
+      }
+    },
+    saint: {
+      civic: {
+        theme: 'mercy witness and public grief acknowledgment',
+        contradiction: 'public grief for the eastern route dead has been systematically redirected away from official memorial channels',
+        objective: 'Find the families being redirected and learn what truth the officials want kept from public witness.',
+        narrative: 'Shelkopolis runs on civic ceremony and public order. Saints bear witness where others look away. Grief that should flow through public memorial is being quietly redirected, which means the deaths carry a truth the city does not want witnessed.'
+      },
+      frontier: {
+        theme: 'pilgrimage witness and costly community presence',
+        contradiction: 'Panim Haven pilgrimage communities report that survivors from the eastern approach were moved before they could be properly witnessed',
+        objective: 'Find the moved survivors and provide the witness that official process is denying them.',
+        narrative: 'Panim Haven serves death and memorial through community and rite. Saints know that witness costs something and that denial of witness is its own violence. The survivors were moved specifically to prevent the witness that is their right.'
+      },
+      occult: {
+        theme: 'spiritual witness against guild contractual silence',
+        contradiction: 'Guildheart Hub workers who witnessed the eastern approach incident have signed silence contracts they cannot legally refuse',
+        objective: 'Find a path around the silence contracts and give the workers a form of witness they can bear.',
+        narrative: 'Guildheart Hub operates on contract and obligation. Saints know that contractual silence can itself be a form of harm. Workers who witnessed something significant have been legally silenced, which is both permitted and unjust.'
+      }
+    },
+    bard: {
+      civic: {
+        theme: 'voice and public story as access and leverage',
+        contradiction: 'Shelkopolis story networks that normally carry rumor quickly have gone quiet about the eastern approach in an unnatural way',
+        objective: 'Find what silenced the story networks and recover the suppressed account.',
+        narrative: 'Shelkopolis breathes story and public sway. Bards know when silence is imposed rather than natural. Every city rumor channel has gone quiet on the same subject at the same time, which means someone paid or threatened the voices.'
+      },
+      frontier: {
+        theme: 'trading floor story and freight rumor as intelligence',
+        contradiction: 'Guildheart Hub trading floor stories about the eastern approach contradict the official account in specific and consistent ways',
+        objective: 'Compile the trading floor accounts and find the consistent truth beneath the official story.',
+        narrative: 'Guildheart Hub runs on contract and commerce. Bards who work trading floors know that merchants tell their own truth. The floor accounts differ from the official story in the same direction every time, which means the merchants know something.'
+      },
+      occult: {
+        theme: 'memorial song and encoded witness as record',
+        contradiction: 'Panim Haven memorial songs from the closure period contain encoded witness accounts that diverge sharply from official casualty records',
+        objective: 'Decode the memorial songs and recover the witness accounts they were designed to preserve.',
+        narrative: 'Panim Haven speaks in death and remembrance. Bards who know memorial tradition understand that songs preserve what records erase. The closure period songs carry encoded witness, which means the community knew the records would be falsified.'
+      }
+    },
+    rogue: {
+      civic: {
+        theme: 'quiet entry and civic record leverage',
+        contradiction: 'permit records from the closure week show freight movements that do not match official loading dock logs',
+        objective: 'Reconcile the permit discrepancy and find what freight bypassed the official record.',
+        narrative: 'Shelkopolis tracks freight and permits through careful civic infrastructure. Rogues read the gaps between records. The discrepancy is large enough to represent significant movement and someone closed the official log gap before it was noticed.'
+      },
+      frontier: {
+        theme: 'opportunism and cargo intelligence',
+        contradiction: 'Guildheart Hub cargo floor shows ghost freight movements that match no recorded contract',
+        objective: 'Trace the ghost movements and learn what was moved without documentation.',
+        narrative: 'Guildheart Hub runs on contract and certified movement. Rogues who work the cargo floors know that ghost movement means someone paid for invisibility. The volumes are too large for ordinary contraband.'
+      },
+      occult: {
+        theme: 'quiet access and tollway gap exploitation',
+        contradiction: 'Fairhaven tollway records show access permits issued to identities that do not exist in civic registration',
+        objective: 'Trace the phantom permits and learn who used false identity to move through the tollway.',
+        narrative: 'Fairhaven trades in movement and legitimate passage. Rogues know that phantom permits mean professional-grade false identity. The permits were processed correctly by someone who knew the system, which means insider access.'
+      }
+    },
+    assassin: {
+      civic: {
+        theme: 'commitment to decisive elimination and contract silence',
+        contradiction: 'civic assassination contract records from the closure period have been expunged with the expungement itself visible in the archive audit trail',
+        objective: 'Reconstruct the expunged contract and learn what elimination was authorized before the closure.',
+        narrative: 'Shelkopolis maintains civic order through careful official process. Assassins know that expungement requires authorization from above ordinary record-keeping. The audit trail shows the deletion and the deletion shows a covered action.'
+      },
+      frontier: {
+        theme: 'elimination pressure and elimination contract timing',
+        contradiction: 'a second expunged contract set in the Shelkopolis civic archives shows repeat use of the same authorization sequence within the closure window',
+        objective: 'Identify the second elimination target and determine if the targets share a connection to the route closure.',
+        narrative: 'Shelkopolis runs on order and civic legitimacy. Two expunged contracts in the same window point to a sustained operation, not a single authorized action. The pattern is deliberate and the targets almost certainly knew something dangerous.'
+      },
+      occult: {
+        theme: 'cold precision against institutional deception',
+        contradiction: 'Shirshal sealed-case records show a witness death during the closure window classified as natural cause despite injuries inconsistent with the classification',
+        objective: 'Establish the actual cause of the witness death and learn what testimony was silenced.',
+        narrative: 'Shirshal operates on testimony and the sanctity of witness. The death classification is professionally false and the injuries suggest professional action. Someone with access to sealed case classification ensured the record would not support inquiry.'
+      }
+    },
+    spellthief: {
+      civic: {
+        theme: 'arcane theft and institutional ward disruption',
+        contradiction: 'Mimolot Academy ward integrity logs show a breach that was classified immediately and removed from public record within six hours',
+        objective: 'Recover the breach record and learn what was taken from the ward it protected.',
+        narrative: 'Mimolot Academy maintains careful ward records. Spellthieves know what a professional breach looks like. The breach classification timeline is too fast for ordinary institutional process, which means someone with authority wanted the record gone before inquiry started.'
+      },
+      frontier: {
+        theme: 'arcane disruption and civic ward exploitation',
+        contradiction: 'Shelkopolis civic ward monitoring logs show disruption patterns from the closure window that have been misattributed to routine maintenance',
+        objective: 'Recover the true disruption data and learn what the ward was protecting when it was disrupted.',
+        narrative: 'Shelkopolis maintains civic wards as a matter of institutional order. Spellthieves read disruption signatures. The maintenance misattribution is professional but not perfect, and the disruption patterns are inconsistent with any maintenance procedure.'
+      },
+      occult: {
+        theme: 'guild arcane access and contract theft under authority',
+        contradiction: 'Guildheart Hub arcane contract records show a clause inserted post-signature that altered the terms of a major freight authorization',
+        objective: 'Identify who inserted the post-signature clause and what authority they used to do it.',
+        narrative: 'Guildheart Hub treats signed contracts as inviolable. Spellthieves know that arcane contract modification requires both skill and official access. The clause insertion was technically skilled and used real guild authority, which means an insider who could also cast.'
+      }
+    },
+    scout: {
+      civic: {
+        theme: 'reconnaissance of institutional silence and route pressure',
+        contradiction: 'Soreheim Proper industrial output records show a dropped quota in the eastern corridor that preceded the official route closure announcement by two days',
+        objective: 'Establish what Soreheim management knew before the official closure and when they knew it.',
+        narrative: 'Soreheim Proper runs on quota and production discipline. Scouts who read output records know that a quota drop before an official closure means advance knowledge. Someone in Soreheim management saw the problem coming and said nothing to the workers.'
+      },
+      frontier: {
+        theme: 'field mapping and route truth beneath official claim',
+        contradiction: 'Mimolot Academy waypoint records show route markers that were moved before the closure, not after it',
+        objective: 'Find the moved markers and learn what the original waypoints were protecting.',
+        narrative: 'Mimolot Academy tracks academic routes with careful waypoint records. Scouts who read waypoint displacement know that pre-closure movement means preparation. The route was being changed before the stated emergency, which means the emergency was expected.'
+      },
+      occult: {
+        theme: 'evasion and field intelligence from closed corridors',
+        contradiction: 'Fairhaven tollway scouting reports show creature sign on the eastern approach that predates the official route closure by four days',
+        objective: 'Confirm the creature sign timeline and establish whether the closure was a response to creature presence or a cover for it.',
+        narrative: 'Fairhaven trades in movement and passage. Scouts who work the tollway approaches leave records. Creature sign from before the closure means the threat was visible to field operators before any official acknowledgment.'
+      }
+    },
+    thief: {
+      civic: {
+        theme: 'urban extraction and freight leverage in civic infrastructure',
+        contradiction: 'Shelkopolis freight permit records show a cluster of misdirection orders issued before the route closed that diverted goods away from the eastern approach',
+        objective: 'Trace the misdirection orders and learn who pre-positioned freight before the closure was announced.',
+        narrative: 'Shelkopolis maintains freight permits and cargo routing through civic infrastructure. Thieves who read permit clusters know that pre-closure diversion means advance knowledge. Someone moved their goods before the announcement because they knew the announcement was coming.'
+      },
+      frontier: {
+        theme: 'domeway leverage and sanction record extraction',
+        contradiction: 'Guildheart Hub domeway sanction records show a closure category used for the eastern approach that has never appeared in previous administrative history',
+        objective: 'Establish what the new closure category means and who authorized its use.',
+        narrative: 'Guildheart Hub routes freight through documented sanction procedure. Thieves who know the domeway know that new administrative categories are created to cover new situations. The category was authored and used within the same week, which means it was purpose-built.'
+      },
+      occult: {
+        theme: 'broken-seal knowledge and guild road extraction',
+        contradiction: 'Shirshal broken-seal archive shows a sealing operation on the eastern approach with a creature containment classification that had never been used in this jurisdiction',
+        objective: 'Verify the creature containment classification and learn what was sealed and whether the seal is holding.',
+        narrative: 'Shirshal operates on testimony and procedural record. Thieves who work the broken-seal archive know what containment classifications normally look like. A new classification in an active operation means the creature or force is outside established procedure.'
+      }
+    },
+    trickster: {
+      civic: {
+        theme: 'social disruption and information baiting',
+        contradiction: 'Shelkopolis rumor networks show deliberate false information about the eastern route that was planted by someone who knew the official story in advance',
+        objective: 'Identify the source of the planted disinformation and learn what the true information was they were covering.',
+        narrative: 'Shelkopolis moves on social networks and visible status. Tricksters who work rumor flows know that planted disinformation requires knowing the truth first. Someone with advance knowledge seeded false stories precisely so that inquiry would chase the wrong explanation.'
+      },
+      frontier: {
+        theme: 'misdirection and cargo bait operation',
+        contradiction: 'Guildheart Hub trading floor shows that false freight manifests were distributed before the closure through channels only accessible to senior guild members',
+        objective: 'Trace who distributed the false manifests and what they were diverting attention from.',
+        narrative: 'Guildheart Hub operates on contract and documented freight. False manifests circulating through senior guild channels before the closure means a coordinated misdirection operation. The operation is too sophisticated for a single actor.'
+      },
+      occult: {
+        theme: 'identity displacement and grief misdirection',
+        contradiction: 'Panim Haven memorial records show multiple recently-submitted grief claims where the identified deceased cannot be confirmed in any civic record',
+        objective: 'Establish whether the unconfirmable deceased are false identities or whether their records have been erased.',
+        narrative: 'Panim Haven is the center of death record and memorial legitimacy. Grief claims for unverifiable dead are either fraud or evidence of record erasure. Either answer points to a deliberate operation using the memorial system.'
+      }
+    },
+    beastmaster: {
+      civic: {
+        theme: 'animal reading and industrial creature management',
+        contradiction: 'Soreheim Proper beast handling logs show creature agitation in the eastern corridor that was not reported to the route authorities before the closure',
+        objective: 'Establish what the creatures were responding to and whether that response was suppressed deliberately.',
+        narrative: 'Soreheim Proper manages industrial creatures and extraction animals under careful protocol. Beastmasters read creature behavior as evidence. The agitation was logged at the handler level and then blocked from upward reporting, which means management wanted the signal suppressed.'
+      },
+      frontier: {
+        theme: 'wild creature behavior and dome perimeter reading',
+        contradiction: 'Aurora Crown Commune perimeter logs show unusual creature movement patterns on the eastern approach that the dome authority classified as equipment error',
+        objective: 'Confirm the creature movement pattern was real and establish what the creatures were responding to.',
+        narrative: 'Aurora Crown Commune monitors its dome perimeter carefully. Beastmasters who read perimeter data know the difference between equipment error and animal response to genuine threat. The classification was applied after the pattern was logged, not before.'
+      },
+      occult: {
+        theme: 'field creature tracking and tollway creature pressure',
+        contradiction: 'Fairhaven tollway beast handlers report creature avoidance of the eastern approach that began before the official closure and was not included in any official report',
+        objective: 'Document the creature avoidance timeline and learn what was present on the approach before the closure.',
+        narrative: 'Fairhaven manages livestock and beast traffic through its tollways. Beastmasters who work the tollway approaches know creature avoidance as a reliable early signal. The avoidance predates the closure, which means the threat existed before any official acknowledgment.'
+      }
     }
   };
 

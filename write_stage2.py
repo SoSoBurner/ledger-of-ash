@@ -1,4 +1,25 @@
-// ═══════════════════════════════════════════════════════
+#!/usr/bin/env python3
+# Script to write the complete stage2-backgrounds.js
+
+import os
+
+TARGET = r'C:\Users\CEO\ledger-of-ash\js\stage2-backgrounds.js'
+
+# Read the current file to get parts we keep
+with open(TARGET, 'r', encoding='utf-8') as f:
+    current = f.read()
+
+# We'll build the new content
+lines_to_write = []
+# Find the thief section and replace
+WIZARD_OLD = "    // ── WIZARD (abbreviated) ──"
+SUPPORT_PLACEHOLDER = "    // ── HEALER ──"  # doesn't exist yet
+
+print("Current file has", len(current), "bytes")
+print("Writing replacement...")
+
+# Write the entire file fresh
+content = r"""// ═══════════════════════════════════════════════════════
 // STAGE II BACKGROUND CONTENT — Unique per archetype/background
 // 93 backgrounds x 4 unique choices per background
 // ═══════════════════════════════════════════════════════
@@ -630,3 +651,9 @@
 
   window.BACKGROUND_STAGE2_CONTENT = BACKGROUND_STAGE2_CONTENT;
 })();
+"""
+
+with open(r'C:\Users\CEO\ledger-of-ash\js\stage2-backgrounds.js', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print('DONE - wrote', len(content), 'bytes,', content.count('\n'), 'lines')
