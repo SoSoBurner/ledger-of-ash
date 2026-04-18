@@ -385,5 +385,51 @@ function companionBonus(state, skill) {
   return bonus;
 }
 
+// ── RECRUIT FLOW ─────────────────────────────────────────
+// Called every action in a locality: builds passive trust with local companions
+function buildCompanionTrust(state, amount) {
+  if(!state || !state.location) return;
+  if(!state.companionTrust) state.companionTrust = {};
+  const amt = amount || 1;
+  Object.keys(COMPANION_DEFS).forEach(id => {
+    const def = COMPANION_DEFS[id];
+    if(def.locality !== state.location) return;
+    if(state.companions && state.companions.some(c=>c.id===id)) return;
+    state.companionTrust[id] = Math.min(20, (state.companionTrust[id]||0) + amt);
+  });
+}
+
+// Returns a recruit choice object if a local companion has enough trust, else null
+function recruitChoice(state) {
+  if(!state || !state.location) return null;
+  if(!state.companionTrust) state.companionTrust = {};
+  const TRUST_THRESHOLD = 4;
+  for(const [id, def] of Object.entries(COMPANION_DEFS)) {
+    if(def.locality !== state.location) continue;
+    if(state.companions && state.companions.some(c=>c.id===id)) continue;
+    const trust = state.companionTrust[id]||0;
+    if(trust < TRUST_THRESHOLD) continue;
+    return {
+      label: `Speak with ${def.name} — ${def.role}`,
+      tags: ['Recruit','Party','Ally'],
+      fn() {
+        const joined = {
+          id, name:def.name, role:def.role,
+          trust, available:true, injured:false, joinedDay:state.dayCount
+        };
+        state.companions.push(joined);
+        state.companionTrust[id] = 0;
+        if(typeof addJournal==='function') addJournal('companion', `${def.name} joined at ${state.location}.`, `recruit-${id}-${state.dayCount}`);
+        if(typeof addNotice==='function') addNotice(`${def.name} joins the party.`);
+        if(typeof markMoment==='function') markMoment(`${def.name} recruited`);
+        state.lastResult = def.joinScene.text + ' You accept. ' + def.joinScene.choices[0].text;
+      }
+    };
+  }
+  return null;
+}
+
 window.COMPANION_DEFS = COMPANION_DEFS;
 window.companionBonus = companionBonus;
+window.recruitChoice = recruitChoice;
+window.buildCompanionTrust = buildCompanionTrust;

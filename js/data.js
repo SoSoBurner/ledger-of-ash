@@ -37,6 +37,7 @@
     panim_haven: {
       id:'panim_haven', name:'Panim Haven', polity:'House Panim', safeZone:'Memorial Waystation',
       summary:'Afterlife-service and divine mediation metropolis of ledgers, shrines, offerings, and memorial traffic.',
+      economicRole:'afterlife preparations, offerings, mediation', lawFeel:'sacrificial and mediation decorum; offering-failure is a civil matter',
       pressures:['divine balance obligations','processional strain','seal dispute','mediation backlog'],
       greetings:['ritual seriousness and respectful petition at thresholds','soft acknowledgements before shrine approach'],
       rituals:['afterlife preparations before ledger work','offerings set at mediation courts','divine-balance invocations at processional entries'],
@@ -45,6 +46,7 @@
     sunspire_haven: {
       id:'sunspire_haven', name:'Sunspire Haven', polity:'Soreheim Alliance', safeZone:'Convoy Rest Yard',
       summary:'Rural crossroads market town where tools, grain contracts, and labor obligations move through workshop syndicates and patron-families.',
+      economicRole:'tools, textiles, market exchange, grain routing, labor brokerage', lawFeel:'communal ownership norms enforced through regional decrees, syndicate records, and family obligation',
       pressures:['predators','water system vulnerabilities','storage disputes','family favor feuds'],
       greetings:['contribute and trade fairly at the syndicate yard','show respect to the family controlling the yard you stand in','carry sealed papers when moving labor or grain'],
       rituals:['harvest and unity rites beside practical oath-rituals for contracts','route prayers at convoy departure'],
@@ -53,6 +55,7 @@
     aurora_crown_commune: {
       id:'aurora_crown_commune', name:'Aurora Crown Commune', polity:'Sheresh Communes', safeZone:'Dome Relief Cell',
       summary:'Largest Sheresh dome commune where survival administration, celestial study, and public endurance ritual converge.',
+      economicRole:'protective craftwork, calibration tools, celestial research support', lawFeel:'containment law, resource triage, mandatory repair rotations',
       pressures:['dome stress','contamination seepage','ration balancing'],
       greetings:['respect dome protocols at every threshold','report cracks and supply irregularities immediately'],
       rituals:['aurora and survival observance communal rather than triumphal','mandatory repair rotation acknowledgements at shift end'],
@@ -61,6 +64,7 @@
     shelkopolis: {
       id:'shelkopolis', name:'Shelkopolis', polity:'Principality of Shelk', safeZone:'Roadwarden Annex Ward',
       summary:'Largest metropolis of the Principalities, defined by fashion, trade, refined civic order, and visible devotional plurality.',
+      economicRole:'fashion production, enchanted tailoring, merchant exchange, craft education, Roadwarden support industry', lawFeel:'fashion and decorum law intensify in noble spaces; intellectual property law is serious in elite and archival sites',
       pressures:['glyph corruption beyond the city','trade security obligations','noble rivalry','festival traffic'],
       greetings:['observe site-specific decorum','respect local fashion and craft traditions','follow Roadwarden road and market order','treat shrines and archives with reverence'],
       rituals:['visible offerings for Compassion and renewal at district shrines','observance bands intensify noble and artisan gatherings'],
@@ -69,6 +73,7 @@
     harvest_circle: {
       id:'harvest_circle', name:'Harvest Circle', polity:'Soreheim Alliance', safeZone:'Threshing Shelter',
       summary:'Cultural and market town where harvest patron-families, quota clerks, and festival brokers turn field output into alliance redistribution.',
+      economicRole:'grain redistribution, festival trade, storage, convoy assembly', lawFeel:'market peace enforced through communal law, clerk records, and family responsibility',
       pressures:['spoilage','price pressure','favor feuds','route congestion'],
       greetings:['declare loads honestly at stalls','respect family-controlled stalls and convoy order','treat festival exchange as civic duty as well as profit'],
       rituals:['unity and harvest rites public and crowded','festival exchange resets debts, favors, and work pledges'],
@@ -77,6 +82,7 @@
     glasswake_commune: {
       id:'glasswake_commune', name:'Glasswake Commune', polity:'Sheresh Communes', safeZone:'Research Quarantine Nook',
       summary:'Sheresh research commune devoted to contamination measurement, cold-light study, and shield experimentation.',
+      economicRole:'testing instruments, ward maintenance, data exchange', lawFeel:'quarantine law, research containment protocol; violation is a communal emergency',
       pressures:['exposure incidents','quarantine fatigue','instrument failure'],
       greetings:['submit to scanning at every checkpoint','treat every breach as real until cleared'],
       rituals:['ritual life subdued and tied to survival timing','sample protocols observed before major work runs'],
@@ -85,6 +91,7 @@
     fairhaven: {
       id:'fairhaven', name:'Fairhaven', polity:'Principality of Shelk', safeZone:'Market Chapel Cellar',
       summary:'Agricultural and artisanal town supporting Shelkopolis while sitting near active glyph-cave pressure.',
+      economicRole:'food supply, alchemical ingredients, enchanted tools, minor arms and textiles', lawFeel:'standard Shelk road and market law; increased concern for dangerous magic near glyph anomalies',
       pressures:['glyph corruption','celestial creatures at Watchers Perch','suspicious travelers in taverns'],
       greetings:['respect local purification rites at chapel approaches','heed warnings about celestial creatures and cave anomalies'],
       rituals:['Felujitas and Cyfoes visible through chapel and fountain worship','lamp-trim at threshold shrines'],
@@ -93,6 +100,7 @@
     mimolot_academy: {
       id:'mimolot_academy', name:'Mimolot Academy', polity:'House Mimolot', safeZone:'Archive Convalescence Alcove',
       summary:'Center for noble education and magical schooling where knowledge tariffs are enforced and scholarly decorum is mandatory.',
+      economicRole:'education, knowledge tariffs, magic items', lawFeel:'book tariff and magical conduct law; unauthorized copying is criminal',
       pressures:['tariff tensions','faculty privilege disputes','tutor magistrate enforcement','knowledge access disputes'],
       greetings:['scholarly decorum at all lecture and archive approaches','rank-conscious acknowledgements','quiet citation-first exchanges'],
       rituals:['ink-touch before lecture entries','candle rites in memory halls','knowledge tariff verification before archive access'],
@@ -101,6 +109,7 @@
     soreheim_proper: {
       id:'soreheim_proper', name:'Soreheim Proper', polity:'Soreheim Alliance', safeZone:'Forge Rest Gallery',
       summary:'Harsh hierarchical tower-centered production core where alliance governance, foreign affairs, war output, and high-order manufacturing converge across Titan Towers.',
+      economicRole:'high-order manufacturing, war production, refinement, distribution, foreign trade oversight', lawFeel:'communal ownership and restorative justice enforced through central tower review; domestic patronage never supersedes Soreheim Proper decree',
       pressures:['quota demands','political rivalry','foreign pressure','industrial accidents','tower maintenance strain'],
       greetings:['meet quotas and declare work status at tower gates','respect tower rank in all encounters','treat decrees, seals, and work assignments as binding'],
       rituals:['ambition and merit judgment public at tower oath displays','spark-offerings at forge altars before shift bells'],
@@ -109,6 +118,7 @@
     shirshal: {
       id:'shirshal', name:'Shirshal', polity:'House Shirsh', safeZone:'Witness Court Side Hall',
       summary:'Investigative magical-law center where Magi Magistratus enforces magical compliance and investigation is formal economic activity.',
+      economicRole:'investigation, magical research, case archiving', lawFeel:'magical compliance law saturates public life; arcane scrutiny at every threshold',
       pressures:['magical law violations','witness backlog','arcane scrutiny pressure','custody delay'],
       greetings:['cooperate with inquiries at every checkpoint','measured witness greetings','formal truth-invocations at court doors'],
       rituals:['water-touch before testimony','quiet oath phrases in queue','arcane compliance checks before chamber entry'],
@@ -117,6 +127,7 @@
     ithtananalor: {
       id:'ithtananalor', name:'Ithtananalor', polity:'Principality of Roaz', safeZone:'Enforcement Checkpoint Ward',
       summary:'Fortified administrative heart of Roaz where legal identity, anti-magic law, prison labor, and enforcement culture visibly merge.',
+      economicRole:'ore control, legal infrastructure, technology, prison labor logistics', lawFeel:'Roazian antimagic and order law saturate public life; compliance is non-negotiable',
       pressures:['illicit magic','smuggling','public accountability for harsh enforcement'],
       greetings:['comply promptly at checkpoints','accept inspection without resistance','treat law as public culture rather than negotiable custom'],
       rituals:['document verification before entry','seal inspection at all gates','justice-aligned civic order at public symbolism points'],
@@ -125,6 +136,7 @@
     guildheart_hub: {
       id:'guildheart_hub', name:'Guildheart Hub', polity:'The Union', safeZone:'Guild Hall Archive Chamber',
       summary:'Dense industrial-urban nerve center of the Union where guild rank supersedes noble birth and contract legitimacy is public law.',
+      economicRole:'arbitration, tariff mediation, warehouse registration, trade sanctioning', lawFeel:'contract and sanction logic are publicly legible; failure to register goods attracts rapid administrative consequences',
       pressures:['legacy Mal claims','smuggling','Red Hood rumor presence','imperial oversight'],
       greetings:['declare business plainly at guild gates','observe queue and hearing order','produce records when challenged','respect sanction notices'],
       rituals:['sanction notice reading at market opening','contract seal verification before freight release'],
@@ -133,6 +145,7 @@
     cosmoria: {
       id:'cosmoria', name:'Cosmoria', polity:'House Cosmouth', safeZone:'Maritime Archive Hall',
       summary:'Floating intellectual and shipwright metropolis where archives, maritime etiquette, and shipwright economy define access and status.',
+      economicRole:'shipwright industry, archives, maritime trade', lawFeel:'archive and tax discipline; maritime etiquette failures are social and legal liabilities',
       pressures:['storm weather','trade vulnerability'],
       greetings:['respect archives and maritime administration at all landings','sea communion etiquette before major passages'],
       rituals:['maritime blessing before passage','noble retreat and sea communion culture in upper tiers'],
@@ -141,6 +154,7 @@
     craftspire: {
       id:'craftspire', name:'Craftspire', polity:'The Union', safeZone:'Workshop Quarter Alcove',
       summary:'Highly urbanized production district where artisan output, book-copy bureaucracy, and licensed knowledge trade converge into industrial economic authority.',
+      economicRole:'book copying, regulated magical trade, artisan showcase production, warehouse integration', lawFeel:'book-tax and copy-right law; unauthorized reproduction is criminally prosecuted',
       pressures:['copy theft','intellectual property disputes','material shortages','sabotage'],
       greetings:['respect queue and workshop boundaries','do not touch commissioned work','observe tariff marking rules'],
       rituals:['practical devotion in workshop alcoves','opening rites before major work runs'],
@@ -149,6 +163,7 @@
     unity_square: {
       id:'unity_square', name:'Unity Square', polity:'The Union', safeZone:'Exchange Quarter Holding Room',
       summary:'High-density urban exchange quarter where negotiated trade replaces inherited privilege as the public language of status, procedure, and access.',
+      economicRole:'market mediation, spot trade, inspection fees, transport matching', lawFeel:'market fraud and sanction breaches draw immediate official response; guild colors are operative facts',
       pressures:['price shocks','cargo theft','route closures','public rumor flareups'],
       greetings:['state terms clearly at exchange gates','observe inspection lines','treat posted rates and guild colors as operative facts'],
       rituals:['market rhythm dominates','small shrines at exchange edges for opening rites'],
@@ -157,6 +172,7 @@
     ironhold_quarry: {
       id:'ironhold_quarry', name:'Ironhold Quarry', polity:'Principality of Roaz', safeZone:'Quarry Overseer Station',
       summary:'Major Roazian extraction site linked to law, labor discipline, and strategic infrastructure supply.',
+      economicRole:'ore, stone, strategic construction resources', lawFeel:'high enforcement visibility; labor zone violations treated as direct Roazian authority challenges',
       pressures:['labor harshness','resource theft','border competition'],
       greetings:['obey labor zones and guard instructions at all entry points'],
       rituals:['low-ornament discipline at shift starts','civic necessity observed before extraction work'],
@@ -165,6 +181,7 @@
     plumes_end_outpost: {
       id:'plumes_end_outpost', name:"Plume's End Outpost", polity:'Principality of Shelk', safeZone:'Caravan Rest Post',
       summary:'Northern road outpost guarding and servicing caravans between Shelkopolis and Fairhaven.',
+      economicRole:'caravan staging, route security, hazard reading, shrine services', lawFeel:'Shelk road and patrol law; shrine etiquette violations treated as omens requiring correction',
       pressures:['caravan disruption rumors','celestial enforcer sightings'],
       greetings:['submit to route order at the post gate','respect shrine etiquette','state business clearly to patrol leaders'],
       rituals:['Shrine of Cysur safe-journey offerings before northward departure'],
@@ -173,6 +190,7 @@
     whitebridge_commune: {
       id:'whitebridge_commune', name:'Whitebridge Commune', polity:'Sheresh Communes', safeZone:'Crossing Shelter Hall',
       summary:'Sheresh crossing commune that keeps frozen route traffic, emergency shelter, and arbitration moving between domes.',
+      economicRole:'shelter service, route maps, crossing support', lawFeel:'crossing declaration law, shared emergency supply rules; concealment during emergencies is a communal crime',
       pressures:['bridge icing','refugee surges','missing expeditions'],
       greetings:['declare route intent at crossing registration','share hazard knowledge before departure'],
       rituals:['survival storytelling binds the community in evening cycles','crossing acknowledgements before hazardous bridge transit'],
@@ -233,25 +251,124 @@
     whitebridge_commune:['aurora_crown_commune','glasswake_commune']
   };
 
+  // V31_3 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
   const NPC_PLACEMENTS = {
-    panim_haven:[{id:'teller_vara_senn',office:'Memorial Counter',role:'ledger clerk'},{id:'mournkeeper_els',office:'River Shrine',role:'ritual attendant'}],
-    sunspire_haven:[{id:'elyra_mossbane',office:'Syndicate Yard',role:'patron-family liaison'},{id:'kael_emberthrone',office:'Storage Row',role:'warehouse syndicate head'},{id:'orvak_strone',office:'Convoy Yard',role:'convoy marshal'},{id:'jorva_helmrune',office:'Quota Board',role:'quota clerk'},{id:'taldan_veyst',office:'Workshop Gate',role:'workshop syndicate head'}],
-    aurora_crown_commune:[{id:'warden_sera_whiteglass',office:'Dome Administration Center',role:'dome warden'}],
-    shelkopolis:[{id:'lady_isabella_shelk',office:'House Shelk Estate',role:'noble principal'},{id:'lady_elowen_shelk',office:'House Shelk Council',role:'noble heir'},{id:'captain_thalion_windrider',office:'Roadwarden Command Post',role:'roadwarden captain'},{id:'high_priestess_lyara_dawnlight',office:'Grand Shrine of Shelkopolis',role:'high priestess'}],
-    harvest_circle:[{id:'elyra_mossbane',office:'Harvest Circle market stalls',role:'patron-family broker'},{id:'jorva_helmrune',office:'Harvest Circle granary ledgers',role:'field quartermaster'},{id:'velrik_durnshade',office:'Festival Exchange Hall',role:'festival broker'},{id:'farlan_inkshade',office:'Quota Clerk Office',role:'quota clerk'}],
-    glasswake_commune:[{id:'researcher_toman_iceveil',office:'Glasswake Research Wing',role:'senior researcher'}],
-    fairhaven:[{id:'steward_mel',office:'Market Permit Hall',role:'permit steward'},{id:'local_clergy',office:'Felujitas Chapel',role:'shrine keeper'}],
-    mimolot_academy:[{id:'tutor_magistrate',office:'Academy Tribunal Hall',role:'tutor magistrate'},{id:'scribe_tel',office:'Lower Archive',role:'catalog scribe'}],
-    soreheim_proper:[{id:'roth_udenine',office:'Tower Administration',role:'tower administrator'},{id:'cron_udenine',office:'Alliance Council',role:'alliance council member'},{id:'vorgul_oxtend',office:'War Ministry Tower',role:'war production minister'},{id:'mordoth_valinheim',office:'Foreign Delegation Wing',role:'foreign affairs delegate'},{id:'decon_von_reckshem',office:'Quota Enforcement Floor',role:'quota enforcer'},{id:'lyria_firesoul',office:'Forge Research Wing',role:'forge researcher'},{id:'eryndor_bladewright',office:'Weaponsmith Tower',role:'master bladewright'}],
-    shirshal:[{id:'witness_clerk_anrel',office:'Magi Magistratus Court',role:'witness clerk'},{id:'magi_investigator',office:'Arcane Law Chamber',role:'magi investigator'}],
-    ithtananalor:[{id:'captain_darian_roaz',office:'Enforcement Headquarters',role:'enforcement captain'},{id:'sir_velden_ironspike',office:'Iron Accord Hall',role:'knight inspector'}],
-    guildheart_hub:[{id:'auditor_kelm',office:'Guild Sanction Board',role:'trade auditor'},{id:'guild_sanction_clerk',office:'Domeway Sanction Counter',role:'sanction clerk'}],
-    cosmoria:[{id:'archivist_tel',office:'Grand Archive',role:'senior archivist'},{id:'captain_harrow',office:'Shipwright Dock',role:'ship captain'}],
-    craftspire:[{id:'copy_warden',office:'Book-Copy Bureau',role:'copy legitimacy warden'}],
-    unity_square:[{id:'exchange_clerk',office:'Exchange Rate Board',role:'rate and inspection clerk'}],
-    ironhold_quarry:[{id:'ore_officer',office:'Quarry Gate Command',role:'extraction officer'},{id:'quarry_overseer',office:'Labor Zone',role:'quarry overseer'}],
-    plumes_end_outpost:[{id:'patrol_leader',office:'Outpost Gate',role:'patrol leader'},{id:'shrine_keeper_cysur',office:'Shrine of Cysur',role:'shrine keeper'}],
-    whitebridge_commune:[{id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'commune arbiter'}]
+    panim_haven:[
+      {id:'celis_lanthorn',office:'Memorial Ward Office',role:'Ward Mediator'},
+      {id:'ishra_lumenveil',office:'Grain Ledger Office',role:'Grain Measurer'},
+      {id:'marrowen_mercycrypt',office:'Arrival Processing Hall',role:'Clerk of Arrivals'},
+      {id:'mediator_selka_var',office:'Afterlife Contract Hall',role:'Afterlife Contract Mediator'},
+      {id:'pelor_coffinmarch',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'}
+    ],
+    sunspire_haven:[
+      {id:'garren_forgebound',office:'Market Watch Post',role:'Watch Sergeant'},
+      {id:'kael_emberthrone',office:'Tool and Works Overseer Office',role:'Machinery Overseer'},
+      {id:'orvak_strone',office:'Trade Adjudication Counter',role:'Unauthorized Trade Adjudicator'},
+      {id:'taldan_veyst',office:'Knowledge Registry',role:'Magical Knowledge Overseer'},
+      {id:'torma_coalward',office:'Convoy Quartermaster Hall',role:'Quartermaster'}
+    ],
+    aurora_crown_commune:[
+      {id:'neren_rimebridge',office:'Dome Mediation Office',role:'Ward Mediator'},
+      {id:'warden_sera_whiteglass',office:'Dome Administration Center',role:'Dome Stabilizer Marshal'},
+      {id:'vassa_rimebridge',office:'Stable and Supply Yard',role:'Stable Factor'},
+      {id:'talin_rimebridge',office:'Ration Ledger Office',role:'Grain Measurer'},
+      {id:'mariel_sealwater',office:'Dome Rest Inn',role:'Innkeeper'}
+    ],
+    shelkopolis:[
+      {id:'lady_isabella_shelk',office:'House Shelk Estate',role:'Noble Principal'},
+      {id:'corin_lightloom',office:'Ward Mediation Hall',role:'Ward Mediator'},
+      {id:'elandra_sunweave',office:'Civic Arrival Office',role:'Clerk of Arrivals'},
+      {id:'maelin_dawnmantle',office:'Paladin Chapter Hall',role:'Paladin Officer'},
+      {id:'aelric_sunweave',office:'Shelkopolis–Fairhaven Road',role:'Toll Witness'}
+    ],
+    harvest_circle:[
+      {id:'elyra_mossbane',office:'Harvest Circle Market Stalls',role:'Patron-Family Broker'},
+      {id:'farlan_inkshade',office:'Quota Clerk Office',role:'Academic Recordkeeper'},
+      {id:'jorva_helmrune',office:'Communal Responsibility Office',role:'Communal Responsibility Enforcer'},
+      {id:'svala_coalward',office:'Grain Measurement Hall',role:'Grain Measurer'},
+      {id:'garren_ashmason',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'}
+    ],
+    glasswake_commune:[
+      {id:'researcher_toman_iceveil',office:'Research Wing — Contamination Division',role:'Contamination Research Lead'},
+      {id:'ilya_rimebridge',office:'Supply and Quartermaster Depot',role:'Quartermaster'},
+      {id:'ostra_rimebridge',office:'Shrine Maintenance Hall',role:'Shrine Caretaker'},
+      {id:'thora_rimebridge',office:'Medical Station',role:'Street Physician'}
+    ],
+    fairhaven:[
+      {id:'corin_bloomcrest',office:'Market Watch Post',role:'Watch Sergeant'},
+      {id:'elandra_velvetmere',office:'Market Exchange Hall',role:'Market Broker'},
+      {id:'tavian_silkgate',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
+      {id:'serin_sunweave',office:'Felujitas Chapel',role:'Local Cleric'}
+    ],
+    mimolot_academy:[
+      {id:'archivist_temeris_quillward',office:'Tariff Archive Hall',role:'Tariff Archivist'},
+      {id:'quillan_quillmark',office:'Academy Stables',role:'Hostler'},
+      {id:'copy_broker_halin_vesk',office:'Licensed Copy Bureau',role:'Licensed Copy Broker'},
+      {id:'vessa_scriptmere',office:'Canon-Keeping Office',role:'Canon-Keeper'},
+      {id:'quenra_quillfire',office:'Lecture Hall',role:'Tutor-Magistrate'}
+    ],
+    soreheim_proper:[
+      {id:'eryndor_bladewright',office:'Weaponsmith Tower',role:'Military Logistics Coordinator'},
+      {id:'brala_coalward',office:'Tower Medical Station',role:'Street Physician'},
+      {id:'helga_ironslope',office:'Tower Stables',role:'Stable Factor'},
+      {id:'kordr_vulkhand',office:'Combat Training Wing',role:'Combat Trainer'},
+      {id:'korin_drillwake',office:'Supply Quartermaster Tower',role:'Quartermaster'}
+    ],
+    shirshal:[
+      {id:'hel_brenn',office:'Arcane Laboratory',role:'Alchemist-Investigator'},
+      {id:'nira_veilthorn',office:'Case Archive Wing',role:'Assistant Curator'},
+      {id:'pell_rookglass',office:'Covert Investigation Unit',role:'Field Operative'},
+      {id:'examiner_prelate_sira_doveshade',office:'Examination Court',role:'Examiner Prelate'},
+      {id:'mercy_examiner_talan_vey',office:'Mercy Examination Wing',role:'Mercy-Examiner'}
+    ],
+    ithtananalor:[
+      {id:'casvel_redhinge',office:'Stable and Freight Yard',role:'Stable Factor'},
+      {id:'dame_orsella_roaz',office:'Knight Enforcement Wing',role:'Knight Commander'},
+      {id:'marshal_builder_korrin_wex',office:'Engineering Corps Hall',role:'Marshal-Builder'},
+      {id:'mira_steelmarch',office:'Ward Mediation Office',role:'Ward Mediator'},
+      {id:'orren_pike',office:'Apothecary and Materials Lab',role:'Alchemist'}
+    ],
+    guildheart_hub:[
+      {id:'guild_auditor_bren_oss',office:'Guild Sanction Board',role:'Guild Auditor'},
+      {id:'guilden_ledgermere',office:'Archive Audit Hall',role:'Archive Auditor'},
+      {id:'halv_ledgermere',office:'Arrival Registry Counter',role:'Clerk of Arrivals'},
+      {id:'marren_toll',office:'Covert Operations Unit',role:'Field Operative'},
+      {id:'mira_ledgermere',office:'Quota Scribing Hall',role:'Quota Scribe'}
+    ],
+    cosmoria:[
+      {id:'aurek_tidereach',office:'Harbor Stable Yard',role:'Stable Factor'},
+      {id:'coralyn_foamglass',office:'Maritime Quartermaster Office',role:'Quartermaster'},
+      {id:'high_tide_priest_coren_mirthwake',office:'Tide-Priest Temple',role:'High Tide-Priest'},
+      {id:'ilyra_foamveil',office:'Archive Illusionist Wing',role:'Illusionist-Archivist'},
+      {id:'coral_jack_neris',office:'Below-Decks Exchange',role:'Black Market Operator'}
+    ],
+    craftspire:[
+      {id:'jorin_ledgermere',office:'Material Ledger Office',role:'Grain Measurer'},
+      {id:'tess_ledgermere',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
+      {id:'copy_warden',office:'Book-Copy Bureau',role:'Copy Legitimacy Warden'}
+    ],
+    unity_square:[
+      {id:'vale_brokerwell',office:'Arrival Registry',role:'Clerk of Arrivals'},
+      {id:'vale_ledgermere',office:'Ward Mediation Hall',role:'Ward Mediator'},
+      {id:'vale_tinmarch',office:'Medical Station',role:'Street Physician'}
+    ],
+    ironhold_quarry:[
+      {id:'petra_stonewake',office:'Inventory and Stock Office',role:'Inventory Steward'},
+      {id:'darian_ironspike',office:'Quarry Gate Command',role:'Ore Officer'},
+      {id:'velka_ironspike',office:'Labor Zone Command',role:'Quarry Overseer'},
+      {id:'rhodra_boltmere',office:'Ritual Observance Station',role:'Ritual Attendant'}
+    ],
+    plumes_end_outpost:[
+      {id:'patrol_leader',office:'Outpost Gate',role:'Patrol Leader'},
+      {id:'shrine_keeper_cysur',office:'Shrine of Cysur',role:'Shrine Keeper'},
+      {id:'letha_dawnsilk',office:'Northern Road Hazard Station',role:'Hazard Reader'}
+    ],
+    whitebridge_commune:[
+      {id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'Communal Arbiter'},
+      {id:'aster_starice',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
+      {id:'thora_snowveil',office:'Grain and Supply Ledger',role:'Grain Measurer'},
+      {id:'thora_starice',office:'Stable and Transit Yard',role:'Stable Factor'}
+    ]
   };
 
   const COMPANION_CANDIDATES = {
@@ -1440,4 +1557,5 @@ const STAGE2_DESTINATION_CONTENT = {
   window.LOCALITY_SERVICE_ITEM_OVERRIDES = LOCALITY_SERVICE_ITEM_OVERRIDES;
   window.STAGE2_DESTINATION_CONTENT = STAGE2_DESTINATION_CONTENT;
   window.BUILD_VERIFICATION = BUILD_VERIFICATION;
+  window.CANON_VERSION = 'V31_3';
 })();
