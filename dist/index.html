@@ -231,108 +231,148 @@
 
   const KEY_LOCALITIES = {
     panim_haven: {
-      id:'panim_haven', name:'Panim Haven', polity:'Principality of Panim', safeZone:'Memorial Waystation',
-      summary:'Afterlife-service metropolis of ledgers, shrines, mediation courts, and memorial traffic.',
-      pressures:['memorial backlog','assessment dispute','processional strain','seal tampering'],
-      greetings:['soft palm-to-heart acknowledgements','low-voiced condolences at thresholds'],
-      rituals:['incense tracing before ledgers','small offerings set beside name-stones'],
-      hazards:['ledger_fog','processional_crush'], creatures:['veil_moth','gravewater_hound']
+      id:'panim_haven', name:'Panim Haven', polity:'House Panim', safeZone:'Memorial Waystation',
+      summary:'Afterlife-service and divine mediation metropolis of ledgers, shrines, offerings, and memorial traffic.',
+      pressures:['divine balance obligations','processional strain','seal dispute','mediation backlog'],
+      greetings:['ritual seriousness and respectful petition at thresholds','soft acknowledgements before shrine approach'],
+      rituals:['afterlife preparations before ledger work','offerings set at mediation courts','divine-balance invocations at processional entries'],
+      hazards:['processional_crush','ledger_fog'], creatures:['veil_moth','gravewater_hound']
     },
     sunspire_haven: {
       id:'sunspire_haven', name:'Sunspire Haven', polity:'Soreheim Alliance', safeZone:'Convoy Rest Yard',
-      summary:'Rural crossroads town under quota, storage, convoy, and syndicate pressure.',
-      pressures:['convoy scarcity','quota inspection','warehouse theft','labor stoppage'],
-      greetings:['short nods over freight straps','work-first greetings at loading bays'],
-      rituals:['coin pressed to beam-wards before departure','route prayers spoken over axle grease'],
-      hazards:['ice_rut','supply_fire'], creatures:['pack_raider','frost_scavenger']
+      summary:'Rural crossroads market town where tools, grain contracts, and labor obligations move through workshop syndicates and patron-families.',
+      pressures:['predators','water system vulnerabilities','storage disputes','family favor feuds'],
+      greetings:['contribute and trade fairly at the syndicate yard','show respect to the family controlling the yard you stand in','carry sealed papers when moving labor or grain'],
+      rituals:['harvest and unity rites beside practical oath-rituals for contracts','route prayers at convoy departure'],
+      hazards:['predator_breach','water_line_break'], creatures:['pack_raider','frost_scavenger']
     },
     aurora_crown_commune: {
       id:'aurora_crown_commune', name:'Aurora Crown Commune', polity:'Sheresh Communes', safeZone:'Dome Relief Cell',
-      summary:'Major dome commune shaped by contamination, rationing, repair, and aurora study.',
-      pressures:['filter failure','ration strain','repair backlog','containment rumor'],
-      greetings:['gloved forearm taps in sealed halls','measured check-ins at decontam doors'],
-      rituals:['mask-touch before entering clean zones','communal lantern checks at shift end'],
-      hazards:['glassmire_leak','heat_debt'], creatures:['aurora_leech','dome_lurker']
+      summary:'Largest Sheresh dome commune where survival administration, celestial study, and public endurance ritual converge.',
+      pressures:['dome stress','contamination seepage','ration balancing'],
+      greetings:['respect dome protocols at every threshold','report cracks and supply irregularities immediately'],
+      rituals:['aurora and survival observance communal rather than triumphal','mandatory repair rotation acknowledgements at shift end'],
+      hazards:['dome_breach','contamination_seepage'], creatures:['aurora_leech','dome_lurker']
     },
     shelkopolis: {
       id:'shelkopolis', name:'Shelkopolis', polity:'Principality of Shelk', safeZone:'Roadwarden Annex Ward',
-      summary:'Refined civic metropolis of decorum, Roadwardens, shrines, guildwork, and visible noble power.',
-      pressures:['roadwarden clampdown','guild rivalry','permit bottleneck','noble spectacle'],
-      greetings:['formal hand-bows at crossings','careful honorifics in market lanes'],
-      rituals:['small thread offerings at district shrines','public pause during bell prayers'],
-      hazards:['stampede_front','ink_fume_break'], creatures:['quay_thief','watch_hound']
+      summary:'Largest metropolis of the Principalities, defined by fashion, trade, refined civic order, and visible devotional plurality.',
+      pressures:['glyph corruption beyond the city','trade security obligations','noble rivalry','festival traffic'],
+      greetings:['observe site-specific decorum','respect local fashion and craft traditions','follow Roadwarden road and market order','treat shrines and archives with reverence'],
+      rituals:['visible offerings for Compassion and renewal at district shrines','observance bands intensify noble and artisan gatherings'],
+      hazards:['glyph_surge','stampede_front'], creatures:['quay_thief','watch_hound']
     },
     harvest_circle: {
       id:'harvest_circle', name:'Harvest Circle', polity:'Soreheim Alliance', safeZone:'Threshing Shelter',
-      summary:'Rural production settlement where storage, contracts, and overseers define the day.',
-      pressures:['grain custody','tool scarcity','tenant dispute','wagon requisition'],
-      greetings:['work-call greetings across fields','brief hat-lifts at tally boards'],
-      rituals:['first-sheaf blessings','shared bread set on communal posts'],
-      hazards:['thresher_break','dust_choke'], creatures:['field_maw','granary_ratking']
+      summary:'Cultural and market town where harvest patron-families, quota clerks, and festival brokers turn field output into alliance redistribution.',
+      pressures:['spoilage','price pressure','favor feuds','route congestion'],
+      greetings:['declare loads honestly at stalls','respect family-controlled stalls and convoy order','treat festival exchange as civic duty as well as profit'],
+      rituals:['unity and harvest rites public and crowded','festival exchange resets debts, favors, and work pledges'],
+      hazards:['spoilage_break','route_choke'], creatures:['field_maw','granary_ratking']
     },
     glasswake_commune: {
       id:'glasswake_commune', name:'Glasswake Commune', polity:'Sheresh Communes', safeZone:'Research Quarantine Nook',
-      summary:'Research-leaning commune of sealed corridors, shardlight, and careful contamination protocol.',
-      pressures:['study embargo','sample breach','escort shortage','shardlight outage'],
-      greetings:['measured visor nods','numbered shift calls through filtered masks'],
-      rituals:['sample blessing at lit braziers','contamination check hymns'],
-      hazards:['shardflare','coolant_burst'], creatures:['glasswake_mite','choir_lurker']
+      summary:'Sheresh research commune devoted to contamination measurement, cold-light study, and shield experimentation.',
+      pressures:['exposure incidents','quarantine fatigue','instrument failure'],
+      greetings:['submit to scanning at every checkpoint','treat every breach as real until cleared'],
+      rituals:['ritual life subdued and tied to survival timing','sample protocols observed before major work runs'],
+      hazards:['exposure_breach','instrument_failure'], creatures:['glasswake_mite','choir_lurker']
     },
     fairhaven: {
       id:'fairhaven', name:'Fairhaven', polity:'Principality of Shelk', safeZone:'Market Chapel Cellar',
-      summary:'Trade-facing node where permits, gossip, carriage flow, and subtle status games dominate.',
-      pressures:['toll surge','permit checks','stall dispute','escort scarcity'],
-      greetings:['brisk courtesy between stalls','calculated warmth toward known buyers'],
-      rituals:['coin-kiss to market saints','lamp-trim at threshold shrines'],
-      hazards:['market_surge','oil_slick_break'], creatures:['stall_raider','bridge_skulk']
+      summary:'Agricultural and artisanal town supporting Shelkopolis while sitting near active glyph-cave pressure.',
+      pressures:['glyph corruption','celestial creatures at Watchers Perch','suspicious travelers in taverns'],
+      greetings:['respect local purification rites at chapel approaches','heed warnings about celestial creatures and cave anomalies'],
+      rituals:['Felujitas and Cyfoes visible through chapel and fountain worship','lamp-trim at threshold shrines'],
+      hazards:['glyph_surge','celestial_breach'], creatures:['celestial_enforcer','cave_lurk']
     },
     mimolot_academy: {
-      id:'mimolot_academy', name:'Mimolot Academy', polity:'Principality of Mimolot', safeZone:'Archive Convalescence Alcove',
-      summary:'Scholastic city-space of archives, experiments, and carefully ranked instruction.',
-      pressures:['archive lock','faculty feud','lab breach','student unrest'],
-      greetings:['rank-conscious academic bows','quiet citation-first acknowledgements'],
-      rituals:['ink-touch before lecture','candle rites in memory halls'],
-      hazards:['lab_surge','archive_collapse'], creatures:['ink_wisp','catalog_biter']
+      id:'mimolot_academy', name:'Mimolot Academy', polity:'House Mimolot', safeZone:'Archive Convalescence Alcove',
+      summary:'Center for noble education and magical schooling where knowledge tariffs are enforced and scholarly decorum is mandatory.',
+      pressures:['tariff tensions','faculty privilege disputes','tutor magistrate enforcement','knowledge access disputes'],
+      greetings:['scholarly decorum at all lecture and archive approaches','rank-conscious acknowledgements','quiet citation-first exchanges'],
+      rituals:['ink-touch before lecture entries','candle rites in memory halls','knowledge tariff verification before archive access'],
+      hazards:['tariff_dispute','archive_lock'], creatures:['ink_wisp','catalog_biter']
     },
     soreheim_proper: {
       id:'soreheim_proper', name:'Soreheim Proper', polity:'Soreheim Alliance', safeZone:'Forge Rest Gallery',
-      summary:'Tower-industrial heartland of giant-scale production, lifts, quotas, and heat.',
-      pressures:['lift stoppage','alloy shortage','quota panic','foreman intrigue'],
-      greetings:['work-signs over furnace roar','short formal acknowledgements on catwalks'],
-      rituals:['spark-offerings at forge altars','hammer taps before shift bells'],
-      hazards:['quench_burst','lift_shear'], creatures:['slag_hound','quarry_coloss']
+      summary:'Harsh hierarchical tower-centered production core where alliance governance, foreign affairs, war output, and high-order manufacturing converge across Titan Towers.',
+      pressures:['quota demands','political rivalry','foreign pressure','industrial accidents','tower maintenance strain'],
+      greetings:['meet quotas and declare work status at tower gates','respect tower rank in all encounters','treat decrees, seals, and work assignments as binding'],
+      rituals:['ambition and merit judgment public at tower oath displays','spark-offerings at forge altars before shift bells'],
+      hazards:['tower_shear','industrial_break'], creatures:['slag_hound','quarry_coloss']
     },
     shirshal: {
-      id:'shirshal', name:'Shirshal', polity:'Principality of Shirsh', safeZone:'Witness Court Side Hall',
-      summary:'Investigative and procedural center where witness handling and public order intertwine.',
-      pressures:['witness backlog','seal dispute','custody delay','court scrutiny'],
-      greetings:['measured witness greetings','formal truth-invocations at doors'],
-      rituals:['water-touch before testimony','quiet oath phrases in queue'],
-      hazards:['seal_feedback','crowd_break'], creatures:['court_leech','record_hunter']
+      id:'shirshal', name:'Shirshal', polity:'House Shirsh', safeZone:'Witness Court Side Hall',
+      summary:'Investigative magical-law center where Magi Magistratus enforces magical compliance and investigation is formal economic activity.',
+      pressures:['magical law violations','witness backlog','arcane scrutiny pressure','custody delay'],
+      greetings:['cooperate with inquiries at every checkpoint','measured witness greetings','formal truth-invocations at court doors'],
+      rituals:['water-touch before testimony','quiet oath phrases in queue','arcane compliance checks before chamber entry'],
+      hazards:['arcane_discharge','seal_feedback'], creatures:['court_leech','record_hunter']
     },
     ithtananalor: {
       id:'ithtananalor', name:'Ithtananalor', polity:'Principality of Roaz', safeZone:'Enforcement Checkpoint Ward',
-      summary:'Fortified administrative heart where legal identity, industry, and enforcement culture visibly merge.',
-      pressures:['illicit magic detection','smuggling routes','enforcement accountability','inspection intensity'],
-      greetings:['brief formal acknowledgements at checkpoints','work-ready nods between guards'],
-      rituals:['document verification before entry','seal inspection at gates'],
+      summary:'Fortified administrative heart of Roaz where legal identity, anti-magic law, prison labor, and enforcement culture visibly merge.',
+      pressures:['illicit magic','smuggling','public accountability for harsh enforcement'],
+      greetings:['comply promptly at checkpoints','accept inspection without resistance','treat law as public culture rather than negotiable custom'],
+      rituals:['document verification before entry','seal inspection at all gates','justice-aligned civic order at public symbolism points'],
       hazards:['enforcement_raid','containment_breach'], creatures:['ore_hound','guard_construct']
     },
     guildheart_hub: {
       id:'guildheart_hub', name:'Guildheart Hub', polity:'The Union', safeZone:'Guild Hall Archive Chamber',
-      summary:'Dense industrial nerve center of the Union where contract legitimacy, tariff politics, and freight administration dominate.',
-      pressures:['tariff disputes','Red Hood rumor presence','legacy Mal claims','imperial oversight'],
-      greetings:['merchant queue courtesies','cargo manifest discussions'],
-      rituals:['sanction notice reading','contract seal verification'],
+      summary:'Dense industrial-urban nerve center of the Union where guild rank supersedes noble birth and contract legitimacy is public law.',
+      pressures:['legacy Mal claims','smuggling','Red Hood rumor presence','imperial oversight'],
+      greetings:['declare business plainly at guild gates','observe queue and hearing order','produce records when challenged','respect sanction notices'],
+      rituals:['sanction notice reading at market opening','contract seal verification before freight release'],
       hazards:['warehouse_collapse','fire_break'], creatures:['guild_enforcer','contract_bound']
     },
     cosmoria: {
       id:'cosmoria', name:'Cosmoria', polity:'House Cosmouth', safeZone:'Maritime Archive Hall',
-      summary:'Floating intellectual and shipwright metropolis where archives, scholarship, and maritime trade interweave.',
-      pressures:['storm weather','trade vulnerability','archive access disputes','cargo timing'],
-      greetings:['sea-blessed nods between mariners','scholarly courtesy at archival doors'],
-      rituals:['maritime blessing before passage','archive respect protocols'],
+      summary:'Floating intellectual and shipwright metropolis where archives, maritime etiquette, and shipwright economy define access and status.',
+      pressures:['storm weather','trade vulnerability'],
+      greetings:['respect archives and maritime administration at all landings','sea communion etiquette before major passages'],
+      rituals:['maritime blessing before passage','noble retreat and sea communion culture in upper tiers'],
       hazards:['storm_surge','deck_collapse'], creatures:['sea_leech','floating_scavenger']
+    },
+    craftspire: {
+      id:'craftspire', name:'Craftspire', polity:'The Union', safeZone:'Workshop Quarter Alcove',
+      summary:'Highly urbanized production district where artisan output, book-copy bureaucracy, and licensed knowledge trade converge into industrial economic authority.',
+      pressures:['copy theft','intellectual property disputes','material shortages','sabotage'],
+      greetings:['respect queue and workshop boundaries','do not touch commissioned work','observe tariff marking rules'],
+      rituals:['practical devotion in workshop alcoves','opening rites before major work runs'],
+      hazards:['fire_break','sabotage_strike'], creatures:['guild_enforcer','workshop_raider']
+    },
+    unity_square: {
+      id:'unity_square', name:'Unity Square', polity:'The Union', safeZone:'Exchange Quarter Holding Room',
+      summary:'High-density urban exchange quarter where negotiated trade replaces inherited privilege as the public language of status, procedure, and access.',
+      pressures:['price shocks','cargo theft','route closures','public rumor flareups'],
+      greetings:['state terms clearly at exchange gates','observe inspection lines','treat posted rates and guild colors as operative facts'],
+      rituals:['market rhythm dominates','small shrines at exchange edges for opening rites'],
+      hazards:['cargo_theft','route_choke'], creatures:['exchange_raider','rumor_runner']
+    },
+    ironhold_quarry: {
+      id:'ironhold_quarry', name:'Ironhold Quarry', polity:'Principality of Roaz', safeZone:'Quarry Overseer Station',
+      summary:'Major Roazian extraction site linked to law, labor discipline, and strategic infrastructure supply.',
+      pressures:['labor harshness','resource theft','border competition'],
+      greetings:['obey labor zones and guard instructions at all entry points'],
+      rituals:['low-ornament discipline at shift starts','civic necessity observed before extraction work'],
+      hazards:['quarry_collapse','labor_break'], creatures:['ore_hound','quarry_coloss']
+    },
+    plumes_end_outpost: {
+      id:'plumes_end_outpost', name:"Plume's End Outpost", polity:'Principality of Shelk', safeZone:'Caravan Rest Post',
+      summary:'Northern road outpost guarding and servicing caravans between Shelkopolis and Fairhaven.',
+      pressures:['caravan disruption rumors','celestial enforcer sightings'],
+      greetings:['submit to route order at the post gate','respect shrine etiquette','state business clearly to patrol leaders'],
+      rituals:['Shrine of Cysur safe-journey offerings before northward departure'],
+      hazards:['celestial_breach','caravan_attack'], creatures:['celestial_enforcer','road_predator']
+    },
+    whitebridge_commune: {
+      id:'whitebridge_commune', name:'Whitebridge Commune', polity:'Sheresh Communes', safeZone:'Crossing Shelter Hall',
+      summary:'Sheresh crossing commune that keeps frozen route traffic, emergency shelter, and arbitration moving between domes.',
+      pressures:['bridge icing','refugee surges','missing expeditions'],
+      greetings:['declare route intent at crossing registration','share hazard knowledge before departure'],
+      rituals:['survival storytelling binds the community in evening cycles','crossing acknowledgements before hazardous bridge transit'],
+      hazards:['bridge_ice','storm_surge'], creatures:['frost_scavenger','refuge_raider']
     }
   };
 
@@ -371,33 +411,43 @@
   const ADJACENCY = {
     panim_haven:['shelkopolis','shirshal','fairhaven'],
     sunspire_haven:['harvest_circle','soreheim_proper','fairhaven'],
-    aurora_crown_commune:['glasswake_commune','sunspire_haven'],
-    shelkopolis:['fairhaven','panim_haven','shirshal'],
+    aurora_crown_commune:['glasswake_commune','sunspire_haven','whitebridge_commune'],
+    shelkopolis:['fairhaven','panim_haven','shirshal','plumes_end_outpost'],
     harvest_circle:['sunspire_haven','soreheim_proper'],
     glasswake_commune:['aurora_crown_commune','sunspire_haven'],
     fairhaven:['shelkopolis','sunspire_haven','panim_haven'],
     mimolot_academy:['fairhaven','shirshal'],
-    soreheim_proper:['harvest_circle','sunspire_haven'],
+    soreheim_proper:['harvest_circle','sunspire_haven','ironhold_quarry'],
     shirshal:['panim_haven','shelkopolis','mimolot_academy'],
-    ithtananalor:['shelkopolis','shirshal'],
-    guildheart_hub:['fairhaven','shirshal'],
-    cosmoria:['guildheart_hub','fairhaven']
+    ithtananalor:['shelkopolis','shirshal','ironhold_quarry'],
+    guildheart_hub:['fairhaven','shirshal','craftspire','unity_square'],
+    cosmoria:['guildheart_hub','fairhaven'],
+    craftspire:['guildheart_hub','unity_square'],
+    unity_square:['guildheart_hub','craftspire'],
+    ironhold_quarry:['ithtananalor','soreheim_proper'],
+    plumes_end_outpost:['shelkopolis','fairhaven'],
+    whitebridge_commune:['aurora_crown_commune','glasswake_commune']
   };
 
   const NPC_PLACEMENTS = {
     panim_haven:[{id:'teller_vara_senn',office:'Memorial Counter',role:'ledger clerk'},{id:'mournkeeper_els',office:'River Shrine',role:'ritual attendant'}],
-    sunspire_haven:[{id:'dockman_hedric',office:'Convoy Yard',role:'yard foreman'},{id:'ledger_broker_iont',office:'Storage Row',role:'quota broker'}],
-    aurora_crown_commune:[{id:'commune_marshal_sere',office:'Filter Gate',role:'containment marshal'}],
-    shelkopolis:[{id:'neren_rimebridge',office:'Roadwarden Office',role:'roadwarden'}],
-    harvest_circle:[{id:'jorva_helmrune',office:'Harvest Circle granary ledgers',role:'field quartermaster'}],
-    glasswake_commune:[{id:'toman_iceveil',office:'Glasswake commune study wing',role:'researcher'}],
-    fairhaven:[{id:'steward_mel',office:'Market Permit Hall',role:'permit steward'}],
-    mimolot_academy:[{id:'scribe_tel',office:'Lower Archive',role:'catalog scribe'}],
-    soreheim_proper:[{id:'foreman_bras',office:'Lift Quarter',role:'foreman'}],
-    shirshal:[{id:'witness_clerk_anrel',office:'Witness Court',role:'clerk'}],
+    sunspire_haven:[{id:'elyra_mossbane',office:'Syndicate Yard',role:'patron-family liaison'},{id:'kael_emberthrone',office:'Storage Row',role:'warehouse syndicate head'},{id:'orvak_strone',office:'Convoy Yard',role:'convoy marshal'},{id:'jorva_helmrune',office:'Quota Board',role:'quota clerk'},{id:'taldan_veyst',office:'Workshop Gate',role:'workshop syndicate head'}],
+    aurora_crown_commune:[{id:'warden_sera_whiteglass',office:'Dome Administration Center',role:'dome warden'}],
+    shelkopolis:[{id:'lady_isabella_shelk',office:'House Shelk Estate',role:'noble principal'},{id:'lady_elowen_shelk',office:'House Shelk Council',role:'noble heir'},{id:'captain_thalion_windrider',office:'Roadwarden Command Post',role:'roadwarden captain'},{id:'high_priestess_lyara_dawnlight',office:'Grand Shrine of Shelkopolis',role:'high priestess'}],
+    harvest_circle:[{id:'elyra_mossbane',office:'Harvest Circle market stalls',role:'patron-family broker'},{id:'jorva_helmrune',office:'Harvest Circle granary ledgers',role:'field quartermaster'},{id:'velrik_durnshade',office:'Festival Exchange Hall',role:'festival broker'},{id:'farlan_inkshade',office:'Quota Clerk Office',role:'quota clerk'}],
+    glasswake_commune:[{id:'researcher_toman_iceveil',office:'Glasswake Research Wing',role:'senior researcher'}],
+    fairhaven:[{id:'steward_mel',office:'Market Permit Hall',role:'permit steward'},{id:'local_clergy',office:'Felujitas Chapel',role:'shrine keeper'}],
+    mimolot_academy:[{id:'tutor_magistrate',office:'Academy Tribunal Hall',role:'tutor magistrate'},{id:'scribe_tel',office:'Lower Archive',role:'catalog scribe'}],
+    soreheim_proper:[{id:'roth_udenine',office:'Tower Administration',role:'tower administrator'},{id:'cron_udenine',office:'Alliance Council',role:'alliance council member'},{id:'vorgul_oxtend',office:'War Ministry Tower',role:'war production minister'},{id:'mordoth_valinheim',office:'Foreign Delegation Wing',role:'foreign affairs delegate'},{id:'decon_von_reckshem',office:'Quota Enforcement Floor',role:'quota enforcer'},{id:'lyria_firesoul',office:'Forge Research Wing',role:'forge researcher'},{id:'eryndor_bladewright',office:'Weaponsmith Tower',role:'master bladewright'}],
+    shirshal:[{id:'witness_clerk_anrel',office:'Magi Magistratus Court',role:'witness clerk'},{id:'magi_investigator',office:'Arcane Law Chamber',role:'magi investigator'}],
     ithtananalor:[{id:'captain_darian_roaz',office:'Enforcement Headquarters',role:'enforcement captain'},{id:'sir_velden_ironspike',office:'Iron Accord Hall',role:'knight inspector'}],
-    guildheart_hub:[{id:'auditor_kelm',office:'Guild Sanction Board',role:'trade auditor'}],
-    cosmoria:[{id:'archivist_tel',office:'Grand Archive',role:'senior archivist'},{id:'captain_harrow',office:'Shipwright Dock',role:'ship captain'}]
+    guildheart_hub:[{id:'auditor_kelm',office:'Guild Sanction Board',role:'trade auditor'},{id:'guild_sanction_clerk',office:'Domeway Sanction Counter',role:'sanction clerk'}],
+    cosmoria:[{id:'archivist_tel',office:'Grand Archive',role:'senior archivist'},{id:'captain_harrow',office:'Shipwright Dock',role:'ship captain'}],
+    craftspire:[{id:'copy_warden',office:'Book-Copy Bureau',role:'copy legitimacy warden'}],
+    unity_square:[{id:'exchange_clerk',office:'Exchange Rate Board',role:'rate and inspection clerk'}],
+    ironhold_quarry:[{id:'ore_officer',office:'Quarry Gate Command',role:'extraction officer'},{id:'quarry_overseer',office:'Labor Zone',role:'quarry overseer'}],
+    plumes_end_outpost:[{id:'patrol_leader',office:'Outpost Gate',role:'patrol leader'},{id:'shrine_keeper_cysur',office:'Shrine of Cysur',role:'shrine keeper'}],
+    whitebridge_commune:[{id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'commune arbiter'}]
   };
 
   const COMPANION_CANDIDATES = {
@@ -1590,7 +1640,7 @@ const STAGE2_DESTINATION_CONTENT = {
 </script>
 <script>// ═══════════════════════════════════════════════════════
 // BACKGROUND → STARTING LOCALITY MAPPING
-// V28_8 Canon-Aligned Stage I Grounding
+// V30_3 Canon-Aligned Stage I Grounding
 // Keys match data.js background ID scheme: {archetype}_{civic|frontier|occult}
 // ═══════════════════════════════════════════════════════
 

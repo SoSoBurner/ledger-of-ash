@@ -1,10 +1,10 @@
 # Ledger of Ash
 
-A text-based RPG set in the **V28_8** Material Planet canon. You are a capable person
+A text-based RPG set in the **V30_3** Material Planet canon. You are a capable person
 in an unstable world. The eastern route has gone wrong. The city knows.
 Your job is to understand what happened and decide what to do about it.
 
-**Current build:** 31 archetypes × 3 backgrounds = 93 backgrounds; 13 canonical localities; Stage I–V progression; V28_8 canon alignment; Stage I locality grounding.
+**Current build:** 31 archetypes × 3 backgrounds = 93 backgrounds; 18 canonical localities (13 core + 5 V30_3 adjacent); Stage I–V progression; V30_3 canon alignment; Stage I locality grounding.
 
 ## Play
 
@@ -45,8 +45,8 @@ Upload `dist/index.html` to any web host. No backend needed for Phase 1.
 ### Active Runtime (Bundled into dist/index.html)
 
 **Core Data & Mapping:**
-- `js/data.js` — ARCHETYPES (31), KEY_LOCALITIES (11 V28_8-canonical), ADJACENCY map, NPC_PLACEMENTS, BESTIARY, HAZARDS
-- `js/background-locality-map.js` — V28_8 Stage I locality grounding: maps all 93 backgrounds to their canonical starting localities (not hardcoded to Shelkopolis)
+- `js/data.js` — ARCHETYPES (31), KEY_LOCALITIES (11 V30_3-canonical), ADJACENCY map, NPC_PLACEMENTS, BESTIARY, HAZARDS
+- `js/background-locality-map.js` — V30_3 Stage I locality grounding: maps all 93 backgrounds to their canonical starting localities (not hardcoded to Shelkopolis)
 
 **Game Content:**
 - `js/stage2-backgrounds.js` — Stage II content templates for 31 archetype families (shared + family-specific pressure chains)
@@ -65,7 +65,7 @@ Upload `dist/index.html` to any web host. No backend needed for Phase 1.
 
 The following files were part of V28_4 implementation and are kept in `legacy/` for historical reference:
 - `legacy/world.js` — V28_4 notice templates, faction clocks, encounter weighting (replaced by inlined systems in engine.js)
-- `legacy/world-data.js` — V28_4 archetype/background database (replaced by augmented data.js with V28_8 grounding)
+- `legacy/world-data.js` — V28_4 archetype/background database (replaced by augmented data.js with V30_3 grounding)
 - `legacy/scenes.js` — V28_4 opening scenes with incorrect starting localities (replaced by background-locality-map.js routing)
 - `legacy/consequences.js` — V28_4 consequence node database (replaced by stage2-backgrounds.js content)
 
@@ -75,8 +75,8 @@ The following files were part of V28_4 implementation and are kept in `legacy/` 
 
 ```
 js/
-  data.js                      [ACTIVE] V28_8 canonical data: archetypes, localities, adjacency, NPCs, hazards
-  background-locality-map.js   [ACTIVE] All 93 backgrounds → V28_8 starting localities
+  data.js                      [ACTIVE] V30_3 canonical data: archetypes, localities, adjacency, NPCs, hazards
+  background-locality-map.js   [ACTIVE] All 93 backgrounds → V30_3 starting localities
   stage2-backgrounds.js        [ACTIVE] Stage II content templates (family-based pressure chains)
   narrative.js                 [ACTIVE] Dynamic scene narration generator
   party.js                     [ACTIVE] Companions: recruitment, trust, camp, party overlay
@@ -99,7 +99,7 @@ dist/
 docs/
   ARCHITECTURE.md              Technical design and Phase 2 planning
   API_CONTRACTS.md             Phase 2 API specifications
-  CANON_UPDATE.md              V28_8 canon alignment notes
+  CANON_UPDATE.md              V30_3 canon alignment notes
   QA_CHECKLIST.md              Pre-deploy quality checklist
   [other documentation]
 
@@ -118,8 +118,8 @@ README.md                      This file
 
 **93 Backgrounds** (3 per archetype): Civic, Frontier, Occult
 
-**Stage I Locality Grounding (V28_8):**
-Each background now starts in its V28_8-canonical starting locality instead of hardcoded Shelkopolis:
+**Stage I Locality Grounding (V30_3):**
+Each background now starts in its V30_3-canonical starting locality instead of hardcoded Shelkopolis:
 - Warfare/Roaz backgrounds → Ithtananalor
 - Soreheim backgrounds → Soreheim Proper + frontier routes
 - Panim backgrounds → Panim Haven + memorials
@@ -127,7 +127,7 @@ Each background now starts in its V28_8-canonical starting locality instead of h
 - Guildheart backgrounds → Guildheart Hub
 - etc.
 
-**13 Canonical Localities** (V28_8):
+**13 Canonical Localities** (V30_3):
 Panim Haven, Soreheim Proper, Sunspire Haven, Shelkopolis, Fairhaven, Mimolot Academy,
 Ithtananalor, Guildheart Hub, Cosmoria, Aurora Crown Commune, Glasswake Commune, Shirshal, Harvest Circle
 
@@ -150,7 +150,7 @@ Ithtananalor, Guildheart Hub, Cosmoria, Aurora Crown Commune, Glasswake Commune,
 
 ## Canon Authority
 
-**V28_8 DnD World Repository** is the source of truth for:
+**V30_3 DnD World Repository** is the source of truth for:
 - Settlement names and polity identity
 - Locality definitions and district composition
 - Faction references, law, economy, faith, infrastructure
@@ -162,7 +162,7 @@ See `docs/CANON_UPDATE.md` for detailed canon alignment notes.
 
 ## What is not done yet (Phase 2+)
 
-- Opening scene text rewrite (scenes.js was V28_4; needs locality-specific rewrites for V28_8 starting positions)
+- Opening scene text rewrite (scenes.js was V28_4; needs locality-specific rewrites for V30_3 starting positions)
 - Stage I consequence nodes audit (verify they don't silently relocate players away from background locality)
 - Per-archetype mid-spines for all 31 archetypes (currently: shared family chains)
 - Full route graph (currently: polity-based gating; planned: adjacency-based travel)
@@ -172,8 +172,8 @@ See `docs/CANON_UPDATE.md` for detailed canon alignment notes.
 ## Current state summary
 
 **This is a functional, single-file, browser-based RPG with:**
-- V28_8 canonical world grounding
-- Stage I locality grounding: each of 93 backgrounds starts in its own V28_8-canonical starting locality
+- V30_3 canonical world grounding
+- Stage I locality grounding: each of 93 backgrounds starts in its own V30_3-canonical starting locality
 - 31 playable archetypes with distinct progression paths
 - Dynamic narrative generation based on locality, pressure, hazards, NPCs, and routes
 - Full 5-stage progression with permadeath at Stage V

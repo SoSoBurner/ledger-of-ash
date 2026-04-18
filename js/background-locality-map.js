@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════
 // BACKGROUND → STARTING LOCALITY MAPPING
-// V28_8 Canon-Aligned Stage I Grounding
+// V30_3 Canon-Aligned Stage I Grounding
 // Keys match data.js background ID scheme: {archetype}_{civic|frontier|occult}
 // ═══════════════════════════════════════════════════════
 
