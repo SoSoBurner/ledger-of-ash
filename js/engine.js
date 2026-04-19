@@ -440,6 +440,7 @@
     const template=(window.ENEMY_TEMPLATES||{})[templateKey]||{name:'Unknown Threat',hp:12,maxHp:12,attack:4,defense:5,morale:8,desc:'A threat emerges.',loot:{gold:3,item:null}};
     const tierMod=tier==='elite'?4:tier==='boss'?8:0;
     const arch=getArchetype(G.archetype)||{group:'combat'};
+    const enemySurprised=rand(4)===0; // 25% chance enemy surprises player
     G.combatSession={
       templateKey,
       enemyName:template.name,
@@ -452,12 +453,19 @@
       round:1,
       log:[template.desc+' The confrontation begins.'],
       stealthOpenerAvailable:arch.group==='stealth'&&G.worldClocks.rival<3,
+      surprise:enemySurprised?'enemy':null,
       loot:template.loot||{gold:3,item:null},
       resolved:false
     };
     G.recentOutcomeType='combat_start';
     G.encounter=null;
-    G.lastResult=template.desc+' Choose your approach.';
+    if(enemySurprised){
+      const dmg=Math.max(2,rand(4)+1);
+      G.hp=Math.max(1,G.hp-dmg);
+      G.lastResult=template.desc+` The ${template.name} catches you off-guard! You take ${dmg} damage before responding. Choose your counter.`;
+    } else {
+      G.lastResult=template.desc+' Choose your approach.';
+    }
     recordCodex('creatures',templateKey,{text:template.desc,weakness:'see field notes'});
     G.telemetry.encounters++;
   }
@@ -1044,14 +1052,32 @@
       else { const dmg=Math.max(1,rand(6)+(enc.tier==='boss'?6:enc.tier==='elite'?4:2)); state.hp=Math.max(0,state.hp-dmg); state.lastResult=failText+` You take ${dmg} damage (HP: ${state.hp}/${state.maxHp}).`; enc.round++; }
     }
     return [
-      {label:`Force through the hazard directly`,tags:['Combat','Direct'],fn(){ resolve('combat','direct push',enc.tier==='boss'?4:2,'The hazard breaks under direct force.','The direct approach costs something.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
-      {label:`Find the weakness and work the hazard precisely`,tags:['Stealth','Precise'],fn(){ resolve('stealth','precision approach',enc.tier==='boss'?3:2,'The weak point opens and the hazard unravels.','The precision read fails under pressure.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Force through the hazard directly`,tags:['Direct','Power'],fn(){ resolve('combat','direct push',enc.tier==='boss'?4:2,'The hazard breaks under direct force.','The direct approach costs something.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
+      {label:`Find the weakness and work the hazard precisely`,tags:['Precision','Careful'],fn(){ resolve('stealth','precision approach',enc.tier==='boss'?3:2,'The weak point opens and the hazard unravels.','The precision read fails under pressure.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
       {label:`Apply knowledge and read the hazard structure`,tags:['Lore','Read'],fn(){ resolve('lore','analytical approach',enc.tier==='boss'?3:2,'The hazard logic becomes legible and the answer follows.','The analytical read produces theory without enough time.'); if(state.hp<=0&&!state.stage5Dead) handleDeath(); else{setThreat();setObjective();persist();render();} }},
       {label:`Withdraw and regroup at the safe zone`,tags:['Retreat','Safe'],fn(){ state.encounter=null; advanceTime(1); state.hp=Math.max(1,state.hp); state.lastResult=`The hazard is left behind. The safe zone holds for now.`; setThreat();setObjective();persist();render(); }}
     ];
   }
 
-  function stage3to5Choices(stage){ const arr=objectiveWebChoices(stage).slice(0,5); if(stage===5 && G.finalBreak){ arr.push({label:'Commit to the final boss confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }}); arr.push({label:'Commit to the final hazard confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }}); } else { arr.push({label:'Force an elite confrontation now',tags:['Encounter','Elite'],fn(){ startThreatEncounter('elite'); }}); } arr.push({label:'Camp and re-form the line',tags:['Camp'],fn(){ G.lastResult='The camp settles nerves but the wider pressure does not stop moving.'; }}); return arr.slice(0,8); }
+  function stage3to5Choices(stage){ 
+    const arch=getArchetype(G.archetype)||{}; 
+    const isStealthArchetype=['rogue','assassin','spellthief','scout','thief','trickster','beastmaster','illusionist','archer'].includes(arch.id);
+    const arr=objectiveWebChoices(stage).slice(0,5); 
+    if(stage===5 && G.finalBreak){ 
+      arr.push({label:'Commit to the final boss confrontation',tags:['CreatureCombat','Boss','Final'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }}); 
+      arr.push({label:'Commit to the final hazard confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }}); 
+      if(isStealthArchetype){
+        arr.push({label:'Set an assassination trap for the final confrontation',tags:['Assassination','Elite'],fn(){ startSurpriseAttack('assassination'); }});
+      }
+    } else { 
+      arr.push({label:'Force an elite creature confrontation now',tags:['CreatureCombat','Elite'],fn(){ startCreatureEncounter('elite'); }}); 
+      if(isStealthArchetype){
+        arr.push({label:'Set an ambush trap for an unsuspecting target',tags:['Assassination','Stealth'],fn(){ startSurpriseAttack('ambush'); }});
+      }
+    } 
+    arr.push({label:'Camp and re-form the line',tags:['Camp'],fn(){ G.lastResult='The camp settles nerves but the wider pressure does not stop moving.'; }}); 
+    return arr.slice(0,8); 
+  }
   function maybeStageAdvance(){
     if(G.stage===1 && G.stageProgress[1]>=4 && G.level>=5){
       G.stage=2; updateStage();
@@ -1087,6 +1113,10 @@
     return currentNonCombatChoices();
   }
   function startThreatEncounter(tier){ const threat=G.currentThreat||chooseThreat(); if(!threat) return; const kind=rand(2)===0?'creature':'hazard'; const name=kind==='creature'?threat.creature:threat.hazard; G.telemetry.encounters++; beginEncounter(G,kind,name,tier||'standard'); }
+
+  function startCreatureEncounter(tier){ const threat=G.currentThreat||chooseThreat(); if(!threat) return; const name=threat.creature; G.telemetry.encounters++; beginEncounter(G,'creature',name,tier||'standard'); }
+
+  function startSurpriseAttack(attackType){ const threat=G.currentThreat||chooseThreat(); if(!threat) return; const name=threat.creature; G.telemetry.encounters++; beginEncounter(G,'creature',name,'standard'); if(G.combatSession) G.combatSession.surprise=attackType; }
 
   function handleDeath(){ G.deathCount+=1; if(G.stage===5){ G.stage5Dead=true; G.lastResult='The final line breaks. This run ends here.'; saveLegend('Permadeath'); persist(); render(); return; } const oldLoc=getLocality(G.location); const rescue=(window.RESCUE_PROFILES||{})[G.location]||{rescuer:'unrecorded rescuers',aftermath:'The cost is real even if the names are not.',safeZone:oldLoc.safeZone}; const next=((window.ADJACENCY[G.location]||[])[0]) || G.location; const nextLoc=getLocality(next); G.location=next; G.currentSafeZone=rescue.safeZone || nextLoc.safeZone; G.safeZoneHistory.unshift(`${G.currentSafeZone} (${nextLoc.name})`); G.safeZoneHistory=G.safeZoneHistory.slice(0,10); G.hp=Math.max(6,Math.floor(G.maxHp*0.4)); G.fatigue+=2; G.gold=Math.max(0,G.gold-3); G.wounds.push(`Near-death at ${oldLoc.name}`); G.wounds=G.wounds.slice(0,6); G.worldClocks.rival+=2; G.worldClocks.pressure+=1; G.telemetry.rescues++; G.companions.forEach(c=>{ if(rand(4)===0){ c.injured=true; c.available=false; c.trust=Math.max(0,(c.trust||1)-1); } }); G.rescueLog.unshift(`Recovered near ${oldLoc.name} by ${rescue.rescuer}; carried to ${G.currentSafeZone}. ${rescue.aftermath}`); G.rescueLog=G.rescueLog.slice(0,10); G.lastResult=`${oldLoc.name} is lost for now. ${rescue.rescuer[0].toUpperCase()+rescue.rescuer.slice(1)} bring the party to ${G.currentSafeZone}. ${rescue.aftermath}`; markMoment(`Rescued after near-death at ${oldLoc.name}`); setThreat(); setObjective(); }
 
@@ -1398,7 +1428,7 @@
       const isEvil=(c.tags||[]).includes('Evil');
       const isGood=(c.tags||[]).includes('Good');
       const isLawful=(c.tags||[]).includes('Lawful');
-      const isCombat=(c.tags||[]).some(t=>t.includes('Combat')||t.includes('Encounter'));
+      const isCombat=(c.tags||[]).includes('CreatureCombat')||((c.tags||[]).includes('Assassination'));
       const extraCls=(isClass?' classChoice':'')+(isEvil?' evilChoice':'')+(isGood?' goodChoice':'')+(isLawful?' lawfulChoice':'')+(isCombat?' combatChoice':'');
       return `<button class='choice${extraCls}' data-choice='${i}'><span>${c.label}</span><small>${tags} · <span class='riskPill riskPill-${riskCls}'>${risk}</span></small></button>`;
     }).join('');
