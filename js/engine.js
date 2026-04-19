@@ -1075,7 +1075,6 @@
         arr.push({label:'Set an ambush trap for an unsuspecting target',tags:['Assassination','Stealth'],fn(){ startSurpriseAttack('ambush'); }});
       }
     } 
-    arr.push({label:'Camp and re-form the line',tags:['Camp'],fn(){ G.lastResult='The camp settles nerves but the wider pressure does not stop moving.'; }}); 
     return arr.slice(0,8); 
   }
   function maybeStageAdvance(){
