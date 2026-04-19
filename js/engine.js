@@ -782,6 +782,7 @@
     const loc=getLocality(G.location);
     const recruit=window.recruitChoice?window.recruitChoice(G):null;
     const classInvest=classInvestigationChoices();
+    const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{};
     const firstContact=hooks.firstContact||null;
     const settlementService={label:firstContact?`Approach ${firstContact} — ${loc.name} services and information`:`Use ${loc.name} services — recover, resupply, or learn`,tags:['Service','Settlement'],fn(){
       advanceTime(1); G.telemetry.turns++; G.telemetry.services++;
@@ -815,7 +816,6 @@
       else { G.lastResult=`${(npc.id||'').replace(/_/g,' ')} is not available or not willing. The approach did not land.`; G.worldClocks.pressure++; }
       G.recentOutcomeType='observe'; maybeStageAdvance();
     }}:null;
-    const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{};
     const rumors=(window.LOCALITY_RUMORS||{})[G.location]||[];
     const rumor=pick(rumors,(G.dayCount+G.worldClocks.pressure)%Math.max(1,rumors.length));
     const sceneStarters=hooks.sceneStarters||[];
