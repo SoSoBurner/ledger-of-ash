@@ -316,11 +316,48 @@
     const cs=G.combatSession;
     if(!cs||cs.resolved) return currentNonCombatChoices();
     const arch=getArchetype(G.archetype)||{group:'combat'};
+    const group=arch.group||'combat';
     const abilities=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype]||[]).filter(ab=>(G.skills[ab.skillReq]||0)>=ab.minSkill);
     const choices=[];
-    choices.push({label:`Press forward — direct attack on ${cs.enemyName}`,tags:['Combat','Direct'],fn(){
+    // Primary attack — phrased by archetype group
+    const primaryLabels={
+      combat:`Press the line — direct assault on ${cs.enemyName}`,
+      magic:`Cast — channel force into ${cs.enemyName}`,
+      stealth:`Strike from the unseen angle — exploit the gap`,
+      support:`Coordinate the confrontation — direct action against ${cs.enemyName}`
+    };
+    choices.push({label:primaryLabels[group]||primaryLabels.combat,tags:['Combat','Direct'],fn(){
       resolveCombatRound('attack',null,cs);
     }});
+    // Magic resource tension: slot tracking
+    if(group==='magic'){
+      if(!cs.spellSlots) cs.spellSlots=3+Math.floor(G.level/4);
+      if(cs.spellSlots>0){
+        choices.push({label:`Spend a spell slot — amplified magical assault (${cs.spellSlots} slots left)`,tags:['Magic','Resource'],fn(){
+          cs.spellSlots--;
+          resolveCombatRound('spell_slot',null,cs);
+        }});
+      } else {
+        choices.push({label:`Spell slots exhausted — improvise a raw magical burst`,tags:['Magic','Desperate'],fn(){
+          resolveCombatRound('spell_raw',null,cs);
+        }});
+      }
+    }
+    // Stealth: bypass option
+    if(group==='stealth'){
+      choices.push({label:`Read the engagement — look for a bypass or escape route`,tags:['Stealth','Read'],fn(){
+        advanceTime(1); G.skills.stealth=(G.skills.stealth||0)+1;
+        const bypassRoll=rollD20('stealth',(G.skills.stealth||0)+Math.floor(G.level/3));
+        const success=bypassRoll.isCrit||(bypassRoll.total>=12&&!bypassRoll.isFumble);
+        if(success){
+          cs.stealthOpenerAvailable=true;
+          G.lastResult=`A sightline gap opens. Timing window available — the next strike can come from concealment. Round ${cs.round}.`;
+        } else {
+          G.lastResult=`The engagement does not give a clean angle. ${cs.enemyName} is too aware. Round ${cs.round}.`;
+        }
+        setThreat();setObjective();persist();render();
+      }});
+    }
     abilities.slice(0,2).forEach(ab=>{
       choices.push({label:`${ab.name}: ${ab.effect}`,tags:['Combat','Ability'],fn(){
         resolveCombatRound('ability',ab.id,cs);
@@ -333,18 +370,18 @@
       }});
     }
     choices.push({label:`Disengage and fall back to the safe zone`,tags:['Retreat','Safe'],fn(){
-      G.combatSession=null;
-      G.encounter=null;
-      G.recentOutcomeType='combat_flee';
-      advanceTime(1);
+      G.combatSession=null; G.encounter=null;
+      G.recentOutcomeType='combat_flee'; advanceTime(1);
       recordConfrontation('avoidedConflicts');
       G.lastResult=`Distance gained from ${cs.enemyName}. The safe zone holds for now.`;
       setThreat();setObjective();persist();render();
     }});
-    return choices;
+    return choices.slice(0,6);
   }
 
   function resolveCombatRound(action,abilityId,cs){
+    const arch=getArchetype(G.archetype)||{group:'combat'};
+    const group=arch.group||'combat';
     const tierBonus=cs.tier==='elite'?2:cs.tier==='boss'?5:0;
     let attackBonus=0,defenseBonus=0,specialEffect=null;
     if(action==='ability'&&abilityId){
@@ -357,7 +394,9 @@
       }
     }
     if(action==='stealth_opener'){ attackBonus+=4; defenseBonus+=2; specialEffect='Stealth Opener'; }
-    const skill=action==='stealth_opener'?'stealth':'combat';
+    if(action==='spell_slot'){ attackBonus+=3; specialEffect='Spell Slot'; }
+    if(action==='spell_raw'){ attackBonus+=1; defenseBonus-=1; specialEffect='Raw Burst'; }
+    const skill=action==='stealth_opener'?'stealth':(group==='magic'&&action!=='attack')?'lore':'combat';
     const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus);
     const playerRoll=rAtk.total;
     const enemyDC=10+cs.enemyDefense+tierBonus;
@@ -365,12 +404,25 @@
     const enemyRoll=1+rand(20)+cs.enemyAttack;
     const playerDC=10+(G.skills.combat||0)+Math.floor(G.level/3)+defenseBonus;
     const enemyHit=enemyRoll>=playerDC&&cs.enemyHp>0&&!rAtk.isCrit;
+    // Archetype-specific hit/miss text
+    const hitText={
+      combat:`The blow lands with purpose — ${cs.enemyName} takes the weight of it.`,
+      magic:`The force connects — ${cs.enemyName} is driven back by the arc.`,
+      stealth:`The strike finds the gap — ${cs.enemyName} did not see it coming.`,
+      support:`The opening is made — ${cs.enemyName} is exposed to the action.`
+    };
+    const missText={
+      combat:`The line holds — ${cs.enemyName} absorbs the push and answers.`,
+      magic:`The casting falls short — the arc disperses before it reaches.`,
+      stealth:`The angle closes before the strike can land — ${cs.enemyName} shifts.`,
+      support:`The coordination fails — ${cs.enemyName} resets before the opening opens.`
+    };
     const log=[];
     if(rAtk.isCrit){
       const dmg=Math.max(6,rand(8)+rand(8)+Math.floor(G.level/2));
       cs.enemyHp=Math.max(0,cs.enemyHp-dmg);
       log.push(`NAT 20. ${rAtk.flavor}`);
-      log.push(`Critical hit for ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
+      log.push(`Critical — ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
     } else if(rAtk.isFumble){
       const selfDmg=Math.max(1,rand(4));
       G.hp=Math.max(0,G.hp-selfDmg);
@@ -379,10 +431,10 @@
     } else if(playerHit){
       const dmg=Math.max(1,rand(8)+Math.floor(G.level/2));
       cs.enemyHp=Math.max(0,cs.enemyHp-dmg);
-      log.push(`Attack connects for ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
+      log.push(`${hitText[group]||hitText.combat} ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
       if(specialEffect) log.push(`${specialEffect} activates.`);
-    } else { log.push(`Attack misses — ${cs.enemyName} holds.`); }
-    if(enemyHit){ const dmg=Math.max(1,rand(6)+(cs.tier==='boss'?4:cs.tier==='elite'?2:0)); G.hp=Math.max(0,G.hp-dmg); log.push(`${cs.enemyName} strikes for ${dmg}. Your HP: ${G.hp}/${G.maxHp}.`); }
+    } else { log.push(missText[group]||missText.combat); }
+    if(enemyHit){ const dmg=Math.max(1,rand(6)+(cs.tier==='boss'?4:cs.tier==='elite'?2:0)); G.hp=Math.max(0,G.hp-dmg); log.push(`${cs.enemyName} answers for ${dmg}. Your HP: ${G.hp}/${G.maxHp}.`); }
     else if(cs.enemyHp>0&&!rAtk.isFumble){ log.push(`${cs.enemyName} counterattack misses.`); }
     cs.round++;
     cs.log.unshift(`Round ${cs.round-1}: `+log.join(' '));

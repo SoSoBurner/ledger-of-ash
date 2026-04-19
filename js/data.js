@@ -251,7 +251,7 @@
     whitebridge_commune:['aurora_crown_commune','glasswake_commune']
   };
 
-  // V32_2 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
+  // V33_0 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
   const NPC_PLACEMENTS = {
     panim_haven:[
       {id:'elior_sepulcher',office:'Mediation Hall',role:'Mediator Cleric'},
@@ -286,13 +286,11 @@
       {id:'farlan_inkshade',office:'Quota Clerk Office',role:'Academic Recordkeeper'},
       {id:'jorva_helmrune',office:'Communal Responsibility Office',role:'Communal Responsibility Enforcer'},
       {id:'velrik_durnshade',office:'Guild Dispute Hall',role:'Guild Dispute Mediator'},
-      {id:'valen_crestmark',office:'Patron-Family Steward Office',role:'Patron-Family Steward'}
+      {id:'valen_crestmark',office:'Harvest Assessment Office',role:'Harvest Assessor'}
     ],
     glasswake_commune:[
-      {id:'researcher_toman_iceveil',office:'Research Wing — Contamination Division',role:'Contamination Research Lead'},
-      {id:'ilya_rimebridge',office:'Supply and Quartermaster Depot',role:'Quartermaster'},
-      {id:'ostra_rimebridge',office:'Shrine Maintenance Hall',role:'Shrine Caretaker'},
-      {id:'thora_rimebridge',office:'Medical Station',role:'Street Physician'}
+      {id:'researcher_toman_iceveil',office:'Contamination Research Wing',role:'Contamination Research Lead'},
+      {id:'lenna_bannerhold',office:'Commune Research Office',role:'Commune Research Clerk'}
     ],
     fairhaven:[
       {id:'naevys_sunweave',office:'Chapel Market Stalls',role:'Retired Artisan'},
@@ -354,10 +352,8 @@
       {id:'vale_tinmarch',office:'Medical Station',role:'Street Physician'}
     ],
     ironhold_quarry:[
-      {id:'petra_stonewake',office:'Inventory and Stock Office',role:'Inventory Steward'},
       {id:'darian_ironspike',office:'Quarry Gate Command',role:'Ore Officer'},
-      {id:'velka_ironspike',office:'Labor Zone Command',role:'Quarry Overseer'},
-      {id:'rhodra_boltmere',office:'Ritual Observance Station',role:'Ritual Attendant'}
+      {id:'velka_ironspike',office:'Labor Zone Command',role:'Quarry Overseer'}
     ],
     plumes_end_outpost:[
       {id:'patrol_leader',office:'Outpost Gate',role:'Patrol Leader'},
@@ -365,8 +361,8 @@
       {id:'letha_dawnsilk',office:'Northern Road Hazard Station',role:'Hazard Reader'}
     ],
     whitebridge_commune:[
-      {id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'Communal Arbiter'},
-      {id:'cadrin_crownmere',office:'Route Assessment Office',role:'Route Assessment Official'},
+      {id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'Communal Arbiter of Loss Claims'},
+      {id:'cadrin_crownmere',office:'Bridge Crossing Office',role:'Bridge Clerk'},
       {id:'aster_starice',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
       {id:'thora_snowveil',office:'Grain and Supply Ledger',role:'Grain Measurer'}
     ]
@@ -652,6 +648,46 @@
       progression:{name:'Deck Drill Yard',text:'Shipboard footing, nautical navigation, archive protocol, and weather reading are practiced here.'},
       flavor:{name:'Harbor Blessing Pier',text:'Maritime rites and sea-scholars share the same dock language between tides.'},
       secret:{name:'Submerged Annex Passage',text:'A flooded lower archive where suppressed maritime histories and dangerous charts are stored.'}
+    },
+    craftspire:{
+      recovery:{name:'Workshop Quarter Alcove',text:'Copy-floor medics and material hands hold the injured together between production shifts.'},
+      equipment:{name:'Licensed Supply Cage',text:'Copy tools, binding materials, arcane reagents, work leathers, and licensed implements.'},
+      info:{name:'Copy Bureau Counter',text:'Registration logs and tariff stamps reveal which names move which materials without scrutiny.'},
+      progression:{name:'Workshop Drill Floor',text:'Copy discipline, material handling, enchantment protocol, and tariff law are sharpened here.'},
+      flavor:{name:'Opening Rite Alcove',text:'Practical devotion and pre-run rites keep the workshop rhythm steady.'},
+      secret:{name:'Unlicensed Stack',text:'A hidden shelf where unlicensed copies and contraband tariff stamps coexist.'}
+    },
+    unity_square:{
+      recovery:{name:'Exchange Quarter Holding Room',text:'Neutral ground where injured traders and neutral hands rest under guild truce.'},
+      equipment:{name:'Spot Trade Outfitters',text:'Light armor, concealed blades, inspection tools, contract satchels, and market-road gear.'},
+      info:{name:'Posted Rate Board',text:'Guild colors and inspection lines tell the real story of who controls which lane.'},
+      progression:{name:'Arbitration Yard',text:'Contract reading, spot negotiation, market defense, and fraud detection are practiced here.'},
+      flavor:{name:'Exchange Edge Shrines',text:'Small opening rites at market edges keep the rhythm of trade ceremonially grounded.'},
+      secret:{name:'Back Counter Room',text:'An off-ledger exchange room where rates and names diverge from what the board shows.'}
+    },
+    ironhold_quarry:{
+      recovery:{name:'Quarry Overseer Station',text:'Roazian medical discipline keeps labor moving under strict supervised recovery.'},
+      equipment:{name:'Iron Accord Extraction Stores',text:'Heavy tools, reinforced boots, containment harness, quarry leathers, and enforcement-grade weapons.'},
+      info:{name:'Labor Zone Records',text:'Quota logs and incident reports show where enforcement pressure becomes violence before anyone files a report.'},
+      progression:{name:'Labor Drill Ground',text:'Load discipline, checkpoint procedure, enforcement authority, and extraction safety are drilled here.'},
+      flavor:{name:'Civic Necessity Marker',text:'Low-ornament rites at shift markers keep labor discipline visible and collectively acknowledged.'},
+      secret:{name:'Spent Material Shaft',text:'A disused shaft where confiscated goods and buried labor disputes share sealed space.'}
+    },
+    plumes_end_outpost:{
+      recovery:{name:'Caravan Rest Post',text:'Outpost hands and shrine volunteers hold the injured stable under patrol supervision.'},
+      equipment:{name:'Northern Road Supplies',text:'Weather gear, caravan tools, patrol weapons, ward charms, and shrine-blessed travel kits.'},
+      info:{name:'Patrol Report Board',text:'Hazard logs and sighting records name what the official route map will not.'},
+      progression:{name:'Patrol Drill Ring',text:'Route reading, hazard identification, caravan escort, and shrine procedure are practiced here.'},
+      flavor:{name:'Shrine of Cysur',text:'Safe-journey offerings and low prayers mark every northward departure.'},
+      secret:{name:'Closed Route Marker',text:'A hidden route marker where abandoned caravan routes and unofficial hazard bypasses are scratched into stone.'}
+    },
+    whitebridge_commune:{
+      recovery:{name:'Crossing Shelter Hall',text:'Communal hands and shared warmth hold the cold-struck and expedition-worn together.'},
+      equipment:{name:'Bridge Supply Cache',text:'Crossing ropes, insulated wraps, survival tools, emergency rations, and cold-weather weapons.'},
+      info:{name:'Crossing Registration Desk',text:'Route declarations and hazard reports surface what expeditions carry back but will not announce.'},
+      progression:{name:'Survival Circle',text:'Bridge crossing technique, cold survival, hazard navigation, and communal emergency procedure are practiced here.'},
+      flavor:{name:'Evening Story Circle',text:'Survival storytelling binds the commune in shared memory and acknowledged consequence.'},
+      secret:{name:'Missing Expedition Archive',text:'Records of expeditions that declared intent but never returned sit in a quietly maintained unmarked file.'}
     }
   };
 
@@ -1558,5 +1594,5 @@ const STAGE2_DESTINATION_CONTENT = {
   window.LOCALITY_SERVICE_ITEM_OVERRIDES = LOCALITY_SERVICE_ITEM_OVERRIDES;
   window.STAGE2_DESTINATION_CONTENT = STAGE2_DESTINATION_CONTENT;
   window.BUILD_VERIFICATION = BUILD_VERIFICATION;
-  window.CANON_VERSION = 'V32_2';
+  window.CANON_VERSION = 'V33_0';
 })();

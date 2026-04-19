@@ -515,7 +515,7 @@
     whitebridge_commune:['aurora_crown_commune','glasswake_commune']
   };
 
-  // V32_2 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
+  // V33_0 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
   const NPC_PLACEMENTS = {
     panim_haven:[
       {id:'elior_sepulcher',office:'Mediation Hall',role:'Mediator Cleric'},
@@ -550,13 +550,11 @@
       {id:'farlan_inkshade',office:'Quota Clerk Office',role:'Academic Recordkeeper'},
       {id:'jorva_helmrune',office:'Communal Responsibility Office',role:'Communal Responsibility Enforcer'},
       {id:'velrik_durnshade',office:'Guild Dispute Hall',role:'Guild Dispute Mediator'},
-      {id:'valen_crestmark',office:'Patron-Family Steward Office',role:'Patron-Family Steward'}
+      {id:'valen_crestmark',office:'Harvest Assessment Office',role:'Harvest Assessor'}
     ],
     glasswake_commune:[
-      {id:'researcher_toman_iceveil',office:'Research Wing — Contamination Division',role:'Contamination Research Lead'},
-      {id:'ilya_rimebridge',office:'Supply and Quartermaster Depot',role:'Quartermaster'},
-      {id:'ostra_rimebridge',office:'Shrine Maintenance Hall',role:'Shrine Caretaker'},
-      {id:'thora_rimebridge',office:'Medical Station',role:'Street Physician'}
+      {id:'researcher_toman_iceveil',office:'Contamination Research Wing',role:'Contamination Research Lead'},
+      {id:'lenna_bannerhold',office:'Commune Research Office',role:'Commune Research Clerk'}
     ],
     fairhaven:[
       {id:'naevys_sunweave',office:'Chapel Market Stalls',role:'Retired Artisan'},
@@ -618,10 +616,8 @@
       {id:'vale_tinmarch',office:'Medical Station',role:'Street Physician'}
     ],
     ironhold_quarry:[
-      {id:'petra_stonewake',office:'Inventory and Stock Office',role:'Inventory Steward'},
       {id:'darian_ironspike',office:'Quarry Gate Command',role:'Ore Officer'},
-      {id:'velka_ironspike',office:'Labor Zone Command',role:'Quarry Overseer'},
-      {id:'rhodra_boltmere',office:'Ritual Observance Station',role:'Ritual Attendant'}
+      {id:'velka_ironspike',office:'Labor Zone Command',role:'Quarry Overseer'}
     ],
     plumes_end_outpost:[
       {id:'patrol_leader',office:'Outpost Gate',role:'Patrol Leader'},
@@ -629,8 +625,8 @@
       {id:'letha_dawnsilk',office:'Northern Road Hazard Station',role:'Hazard Reader'}
     ],
     whitebridge_commune:[
-      {id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'Communal Arbiter'},
-      {id:'cadrin_crownmere',office:'Route Assessment Office',role:'Route Assessment Official'},
+      {id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'Communal Arbiter of Loss Claims'},
+      {id:'cadrin_crownmere',office:'Bridge Crossing Office',role:'Bridge Clerk'},
       {id:'aster_starice',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
       {id:'thora_snowveil',office:'Grain and Supply Ledger',role:'Grain Measurer'}
     ]
@@ -916,6 +912,46 @@
       progression:{name:'Deck Drill Yard',text:'Shipboard footing, nautical navigation, archive protocol, and weather reading are practiced here.'},
       flavor:{name:'Harbor Blessing Pier',text:'Maritime rites and sea-scholars share the same dock language between tides.'},
       secret:{name:'Submerged Annex Passage',text:'A flooded lower archive where suppressed maritime histories and dangerous charts are stored.'}
+    },
+    craftspire:{
+      recovery:{name:'Workshop Quarter Alcove',text:'Copy-floor medics and material hands hold the injured together between production shifts.'},
+      equipment:{name:'Licensed Supply Cage',text:'Copy tools, binding materials, arcane reagents, work leathers, and licensed implements.'},
+      info:{name:'Copy Bureau Counter',text:'Registration logs and tariff stamps reveal which names move which materials without scrutiny.'},
+      progression:{name:'Workshop Drill Floor',text:'Copy discipline, material handling, enchantment protocol, and tariff law are sharpened here.'},
+      flavor:{name:'Opening Rite Alcove',text:'Practical devotion and pre-run rites keep the workshop rhythm steady.'},
+      secret:{name:'Unlicensed Stack',text:'A hidden shelf where unlicensed copies and contraband tariff stamps coexist.'}
+    },
+    unity_square:{
+      recovery:{name:'Exchange Quarter Holding Room',text:'Neutral ground where injured traders and neutral hands rest under guild truce.'},
+      equipment:{name:'Spot Trade Outfitters',text:'Light armor, concealed blades, inspection tools, contract satchels, and market-road gear.'},
+      info:{name:'Posted Rate Board',text:'Guild colors and inspection lines tell the real story of who controls which lane.'},
+      progression:{name:'Arbitration Yard',text:'Contract reading, spot negotiation, market defense, and fraud detection are practiced here.'},
+      flavor:{name:'Exchange Edge Shrines',text:'Small opening rites at market edges keep the rhythm of trade ceremonially grounded.'},
+      secret:{name:'Back Counter Room',text:'An off-ledger exchange room where rates and names diverge from what the board shows.'}
+    },
+    ironhold_quarry:{
+      recovery:{name:'Quarry Overseer Station',text:'Roazian medical discipline keeps labor moving under strict supervised recovery.'},
+      equipment:{name:'Iron Accord Extraction Stores',text:'Heavy tools, reinforced boots, containment harness, quarry leathers, and enforcement-grade weapons.'},
+      info:{name:'Labor Zone Records',text:'Quota logs and incident reports show where enforcement pressure becomes violence before anyone files a report.'},
+      progression:{name:'Labor Drill Ground',text:'Load discipline, checkpoint procedure, enforcement authority, and extraction safety are drilled here.'},
+      flavor:{name:'Civic Necessity Marker',text:'Low-ornament rites at shift markers keep labor discipline visible and collectively acknowledged.'},
+      secret:{name:'Spent Material Shaft',text:'A disused shaft where confiscated goods and buried labor disputes share sealed space.'}
+    },
+    plumes_end_outpost:{
+      recovery:{name:'Caravan Rest Post',text:'Outpost hands and shrine volunteers hold the injured stable under patrol supervision.'},
+      equipment:{name:'Northern Road Supplies',text:'Weather gear, caravan tools, patrol weapons, ward charms, and shrine-blessed travel kits.'},
+      info:{name:'Patrol Report Board',text:'Hazard logs and sighting records name what the official route map will not.'},
+      progression:{name:'Patrol Drill Ring',text:'Route reading, hazard identification, caravan escort, and shrine procedure are practiced here.'},
+      flavor:{name:'Shrine of Cysur',text:'Safe-journey offerings and low prayers mark every northward departure.'},
+      secret:{name:'Closed Route Marker',text:'A hidden route marker where abandoned caravan routes and unofficial hazard bypasses are scratched into stone.'}
+    },
+    whitebridge_commune:{
+      recovery:{name:'Crossing Shelter Hall',text:'Communal hands and shared warmth hold the cold-struck and expedition-worn together.'},
+      equipment:{name:'Bridge Supply Cache',text:'Crossing ropes, insulated wraps, survival tools, emergency rations, and cold-weather weapons.'},
+      info:{name:'Crossing Registration Desk',text:'Route declarations and hazard reports surface what expeditions carry back but will not announce.'},
+      progression:{name:'Survival Circle',text:'Bridge crossing technique, cold survival, hazard navigation, and communal emergency procedure are practiced here.'},
+      flavor:{name:'Evening Story Circle',text:'Survival storytelling binds the commune in shared memory and acknowledged consequence.'},
+      secret:{name:'Missing Expedition Archive',text:'Records of expeditions that declared intent but never returned sit in a quietly maintained unmarked file.'}
     }
   };
 
@@ -1822,7 +1858,7 @@ const STAGE2_DESTINATION_CONTENT = {
   window.LOCALITY_SERVICE_ITEM_OVERRIDES = LOCALITY_SERVICE_ITEM_OVERRIDES;
   window.STAGE2_DESTINATION_CONTENT = STAGE2_DESTINATION_CONTENT;
   window.BUILD_VERIFICATION = BUILD_VERIFICATION;
-  window.CANON_VERSION = 'V32_2';
+  window.CANON_VERSION = 'V33_0';
 })();
 </script>
 <script>// ═══════════════════════════════════════════════════════
@@ -4193,11 +4229,48 @@ function triggerCombatEncounter(enemyId, context) {
     const cs=G.combatSession;
     if(!cs||cs.resolved) return currentNonCombatChoices();
     const arch=getArchetype(G.archetype)||{group:'combat'};
+    const group=arch.group||'combat';
     const abilities=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype]||[]).filter(ab=>(G.skills[ab.skillReq]||0)>=ab.minSkill);
     const choices=[];
-    choices.push({label:`Press forward — direct attack on ${cs.enemyName}`,tags:['Combat','Direct'],fn(){
+    // Primary attack — phrased by archetype group
+    const primaryLabels={
+      combat:`Press the line — direct assault on ${cs.enemyName}`,
+      magic:`Cast — channel force into ${cs.enemyName}`,
+      stealth:`Strike from the unseen angle — exploit the gap`,
+      support:`Coordinate the confrontation — direct action against ${cs.enemyName}`
+    };
+    choices.push({label:primaryLabels[group]||primaryLabels.combat,tags:['Combat','Direct'],fn(){
       resolveCombatRound('attack',null,cs);
     }});
+    // Magic resource tension: slot tracking
+    if(group==='magic'){
+      if(!cs.spellSlots) cs.spellSlots=3+Math.floor(G.level/4);
+      if(cs.spellSlots>0){
+        choices.push({label:`Spend a spell slot — amplified magical assault (${cs.spellSlots} slots left)`,tags:['Magic','Resource'],fn(){
+          cs.spellSlots--;
+          resolveCombatRound('spell_slot',null,cs);
+        }});
+      } else {
+        choices.push({label:`Spell slots exhausted — improvise a raw magical burst`,tags:['Magic','Desperate'],fn(){
+          resolveCombatRound('spell_raw',null,cs);
+        }});
+      }
+    }
+    // Stealth: bypass option
+    if(group==='stealth'){
+      choices.push({label:`Read the engagement — look for a bypass or escape route`,tags:['Stealth','Read'],fn(){
+        advanceTime(1); G.skills.stealth=(G.skills.stealth||0)+1;
+        const bypassRoll=rollD20('stealth',(G.skills.stealth||0)+Math.floor(G.level/3));
+        const success=bypassRoll.isCrit||(bypassRoll.total>=12&&!bypassRoll.isFumble);
+        if(success){
+          cs.stealthOpenerAvailable=true;
+          G.lastResult=`A sightline gap opens. Timing window available — the next strike can come from concealment. Round ${cs.round}.`;
+        } else {
+          G.lastResult=`The engagement does not give a clean angle. ${cs.enemyName} is too aware. Round ${cs.round}.`;
+        }
+        setThreat();setObjective();persist();render();
+      }});
+    }
     abilities.slice(0,2).forEach(ab=>{
       choices.push({label:`${ab.name}: ${ab.effect}`,tags:['Combat','Ability'],fn(){
         resolveCombatRound('ability',ab.id,cs);
@@ -4210,18 +4283,18 @@ function triggerCombatEncounter(enemyId, context) {
       }});
     }
     choices.push({label:`Disengage and fall back to the safe zone`,tags:['Retreat','Safe'],fn(){
-      G.combatSession=null;
-      G.encounter=null;
-      G.recentOutcomeType='combat_flee';
-      advanceTime(1);
+      G.combatSession=null; G.encounter=null;
+      G.recentOutcomeType='combat_flee'; advanceTime(1);
       recordConfrontation('avoidedConflicts');
       G.lastResult=`Distance gained from ${cs.enemyName}. The safe zone holds for now.`;
       setThreat();setObjective();persist();render();
     }});
-    return choices;
+    return choices.slice(0,6);
   }
 
   function resolveCombatRound(action,abilityId,cs){
+    const arch=getArchetype(G.archetype)||{group:'combat'};
+    const group=arch.group||'combat';
     const tierBonus=cs.tier==='elite'?2:cs.tier==='boss'?5:0;
     let attackBonus=0,defenseBonus=0,specialEffect=null;
     if(action==='ability'&&abilityId){
@@ -4234,7 +4307,9 @@ function triggerCombatEncounter(enemyId, context) {
       }
     }
     if(action==='stealth_opener'){ attackBonus+=4; defenseBonus+=2; specialEffect='Stealth Opener'; }
-    const skill=action==='stealth_opener'?'stealth':'combat';
+    if(action==='spell_slot'){ attackBonus+=3; specialEffect='Spell Slot'; }
+    if(action==='spell_raw'){ attackBonus+=1; defenseBonus-=1; specialEffect='Raw Burst'; }
+    const skill=action==='stealth_opener'?'stealth':(group==='magic'&&action!=='attack')?'lore':'combat';
     const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus);
     const playerRoll=rAtk.total;
     const enemyDC=10+cs.enemyDefense+tierBonus;
@@ -4242,12 +4317,25 @@ function triggerCombatEncounter(enemyId, context) {
     const enemyRoll=1+rand(20)+cs.enemyAttack;
     const playerDC=10+(G.skills.combat||0)+Math.floor(G.level/3)+defenseBonus;
     const enemyHit=enemyRoll>=playerDC&&cs.enemyHp>0&&!rAtk.isCrit;
+    // Archetype-specific hit/miss text
+    const hitText={
+      combat:`The blow lands with purpose — ${cs.enemyName} takes the weight of it.`,
+      magic:`The force connects — ${cs.enemyName} is driven back by the arc.`,
+      stealth:`The strike finds the gap — ${cs.enemyName} did not see it coming.`,
+      support:`The opening is made — ${cs.enemyName} is exposed to the action.`
+    };
+    const missText={
+      combat:`The line holds — ${cs.enemyName} absorbs the push and answers.`,
+      magic:`The casting falls short — the arc disperses before it reaches.`,
+      stealth:`The angle closes before the strike can land — ${cs.enemyName} shifts.`,
+      support:`The coordination fails — ${cs.enemyName} resets before the opening opens.`
+    };
     const log=[];
     if(rAtk.isCrit){
       const dmg=Math.max(6,rand(8)+rand(8)+Math.floor(G.level/2));
       cs.enemyHp=Math.max(0,cs.enemyHp-dmg);
       log.push(`NAT 20. ${rAtk.flavor}`);
-      log.push(`Critical hit for ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
+      log.push(`Critical — ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
     } else if(rAtk.isFumble){
       const selfDmg=Math.max(1,rand(4));
       G.hp=Math.max(0,G.hp-selfDmg);
@@ -4256,10 +4344,10 @@ function triggerCombatEncounter(enemyId, context) {
     } else if(playerHit){
       const dmg=Math.max(1,rand(8)+Math.floor(G.level/2));
       cs.enemyHp=Math.max(0,cs.enemyHp-dmg);
-      log.push(`Attack connects for ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
+      log.push(`${hitText[group]||hitText.combat} ${dmg} damage. ${cs.enemyName}: ${cs.enemyHp}/${cs.enemyMaxHp} HP.`);
       if(specialEffect) log.push(`${specialEffect} activates.`);
-    } else { log.push(`Attack misses — ${cs.enemyName} holds.`); }
-    if(enemyHit){ const dmg=Math.max(1,rand(6)+(cs.tier==='boss'?4:cs.tier==='elite'?2:0)); G.hp=Math.max(0,G.hp-dmg); log.push(`${cs.enemyName} strikes for ${dmg}. Your HP: ${G.hp}/${G.maxHp}.`); }
+    } else { log.push(missText[group]||missText.combat); }
+    if(enemyHit){ const dmg=Math.max(1,rand(6)+(cs.tier==='boss'?4:cs.tier==='elite'?2:0)); G.hp=Math.max(0,G.hp-dmg); log.push(`${cs.enemyName} answers for ${dmg}. Your HP: ${G.hp}/${G.maxHp}.`); }
     else if(cs.enemyHp>0&&!rAtk.isFumble){ log.push(`${cs.enemyName} counterattack misses.`); }
     cs.round++;
     cs.log.unshift(`Round ${cs.round-1}: `+log.join(' '));
