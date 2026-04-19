@@ -1126,6 +1126,34 @@
     $('journalPanel').innerHTML=questsHtml+noticesHtml+momentsHtml+journalHtml+rescueHtml+legendsHtml;
   }
 
+  // ── STORY PANEL ──────────────────────────────────────────
+  function renderStoryPanel(){
+    const loc=getLocality(G.location)||{name:'?',summary:'',pressures:[],creatures:[],hazards:[]};
+    const activeQuests=(G.quests||[]).filter(q=>q.status==='Active');
+    const thread=activeQuests[0]||null;
+    const threat=G.currentThreat||{};
+    const latestNotice=G.notices&&G.notices[0]||null;
+    const clocks=G.worldClocks||{pressure:0,rival:0,omens:0};
+    const pressure=pick(loc.pressures,clocks.pressure)||'none surfaced';
+    const locCard=`<div class='card'><div class='sectionTitle'>${loc.name}</div><div style='font-size:13px;line-height:1.5'>${loc.summary||'An uncertain place.'}</div>${G.currentSafeZone?`<div style='margin-top:5px;font-size:11px;color:#8a7a5a'>Safe zone: ${G.currentSafeZone}</div>`:''}</div>`;
+    const threadCard=thread?`<div class='card'><div class='sectionTitle'>Active Thread</div><div style='font-size:13px;color:#c9b99b;line-height:1.5'>${thread.title}</div></div>`:'';
+    const pressureCard=`<div class='card'><div class='sectionTitle'>Active Pressure</div><div style='font-size:12px;color:#c9b99b'>${pressure}</div><div style='margin-top:4px;font-size:11px;color:#5a4a2a'>Pressure ${clocks.pressure} · Rival ${clocks.rival}</div></div>`;
+    const threatCard=(threat.creature||threat.hazard)?`<div class='card'><div class='sectionTitle'>Threat</div>${threat.creature?`<div style='font-size:12px'>Creature: <b>${(threat.creature||'').replace(/_/g,' ')}</b></div>`:''}${threat.hazard?`<div style='font-size:12px'>Hazard: <b>${(threat.hazard||'').replace(/_/g,' ')}</b></div>`:''}</div>`:'';
+    const noticeCard=latestNotice?`<div class='card'><div class='sectionTitle'>Latest Notice</div><div style='font-size:12px;color:#c9b99b;line-height:1.5'>${latestNotice}</div></div>`:'';
+    $('storyPanel').innerHTML=locCard+threadCard+pressureCard+threatCard+noticeCard;
+  }
+
+  // ── ARCH PREVIEW ─────────────────────────────────────────
+  function updateArchPreview(){
+    const archSel=$('archSelect'); const bgSel=$('bgSelect'); const el=$('archPreview');
+    if(!archSel||!bgSel||!el) return;
+    const arch=getArchetype(archSel.value);
+    const bg=(window.BACKGROUNDS[archSel.value]||[]).find(b=>b.id===bgSel.value);
+    if(!arch||!bg){ el.textContent='Select an archetype and background to preview your starting identity.'; return; }
+    const loc=getLocality(bg.originLocality);
+    el.innerHTML=`<b>${arch.name}</b> <em>/ ${bg.name}</em><div style='margin-top:5px;font-size:11px;color:#7a6a4a'>${arch.desc||''}</div>${bg.theme?`<div style='margin-top:4px;font-size:11px'>Theme: ${bg.theme}</div>`:''}<div style='margin-top:3px;font-size:11px;color:#8a7a5a'>${loc?`Origin: ${loc.name}`:''}${bg.firstObjective?` · ${bg.firstObjective}`:''}</div>`;
+  }
+
   // ── LAYER SYSTEM ─────────────────────────────────────────
   function setActiveLayer(name){
     if(!G.uiState) G.uiState={activeLayer:'story'};
@@ -1134,7 +1162,10 @@
   }
   function applyLayerToUI(layer){
     document.querySelectorAll('.layerBtn').forEach(b=>b.classList.toggle('active',b.dataset.layer===layer));
-    if(layer==='world'){
+    if(layer==='story'){
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      const sp=$('storyPanel'); if(sp){ sp.classList.add('active'); renderStoryPanel(); }
+    } else if(layer==='world'){
       document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
       const mp=$('mapPanel'); if(mp){ mp.classList.add('active'); renderWorldLayer(); }
     } else if(layer==='identity'){
@@ -1187,14 +1218,10 @@
       }catch(e){ $('narrative').textContent='Locality narrative unavailable.'; }
     }
     $('resultCard').innerHTML=resultCardLines();
-    $('mapPanel').innerHTML=mapLines();
     $('servicesPanel').innerHTML=servicesLines();
-    $('sheetPanel').innerHTML=sheetLines();
-    $('journalPanel').innerHTML=journalLines();
     $('noticesPanel').innerHTML=noticesLines();
     $('npcsPanel').innerHTML=npcsLines();
     if($('codexPanel')) $('codexPanel').innerHTML=codexLines();
-    $('campPanel').innerHTML=campLines();
     $('legendsPanel').innerHTML=legendLines();
     // Auto-record current locality NPCs to codex on each render
     if(G.name) currentNamedPlacements(G.location).forEach(n=>{ recordCodex('npcs',n.id,{name:(n.id||'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),role:n.role,office:n.office,locality:getLocality(G.location)?.name||G.location}); });
@@ -1224,9 +1251,10 @@
       const ids=window.BACKGROUNDS[archSel.value]||[];
       $('bgSelect').innerHTML=ids.map(b=>`<option value='${b.id}'>${b.name} — ${getLocality(b.originLocality)?.name||b.originLocality}</option>`).join('');
       fillLineage();
+      updateArchPreview();
     }
     archSel.onchange=fillBg;
-    $('bgSelect').onchange=fillLineage;
+    $('bgSelect').onchange=()=>{ fillLineage(); updateArchPreview(); };
     fillBg();
   }
   function beginNew(){
@@ -1266,7 +1294,10 @@
     addJournal('origin',`${G.name} begins in ${startLoc.name}. ${arch.name} / ${bg.name}. Origin: ${bg.theme||'local pressure'}.`,`origin-${G.name}-${G.location}`);
     markMoment(`${G.name} — ${arch.name} / ${bg.name} — enters ${startLoc.name}`);
     setThreat(); setObjective(); persist(); render();
+    const ss=$('startScreen'); if(ss) ss.style.display='none';
+    const gs=$('gameSection'); if(gs) gs.classList.add('active');
+    const nr=$('newRunBtn'); if(nr) nr.style.display='';
   }
-  function loadLegend(){ const code=$('loadCode').value.trim(); const all=storage(); const found=all[code]; if(!found){ alert('Legend not found.'); return; } G=found; if(!G.familyEdges) G.familyEdges=[]; if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; if(!G.inventory) G.inventory=[]; if(!G.equipment) G.equipment={}; if(!G.serviceLog) G.serviceLog=[]; if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]}; if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; if(!G.uiState) G.uiState={activeLayer:'story'}; if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; render(); }
+  function loadLegend(){ const code=$('loadCode').value.trim(); const all=storage(); const found=all[code]; if(!found){ alert('Legend not found.'); return; } G=found; if(!G.familyEdges) G.familyEdges=[]; if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; if(!G.inventory) G.inventory=[]; if(!G.equipment) G.equipment={}; if(!G.serviceLog) G.serviceLog=[]; if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]}; if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; if(!G.uiState) G.uiState={activeLayer:'story'}; if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; render(); const ss=$('startScreen'); if(ss) ss.style.display='none'; const gs=$('gameSection'); if(gs) gs.classList.add('active'); const nr=$('newRunBtn'); if(nr) nr.style.display=''; }
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang='en'>
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -10,159 +10,175 @@
       --text:#f0e7d0;--muted:#c9b99b;--accent:#d4b67a;--good:#7cae73;--warn:#c9a46b;--bad:#c27f7f;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:radial-gradient(ellipse at top,#1a120a 0%,#0f0d0a 65%);color:var(--text);font:15px/1.5 Georgia,serif;min-height:100vh}
-    .wrap{max-width:1260px;margin:0 auto;padding:12px 16px}
+    html{scroll-behavior:smooth}
+    body{background:radial-gradient(ellipse at top,#1a120a 0%,#0f0d0a 70%);color:var(--text);font:15px/1.5 Georgia,serif;min-height:100vh}
+    .wrap{max-width:1280px;margin:0 auto;padding:12px 18px}
 
-    /* Top bar */
-    .topBar{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0 14px;border-bottom:1px solid var(--line)}
-    .gameTitle{font-size:24px;letter-spacing:.07em;color:var(--accent);font-variant:small-caps}
-    .gameTitle em{font-size:13px;color:var(--muted);font-variant:normal;font-style:italic;margin-left:8px}
-    #header{font-size:13px;color:var(--muted);text-align:right;line-height:1.5}
+    /* ── TOP BAR ─────────────────────────────────────────── */
+    .topBar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 14px;border-bottom:1px solid var(--line)}
+    .gameTitle{font-size:22px;letter-spacing:.08em;color:var(--accent);font-variant:small-caps;line-height:1.15}
+    .gameTitle small{display:block;font-size:10px;color:#6a5a3a;font-variant:normal;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+    .topRight{display:flex;align-items:center;gap:10px}
+    #header{font-size:12px;color:var(--muted);text-align:right;line-height:1.5}
+    .btnGhost{background:none;color:#6a5a3a;border:1px solid #3a2c18;border-radius:6px;padding:4px 11px;cursor:pointer;font:11px Georgia,serif;letter-spacing:.04em;transition:color .12s,border-color .12s}
+    .btnGhost:hover{color:var(--accent);border-color:var(--line2)}
 
-    /* Character creation */
-    .createBlock{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-    .createCard{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-    .createLabel{font-size:10px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#7a6a4a;margin-bottom:8px}
-    .createRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;align-items:stretch}
-    .createRow input,.createRow select{flex:1;min-width:110px;background:#0d0b09;color:var(--text);border:1px solid var(--line2);border-radius:8px;padding:8px 10px;font:14px Georgia,serif}
-    .btnPrimary{background:linear-gradient(180deg,#2e2016,#1e1510);color:var(--accent);border:1px solid var(--accent);border-radius:9px;padding:9px 16px;cursor:pointer;font:14px Georgia,serif;letter-spacing:.03em;white-space:nowrap}
-    .btnPrimary:hover{background:linear-gradient(180deg,#3a2a1c,#26190f)}
-    .btnSec{background:linear-gradient(180deg,#1e1712,#17130e);color:var(--muted);border:1px solid var(--line2);border-radius:8px;padding:9px 14px;cursor:pointer;font:14px Georgia,serif}
+    /* ── START SCREEN ────────────────────────────────────── */
+    #startScreen{padding:0}
+    #startScreen.hidden{display:none}
+    .heroSection{padding:22px 0 20px;border-bottom:1px solid var(--line);margin-bottom:22px}
+    .heroTagline{font-size:14px;color:var(--muted);line-height:1.75;max-width:680px;font-style:italic}
+    .createGrid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;align-items:start}
+    .createCard{background:linear-gradient(160deg,#1e1812,#15110d);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+    .createCardTitle{font-size:10px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;color:#6a5a3a;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #2a1f0f}
+    .fieldGroup{margin-bottom:12px}
+    .fieldLabel{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#7a6a4a;margin-bottom:5px;display:block}
+    .fieldRow{display:flex;gap:8px;flex-wrap:wrap}
+    .fieldInput{flex:1;min-width:90px;background:#0d0b09;color:var(--text);border:1px solid #3a2c18;border-radius:8px;padding:9px 11px;font:14px Georgia,serif;-webkit-appearance:none;appearance:none;outline:none;transition:border-color .12s}
+    .fieldInput:focus{border-color:var(--line2)}
+    .fieldInput::placeholder{color:#4a3a22}
+    .archPreviewBox{margin-top:12px;padding:11px 13px;background:#0d0b09;border:1px solid #2a1f0f;border-radius:9px;font-size:12px;color:#8a7a5a;line-height:1.6;min-height:48px}
+    .archPreviewBox b{color:var(--accent);font-size:13px}
+    .archPreviewBox em{color:#7a6a4a;font-style:normal}
+    .btnPrimary{display:block;width:100%;margin-top:14px;background:linear-gradient(180deg,#2e2016,#1e1510);color:var(--accent);border:1px solid #5a4020;border-radius:10px;padding:12px 16px;cursor:pointer;font:15px Georgia,serif;letter-spacing:.04em;transition:background .12s,border-color .12s}
+    .btnPrimary:hover{background:linear-gradient(180deg,#3a2a1c,#261a0f);border-color:var(--accent)}
+    .btnSec{display:block;width:100%;background:linear-gradient(180deg,#1c1710,#16120d);color:var(--muted);border:1px solid var(--line);border-radius:9px;padding:10px 14px;cursor:pointer;font:14px Georgia,serif;transition:border-color .12s;margin-top:8px}
+    .btnSec:hover{border-color:var(--line2);color:var(--text)}
+    .aboutText{margin-top:18px;padding-top:14px;border-top:1px solid #2a1f0f;font-size:12px;color:#5a4a2a;line-height:1.7}
 
-    /* Game layout — 3-column desktop */
-    .gameLayout{display:grid;grid-template-columns:210px 1fr 300px;gap:14px;align-items:start;margin-top:14px}
+    /* ── GAME SECTION ────────────────────────────────────── */
+    #gameSection{display:none}
+    #gameSection.active{display:block}
+    .gameLayout{display:grid;grid-template-columns:200px 1fr 285px;gap:16px;align-items:start;margin-top:14px}
 
-    /* Left rail */
-    .leftRail{display:flex;flex-direction:column;gap:7px;position:sticky;top:12px}
-    .railCard{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-    .railLabel{font-size:10px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#7a6a4a;margin-bottom:5px}
-    .railName{font-size:15px;color:var(--text);font-weight:bold}
-    .railSub{font-size:12px;color:var(--muted);line-height:1.45;margin-top:2px}
-    .hpBar{height:5px;background:#1e1810;border-radius:3px;margin:6px 0 3px;overflow:hidden}
-    .hpFill{height:100%;background:linear-gradient(90deg,#4a7a43,#7cae73);border-radius:3px}
-    .skillRow{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    /* ── LEFT RAIL ───────────────────────────────────────── */
+    .leftRail{display:flex;flex-direction:column;gap:6px;position:sticky;top:12px}
+    .railCard{background:linear-gradient(160deg,#1e1812,#15110d);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+    .railLabel{font-size:9px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;color:#5a4a2a;margin-bottom:5px}
+    .railName{font-size:15px;color:var(--text);font-weight:bold;line-height:1.2;margin-bottom:1px}
+    .railSub{font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px}
+    .hpBar{height:4px;background:#1a1510;border-radius:3px;margin:6px 0 3px;overflow:hidden}
+    .hpFill{height:100%;background:linear-gradient(90deg,#3a6033,#7cae73);border-radius:3px;transition:width .4s}
+    .skillRow{display:flex;justify-content:space-between;align-items:center;font-size:11px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03)}
     .skillRow:last-child{border-bottom:none}
-    .skillName{color:var(--muted)}
-    .skillVal{color:var(--accent);font-weight:bold;min-width:14px;text-align:right}
-    .skillBarTrack{flex:1;height:4px;background:#1e1810;border-radius:3px;margin:0 6px}
-    .skillBarFill{height:100%;background:linear-gradient(90deg,#6a5a30,#d4b67a);border-radius:3px}
-    .sigLine{font-size:12px;color:var(--muted);padding:2px 0}
-    .stageTag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:999px;border:1px solid var(--line2);color:#d9c8a4;letter-spacing:.04em;margin-bottom:5px}
-    .objectiveText{font-size:11px;color:var(--muted);line-height:1.45;font-style:italic}
-    .progressLine{font-size:11px;color:#5a4a2a;margin-top:4px}
-    .compLine{font-size:12px;color:var(--muted);padding:1px 0}
-    .compInjured{color:var(--bad)}
+    .skillName{color:#8a7a5a}
+    .skillVal{color:var(--accent);font-weight:bold;min-width:16px;text-align:right}
+    .skillBarTrack{flex:1;height:3px;background:#1a1510;border-radius:3px;margin:0 6px}
+    .skillBarFill{height:100%;background:linear-gradient(90deg,#5a4a20,#d4b67a);border-radius:3px}
+    .sigLine{font-size:11px;color:var(--muted);padding:2px 0;line-height:1.4}
+    .stageTag{display:inline-block;font-size:9px;padding:2px 8px;border-radius:999px;border:1px solid var(--line2);color:#c9b890;letter-spacing:.05em;margin-bottom:4px}
+    .objectiveText{font-size:11px;color:#8a7a5a;line-height:1.45;font-style:italic}
+    .progressLine{font-size:10px;color:#4a3a1a;margin-top:3px}
+    .compLine{font-size:11px;color:var(--muted);padding:1px 0}
+    .compInjured{color:var(--bad)!important}
 
-    /* Center column */
-    .centerCol{display:flex;flex-direction:column;gap:9px;min-width:0}
-    #narrative{border-left:4px solid var(--accent);background:linear-gradient(90deg,rgba(212,165,116,.07),rgba(212,165,116,.02));border-radius:0 10px 10px 0;padding:16px 18px;font-size:15px;line-height:1.7;color:#f0e7d0}
-    .resultCard{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:10px;padding:13px 16px;min-height:48px}
-    .chosenLabel{font-size:10px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#6a5a3a;margin-bottom:4px}
-    .chosenAction{font-size:13px;color:#c9b88a;margin-bottom:8px;font-style:italic}
-    .rollRow{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+    /* ── CENTER COLUMN ───────────────────────────────────── */
+    .centerCol{display:flex;flex-direction:column;gap:8px;min-width:0}
+    #narrative{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(212,165,116,.06),rgba(212,165,116,.01));border-radius:0 10px 10px 0;padding:16px 18px;font-size:14px;line-height:1.8;color:#ede4cc;min-height:80px}
+    .narrativeText{line-height:1.8}
+    .resultCard{background:linear-gradient(160deg,#1e1812,#15110d);border:1px solid var(--line);border-radius:10px;padding:13px 16px;min-height:50px}
+    .chosenLabel{font-size:9px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#5a4a2a;margin-bottom:4px}
+    .chosenAction{font-size:13px;color:#c9b88a;margin-bottom:8px;font-style:italic;line-height:1.4}
+    .rollRow{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;align-items:center}
     .pill{font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line2);color:#c8b890;background:#130f0b;white-space:nowrap}
-    .pill.good{border-color:#3a6a33;color:#a8d8a0;background:#0a160a}
-    .pill.bad{border-color:#7a3333;color:#e0a8a8;background:#160a0a}
-    .pill.warn{border-color:#7a5a2a;color:#e8c880}
-    #result{font-size:14px;color:#e0d0b0;line-height:1.65}
+    .pill.good{border-color:#2a5a23;color:#9ad090;background:#081008}
+    .pill.bad{border-color:#6a2a2a;color:#d8a0a0;background:#120808}
+    .pill.warn{border-color:#6a4a1a;color:#e0c070;background:#100d08}
+    #result{font-size:14px;color:#ddd0b0;line-height:1.68}
+    .resultDivider{height:1px;background:var(--line);margin:8px 0}
     #choices{display:flex;flex-direction:column;gap:5px}
-    .choice{display:block;width:100%;text-align:left;background:linear-gradient(180deg,#241b12,#1a140e);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:10px 14px;cursor:pointer;font:14px Georgia,serif;transition:border-color .12s}
-    .choice:hover{border-color:var(--accent);background:linear-gradient(180deg,#2e2018,#221810)}
-    .choice small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
-    .choice.classChoice{border-left:3px solid #8a6a30;background:linear-gradient(180deg,#26201060,#1f181060)}
-    .choice.classChoice:hover{border-color:#d4b060}
+    .choice{display:block;width:100%;text-align:left;background:linear-gradient(180deg,#221a11,#191310);color:var(--text);border:1px solid #3a2c18;border-radius:10px;padding:10px 14px;cursor:pointer;font:14px Georgia,serif;transition:border-color .12s,background .12s;line-height:1.45}
+    .choice:hover{border-color:var(--accent);background:linear-gradient(180deg,#2c2016,#201610)}
+    .choice:active{opacity:.85}
+    .choice small{display:block;color:#7a6a4a;font-size:11px;margin-top:3px}
+    .choice.classChoice{border-left:3px solid #7a5a20}
+    .choice.classChoice:hover{border-color:#c9a040}
+    .choice.evilChoice{border-left:3px solid #6a2a2a}
+    .choice.evilChoice:hover{border-color:#b03030}
+    .choice.goodChoice{border-left:3px solid #2a5a2a}
+    .choice.goodChoice:hover{border-color:#508050}
+    .choice.lawfulChoice{border-left:3px solid #2a4a5a}
     .choice.small{padding:8px 12px;font-size:13px}
 
-    /* Right panel rail */
-    .rightRail{display:flex;flex-direction:column;gap:0;position:sticky;top:12px}
-    .panelNav{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:7px}
-    .panelNav button{background:linear-gradient(180deg,#1e1812,#17130e);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 8px;cursor:pointer;font:12px Georgia,serif}
-    .panelNav button:hover{color:var(--text);border-color:var(--line2)}
-    .panelNav button.active{border-color:var(--accent);color:var(--accent);background:linear-gradient(180deg,#2a2010,#1e160b)}
+    /* ── RIGHT RAIL ──────────────────────────────────────── */
+    .rightRail{display:flex;flex-direction:column;position:sticky;top:12px;max-height:calc(100vh - 28px);overflow-y:auto}
+    .layerNav{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+    .layerBtn{background:linear-gradient(180deg,#1c1710,#161210);color:#7a6a4a;border:1px solid #2a1f0f;border-radius:6px;padding:5px 10px;cursor:pointer;font:11px Georgia,serif;letter-spacing:.04em;white-space:nowrap;transition:color .12s,border-color .12s}
+    .layerBtn:hover{color:var(--muted);border-color:var(--line)}
+    .layerBtn.active{border-color:var(--accent);color:var(--accent);background:linear-gradient(180deg,#28200e,#1e1609);font-weight:bold}
     .panel{display:none}
     .panel.active{display:block}
 
-    /* Panel cards */
-    .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:10px;padding:11px;margin:5px 0}
+    /* ── PANEL CARDS ─────────────────────────────────────── */
+    .card{border:1px solid var(--line);background:linear-gradient(160deg,#1e1812,#15110d);border-radius:10px;padding:11px 12px;margin:5px 0}
     .card:first-child{margin-top:0}
-    .sectionTitle{font-size:10px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#7a6a4a;margin-bottom:5px}
+    .sectionTitle{font-size:9px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#5a4a2a;margin-bottom:6px}
 
-    /* Notice board */
-    .noticeList{border:1px solid var(--line);border-radius:10px;overflow:hidden}
-    .noticeItem{padding:10px 12px;border-bottom:1px solid var(--line);border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(212,165,116,.03),transparent);font-size:13px;color:var(--muted);line-height:1.45}
+    /* ── NOTICE BOARD ────────────────────────────────────── */
+    .noticeBoard{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:5px 0}
+    .noticeBoardHeader{padding:7px 12px;background:linear-gradient(90deg,rgba(212,165,116,.06),transparent);border-bottom:1px solid var(--line);font-size:9px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#5a4a2a}
+    .noticeList{max-height:340px;overflow-y:auto}
+    .noticeItem{padding:8px 12px;border-bottom:1px solid #221a0f;border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(212,165,116,.02),transparent);font-size:12px;color:var(--muted);line-height:1.5}
     .noticeItem:last-child{border-bottom:none}
-    .noticeDay{font-size:10px;color:#5a4a2a;display:block;margin-bottom:2px;letter-spacing:.05em;text-transform:uppercase}
-    .noticeEmpty{padding:12px;color:var(--muted);font-size:13px;font-style:italic}
-
-    /* Services */
-    .poiName{font-size:13px;color:var(--accent);margin-bottom:2px}
-    .poiText{font-size:12px;color:var(--muted);margin-bottom:5px;line-height:1.4}
-    .stockLine{font-size:11px;color:#6a5a3a;margin-bottom:4px}
-
-    /* Camp */
-    .campGrid{display:flex;flex-direction:column;gap:5px}
-
-    /* Choice modifiers */
-    .evilChoice{border-left:3px solid #7a3333;background:linear-gradient(180deg,#26181860,#1e121260)}
-    .evilChoice:hover{border-color:#c04040}
-    .goodChoice{border-left:3px solid #336633;background:linear-gradient(180deg,#18261860,#12201260)}
-    .goodChoice:hover{border-color:#60a060}
-    .lawfulChoice{border-left:3px solid #336066;background:linear-gradient(180deg,#18222660,#121c2060)}
-    .riskPill{font-size:10px;padding:1px 6px;border-radius:999px;border:1px solid var(--line2);display:inline-block;margin-left:2px;vertical-align:middle}
-    .riskPill-good{border-color:#3a6a33;color:#a8d8a0;background:#0a160a}
-    .riskPill-bad{border-color:#7a3333;color:#e0a8a8;background:#160a0a}
-    .riskPill-warn{border-color:#7a5a2a;color:#e8c880;background:#130f0b}
-    .narrativeText{line-height:1.75}
-    .resultDivider{height:1px;background:var(--line);margin:8px 0}
-    .combatLog{margin-top:8px;border-left:3px solid #7a5a2a;padding-left:8px}
-    .combatLogLine{font-size:12px;color:#9a8060;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-    .combatLogLine:last-child{border-bottom:none}
-    .postCombatBanner{margin-top:8px;padding:7px 10px;background:linear-gradient(90deg,rgba(124,174,115,.08),rgba(124,174,115,.02));border-left:3px solid var(--good);border-radius:0 6px 6px 0;font-size:13px;color:#a8d8a0}
-    #header a,#header span{display:inline}
-
-    /* Dice & crit/fumble */
-    .dieBadge{display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;min-width:34px;height:28px;border-radius:6px;border:1px solid var(--line2);background:#130f0b;color:#c8b890;margin-right:5px;letter-spacing:.02em}
-    .dieCrit{border-color:#c9a800;color:#ffe060;background:linear-gradient(180deg,#1a1600,#130f00);box-shadow:0 0 8px rgba(200,160,0,.25);animation:critGlow .6s ease-out}
-    .dieFumble{border-color:#8a3333;color:#e07070;background:linear-gradient(180deg,#1a0000,#130000)}
-    @keyframes critGlow{0%{box-shadow:0 0 16px rgba(200,160,0,.6)}100%{box-shadow:0 0 8px rgba(200,160,0,.2)}}
-    .critPill{border-color:#c9a800!important;color:#ffe060!important;background:#1a1600!important;font-weight:bold;letter-spacing:.04em;animation:critGlow .6s ease-out}
-    .fumblePill{border-color:#8a3333!important;color:#e07070!important;background:#1a0000!important;font-weight:bold}
-
-    /* Notice Board upgrade */
-    .noticeBoard{border:1px solid var(--line);border-radius:10px;overflow:hidden}
-    .noticeBoardHeader{padding:8px 12px;background:linear-gradient(90deg,rgba(212,165,116,.07),transparent);border-bottom:1px solid var(--line);font-size:10px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#7a6a4a}
-    .noticeItem.urgent{border-left-color:#c27f7f;background:linear-gradient(90deg,rgba(194,127,127,.06),transparent)}
+    .noticeItem.urgent{border-left-color:#c27f7f;background:linear-gradient(90deg,rgba(194,127,127,.05),transparent)}
     .noticeItem.world{border-left-color:#7cae73}
     .noticeItem.stage{border-left-color:#d4b67a}
-    .noticeItem.standard{border-left-color:#4d5a7a}
-    .noticeClear{padding:10px 12px;font-size:12px;color:var(--muted);font-style:italic;border-bottom:1px solid var(--line)}
-    .noticeClear:last-child{border-bottom:none}
+    .noticeItem.standard{border-left-color:#4a5470}
+    .noticeDay{font-size:9px;color:#4a3a1a;display:block;margin-bottom:2px;letter-spacing:.06em;text-transform:uppercase}
+    .noticeClear{padding:10px 12px;font-size:12px;color:var(--muted);font-style:italic}
 
-    /* Layer nav */
-    .layerNav{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid var(--line)}
-    .layerBtn{background:linear-gradient(180deg,#1e1812,#17130e);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:5px 11px;cursor:pointer;font:12px Georgia,serif;letter-spacing:.04em}
-    .layerBtn:hover{color:var(--text);border-color:var(--line2)}
-    .layerBtn.active{border-color:var(--accent);color:var(--accent);background:linear-gradient(180deg,#2a2010,#1e160b);font-weight:bold}
+    /* ── SERVICES ────────────────────────────────────────── */
+    .poiName{font-size:12px;color:var(--accent);margin-bottom:2px;font-weight:bold}
+    .poiText{font-size:11px;color:var(--muted);margin-bottom:5px;line-height:1.4}
+    .stockLine{font-size:10px;color:#5a4a2a;margin-bottom:4px}
 
-    /* Mobile bottom nav */
-    .mobileLayerNav{display:none;position:fixed;bottom:0;left:0;right:0;background:#13100c;border-top:1px solid var(--line);padding:6px 8px;justify-content:space-around;gap:4px;z-index:100}
-    .mobileLayerNav .layerBtn{flex:1;text-align:center;padding:7px 4px;font-size:11px}
+    /* ── CAMP ────────────────────────────────────────────── */
+    .campGrid{display:flex;flex-direction:column;gap:4px}
 
-    /* Mobile */
-    @media(max-width:980px){
-      .gameLayout{grid-template-columns:1fr}
-      .leftRail{position:static;flex-direction:row;flex-wrap:wrap}
-      .leftRail .railCard{flex:1;min-width:155px}
-      .rightRail{position:static}
-      .createBlock{grid-template-columns:1fr}
+    /* ── RISK PILLS ──────────────────────────────────────── */
+    .riskPill{font-size:10px;padding:1px 6px;border-radius:999px;border:1px solid #3a2c18;display:inline-block;margin-left:3px;vertical-align:middle}
+    .riskPill-good{border-color:#2a5a23;color:#9ad090;background:#081008}
+    .riskPill-bad{border-color:#6a2a2a;color:#d8a0a0;background:#120808}
+    .riskPill-warn{border-color:#6a4a1a;color:#e0c070;background:#100d08}
+
+    /* ── COMBAT ──────────────────────────────────────────── */
+    .combatLog{margin-top:8px;border-left:3px solid #6a4a1a;padding-left:9px}
+    .combatLogLine{font-size:12px;color:#9a8060;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+    .combatLogLine:last-child{border-bottom:none}
+    .postCombatBanner{margin-top:8px;padding:7px 10px;background:linear-gradient(90deg,rgba(124,174,115,.07),rgba(124,174,115,.01));border-left:3px solid var(--good);border-radius:0 6px 6px 0;font-size:13px;color:#9ad090}
+
+    /* ── DICE ────────────────────────────────────────────── */
+    .dieBadge{display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;min-width:34px;height:28px;border-radius:6px;border:1px solid var(--line2);background:#130f0b;color:#c8b890;margin-right:5px}
+    .dieCrit{border-color:#c9a800;color:#ffe060;background:linear-gradient(180deg,#1a1600,#130f00);box-shadow:0 0 8px rgba(200,160,0,.2);animation:critGlow .6s ease-out}
+    .dieFumble{border-color:#7a2a2a;color:#e07070;background:linear-gradient(180deg,#180000,#100000)}
+    @keyframes critGlow{0%{box-shadow:0 0 16px rgba(200,160,0,.5)}100%{box-shadow:0 0 8px rgba(200,160,0,.15)}}
+    .critPill{border-color:#c9a800!important;color:#ffe060!important;background:#1a1600!important;font-weight:bold;animation:critGlow .6s ease-out}
+    .fumblePill{border-color:#7a2a2a!important;color:#e07070!important;background:#180000!important;font-weight:bold}
+
+    /* ── MOBILE BOTTOM NAV ───────────────────────────────── */
+    .mobileLayerNav{display:none;position:fixed;bottom:0;left:0;right:0;background:#0f0d0a;border-top:1px solid #3a2c18;padding:5px 8px 7px;justify-content:space-around;gap:3px;z-index:200}
+    .mobileLayerNav .layerBtn{flex:1;text-align:center;padding:7px 2px;font-size:10px;border-radius:6px}
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media(max-width:1020px){
+      .gameLayout{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+      .centerCol{order:1}
+      .leftRail{order:2;position:static;flex-direction:row;flex-wrap:wrap;gap:5px}
+      .leftRail .railCard{flex:1;min-width:148px}
+      .rightRail{order:3;position:static;max-height:none;overflow-y:visible}
       .layerNav{display:none}
       .mobileLayerNav{display:flex}
-      body{padding-bottom:58px}
+      body{padding-bottom:62px}
+      .createGrid{grid-template-columns:1fr}
     }
-    @media(max-width:600px){
-      .topBar{flex-direction:column;gap:5px}
-      #header{text-align:left}
-      .leftRail .railCard{min-width:140px}
+    @media(max-width:640px){
+      .wrap{padding:8px 12px}
+      .topBar{flex-direction:column;align-items:flex-start;gap:4px}
+      #header{text-align:left;font-size:11px}
+      .leftRail .railCard{min-width:130px}
+      .gameTitle{font-size:20px}
+      #narrative{font-size:13px;padding:12px 14px}
+      .choice{font-size:13px;padding:9px 12px}
     }
   </style>
 </head>
@@ -170,82 +186,117 @@
 <div class='wrap'>
 
   <div class='topBar'>
-    <div class='gameTitle'>Ledger of Ash<em>Stage I–II</em></div>
-    <div id='header'></div>
-  </div>
-
-  <div class='createBlock'>
-    <div class='createCard'>
-      <div class='createLabel'>Begin New Legend</div>
-      <div class='createRow'>
-        <input id='newName' placeholder='Name' style='flex:1.2'>
-        <input id='newCode' placeholder='Passcode' style='flex:.8'>
-      </div>
-      <div class='createRow'>
-        <select id='archSelect' style='flex:1'></select>
-        <select id='bgSelect' style='flex:1.4'></select>
-      </div>
-      <div class='createRow'>
-        <select id='ageSelect' style='flex:.5'></select>
-        <select id='presentationSelect' style='flex:.7'></select>
-        <select id='lineageSelect' style='flex:.8'></select>
-      </div>
-      <div class='createRow'>
-        <button id='beginBtn' class='btnPrimary' style='flex:1'>Begin Legend</button>
-      </div>
-    </div>
-    <div class='createCard'>
-      <div class='createLabel'>Load Existing Legend</div>
-      <div class='createRow'>
-        <input id='loadCode' placeholder='Passcode (4 digit)'>
-        <button id='loadBtn' class='btnSec'>Load</button>
-      </div>
+    <div class='gameTitle'>Ledger of Ash<small>A text RPG of consequence &amp; route</small></div>
+    <div class='topRight'>
+      <div id='header'></div>
+      <button class='btnGhost' id='newRunBtn' style='display:none' onclick='showStart()'>New Run</button>
     </div>
   </div>
 
-  <div class='gameLayout'>
-
-    <div class='leftRail' id='leftRail'></div>
-
-    <div class='centerCol'>
-      <div id='narrative'></div>
-      <div class='resultCard' id='resultCard'></div>
-      <div id='choices'></div>
+  <!-- ── START SCREEN ── -->
+  <div id='startScreen'>
+    <div class='heroSection'>
+      <div class='heroTagline'>You are already in the middle of it. Choose your archetype, your background, and where your run begins. Stage I is local — personal, consequential, and specific to who and where you are. What it becomes after that depends entirely on what you do with what the world gives you.</div>
     </div>
 
-    <div class='rightRail'>
-      <div class='layerNav'>
-        <button class='layerBtn active' data-layer='story'>Story</button>
-        <button class='layerBtn' data-layer='world'>World</button>
-        <button class='layerBtn' data-layer='identity'>Identity</button>
-        <button class='layerBtn' data-layer='party'>Party</button>
-        <button class='layerBtn' data-layer='chronicle'>Chronicle</button>
-      </div>
-      <div class='panelNav'>
-        <button data-panel='sheetPanel' class='active'>Sheet</button>
-        <button data-panel='mapPanel'>Map</button>
-        <button data-panel='servicesPanel'>Services</button>
-        <button data-panel='campPanel'>Camp</button>
-        <button data-panel='npcsPanel'>NPCs</button>
-        <button data-panel='codexPanel'>Codex</button>
-        <button data-panel='journalPanel'>Journal</button>
-        <button data-panel='noticesPanel'>Notices</button>
-        <button data-panel='legendsPanel'>Legends</button>
-      </div>
-      <div id='sheetPanel' class='panel active'></div>
-      <div id='mapPanel' class='panel'></div>
-      <div id='servicesPanel' class='panel'></div>
-      <div id='campPanel' class='panel'></div>
-      <div id='npcsPanel' class='panel'></div>
-      <div id='codexPanel' class='panel'></div>
-      <div id='journalPanel' class='panel'></div>
-      <div id='noticesPanel' class='panel'></div>
-      <div id='legendsPanel' class='panel'></div>
-    </div>
+    <div class='createGrid'>
+      <div class='createCard'>
+        <div class='createCardTitle'>Begin New Legend</div>
 
+        <div class='fieldGroup'>
+          <label class='fieldLabel' for='newName'>Name &amp; Save Passcode</label>
+          <div class='fieldRow'>
+            <input id='newName' class='fieldInput' placeholder='Character name' style='flex:1.4' autocomplete='off'>
+            <input id='newCode' class='fieldInput' placeholder='Passcode (save key)' style='flex:1' autocomplete='off'>
+          </div>
+        </div>
+
+        <div class='fieldGroup'>
+          <label class='fieldLabel' for='archSelect'>Archetype</label>
+          <div class='fieldRow'>
+            <select id='archSelect' class='fieldInput'></select>
+          </div>
+        </div>
+
+        <div class='fieldGroup'>
+          <label class='fieldLabel' for='bgSelect'>Background &amp; Origin Locality</label>
+          <div class='fieldRow'>
+            <select id='bgSelect' class='fieldInput'></select>
+          </div>
+        </div>
+
+        <div class='fieldGroup'>
+          <label class='fieldLabel'>Age · Presentation · Lineage</label>
+          <div class='fieldRow'>
+            <select id='ageSelect' class='fieldInput' style='flex:.55'></select>
+            <select id='presentationSelect' class='fieldInput' style='flex:.8'></select>
+            <select id='lineageSelect' class='fieldInput' style='flex:1'></select>
+          </div>
+        </div>
+
+        <div id='archPreview' class='archPreviewBox'>Select an archetype and background to preview your starting identity.</div>
+
+        <button id='beginBtn' class='btnPrimary'>Begin Legend</button>
+      </div>
+
+      <div class='createCard'>
+        <div class='createCardTitle'>Load Existing Legend</div>
+        <div class='fieldGroup'>
+          <label class='fieldLabel' for='loadCode'>Passcode</label>
+          <div class='fieldRow'>
+            <input id='loadCode' class='fieldInput' placeholder='4-digit passcode' autocomplete='off'>
+          </div>
+        </div>
+        <button class='btnSec' id='loadBtn'>Load Legend</button>
+
+        <div class='aboutText'>
+          Ledger of Ash is a single-player text RPG. You choose an archetype — combat, magic, stealth, or support — and a background rooted in one of 18 active localities. Stage I is local and personal. Stage II opens into regional consequence. Runs end in the Hall of Legends.
+          <br><br>
+          Passcodes save your run to this browser. Write yours down before you begin.
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- ── GAME SECTION ── -->
+  <div id='gameSection'>
+    <div class='gameLayout'>
+
+      <div class='leftRail' id='leftRail'></div>
+
+      <div class='centerCol'>
+        <div id='narrative'></div>
+        <div class='resultCard' id='resultCard'></div>
+        <div id='choices'></div>
+      </div>
+
+      <div class='rightRail'>
+        <div class='layerNav'>
+          <button class='layerBtn active' data-layer='story'>Story</button>
+          <button class='layerBtn' data-layer='world'>World</button>
+          <button class='layerBtn' data-layer='identity'>Identity</button>
+          <button class='layerBtn' data-layer='party'>Party</button>
+          <button class='layerBtn' data-layer='chronicle'>Chronicle</button>
+        </div>
+        <div id='storyPanel'  class='panel active'></div>
+        <div id='mapPanel'    class='panel'></div>
+        <div id='sheetPanel'  class='panel'></div>
+        <div id='campPanel'   class='panel'></div>
+        <div id='journalPanel'class='panel'></div>
+        <!-- kept for engine.js $() calls, never shown directly -->
+        <div id='servicesPanel' style='display:none'></div>
+        <div id='npcsPanel'     style='display:none'></div>
+        <div id='codexPanel'    style='display:none'></div>
+        <div id='noticesPanel'  style='display:none'></div>
+        <div id='legendsPanel'  style='display:none'></div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
+<!-- Mobile bottom nav -->
 <div class='mobileLayerNav'>
   <button class='layerBtn active' data-layer='story'>Story</button>
   <button class='layerBtn' data-layer='world'>World</button>
@@ -255,15 +306,12 @@
 </div>
 
 <script>
-  document.addEventListener('click', e=>{
-    const btn = e.target.closest('[data-panel]');
-    if(!btn) return;
-    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.panelNav button').forEach(b=>b.classList.remove('active'));
-    const target = document.getElementById(btn.dataset.panel);
-    if(target) target.classList.add('active');
-    btn.classList.add('active');
-  });
+  function showStart(){
+    document.getElementById('startScreen').style.display='';
+    document.getElementById('gameSection').classList.remove('active');
+    document.getElementById('newRunBtn').style.display='none';
+    document.getElementById('header').innerHTML='';
+  }
 </script>
 <script>(function(){
   const ARCHETYPES = [
@@ -5042,6 +5090,34 @@ function triggerCombatEncounter(enemyId, context) {
     $('journalPanel').innerHTML=questsHtml+noticesHtml+momentsHtml+journalHtml+rescueHtml+legendsHtml;
   }
 
+  // ── STORY PANEL ──────────────────────────────────────────
+  function renderStoryPanel(){
+    const loc=getLocality(G.location)||{name:'?',summary:'',pressures:[],creatures:[],hazards:[]};
+    const activeQuests=(G.quests||[]).filter(q=>q.status==='Active');
+    const thread=activeQuests[0]||null;
+    const threat=G.currentThreat||{};
+    const latestNotice=G.notices&&G.notices[0]||null;
+    const clocks=G.worldClocks||{pressure:0,rival:0,omens:0};
+    const pressure=pick(loc.pressures,clocks.pressure)||'none surfaced';
+    const locCard=`<div class='card'><div class='sectionTitle'>${loc.name}</div><div style='font-size:13px;line-height:1.5'>${loc.summary||'An uncertain place.'}</div>${G.currentSafeZone?`<div style='margin-top:5px;font-size:11px;color:#8a7a5a'>Safe zone: ${G.currentSafeZone}</div>`:''}</div>`;
+    const threadCard=thread?`<div class='card'><div class='sectionTitle'>Active Thread</div><div style='font-size:13px;color:#c9b99b;line-height:1.5'>${thread.title}</div></div>`:'';
+    const pressureCard=`<div class='card'><div class='sectionTitle'>Active Pressure</div><div style='font-size:12px;color:#c9b99b'>${pressure}</div><div style='margin-top:4px;font-size:11px;color:#5a4a2a'>Pressure ${clocks.pressure} · Rival ${clocks.rival}</div></div>`;
+    const threatCard=(threat.creature||threat.hazard)?`<div class='card'><div class='sectionTitle'>Threat</div>${threat.creature?`<div style='font-size:12px'>Creature: <b>${(threat.creature||'').replace(/_/g,' ')}</b></div>`:''}${threat.hazard?`<div style='font-size:12px'>Hazard: <b>${(threat.hazard||'').replace(/_/g,' ')}</b></div>`:''}</div>`:'';
+    const noticeCard=latestNotice?`<div class='card'><div class='sectionTitle'>Latest Notice</div><div style='font-size:12px;color:#c9b99b;line-height:1.5'>${latestNotice}</div></div>`:'';
+    $('storyPanel').innerHTML=locCard+threadCard+pressureCard+threatCard+noticeCard;
+  }
+
+  // ── ARCH PREVIEW ─────────────────────────────────────────
+  function updateArchPreview(){
+    const archSel=$('archSelect'); const bgSel=$('bgSelect'); const el=$('archPreview');
+    if(!archSel||!bgSel||!el) return;
+    const arch=getArchetype(archSel.value);
+    const bg=(window.BACKGROUNDS[archSel.value]||[]).find(b=>b.id===bgSel.value);
+    if(!arch||!bg){ el.textContent='Select an archetype and background to preview your starting identity.'; return; }
+    const loc=getLocality(bg.originLocality);
+    el.innerHTML=`<b>${arch.name}</b> <em>/ ${bg.name}</em><div style='margin-top:5px;font-size:11px;color:#7a6a4a'>${arch.desc||''}</div>${bg.theme?`<div style='margin-top:4px;font-size:11px'>Theme: ${bg.theme}</div>`:''}<div style='margin-top:3px;font-size:11px;color:#8a7a5a'>${loc?`Origin: ${loc.name}`:''}${bg.firstObjective?` · ${bg.firstObjective}`:''}</div>`;
+  }
+
   // ── LAYER SYSTEM ─────────────────────────────────────────
   function setActiveLayer(name){
     if(!G.uiState) G.uiState={activeLayer:'story'};
@@ -5050,7 +5126,10 @@ function triggerCombatEncounter(enemyId, context) {
   }
   function applyLayerToUI(layer){
     document.querySelectorAll('.layerBtn').forEach(b=>b.classList.toggle('active',b.dataset.layer===layer));
-    if(layer==='world'){
+    if(layer==='story'){
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      const sp=$('storyPanel'); if(sp){ sp.classList.add('active'); renderStoryPanel(); }
+    } else if(layer==='world'){
       document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
       const mp=$('mapPanel'); if(mp){ mp.classList.add('active'); renderWorldLayer(); }
     } else if(layer==='identity'){
@@ -5103,14 +5182,10 @@ function triggerCombatEncounter(enemyId, context) {
       }catch(e){ $('narrative').textContent='Locality narrative unavailable.'; }
     }
     $('resultCard').innerHTML=resultCardLines();
-    $('mapPanel').innerHTML=mapLines();
     $('servicesPanel').innerHTML=servicesLines();
-    $('sheetPanel').innerHTML=sheetLines();
-    $('journalPanel').innerHTML=journalLines();
     $('noticesPanel').innerHTML=noticesLines();
     $('npcsPanel').innerHTML=npcsLines();
     if($('codexPanel')) $('codexPanel').innerHTML=codexLines();
-    $('campPanel').innerHTML=campLines();
     $('legendsPanel').innerHTML=legendLines();
     // Auto-record current locality NPCs to codex on each render
     if(G.name) currentNamedPlacements(G.location).forEach(n=>{ recordCodex('npcs',n.id,{name:(n.id||'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),role:n.role,office:n.office,locality:getLocality(G.location)?.name||G.location}); });
@@ -5140,9 +5215,10 @@ function triggerCombatEncounter(enemyId, context) {
       const ids=window.BACKGROUNDS[archSel.value]||[];
       $('bgSelect').innerHTML=ids.map(b=>`<option value='${b.id}'>${b.name} — ${getLocality(b.originLocality)?.name||b.originLocality}</option>`).join('');
       fillLineage();
+      updateArchPreview();
     }
     archSel.onchange=fillBg;
-    $('bgSelect').onchange=fillLineage;
+    $('bgSelect').onchange=()=>{ fillLineage(); updateArchPreview(); };
     fillBg();
   }
   function beginNew(){
@@ -5182,8 +5258,11 @@ function triggerCombatEncounter(enemyId, context) {
     addJournal('origin',`${G.name} begins in ${startLoc.name}. ${arch.name} / ${bg.name}. Origin: ${bg.theme||'local pressure'}.`,`origin-${G.name}-${G.location}`);
     markMoment(`${G.name} — ${arch.name} / ${bg.name} — enters ${startLoc.name}`);
     setThreat(); setObjective(); persist(); render();
+    const ss=$('startScreen'); if(ss) ss.style.display='none';
+    const gs=$('gameSection'); if(gs) gs.classList.add('active');
+    const nr=$('newRunBtn'); if(nr) nr.style.display='';
   }
-  function loadLegend(){ const code=$('loadCode').value.trim(); const all=storage(); const found=all[code]; if(!found){ alert('Legend not found.'); return; } G=found; if(!G.familyEdges) G.familyEdges=[]; if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; if(!G.inventory) G.inventory=[]; if(!G.equipment) G.equipment={}; if(!G.serviceLog) G.serviceLog=[]; if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]}; if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; if(!G.uiState) G.uiState={activeLayer:'story'}; if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; render(); }
+  function loadLegend(){ const code=$('loadCode').value.trim(); const all=storage(); const found=all[code]; if(!found){ alert('Legend not found.'); return; } G=found; if(!G.familyEdges) G.familyEdges=[]; if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; if(!G.inventory) G.inventory=[]; if(!G.equipment) G.equipment={}; if(!G.serviceLog) G.serviceLog=[]; if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]}; if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; if(!G.uiState) G.uiState={activeLayer:'story'}; if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; render(); const ss=$('startScreen'); if(ss) ss.style.display='none'; const gs=$('gameSection'); if(gs) gs.classList.add('active'); const nr=$('newRunBtn'); if(nr) nr.style.display=''; }
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();
 </script>
