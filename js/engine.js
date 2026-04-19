@@ -1366,6 +1366,10 @@
       renderLevelUpModal();
       return;
     }
+    if(G.combatSession && !G.combatSession.resolved){
+      renderCombatUI(G, G.combatSession);
+      return;
+    }
     const list=currentChoices();
     $('choices').innerHTML=list.map((c,i)=>{
       const cp=normalizeChoiceProfile(c);
@@ -1376,7 +1380,8 @@
       const isEvil=(c.tags||[]).includes('Evil');
       const isGood=(c.tags||[]).includes('Good');
       const isLawful=(c.tags||[]).includes('Lawful');
-      const extraCls=(isClass?' classChoice':'')+(isEvil?' evilChoice':'')+(isGood?' goodChoice':'')+(isLawful?' lawfulChoice':'');
+      const isCombat=(c.tags||[]).some(t=>t.includes('Combat')||t.includes('Encounter'));
+      const extraCls=(isClass?' classChoice':'')+(isEvil?' evilChoice':'')+(isGood?' goodChoice':'')+(isLawful?' lawfulChoice':'')+(isCombat?' combatChoice':'');
       return `<button class='choice${extraCls}' data-choice='${i}'><span>${c.label}</span><small>${tags} · <span class='riskPill riskPill-${riskCls}'>${risk}</span></small></button>`;
     }).join('');
     [...document.querySelectorAll('[data-choice]')].forEach(btn=>btn.onclick=()=>{

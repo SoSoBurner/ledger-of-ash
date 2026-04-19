@@ -98,7 +98,8 @@
     .choice.goodChoice{border-left:3px solid #2a5a2a}
     .choice.goodChoice:hover{border-color:#508050}
     .choice.lawfulChoice{border-left:3px solid #2a4a5a}
-    .choice.small{padding:8px 12px;font-size:13px}
+    .choice.combatChoice{border-left:3px solid #c27f7f;border-color:#e0a0a0}
+    .choice.combatChoice:hover{border-color:#e8b8b8;background:linear-gradient(180deg,#361a1a,#2a1510)}
 
     /* ── RIGHT RAIL ──────────────────────────────────────── */
     .rightRail{display:flex;flex-direction:column;position:sticky;top:12px;max-height:calc(100vh - 28px);overflow-y:auto}
@@ -146,6 +147,39 @@
     .combatLogLine{font-size:12px;color:#9a8060;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03)}
     .combatLogLine:last-child{border-bottom:none}
     .postCombatBanner{margin-top:8px;padding:7px 10px;background:linear-gradient(90deg,rgba(124,174,115,.07),rgba(124,174,115,.01));border-left:3px solid var(--good);border-radius:0 6px 6px 0;font-size:13px;color:#9ad090}
+
+    /* ── TACTICAL COMBAT UI ──────────────────────────────── */
+    .combatUI{display:flex;flex-direction:column;gap:10px;padding:12px;background:linear-gradient(160deg,#1a1410,#13110c);border:2px solid #6a4a1a;border-radius:12px}
+    .combatHeader{background:linear-gradient(90deg,rgba(106,74,26,.15),transparent);border-bottom:1px solid #3a2c18;padding-bottom:8px;margin-bottom:6px}
+    .combatTitle{font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#d4b67a;margin-bottom:4px}
+    .distanceInfo{display:flex;gap:8px;font-size:11px;color:var(--muted)}
+    .distanceLabel{color:#6a5a3a;font-weight:bold}
+    .distanceValue{color:#e0c070;font-family:monospace}
+
+    .enemyTargeting{margin:8px 0}
+    .targetingLabel{font-size:10px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#5a4a2a;margin-bottom:6px}
+    .enemyList{display:flex;flex-direction:column;gap:4px}
+    .enemyTarget{background:linear-gradient(180deg,#1c1512,#13110c);border:1px solid #3a2c18;border-radius:8px;padding:8px 10px;cursor:pointer;text-align:left;color:var(--text);transition:border-color .12s,background .12s;font-size:12px}
+    .enemyTarget:hover{border-color:var(--accent);background:linear-gradient(180deg,#231a11,#1a1510)}
+    .enemyTarget.selected{border-color:#d4b67a;background:linear-gradient(180deg,#2a201a,#1f1712);box-shadow:0 0 8px rgba(212,166,122,.15)}
+    .enemyName{font-weight:bold;color:var(--accent);font-size:12px;margin-bottom:2px}
+    .enemyStats{font-size:10px;color:#8a7a5a}
+
+    .combatActions{display:flex;flex-direction:column;gap:8px}
+    .actionCategory{background:linear-gradient(160deg,#16140f,#120f0a);border:1px solid #2a1f0f;border-radius:8px;padding:8px 10px}
+    .actionCategoryTitle{font-size:9px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#5a4a2a;margin-bottom:5px}
+    .actionButtons{display:flex;flex-direction:column;gap:3px}
+    .actionButton{display:block;width:100%;background:linear-gradient(180deg,#1c1710,#16120d);color:var(--text);border:1px solid #3a2c18;border-radius:6px;padding:7px 10px;cursor:pointer;font:12px Georgia,serif;transition:border-color .12s,background .12s;text-align:left;font-size:11px}
+    .actionButton:hover:not(:disabled){border-color:var(--accent);background:linear-gradient(180deg,#251a0f,#1c1510)}
+    .actionButton:disabled{opacity:0.5;cursor:not-allowed;color:#5a4a2a}
+    .actionButton.primary{border-left:3px solid #d4b67a;border-left-color:#e0c070}
+    .actionButton.primary:hover:not(:disabled){border-left-color:#d4b67a;background:linear-gradient(180deg,#2a201a,#1f1610)}
+    .actionButton.ability{border-left:3px solid #7a5a20}
+    .actionButton.movement{border-left:3px solid #2a4a6a}
+    .actionButton.flee{border-left:3px solid #c27f7f;color:#d0a0a0}
+    .actionButton.flee:hover:not(:disabled){border-left-color:#d8a0a0;background:linear-gradient(180deg,#231a18,#1a1410)}
+    .actionButton.mercy{border-left:3px solid #7cae73;color:#9ad090}
+    .actionButton.interrogate,.actionButton.execute{border-left:3px solid #6a5a4a;color:#b0a08a}
 
     /* ── DICE ────────────────────────────────────────────── */
     .dieBadge{display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;min-width:34px;height:28px;border-radius:6px;border:1px solid var(--line2);background:#130f0b;color:#c8b890;margin-right:5px}
@@ -4017,6 +4051,262 @@ function triggerCombatEncounter(enemyId, context) {
   ]), 300);
 }
 
+// ═══════════════════════════════════════════════════════
+// COMBAT UI SYSTEM v1
+// Tactical UI, Range/Distance System, Targeting
+// ═══════════════════════════════════════════════════════
+
+(function(){
+
+  const RANGE_BRACKETS = {
+    close: { feet: '0-10', debuffMelee: 0, debuffRanged: 0.3, debuffMagic: 0.2 },
+    medium: { feet: '11-30', debuffMelee: Infinity, debuffRanged: 0, debuffMagic: 0 },
+    far: { feet: '31-100', debuffMelee: Infinity, debuffRanged: 0, debuffMagic: 0 },
+    very_far: { feet: '100+', debuffMelee: Infinity, debuffRanged: 0.3, debuffMagic: 0.4 }
+  };
+
+  const WEAPON_TYPES = {
+    melee: { name: 'Melee', ranges: ['close'] },
+    ranged: { name: 'Ranged', ranges: ['medium', 'far'] },
+    magic: { name: 'Magic', ranges: ['medium', 'far'] }
+  };
+
+  // Initialize combat distance on session start
+  function initCombatDistance(combatSession) {
+    if (!combatSession.distance) {
+      combatSession.distance = 'medium';
+      combatSession.enemyDistance = 'medium';
+      combatSession.activeTargets = {}; // { partyMemberId: enemyId }
+    }
+  }
+
+  // Determine weapon type from game state
+  function getEquippedWeaponType(gameState) {
+    const equippedWeapon = gameState.equippedWeapon || 'melee';
+    return WEAPON_TYPES[equippedWeapon] || WEAPON_TYPES.melee;
+  }
+
+  // Calculate debuff based on distance and weapon
+  function calculateRangeDebuff(distance, weaponType) {
+    const bracket = RANGE_BRACKETS[distance] || RANGE_BRACKETS.medium;
+    
+    if (weaponType === 'melee') return bracket.debuffMelee;
+    if (weaponType === 'ranged') return bracket.debuffRanged;
+    if (weaponType === 'magic') return bracket.debuffMagic;
+    return 0;
+  }
+
+  // Check if weapon can be used at distance
+  function canUseWeapon(distance, weaponType) {
+    const ranges = WEAPON_TYPES[weaponType]?.ranges || [];
+    if (ranges.includes(Infinity)) return false; // Melee at non-close = unusable
+    return ranges.includes(distance);
+  }
+
+  // Render combat UI (tactical buttons, distance info, targeting)
+  function renderCombatUI(gameState, combatSession) {
+    if (!gameState || !combatSession) return;
+    
+    initCombatDistance(combatSession);
+    
+    const choicesDiv = document.getElementById('choices');
+    if (!choicesDiv) return;
+
+    choicesDiv.innerHTML = '';
+    
+    // Create combat UI container
+    const combatUI = document.createElement('div');
+    combatUI.className = 'combatUI';
+    combatUI.innerHTML = `
+      <div class='combatHeader'>
+        <div class='combatTitle'>TACTICAL ENGAGEMENT</div>
+        <div class='distanceInfo'>
+          <span class='distanceLabel'>DISTANCE:</span>
+          <span class='distanceValue'>${combatSession.distance.toUpperCase()} (${RANGE_BRACKETS[combatSession.distance].feet} ft)</span>
+        </div>
+      </div>
+      
+      <div class='enemyTargeting'>
+        <div class='targetingLabel'>SELECT TARGET:</div>
+        <div class='enemyList' id='enemyList'>
+          <!-- Enemies rendered here -->
+        </div>
+      </div>
+
+      <div class='combatActions'>
+        <div class='actionCategory'>
+          <div class='actionCategoryTitle'>ACTIONS</div>
+          <div id='actionButtons' class='actionButtons'></div>
+        </div>
+        
+        <div class='actionCategory'>
+          <div class='actionCategoryTitle'>MOVEMENT</div>
+          <div id='movementButtons' class='actionButtons'></div>
+        </div>
+        
+        <div class='actionCategory'>
+          <div class='actionCategoryTitle'>TACTICAL OPTIONS</div>
+          <div id='tacticalButtons' class='actionButtons'></div>
+        </div>
+      </div>
+    `;
+    
+    choicesDiv.appendChild(combatUI);
+
+    // Render enemies as clickable targets
+    const enemyList = document.getElementById('enemyList');
+    if (combatSession.enemies && combatSession.enemies.length > 0) {
+      combatSession.enemies.forEach((enemy, idx) => {
+        const enemyCard = document.createElement('button');
+        enemyCard.className = `enemyTarget ${combatSession.primaryTarget === idx ? 'selected' : ''}`;
+        enemyCard.innerHTML = `
+          <div class='enemyName'>${enemy.name}</div>
+          <div class='enemyStats'>HP: ${enemy.hp}/${enemy.maxHp}</div>
+        `;
+        enemyCard.onclick = () => {
+          combatSession.primaryTarget = idx;
+          renderCombatUI(gameState, combatSession);
+        };
+        enemyList.appendChild(enemyCard);
+      });
+    }
+
+    // Render action buttons
+    renderCombatActions(gameState, combatSession);
+    renderMovementActions(gameState, combatSession);
+    renderTacticalOptions(gameState, combatSession);
+  }
+
+  function renderCombatActions(gameState, combatSession) {
+    const actionDiv = document.getElementById('actionButtons');
+    const weaponType = getEquippedWeaponType(gameState);
+    const canAttack = canUseWeapon(combatSession.distance, weaponType);
+    const debuff = calculateRangeDebuff(combatSession.distance, weaponType);
+
+    const actions = [];
+
+    // Primary attack
+    if (canAttack) {
+      const debuffStr = debuff > 0 ? ` (-${Math.floor(debuff * 100)}%)` : '';
+      actions.push({
+        label: `Attack with ${weaponType.name}${debuffStr}`,
+        cls: 'primary',
+        fn: () => {
+          gameState.lastResult = `Attacked with ${weaponType.name}.`;
+          combatSession.round = (combatSession.round || 0) + 1;
+          window.renderChoices();
+          window.render();
+        }
+      });
+    } else {
+      actions.push({
+        label: `${weaponType.name} unusable at this distance`,
+        cls: 'disabled',
+        fn: () => {}
+      });
+    }
+
+    renderButtonGroup(actionDiv, actions);
+  }
+
+  function renderMovementActions(gameState, combatSession) {
+    const movementDiv = document.getElementById('movementButtons');
+    const movements = [];
+
+    const currentDist = combatSession.distance;
+    const distances = ['close', 'medium', 'far', 'very_far'];
+    const currentIdx = distances.indexOf(currentDist);
+
+    // Move closer
+    if (currentIdx > 0) {
+      const nextDist = distances[currentIdx - 1];
+      movements.push({
+        label: `Advance to ${nextDist.toUpperCase()}`,
+        cls: 'movement',
+        fn: () => {
+          combatSession.distance = nextDist;
+          gameState.lastResult = `Advanced to ${nextDist} range.`;
+          renderCombatUI(gameState, combatSession);
+          window.render();
+        }
+      });
+    }
+
+    // Move farther
+    if (currentIdx < distances.length - 1) {
+      const nextDist = distances[currentIdx + 1];
+      movements.push({
+        label: `Retreat to ${nextDist.toUpperCase()}`,
+        cls: 'movement',
+        fn: () => {
+          combatSession.distance = nextDist;
+          gameState.lastResult = `Retreated to ${nextDist} range.`;
+          renderCombatUI(gameState, combatSession);
+          window.render();
+        }
+      });
+    }
+
+    if (movements.length === 0) {
+      movements.push({
+        label: 'No movement available',
+        cls: 'disabled',
+        fn: () => {}
+      });
+    }
+
+    renderButtonGroup(movementDiv, movements);
+  }
+
+  function renderTacticalOptions(gameState, combatSession) {
+    const tacticalDiv = document.getElementById('tacticalButtons');
+    const options = [];
+
+    // Flee option
+    options.push({
+      label: 'Attempt to Flee',
+      cls: 'tactical flee',
+      fn: () => {
+        gameState.lastResult = 'Fled from combat.';
+        combatSession.resolved = true;
+        window.renderChoices();
+        window.render();
+      }
+    });
+
+    // Mercy option
+    options.push({
+      label: 'Show Mercy',
+      cls: 'tactical mercy',
+      fn: () => {
+        gameState.lastResult = 'Chose mercy over violence.';
+        combatSession.resolved = true;
+        window.renderChoices();
+        window.render();
+      }
+    });
+
+    renderButtonGroup(tacticalDiv, options);
+  }
+
+  function renderButtonGroup(container, buttons) {
+    container.innerHTML = '';
+    buttons.forEach(btn => {
+      const button = document.createElement('button');
+      button.className = `actionButton ${btn.cls}`;
+      button.textContent = btn.label;
+      button.disabled = btn.cls === 'disabled';
+      button.onclick = btn.fn;
+      container.appendChild(button);
+    });
+  }
+
+  window.renderCombatUI = renderCombatUI;
+  window.initCombatDistance = initCombatDistance;
+  window.calculateRangeDebuff = calculateRangeDebuff;
+  window.canUseWeapon = canUseWeapon;
+})();
+
 
 (function(){
   const SAVE_KEY = 'loa_upgrade_batch27';
@@ -5385,6 +5675,10 @@ function triggerCombatEncounter(enemyId, context) {
       renderLevelUpModal();
       return;
     }
+    if(G.combatSession && !G.combatSession.resolved){
+      renderCombatUI(G, G.combatSession);
+      return;
+    }
     const list=currentChoices();
     $('choices').innerHTML=list.map((c,i)=>{
       const cp=normalizeChoiceProfile(c);
@@ -5395,7 +5689,8 @@ function triggerCombatEncounter(enemyId, context) {
       const isEvil=(c.tags||[]).includes('Evil');
       const isGood=(c.tags||[]).includes('Good');
       const isLawful=(c.tags||[]).includes('Lawful');
-      const extraCls=(isClass?' classChoice':'')+(isEvil?' evilChoice':'')+(isGood?' goodChoice':'')+(isLawful?' lawfulChoice':'');
+      const isCombat=(c.tags||[]).some(t=>t.includes('Combat')||t.includes('Encounter'));
+      const extraCls=(isClass?' classChoice':'')+(isEvil?' evilChoice':'')+(isGood?' goodChoice':'')+(isLawful?' lawfulChoice':'')+(isCombat?' combatChoice':'');
       return `<button class='choice${extraCls}' data-choice='${i}'><span>${c.label}</span><small>${tags} · <span class='riskPill riskPill-${riskCls}'>${risk}</span></small></button>`;
     }).join('');
     [...document.querySelectorAll('[data-choice]')].forEach(btn=>btn.onclick=()=>{

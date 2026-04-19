@@ -11,11 +11,12 @@ def build():
     with open('js/narrative.js', encoding='utf-8-sig') as f: na = f.read()
     with open('js/party.js', encoding='utf-8-sig') as f: pj = f.read()
     with open('js/combat.js', encoding='utf-8-sig') as f: cb = f.read()
+    with open('js/combat-ui.js', encoding='utf-8-sig') as f: cbui = f.read()
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
     # Bundle all JS files into a single script content (preserve order: data deps come first)
-    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + en
+    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en
     
     out = html
     # Remove individual script src tags and replace first one with bundled content
@@ -25,6 +26,7 @@ def build():
     out = out.replace("<script src='js/narrative.js'></script>", '')
     out = out.replace("<script src='js/party.js'></script>", '')
     out = out.replace("<script src='js/combat.js'></script>", '')
+    out = out.replace("<script src='js/combat-ui.js'></script>", '')
     out = out.replace("<script src='js/engine.js'></script>", '')
     
     with open('dist/index.html', 'w', encoding='utf-8-sig') as f:
