@@ -74,54 +74,45 @@
       </div>
       
       <div class='enemyTargeting'>
-        <div class='targetingLabel'>SELECT TARGET:</div>
-        <div class='enemyList' id='enemyList'>
-          <!-- Enemies rendered here -->
+        <div class='targetingLabel'>OPPONENT:</div>
+        <div class='enemyList'>
+          <button class='enemyTarget selected'>
+            <div class='enemyName'>${combatSession.enemyName}</div>
+            <div class='enemyStats'>HP: ${combatSession.enemyHp}/${combatSession.enemyMaxHp}</div>
+          </button>
         </div>
       </div>
 
       <div class='combatActions'>
-        <div class='actionCategory'>
-          <div class='actionCategoryTitle'>ACTIONS</div>
-          <div id='actionButtons' class='actionButtons'></div>
-        </div>
-        
-        <div class='actionCategory'>
-          <div class='actionCategoryTitle'>MOVEMENT</div>
-          <div id='movementButtons' class='actionButtons'></div>
-        </div>
-        
-        <div class='actionCategory'>
-          <div class='actionCategoryTitle'>TACTICAL OPTIONS</div>
-          <div id='tacticalButtons' class='actionButtons'></div>
+        <div id='combatChoices' class='combatChoicesList'>
+          <!-- Combat choices rendered here -->
         </div>
       </div>
     `;
     
     choicesDiv.appendChild(combatUI);
 
-    // Render enemies as clickable targets
-    const enemyList = document.getElementById('enemyList');
-    if (combatSession.enemies && combatSession.enemies.length > 0) {
-      combatSession.enemies.forEach((enemy, idx) => {
-        const enemyCard = document.createElement('button');
-        enemyCard.className = `enemyTarget ${combatSession.primaryTarget === idx ? 'selected' : ''}`;
-        enemyCard.innerHTML = `
-          <div class='enemyName'>${enemy.name}</div>
-          <div class='enemyStats'>HP: ${enemy.hp}/${enemy.maxHp}</div>
-        `;
-        enemyCard.onclick = () => {
-          combatSession.primaryTarget = idx;
-          renderCombatUI(gameState, combatSession);
+    // Render combat choices
+    window.renderCombatChoices = () => {
+      const choicesList = document.getElementById('combatChoices');
+      if (!choicesList) return;
+      choicesList.innerHTML = '';
+      
+      const choices = window.combatSessionChoices ? window.combatSessionChoices() : [];
+      choices.forEach((choice, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice';
+        btn.innerHTML = `<span>${choice.label}</span><small>${(choice.tags || []).join(' · ')}</small>`;
+        btn.onclick = () => {
+          choice.fn();
+          window.persist();
+          window.render();
         };
-        enemyList.appendChild(enemyCard);
+        choicesList.appendChild(btn);
       });
-    }
-
-    // Render action buttons
-    renderCombatActions(gameState, combatSession);
-    renderMovementActions(gameState, combatSession);
-    renderTacticalOptions(gameState, combatSession);
+    };
+    
+    window.renderCombatChoices();
   }
 
   function renderCombatActions(gameState, combatSession) {
