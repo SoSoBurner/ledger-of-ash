@@ -42,7 +42,7 @@ const COMPANION_DEFS = {
     id: 'toriel_palevow',
     name: 'Toriel Palevow',
     role: 'Street Physician & Registry Witness',
-    locality: 'panim',
+    locality: 'panim_haven',
     npcId: 'Toriel Palevow',
     joinScene: {
       text: "Toriel finishes binding the wound, takes his tools back without hurry. 'I've certified three deaths in the last cycle that didn't match what the families described. The registry accepted my reports. That doesn't mean the reports were right — it means no one looked twice.' He meets your eye. 'I'd like someone to look twice. Are you that?'",
@@ -73,7 +73,7 @@ const COMPANION_DEFS = {
     id: 'neren_rimebridge',
     name: 'Neren Rimebridge',
     role: 'Commune Mediator & Dome Operations Liaison',
-    locality: 'aurora',
+    locality: 'aurora_crown_commune',
     npcId: 'Neren Rimebridge',
     joinScene: {
       text: "Neren pulls the dome status report down from the operations board and hands it to you without preamble. 'The axis readings in the eastern corridor are not natural variation. Someone is using the inversion window deliberately. I've flagged it three times. The Warden has filed it as under review.' He folds his hands. 'Under review means waiting. I've stopped being willing to wait.'",
@@ -104,7 +104,7 @@ const COMPANION_DEFS = {
     id: 'elyra_mossbane',
     name: 'Elyra Mossbane',
     role: 'Frontier Guardian & Wilderness Expert',
-    locality: 'sunspire',
+    locality: 'sunspire_haven',
     npcId: 'Elyra Mossbane',
     joinScene: {
       text: "Elyra has been watching the frontier roads for a decade. She doesn't negotiate or preamble. 'I've tracked three groups through the eastern waypoints in the last month. None of them were on any manifest I've seen. Two groups I never saw come back out.' She unsheathes her blade, checks the edge, sheathes it. 'You're the first person who's come through here asking the right questions. I'll come with you if you're actually going to do something.'",
@@ -356,6 +356,7 @@ function getCompanionRollBonus(skill) {
     if (!def) return;
     // Vera: persuasion in Shelkopolis
     if (def.id === 'vera_wren' && skill === 'persuasion' && G.location === 'shelkopolis') bonus += 1;
+    if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
     // Toriel: lore relating to bodies (lore checks generally)
     if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
     // Neren: survival during axis events

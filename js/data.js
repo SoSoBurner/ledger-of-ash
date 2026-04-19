@@ -251,42 +251,42 @@
     whitebridge_commune:['aurora_crown_commune','glasswake_commune']
   };
 
-  // V31_3 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
+  // V32_2 canonical NPC placements — sourced from 02_CANON_BASELINE/named_npcs/
   const NPC_PLACEMENTS = {
     panim_haven:[
-      {id:'celis_lanthorn',office:'Memorial Ward Office',role:'Ward Mediator'},
-      {id:'ishra_lumenveil',office:'Grain Ledger Office',role:'Grain Measurer'},
-      {id:'marrowen_mercycrypt',office:'Arrival Processing Hall',role:'Clerk of Arrivals'},
-      {id:'mediator_selka_var',office:'Afterlife Contract Hall',role:'Afterlife Contract Mediator'},
-      {id:'pelor_coffinmarch',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'}
+      {id:'elior_sepulcher',office:'Mediation Hall',role:'Mediator Cleric'},
+      {id:'merev_sepulcher',office:'Memorial Inn',role:'Innkeeper'},
+      {id:'saryna_sepulcher',office:'Offering Market Stall',role:'Market Clerk'},
+      {id:'velune_sepulcher',office:'Shrine of Divine Balance',role:'Shrine Attendant'},
+      {id:'ithren_sepulcher',office:'Processional Gate',role:'Porter'}
     ],
     sunspire_haven:[
-      {id:'garren_forgebound',office:'Market Watch Post',role:'Watch Sergeant'},
+      {id:'elyra_mossbane',office:'Commune Patron Office',role:'Patron of Forests and Plains'},
       {id:'kael_emberthrone',office:'Tool and Works Overseer Office',role:'Machinery Overseer'},
       {id:'orvak_strone',office:'Trade Adjudication Counter',role:'Unauthorized Trade Adjudicator'},
-      {id:'taldan_veyst',office:'Knowledge Registry',role:'Magical Knowledge Overseer'},
-      {id:'torma_coalward',office:'Convoy Quartermaster Hall',role:'Quartermaster'}
+      {id:'jorva_helmrune',office:'Communal Responsibility Office',role:'Communal Responsibility Enforcer'},
+      {id:'taldan_veyst',office:'Knowledge Registry',role:'Magical Knowledge Overseer'}
     ],
     aurora_crown_commune:[
-      {id:'neren_rimebridge',office:'Dome Mediation Office',role:'Ward Mediator'},
       {id:'warden_sera_whiteglass',office:'Dome Administration Center',role:'Dome Stabilizer Marshal'},
-      {id:'vassa_rimebridge',office:'Stable and Supply Yard',role:'Stable Factor'},
-      {id:'talin_rimebridge',office:'Ration Ledger Office',role:'Grain Measurer'},
-      {id:'mariel_sealwater',office:'Dome Rest Inn',role:'Innkeeper'}
+      {id:'mariel_sealwater',office:'Dome Rest Inn',role:'Innkeeper'},
+      {id:'cadrin_sealwater',office:'Supply Ledger Counter',role:'Market Clerk'},
+      {id:'liora_sealwater',office:'Survival Shrine Alcove',role:'Shrine Attendant'},
+      {id:'theron_sealwater',office:'Dome Transit Yard',role:'Porter'}
     ],
     shelkopolis:[
-      {id:'lady_isabella_shelk',office:'House Shelk Estate',role:'Noble Principal'},
-      {id:'corin_lightloom',office:'Ward Mediation Hall',role:'Ward Mediator'},
-      {id:'elandra_sunweave',office:'Civic Arrival Office',role:'Clerk of Arrivals'},
-      {id:'maelin_dawnmantle',office:'Paladin Chapter Hall',role:'Paladin Officer'},
-      {id:'aelric_sunweave',office:'Shelkopolis–Fairhaven Road',role:'Toll Witness'}
+      {id:'lady_isabella_shelk',office:'House Shelk Estate',role:'Matriarch of House Shelk'},
+      {id:'lady_elowen_shelk',office:'Guild Chairwoman Office',role:'Fashion Icon and Guild Chairwoman'},
+      {id:'captain_thalion_windrider',office:'Roadwarden Central Command',role:'Roadwarden Leader'},
+      {id:'high_priestess_lyara_dawnlight',office:'Aurora Light Cathedral',role:'High Priestess'},
+      {id:'aelra_velvetmere',office:'Noble District Inn',role:'Innkeeper'}
     ],
     harvest_circle:[
       {id:'elyra_mossbane',office:'Harvest Circle Market Stalls',role:'Patron-Family Broker'},
       {id:'farlan_inkshade',office:'Quota Clerk Office',role:'Academic Recordkeeper'},
       {id:'jorva_helmrune',office:'Communal Responsibility Office',role:'Communal Responsibility Enforcer'},
-      {id:'svala_coalward',office:'Grain Measurement Hall',role:'Grain Measurer'},
-      {id:'garren_ashmason',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'}
+      {id:'velrik_durnshade',office:'Guild Dispute Hall',role:'Guild Dispute Mediator'},
+      {id:'valen_crestmark',office:'Patron-Family Steward Office',role:'Patron-Family Steward'}
     ],
     glasswake_commune:[
       {id:'researcher_toman_iceveil',office:'Research Wing — Contamination Division',role:'Contamination Research Lead'},
@@ -295,55 +295,56 @@
       {id:'thora_rimebridge',office:'Medical Station',role:'Street Physician'}
     ],
     fairhaven:[
-      {id:'corin_bloomcrest',office:'Market Watch Post',role:'Watch Sergeant'},
-      {id:'elandra_velvetmere',office:'Market Exchange Hall',role:'Market Broker'},
-      {id:'tavian_silkgate',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
-      {id:'serin_sunweave',office:'Felujitas Chapel',role:'Local Cleric'}
+      {id:'naevys_sunweave',office:'Chapel Market Stalls',role:'Retired Artisan'},
+      {id:'serin_sunweave',office:'Felujitas Chapel',role:'Local Cleric'},
+      {id:'thalen_sunweave',office:'Alchemist Workshop',role:'Alchemist'},
+      {id:'vaelis_sunweave',office:'Market Inn',role:'Innkeeper'},
+      {id:'maris_sunweave',office:'Fairhaven Market Exchange',role:'Market Clerk'}
     ],
     mimolot_academy:[
-      {id:'archivist_temeris_quillward',office:'Tariff Archive Hall',role:'Tariff Archivist'},
-      {id:'quillan_quillmark',office:'Academy Stables',role:'Hostler'},
-      {id:'copy_broker_halin_vesk',office:'Licensed Copy Bureau',role:'Licensed Copy Broker'},
-      {id:'vessa_scriptmere',office:'Canon-Keeping Office',role:'Canon-Keeper'},
-      {id:'quenra_quillfire',office:'Lecture Hall',role:'Tutor-Magistrate'}
+      {id:'quenra_quillfire',office:'Lecture Hall',role:'Tutor-Magistrate'},
+      {id:'ilys_quillfire',office:'Academy Inn',role:'Innkeeper'},
+      {id:'sarith_quillfire',office:'Knowledge Tariff Counter',role:'Market Clerk'},
+      {id:'velis_quillfire',office:'Memory Hall Shrine',role:'Shrine Attendant'},
+      {id:'myra_quillfire',office:'Archive Loading Bay',role:'Porter'}
     ],
     soreheim_proper:[
-      {id:'eryndor_bladewright',office:'Weaponsmith Tower',role:'Military Logistics Coordinator'},
-      {id:'brala_coalward',office:'Tower Medical Station',role:'Street Physician'},
-      {id:'helga_ironslope',office:'Tower Stables',role:'Stable Factor'},
-      {id:'kordr_vulkhand',office:'Combat Training Wing',role:'Combat Trainer'},
-      {id:'korin_drillwake',office:'Supply Quartermaster Tower',role:'Quartermaster'}
+      {id:'roth_udenine',office:'Northern Council Tower',role:'Councillor — Northern Ambition'},
+      {id:'cron_udenine',office:'Arbiter Tower',role:'Councillor — Arbiter of Justice'},
+      {id:'vorgul_oxtend',office:'Shield Council Tower',role:'Councillor — Shield of the Alliance'},
+      {id:'mordoth_valinheim',office:'Progress Council Tower',role:'Councillor — Architect of Progress'},
+      {id:'decon_von_reckshem',office:'Relic Strategy Wing',role:'Wizard Advisor and Relic Strategist'}
     ],
     shirshal:[
-      {id:'hel_brenn',office:'Arcane Laboratory',role:'Alchemist-Investigator'},
-      {id:'nira_veilthorn',office:'Case Archive Wing',role:'Assistant Curator'},
-      {id:'pell_rookglass',office:'Covert Investigation Unit',role:'Field Operative'},
-      {id:'examiner_prelate_sira_doveshade',office:'Examination Court',role:'Examiner Prelate'},
-      {id:'mercy_examiner_talan_vey',office:'Mercy Examination Wing',role:'Mercy-Examiner'}
+      {id:'tazren_coilspire',office:'Investigation Bureau',role:'Senior Investigator'},
+      {id:'mirae_coilspire',office:'Coilspire Inn',role:'Innkeeper'},
+      {id:'khalis_coilspire',office:'Arcane Market Counter',role:'Market Clerk'},
+      {id:'sivren_coilspire',office:'Compliance Shrine',role:'Shrine Attendant'},
+      {id:'luneth_coilspire',office:'Evidence Transfer Hall',role:'Porter'}
     ],
     ithtananalor:[
-      {id:'casvel_redhinge',office:'Stable and Freight Yard',role:'Stable Factor'},
-      {id:'dame_orsella_roaz',office:'Knight Enforcement Wing',role:'Knight Commander'},
-      {id:'marshal_builder_korrin_wex',office:'Engineering Corps Hall',role:'Marshal-Builder'},
-      {id:'mira_steelmarch',office:'Ward Mediation Office',role:'Ward Mediator'},
-      {id:'orren_pike',office:'Apothecary and Materials Lab',role:'Alchemist'}
+      {id:'captain_darian_roaz',office:'ORE Supreme Command',role:'Supreme Commander of ORE'},
+      {id:'sir_velden_ironspike',office:'Shadowhands Command Wing',role:'Commander of Shadowhands'},
+      {id:'harlan_ironspike',office:'Enforcement Quarter Inn',role:'Innkeeper'},
+      {id:'ivena_ironspike',office:'Licensed Goods Counter',role:'Market Clerk'},
+      {id:'brenn_ironspike',office:'Justice Shrine',role:'Shrine Attendant'}
     ],
     guildheart_hub:[
-      {id:'guild_auditor_bren_oss',office:'Guild Sanction Board',role:'Guild Auditor'},
-      {id:'guilden_ledgermere',office:'Archive Audit Hall',role:'Archive Auditor'},
-      {id:'halv_ledgermere',office:'Arrival Registry Counter',role:'Clerk of Arrivals'},
-      {id:'marren_toll',office:'Covert Operations Unit',role:'Field Operative'},
-      {id:'mira_ledgermere',office:'Quota Scribing Hall',role:'Quota Scribe'}
+      {id:'cala_ledgermere',office:'Guild Quarter Inn',role:'Innkeeper'},
+      {id:'derris_ledgermere',office:'Tariff Exchange Counter',role:'Market Clerk'},
+      {id:'nyra_ledgermere',office:'Guild Shrine Alcove',role:'Shrine Attendant'},
+      {id:'luthen_ledgermere',office:'Freight Transit Yard',role:'Porter'},
+      {id:'sable_ledgermere',office:'Archive Scribing Hall',role:'Scribe'}
     ],
     cosmoria:[
-      {id:'aurek_tidereach',office:'Harbor Stable Yard',role:'Stable Factor'},
-      {id:'coralyn_foamglass',office:'Maritime Quartermaster Office',role:'Quartermaster'},
-      {id:'high_tide_priest_coren_mirthwake',office:'Tide-Priest Temple',role:'High Tide-Priest'},
-      {id:'ilyra_foamveil',office:'Archive Illusionist Wing',role:'Illusionist-Archivist'},
-      {id:'coral_jack_neris',office:'Below-Decks Exchange',role:'Black Market Operator'}
+      {id:'coralyn_tideglass',office:'Maritime Archive Hall',role:'Archivist'},
+      {id:'marrow_tideglass',office:'Harbor Captain Office',role:'Ship Captain'},
+      {id:'selka_tideglass',office:'Cosmouth Dockside Inn',role:'Innkeeper'},
+      {id:'tavian_tideglass',office:'Floating Market Exchange',role:'Market Clerk'},
+      {id:'nerissa_tideglass',office:'Sea Communion Shrine',role:'Shrine Attendant'}
     ],
     craftspire:[
-      {id:'jorin_ledgermere',office:'Material Ledger Office',role:'Grain Measurer'},
+      {id:'jorin_ledgermere',office:'Material Ledger Office',role:'Ledger Officer'},
       {id:'tess_ledgermere',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
       {id:'copy_warden',office:'Book-Copy Bureau',role:'Copy Legitimacy Warden'}
     ],
@@ -365,9 +366,9 @@
     ],
     whitebridge_commune:[
       {id:'arbiter_nyra_thawmark',office:'Crossing Arbitration Hall',role:'Communal Arbiter'},
+      {id:'cadrin_crownmere',office:'Route Assessment Office',role:'Route Assessment Official'},
       {id:'aster_starice',office:'Night Lantern Circuit',role:'Night-Lantern Inspector'},
-      {id:'thora_snowveil',office:'Grain and Supply Ledger',role:'Grain Measurer'},
-      {id:'thora_starice',office:'Stable and Transit Yard',role:'Stable Factor'}
+      {id:'thora_snowveil',office:'Grain and Supply Ledger',role:'Grain Measurer'}
     ]
   };
 
@@ -1557,5 +1558,5 @@ const STAGE2_DESTINATION_CONTENT = {
   window.LOCALITY_SERVICE_ITEM_OVERRIDES = LOCALITY_SERVICE_ITEM_OVERRIDES;
   window.STAGE2_DESTINATION_CONTENT = STAGE2_DESTINATION_CONTENT;
   window.BUILD_VERIFICATION = BUILD_VERIFICATION;
-  window.CANON_VERSION = 'V31_3';
+  window.CANON_VERSION = 'V32_2';
 })();
