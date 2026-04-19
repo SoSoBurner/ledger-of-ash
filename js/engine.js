@@ -1,13 +1,16 @@
 
 (function(){
   const SAVE_KEY = 'loa_upgrade_batch27';
-  const XP_PER_LEVEL = [0,0,3,7,12,18,25,33,42,52,63,75,88,102,117,133,150,168,187,207,228];
+  const XP_PER_LEVEL = [0, 0, 120, 300, 560, 900, 1320, 1820, 2400, 3060, 3800, 4620, 5520, 6500, 7560, 8700, 9920, 11220, 12600, 15000, 20000];
   let G = null;
 
   const $ = id=>document.getElementById(id);
   const pick=(arr,n)=>arr&&arr.length?arr[n%arr.length]:'';
   const rand=n=>Math.floor(Math.random()*n);
   const currentStage=l=>(window.STAGES||[]).find(s=>l>=s.levelMin&&l<=s.levelMax)||(window.STAGES||[])[0];
+  const STAGE_LEVEL_CAPS = {1: 5, 2: 10, 3: 15, 4: 18, 5: 20};
+  const currentLevelCap=()=>STAGE_LEVEL_CAPS[G.stage] || 20;
+  window.STAGE_LEVEL_CAPS = STAGE_LEVEL_CAPS;
   const getArchetype=id=>(window.ARCHETYPES||[]).find(a=>a.id===id);
   const getBackground=(arch,bgId)=>((window.BACKGROUNDS||{})[arch]||[]).find(b=>b.id===bgId);
   const getLocality=id=>(window.KEY_LOCALITIES||{})[id];
@@ -147,7 +150,18 @@
   function addQuest(id,title,status='Active'){ const q=G.quests.find(q=>q.id===id); if(q){ q.status=status; return; } G.quests.push({id,title,status}); }
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
   function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0) G.dayCount+=1; G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
-  function gainXp(n,why=''){ G.xp+=n; while(G.level<20 && G.xp>=XP_PER_LEVEL[G.level+1]){ G.level++; G.maxHp += G.stage>=4?4:3; G.hp=Math.min(G.maxHp,G.hp+4); G.renown+=2; G.pendingSkillSelection=true; addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);} updateStage(); }
+  function gainXp(n,why=''){ 
+    G.xp+=n; 
+    const cap = currentLevelCap();
+    while(G.level < cap && G.xp >= XP_PER_LEVEL[G.level+1]){ 
+      G.level++; 
+      G.maxHp += G.stage>=4?4:3; 
+      G.hp=Math.min(G.maxHp,G.hp+4); 
+      G.renown+=2; 
+      G.pendingSkillSelection=true; 
+      addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);
+    }
+  }
 
   // Choice limiting: 5 base choices + 1 tactical combat bonus when appropriate
   function rotateAndLimitChoices(fullChoiceArray, stage){
@@ -189,7 +203,10 @@
     };
     return choice;
   }
-  function updateStage(){ const st=currentStage(G.level); G.stage=st.id; G.stageLabel=st.label; }
+  function updateStage(){ 
+    const st = (window.STAGES||[]).find(s => s.id === G.stage) || (window.STAGES||[])[0]; 
+    G.stageLabel = st ? st.label : 'Stage I'; 
+  }
   function chooseThreat(){ const loc=getLocality(G.location); return {hazard:pick(loc.hazards,G.dayCount+G.stage+G.worldClocks.pressure), creature:pick(loc.creatures,G.dayCount+G.stage+G.worldClocks.rival)}; }
   function setThreat(){ G.currentThreat = chooseThreat(); }
   function currentNamedPlacements(location){ 
@@ -1365,7 +1382,7 @@
     return rotateAndLimitChoices(stage35Full, stage);
   }
   function maybeStageAdvance(){
-    if(G.stage===1 && G.stageProgress[1]>=4 && G.level>=5){
+    if(G.stage===1 && G.stageProgress[1]>=20){
       G.stage=2; updateStage();
       const sig=routeSignature(); const originLoc=getLocality(sig.originLocality)||getLocality(G.location);
       const adj=(window.ADJACENCY[G.location]||[]).map(id=>getLocality(id)?.name).filter(Boolean).slice(0,2).join(' and ');
@@ -1374,7 +1391,7 @@
       markMoment(`Stage II entered — pressure widening from ${originLoc.name}`);
       addJournal('stage','Stage I work complete. The adjacent route opens and the pressure reveals its regional shape.',`stage2-unlock-${G.dayCount}`);
     }
-    if(G.stage===2 && G.stageProgress[2]>=4 && G.level>=9){
+    if(G.stage===2 && G.stageProgress[2]>=45){
       G.stage=3; updateStage();
       const sig2=routeSignature(); const originLoc2=getLocality(sig2.originLocality)||getLocality(G.location);
       const routeName2=window.ROUTE_NAMES&&sig2.stage2Vector?window.ROUTE_NAMES[sig2.stage2Vector]:'the widening route';
@@ -1386,8 +1403,8 @@
       addJournal('stage',`Stage II route work resolved. ${routeName2} pressure widened across region. National consequences now active.`,`stage3-unlock-${G.dayCount}`);
       checkCompanionLeaveConditions();
     }
-    if(G.stage===3 && G.familyMilestones.stage3>=3 && G.level>=13){ G.stage=4; updateStage(); addNotice('Stage IV begins. Your name now changes what institutions dare.'); markMoment('Stage IV began'); }
-    if(G.stage===4 && G.familyMilestones.stage4>=3 && G.level>=17){ G.stage=5; updateStage(); addNotice('Stage V begins. Death is now final.'); markMoment('Stage V began'); }
+    if(G.stage===3 && G.stageProgress[3]>=60){ G.stage=4; updateStage(); addNotice('Stage IV begins. Your name now changes what institutions dare.'); markMoment('Stage IV began'); }
+    if(G.stage===4 && G.stageProgress[4]>=50){ G.stage=5; updateStage(); addNotice('Stage V begins. Death is now final.'); markMoment('Stage V began'); }
     setObjective();
   }
 
