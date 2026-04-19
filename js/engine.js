@@ -865,8 +865,14 @@
       else { G.lastResult=`The scene closes before it can be read properly. ${sceneStarter} — nothing actionable came of it.`; G.worldClocks.pressure++; }
       G.recentOutcomeType='observe'; maybeStageAdvance();
     }}:null;
+    const arch=getArchetype(G.archetype)||{};
+    const combatArchetypes=['warrior','knight','ranger','paladin','archer','berserker','warden','warlord','death_knight'];
+    const magicArchetypes=['wizard','cleric','priest','necromancer','illusionist','inquisitor','elementalist','oracle'];
+    const stealthArchetypes=['rogue','assassin','spellthief','scout','thief','trickster','beastmaster'];
+    const supportArchetypes=['healer','artificer','engineer','tactician','alchemist','saint','bard'];
+    
     const choices=[
-      {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe'],fn(){
+      {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe','Observation'],fn(){
         advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'careful observation'); G.stageProgress[1]++;
         addJournal('field-note',`Observed ${loc.name} through ${bg.theme}.`,`${bg.id}-observe`); G.recentOutcomeType='observe';
         const sopHint=hooks.senseOfPlace?hooks.senseOfPlace.split('.')[0]+'.':'';
@@ -876,10 +882,10 @@
       classIdentityChoice(),
       ...classInvest,
       settlementService,
-      ...objectiveWebChoices(1).slice(0,1),
+      ...objectiveWebChoices(1).slice(0,2),
       moralAxisChoice(),
       civicAxisChoice(),
-      {label:'Test the current threat directly',tags:['Risky','Encounter'],fn(){ G.telemetry.actions++; startThreatEncounter('standard'); }},
+      {label:'Test the current threat directly',tags:['Risky','CreatureCombat'],fn(){ G.telemetry.actions++; startThreatEncounter('standard'); }},
       {label:'Make camp and recover',tags:['Camp','Rest'],fn(){
         advanceTime(1); G.telemetry.turns++;
         const healed=Math.max(3,Math.floor(G.maxHp*0.25));
@@ -889,13 +895,81 @@
         G.recentOutcomeType='observe';
         G.lastResult=`${G.currentSafeZone} provides enough shelter to recover before the next move. HP +${healed} (${G.hp}/${G.maxHp}). Party status reviewed and readiness restored.`;
         checkCompanionLeaveConditions();
+      }},
+      // Class-specific investigation options (4 additional paths)
+      combatArchetypes.includes(arch.id)?{label:`Assess ${loc.name} for martial weaknesses — combat readiness review`,tags:['Class','Combat','Investigation'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'tactical assessment'); G.stageProgress[1]++;
+        G.recentOutcomeType='investigate'; addJournal('investigation',`Combat assessment in ${loc.name}.`,`combat-assess-${G.dayCount}`);
+        G.lastResult=`The choke points, sightlines, and defensive positions of ${loc.name} become legible. If force is needed, the angle is now sharper. The first confrontation here would not be entirely unprepared.`;
+        maybeStageAdvance();
+      }}:null,
+      magicArchetypes.includes(arch.id)?{label:`Read the arcane signature of ${loc.name} — ward and seal inventory`,tags:['Class','Magic','Investigation'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'arcane reading'); G.stageProgress[1]++;
+        G.recentOutcomeType='investigate'; addJournal('investigation',`Arcane inventory in ${loc.name}.`,`magic-read-${G.dayCount}`);
+        G.lastResult=`The ward lines, seal placements, and arcane infrastructure of ${loc.name} reveal themselves. The magical pressure is mapped. Any future spell work here would answer to what you now understand.`;
+        maybeStageAdvance();
+      }}:null,
+      stealthArchetypes.includes(arch.id)?{label:`Map the blind angles and entry routes — stealth infrastructure`,tags:['Class','Stealth','Investigation'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'covert mapping'); G.stageProgress[1]++;
+        G.recentOutcomeType='investigate'; addJournal('investigation',`Stealth routes in ${loc.name}.`,`stealth-map-${G.dayCount}`);
+        G.lastResult=`The shadows, sight-lines, and unguarded passages of ${loc.name} become clear. Three routes are now visible that were not obvious before. Discretion, if needed, has a foundation here.`;
+        maybeStageAdvance();
+      }}:null,
+      supportArchetypes.includes(arch.id)?{label:`Document supply lines and support infrastructure — leverage points`,tags:['Class','Support','Investigation'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'infrastructure analysis'); G.stageProgress[1]++;
+        G.recentOutcomeType='investigate'; addJournal('investigation',`Supply chain in ${loc.name}.`,`support-assess-${G.dayCount}`);
+        G.lastResult=`The medical facilities, supply caches, and support networks of ${loc.name} are now documented. Leverage points, recovery resources, and crisis responses are now legible. The place is no longer a mystery.`;
+        maybeStageAdvance();
+      }}:null,
+      // Background-specific situation options
+      hooks.backgroundSpecificEvent?{label:`Engage the situation — ${hooks.backgroundSpecificEvent}`,tags:['Background','Specific'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
+        const r=rollD20(bg.primarySkill||'persuasion',(G.skills[bg.primarySkill||'persuasion']||0)+Math.floor(G.level/3));
+        const success=r.isCrit||(r.total>=11&&!r.isFumble);
+        if(r.isCrit){ applySuccess(1,'person',bg.primarySkill||'persuasion',2,r.flavor); G.stageProgress[1]++; addJournal('background-event',`Critical engagement: ${hooks.backgroundSpecificEvent}`,`bg-event-crit-${G.dayCount}`); }
+        else if(r.isFumble){ G.lastResult=r.flavor; G.worldClocks.rival++; }
+        else if(success){ applySuccess(1,'person',bg.primarySkill||'persuasion',1,`${hooks.backgroundSpecificEvent} — the approach connects with something that matters. One line of thread is now visible.`); G.stageProgress[1]++; addJournal('background-event',`Engaged: ${hooks.backgroundSpecificEvent}`,`bg-event-success-${G.dayCount}`); }
+        else { G.lastResult=`${hooks.backgroundSpecificEvent} does not resolve as hoped. The moment passes.`; }
+        G.recentOutcomeType='observe'; maybeStageAdvance();
+      }}:null,
+      // Moral and faction branch choices
+      {label:'Choose a faction to ally with provisionally — gather support',tags:['Faction','Commitment'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'faction contact');
+        const factions=(window.LOCALITY_FACTIONS||{})[G.location]||[];
+        if(factions.length){
+          const faction=factions[G.dayCount%factions.length];
+          G.factionAllies[faction]=(G.factionAllies[faction]||0)+1;
+          addJournal('faction',`Made preliminary contact with ${faction} in ${loc.name}.`,`faction-${faction}-${G.dayCount}`);
+          G.lastResult=`The overture to ${faction} is heard. It is not binding, but it is noted. The first thread of institutional response is now active.`;
+        } else {
+          G.lastResult=`The locality has no clear institutional factions to approach. The pressure here is less organized than expected.`;
+        }
+        G.stageProgress[1]++;
+        G.recentOutcomeType='observe'; maybeStageAdvance();
+      }},
+      {label:'Investigate the contradiction between official and street narratives',tags:['Investigation','Contradiction'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'narrative analysis'); G.stageProgress[1]++;
+        const official=hooks.officialLine||`the official story of ${loc.name}`;
+        const street=hooks.streetNarrative||`what the street says about itself`;
+        G.lastResult=`The contradiction between ${official} and what the street actually knows is now clear. The gap is wide enough to move through. The pressure originates in that gap.`;
+        addJournal('contradiction',`Found the gap between official and street narrative in ${loc.name}.`,`contradiction-${G.dayCount}`);
+        G.recentOutcomeType='investigate'; maybeStageAdvance();
+      }},
+      {label:'Test the legal structure — how far can you push before response comes?',tags:['Risk','Legal'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
+        const r=rollD20('persuasion',(G.skills.persuasion||0)+Math.floor(G.level/3));
+        const success=r.isCrit||(r.total>=12&&!r.isFumble);
+        if(r.isCrit){ applySuccess(1,'person','persuasion',2,r.flavor); G.legalityMax=Math.max(G.legalityMax||3,5); G.stageProgress[1]++; addNotice('Critical: Legal boundaries mapped.'); }
+        else if(success){ applySuccess(1,'person','persuasion',1,'The legal boundaries of this place are now readable. There is room to maneuver.'); G.legalityMax=Math.max(G.legalityMax||2,4); G.stageProgress[1]++; }
+        else { G.lastResult=`The legal boundaries of ${loc.name} are tighter than expected. The immediate response was swift. Adjust expectations.`; G.worldClocks.pressure++; applyLegalityShift(1); }
+        G.recentOutcomeType='investigate'; maybeStageAdvance();
       }}
     ];
     if(sceneChoice) choices.splice(1,0,sceneChoice);
     if(rumorChoice) choices.splice(2,0,rumorChoice);
     if(npcApproach) choices.splice(4,0,npcApproach);
     if(recruit) choices.splice(3,0,recruit);
-    return choices.slice(0,9);
+    return choices.filter(c=>c!==null).slice(0,32);
   }
 
   function travelTo(dest){ const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
@@ -910,10 +984,15 @@
     const travel = adj.map(dest=>({label:`Travel to ${getLocality(dest).name}`,tags:['Travel','Adjacent'],fn(){ travelTo(dest); G.stage2DestinationsSeen[dest]=true; }}));
     const scouting = adj.map(dest=>({label:`Scout ${getLocality(dest).name} via ${atlas.style}`,tags:['Travel','Scout',atlas.risk],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.scouts++; G.stage2DestinationsSeen[dest]=true; G.routeScoutLog.unshift(`${G.location} → ${dest} (${atlas.risk})`); G.routeScoutLog=G.routeScoutLog.slice(0,20); G.lastResult=`${getLocality(dest).name} comes into view through ${atlas.style}, and the risk reads as ${atlas.risk}.`; }}));
     const classRoute = stage2ClassIdentityChoice();
+    const arch=getArchetype(G.archetype)||{};
+    const rivalResponse=[
+      {label:'Make a show of force against the rival faction',tags:['Rival','Confrontation','Risky'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const r=rollD20('combat',(G.skills.combat||0)+Math.floor(G.level/3)); const success=r.isCrit||(r.total>=13&&!r.isFumble); if(r.isCrit){ G.worldClocks.rival=Math.max(0,G.worldClocks.rival-2); G.lastResult=r.flavor+` The rival faction backs down — at least for now. The pressure eases.`; addNotice('Critical rival confrontation success.'); } else if(success){ G.worldClocks.rival=Math.max(0,G.worldClocks.rival-1); G.lastResult=`The show of force holds. The rival faction is slowed but not stopped.`; } else { G.worldClocks.rival+=2; G.lastResult=`The confrontation escalates. The rival faction sees this as declaration. Expect faster responses now.`; startThreatEncounter('standard'); } maybeStageAdvance(); }},
+      {label:'Meet with rival faction intermediaries to negotiate terms',tags:['Rival','Negotiation','Persuasion'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const r=rollD20('persuasion',(G.skills.persuasion||0)+Math.floor(G.level/3)); const success=r.isCrit||(r.total>=12&&!r.isFumble); if(r.isCrit){ G.worldClocks.rival=Math.max(0,G.worldClocks.rival-3); G.rivalNegotiation=true; G.lastResult=r.flavor+` A temporary understanding forms. The rivalry does not vanish but it transforms into something negotiable.`; addNotice('Critical negotiation — truce established.'); } else if(success){ G.worldClocks.rival=Math.max(0,G.worldClocks.rival-1); G.lastResult=`The negotiation finds one point of common ground. It is not peace but it is not escalation.`; } else { G.worldClocks.rival++; G.lastResult=`The intermediaries listen but commit to nothing. The rivalry continues.`; } maybeStageAdvance(); }}
+    ];
     return [
       ...bgChoices.slice(0,2),
       ...destinationChoices.slice(0,2),
-      ...objectiveWebChoices(2).slice(0,1),
+      ...objectiveWebChoices(2).slice(0,2),
       classRoute,
       ...travel.slice(0,1),
       ...scouting.slice(0,1),
@@ -945,8 +1024,49 @@
         G.serviceLog.unshift(`Settlement intelligence at ${getLocality(G.location).name}`);
         G.serviceLog=G.serviceLog.slice(0,20);
         G.recentOutcomeType='observe';
+      }},
+      // Stage 2 rival handling
+      G.worldClocks.rival>=3?rivalResponse[0]:null,
+      G.worldClocks.rival>=4?rivalResponse[1]:null,
+      // Route intelligence branching
+      {label:'Analyze the route pattern for hidden vulnerabilities',tags:['Route','Analysis','Stealth'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'route analysis');
+        G.lastResult=`The route pattern is legible now. There are three pressure points where institutional response is weakest. The vulnerability is subtle but solid.`;
+        G.stageProgress[2]++;
+        addJournal('route-intel',`Identified route vulnerabilities near ${getLocality(G.location).name}.`,`route-vuln-${G.dayCount}`);
+        maybeStageAdvance();
+      }},
+      // Destination choice branching
+      adj.length>0?{label:`Travel directly to the highest-risk destination and confront it immediately`,tags:['Travel','Risk','Confrontation'],fn(){
+        const riskDest=adj[Math.floor(Math.random()*adj.length)];
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+        const r=rollD20('combat',(G.skills.combat||0)+Math.floor(G.level/3));
+        const success=r.isCrit||(r.total>=13&&!r.isFumble);
+        if(r.isCrit){ applySuccess(2,'combat','combat',3,r.flavor); travelTo(riskDest); G.stage2DestinationsSeen[riskDest]=true; G.stageProgress[2]++; addNotice('Critical confrontation at destination.'); }
+        else if(success){ applySuccess(2,'combat','combat',2,`The high-risk destination is engaged directly. The confrontation is sharp and the outcome is clear.`); travelTo(riskDest); G.stage2DestinationsSeen[riskDest]=true; G.stageProgress[2]++; }
+        else { G.lastResult=`The direct approach at ${getLocality(riskDest).name} does not hold. The destination is more resistant than expected.`; G.worldClocks.rival++; startThreatEncounter('standard'); }
+        maybeStageAdvance();
+      }}:null,
+      // Faction pressure choices for Stage 2
+      {label:'Report findings to the primary faction — build institutional alliance',tags:['Faction','Alliance','Report'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'faction leverage');
+        const primaryFaction=(window.CAMPAIGN_FACTIONS||[])[0]||'primary faction';
+        G.factionAllies[primaryFaction]=(G.factionAllies[primaryFaction]||0)+2;
+        G.lastResult=`The findings reach the institutional level. ${primaryFaction} now sees you as a regional variable, not a local actor. The institutional response shifts.`;
+        G.stageProgress[2]++;
+        addJournal('faction-report',`Reported findings to ${primaryFaction}.`,`faction-report-${G.dayCount}`);
+        maybeStageAdvance();
+      }},
+      {label:'Investigate what the institutions are hiding about the real pressure source',tags:['Investigation','Institutional','Risk'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
+        const r=rollD20('lore',(G.skills.lore||0)+Math.floor(G.level/3));
+        const success=r.isCrit||(r.total>=13&&!r.isFumble);
+        if(r.isCrit){ applySuccess(2,'lore','lore',3,r.flavor); G.stageProgress[2]++; G.hiddenThruthFound=true; addNotice('Critical discovery — hidden truth revealed.'); }
+        else if(success){ G.stageProgress[2]++; G.lastResult=`The institutional obfuscation is now clear. Something bigger is being hidden. The real pressure is not what is being shown.`; }
+        else { G.worldClocks.pressure++; G.lastResult=`The investigation touches something institutional that does not want to be touched. The pressure response is immediate and severe.`; startThreatEncounter('standard'); }
+        maybeStageAdvance();
       }}
-    ].slice(0,9);
+    ].filter(c=>c!==null).slice(0,42);
   }
 
   function campChoices(state){
@@ -1063,19 +1183,116 @@
     const arch=getArchetype(G.archetype)||{}; 
     const isStealthArchetype=['rogue','assassin','spellthief','scout','thief','trickster','beastmaster','illusionist','archer'].includes(arch.id);
     const arr=objectiveWebChoices(stage).slice(0,5); 
-    if(stage===5 && G.finalBreak){ 
-      arr.push({label:'Commit to the final boss confrontation',tags:['CreatureCombat','Boss','Final'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }}); 
-      arr.push({label:'Commit to the final hazard confrontation',tags:['Boss','Final'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }}); 
+    
+    // Institution-specific branching paths for Stage 3+
+    const institutionChoice={label:'Pursue the institutional angle — investigate formal channels',tags:['Institutional','Investigation','Politics'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
+      const r=rollD20('lore',(G.skills.lore||0)+Math.floor(G.level/3));
+      const success=r.isCrit||(r.total>=14&&!r.isFumble);
+      if(r.isCrit){ applySuccess(stage,'lore','lore',4,r.flavor); G.stageProgress[stage]++; G.institutionalLead=true; addNotice('Critical institutional discovery.'); }
+      else if(success){ G.stageProgress[stage]++; G.lastResult=`The formal channels reveal a clear institutional responsibility. The pressure originates in deliberate policy.`; }
+      else { G.worldClocks.pressure++; G.lastResult=`The institutional inquiry is noticed. Resources move against you now.`; startThreatEncounter('standard'); }
+      maybeStageAdvance();
+    }};
+    
+    // Rival confrontation path
+    const rivalChoice={label:'Confront the rival faction directly — attempt final negotiation or combat',tags:['Rival','Final','Confrontation'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const r=rollD20('persuasion',(G.skills.persuasion||0)+Math.floor(G.level/3));
+      const success=r.isCrit||(r.total>=15&&!r.isFumble);
+      if(r.isCrit){ G.worldClocks.rival=0; G.rivalResolved=true; G.stageProgress[stage]++; G.lastResult=r.flavor+` The rival faction stands down. The institutional pressure shifts.`; addNotice('Rival faction eliminated.'); }
+      else if(success){ G.worldClocks.rival=Math.max(0,G.worldClocks.rival-2); G.stageProgress[stage]++; G.lastResult=`The confrontation holds. The rival faction is damaged and will not pursue aggressively.`; }
+      else { G.worldClocks.rival+=3; G.lastResult=`The confrontation escalates to active hostility. The rival faction commits all remaining resources.`; startThreatEncounter('standard'); }
+      maybeStageAdvance();
+    }};
+    
+    // Moral reckoning choices
+    const mercyChoice=stage===5?{label:'Offer mercy to the final pressure source — redemption path',tags:['Moral','Mercy','Final'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.stageProgress[stage]++;
+      G.endingPath='mercy'; G.lastResult=`The choice to offer mercy echoes through the institution. Not everyone accepts it, but the pressure recedes. The campaign closes with the question left open.`;
+      addJournal('ending','Chose mercy over final confrontation.',`ending-mercy-${G.dayCount}`);
+      maybeStageAdvance();
+    }}:{label:`Attempt a merciful intervention in the ${stage===3?'local':'regional'} pressure dynamics`,tags:['Moral','Mercy','Resolution'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.stageProgress[stage]++;
+      G.lastResult=`The merciful path yields unexpected results. Institutional actors respond with caution — not hostility. The pressure does not vanish but it transforms.`;
+      addJournal('mercy-intervention',`Attempted merciful intervention at stage ${stage}.`,`mercy-${G.dayCount}`);
+      maybeStageAdvance();
+    }};
+    
+    // Add institutional choices
+    arr.push(institutionChoice);
+    arr.push(rivalChoice);
+    arr.push(mercyChoice);
+    
+    // Stage-specific options
+    if(stage===3){
+      arr.push({label:'Expand the grassroots network into three adjacent regions',tags:['Expansion','Regional','Strategy'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.stageProgress[3]++;
+        G.networkExpanded=true; G.lastResult=`The network spreads across three adjacent regions. What started local is now structurally regional.`;
+        addJournal('network','Expanded grassroots network to three regions.',`network-expansion-${G.dayCount}`);
+        maybeStageAdvance();
+      }});
+      arr.push({label:'Consolidate knowledge from all visited localities — create integrated map',tags:['Knowledge','Consolidation','Research'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.stageProgress[3]++;
+        const locCount=Object.keys(G.stage2DestinationsSeen||{}).length;
+        G.lastResult=`The knowledge from ${locCount} localities integrates into one coherent picture. The pressure pattern is now fully visible at the regional scale.`;
+        addJournal('analysis','Integrated all locality knowledge.',`integration-${G.dayCount}`);
+        maybeStageAdvance();
+      }});
+    }
+    else if(stage===4){
+      arr.push({label:'Infiltrate a key institutional facility — high-risk intelligence operation',tags:['Infiltration','Risk','Intelligence'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
+        const r=rollD20('stealth',(G.skills.stealth||0)+Math.floor(G.level/3));
+        const success=r.isCrit||(r.total>=15&&!r.isFumble);
+        if(r.isCrit){ applySuccess(4,'stealth','stealth',4,r.flavor); G.stageProgress[4]+=2; G.lastResult=`The infiltration succeeds beyond expectation. The facility's core intelligence is now accessible.`; addNotice('Critical infiltration — complete success.'); }
+        else if(success){ applySuccess(4,'stealth','stealth',2,`The infiltration succeeds. Critical documents and communications are now visible.`); G.stageProgress[4]++; }
+        else { G.lastResult=`The infiltration is discovered. Alarms sound. This facility now knows you by name.`; startThreatEncounter('standard'); }
+        maybeStageAdvance();
+      }});
+      arr.push({label:'Orchestrate a national-scale pressure response — mobilize all resources',tags:['Mobilization','National','Strategy'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.stageProgress[4]++;
+        G.nationalMobilization=true; G.lastResult=`All resources are mobilized for one final push. The institutional response will be complete or this fails entirely.`;
+        addJournal('strategy','Mobilized all resources for national response.',`mobilization-${G.dayCount}`);
+        maybeStageAdvance();
+      }});
+    }
+    else if(stage===5){
+      // Stage 5 gets special handling with more combat encounters
+      arr.push({label:'Commit to the final institutional confrontation',tags:['CreatureCombat','Boss','Final','Institutional'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }});
+      arr.push({label:'Trigger the climactic hazard that anchors the entire pressure system',tags:['Boss','Final','Hazard'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }});
+      arr.push({label:'Execute a coordinated three-pronged attack on institutional strongpoints',tags:['CreatureCombat','Multi-Target','Elite','Final'],fn(){ G.multiTargetCombat=true; startCreatureEncounter('elite'); }});
+      arr.push({label:'Unleash a devastating strike on the rival faction leadership',tags:['CreatureCombat','Elite','Rival','Final'],fn(){ startCreatureEncounter('elite'); }});
       if(isStealthArchetype){
-        arr.push({label:'Set an assassination trap for the final confrontation',tags:['Assassination','Elite'],fn(){ startSurpriseAttack('assassination'); }});
+        arr.push({label:'Set an assassination trap for the final institutional head',tags:['Assassination','Elite','Final'],fn(){ startSurpriseAttack('assassination'); }});
+        arr.push({label:'Execute a precision strike on the pressure source core',tags:['Assassination','Surgical','Final'],fn(){ startSurpriseAttack('ambush'); }});
       }
-    } else { 
-      arr.push({label:'Force an elite creature confrontation now',tags:['CreatureCombat','Elite'],fn(){ startCreatureEncounter('elite'); }}); 
-      if(isStealthArchetype){
-        arr.push({label:'Set an ambush trap for an unsuspecting target',tags:['Assassination','Stealth'],fn(){ startSurpriseAttack('ambush'); }});
-      }
-    } 
-    return arr.slice(0,8); 
+      // Additional Stage 5 moral/resolution choices
+      arr.push({label:'Attempt one final negotiation with institutional authority before violence',tags:['Negotiation','Persuasion','Final'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
+        const r=rollD20('persuasion',(G.skills.persuasion||0)+Math.floor(G.level/3)+3);
+        const success=r.isCrit||(r.total>=16&&!r.isFumble);
+        if(r.isCrit){ G.endingPath='negotiated'; G.stageProgress[5]++; G.lastResult=r.flavor+` A path to resolution without total violence becomes visible. The institutional pressure transforms.`; addNotice('Critical negotiation — peaceful resolution possible.'); }
+        else if(success){ G.stageProgress[5]++; G.lastResult=`The negotiation opens a crack. It is not acceptance but it is not war.`; }
+        else { G.lastResult=`The institutional authority refuses negotiation. The final path is now violence only.`; startThreatEncounter('standard'); }
+        maybeStageAdvance();
+      }});
+    }
+    
+    return arr.slice(0,stage===5?22:stage===4?16:16).concat((stage===5?[
+      {label:'Prepare defenses against multiple incoming institutional strike teams',tags:['CreatureCombat','Defense','Multi-Enemy','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Attempt to disrupt the institutional command structure mid-strike',tags:['CreatureCombat','Sabotage','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Coordinate a counter-offensive with all gathered allies',tags:['CreatureCombat','Coordination','Allied','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Fall back to prepared strongpoint and force the final confrontation on better ground',tags:['CreatureCombat','Position','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Launch a surprise assault on the institutional decision-makers directly',tags:['CreatureCombat','Strike','Tactical','Assassination'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Establish a siege on the institutional center — force surrender through attrition',tags:['CreatureCombat','Siege','Tactical','Strategy'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Execute emergency evacuation and defensive fortification of the power base',tags:['CreatureCombat','Defense','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Summon or activate final institutional ally resources for coordinated strike',tags:['CreatureCombat','Allied','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Make a psychological break with institutional authority — declare total independence',tags:['CreatureCombat','Rupture','Tactical','Declaration'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Activate the failsafe mechanism that destabilizes the entire institutional system',tags:['CreatureCombat','Destabilize','Nuclear','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Coordinate with covert allies for simultaneous institutional takedowns nationwide',tags:['CreatureCombat','Coordinated','National','Tactical'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Execute final mercy option — spare the institution but cripple its core authority',tags:['Mercy','CreatureCombat','Tactical','Resolution'],fn(){ startCreatureEncounter('elite'); }}
+    ]:[]).slice(0,12)).filter(c=>c!==null); 
   }
   function maybeStageAdvance(){
     if(G.stage===1 && G.stageProgress[1]>=4 && G.level>=5){
