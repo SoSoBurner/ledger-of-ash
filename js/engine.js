@@ -147,7 +147,7 @@
   function addQuest(id,title,status='Active'){ const q=G.quests.find(q=>q.id===id); if(q){ q.status=status; return; } G.quests.push({id,title,status}); }
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
   function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0) G.dayCount+=1; G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
-  function gainXp(n,why=''){ G.xp+=n; while(G.level<20 && G.xp>=XP_PER_LEVEL[G.level+1]){ G.level++; G.maxHp += G.stage>=4?4:3; G.hp=Math.min(G.maxHp,G.hp+4); G.renown+=2; addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);} updateStage(); }
+  function gainXp(n,why=''){ G.xp+=n; while(G.level<20 && G.xp>=XP_PER_LEVEL[G.level+1]){ G.level++; G.maxHp += G.stage>=4?4:3; G.hp=Math.min(G.maxHp,G.hp+4); G.renown+=2; G.pendingSkillSelection=true; addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);} updateStage(); }
   function updateStage(){ const st=currentStage(G.level); G.stage=st.id; G.stageLabel=st.label; }
   function chooseThreat(){ const loc=getLocality(G.location); return {hazard:pick(loc.hazards,G.dayCount+G.stage+G.worldClocks.pressure), creature:pick(loc.creatures,G.dayCount+G.stage+G.worldClocks.rival)}; }
   function setThreat(){ G.currentThreat = chooseThreat(); }
@@ -1347,7 +1347,24 @@
     }
   }
 
+  function renderLevelUpModal(){
+    const skillKeys=['combat','survival','persuasion','lore','stealth','craft'];
+    const skillBtns=skillKeys.map(skill=>`<button class='choice' data-skill='${skill}'><span>Increase ${skill} by 1</span><small>Current: ${G.skills[skill]||0}</small></button>`).join('');
+    $('choices').innerHTML=`<div style='padding:12px 0;border-bottom:2px solid #6a5a2a;margin-bottom:12px;color:#d4b67a;font-weight:bold'>⭐ Level ${G.level} Reached!</div><div style='font-size:13px;color:#c9b99b;margin-bottom:14px'>Choose one skill to increase:</div>${skillBtns}`;
+    [...document.querySelectorAll('[data-skill]')].forEach(btn=>btn.onclick=()=>{
+      const skill=btn.dataset.skill;
+      G.skills[skill]=(G.skills[skill]||0)+1;
+      G.pendingSkillSelection=false;
+      G.lastResult=`Skill improved: ${skill} is now ${G.skills[skill]}.`;
+      persist(); render();
+    });
+  }
+
   function renderChoices(){
+    if(G.pendingSkillSelection){
+      renderLevelUpModal();
+      return;
+    }
     const list=currentChoices();
     $('choices').innerHTML=list.map((c,i)=>{
       const cp=normalizeChoiceProfile(c);
