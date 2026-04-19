@@ -172,12 +172,13 @@
   function setObjective(){ G.currentObjective = G.stage===1?stage1Objective():G.stage===2?stage2Objective():G.stage===3?stage3Objective():G.stage===4?stage4Objective():stage5Objective(); }
   function applySuccess(stage, mode, skill, xp, text){ G.stageProgress[stage]+=1; gainXp(xp, `${mode} pressure`); if(stage>=3){ G.familyMilestones[`stage${stage}`]=(G.familyMilestones[`stage${stage}`]||0)+1; if(G.familyMilestones[`stage${stage}`]===2) maybeUnlockFamilyEdge(stage); } G.lastResult=text; if(stage===5 && G.familyMilestones.stage5>=4 && !G.finalBreak){ G.finalBreak=true; maybeUnlockFamilyEdge(5); addNotice('A final break becomes possible.'); } }
   function objectiveWebChoices(stage){ const verbs=[['Question a person at the center of the pressure','person','persuasion'],['Search the place where the pressure shows physically','place','lore'],['Pull records and compare what should not align','records','lore'],['Work the quiet edge and move unseen','stealth','stealth'],['Force an opening in the line','force','combat'],['Use ritual or procedure to open a blocked answer','ritual','craft'],['Trace the route itself for what it carries','route','survival']]; return verbs.map(([label,mode,skill],i)=>({label,tags:['Objective',mode],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const comp=window.companionBonus?companionBonus(G,skill):0; const bonuses=(G.skills[skill]||0)+comp+Math.floor(G.level/3)+currentEdgeBonus(mode); const r=rollD20(skill,bonuses); const target=10+stage*2+i%2; const success=r.isCrit||(r.total>=target&&!r.isFumble); G.lastRoll={action:label,skill,total:r.total,target,success,die:r.die,crit:r.isCrit,fumble:r.isFumble}; addJournal('field-note',`${label} in ${getLocality(G.location).name}.`,`${G.backgroundId}-${stage}-${mode}-${G.dayCount}`); if(r.isCrit){ applySuccess(stage,mode,skill,stage*2,r.flavor); addNotice(`Critical success — ${label.toLowerCase()}.`); markMoment(`Critical: ${label}`); } else if(r.isFumble){ G.lastResult=r.flavor; G.worldClocks.rival+=2; G.hp=Math.max(1,G.hp-1); addNotice(`Critical fumble — ${label.toLowerCase()}.`); startThreatEncounter('standard'); } else if(success){ applySuccess(stage,mode,skill,stage,`${label} pays off. The route opens a little wider, and the shape of the pressure becomes harder to hide.`); } else { G.lastResult=`${label} fails to settle the matter. The opposition keeps the initiative.`; G.worldClocks.rival+=1; if(rand(3)===0) startThreatEncounter('standard'); } maybeStageAdvance(); }})); }
-  function classIdentityChoice(){ const a=getArchetype(G.archetype); const group=a.group; if(group==='combat') return {label:'Set a hard stance and test the line physically',tags:['Class','Combat'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.combat+=1; gainXp(2,'martial posture'); G.recentOutcomeType='class_combat'; G.lastResult='Weight, footing, and guard tell more truth than anyone intended to show.'; maybeStageAdvance(); }}; if(group==='magic') return {label:'Read residue, wards, and unstable traces',tags:['Class','Magic'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane read'); G.recentOutcomeType='class_magic'; G.lastResult='Charged residue and ward strain make the hidden pattern easier to follow.'; maybeStageAdvance(); }}; if(group==='stealth') return {label:'Work the unnoticed angle and read who is watching whom',tags:['Class','Stealth'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.stealth+=1; gainXp(2,'concealment read'); G.recentOutcomeType='class_stealth'; G.lastResult='Sightlines and timing windows expose the pressure without a public clash.'; maybeStageAdvance(); }}; return {label:'Stabilize the weak point before it breaks wider',tags:['Class','Support'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support discipline'); G.recentOutcomeType='class_support'; G.lastResult='Useful hands, clean tools, and practical discipline turn panic into leverage.'; maybeStageAdvance(); }}; }
+  function localMagicContext(){ const ms=window.MAGIC_SYSTEM||[]; const entry=ms.find(m=>m.localities&&m.localities.includes(G.location)); return entry||{identity:'arcane detection and ward reading',expressions:['residue reading','ward strain analysis'],socialReading:'',localities:[]}; }
+  function classIdentityChoice(){ const a=getArchetype(G.archetype); const group=a.group; if(group==='combat') return {label:'Set a hard stance and test the line physically',tags:['Class','Combat'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.combat+=1; gainXp(2,'martial posture'); G.recentOutcomeType='class_combat'; G.lastResult='Weight, footing, and guard tell more truth than anyone intended to show.'; maybeStageAdvance(); }}; if(group==='magic'){ const mc=localMagicContext(); const expr=mc.expressions[0]||'residue and ward traces'; return {label:`Apply ${mc.identity} — read the local magical pattern`,tags:['Class','Magic'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane read'); G.recentOutcomeType='class_magic'; G.lastResult=`${expr.charAt(0).toUpperCase()+expr.slice(1)} surface the hidden pattern. ${mc.socialReading||'Charged residue and ward strain make the structure easier to follow.'}`.trim(); maybeStageAdvance(); }}; } if(group==='stealth'){ const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{}; const sb=(hooks.suspiciousBehavior||[])[0]||'who is watching whom'; return {label:`Work the unnoticed angle — observe ${sb}`,tags:['Class','Stealth'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.stealth+=1; gainXp(2,'concealment read'); G.recentOutcomeType='class_stealth'; G.lastResult='Sightlines and timing windows expose the pressure without a public clash. The unnoticed position holds.'; maybeStageAdvance(); }}; } return {label:'Stabilize the weak point before it breaks wider',tags:['Class','Support'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support discipline'); G.recentOutcomeType='class_support'; G.lastResult='Useful hands, clean tools, and practical discipline turn panic into leverage.'; maybeStageAdvance(); }}; }
 
   function stage2ClassIdentityChoice(){
     const a=getArchetype(G.archetype); const sig=routeSignature();
     if(a.group==='combat') return {label:'Take the lead physically on the widening route',tags:['Class','Adjacent','Combat'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.combat+=1; gainXp(2,'route command'); G.recentOutcomeType='class_combat'; G.lastResult=`The widening route starts answering to visible force, disciplined posture, and the threat of immediate correction.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / martial command`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
-    if(a.group==='magic') return {label:'Read wards, residue, and pressure seams on the widening route',tags:['Class','Adjacent','Magic'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane widening'); G.recentOutcomeType='class_magic'; G.lastResult=`The adjacent pressure gives up its magical seams once the route is read as a structure instead of a story.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / ward reading`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
+    if(a.group==='magic'){ const mc=localMagicContext(); const expr=mc.expressions[1]||mc.expressions[0]||'ward reading'; return {label:`Read wards, residue, and pressure seams on the widening route — ${expr}`,tags:['Class','Adjacent','Magic'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane widening'); G.recentOutcomeType='class_magic'; G.lastResult=`The adjacent pressure gives up its magical seams once the route is read as a structure. ${mc.socialReading||''}`.trim(); G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / ${expr}`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }}; }
     if(a.group==='stealth') return {label:'Work the widening edge through timing, concealment, and quiet access',tags:['Class','Adjacent','Stealth'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.stealth+=1; gainXp(2,'covert widening'); G.recentOutcomeType='class_stealth'; G.lastResult=`The adjacent route opens by way of blind corners, bad habits, and people who think nobody is counting them.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / covert edge`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
     return {label:'Stabilize the widening line before it becomes a regional problem',tags:['Class','Adjacent','Support'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support widening'); G.recentOutcomeType='class_support'; G.lastResult=`The widening pressure becomes manageable once tools, kits, and disciplined help hit the right weak point.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / support triage`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
   }
@@ -711,6 +712,30 @@
       else { G.lastResult=`${(npc.id||'').replace(/_/g,' ')} is not available or not willing. The approach did not land.`; G.worldClocks.pressure++; }
       G.recentOutcomeType='observe'; maybeStageAdvance();
     }}:null;
+    const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{};
+    const rumors=(window.LOCALITY_RUMORS||{})[G.location]||[];
+    const rumor=pick(rumors,(G.dayCount+G.worldClocks.pressure)%Math.max(1,rumors.length));
+    const sceneStarters=hooks.sceneStarters||[];
+    const sceneStarter=pick(sceneStarters,G.dayCount%Math.max(1,sceneStarters.length));
+    const rumorChoice=rumor?{label:`Listen for street rumors in ${loc.name}`,tags:['Safe','Persuasion','Observe'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(1,'street intelligence');
+      addJournal('information',`Street rumor in ${loc.name}: ${rumor}`,`rumor-${G.location}-${G.dayCount}`);
+      G.recentOutcomeType='observe';
+      G.lastResult=`${rumor} The contact cannot be traced but the direction is now sharper.`;
+      G.stageProgress[1]++;
+      maybeStageAdvance();
+    }}:null;
+    const sceneChoice=sceneStarter?{label:`Enter the situation — ${sceneStarter}`,tags:['Observe','Persuasion'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const r=rollD20('persuasion',(G.skills.persuasion||0)+Math.floor(G.level/3));
+      const target=10+G.stage;
+      const success=r.isCrit||(r.total>=target&&!r.isFumble);
+      G.lastRoll={action:sceneStarter,skill:'persuasion',total:r.total,target,success,die:r.die,crit:r.isCrit,fumble:r.isFumble};
+      if(success){ applySuccess(1,'person','persuasion',2,`The scene — ${sceneStarter} — gives way to something useful. The approach lands on the right person at the right moment.`); addJournal('field-note',`Engaged scene: ${sceneStarter} in ${loc.name}.`,`scene-${G.location}-${G.dayCount}`); }
+      else { G.lastResult=`The scene closes before it can be read properly. ${sceneStarter} — nothing actionable came of it.`; G.worldClocks.pressure++; }
+      G.recentOutcomeType='observe'; maybeStageAdvance();
+    }}:null;
     const choices=[
       {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'careful observation'); G.stageProgress[1]++; addJournal('field-note',`Observed ${loc.name} through ${bg.theme}.`,`${bg.id}-observe`); G.recentOutcomeType='observe'; G.lastResult=`A quieter read of ${loc.name} sharpens the first contradiction. The background of ${bg.theme} gives the observation a specific angle the place does not expect.`; maybeStageAdvance(); }},
       classIdentityChoice(),
@@ -731,8 +756,10 @@
         checkCompanionLeaveConditions();
       }}
     ];
-    if(npcApproach) choices.splice(3,0,npcApproach);
-    if(recruit) choices.splice(2,0,recruit);
+    if(sceneChoice) choices.splice(1,0,sceneChoice);
+    if(rumorChoice) choices.splice(2,0,rumorChoice);
+    if(npcApproach) choices.splice(4,0,npcApproach);
+    if(recruit) choices.splice(3,0,recruit);
     return choices.slice(0,9);
   }
 
@@ -1129,18 +1156,30 @@
   // ── STORY PANEL ──────────────────────────────────────────
   function renderStoryPanel(){
     const loc=getLocality(G.location)||{name:'?',summary:'',pressures:[],creatures:[],hazards:[]};
+    const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{};
+    const rumors=(window.LOCALITY_RUMORS||{})[G.location]||[];
     const activeQuests=(G.quests||[]).filter(q=>q.status==='Active');
     const thread=activeQuests[0]||null;
     const threat=G.currentThreat||{};
     const latestNotice=G.notices&&G.notices[0]||null;
     const clocks=G.worldClocks||{pressure:0,rival:0,omens:0};
     const pressure=pick(loc.pressures,clocks.pressure)||'none surfaced';
-    const locCard=`<div class='card'><div class='sectionTitle'>${loc.name}</div><div style='font-size:13px;line-height:1.5'>${loc.summary||'An uncertain place.'}</div>${G.currentSafeZone?`<div style='margin-top:5px;font-size:11px;color:#8a7a5a'>Safe zone: ${G.currentSafeZone}</div>`:''}</div>`;
+
+    const sop=hooks.senseOfPlace||loc.summary||'An uncertain place.';
+    const locCard=`<div class='card'><div class='sectionTitle'>${loc.name}</div><div style='font-size:13px;line-height:1.5'>${sop}</div>${G.currentSafeZone?`<div style='margin-top:5px;font-size:11px;color:#8a7a5a'>Safe zone: ${G.currentSafeZone}</div>`:''}</div>`;
+
     const threadCard=thread?`<div class='card'><div class='sectionTitle'>Active Thread</div><div style='font-size:13px;color:#c9b99b;line-height:1.5'>${thread.title}</div></div>`:'';
-    const pressureCard=`<div class='card'><div class='sectionTitle'>Active Pressure</div><div style='font-size:12px;color:#c9b99b'>${pressure}</div><div style='margin-top:4px;font-size:11px;color:#5a4a2a'>Pressure ${clocks.pressure} · Rival ${clocks.rival}</div></div>`;
+
+    const cs=(hooks.conflictSurfaces||[]).slice(0,2);
+    const pressureCard=`<div class='card'><div class='sectionTitle'>Active Pressure</div><div style='font-size:12px;color:#c9b99b'>${pressure}</div>${cs.length?`<div style='margin-top:4px;font-size:11px;color:#7a6a4a'>${cs.join(' · ')}</div>`:''}<div style='margin-top:4px;font-size:11px;color:#5a4a2a'>Pressure ${clocks.pressure} · Rival ${clocks.rival}</div></div>`;
+
     const threatCard=(threat.creature||threat.hazard)?`<div class='card'><div class='sectionTitle'>Threat</div>${threat.creature?`<div style='font-size:12px'>Creature: <b>${(threat.creature||'').replace(/_/g,' ')}</b></div>`:''}${threat.hazard?`<div style='font-size:12px'>Hazard: <b>${(threat.hazard||'').replace(/_/g,' ')}</b></div>`:''}</div>`:'';
+
     const noticeCard=latestNotice?`<div class='card'><div class='sectionTitle'>Latest Notice</div><div style='font-size:12px;color:#c9b99b;line-height:1.5'>${latestNotice}</div></div>`:'';
-    $('storyPanel').innerHTML=locCard+threadCard+pressureCard+threatCard+noticeCard;
+
+    const rumorCard=rumors.length?`<div class='card'><div class='sectionTitle'>Street Rumor</div><div style='font-size:12px;color:#c9b99b;font-style:italic;line-height:1.5'>${pick(rumors,clocks.pressure+G.dayCount)}</div></div>`:'';
+
+    $('storyPanel').innerHTML=locCard+threadCard+pressureCard+threatCard+noticeCard+rumorCard;
   }
 
   // ── ARCH PREVIEW ─────────────────────────────────────────
