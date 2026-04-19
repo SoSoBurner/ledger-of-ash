@@ -148,6 +148,47 @@
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
   function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0) G.dayCount+=1; G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
   function gainXp(n,why=''){ G.xp+=n; while(G.level<20 && G.xp>=XP_PER_LEVEL[G.level+1]){ G.level++; G.maxHp += G.stage>=4?4:3; G.hp=Math.min(G.maxHp,G.hp+4); G.renown+=2; G.pendingSkillSelection=true; addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);} updateStage(); }
+
+  // Choice limiting: 5 base choices + 1 tactical combat bonus when appropriate
+  function rotateAndLimitChoices(fullChoiceArray, stage){
+    const baseChoices = fullChoiceArray.filter(c => c && !c.tags?.includes('CreatureCombat'));
+    const tacticalCombatChoices = fullChoiceArray.filter(c => c && c.tags?.includes('CreatureCombat'));
+    
+    // Calculate which choices to show based on rotation
+    const rotationSeed = (G.dayCount + G.stage + (G.location?.charCodeAt?.(0)||0)) % 3;
+    const selected = [];
+    
+    // Always include critical path choices first, then rotate others
+    const priorityTags = ['Faction', 'Investigation', 'Institutional', 'Final', 'Risky'];
+    const prioritized = baseChoices.filter(c => priorityTags.some(tag => c.tags?.includes(tag)));
+    const other = baseChoices.filter(c => !priorityTags.some(tag => c.tags?.includes(tag)));
+    
+    // Take priority choices first, then fill with rotated other choices
+    selected.push(...prioritized.slice(0, 3));
+    selected.push(...other.slice(rotationSeed, rotationSeed + (5 - selected.length)));
+    
+    // Add one tactical combat choice if available and narratively appropriate
+    if(tacticalCombatChoices.length > 0 && (G.stage >= 3 || G.worldClocks.rival >= 3)){
+      selected.push(tacticalCombatChoices[0]);
+    }
+    
+    return selected.slice(0, 6);
+  }
+
+  // Add combat risk to confrontational choices
+  function addCombatRisk(choice, riskLevel = 0.35){
+    const original = choice.fn;
+    choice.fn = function(){
+      if(Math.random() < riskLevel && G.stage >= 1){
+        const threatType = ['creature', 'hazard'][rand(2)];
+        beginEncounter(G, threatType, threatType === 'creature' ? (G.currentThreat?.creature || 'brigand') : (G.currentThreat?.hazard || 'obstacle'), 'standard');
+        renderChoices();
+        return;
+      }
+      original.call(this);
+    };
+    return choice;
+  }
   function updateStage(){ const st=currentStage(G.level); G.stage=st.id; G.stageLabel=st.label; }
   function chooseThreat(){ const loc=getLocality(G.location); return {hazard:pick(loc.hazards,G.dayCount+G.stage+G.worldClocks.pressure), creature:pick(loc.creatures,G.dayCount+G.stage+G.worldClocks.rival)}; }
   function setThreat(){ G.currentThreat = chooseThreat(); }
@@ -969,7 +1010,16 @@
     if(rumorChoice) choices.splice(2,0,rumorChoice);
     if(npcApproach) choices.splice(4,0,npcApproach);
     if(recruit) choices.splice(3,0,recruit);
-    return choices.filter(c=>c!==null).slice(0,32);
+    
+    // Add combat risk to confrontational choices
+    choices = choices.filter(c=>c!==null).map(c => {
+      if(c.tags?.includes('Risky') || c.tags?.includes('Confrontation')){
+        return addCombatRisk(c, 0.35);
+      }
+      return c;
+    });
+    
+    return rotateAndLimitChoices(choices, 1);
   }
 
   function travelTo(dest){ const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
@@ -1066,7 +1116,17 @@
         else { G.worldClocks.pressure++; G.lastResult=`The investigation touches something institutional that does not want to be touched. The pressure response is immediate and severe.`; startThreatEncounter('standard'); }
         maybeStageAdvance();
       }}
-    ].filter(c=>c!==null).slice(0,42);
+    ].filter(c=>c!==null);
+    
+    // Add combat risk and limit choices
+    const stage2Full = choices.map(c => {
+      if(c.tags?.includes('Risk') || c.tags?.includes('Confrontation')){
+        return addCombatRisk(c, 0.40);
+      }
+      return c;
+    });
+    
+    return rotateAndLimitChoices(stage2Full, 2);
   }
 
   function campChoices(state){
@@ -1292,7 +1352,17 @@
       {label:'Activate the failsafe mechanism that destabilizes the entire institutional system',tags:['CreatureCombat','Destabilize','Nuclear','Tactical'],fn(){ startCreatureEncounter('elite'); }},
       {label:'Coordinate with covert allies for simultaneous institutional takedowns nationwide',tags:['CreatureCombat','Coordinated','National','Tactical'],fn(){ startCreatureEncounter('elite'); }},
       {label:'Execute final mercy option — spare the institution but cripple its core authority',tags:['Mercy','CreatureCombat','Tactical','Resolution'],fn(){ startCreatureEncounter('elite'); }}
-    ]:[]).slice(0,12)).filter(c=>c!==null); 
+    ]:[]).slice(0,12)).filter(c=>c!==null);
+    
+    // Add combat risk to confrontational choices and limit to 5+1
+    const stage35Full = arr.map(c => {
+      if(c.tags?.includes('Risk') || c.tags?.includes('Confrontation') || c.tags?.includes('Risky')){
+        return addCombatRisk(c, 0.45);
+      }
+      return c;
+    });
+    
+    return rotateAndLimitChoices(stage35Full, stage);
   }
   function maybeStageAdvance(){
     if(G.stage===1 && G.stageProgress[1]>=4 && G.level>=5){
@@ -1322,6 +1392,24 @@
   }
 
   function currentNonCombatChoices(){ if(G.stage===1) return stage1Choices(); if(G.stage===2) return stage2Choices(); if(G.stage===3) return stage3to5Choices(3); if(G.stage===4) return stage3to5Choices(4); return stage3to5Choices(5); }
+  
+  function combatSessionChoices(){
+    // Use enhanced tactical choices if available (from combat-ui.js)
+    if(window.buildTacticalChoices){
+      return window.buildTacticalChoices(G, G.combatSession) || [];
+    }
+    // Fallback: basic combat choices if tactical system not loaded
+    return [{
+      label:'Attack',
+      tags:['Attack'],
+      fn:() => {
+        G.combatSession.round = (G.combatSession.round || 0) + 1;
+        G.lastResult='The attack lands!';
+        renderChoices();
+      }
+    }];
+  }
+  
   function currentChoices(){
     if(G.postCombatResolution&&!G.postCombatResolution.resolved) return postCombatResolutionChoices();
     if(G.combatSession&&!G.combatSession.resolved) return combatSessionChoices();
