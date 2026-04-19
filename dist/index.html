@@ -4193,14 +4193,116 @@ function triggerCombatEncounter(enemyId, context) {
   function applySuccess(stage, mode, skill, xp, text){ G.stageProgress[stage]+=1; gainXp(xp, `${mode} pressure`); if(stage>=3){ G.familyMilestones[`stage${stage}`]=(G.familyMilestones[`stage${stage}`]||0)+1; if(G.familyMilestones[`stage${stage}`]===2) maybeUnlockFamilyEdge(stage); } G.lastResult=text; if(stage===5 && G.familyMilestones.stage5>=4 && !G.finalBreak){ G.finalBreak=true; maybeUnlockFamilyEdge(5); addNotice('A final break becomes possible.'); } }
   function objectiveWebChoices(stage){ const verbs=[['Question a person at the center of the pressure','person','persuasion'],['Search the place where the pressure shows physically','place','lore'],['Pull records and compare what should not align','records','lore'],['Work the quiet edge and move unseen','stealth','stealth'],['Force an opening in the line','force','combat'],['Use ritual or procedure to open a blocked answer','ritual','craft'],['Trace the route itself for what it carries','route','survival']]; return verbs.map(([label,mode,skill],i)=>({label,tags:['Objective',mode],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const comp=window.companionBonus?companionBonus(G,skill):0; const bonuses=(G.skills[skill]||0)+comp+Math.floor(G.level/3)+currentEdgeBonus(mode); const r=rollD20(skill,bonuses); const target=10+stage*2+i%2; const success=r.isCrit||(r.total>=target&&!r.isFumble); G.lastRoll={action:label,skill,total:r.total,target,success,die:r.die,crit:r.isCrit,fumble:r.isFumble}; addJournal('field-note',`${label} in ${getLocality(G.location).name}.`,`${G.backgroundId}-${stage}-${mode}-${G.dayCount}`); if(r.isCrit){ applySuccess(stage,mode,skill,stage*2,r.flavor); addNotice(`Critical success — ${label.toLowerCase()}.`); markMoment(`Critical: ${label}`); } else if(r.isFumble){ G.lastResult=r.flavor; G.worldClocks.rival+=2; G.hp=Math.max(1,G.hp-1); addNotice(`Critical fumble — ${label.toLowerCase()}.`); startThreatEncounter('standard'); } else if(success){ applySuccess(stage,mode,skill,stage,`${label} pays off. The route opens a little wider, and the shape of the pressure becomes harder to hide.`); } else { G.lastResult=`${label} fails to settle the matter. The opposition keeps the initiative.`; G.worldClocks.rival+=1; if(rand(3)===0) startThreatEncounter('standard'); } maybeStageAdvance(); }})); }
   function localMagicContext(){ const ms=window.MAGIC_SYSTEM||[]; const entry=ms.find(m=>m.localities&&m.localities.includes(G.location)); return entry||{identity:'arcane detection and ward reading',expressions:['residue reading','ward strain analysis'],socialReading:'',localities:[]}; }
-  function classIdentityChoice(){ const a=getArchetype(G.archetype); const group=a.group; if(group==='combat') return {label:'Set a hard stance and test the line physically',tags:['Class','Combat'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.combat+=1; gainXp(2,'martial posture'); G.recentOutcomeType='class_combat'; G.lastResult='Weight, footing, and guard tell more truth than anyone intended to show.'; maybeStageAdvance(); }}; if(group==='magic'){ const mc=localMagicContext(); const expr=mc.expressions[0]||'residue and ward traces'; return {label:`Apply ${mc.identity} — read the local magical pattern`,tags:['Class','Magic'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane read'); G.recentOutcomeType='class_magic'; G.lastResult=`${expr.charAt(0).toUpperCase()+expr.slice(1)} surface the hidden pattern. ${mc.socialReading||'Charged residue and ward strain make the structure easier to follow.'}`.trim(); maybeStageAdvance(); }}; } if(group==='stealth'){ const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{}; const sb=(hooks.suspiciousBehavior||[])[0]||'who is watching whom'; return {label:`Work the unnoticed angle — observe ${sb}`,tags:['Class','Stealth'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.stealth+=1; gainXp(2,'concealment read'); G.recentOutcomeType='class_stealth'; G.lastResult='Sightlines and timing windows expose the pressure without a public clash. The unnoticed position holds.'; maybeStageAdvance(); }}; } return {label:'Stabilize the weak point before it breaks wider',tags:['Class','Support'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support discipline'); G.recentOutcomeType='class_support'; G.lastResult='Useful hands, clean tools, and practical discipline turn panic into leverage.'; maybeStageAdvance(); }}; }
+  function classIdentityChoice(){
+    const a=getArchetype(G.archetype); const group=a.group;
+    const hooks=(window.LOCALITY_HOOKS||{})[G.location]||{};
+    const sb=(hooks.suspiciousBehavior||[])[0]||'who controls the exits';
+    const mc=localMagicContext();
+    const expr=mc.expressions[0]||'residue and ward traces';
+    const COMBAT_VARIANTS={
+      warrior:{label:'Press the line — hold your weight and force the confrontation forward',result:'The disciplined stance reads the space correctly. Weight, footing, and held position tell more truth than anyone intended to show.'},
+      knight:{label:'Challenge and interpose — draw focus to yourself, protect the approach',result:'Presence and deliberate position shift how the space is read. The challenge registers before any strike is needed.'},
+      ranger:{label:'Establish range and read the threat from a controlled distance before engaging',result:'Controlled distance. Sightlines managed. Engagement ground chosen first. The confrontation starts on your terms.'},
+      berserker:{label:'Commit fully — drive harder into the confrontation than the situation expects',result:'Full commitment changes the calculus. The threat was not prepared for that much impact that fast.'},
+      paladin:{label:'Interpose — hold the line for someone who cannot hold it themselves',result:'The deliberate intervention changes what the space is doing. The protected position holds.'},
+      archer:{label:'Hold spacing and force engagement on your terms from cover',result:'Distance maintained. Target identified. Cover exploited. The angle was yours before the exchange opened.'},
+      duelist:{label:'Wait for the precise opening — one clean read of the timing, one committed move',result:'Patience opens the gap. A single move closes what brute force would have lengthened into something neither side could control.'},
+      warden:{label:'Cover the exposed position — interpose between the threat and the weak point',result:'The cover holds. The threat makes contact with the shield instead of what it was aimed at.'},
+      warlord:{label:'Identify the line weakness and press before the formation can reset',result:'The gap was open for exactly one move. You took it before the formation knew it existed.'},
+      death_knight:{label:'Press relentlessly — refuse to give ground until the confrontation is finished',result:'Relentless forward pressure does not allow the opponent time to reset or reframe. The confrontation ends because you did not allow it to continue.'},
+      beastmaster:{label:'Read the terrain advantage and engage from the better position',result:'Terrain understanding turns the space into a second weapon. The engagement proceeds the way you set it up.'}
+    };
+    const MAGIC_VARIANTS={
+      wizard:{label:'Apply arcane analysis — read the local magical signature for structural pattern',result:'Residue and ward traces surface the hidden structure. The arcane read gives leverage the untrained cannot access.'},
+      cleric:{label:'Channel doctrinal authority — apply sacred discipline to the scene',result:'Sacred practice creates a consequence field the opposition did not anticipate and cannot easily counter.'},
+      priest:{label:'Invoke communal ward practice — read the doctrinal pressure in this space',result:'The ward invocation surfaces the underlying mechanism. Doctrine-based reading is slower but more accurate than raw analysis.'},
+      necromancer:{label:'Read the decay signature — what has departed leaves traces that speak clearly',result:'The residue record here is legible. What was hidden in departure is now readable in what remains.'},
+      elementalist:{label:'Attune to the local axis — read the elemental seam that runs through this space',result:'The elemental seam responds to the attunement. Local instability makes the read sharper than stable conditions would allow.'},
+      illusionist:{label:'Layer a perception shift — make the space harder for observers to read correctly',result:'The interference is subtle enough that careful observers are misreading the signals. You control what the space appears to show them.'},
+      inquisitor:{label:'Apply interrogation doctrine — read intent before anyone acts on it',result:'Behavioral tells and institutional pressure patterns surface faster than they can be concealed. The read is authoritative.'},
+      saint:{label:'Assert moral presence — create a field of consequence the opposition must navigate around',result:'Sacred authority without violence is still authority. The opposition must recalculate around what you represent here.'},
+      oracle:{label:'Read the probable outcomes — position for what is already determined before it is visible',result:'The causal chain becomes legible three moves ahead. You are already in position before the decision is made.'}
+    };
+    const STEALTH_VARIANTS={
+      rogue:{label:`Work the gap — read ${sb} and locate the unguarded angle`,result:'The blind corner holds the gap. The unguarded angle stays open long enough. The read was accurate.'},
+      assassin:{label:'Hold position until the precise moment — patience over impulse',result:'The window opens when the target does not know it has. One move. Committed. Clean.'},
+      scout:{label:'Establish the perimeter read — learn what is moving and where before committing',result:'Terrain, timing, and patrol pattern read in one quiet pass. You know the shape of the space before anyone knows you are in it.'},
+      thief:{label:`Redirect attention first — watch ${sb}, then move while the focus is elsewhere`,result:'Attention is redirected before you act. The move completes before the misdirection resolves.'},
+      spellthief:{label:'Read the magical pattern in the space — identify what can be intercepted or redirected',result:'The ward pattern here has a rhythm. Understanding it is the first step to redirecting it toward your purpose.'},
+      trickster:{label:'Create surface confusion — the real move happens while they read the wrong signal',result:'The distraction holds attention exactly as long as needed. The real action was already complete before anyone looked at the right place.'},
+      bard:{label:'Establish social position — the read comes through how people react to your presence here',result:'Room orientation shifts. The social position you occupy is the one that sees the most without being visible itself.'}
+    };
+    if(group==='combat'){
+      const v=COMBAT_VARIANTS[G.archetype];
+      return {label:v?v.label:'Set a hard stance and test the line physically',tags:['Class','Combat'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.combat+=1; gainXp(2,'martial posture'); G.recentOutcomeType='class_combat';
+        G.lastResult=v?v.result:'Weight, footing, and guard tell more truth than anyone intended to show.'; maybeStageAdvance();
+      }};
+    }
+    if(group==='magic'){
+      const v=MAGIC_VARIANTS[G.archetype];
+      return {label:v?v.label:`Apply ${mc.identity} — read the local magical pattern`,tags:['Class','Magic'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane read'); G.recentOutcomeType='class_magic';
+        G.lastResult=v?v.result:`${expr.charAt(0).toUpperCase()+expr.slice(1)} surface the hidden pattern. ${mc.socialReading||'Charged residue and ward strain make the structure easier to follow.'}`.trim(); maybeStageAdvance();
+      }};
+    }
+    if(group==='stealth'){
+      const v=STEALTH_VARIANTS[G.archetype];
+      return {label:v?v.label:`Work the unnoticed angle — observe ${sb}`,tags:['Class','Stealth'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.stealth+=1; gainXp(2,'concealment read'); G.recentOutcomeType='class_stealth';
+        G.lastResult=v?v.result:'Sightlines and timing windows expose the pressure without a public clash. The unnoticed position holds.'; maybeStageAdvance();
+      }};
+    }
+    const SUPPORT_VARIANTS={healer:'Field-assess the most critical need — stabilize before the investigation continues',artificer:'Deploy a practical solution — the mechanism addresses the structural gap directly',engineer:'Read the structural failure and determine what is load-bearing before acting',tactician:'Map the coordination gap — identify who is failing their mandate and why',alchemist:'Analyze what is in the space — compounds, residues, and contaminations read before they are touched'};
+    return {label:SUPPORT_VARIANTS[G.archetype]||'Stabilize the weak point before it breaks wider',tags:['Class','Support'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support discipline'); G.recentOutcomeType='class_support';
+      G.lastResult='Useful hands, clean tools, and practical discipline turn panic into leverage. The weak point holds.'; maybeStageAdvance();
+    }};
+  }
 
   function stage2ClassIdentityChoice(){
     const a=getArchetype(G.archetype); const sig=routeSignature();
-    if(a.group==='combat') return {label:'Take the lead physically on the widening route',tags:['Class','Adjacent','Combat'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.combat+=1; gainXp(2,'route command'); G.recentOutcomeType='class_combat'; G.lastResult=`The widening route starts answering to visible force, disciplined posture, and the threat of immediate correction.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / martial command`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
-    if(a.group==='magic'){ const mc=localMagicContext(); const expr=mc.expressions[1]||mc.expressions[0]||'ward reading'; return {label:`Read wards, residue, and pressure seams on the widening route — ${expr}`,tags:['Class','Adjacent','Magic'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.lore+=1; gainXp(2,'arcane widening'); G.recentOutcomeType='class_magic'; G.lastResult=`The adjacent pressure gives up its magical seams once the route is read as a structure. ${mc.socialReading||''}`.trim(); G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / ${expr}`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }}; }
-    if(a.group==='stealth') return {label:'Work the widening edge through timing, concealment, and quiet access',tags:['Class','Adjacent','Stealth'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.stealth+=1; gainXp(2,'covert widening'); G.recentOutcomeType='class_stealth'; G.lastResult=`The adjacent route opens by way of blind corners, bad habits, and people who think nobody is counting them.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / covert edge`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
-    return {label:'Stabilize the widening line before it becomes a regional problem',tags:['Class','Adjacent','Support'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support widening'); G.recentOutcomeType='class_support'; G.lastResult=`The widening pressure becomes manageable once tools, kits, and disciplined help hit the right weak point.`; G.routeScoutLog.unshift(`${G.location} / ${window.ROUTE_NAMES[sig.stage2Vector]} / support triage`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance(); }};
+    const mc=localMagicContext();
+    const expr=mc.expressions[1]||mc.expressions[0]||'ward reading';
+    const routeName=window.ROUTE_NAMES&&window.ROUTE_NAMES[sig.stage2Vector]||'the widening route';
+    const S2_COMBAT={
+      warrior:{label:`Command the line on ${routeName} — hold position and force the route to answer`,result:`The widening route starts answering to weight and held position. Discipline in the lead changes how every subsequent choice reads.`},
+      knight:{label:`Assert protective authority on ${routeName} — challenge what threatens the approach`,result:`The challenge positions the party ahead of the threat. The route widens because the opposition must address you first.`},
+      ranger:{label:`Hold distance and read the widening route from a controlled position`,result:`Controlled range on the widening route means you see what is moving before it can set its approach. The route opens on better terms.`},
+      berserker:{label:`Drive into the widening route — more committed force than the opposition expects`,result:`The widening route is not accustomed to that much forward pressure. Commitment creates the opening that caution would not.`},
+      paladin:{label:`Interpose on the widening route — hold the protected line as the stakes rise`,result:`The protected position on the widening route creates a different political reality. Institutions notice when the line is held cleanly.`},
+      archer:{label:`Establish a ranged read on the widening route — cover the approach from a held position`,result:`The route's threat profile reads differently from a held ranged position. What the opposition planned to hide in the advance is now visible.`},
+      duelist:{label:`Read the widening route for its timing windows — one precise intervention on the right pressure`,result:`The widening route has exactly two moments that matter. You identified them both before committing to either.`}
+    };
+    const S2_MAGIC={
+      wizard:{label:`Apply systematic arcane analysis to the widening route — ${expr}`,result:`The adjacent pressure gives up its magical seams once the route is read as a structured system. The analysis changes what is visible about the stakes.`},
+      cleric:{label:`Apply doctrinal authority to the widening route — read what the sacred record says about this pressure`,result:`The doctrinal record here is not widely known. What it says about the widening pressure changes how the route should be approached.`},
+      necromancer:{label:`Read the decay record on the widening route — residue from prior failures speaks`,result:`The widening route carries residue from prior passages. The decay trace identifies who has moved through this pressure and what they lost.`},
+      elementalist:{label:`Read the elemental seam on the widening route — ${expr}`,result:`The elemental seam on the widening route is responsive. The read surfaces the structural pressure that official reports are not recording.`},
+      illusionist:{label:`Shift the perception of the widening route — make the opposition read the situation incorrectly`,result:`The interference on the widening route holds long enough for the actual position to shift. What they see is not what is there.`}
+    };
+    const S2_STEALTH={
+      rogue:{label:`Work the unguarded edge of the widening route — the gap that nobody is watching`,result:`The widening route opens through the angle nobody thought to cover. The gap stays open long enough for the whole picture to come through.`},
+      assassin:{label:`Hold position on the widening route until the precise window — no early commitment`,result:`The widening route has one clean window for surgical action. It opens and closes faster than noise could ever exploit it.`},
+      scout:{label:`Read the full perimeter of the widening route before committing to any position`,result:`A full perimeter read before commitment means the route's threat landscape is mapped before the opposition knows you are reading it.`},
+      thief:{label:`Work misdirection on the widening route — redirect attention before using the access`,result:`The misdirection on the widening route holds long enough. The access was already secured before anyone checked the right door.`}
+    };
+    function makeChoice(variants, group, skill, xpLabel, outcomeType, fallbackLabel, fallbackResult){
+      const v=variants[G.archetype];
+      return {label:v?v.label:fallbackLabel,tags:['Class','Adjacent',group==='combat'?'Combat':group==='magic'?'Magic':'Stealth'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills[skill]+=1; gainXp(2,xpLabel);
+        G.recentOutcomeType=outcomeType; G.lastResult=v?v.result:fallbackResult;
+        G.routeScoutLog.unshift(`${G.location} / ${routeName} / ${a.id}`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance();
+      }};
+    }
+    if(a.group==='combat') return makeChoice(S2_COMBAT,'combat','combat','route command','class_combat',`Take the lead physically on ${routeName}`,`The widening route starts answering to visible force, disciplined posture, and the threat of immediate correction.`);
+    if(a.group==='magic') return makeChoice(S2_MAGIC,'magic','lore','arcane widening','class_magic',`Read wards and pressure seams on ${routeName} — ${expr}`,`The adjacent pressure gives up its magical seams once the route is read as a structure. ${mc.socialReading||''}`.trim());
+    if(a.group==='stealth') return makeChoice(S2_STEALTH,'stealth','stealth','covert widening','class_stealth',`Work the widening edge through timing, concealment, and quiet access`,`The adjacent route opens by way of blind corners, bad habits, and people who think nobody is counting them.`);
+    return {label:'Stabilize the widening line before it becomes a regional problem',tags:['Class','Adjacent','Support'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.skills.craft+=1; gainXp(2,'support widening');
+      G.recentOutcomeType='class_support'; G.lastResult=`The widening pressure becomes manageable once tools, kits, and disciplined support hit the right weak point.`;
+      G.routeScoutLog.unshift(`${G.location} / ${routeName} / support triage`); G.routeScoutLog=G.routeScoutLog.slice(0,20); maybeStageAdvance();
+    }};
   }
 
   // ── ALIGNMENT & LEGALITY ─────────────────────────────────
@@ -4700,7 +4802,8 @@ function triggerCombatEncounter(enemyId, context) {
     const loc=getLocality(G.location);
     const recruit=window.recruitChoice?window.recruitChoice(G):null;
     const classInvest=classInvestigationChoices();
-    const settlementService={label:`Use ${loc.name} services — recover, resupply, or learn`,tags:['Service','Settlement'],fn(){
+    const firstContact=hooks.firstContact||null;
+    const settlementService={label:firstContact?`Approach ${firstContact} — ${loc.name} services and information`:`Use ${loc.name} services — recover, resupply, or learn`,tags:['Service','Settlement'],fn(){
       advanceTime(1); G.telemetry.turns++; G.telemetry.services++;
       const seed=(G.dayCount+G.worldClocks.pressure)%4;
       const services=[
@@ -4757,7 +4860,13 @@ function triggerCombatEncounter(enemyId, context) {
       G.recentOutcomeType='observe'; maybeStageAdvance();
     }}:null;
     const choices=[
-      {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'careful observation'); G.stageProgress[1]++; addJournal('field-note',`Observed ${loc.name} through ${bg.theme}.`,`${bg.id}-observe`); G.recentOutcomeType='observe'; G.lastResult=`A quieter read of ${loc.name} sharpens the first contradiction. The background of ${bg.theme} gives the observation a specific angle the place does not expect.`; maybeStageAdvance(); }},
+      {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'careful observation'); G.stageProgress[1]++;
+        addJournal('field-note',`Observed ${loc.name} through ${bg.theme}.`,`${bg.id}-observe`); G.recentOutcomeType='observe';
+        const sopHint=hooks.senseOfPlace?hooks.senseOfPlace.split('.')[0]+'.':'';
+        G.lastResult=`${sopHint} A quieter read of ${loc.name} sharpens the first contradiction. The background of ${bg.theme} gives the observation a specific angle the place does not expect.`.trim();
+        maybeStageAdvance();
+      }},
       classIdentityChoice(),
       ...classInvest,
       settlementService,
@@ -4838,7 +4947,17 @@ function triggerCombatEncounter(enemyId, context) {
     const loc=getLocality(state.location);
     const choices=[
       {label:`Rest at ${state.currentSafeZone} and recover`,tags:['Rest','HP'],fn(){ advanceTime(1); state.hp=Math.min(state.maxHp,state.hp+Math.max(3,Math.floor(state.maxHp*0.3))); state.fatigue=Math.max(0,state.fatigue-1); state.lastResult=`${state.currentSafeZone} steadies the body. HP: ${Math.min(state.maxHp,state.hp)} / ${state.maxHp}. The next move starts from a better place.`; addJournal('camp',`Rested at ${state.currentSafeZone}.`,`camp-rest-${state.dayCount}`); }},
-      {label:`Review the journal and sharpen the approach`,tags:['Reflect','Lore'],fn(){ advanceTime(1); gainXp(1,'careful reflection'); state.lastResult=`The journal yields one pattern that was not visible in motion.`; addJournal('camp','Reviewed field notes and updated the approach.',`camp-reflect-${state.dayCount}`); }},
+      {label:`Review the field notes and sharpen the approach`,tags:['Reflect','Lore'],fn(){
+        advanceTime(1); gainXp(1,'careful reflection');
+        const hks=(window.LOCALITY_HOOKS||{})[state.location]||{};
+        const dl=hks.dailyLife||'';
+        const cs=(hks.conflictSurfaces||[])[0]||'';
+        let reflectResult='The journal yields one pattern that was not visible in motion.';
+        if(dl) reflectResult=`Reading the field notes against the local rhythm — ${dl.split('.')[0].toLowerCase()} — one thing does not fit the pattern. The contradiction was there the whole time.`;
+        if(cs) reflectResult+=` The surface tension around ${cs} is the most legible angle.`;
+        state.lastResult=reflectResult;
+        addJournal('camp','Reviewed field notes and updated the approach.',`camp-reflect-${state.dayCount}`);
+      }},
       {label:`Scout the immediate area around ${loc.name}`,tags:['Scout','Survival'],fn(){ advanceTime(1); state.telemetry.scouts++; state.skills.survival=(state.skills.survival||0)+1; const t=chooseThreat(); state.currentThreat=t; state.lastResult=`The perimeter of ${loc.name} gives up one useful detail about what is moving and what is holding still.`; }},
       {label:`Maintain equipment and prepare for the next push`,tags:['Craft','Prep'],fn(){ advanceTime(1); state.skills.craft=(state.skills.craft||0)+1; gainXp(1,'field maintenance'); state.lastResult=`Gear is clean, edges are sound, and the next move starts with better tools than the last one.`; }}
     ];
@@ -4847,6 +4966,8 @@ function triggerCombatEncounter(enemyId, context) {
       const compDefs=window.COMPANION_DEFS||{};
       choices.push({label:'Speak with the party around the fire',tags:['Camp','Party'],fn(){
         advanceTime(1);
+        const underPressure=state.worldClocks.rival>=5||state.hp<state.maxHp*0.4||state.wounds.length>=2;
+        const hks=(window.LOCALITY_HOOKS||{})[state.location]||{};
         const lines=state.companions.filter(c=>!c.injured && c.available!==false).map(c=>{
           const def=compDefs[c.id];
           if(!def||!def.campLines) return `${c.name} sits quietly.`;
@@ -4858,7 +4979,14 @@ function triggerCombatEncounter(enemyId, context) {
           const def=compDefs[c.id];
           return `${c.name}: ${def&&def.injuredText ? def.injuredText : 'Injured — resting.'}`;
         });
-        state.lastResult=[...lines,...injuredLines].join(' — ') || 'The fire burns low. Nothing needs to be said tonight.';
+        let baseResult=[...lines,...injuredLines].join(' — ') || 'The fire burns low. Nothing needs to be said tonight.';
+        if(underPressure){
+          const tensionSuffix=state.wounds.length>=2?` The wounds are visible. Nobody says anything directly about what comes next, but nobody pretends the odds are the same as they were.`:state.worldClocks.rival>=5?` The rival clock moving at ${state.worldClocks.rival} is not something you can hide around a fire. Everyone has been reading the same signs.`:` Nobody is performing confidence tonight. The fire helps. It does not solve anything.`;
+          baseResult+=tensionSuffix;
+        } else if(hks.senseOfPlace){
+          baseResult+=` ${hks.senseOfPlace.split('.')[0]}. The camp holds its own quiet against that backdrop.`;
+        }
+        state.lastResult=baseResult;
         addJournal('camp','Spoke with companions around the fire.',`camp-talk-${state.dayCount}`);
         state.companions.forEach(c=>{ if(!c.injured) c.trust=(c.trust||0)+1; });
         markMoment(`Camp talk at ${loc.name}`);
