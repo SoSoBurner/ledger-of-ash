@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang='en'>
 <head>
   <meta charset='utf-8'>
@@ -1967,8 +1967,8 @@ const STAGE2_DESTINATION_CONTENT = {
   window.LOCALITY_HOOKS = LOCALITY_HOOKS;
   window.CANON_VERSION = 'V33_1';
 })();
-</script>
-<script>// ═══════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════
 // BACKGROUND → STARTING LOCALITY MAPPING
 // V30_3 Canon-Aligned Stage I Grounding
 // Keys match data.js background ID scheme: {archetype}_{civic|frontier|occult}
@@ -2139,8 +2139,8 @@ const STAGE2_DESTINATION_CONTENT = {
   window.BACKGROUND_STARTING_LOCALITY = BACKGROUND_STARTING_LOCALITY;
   window.getStartingLocality = getStartingLocality;
 })();
-</script>
-<script>// ═══════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════
 // STAGE II BACKGROUND CONTENT — Unique per archetype/background
 // 93 backgrounds x 4 unique choices per background
 // ═══════════════════════════════════════════════════════
@@ -2772,8 +2772,8 @@ const STAGE2_DESTINATION_CONTENT = {
 
   window.BACKGROUND_STAGE2_CONTENT = BACKGROUND_STAGE2_CONTENT;
 })();
-</script>
-<script>
+
+
 (function(){
   function pick(arr, n){ return arr && arr.length ? arr[n % arr.length] : ''; }
 
@@ -3030,8 +3030,8 @@ const STAGE2_DESTINATION_CONTENT = {
   window.legendSummary = legendSummary;
   window.composeCentralNarrativePanel = composeCentralNarrativePanel;
 })();
-</script>
-<script>// ═══════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════
 // LEDGER OF ASH — PARTY & COMPANION SYSTEM
 // Persistent companion state, recruit flows, camp talk
 // ═══════════════════════════════════════════════════════
@@ -3467,8 +3467,8 @@ window.COMPANION_DEFS = COMPANION_DEFS;
 window.companionBonus = companionBonus;
 window.recruitChoice = recruitChoice;
 window.buildCompanionTrust = buildCompanionTrust;
-</script>
-<script>// ═══════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════
 // LEDGER OF ASH — COMBAT SYSTEM v1
 // Full TTRPG multi-round combat with archetype abilities
 // TEXT RULE: No apostrophes in string values.
@@ -3786,7 +3786,7 @@ function resolveCombatAction(action, abilityId) {
   const archId = G.archetype || 'warrior';
   const combatSkill = G.skills.combat || 0;
   const survSkill = G.skills.survival || 0;
-  const traitCombatBonus = getTraitBonus('combat');
+  const traitCombatBonus = 0;
 
   let resultText = '';
   let playerDamage = 0;
@@ -4017,8 +4017,8 @@ function triggerCombatEncounter(enemyId, context) {
       cid:'passive_intel' }
   ]), 300);
 }
-</script>
-<script>
+
+
 (function(){
   const SAVE_KEY = 'loa_upgrade_batch27';
   const XP_PER_LEVEL = [0,0,3,7,12,18,25,33,42,52,63,75,88,102,117,133,150,168,187,207,228];
@@ -5208,7 +5208,8 @@ function triggerCombatEncounter(enemyId, context) {
     const cls=r.success?'good':'bad';
     const dieDisplay=r.die?`<span class='dieBadge${r.crit?' dieCrit':r.fumble?' dieFumble':''}'>${r.crit?'★':r.fumble?'☠':'⚄'} ${r.die}</span>`:'';
     const critBadge=r.crit?`<span class='pill critPill'>CRITICAL SUCCESS</span>`:(r.fumble?`<span class='pill fumblePill'>CRITICAL FUMBLE</span>`:'');
-    return `<div class='chosenLabel'>You Chose</div><div class='chosenAction'>${r.action}</div><div class='rollRow'>${dieDisplay}<span class='pill ${cls}'>${icon} ${r.total} vs ${r.target}</span><span class='pill warn'>${r.skill}</span>${r.success?`<span class='pill good'>Success</span>`:`<span class='pill bad'>Failure</span>`}${critBadge}</div><div class='resultDivider'></div><div id='result'>${resultNarrative(G.lastResult)}</div>${combatLog}${postCombatNote}`;
+    const formulaDisplay = r.die && r.total ? `<span class='pill formula'>${r.die} + ${r.total-r.die} = ${r.total}</span>` : '';
+    return `<div class='chosenLabel'>You Chose</div><div class='chosenAction'>${r.action}</div><div class='rollRow'>${dieDisplay}<span class='pill ${cls}'>${icon} ${r.total} vs ${r.target}</span><span class='pill warn'>${r.skill}</span>${r.success?`<span class='pill good'>Success</span>`:`<span class='pill bad'>Failure</span>`}${critBadge}${formulaDisplay}</div><div class='resultDivider'></div><div id='result'>${resultNarrative(G.lastResult)}</div>${combatLog}${postCombatNote}`;
   }
 
   // ── DEDICATED LAYER RENDERERS ────────────────────────────
@@ -5510,5 +5511,11 @@ function triggerCombatEncounter(enemyId, context) {
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();
 </script>
+
+
+
+
+
+
 </body>
 </html>

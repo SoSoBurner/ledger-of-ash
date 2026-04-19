@@ -316,7 +316,7 @@ function resolveCombatAction(action, abilityId) {
   const archId = G.archetype || 'warrior';
   const combatSkill = G.skills.combat || 0;
   const survSkill = G.skills.survival || 0;
-  const traitCombatBonus = getTraitBonus('combat');
+  const traitCombatBonus = 0;
 
   let resultText = '';
   let playerDamage = 0;

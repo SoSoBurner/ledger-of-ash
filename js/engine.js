@@ -1188,7 +1188,8 @@
     const cls=r.success?'good':'bad';
     const dieDisplay=r.die?`<span class='dieBadge${r.crit?' dieCrit':r.fumble?' dieFumble':''}'>${r.crit?'★':r.fumble?'☠':'⚄'} ${r.die}</span>`:'';
     const critBadge=r.crit?`<span class='pill critPill'>CRITICAL SUCCESS</span>`:(r.fumble?`<span class='pill fumblePill'>CRITICAL FUMBLE</span>`:'');
-    return `<div class='chosenLabel'>You Chose</div><div class='chosenAction'>${r.action}</div><div class='rollRow'>${dieDisplay}<span class='pill ${cls}'>${icon} ${r.total} vs ${r.target}</span><span class='pill warn'>${r.skill}</span>${r.success?`<span class='pill good'>Success</span>`:`<span class='pill bad'>Failure</span>`}${critBadge}</div><div class='resultDivider'></div><div id='result'>${resultNarrative(G.lastResult)}</div>${combatLog}${postCombatNote}`;
+    const formulaDisplay = r.die && r.total ? `<span class='pill formula'>${r.die} + ${r.total-r.die} = ${r.total}</span>` : '';
+    return `<div class='chosenLabel'>You Chose</div><div class='chosenAction'>${r.action}</div><div class='rollRow'>${dieDisplay}<span class='pill ${cls}'>${icon} ${r.total} vs ${r.target}</span><span class='pill warn'>${r.skill}</span>${r.success?`<span class='pill good'>Success</span>`:`<span class='pill bad'>Failure</span>`}${critBadge}${formulaDisplay}</div><div class='resultDivider'></div><div id='result'>${resultNarrative(G.lastResult)}</div>${combatLog}${postCombatNote}`;
   }
 
   // ── DEDICATED LAYER RENDERERS ────────────────────────────
