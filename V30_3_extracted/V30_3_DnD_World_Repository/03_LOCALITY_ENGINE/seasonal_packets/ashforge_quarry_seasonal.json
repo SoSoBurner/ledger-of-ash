@@ -1,0 +1,8 @@
+{
+  "name": "Ashforge Quarry",
+  "seasonal_change": "storms, eruptions, and avalanche risk reorder work gangs and sleeping patterns through much of the year.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

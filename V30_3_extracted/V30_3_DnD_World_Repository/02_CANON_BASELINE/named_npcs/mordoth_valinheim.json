@@ -1,0 +1,102 @@
+{
+  "npc_id": "mordoth_valinheim",
+  "canonical_name": "Mordoth Valinheim",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "governance_actor",
+  "office_or_role": "Storm Giant councillor and architect of progress",
+  "profession_discipline": "Storm Giant councillor and architect of progress",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper",
+    "Giant Council",
+    "Soreheim Proper industrial planning"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a storm giant councillor and architect of progress of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper",
+      "Giant Council",
+      "Soreheim Proper industrial planning"
+    ],
+    "factions": []
+  },
+  "appearance": "A towering storm giant whose sheer scale and formal bearing mark them as one of Soreheim’s ruling giants.",
+  "manner": "Speaks in controlled terms that leave room for maneuver while still sounding decisive. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a storm giant councillor and architect of progress still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of storm giant councillor and architect of progress in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of storm giant councillor and architect of progress while managing the immediate pressure of quota demands in Soreheim Alliance.",
+  "hidden_pressure": "Must convert conflicting obligations into decisions while preserving the appearance that the institution remains whole. Around Soreheim Proper, that usually means carrying quota demands, political rivalry, foreign pressure without letting the role of storm giant councillor and architect of progress visibly slip.",
+  "relationship_refs": [
+    "rel_0910",
+    "rel_0915",
+    "rel_0919",
+    "rel_0923",
+    "rel_0924",
+    "rel_0925"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Mordoth Valinheim needs discreet outside help to contain political strain, prestige loss, or institutional damage before it spreads through Soreheim Proper."
+    },
+    {
+      "hook_type": "complication_trigger",
+      "summary": "Getting entangled with Mordoth Valinheim can pull the party into protocol, alliance pressure, or public consequence centered on Soreheim Proper."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Mordoth Valinheim can trade usable insight about Soreheim Proper if the party solves a problem that cannot be addressed openly through the office they hold."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Mordoth Valinheim can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance conservatively derived from explicit office, organizational attire, or species/station cues already present in corpus support.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "mordoth_valinheim",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Dress quality, attention from others, and practiced command of protocol signal that Mordoth Valinheim carries civic or noble weight. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: estates, audience spaces, council rooms, protocol-heavy gatherings, or civic seats",
+    "who_seeks_them_out": [
+      "petitioners",
+      "envoys",
+      "subordinates",
+      "allies needing cover"
+    ],
+    "who_avoids_them": [
+      "the indiscreet",
+      "the openly disrespectful",
+      "those seeking shortcuts around protocol"
+    ],
+    "interaction_anchor": "authority, precedent, and political management"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Mordoth Valinheim presents as Speaks in controlled terms that leave room for maneuver while still sounding decisive. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a storm giant councillor and architect of progress still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Storm Giant councillor and architect of progress, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Mordoth Valinheim refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Storm Giant councillor and architect of progress too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Mordoth Valinheim can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Mordoth Valinheim adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Mordoth Valinheim is Recognized as a storm giant councillor and architect of progress of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Storm Giant councillor and architect of progress."
+}

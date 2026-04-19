@@ -1,0 +1,83 @@
+{
+  "npc_id": "coralyn_tideglass",
+  "canonical_name": "Coralyn Tideglass",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Archivist",
+  "profession_discipline": "Archivist",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Cosmouth",
+  "settlement": "Cosmoria",
+  "locality_scope": "Cosmoria",
+  "institutional_ties": [
+    "Cosmoria"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Cosmoria through day-to-day work as archivist.",
+  "linked_systems": {
+    "polities": [
+      "House Cosmouth"
+    ],
+    "localities": [
+      "Cosmoria"
+    ],
+    "institutions": [
+      "Cosmoria"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Keeps language exact, as if wording itself is part of the custody chain. In Cosmoria, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of archivist in and around Cosmoria, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cosmoria workable through the obligations of archivist while managing the immediate pressure of storm weather, trade vulnerability.",
+  "hidden_pressure": "Must keep the role of archivist credible while absorbing the strain created by storm weather, trade vulnerability.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Coralyn Tideglass can draw the party into a locality problem centered on archivist duties in Cosmoria."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Coralyn Tideglass becomes useful when the party needs grounded help with storm weather, trade vulnerability around Cosmoria."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "cosmoria"
+  ],
+  "compatibility_interface_id": "coralyn_tideglass",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Coralyn Tideglass is immediately readable as a archivist tied to Cosmoria.",
+  "encounter_context": {
+    "usual_environment": "Cosmoria: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "archivist"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Coralyn Tideglass presents as someone shaped by the duties of a archivist and the daily pressures of Cosmoria.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a archivist, and proof that strangers will not make Cosmoria harder to manage.",
+  "what_they_refuse": "Coralyn Tideglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a archivist too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can retrieve records, resolve name confusion, and expose document tampering.",
+  "escalation_if_crossed": "If crossed, Coralyn Tideglass adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Coralyn Tideglass always knows more about Cosmoria than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a archivist in Cosmoria."
+}

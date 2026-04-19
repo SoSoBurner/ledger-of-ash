@@ -1,0 +1,38 @@
+{
+  "name": "Fairhaven",
+  "who_belongs": [
+    "farmers",
+    "artisans",
+    "alchemists",
+    "watchers of celestial anomalies",
+    "travelers to Verdant Caves"
+  ],
+  "who_is_out_of_place": [
+    "those treating glyph pressure casually",
+    "smugglers or secretive glyph-marked meetings"
+  ],
+  "expected_behavior": [
+    "respect local purification rites",
+    "heed warning about celestial creatures and cave anomalies"
+  ],
+  "sources": [
+    "locations_catalog"
+  ],
+  "v30_9_behavior_deepening": {
+    "truth_layer": "conservative_inference",
+    "public_behavior_priority": [
+      "state purpose early",
+      "accept correction without escalation",
+      "watch how locals queue before asserting entitlement"
+    ],
+    "common_outsider_errors": [
+      "treating visible procedure as the whole system",
+      "reading silence as neutrality"
+    ],
+    "informal_enforcement": [
+      "stalling through politeness",
+      "rerouting through quieter authorities",
+      "raising the social cost of ignorance"
+    ]
+  }
+}

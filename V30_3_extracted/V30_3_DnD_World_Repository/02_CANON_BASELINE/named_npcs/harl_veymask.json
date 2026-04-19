@@ -1,0 +1,82 @@
+{
+  "npc_id": "harl_veymask",
+  "canonical_name": "Harl Veymask",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "covert_actor",
+  "office_or_role": "Assassins",
+  "profession_discipline": "Assassins",
+  "grouping": "Stealth & Precision",
+  "polity": "Roaz",
+  "settlement": null,
+  "locality_scope": "Roaz covert circuit",
+  "institutional_ties": [],
+  "legal_standing": "extralegal_or_denied_covert_actor",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Current deniable killer whispered to understand Red Hood etiquette without openly claiming it.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Roaz covert circuit"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a assassins still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of assassins in and around Roaz covert circuit, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Roaz covert circuit workable through the obligations of assassins while managing the immediate pressure of institutional scrutiny in Roaz.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Roaz covert circuit, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of assassins visibly slip.",
+  "relationship_refs": [
+    "rel_1290"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Harl Veymask can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Harl Veymask needs help with a problem in Roaz covert circuit that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Harl Veymask can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Harl Veymask carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Roaz covert circuit: the part of Roaz covert circuit where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Harl Veymask presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a assassins still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Assassins, and proof that strangers will not create avoidable noise in Principality of Roaz.",
+  "what_they_refuse": "Harl Veymask refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Assassins too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Harl Veymask can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Harl Veymask adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Harl Veymask is Current deniable killer whispered to understand Red Hood etiquette without openly claiming it. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Assassins."
+}

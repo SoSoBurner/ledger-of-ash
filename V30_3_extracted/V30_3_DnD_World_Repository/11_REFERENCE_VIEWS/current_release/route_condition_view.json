@@ -1,0 +1,22 @@
+{
+  "build_version": "V30_3",
+  "routes": [
+    {
+      "route": "Harvest Keep caravan roads",
+      "condition": "inspection-heavy and delay-prone",
+      "cause": "reserve pressure and canal choke"
+    },
+    {
+      "route": "Ithtananalor quarry road",
+      "condition": "paperwork-heavy and seizure-sensitive",
+      "cause": "ledger enforcement and contraband concern"
+    },
+    {
+      "route": "Mimolot Academy - Bookhaven road",
+      "condition": "watchful for text smuggling",
+      "cause": "book tariff enforcement"
+    }
+  ],
+  "generated_at": "2026-04-18T03:13:23Z",
+  "status": "pass"
+}

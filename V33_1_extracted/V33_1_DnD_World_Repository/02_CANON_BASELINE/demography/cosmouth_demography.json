@@ -1,0 +1,71 @@
+{
+  "name": "Cosmouth",
+  "object_type": "polity_demography_record",
+  "build_version": "V33_1",
+  "truth_layer": "corrected_canon",
+  "resolution_status": "resolved world-standard roster",
+  "canonical_roster": [
+    "Humans",
+    "Tritons",
+    "Tortles"
+  ],
+  "dominant_populations": [
+    "Humans"
+  ],
+  "secondary_populations": [
+    "Tritons",
+    "Tortles"
+  ],
+  "support_classification": {
+    "dominant_populations": "reconciled_canon",
+    "secondary_populations": "conservative_inference"
+  },
+  "source_ids": [
+    "principalities"
+  ],
+  "resolution_reason": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+  "supersedes": [
+    "implicit_or_partial_demography_in_baseline_canonical_layers"
+  ],
+  "future_rule": "This demographic record may be superseded only by an explicit corrective release preserving contradiction history and source-backed support.",
+  "claim_level_support": {
+    "Humans": {
+      "population_status": "dominant",
+      "support_type": "reconciled_canon",
+      "rationale": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+      "claim_id": "claim::cosmouth_demography::humans",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Tritons": {
+      "population_status": "secondary",
+      "support_type": "conservative_inference",
+      "rationale": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+      "claim_id": "claim::cosmouth_demography::tritons",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Tortles": {
+      "population_status": "secondary",
+      "support_type": "conservative_inference",
+      "rationale": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+      "claim_id": "claim::cosmouth_demography::tortles",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    }
+  },
+  "schema_version": "prior_release.demography_record.v1",
+  "repository_id": "V33_1_DnD_World_Repository",
+  "object_id": "cosmouth_demography",
+  "lineage_policy": "Historical version references are confined to explicit lineage and supersession zones.",
+  "source_authority_mode": "claim_level_traceable"
+}

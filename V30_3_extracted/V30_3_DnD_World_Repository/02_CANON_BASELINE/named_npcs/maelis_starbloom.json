@@ -1,0 +1,89 @@
+{
+  "npc_id": "maelis_starbloom",
+  "canonical_name": "Maelis Starbloom",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Grain Measurer",
+  "profession_discipline": "Grain Measurer",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Shelkopolis",
+  "locality_scope": "Shelkopolis",
+  "institutional_ties": [
+    "Shelkopolis"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as grain measurer.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Shelkopolis"
+    ],
+    "institutions": [
+      "Shelkopolis"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a grain measurer still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of grain measurer in and around Shelkopolis, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Shelkopolis workable through the obligations of grain measurer while managing the immediate pressure of glyph corruption beyond the city in Shelk.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Shelkopolis, that usually means carrying glyph corruption beyond the city, trade security obligations, noble rivalry without letting the role of grain measurer visibly slip.",
+  "relationship_refs": [
+    "rel_0385",
+    "rel_0386",
+    "rel_1160",
+    "rel_1163",
+    "rel_1166",
+    "rel_1167"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Maelis Starbloom needs help with a problem in Shelkopolis that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Maelis Starbloom can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog",
+    "principality_shelk"
+  ],
+  "compatibility_interface_id": "maelis_starbloom",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Maelis Starbloom carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Shelkopolis, this lands inside a public field already shaped by House Shelk nobility, Roadwardens Order.",
+  "encounter_context": {
+    "usual_environment": "Shelkopolis: the part of Shelkopolis where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Maelis Starbloom presents as Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a grain measurer still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Grain Measurer, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Maelis Starbloom refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Grain Measurer too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Maelis Starbloom can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Maelis Starbloom adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Maelis Starbloom is Known locally through day-to-day work as grain measurer. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Grain Measurer."
+}

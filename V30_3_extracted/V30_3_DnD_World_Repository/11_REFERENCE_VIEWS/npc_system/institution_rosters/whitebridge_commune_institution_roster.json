@@ -1,0 +1,11 @@
+{
+  "build_version": "V30_3",
+  "institution": "Whitebridge Commune",
+  "record_count": 4,
+  "npc_ids": [
+    "arbiter_nyra_thawmark",
+    "aster_starice",
+    "thora_snowveil",
+    "thora_starice"
+  ]
+}

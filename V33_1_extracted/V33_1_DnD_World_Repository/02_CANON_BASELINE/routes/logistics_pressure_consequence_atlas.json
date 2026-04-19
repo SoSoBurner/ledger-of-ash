@@ -1,0 +1,109 @@
+{
+  "id": "routes.logistics_pressure_consequence_atlas",
+  "name": "Logistics Pressure Consequence Atlas",
+  "truth_layer": "derived_canon_support",
+  "summary": "GM-facing atlas translating transport, chokepoints, storm risk, tariffs, prison labor, archive access, and magical anomalies into political and social outcomes.",
+  "pressure_nodes": [
+    {
+      "node": "Shelkopolis road network",
+      "pressures": [
+        "House Shelk reputation enforcement",
+        "Roadwarden inspection discretion",
+        "Union market rumor injection"
+      ],
+      "consequences": [
+        "missing-person cases become factional quickly",
+        "travel papers alter witness willingness",
+        "public disorder harms House prestige disproportionally"
+      ],
+      "gm_use": "Any delay on the road can become a status test, not just a travel setback."
+    },
+    {
+      "node": "Mimolot book tariff border",
+      "pressures": [
+        "knowledge control",
+        "copy delay",
+        "elite educational gatekeeping"
+      ],
+      "consequences": [
+        "scholarly advantage compounds socially",
+        "time-sensitive information can be procedurally slowed",
+        "books become prestige-laden political objects"
+      ],
+      "gm_use": "Archive clues should often be delayed, altered by copies, or priced socially."
+    },
+    {
+      "node": "Roaz enforcement corridors",
+      "pressures": [
+        "anti-magic law",
+        "prison labor deployment",
+        "bail monetization"
+      ],
+      "consequences": [
+        "accusations of magic misuse are coercive currency",
+        "public works reflect penal policy",
+        "poor travelers face severe vulnerability"
+      ],
+      "gm_use": "A route through Roaz changes the value of spellcasting and the cost of procedural mistakes."
+    },
+    {
+      "node": "Nomdara staple convoys",
+      "pressures": [
+        "purchase-strike threat",
+        "mobile pricing",
+        "consensus-based embargo"
+      ],
+      "consequences": [
+        "town confidence can collapse before physical shortage begins",
+        "hostility to caravans is punished economically rather than militarily",
+        "merchants become local political actors"
+      ],
+      "gm_use": "Treat caravan arrival or absence as a world-state event."
+    },
+    {
+      "node": "Mother Storm and whirlpool seas",
+      "pressures": [
+        "route unpredictability",
+        "insurance premiums",
+        "port concentration"
+      ],
+      "consequences": [
+        "harbor cities gain leverage",
+        "safe passage knowledge becomes tradable power",
+        "coastal rumors often carry exaggerated but actionable fear"
+      ],
+      "gm_use": "Sea travel decisions should reshape economy, urgency, and the credibility of distant witnesses."
+    },
+    {
+      "node": "Sheresh dome approaches",
+      "pressures": [
+        "contamination screening",
+        "mutation fear",
+        "weather isolation"
+      ],
+      "consequences": [
+        "entry denial creates black markets in certification",
+        " hospitality becomes conditional",
+        "artists and researchers enjoy asymmetric exemptions"
+      ],
+      "gm_use": "The price of entry should often be proof, sponsorship, or visible conformity."
+    },
+    {
+      "node": "Soreheim descent chains and bridge spans",
+      "pressures": [
+        "maintenance dependency",
+        "accident risk",
+        "industrial scheduling"
+      ],
+      "consequences": [
+        "work stoppages become civic crises",
+        "food and ore timing create labor leverage",
+        "unfinished expansion invites raid and sabotage narratives"
+      ],
+      "gm_use": "Vertical movement should change faction exposure and who can intervene in time."
+    }
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

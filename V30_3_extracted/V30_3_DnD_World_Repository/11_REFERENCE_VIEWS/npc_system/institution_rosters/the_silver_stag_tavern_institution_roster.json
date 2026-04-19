@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "The Silver Stag Tavern",
+  "record_count": 2,
+  "npc_ids": [
+    "arin_stone",
+    "mira_stone"
+  ]
+}

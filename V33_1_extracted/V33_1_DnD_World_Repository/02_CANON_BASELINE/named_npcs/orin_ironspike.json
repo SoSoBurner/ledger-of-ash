@@ -1,0 +1,92 @@
+{
+  "npc_id": "orin_ironspike",
+  "canonical_name": "Orin Ironspike",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "harbor_officer",
+  "office_or_role": "Harbor Officer",
+  "profession_discipline": "Harbor Officer",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Roaz",
+  "settlement": "Silent Haven",
+  "locality_scope": "Silent Haven",
+  "institutional_ties": [
+    "Silent Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Silent Haven through day-to-day work as harbor officer.",
+  "linked_systems": {
+    "polities": [
+      "Principality of Roaz"
+    ],
+    "localities": [
+      "Silent Haven"
+    ],
+    "institutions": [
+      "Silent Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Orin Ironspike carries the marks of harbor officer in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Reads manifests, tides, and suspicious timing as one continuous problem of control. In Silent Haven, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of harbor officer in and around Silent Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Silent Haven while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Orin Ironspike can draw the party into a locality problem centered on harbor officer duties in Silent Haven."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Orin Ironspike becomes useful when the party needs grounded help with sea threat, northern route vulnerability around Silent Haven."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "silent_haven"
+  ],
+  "compatibility_interface_id": "orin_ironspike",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Orin Ironspike is immediately readable as a harbor officer tied to Silent Haven.",
+  "encounter_context": {
+    "usual_environment": "Silent Haven: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "harbor officer"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Orin Ironspike presents as someone shaped by the duties of a harbor officer and the daily pressures of Silent Haven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a harbor officer, and proof that strangers will not make Silent Haven harder to manage.",
+  "what_they_refuse": "Orin Ironspike refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a harbor officer too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can control docking access, inspect cargo, and read suspicious maritime movement.",
+  "escalation_if_crossed": "If crossed, Orin Ironspike adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Orin Ironspike always knows more about Silent Haven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a harbor officer in Silent Haven.",
+  "social_texture": "Orin Ironspike speaks like someone who has spent too long translating private stakes into acceptable public language. Around Silent Haven, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Orin touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Orin Ironspike when the party needs a socially grounded face for Silent Haven: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

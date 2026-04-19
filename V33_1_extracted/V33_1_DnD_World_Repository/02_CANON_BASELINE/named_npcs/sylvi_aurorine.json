@@ -1,0 +1,88 @@
+{
+  "npc_id": "sylvi_aurorine",
+  "canonical_name": "Sylvi Aurorine",
+  "aliases": [
+    "the hermit"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Trail Hermit",
+  "profession_discipline": "Trail Hermit",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Frostline Crossing",
+  "locality_scope": "Frostline Crossing",
+  "institutional_ties": [
+    "Frostline Crossing"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as trail hermit.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Frostline Crossing"
+    ],
+    "institutions": [
+      "Frostline Crossing"
+    ],
+    "factions": []
+  },
+  "appearance": "Sylvi Aurorine usually presents in frost-touched garments dusted with harmless arcane residue, with details that make their trail hermit status legible before introductions begin.",
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a trail hermit still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of trail hermit in and around Frostline Crossing, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Frostline Crossing workable through the obligations of trail hermit while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Frostline Crossing, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of trail hermit visibly slip.",
+  "relationship_refs": [
+    "rel_0375",
+    "rel_0378",
+    "rel_0380",
+    "rel_0381",
+    "rel_1095"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Sylvi Aurorine needs help with a problem in Frostline Crossing that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Sylvi Aurorine can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "sylvi_aurorine",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Sylvi Aurorine carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Frostline Crossing: the part of Frostline Crossing where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Sylvi Aurorine presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a trail hermit still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Trail Hermit, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Sylvi Aurorine refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Trail Hermit too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Sylvi Aurorine can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Sylvi Aurorine adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Sylvi Aurorine is Known locally through day-to-day work as trail hermit. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Trail Hermit."
+}

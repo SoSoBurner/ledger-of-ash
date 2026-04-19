@@ -1,0 +1,88 @@
+{
+  "npc_id": "rhodra_boltmere",
+  "canonical_name": "Rhodra Boltmere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "religious_officiant",
+  "office_or_role": "Ritual Attendant",
+  "profession_discipline": "Ritual Attendant",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Roaz",
+  "settlement": "Ironhold Quarry",
+  "locality_scope": "Ironhold Quarry",
+  "institutional_ties": [
+    "Ironhold Quarry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as ritual attendant.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Ironhold Quarry"
+    ],
+    "institutions": [
+      "Ironhold Quarry"
+    ],
+    "factions": []
+  },
+  "appearance": "Ritual garments, symbolic tokens, and carefully maintained devotional detail make the role legible at a glance.",
+  "manner": "Speaks with ritual calm and practiced reassurance, but watches closely for signs of spiritual or civic disturbance. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a ritual attendant still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of ritual attendant in and around Ironhold Quarry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ironhold Quarry workable through the obligations of ritual attendant while managing the immediate pressure of labor harshness in Roaz.",
+  "hidden_pressure": "Must keep sacred procedure credible while grief, fear, or opportunism press for shortcuts. Around Ironhold Quarry, that usually means carrying labor harshness, resource theft, border competition without letting the role of ritual attendant visibly slip.",
+  "relationship_refs": [
+    "rel_0328",
+    "rel_1185"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "pastoral_request",
+      "summary": "Rhodra Boltmere may ask the party to retrieve someone, something, or some truth before a rite can proceed safely."
+    },
+    {
+      "hook_type": "doctrinal_complication",
+      "summary": "Any alliance with Rhodra Boltmere can expose the party to taboo, doctrine, or institutional expectation centered on Ironhold Quarry."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "rhodra_boltmere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Ritual dress, offering marks, and devotional cadence make Rhodra Boltmere immediately legible as a spiritual intermediary. In Ironhold Quarry, this lands inside a public field already shaped by ORE, Iron Accord.",
+  "encounter_context": {
+    "usual_environment": "Ironhold Quarry: shrines, cathedrals, funerary halls, or ritual precincts",
+    "who_seeks_them_out": [
+      "mourners",
+      "petitioners",
+      "those seeking rite or absolution"
+    ],
+    "who_avoids_them": [
+      "the openly impious",
+      "ritual disturbers",
+      "those asking for sacred shortcuts"
+    ],
+    "interaction_anchor": "ritual mediation or doctrinal reassurance"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Rhodra Boltmere presents as Speaks with ritual calm and practiced reassurance, but watches closely for signs of spiritual or civic disturbance. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a ritual attendant still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Ritual Attendant, and proof that strangers will not create avoidable noise in Principality of Roaz.",
+  "what_they_refuse": "Rhodra Boltmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Ritual Attendant too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Rhodra Boltmere can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Rhodra Boltmere adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Rhodra Boltmere is Known locally through day-to-day work as ritual attendant. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Ritual Attendant."
+}

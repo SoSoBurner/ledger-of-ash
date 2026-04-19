@@ -1,0 +1,21 @@
+{
+  "name": "Whitebridge Commune",
+  "who_belongs": [
+    "route wardens",
+    "shelter keepers",
+    "haulers",
+    "arbiters"
+  ],
+  "who_is_out_of_place": [
+    "those concealing route conditions",
+    "panic spreaders"
+  ],
+  "expected_behavior": [
+    "declare route intent",
+    "share hazard knowledge before departure"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ]
+}

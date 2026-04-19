@@ -1,0 +1,91 @@
+{
+  "npc_id": "sera_aurorine",
+  "canonical_name": "Sera Aurorine",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "healer",
+  "office_or_role": "Street Physician",
+  "profession_discipline": "Street Physician",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Shelkopolis",
+  "locality_scope": "Shelkopolis",
+  "institutional_ties": [
+    "Shelkopolis"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as street physician.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Shelkopolis"
+    ],
+    "institutions": [
+      "Shelkopolis"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a street physician still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of street physician in and around Shelkopolis, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Shelkopolis workable through the obligations of street physician while managing the immediate pressure of glyph corruption beyond the city in Shelk.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Shelkopolis, that usually means carrying glyph corruption beyond the city, trade security obligations, noble rivalry without letting the role of street physician visibly slip.",
+  "relationship_refs": [
+    "rel_0372",
+    "rel_0373",
+    "rel_0374",
+    "rel_0375",
+    "rel_1162",
+    "rel_1165",
+    "rel_1167",
+    "rel_1168"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Sera Aurorine can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Sera Aurorine can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog",
+    "principality_shelk"
+  ],
+  "compatibility_interface_id": "sera_aurorine",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Sera Aurorine carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Shelkopolis, this lands inside a public field already shaped by House Shelk nobility, Roadwardens Order.",
+  "encounter_context": {
+    "usual_environment": "Shelkopolis: the part of Shelkopolis where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Sera Aurorine presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a street physician still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Street Physician, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Sera Aurorine refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Street Physician too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Sera Aurorine can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Sera Aurorine adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Sera Aurorine is Known locally through day-to-day work as street physician. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Street Physician."
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Velvet Pinnacle Hall",
+  "parent_district": "Aurora Heights District",
+  "type": "social hall",
+  "summary": "Approach and interior defined by alabaster, stained glass, seasonal painted ceilings, noble gatherings, and strong fashion/espionage law.",
+  "npc_interfaces": [
+    "lady_isabella_shelk",
+    "magistrate_zethraxis_coilspire",
+    "Guildmaster Selene Starweaver",
+    "nora_mere",
+    "mira_march"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "nora_mere",
+    "mira_march"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

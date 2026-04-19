@@ -1,0 +1,13 @@
+{
+  "code": "Psanan Custom H1",
+  "title": "Household Threshold Authority",
+  "severity": "civic_custom",
+  "description": "In Psanan women own the home and their word is law inside it. Husbands return with gifts and bow at doorways; entry is contingent on household acceptance.",
+  "jurisdictions": [
+    "Psanan"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "ai_source_pdf"
+  ]
+}

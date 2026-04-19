@@ -1,0 +1,18 @@
+{
+  "name": "Verdant Row District",
+  "approach": "Colorful awnings, looms, hammers, flower boxes, baked bread, spiced tea, and merchant traffic.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "parent": "Shelkopolis",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "The industrious artisan and guild district of Shelkopolis.",
+    "Fashion Artisans Collective",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

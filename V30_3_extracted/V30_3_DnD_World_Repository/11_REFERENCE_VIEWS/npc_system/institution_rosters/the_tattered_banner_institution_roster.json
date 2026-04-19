@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "The Tattered Banner",
+  "record_count": 2,
+  "npc_ids": [
+    "lysa_stone",
+    "taren_stone"
+  ]
+}

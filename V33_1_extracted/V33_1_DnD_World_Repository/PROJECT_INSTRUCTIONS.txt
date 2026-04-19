@@ -1,0 +1,3 @@
+Active release: V33_1 (V33_1_DnD_World_Repository)
+
+V33_1 is the world-unifying standalone release. Treat 00_PACKAGE_MANIFEST/release_identity.json as the sole release identity authority, canonical_metric_registry.json as the active metric authority, 07_WORLD_GRAPH as the connectivity layer, 05_RUNTIME_ENGINE/*scope* files as runtime boundaries, PLAY/ plus RUN_A_SESSION_NOW.md as the primary operator surface, 11_REFERENCE_VIEWS/current_release as the primary reference surface, and AUDIT_AND_VALIDATION/README.md as the audit entrypoint. The package must function standalone after unzip.

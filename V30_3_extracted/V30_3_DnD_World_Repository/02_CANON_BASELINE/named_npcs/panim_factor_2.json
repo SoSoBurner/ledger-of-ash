@@ -1,0 +1,39 @@
+{
+  "npc_id": "panim_factor_2",
+  "canonical_name": "Panim Factor 2",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "commerce",
+  "office_or_role": "Factor",
+  "profession_discipline": "trade and supply",
+  "grouping": "locality parity completion",
+  "polity": "Panim",
+  "settlement": "Veilbridge Sepulcher",
+  "locality_scope": "Veilbridge Sepulcher",
+  "institutional_ties": [
+    "Factor"
+  ],
+  "legal_standing": "recognized local actor",
+  "religious_standing": "civically tolerated",
+  "public_reputation": "efficient and expensive to owe",
+  "linked_systems": [
+    "locality support",
+    "route play",
+    "encounter readiness"
+  ],
+  "appearance": "Panim Factor 2 is visibly shaped by the work and status pressures of Veilbridge Sepulcher.",
+  "manner": "controlled, observant, and economical with attention",
+  "daily_function": "Maintains factor responsibilities in and around Veilbridge Sepulcher.",
+  "hidden_pressure": "Panim Factor 2 is trying to hold local order together without publicly admitting how stretched it has become.",
+  "truth_layer": "source_backed_inference",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Panim Factor 2 quickly reads whether strangers are worth helping, charging, or slowing down.",
+  "what_they_want_from_strangers": "clarity, usefulness, and respect for local process",
+  "what_they_refuse": "carelessness dressed up as confidence",
+  "how_they_create_problems": "turning a small favor into an obligation or delay",
+  "how_they_can_help": "unlocking access, warnings, or introductions",
+  "escalation_if_crossed": "brings scrutiny, reputational friction, and institutional attention",
+  "rumor_about_them": "Locals say Panim Factor 2 is more connected than seems safe.",
+  "best_first_scene": "An arrival, delay, or access problem where practical guidance matters more than combat."
+}

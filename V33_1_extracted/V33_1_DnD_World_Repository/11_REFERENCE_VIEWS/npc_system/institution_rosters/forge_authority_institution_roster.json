@@ -1,0 +1,47 @@
+{
+  "build_version": "V33_1",
+  "institution": "Forge Authority",
+  "record_count": 3,
+  "npc_ids": [
+    "kordr_vulkhand",
+    "decran_moltglass",
+    "mother_saar_vulkrel"
+  ],
+  "records": [
+    {
+      "npc_id": "kordr_vulkhand",
+      "canonical_name": "Kordr Vulkhand",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Berserker",
+      "tier": "legendary",
+      "public_reputation": "Forge-trance breaker whose rage-state made him the pattern for siege-smashers in early tower consolidation.",
+      "current_agenda": "Keep Soreheim Proper workable through the obligations of berserker while managing the immediate pressure of quota demands in Soreheim Alliance."
+    },
+    {
+      "npc_id": "decran_moltglass",
+      "canonical_name": "Decran Moltglass",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Wizards",
+      "tier": "notable",
+      "public_reputation": "Industrial stone-wizard supervising heat stabilization and tower-forge containment.",
+      "current_agenda": "Keep Titan Towers, Soreheim workable through the obligations of wizards while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "mother_saar_vulkrel",
+      "canonical_name": "Mother Saar Vulkrel",
+      "polity": "Psanan",
+      "office_or_role": "Saint",
+      "tier": "notable",
+      "public_reputation": "Living ash-saint to some forge crews, feared by others for preaching endurance as sacred obedience.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of saint while managing the immediate pressure of house rivalry in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Forge Authority is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

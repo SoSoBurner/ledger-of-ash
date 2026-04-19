@@ -1,0 +1,12 @@
+{
+  "name": "Glasswake Commune",
+  "pressure": [
+    "exposure incidents",
+    "quarantine fatigue",
+    "instrument failure"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

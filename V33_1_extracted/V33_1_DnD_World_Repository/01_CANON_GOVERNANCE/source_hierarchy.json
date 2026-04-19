@@ -1,0 +1,10 @@
+{
+  "build_version": "V33_1",
+  "authority_order": [
+    "direct_canon",
+    "corrected_canon",
+    "reconciled_canon",
+    "conservative_inference",
+    "unresolved_contradiction"
+  ]
+}

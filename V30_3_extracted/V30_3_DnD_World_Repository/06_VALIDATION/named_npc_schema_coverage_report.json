@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "required_field_coverage": "complete",
+  "support_aware_field_counts": {
+    "appearance": 174,
+    "manner": 433,
+    "hidden_pressure": 433
+  },
+  "status": "pass"
+}

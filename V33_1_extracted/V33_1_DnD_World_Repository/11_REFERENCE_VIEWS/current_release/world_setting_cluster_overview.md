@@ -1,0 +1,3 @@
+# World-Setting Cluster Overview
+
+The key territorial systems in the current release are the Shelkopolis feeder cluster, the Union market cluster, the Cosmoria harbor cluster, the Panim ceremonial cluster, the Shirshal investigation cluster, the Soreheim industrial freight cluster, and the Sheresh dome cluster. These clusters make movement, pressure, and spillover legible without requiring live campaign state.

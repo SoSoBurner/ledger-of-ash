@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "House Zootia",
+  "record_count": 2,
+  "npc_ids": [
+    "brenn_fieldmere",
+    "yorin_fieldmere"
+  ]
+}

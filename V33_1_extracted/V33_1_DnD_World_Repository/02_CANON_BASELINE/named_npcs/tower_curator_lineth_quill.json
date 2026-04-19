@@ -1,0 +1,84 @@
+{
+  "npc_id": "tower_curator_lineth_quill",
+  "canonical_name": "Tower Curator Lineth Quill",
+  "aliases": [
+    "the curator"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Tower Curator",
+  "profession_discipline": "archive curator",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Mimolot",
+  "settlement": "Crystal Quill",
+  "locality_scope": "Crystal Quill",
+  "institutional_ties": [
+    "Crystal Quill"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Curator of a tower-library environment where access, storage, and scholarly quiet are actively governed.",
+  "linked_systems": {
+    "polities": [
+      "Mimolot"
+    ],
+    "localities": [
+      "Crystal Quill"
+    ],
+    "institutions": [
+      "Crystal Quill"
+    ],
+    "factions": []
+  },
+  "appearance": "Tower Curator Lineth Quill usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their tower curator status legible before introductions begin.",
+  "manner": "Carries the habits of a tower curator whose work is visible through daily procedure, gatekeeping, and the practical pressures of Crystal Quill.",
+  "daily_function": "Performs the ongoing duties of tower curator in and around Crystal Quill, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Crystal Quill workable through the obligations of tower curator while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of tower curator credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Crystal Quill.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Tower Curator Lineth Quill can draw the party into a practical problem centered on Crystal Quill."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Tower Curator Lineth Quill becomes useful when the party needs access, explanation, or relief tied to the work of a tower curator."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "tower_curator_lineth_quill",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Tower Curator Lineth Quill is readable as a tower curator tied to Crystal Quill.",
+  "encounter_context": {
+    "usual_environment": "Crystal Quill: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "tower curator"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Tower Curator Lineth Quill presents as someone shaped by the duties of a tower curator and the daily pressures of Crystal Quill.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a tower curator, and proof that strangers will not make Crystal Quill harder to manage.",
+  "what_they_refuse": "Tower Curator Lineth Quill refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a tower curator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Tower Curator Lineth Quill can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Tower Curator Lineth Quill adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Tower Curator Lineth Quill always knows more about Crystal Quill than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to tower curator duties in Crystal Quill."
+}

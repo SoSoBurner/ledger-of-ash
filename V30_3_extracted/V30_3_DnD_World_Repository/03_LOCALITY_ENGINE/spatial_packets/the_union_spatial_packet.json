@@ -1,0 +1,29 @@
+{
+  "build_version": "V30_3",
+  "packet_type": "spatial_polity_packet",
+  "polity": "The Union",
+  "node_count": 11,
+  "category_counts": {
+    "settlement": 5,
+    "site": 5,
+    "macroregion": 1
+  },
+  "water_valid_count": 0,
+  "uninhabitable_exclusion_count": 0,
+  "named_npc_hook_count": 11,
+  "generic_npc_role_count": 6,
+  "locality_names": [
+    "Craftspire",
+    "Elderriver Forest",
+    "Freight Seal Exchange",
+    "Guild Notice Court",
+    "Guildheart Hub",
+    "Ledger’s Rest",
+    "Market Crossroads",
+    "Trademoot Pavilion",
+    "Union Spire",
+    "Union Trade Arbitration Hall",
+    "Unity Square"
+  ],
+  "status": "integrated"
+}

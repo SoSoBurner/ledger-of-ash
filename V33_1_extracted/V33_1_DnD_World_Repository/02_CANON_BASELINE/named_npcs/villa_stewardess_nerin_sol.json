@@ -1,0 +1,84 @@
+{
+  "npc_id": "villa_stewardess_nerin_sol",
+  "canonical_name": "Villa Stewardess Nerin Sol",
+  "aliases": [
+    "the stewardess"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Villa Stewardess",
+  "profession_discipline": "noble villa steward",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Cosmouth",
+  "settlement": "Ocean's Retreat",
+  "locality_scope": "Ocean's Retreat",
+  "institutional_ties": [
+    "Ocean's Retreat"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Manager of guest villas, private launches, and refined leisure operations at Ocean's Retreat.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Ocean's Retreat"
+    ],
+    "institutions": [
+      "Ocean's Retreat"
+    ],
+    "factions": []
+  },
+  "appearance": "Villa Stewardess Nerin Sol usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their villa stewardess status legible before introductions begin.",
+  "manner": "Carries the habits of a villa stewardess whose work is visible through daily procedure, gatekeeping, and the practical pressures of Ocean's Retreat.",
+  "daily_function": "Performs the ongoing duties of villa stewardess in and around Ocean's Retreat, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ocean's Retreat workable through the obligations of villa stewardess while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of villa stewardess credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Ocean's Retreat.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Villa Stewardess Nerin Sol can draw the party into a practical problem centered on Ocean's Retreat."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Villa Stewardess Nerin Sol becomes useful when the party needs access, explanation, or relief tied to the work of a villa stewardess."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "villa_stewardess_nerin_sol",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Villa Stewardess Nerin Sol is readable as a villa stewardess tied to Ocean's Retreat.",
+  "encounter_context": {
+    "usual_environment": "Ocean's Retreat: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "villa stewardess"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Villa Stewardess Nerin Sol presents as someone shaped by the duties of a villa stewardess and the daily pressures of Ocean's Retreat.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a villa stewardess, and proof that strangers will not make Ocean's Retreat harder to manage.",
+  "what_they_refuse": "Villa Stewardess Nerin Sol refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a villa stewardess too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Villa Stewardess Nerin Sol can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Villa Stewardess Nerin Sol adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Villa Stewardess Nerin Sol always knows more about Ocean's Retreat than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to villa stewardess duties in Ocean's Retreat."
+}

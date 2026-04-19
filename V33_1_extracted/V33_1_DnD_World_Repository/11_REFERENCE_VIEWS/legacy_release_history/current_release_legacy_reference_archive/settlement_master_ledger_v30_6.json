@@ -1,0 +1,1207 @@
+{
+  "build_version": "V33_1",
+  "ledger_type": "gm_settlement_master_ledger",
+  "total_settlements": 150,
+  "entries": [
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Aurora Crown Commune",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "dome commune",
+      "identity": "prestige commune of cold-light order, sealed routine, and civic coordination"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Glasswake Commune",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "research commune",
+      "identity": "glass, frost, and controlled study define daily life here"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Hearthcoil Commune",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "geothermal commune",
+      "identity": "a heat-poor survival commune built on managed warmth and practical discipline"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Starbreak Commune",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "observatory commune",
+      "identity": "a sky-facing commune of counting, watching, and omen administration"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Whitebridge Commune",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "transit commune",
+      "identity": "bridge and corridor commune that keeps movement possible across hostile terrain"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Northglass Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "support commune",
+      "identity": "northern support commune built around survey traffic and cold storage"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Frostveil Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "support commune",
+      "identity": "a quiet veil-screened commune where weather and secrecy shape routines"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Rimewake Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "relay commune",
+      "identity": "rimed commune serving sled routes, wake lines, and frozen relay traffic"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Snowthread Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "weaving commune",
+      "identity": "a textile and repair commune where cold-weather fabric and insulation matter"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Icebloom Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "greenhouse commune",
+      "identity": "sheltered bloom commune managing fragile cultivation in severe conditions"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Dawnprism Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "light commune",
+      "identity": "a prism-using commune of reflected light, timing, and measured visibility"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Hushvault Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "sealed commune",
+      "identity": "a vault-minded commune with strict access practice and low-voice civic rhythm"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Boreal Crown Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "prestige commune",
+      "identity": "a high-status northern commune with ceremonial order and visible administrative weight"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Coldharbor Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "supply commune",
+      "identity": "a protected intake commune for scarce goods, tools, and preserved stores"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Whiteglass Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "glass commune",
+      "identity": "a pale-glass commune focused on repair, pane work, and sealed interiors"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Bluewake Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "relay commune",
+      "identity": "a blue-ice relay commune tied to wayfinding, wake markers, and transit timing"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Thawmark Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "season commune",
+      "identity": "a practical settlement where thaw conditions dictate labor windows and authority pressure"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Skyvault Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "archive commune",
+      "identity": "a high, protected commune of records, celestial logging, and sealed stores"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Frostbridge Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "bridge commune",
+      "identity": "a hardened crossing commune where engineering matters more than comfort"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Auroraseal Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "registry commune",
+      "identity": "a commune of seals, permissions, and aurora-timed administrative practice"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Wintercoil Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "heating commune",
+      "identity": "a colder counterpart to Hearthcoil, structured around warmth rationing and endurance"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Starlens Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "observatory commune",
+      "identity": "a lens-and-count settlement for sky reading and disciplined observation"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Prismwake Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "technical commune",
+      "identity": "a wake-linked technical commune managing reflected signals and cold optics"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Domeward Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "corridor commune",
+      "identity": "a supporting commune defined by access to larger dome networks"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Silverdrift Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "drift commune",
+      "identity": "a mobile-minded cold settlement shaped by snow movement and route correction"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Brighthush Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "contemplative commune",
+      "identity": "a restrained commune where light is managed carefully and public tone stays quiet"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Stillglass Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "reservoir commune",
+      "identity": "a calm, sealed commune centered on stable panes, still stores, and disciplined access"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Palefire Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "heat commune",
+      "identity": "a faint-heat commune where every furnace matters and fuel is socially visible"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Crownlight Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "ceremonial commune",
+      "identity": "a high-civic commune of visible light, ritual order, and structured prestige"
+    },
+    {
+      "major_polity": "Sheresh Communes",
+      "settlement": "Northwake Commune",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "frontier commune",
+      "identity": "northern wake-side commune serving the far cold edge of Sheresh networks"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Soreheim Proper",
+      "status": "Canon",
+      "subregion": "Soreheim Proper",
+      "role": "macro-capital",
+      "identity": "tower-dominant core of alliance authority, production discipline, and foreign posture"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Titanspan Hold",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "tower hold",
+      "identity": "fortified span settlement tied to tower traffic, control, and industrial security"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Quota Gate",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "gate settlement",
+      "identity": "a hard-admin gate town where production quotas touch daily civilian life"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Ironbanner Keep",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "keep",
+      "identity": "martial-industrial keep settlement showing hierarchy through labor and enforcement"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Foundry Crown",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "foundry settlement",
+      "identity": "a prestigious production settlement wrapped around elite industrial output"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Stonewake Forum",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "civic-industrial settlement",
+      "identity": "a forum-town where work allocation and public order visibly intersect"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Relay Bastion",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "bastion",
+      "identity": "relay-centered bastion settlement controlling movement between tower-linked zones"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Council Furnace",
+      "status": "Canon-safe new",
+      "subregion": "Soreheim Proper",
+      "role": "furnace settlement",
+      "identity": "a politically charged industrial settlement close to higher authority"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Ashforge Quarry",
+      "status": "Canon",
+      "subregion": "Eternal Lands",
+      "role": "mining settlement",
+      "identity": "quarry settlement where extraction defines class tone, work rhythm, and danger"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Embervale Settlement",
+      "status": "Canon",
+      "subregion": "Eternal Lands",
+      "role": "worker settlement",
+      "identity": "a labor settlement with furnaces, crews, and survival shaped by production"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Ashvein Camp",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "extraction camp",
+      "identity": "harsh camp settlement built around ash-veined resource access"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Cinderwake Hold",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "hold",
+      "identity": "a defensive work-hold on the industrial frontier"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Quarry Lantern",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "quarry settlement",
+      "identity": "a lantern-marked quarry town where long shifts and dust define life"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Emberchain Yard",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "yard settlement",
+      "identity": "a chain-linked labor settlement servicing heavy movement and work details"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Slagwatch Post",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "post",
+      "identity": "a watchful settlement overseeing dangerous waste, spoil, and work routes"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Red Kiln Settlement",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "kiln town",
+      "identity": "kiln-driven industrial settlement of heat, brick, and grinding production"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Furnacebridge",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "bridge settlement",
+      "identity": "a bridge town suspended between transport and furnace industry"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Coalward Step",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "step settlement",
+      "identity": "a hard-edged step town built where fuel and labor meet"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Smokeforge Crossing",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "crossing settlement",
+      "identity": "a grim crossing town where smoke, road traffic, and industry converge"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Duneshade Outpost",
+      "status": "Canon",
+      "subregion": "Eternal Lands",
+      "role": "outpost",
+      "identity": "frontier outpost with sparse cover, exposure, and practical survival culture"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Harvest Circle",
+      "status": "Canon",
+      "subregion": "Eternal Lands",
+      "role": "harvest town",
+      "identity": "circular market-harvest settlement of carts, food flow, and local exchange"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Sunspire Haven",
+      "status": "Canon",
+      "subregion": "Eternal Lands",
+      "role": "haven town",
+      "identity": "a steadier market haven where rural life meets logistics and relief"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Grainhook Village",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "village",
+      "identity": "grain village built on field labor, storage, and cart circulation"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Oatwind Market",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "market town",
+      "identity": "a market settlement shaped by open land, grain trade, and traveling labor"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Hearthline Settlement",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "agrarian settlement",
+      "identity": "family-centered field settlement with communal endurance at its core"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Rivercart Crossing",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "crossing village",
+      "identity": "a modest crossing settlement where rural movement and supply handoff matter"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Lantern Wheat",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "field town",
+      "identity": "a wheat-focused settlement with visible night work and storage discipline"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Meadowwatch Hold",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "hold",
+      "identity": "a rural defensive hold overlooking productive land and approach roads"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Ploughshare Ford",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "ford settlement",
+      "identity": "a ford town defined by wagons, field tools, and seasonal river pressure"
+    },
+    {
+      "major_polity": "Soreheim Alliance",
+      "settlement": "Hearthmeadow Crossing",
+      "status": "Canon-safe new",
+      "subregion": "Eternal Lands",
+      "role": "crossing town",
+      "identity": "a practical crossing settlement built around families, routes, and granaries"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Ithtananalor",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "city",
+      "identity": "a hard principal city where law, power, and austere order feel immediate"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Silent Haven",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "coastal outpost",
+      "identity": "quiet coastal settlement balancing restraint, distance, and controlled access"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Ironmarch",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "march town",
+      "identity": "disciplined frontier town built around movement, defense, and extraction"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Quarryshield",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "quarry town",
+      "identity": "a shielded quarry settlement where work and defense are inseparable"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Gearwright’s Rest",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "craft town",
+      "identity": "a stern technical settlement where machines and labor define status"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Bastion Verge",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "verge town",
+      "identity": "bastion-adjacent settlement standing at the edge of harder authority"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Chainbell Crossing",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "crossing town",
+      "identity": "a controlled crossing marked by bells, checks, and administrative notice"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Magistrate’s Reach",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "legal settlement",
+      "identity": "a settlement stretched around procedural authority and visible adjudication"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Sealhammer",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "industrial town",
+      "identity": "a blunt, tool-minded settlement of sealing, stamping, and harsh official presence"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Ironbar Ford",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "ford town",
+      "identity": "a ford settlement hardened by metal traffic and supervised transit"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Tribunal Market",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "market town",
+      "identity": "a commercial settlement where trade lives under judgmental oversight"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Writstone",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "records town",
+      "identity": "a settlement of stone, writ culture, and hard administrative permanence"
+    },
+    {
+      "major_polity": "Principality of Roaz",
+      "settlement": "Smokebridge",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "bridge town",
+      "identity": "industrial bridge settlement touched by soot, discipline, and guarded throughput"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Cosmoria",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "floating metropolis",
+      "identity": "great floating urban center of maritime records, commerce, and layered prestige"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Hullwake Foundry",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "foundry settlement",
+      "identity": "a maritime-industrial settlement where hull labor and heat drive status"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Tideglass Registry",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "registry settlement",
+      "identity": "a clerical-maritime settlement ruled by records, seals, and controlled intake"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Breakwater Anchorage",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "anchorage",
+      "identity": "defended anchorage settlement serving heavier water traffic"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Keelwake Harbor",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "harbor town",
+      "identity": "a ship-work harbor with practical crews and visible dock authority"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Mastcourt Haven",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "haven port",
+      "identity": "a more protected port settlement of rigging, court traffic, and coastal order"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Sailthread Anchorage",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "anchorage",
+      "identity": "a cloth-and-sail service anchorage tied to maritime upkeep"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Drydock Reach",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "dock settlement",
+      "identity": "ship repair settlement where drydock labor shapes daily rhythm"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Wakeglass Quay",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "quay town",
+      "identity": "a quay settlement of ledgers, cargo, and watchful waterfront procedure"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Tidebond Anchorage",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "bonded port",
+      "identity": "a bonded anchorage where customs and mooring rights matter"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Ledgerwake Moor",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "mooring town",
+      "identity": "a mooring settlement defined by records, docking order, and harbor control"
+    },
+    {
+      "major_polity": "House Cosmouth",
+      "settlement": "Harborlight Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "port settlement",
+      "identity": "a lighter-facing port settlement balancing access, shipping, and coastal civility"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Tariff Lantern Court",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "court settlement",
+      "identity": "a court-centered settlement where tariffs, scholarship, and formal process mix"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Indexlight Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "archive town",
+      "identity": "archive-minded settlement of indexing, sorting, and procedural discipline"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Copywright’s Rest",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "scholar town",
+      "identity": "a quieter scholar settlement supporting copying and manuscript work"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Quillbridge",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "bridge settlement",
+      "identity": "a bridge town tied to movement of texts, officials, and academic goods"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Annex Gate",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "gate town",
+      "identity": "a gate settlement clustered around annex traffic and controlled entry"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Margin Court",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "court town",
+      "identity": "a formal settlement where commentary, annotation, and review carry weight"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Ledgerquill Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "records town",
+      "identity": "a settlement where writing and recordkeeping feel industrial in scale"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Scriptor’s Lantern",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "scholar town",
+      "identity": "a careful, lamp-lit settlement of scribes, clerks, and revision culture"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Revision Steps",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "stair settlement",
+      "identity": "a stepped settlement associated with reworking, correction, and review"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Inkharbor",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "intake town",
+      "identity": "a modest intake settlement for inks, papers, tools, and scholarly freight"
+    },
+    {
+      "major_polity": "House Mimolot",
+      "settlement": "Archive Reach",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "archive settlement",
+      "identity": "a far-reaching settlement of storage, retrieval, and studied bureaucracy"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Panim Haven",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "metropolis",
+      "identity": "funerary metropolis where death administration is public, structured, and normal"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Veilbridge Sepulcher",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "sepulcher settlement",
+      "identity": "a bridge-linked funerary settlement of processions, stone, and hush"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Last Candle Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "ritual town",
+      "identity": "a solemn settlement centered on endings, ritual light, and memorial traffic"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Ashwake Rest",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "funerary rest town",
+      "identity": "a settlement serving mourners, remains, and quiet civic support"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Mourning Wharf",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "wharf town",
+      "identity": "a waterside funerary settlement where intake and ceremony overlap"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Quiet Ledger",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "records town",
+      "identity": "a subdued settlement built around death records and estate order"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Lanternwake Haven",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "haven town",
+      "identity": "a haven settlement carrying the softer edge of Panim’s funerary economy"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Coffinmeasure",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "craft settlement",
+      "identity": "a craft-and-appraisal settlement where funerary objects shape commerce"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Veilward Crossing",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "crossing town",
+      "identity": "a crossing settlement structured by procession and controlled passage"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Testament Quay",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "quay town",
+      "identity": "a quay settlement tied to estates, transfer, and final instructions"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Hushwater Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "waterside town",
+      "identity": "a quiet waterside settlement whose tone is gentle but administratively rigid"
+    },
+    {
+      "major_polity": "House Panim",
+      "settlement": "Sepulcher’s Rest",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "rest town",
+      "identity": "a settlement supporting burial movement, pause, and formal mourning"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Lantern Docket",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "docket settlement",
+      "identity": "administrative magical settlement where filings, light, and procedure dominate"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Witness Coil",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "inquiry settlement",
+      "identity": "settlement of testimony, magical scrutiny, and structured evidentiary order"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Proofwake Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "proof town",
+      "identity": "a technical settlement built around proof, verification, and magical review"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Sealglass Haven",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "haven town",
+      "identity": "a calmer evidence-linked settlement where sealing and custody matter"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Docketbridge",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "bridge town",
+      "identity": "a bridge settlement for petition traffic, filings, and official passage"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Oathlight Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "oath town",
+      "identity": "a settlement where sworn truth and supervised inquiry shape reputation"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Inquiry Quay",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "quay town",
+      "identity": "a waterside intake settlement for cases, witnesses, and guarded movement"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Verdict Lantern",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "judgment town",
+      "identity": "a visibly official settlement where decisions and consequences are public"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Spellwrit Crossing",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "crossing town",
+      "identity": "a crossing settlement of magical writs, transport, and scrutiny"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Coilgate",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "gate town",
+      "identity": "a controlled gate settlement standing at the edge of investigatory space"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Evident Reach",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "records town",
+      "identity": "a settlement where chains of proof extend through ordinary civic life"
+    },
+    {
+      "major_polity": "House Shirsh",
+      "settlement": "Nightproof Settlement",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "watch settlement",
+      "identity": "a darker-toned settlement of lamp-lit checking, custody, and guarded silence"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Harvest Keep",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "keep settlement",
+      "identity": "an agrarian keep settlement where stored yield is political power"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Canal Thorn Exchange",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "exchange settlement",
+      "identity": "canal-market choke point where labor, irrigation, and leverage intersect"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Serpent Measure",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "measure settlement",
+      "identity": "a weighing and measure settlement tied to reserve control and river discipline"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Reedbarrow",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "agrarian settlement",
+      "identity": "a reed-lined settlement of carts, wet storage, and field logistics"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Grainhook",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "grain town",
+      "identity": "a grain-handling settlement where intake and reserve oversight dominate"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Canal Scale",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "canal town",
+      "identity": "a weighing settlement where barge flow and measurement define authority"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Saltreed Haven",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "haven town",
+      "identity": "a softer marsh-edge settlement with storage, barges, and wetland trade"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Thornlock",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "lock settlement",
+      "identity": "a controlled lock town where water access is political currency"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "River Measure",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "river town",
+      "identity": "a river settlement of assay, tallies, and practical control"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Harvest Coil",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "reserve town",
+      "identity": "a settlement where harvest storage wraps into defensive and administrative order"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Bargeglass",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "barge town",
+      "identity": "a trade settlement where canal movement and commercial watching dominate"
+    },
+    {
+      "major_polity": "House Zootia",
+      "settlement": "Wet Ledger",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "records town",
+      "identity": "a marsh-linked clerical settlement built around counted stores and wet routes"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Banner Anchorage",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "anchorage",
+      "identity": "shared anchorage where prestige, shipping, and negotiated access intersect"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Housechain Court",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "court settlement",
+      "identity": "a house-linked court settlement where obligations and rank are publicly felt"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Sealwater Conclave",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "conclave settlement",
+      "identity": "a negotiated meeting settlement of seals, protocol, and inter-house presence"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Charter Anchorage",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "anchorage",
+      "identity": "a charter-focused port settlement where permissions and status govern access"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Bannercourt",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "court town",
+      "identity": "a settlement with overtly performative house presence and heraldic tone"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Conclave Reach",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "conclave town",
+      "identity": "a supporting settlement extending the diplomatic life of Sealwater space"
+    },
+    {
+      "major_polity": "The Principalities",
+      "settlement": "Pactwater Anchorage",
+      "status": "Canon-safe new",
+      "subregion": "—",
+      "role": "anchorage",
+      "identity": "anchorage settlement shaped by pact traffic, visiting envoys, and guarded civility"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Arbiters Row",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "civic-commercial settlement where arbitration is part of ordinary urban flow"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Craftspire",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "a craft-dominant settlement defined by makers, workshops, and regulated trade"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Guildheart Hub",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "central hub settlement of guild power, contracts, and coordinated labor"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Ledger Canal",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "canal settlement where records, freight, and administrative traffic converge"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Market Crossroads",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "open commercial settlement shaped by exchange, road pressure, and negotiation"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Mediators Court",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "procedural settlement where disputes are managed through civic structure"
+    },
+    {
+      "major_polity": "The Union",
+      "settlement": "Unity Square",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "settlement",
+      "identity": "public-facing Union settlement built around shared civic identity and open exchange"
+    },
+    {
+      "major_polity": "Principality of Shelk",
+      "settlement": "Emberforge Outpost",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "outpost",
+      "identity": "a refined but practical outpost linking Shelk style to harder edge work"
+    },
+    {
+      "major_polity": "Principality of Shelk",
+      "settlement": "Fairhaven",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "town",
+      "identity": "warm, cultivated town balancing rural beauty with Shelk social polish"
+    },
+    {
+      "major_polity": "Principality of Shelk",
+      "settlement": "Plume’s End Outpost",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "outpost",
+      "identity": "road-end outpost with edge-of-domain character and controlled reception"
+    },
+    {
+      "major_polity": "Principality of Shelk",
+      "settlement": "Shelkopolis",
+      "status": "Canon",
+      "subregion": "—",
+      "role": "city",
+      "identity": "principal Shelk city of display, refinement, institutions, and roadward authority"
+    }
+  ]
+}

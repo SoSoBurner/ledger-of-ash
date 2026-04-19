@@ -1,0 +1,21 @@
+{
+  "build_version": "V33_1",
+  "packet_family": "world_inspection_packet",
+  "purpose": "Answer the repository-scale question set for places, polities, and macroregions without inventing unsupported hard canon.",
+  "required_top_level_sections": [
+    "about_place",
+    "about_people",
+    "government_and_power",
+    "history",
+    "religion_and_belief",
+    "magic_and_unknown",
+    "economy_and_daily_life",
+    "conflict_and_instability",
+    "identity_and_reputation",
+    "wider_world_relationships",
+    "secrets_and_deeper_truths"
+  ],
+  "field_object_rule": "Each field declares answer text plus a status value of direct_canon, corrected_canon, reconciled_canon, conservative_inference, or unresolved.",
+  "design_rule": "Missing certainty is surfaced explicitly rather than patched over with false precision.",
+  "failure_rule": "A V33_1 inspection packet fails contract when a requested category is silently omitted."
+}

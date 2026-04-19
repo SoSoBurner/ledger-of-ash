@@ -1,0 +1,17 @@
+{
+  "name": "Zootia",
+  "object_type": "runtime_polity_demography_packet",
+  "build_version": "V30_3",
+  "derived_from": "02_CANON_BASELINE/demography/zootia_demography.json",
+  "dominant_populations": [
+    "Yuan-Ti"
+  ],
+  "secondary_populations": [
+    "Humans",
+    "Half-Elves",
+    "Elves"
+  ],
+  "street_level_visibility": "Yuan-Ti remain the defining race, with Humans, Half-Elves, and Elves preserved as secondary populations through labor, trade, and imperial integration.",
+  "visitor_signal": "Visitors to Zootia should perceive the dominant populations first and the secondary populations as stable but not polity-defining unless narrower locality canon states otherwise.",
+  "runtime_rule": "Runtime narration may elaborate visible population mix but may not contradict canonical roster or exclusions."
+}

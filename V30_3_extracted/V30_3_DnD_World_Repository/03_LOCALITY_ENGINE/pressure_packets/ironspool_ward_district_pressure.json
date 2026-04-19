@@ -1,0 +1,12 @@
+{
+  "name": "Ironspool Ward District",
+  "pressure": [
+    "desperation contracts",
+    "petty crime",
+    "omens and superstition"
+  ],
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

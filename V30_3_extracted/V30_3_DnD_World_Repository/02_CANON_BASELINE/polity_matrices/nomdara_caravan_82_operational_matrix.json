@@ -1,0 +1,156 @@
+{
+  "polity": "Nomdara Caravan",
+  "truth_layer": "conservative_inference",
+  "roles_total": 82,
+  "governing_logic": "Nomdara is not emitted as a land kingdom. It is emitted as mobile connective governance: convoy law, flotillas, portable archives, hearing camps, and treaty circuits.",
+  "core_assumptions": [
+    "mobile connective polity",
+    "mediates routes others cannot",
+    "reaches difficult maritime and cold-route interfaces",
+    "functions as connective trade diplomacy and neutral legal tissue",
+    "grows through organized mobility classes and portable institutions rather than permanent sovereign towns"
+  ],
+  "role_bands": [
+    {
+      "band": "governing_caravan_law",
+      "roles": 20,
+      "function": "Creates portable legality through convoy edicts, custody logs, bonded witness chains, onboard hearings, mobile registries, and neutral enforcement customs.",
+      "role_families": [
+        "convoy magistrates",
+        "bond clerks",
+        "mobile seal keepers",
+        "cargo hearing officers",
+        "neutral custody scribes"
+      ]
+    },
+    {
+      "band": "diplomatic_mediation",
+      "roles": 18,
+      "function": "Turns motion into diplomacy through interpreters, corridor envoys, exchange witnesses, treaty relays, and temporary oath tables capable of convening where fixed states cannot.",
+      "role_families": [
+        "route envoys",
+        "treaty carriers",
+        "interpreter-mediators",
+        "hearing tent officers",
+        "neutral witnesses"
+      ]
+    },
+    {
+      "band": "trade_and_exchange",
+      "roles": 18,
+      "function": "Runs portable markets, weighted exchange, bonded cargo holds, emergency barter balancing, and inter-polity load transfer at difficult interfaces.",
+      "role_families": [
+        "exchange masters",
+        "portable weigh clerks",
+        "quartermasters",
+        "bonded carriers",
+        "inventory scribes"
+      ]
+    },
+    {
+      "band": "navigation_and_survival",
+      "roles": 16,
+      "function": "Makes hard routes survivable through weather reading, cold-route discipline, storm avoidance, escort scheduling, salvage rights, and relief planning.",
+      "role_families": [
+        "navigators",
+        "storm readers",
+        "ice route scouts",
+        "escort coordinators",
+        "relief planners"
+      ]
+    },
+    {
+      "band": "quiet_buffer_functions",
+      "roles": 10,
+      "function": "Absorbs tension without full escalation through rumor suppression, side-cargo separation, quarantine holding, neutral camp zoning, and discreet high-friction handoffs.",
+      "role_families": [
+        "buffer officers",
+        "quarantine stewards",
+        "quiet brokers",
+        "camp partitioners",
+        "sensitive cargo custodians"
+      ]
+    }
+  ],
+  "node_allocations": [
+    {
+      "node": "Council Convoy",
+      "roles": 12,
+      "node_class": "government_convoy",
+      "functional_profile": "Mobile deliberative seat where caravan law, seals, and portable hearing authority travel with the polity."
+    },
+    {
+      "node": "Grand Exchange Circuit",
+      "roles": 10,
+      "node_class": "trade_circuit",
+      "functional_profile": "Rotating commercial backbone that links disparate markets through scheduled portable exchange."
+    },
+    {
+      "node": "Edict Ocean Flotilla",
+      "roles": 8,
+      "node_class": "cold_ocean_flotilla",
+      "functional_profile": "Storm-capable flotilla for frozen and semi-frozen northern maritime mediation."
+    },
+    {
+      "node": "South Swirling Fleet",
+      "roles": 6,
+      "node_class": "storm_sea_fleet",
+      "functional_profile": "Warm-sea convoy group specialized in hurricane-prone southern movement and emergency redirection."
+    },
+    {
+      "node": "Sheresh Relief Caravan",
+      "roles": 8,
+      "node_class": "relief_caravan",
+      "functional_profile": "Heat, medicine, replacement parts, and ration carriage into dome-survival zones."
+    },
+    {
+      "node": "Soreheim Allocation Exchange Train",
+      "roles": 8,
+      "node_class": "heavy_exchange_train",
+      "functional_profile": "Portable balancing chain between industrial surplus, agricultural need, and route law."
+    },
+    {
+      "node": "Psanan Ash-Route Mediation Fleet",
+      "roles": 6,
+      "node_class": "ash_route_fleet",
+      "functional_profile": "Specialized coastal mediator for hot cargo, forge exports, and ash-weather disruption."
+    },
+    {
+      "node": "Principalities Road Embassy Circuit",
+      "roles": 8,
+      "node_class": "embassy_circuit",
+      "functional_profile": "Traveling diplomatic lane that turns roads into temporary embassy ground."
+    },
+    {
+      "node": "Guildheart Arbitration Camp",
+      "roles": 6,
+      "node_class": "hearing_camp",
+      "functional_profile": "Portable arbitration camp for trade, cargo, and bond disputes outside settled halls."
+    },
+    {
+      "node": "Mimolot Lecture Caravan",
+      "roles": 4,
+      "node_class": "knowledge_caravan",
+      "functional_profile": "Regulated lecture and copy-bearing caravan for controlled knowledge circulation."
+    },
+    {
+      "node": "Panim Pilgrim Escort Lane",
+      "roles": 3,
+      "node_class": "pilgrim_escort_lane",
+      "functional_profile": "Protected movement corridor for mortuary, offering, and sacred-travel cargo."
+    },
+    {
+      "node": "Cosmoria Archive Exchange Barge",
+      "roles": 3,
+      "node_class": "archive_barge",
+      "functional_profile": "Floating copy-transfer and record custody node linking maritime archives to moving exchange law."
+    }
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "soreheim_review",
+    "calendars_world",
+    "principalities",
+    "operator_target_spec_v22_4"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Cindermount Descent Chain",
+  "record_count": 1,
+  "npc_ids": [
+    "istran_emberlash"
+  ],
+  "records": [
+    {
+      "npc_id": "istran_emberlash",
+      "canonical_name": "Istran Emberlash",
+      "polity": "Psanan",
+      "office_or_role": "Milepost Keeper",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as milepost keeper.",
+      "current_agenda": "Keep Cindermount Descent Chain workable through the obligations of milepost keeper while managing the immediate pressure of eruption risk in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Cindermount Descent Chain is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ]
+}

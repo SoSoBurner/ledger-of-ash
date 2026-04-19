@@ -1,0 +1,28 @@
+{
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scored_dimensions": [
+    "contradiction_honesty",
+    "object_saturation",
+    "regional_parity",
+    "runtime_integration",
+    "naming_normalization",
+    "cross_system_completeness",
+    "provenance_integrity",
+    "play_usability",
+    "release_truthfulness",
+    "validator_claim_alignment"
+  ],
+  "minimum_release_thresholds": [
+    "no unresolved hard contradictions",
+    "no critical object below saturation threshold",
+    "no duplicate canonical IDs",
+    "no region marked complete without minimum locality coverage",
+    "no runtime branch marked usable without validated world deltas",
+    "no illegal stale version tokens in active zones",
+    "no governance path references to nonexistent top-level paths"
+  ],
+  "shipping_rule": "A standalone release may mention source-doc origins, but it must function completely after extraction without external dependency.",
+  "build_version": "V33_1"
+}

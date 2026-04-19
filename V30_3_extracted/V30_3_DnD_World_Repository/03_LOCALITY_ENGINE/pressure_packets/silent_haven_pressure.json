@@ -1,0 +1,12 @@
+{
+  "name": "Silent Haven",
+  "pressure": [
+    "sea threat",
+    "northern route vulnerability"
+  ],
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

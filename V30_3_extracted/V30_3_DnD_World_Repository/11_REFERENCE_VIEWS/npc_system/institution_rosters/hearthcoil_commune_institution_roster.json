@@ -1,0 +1,11 @@
+{
+  "build_version": "V30_3",
+  "institution": "Hearthcoil Commune",
+  "record_count": 4,
+  "npc_ids": [
+    "ilya_snowveil",
+    "meren_rimebridge",
+    "meren_snowveil",
+    "quartermaster_hale_rimevault"
+  ]
+}

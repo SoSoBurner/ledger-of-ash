@@ -1,0 +1,43 @@
+{
+  "name": "Shadowhands",
+  "type": "ORE covert branch faction",
+  "truth_layer": "direct_canon",
+  "summary": "Covert branch of ORE specialized in corruption, contraband, and illicit magic investigations.",
+  "motive": "Neutralize hidden threats before they become public destabilizers.",
+  "methods": [
+    "infiltration",
+    "intelligence gathering",
+    "surgical raids",
+    "suppression field use"
+  ],
+  "geography": [
+    "Roaz urban centers",
+    "trade routes",
+    "criminal interfaces"
+  ],
+  "power_relations": [
+    "Subordinate to ORE command and politically useful to House Roaz"
+  ],
+  "current_pressure": [
+    "operational secrecy",
+    "ethical backlash",
+    "networked contraband resilience"
+  ],
+  "visible_membership_base": "Case officers, infiltrators, informants, raid teams.",
+  "civilian_contact_surface": [
+    "usually indirect: disappearances, quiet arrests, rumor of surveillance"
+  ],
+  "current_tension_or_vulnerability": "The more successful they are, the harder public accountability becomes.",
+  "sources": [
+    "principality_roaz"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "kest_hart"
+  ],
+  "npc_interfaces": [
+    "kest_hart"
+  ]
+}

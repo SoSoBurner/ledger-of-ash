@@ -1,0 +1,13 @@
+{
+  "build_version": "V30_3",
+  "institution": "Duneshade Outpost",
+  "record_count": 6,
+  "npc_ids": [
+    "gorath_steelclad",
+    "helga_ashmason",
+    "kraeda_tidalhart",
+    "oryk_sarnok",
+    "tovek_coalward",
+    "zoreth_kaeling"
+  ]
+}

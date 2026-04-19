@@ -1,0 +1,90 @@
+{
+  "npc_id": "dean_arturon_valegear",
+  "canonical_name": "Dean Arturon Valegear",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Artificers",
+  "profession_discipline": "Artificers",
+  "grouping": "Support & Leadership",
+  "polity": "Mimolot",
+  "settlement": "Faralin",
+  "locality_scope": "Faralin, Mimolot",
+  "institutional_ties": [],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Built the first standardized civic-safe enchantment benches after too many noble workshops exploded.",
+  "linked_systems": {
+    "polities": [
+      "Mimolot"
+    ],
+    "localities": [
+      "Faralin, Mimolot"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Work-worn layers, repair marks, and tools or soot traces show responsibility for systems that fail loudly when neglected.",
+  "manner": "Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Mimolot, that reads as someone scholarly, proprietary, and intellectually guarded, weighing knowledge against access and control, and the habits of a artificers still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of artificers in and around Faralin, Mimolot, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Faralin, Mimolot workable through the obligations of artificers while managing the immediate pressure of institutional scrutiny in Mimolot.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Faralin, Mimolot, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of artificers visibly slip.",
+  "relationship_refs": [
+    "rel_1302",
+    "rel_1303"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Dean Arturon Valegear can draw the party into crew discipline, resource shortage, or blame transfer around Faralin, Mimolot."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Dean Arturon Valegear can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Dean Arturon Valegear needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Faralin, Mimolot."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Dean Arturon Valegear needs help with a problem in Faralin, Mimolot that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Dean Arturon Valegear visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Faralin, Mimolot: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Dean Arturon Valegear presents as Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Mimolot, that reads as someone scholarly, proprietary, and intellectually guarded, weighing knowledge against access and control, and the habits of a artificers still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Artificers, and proof that strangers will not create avoidable noise in Principality of Mimolot.",
+  "what_they_refuse": "Dean Arturon Valegear refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Artificers too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Dean Arturon Valegear can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Dean Arturon Valegear adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Dean Arturon Valegear is Built the first standardized civic-safe enchantment benches after too many noble workshops exploded. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Artificers."
+}

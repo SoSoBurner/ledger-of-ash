@@ -1,0 +1,30 @@
+{
+  "name": "Iron Accord",
+  "type": "Roaz strategic works institution",
+  "truth_layer": "direct_canon",
+  "summary": "The institutional body behind Roaz fortifications, strategic facilities, and controlled antimagic engineering.",
+  "day_to_day": "Plans works, deploys crews, protects designs, and oversees strategic build priorities.",
+  "who_works_there": "Architects, engineers, masons, ward specialists, military logisticians.",
+  "who_uses_it": "Roaz military command, ORE, border installations, civilian works requiring approval.",
+  "authority": "Can requisition materials, secure worksites, and restrict access to sensitive projects.",
+  "public_manifestation": "Fortification crews, closed corridors, guarded plans, and visible strategic construction.",
+  "conflict_or_bottleneck": "Military urgency can starve civilian infrastructure and deepen popular resentment.",
+  "party_actions": [
+    "escort a sensitive shipment",
+    "survey a border site",
+    "recover stolen plans",
+    "inspect a failing bastion"
+  ],
+  "sources": [
+    "principality_roaz"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "rhodra_redhinge"
+  ],
+  "npc_interfaces": [
+    "rhodra_redhinge"
+  ]
+}

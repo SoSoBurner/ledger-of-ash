@@ -1,0 +1,82 @@
+{
+  "npc_id": "factor_jeren_valebloom",
+  "canonical_name": "Factor Jeren Valebloom",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Archive Factor",
+  "profession_discipline": "archive and access steward",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Shelk",
+  "settlement": "Gilded Archives of Lore",
+  "locality_scope": "Gilded Archives of Lore",
+  "institutional_ties": [
+    "Gilded Archives of Lore"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Administrative factor who controls scheduling, patronage handling, and practical access around the Gilded Archives of Lore.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Gilded Archives of Lore"
+    ],
+    "institutions": [
+      "Gilded Archives of Lore"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a archive factor whose work is visible through daily procedure, gatekeeping, and the practical pressures of Gilded Archives of Lore.",
+  "daily_function": "Performs the ongoing duties of archive factor in and around Gilded Archives of Lore, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Gilded Archives of Lore workable through the obligations of archive factor while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of archive factor credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Gilded Archives of Lore.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Factor Jeren Valebloom can draw the party into a practical problem centered on Gilded Archives of Lore."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Factor Jeren Valebloom becomes useful when the party needs access, explanation, or relief tied to the work of a archive factor."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "factor_jeren_valebloom",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Factor Jeren Valebloom is readable as a archive factor tied to Gilded Archives of Lore.",
+  "encounter_context": {
+    "usual_environment": "Gilded Archives of Lore: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "archive factor"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Factor Jeren Valebloom presents as someone shaped by the duties of a archive factor and the daily pressures of Gilded Archives of Lore.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a archive factor, and proof that strangers will not make Gilded Archives of Lore harder to manage.",
+  "what_they_refuse": "Factor Jeren Valebloom refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a archive factor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Factor Jeren Valebloom can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Factor Jeren Valebloom adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Factor Jeren Valebloom always knows more about Gilded Archives of Lore than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to archive factor duties in Gilded Archives of Lore."
+}

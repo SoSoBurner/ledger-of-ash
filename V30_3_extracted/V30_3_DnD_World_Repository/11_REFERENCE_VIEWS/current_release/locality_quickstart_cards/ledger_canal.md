@@ -1,0 +1,21 @@
+# Ledger Canal
+
+**Polity:** The Union
+
+**Arrival:**** Approach through ledger canal makes bargaining feel supervised and public.
+
+**Inside:**** Inside, negotiated order matters more than raw force.
+
+**Economic role:** exchange mediation, licensed contracts
+
+**Law and enforcement feel:** Local expectations are enforced first socially, then institutionally.
+
+**Religious and cultural texture:** practical civic rites
+
+**Active tensions:** broker manipulation, paperwork fatigue
+
+**Named NPC slice:** Use local role placeholders backed by the locality packet.
+
+**Linked routes:** No direct corridor packet resolved; use regional approach context.
+
+**World-bridge block:** Ledger Canal matters because it anchors The Union in the wider world, carries pressure beyond its own streets, and can redirect trade, law, rumor, and campaign movement if destabilized.

@@ -1,0 +1,91 @@
+{
+  "npc_id": "kael_emberthrone",
+  "canonical_name": "Kael Emberthrone",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "martial_actor",
+  "office_or_role": "Unternal machinery and war-tool overseer",
+  "profession_discipline": "Unternal machinery and war-tool overseer",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Sunspire Haven",
+  "locality_scope": "Sunspire Haven",
+  "institutional_ties": [
+    "Sunspire Haven",
+    "Unternal workshop corridors"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as unternal machinery and war-tool overseer.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Sunspire Haven"
+    ],
+    "institutions": [
+      "Sunspire Haven",
+      "Unternal workshop corridors"
+    ],
+    "factions": []
+  },
+  "appearance": "Quota-practical armor, work-hardened layers, and visibly maintained equipment mark function before ceremony.",
+  "manner": "Treats planning, posture, and timing as parts of the same problem rather than separate concerns. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a unternal machinery and war-tool overseer still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of unternal machinery and war-tool overseer in and around Sunspire Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Sunspire Haven workable through the obligations of unternal machinery and war-tool overseer while managing the immediate pressure of predators in Soreheim Alliance.",
+  "hidden_pressure": "Must balance deterrence, morale, and actual capability while others often judge only the visible surface. Around Sunspire Haven, that usually means carrying predators, water system vulnerabilities, storage disputes without letting the role of unternal machinery and war-tool overseer visibly slip.",
+  "relationship_refs": [
+    "rel_1026",
+    "rel_1031",
+    "rel_1032",
+    "rel_1033",
+    "rel_1034"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "battlefield_intelligence",
+      "summary": "Kael Emberthrone will trade useful tactical knowledge if the party solves a security problem too sensitive for ordinary channels."
+    },
+    {
+      "hook_type": "defense_request",
+      "summary": "Kael Emberthrone needs help hardening a position, drilling unreliable auxiliaries, or reading an approaching threat around Sunspire Haven."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "kael_emberthrone",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Weapon discipline, drilled stillness, and practiced readiness mark Kael Emberthrone as someone tied to organized force rather than casual violence. In Sunspire Haven, this lands inside a public field already shaped by regional leaders, market stewards.",
+  "encounter_context": {
+    "usual_environment": "Sunspire Haven: drill yards, fortifications, command posts, or exposed routes",
+    "who_seeks_them_out": [
+      "subordinates",
+      "messengers",
+      "worried local leaders"
+    ],
+    "who_avoids_them": [
+      "the undisciplined",
+      "the unprepared",
+      "rivals probing weakness"
+    ],
+    "interaction_anchor": "defensive planning or force-readiness"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "direct_canon",
+  "first_impression": "Kael Emberthrone presents as Treats planning, posture, and timing as parts of the same problem rather than separate concerns. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a unternal machinery and war-tool overseer still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Unternal machinery and war-tool overseer, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Kael Emberthrone refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Unternal machinery and war-tool overseer too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kael Emberthrone can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kael Emberthrone adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kael Emberthrone is Known locally through day-to-day work as unternal machinery and war-tool overseer. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Unternal machinery and war-tool overseer."
+}

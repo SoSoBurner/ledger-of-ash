@@ -1,0 +1,92 @@
+{
+  "npc_id": "soryn_cindercrest",
+  "canonical_name": "Soryn Cindercrest",
+  "aliases": [
+    "the outrider"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Caravan Outrider",
+  "profession_discipline": "Caravan Outrider",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Scarlet Descent Road",
+  "locality_scope": "Scarlet Descent Road",
+  "institutional_ties": [
+    "Scarlet Descent Road"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as caravan outrider.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Scarlet Descent Road"
+    ],
+    "institutions": [
+      "Scarlet Descent Road"
+    ],
+    "factions": []
+  },
+  "appearance": "Soryn Cindercrest usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their caravan outrider status legible before introductions begin.",
+  "manner": "Reads roads, loads, and people as one shared logistics problem rather than separate categories. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a caravan outrider still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of caravan outrider in and around Scarlet Descent Road, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Scarlet Descent Road workable through the obligations of caravan outrider while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must turn uncertain terrain and changing terms into something people can actually traverse. Around Scarlet Descent Road, that usually means carrying eruption risk, resource access, underworld danger without letting the role of caravan outrider visibly slip.",
+  "relationship_refs": [
+    "rel_0168",
+    "rel_0174",
+    "rel_0179",
+    "rel_0183",
+    "rel_0186",
+    "rel_0188",
+    "rel_0189"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "travel_complication",
+      "summary": "Soryn Cindercrest can pull the party into chokepoints, timing failures, or rival claims over how movement should happen."
+    },
+    {
+      "hook_type": "wayfinding_information",
+      "summary": "Soryn Cindercrest will share route intelligence, hidden timing, or safer alternatives if the party proves useful under travel pressure."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "soryn_cindercrest",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Soryn Cindercrest lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Scarlet Descent Road: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Soryn Cindercrest presents as Reads roads, loads, and people as one shared logistics problem rather than separate categories. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a caravan outrider still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Caravan Outrider, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Soryn Cindercrest refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Caravan Outrider too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Soryn Cindercrest can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Soryn Cindercrest adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Soryn Cindercrest is Known locally through day-to-day work as caravan outrider. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Caravan Outrider."
+}

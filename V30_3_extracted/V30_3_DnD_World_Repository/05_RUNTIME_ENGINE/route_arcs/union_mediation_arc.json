@@ -1,0 +1,6 @@
+{
+  "arc_id": "union_mediation_arc",
+  "build_version": "V30_3",
+  "summary": "union_mediation_arc demonstrates route-linked pressure escalation across multiple stops.",
+  "status": "active_support"
+}

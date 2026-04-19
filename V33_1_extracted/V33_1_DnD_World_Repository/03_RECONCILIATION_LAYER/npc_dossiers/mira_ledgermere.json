@@ -1,0 +1,255 @@
+{
+  "npc_id": "mira_ledgermere",
+  "canonical_name": "Mira Ledgermere",
+  "build_version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "source_truth_status": "conservative_inference",
+  "evidence_tier": "source_backed_inference",
+  "dossier_layering": {
+    "canon_public": "Grounded directly in baseline NPC record plus linked polity/institution/locality support where available.",
+    "gm_hidden": "Conservative connective tissue derived from agenda, pressure, role logic, and relationship web; not promoted above asserted canon."
+  },
+  "core_identity": {
+    "full_name": "Mira Ledgermere",
+    "aliases_titles_epithets": [],
+    "pronouns": "Not explicitly stated in canon.",
+    "apparent_age": "Not explicitly stated in canon.",
+    "actual_age": "Not explicitly stated in canon.",
+    "species_ancestry_nature": "Not explicitly stated in canon.",
+    "public_identity": "Quota Scribe",
+    "hidden_identity": "None explicitly asserted; hidden layer concerns pressure, leverage, and misread motive rather than a confirmed second identity.",
+    "moral_tier": "Principled / Severe",
+    "ethical_profile": "Role-shaped ethics anchored to place, obligation, and consequence rather than free-floating abstraction.",
+    "general_temperament": "Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In The Union, that reads as someone deal-aware, balanced, and procedurally diplomatic, with an eye on leverage and precedent, and the habits of a quota scribe still shape how they handle timing, silence, and attention.",
+    "short_npc_pitch": "Mira Ledgermere is a quota scribe anchored to Guildheart Hub, where daily institutional pressures make them useful, risky, or both in play.",
+    "public_role": "Mira Ledgermere is a quota scribe anchored to Guildheart Hub, where daily institutional pressures make them useful, risk"
+  },
+  "setting_placement": {
+    "region": "The Union",
+    "polity_state_faction": "The Union",
+    "settlement_site_base_of_operations": "Guildheart Hub",
+    "location_setting": "On approach, Guildheart Hub reads as Multi-story counting halls, bonded warehouse blocks, canal-side loading lanes, registry towers, and arbitration pavilions announce that cargo paper, inspection rhythm, and freight infrastructure rule this place Inside, it tends toward Clerks, brokers, arbiters, haulers, and guarded petitioners move through dense administrative floors, storage courts, and hearing chambers where guild insignia matters more than noble heraldry Its standing pressure comes from legacy Mal claims, smuggling, Red Hood rumor presence, imperial oversight.",
+    "public_role": "Quota Scribe",
+    "institutional_ties": [
+      "Guildheart Hub"
+    ],
+    "formal_rank_social_standing": "not_explicitly_stated",
+    "sphere_of_influence": "grassroots",
+    "network_function": [
+      "record or procedural authority"
+    ],
+    "who_they_answer_to": [
+      "the procedural demands of Guildheart Hub"
+    ],
+    "who_answers_to_them": [
+      "Calia Ledgermere, Guilden Ledgermere"
+    ],
+    "who_rivals_them": [],
+    "who_depends_on_them": [
+      "Guilden Ledgermere (Both tied to Guildheart Hub.)",
+      "Halv Ledgermere (Both tied to Guildheart Hub.)"
+    ],
+    "who_they_secretly_depend_on": [
+      "Calia Ledgermere (Shared surname Ledgermere.)",
+      "Guilden Ledgermere (Shared surname Ledgermere.)",
+      "Halv Ledgermere (Shared surname Ledgermere.)",
+      "Jorin Ledgermere (Shared surname Ledgermere.)",
+      "Orin Ledgermere (Shared surname Ledgermere.)",
+      "Porter Ledgermere (Shared surname Ledgermere.)"
+    ]
+  },
+  "public_vs_private": {
+    "public_face": "Known locally through day-to-day work as quota scribe. Seals, ledgers, or carefully bundled papers make record authority the first thing Mira Ledgermere communicates in public.",
+    "common_first_impression": "Mira Ledgermere presents as Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In The Union, that reads as someone deal-aware, balanced, and procedurally diplomatic, with an eye on leverage and precedent, and the habits of a quota scribe still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+    "visible_virtues": [
+      "competence under pressure",
+      "place literacy",
+      "readable usefulness"
+    ],
+    "visible_flaws": [
+      "protective of role",
+      "selective with trust",
+      "can widen small matters through procedure"
+    ],
+    "public_symbols": [
+      "Seals, ledgers, or carefully bundled papers make record authority the first thing Mira Ledgermere communicates in public."
+    ],
+    "private_truth": "Keep Guildheart Hub workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in The Union. Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Guildheart Hub, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quota scribe visibly slip.",
+    "what_they_hide": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Guildheart Hub, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quota scribe visibly slip.",
+    "what_they_fear_being_known_for": "The degree to which their usefulness depends on strain staying barely manageable.",
+    "what_they_are_wrong_about": "They may overestimate how much control role and procedure can preserve once pressure crosses a threshold.",
+    "what_they_refuse_to_admit_to_themselves": "That some of their identity is now fused to crisis-management rather than to the clean ideal of the role."
+  },
+  "psychology": {
+    "what_they_want_most": "Useful clarity, respect for Quota Scribe, and proof that strangers will not create avoidable noise in The Union.",
+    "what_they_are_trying_to_protect_or_avoid": "Keep Guildheart Hub workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in The Union.",
+    "emotional_drive": "Beneath the role sits a need for proof and paperwork, legibility, and a world that does not collapse into preventable noise.",
+    "core_wound": "No singular foundational trauma is directly asserted in canon; the usable wound layer is role-shaped wear, exposure, and the cost of being the person who must notice first or answer last.",
+    "how_it_shaped_them": "It turned ordinary duty into a personality contour: they scan for failure early, trust slowly, and measure strangers by downstream cost.",
+    "guiding_belief": "If the system is kept legible, losses can still be bounded.",
+    "hidden_belief": "Someone always pays for confusion; better it be controlled sooner than wider later.",
+    "lie_they_tell_themselves": "That they are only doing the job and that the job has not already begun shaping what they are.",
+    "truth_they_are_avoiding": "Their daily choices influence culture, fear, and legitimacy far beyond the narrow wording of the role.",
+    "thresholds": {
+      "anger": "being forced to absorb avoidable disorder",
+      "fear": "cascading failure that makes role performance meaningless",
+      "power": "clear information, recognized standing, and procedural initiative",
+      "smallness": "being bypassed, misfiled, or rendered decorative",
+      "softens": "useful honesty and disciplined cooperation",
+      "hardens": "evasiveness, disrespect, and reputational risk"
+    }
+  },
+  "morality_in_practice": {
+    "how_they_justify_actions": "By reference to burden, continuity, and the need to keep the surrounding place from slipping into a harder consequence tier.",
+    "what_they_consider_unforgivable": "Willful sabotage of trust, records, access, or public safety tied to their role.",
+    "what_they_will_absolutely_do": "Delay, question, redirect, document, and escalate when place logic demands it.",
+    "what_they_will_only_do_under_pressure": "Leverage reputation, force, secrecy, or rigid procedure in ways that damage future trust.",
+    "what_they_will_never_do": "Act against corpus-confirmed identity or role logic without a visible pressure bridge.",
+    "relationship_to_good_evil": "Operational read: Principled / Severe. Their danger lies less in theatrical evil than in what happens when role logic outruns compassion, nuance, or proportionality."
+  },
+  "power_profile": {
+    "why_they_matter": "Mira Ledgermere can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+    "why_hard_to_ignore": "By enforcing Quota Scribe too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+    "primary_source_of_power": "archive_officer",
+    "secondary_source_of_power": "local familiarity, institutional memory, and other people needing something from them",
+    "why_difficult_to_confront_directly": "Confronting them usually means confronting place rules, witnesses, and downstream consequences rather than only the individual body in front of you.",
+    "capabilities": {
+      "magic": "Not explicitly stated unless separately asserted elsewhere in corpus.",
+      "combat": "Role-dependent; implied only to the degree their office already carries enforcement, survival, or defensive expectation.",
+      "social": "Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In The Union, that reads as someone deal-aware, balanced, and procedurally diplomatic, with an eye on leverage and precedent, and the habits of a quota scribe still shape how they handle timing, silence, and attention.",
+      "strategic_administrative": "Performs the ongoing duties of quota scribe in and around Guildheart Hub, where the role has practical consequences even when nothing dramatic is happening.",
+      "logistical_economic": "Keep Guildheart Hub workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in The Union.",
+      "investigative_covert": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Guildheart Hub, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quota scribe visibly slip."
+    },
+    "signature_methods": {
+      "how_they_typically_win": "By controlling tempo, framing the problem first, and forcing others to deal with the local reality they represent.",
+      "favorite_tool": "position, knowledge, and place-specific leverage",
+      "how_they_escalate": "If crossed, Mira Ledgermere adds delay, scrutiny, and reputational drag before direct punishment.",
+      "when_cornered": "They narrow options, call on procedure or allies, and try to move the conflict onto terrain they understand better than the intruder."
+    }
+  },
+  "systems_impact": {
+    "direct_controls": [
+      "Guildheart Hub"
+    ],
+    "indirect_effects": [
+      "Guildheart Hub",
+      "The Union"
+    ],
+    "cultural_effect": "Ordinary people around Guildheart Hub learn to speak, wait, disclose, or hide differently depending on whether Mira Ledgermere or people like them are part of the scene."
+  },
+  "society_politics_geopolitics": {
+    "ordinary_people_experience": "Common folk experience Mira Ledgermere as a point where broader pressures become personal: papers checked, routes delayed, rites clarified, access granted, warnings issued, or burdens redirected.",
+    "cultural_wound_or_benefit": "They leave behind either increased legibility and trust or accumulated caution and narrowed speech.",
+    "secondary_behaviors": "People rehearse their story before approaching; they gather proof early; they watch who is seen speaking with this NPC.",
+    "factions_gain": [
+      "Guildheart Hub"
+    ],
+    "factions_fear": [
+      "actors who benefit from vagueness, delay, leakage, or unmanaged pressure"
+    ],
+    "governance_shift": "At table scale, this NPC shifts how authority feels inside Guildheart Hub: more navigable if cooperative, more costly if crossed.",
+    "geopolitical_effect": "Small incidents around Mira Ledgermere can propagate upward through The Union if they touch routes, records, trade, ritual legitimacy, or public order."
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0234",
+      "other_npc_id": "calia_ledgermere",
+      "other_name": "Calia Ledgermere",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ledgermere."
+    },
+    {
+      "relationship_id": "rel_0243",
+      "other_npc_id": "guilden_ledgermere",
+      "other_name": "Guilden Ledgermere",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ledgermere."
+    },
+    {
+      "relationship_id": "rel_1120",
+      "other_npc_id": "guilden_ledgermere",
+      "other_name": "Guilden Ledgermere",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Guildheart Hub."
+    },
+    {
+      "relationship_id": "rel_0216",
+      "other_npc_id": "halv_ledgermere",
+      "other_name": "Halv Ledgermere",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ledgermere."
+    },
+    {
+      "relationship_id": "rel_1123",
+      "other_npc_id": "halv_ledgermere",
+      "other_name": "Halv Ledgermere",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Guildheart Hub."
+    },
+    {
+      "relationship_id": "rel_0199",
+      "other_npc_id": "jorin_ledgermere",
+      "other_name": "Jorin Ledgermere",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ledgermere."
+    },
+    {
+      "relationship_id": "rel_0245",
+      "other_npc_id": "orin_ledgermere",
+      "other_name": "Orin Ledgermere",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ledgermere."
+    },
+    {
+      "relationship_id": "rel_0229",
+      "other_npc_id": "porter_ledgermere",
+      "other_name": "Porter Ledgermere",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ledgermere."
+    }
+  ],
+  "hooks": [
+    {
+      "hook_type": "document_pressure",
+      "summary": "Mira Ledgermere can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Mira Ledgermere can trade precise, actionable information once the party secures or clarifies the record they protect."
+    }
+  ],
+  "encounter_context": {
+    "usual_environment": "Guildheart Hub: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quota Scribe.",
+  "rumor": "People say Mira Ledgermere is Known locally through day-to-day work as quota scribe. and rarely acts without a second motive.",
+  "provenance": {
+    "source_object_ids": [
+      "principalities"
+    ],
+    "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+    "transformation_note": "Dossier generated from existing named NPC architecture plus locally-linked support texts; unsupported hard biography intentionally withheld.",
+    "derivation_label": "source_backed_conservative_inference",
+    "derivation_tier": "repository_synthesis"
+  }
+}

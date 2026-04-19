@@ -1,0 +1,6 @@
+{
+  "arc_id": "cosmouth_supply_arc",
+  "build_version": "V33_1",
+  "summary": "cosmouth_supply_arc demonstrates route-linked pressure escalation across multiple stops.",
+  "status": "active_support"
+}

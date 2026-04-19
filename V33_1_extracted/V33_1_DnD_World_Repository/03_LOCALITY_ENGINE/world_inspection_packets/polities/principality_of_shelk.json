@@ -1,0 +1,511 @@
+{
+  "packet_type": "world_inspection_packet",
+  "scope": "polity",
+  "name": "Principality of Shelk",
+  "slug": "principality_of_shelk",
+  "parent_polity": "Principality of Shelk",
+  "place_type": "polity",
+  "truth_layer": "direct_canon",
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "Principality of Shelk"
+  },
+  "about_place": {
+    "where_is_this_place_exactly": {
+      "answer": "eastern reaches of The Principalities with Shelkopolis as its urban anchor and route links through Fairhaven, Plume’s End, and northern frontier corridors",
+      "status": "conservative_inference"
+    },
+    "what_does_this_place_look_like": {
+      "answer": "flower-lined roads, pale stone civic works, elegant estates, shrine-rich urban spaces, and bright-plumed Roadwarden presence",
+      "status": "direct_canon"
+    },
+    "what_is_this_area_known_for": {
+      "answer": "fashion, road policing, artistic refinement, and House Shelk soft-power governance",
+      "status": "conservative_inference"
+    },
+    "how_old_is_this_place": {
+      "answer": "The current corpus does not give an exact founding date for this polity; it should be treated as historically established but not date-fixed.",
+      "status": "unresolved"
+    },
+    "who_built_it": {
+      "answer": "The safest current reading is that Principality of Shelk emerged through house, communal, or institutional development over time; the corpus does not assign a single fully explicit founder.",
+      "status": "conservative_inference"
+    },
+    "who_lives_here_now": {
+      "answer": "elves dominate, with half-elves, humans, gnomes, and firbolgs also strongly supported",
+      "status": "conservative_inference"
+    },
+    "current_condition": {
+      "answer": "active in the current age",
+      "status": "conservative_inference"
+    },
+    "common_architecture": {
+      "answer": "flower-lined roads, pale stone civic works, elegant estates, shrine-rich urban spaces, and bright-plumed Roadwarden presence",
+      "status": "conservative_inference"
+    },
+    "common_build_materials": {
+      "answer": "ceremonial garments, textiles, design work, artisan goods, route services, and alchemical or enchanted trade",
+      "status": "conservative_inference"
+    },
+    "climate": {
+      "answer": "At polity scale the climate varies across its territory unless a single climatic identity is explicitly dominant.",
+      "status": "unresolved"
+    },
+    "surrounding_land": {
+      "answer": "eastern reaches of The Principalities with Shelkopolis as its urban anchor and route links through Fairhaven, Plume’s End, and northern frontier corridors",
+      "status": "conservative_inference"
+    },
+    "important_natural_resources": {
+      "answer": "fashion exports, enchanted tailoring, road security, markets, and linked supply from other principalities",
+      "status": "conservative_inference"
+    },
+    "common_dangers": {
+      "answer": "route breakdown, corruption spread, noble embarrassment, and covert influence slipping public control",
+      "status": "conservative_inference"
+    },
+    "known_landmarks": {
+      "answer": "Shelkopolis-Fairhaven road, Plume’s End northern road, and links toward neighboring principalities and frontier zones",
+      "status": "conservative_inference"
+    },
+    "nearby_places_that_matter": {
+      "answer": "Shelkopolis-Fairhaven road, Plume’s End northern road, and links toward neighboring principalities and frontier zones",
+      "status": "conservative_inference"
+    },
+    "regional_role": {
+      "answer": "working polity within the wider world",
+      "status": "conservative_inference"
+    }
+  },
+  "about_people": {
+    "who_are_the_people_here": {
+      "answer": "elves dominate, with half-elves, humans, gnomes, and firbolgs also strongly supported",
+      "status": "conservative_inference"
+    },
+    "what_cultures_are_present": {
+      "answer": "House Shelk court culture, artisan culture, Roadwarden civic order, and elven-influenced devotional life",
+      "status": "conservative_inference"
+    },
+    "what_languages_are_commonly_spoken": {
+      "answer": "The current corpus does not exhaustively enumerate everyday spoken languages at this polity scale.",
+      "status": "unresolved"
+    },
+    "what_do_people_wear_here": {
+      "answer": "refined, status-conscious, and fashion-forward; clothing operates as civic language as much as ornament",
+      "status": "conservative_inference"
+    },
+    "what_do_people_eat_here": {
+      "answer": "market fare, tea, cultivated produce, and polished urban meals",
+      "status": "conservative_inference"
+    },
+    "how_do_people_make_a_living": {
+      "answer": "tailoring, trade, policing, scholarship, shrine service, hospitality, and route work",
+      "status": "conservative_inference"
+    },
+    "what_social_classes_exist": {
+      "answer": "nobles or leadership strata, institutional officers, specialists, laborers, and dependent populations are the safest polity-scale reading.",
+      "status": "conservative_inference"
+    },
+    "who_has_power_here": {
+      "answer": "House Shelk, Lady Isabella Shelk, Lord Darius Shelk, the Roadwardens Order, and the Fashion Artisans Collective",
+      "status": "conservative_inference"
+    },
+    "who_is_respected_here": {
+      "answer": "master artisans, disciplined Roadwardens, poised nobles, and capable clergy or archivists",
+      "status": "conservative_inference"
+    },
+    "who_is_feared_here": {
+      "answer": "covert intelligence actors, magistrates in serious matters, and authorities exposing espionage or design theft",
+      "status": "conservative_inference"
+    },
+    "who_is_considered_an_outsider": {
+      "answer": "those mocking local decorum, obvious smugglers, careless magic users, or anyone treating refinement as weakness",
+      "status": "conservative_inference"
+    },
+    "how_are_strangers_treated": {
+      "answer": "noticed quickly and judged by decorum, papers, skill, and whether they can move within visible civic order",
+      "status": "conservative_inference"
+    },
+    "important_customs_or_manners": {
+      "answer": "harmony, finish, competence, reliable trade, and beauty joined to function",
+      "status": "conservative_inference"
+    },
+    "rude_honorable_shameful_or_dangerous_behavior": {
+      "answer": "Common values here are harmony, finish, competence, reliable trade, and beauty joined to function. Outsider mistakes or suspicious acts include those mocking local decorum, obvious smugglers, careless magic users, or anyone treating refinement as weakness.",
+      "status": "conservative_inference"
+    },
+    "common_values": {
+      "answer": "harmony, finish, competence, reliable trade, and beauty joined to function",
+      "status": "conservative_inference"
+    },
+    "tensions_between_groups": {
+      "answer": "public harmony versus covert rivalry, route security versus openness, refinement versus necessity",
+      "status": "conservative_inference"
+    }
+  },
+  "government_and_power": {
+    "who_rules_this_place": {
+      "answer": "House Shelk, Lady Isabella Shelk, Lord Darius Shelk, the Roadwardens Order, and the Fashion Artisans Collective",
+      "status": "conservative_inference"
+    },
+    "how_is_it_governed": {
+      "answer": "house rule integrated with Roadwarden enforcement, civic halls, merchant coordination, and inter-principality diplomacy",
+      "status": "conservative_inference"
+    },
+    "is_the_ruler_loved_feared_weak_corrupt_absent_or_respected": {
+      "answer": "respected and influential rather than weak, though never free of covert challenge",
+      "status": "conservative_inference"
+    },
+    "how_stable_is_the_government": {
+      "answer": "generally stable in core centers with persistent low-grade espionage, corruption, and route pressure",
+      "status": "conservative_inference"
+    },
+    "who_holds_power_behind_the_scenes": {
+      "answer": "Lady Rosalind Shelk and covert intelligence networks are the strongest behind-the-scenes pressure surface",
+      "status": "conservative_inference"
+    },
+    "are_there_rival_factions": {
+      "answer": "House Shelk, Roadwardens Order, Fashion Artisans Collective, allied houses, and covert rivals",
+      "status": "conservative_inference"
+    },
+    "influential_houses_councils_guilds_churches_or_militias": {
+      "answer": "House Shelk, Roadwardens Order, Fashion Artisans Collective, allied houses, and covert rivals",
+      "status": "conservative_inference"
+    },
+    "what_laws_matter_most": {
+      "answer": "fashion codes, road order, cultural protections, trespass law in noble domains, religious respect, and intellectual property protections",
+      "status": "conservative_inference"
+    },
+    "what_crimes_are_taken_especially_seriously": {
+      "answer": "espionage, design theft, major sabotage, serious magic misuse, blasphemy, and attacks on road order",
+      "status": "conservative_inference"
+    },
+    "how_is_justice_handled": {
+      "answer": "magistrates, Roadwardens, civic halls, and house-linked legal authority operating under Principle Code enforcement",
+      "status": "conservative_inference"
+    },
+    "control_level": {
+      "answer": "structured and visible rather than militarily suffocating",
+      "status": "conservative_inference"
+    },
+    "active_rebellions_movements_or_succession_struggles": {
+      "answer": "no open rebellion dominates the corpus, but smugglers, covert guild actors, and noble maneuvering create constant motion",
+      "status": "conservative_inference"
+    }
+  },
+  "history": {
+    "what_happened_here_in_the_past": {
+      "answer": "older house traditions, imperial positioning, and long-standing elven influence shape identity; exact founding dates remain unknown_by_canon",
+      "status": "conservative_inference"
+    },
+    "major_events_that_shaped_this_place": {
+      "answer": "Doomsday-era scars, route politics, and continuing glyph corruption around frontier and cave zones shape the current era",
+      "status": "conservative_inference"
+    },
+    "remembered_wars_disasters_miracles_betrayals_or_discoveries": {
+      "answer": "Doomsday-era scars, route politics, and continuing glyph corruption around frontier and cave zones shape the current era",
+      "status": "conservative_inference"
+    },
+    "ruins_or_remnants_of_the_past": {
+      "answer": "Stargazing Ruins, glyph sites near Meadow of Lyra, and cave-linked monoliths matter most",
+      "status": "conservative_inference"
+    },
+    "old_powers_that_once_ruled_here": {
+      "answer": "older elven and imperial layers are implied, but exact pre-House succession remains unresolved",
+      "status": "unresolved"
+    },
+    "what_everyone_knows_about_local_history": {
+      "answer": "locals know Shelk as a principality of fashion, road discipline, and collaborative house politics",
+      "status": "conservative_inference"
+    },
+    "what_history_is_disputed_hidden_or_rewritten": {
+      "answer": "deeper truths beneath glyph sites and covert political infrastructure remain only partially surfaced",
+      "status": "conservative_inference"
+    },
+    "historical_enemies_or_old_alliances": {
+      "answer": "Roaz, Zootia, and Cosmouth are practical allies, while rivals are usually intra-principal and covert rather than openly sovereign enemies",
+      "status": "conservative_inference"
+    },
+    "legends_tied_to_this_place": {
+      "answer": "aurora-linked places, Meadow of Lyra, glyph monoliths, visions, and hidden shrine traditions",
+      "status": "conservative_inference"
+    },
+    "tragedies_or_victories_defining_identity": {
+      "answer": "its local victory is maintaining trade, refinement, and civic beauty while never escaping pressure",
+      "status": "conservative_inference"
+    }
+  },
+  "religion_and_belief": {
+    "what_do_people_worship_here": {
+      "answer": "Cysur, Cyfoes, Felujitas, and Felelem are all visibly present in public life",
+      "status": "conservative_inference"
+    },
+    "which_gods_spirits_ancestors_or_cosmic_forces_matter_most": {
+      "answer": "Cysur, Cyfoes, Felujitas, and Felelem are all visibly present in public life",
+      "status": "conservative_inference"
+    },
+    "how_important_is_religion_in_daily_life": {
+      "answer": "real but shared with house and civic authority rather than singularly dominant",
+      "status": "conservative_inference"
+    },
+    "temples_shrines_sacred_sites_or_pilgrimages": {
+      "answer": "woven offerings, shrine observances, seasonal gatherings, reflection, renewal, and fear-management rites",
+      "status": "conservative_inference"
+    },
+    "holidays_or_rituals_observed": {
+      "answer": "woven offerings, shrine observances, seasonal gatherings, reflection, renewal, and fear-management rites",
+      "status": "conservative_inference"
+    },
+    "forbidden_or_outlawed_beliefs": {
+      "answer": "the corpus specifies punishable blasphemy and ritual disrespect more clearly than a full outlawed-faith list",
+      "status": "conservative_inference"
+    },
+    "do_religious_authorities_have_political_power": {
+      "answer": "real but shared with house and civic authority rather than singularly dominant",
+      "status": "conservative_inference"
+    },
+    "are_miracles_normal_rare_feared_or_doubted": {
+      "answer": "possible and meaningful rather than ordinary",
+      "status": "conservative_inference"
+    },
+    "common_superstitions": {
+      "answer": "omens, glyph anxiety, shrine etiquette, and fear of disrespecting public-symbolic dress or ritual space",
+      "status": "conservative_inference"
+    },
+    "omens_taboos_blessings_or_curses": {
+      "answer": "omens, glyph anxiety, shrine etiquette, and fear of disrespecting public-symbolic dress or ritual space",
+      "status": "conservative_inference"
+    }
+  },
+  "magic_and_unknown": {
+    "how_common_is_magic_here": {
+      "answer": "present but regulated; enchantment and glyph anxieties matter more than free public casting",
+      "status": "conservative_inference"
+    },
+    "who_is_allowed_to_use_it": {
+      "answer": "authorized artisans, sanctioned practitioners, and tightly tolerated ceremonial or practical uses",
+      "status": "conservative_inference"
+    },
+    "who_fears_it": {
+      "answer": "unsanctioned users, careless casters, and anyone drawing corruption into public institutions",
+      "status": "conservative_inference"
+    },
+    "who_regulates_it": {
+      "answer": "Principle Code enforcement and Roaz-shaped legality define outer limits",
+      "status": "conservative_inference"
+    },
+    "is_magic_respected_outlawed_commercialized_secretive_or_sacred": {
+      "answer": "present but regulated; enchantment and glyph anxieties matter more than free public casting. Regulation posture: Principle Code enforcement and Roaz-shaped legality define outer limits",
+      "status": "conservative_inference"
+    },
+    "known_supernatural_events": {
+      "answer": "glyph corruption, celestial disturbances, vision-prone sites, and corrupted creatures in fringe zones",
+      "status": "conservative_inference"
+    },
+    "local_monsters_spirits_hauntings_or_anomalies": {
+      "answer": "glyph corruption, celestial disturbances, vision-prone sites, and corrupted creatures in fringe zones",
+      "status": "conservative_inference"
+    },
+    "what_is_considered_unnatural": {
+      "answer": "magic that disregards law, desecrates sacred-cultural space, or spreads corruption",
+      "status": "conservative_inference"
+    },
+    "ancient_powers_or_mysterious_forces": {
+      "answer": "the full depth of glyph corruption, ruin function, and hidden intelligence structures",
+      "status": "conservative_inference"
+    },
+    "places_people_avoid_for_supernatural_reasons": {
+      "answer": "glyph corruption, celestial disturbances, vision-prone sites, and corrupted creatures in fringe zones",
+      "status": "conservative_inference"
+    },
+    "what_parts_remain_unexplained": {
+      "answer": "the full depth of glyph corruption, ruin function, and hidden intelligence structures",
+      "status": "conservative_inference"
+    }
+  },
+  "economy_and_daily_life": {
+    "what_drives_the_local_economy": {
+      "answer": "fashion exports, enchanted tailoring, road security, markets, and linked supply from other principalities",
+      "status": "conservative_inference"
+    },
+    "what_goods_is_this_place_known_for": {
+      "answer": "ceremonial garments, textiles, design work, artisan goods, route services, and alchemical or enchanted trade",
+      "status": "conservative_inference"
+    },
+    "what_does_it_import_or_depend_on": {
+      "answer": "raw materials, some ores, agricultural volume, and inter-principality supplies",
+      "status": "conservative_inference"
+    },
+    "is_it_wealthy_or_struggling": {
+      "answer": "wealthy in culture and trade, though unevenly distributed through noble and guild structures",
+      "status": "conservative_inference"
+    },
+    "who_benefits_from_local_trade": {
+      "answer": "House Shelk, high artisans, merchants, and route-linked authorities",
+      "status": "conservative_inference"
+    },
+    "who_suffers_under_the_current_system": {
+      "answer": "lower wards, laborers under pressure, and anyone caught between covert conflict and public order",
+      "status": "conservative_inference"
+    },
+    "what_is_ordinary_life_like": {
+      "answer": "workshops, markets, route checks, shrine visits, negotiations, and status-reading define ordinary days",
+      "status": "conservative_inference"
+    },
+    "what_does_a_normal_day_look_like": {
+      "answer": "workshops, markets, route checks, shrine visits, negotiations, and status-reading define ordinary days",
+      "status": "conservative_inference"
+    },
+    "common_professions": {
+      "answer": "tailoring, trade, policing, scholarship, shrine service, hospitality, and route work",
+      "status": "conservative_inference"
+    },
+    "rare_luxuries": {
+      "answer": "Luxury exists, but exact polity-wide luxury lists are not exhaustively enumerated in the current corpus.",
+      "status": "unresolved"
+    },
+    "shortages_or_needs": {
+      "answer": "route breakdown, corruption spread, noble embarrassment, and covert influence slipping public control",
+      "status": "conservative_inference"
+    },
+    "travel_trade_communication_and_survival": {
+      "answer": "roads, guarded trade lanes, civic checkpoints, couriers, and merchant movement",
+      "status": "conservative_inference"
+    }
+  },
+  "conflict_and_instability": {
+    "what_conflicts_are_happening_now": {
+      "answer": "smuggling, espionage, design theft, glyph threats, and political friction",
+      "status": "conservative_inference"
+    },
+    "who_is_fighting_whom": {
+      "answer": "smuggling, espionage, design theft, glyph threats, and political friction",
+      "status": "conservative_inference"
+    },
+    "longstanding_grudges_or_rivalries": {
+      "answer": "public harmony versus covert rivalry, route security versus openness, refinement versus necessity",
+      "status": "conservative_inference"
+    },
+    "what_threats_worry_people_most": {
+      "answer": "route breakdown, corruption spread, noble embarrassment, and covert influence slipping public control",
+      "status": "conservative_inference"
+    },
+    "what_fears_keep_people_obedient_divided_or_armed": {
+      "answer": "route breakdown, corruption spread, noble embarrassment, and covert influence slipping public control",
+      "status": "conservative_inference"
+    },
+    "raids_invasions_banditry_monsters_famine_plague_unrest_or_crackdowns": {
+      "answer": "smuggling, espionage, design theft, glyph threats, and political friction",
+      "status": "conservative_inference"
+    },
+    "what_is_likely_to_get_worse_soon": {
+      "answer": "fringe corruption and sabotage are the likeliest near-term escalators",
+      "status": "conservative_inference"
+    },
+    "what_could_destabilize_it_further": {
+      "answer": "fringe corruption and sabotage are the likeliest near-term escalators",
+      "status": "conservative_inference"
+    },
+    "who_stands_to_gain_from_chaos": {
+      "answer": "smugglers, rival houses, covert guild actors, and anyone profiting from disrupted oversight",
+      "status": "conservative_inference"
+    }
+  },
+  "identity_and_reputation": {
+    "what_is_this_place_famous_for": {
+      "answer": "fashion, civic elegance, and the Roadwardens",
+      "status": "conservative_inference"
+    },
+    "what_is_it_infamous_for": {
+      "answer": "strict decorum and covert rivalry behind polished surfaces",
+      "status": "conservative_inference"
+    },
+    "how_outsiders_see_this_place": {
+      "answer": "beautiful, disciplined, politically subtle, and difficult to bluff",
+      "status": "conservative_inference"
+    },
+    "how_locals_see_themselves": {
+      "answer": "refined, capable, and responsible for keeping civilization both beautiful and functional",
+      "status": "conservative_inference"
+    },
+    "common_stereotypes": {
+      "answer": "beautiful, disciplined, politically subtle, and difficult to bluff",
+      "status": "conservative_inference"
+    },
+    "symbols_banners_songs_sayings_or_stories": {
+      "answer": "bright plumes, woven offerings, noble crests, floral motifs, and indigo-emerald civic colors",
+      "status": "conservative_inference"
+    },
+    "what_makes_it_culturally_distinct": {
+      "answer": "fashion operates as law, politics, status display, and cultural memory simultaneously",
+      "status": "conservative_inference"
+    },
+    "what_someone_immediately_notices": {
+      "answer": "flower-lined roads, pale stone civic works, elegant estates, shrine-rich urban spaces, and bright-plumed Roadwarden presence",
+      "status": "direct_canon"
+    }
+  },
+  "wider_world_relationships": {
+    "allies_and_enemies": {
+      "answer": "Roaz, Zootia, and Cosmouth are practical allies, while rivals are usually intra-principal and covert rather than openly sovereign enemies",
+      "status": "conservative_inference"
+    },
+    "neighboring_powers_that_matter": {
+      "answer": "Roaz, Zootia, and Cosmouth are practical allies, while rivals are usually intra-principal and covert rather than openly sovereign enemies",
+      "status": "conservative_inference"
+    },
+    "isolation_or_connection": {
+      "answer": "connected through the wider world system",
+      "status": "conservative_inference"
+    },
+    "trade_routes_roads_ports_or_passes": {
+      "answer": "Shelkopolis-Fairhaven road, Plume’s End northern road, and links toward neighboring principalities and frontier zones",
+      "status": "conservative_inference"
+    },
+    "larger_empires_kingdoms_religions_or_movements_affecting_it": {
+      "answer": "an active part of the broader Material Planet political and cultural mosaic",
+      "status": "conservative_inference"
+    },
+    "outside_threats_influencing_local_decisions": {
+      "answer": "neighbor pressure, trade disruption, and cosmological instability",
+      "status": "conservative_inference"
+    },
+    "how_it_fits_the_broader_world": {
+      "answer": "an active part of the broader Material Planet political and cultural mosaic",
+      "status": "conservative_inference"
+    }
+  },
+  "secrets_and_deeper_truths": {
+    "what_is_not_said_openly_here": {
+      "answer": "the gap between public harmony and covert intelligence work is the strongest supported hidden layer",
+      "status": "conservative_inference"
+    },
+    "what_locals_avoid_talking_about": {
+      "answer": "the gap between public harmony and covert intelligence work is the strongest supported hidden layer",
+      "status": "conservative_inference"
+    },
+    "what_secrets_lie_under_the_surface": {
+      "answer": "the gap between public harmony and covert intelligence work is the strongest supported hidden layer",
+      "status": "conservative_inference"
+    },
+    "official_story_vs_reality_contradictions": {
+      "answer": "the gap between public harmony and covert intelligence work is the strongest supported hidden layer",
+      "status": "conservative_inference"
+    },
+    "ancient_or_hidden_truth_explaining_current_events": {
+      "answer": "the full depth of glyph corruption, ruin function, and hidden intelligence structures",
+      "status": "conservative_inference"
+    },
+    "what_everyone_lives_with_but_pretends_not_to_see": {
+      "answer": "the gap between public harmony and covert intelligence work is the strongest supported hidden layer",
+      "status": "conservative_inference"
+    },
+    "invisible_power_structures": {
+      "answer": "Lady Rosalind Shelk and covert intelligence networks are the strongest behind-the-scenes pressure surface",
+      "status": "conservative_inference"
+    },
+    "buried_history_influencing_the_present": {
+      "answer": "deeper truths beneath glyph sites and covert political infrastructure remain only partially surfaced",
+      "status": "conservative_inference"
+    }
+  }
+}

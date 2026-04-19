@@ -1,0 +1,107 @@
+{
+  "name": "Lantern Docket",
+  "type": "major locality",
+  "parent_polity": "House Shirsh",
+  "truth_layer": "source_backed_inference",
+  "identity": "Administrative-magical intake district where strange incidents are converted into casework.",
+  "approach": "Visitors notice intake doors, waiting benches, and the unnatural calm of a place built to absorb panic.",
+  "inside": "Inside, officials sort crisis into sequence, priority, and jurisdiction.",
+  "who_belongs": [
+    "residents and specialists aligned with House Shirsh"
+  ],
+  "who_is_out_of_place": [
+    "loud opportunists",
+    "undeclared inspectors",
+    "outsiders who treat the locality as generic"
+  ],
+  "expected_behavior": [
+    "answer directly",
+    "respect case order"
+  ],
+  "visible_power": [
+    "Magi Magistratus",
+    "docket clerks"
+  ],
+  "economy": [
+    "filing work",
+    "investigative retainer trade",
+    "specialist services"
+  ],
+  "faith": [
+    "secondary to investigation"
+  ],
+  "seasonal_change": "Traffic and tolerance shift with weather, trade, and ritual load.",
+  "pressure": [
+    "backlog pressure",
+    "misclassification"
+  ],
+  "npc_interfaces": [
+    "authority",
+    "commerce",
+    "faith or culture",
+    "fixer",
+    "wildcard"
+  ],
+  "law_context": "Local expectations are enforced first socially, then institutionally.",
+  "sources": [
+    "V33_1 parity completion synthesis from active polity summary and locality pattern matching."
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "House Shirsh",
+    "locality": "Lantern Docket"
+  },
+  "canonical_identity": "playability-support expansion preserving source-facing truth labels",
+  "scene_openers": [
+    "Lantern Docket announces itself through the visible logic of filing work.",
+    "Within minutes, outsiders learn what House Shirsh considers normal here."
+  ],
+  "social_misstep_examples": [
+    "cutting ritual, queue, or archive order",
+    "treating specialist labor as common labor"
+  ],
+  "low_grade_conflict_triggers": [
+    "misfiled paperwork",
+    "status assumptions",
+    "a price or tithe dispute"
+  ],
+  "institutional_escalation_path": [
+    "local correction",
+    "official inquiry",
+    "faction attention"
+  ],
+  "outsider_advantage": "Fresh eyes can spot hidden strain before local actors admit it.",
+  "outsider_liability": "A wrong assumption is remembered faster than a polite success.",
+  "public_complication_table": [
+    "delayed clearance",
+    "misread title",
+    "public argument",
+    "queue disruption",
+    "rumor flare",
+    "small debt surfaces"
+  ],
+  "private_pressure_table": [
+    "overworked clerk",
+    "strained patron",
+    "quiet shortage",
+    "watched intermediary",
+    "ritual backlog",
+    "hidden debt"
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "formal and procedural",
+    "midday": "busy and impatient",
+    "night": "quieter, more suspicious, more dependent on personal trust"
+  },
+  "recent_local_change_signal": "Locals insist nothing important has changed while adjusting to a new pressure pattern.",
+  "named_npc_refs": [
+    "nyrix_coilspire",
+    "selven_coilspire",
+    "caira_coilspire",
+    "veyl_coilspire",
+    "oris_coilspire"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

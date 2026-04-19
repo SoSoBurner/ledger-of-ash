@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Mystical Flora Grove",
+  "record_count": 1,
+  "npc_ids": [
+    "mira_hart"
+  ],
+  "records": [
+    {
+      "npc_id": "mira_hart",
+      "canonical_name": "Mira Hart",
+      "polity": "Transpolity",
+      "office_or_role": "Trail Hermit",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as trail hermit.",
+      "current_agenda": "Keep Mystical Flora Grove workable through the obligations of trail hermit while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Hidden cave grove of glowing celestial flora used in potions and enchantment.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "locations_catalog"
+  ]
+}

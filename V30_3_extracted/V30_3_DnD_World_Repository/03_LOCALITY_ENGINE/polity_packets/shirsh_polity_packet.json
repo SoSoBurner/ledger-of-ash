@@ -1,0 +1,17 @@
+{
+  "name": "Shirsh",
+  "object_type": "runtime_polity_demography_packet",
+  "build_version": "V30_3",
+  "derived_from": "02_CANON_BASELINE/demography/shirsh_demography.json",
+  "dominant_populations": [
+    "Half-Elves"
+  ],
+  "secondary_populations": [
+    "Elves",
+    "Humans",
+    "Gnomes"
+  ],
+  "street_level_visibility": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture.",
+  "visitor_signal": "Visitors to Shirsh should perceive the dominant populations first and the secondary populations as stable but not polity-defining unless narrower locality canon states otherwise.",
+  "runtime_rule": "Runtime narration may elaborate visible population mix but may not contradict canonical roster or exclusions."
+}

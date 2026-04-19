@@ -1,0 +1,21 @@
+{
+  "name": "Banner Anchorage",
+  "type": "settlement",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "source_backed_inference",
+  "summary": "Shared anchorage where house prestige, shipping, and negotiated access intersect.",
+  "sources": [
+    "V30_3 confederation completion synthesis."
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [
+    "authority",
+    "commerce",
+    "faith or culture",
+    "fixer",
+    "wildcard"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_CONFEDERATION_COMPLETION"
+}

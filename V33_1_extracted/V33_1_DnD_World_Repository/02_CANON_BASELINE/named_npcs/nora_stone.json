@@ -1,0 +1,97 @@
+{
+  "npc_id": "nora_stone",
+  "canonical_name": "Nora Stone",
+  "aliases": [
+    "the scribe"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Quota Scribe",
+  "profession_discipline": "Quota Scribe",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Red Hood Guild",
+  "locality_scope": "Red Hood Guild",
+  "institutional_ties": [
+    "Red Hood Guild"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quota scribe.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Red Hood Guild"
+    ],
+    "institutions": [
+      "Red Hood Guild"
+    ],
+    "factions": []
+  },
+  "appearance": "Nora Stone usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their quota scribe status legible before introductions begin.",
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quota scribe still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quota scribe in and around Red Hood Guild, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Red Hood Guild workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep records, witness, or account integrity credible while people try to hurry, blur, or weaponize the paper trail. Around Red Hood Guild, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quota scribe visibly slip.",
+  "relationship_refs": [
+    "rel_0599",
+    "rel_0608",
+    "rel_0616",
+    "rel_0623",
+    "rel_0629",
+    "rel_0634",
+    "rel_0638",
+    "rel_0642",
+    "rel_0643",
+    "rel_0644",
+    "rel_1224",
+    "rel_1225"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "record_dispute",
+      "summary": "Nora Stone needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Red Hood Guild."
+    },
+    {
+      "hook_type": "document_pressure",
+      "summary": "Nora Stone can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "principalities"
+  ],
+  "compatibility_interface_id": "nora_stone",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Nora Stone communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Red Hood Guild: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Nora Stone presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quota scribe still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Quota Scribe, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Nora Stone refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Quota Scribe too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Nora Stone can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Nora Stone adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Nora Stone is Known locally through day-to-day work as quota scribe. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quota Scribe."
+}

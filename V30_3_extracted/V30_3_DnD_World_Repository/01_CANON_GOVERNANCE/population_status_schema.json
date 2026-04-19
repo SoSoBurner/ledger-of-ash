@@ -1,0 +1,22 @@
+{
+  "version": "V30_3",
+  "name": "population_status_schema",
+  "required_fields": [
+    "nation_level_enumeration_status",
+    "explicit_population_roster",
+    "bounded_population_signals",
+    "notes",
+    "truth_layer"
+  ],
+  "nation_level_enumeration_status_allowed_values": [
+    "explicit",
+    "partial_signal_only",
+    "not_explicitly_enumerated"
+  ],
+  "rules": [
+    "Do not invent nation-level race rosters where the corpus does not explicitly enumerate them.",
+    "Use bounded_population_signals to capture supported demographic or social signals that fall short of a full nation-level roster.",
+    "A blank explicit_population_roster is valid when nation-level enumeration is partial_signal_only or not_explicitly_enumerated.",
+    "Locality-level or sub-polity demographic signals must not be silently promoted into umbrella-polity fact."
+  ]
+}

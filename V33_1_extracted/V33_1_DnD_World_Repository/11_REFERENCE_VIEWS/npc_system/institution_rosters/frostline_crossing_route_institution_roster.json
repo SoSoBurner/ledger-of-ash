@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Frostline Crossing Route",
+  "record_count": 1,
+  "npc_ids": [
+    "meren_frostglass"
+  ],
+  "records": [
+    {
+      "npc_id": "meren_frostglass",
+      "canonical_name": "Meren Frostglass",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Caravan Outrider",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as caravan outrider.",
+      "current_agenda": "Keep Frostline Crossing Route workable through the obligations of caravan outrider while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Frostline Crossing Route is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

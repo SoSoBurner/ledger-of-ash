@@ -1,0 +1,39 @@
+{
+  "npc_id": "shirsh_dockside_or_street_fixer_5",
+  "canonical_name": "Shirsh Dockside or Street Fixer 5",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "fixer",
+  "office_or_role": "Dockside or Street Fixer",
+  "profession_discipline": "practical brokerage",
+  "grouping": "locality parity completion",
+  "polity": "Shirsh",
+  "settlement": "Witness Coil",
+  "locality_scope": "Witness Coil",
+  "institutional_ties": [
+    "Dockside or Street Fixer"
+  ],
+  "legal_standing": "recognized local actor",
+  "religious_standing": "civically tolerated",
+  "public_reputation": "knows who can smooth a problem",
+  "linked_systems": [
+    "locality support",
+    "route play",
+    "encounter readiness"
+  ],
+  "appearance": "Shirsh Dockside or Street Fixer 5 is visibly shaped by the work and status pressures of Witness Coil.",
+  "manner": "controlled, observant, and economical with attention",
+  "daily_function": "Maintains dockside or street fixer responsibilities in and around Witness Coil.",
+  "hidden_pressure": "Shirsh Dockside or Street Fixer 5 is trying to hold local order together without publicly admitting how stretched it has become.",
+  "truth_layer": "source_backed_inference",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Shirsh Dockside or Street Fixer 5 quickly reads whether strangers are worth helping, charging, or slowing down.",
+  "what_they_want_from_strangers": "clarity, usefulness, and respect for local process",
+  "what_they_refuse": "carelessness dressed up as confidence",
+  "how_they_create_problems": "turning a small favor into an obligation or delay",
+  "how_they_can_help": "unlocking access, warnings, or introductions",
+  "escalation_if_crossed": "brings scrutiny, reputational friction, and institutional attention",
+  "rumor_about_them": "Locals say Shirsh Dockside or Street Fixer 5 is more connected than seems safe.",
+  "best_first_scene": "An arrival, delay, or access problem where practical guidance matters more than combat."
+}

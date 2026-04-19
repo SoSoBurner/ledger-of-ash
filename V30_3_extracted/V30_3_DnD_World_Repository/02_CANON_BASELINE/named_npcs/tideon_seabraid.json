@@ -1,0 +1,87 @@
+{
+  "npc_id": "tideon_seabraid",
+  "canonical_name": "Tideon Seabraid",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Quota Scribe",
+  "profession_discipline": "Quota Scribe",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Cosmouth",
+  "settlement": null,
+  "locality_scope": "Cosmouth Archives and Treasury",
+  "institutional_ties": [
+    "Cosmouth Archives and Treasury"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quota scribe.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Cosmouth Archives and Treasury"
+    ],
+    "institutions": [
+      "Cosmouth Archives and Treasury"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a quota scribe still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quota scribe in and around Cosmouth Archives and Treasury, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cosmouth Archives and Treasury workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in Cosmouth.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Cosmouth Archives and Treasury, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quota scribe visibly slip.",
+  "relationship_refs": [
+    "rel_0703",
+    "rel_1204",
+    "rel_1206",
+    "rel_1207"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Tideon Seabraid can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Tideon Seabraid needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Cosmouth Archives and Treasury."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities"
+  ],
+  "compatibility_interface_id": "tideon_seabraid",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Tideon Seabraid communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Cosmouth Archives and Treasury: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Tideon Seabraid presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a quota scribe still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Quota Scribe, and proof that strangers will not create avoidable noise in Principality of Cosmouth.",
+  "what_they_refuse": "Tideon Seabraid refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Quota Scribe too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Tideon Seabraid can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Tideon Seabraid adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Tideon Seabraid is Known locally through day-to-day work as quota scribe. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quota Scribe."
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Emberhollow Forge Town",
+  "who_belongs": [
+    "smiths",
+    "ore haulers",
+    "family labor crews"
+  ],
+  "who_is_out_of_place": [
+    "those disrespecting forge lineage",
+    "lazy buyers seeking prestige without labor"
+  ],
+  "expected_behavior": [
+    "honor forge schedules",
+    "maintain shared heatworks"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

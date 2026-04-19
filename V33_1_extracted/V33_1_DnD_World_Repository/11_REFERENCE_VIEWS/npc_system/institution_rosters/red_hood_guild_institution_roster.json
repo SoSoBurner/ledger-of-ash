@@ -1,0 +1,47 @@
+{
+  "build_version": "V33_1",
+  "institution": "Red Hood Guild",
+  "record_count": 3,
+  "npc_ids": [
+    "nora_stone",
+    "pela_stone",
+    "sel_stone"
+  ],
+  "records": [
+    {
+      "npc_id": "nora_stone",
+      "canonical_name": "Nora Stone",
+      "polity": "Transpolity",
+      "office_or_role": "Quota Scribe",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quota scribe.",
+      "current_agenda": "Keep Red Hood Guild workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "pela_stone",
+      "canonical_name": "Pela Stone",
+      "polity": "Transpolity",
+      "office_or_role": "Liaison",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as liaison.",
+      "current_agenda": "Keep Red Hood Guild workable through the obligations of liaison while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "sel_stone",
+      "canonical_name": "Sel Stone",
+      "polity": "Transpolity",
+      "office_or_role": "Recruiter",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as recruiter.",
+      "current_agenda": "Keep Red Hood Guild workable through the obligations of recruiter while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Independent clandestine institution of smugglers, brokers, and covert specialists moving through the cracks of official order.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "name": "Harvest Keep",
+  "parent_polity": "Principality of Zootia",
+  "object_type": "locality_packet",
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "Principality of Zootia",
+    "settlement": "Harvest Keep"
+  },
+  "approach": "Approach through irrigation lines and raised storehouses makes abundance feel governed before it feels generous.",
+  "interior_feel": "The town lives in the rhythm of weighing, storing, and promising future delivery.",
+  "visible_authority": [
+    "House Zootia factors",
+    "granary wardens"
+  ],
+  "expected_behavior": [
+    "declare loads",
+    "respect reserve lines"
+  ],
+  "law_class_faith_signals": [
+    "measure law",
+    "reserve marks",
+    "seasonal blessing signs"
+  ],
+  "economy_trade_rhythm": [
+    "grain intake",
+    "exchange bargaining",
+    "caravan scheduling"
+  ],
+  "immediate_tension": [
+    "spoilage rumors",
+    "weight disputes"
+  ],
+  "linked_routes": [
+    "Harvest Keep caravan roads",
+    "canal barge channels"
+  ],
+  "likely_interface_npc_classes": [
+    "warden",
+    "broker",
+    "measure clerk"
+  ],
+  "seasonal_modifier": "Harvest weeks multiply noise, tempers, and economic consequence.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Harvest Keep immediately highlights harvest keep is a significant locality",
+    "The quickest social read of Harvest Keep comes from how locals react to declare loads / respect reserve lines."
+  ],
+  "social_misstep_examples": [
+    "Treating Harvest Keep like a casual stop rather than a governed space.",
+    "Ignoring local expectation to declare loads; respect reserve lines."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to local trade.",
+    "A local intermediary resents outsider assumptions about Harvest Keep."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Harvest Keep",
+    "Formal notice by local authority",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Harvest Keep before residents admit them.",
+  "outsider_liability": "Outsiders in Harvest Keep are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around scarce trust.",
+    "Someone mistakes the party for agents tied to local authority.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind normal business surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Harvest Keep feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Harvest Keep is busiest and least forgiving of confusion.",
+    "night": "At night, Harvest Keep reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Harvest Keep mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

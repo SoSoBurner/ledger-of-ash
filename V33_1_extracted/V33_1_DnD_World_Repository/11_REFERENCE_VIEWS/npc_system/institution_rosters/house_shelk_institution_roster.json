@@ -1,0 +1,34 @@
+{
+  "build_version": "V33_1",
+  "institution": "House Shelk",
+  "record_count": 1,
+  "npc_ids": [
+    "orien_petalglass"
+  ],
+  "records": [
+    {
+      "npc_id": "orien_petalglass",
+      "canonical_name": "Orien Petalglass",
+      "polity": "Shelk",
+      "office_or_role": "Oath Witness",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as oath witness.",
+      "current_agenda": "Keep House Shelk workable through the obligations of oath witness while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Road-policing, fashion-patronage, and harmony-centered noble house governing Shelk’s cultural power.",
+    "visible_power": [],
+    "pressure": [
+      "route safety",
+      "counterfeits",
+      "glyph anxieties",
+      "noble intrigue"
+    ]
+  },
+  "sources": [
+    "principality_shelk",
+    "psc_shelkopolis",
+    "principalities"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Shelk fashion economy",
+  "record_count": 1,
+  "npc_ids": [
+    "lady_elowen_shelk"
+  ],
+  "records": [
+    {
+      "npc_id": "lady_elowen_shelk",
+      "canonical_name": "Lady Elowen Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Fashion icon and guild chairwoman",
+      "tier": "notable",
+      "public_reputation": "Recognized as a fashion icon and guild chairwoman of regional weight.",
+      "current_agenda": "Keep Market Row Guildhall workable through the obligations of fashion icon and guild chairwoman while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Shelk fashion economy is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

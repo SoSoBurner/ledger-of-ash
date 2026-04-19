@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 202A",
+  "title": "Highway Robbery",
+  "severity": "felony",
+  "description": "Theft or major harm against caravans and trade traffic under public protection.",
+  "jurisdictions": [
+    "Road jurisdictions in Shelk"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "legal assemblies",
+  "record_count": 1,
+  "npc_ids": [
+    "magistrate_zethraxis_coilspire"
+  ],
+  "records": [
+    {
+      "npc_id": "magistrate_zethraxis_coilspire",
+      "canonical_name": "Magistrate Zethraxis Coilspire",
+      "polity": "Transpolity",
+      "office_or_role": "Chief magistrate",
+      "tier": "notable",
+      "public_reputation": "Recognized as a chief magistrate of regional weight.",
+      "current_agenda": "Keep Velvet Pinnacle Hall workable through the obligations of chief magistrate while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "legal assemblies is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

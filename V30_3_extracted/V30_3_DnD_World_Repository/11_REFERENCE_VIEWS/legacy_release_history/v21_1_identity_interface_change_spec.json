@@ -1,0 +1,24 @@
+{
+  "build_version": "V21_1",
+  "field_names": [
+    "named_npc_refs",
+    "local_interface_roles",
+    "local_role_expression",
+    "npc_interfaces"
+  ],
+  "replacement_rules": {
+    "Maro <Locality>": "innkeeper",
+    "Elen <Locality>": "market_clerk",
+    "Thane <Locality>": "shrine_attendant",
+    "Ivara <Locality>": "porter",
+    "Sel <Locality>": "scribe",
+    "Corin <Locality>": "labor_foreman"
+  },
+  "validator_rule": "npc_interfaces may contain only role IDs or NPC IDs; freeform fake names are rejected",
+  "end_state_standard": {
+    "locality_packets": "contain roles and references",
+    "site_packets": "continue to hold named staff and site-facing roles",
+    "named_npc_files": "contain only canon individuals with support",
+    "validation": "blocks synthetic surname-style placeholders"
+  }
+}

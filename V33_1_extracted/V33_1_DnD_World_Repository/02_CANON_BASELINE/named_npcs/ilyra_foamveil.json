@@ -1,0 +1,97 @@
+{
+  "npc_id": "ilyra_foamveil",
+  "canonical_name": "Ilyra Foamveil",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "archive_officer",
+  "office_or_role": "Illusionist",
+  "profession_discipline": "Illusionist",
+  "grouping": "Magic & Spellcasting",
+  "polity": "Cosmouth",
+  "settlement": "Cosmoria",
+  "locality_scope": "Cosmoria, Cosmouth",
+  "institutional_ties": [
+    "Cosmouth Archives and Treasury"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Masquewright whose false-fog pageants once hid an evacuation fleet long enough to clear the harbor.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Cosmoria, Cosmouth"
+    ],
+    "institutions": [
+      "Cosmouth Archives and Treasury"
+    ],
+    "factions": []
+  },
+  "appearance": "Ink stains, seal cases, or carefully ordered writing tools make documentation part of their visible silhouette.",
+  "manner": "Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a illusionist still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of illusionist in and around Cosmoria, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cosmoria workable through the obligations of illusionist while managing the immediate pressure of storm weather in Cosmouth.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Cosmoria, that usually means carrying storm weather, trade vulnerability, archive and tax discipline without letting the role of illusionist visibly slip.",
+  "relationship_refs": [
+    "rel_1203",
+    "rel_1205",
+    "rel_1207",
+    "rel_1282",
+    "rel_1283"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "document_pressure",
+      "summary": "Ilyra Foamveil can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Ilyra Foamveil can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Ilyra Foamveil needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Cosmoria."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Ilyra Foamveil needs help with a problem in Cosmoria that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Ilyra Foamveil communicates in public. In Cosmoria, this lands inside a public field already shaped by House Cosmouth.",
+  "encounter_context": {
+    "usual_environment": "Cosmoria: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Ilyra Foamveil presents as Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a illusionist still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Illusionist, and proof that strangers will not create avoidable noise in Principality of Cosmouth.",
+  "what_they_refuse": "Ilyra Foamveil refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Illusionist too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Ilyra Foamveil can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Ilyra Foamveil adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Ilyra Foamveil is Masquewright whose false-fog pageants once hid an evacuation fleet long enough to clear the harbor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Illusionist."
+}

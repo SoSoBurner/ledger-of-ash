@@ -1,0 +1,91 @@
+{
+  "npc_id": "cindri_cindercrest",
+  "canonical_name": "Cindri Cindercrest",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Cell Broker",
+  "profession_discipline": "Cell Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": null,
+  "locality_scope": "Forge Dedication Halls",
+  "institutional_ties": [
+    "Forge Dedication Halls"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as cell broker.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Forge Dedication Halls"
+    ],
+    "institutions": [
+      "Forge Dedication Halls"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a cell broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of cell broker in and around Forge Dedication Halls, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Forge Dedication Halls workable through the obligations of cell broker while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must read timing, trust, and supply pressure early enough that a market problem does not become a civic one. Around Forge Dedication Halls, that usually means carrying eruption risk, resource access, underworld danger without letting the role of cell broker visibly slip.",
+  "relationship_refs": [
+    "rel_0167",
+    "rel_0173",
+    "rel_0178",
+    "rel_0182",
+    "rel_0185",
+    "rel_0187",
+    "rel_0189"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Cindri Cindercrest can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Cindri Cindercrest will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "compatibility_interface_id": "cindri_cindercrest",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Cindri Cindercrest read as someone who lives by exchange and reputation.",
+  "encounter_context": {
+    "usual_environment": "Forge Dedication Halls: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Cindri Cindercrest presents as Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a cell broker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Cell Broker, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Cindri Cindercrest refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Cell Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Cindri Cindercrest can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Cindri Cindercrest adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Cindri Cindercrest is Known locally through day-to-day work as cell broker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Cell Broker."
+}

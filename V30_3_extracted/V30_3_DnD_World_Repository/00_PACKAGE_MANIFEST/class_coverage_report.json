@@ -1,0 +1,13 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "covered_classes": [
+    "governance",
+    "baseline",
+    "locality_engine",
+    "runtime_engine",
+    "validation",
+    "reference_views"
+  ],
+  "status": "pass"
+}

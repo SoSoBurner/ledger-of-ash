@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Unternal civic labor courts",
+  "record_count": 1,
+  "npc_ids": [
+    "jorva_helmrune"
+  ],
+  "records": [
+    {
+      "npc_id": "jorva_helmrune",
+      "canonical_name": "Jorva Helmrune",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Communal responsibility enforcer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as communal responsibility enforcer.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of communal responsibility enforcer while managing the immediate pressure of spoilage in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Unternal civic labor courts is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

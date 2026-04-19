@@ -1,0 +1,86 @@
+{
+  "npc_id": "ilyra_moonthread",
+  "canonical_name": "Ilyra Moonthread",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Shrine Caretaker",
+  "profession_discipline": "Shrine Caretaker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Emberforge Outpost",
+  "locality_scope": "Emberforge Outpost",
+  "institutional_ties": [
+    "Emberforge Outpost"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Emberforge Outpost"
+    ],
+    "institutions": [
+      "Emberforge Outpost"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of shrine caretaker in and around Emberforge Outpost, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Emberforge Outpost workable through the obligations of shrine caretaker while managing the immediate pressure of celestial activity on routes in Shelk.",
+  "hidden_pressure": "Must keep the underlying system working while everyone notices it only when stress, wear, or neglect begin to show. Around Emberforge Outpost, that usually means carrying celestial activity on routes, need for caravan coordination, route safety and public-order sabotage law are strongly felt. without letting the role of shrine caretaker visibly slip.",
+  "relationship_refs": [
+    "rel_0246",
+    "rel_0247",
+    "rel_1112"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Ilyra Moonthread can draw the party into crew discipline, resource shortage, or blame transfer around Emberforge Outpost."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Ilyra Moonthread can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "ilyra_moonthread",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Ilyra Moonthread visibly responsible for keeping something larger from failing. In Emberforge Outpost, this lands inside a public field already shaped by Roadwarden patrol leaders.",
+  "encounter_context": {
+    "usual_environment": "Emberforge Outpost: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Ilyra Moonthread presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Shrine Caretaker, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Ilyra Moonthread refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Shrine Caretaker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Ilyra Moonthread can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Ilyra Moonthread adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Ilyra Moonthread is Known locally through day-to-day work as shrine caretaker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Shrine Caretaker."
+}

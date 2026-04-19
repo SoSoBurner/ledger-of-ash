@@ -1,0 +1,16 @@
+{
+  "name": "Duneshade Outpost",
+  "visible_power": [
+    "route captains",
+    "rationing families",
+    "frontier stewards",
+    "regional war-logistics deputies"
+  ],
+  "law_context": [
+    "water, shade, and safe passage are communal assets rationed through hard local enforcement"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

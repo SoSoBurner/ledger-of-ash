@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Planet of Rock",
+  "record_count": 1,
+  "npc_ids": [
+    "corin_field"
+  ],
+  "records": [
+    {
+      "npc_id": "corin_field",
+      "canonical_name": "Corin Field",
+      "polity": "Transpolity",
+      "office_or_role": "Flare Scribe",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as flare scribe.",
+      "current_agenda": "Keep Planet of Rock workable through the obligations of flare scribe while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Planet of Rock is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ]
+}

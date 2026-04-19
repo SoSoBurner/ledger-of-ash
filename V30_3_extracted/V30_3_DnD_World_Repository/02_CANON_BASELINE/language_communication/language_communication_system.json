@@ -1,0 +1,20 @@
+{
+  "object_id": "system.language_communication.world",
+  "system_type": "language_communication",
+  "truth_status": "conservative_inference",
+  "common_tongues": "Common speech cannot be assumed globally uniform; usage should follow region and power structure.",
+  "prestige_languages": "Prestige, court, clerical, and administrative speech may differ from ordinary local speech.",
+  "ritual_languages": "Religious and ceremonial contexts may preserve distinct formulaic language.",
+  "literacy_expectations": "Literacy must be inferred conservatively from institution, class, and polity context.",
+  "dialect_pressure": "Local diction, register, and naming pressure should vary by region and settlement type.",
+  "naming_conventions": "Names should preserve canon forms and local patterning where supported.",
+  "stranger_address_norms": "Forms of address should reflect class, law, faith, and local custom rather than generic fantasy assumptions.",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "support_type": "engine_synthesis",
+  "truth_layer": "engine_canon",
+  "justification": "Repository synthesis layer built to make strongly supported canon operational without overriding source truth."
+}

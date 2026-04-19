@@ -1,0 +1,78 @@
+{
+  "npc_id": "pera_needle",
+  "canonical_name": "Pera Needle",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "covert_actor",
+  "office_or_role": "Rogue",
+  "profession_discipline": "Rogue",
+  "grouping": "Stealth & Precision",
+  "polity": "Shelk",
+  "settlement": "Ironspool Ward",
+  "locality_scope": "Ironspool Ward, Shelkopolis",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Rooftop runner who knows which cloth houses underpay their apprentices.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Ironspool Ward, Shelkopolis"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a rogue still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of rogue in and around Ironspool Ward, Shelkopolis, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ironspool Ward, Shelkopolis workable through the obligations of rogue while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must keep their piece of the world working while larger systems push stress downward. Around Ironspool Ward, Shelkopolis, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of rogue visibly slip.",
+  "relationship_refs": [
+    "rel_1289"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Pera Needle needs help with a problem in Ironspool Ward, Shelkopolis that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Pera Needle can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Pera Needle carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Ironspool Ward, Shelkopolis: the part of Ironspool Ward, Shelkopolis where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Pera Needle presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a rogue still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Rogue, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Pera Needle refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Rogue too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Pera Needle can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Pera Needle adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Pera Needle is Rooftop runner who knows which cloth houses underpay their apprentices. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Rogue."
+}

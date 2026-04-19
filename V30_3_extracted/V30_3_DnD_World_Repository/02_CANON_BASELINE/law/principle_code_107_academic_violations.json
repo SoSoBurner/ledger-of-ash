@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 107",
+  "title": "Academic Violations",
+  "severity": "misdemeanor",
+  "description": "Plagiarism, tampering with instructional resources, or similar misconduct.",
+  "jurisdictions": [
+    "Golden Needle Academy"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

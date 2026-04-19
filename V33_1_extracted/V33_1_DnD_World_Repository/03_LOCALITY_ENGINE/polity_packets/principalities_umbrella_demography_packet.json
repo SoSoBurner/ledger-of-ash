@@ -1,0 +1,11 @@
+{
+  "name": "The Principalities",
+  "object_type": "polity_runtime_demography_packet",
+  "build_version": "V33_1",
+  "derived_from": "02_CANON_BASELINE/demography/principalities_umbrella_demography.json",
+  "dominant_races": [],
+  "secondary_races": [],
+  "excluded_or_shunned": [],
+  "public_visibility_summary": "",
+  "setting_use_summary": "Use The Principalities demographics as the active runtime population reference for play, writing, and locality rendering without overriding canon classification."
+}

@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "Ironhold Quarry",
+  "record_count": 2,
+  "npc_ids": [
+    "petra_stonewake",
+    "rhodra_boltmere"
+  ]
+}

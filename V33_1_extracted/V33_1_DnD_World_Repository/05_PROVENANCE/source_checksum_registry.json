@@ -1,0 +1,24 @@
+{
+  "build_version": "V33_1",
+  "package_root": "V33_1_DnD_World_Repository",
+  "generated_at": "2026-04-19T02:36:22Z",
+  "source_checksums": {
+    "05_PROVENANCE/SOURCE_DOCS/D&D Campaign Manager Database.pdf": "ffe673adf82722b4ceac1811c36a81a5276ae5db51915766b8189b9f2537fde9",
+    "05_PROVENANCE/SOURCE_DOCS/DnD World Original.pdf": "ae9aa97b4fe3110159c7a68ed350ecb7807b417196592f2aadef1d4a80833e9d",
+    "05_PROVENANCE/SOURCE_DOCS/V3 DnD Repository Crosswalk.md": "b0e68c770a9740bb91644744419e59411cc1a441d3e5c7b1ba051cce5bdfc33c",
+    "05_PROVENANCE/SOURCE_DOCS/estate_infrastructure_with_functional_npcs.md": "ff0c8a9c68d5deb78c25234520a83f52d34c924be69da012efca620370ac9f96",
+    "05_PROVENANCE/SOURCE_DOCS/historical_pressure_matrix_prompt.md": "803c49b9a8f2934ec8fe70deefa22b38a85742f8b17b827fb0956a8b20f45ca3",
+    "05_PROVENANCE/SOURCE_DOCS/magical_item_specification_source.md": "7977ac63c588bb5f4a591e49669025f9aeebf5bd967714eabe9438a26eb525fe",
+    "05_PROVENANCE/SOURCE_DOCS/magical_system_specification.md": "e4e8e2f4c47f8d1df8e53f82274b3153b6c46f4adc97d8d53b3353a42549ede5",
+    "05_PROVENANCE/SOURCE_DOCS/non_ip_bestiary_system_specification.md": "0909498b9d4ef52d507276e1e09ffc3a2ca553ae4f4d73c738a1a7be721f8312",
+    "05_PROVENANCE/SOURCE_DOCS/npc_template.md": "d3860d51902512fce1f0082a9109be66585b276fa1b17053d42cc96c954926bf",
+    "05_PROVENANCE/V30_8_Antagonist_Dossier_Packet_Combined.md": "8624e57a4a0c3216fff355a146691e2d663440b88a84495b5ea170af18239ad1",
+    "05_PROVENANCE/estate_infrastructure_with_functional_npcs.md": "6490b099732b7fe43b5368bb177a01f2b670190c5ffc163b963a367f91e2b281",
+    "05_PROVENANCE/historical_pressure_matrix_prompt.md": "803c49b9a8f2934ec8fe70deefa22b38a85742f8b17b827fb0956a8b20f45ca3",
+    "05_PROVENANCE/magical_item_specification_source.md": "7977ac63c588bb5f4a591e49669025f9aeebf5bd967714eabe9438a26eb525fe",
+    "05_PROVENANCE/magical_system_specification.md": "e4e8e2f4c47f8d1df8e53f82274b3153b6c46f4adc97d8d53b3353a42549ede5",
+    "05_PROVENANCE/non_ip_bestiary_system_specification.md": "0909498b9d4ef52d507276e1e09ffc3a2ca553ae4f4d73c738a1a7be721f8312",
+    "05_PROVENANCE/npc_template.md": "d3860d51902512fce1f0082a9109be66585b276fa1b17053d42cc96c954926bf",
+    "05_PROVENANCE/v32_1_psycho_social_chronology_build_method.md": "b8a9b627d461876e6c9a7be31c548a093aa11981a13c878697d3f415f9980de5"
+  }
+}

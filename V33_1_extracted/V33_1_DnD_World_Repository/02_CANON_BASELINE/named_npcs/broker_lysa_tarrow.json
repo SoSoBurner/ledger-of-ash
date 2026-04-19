@@ -1,0 +1,65 @@
+{
+  "npc_id": "broker_lysa_tarrow",
+  "canonical_name": "Broker Lysa Tarrow",
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "market_actor",
+  "office_or_role": "Canal-Caravan Broker",
+  "profession_discipline": "Harvest timing and route coordination",
+  "grouping": "v30_6_added_named_npc",
+  "polity": "Zootia",
+  "settlement": "Harvest Keep",
+  "locality_scope": "Measure House of Harvest Keep",
+  "institutional_ties": [
+    "Harvest Keep exchanges"
+  ],
+  "public_reputation": "Can place a wagon, barge, or mule train before most rivals have finished arguing.",
+  "linked_systems": {
+    "polities": [
+      "Zootia"
+    ],
+    "localities": [
+      "Harvest Keep"
+    ],
+    "institutions": [
+      "Harvest Keep exchanges"
+    ],
+    "factions": []
+  },
+  "appearance": "Sun-browned, quick-eyed, and layered in lightweight trade wraps marked with counting knots.",
+  "manner": "Treats timing like a moral category.",
+  "daily_function": "Binds growers, haulers, and buyers into schedules that keep produce moving.",
+  "current_agenda": "Reroute caravans around a canal choke before prices jump.",
+  "hidden_pressure": "Her best contracts collapse if reserve law tightens unexpectedly.",
+  "source_truth_status": "conservative_inference",
+  "support_density": "support_aware_record",
+  "source_object_ids": [
+    "principalities_doc"
+  ],
+  "compatibility_interface_id": "broker_lysa_tarrow",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "She is always followed by a slate, a string ledger, or both.",
+  "encounter_context": {
+    "usual_environment": "exchange ramps and weigh halls",
+    "who_seeks_them_out": [
+      "buyers",
+      "haulers"
+    ],
+    "who_avoids_them": [
+      "the late",
+      "the disorganized"
+    ],
+    "interaction_anchor": "timing that makes trade possible"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Broker Lysa Tarrow presents as Treats timing like a moral category. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Canal-Caravan Broker, and proof that strangers will not create avoidable noise in Principality of Zootia.",
+  "what_they_refuse": "Broker Lysa Tarrow refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Canal-Caravan Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Broker Lysa Tarrow can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Broker Lysa Tarrow adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Broker Lysa Tarrow is Can place a wagon, barge, or mule train before most rivals have finished arguing. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Canal-Caravan Broker."
+}

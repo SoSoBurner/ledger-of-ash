@@ -1,0 +1,35 @@
+{
+  "object_id": "shirsh_demography_runtime_packet",
+  "build_version": "V30_3",
+  "truth_layer": "runtime_derivative",
+  "derived_from": [
+    "shirsh_demography"
+  ],
+  "canon_source_objects": [
+    "shirsh_demography"
+  ],
+  "claim_ids_used": [
+    "claim::shirsh_demography::half_elves",
+    "claim::shirsh_demography::elves",
+    "claim::shirsh_demography::humans",
+    "claim::shirsh_demography::gnomes"
+  ],
+  "polity": "Shirsh",
+  "dominant_races": [
+    "Half-Elves"
+  ],
+  "secondary_races": [
+    "Elves",
+    "Humans",
+    "Gnomes"
+  ],
+  "excluded_or_shunned_groups": [],
+  "visible_public_consequences": [
+    "Shirsh public life visibly reflects the dominant populations listed in canon.",
+    "Secondary populations appear as durable resident blocs rather than polity-defining majorities."
+  ],
+  "institutional_visibility": "Institutions and street-level expectations align with the canonical demographic balance.",
+  "adjacency_influence": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture.",
+  "visitor_facing_observations": "A visitor would notice the dominant bloc first, then the stable secondary populations and any explicit exclusions or shunned groups.",
+  "setting_use_summary": "Use Shirsh with the roster exactly as resolved in canon; do not broaden or soften exclusions without explicit corrective release."
+}

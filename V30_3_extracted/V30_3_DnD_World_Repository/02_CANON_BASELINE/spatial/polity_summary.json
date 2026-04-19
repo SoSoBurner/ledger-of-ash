@@ -1,0 +1,802 @@
+{
+  "The Principalities": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": null,
+    "total_nodes": 18,
+    "by_category": {
+      "macroregion": 9,
+      "wilderness": 9
+    },
+    "settlement_nodes": [],
+    "biome_nodes": [
+      "Aurora Meadows",
+      "Brineland",
+      "Deep Forest",
+      "Frozen Quagmires",
+      "Union Successor Heartland",
+      "Verdant Caves",
+      "Whispering Dunes",
+      "Rocky Cliffs and Beaches",
+      "Soft Sand Beaches"
+    ],
+    "poi_infrastructure_nodes": [],
+    "local_nodes": [
+      "Frostline Crossing",
+      "Hollow Veil Shelter",
+      "Blueglass Exposure Field",
+      "Frozen Sentinel Pillars",
+      "Glacial Fissures",
+      "Glyph-Engraved Monoliths",
+      "Mystical Flora Grove",
+      "Merchant Trail Junction",
+      "Echoing Abyss"
+    ],
+    "water_valid_nodes": 1,
+    "uninhabitable_nodes": 7
+  },
+  "Principality of Cosmouth": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Cosmouth",
+    "total_nodes": 10,
+    "by_category": {
+      "settlement": 5,
+      "site": 4,
+      "macroregion": 1
+    },
+    "settlement_nodes": [
+      "Cosmoria",
+      "Seaward Haven",
+      "Lirelith",
+      "Ocean’s Retreat",
+      "Breakwater Quay"
+    ],
+    "biome_nodes": [
+      "Azure Shores"
+    ],
+    "poi_infrastructure_nodes": [
+      "Cosmouth Archives and Treasury",
+      "Grand Shipwright Tier",
+      "Harbor Ledger Docks",
+      "Coralhaven Port"
+    ],
+    "local_nodes": [
+      "Cosmoria",
+      "Cosmouth Archives and Treasury",
+      "Grand Shipwright Tier",
+      "Harbor Ledger Docks",
+      "Seaward Haven",
+      "Lirelith",
+      "Ocean’s Retreat",
+      "Coralhaven Port",
+      "Breakwater Quay"
+    ],
+    "water_valid_nodes": 4,
+    "uninhabitable_nodes": 0
+  },
+  "Principality of Shelk": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Shelk",
+    "total_nodes": 81,
+    "by_category": {
+      "settlement": 18,
+      "site": 22,
+      "macroregion": 7,
+      "wilderness": 3,
+      "district": 3,
+      "sublocation": 28
+    },
+    "settlement_nodes": [
+      "Emberforge Outpost",
+      "Fairhaven",
+      "Plume’s End Outpost",
+      "Shelkopolis",
+      "Highland Vista",
+      "Castle of Principal",
+      "Kune",
+      "Orarith Sesa",
+      "Sunflower Fields",
+      "Welldress Citadel",
+      "Kyheri",
+      "Nynead Sen",
+      "Topaz Haven",
+      "Azure Haven",
+      "Loomrest Crossing",
+      "Gildmere",
+      "Ribbonfall",
+      "Eastveil Quay"
+    ],
+    "biome_nodes": [
+      "Meadow of Lyra",
+      "Crystallized Ice Formations",
+      "Rivers and Streams",
+      "Forested Groves",
+      "Rolling Plains",
+      "Silverpetal Highlands",
+      "Painted Highlands"
+    ],
+    "poi_infrastructure_nodes": [
+      "Fairhaven Chapel",
+      "Sunflower Market",
+      "The Gilded Plough Inn",
+      "Aurora Heights District",
+      "Ironspool Ward District",
+      "Verdant Row District",
+      "Amber Fountain Inn",
+      "Aurora Light Cathedral",
+      "Blooming Brazier Workshop",
+      "Crystal Loom Emporium",
+      "Gilded Archives of Lore",
+      "Golden Needle Academy",
+      "House of Shelk Estate",
+      "Iron Ward Workshop",
+      "Market Row Guildhall",
+      "Roadwardens’ Central Command",
+      "Sanctuary of Shadows",
+      "Shelkopolis Public Library",
+      "Shifting Needle Market",
+      "Silkweaver’s Chapel",
+      "Stoneforge Depot",
+      "Sunlit Plaza",
+      "The Rusted Loom Tavern",
+      "The Silver Stag Tavern",
+      "The Starlit Forge",
+      "The Tattered Banner",
+      "The Whispering Well",
+      "Threads of Twilight Market",
+      "Twilight Threadmill",
+      "Velvet Pinnacle Hall",
+      "Verdant Alchemy",
+      "Crimson Lotus Monastery",
+      "Prism Spire",
+      "Nymph’s Haven",
+      "Sylvan Sanctuary",
+      "Verdant Caves Access",
+      "Aurora Fountain",
+      "Fairhaven Alchemy Shop",
+      "Harvest Hearth Tavern",
+      "The Silver Blade Armory",
+      "Fairhaven School of Craft",
+      "Watcher’s Perch",
+      "Resting Plume Tavern",
+      "Plume’s End Outpost Armory",
+      "Merchant’s Waystation",
+      "Shrine of Cysur",
+      "Emberforge Depot",
+      "Roadwarden Barracks",
+      "Iron Beacon Shrine",
+      "Emberforge Market Crossroads",
+      "Glyph-Engraved Monolith",
+      "Centaur’s Watch",
+      "Emperor’s Throne"
+    ],
+    "local_nodes": [
+      "Emberforge Outpost",
+      "Fairhaven",
+      "Fairhaven Chapel",
+      "Sunflower Market",
+      "The Gilded Plough Inn",
+      "Stargazing Ruins",
+      "Stone Dais of Lyra",
+      "Plume’s End Outpost",
+      "Shelkopolis",
+      "Aurora Heights District",
+      "Ironspool Ward District",
+      "Verdant Row District",
+      "Amber Fountain Inn",
+      "Aurora Light Cathedral",
+      "Blooming Brazier Workshop",
+      "Crystal Loom Emporium",
+      "Gilded Archives of Lore",
+      "Golden Needle Academy",
+      "House of Shelk Estate",
+      "Iron Ward Workshop",
+      "Market Row Guildhall",
+      "Roadwardens’ Central Command",
+      "Sanctuary of Shadows",
+      "Shelkopolis Public Library",
+      "Shifting Needle Market",
+      "Silkweaver’s Chapel",
+      "Stoneforge Depot",
+      "Sunlit Plaza",
+      "The Rusted Loom Tavern",
+      "The Silver Stag Tavern",
+      "The Starlit Forge",
+      "The Tattered Banner",
+      "The Whispering Well",
+      "Threads of Twilight Market",
+      "Twilight Threadmill",
+      "Velvet Pinnacle Hall",
+      "Verdant Alchemy",
+      "Highland Vista",
+      "Castle of Principal",
+      "Frost Crypts",
+      "Crimson Lotus Monastery",
+      "Prism Spire",
+      "Kune",
+      "Orarith Sesa",
+      "Sunflower Fields",
+      "Welldress Citadel",
+      "Nymph’s Haven",
+      "Sylvan Sanctuary",
+      "Kyheri",
+      "Nynead Sen",
+      "Topaz Haven",
+      "Azure Haven",
+      "Verdant Caves Access",
+      "Aurora Fountain",
+      "Fairhaven Alchemy Shop",
+      "Harvest Hearth Tavern",
+      "The Silver Blade Armory",
+      "Fairhaven School of Craft",
+      "Watcher’s Perch",
+      "Resting Plume Tavern",
+      "Plume’s End Outpost Armory",
+      "Merchant’s Waystation",
+      "Shrine of Cysur",
+      "Emberforge Depot",
+      "Roadwarden Barracks",
+      "Iron Beacon Shrine",
+      "Emberforge Market Crossroads",
+      "Glyph-Engraved Monolith",
+      "Loomrest Crossing",
+      "Gildmere",
+      "Ribbonfall",
+      "Eastveil Quay",
+      "Centaur’s Watch",
+      "Emperor’s Throne"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 1
+  },
+  "Soreheim Alliance": {
+    "parent_umbrella": "Soreheim Alliance",
+    "ruling_house": null,
+    "total_nodes": 50,
+    "by_category": {
+      "macroregion": 13,
+      "settlement": 11,
+      "site": 25,
+      "wilderness": 1
+    },
+    "settlement_nodes": [
+      "Ashforge Quarry",
+      "Embervale Settlement",
+      "Soreheim Proper",
+      "Duneshade Outpost",
+      "Harvest Circle",
+      "Sunspire Haven",
+      "Stormwatch Bastion",
+      "Glacier’s Vein Outpost",
+      "Vanguard Keep",
+      "Railshadow Encampment",
+      "Southglass Crossing"
+    ],
+    "biome_nodes": [
+      "Eternal Lands",
+      "Unternal Lands",
+      "Golden Horizon Fields",
+      "Glowroot Swamp",
+      "Amber Tides River",
+      "North Wilds",
+      "South Wilds",
+      "Ashstone Peaks",
+      "North Shore",
+      "South Shore",
+      "Golden Sands",
+      "Glowwood Depths",
+      "Howling Expanse"
+    ],
+    "poi_infrastructure_nodes": [
+      "Sanctuary of Wisdom",
+      "Sparkforge Depot",
+      "Titan Council Dais",
+      "Artisan Crosshall",
+      "Field Logistics Yard",
+      "Hearth of Unity",
+      "Crimson Watchtower",
+      "Molten Span",
+      "Shrine of Ascension",
+      "Arcane Bastion",
+      "Vault of Echoes",
+      "Molten Mantle",
+      "Ironroot Crossing",
+      "Verdant Sanctuary",
+      "Glimmerroot Glade",
+      "Cindergrain Basin",
+      "Frostmantle Works",
+      "Oathforge Gate",
+      "Quarrylight Span",
+      "Stoneplow Reach",
+      "Titan Towers",
+      "Titan’s Relay",
+      "Obsidian Bastion",
+      "Soreheim Throne Room",
+      "Forgeheart Citadel"
+    ],
+    "local_nodes": [
+      "Ashforge Quarry",
+      "Embervale Settlement",
+      "Soreheim Proper",
+      "Sanctuary of Wisdom",
+      "Sparkforge Depot",
+      "Titan Council Dais",
+      "Duneshade Outpost",
+      "Harvest Circle",
+      "Sunspire Haven",
+      "Artisan Crosshall",
+      "Field Logistics Yard",
+      "Hearth of Unity",
+      "Stormwatch Bastion",
+      "Crimson Watchtower",
+      "Glacier’s Vein Outpost",
+      "Molten Span",
+      "Shrine of Ascension",
+      "Arcane Bastion",
+      "Vault of Echoes",
+      "Molten Mantle",
+      "Ironroot Crossing",
+      "Verdant Sanctuary",
+      "Glimmerroot Glade",
+      "Vanguard Keep",
+      "Railshadow Encampment",
+      "Southglass Crossing",
+      "Cindergrain Basin",
+      "Frostmantle Works",
+      "Oathforge Gate",
+      "Quarrylight Span",
+      "Stoneplow Reach",
+      "Titan Towers",
+      "Titan’s Relay",
+      "Obsidian Bastion",
+      "Soreheim Throne Room",
+      "Echoing Grottos",
+      "Forgeheart Citadel"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "Principality of Mimolot": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Mimolot",
+    "total_nodes": 8,
+    "by_category": {
+      "sublocation": 1,
+      "site": 3,
+      "settlement": 4
+    },
+    "settlement_nodes": [
+      "Bookhaven",
+      "Arcane Aegis",
+      "Crystal Quill",
+      "Binder’s Gate"
+    ],
+    "biome_nodes": [],
+    "poi_infrastructure_nodes": [
+      "Mimolot Academy",
+      "Apprentice Copyhouse",
+      "Great Lecture Hall",
+      "Tariff Library Annex"
+    ],
+    "local_nodes": [
+      "Mimolot Academy",
+      "Apprentice Copyhouse",
+      "Great Lecture Hall",
+      "Tariff Library Annex",
+      "Bookhaven",
+      "Arcane Aegis",
+      "Crystal Quill",
+      "Binder’s Gate"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "Principality of Panim": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Panim",
+    "total_nodes": 8,
+    "by_category": {
+      "settlement": 5,
+      "site": 3
+    },
+    "settlement_nodes": [
+      "Panim Haven",
+      "Sanctum Sands",
+      "Celestial Enclave",
+      "Elysian Grove",
+      "Last Candle"
+    ],
+    "biome_nodes": [],
+    "poi_infrastructure_nodes": [
+      "Coffin Appraisal Court",
+      "Offering Wharf",
+      "Panim Afterlife Registry"
+    ],
+    "local_nodes": [
+      "Panim Haven",
+      "Coffin Appraisal Court",
+      "Offering Wharf",
+      "Panim Afterlife Registry",
+      "Sanctum Sands",
+      "Celestial Enclave",
+      "Elysian Grove",
+      "Last Candle"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "Psanan": {
+    "parent_umbrella": "Psanan",
+    "ruling_house": null,
+    "total_nodes": 31,
+    "by_category": {
+      "settlement": 12,
+      "site": 12,
+      "wilderness": 5,
+      "macroregion": 2
+    },
+    "settlement_nodes": [
+      "Ashforge Citadel",
+      "Cindervow Quarter",
+      "Emberhollow Forge Town",
+      "Maskscar Plaza District",
+      "Scarlet Descent Gate",
+      "Ashwake Port",
+      "Sulfurglass Anchorage",
+      "Hearthash Terrace",
+      "Blackwake Terrace",
+      "Ashveil Quay",
+      "Blackglass Hold",
+      "Emberwake Port"
+    ],
+    "biome_nodes": [
+      "Inferno Cradle",
+      "Cindermount"
+    ],
+    "poi_infrastructure_nodes": [
+      "Forge Dedication Hall",
+      "Great House Court",
+      "Rebuilding Oath Court",
+      "Threshold Hall of Ashforge",
+      "Coal Quay",
+      "Departure Shrine",
+      "Harbor Ember Gate",
+      "Cinderwake Watch",
+      "Furnace Spine",
+      "Redglass Stairs",
+      "Slagmere Steps",
+      "Obsidian Hall"
+    ],
+    "local_nodes": [
+      "Ashforge Citadel",
+      "Forge Dedication Hall",
+      "Great House Court",
+      "Rebuilding Oath Court",
+      "Threshold Hall of Ashforge",
+      "Ash-Wing Mosaic Way",
+      "Cindervow Quarter",
+      "Emberhollow Forge Town",
+      "Maskscar Plaza District",
+      "Scarlet Descent Gate",
+      "Renewal Plaza of Masks",
+      "Scarlet Depths",
+      "Vow Court Terrace",
+      "Ashwake Port",
+      "Coal Quay",
+      "Departure Shrine",
+      "Harbor Ember Gate",
+      "Yellow Mountain",
+      "Sulfurglass Anchorage",
+      "Hearthash Terrace",
+      "Blackwake Terrace",
+      "Ashveil Quay",
+      "Blackglass Hold",
+      "Cinderwake Watch",
+      "Emberwake Port",
+      "Furnace Spine",
+      "Redglass Stairs",
+      "Slagmere Steps",
+      "Obsidian Hall"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 3
+  },
+  "Principality of Roaz": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Roaz",
+    "total_nodes": 21,
+    "by_category": {
+      "settlement": 14,
+      "sublocation": 1,
+      "site": 5,
+      "macroregion": 1
+    },
+    "settlement_nodes": [
+      "Ithtananalor",
+      "Silent Haven",
+      "Shadow’s Veil",
+      "Quarrymarch",
+      "Venonenas",
+      "Asethilha",
+      "Nathyr",
+      "Felssad-Sin",
+      "Niriathond",
+      "Brisenona",
+      "Lylathsalean",
+      "Linenas",
+      "Donarius",
+      "Oralas"
+    ],
+    "biome_nodes": [
+      "Lorith Fields"
+    ],
+    "poi_infrastructure_nodes": [
+      "Ironhold Quarry",
+      "Clockwork Spire",
+      "Ironclad Bastion",
+      "Magistrates’ Tribunal",
+      "Veilforged Bastion",
+      "Stormcaller’s Reach"
+    ],
+    "local_nodes": [
+      "Ithtananalor",
+      "Silent Haven",
+      "Ironhold Quarry",
+      "Clockwork Spire",
+      "Ironclad Bastion",
+      "Magistrates’ Tribunal",
+      "Shadow’s Veil",
+      "Veilforged Bastion",
+      "Stormcaller’s Reach",
+      "Quarrymarch",
+      "Venonenas",
+      "Asethilha",
+      "Nathyr",
+      "Felssad-Sin",
+      "Niriathond",
+      "Brisenona",
+      "Lylathsalean",
+      "Linenas",
+      "Donarius",
+      "Oralas"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "Sheresh Communes": {
+    "parent_umbrella": "Sheresh Communes",
+    "ruling_house": null,
+    "total_nodes": 24,
+    "by_category": {
+      "macroregion": 4,
+      "settlement": 11,
+      "site": 7,
+      "wilderness": 2
+    },
+    "settlement_nodes": [
+      "Aurora Crown Commune",
+      "Glasswake Commune",
+      "Starbreak Commune",
+      "Whitebridge Commune",
+      "Hearthcoil Commune",
+      "Northglass Commune",
+      "Frostweave Commune",
+      "Crystalline Vault Commune",
+      "Frostglass Commune",
+      "Hollow Aurora Commune",
+      "Northcoil Archive Commune"
+    ],
+    "biome_nodes": [
+      "Edict Ocean",
+      "Icefang Archipelago",
+      "Aurora Meadows Domeway",
+      "Frozen Tundra"
+    ],
+    "poi_infrastructure_nodes": [
+      "Aurora Observation Deck",
+      "Containment Workshop",
+      "Dome Steward Hall",
+      "Blueglass Gate",
+      "Glasshush Reactor Ward",
+      "Snowthread Basin",
+      "Whiteveil Domeway"
+    ],
+    "local_nodes": [
+      "Aurora Crown Commune",
+      "Aurora Observation Deck",
+      "Containment Workshop",
+      "Dome Steward Hall",
+      "Crystalline Vault",
+      "Glasswake Commune",
+      "Starbreak Commune",
+      "Whitebridge Commune",
+      "Hearthcoil Commune",
+      "Whispering Depths",
+      "Northglass Commune",
+      "Frostweave Commune",
+      "Blueglass Gate",
+      "Crystalline Vault Commune",
+      "Frostglass Commune",
+      "Glasshush Reactor Ward",
+      "Hollow Aurora Commune",
+      "Northcoil Archive Commune",
+      "Snowthread Basin",
+      "Whiteveil Domeway"
+    ],
+    "water_valid_nodes": 3,
+    "uninhabitable_nodes": 0
+  },
+  "Between Roaz and Sheresh": {
+    "parent_umbrella": "Between Roaz and Sheresh",
+    "ruling_house": null,
+    "total_nodes": 2,
+    "by_category": {
+      "macroregion": 1,
+      "wilderness": 1
+    },
+    "settlement_nodes": [],
+    "biome_nodes": [
+      "North Swirling Sea"
+    ],
+    "poi_infrastructure_nodes": [],
+    "local_nodes": [
+      "Seafang Cradle"
+    ],
+    "water_valid_nodes": 2,
+    "uninhabitable_nodes": 0
+  },
+  "South sea system": {
+    "parent_umbrella": "South sea system",
+    "ruling_house": null,
+    "total_nodes": 3,
+    "by_category": {
+      "macroregion": 1,
+      "wilderness": 1,
+      "site": 1
+    },
+    "settlement_nodes": [],
+    "biome_nodes": [
+      "South Swirling Sea"
+    ],
+    "poi_infrastructure_nodes": [
+      "Seamaster’s Refuge"
+    ],
+    "local_nodes": [
+      "Hurricane’s Eye",
+      "Seamaster’s Refuge"
+    ],
+    "water_valid_nodes": 3,
+    "uninhabitable_nodes": 0
+  },
+  "Principality of Shirsh": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Shirsh",
+    "total_nodes": 10,
+    "by_category": {
+      "sublocation": 1,
+      "site": 3,
+      "settlement": 6
+    },
+    "settlement_nodes": [
+      "Luminary Outpost",
+      "Crystal Grove",
+      "Mystique Haven",
+      "Lantern Reach",
+      "Aleannocrin",
+      "Innsshanamel"
+    ],
+    "biome_nodes": [],
+    "poi_infrastructure_nodes": [
+      "Shirshal",
+      "Evidence Vault",
+      "Magi Magistratus Hall",
+      "Witness Court"
+    ],
+    "local_nodes": [
+      "Shirshal",
+      "Evidence Vault",
+      "Magi Magistratus Hall",
+      "Witness Court",
+      "Luminary Outpost",
+      "Crystal Grove",
+      "Mystique Haven",
+      "Lantern Reach",
+      "Aleannocrin",
+      "Innsshanamel"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "The Union": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": null,
+    "total_nodes": 11,
+    "by_category": {
+      "settlement": 5,
+      "site": 5,
+      "macroregion": 1
+    },
+    "settlement_nodes": [
+      "Craftspire",
+      "Guildheart Hub",
+      "Market Crossroads",
+      "Unity Square",
+      "Ledger’s Rest"
+    ],
+    "biome_nodes": [
+      "Elderriver Forest"
+    ],
+    "poi_infrastructure_nodes": [
+      "Freight Seal Exchange",
+      "Guild Notice Court",
+      "Union Trade Arbitration Hall",
+      "Union Spire",
+      "Trademoot Pavilion"
+    ],
+    "local_nodes": [
+      "Craftspire",
+      "Guildheart Hub",
+      "Market Crossroads",
+      "Unity Square",
+      "Freight Seal Exchange",
+      "Guild Notice Court",
+      "Union Trade Arbitration Hall",
+      "Union Spire",
+      "Trademoot Pavilion",
+      "Ledger’s Rest"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "Principality of Zootia": {
+    "parent_umbrella": "The Principalities",
+    "ruling_house": "House Zootia",
+    "total_nodes": 9,
+    "by_category": {
+      "macroregion": 2,
+      "settlement": 6,
+      "site": 1
+    },
+    "settlement_nodes": [
+      "Woolridge",
+      "Harvest Haven",
+      "Quarry’s Edge",
+      "Harvest Keep",
+      "Grainhook",
+      "Reedbarrow"
+    ],
+    "biome_nodes": [
+      "Zootian Expanse",
+      "Goldriver Delta"
+    ],
+    "poi_infrastructure_nodes": [
+      "Sunspire Orchards"
+    ],
+    "local_nodes": [
+      "Woolridge",
+      "Harvest Haven",
+      "Quarry’s Edge",
+      "Harvest Keep",
+      "Sunspire Orchards",
+      "Grainhook",
+      "Reedbarrow"
+    ],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 0
+  },
+  "Shelk–Sheresh frontier": {
+    "parent_umbrella": "Shelk–Sheresh frontier",
+    "ruling_house": null,
+    "total_nodes": 1,
+    "by_category": {
+      "macroregion": 1
+    },
+    "settlement_nodes": [],
+    "biome_nodes": [
+      "Radioactive Frigid Mutation Mountains"
+    ],
+    "poi_infrastructure_nodes": [],
+    "local_nodes": [],
+    "water_valid_nodes": 0,
+    "uninhabitable_nodes": 1
+  }
+}

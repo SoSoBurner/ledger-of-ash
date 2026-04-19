@@ -1,0 +1,20 @@
+{
+  "name": "Undertower Marrow Wells",
+  "parent": "Soreheim Alliance Deep Works",
+  "summary": "Heat-sunk extraction pits where mineral slurries, monster bone ash, and runoff from old forge districts settle into pale layers prized by armorers and grave-tenders alike.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_6_frontier_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Soreheim Alliance",
+  "travel_tags": [
+    "resource site",
+    "grave commodity",
+    "subterranean hazard"
+  ]
+}

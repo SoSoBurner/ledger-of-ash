@@ -1,0 +1,94 @@
+background_id,archetype,flavor,origin_locality_id,origin_locality_name,file
+alchemist_civic,Alchemist,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/alchemist_civic.md
+alchemist_frontier,Alchemist,Frontier,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/alchemist_frontier.md
+alchemist_occult,Alchemist,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/alchemist_occult.md
+archer_civic,Archer,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/archer_civic.md
+archer_frontier,Archer,Frontier,sunspire_haven,Sunspire Haven,/home/oai/share/new_campaign_docs/sunspire_haven/archer_frontier.md
+archer_occult,Archer,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/archer_occult.md
+artificer_civic,Artificer,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/artificer_civic.md
+artificer_frontier,Artificer,Frontier,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/artificer_frontier.md
+artificer_occult,Artificer,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/artificer_occult.md
+assassin_civic,Assassin,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/assassin_civic.md
+assassin_frontier,Assassin,Frontier,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/assassin_frontier.md
+assassin_occult,Assassin,Occult,shirshal,Shirshal,/home/oai/share/new_campaign_docs/shirshal/assassin_occult.md
+bard_civic,Bard,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/bard_civic.md
+bard_frontier,Bard,Frontier,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/bard_frontier.md
+bard_occult,Bard,Occult,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/bard_occult.md
+beastmaster_civic,Beastmaster,Civic,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/beastmaster_civic.md
+beastmaster_frontier,Beastmaster,Frontier,aurora_crown_commune,Aurora Crown Commune,/home/oai/share/new_campaign_docs/aurora_crown_commune/beastmaster_frontier.md
+beastmaster_occult,Beastmaster,Occult,fairhaven,Fairhaven,/home/oai/share/new_campaign_docs/fairhaven/beastmaster_occult.md
+berserker_civic,Berserker,Civic,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/berserker_civic.md
+berserker_frontier,Berserker,Frontier,sunspire_haven,Sunspire Haven,/home/oai/share/new_campaign_docs/sunspire_haven/berserker_frontier.md
+berserker_occult,Berserker,Occult,cosmoria,Cosmoria,/home/oai/share/new_campaign_docs/cosmoria/berserker_occult.md
+cleric_civic,Cleric,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/cleric_civic.md
+cleric_frontier,Cleric,Frontier,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/cleric_frontier.md
+cleric_occult,Cleric,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/cleric_occult.md
+death_knight_civic,Death Knight,Civic,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/death_knight_civic.md
+death_knight_frontier,Death Knight,Frontier,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/death_knight_frontier.md
+death_knight_occult,Death Knight,Occult,shirshal,Shirshal,/home/oai/share/new_campaign_docs/shirshal/death_knight_occult.md
+elementalist_civic,Elementalist,Civic,sunspire_haven,Sunspire Haven,/home/oai/share/new_campaign_docs/sunspire_haven/elementalist_civic.md
+elementalist_frontier,Elementalist,Frontier,aurora_crown_commune,Aurora Crown Commune,/home/oai/share/new_campaign_docs/aurora_crown_commune/elementalist_frontier.md
+elementalist_occult,Elementalist,Occult,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/elementalist_occult.md
+engineer_civic,Engineer,Civic,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/engineer_civic.md
+engineer_frontier,Engineer,Frontier,aurora_crown_commune,Aurora Crown Commune,/home/oai/share/new_campaign_docs/aurora_crown_commune/engineer_frontier.md
+engineer_occult,Engineer,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/engineer_occult.md
+healer_civic,Healer,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/healer_civic.md
+healer_frontier,Healer,Frontier,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/healer_frontier.md
+healer_occult,Healer,Occult,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/healer_occult.md
+illusionist_civic,Illusionist,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/illusionist_civic.md
+illusionist_frontier,Illusionist,Frontier,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/illusionist_frontier.md
+illusionist_occult,Illusionist,Occult,shirshal,Shirshal,/home/oai/share/new_campaign_docs/shirshal/illusionist_occult.md
+inquisitor_civic,Inquisitor,Civic,shirshal,Shirshal,/home/oai/share/new_campaign_docs/shirshal/inquisitor_civic.md
+inquisitor_frontier,Inquisitor,Frontier,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/inquisitor_frontier.md
+inquisitor_occult,Inquisitor,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/inquisitor_occult.md
+knight_civic,Knight,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/knight_civic.md
+knight_frontier,Knight,Frontier,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/knight_frontier.md
+knight_occult,Knight,Occult,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/knight_occult.md
+necromancer_civic,Necromancer,Civic,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/necromancer_civic.md
+necromancer_frontier,Necromancer,Frontier,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/necromancer_frontier.md
+necromancer_occult,Necromancer,Occult,aurora_crown_commune,Aurora Crown Commune,/home/oai/share/new_campaign_docs/aurora_crown_commune/necromancer_occult.md
+oracle_civic,Oracle,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/oracle_civic.md
+oracle_frontier,Oracle,Frontier,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/oracle_frontier.md
+oracle_occult,Oracle,Occult,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/oracle_occult.md
+paladin_civic,Paladin,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/paladin_civic.md
+paladin_frontier,Paladin,Frontier,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/paladin_frontier.md
+paladin_occult,Paladin,Occult,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/paladin_occult.md
+priest_civic,Priest,Civic,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/priest_civic.md
+priest_frontier,Priest,Frontier,fairhaven,Fairhaven,/home/oai/share/new_campaign_docs/fairhaven/priest_frontier.md
+priest_occult,Priest,Occult,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/priest_occult.md
+ranger_civic,Ranger,Civic,fairhaven,Fairhaven,/home/oai/share/new_campaign_docs/fairhaven/ranger_civic.md
+ranger_frontier,Ranger,Frontier,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/ranger_frontier.md
+ranger_occult,Ranger,Occult,aurora_crown_commune,Aurora Crown Commune,/home/oai/share/new_campaign_docs/aurora_crown_commune/ranger_occult.md
+rogue_civic,Rogue,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/rogue_civic.md
+rogue_frontier,Rogue,Frontier,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/rogue_frontier.md
+rogue_occult,Rogue,Occult,fairhaven,Fairhaven,/home/oai/share/new_campaign_docs/fairhaven/rogue_occult.md
+saint_civic,Saint,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/saint_civic.md
+saint_frontier,Saint,Frontier,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/saint_frontier.md
+saint_occult,Saint,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/saint_occult.md
+scout_civic,Scout,Civic,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/scout_civic.md
+scout_frontier,Scout,Frontier,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/scout_frontier.md
+scout_occult,Scout,Occult,fairhaven,Fairhaven,/home/oai/share/new_campaign_docs/fairhaven/scout_occult.md
+spellthief_civic,Spellthief,Civic,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/spellthief_civic.md
+spellthief_frontier,Spellthief,Frontier,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/spellthief_frontier.md
+spellthief_occult,Spellthief,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/spellthief_occult.md
+tactician_civic,Tactician,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/tactician_civic.md
+tactician_frontier,Tactician,Frontier,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/tactician_frontier.md
+tactician_occult,Tactician,Occult,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/tactician_occult.md
+thief_civic,Thief,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/thief_civic.md
+thief_frontier,Thief,Frontier,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/thief_frontier.md
+thief_occult,Thief,Occult,shirshal,Shirshal,/home/oai/share/new_campaign_docs/shirshal/thief_occult.md
+trickster_civic,Trickster,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/trickster_civic.md
+trickster_frontier,Trickster,Frontier,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/trickster_frontier.md
+trickster_occult,Trickster,Occult,panim_haven,Panim Haven,/home/oai/share/new_campaign_docs/panim_haven/trickster_occult.md
+warden_civic,Warden,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/warden_civic.md
+warden_frontier,Warden,Frontier,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/warden_frontier.md
+warden_occult,Warden,Occult,guildheart_hub,Guildheart Hub,/home/oai/share/new_campaign_docs/guildheart_hub/warden_occult.md
+warlord_civic,Warlord,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/warlord_civic.md
+warlord_frontier,Warlord,Frontier,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/warlord_frontier.md
+warlord_occult,Warlord,Occult,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/warlord_occult.md
+warrior_civic,Warrior,Civic,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/warrior_civic.md
+warrior_frontier,Warrior,Frontier,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/warrior_frontier.md
+warrior_occult,Warrior,Occult,ithtananalor,Ithtananalor,/home/oai/share/new_campaign_docs/ithtananalor/warrior_occult.md
+wizard_civic,Wizard,Civic,mimolot_academy,Mimolot Academy,/home/oai/share/new_campaign_docs/mimolot_academy/wizard_civic.md
+wizard_frontier,Wizard,Frontier,shelkopolis,Shelkopolis,/home/oai/share/new_campaign_docs/shelkopolis/wizard_frontier.md
+wizard_occult,Wizard,Occult,soreheim_proper,Soreheim Proper,/home/oai/share/new_campaign_docs/soreheim_proper/wizard_occult.md

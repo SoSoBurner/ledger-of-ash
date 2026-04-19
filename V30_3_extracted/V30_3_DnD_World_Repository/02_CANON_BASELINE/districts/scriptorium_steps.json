@@ -1,0 +1,55 @@
+{
+  "name": "Scriptorium Steps",
+  "type": "district",
+  "parent_settlement": "Mimolot Academy",
+  "parent_polity": "House Mimolot",
+  "truth_layer": "conservative_inference",
+  "identity": "Scholarly district where book tariffs, copying labor, and licensed magical study become visibly commercial.",
+  "approach": "Stacked libraries, copying balconies, and tariff posts crowd a stepped academic quarter.",
+  "inside": "Scriptoria, licensed lecture courts, tariff counters, and guarded text vaults structure movement.",
+  "who_belongs": [
+    "copyists",
+    "students",
+    "tariff clerks",
+    "licensed mages"
+  ],
+  "who_is_out_of_place": [
+    "book thieves",
+    "untutored meddlers"
+  ],
+  "expected_behavior": [
+    "respect text handling rules",
+    "declare copied volumes"
+  ],
+  "visible_power": [
+    "academy archivists",
+    "tariff clerks"
+  ],
+  "economy": [
+    "book production",
+    "licensed study",
+    "tariff collection"
+  ],
+  "faith": [
+    "knowledge and contemplation are visible through disciplined study ritual"
+  ],
+  "seasonal_change": "Term openings create crowding and stricter text control.",
+  "pressure": [
+    "text smuggling",
+    "tuition strain"
+  ],
+  "npc_interfaces": [
+    "archivist_temeris_quillward",
+    "copy_broker_halin_vesk"
+  ],
+  "law_context": [
+    "book tariff law",
+    "licensed magical instruction"
+  ],
+  "sources": [
+    "principalities_doc"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

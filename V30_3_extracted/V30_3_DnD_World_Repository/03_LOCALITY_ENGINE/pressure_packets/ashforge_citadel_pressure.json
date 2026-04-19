@@ -1,0 +1,12 @@
+{
+  "name": "Ashforge Citadel",
+  "pressure": [
+    "house rivalry",
+    "forge accidents",
+    "ashfall damage"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

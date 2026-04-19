@@ -1,0 +1,12 @@
+{
+  "id": "pantheon.speaker_of_remeny",
+  "name": "Speaker of Remeny",
+  "truth_layer": "corrected_canon",
+  "summary": "A manipulated vessel into whom Remeny seed logic and false memory were implanted without erasing the original superego structure.",
+  "public_belief_record": "Believes herself to be Remeny and falsely remembers killing Vonalzo.",
+  "corrected_state": "Carries imposed identity architecture produced by Vonalzo and Twyll; imprisoned under divine misunderstanding.",
+  "sources": [
+    "gwybodaeth_missing",
+    "ai_source_pdf"
+  ]
+}

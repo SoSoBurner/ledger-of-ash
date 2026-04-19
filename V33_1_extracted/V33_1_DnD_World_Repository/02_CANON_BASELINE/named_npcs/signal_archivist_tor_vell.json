@@ -1,0 +1,91 @@
+{
+  "npc_id": "signal_archivist_tor_vell",
+  "canonical_name": "Signal Archivist Tor Vell",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Signal Archivist",
+  "profession_discipline": "communications archivist",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Sheresh Communes",
+  "settlement": "Aurora Meadows",
+  "locality_scope": "Aurora Meadows",
+  "institutional_ties": [
+    "Aurora Meadows"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Archivist who records aurora anomalies, scout reports, and experimental incident notices across the Sheresh network.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Aurora Meadows"
+    ],
+    "institutions": [
+      "Aurora Meadows"
+    ],
+    "factions": []
+  },
+  "appearance": "Signal Archivist Tor Vell carries the marks of signal archivist in crystalline chill: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a signal archivist whose work is visible through daily procedure, gatekeeping, and the practical pressures of Aurora Meadows.",
+  "daily_function": "Performs the ongoing duties of signal archivist in and around Aurora Meadows, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Aurora Meadows while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to mutational drift is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Signal Archivist Tor Vell can draw the party into a practical problem centered on Aurora Meadows."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Signal Archivist Tor Vell becomes useful when the party needs access, explanation, or relief tied to the work of a signal archivist."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "signal_archivist_tor_vell",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Signal Archivist Tor Vell is readable as a signal archivist tied to Aurora Meadows.",
+  "encounter_context": {
+    "usual_environment": "Aurora Meadows: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "signal archivist"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Signal Archivist Tor Vell presents as someone shaped by the duties of a signal archivist and the daily pressures of Aurora Meadows.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a signal archivist, and proof that strangers will not make Aurora Meadows harder to manage.",
+  "what_they_refuse": "Signal Archivist Tor Vell refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a signal archivist too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Signal Archivist Tor Vell can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Signal Archivist Tor Vell adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Signal Archivist Tor Vell always knows more about Aurora Meadows than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to signal archivist duties in Aurora Meadows.",
+  "social_texture": "Signal Archivist Tor Vell speaks like someone who has spent too long translating private stakes into acceptable public language. Around Aurora Meadows, people read them as spell-literate, aesthetically alert, and wary of magical contamination.",
+  "money_pressure": "Their material pressure is tied to reagents; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but mutational drift becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Signal touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Signal Archivist Tor Vell when the party needs a socially grounded face for Aurora Meadows: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

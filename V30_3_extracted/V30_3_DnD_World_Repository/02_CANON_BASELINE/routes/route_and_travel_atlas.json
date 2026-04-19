@@ -1,0 +1,38 @@
+{
+  "name": "Route and Travel Atlas",
+  "truth_layer": "reconciled_canon",
+  "route_classes": {
+    "imperial_road": "policed, toll-bearing, visibility-heavy",
+    "guild_route": "manifest-driven, contract and storage integrated",
+    "pilgrim_route": "ritual timing sensitive",
+    "industrial_route": "quota and security driven",
+    "mobile_nation_route": "seasonal and negotiated",
+    "hazard_water_route": "weather- and creature-sensitive"
+  },
+  "regional_examples": [
+    "Shelkopolis–Fairhaven road",
+    "Shelkopolis–Plume’s End northern road",
+    "Roaz northern trade route",
+    "Ashwake harbor lanes",
+    "Nomdara northern tundra circuit",
+    "Nomdara whirlpool safe-passage lane",
+    "Sheresh dome roads",
+    "Brineland floating exchange corridors"
+  ],
+  "sources": [
+    "locations_catalog",
+    "spatial_seasonal",
+    "soreheim_review",
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "named_npc_refs": [
+    "lysa_hart"
+  ],
+  "npc_interfaces": [
+    "lysa_hart"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

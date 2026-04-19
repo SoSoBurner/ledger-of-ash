@@ -1,0 +1,27 @@
+{
+  "build_version": "V30_3",
+  "packet_type": "spatial_polity_packet",
+  "polity": "Principality of Zootia",
+  "node_count": 9,
+  "category_counts": {
+    "macroregion": 2,
+    "settlement": 6,
+    "site": 1
+  },
+  "water_valid_count": 0,
+  "uninhabitable_exclusion_count": 0,
+  "named_npc_hook_count": 0,
+  "generic_npc_role_count": 0,
+  "locality_names": [
+    "Goldriver Delta",
+    "Grainhook",
+    "Harvest Haven",
+    "Harvest Keep",
+    "Quarry’s Edge",
+    "Reedbarrow",
+    "Sunspire Orchards",
+    "Woolridge",
+    "Zootian Expanse"
+  ],
+  "status": "integrated"
+}

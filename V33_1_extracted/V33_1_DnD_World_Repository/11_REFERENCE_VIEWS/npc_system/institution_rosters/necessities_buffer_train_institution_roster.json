@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Necessities Buffer Train",
+  "record_count": 1,
+  "npc_ids": [
+    "mek_waycord"
+  ],
+  "records": [
+    {
+      "npc_id": "mek_waycord",
+      "canonical_name": "Mek Waycord",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Deck Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as deck broker.",
+      "current_agenda": "Keep Necessities Buffer Train workable through the obligations of deck broker while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Necessities Buffer Train is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "internal_canonical_record"
+  ]
+}

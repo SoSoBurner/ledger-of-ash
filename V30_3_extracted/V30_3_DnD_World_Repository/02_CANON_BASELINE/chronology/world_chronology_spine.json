@@ -1,0 +1,65 @@
+{
+  "name": "World Chronology Spine",
+  "truth_layer": "reconciled_canon",
+  "append_only_rule": "Later events are added as consequences, corrections, or branch results; they do not silently erase older records.",
+  "eras": [
+    {
+      "order": 1,
+      "event": "Primordial Unity bisects the astral sky and creates the Material Planet.",
+      "layer": "constitutional_canon"
+    },
+    {
+      "order": 2,
+      "event": "The gods operate in relative congruence over early ages of the world.",
+      "layer": "legacy_canon"
+    },
+    {
+      "order": 3,
+      "event": "Mega-Terozash breaches the Material Planet, creating the Doomsday / First Sieve / Five Days of Chaos.",
+      "layer": "constitutional_canon"
+    },
+    {
+      "order": 4,
+      "event": "Elemental essences are stabilized into visible realm-bodies: the elemental planets.",
+      "layer": "constitutional_canon"
+    },
+    {
+      "order": 5,
+      "event": "Doom scars, Mother Storm, Umbra, and Limbo become lasting structural consequences.",
+      "layer": "constitutional_canon"
+    },
+    {
+      "order": 6,
+      "event": "Public-facing pantheon memory preserves the Remeny-killed-Vonalzo account.",
+      "layer": "public_belief_record"
+    },
+    {
+      "order": 7,
+      "event": "Corrective divine layer reveals Vonalzo/Twyll deception, seed absorption, and Speaker-memory manipulation.",
+      "layer": "corrected_canon"
+    },
+    {
+      "order": 8,
+      "event": "House Mal declines, is economically displaced, and loses effective governing rank.",
+      "layer": "corrected_canon"
+    },
+    {
+      "order": 9,
+      "event": "The Union rises as the sanctioned guild-governed successor trade order within the Principalities.",
+      "layer": "corrected_canon"
+    },
+    {
+      "order": 10,
+      "event": "prior_release formalizes constitutional canon, contradiction governance, and regime transition objects as baseline repository law.",
+      "layer": "constitutional_canon"
+    }
+  ],
+  "sources": [
+    "pantheon_story",
+    "gwybodaeth_missing",
+    "doomsday_planets",
+    "principalities",
+    "ai_source_pdf",
+    "topatch_v22_6_spec"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "npc_id": "sylva_aurorine",
+  "canonical_name": "Sylva Aurorine",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Border Assessor",
+  "profession_discipline": "Border Assessor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": null,
+  "locality_scope": "Principality of Shelk",
+  "institutional_ties": [
+    "Principality of Shelk"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as border assessor.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Principality of Shelk"
+    ],
+    "institutions": [
+      "Principality of Shelk"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a border assessor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of border assessor in and around Principality of Shelk, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Principality of Shelk workable through the obligations of border assessor while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Principality of Shelk, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of border assessor visibly slip.",
+  "relationship_refs": [
+    "rel_0373",
+    "rel_0376",
+    "rel_0379",
+    "rel_0380"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Sylva Aurorine needs help with a problem in Principality of Shelk that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Sylva Aurorine can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principality_shelk",
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "sylva_aurorine",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Sylva Aurorine carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Principality of Shelk: the part of Principality of Shelk where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Sylva Aurorine presents as Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a border assessor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Border Assessor, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Sylva Aurorine refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Border Assessor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Sylva Aurorine can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Sylva Aurorine adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Sylva Aurorine is Known locally through day-to-day work as border assessor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Border Assessor."
+}

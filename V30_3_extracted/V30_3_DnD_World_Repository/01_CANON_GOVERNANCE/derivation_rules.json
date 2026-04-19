@@ -1,0 +1,15 @@
+{
+  "allowed": [
+    "connective explanation between supported facts",
+    "locality support derived from parent polity culture and law",
+    "behavior derived from stated law, culture, hierarchy, or economy",
+    "seasonal rendering derived from explicit climate and celestial cycles",
+    "runtime structuring required to separate session records from persistent world state"
+  ],
+  "forbidden": [
+    "inventing unsupported major civilizations, wars, gods, or metaphysical laws",
+    "fabricating secret motives or hidden biographies for named figures",
+    "turning aesthetic possibility into hard canon",
+    "using legacy repository objects as emission authority"
+  ]
+}

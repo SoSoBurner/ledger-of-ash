@@ -1,0 +1,89 @@
+{
+  "npc_id": "orien_petalglass",
+  "canonical_name": "Orien Petalglass",
+  "aliases": [
+    "the Recall"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Oath Witness",
+  "profession_discipline": "Oath Witness",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "House Shelk",
+  "locality_scope": "House Shelk",
+  "institutional_ties": [
+    "House Shelk"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as oath witness.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "House Shelk"
+    ],
+    "institutions": [
+      "House Shelk"
+    ],
+    "factions": []
+  },
+  "appearance": "Orien Petalglass usually presents in bright-plumed coat brushed too often for comfort, with details that make their oath witness status legible before introductions begin.",
+  "manner": "Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a oath witness still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of oath witness in and around House Shelk, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep House Shelk workable through the obligations of oath witness while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must keep records, witness, or account integrity credible while people try to hurry, blur, or weaponize the paper trail. Around House Shelk, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of oath witness visibly slip.",
+  "relationship_refs": [
+    "rel_0416",
+    "rel_0417"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "document_pressure",
+      "summary": "Orien Petalglass can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Orien Petalglass can trade precise, actionable information once the party secures or clarifies the record they protect."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "principality_shelk",
+    "psc_shelkopolis",
+    "principalities"
+  ],
+  "compatibility_interface_id": "orien_petalglass",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Orien Petalglass communicates in public.",
+  "encounter_context": {
+    "usual_environment": "House Shelk: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Orien Petalglass presents as Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a oath witness still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Oath Witness, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Orien Petalglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Oath Witness too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Orien Petalglass can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Orien Petalglass adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Orien Petalglass is Known locally through day-to-day work as oath witness. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Oath Witness."
+}

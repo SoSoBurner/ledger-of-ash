@@ -1,0 +1,841 @@
+{
+  "panim_haven": {
+    "pressures": [
+      "divine balance obligations"
+    ],
+    "law_context": [
+      "sacrificial and mediation decorum"
+    ],
+    "greetings_v2": [
+      "Mournful courtesy and measured acknowledgment of family lines, vows, or dead kin are common."
+    ],
+    "taboos": [
+      "cheap jokes about death",
+      "public bargaining over memorial worth in crude terms"
+    ],
+    "suspicious": [
+      "false lineage claims",
+      "tampering with offering records",
+      "desperate attempts to bypass ritual cost"
+    ],
+    "outsider_mistakes": [
+      "seeing Panim as only morbid rather than civic, devotional, and economic"
+    ],
+    "insult_triggers": [
+      "mocking funerary commerce",
+      "treating grief as spectacle",
+      "failing ritual respect around offerings or coffins"
+    ],
+    "daily_life": "Daily life turns on records, mediation, offering preparation, grief traffic, and the steady movement of family duty through sacred administration.",
+    "sense_of_place": "The air carries salt, incense, wax, cedar, linen, and low voices. Public spaces feel watched by memory, accountancy, and doctrine.",
+    "first_contact": "Panim Haven Innkeeper",
+    "visible_tension": "People in Panim Haven are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Panim Haven is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "faith versus secrecy",
+      "grief versus cost",
+      "ritual dignity versus opportunistic trade"
+    ],
+    "rumors": [
+      "People say something in Panim Haven has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Panim Haven left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Panim Haven is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "House Panim",
+      "Panim Afterlife Registry"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Panim Haven Innkeeper",
+      "market_clerk": "Panim Haven Market Clerk",
+      "shrine_attendant": "Panim Haven Shrine Attendant",
+      "porter": "Panim Haven Porter",
+      "scribe": "Panim Haven Scribe",
+      "labor_foreman": "Panim Haven Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "sunspire_haven": {
+    "pressures": [
+      "predators",
+      "water system vulnerabilities",
+      "storage disputes",
+      "family favor feuds"
+    ],
+    "law_context": [
+      "communal ownership norms enforced through regional decrees, syndicate records, and family obligation"
+    ],
+    "greetings_v2": [
+      "Status is established through contribution and assignment before ease."
+    ],
+    "taboos": [
+      "open contempt for communal ownership",
+      "boasting about selfish accumulation"
+    ],
+    "suspicious": [
+      "unaccounted stockpiles",
+      "sabotage signs",
+      "illicit magic or relic handling"
+    ],
+    "outsider_mistakes": [
+      "reading communal culture as soft when enforcement is severe"
+    ],
+    "insult_triggers": [
+      "idleness",
+      "hoarding",
+      "waste",
+      "disrespect toward assigned labor or giant authority"
+    ],
+    "daily_life": "Shifts, quotas, repair cycles, hauling, planning, and ritualized contribution define ordinary life from quarries to towers to farm zones.",
+    "sense_of_place": "Air carries slag, grain mash, machine grease, smoke, wet stone, and cooked communal meals. Sounds are horns, hammers, rolling freight, and shouted shift orders.",
+    "first_contact": "Sunspire Haven Innkeeper",
+    "visible_tension": "People in Sunspire Haven are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Sunspire Haven is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "ambition versus communal obligation",
+      "progress versus tradition",
+      "resource demand versus local survival"
+    ],
+    "rumors": [
+      "People say something in Sunspire Haven has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Sunspire Haven left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Sunspire Haven is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "Giant Council",
+      "Engineers\u00e2\u20ac\u2122 Consortium",
+      "Miners\u00e2\u20ac\u2122 Assembly",
+      "Agricultural Syndicate",
+      "Artificers\u00e2\u20ac\u2122 Guild"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Sunspire Haven Innkeeper",
+      "market_clerk": "Sunspire Haven Market Clerk",
+      "shrine_attendant": "Sunspire Haven Shrine Attendant",
+      "porter": "Sunspire Haven Porter"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "aurora_crown_commune": {
+    "pressures": [
+      "dome stress",
+      "contamination seepage",
+      "ration balancing"
+    ],
+    "law_context": [
+      "containment law",
+      "resource triage",
+      "mandatory repair rotations"
+    ],
+    "greetings_v2": [
+      "Survival-aware greetings often include weather, dome status, or route condition before personal matters."
+    ],
+    "taboos": [
+      "mocking mutation scars or dome necessity"
+    ],
+    "suspicious": [
+      "tampering with dome systems",
+      "moving between communes with unexplained residue or devices"
+    ],
+    "outsider_mistakes": [
+      "confusing reserved behavior for coldness rather than resource discipline"
+    ],
+    "insult_triggers": [
+      "carelessness with containment",
+      "wasting heat",
+      "treating tundra dangers as entertainment"
+    ],
+    "daily_life": "Heat management, repair, research, route timing, preserved food routines, and aurora or containment watch shape daily existence.",
+    "sense_of_place": "Air smells of ozone, lamp oil, snow-wet cloth, boiled broth, resin, and metal warmed too near heat sources. Sounds are quieter and more careful than in temperate polities.",
+    "first_contact": "Aurora Crown Commune Innkeeper",
+    "visible_tension": "People in Aurora Crown Commune are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Aurora Crown Commune is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "survival versus curiosity",
+      "innovation versus containment",
+      "shared shelter versus personal secrecy"
+    ],
+    "rumors": [
+      "People say something in Aurora Crown Commune has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Aurora Crown Commune left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Aurora Crown Commune is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "Sheresh Dome Stewards",
+      "Sheresh Containment Research Concord",
+      "Sheresh Route Warden Compacts"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Aurora Crown Commune Innkeeper",
+      "market_clerk": "Aurora Crown Commune Market Clerk",
+      "shrine_attendant": "Aurora Crown Commune Shrine Attendant",
+      "porter": "Aurora Crown Commune Porter",
+      "scribe": "Aurora Crown Commune Scribe",
+      "labor_foreman": "Aurora Crown Commune Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "shelkopolis": {
+    "pressures": [
+      "glyph corruption beyond the city",
+      "trade security obligations",
+      "noble rivalry",
+      "festival traffic"
+    ],
+    "law_context": [
+      "Fashion and decorum law intensify in noble and ceremonial spaces.",
+      "Intellectual property and espionage law are serious in elite and archival sites."
+    ],
+    "greetings_v2": [
+      "Measured compliments on attire are normal among strangers of equal standing.",
+      "Road-facing greetings are brisk and practical when commerce is moving."
+    ],
+    "taboos": [
+      "publicly humiliating a host over dress or refinement",
+      "dismissive treatment of House obligations"
+    ],
+    "suspicious": [
+      "lingering near route offices without business",
+      "copying patterns or ceremonial designs",
+      "moving through elite districts in obvious disguise"
+    ],
+    "outsider_mistakes": [
+      "assuming fashion is superficial rather than civic and political",
+      "underestimating Roadwarden visibility"
+    ],
+    "insult_triggers": [
+      "mocking local attire",
+      "wasting skilled labor",
+      "treating harmony as weakness"
+    ],
+    "daily_life": "Daily life turns on tailoring, road policing, market exchange, scholarly browsing, and layered public performance where refinement and utility are expected to coexist.",
+    "sense_of_place": "Markets smell of dyes, pressed flowers, wool, metal polish, and cooked street food. Roads carry bells, hooves, clipped commands, and bright plume movement. Shrines feel orderly rather than ecstatic.",
+    "first_contact": "Amber Fountain Innkeeper",
+    "visible_tension": "People in Shelkopolis are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Shelkopolis is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "trade versus dignity",
+      "refinement versus necessity",
+      "public harmony versus covert rivalry"
+    ],
+    "rumors": [
+      "People say something in Shelkopolis has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Shelkopolis left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Shelkopolis is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "Roadwardens Order",
+      "Fashion Artisans Collective",
+      "House Shelk"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Amber Fountain Innkeeper",
+      "market_clerk": "Threads of Twilight Market Clerk",
+      "shrine_attendant": "Aurora Light Cathedral Attendant",
+      "porter": "Shelkopolis Porter",
+      "scribe": "Shelkopolis Scribe",
+      "labor_foreman": "Shelkopolis Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "harvest_circle": {
+    "pressures": [
+      "spoilage",
+      "price pressure",
+      "favor feuds",
+      "route congestion"
+    ],
+    "law_context": [
+      "market peace is enforced through communal law, clerk records, and family responsibility for stall, storage, and convoy conduct"
+    ]
+  },
+  "glasswake_commune": {
+    "pressures": [
+      "exposure incidents",
+      "quarantine fatigue",
+      "instrument failure"
+    ],
+    "law_context": [
+      "quarantine law",
+      "research containment protocol"
+    ]
+  },
+  "fairhaven": {
+    "pressures": [
+      "glyph corruption",
+      "celestial creatures at Watcher\u00e2\u20ac\u2122s Perch",
+      "suspicious travelers in taverns"
+    ],
+    "law_context": [
+      "standard Shelk road and market law; increased concern for dangerous magic and public safety near glyph anomalies"
+    ],
+    "greetings_v2": [
+      "Measured compliments on attire are normal among strangers of equal standing.",
+      "Road-facing greetings are brisk and practical when commerce is moving."
+    ],
+    "taboos": [
+      "publicly humiliating a host over dress or refinement",
+      "dismissive treatment of House obligations"
+    ],
+    "suspicious": [
+      "lingering near route offices without business",
+      "copying patterns or ceremonial designs",
+      "moving through elite districts in obvious disguise"
+    ],
+    "outsider_mistakes": [
+      "assuming fashion is superficial rather than civic and political",
+      "underestimating Roadwarden visibility"
+    ],
+    "insult_triggers": [
+      "mocking local attire",
+      "wasting skilled labor",
+      "treating harmony as weakness"
+    ],
+    "daily_life": "Daily life turns on tailoring, road policing, market exchange, scholarly browsing, and layered public performance where refinement and utility are expected to coexist.",
+    "sense_of_place": "Markets smell of dyes, pressed flowers, wool, metal polish, and cooked street food. Roads carry bells, hooves, clipped commands, and bright plume movement. Shrines feel orderly rather than ecstatic.",
+    "first_contact": "The Gilded Plough Innkeeper",
+    "visible_tension": "People in Fairhaven are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Fairhaven is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "trade versus dignity",
+      "refinement versus necessity",
+      "public harmony versus covert rivalry"
+    ],
+    "rumors": [
+      "People say something in Fairhaven has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Fairhaven left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Fairhaven is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "Roadwardens Order",
+      "Fashion Artisans Collective",
+      "House Shelk"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "The Gilded Plough Innkeeper",
+      "market_clerk": "Sunflower Market Clerk",
+      "shrine_attendant": "Fairhaven Chapel Attendant",
+      "porter": "Fairhaven Porter"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "mimolot_academy": {
+    "pressures": [
+      "tariff tensions"
+    ],
+    "law_context": [
+      "book tariff and magical conduct"
+    ],
+    "greetings_v2": [
+      "Scholarly acknowledgment, titles, and affiliation markers matter."
+    ],
+    "taboos": [
+      "public dismissal of education as wasteful",
+      "openly trafficking forbidden texts"
+    ],
+    "suspicious": [
+      "copying restricted diagrams",
+      "smuggling books",
+      "appearing in archive spaces without proper chain of access"
+    ],
+    "outsider_mistakes": [
+      "assuming scholarship is neutral rather than political and revenue-linked"
+    ],
+    "insult_triggers": [
+      "careless damage to books",
+      "boastful ignorance",
+      "attempting to bypass tariff or catalog rules"
+    ],
+    "daily_life": "Instruction, copying, catalog review, tariff administration, debate, and magical training dominate the rhythm of Mimolot life.",
+    "sense_of_place": "The texture is quieter: paper dust, lamp oil, polished desks, muttered debate, and courier traffic carrying sealed packets.",
+    "first_contact": "Mimolot Academy Innkeeper",
+    "visible_tension": "People in Mimolot Academy are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Mimolot Academy is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "knowledge versus access",
+      "scholarship versus privilege",
+      "precision versus curiosity"
+    ],
+    "rumors": [
+      "People say something in Mimolot Academy has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Mimolot Academy left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Mimolot Academy is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "House Mimolot",
+      "Mimolot Book Tariff Office"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Mimolot Academy Innkeeper",
+      "market_clerk": "Mimolot Academy Market Clerk",
+      "shrine_attendant": "Mimolot Academy Shrine Attendant",
+      "porter": "Mimolot Academy Porter",
+      "scribe": "Mimolot Academy Scribe",
+      "labor_foreman": "Mimolot Academy Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "soreheim_proper": {
+    "pressures": [
+      "quota demands",
+      "political rivalry",
+      "foreign pressure",
+      "industrial accidents",
+      "tower maintenance strain"
+    ],
+    "law_context": [
+      "communal ownership and restorative justice enforced through central tower review",
+      "domestic patronage in other regions never supersedes Soreheim Proper decree"
+    ],
+    "greetings_v2": [
+      "Status is established through contribution and assignment before ease."
+    ],
+    "taboos": [
+      "open contempt for communal ownership",
+      "boasting about selfish accumulation"
+    ],
+    "suspicious": [
+      "unaccounted stockpiles",
+      "sabotage signs",
+      "illicit magic or relic handling"
+    ],
+    "outsider_mistakes": [
+      "reading communal culture as soft when enforcement is severe"
+    ],
+    "insult_triggers": [
+      "idleness",
+      "hoarding",
+      "waste",
+      "disrespect toward assigned labor or giant authority"
+    ],
+    "daily_life": "Shifts, quotas, repair cycles, hauling, planning, and ritualized contribution define ordinary life from quarries to towers to farm zones.",
+    "sense_of_place": "Air carries slag, grain mash, machine grease, smoke, wet stone, and cooked communal meals. Sounds are horns, hammers, rolling freight, and shouted shift orders.",
+    "first_contact": "Soreheim Proper Innkeeper",
+    "visible_tension": "People in Soreheim Proper are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Soreheim Proper is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "ambition versus communal obligation",
+      "progress versus tradition",
+      "resource demand versus local survival"
+    ],
+    "rumors": [
+      "People say something in Soreheim Proper has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Soreheim Proper left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Soreheim Proper is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "Giant Council",
+      "Engineers\u00e2\u20ac\u2122 Consortium",
+      "Miners\u00e2\u20ac\u2122 Assembly",
+      "Agricultural Syndicate",
+      "Artificers\u00e2\u20ac\u2122 Guild"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Soreheim Proper Innkeeper",
+      "market_clerk": "Soreheim Proper Market Clerk",
+      "shrine_attendant": "Soreheim Proper Shrine Attendant",
+      "porter": "Soreheim Proper Porter",
+      "scribe": "Soreheim Proper Scribe",
+      "labor_foreman": "Soreheim Proper Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "shirshal": {
+    "pressures": [
+      "magical law violations"
+    ],
+    "law_context": [
+      "magical compliance"
+    ],
+    "greetings_v2": [
+      "Polite but probing introductions are common; people listen for evasion."
+    ],
+    "taboos": [
+      "boasting about unsanctioned magical tricks in public"
+    ],
+    "suspicious": [
+      "contradictory testimony",
+      "ward tampering",
+      "unexplained residue or arcane symptoms"
+    ],
+    "outsider_mistakes": [
+      "treating magical law as abstract when locals treat it as civic safety"
+    ],
+    "insult_triggers": [
+      "obstruction during inquiry",
+      "careless magical contamination",
+      "lying to investigators"
+    ],
+    "daily_life": "The everyday tempo is built from casework, witness traffic, evidence handling, magical anomaly review, and investigative rumor.",
+    "sense_of_place": "People speak in lowered voices around cases. Ink, metal seals, burnt warding materials, and rain-damp stone shape the atmosphere.",
+    "first_contact": "Shirshal Innkeeper",
+    "visible_tension": "People in Shirshal are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Shirshal is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "truth versus convenience",
+      "safety versus secrecy",
+      "jurisdiction versus private power"
+    ],
+    "rumors": [
+      "People say something in Shirshal has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Shirshal left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Shirshal is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "House Shirsh",
+      "Magi Magistratus"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Shirshal Innkeeper",
+      "market_clerk": "Shirshal Market Clerk",
+      "shrine_attendant": "Shirshal Shrine Attendant",
+      "porter": "Shirshal Porter",
+      "scribe": "Shirshal Scribe",
+      "labor_foreman": "Shirshal Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "ithtananalor": {
+    "pressures": [
+      "illicit magic",
+      "smuggling",
+      "public accountability for harsh enforcement"
+    ],
+    "law_context": [
+      "Roazian antimagic and order law saturate public life."
+    ],
+    "greetings_v2": [
+      "Direct acknowledgment and role-first introductions are favored over ornament."
+    ],
+    "taboos": [
+      "open praise of unlawful magic",
+      "casual discussion of covert enforcement methods"
+    ],
+    "suspicious": [
+      "evading checkpoints",
+      "unlicensed artifacts",
+      "unaccounted cargo or notes"
+    ],
+    "outsider_mistakes": [
+      "mistaking order for trust",
+      "speaking too freely near enforcement halls"
+    ],
+    "insult_triggers": [
+      "mocking the law",
+      "careless handling of controlled magic",
+      "wasting state labor or strategic resources"
+    ],
+    "daily_life": "Daily life is shaped by shifts, inspections, filings, quarry traffic, foundry schedules, and legal process.",
+    "sense_of_place": "Air carries coal, oil, hot iron, damp paper, and ration kitchens. Streets sound like boots, carts, hammers, whistles, and ordered commands.",
+    "first_contact": "Ithtananalor Innkeeper",
+    "visible_tension": "People in Ithtananalor are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Ithtananalor is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "law versus survival",
+      "security versus privacy",
+      "innovation versus containment"
+    ],
+    "rumors": [
+      "People say something in Ithtananalor has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Ithtananalor left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Ithtananalor is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "Office of Roazian Enforcement",
+      "Iron Accord",
+      "House Roaz"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Ithtananalor Innkeeper",
+      "market_clerk": "Ithtananalor Market Clerk",
+      "shrine_attendant": "Ithtananalor Shrine Attendant",
+      "porter": "Ithtananalor Porter",
+      "scribe": "Ithtananalor Scribe",
+      "labor_foreman": "Ithtananalor Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "guildheart_hub": {
+    "pressures": [
+      "legacy Mal claims",
+      "smuggling",
+      "Red Hood rumor presence",
+      "imperial oversight"
+    ],
+    "law_context": [
+      "Contract and sanction logic are publicly legible.",
+      "Failure to register goods or hearings attracts rapid administrative consequences."
+    ],
+    "greetings_v2": [
+      "Introductions often include trade function, guild tie, or route purpose before personal warmth."
+    ],
+    "taboos": [
+      "casual claims over Mal succession rights without standing",
+      "public accusations without ledger backing"
+    ],
+    "suspicious": [
+      "price manipulation without cover",
+      "stolen seals",
+      "appearing at freight yards without affiliation or purpose"
+    ],
+    "outsider_mistakes": [
+      "assuming neutral mediation means lack of politics"
+    ],
+    "insult_triggers": [
+      "calling someone dead-weight",
+      "failing a bargain in bad faith",
+      "openly wasting shared freight time"
+    ],
+    "daily_life": "Union life is crowded with arbitration, freight movement, guild disputes, workshops, changing obligations, and public notice culture.",
+    "sense_of_place": "The air is full of chalk dust, ink, rope, cooking oil, hot metal, wet crates, and argument. Streets feel loud, useful, and perpetually provisional.",
+    "first_contact": "Guildheart Hub Innkeeper",
+    "visible_tension": "People in Guildheart Hub are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Guildheart Hub is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "trade versus dignity",
+      "arbitration versus coercion",
+      "successor legitimacy versus expediency"
+    ],
+    "rumors": [
+      "People say something in Guildheart Hub has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Guildheart Hub left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Guildheart Hub is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "The Union",
+      "Union Trade Arbitration Guild",
+      "Union Sanction Board",
+      "House Mal Remnant Claimants"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Guildheart Hub Innkeeper",
+      "market_clerk": "Guildheart Hub Market Clerk",
+      "shrine_attendant": "Guildheart Hub Shrine Attendant",
+      "porter": "Guildheart Hub Porter",
+      "scribe": "Guildheart Hub Scribe",
+      "labor_foreman": "Guildheart Hub Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "cosmoria": {
+    "pressures": [
+      "storm weather",
+      "trade vulnerability"
+    ],
+    "law_context": [
+      "archive and tax discipline"
+    ],
+    "greetings_v2": [
+      "Harbor greetings, deck etiquette, and commercial courtesy mix with archival formality."
+    ],
+    "taboos": [
+      "careless talk that jeopardizes shipping security or treasury trust"
+    ],
+    "suspicious": [
+      "unmanifested cargo",
+      "interest in ledgers without cause",
+      "lingering near treasury or shipwright controls"
+    ],
+    "outsider_mistakes": [
+      "assuming maritime ease means weak oversight"
+    ],
+    "insult_triggers": [
+      "disrespecting maritime labor",
+      "treating archives as mere ornament",
+      "publicly shaming sailors for superstition"
+    ],
+    "daily_life": "Life turns on tides, docking, repairs, recordkeeping, tax or treasury duty, and the constant trade between shore and floating civic space.",
+    "sense_of_place": "Salt, rope tar, wet wood, fish, ink, kelp, and hammered fittings define the sensory field. Voices rise and fall with loading calls and weather alarms.",
+    "first_contact": "Cosmoria Innkeeper",
+    "visible_tension": "People in Cosmoria are acting as though a pressure everyone knows about has become harder to ignore.",
+    "public_notice": "A new notice in Cosmoria is drawing comment because it changes someone\u00e2\u20ac\u2122s movement, cost, or safety.",
+    "conflict_surfaces": [
+      "trade versus safety",
+      "record truth versus profit",
+      "shore authority versus floating custom"
+    ],
+    "rumors": [
+      "People say something in Cosmoria has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Cosmoria left someone unpaid or publicly embarrassed.",
+      "A respected local figure in Cosmoria is said to be protecting someone they should have exposed."
+    ],
+    "visible_factions": [
+      "House Cosmouth",
+      "Cosmouth Archives and Treasury"
+    ],
+    "faction_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "npc_venues": {
+      "innkeeper": "Cosmoria Innkeeper",
+      "market_clerk": "Cosmoria Market Clerk",
+      "shrine_attendant": "Cosmoria Shrine Attendant",
+      "porter": "Cosmoria Porter",
+      "scribe": "Cosmoria Scribe",
+      "labor_foreman": "Cosmoria Labor Foreman"
+    },
+    "scene_starters": [
+      "overheard dispute at a public threshold",
+      "public ceremony under pressure",
+      "missing person or missing ledger concern",
+      "labor stoppage or delayed shipment",
+      "funeral procession or shrine petition",
+      "bureaucratic friction with real stakes",
+      "trade dispute with witnesses",
+      "faction test of loyalty or usefulness",
+      "strange celestial sign interpreted three different ways"
+    ]
+  },
+  "craftspire": {
+    "pressures": [
+      "copy theft",
+      "intellectual property disputes",
+      "material shortages",
+      "sabotage"
+    ],
+    "law_context": [
+      "Book-tax and copy-right enforcement are visible and economically central."
+    ]
+  },
+  "unity_square": {
+    "pressures": [
+      "price shocks",
+      "cargo theft",
+      "route closures",
+      "public rumor flareups"
+    ],
+    "law_context": [
+      "Market fraud and sanction breaches are publicly punished to preserve confidence."
+    ]
+  },
+  "ironhold_quarry": {
+    "pressures": [
+      "labor harshness",
+      "resource theft",
+      "border competition"
+    ],
+    "law_context": [
+      "high enforcement visibility"
+    ]
+  },
+  "plumes_end_outpost": {},
+  "whitebridge_commune": {
+    "pressures": [
+      "bridge icing",
+      "refugee surges",
+      "missing expeditions"
+    ],
+    "law_context": [
+      "crossing declaration law",
+      "shared emergency supply rules"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "market arbitration lanes",
+  "record_count": 1,
+  "npc_ids": [
+    "velrik_durnshade"
+  ],
+  "records": [
+    {
+      "npc_id": "velrik_durnshade",
+      "canonical_name": "Velrik Durnshade",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Guild dispute mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as guild dispute mediator.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of guild dispute mediator while managing the immediate pressure of spoilage in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "market arbitration lanes is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

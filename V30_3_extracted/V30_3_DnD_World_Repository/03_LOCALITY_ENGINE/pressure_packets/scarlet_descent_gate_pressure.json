@@ -1,0 +1,12 @@
+{
+  "name": "Scarlet Descent Gate",
+  "pressure": [
+    "shaft collapse",
+    "lava surge",
+    "crew loss"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

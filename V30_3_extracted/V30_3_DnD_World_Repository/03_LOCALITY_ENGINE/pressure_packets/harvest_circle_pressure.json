@@ -1,0 +1,13 @@
+{
+  "name": "Harvest Circle",
+  "pressure": [
+    "spoilage",
+    "price pressure",
+    "favor feuds",
+    "route congestion"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

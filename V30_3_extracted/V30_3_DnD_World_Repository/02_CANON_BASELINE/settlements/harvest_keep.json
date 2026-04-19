@@ -1,0 +1,58 @@
+{
+  "name": "Harvest Keep",
+  "type": "granary town",
+  "parent_polity": "Principality of Zootia",
+  "territory": "Zootian Expanse",
+  "truth_layer": "reconciled_canon",
+  "identity": "Granary and bargaining hub where crop security, measure law, and caravan timing matter as much as soil.",
+  "approach": "Canal-cut fields and raised storehouses gather into a fortified grain town ringed by counting towers.",
+  "inside": "Granaries, weigh yards, stable courts, produce exchanges, and ration halls crowd together beneath watchful scale-markers.",
+  "who_belongs": [
+    "farm factors",
+    "caravan brokers",
+    "canal hands",
+    "measure clerks"
+  ],
+  "who_is_out_of_place": [
+    "crop thieves",
+    "unweighed traders"
+  ],
+  "expected_behavior": [
+    "declare loads",
+    "respect harvest priority lanes"
+  ],
+  "visible_power": [
+    "granary wardens",
+    "measure house clerks",
+    "House Zootia factors"
+  ],
+  "economy": [
+    "grain storage",
+    "produce exchange",
+    "caravan timing"
+  ],
+  "faith": [
+    "fertility and renewal observance stay practical and seasonal"
+  ],
+  "seasonal_change": "Harvest surges create intense crowding and stricter load control.",
+  "pressure": [
+    "spoilage risk",
+    "weight fraud",
+    "canal delay"
+  ],
+  "npc_interfaces": [
+    "warden_pellor_grainhand",
+    "broker_lysa_tarrow"
+  ],
+  "law_context": [
+    "measure law",
+    "grain reserve law"
+  ],
+  "sources": [
+    "principalities_doc",
+    "spatial_seasonal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

@@ -1,0 +1,11 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "metric_authority": "00_PACKAGE_MANIFEST/canonical_metric_registry.json",
+  "derived_files": [
+    "00_PACKAGE_MANIFEST/object_count_report.json",
+    "00_PACKAGE_MANIFEST/package_manifest.json",
+    "00_PACKAGE_MANIFEST/release_claim_registry.json",
+    "06_VALIDATION/metric_singularity_report.json"
+  ]
+}

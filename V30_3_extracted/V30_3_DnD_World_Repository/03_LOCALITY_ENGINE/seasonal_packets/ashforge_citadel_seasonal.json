@@ -1,0 +1,8 @@
+{
+  "name": "Ashforge Citadel",
+  "seasonal_change": "Midyear renewal observances and cooling periods sharply alter labor, ceremony, and transit.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

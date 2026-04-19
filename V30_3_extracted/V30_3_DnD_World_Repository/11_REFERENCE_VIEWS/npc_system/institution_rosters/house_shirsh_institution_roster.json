@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "House Shirsh",
+  "record_count": 2,
+  "npc_ids": [
+    "thessa_mistglass",
+    "veyn_mistglass"
+  ]
+}

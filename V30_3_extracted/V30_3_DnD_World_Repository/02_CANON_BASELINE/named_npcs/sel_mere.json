@@ -1,0 +1,95 @@
+{
+  "npc_id": "sel_mere",
+  "canonical_name": "Sel Mere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Inventory Steward",
+  "profession_discipline": "Inventory Steward",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Silkweaver’s Chapel",
+  "locality_scope": "Silkweaver’s Chapel",
+  "institutional_ties": [
+    "Silkweaver’s Chapel"
+  ],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as inventory steward.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Silkweaver’s Chapel"
+    ],
+    "institutions": [
+      "Silkweaver’s Chapel"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a inventory steward still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of inventory steward in and around Silkweaver’s Chapel, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Silkweaver’s Chapel workable through the obligations of inventory steward while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Silkweaver’s Chapel, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of inventory steward visibly slip.",
+  "relationship_refs": [
+    "rel_0535",
+    "rel_0544",
+    "rel_0552",
+    "rel_0559",
+    "rel_0566",
+    "rel_0567",
+    "rel_0568",
+    "rel_0569",
+    "rel_0570",
+    "rel_0571",
+    "rel_1191"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Sel Mere needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Silkweaver’s Chapel."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Sel Mere can draw the party into crew discipline, resource shortage, or blame transfer around Silkweaver’s Chapel."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "sel_mere",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Sel Mere visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Silkweaver’s Chapel: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Sel Mere presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a inventory steward still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Inventory Steward, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Sel Mere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Inventory Steward too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Sel Mere can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Sel Mere adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Sel Mere is Known locally through day-to-day work as inventory steward. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Inventory Steward."
+}

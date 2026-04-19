@@ -1,0 +1,15 @@
+{
+  "name": "Gravewake Chainyard",
+  "parent": "Panim war-burial approaches",
+  "summary": "A yard of anchor chains, giant bone markers, and purchased-afterlife wagons waiting for blessing windows.",
+  "sources": [
+    "internal_canonical_record",
+    "spatial_seasonal",
+    "conservative_inference"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

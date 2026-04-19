@@ -1,0 +1,36 @@
+{
+  "report_name": "claim_level_provenance_report",
+  "release_identity": "V33_1",
+  "package_root": "V33_1_DnD_World_Repository",
+  "generated_at": "2026-04-19T02:36:22Z",
+  "package_metrics": {
+    "total_files": 5291,
+    "json_files": 3685,
+    "jsonl_files": 19,
+    "markdown_files": 1577,
+    "invalid_json_files": 0,
+    "invalid_jsonl_files": 0,
+    "legacy_release_token_files": 1249,
+    "npc_public_identity_collisions": 0,
+    "packaged_source_files": 17
+  },
+  "status": "pass",
+  "report_specific_findings": [
+    {
+      "packaged_source_files": 17,
+      "labels_present": {
+        "campaign_state_runtime_support": 1,
+        "direct_source_canon": 1,
+        "crosswalk_support_input": 1,
+        "direct_source_operational_locality_rules": 1,
+        "source_backed_pressure_framework": 1,
+        "source_backed_item_framework": 1,
+        "direct_source_system_rules": 1,
+        "direct_source_ecology_rules": 1,
+        "source_backed_character_schema": 1,
+        "source_backed_antagonist_support": 1,
+        "release_build_method_note": 1
+      }
+    }
+  ]
+}

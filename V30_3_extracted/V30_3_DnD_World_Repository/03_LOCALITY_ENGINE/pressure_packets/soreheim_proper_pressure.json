@@ -1,0 +1,14 @@
+{
+  "name": "Soreheim Proper",
+  "pressure": [
+    "quota demands",
+    "political rivalry",
+    "foreign pressure",
+    "industrial accidents",
+    "tower maintenance strain"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

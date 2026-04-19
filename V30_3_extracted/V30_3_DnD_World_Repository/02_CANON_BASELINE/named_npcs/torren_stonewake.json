@@ -1,0 +1,92 @@
+{
+  "npc_id": "torren_stonewake",
+  "canonical_name": "Torren Stonewake",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Clerk of Arrivals",
+  "profession_discipline": "Clerk of Arrivals",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Roaz",
+  "settlement": "Ithtananalor",
+  "locality_scope": "Ithtananalor",
+  "institutional_ties": [
+    "Ithtananalor"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as clerk of arrivals.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Ithtananalor"
+    ],
+    "institutions": [
+      "Ithtananalor"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a clerk of arrivals still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of clerk of arrivals in and around Ithtananalor, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ithtananalor workable through the obligations of clerk of arrivals while managing the immediate pressure of illicit magic in Roaz.",
+  "hidden_pressure": "Must make memory legible under conditions that reward forgetting, misfiling, or selective recall. Around Ithtananalor, that usually means carrying illicit magic, smuggling, public accountability for harsh enforcement without letting the role of clerk of arrivals visibly slip.",
+  "relationship_refs": [
+    "rel_0329",
+    "rel_0330",
+    "rel_0331",
+    "rel_1131",
+    "rel_1134",
+    "rel_1136",
+    "rel_1138"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "record_dispute",
+      "summary": "Torren Stonewake needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Ithtananalor."
+    },
+    {
+      "hook_type": "document_pressure",
+      "summary": "Torren Stonewake can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ],
+  "compatibility_interface_id": "torren_stonewake",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Torren Stonewake communicates in public. In Ithtananalor, this lands inside a public field already shaped by Lord Aric Roaz, Office of Roazian Enforcement.",
+  "encounter_context": {
+    "usual_environment": "Ithtananalor: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Torren Stonewake presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a clerk of arrivals still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Clerk of Arrivals, and proof that strangers will not create avoidable noise in Principality of Roaz.",
+  "what_they_refuse": "Torren Stonewake refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Clerk of Arrivals too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Torren Stonewake can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Torren Stonewake adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Torren Stonewake is Known locally through day-to-day work as clerk of arrivals. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Clerk of Arrivals."
+}

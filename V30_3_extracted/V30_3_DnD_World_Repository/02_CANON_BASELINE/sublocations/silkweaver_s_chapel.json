@@ -1,0 +1,22 @@
+{
+  "name": "Silkweaver’s Chapel",
+  "parent_district": "Verdant Row District",
+  "type": "chapel",
+  "summary": "Modest Felujitas chapel for artisans seeking renewal.",
+  "npc_interfaces": [
+    "sel_mere",
+    "taren_mere"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "sel_mere",
+    "taren_mere"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

@@ -1,0 +1,7 @@
+{
+  "build_version": "V30_3",
+  "scenario_count": 10,
+  "route_linked_scenarios": 3,
+  "continuity_scenarios": 10,
+  "status": "pass"
+}

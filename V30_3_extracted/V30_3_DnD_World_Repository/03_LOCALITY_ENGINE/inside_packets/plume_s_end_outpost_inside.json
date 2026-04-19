@@ -1,0 +1,7 @@
+{
+  "name": "Plume’s End Outpost",
+  "inside": "Travelers, merchants, and Roadwardens cycle through repair, rumor, resupply, and prayer stops.",
+  "sources": [
+    "locations_catalog"
+  ]
+}

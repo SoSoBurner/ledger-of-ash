@@ -1,0 +1,22 @@
+{
+  "object_id": "system.magic.world",
+  "system_type": "magic",
+  "truth_status": "reconciled_canon",
+  "what_magic_is": "Magic is a world-level force expressed through canon-bearing entities, ritual systems, divine structures, and setting-specific anomalies rather than a universal generic fantasy default.",
+  "where_common_or_rare": "Visibility and social familiarity vary by polity, cultic context, and locality; absence of open use does not imply nonexistence.",
+  "cost_risk": "Use, exposure, and contact may carry spiritual, legal, bodily, political, or social costs depending on context.",
+  "social_legitimacy": "Legitimacy is mediated by local law, faith, class power, and public fear.",
+  "legal_restrictions": "Magical practice must be interpreted through local authority and law packets rather than assumed globally lawful.",
+  "religious_interpretation": "Many magical phenomena are filtered through divine, ritual, and doctrinal understanding.",
+  "daily_life_visibility": "Ordinary life may include indirect magical consequences even where overt casting is uncommon.",
+  "regional_variation": "Magic expression must vary by region, polity, cultic presence, and cosmological pressure.",
+  "sources": [
+    "principalities",
+    "pantheon_story",
+    "doomsday_planets",
+    "ai_source_pdf"
+  ],
+  "support_type": "engine_synthesis",
+  "truth_layer": "engine_canon",
+  "justification": "Repository synthesis layer built to make strongly supported canon operational without overriding source truth."
+}

@@ -1,0 +1,22 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "authorities": [
+    {
+      "domain": "metrics",
+      "authority": "00_PACKAGE_MANIFEST/canonical_metric_registry.json"
+    },
+    {
+      "domain": "graph",
+      "authority": "07_WORLD_GRAPH/world_graph_index.json"
+    },
+    {
+      "domain": "runtime_scope",
+      "authority": "05_RUNTIME_ENGINE/state_change_scope_registry.json"
+    },
+    {
+      "domain": "reference_surface",
+      "authority": "11_REFERENCE_VIEWS/current_release/current_release_manifest.json"
+    }
+  ]
+}

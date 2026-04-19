@@ -1,0 +1,46 @@
+{
+  "build_version": "V30_3",
+  "record_type": "named_npc_full_record",
+  "required_fields": [
+    "npc_id",
+    "canonical_name",
+    "aliases",
+    "tier",
+    "state",
+    "office_or_role",
+    "polity",
+    "settlement",
+    "institutional_ties",
+    "legal_standing",
+    "religious_standing",
+    "public_reputation",
+    "linked_systems",
+    "daily_function",
+    "current_agenda",
+    "adventure_hooks",
+    "source_truth_status",
+    "source_object_ids",
+    "version",
+    "build_signature",
+    "evidence_tier",
+    "first_impression",
+    "what_they_want_from_strangers",
+    "what_they_refuse",
+    "how_they_create_problems",
+    "how_they_can_help",
+    "escalation_if_crossed",
+    "rumor_about_them",
+    "best_first_scene"
+  ],
+  "support_aware_fields": [
+    "appearance",
+    "manner",
+    "hidden_pressure"
+  ],
+  "rules": [
+    "All canon-named figures must resolve to one canonical npc_id.",
+    "Sparse support must remain sparse rather than invented.",
+    "Preexisting canon and appended canon use the same record architecture.",
+    "Locality-facing compatibility fields may point to npc_ids without replacing full records."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Aurora Light Cathedral",
+  "parent_district": "Aurora Heights District",
+  "type": "religious site",
+  "summary": "White stone cathedral of Cysur and Cyfoes with stained glass, mosaics, prayer ribbons, and sacred-song atmosphere.",
+  "npc_interfaces": [
+    "high_priestess_lyara_dawnlight",
+    "mira_vale",
+    "corin_vale",
+    "sel_vale"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "mira_vale",
+    "corin_vale",
+    "sel_vale"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

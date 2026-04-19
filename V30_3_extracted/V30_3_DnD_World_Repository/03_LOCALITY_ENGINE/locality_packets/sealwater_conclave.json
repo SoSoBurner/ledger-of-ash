@@ -1,0 +1,96 @@
+{
+  "name": "Sealwater Conclave",
+  "type": "major locality",
+  "parent_polity": "The Principalities",
+  "truth_layer": "source_backed_inference",
+  "identity": "Deliberative meeting quarter where confederation decisions are translated into practical obligations.",
+  "approach": "Visitors meet courtyards, seal rooms, and controlled waiting spaces built to make impatience costly.",
+  "inside": "Inside, scribes, heralds, and negotiators turn disagreement into managed sequence.",
+  "who_belongs": [
+    "house envoys",
+    "licensed petitioners",
+    "maritime and legal intermediaries"
+  ],
+  "who_is_out_of_place": [
+    "outsiders treating the confederation as unified and simple"
+  ],
+  "expected_behavior": [
+    "wait to be called",
+    "do not interrupt sealed process"
+  ],
+  "visible_power": [
+    "conclave clerks",
+    "house delegates"
+  ],
+  "economy": [
+    "petition filing",
+    "brokered appointments",
+    "formal hospitality"
+  ],
+  "faith": [
+    "ritualized legitimacy"
+  ],
+  "seasonal_change": "Traffic and internal competition rise with shipping and formal conclave cycles.",
+  "pressure": [
+    "agenda backlog",
+    "precedence disputes"
+  ],
+  "npc_interfaces": [
+    "authority",
+    "commerce",
+    "faith or culture",
+    "fixer",
+    "wildcard"
+  ],
+  "law_context": "Umbrella principality customs matter, but house hierarchy and negotiated precedence matter more.",
+  "sources": [
+    "V30_3 confederation completion synthesis."
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "The Principalities",
+    "locality": "Sealwater Conclave"
+  },
+  "canonical_identity": "playability-support expansion preserving truth labels",
+  "scene_openers": [
+    "Sealwater Conclave makes confederated power feel negotiated rather than unified.",
+    "Within minutes, outsiders learn that precedence is being performed as much as enforced."
+  ],
+  "social_misstep_examples": [
+    "acting as though one house speaks for all",
+    "ignoring rank and procedural order"
+  ],
+  "low_grade_conflict_triggers": [
+    "a precedence dispute",
+    "a shipping paper discrepancy"
+  ],
+  "institutional_escalation_path": [
+    "local correction",
+    "house-level complaint",
+    "multi-house consequence"
+  ],
+  "outsider_advantage": "Fresh entrants notice who is deferring more than they should.",
+  "outsider_liability": "Wrong assumptions about unity create enemies fast.",
+  "public_complication_table": [
+    "minor precedence insult",
+    "delayed clearance",
+    "confused escort chain",
+    "public correction",
+    "rumor of favoritism",
+    "small tariff problem"
+  ],
+  "private_pressure_table": [
+    "house rivalry",
+    "clerk exhaustion",
+    "informal debt",
+    "quiet sabotage worry",
+    "ritual obligation",
+    "escort loyalty doubt"
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "formal and watchful",
+    "midday": "crowded and competitive",
+    "night": "quieter, more broker-driven, and more dangerous to misread"
+  },
+  "recent_local_change_signal": "Veterans insist the houses remain aligned, but no one says it with confidence."
+}

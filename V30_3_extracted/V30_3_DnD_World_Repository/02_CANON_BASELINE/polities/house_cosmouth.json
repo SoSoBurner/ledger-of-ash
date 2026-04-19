@@ -1,0 +1,44 @@
+{
+  "name": "House Cosmouth",
+  "type": "house-territory",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "direct_canon",
+  "summary": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+  "sources": [
+    "principalities"
+  ],
+  "named_npc_refs": [
+    "miraen_seabraid"
+  ],
+  "npc_interfaces": [
+    "miraen_seabraid"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "population_status": {
+    "nation_level_enumeration_status": "explicit",
+    "explicit_population_roster": {
+      "dominant_populations": [
+        "Humans"
+      ],
+      "secondary_populations": [
+        "Tritons",
+        "Tortles"
+      ],
+      "canonical_roster": [
+        "Humans",
+        "Tritons",
+        "Tortles"
+      ]
+    },
+    "bounded_population_signals": [
+      "field-level support classification preserved in demography layer",
+      "runtime packets must not contradict canonical roster"
+    ],
+    "notes": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+    "truth_layer": "corrected_canon"
+  },
+  "resolution_status": "resolved world-standard roster",
+  "canon_note": "See corresponding demography record for support classification and contradiction-safe reconciliation trail."
+}

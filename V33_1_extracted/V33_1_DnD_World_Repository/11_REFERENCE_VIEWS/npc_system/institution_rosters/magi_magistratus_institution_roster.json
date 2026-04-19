@@ -1,0 +1,37 @@
+{
+  "build_version": "V33_1",
+  "institution": "Magi Magistratus",
+  "record_count": 2,
+  "npc_ids": [
+    "orel_veilthorn",
+    "risha_veilthorn"
+  ],
+  "records": [
+    {
+      "npc_id": "orel_veilthorn",
+      "canonical_name": "Orel Veilthorn",
+      "polity": "Shirsh",
+      "office_or_role": "Registrar",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as registrar.",
+      "current_agenda": "Keep Magi Magistratus workable through the obligations of registrar while managing the immediate pressure of institutional scrutiny in Shirsh."
+    },
+    {
+      "npc_id": "risha_veilthorn",
+      "canonical_name": "Risha Veilthorn",
+      "polity": "Shirsh",
+      "office_or_role": "Field Captain",
+      "tier": "notable",
+      "public_reputation": "Recognized as a field captain of regional weight.",
+      "current_agenda": "Keep Magi Magistratus workable through the obligations of field captain while managing the immediate pressure of institutional scrutiny in Shirsh."
+    }
+  ],
+  "roster_context": {
+    "identity": "Institutional body for magical investigation and law enforcement under Shirsh authority.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities"
+  ]
+}

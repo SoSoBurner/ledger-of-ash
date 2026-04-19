@@ -1,0 +1,31 @@
+{
+  "name": "Fashion Artisans Collective",
+  "type": "Shelk cultural-economic institution",
+  "truth_layer": "direct_canon",
+  "summary": "Central institution for Shelk design culture, artisan collaboration, apprenticeship, and public showcase.",
+  "day_to_day": "Coordinates designers, trains apprentices, manages workshops, and stages seasonal displays.",
+  "who_works_there": "Master designers, tailors, dyers, apprentices, merchant liaisons, quality foremen.",
+  "who_uses_it": "Artisans, nobles, merchants, students, and visiting buyers.",
+  "authority": "Sets quality expectations and cultural prestige rather than pure coercive law.",
+  "public_manifestation": "Guildhall workshops, showcase events, training programs, and design commissions.",
+  "conflict_or_bottleneck": "Counterfeits, design theft, and raw-material shortages threaten both income and civic identity.",
+  "party_actions": [
+    "take a guild contract",
+    "guard a showcase",
+    "trace stolen designs",
+    "source rare materials"
+  ],
+  "sources": [
+    "principality_shelk",
+    "psc_shelkopolis"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "letha_silkgate"
+  ],
+  "npc_interfaces": [
+    "letha_silkgate"
+  ]
+}

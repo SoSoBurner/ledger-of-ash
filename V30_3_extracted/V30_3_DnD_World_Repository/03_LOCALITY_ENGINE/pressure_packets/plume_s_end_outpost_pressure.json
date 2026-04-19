@@ -1,0 +1,10 @@
+{
+  "name": "Plume’s End Outpost",
+  "pressure": [
+    "caravan disruption rumors",
+    "celestial enforcer sightings"
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

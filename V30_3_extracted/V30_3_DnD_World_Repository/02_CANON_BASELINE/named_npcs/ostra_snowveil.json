@@ -1,0 +1,92 @@
+{
+  "npc_id": "ostra_snowveil",
+  "canonical_name": "Ostra Snowveil",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Recruiter",
+  "profession_discipline": "Recruiter",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": null,
+  "locality_scope": "Communal Ration Allocators",
+  "institutional_ties": [
+    "Communal Ration Allocators"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as recruiter.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Communal Ration Allocators"
+    ],
+    "institutions": [
+      "Communal Ration Allocators"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a recruiter still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of recruiter in and around Communal Ration Allocators, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Communal Ration Allocators workable through the obligations of recruiter while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Communal Ration Allocators, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of recruiter visibly slip.",
+  "relationship_refs": [
+    "rel_0295",
+    "rel_0302",
+    "rel_0308",
+    "rel_0313",
+    "rel_0318",
+    "rel_0319",
+    "rel_0320",
+    "rel_0321"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Ostra Snowveil can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Ostra Snowveil needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Communal Ration Allocators."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "compatibility_interface_id": "ostra_snowveil",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Ostra Snowveil visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Communal Ration Allocators: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Ostra Snowveil presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a recruiter still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Recruiter, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Ostra Snowveil refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Recruiter too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Ostra Snowveil can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Ostra Snowveil adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Ostra Snowveil is Known locally through day-to-day work as recruiter. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Recruiter."
+}

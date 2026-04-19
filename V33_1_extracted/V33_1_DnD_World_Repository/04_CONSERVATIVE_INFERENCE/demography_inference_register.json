@@ -1,0 +1,14 @@
+{
+  "build_version": "V33_1",
+  "truth_layer": "conservative_inference_support",
+  "entries": [
+    {
+      "scope": "secondary population durability where corpus is not explicit",
+      "policy": "retain only minimal connective tissue already embedded in resolved roster rationale"
+    },
+    {
+      "scope": "runtime visitor-facing summaries",
+      "policy": "derive from canon without adding unsupported hard lore"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "policy_id": "v31_4_named_npc_release_fix_policy",
+  "applies_to": [
+    "02_CANON_BASELINE/named_npcs",
+    "11_REFERENCE_VIEWS/npc_system/relationship_webs"
+  ],
+  "hard_rules": [
+    "Named NPC records must represent individuated persons and must not use numbered role labels as canonical names.",
+    "If source_truth_status is direct_canon then evidence_tier must equal direct_canon.",
+    "Direct-canon notable NPCs must have at least one usable settlement/locality anchor when the corpus supports a seat of office or operating center.",
+    "Shared surname alone may support at most house/surname association; it must not imply blood lineage when corpus text narrows the relationship differently."
+  ],
+  "release_blockers": [
+    "Any numbered placeholder record remaining inside named_npcs.",
+    "Any direct_canon record with evidence_tier != direct_canon.",
+    "Any relationship edge derived_from_shared_surname that contradicts narrower supported relation text."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Verdant Row District",
+  "inside": "Workshops, guildhalls, inns, shrines, and children weaving through market life create a welcoming but hardworking district.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "parent": "Shelkopolis",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "workshops is visibly part of daily life.",
+    "Felujitas and Cyfoes receive small artisan offerings.",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

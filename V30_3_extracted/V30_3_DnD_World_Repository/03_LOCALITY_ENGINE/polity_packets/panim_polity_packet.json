@@ -1,0 +1,16 @@
+{
+  "name": "Panim",
+  "object_type": "runtime_polity_demography_packet",
+  "build_version": "V30_3",
+  "derived_from": "02_CANON_BASELINE/demography/panim_demography.json",
+  "dominant_populations": [
+    "Half-Elves"
+  ],
+  "secondary_populations": [
+    "Humans",
+    "Elves"
+  ],
+  "street_level_visibility": "Half-Elves remain primary, with Humans and Elves retained as the most coherent secondary populations for a central religious and afterlife-mediating polity.",
+  "visitor_signal": "Visitors to Panim should perceive the dominant populations first and the secondary populations as stable but not polity-defining unless narrower locality canon states otherwise.",
+  "runtime_rule": "Runtime narration may elaborate visible population mix but may not contradict canonical roster or exclusions."
+}

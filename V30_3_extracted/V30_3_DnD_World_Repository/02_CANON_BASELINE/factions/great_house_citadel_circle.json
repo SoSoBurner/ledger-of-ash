@@ -1,0 +1,49 @@
+{
+  "name": "Great House Citadel Circle",
+  "type": "Psanan great-house faction",
+  "truth_layer": "conservative_inference",
+  "summary": "The public ring of matriarchal Great Houses whose citadels define status, rivalries, and production power on Psanan.",
+  "motive": "Preserve House precedence while extracting strength, loyalty, and legitimacy from volcanic endurance.",
+  "methods": [
+    "house councils",
+    "forge sponsorship",
+    "oath politics",
+    "descent charters",
+    "marital and craft alliances"
+  ],
+  "geography": [
+    "Ashforge Citadel",
+    "Obsidian Hall equivalents",
+    "Cindervow Quarter"
+  ],
+  "power_relations": [
+    "Interlocked with Queen’s Court but constantly negotiating with one another"
+  ],
+  "current_pressure": [
+    "succession rivalry",
+    "descent casualties",
+    "trade timing",
+    "public need for rebuilding after damage"
+  ],
+  "visible_membership_base": "Matriarchs, house captains, sworn retainers, craft champions.",
+  "civilian_contact_surface": [
+    "labor obligations",
+    "oath hearings",
+    "public sponsorship",
+    "house disputes spilling into markets"
+  ],
+  "current_tension_or_vulnerability": "House prestige can turn every shortage, burial, or rebuilding effort into a competition for dominance.",
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "rhaz_ashvein"
+  ],
+  "npc_interfaces": [
+    "rhaz_ashvein"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Unity Square",
+  "record_count": 3,
+  "npc_ids": [
+    "vale_brokerwell",
+    "vale_ledgermere",
+    "vale_tinmarch"
+  ]
+}

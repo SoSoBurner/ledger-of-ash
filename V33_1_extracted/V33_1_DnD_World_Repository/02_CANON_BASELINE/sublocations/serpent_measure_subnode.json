@@ -1,0 +1,10 @@
+{
+  "name": "Serpent Measure Subnode",
+  "parent_locality": "Serpent Measure",
+  "type": "support node",
+  "truth_layer": "source_backed_inference",
+  "summary": "Support node tied to Serpent Measure for V33_1 parity completion.",
+  "sources": [
+    "V33_1 parity completion synthesis."
+  ]
+}

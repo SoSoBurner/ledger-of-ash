@@ -1,0 +1,91 @@
+{
+  "npc_id": "mill_keeper_ressa_dane",
+  "canonical_name": "Mill Keeper Ressa Dane",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Mill Keeper",
+  "profession_discipline": "milling overseer",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Zootia",
+  "settlement": "Harvest Haven",
+  "locality_scope": "Harvest Haven",
+  "institutional_ties": [
+    "Harvest Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Keeper of grain throughput, maintenance, and milling order inside Harvest Haven's productive core.",
+  "linked_systems": {
+    "polities": [
+      "Zootia"
+    ],
+    "localities": [
+      "Harvest Haven"
+    ],
+    "institutions": [
+      "Harvest Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Mill Keeper Ressa Dane carries the marks of mill keeper in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a mill keeper whose work is visible through daily procedure, gatekeeping, and the practical pressures of Harvest Haven.",
+  "daily_function": "Performs the ongoing duties of mill keeper in and around Harvest Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Harvest Haven while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Mill Keeper Ressa Dane can draw the party into a practical problem centered on Harvest Haven."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Mill Keeper Ressa Dane becomes useful when the party needs access, explanation, or relief tied to the work of a mill keeper."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "mill_keeper_ressa_dane",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Mill Keeper Ressa Dane is readable as a mill keeper tied to Harvest Haven.",
+  "encounter_context": {
+    "usual_environment": "Harvest Haven: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "mill keeper"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Mill Keeper Ressa Dane presents as someone shaped by the duties of a mill keeper and the daily pressures of Harvest Haven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a mill keeper, and proof that strangers will not make Harvest Haven harder to manage.",
+  "what_they_refuse": "Mill Keeper Ressa Dane refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a mill keeper too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Mill Keeper Ressa Dane can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Mill Keeper Ressa Dane adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Mill Keeper Ressa Dane always knows more about Harvest Haven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to mill keeper duties in Harvest Haven.",
+  "social_texture": "Mill Keeper Ressa Dane speaks like someone who has spent too long translating private stakes into acceptable public language. Around Harvest Haven, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Mill touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Mill Keeper Ressa Dane when the party needs a socially grounded face for Harvest Haven: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

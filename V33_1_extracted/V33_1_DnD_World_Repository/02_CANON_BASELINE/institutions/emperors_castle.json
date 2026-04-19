@@ -1,0 +1,25 @@
+{
+  "name": "Emperor's Castle",
+  "type": "imperial castle-court complex",
+  "truth_layer": "conservative_inference",
+  "summary": "Imperial-scale residence, governance, archive, treasury, ceremonial, and military coordination complex for the Principalities.",
+  "day_to_day": "Processes petitions, tribute intake, inter-house diplomacy, legal review, intelligence briefings, military dispatches, and heavily managed ceremonial hosting.",
+  "who_works_there": "Stewards, archivists, guards, tribute assessors, ceremonial overseers, military officers, servants, and court households.",
+  "who_uses_it": "The Emperor, court nobility, house envoys, tribute carriers, petitioners, and selected military or legal officers.",
+  "authority": "Imperial mediation, law, tribute, intelligence, and symbolic unity within the Principalities.",
+  "public_manifestation": "Throne chambers, council rooms, restricted archives, vaults, barracks, guest suites, ritual halls, and controlled inner courts.",
+  "conflict_or_bottleneck": "Inter-house rivalry, tribute disputes, intelligence leakage, and managed access pressure make the castle politically volatile even in peacetime.",
+  "party_actions": [
+    "petition the court",
+    "escort tribute",
+    "seek sealed records",
+    "carry diplomatic messages",
+    "navigate court protocol"
+  ],
+  "sources": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

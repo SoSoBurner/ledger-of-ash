@@ -1,0 +1,12 @@
+{
+  "name": "Aurora Heights District",
+  "pressure": [
+    "alliances",
+    "espionage",
+    "elite reputation"
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

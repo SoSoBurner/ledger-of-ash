@@ -1,0 +1,11 @@
+{
+  "id": "deity.zurzavar",
+  "name": "Zurzavar",
+  "domain": "Turmoil",
+  "desire": "Perpetuate and spread chaos",
+  "current_state": "Maintains lower-abyssal chaos.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

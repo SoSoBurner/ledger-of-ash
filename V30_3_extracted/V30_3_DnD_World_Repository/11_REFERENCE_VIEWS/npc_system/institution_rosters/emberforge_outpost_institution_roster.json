@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "Emberforge Outpost",
+  "record_count": 2,
+  "npc_ids": [
+    "cevrin_dawnsilk",
+    "ilyra_moonthread"
+  ]
+}

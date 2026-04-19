@@ -1,0 +1,40 @@
+{
+  "name": "Frostline Crossing Route",
+  "route_type": "frozen crossing",
+  "feel": "The crossing rewards accuracy over bravery; launch windows, rescue readiness, and loss records define the route more than raw distance does.",
+  "hazards": [
+    "ice failure",
+    "visibility collapse",
+    "expedition loss"
+  ],
+  "who_controls_it": [
+    "route warden compacts",
+    "loss ledger circles"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "v22_5_repository_zip"
+  ],
+  "from_locality": "regional approach",
+  "route_name": "Frostline Crossing Route",
+  "truth_layer": "conservative_inference",
+  "paperwork_and_permission_model": "Travel along Frostline Crossing Route is easiest when intentions, cargo, and patronage are legible before questions begin.",
+  "patrol_rhythm": "Daylight oversight is visible and procedural; night oversight is thinner, more suspicious, and less forgiving.",
+  "seasonal_failure_modes": [
+    "weather delays",
+    "supply interruption",
+    "inspection backlog"
+  ],
+  "safe_stop_chain": [
+    "licensed waystop",
+    "watchful market halt",
+    "trusted household or shrine refuge"
+  ],
+  "inspection_triggers": [
+    "undeclared cargo",
+    "mismatched story",
+    "unfamiliar escort pattern",
+    "night movement without context"
+  ],
+  "after_dark_change": "After sunset, traffic thins, trust narrows, and informal power brokers matter more than posted rules."
+}

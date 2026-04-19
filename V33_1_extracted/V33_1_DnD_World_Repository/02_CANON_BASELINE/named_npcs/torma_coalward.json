@@ -1,0 +1,97 @@
+{
+  "npc_id": "torma_coalward",
+  "canonical_name": "Torma Coalward",
+  "aliases": [
+    "the quartermaster"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Quartermaster",
+  "profession_discipline": "Quartermaster",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Sunspire Haven",
+  "locality_scope": "Sunspire Haven",
+  "institutional_ties": [
+    "Sunspire Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quartermaster.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Sunspire Haven"
+    ],
+    "institutions": [
+      "Sunspire Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Torma Coalward usually presents in ash-marked work leathers reinforced for heat, grit, and long shifts, with details that make their quartermaster status legible before introductions begin.",
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a quartermaster still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quartermaster in and around Sunspire Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Sunspire Haven workable through the obligations of quartermaster while managing the immediate pressure of predators in Soreheim Alliance.",
+  "hidden_pressure": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Sunspire Haven, that usually means carrying predators, water system vulnerabilities, storage disputes without letting the role of quartermaster visibly slip.",
+  "relationship_refs": [
+    "rel_0074",
+    "rel_0079",
+    "rel_0083",
+    "rel_0086",
+    "rel_0089",
+    "rel_0090",
+    "rel_1029",
+    "rel_1033",
+    "rel_1036",
+    "rel_1038",
+    "rel_1040"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Torma Coalward needs help protecting a shipment, recovering leverage, or stabilizing exchange around Sunspire Haven before trust collapses."
+    },
+    {
+      "hook_type": "contract_complication",
+      "summary": "Torma Coalward can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "torma_coalward",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Torma Coalward read as someone who lives by exchange and reputation. In Sunspire Haven, this lands inside a public field already shaped by regional leaders, market stewards.",
+  "encounter_context": {
+    "usual_environment": "Sunspire Haven: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Torma Coalward presents as Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a quartermaster still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Quartermaster, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Torma Coalward refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Quartermaster too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Torma Coalward can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Torma Coalward adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Torma Coalward is Known locally through day-to-day work as quartermaster. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quartermaster."
+}

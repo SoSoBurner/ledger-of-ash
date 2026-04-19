@@ -1,0 +1,103 @@
+{
+  "npc_id": "lord_darius_shelk",
+  "canonical_name": "Lord Darius Shelk",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "strategic_actor",
+  "office_or_role": "Co-ruler and political tactician",
+  "profession_discipline": "Co-ruler and political tactician",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "House of Shelk Estate",
+  "locality_scope": "House of Shelk Estate",
+  "institutional_ties": [
+    "House of Shelk Estate",
+    "noble strategy"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a co-ruler and political tactician of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "House of Shelk Estate"
+    ],
+    "institutions": [
+      "House of Shelk Estate",
+      "noble strategy"
+    ],
+    "factions": []
+  },
+  "appearance": "A tall elf with sharp features and a commanding presence, often seen in understated yet elegant attire.",
+  "manner": "Keeps emotional color low, preferring leverage, contingency, and timing over display. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a co-ruler and political tactician still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of co-ruler and political tactician in and around House of Shelk Estate, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep House of Shelk Estate workable through the obligations of co-ruler and political tactician while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must keep long-horizon planning credible while short-term crisis pressures demand immediate concessions. Around House of Shelk Estate, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of co-ruler and political tactician visibly slip.",
+  "relationship_refs": [
+    "rel_0007",
+    "rel_0010",
+    "rel_0012",
+    "rel_0014",
+    "rel_1046",
+    "rel_1051",
+    "rel_1055",
+    "rel_1059",
+    "rel_1060",
+    "rel_1061"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "planning_request",
+      "summary": "Lord Darius Shelk needs help testing a plan, reading a rival move, or securing the missing piece of a larger design tied to House of Shelk Estate."
+    },
+    {
+      "hook_type": "second_order_complication",
+      "summary": "Working with Lord Darius Shelk can reveal that the visible problem in House of Shelk Estate is only the first layer of a larger structural risk."
+    },
+    {
+      "hook_type": "intelligence_trade",
+      "summary": "Lord Darius Shelk can exchange unusually sharp institutional intelligence if the party solves a planning bottleneck no one else can touch."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Lord Darius Shelk needs help with a problem in House of Shelk Estate that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Appearance expanded from direct canon support in PSC_Shelkopolis. Manner and pressure remain conservative operational inference anchored to his governance role.",
+  "source_object_ids": [
+    "psc_shelkopolis"
+  ],
+  "compatibility_interface_id": "lord_darius_shelk",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Measured stillness, controlled pacing, and the habit of reading consequences before speaking make Lord Darius Shelk feel like someone used to planning under pressure.",
+  "encounter_context": {
+    "usual_environment": "House of Shelk Estate: planning rooms, advisory chambers, command tables, or quiet oversight spaces",
+    "who_seeks_them_out": [
+      "decision-makers",
+      "trusted intermediaries",
+      "those carrying incomplete information"
+    ],
+    "who_avoids_them": [
+      "the impulsive",
+      "the loud",
+      "those who mistake confidence for planning"
+    ],
+    "interaction_anchor": "second-order consequence management"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Lord Darius Shelk presents as Keeps emotional color low, preferring leverage, contingency, and timing over display. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a co-ruler and political tactician still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Co-ruler and political tactician, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Lord Darius Shelk refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Co-ruler and political tactician too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Lord Darius Shelk can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Lord Darius Shelk adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Lord Darius Shelk is Recognized as a co-ruler and political tactician of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Co-ruler and political tactician."
+}

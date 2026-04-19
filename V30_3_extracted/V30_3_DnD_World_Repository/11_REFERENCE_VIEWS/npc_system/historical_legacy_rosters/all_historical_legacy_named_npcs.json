@@ -1,0 +1,208 @@
+{
+  "build_version": "V30_3",
+  "record_count": 25,
+  "npc_ids": [
+    "archmagister_leth_quillfire",
+    "coral_jack_neris",
+    "dame_orsella_roaz",
+    "dean_arturon_valegear",
+    "forge_voice_malzara",
+    "general_maer_rovik",
+    "ilyra_foamveil",
+    "kordr_vulkhand",
+    "marshal_builder_korrin_wex",
+    "matron_heshka_emberreign",
+    "mother_eliane_threadmercy",
+    "old_marrow_jex",
+    "orem_lantern_step",
+    "ossarch_veyn_halcyon",
+    "pashko_many_routes",
+    "saint_edris_of_the_unblinking_record",
+    "saint_physician_orel_vaunt",
+    "ser_caldrin_vey",
+    "seraphine_of_the_quiet_pyre",
+    "tessa_grainmark",
+    "the_ash_red_widow",
+    "vael_snowtrace",
+    "vatra_sul",
+    "vaud_serrik",
+    "veyla_inkhand"
+  ],
+  "records": [
+    {
+      "npc_id": "archmagister_leth_quillfire",
+      "canonical_name": "Archmagister Leth Quillfire",
+      "polity": "Mimolot",
+      "profession_discipline": "Wizards",
+      "public_reputation": "Wrote the first widely trusted post-catastrophe licensing doctrine for dangerous study."
+    },
+    {
+      "npc_id": "coral_jack_neris",
+      "canonical_name": "Coral Jack Neris",
+      "polity": "Cosmouth",
+      "profession_discipline": "Thieves",
+      "public_reputation": "Harbor ballads remember him for stealing back tax archives before a corrupt convoy could vanish them."
+    },
+    {
+      "npc_id": "dame_orsella_roaz",
+      "canonical_name": "Dame Orsella Roaz",
+      "polity": "Roaz",
+      "profession_discipline": "Knights",
+      "public_reputation": "Iron-masked oath-rider whose methods became the model for lawful shock cavalry in Roaz."
+    },
+    {
+      "npc_id": "dean_arturon_valegear",
+      "canonical_name": "Dean Arturon Valegear",
+      "polity": "Mimolot",
+      "profession_discipline": "Artificers",
+      "public_reputation": "Built the first standardized civic-safe enchantment benches after too many noble workshops exploded."
+    },
+    {
+      "npc_id": "forge_voice_malzara",
+      "canonical_name": "Forge-Voice Malzara",
+      "polity": "Psanan",
+      "profession_discipline": "Priests",
+      "public_reputation": "Priest-smith who fused domination, heat, and duty into an enduring civic liturgy."
+    },
+    {
+      "npc_id": "general_maer_rovik",
+      "canonical_name": "General Maer Rovik",
+      "polity": "Roaz",
+      "profession_discipline": "Tactician",
+      "public_reputation": "Famous for treating warrants, supply timing, and fear display as one battlefield."
+    },
+    {
+      "npc_id": "ilyra_foamveil",
+      "canonical_name": "Ilyra Foamveil",
+      "polity": "Cosmouth",
+      "profession_discipline": "Illusionist",
+      "public_reputation": "Masquewright whose false-fog pageants once hid an evacuation fleet long enough to clear the harbor."
+    },
+    {
+      "npc_id": "kordr_vulkhand",
+      "canonical_name": "Kordr Vulkhand",
+      "polity": "Soreheim Alliance",
+      "profession_discipline": "Berserker",
+      "public_reputation": "Forge-trance breaker whose rage-state made him the pattern for siege-smashers in early tower consolidation."
+    },
+    {
+      "npc_id": "marshal_builder_korrin_wex",
+      "canonical_name": "Marshal-Builder Korrin Wex",
+      "polity": "Roaz",
+      "profession_discipline": "Engineers",
+      "public_reputation": "Designed the quarry-to-city rail and ventwork chain that turned Roaz law into geography."
+    },
+    {
+      "npc_id": "matron_heshka_emberreign",
+      "canonical_name": "Matron Heshka Emberreign",
+      "polity": "Psanan",
+      "profession_discipline": "Elementalist",
+      "public_reputation": "Bound lava-flow practice into civic defense during a major vent crisis."
+    },
+    {
+      "npc_id": "mother_eliane_threadmercy",
+      "canonical_name": "Mother Eliane Threadmercy",
+      "polity": "Shelk",
+      "profession_discipline": "Clerics",
+      "public_reputation": "Turned cathedral kitchens and cloth houses into refuge networks when the roads failed."
+    },
+    {
+      "npc_id": "old_marrow_jex",
+      "canonical_name": "Old Marrow Jex",
+      "polity": "The Union",
+      "profession_discipline": "Rogue",
+      "public_reputation": "Smuggled ledgers instead of jewels and became the cautionary tale behind three generations of contract fraud law."
+    },
+    {
+      "npc_id": "orem_lantern_step",
+      "canonical_name": "Orem Lantern-Step",
+      "polity": "Nomdara Caravan",
+      "profession_discipline": "Scouts",
+      "public_reputation": "Route legend who treated rumor, weather, and food security as one map."
+    },
+    {
+      "npc_id": "ossarch_veyn_halcyon",
+      "canonical_name": "Ossarch Veyn Halcyon",
+      "polity": "Panim",
+      "profession_discipline": "Necromancers",
+      "public_reputation": "Formalized corpse stewardship so the dead could be handled lawfully without civic desecration."
+    },
+    {
+      "npc_id": "pashko_many_routes",
+      "canonical_name": "Pashko Many-Routes",
+      "polity": "Nomdara Caravan",
+      "profession_discipline": "Tricksters",
+      "public_reputation": "Folk-cunning hero said to have cheated three toll lords without ever technically breaking guest-right."
+    },
+    {
+      "npc_id": "saint_edris_of_the_unblinking_record",
+      "canonical_name": "Saint Edris of the Unblinking Record",
+      "polity": "Shirsh",
+      "profession_discipline": "Saint",
+      "public_reputation": "A martyr-scholar who died preserving incriminating truth from both magic and politics."
+    },
+    {
+      "npc_id": "saint_physician_orel_vaunt",
+      "canonical_name": "Saint-Physician Orel Vaunt",
+      "polity": "Panim",
+      "profession_discipline": "Healer",
+      "public_reputation": "Kept corpse contagion from becoming civic panic by treating the living and ceremonial dead under one doctrine."
+    },
+    {
+      "npc_id": "ser_caldrin_vey",
+      "canonical_name": "Ser Caldrin Vey",
+      "polity": "Shelk",
+      "profession_discipline": "Warrior",
+      "public_reputation": "First famed road-shield of the present age, remembered for holding the Northroad through a glyph-beast winter."
+    },
+    {
+      "npc_id": "seraphine_of_the_quiet_pyre",
+      "canonical_name": "Seraphine of the Quiet Pyre",
+      "polity": "Panim",
+      "profession_discipline": "Paladins",
+      "public_reputation": "Oath-bearer judge who escorted fever-dead through panic without ever breaking rite or mercy."
+    },
+    {
+      "npc_id": "tessa_grainmark",
+      "canonical_name": "Tessa Grainmark",
+      "polity": "Zootia",
+      "profession_discipline": "Archers",
+      "public_reputation": "Folk hero archer remembered for breaking a famine raid by signal-shot discipline instead of brute slaughter."
+    },
+    {
+      "npc_id": "the_ash_red_widow",
+      "canonical_name": "The Ash-Red Widow",
+      "polity": "Roaz",
+      "profession_discipline": "Assassins",
+      "public_reputation": "Her confirmed kills mattered less than the terror her sightings created."
+    },
+    {
+      "npc_id": "vael_snowtrace",
+      "canonical_name": "Vael Snowtrace",
+      "polity": "Sheresh Communes",
+      "profession_discipline": "Rangers",
+      "public_reputation": "Route legend who mapped the first widely trusted flashmelt-safe sled paths."
+    },
+    {
+      "npc_id": "vatra_sul",
+      "canonical_name": "Vatra Sul",
+      "polity": "Psanan",
+      "profession_discipline": "Alchemists",
+      "public_reputation": "Distilled volcanic reagents into the first stable fire-salve trusted outside ritual combat."
+    },
+    {
+      "npc_id": "vaud_serrik",
+      "canonical_name": "Vaud Serrik",
+      "polity": "Roaz",
+      "profession_discipline": "Inquisitor",
+      "public_reputation": "Inquisitor-marshal credited with early warrant standards for illicit public magic."
+    },
+    {
+      "npc_id": "veyla_inkhand",
+      "canonical_name": "Veyla Inkhand",
+      "polity": "Mimolot",
+      "profession_discipline": "Spellthief",
+      "public_reputation": "Lifted sigil formulae from unsafe private vaults and resold them as corrected safety copies."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "npc_id": "aurek_foamglass",
+  "canonical_name": "Aurek Foamglass",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "fixer",
+  "office_or_role": "Local Fixer",
+  "profession_discipline": "Local Fixer",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Cosmouth",
+  "settlement": "Tideglass Registry",
+  "locality_scope": "Tideglass Registry",
+  "institutional_ties": [
+    "Tideglass Registry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Tideglass Registry through day-to-day work as local fixer.",
+  "linked_systems": {
+    "polities": [
+      "House Cosmouth"
+    ],
+    "localities": [
+      "Tideglass Registry"
+    ],
+    "institutions": [
+      "Tideglass Registry"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Knows who actually gets things done when formal systems slow down or become too expensive to trust. In Tideglass Registry, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of local fixer in and around Tideglass Registry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Tideglass Registry workable through the obligations of local fixer while managing the immediate pressure of storm disruptions, fraudulent registry claims.",
+  "hidden_pressure": "Must keep the role of local fixer credible while absorbing the strain created by storm disruptions, fraudulent registry claims.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Aurek Foamglass can draw the party into a locality problem centered on local fixer duties in Tideglass Registry."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Aurek Foamglass becomes useful when the party needs grounded help with storm disruptions, fraudulent registry claims around Tideglass Registry."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "tideglass_registry"
+  ],
+  "compatibility_interface_id": "aurek_foamglass",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Aurek Foamglass is immediately readable as a local fixer tied to Tideglass Registry.",
+  "encounter_context": {
+    "usual_environment": "Tideglass Registry: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "local fixer"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Aurek Foamglass presents as someone shaped by the duties of a local fixer and the daily pressures of Tideglass Registry.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a local fixer, and proof that strangers will not make Tideglass Registry harder to manage.",
+  "what_they_refuse": "Aurek Foamglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a local fixer too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can get difficult things done through informal channels.",
+  "escalation_if_crossed": "If crossed, Aurek Foamglass adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Aurek Foamglass always knows more about Tideglass Registry than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a local fixer in Tideglass Registry."
+}

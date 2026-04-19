@@ -1,0 +1,25 @@
+{
+  "name": "Psanan Ash-Route Mediation Fleet",
+  "parent_polity": "Nomdara Caravan",
+  "type": "mobile_node",
+  "node_class": "ash_route_fleet",
+  "truth_layer": "conservative_inference",
+  "roles_allocated": 6,
+  "mobility": "portable_governance",
+  "operational_profile": "Specialized coastal mediator for hot cargo, forge exports, and ash-weather disruption.",
+  "why_mobile_not_settled": "Nomdara gains density through law in motion, convoy registries, flotilla authority, hearing camps, and treaty circuits rather than permanent settlement sprawl.",
+  "sources": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "leni_waycord"
+  ],
+  "npc_interfaces": [
+    "leni_waycord"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

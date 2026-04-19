@@ -1,0 +1,58 @@
+{
+  "name": "The Union",
+  "type": "guild-governed successor power",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "corrected_canon",
+  "summary": "Humans and Gnomes remain primary; Half-Elves, Elves, and Yuan-Ti are formalized as durable resident blocs in the exchange and mediation core.",
+  "sources": [
+    "principalities",
+    "internal_canonical_record",
+    "topatch_v22_6_spec"
+  ],
+  "successor_to": "House Mal",
+  "governance_traits": [
+    "contract legitimacy",
+    "guild arbitration",
+    "merchant and artisan leverage",
+    "imperially tolerated revenue stability",
+    "market-centered civic identity"
+  ],
+  "named_npc_refs": [
+    "orin_ledgermere"
+  ],
+  "npc_interfaces": [
+    "orin_ledgermere"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "population_status": {
+    "nation_level_enumeration_status": "explicit",
+    "explicit_population_roster": {
+      "dominant_populations": [
+        "Humans",
+        "Gnomes"
+      ],
+      "secondary_populations": [
+        "Half-Elves",
+        "Elves",
+        "Yuan-Ti"
+      ],
+      "canonical_roster": [
+        "Humans",
+        "Gnomes",
+        "Half-Elves",
+        "Elves",
+        "Yuan-Ti"
+      ]
+    },
+    "bounded_population_signals": [
+      "field-level support classification preserved in demography layer",
+      "runtime packets must not contradict canonical roster"
+    ],
+    "notes": "Humans and Gnomes remain primary; Half-Elves, Elves, and Yuan-Ti are formalized as durable resident blocs in the exchange and mediation core.",
+    "truth_layer": "corrected_canon"
+  },
+  "resolution_status": "resolved world-standard roster",
+  "canon_note": "See corresponding demography record for support classification and contradiction-safe reconciliation trail."
+}

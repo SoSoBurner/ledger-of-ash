@@ -1,0 +1,11 @@
+{
+  "build_version": "V30_3",
+  "institution": "Cindervow Quarter",
+  "record_count": 4,
+  "npc_ids": [
+    "forge_master_telan_pyrehand",
+    "kaiva_ashvein",
+    "vekka_cindercrest",
+    "vessa_ashvein"
+  ]
+}

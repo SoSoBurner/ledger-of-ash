@@ -1,0 +1,32 @@
+{
+  "name": "Zootia Temporal Identity",
+  "truth_layer": "conservative_inference",
+  "calendar_parent": "Principalities temporal frame",
+  "work_cycles": [
+    "Raw-material production, herding, and harvest logistics ride the Principalities calendar but feel more seasonal than courtly"
+  ],
+  "feast_days": [
+    "Harvest celebrations and production milestones shape the public year"
+  ],
+  "legal_deadlines": [
+    "Measures, distribution, and contract fulfillment matter most near harvest peaks"
+  ],
+  "shipping_windows": [
+    "Outbound raw-material movement depends on road and market timing"
+  ],
+  "weather_expectations": [
+    "Yield expectations matter more than pageantry"
+  ],
+  "mourning_and_renewal_customs": [
+    "Renewal is practical, tied to herd health, field recovery, and communal supply continuity"
+  ],
+  "public_language_about_time": [
+    "People speak in cut, shear, herd, and harvest windows"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

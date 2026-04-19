@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 216A",
+  "title": "Sabotage of Public Order",
+  "severity": "felony",
+  "description": "Disruption of Roadwarden patrols or public-safety operations.",
+  "jurisdictions": [
+    "Roadwardens’ Central Command"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

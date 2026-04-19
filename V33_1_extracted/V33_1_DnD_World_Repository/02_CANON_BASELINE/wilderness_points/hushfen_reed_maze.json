@@ -1,0 +1,15 @@
+{
+  "name": "Hushfen Reed Maze",
+  "parent": "Nomdara lanes / marsh fringe",
+  "summary": "A marsh route used by caravan guides who value silence, misdirection, and waterlogged caches over straight roads.",
+  "sources": [
+    "internal_canonical_record",
+    "spatial_seasonal",
+    "conservative_inference"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

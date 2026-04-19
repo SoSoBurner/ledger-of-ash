@@ -1,0 +1,12 @@
+{
+  "build_version": "V30_3",
+  "institution": "Embervale Settlement",
+  "record_count": 5,
+  "npc_ids": [
+    "draknor_leafward",
+    "kairn_steelbrood",
+    "malven_torsk",
+    "rothen_drillwake",
+    "torma_forgebound"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Starbreak Commune",
+  "approach": "Tall ice-sheathed towers and mirrored sighting plates rise above the dome rim.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

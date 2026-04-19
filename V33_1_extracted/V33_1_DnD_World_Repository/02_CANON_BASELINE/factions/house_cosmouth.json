@@ -1,0 +1,47 @@
+{
+  "name": "House Cosmouth",
+  "type": "noble house faction",
+  "truth_layer": "direct_canon",
+  "summary": "Maritime archival and shipbuilding house anchoring Cosmouth’s trade, recordkeeping, and ocean-facing power.",
+  "motive": "Preserve maritime influence, archive legitimacy, and shipwright strength within the Principalities.",
+  "methods": [
+    "port control",
+    "shipbuilding",
+    "treasury recordkeeping",
+    "maritime alliances"
+  ],
+  "geography": [
+    "Cosmoria",
+    "Brineland lanes",
+    "coastal yards"
+  ],
+  "power_relations": [
+    "Works with The Union and other houses but guards its maritime indispensability closely"
+  ],
+  "current_pressure": [
+    "storms",
+    "shipping risk",
+    "competition over strategic trade routes"
+  ],
+  "visible_membership_base": "Archivists, shipwrights, sailors, tax clerks, maritime officers.",
+  "civilian_contact_surface": [
+    "port customs",
+    "cargo registration",
+    "ship commissions",
+    "archive services"
+  ],
+  "current_tension_or_vulnerability": "A storm-heavy economy rewards expertise but leaves the house exposed to route disruption and accusations of gatekeeping.",
+  "sources": [
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "sevrin_tidereach"
+  ],
+  "npc_interfaces": [
+    "sevrin_tidereach"
+  ]
+}

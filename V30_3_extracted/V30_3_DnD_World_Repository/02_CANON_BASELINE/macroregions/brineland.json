@@ -1,0 +1,21 @@
+{
+  "name": "Brineland",
+  "parent_polity": "The Principalities",
+  "summary": "Large inland sea bordered by multiple houses and home to floating cities.",
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "jalen_field"
+  ],
+  "npc_interfaces": [
+    "jalen_field"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

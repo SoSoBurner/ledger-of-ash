@@ -1,0 +1,24 @@
+{
+  "name": "Economy of the Soreheim Alliance",
+  "pillars": [
+    "communal ownership enforced through quota law and restorative justice",
+    "resource extraction, land clearing, and tower expansion in the Eternal Lands",
+    "agriculture, labor routing, and craft throughput in the Unternal Lands",
+    "high-order manufacturing, war production, foreign trade oversight, and refinement in Soreheim Proper",
+    "domestic patronage and favor networks routed through industrial clans and settlement families"
+  ],
+  "tensions": [
+    "production quotas",
+    "resource theft",
+    "sabotage",
+    "environmental hazards",
+    "controlled magic access",
+    "clan rivalry",
+    "family debt and favor pressure",
+    "tower expansion strain between central demand and regional survival"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

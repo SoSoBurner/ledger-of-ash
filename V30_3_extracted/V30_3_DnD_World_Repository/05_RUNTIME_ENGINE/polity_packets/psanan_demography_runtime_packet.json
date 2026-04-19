@@ -1,0 +1,46 @@
+{
+  "object_id": "psanan_demography_runtime_packet",
+  "build_version": "V30_3",
+  "truth_layer": "runtime_derivative",
+  "derived_from": [
+    "psanan_demography"
+  ],
+  "canon_source_objects": [
+    "psanan_demography"
+  ],
+  "claim_ids_used": [
+    "claim::psanan_demography::drow",
+    "claim::psanan_demography::duergar",
+    "claim::psanan_demography::deep_gnomes",
+    "claim::psanan_demography::kuo_toa",
+    "claim::psanan_demography::derro",
+    "claim::psanan_demography::humans",
+    "claim::psanan_demography::tieflings",
+    "claim::psanan_demography::yuan_ti",
+    "claim::psanan_demography::dragonborn"
+  ],
+  "polity": "Psanan",
+  "dominant_races": [
+    "Drow",
+    "Duergar",
+    "Deep Gnomes",
+    "Kuo-Toa",
+    "Derro"
+  ],
+  "secondary_races": [
+    "Humans",
+    "Tieflings",
+    "Yuan-Ti"
+  ],
+  "excluded_or_shunned_groups": [
+    "Dragonborn"
+  ],
+  "visible_public_consequences": [
+    "Psanan public life visibly reflects the dominant populations listed in canon.",
+    "Secondary populations appear as durable resident blocs rather than polity-defining majorities."
+  ],
+  "institutional_visibility": "Institutions and street-level expectations align with the canonical demographic balance.",
+  "adjacency_influence": "Drow, Duergar, Deep Gnomes, Kuo-Toa, and Derro form the dominant Underdark base; Humans, Tieflings, and Yuan-Ti remain permanent secondary surface-facing and port-facing populations.",
+  "visitor_facing_observations": "A visitor would notice the dominant bloc first, then the stable secondary populations and any explicit exclusions or shunned groups.",
+  "setting_use_summary": "Use Psanan with the roster exactly as resolved in canon; do not broaden or soften exclusions without explicit corrective release."
+}

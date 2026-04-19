@@ -1,0 +1,309 @@
+{
+  "name": "Soreheim Proper",
+  "type": "macro-capital core",
+  "parent_polity": "Soreheim Alliance",
+  "truth_layer": "reconciled_canon",
+  "identity": "Harsh hierarchical tower-centered production core where alliance governance, foreign affairs, war output, and high-order manufacturing converge across many Titan Towers.",
+  "approach": "Multiple colossal Titan Towers rise across volcanic industry, bridged by heat-hazed logistics and treaty traffic.",
+  "inside": "Tower-bases burn with magma forges, mid-levels pulse with workshops and arsenals, and upper crowns hold governance chambers, observatories, archives, and foreign delegations.",
+  "who_belongs": [
+    "giants",
+    "administrators",
+    "artisans",
+    "logisticians",
+    "envoys",
+    "war manufacturers"
+  ],
+  "who_is_out_of_place": [
+    "selfish hoarders",
+    "unlicensed magic users",
+    "people who mistake domestic patronage for independent authority"
+  ],
+  "expected_behavior": [
+    "meet quotas",
+    "respect tower rank",
+    "treat decrees, seals, and work assignments as binding"
+  ],
+  "visible_power": [
+    "Giant Council",
+    "Cloud Giant governance cadres",
+    "tower tribunals",
+    "war-production ministries"
+  ],
+  "economy": [
+    "high-order manufacturing",
+    "war production",
+    "refinement",
+    "distribution",
+    "foreign trade oversight"
+  ],
+  "faith": [
+    "ambition, domination, and retribution saturate tower ritual, oath displays, and public merit judgment"
+  ],
+  "seasonal_change": "Soreheim Proper coordinates seasonal burdens across the alliance, shifting quotas, bridge priority, and emergency production rather than suffering them evenly.",
+  "pressure": [
+    "quota demands",
+    "political rivalry",
+    "foreign pressure",
+    "industrial accidents",
+    "tower maintenance strain"
+  ],
+  "npc_interfaces": [
+    "roth_udenine",
+    "cron_udenine",
+    "vorgul_oxtend",
+    "mordoth_valinheim",
+    "decon_von_reckshem",
+    "lyria_firesoul",
+    "eryndor_bladewright",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "law_context": [
+    "communal ownership and restorative justice enforced through central tower review",
+    "domestic patronage in other regions never supersedes Soreheim Proper decree"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Soreheim Alliance",
+    "territory": "Soreheim Proper",
+    "settlement": "Soreheim Proper",
+    "district": null
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "canonical_identity": {
+    "truth_layer": "reconciled_canon",
+    "identity": "Harsh hierarchical tower-centered production core where alliance governance, foreign affairs, war output, and high-order manufacturing converge across many Titan Towers.",
+    "approach": "Multiple colossal Titan Towers rise across volcanic industry, bridged by heat-hazed logistics and treaty traffic.",
+    "inside": "Tower-bases burn with magma forges, mid-levels pulse with workshops and arsenals, and upper crowns hold governance chambers, observatories, archives, and foreign delegations.",
+    "who_belongs": [
+      "giants",
+      "administrators",
+      "artisans",
+      "logisticians",
+      "envoys",
+      "war manufacturers"
+    ],
+    "who_is_out_of_place": [
+      "selfish hoarders",
+      "unlicensed magic users",
+      "people who mistake domestic patronage for independent authority"
+    ],
+    "expected_behavior": [
+      "meet quotas",
+      "respect tower rank",
+      "treat decrees, seals, and work assignments as binding"
+    ],
+    "visible_power": [
+      "Giant Council",
+      "Cloud Giant governance cadres",
+      "tower tribunals",
+      "war-production ministries"
+    ],
+    "economy": [
+      "high-order manufacturing",
+      "war production",
+      "refinement",
+      "distribution",
+      "foreign trade oversight"
+    ],
+    "faith": [
+      "ambition, domination, and retribution saturate tower ritual, oath displays, and public merit judgment"
+    ],
+    "seasonal_change": "Soreheim Proper coordinates seasonal burdens across the alliance, shifting quotas, bridge priority, and emergency production rather than suffering them evenly.",
+    "pressure": [
+      "quota demands",
+      "political rivalry",
+      "foreign pressure",
+      "industrial accidents",
+      "tower maintenance strain"
+    ],
+    "law_context": [
+      "communal ownership and restorative justice enforced through central tower review",
+      "domestic patronage in other regions never supersedes Soreheim Proper decree"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Multiple colossal Titan Towers rise across volcanic industry, bridged by heat-hazed logistics and treaty traffic.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Tower-bases burn with magma forges, mid-levels pulse with workshops and arsenals, and upper crowns hold governance chambers, observatories, archives, and foreign delegations.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "quota demands",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "political rivalry",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "foreign pressure",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "industrial accidents",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "tower maintenance strain",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "meet quotas",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "respect tower rank",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "treat decrees, seals, and work assignments as binding",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "roth_udenine",
+    "cron_udenine",
+    "vorgul_oxtend",
+    "mordoth_valinheim",
+    "decon_von_reckshem",
+    "lyria_firesoul",
+    "eryndor_bladewright"
+  ],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "local_role_expression": {
+    "innkeeper": {
+      "demeanor": "practical, hospitable, observant",
+      "visible_concerns": [
+        "lodging pressure",
+        "traveler gossip",
+        "unusual arrivals"
+      ],
+      "institutional_tie": "Soreheim Proper"
+    },
+    "market_clerk": {
+      "demeanor": "order-minded, queue-aware, attentive",
+      "visible_concerns": [
+        "stall flow",
+        "forms and seals",
+        "disrupted trade rhythm"
+      ],
+      "institutional_tie": "Soreheim Proper"
+    },
+    "shrine_attendant": {
+      "demeanor": "quiet, observant, correction-minded",
+      "visible_concerns": [
+        "offering order",
+        "purification lapses",
+        "ritual irregularity"
+      ],
+      "institutional_tie": "Soreheim Proper"
+    },
+    "porter": {
+      "demeanor": "hurried, grounded, load-aware",
+      "visible_concerns": [
+        "freight strain",
+        "delayed movement",
+        "suspicious cargo"
+      ],
+      "institutional_tie": "Soreheim Proper"
+    },
+    "scribe": {
+      "demeanor": "precise, discreet, patient",
+      "visible_concerns": [
+        "record integrity",
+        "testimony wording",
+        "missing signatures"
+      ],
+      "institutional_tie": "Soreheim Proper"
+    },
+    "labor_foreman": {
+      "demeanor": "blunt, protective, schedule-bound",
+      "visible_concerns": [
+        "crew discipline",
+        "equipment strain",
+        "blame transfer"
+      ],
+      "institutional_tie": "Soreheim Proper"
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually giants, administrators, artisans, and public conduct is read through expectations such as meet quotas, respect tower rank.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Giant Council, Cloud Giant governance cadres, tower tribunals.",
+  "local_tension_surface": "The place feels stable only until pressures such as quota demands, political rivalry, foreign pressure begin showing through daily routines.",
+  "differentiator": "Soreheim Proper stands apart because its economy leans on high-order manufacturing, war production; public faith remains visible through ambition, domination, and retribution saturate tower ritual, oath displays, and public merit judgment; outsiders are noticed fastest when they resemble selfish hoarders, unlicensed magic users.",
+  "encounter_rhythm": "Most first scenes in Soreheim Proper begin through macro-capital core rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "scene_openers": [
+    "A first arrival at Soreheim Proper immediately highlights harsh hierarchical tower-centered production core where alliance governance, foreign affairs, war output, and high-order manufacturing converge across many titan towers",
+    "The quickest social read of Soreheim Proper comes from how locals react to meet quotas / respect tower rank."
+  ],
+  "social_misstep_examples": [
+    "Treating Soreheim Proper like a casual stop rather than a governed space.",
+    "Ignoring local expectation to meet quotas; respect tower rank."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to high-order manufacturing.",
+    "A local intermediary resents outsider assumptions about Soreheim Proper."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Soreheim Proper",
+    "Formal notice by Giant Council",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Soreheim Proper before residents admit them.",
+  "outsider_liability": "Outsiders in Soreheim Proper are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around quota demands.",
+    "Someone mistakes the party for agents tied to Giant Council.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind high-order manufacturing surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Soreheim Proper feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Soreheim Proper is busiest and least forgiving of confusion.",
+    "night": "At night, Soreheim Proper reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Soreheim Proper mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

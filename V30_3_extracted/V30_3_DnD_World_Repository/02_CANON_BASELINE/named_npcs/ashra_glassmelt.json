@@ -1,0 +1,88 @@
+{
+  "npc_id": "ashra_glassmelt",
+  "canonical_name": "Ashra Glassmelt",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Cache Keeper",
+  "profession_discipline": "Cache Keeper",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": null,
+  "locality_scope": "Scarlet Depths",
+  "institutional_ties": [
+    "Scarlet Depths"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as cache keeper.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Scarlet Depths"
+    ],
+    "institutions": [
+      "Scarlet Depths"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a cache keeper still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of cache keeper in and around Scarlet Depths, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Scarlet Depths workable through the obligations of cache keeper while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Scarlet Depths, that usually means carrying eruption risk, resource access, underworld danger without letting the role of cache keeper visibly slip.",
+  "relationship_refs": [
+    "rel_0774",
+    "rel_0778",
+    "rel_0781",
+    "rel_0783",
+    "rel_0784"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Ashra Glassmelt needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Scarlet Depths."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Ashra Glassmelt can draw the party into crew discipline, resource shortage, or blame transfer around Scarlet Depths."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "ashra_glassmelt",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Ashra Glassmelt visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Scarlet Depths: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Ashra Glassmelt presents as Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a cache keeper still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Cache Keeper, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Ashra Glassmelt refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Cache Keeper too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Ashra Glassmelt can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Ashra Glassmelt adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Ashra Glassmelt is Known locally through day-to-day work as cache keeper. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Cache Keeper."
+}

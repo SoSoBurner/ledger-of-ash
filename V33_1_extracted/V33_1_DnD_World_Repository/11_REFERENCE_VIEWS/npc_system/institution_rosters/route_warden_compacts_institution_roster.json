@@ -1,0 +1,43 @@
+{
+  "build_version": "V33_1",
+  "institution": "Route Warden Compacts",
+  "record_count": 2,
+  "npc_ids": [
+    "aster_snowveil",
+    "rime_frostglass"
+  ],
+  "records": [
+    {
+      "npc_id": "aster_snowveil",
+      "canonical_name": "Aster Snowveil",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Public Herald",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as public herald.",
+      "current_agenda": "Keep Route Warden Compacts workable through the obligations of public herald while managing the immediate pressure of contamination strain in Sheresh Communes."
+    },
+    {
+      "npc_id": "rime_frostglass",
+      "canonical_name": "Rime Frostglass",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Operations Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as operations steward.",
+      "current_agenda": "Keep Sheresh Route Warden Compacts workable through the obligations of operations steward while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Sheresh cross-commune agreements governing launch windows, escorts, and loss reporting between domes.",
+    "visible_power": [],
+    "pressure": [
+      "weather volatility",
+      "route damage",
+      "supply urgency",
+      "conflict between research ambition and safe timing"
+    ]
+  },
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ]
+}

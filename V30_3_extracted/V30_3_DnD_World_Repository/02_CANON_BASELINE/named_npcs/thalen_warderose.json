@@ -1,0 +1,92 @@
+{
+  "npc_id": "thalen_warderose",
+  "canonical_name": "Thalen Warderose",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Apprentice Factor",
+  "profession_discipline": "Apprentice Factor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "House of Shelk Estate",
+  "locality_scope": "House of Shelk Estate",
+  "institutional_ties": [
+    "House of Shelk Estate"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as apprentice factor.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "House of Shelk Estate"
+    ],
+    "institutions": [
+      "House of Shelk Estate"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a apprentice factor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of apprentice factor in and around House of Shelk Estate, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep House of Shelk Estate workable through the obligations of apprentice factor while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around House of Shelk Estate, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of apprentice factor visibly slip.",
+  "relationship_refs": [
+    "rel_0528",
+    "rel_0529",
+    "rel_1049",
+    "rel_1054",
+    "rel_1058",
+    "rel_1061",
+    "rel_1063",
+    "rel_1064"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Thalen Warderose can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Thalen Warderose will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "thalen_warderose",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Thalen Warderose read as someone who lives by exchange and reputation.",
+  "encounter_context": {
+    "usual_environment": "House of Shelk Estate: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Thalen Warderose presents as Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a apprentice factor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Apprentice Factor, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Thalen Warderose refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Apprentice Factor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Thalen Warderose can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Thalen Warderose adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Thalen Warderose is Known locally through day-to-day work as apprentice factor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Apprentice Factor."
+}

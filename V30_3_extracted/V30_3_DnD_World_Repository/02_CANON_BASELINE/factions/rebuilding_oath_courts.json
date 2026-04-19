@@ -1,0 +1,45 @@
+{
+  "name": "Rebuilding Oath Courts",
+  "type": "Psanan renewal-judgment faction",
+  "truth_layer": "conservative_inference",
+  "summary": "Public oath forums where rebuilding obligations, restitution, and civic renewal promises are witnessed and judged.",
+  "motive": "Turn destruction into accountable renewal instead of endless vengeance or neglect.",
+  "methods": [
+    "oath hearings",
+    "restitution judgments",
+    "public witness rituals"
+  ],
+  "geography": [
+    "Ashforge Citadel",
+    "Cindervow Quarter",
+    "rebuilding districts"
+  ],
+  "power_relations": [
+    "Backed by House authority and civic ritual, but morally constrained by public memory"
+  ],
+  "current_pressure": [
+    "resource scarcity",
+    "widow and kin claims",
+    "competition between punishment and mercy"
+  ],
+  "visible_membership_base": "Oath keepers, witnesses, claimants, matriarchal judges.",
+  "civilian_contact_surface": [
+    "rebuilding claims",
+    "public apology rituals",
+    "restitution settlements"
+  ],
+  "current_tension_or_vulnerability": "When damage is widespread, the courts can become clogged and start looking symbolic rather than restorative.",
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "vekka_glassmelt"
+  ],
+  "npc_interfaces": [
+    "vekka_glassmelt"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "stress_run_id": "contradiction_bait_stress",
+  "build_version": "V30_3",
+  "summary": "contradiction_bait_stress stores adversarial retrieval assumptions used by validation.",
+  "status": "pass"
+}

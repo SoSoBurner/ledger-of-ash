@@ -1,0 +1,80 @@
+{
+  "npc_id": "banner_master_liora_embermask",
+  "canonical_name": "Banner-Master Liora Embermask",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Renewal Processional Director",
+  "profession_discipline": "Renewal Processional Director",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": null,
+  "locality_scope": "Renewal Plaza of Masks",
+  "institutional_ties": [
+    "Renewal Plaza of Masks"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as renewal processional director.",
+  "linked_systems": {
+    "polities": [],
+    "localities": [
+      "Renewal Plaza of Masks"
+    ],
+    "institutions": [
+      "Renewal Plaza of Masks"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a renewal processional director still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of renewal processional director in and around Renewal Plaza of Masks, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Renewal Plaza of Masks workable through the obligations of renewal processional director while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Renewal Plaza of Masks, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of renewal processional director visibly slip.",
+  "relationship_refs": [
+    "rel_0901"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Banner-Master Liora Embermask can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Banner-Master Liora Embermask needs help with a problem in Renewal Plaza of Masks that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "banner_master_liora_embermask",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Banner-Master Liora Embermask carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Renewal Plaza of Masks: the part of Renewal Plaza of Masks where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Banner-Master Liora Embermask presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a renewal processional director still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Renewal Processional Director, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Banner-Master Liora Embermask refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Renewal Processional Director too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Banner-Master Liora Embermask can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Banner-Master Liora Embermask adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Banner-Master Liora Embermask is Known locally through day-to-day work as renewal processional director. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Renewal Processional Director."
+}

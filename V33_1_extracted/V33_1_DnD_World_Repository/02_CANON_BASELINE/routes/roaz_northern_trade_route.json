@@ -1,0 +1,25 @@
+{
+  "name": "Roaz Northern Trade Route",
+  "type": "fortified trade route",
+  "jurisdictions": [
+    "Principality of Roaz"
+  ],
+  "hazards": [
+    "pirates",
+    "hostile polities",
+    "winter limits"
+  ],
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "petra_lockmere"
+  ],
+  "npc_interfaces": [
+    "petra_lockmere"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

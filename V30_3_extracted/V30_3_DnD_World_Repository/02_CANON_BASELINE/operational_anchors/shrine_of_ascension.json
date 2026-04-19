@@ -1,0 +1,18 @@
+{
+  "name": "Shrine of Ascension",
+  "parent_polity": "Soreheim Alliance",
+  "type": "operational_anchor",
+  "anchor_kind": "civic_religious_site",
+  "truth_layer": "conservative_inference",
+  "anchor_status": "baseline_anchor",
+  "roles_allocated": 4,
+  "territory": "Eternal Lands",
+  "operational_profile": "Ambition-focused ceremonial office that binds labor achievement to moral legitimacy.",
+  "role_density_note": "Emitted as matrix-stage administrative thickening rather than full office ledger.",
+  "supporting_logic": "Built from existing polity logic as downward-and-outward operational fill.",
+  "sources": [
+    "operator_target_spec_v22_4",
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "build_version": "V33_1",
+  "institution": "Soreheim Alliance",
+  "record_count": 2,
+  "npc_ids": [
+    "dema_ashmason",
+    "korin_stonecarve"
+  ],
+  "records": [
+    {
+      "npc_id": "dema_ashmason",
+      "canonical_name": "Dema Ashmason",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Law Speaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as law speaker.",
+      "current_agenda": "Keep Soreheim Alliance workable through the obligations of law speaker while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "korin_stonecarve",
+      "canonical_name": "Korin Stonecarve",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Road Census Clerk",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as road census clerk.",
+      "current_agenda": "Keep Soreheim Alliance workable through the obligations of road census clerk while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": [
+      "giant-led civilizational alliance",
+      "quota and tower-centered government",
+      "industrial and agricultural interdependence",
+      "communal contribution hierarchy",
+      "meritocratic but stratified social order"
+    ],
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

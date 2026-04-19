@@ -1,0 +1,49 @@
+{
+  "name": "Route Warden Compacts",
+  "type": "Sheresh route-governance faction",
+  "truth_layer": "conservative_inference",
+  "summary": "Sheresh cross-commune agreements governing launch windows, escorts, and loss reporting between domes.",
+  "motive": "Keep necessary travel survivable and socially accountable in a lethal environment.",
+  "methods": [
+    "crossing declarations",
+    "weather calls",
+    "escort assignment",
+    "handoff procedure"
+  ],
+  "geography": [
+    "Sheresh dome roads",
+    "Frostline Crossing",
+    "Whitebridge Commune",
+    "Aurora Meadows domeways"
+  ],
+  "power_relations": [
+    "Shared authority with Dome Stewards and research actors; crucial when routes become political bottlenecks"
+  ],
+  "current_pressure": [
+    "weather volatility",
+    "route damage",
+    "supply urgency",
+    "conflict between research ambition and safe timing"
+  ],
+  "visible_membership_base": "Route wardens, crossing judges, escort leaders, shelter keepers.",
+  "civilian_contact_surface": [
+    "travel approval",
+    "escort negotiation",
+    "shelter admissions",
+    "loss reporting"
+  ],
+  "current_tension_or_vulnerability": "Their caution saves lives, but urgent communities often resent them for delay.",
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "aster_snowveil"
+  ],
+  "npc_interfaces": [
+    "aster_snowveil"
+  ]
+}

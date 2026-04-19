@@ -1,0 +1,15 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "promotion_rules": [
+    "validated runtime effects may promote to continuity only when attached to world object ids and not crossing canon-protected boundaries"
+  ],
+  "promotion_trace": [
+    {
+      "runtime_effect_id": "runtime_effect:validated_route_alert_harvest_keep",
+      "affected_entity_id": "runtime_scope_context:harvest_keep_caravan_roads",
+      "eligible_for_continuity": true,
+      "promotion_condition": "validated_session_consequence with bounded scope"
+    }
+  ]
+}

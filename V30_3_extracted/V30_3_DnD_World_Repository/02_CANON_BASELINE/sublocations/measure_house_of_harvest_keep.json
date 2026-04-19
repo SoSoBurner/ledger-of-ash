@@ -1,0 +1,49 @@
+{
+  "name": "Measure House of Harvest Keep",
+  "type": "economic-law node",
+  "parent_settlement": "Harvest Keep",
+  "parent_polity": "Principality of Zootia",
+  "truth_layer": "conservative_inference",
+  "identity": "Official weighing and certification hall where loads become lawful commerce.",
+  "approach": "Long ramps lead to brass-marked scales and posted penalties.",
+  "inside": "Scribes, balance rigs, and dispute benches fill a hall that smells of grain, wax, and rope.",
+  "who_belongs": [
+    "weigh clerks",
+    "licensed carriers"
+  ],
+  "who_is_out_of_place": [
+    "untagged loaders"
+  ],
+  "expected_behavior": [
+    "present load tokens",
+    "submit to reweigh when ordered"
+  ],
+  "visible_power": [
+    "measure clerks"
+  ],
+  "economy": [
+    "certification fees",
+    "load clearing"
+  ],
+  "faith": [
+    "fair measure is treated like civic virtue"
+  ],
+  "seasonal_change": "Harvest windows extend hours and shorten tempers.",
+  "pressure": [
+    "false weights",
+    "smuggling into reserve channels"
+  ],
+  "npc_interfaces": [
+    "warden_pellor_grainhand",
+    "broker_lysa_tarrow"
+  ],
+  "law_context": [
+    "measure law"
+  ],
+  "sources": [
+    "principalities_doc"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

@@ -1,0 +1,94 @@
+{
+  "npc_id": "pela_field",
+  "canonical_name": "Pela Field",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Coast Broker",
+  "profession_discipline": "Coast Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "The Principalities",
+  "settlement": null,
+  "locality_scope": "Frozen Quagmires",
+  "institutional_ties": [
+    "Frozen Quagmires"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as coast broker.",
+  "linked_systems": {
+    "polities": [
+      "The Principalities"
+    ],
+    "localities": [
+      "Frozen Quagmires"
+    ],
+    "institutions": [
+      "Frozen Quagmires"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In The Principalities, that reads as someone protocol-aware and boundary-sensitive, carrying overlapping laws, noble expectations, and shared imperial strain, and the habits of a coast broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of coast broker in and around Frozen Quagmires, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Frozen Quagmires workable through the obligations of coast broker while managing the immediate pressure of house rivalry in The Principalities.",
+  "hidden_pressure": "Must read timing, trust, and supply pressure early enough that a market problem does not become a civic one. Around Frozen Quagmires, that usually means carrying house rivalry, guild legitimacy versus aristocratic legitimacy, magic restriction conflict without letting the role of coast broker visibly slip.",
+  "relationship_refs": [
+    "rel_0858",
+    "rel_0865",
+    "rel_0871",
+    "rel_0876",
+    "rel_0881",
+    "rel_0882",
+    "rel_0883",
+    "rel_0884"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Pela Field can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Pela Field will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "pela_field",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Pela Field read as someone who lives by exchange and reputation.",
+  "encounter_context": {
+    "usual_environment": "Frozen Quagmires: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Pela Field presents as Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In The Principalities, that reads as someone protocol-aware and boundary-sensitive, carrying overlapping laws, noble expectations, and shared imperial strain, and the habits of a coast broker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Coast Broker, and proof that strangers will not create avoidable noise in The Principalities.",
+  "what_they_refuse": "Pela Field refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Coast Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Pela Field can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Pela Field adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Pela Field is Known locally through day-to-day work as coast broker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Coast Broker."
+}

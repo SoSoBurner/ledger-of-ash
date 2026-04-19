@@ -1,0 +1,8 @@
+{
+  "name": "Glasswake Commune",
+  "seasonal_change": "Clear-sky windows increase observation value but also exposure risk.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "code": "Principle Code § 108",
+  "title": "Fashion Code Violations",
+  "severity": "misdemeanor",
+  "description": "Improper attire or failure to meet local ceremonial and decorum standards.",
+  "jurisdictions": [
+    "Velvet Pinnacle Hall",
+    "Crystal Loom Emporium",
+    "Market Row Guildhall",
+    "Golden Needle Academy",
+    "Amber Fountain Inn",
+    "Gilded Archives of Lore"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

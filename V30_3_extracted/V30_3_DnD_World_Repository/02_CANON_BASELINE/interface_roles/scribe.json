@@ -1,0 +1,45 @@
+{
+  "id": "scribe",
+  "display_name": "Scribe",
+  "function": "Records transactions, testimony, obligations, and quiet corrections that later decide public outcomes.",
+  "default_social_read": "Remembers wording, signatures, omissions, and which records people hope disappear.",
+  "truth_layer": "engine_canon",
+  "context_sites": [
+    "Ashforge Citadel",
+    "Aurora Crown Commune",
+    "Cosmoria",
+    "Guildheart Hub",
+    "Ithtananalor",
+    "Mimolot Academy",
+    "Panim Haven",
+    "Shelkopolis",
+    "Shirshal",
+    "Soreheim Proper"
+  ],
+  "context_polities": [
+    "House Cosmouth",
+    "House Mimolot",
+    "House Panim",
+    "House Shirsh",
+    "Principality of Roaz",
+    "Principality of Shelk",
+    "Psanan",
+    "Sheresh Communes",
+    "Soreheim Alliance",
+    "The Union"
+  ],
+  "sources": [
+    "ai_source_pdf",
+    "calendars_world",
+    "locations_catalog",
+    "principalities",
+    "principality_roaz",
+    "principality_shelk",
+    "psc_shelkopolis",
+    "soreheim_review",
+    "spatial_seasonal",
+    "topatch_v22_6_spec"
+  ],
+  "support_type": "reusable_runtime_surface",
+  "context_justification": "Derived from repeated locality packet usage within the active world engine; role remains reusable rather than tied to a single named individual."
+}

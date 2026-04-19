@@ -1,0 +1,31 @@
+{
+  "name": "Agricultural Syndicate",
+  "type": "Soreheim agricultural institution",
+  "truth_layer": "direct_canon",
+  "summary": "Central body coordinating farming collectives, irrigation, and food movement in the Unternal Lands.",
+  "day_to_day": "Assigns labor, tracks yields, maintains irrigation schedules, and balances food dispatch to industrial zones.",
+  "who_works_there": "Field stewards, allocation clerks, irrigation overseers, grain keepers, local ritual officers.",
+  "who_uses_it": "Farm households, haulers, regional leaders, food processors, and dependent settlements.",
+  "authority": "Can set agricultural priorities, requisition labor, and redirect supply under communal law.",
+  "public_manifestation": "Seen in field markers, storehouse lines, harvest festivals, ration ledgers, and canal work crews.",
+  "conflict_or_bottleneck": "Flooding, drought, or transport failure can turn fair planning into coercive redistribution.",
+  "party_actions": [
+    "seek food contracts",
+    "negotiate a local shortage",
+    "escort grain movement",
+    "investigate sabotage or hoarding"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "rothen_stonecarve"
+  ],
+  "npc_interfaces": [
+    "rothen_stonecarve"
+  ]
+}

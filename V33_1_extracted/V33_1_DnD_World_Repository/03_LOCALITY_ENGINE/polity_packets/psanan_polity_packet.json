@@ -1,0 +1,24 @@
+{
+  "name": "Psanan",
+  "object_type": "runtime_polity_demography_packet",
+  "build_version": "V33_1",
+  "derived_from": "02_CANON_BASELINE/demography/psanan_demography.json",
+  "dominant_populations": [
+    "Drow",
+    "Duergar",
+    "Deep Gnomes",
+    "Kuo-Toa",
+    "Derro"
+  ],
+  "secondary_populations": [
+    "Humans",
+    "Tieflings",
+    "Yuan-Ti"
+  ],
+  "street_level_visibility": "Drow, Duergar, Deep Gnomes, Kuo-Toa, and Derro form the dominant Underdark base; Humans, Tieflings, and Yuan-Ti remain permanent secondary surface-facing and port-facing populations.",
+  "visitor_signal": "Visitors to Psanan should perceive the dominant populations first and the secondary populations as stable but not polity-defining unless narrower locality canon states otherwise.",
+  "runtime_rule": "Runtime narration may elaborate visible population mix but may not contradict canonical roster or exclusions.",
+  "excluded_or_shunned_populations": [
+    "Dragonborn"
+  ]
+}

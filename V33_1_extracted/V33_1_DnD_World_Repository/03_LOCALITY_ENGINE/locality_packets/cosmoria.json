@@ -1,0 +1,274 @@
+{
+  "name": "Cosmoria",
+  "type": "floating metropolis",
+  "parent_polity": "House Cosmouth",
+  "identity": "Floating intellectual and shipwright metropolis of Cosmouth.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "House Cosmouth",
+    "territory": "The Principalities",
+    "settlement": "Cosmoria",
+    "district": null
+  },
+  "approach": "Grand libraries and maritime infrastructure define first impressions.",
+  "inside": "Archives, tax records, and shipwright activity mingle with cosmopolitan floating-city life.",
+  "who_belongs": [
+    "scholars",
+    "shipwrights",
+    "tax and archive personnel",
+    "mariners"
+  ],
+  "who_is_out_of_place": [
+    "landlocked provincial visitors lacking maritime etiquette"
+  ],
+  "expected_behavior": [
+    "respect archives and maritime administration"
+  ],
+  "visible_power": [
+    "House Cosmouth"
+  ],
+  "economy": [
+    "shipwright industry",
+    "archives",
+    "maritime trade"
+  ],
+  "faith": [
+    "sea communion and noble retreat culture present nearby"
+  ],
+  "seasonal_change": "Storm cycles matter.",
+  "pressure": [
+    "storm weather",
+    "trade vulnerability"
+  ],
+  "npc_interfaces": [
+    "archivist",
+    "ship_captain",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "law_context": [
+    "archive and tax discipline"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "principalities"
+  ],
+  "canonical_identity": {
+    "truth_layer": "direct_canon",
+    "identity": "Floating intellectual and shipwright metropolis of Cosmouth.",
+    "approach": "Grand libraries and maritime infrastructure define first impressions.",
+    "inside": "Archives, tax records, and shipwright activity mingle with cosmopolitan floating-city life.",
+    "who_belongs": [
+      "scholars",
+      "shipwrights",
+      "tax and archive personnel",
+      "mariners"
+    ],
+    "who_is_out_of_place": [
+      "landlocked provincial visitors lacking maritime etiquette"
+    ],
+    "expected_behavior": [
+      "respect archives and maritime administration"
+    ],
+    "visible_power": [
+      "House Cosmouth"
+    ],
+    "economy": [
+      "shipwright industry",
+      "archives",
+      "maritime trade"
+    ],
+    "faith": [
+      "sea communion and noble retreat culture present nearby"
+    ],
+    "seasonal_change": "Storm cycles matter.",
+    "pressure": [
+      "storm weather",
+      "trade vulnerability"
+    ],
+    "law_context": [
+      "archive and tax discipline"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Grand libraries and maritime infrastructure define first impressions.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Archives, tax records, and shipwright activity mingle with cosmopolitan floating-city life.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "storm weather",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "trade vulnerability",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "respect archives and maritime administration",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "coralyn_tideglass",
+    "marrow_tideglass",
+    "selka_tideglass",
+    "tavian_tideglass",
+    "nerissa_tideglass",
+    "aurek_tideglass",
+    "brine_tideglass",
+    "lysen_tideglass"
+  ],
+  "local_interface_roles": [
+    "archivist",
+    "ship_captain",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "local_role_expression": {
+    "archivist": {
+      "demeanor": "controlled, protective, exact",
+      "visible_concerns": [
+        "access order",
+        "restricted records",
+        "document tampering"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "ship_captain": {
+      "demeanor": "weathered, practical, route-focused",
+      "visible_concerns": [
+        "cargo timing",
+        "weather risk",
+        "dangerous passengers"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "innkeeper": {
+      "demeanor": "practical, hospitable, observant",
+      "visible_concerns": [
+        "lodging pressure",
+        "traveler gossip",
+        "unusual arrivals"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "market_clerk": {
+      "demeanor": "order-minded, queue-aware, attentive",
+      "visible_concerns": [
+        "stall flow",
+        "forms and seals",
+        "disrupted trade rhythm"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "shrine_attendant": {
+      "demeanor": "quiet, observant, correction-minded",
+      "visible_concerns": [
+        "offering order",
+        "purification lapses",
+        "ritual irregularity"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "porter": {
+      "demeanor": "hurried, grounded, load-aware",
+      "visible_concerns": [
+        "freight strain",
+        "delayed movement",
+        "suspicious cargo"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "scribe": {
+      "demeanor": "precise, discreet, patient",
+      "visible_concerns": [
+        "record integrity",
+        "testimony wording",
+        "missing signatures"
+      ],
+      "institutional_tie": "Cosmoria"
+    },
+    "labor_foreman": {
+      "demeanor": "blunt, protective, schedule-bound",
+      "visible_concerns": [
+        "crew discipline",
+        "equipment strain",
+        "blame transfer"
+      ],
+      "institutional_tie": "Cosmoria"
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually scholars, shipwrights, tax and archive personnel, and public conduct is read through expectations such as respect archives and maritime administration.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by House Cosmouth.",
+  "local_tension_surface": "The place feels stable only until pressures such as storm weather, trade vulnerability begin showing through daily routines.",
+  "differentiator": "Cosmoria stands apart because its economy leans on shipwright industry, archives; public faith remains visible through sea communion and noble retreat culture present nearby; outsiders are noticed fastest when they resemble landlocked provincial visitors lacking maritime etiquette.",
+  "encounter_rhythm": "Most first scenes in Cosmoria begin through floating metropolis rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Cosmoria immediately highlights floating intellectual and shipwright metropolis of cosmouth",
+    "The quickest social read of Cosmoria comes from how locals react to respect archives and maritime administration."
+  ],
+  "social_misstep_examples": [
+    "Treating Cosmoria like a casual stop rather than a governed space.",
+    "Ignoring local expectation to respect archives and maritime administration."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to shipwright industry.",
+    "A local intermediary resents outsider assumptions about Cosmoria."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Cosmoria",
+    "Formal notice by House Cosmouth",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Cosmoria before residents admit them.",
+  "outsider_liability": "Outsiders in Cosmoria are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around storm weather.",
+    "Someone mistakes the party for agents tied to House Cosmouth.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind shipwright industry surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Cosmoria feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Cosmoria is busiest and least forgiving of confusion.",
+    "night": "At night, Cosmoria reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Cosmoria mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Lantern Docket Subnode",
+  "parent_locality": "Lantern Docket",
+  "type": "support node",
+  "truth_layer": "source_backed_inference",
+  "summary": "Support node tied to Lantern Docket for V30_3 parity completion.",
+  "sources": [
+    "V30_3 parity completion synthesis."
+  ]
+}

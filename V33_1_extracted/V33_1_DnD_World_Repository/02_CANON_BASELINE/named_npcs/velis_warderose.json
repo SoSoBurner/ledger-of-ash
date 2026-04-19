@@ -1,0 +1,92 @@
+{
+  "npc_id": "velis_warderose",
+  "canonical_name": "Velis Warderose",
+  "aliases": [
+    "the registrar"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Registrar",
+  "profession_discipline": "Registrar",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Roadwardens Order",
+  "locality_scope": "Roadwardens Order",
+  "institutional_ties": [
+    "Roadwardens Order"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as registrar.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Roadwardens Order"
+    ],
+    "institutions": [
+      "Roadwardens Order"
+    ],
+    "factions": []
+  },
+  "appearance": "Typically appears in the bright colors and tall plumes associated with Shelk’s Roadwardens.",
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a registrar still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of registrar in and around Roadwardens Order, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Roadwardens Order workable through the obligations of registrar while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Roadwardens Order, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of registrar visibly slip.",
+  "relationship_refs": [
+    "rel_0528",
+    "rel_0530",
+    "rel_1229",
+    "rel_1231",
+    "rel_1232"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "record_dispute",
+      "summary": "Velis Warderose needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Roadwardens Order."
+    },
+    {
+      "hook_type": "document_pressure",
+      "summary": "Velis Warderose can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance conservatively derived from explicit office, organizational attire, or species/station cues already present in corpus support. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "principality_shelk",
+    "locations_catalog",
+    "psc_shelkopolis"
+  ],
+  "compatibility_interface_id": "velis_warderose",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Velis Warderose communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Roadwardens Order: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Velis Warderose presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a registrar still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Registrar, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Velis Warderose refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Registrar too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Velis Warderose can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Velis Warderose adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Velis Warderose is Known locally through day-to-day work as registrar. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Registrar."
+}

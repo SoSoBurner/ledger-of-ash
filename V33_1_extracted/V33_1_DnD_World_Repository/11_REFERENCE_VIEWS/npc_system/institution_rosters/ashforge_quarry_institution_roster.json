@@ -1,0 +1,99 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ashforge Quarry",
+  "record_count": 7,
+  "npc_ids": [
+    "dema_coalward",
+    "gorath_myrn",
+    "gryndal_vesskar",
+    "hildran_wyvernharn",
+    "korin_ashmason",
+    "tharim_coalforge",
+    "varric_icevein"
+  ],
+  "records": [
+    {
+      "npc_id": "dema_coalward",
+      "canonical_name": "Dema Coalward",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Shrine Caretaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of shrine caretaker while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "gorath_myrn",
+      "canonical_name": "Gorath Myrn",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Magical knowledge overseer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as magical knowledge overseer.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of magical knowledge overseer while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "gryndal_vesskar",
+      "canonical_name": "Gryndal Vesskar",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Unauthorized trade adjudicator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as unauthorized trade adjudicator.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of unauthorized trade adjudicator while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "hildran_wyvernharn",
+      "canonical_name": "Hildran Wyvernharn",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Public safety regional leader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as public safety regional leader.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of public safety regional leader while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "korin_ashmason",
+      "canonical_name": "Korin Ashmason",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Quartermaster",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quartermaster.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of quartermaster while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "tharim_coalforge",
+      "canonical_name": "Tharim Coalforge",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Regional production boss",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as regional production boss.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of regional production boss while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "varric_icevein",
+      "canonical_name": "Varric Icevein",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Northern front defense commander",
+      "tier": "notable",
+      "public_reputation": "Recognized as a northern front defense commander of regional weight.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of northern front defense commander while managing the immediate pressure of predators in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Fortified quarry-settlement where ore extraction, partial refinement, predator defense, and hard clan-family patronage dominate daily survival.",
+    "visible_power": [
+      "Hill Giant foremen",
+      "industrial clans",
+      "regional bosses",
+      "patron-families tied to extraction crews"
+    ],
+    "pressure": [
+      "predators",
+      "avalanches",
+      "geothermal bursts",
+      "sabotage",
+      "crew rivalries"
+    ]
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

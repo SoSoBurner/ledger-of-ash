@@ -1,0 +1,8 @@
+{
+  "name": "Glasswake Commune",
+  "approach": "A low, reinforced dome surrounded by sensor pylons and flagged exposure trenches.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

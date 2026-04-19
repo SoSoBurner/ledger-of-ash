@@ -1,0 +1,15 @@
+{
+  "build_version": "V30_3",
+  "effect_id": "validated_route_alert_harvest_keep",
+  "effect_class": "route_danger_change",
+  "scope": "route",
+  "visibility": "rumored",
+  "temporal_class": "mainline_eligible",
+  "affected_objects": [
+    "Harvest Keep caravan roads"
+  ],
+  "summary": "Canal choke and reserve panic rumors increase caravan friction and inspection intensity near Harvest Keep.",
+  "evidence_threshold": "validated_session_consequence",
+  "reversible": true,
+  "status": "validated"
+}

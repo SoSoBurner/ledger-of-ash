@@ -1,0 +1,518 @@
+{
+  "packet_type": "world_inspection_packet",
+  "scope": "locality",
+  "name": "Shirshal",
+  "slug": "shirshal",
+  "parent_polity": "House Shirsh",
+  "place_type": "magical investigation hub",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "principalities",
+    "house_shirsh"
+  ],
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "House Shirsh",
+    "territory": "The Principalities",
+    "settlement": "Shirshal",
+    "district": null
+  },
+  "about_place": {
+    "where_is_this_place_exactly": {
+      "answer": "Shirshal sits within House Shirsh; strongest hierarchy support resolves it as {\"world\":\"Material Planet\",\"polity\":\"House Shirsh\",\"territory\":\"The Principalities\",\"settlement\":\"Shirshal\",\"district\":null}.",
+      "status": "direct_canon"
+    },
+    "what_does_this_place_look_like": {
+      "answer": "Approach: Arcane scrutiny and guarded curiosity.. Interior or lived feel: Cases, magical anomalies, and private investigations drive civic motion..",
+      "status": "direct_canon"
+    },
+    "what_is_this_area_known_for": {
+      "answer": "Investigative magical-law center of House Shirsh.",
+      "status": "conservative_inference"
+    },
+    "how_old_is_this_place": {
+      "answer": "The current corpus does not give an exact founding date for this place; it should be treated as historically older than the present day but not date-fixed.",
+      "status": "unresolved"
+    },
+    "who_built_it": {
+      "answer": "The safest current reading is that Shirshal was built or expanded under the authority culture of House Shirsh; the exact founding builder is not fully specified.",
+      "status": "conservative_inference"
+    },
+    "who_lives_here_now": {
+      "answer": "investigators, magistrates, arcane specialists",
+      "status": "reconciled_canon"
+    },
+    "current_condition": {
+      "answer": "active and inhabited; current pressure includes magical law violations",
+      "status": "conservative_inference"
+    },
+    "common_architecture": {
+      "answer": "House Shirsh is best understood through the strongest surfaced themes in its baseline packet rather than a single canon skyline.",
+      "status": "conservative_inference"
+    },
+    "common_build_materials": {
+      "answer": "see economy and settlement layers",
+      "status": "conservative_inference"
+    },
+    "climate": {
+      "answer": "not exhaustively specified",
+      "status": "unresolved"
+    },
+    "surrounding_land": {
+      "answer": "House Shirsh exists within The Principalities; the current corpus does not always give a fully granular territorial map.",
+      "status": "conservative_inference"
+    },
+    "important_natural_resources": {
+      "answer": "investigation, magical research",
+      "status": "conservative_inference"
+    },
+    "common_dangers": {
+      "answer": "magical law violations",
+      "status": "conservative_inference"
+    },
+    "known_landmarks": {
+      "answer": "The Principalities",
+      "status": "conservative_inference"
+    },
+    "nearby_places_that_matter": {
+      "answer": "The Principalities",
+      "status": "conservative_inference"
+    },
+    "regional_role": {
+      "answer": "settlement or operating node within House Shirsh",
+      "status": "conservative_inference"
+    }
+  },
+  "about_people": {
+    "who_are_the_people_here": {
+      "answer": "investigators, magistrates, arcane specialists",
+      "status": "conservative_inference"
+    },
+    "what_cultures_are_present": {
+      "answer": "house and locality specific",
+      "status": "conservative_inference"
+    },
+    "what_languages_are_commonly_spoken": {
+      "answer": "The current corpus does not exhaustively enumerate everyday spoken languages here.",
+      "status": "unresolved"
+    },
+    "what_do_people_wear_here": {
+      "answer": "not exhaustively specified at polity scale",
+      "status": "conservative_inference"
+    },
+    "what_do_people_eat_here": {
+      "answer": "not exhaustively specified at polity scale",
+      "status": "conservative_inference"
+    },
+    "how_do_people_make_a_living": {
+      "answer": "investigation, magical research",
+      "status": "conservative_inference"
+    },
+    "what_social_classes_exist": {
+      "answer": "nobles or leadership strata, institutional officers, specialists, laborers, and visitors appear as the safest class reading for this setting surface",
+      "status": "conservative_inference"
+    },
+    "who_has_power_here": {
+      "answer": "Magi Magistratus",
+      "status": "conservative_inference"
+    },
+    "who_is_respected_here": {
+      "answer": "those who preserve the polity’s core function",
+      "status": "conservative_inference"
+    },
+    "who_is_feared_here": {
+      "answer": "those who enforce its harshest edge",
+      "status": "conservative_inference"
+    },
+    "who_is_considered_an_outsider": {
+      "answer": "illicit magical actors",
+      "status": "conservative_inference"
+    },
+    "how_are_strangers_treated": {
+      "answer": "read through status, purpose, and usefulness",
+      "status": "conservative_inference"
+    },
+    "important_customs_or_manners": {
+      "answer": "cooperate with inquiries",
+      "status": "conservative_inference"
+    },
+    "rude_honorable_shameful_or_dangerous_behavior": {
+      "answer": "Common values here are depends on polity identity. Outsider mistakes or suspicious acts include illicit magical actors.",
+      "status": "conservative_inference"
+    },
+    "common_values": {
+      "answer": "depends on polity identity",
+      "status": "conservative_inference"
+    },
+    "tensions_between_groups": {
+      "answer": "internal rank and external pressure both matter",
+      "status": "conservative_inference"
+    }
+  },
+  "government_and_power": {
+    "who_rules_this_place": {
+      "answer": "Magi Magistratus",
+      "status": "conservative_inference"
+    },
+    "how_is_it_governed": {
+      "answer": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture.",
+      "status": "conservative_inference"
+    },
+    "is_the_ruler_loved_feared_weak_corrupt_absent_or_respected": {
+      "answer": "not exhaustively specified",
+      "status": "conservative_inference"
+    },
+    "how_stable_is_the_government": {
+      "answer": "functional but pressure-bearing",
+      "status": "conservative_inference"
+    },
+    "who_holds_power_behind_the_scenes": {
+      "answer": "not exhaustively specified",
+      "status": "conservative_inference"
+    },
+    "are_there_rival_factions": {
+      "answer": "see faction layer",
+      "status": "conservative_inference"
+    },
+    "influential_houses_councils_guilds_churches_or_militias": {
+      "answer": "Magi Magistratus",
+      "status": "conservative_inference"
+    },
+    "what_laws_matter_most": {
+      "answer": "magical compliance",
+      "status": "conservative_inference"
+    },
+    "what_crimes_are_taken_especially_seriously": {
+      "answer": "see law layer",
+      "status": "conservative_inference"
+    },
+    "how_is_justice_handled": {
+      "answer": "see law and institution layers",
+      "status": "conservative_inference"
+    },
+    "control_level": {
+      "answer": "varies by locality",
+      "status": "conservative_inference"
+    },
+    "active_rebellions_movements_or_succession_struggles": {
+      "answer": "not exhaustively specified",
+      "status": "conservative_inference"
+    }
+  },
+  "history": {
+    "what_happened_here_in_the_past": {
+      "answer": "polity history exists but may be thinner than locality- or world-scale support",
+      "status": "conservative_inference"
+    },
+    "major_events_that_shaped_this_place": {
+      "answer": "post-Doomsday development and local transitions matter",
+      "status": "conservative_inference"
+    },
+    "remembered_wars_disasters_miracles_betrayals_or_discoveries": {
+      "answer": "post-Doomsday development and local transitions matter",
+      "status": "conservative_inference"
+    },
+    "ruins_or_remnants_of_the_past": {
+      "answer": "varies by region",
+      "status": "conservative_inference"
+    },
+    "old_powers_that_once_ruled_here": {
+      "answer": "not exhaustively specified",
+      "status": "unresolved"
+    },
+    "what_everyone_knows_about_local_history": {
+      "answer": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture.",
+      "status": "conservative_inference"
+    },
+    "what_history_is_disputed_hidden_or_rewritten": {
+      "answer": "where the corpus is thin or conflicting, details remain unresolved",
+      "status": "conservative_inference"
+    },
+    "historical_enemies_or_old_alliances": {
+      "answer": "see wider world links",
+      "status": "conservative_inference"
+    },
+    "legends_tied_to_this_place": {
+      "answer": "varies by locality",
+      "status": "conservative_inference"
+    },
+    "tragedies_or_victories_defining_identity": {
+      "answer": "its continued survival as a distinct polity",
+      "status": "conservative_inference"
+    }
+  },
+  "religion_and_belief": {
+    "what_do_people_worship_here": {
+      "answer": "secondary to investigative mandate",
+      "status": "conservative_inference"
+    },
+    "which_gods_spirits_ancestors_or_cosmic_forces_matter_most": {
+      "answer": "secondary to investigative mandate",
+      "status": "conservative_inference"
+    },
+    "how_important_is_religion_in_daily_life": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "temples_shrines_sacred_sites_or_pilgrimages": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "holidays_or_rituals_observed": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "forbidden_or_outlawed_beliefs": {
+      "answer": "not exhaustively specified",
+      "status": "unresolved"
+    },
+    "do_religious_authorities_have_political_power": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "are_miracles_normal_rare_feared_or_doubted": {
+      "answer": "possible within world cosmology but not always locally detailed",
+      "status": "conservative_inference"
+    },
+    "common_superstitions": {
+      "answer": "not exhaustively specified",
+      "status": "conservative_inference"
+    },
+    "omens_taboos_blessings_or_curses": {
+      "answer": "not exhaustively specified",
+      "status": "conservative_inference"
+    }
+  },
+  "magic_and_unknown": {
+    "how_common_is_magic_here": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "who_is_allowed_to_use_it": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "who_fears_it": {
+      "answer": "unsafe or illegal forms",
+      "status": "conservative_inference"
+    },
+    "who_regulates_it": {
+      "answer": "varies by polity",
+      "status": "conservative_inference"
+    },
+    "is_magic_respected_outlawed_commercialized_secretive_or_sacred": {
+      "answer": "varies by polity. Regulation posture: varies by polity",
+      "status": "conservative_inference"
+    },
+    "known_supernatural_events": {
+      "answer": "world-standard magical and divine pressures apply",
+      "status": "conservative_inference"
+    },
+    "local_monsters_spirits_hauntings_or_anomalies": {
+      "answer": "world-standard magical and divine pressures apply",
+      "status": "conservative_inference"
+    },
+    "what_is_considered_unnatural": {
+      "answer": "unsafe, illegal, or corrupting arcane practice",
+      "status": "conservative_inference"
+    },
+    "ancient_powers_or_mysterious_forces": {
+      "answer": "deeper hidden truths remain partially surfaced",
+      "status": "conservative_inference"
+    },
+    "places_people_avoid_for_supernatural_reasons": {
+      "answer": "magical law violations",
+      "status": "conservative_inference"
+    },
+    "what_parts_remain_unexplained": {
+      "answer": "deeper hidden truths remain partially surfaced",
+      "status": "conservative_inference"
+    }
+  },
+  "economy_and_daily_life": {
+    "what_drives_the_local_economy": {
+      "answer": "investigation, magical research",
+      "status": "conservative_inference"
+    },
+    "what_goods_is_this_place_known_for": {
+      "answer": "see economy and settlement layers",
+      "status": "conservative_inference"
+    },
+    "what_does_it_import_or_depend_on": {
+      "answer": "see economy layer",
+      "status": "conservative_inference"
+    },
+    "is_it_wealthy_or_struggling": {
+      "answer": "not exhaustively quantified",
+      "status": "conservative_inference"
+    },
+    "who_benefits_from_local_trade": {
+      "answer": "those embedded in its strongest institutions",
+      "status": "conservative_inference"
+    },
+    "who_suffers_under_current_system": {
+      "answer": "those on the edge of power or safety",
+      "status": "conservative_inference"
+    },
+    "what_is_ordinary_life_like": {
+      "answer": "varies by locality",
+      "status": "conservative_inference"
+    },
+    "what_does_a_normal_day_look_like": {
+      "answer": "varies by locality",
+      "status": "conservative_inference"
+    },
+    "common_professions": {
+      "answer": "investigation, magical research",
+      "status": "conservative_inference"
+    },
+    "rare_luxuries": {
+      "answer": "Rare luxuries are whatever exceeds the locality’s working identity; exact luxury lists are not exhaustively enumerated in current corpus.",
+      "status": "unresolved"
+    },
+    "shortages_or_needs": {
+      "answer": "magical law violations",
+      "status": "conservative_inference"
+    },
+    "travel_trade_communication_and_survival": {
+      "answer": "route-dependent",
+      "status": "conservative_inference"
+    }
+  },
+  "conflict_and_instability": {
+    "what_conflicts_are_happening_now": {
+      "answer": "magical law violations",
+      "status": "conservative_inference"
+    },
+    "who_is_fighting_whom": {
+      "answer": "local and polity pressure",
+      "status": "conservative_inference"
+    },
+    "longstanding_grudges_or_rivalries": {
+      "answer": "internal rank and external pressure both matter",
+      "status": "conservative_inference"
+    },
+    "what_threats_worry_people_most": {
+      "answer": "magical law violations",
+      "status": "conservative_inference"
+    },
+    "what_fears_keep_people_obedient_divided_or_armed": {
+      "answer": "loss of order, advantage, or survival",
+      "status": "conservative_inference"
+    },
+    "raids_invasions_banditry_monsters_famine_plague_unrest_or_crackdowns": {
+      "answer": "magical law violations",
+      "status": "conservative_inference"
+    },
+    "what_is_likely_to_get_worse_soon": {
+      "answer": "existing tensions could intensify",
+      "status": "conservative_inference"
+    },
+    "what_could_destabilize_it_further": {
+      "answer": "existing tensions could intensify",
+      "status": "conservative_inference"
+    },
+    "who_stands_to_gain_from_chaos": {
+      "answer": "those profiting from instability",
+      "status": "conservative_inference"
+    }
+  },
+  "identity_and_reputation": {
+    "what_is_this_place_famous_for": {
+      "answer": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture.",
+      "status": "conservative_inference"
+    },
+    "what_is_it_infamous_for": {
+      "answer": "not singularly specified",
+      "status": "conservative_inference"
+    },
+    "how_outsiders_see_this_place": {
+      "answer": "shaped by its strongest visible identity markers",
+      "status": "conservative_inference"
+    },
+    "how_locals_see_themselves": {
+      "answer": "as a distinct and necessary part of the world",
+      "status": "conservative_inference"
+    },
+    "common_stereotypes": {
+      "answer": "shaped by its strongest visible identity markers",
+      "status": "conservative_inference"
+    },
+    "symbols_banners_songs_sayings_or_stories": {
+      "answer": "see heraldry and institutional marks",
+      "status": "conservative_inference"
+    },
+    "what_makes_it_culturally_distinct": {
+      "answer": "Half-Elves remain primary, while Elves, Humans, and Gnomes support its magical-investigative and administrative posture.",
+      "status": "conservative_inference"
+    },
+    "what_someone_immediately_notices": {
+      "answer": "Arcane scrutiny and guarded curiosity.",
+      "status": "direct_canon"
+    }
+  },
+  "wider_world_relationships": {
+    "allies_and_enemies": {
+      "answer": "see wider world links",
+      "status": "conservative_inference"
+    },
+    "neighboring_powers_that_matter": {
+      "answer": "see wider world links",
+      "status": "conservative_inference"
+    },
+    "isolation_or_connection": {
+      "answer": "connected through the wider world system",
+      "status": "conservative_inference"
+    },
+    "trade_routes_roads_ports_or_passes": {
+      "answer": "The Principalities",
+      "status": "conservative_inference"
+    },
+    "larger_empires_kingdoms_religions_or_movements_affecting_it": {
+      "answer": "House Shirsh",
+      "status": "conservative_inference"
+    },
+    "outside_threats_influencing_local_decisions": {
+      "answer": "neighbor pressure, trade disruption, and cosmological instability",
+      "status": "conservative_inference"
+    },
+    "how_it_fits_the_broader_world": {
+      "answer": "House Shirsh is one working part of the Material Planet political mosaic",
+      "status": "conservative_inference"
+    }
+  },
+  "secrets_and_deeper_truths": {
+    "what_is_not_said_openly_here": {
+      "answer": "the gap between official posture and lived reality remains the safest general hidden layer",
+      "status": "conservative_inference"
+    },
+    "what_locals_avoid_talking_about": {
+      "answer": "the gap between official posture and lived reality remains the safest general hidden layer",
+      "status": "conservative_inference"
+    },
+    "what_secrets_lie_under_the_surface": {
+      "answer": "the gap between official posture and lived reality remains the safest general hidden layer",
+      "status": "conservative_inference"
+    },
+    "official_story_vs_reality_contradictions": {
+      "answer": "the gap between official posture and lived reality remains the safest general hidden layer",
+      "status": "conservative_inference"
+    },
+    "ancient_or_hidden_truth_explaining_current_events": {
+      "answer": "deeper hidden truths remain partially surfaced",
+      "status": "conservative_inference"
+    },
+    "what_everyone_lives_with_but_pretends_not_to_see": {
+      "answer": "the gap between official posture and lived reality remains the safest general hidden layer",
+      "status": "conservative_inference"
+    },
+    "invisible_power_structures": {
+      "answer": "not exhaustively specified",
+      "status": "conservative_inference"
+    },
+    "buried_history_influencing_the_present": {
+      "answer": "where the corpus is thin or conflicting, details remain unresolved",
+      "status": "conservative_inference"
+    }
+  }
+}

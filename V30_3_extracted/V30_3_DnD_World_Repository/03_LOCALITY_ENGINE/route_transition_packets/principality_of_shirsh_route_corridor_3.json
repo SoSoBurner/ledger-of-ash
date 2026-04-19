@@ -1,0 +1,29 @@
+{
+  "name": "Principality of Shirsh route corridor 3",
+  "from_locality": "Witness Coil",
+  "route_name": "Principality of Shirsh route corridor 3",
+  "truth_layer": "source_backed_inference",
+  "transition_feel": "This route makes House Shirsh legible through its movement controls, trust signals, and visible logistics.",
+  "handoff_custom": "Travelers are expected to declare destination, relation, and practical purpose before tension rises.",
+  "paperwork_and_permission_model": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+  "patrol_rhythm": "Routine by day; selective and sharper after dark.",
+  "seasonal_failure_modes": [
+    "flooding or weather delay",
+    "inspection surge",
+    "supply bottleneck"
+  ],
+  "safe_stop_chain": [
+    "licensed stop",
+    "trusted household",
+    "watch post or shrine"
+  ],
+  "inspection_triggers": [
+    "night cargo",
+    "mismatched destination story",
+    "unusual escort pattern"
+  ],
+  "after_dark_change": "Informal power and private trust outrun posted procedure after sunset.",
+  "sources": [
+    "V30_3 parity completion synthesis."
+  ]
+}

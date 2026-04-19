@@ -1,0 +1,78 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "snapshot_basis": "frozen filesystem snapshot after V30_3 world-unifying buildout",
+  "metrics": [
+    {
+      "metric_id": "active_file_count",
+      "value": 2725,
+      "derivation": "filesystem walk over package root"
+    },
+    {
+      "metric_id": "json_file_count",
+      "value": 2313,
+      "derivation": "count of .json files"
+    },
+    {
+      "metric_id": "jsonl_file_count",
+      "value": 17,
+      "derivation": "count of .jsonl files"
+    },
+    {
+      "metric_id": "directory_count",
+      "value": 99,
+      "derivation": "directory walk count including root"
+    },
+    {
+      "metric_id": "named_npc_record_count",
+      "value": 489,
+      "derivation": "count of 02_CANON_BASELINE/named_npcs/*.json"
+    },
+    {
+      "metric_id": "major_locality_record_count",
+      "value": 53,
+      "derivation": "count of 03_LOCALITY_ENGINE/locality_packets/*.json"
+    },
+    {
+      "metric_id": "integrated_spatial_node_count",
+      "value": 60,
+      "derivation": "sum of locality and district packets plus explicit graph support nodes excluded from canonical spatial total"
+    },
+    {
+      "metric_id": "route_transition_packet_count",
+      "value": 53,
+      "derivation": "count of 03_LOCALITY_ENGINE/route_transition_packets/*.json"
+    },
+    {
+      "metric_id": "pressure_packet_count",
+      "value": 71,
+      "derivation": "count of 03_LOCALITY_ENGINE/pressure_packets/*.json"
+    },
+    {
+      "metric_id": "table_proof_scenario_count",
+      "value": 10,
+      "derivation": "count of 05_RUNTIME_ENGINE/table_proof_scenarios/*.json"
+    },
+    {
+      "metric_id": "locality_quickstart_card_count",
+      "value": 53,
+      "derivation": "count of 11_REFERENCE_VIEWS/current_release/locality_quickstart_cards/*.md"
+    },
+    {
+      "metric_id": "route_runner_card_count",
+      "value": 53,
+      "derivation": "count of 11_REFERENCE_VIEWS/current_release/route_runner_cards/*.md"
+    },
+    {
+      "metric_id": "polity_dossier_count",
+      "value": 12,
+      "derivation": "count of 11_REFERENCE_VIEWS/current_release/polity_dossiers/*.md"
+    },
+    {
+      "metric_id": "session_walkthrough_count",
+      "value": 10,
+      "derivation": "count of 11_REFERENCE_VIEWS/current_release/session_walkthroughs/*.md"
+    }
+  ],
+  "status": "pass"
+}

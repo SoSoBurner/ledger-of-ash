@@ -1,0 +1,7 @@
+{
+  "build_version": "V30_3",
+  "audit_type": "thin_area_priority_report",
+  "priority_order": [],
+  "priority_logic": "All major polities already clear playable_complete in V30_3; thin-area queue is empty for active release.",
+  "status": "pass"
+}

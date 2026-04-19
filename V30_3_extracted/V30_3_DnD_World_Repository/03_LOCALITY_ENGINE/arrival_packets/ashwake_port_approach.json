@@ -1,0 +1,9 @@
+{
+  "name": "Ashwake Port",
+  "approach": "Dark quays, soot-streaked cranes, and renewal-marked public ways guide travelers through a port built to recover quickly from damage.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ]
+}

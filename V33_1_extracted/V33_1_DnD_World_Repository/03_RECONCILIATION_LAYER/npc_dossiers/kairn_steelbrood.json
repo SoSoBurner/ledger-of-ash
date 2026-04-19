@@ -1,0 +1,88 @@
+{
+  "npc_id": "kairn_steelbrood",
+  "canonical_name": "Kairn Steelbrood",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Communal duty supervisor",
+  "profession_discipline": "Communal duty supervisor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Embervale Settlement",
+  "locality_scope": "Embervale Settlement",
+  "institutional_ties": [
+    "Embervale Settlement",
+    "labor oversight"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as communal duty supervisor.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Embervale Settlement"
+    ],
+    "institutions": [
+      "Embervale Settlement",
+      "labor oversight"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a communal duty supervisor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of communal duty supervisor in and around Embervale Settlement, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Embervale Settlement workable through the obligations of communal duty supervisor while managing the immediate pressure of overcrowding in Soreheim Alliance.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Embervale Settlement, that usually means carrying overcrowding, sickness, heat-failure risk without letting the role of communal duty supervisor visibly slip.",
+  "relationship_refs": [
+    "rel_0932",
+    "rel_0936",
+    "rel_0937",
+    "rel_0938"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Kairn Steelbrood can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Kairn Steelbrood can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "kairn_steelbrood",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Kairn Steelbrood carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Embervale Settlement, this lands inside a public field already shaped by regional quartermasters, shift-boss families.",
+  "encounter_context": {
+    "usual_environment": "Embervale Settlement: the part of Embervale Settlement where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Kairn Steelbrood presents as Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a communal duty supervisor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Communal duty supervisor, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Kairn Steelbrood refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Communal duty supervisor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kairn Steelbrood can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kairn Steelbrood adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kairn Steelbrood is Known locally through day-to-day work as communal duty supervisor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Communal duty supervisor.",
+  "build_version": "V33_1"
+}

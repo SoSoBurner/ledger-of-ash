@@ -1,0 +1,34 @@
+{
+  "name": "Roaz Temporal Identity",
+  "truth_layer": "conservative_inference",
+  "calendar_parent": "Principalities temporal frame",
+  "work_cycles": [
+    "Inspection, filing, and quarry schedules intensify during passable seasons and compress under winter constraints"
+  ],
+  "feast_days": [
+    "Public observance is quieter and more formal than in Shelk, but still shaped by the Principalities calendar"
+  ],
+  "legal_deadlines": [
+    "Court and enforcement pressure cluster around accessible travel periods and controlled administrative windows"
+  ],
+  "shipping_windows": [
+    "Clear-season convoy movement and naval readiness in Silent Haven matter more than ornamental festival traffic"
+  ],
+  "weather_expectations": [
+    "Winter freezes mills and roads; summer improves trade and agricultural support"
+  ],
+  "mourning_and_renewal_customs": [
+    "Roaz frames time through duty, sentence, and seasonal recovery from industrial strain"
+  ],
+  "public_language_about_time": [
+    "Officials speak in shifts, filings, route windows, and lawful deadlines as much as month names"
+  ],
+  "sources": [
+    "calendars_world",
+    "principality_roaz",
+    "spatial_seasonal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

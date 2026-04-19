@@ -1,0 +1,30 @@
+{
+  "build_version": "V30_3",
+  "promotions": [
+    {
+      "polity": "The Union",
+      "support_basis": "locality, route, pressure, and reference-view completion"
+    },
+    {
+      "polity": "Principality of Cosmouth",
+      "support_basis": "locality, route, pressure, and reference-view completion"
+    },
+    {
+      "polity": "Principality of Shirsh",
+      "support_basis": "locality, route, pressure, and reference-view completion"
+    },
+    {
+      "polity": "Principality of Zootia",
+      "support_basis": "locality, route, pressure, and reference-view completion"
+    },
+    {
+      "polity": "Principality of Mimolot",
+      "support_basis": "locality, route, pressure, and reference-view completion"
+    },
+    {
+      "polity": "Principality of Panim",
+      "support_basis": "locality, route, pressure, and reference-view completion"
+    }
+  ],
+  "status": "pass"
+}

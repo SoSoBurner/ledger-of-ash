@@ -1,0 +1,17 @@
+{
+  "build_version": "V33_1",
+  "release_role": "integrated_spatial_baseline",
+  "hard_constraints": {
+    "off_outline_space_is_water": true,
+    "purple_shelk_sheresh_massif_is_uninhabitable": true,
+    "house_labels_resolve_to_principality_labels_for_spatial_surface": true,
+    "the_union_is_co_equal_within_the_principalities_under_the_emperor": true,
+    "floating_city_exception_is_limited_to_nearshore_cosmouth_surface_nodes": true
+  },
+  "integration_policy": {
+    "spatial_delta_absorbed_into_release": true,
+    "standalone_surface_navigation_required": true,
+    "water_macroregions_retained": true,
+    "uninhabitable_exclusions_block_direct_surface_settlement_logic": true
+  }
+}

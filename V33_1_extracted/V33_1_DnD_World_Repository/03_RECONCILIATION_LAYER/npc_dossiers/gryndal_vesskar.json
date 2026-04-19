@@ -1,0 +1,92 @@
+{
+  "npc_id": "gryndal_vesskar",
+  "canonical_name": "Gryndal Vesskar",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Unauthorized trade adjudicator",
+  "profession_discipline": "Unauthorized trade adjudicator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Ashforge Quarry",
+  "locality_scope": "Ashforge Quarry",
+  "institutional_ties": [
+    "Ashforge Quarry",
+    "Eternal trade oversight"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as unauthorized trade adjudicator.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Ashforge Quarry"
+    ],
+    "institutions": [
+      "Ashforge Quarry",
+      "Eternal trade oversight"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a unauthorized trade adjudicator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of unauthorized trade adjudicator in and around Ashforge Quarry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ashforge Quarry workable through the obligations of unauthorized trade adjudicator while managing the immediate pressure of predators in Soreheim Alliance.",
+  "hidden_pressure": "Must keep the underlying system working while everyone notices it only when stress, wear, or neglect begin to show. Around Ashforge Quarry, that usually means carrying predators, avalanches, geothermal bursts without letting the role of unauthorized trade adjudicator visibly slip.",
+  "relationship_refs": [
+    "rel_0976",
+    "rel_0981",
+    "rel_0986",
+    "rel_0987",
+    "rel_0988",
+    "rel_0989"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Gryndal Vesskar needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Ashforge Quarry."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Gryndal Vesskar can draw the party into crew discipline, resource shortage, or blame transfer around Ashforge Quarry."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "gryndal_vesskar",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Gryndal Vesskar visibly responsible for keeping something larger from failing. In Ashforge Quarry, this lands inside a public field already shaped by Hill Giant foremen, industrial clans.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Quarry: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Gryndal Vesskar presents as Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a unauthorized trade adjudicator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Unauthorized trade adjudicator, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Gryndal Vesskar refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Unauthorized trade adjudicator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Gryndal Vesskar can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Gryndal Vesskar adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Gryndal Vesskar is Known locally through day-to-day work as unauthorized trade adjudicator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Unauthorized trade adjudicator.",
+  "build_version": "V33_1"
+}

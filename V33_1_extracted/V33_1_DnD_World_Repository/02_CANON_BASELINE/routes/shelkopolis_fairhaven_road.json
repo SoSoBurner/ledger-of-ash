@@ -1,0 +1,25 @@
+{
+  "name": "Shelkopolis–Fairhaven Road",
+  "type": "trade road",
+  "jurisdictions": [
+    "Principality of Shelk"
+  ],
+  "hazards": [
+    "caravan disruption",
+    "glyph-marked travelers",
+    "celestial enforcers"
+  ],
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ],
+  "named_npc_refs": [
+    "aelric_sunweave"
+  ],
+  "npc_interfaces": [
+    "aelric_sunweave"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

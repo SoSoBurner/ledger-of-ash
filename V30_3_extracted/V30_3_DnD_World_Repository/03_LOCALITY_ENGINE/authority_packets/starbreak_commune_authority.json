@@ -1,0 +1,15 @@
+{
+  "name": "Starbreak Commune",
+  "visible_power": [
+    "Route Warden Compacts",
+    "Containment Research Concord"
+  ],
+  "law_context": [
+    "launch registry rules",
+    "loss reporting obligations"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

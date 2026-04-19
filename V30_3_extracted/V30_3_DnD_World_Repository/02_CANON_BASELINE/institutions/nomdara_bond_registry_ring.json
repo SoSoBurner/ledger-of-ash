@@ -1,0 +1,30 @@
+{
+  "name": "Nomdara Bond Registry Ring",
+  "type": "Nomdara registry institution",
+  "truth_layer": "conservative_inference",
+  "summary": "Registry mechanism preserving caravan obligations, bonded passage, and reciprocal trust across traveling routes.",
+  "day_to_day": "Records caravan bonds, verifies obligations, and maintains trusted route relationships.",
+  "who_works_there": "Registry keepers, caravan elders, bond witnesses.",
+  "who_uses_it": "Nomdara caravans, trading partners, remote settlements needing trusted passage.",
+  "authority": "Can validate or damage bonded trust status across caravan networks.",
+  "public_manifestation": "Sealed bond tokens, witness circles, route-side registry checks.",
+  "conflict_or_bottleneck": "A broken bond can collapse trust across multiple dangerous routes at once.",
+  "party_actions": [
+    "restore a broken bond",
+    "carry a registry token",
+    "investigate fraud",
+    "negotiate safe passage"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "varek_waycord"
+  ],
+  "npc_interfaces": [
+    "varek_waycord"
+  ]
+}

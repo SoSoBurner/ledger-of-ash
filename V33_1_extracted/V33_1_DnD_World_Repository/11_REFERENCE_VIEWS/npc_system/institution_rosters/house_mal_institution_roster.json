@@ -1,0 +1,49 @@
+{
+  "build_version": "V33_1",
+  "institution": "House Mal",
+  "record_count": 3,
+  "npc_ids": [
+    "arin_march",
+    "orin_brokerwell",
+    "pela_march"
+  ],
+  "records": [
+    {
+      "npc_id": "arin_march",
+      "canonical_name": "Arin March",
+      "polity": "The Union",
+      "office_or_role": "Road Census Clerk",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as road census clerk.",
+      "current_agenda": "Keep House Mal workable through the obligations of road census clerk while managing the immediate pressure of institutional scrutiny in The Union."
+    },
+    {
+      "npc_id": "orin_brokerwell",
+      "canonical_name": "Orin Brokerwell",
+      "polity": "The Union",
+      "office_or_role": "Internal Skeptic",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as internal skeptic.",
+      "current_agenda": "Keep House Mal Remnant Claimants workable through the obligations of internal skeptic while managing the immediate pressure of institutional scrutiny in The Union."
+    },
+    {
+      "npc_id": "pela_march",
+      "canonical_name": "Pela March",
+      "polity": "The Union",
+      "office_or_role": "Law Speaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as law speaker.",
+      "current_agenda": "Keep House Mal workable through the obligations of law speaker while managing the immediate pressure of institutional scrutiny in The Union."
+    }
+  ],
+  "roster_context": {
+    "identity": "Former trade-and-banking principality preserved as a fallen predecessor whose infrastructure, claims, and memory still shape the Union successor heartland.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "internal_canonical_record",
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

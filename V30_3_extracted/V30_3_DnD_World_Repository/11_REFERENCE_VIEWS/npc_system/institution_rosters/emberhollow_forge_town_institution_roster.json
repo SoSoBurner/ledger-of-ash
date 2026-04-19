@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Emberhollow Forge Town",
+  "record_count": 3,
+  "npc_ids": [
+    "morra_cindercrest",
+    "soryn_ashvein",
+    "talvek_ashvein"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "npc_id": "korin_ashmason",
+  "canonical_name": "Korin Ashmason",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Quartermaster",
+  "profession_discipline": "Quartermaster",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Ashforge Quarry",
+  "locality_scope": "Ashforge Quarry",
+  "institutional_ties": [
+    "Ashforge Quarry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quartermaster.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Ashforge Quarry"
+    ],
+    "institutions": [
+      "Ashforge Quarry"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a quartermaster still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quartermaster in and around Ashforge Quarry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ashforge Quarry workable through the obligations of quartermaster while managing the immediate pressure of predators in Soreheim Alliance.",
+  "hidden_pressure": "Must balance relationship value against immediate margin without losing either entirely. Around Ashforge Quarry, that usually means carrying predators, avalanches, geothermal bursts without letting the role of quartermaster visibly slip.",
+  "relationship_refs": [
+    "rel_0092",
+    "rel_0093",
+    "rel_0094",
+    "rel_0095",
+    "rel_0096",
+    "rel_0978",
+    "rel_0983",
+    "rel_0987",
+    "rel_0990",
+    "rel_0993",
+    "rel_0994"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "market_information",
+      "summary": "Korin Ashmason will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    },
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Korin Ashmason needs help protecting a shipment, recovering leverage, or stabilizing exchange around Ashforge Quarry before trust collapses."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "korin_ashmason",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Korin Ashmason read as someone who lives by exchange and reputation. In Ashforge Quarry, this lands inside a public field already shaped by Hill Giant foremen, industrial clans.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Quarry: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Korin Ashmason presents as Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a quartermaster still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Quartermaster, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Korin Ashmason refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Quartermaster too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Korin Ashmason can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Korin Ashmason adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Korin Ashmason is Known locally through day-to-day work as quartermaster. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quartermaster."
+}

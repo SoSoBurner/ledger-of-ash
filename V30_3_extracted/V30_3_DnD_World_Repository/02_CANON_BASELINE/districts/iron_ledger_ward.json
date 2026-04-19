@@ -1,0 +1,59 @@
+{
+  "name": "Iron Ledger Ward",
+  "type": "district",
+  "parent_settlement": "Ithtananalor",
+  "parent_polity": "Principality of Roaz",
+  "truth_layer": "conservative_inference",
+  "identity": "Administrative-industrial ward where Roazian law, permits, prisoner labor accounting, and anti-magic inspection visibly meet.",
+  "approach": "Black iron rails, permit pylons, and inspection lamps frame the ward before its clerk lines and fortified counting houses become fully visible.",
+  "inside": "Record halls, bonded storage, magistrate offices, and labor-transfer yards operate under an atmosphere of procedural precision.",
+  "who_belongs": [
+    "clerks",
+    "ORE officers",
+    "licensed haulers",
+    "magistrate runners"
+  ],
+  "who_is_out_of_place": [
+    "unlicensed spell carriers",
+    "paperless contractors"
+  ],
+  "expected_behavior": [
+    "show permits promptly",
+    "do not obstruct inspection lanes"
+  ],
+  "visible_power": [
+    "Office of Roazian Enforcement",
+    "magistrate clerks",
+    "bond officers"
+  ],
+  "economy": [
+    "permits",
+    "ore accounting",
+    "labor assignment"
+  ],
+  "faith": [
+    "law, discipline, and caution are civic before devotional here"
+  ],
+  "seasonal_change": "Winter bottlenecks increase queue pressure and inspections.",
+  "pressure": [
+    "contraband concealment",
+    "ledger fraud",
+    "inspection backlog"
+  ],
+  "npc_interfaces": [
+    "marshal_sera_ironveil",
+    "clerk_oth_brenn"
+  ],
+  "law_context": [
+    "anti-magic enforcement",
+    "permit law",
+    "labor transfer law"
+  ],
+  "sources": [
+    "roaz_doc",
+    "principalities_doc"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

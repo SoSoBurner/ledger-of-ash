@@ -1,0 +1,32 @@
+{
+  "name": "Engineers’ Consortium",
+  "type": "Soreheim infrastructure institution",
+  "truth_layer": "direct_canon",
+  "summary": "Institution governing design, upkeep, and expansion of towers, spans, and major machines.",
+  "day_to_day": "Assigns surveys, approves repairs, deploys crews, and manages structural maintenance.",
+  "who_works_there": "Engineers, drafters, surveyors, crew chiefs, giant overseers.",
+  "who_uses_it": "Regional leaders, extraction sites, tower administrators, transport networks.",
+  "authority": "Can schedule disruptions, condemn unsafe structures, and prioritize engineering works.",
+  "public_manifestation": "Survey markers, scaffold crews, closure notices, and visible repair gangs.",
+  "conflict_or_bottleneck": "Expansion pressure competes with maintenance reality, making deferred repairs politically dangerous.",
+  "party_actions": [
+    "escort a survey team",
+    "inspect sabotage",
+    "retrieve materials",
+    "help reopen a key span"
+  ],
+  "sources": [
+    "soreheim_review"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "ysmir_rimeclasp",
+    "tovek_gearmark"
+  ],
+  "npc_interfaces": [
+    "ysmir_rimeclasp",
+    "tovek_gearmark"
+  ]
+}

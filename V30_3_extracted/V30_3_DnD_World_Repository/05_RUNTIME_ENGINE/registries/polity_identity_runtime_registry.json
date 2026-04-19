@@ -1,0 +1,195 @@
+{
+  "version": "V30_3",
+  "purpose": "Maps polity identity closures into runtime-facing differences while remaining subordinate to explicit demographic canon and exclusions in prior_release.",
+  "polities": {
+    "Soreheim Alliance": {
+      "public_fears": [
+        "industrial sabotage",
+        "predatory frontier ecology",
+        "quota failure"
+      ],
+      "trade_effects": [
+        "quota enforcement",
+        "resource depletion pressure"
+      ],
+      "institutional_reactions": [
+        "Giant Council escalation",
+        "industrial clan intervention"
+      ]
+    },
+    "The Principalities": {
+      "public_fears": [
+        "magic violation",
+        "contract exclusion",
+        "house rivalry spillover"
+      ],
+      "trade_effects": [
+        "guild mediation friction",
+        "house-route vulnerability"
+      ],
+      "institutional_reactions": [
+        "Roadwarden scrutiny",
+        "ORE enforcement",
+        "Union contract pressure"
+      ]
+    },
+    "Psanan": {
+      "public_fears": [
+        "ash collapse",
+        "eruption shock",
+        "underworld breach"
+      ],
+      "trade_effects": [
+        "forge output interruption",
+        "heat-season route closure"
+      ],
+      "institutional_reactions": [
+        "Great House mobilization",
+        "forge-command emergency discipline"
+      ]
+    },
+    "Sheresh Communes": {
+      "public_fears": [
+        "containment breach",
+        "contamination spread",
+        "communal supply strain"
+      ],
+      "trade_effects": [
+        "thaw-window dependence",
+        "research-supply sensitivity"
+      ],
+      "institutional_reactions": [
+        "dome lockdown",
+        "research authority escalation"
+      ]
+    },
+    "Nomdara Caravan": {
+      "public_fears": [
+        "route denial",
+        "caravan fragmentation",
+        "escort failure"
+      ],
+      "trade_effects": [
+        "safe-passage negotiation stress",
+        "weather-whirlpool delay"
+      ],
+      "institutional_reactions": [
+        "portable hearing activation",
+        "route captain emergency authority"
+      ]
+    },
+    "Cosmouth": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "Shelk": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "Panim": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "Roaz": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "Zootia": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "Shirsh": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "The Union": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    },
+    "Mimolot": {
+      "public_fears": [
+        "demographic misclassification",
+        "polity-specific law breach"
+      ],
+      "trade_effects": [
+        "identity-sensitive access norms",
+        "region-specific guild expectations"
+      ],
+      "institutional_reactions": [
+        "local authority correction",
+        "canon-demography reference check"
+      ]
+    }
+  },
+  "generated_at": "2026-04-18T03:13:23Z"
+}

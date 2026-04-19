@@ -1,0 +1,25 @@
+{
+  "name": "Market Row Guildhall",
+  "parent_settlement": "Shelkopolis",
+  "type": "guildhall",
+  "truth_layer": "conservative_inference",
+  "identity": "A guildhall in Shelkopolis that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "Market Row Guildhall Clerk",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Shelkopolis’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "local_interface_role": "market_clerk",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "market_clerk",
+    "display_name": "Market Row Guildhall Clerk",
+    "truth_layer": "conservative_inference"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "build_version": "V30_3",
+  "institution": "House of Shelk Estate",
+  "record_count": 7,
+  "npc_ids": [
+    "ilyra_aurorine",
+    "lady_isabella_shelk",
+    "lady_rosalind_shelk",
+    "lord_darius_shelk",
+    "nyelle_threadmere",
+    "sir_thaddeus_shelk",
+    "thalen_warderose"
+  ]
+}

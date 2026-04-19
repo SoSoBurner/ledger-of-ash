@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Fashion Artisans Collective",
+  "record_count": 2,
+  "npc_ids": [
+    "letha_silkgate",
+    "orien_warderose"
+  ],
+  "records": [
+    {
+      "npc_id": "letha_silkgate",
+      "canonical_name": "Letha Silkgate",
+      "polity": "Shelk",
+      "office_or_role": "Deputy Master",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as deputy master.",
+      "current_agenda": "Keep Fashion Artisans Collective workable through the obligations of deputy master while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "orien_warderose",
+      "canonical_name": "Orien Warderose",
+      "polity": "Shelk",
+      "office_or_role": "Field Captain",
+      "tier": "notable",
+      "public_reputation": "Recognized as a field captain of regional weight.",
+      "current_agenda": "Keep Fashion Artisans Collective workable through the obligations of field captain while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Central institution for Shelk design culture, artisan collaboration, apprenticeship, and public showcase.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principality_shelk",
+    "psc_shelkopolis"
+  ]
+}

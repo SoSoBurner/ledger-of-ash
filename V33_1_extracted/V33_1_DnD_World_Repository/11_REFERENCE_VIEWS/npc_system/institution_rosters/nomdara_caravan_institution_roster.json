@@ -1,0 +1,106 @@
+{
+  "build_version": "V33_1",
+  "institution": "Nomdara Caravan",
+  "record_count": 8,
+  "npc_ids": [
+    "kelvi_reedstring",
+    "mek_wheelwright",
+    "odo_three_cups",
+    "coral_jack_neris",
+    "orem_lantern_step",
+    "pashko_many_routes",
+    "daska_veilrun",
+    "rema_three_lantern"
+  ],
+  "records": [
+    {
+      "npc_id": "kelvi_reedstring",
+      "canonical_name": "Kelvi Reedstring",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Archers",
+      "tier": "grassroots",
+      "public_reputation": "Deck-archer hired to keep raiders and extortion crews off lightly armored convoy craft.",
+      "current_agenda": "Keep Nomdara river caravans workable through the obligations of archers while managing the immediate pressure of route danger in Nomdara Caravan."
+    },
+    {
+      "npc_id": "mek_wheelwright",
+      "canonical_name": "Mek Wheelwright",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Law Speaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as law speaker.",
+      "current_agenda": "Keep Nomdara Caravan workable through the obligations of law speaker while managing the immediate pressure of route danger in Nomdara Caravan."
+    },
+    {
+      "npc_id": "odo_three_cups",
+      "canonical_name": "Odo Three-Cups",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Tactician",
+      "tier": "grassroots",
+      "public_reputation": "Convoy planner whose brilliance appears in route spacing, not speeches.",
+      "current_agenda": "Keep Nomdara Caravan workable through the obligations of tactician while managing the immediate pressure of route danger in Nomdara Caravan."
+    },
+    {
+      "npc_id": "coral_jack_neris",
+      "canonical_name": "Coral Jack Neris",
+      "polity": "Cosmouth",
+      "office_or_role": "Thieves",
+      "tier": "legendary",
+      "public_reputation": "Harbor ballads remember him for stealing back tax archives before a corrupt convoy could vanish them.",
+      "current_agenda": "Keep Cosmoria workable through the obligations of thieves while managing the immediate pressure of storm weather in Cosmouth."
+    },
+    {
+      "npc_id": "orem_lantern_step",
+      "canonical_name": "Orem Lantern-Step",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Scouts",
+      "tier": "legendary",
+      "public_reputation": "Route legend who treated rumor, weather, and food security as one map.",
+      "current_agenda": "Keep Nomdara Caravan workable through the obligations of scouts while managing the immediate pressure of route danger in Nomdara Caravan."
+    },
+    {
+      "npc_id": "pashko_many_routes",
+      "canonical_name": "Pashko Many-Routes",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Tricksters",
+      "tier": "legendary",
+      "public_reputation": "Folk-cunning hero said to have cheated three toll lords without ever technically breaking guest-right.",
+      "current_agenda": "Keep Nomdara Caravan workable through the obligations of tricksters while managing the immediate pressure of route danger in Nomdara Caravan."
+    },
+    {
+      "npc_id": "daska_veilrun",
+      "canonical_name": "Daska Veilrun",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Scouts",
+      "tier": "notable",
+      "public_reputation": "Exterior scout trusted to read flashmelt sheen before a convoy commits.",
+      "current_agenda": "Keep Aurora Meadows Domeway, Sheresh workable through the obligations of scouts while managing the immediate pressure of contamination strain in Sheresh Communes."
+    },
+    {
+      "npc_id": "rema_three_lantern",
+      "canonical_name": "Rema Three-Lantern",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Rangers",
+      "tier": "notable",
+      "public_reputation": "Convoy pathfinder whose reputation rests on reading weather, toll mood, and roadside deceit at once.",
+      "current_agenda": "Keep Nomdara Caravan workable through the obligations of rangers while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": [
+      "mobile city on wheels",
+      "trade mediation across difficult interfaces",
+      "portable hearings archives and seals",
+      "council-of-elders consensus governance",
+      "hard-route survival and escort governance"
+    ],
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "internal_canonical_record",
+    "internal_canonical_record"
+  ]
+}

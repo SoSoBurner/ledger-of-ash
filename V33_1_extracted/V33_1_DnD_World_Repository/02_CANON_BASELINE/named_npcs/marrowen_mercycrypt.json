@@ -1,0 +1,97 @@
+{
+  "npc_id": "marrowen_mercycrypt",
+  "canonical_name": "Marrowen Mercycrypt",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Clerk of Arrivals",
+  "profession_discipline": "Clerk of Arrivals",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Panim",
+  "settlement": "Panim Haven",
+  "locality_scope": "Panim Haven",
+  "institutional_ties": [
+    "Panim Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as clerk of arrivals.",
+  "linked_systems": {
+    "polities": [
+      "Panim"
+    ],
+    "localities": [
+      "Panim Haven"
+    ],
+    "institutions": [
+      "Panim Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Marrowen Mercycrypt carries the marks of clerk of arrivals in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Panim, that reads as someone grave, measured, and ritual-aware, with constant awareness of consequence, grief, and divine mediation, and the habits of a clerk of arrivals still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of clerk of arrivals in and around Panim Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Panim Haven while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_1144",
+    "rel_1148",
+    "rel_1152",
+    "rel_1153",
+    "rel_1154"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "record_dispute",
+      "summary": "Marrowen Mercycrypt needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Panim Haven."
+    },
+    {
+      "hook_type": "document_pressure",
+      "summary": "Marrowen Mercycrypt can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities"
+  ],
+  "compatibility_interface_id": "marrowen_mercycrypt",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Marrowen Mercycrypt communicates in public. In Panim Haven, this lands inside a public field already shaped by House Panim.",
+  "encounter_context": {
+    "usual_environment": "Panim Haven: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Marrowen Mercycrypt presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Panim, that reads as someone grave, measured, and ritual-aware, with constant awareness of consequence, grief, and divine mediation, and the habits of a clerk of arrivals still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Clerk of Arrivals, and proof that strangers will not create avoidable noise in Principality of Panim.",
+  "what_they_refuse": "Marrowen Mercycrypt refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Clerk of Arrivals too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Marrowen Mercycrypt can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Marrowen Mercycrypt adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Marrowen Mercycrypt is Known locally through day-to-day work as clerk of arrivals. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Clerk of Arrivals.",
+  "social_texture": "Marrowen Mercycrypt speaks like someone who has spent too long translating private stakes into acceptable public language. Around Panim Haven, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Marrowen touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Marrowen Mercycrypt when the party needs a socially grounded face for Panim Haven: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

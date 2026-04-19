@@ -1,0 +1,17 @@
+{
+  "name": "Panim Haven",
+  "who_belongs": [
+    "clerics",
+    "funerary workers",
+    "pilgrims"
+  ],
+  "who_is_out_of_place": [
+    "those mocking afterlife commerce or divine mediation"
+  ],
+  "expected_behavior": [
+    "ritual seriousness and respectful petition"
+  ],
+  "sources": [
+    "principalities"
+  ]
+}

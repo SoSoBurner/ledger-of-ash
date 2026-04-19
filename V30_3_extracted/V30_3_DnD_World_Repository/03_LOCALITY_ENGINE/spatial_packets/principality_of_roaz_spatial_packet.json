@@ -1,0 +1,40 @@
+{
+  "build_version": "V30_3",
+  "packet_type": "spatial_polity_packet",
+  "polity": "Principality of Roaz",
+  "node_count": 21,
+  "category_counts": {
+    "settlement": 14,
+    "sublocation": 1,
+    "site": 5,
+    "macroregion": 1
+  },
+  "water_valid_count": 0,
+  "uninhabitable_exclusion_count": 0,
+  "named_npc_hook_count": 11,
+  "generic_npc_role_count": 9,
+  "locality_names": [
+    "Asethilha",
+    "Brisenona",
+    "Clockwork Spire",
+    "Donarius",
+    "Felssad-Sin",
+    "Ironclad Bastion",
+    "Ironhold Quarry",
+    "Ithtananalor",
+    "Linenas",
+    "Lorith Fields",
+    "Lylathsalean",
+    "Magistrates’ Tribunal",
+    "Nathyr",
+    "Niriathond",
+    "Oralas",
+    "Quarrymarch",
+    "Shadow’s Veil",
+    "Silent Haven",
+    "Stormcaller’s Reach",
+    "Veilforged Bastion",
+    "Venonenas"
+  ],
+  "status": "integrated"
+}

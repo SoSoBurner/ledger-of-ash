@@ -1,0 +1,91 @@
+{
+  "npc_id": "ashra_cindercrest",
+  "canonical_name": "Ashra Cindercrest",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Operations Steward",
+  "profession_discipline": "Operations Steward",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": null,
+  "locality_scope": "Great House Citadel Circle",
+  "institutional_ties": [
+    "Great House Citadel Circle"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as operations steward.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Great House Citadel Circle"
+    ],
+    "institutions": [
+      "Great House Citadel Circle"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a operations steward still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of operations steward in and around Great House Citadel Circle, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Great House Citadel Circle workable through the obligations of operations steward while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Great House Citadel Circle, that usually means carrying eruption risk, resource access, underworld danger without letting the role of operations steward visibly slip.",
+  "relationship_refs": [
+    "rel_0165",
+    "rel_0171",
+    "rel_0176",
+    "rel_0180",
+    "rel_0184",
+    "rel_0185",
+    "rel_0186",
+    "rel_1212"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Ashra Cindercrest needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Great House Citadel Circle."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Ashra Cindercrest can draw the party into crew discipline, resource shortage, or blame transfer around Great House Citadel Circle."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "ashra_cindercrest",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Ashra Cindercrest visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Great House Citadel Circle: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Ashra Cindercrest presents as Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a operations steward still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Operations Steward, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Ashra Cindercrest refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Operations Steward too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Ashra Cindercrest can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Ashra Cindercrest adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Ashra Cindercrest is Known locally through day-to-day work as operations steward. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Operations Steward."
+}

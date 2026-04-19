@@ -1,0 +1,22 @@
+{
+  "name": "Aurora Heights District",
+  "who_belongs": [
+    "nobles",
+    "elite artisans",
+    "diplomats",
+    "high clergy"
+  ],
+  "who_is_out_of_place": [
+    "rough caravan crews",
+    "underdressed opportunists"
+  ],
+  "expected_behavior": [
+    "measured conduct",
+    "fine attire",
+    "political and artistic decorum"
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

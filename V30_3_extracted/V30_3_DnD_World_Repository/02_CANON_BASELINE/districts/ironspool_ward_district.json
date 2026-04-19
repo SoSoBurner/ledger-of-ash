@@ -1,0 +1,66 @@
+{
+  "name": "Ironspool Ward District",
+  "parent": "Shelkopolis",
+  "type": "lower ward",
+  "identity": "Rougher labor and sellsword quarter of affordable goods, repair shops, and low-end taverns.",
+  "approach": "Harsher edges, cheaper stalls, and visible repair culture replace elite polish.",
+  "inside": "Labor garments, rough taverns, hidden fear shrines, and second-hand trade define the ward.",
+  "who_belongs": [
+    "laborers",
+    "sellswords",
+    "wagon hands",
+    "budget traders"
+  ],
+  "who_is_out_of_place": [
+    "fragile nobles expecting insulated calm"
+  ],
+  "expected_behavior": [
+    "mind your business, pay your tab, and do not mistake poverty for disorder"
+  ],
+  "visible_power": [
+    "local warders",
+    "repair guilds",
+    "tavern rumor-brokers"
+  ],
+  "economy": [
+    "affordable garments",
+    "basic repairs",
+    "flea trade"
+  ],
+  "faith": [
+    "Felelem’s protection charms surface more openly here."
+  ],
+  "seasonal_change": "Bad weather and route disruptions hit this district fast through prices and tempers.",
+  "pressure": [
+    "desperation contracts",
+    "petty crime",
+    "omens and superstition"
+  ],
+  "npc_interfaces": [
+    "ward smiths",
+    "tavern fixers",
+    "thalen_petalglass",
+    "cevrin_silkgate",
+    "roswen_velvetmere"
+  ],
+  "law_context": [
+    "public order and vandalism matter more than elite decorum."
+  ],
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ],
+  "named_npc_refs": [
+    "thalen_petalglass",
+    "cevrin_silkgate",
+    "roswen_velvetmere"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_behavior_texture": "People who belong here are usually laborers, sellswords, wagon hands, and public conduct is read through expectations such as mind your business, pay your tab, and do not mistake poverty for disorder.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by local warders, repair guilds, tavern rumor-brokers.",
+  "local_tension_surface": "The place feels stable only until pressures such as desperation contracts, petty crime, omens and superstition begin showing through daily routines.",
+  "differentiator": "Ironspool Ward District stands apart because its economy leans on affordable garments, basic repairs; public faith remains visible through Felelem’s protection charms surface more openly here.; outsiders are noticed fastest when they resemble fragile nobles expecting insulated calm.",
+  "encounter_rhythm": "Most first scenes in Ironspool Ward District begin through lower ward rhythms: arrival, observation, minor correction, and only then deeper access."
+}

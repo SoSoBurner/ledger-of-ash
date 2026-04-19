@@ -1,0 +1,40 @@
+{
+  "name": "Sunlit Plaza",
+  "parent_district": "Verdant Row District",
+  "type": "cultural venue",
+  "approach": "Open-air performances, public festivals, and showcases..",
+  "inside": "Open-air performances, public festivals, and showcases.",
+  "who_belongs": [
+    "staff",
+    "petitioners",
+    "customers",
+    "clergy",
+    "guild members"
+  ],
+  "who_is_out_of_place": [
+    "saboteurs",
+    "intellectual thieves",
+    "disrespectful visitors"
+  ],
+  "expected_behavior": [
+    "respect the function of the site",
+    "follow local decorum"
+  ],
+  "visible_power": [
+    "Patroness Evanna Brightbloom"
+  ],
+  "economy_or_function": "cultural venue",
+  "law_context": [],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet": "Sunlit Plaza Scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Sunlit Plaza Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

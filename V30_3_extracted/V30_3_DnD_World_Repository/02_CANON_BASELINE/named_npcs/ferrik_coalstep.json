@@ -1,0 +1,81 @@
+{
+  "npc_id": "ferrik_coalstep",
+  "canonical_name": "Ferrik Coalstep",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "arcane_officer",
+  "office_or_role": "Elementalist",
+  "profession_discipline": "Elementalist",
+  "grouping": "Magic & Spellcasting",
+  "polity": "Soreheim Alliance",
+  "settlement": "Molten Span",
+  "locality_scope": "Molten Span, Soreheim",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Furnace-hand mage who moves stone, steam, and slag more often than he will admit to clerks.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Molten Span, Soreheim"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Controlled ward-signs, sanctioned tools, and careful handling of magical materials make procedure part of their public bearing.",
+  "manner": "Speaks like someone who has seen wonder become hazard and now refuses loose handling. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a elementalist still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of elementalist in and around Molten Span, Soreheim, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Molten Span, Soreheim workable through the obligations of elementalist while managing the immediate pressure of resource depletion in Soreheim Alliance.",
+  "hidden_pressure": "Must hold procedure, hazard awareness, and institutional oversight together around forces that do not forgive carelessness. Around Molten Span, Soreheim, that usually means carrying resource depletion, sabotage, predatory frontier ecology without letting the role of elementalist visibly slip.",
+  "relationship_refs": [
+    "rel_1287"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "controlled_access",
+      "summary": "Ferrik Coalstep may grant controlled access to magical insight if the party can solve a containment or trust problem first."
+    },
+    {
+      "hook_type": "containment_problem",
+      "summary": "Ferrik Coalstep needs help containing magical fallout, unauthorized practice, or unstable relic behavior near Molten Span, Soreheim."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Containment tools, ward-aware procedure, and careful handling of sanctioned magic mark Ferrik Coalstep as an authorized arcane presence.",
+  "encounter_context": {
+    "usual_environment": "Molten Span, Soreheim: labs, warded rooms, contained sites, or sanctioned magical thresholds",
+    "who_seeks_them_out": [
+      "research staff",
+      "official petitioners",
+      "those facing magical fallout"
+    ],
+    "who_avoids_them": [
+      "unauthorized practitioners",
+      "the careless",
+      "those who mistake sanction for freedom"
+    ],
+    "interaction_anchor": "magical procedure and containment"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Ferrik Coalstep presents as Speaks like someone who has seen wonder become hazard and now refuses loose handling. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a elementalist still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Elementalist, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Ferrik Coalstep refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Elementalist too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Ferrik Coalstep can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Ferrik Coalstep adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Ferrik Coalstep is Furnace-hand mage who moves stone, steam, and slag more often than he will admit to clerks. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Elementalist."
+}

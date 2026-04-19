@@ -1,0 +1,93 @@
+{
+  "npc_id": "torv_wheelwright",
+  "canonical_name": "Torv Wheelwright",
+  "aliases": [
+    "the Key Bearer"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Itinerary Keeper",
+  "profession_discipline": "Itinerary Keeper",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": "Soreheim Allocation Exchange Train",
+  "locality_scope": "Soreheim Allocation Exchange Train",
+  "institutional_ties": [
+    "Soreheim Allocation Exchange Train"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as itinerary keeper.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "Soreheim Allocation Exchange Train"
+    ],
+    "institutions": [
+      "Soreheim Allocation Exchange Train"
+    ],
+    "factions": []
+  },
+  "appearance": "Torv Wheelwright usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their itinerary keeper status legible before introductions begin.",
+  "manner": "Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a itinerary keeper still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of itinerary keeper in and around Soreheim Allocation Exchange Train, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Allocation Exchange Train workable through the obligations of itinerary keeper while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must keep the underlying system working while everyone notices it only when stress, wear, or neglect begin to show. Around Soreheim Allocation Exchange Train, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of itinerary keeper visibly slip.",
+  "relationship_refs": [
+    "rel_0837",
+    "rel_0842",
+    "rel_0846",
+    "rel_0849",
+    "rel_0851",
+    "rel_0852"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Torv Wheelwright needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Soreheim Allocation Exchange Train."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Torv Wheelwright can draw the party into crew discipline, resource shortage, or blame transfer around Soreheim Allocation Exchange Train."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "torv_wheelwright",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Torv Wheelwright visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Allocation Exchange Train: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Torv Wheelwright presents as Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a itinerary keeper still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Itinerary Keeper, and proof that strangers will not create avoidable noise in Nomdara Caravan.",
+  "what_they_refuse": "Torv Wheelwright refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Itinerary Keeper too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Torv Wheelwright can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Torv Wheelwright adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Torv Wheelwright is Known locally through day-to-day work as itinerary keeper. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Itinerary Keeper."
+}

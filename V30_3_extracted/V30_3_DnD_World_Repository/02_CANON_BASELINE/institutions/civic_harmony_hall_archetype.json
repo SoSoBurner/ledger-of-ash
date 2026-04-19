@@ -1,0 +1,29 @@
+{
+  "name": "Civic Harmony Hall Archetype",
+  "type": "civic architecture template",
+  "truth_layer": "direct_canon",
+  "summary": "Canonical structural model for harmony halls placed across the Principalities.",
+  "day_to_day": "Standardizes intake, mediation, detention, and shrine integration.",
+  "who_works_there": "Architects, clerks, arbiters, guards, and custodial staff.",
+  "who_uses_it": "House officials, local residents, merchants, bounty actors.",
+  "authority": "Template authority only; governs what a harmony hall should include and support.",
+  "public_manifestation": "Recognizable façade, counters, shrine of balance, and secure rear detention spaces.",
+  "conflict_or_bottleneck": "A strong template can still be politically colored by the host principality.",
+  "party_actions": [
+    "recognize a hall quickly",
+    "anticipate its layout",
+    "use common procedures across regions"
+  ],
+  "sources": [
+    "additional_legal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "vera_march"
+  ],
+  "npc_interfaces": [
+    "vera_march"
+  ]
+}

@@ -1,0 +1,519 @@
+{
+  "packet_type": "world_inspection_packet",
+  "scope": "locality",
+  "name": "Glasswake Commune",
+  "slug": "glasswake_commune",
+  "parent_polity": "Sheresh Communes",
+  "place_type": "research commune",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "sheresh_communes"
+  ],
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "Sheresh Communes",
+    "territory": "Frigid Polar Zone",
+    "settlement": "Glasswake Commune",
+    "district": null
+  },
+  "about_place": {
+    "where_is_this_place_exactly": {
+      "answer": "Glasswake Commune sits within Sheresh Communes; strongest hierarchy support resolves it as {\"world\":\"Material Planet\",\"polity\":\"Sheresh Communes\",\"territory\":\"Frigid Polar Zone\",\"settlement\":\"Glasswake Commune\",\"district\":null}.",
+      "status": "direct_canon"
+    },
+    "what_does_this_place_look_like": {
+      "answer": "Approach: A low, reinforced dome surrounded by sensor pylons and flagged exposure trenches.. Interior or lived feel: Quiet labs, quarantine chambers, and observation galleries dominate over family comfort..",
+      "status": "direct_canon"
+    },
+    "what_is_this_area_known_for": {
+      "answer": "Sheresh research commune devoted to contamination measurement, cold-light study, and shield experimentation.",
+      "status": "conservative_inference"
+    },
+    "how_old_is_this_place": {
+      "answer": "The current corpus does not give an exact founding date for this place; it should be treated as historically older than the present day but not date-fixed.",
+      "status": "unresolved"
+    },
+    "who_built_it": {
+      "answer": "The safest current reading is that Glasswake Commune was built or expanded under the authority culture of Sheresh Communes; the exact founding builder is not fully specified.",
+      "status": "conservative_inference"
+    },
+    "who_lives_here_now": {
+      "answer": "researchers, containment wardens, technical artificers",
+      "status": "reconciled_canon"
+    },
+    "current_condition": {
+      "answer": "active and inhabited; current pressure includes exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "common_architecture": {
+      "answer": "arcane domes, auroras, crystalline ice, research spaces, and magical containment infrastructure",
+      "status": "conservative_inference"
+    },
+    "common_build_materials": {
+      "answer": "enchanted art, magical know-how, and cold-region specialties",
+      "status": "conservative_inference"
+    },
+    "climate": {
+      "answer": "not exhaustively specified",
+      "status": "unresolved"
+    },
+    "surrounding_land": {
+      "answer": "north of The Principalities in the tundra under dome-protected magical enclaves",
+      "status": "conservative_inference"
+    },
+    "important_natural_resources": {
+      "answer": "testing instruments, ward maintenance, data exchange",
+      "status": "conservative_inference"
+    },
+    "common_dangers": {
+      "answer": "exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "known_landmarks": {
+      "answer": "Frigid Polar Zone",
+      "status": "conservative_inference"
+    },
+    "nearby_places_that_matter": {
+      "answer": "Frigid Polar Zone",
+      "status": "conservative_inference"
+    },
+    "regional_role": {
+      "answer": "settlement or operating node within Sheresh Communes",
+      "status": "conservative_inference"
+    }
+  },
+  "about_people": {
+    "who_are_the_people_here": {
+      "answer": "researchers, containment wardens, technical artificers",
+      "status": "conservative_inference"
+    },
+    "what_cultures_are_present": {
+      "answer": "art-magic culture, dome communalism, survival innovation, and seasonal ritual life",
+      "status": "conservative_inference"
+    },
+    "what_languages_are_commonly_spoken": {
+      "answer": "The current corpus does not exhaustively enumerate everyday spoken languages here.",
+      "status": "unresolved"
+    },
+    "what_do_people_wear_here": {
+      "answer": "seasonal, expressive, and climate-adapted",
+      "status": "conservative_inference"
+    },
+    "what_do_people_eat_here": {
+      "answer": "dome-supported food systems and preserved or magically supported fare",
+      "status": "conservative_inference"
+    },
+    "how_do_people_make_a_living": {
+      "answer": "testing instruments, ward maintenance, data exchange",
+      "status": "conservative_inference"
+    },
+    "what_social_classes_exist": {
+      "answer": "nobles or leadership strata, institutional officers, specialists, laborers, and visitors appear as the safest class reading for this setting surface",
+      "status": "conservative_inference"
+    },
+    "who_has_power_here": {
+      "answer": "Containment Research Concord",
+      "status": "conservative_inference"
+    },
+    "who_is_respected_here": {
+      "answer": "mages, stewards, protectors, and clever makers",
+      "status": "conservative_inference"
+    },
+    "who_is_feared_here": {
+      "answer": "containment failures and those who ignore safety protocol",
+      "status": "conservative_inference"
+    },
+    "who_is_considered_an_outsider": {
+      "answer": "curiosity seekers, unshielded traders",
+      "status": "conservative_inference"
+    },
+    "how_are_strangers_treated": {
+      "answer": "can be welcomed, but safety and containment come first",
+      "status": "conservative_inference"
+    },
+    "important_customs_or_manners": {
+      "answer": "submit to scanning, treat every breach as real until cleared",
+      "status": "conservative_inference"
+    },
+    "rude_honorable_shameful_or_dangerous_behavior": {
+      "answer": "Common values here are renewal, curiosity, communal care, magical literacy, and resilience. Outsider mistakes or suspicious acts include curiosity seekers, unshielded traders.",
+      "status": "conservative_inference"
+    },
+    "common_values": {
+      "answer": "renewal, curiosity, communal care, magical literacy, and resilience",
+      "status": "conservative_inference"
+    },
+    "tensions_between_groups": {
+      "answer": "safety versus experimentation and protection versus openness",
+      "status": "conservative_inference"
+    }
+  },
+  "government_and_power": {
+    "who_rules_this_place": {
+      "answer": "Containment Research Concord",
+      "status": "conservative_inference"
+    },
+    "how_is_it_governed": {
+      "answer": "commune-based magical civic administration",
+      "status": "conservative_inference"
+    },
+    "is_the_ruler_loved_feared_weak_corrupt_absent_or_respected": {
+      "answer": "functional and protective",
+      "status": "conservative_inference"
+    },
+    "how_stable_is_the_government": {
+      "answer": "stable inside maintained systems, unstable where containment erodes",
+      "status": "conservative_inference"
+    },
+    "who_holds_power_behind_the_scenes": {
+      "answer": "research priorities and containment decisions shape daily power more than public pageantry",
+      "status": "conservative_inference"
+    },
+    "are_there_rival_factions": {
+      "answer": "dome stewards, containment concords, route wardens, and researchers",
+      "status": "conservative_inference"
+    },
+    "influential_houses_councils_guilds_churches_or_militias": {
+      "answer": "Containment Research Concord",
+      "status": "conservative_inference"
+    },
+    "what_laws_matter_most": {
+      "answer": "quarantine law, research containment protocol",
+      "status": "conservative_inference"
+    },
+    "what_crimes_are_taken_especially_seriously": {
+      "answer": "breaching containment, reckless magic, and endangering the domes",
+      "status": "conservative_inference"
+    },
+    "how_is_justice_handled": {
+      "answer": "protective, containment-focused, and communal",
+      "status": "conservative_inference"
+    },
+    "control_level": {
+      "answer": "tight wherever contamination risk is high",
+      "status": "conservative_inference"
+    },
+    "active_rebellions_movements_or_succession_struggles": {
+      "answer": "experimentation pressure acts like a soft internal movement",
+      "status": "conservative_inference"
+    }
+  },
+  "history": {
+    "what_happened_here_in_the_past": {
+      "answer": "defined by adaptation to magical pollution and northern survival",
+      "status": "conservative_inference"
+    },
+    "major_events_that_shaped_this_place": {
+      "answer": "Doomsday scars and polar magical contamination shape identity",
+      "status": "conservative_inference"
+    },
+    "remembered_wars_disasters_miracles_betrayals_or_discoveries": {
+      "answer": "Doomsday scars and polar magical contamination shape identity",
+      "status": "conservative_inference"
+    },
+    "ruins_or_remnants_of_the_past": {
+      "answer": "outer contaminated zones and older magical remains",
+      "status": "conservative_inference"
+    },
+    "old_powers_that_once_ruled_here": {
+      "answer": "older magical civilizations and pre-disaster layers remain indistinct",
+      "status": "conservative_inference"
+    },
+    "what_everyone_knows_about_local_history": {
+      "answer": "everyone knows the domes are survival technology and cultural cradle at once",
+      "status": "conservative_inference"
+    },
+    "what_history_is_disputed_hidden_or_rewritten": {
+      "answer": "the extent of older contamination and what lies beyond safe routes remain partly hidden",
+      "status": "conservative_inference"
+    },
+    "historical_enemies_or_old_alliances": {
+      "answer": "strong exchange ties with Shelk; major enemies are often environmental rather than sovereign",
+      "status": "conservative_inference"
+    },
+    "legends_tied_to_this_place": {
+      "answer": "auroras, hidden vaults, magical anomalies, and survival stories",
+      "status": "conservative_inference"
+    },
+    "tragedies_or_victories_defining_identity": {
+      "answer": "making beauty and art survive where the world itself is hostile",
+      "status": "conservative_inference"
+    }
+  },
+  "religion_and_belief": {
+    "what_do_people_worship_here": {
+      "answer": "ritual life is subdued and tied to survival timing",
+      "status": "conservative_inference"
+    },
+    "which_gods_spirits_ancestors_or_cosmic_forces_matter_most": {
+      "answer": "ritual life is subdued and tied to survival timing",
+      "status": "conservative_inference"
+    },
+    "how_important_is_religion_in_daily_life": {
+      "answer": "present but intertwined with civic survival",
+      "status": "conservative_inference"
+    },
+    "temples_shrines_sacred_sites_or_pilgrimages": {
+      "answer": "seasonal festivals, communal art, and protective observances",
+      "status": "conservative_inference"
+    },
+    "holidays_or_rituals_observed": {
+      "answer": "seasonal festivals, communal art, and protective observances",
+      "status": "conservative_inference"
+    },
+    "forbidden_or_outlawed_beliefs": {
+      "answer": "what is forbidden is more often unsafe practice than doctrine",
+      "status": "conservative_inference"
+    },
+    "do_religious_authorities_have_political_power": {
+      "answer": "present but intertwined with civic survival",
+      "status": "conservative_inference"
+    },
+    "are_miracles_normal_rare_feared_or_doubted": {
+      "answer": "magic is normalized here more than elsewhere, but still treated with risk logic",
+      "status": "conservative_inference"
+    },
+    "common_superstitions": {
+      "answer": "aurora omens, contamination fears, and ward-failure anxiety",
+      "status": "conservative_inference"
+    },
+    "omens_taboos_blessings_or_curses": {
+      "answer": "aurora omens, contamination fears, and ward-failure anxiety",
+      "status": "conservative_inference"
+    }
+  },
+  "magic_and_unknown": {
+    "how_common_is_magic_here": {
+      "answer": "high relative to most polities",
+      "status": "conservative_inference"
+    },
+    "who_is_allowed_to_use_it": {
+      "answer": "widely integrated but still controlled by safety systems",
+      "status": "conservative_inference"
+    },
+    "who_fears_it": {
+      "answer": "polluted or uncontrolled outcomes",
+      "status": "conservative_inference"
+    },
+    "who_regulates_it": {
+      "answer": "containment and commune protocol",
+      "status": "conservative_inference"
+    },
+    "is_magic_respected_outlawed_commercialized_secretive_or_sacred": {
+      "answer": "high relative to most polities. Regulation posture: containment and commune protocol",
+      "status": "conservative_inference"
+    },
+    "known_supernatural_events": {
+      "answer": "magical pollution, auroral effects, anomalies, and mutated outer ecology",
+      "status": "conservative_inference"
+    },
+    "local_monsters_spirits_hauntings_or_anomalies": {
+      "answer": "magical pollution, auroral effects, anomalies, and mutated outer ecology",
+      "status": "conservative_inference"
+    },
+    "what_is_considered_unnatural": {
+      "answer": "breaches, contamination, and unstable arcane drift",
+      "status": "conservative_inference"
+    },
+    "ancient_powers_or_mysterious_forces": {
+      "answer": "outer wastes and deeper research secrets",
+      "status": "conservative_inference"
+    },
+    "places_people_avoid_for_supernatural_reasons": {
+      "answer": "exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "what_parts_remain_unexplained": {
+      "answer": "outer wastes and deeper research secrets",
+      "status": "conservative_inference"
+    }
+  },
+  "economy_and_daily_life": {
+    "what_drives_the_local_economy": {
+      "answer": "testing instruments, ward maintenance, data exchange",
+      "status": "conservative_inference"
+    },
+    "what_goods_is_this_place_known_for": {
+      "answer": "enchanted art, magical know-how, and cold-region specialties",
+      "status": "conservative_inference"
+    },
+    "what_does_it_import_or_depend_on": {
+      "answer": "southern supplies matter",
+      "status": "conservative_inference"
+    },
+    "is_it_wealthy_or_struggling": {
+      "answer": "specialized rather than broadly luxurious",
+      "status": "conservative_inference"
+    },
+    "who_benefits_from_local_trade": {
+      "answer": "research centers, skilled creators, and steward networks",
+      "status": "conservative_inference"
+    },
+    "who_suffers_under_current_system": {
+      "answer": "those exposed to contamination or resource scarcity",
+      "status": "conservative_inference"
+    },
+    "what_is_ordinary_life_like": {
+      "answer": "craft, study, dome maintenance, ritual, and careful movement between safety layers",
+      "status": "conservative_inference"
+    },
+    "what_does_a_normal_day_look_like": {
+      "answer": "craft, study, dome maintenance, ritual, and careful movement between safety layers",
+      "status": "conservative_inference"
+    },
+    "common_professions": {
+      "answer": "testing instruments, ward maintenance, data exchange",
+      "status": "conservative_inference"
+    },
+    "rare_luxuries": {
+      "answer": "Rare luxuries are whatever exceeds the locality’s working identity; exact luxury lists are not exhaustively enumerated in current corpus.",
+      "status": "unresolved"
+    },
+    "shortages_or_needs": {
+      "answer": "exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "travel_trade_communication_and_survival": {
+      "answer": "dome roads, warded paths, and controlled northern routes",
+      "status": "conservative_inference"
+    }
+  },
+  "conflict_and_instability": {
+    "what_conflicts_are_happening_now": {
+      "answer": "exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "who_is_fighting_whom": {
+      "answer": "containment risk, anomaly management, and resource strain",
+      "status": "conservative_inference"
+    },
+    "longstanding_grudges_or_rivalries": {
+      "answer": "safety versus experimentation and protection versus openness",
+      "status": "conservative_inference"
+    },
+    "what_threats_worry_people_most": {
+      "answer": "exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "what_fears_keep_people_obedient_divided_or_armed": {
+      "answer": "dome failure and magical pollution spread",
+      "status": "conservative_inference"
+    },
+    "raids_invasions_banditry_monsters_famine_plague_unrest_or_crackdowns": {
+      "answer": "exposure incidents, quarantine fatigue, instrument failure",
+      "status": "conservative_inference"
+    },
+    "what_is_likely_to_get_worse_soon": {
+      "answer": "outer instability could escalate quickly",
+      "status": "conservative_inference"
+    },
+    "what_could_destabilize_it_further": {
+      "answer": "outer instability could escalate quickly",
+      "status": "conservative_inference"
+    },
+    "who_stands_to_gain_from_chaos": {
+      "answer": "reckless experimenters and anything feeding on containment failure",
+      "status": "conservative_inference"
+    }
+  },
+  "identity_and_reputation": {
+    "what_is_this_place_famous_for": {
+      "answer": "domes and magical culture",
+      "status": "conservative_inference"
+    },
+    "what_is_it_infamous_for": {
+      "answer": "dangerous surroundings and magical contamination",
+      "status": "conservative_inference"
+    },
+    "how_outsiders_see_this_place": {
+      "answer": "beautiful, strange, and dangerous",
+      "status": "conservative_inference"
+    },
+    "how_locals_see_themselves": {
+      "answer": "the people who turned survival into art and discipline",
+      "status": "conservative_inference"
+    },
+    "common_stereotypes": {
+      "answer": "beautiful, strange, and dangerous",
+      "status": "conservative_inference"
+    },
+    "symbols_banners_songs_sayings_or_stories": {
+      "answer": "auroras, domes, ward marks, and crafted light",
+      "status": "conservative_inference"
+    },
+    "what_makes_it_culturally_distinct": {
+      "answer": "magic is daily infrastructure rather than rare spectacle",
+      "status": "conservative_inference"
+    },
+    "what_someone_immediately_notices": {
+      "answer": "A low, reinforced dome surrounded by sensor pylons and flagged exposure trenches.",
+      "status": "direct_canon"
+    }
+  },
+  "wider_world_relationships": {
+    "allies_and_enemies": {
+      "answer": "strong exchange ties with Shelk; major enemies are often environmental rather than sovereign",
+      "status": "conservative_inference"
+    },
+    "neighboring_powers_that_matter": {
+      "answer": "strong exchange ties with Shelk; major enemies are often environmental rather than sovereign",
+      "status": "conservative_inference"
+    },
+    "isolation_or_connection": {
+      "answer": "connected by guarded routes and exchange",
+      "status": "conservative_inference"
+    },
+    "trade_routes_roads_ports_or_passes": {
+      "answer": "Frigid Polar Zone",
+      "status": "conservative_inference"
+    },
+    "larger_empires_kingdoms_religions_or_movements_affecting_it": {
+      "answer": "Sheresh Communes",
+      "status": "conservative_inference"
+    },
+    "outside_threats_influencing_local_decisions": {
+      "answer": "pollution, cold, and any polity mishandling shared risks",
+      "status": "conservative_inference"
+    },
+    "how_it_fits_the_broader_world": {
+      "answer": "northern magical frontier and innovation node",
+      "status": "conservative_inference"
+    }
+  },
+  "secrets_and_deeper_truths": {
+    "what_is_not_said_openly_here": {
+      "answer": "research depth and outer anomaly truths remain only partly public",
+      "status": "conservative_inference"
+    },
+    "what_locals_avoid_talking_about": {
+      "answer": "research depth and outer anomaly truths remain only partly public",
+      "status": "conservative_inference"
+    },
+    "what_secrets_lie_under_the_surface": {
+      "answer": "research depth and outer anomaly truths remain only partly public",
+      "status": "conservative_inference"
+    },
+    "official_story_vs_reality_contradictions": {
+      "answer": "research depth and outer anomaly truths remain only partly public",
+      "status": "conservative_inference"
+    },
+    "ancient_or_hidden_truth_explaining_current_events": {
+      "answer": "outer wastes and deeper research secrets",
+      "status": "conservative_inference"
+    },
+    "what_everyone_lives_with_but_pretends_not_to_see": {
+      "answer": "research depth and outer anomaly truths remain only partly public",
+      "status": "conservative_inference"
+    },
+    "invisible_power_structures": {
+      "answer": "research priorities and containment decisions shape daily power more than public pageantry",
+      "status": "conservative_inference"
+    },
+    "buried_history_influencing_the_present": {
+      "answer": "the extent of older contamination and what lies beyond safe routes remain partly hidden",
+      "status": "conservative_inference"
+    }
+  }
+}

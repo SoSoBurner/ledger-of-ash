@@ -1,0 +1,38 @@
+{
+  "name": "Roaz Northern Trade Route",
+  "transition_effects": [
+    "Visible authority, travel expectations, and hazard posture change along this route.",
+    "Route use binds local law, economy, and observance timing rather than existing as neutral transit."
+  ],
+  "hazards": [
+    "pirates",
+    "hostile polities",
+    "winter limits"
+  ],
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal"
+  ],
+  "from_locality": "regional approach",
+  "route_name": "Roaz Northern Trade Route",
+  "truth_layer": "conservative_inference",
+  "paperwork_and_permission_model": "Travel along Roaz Northern Trade Route is easiest when intentions, cargo, and patronage are legible before questions begin.",
+  "patrol_rhythm": "Daylight oversight is visible and procedural; night oversight is thinner, more suspicious, and less forgiving.",
+  "seasonal_failure_modes": [
+    "weather delays",
+    "supply interruption",
+    "inspection backlog"
+  ],
+  "safe_stop_chain": [
+    "licensed waystop",
+    "watchful market halt",
+    "trusted household or shrine refuge"
+  ],
+  "inspection_triggers": [
+    "undeclared cargo",
+    "mismatched story",
+    "unfamiliar escort pattern",
+    "night movement without context"
+  ],
+  "after_dark_change": "After sunset, traffic thins, trust narrows, and informal power brokers matter more than posted rules."
+}

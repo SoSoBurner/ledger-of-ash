@@ -1,0 +1,99 @@
+{
+  "npc_id": "sena_ledgermere",
+  "canonical_name": "Sena Ledgermere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "martial_actor",
+  "office_or_role": "Ward Mediator",
+  "profession_discipline": "Ward Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "The Union",
+  "settlement": null,
+  "locality_scope": "Guildheart Hub",
+  "institutional_ties": [
+    "Guildheart Hub"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as ward mediator.",
+  "linked_systems": {
+    "polities": [
+      "The Union"
+    ],
+    "localities": [
+      "Guildheart Hub"
+    ],
+    "institutions": [
+      "Guildheart Hub"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Moves like someone trained to decide quickly once the threshold for action has been crossed. In The Union, that reads as someone deal-aware, balanced, and procedurally diplomatic, with an eye on leverage and precedent, and the habits of a ward mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of ward mediator in and around Guildheart Hub, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Guildheart Hub workable through the obligations of ward mediator while managing the immediate pressure of institutional scrutiny in The Union.",
+  "hidden_pressure": "Must balance deterrence, morale, and actual capability while others often judge only the visible surface. Around Guildheart Hub, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of ward mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0193",
+    "rel_0202",
+    "rel_0210",
+    "rel_0218",
+    "rel_0219",
+    "rel_0220",
+    "rel_0221",
+    "rel_0222",
+    "rel_0223",
+    "rel_0224",
+    "rel_1122",
+    "rel_1125",
+    "rel_1127",
+    "rel_1128"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "defense_request",
+      "summary": "Sena Ledgermere needs help hardening a position, drilling unreliable auxiliaries, or reading an approaching threat around Guildheart Hub."
+    },
+    {
+      "hook_type": "rival_command_tension",
+      "summary": "Sena Ledgermere can pull the party into a dispute over readiness, chain of command, or blamed failure near Guildheart Hub."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "compatibility_interface_id": "sena_ledgermere",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Weapon discipline, drilled stillness, and practiced readiness mark Sena Ledgermere as someone tied to organized force rather than casual violence.",
+  "encounter_context": {
+    "usual_environment": "Guildheart Hub: drill yards, fortifications, command posts, or exposed routes",
+    "who_seeks_them_out": [
+      "subordinates",
+      "messengers",
+      "worried local leaders"
+    ],
+    "who_avoids_them": [
+      "the undisciplined",
+      "the unprepared",
+      "rivals probing weakness"
+    ],
+    "interaction_anchor": "defensive planning or force-readiness"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Sena Ledgermere presents as Moves like someone trained to decide quickly once the threshold for action has been crossed. In The Union, that reads as someone deal-aware, balanced, and procedurally diplomatic, with an eye on leverage and precedent, and the habits of a ward mediator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Ward Mediator, and proof that strangers will not create avoidable noise in The Union.",
+  "what_they_refuse": "Sena Ledgermere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Ward Mediator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Sena Ledgermere can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Sena Ledgermere adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Sena Ledgermere is Known locally through day-to-day work as ward mediator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Ward Mediator."
+}

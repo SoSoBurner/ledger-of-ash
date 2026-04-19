@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Mal Debt Conversion Office",
+  "record_count": 2,
+  "npc_ids": [
+    "calia_brokerwell",
+    "renn_brokerwell"
+  ],
+  "records": [
+    {
+      "npc_id": "calia_brokerwell",
+      "canonical_name": "Calia Brokerwell",
+      "polity": "The Union",
+      "office_or_role": "Deputy Master",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as deputy master.",
+      "current_agenda": "Keep Mal Debt Conversion Office workable through the obligations of deputy master while managing the immediate pressure of institutional scrutiny in The Union."
+    },
+    {
+      "npc_id": "renn_brokerwell",
+      "canonical_name": "Renn Brokerwell",
+      "polity": "The Union",
+      "office_or_role": "Discipline Clerk",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as discipline clerk.",
+      "current_agenda": "Keep Mal Debt Conversion Office workable through the obligations of discipline clerk while managing the immediate pressure of institutional scrutiny in The Union."
+    }
+  ],
+  "roster_context": {
+    "identity": "Administrative office converting or settling old Mal-linked obligations under the Union successor regime.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "topatch_v22_6_spec",
+    "principalities"
+  ]
+}

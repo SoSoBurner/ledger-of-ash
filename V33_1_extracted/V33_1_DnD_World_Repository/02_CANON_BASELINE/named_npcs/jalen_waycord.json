@@ -1,0 +1,96 @@
+{
+  "npc_id": "jalen_waycord",
+  "canonical_name": "Jalen Waycord",
+  "aliases": [
+    "the registrar"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Registrar",
+  "profession_discipline": "Registrar",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": "Nomdara Council of Elders",
+  "locality_scope": "Nomdara Council of Elders",
+  "institutional_ties": [
+    "Nomdara Council of Elders"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as registrar.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "Nomdara Council of Elders"
+    ],
+    "institutions": [
+      "Nomdara Council of Elders"
+    ],
+    "factions": []
+  },
+  "appearance": "Jalen Waycord usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their registrar status legible before introductions begin.",
+  "manner": "Keeps language exact, as if wording itself is part of the custody chain. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a registrar still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of registrar in and around Nomdara Council of Elders, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Nomdara Council of Elders workable through the obligations of registrar while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must keep records, witness, or account integrity credible while people try to hurry, blur, or weaponize the paper trail. Around Nomdara Council of Elders, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of registrar visibly slip.",
+  "relationship_refs": [
+    "rel_0706",
+    "rel_0716",
+    "rel_0717",
+    "rel_0718",
+    "rel_0719",
+    "rel_0720",
+    "rel_0721",
+    "rel_0722",
+    "rel_0723",
+    "rel_0724",
+    "rel_1220"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Jalen Waycord can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Jalen Waycord needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Nomdara Council of Elders."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "jalen_waycord",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Jalen Waycord communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Nomdara Council of Elders: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Jalen Waycord presents as Keeps language exact, as if wording itself is part of the custody chain. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a registrar still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Registrar, and proof that strangers will not create avoidable noise in Nomdara Caravan.",
+  "what_they_refuse": "Jalen Waycord refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Registrar too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Jalen Waycord can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Jalen Waycord adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Jalen Waycord is Known locally through day-to-day work as registrar. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Registrar."
+}

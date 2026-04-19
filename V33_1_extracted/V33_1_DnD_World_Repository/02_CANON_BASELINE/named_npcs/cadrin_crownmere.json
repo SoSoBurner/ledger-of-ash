@@ -1,0 +1,83 @@
+{
+  "npc_id": "cadrin_crownmere",
+  "canonical_name": "Cadrin Crownmere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Bridge Clerk",
+  "profession_discipline": "bridge records, toll accounts, and commune mediation",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Whitebridge Commune",
+  "locality_scope": "Whitebridge Commune",
+  "institutional_ties": [
+    "Whitebridge Commune"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Whitebridge Commune through steady work as a bridge clerk.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Whitebridge Commune"
+    ],
+    "institutions": [
+      "Whitebridge Commune"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries role-shaped habits that make local pressure visible in the way they speak and judge strangers. In Whitebridge Commune, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of a bridge clerk in and around Whitebridge Commune, keeping ordinary obligations from turning into public disorder.",
+  "current_agenda": "Keep Whitebridge Commune workable by absorbing local strain before it becomes a visible scandal, shutdown, or breach of order.",
+  "hidden_pressure": "Must keep the role of bridge clerk credible while managing pressure tied to status, access, logistics, and local reputation in Whitebridge Commune.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Cadrin Crownmere can draw the party into a locality problem centered on arbiter nyra thawmark duties in Whitebridge Commune."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Cadrin Crownmere becomes useful when the party needs grounded help with bridge icing, refugee surges, missing expeditions around Whitebridge Commune."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "whitebridge_commune"
+  ],
+  "compatibility_interface_id": "cadrin_crownmere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Cadrin Crownmere is immediately readable as a arbiter nyra thawmark tied to Whitebridge Commune.",
+  "encounter_context": {
+    "usual_environment": "Whitebridge Commune: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "bridge clerk"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Cadrin Crownmere presents as someone shaped by the duties of a bridge clerk and the daily pressures of Whitebridge Commune.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a bridge clerk, and proof that strangers will not make Whitebridge Commune harder to manage.",
+  "what_they_refuse": "Cadrin Crownmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a arbiter nyra thawmark too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Cadrin Crownmere adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Cadrin Crownmere always knows more about Whitebridge Commune than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a bridge clerk in Whitebridge Commune."
+}

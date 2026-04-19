@@ -1,0 +1,97 @@
+{
+  "npc_id": "orien_warderose",
+  "canonical_name": "Orien Warderose",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Field Captain",
+  "profession_discipline": "Field Captain",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": null,
+  "locality_scope": "Fashion Artisans Collective",
+  "institutional_ties": [
+    "Fashion Artisans Collective"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a field captain of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Fashion Artisans Collective"
+    ],
+    "institutions": [
+      "Fashion Artisans Collective"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a field captain still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of field captain in and around Fashion Artisans Collective, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Fashion Artisans Collective workable through the obligations of field captain while managing the immediate pressure of institutional scrutiny in Shelk.",
+  "hidden_pressure": "Must keep visible order credible while absorbing the first shock of disorder, contraband, sabotage, or violence. Around Fashion Artisans Collective, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of field captain visibly slip.",
+  "relationship_refs": [
+    "rel_0529",
+    "rel_0530",
+    "rel_1211"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Orien Warderose can draw the party into contraband, false papers, or a suspicious cargo problem tied to Fashion Artisans Collective."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Orien Warderose may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "incident_response",
+      "summary": "Orien Warderose needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Fashion Artisans Collective."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Orien Warderose needs help with a problem in Fashion Artisans Collective that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "principality_shelk",
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "orien_warderose",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Orien Warderose as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "Fashion Artisans Collective: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Orien Warderose presents as Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a field captain still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Field Captain, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Orien Warderose refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Field Captain too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Orien Warderose can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Orien Warderose adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Orien Warderose is Recognized as a field captain of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Field Captain."
+}

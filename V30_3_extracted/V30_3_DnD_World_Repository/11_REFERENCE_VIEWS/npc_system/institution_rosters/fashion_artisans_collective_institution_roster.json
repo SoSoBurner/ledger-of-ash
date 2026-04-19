@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "Fashion Artisans Collective",
+  "record_count": 2,
+  "npc_ids": [
+    "letha_silkgate",
+    "orien_warderose"
+  ]
+}

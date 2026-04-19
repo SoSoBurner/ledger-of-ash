@@ -1,0 +1,5 @@
+{
+  "build_version": "V30_3",
+  "status": "pass",
+  "note": "No contradiction-flattening transforms were introduced by the V30 refinement pass."
+}

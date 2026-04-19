@@ -1,0 +1,9 @@
+{
+  "name": "Unity Square",
+  "seasonal_change": "Festival and harvest surges cause dense crowding and opportunistic contract expansion.",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

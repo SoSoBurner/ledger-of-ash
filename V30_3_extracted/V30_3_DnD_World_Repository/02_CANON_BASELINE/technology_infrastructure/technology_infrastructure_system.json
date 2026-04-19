@@ -1,0 +1,22 @@
+{
+  "object_id": "system.technology_infrastructure.world",
+  "system_type": "technology_infrastructure",
+  "truth_status": "conservative_inference",
+  "roads": "Road quality and maintenance are polity- and route-dependent.",
+  "sanitation": "Urban sanitation and waste handling should be locality-specific rather than assumed.",
+  "shipping": "Riverine, coastal, and overland shipping conditions must follow route and settlement packets.",
+  "messengers": "Message speed depends on infrastructure, patronage, and season.",
+  "construction_norms": "Building form should be tied to locality packet, available materials, and authority context.",
+  "weapon_baseline": "Armed force expectations must derive from polity, law, and faction pressure rather than genre defaults.",
+  "medicine_baseline": "Care quality varies by institution, faith, wealth, and access.",
+  "energy_illumination_norms": "Light, heat, and work-energy assumptions should follow locality and class context.",
+  "sources": [
+    "principalities",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "support_type": "engine_synthesis",
+  "truth_layer": "engine_canon",
+  "justification": "Repository synthesis layer built to make strongly supported canon operational without overriding source truth."
+}

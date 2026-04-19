@@ -1,0 +1,8 @@
+{
+  "name": "Ironspool Ward District",
+  "seasonal_change": "Bad weather and route disruptions hit this district fast through prices and tempers.",
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "build_version": "V30_3",
+  "minimum_scenario_count": 8,
+  "required_scenario_fields": [
+    "scenario_id",
+    "title",
+    "scope",
+    "source_record_ids",
+    "locality_packets",
+    "route_packets",
+    "npc_ids",
+    "player_safe_summary",
+    "gm_deep_summary",
+    "continuity_deltas"
+  ],
+  "goal": "Demonstrate session-ready use directly from repository artifacts."
+}

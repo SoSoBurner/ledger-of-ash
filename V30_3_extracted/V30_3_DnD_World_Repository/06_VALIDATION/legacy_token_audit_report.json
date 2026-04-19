@@ -1,0 +1,23 @@
+{
+  "build_version": "V30_3",
+  "tokens_checked": [
+    "V28_8",
+    "V30_DnD_World_Repository",
+    "V28_8_DEFINITIVE_UNIVERSE_SETTING_REFINEMENT_RELEASE"
+  ],
+  "scan_exclusions": [
+    "00_PACKAGE_MANIFEST/filesystem_inventory.json",
+    "05_PROVENANCE/source_checksum_registry.json",
+    "06_VALIDATION/"
+  ],
+  "findings": [
+    {
+      "file": "11_REFERENCE_VIEWS/legacy_release_history/V28_8_RELEASE_NOTES.md",
+      "token": "V28_8",
+      "zone_classification": "lineage_or_exception",
+      "legal_status": "legal"
+    }
+  ],
+  "illegal_active_hits": 0,
+  "status": "pass"
+}

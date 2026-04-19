@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Forge Authority",
+  "record_count": 3,
+  "npc_ids": [
+    "decran_moltglass",
+    "kordr_vulkhand",
+    "mother_saar_vulkrel"
+  ]
+}

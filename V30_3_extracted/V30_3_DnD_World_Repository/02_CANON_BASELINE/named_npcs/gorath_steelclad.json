@@ -1,0 +1,99 @@
+{
+  "npc_id": "gorath_steelclad",
+  "canonical_name": "Gorath Steelclad",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Trade-route security commander",
+  "profession_discipline": "Trade-route security commander",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Duneshade Outpost",
+  "locality_scope": "Duneshade Outpost",
+  "institutional_ties": [
+    "Duneshade Outpost",
+    "Unternal route lanes"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a trade-route security commander of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Duneshade Outpost"
+    ],
+    "institutions": [
+      "Duneshade Outpost",
+      "Unternal route lanes"
+    ],
+    "factions": []
+  },
+  "appearance": "Quota-practical armor, work-hardened layers, and visibly maintained equipment mark function before ceremony.",
+  "manner": "Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a trade-route security commander still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of trade-route security commander in and around Duneshade Outpost, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Duneshade Outpost workable through the obligations of trade-route security commander while managing the immediate pressure of water scarcity in Soreheim Alliance.",
+  "hidden_pressure": "Must keep visible order credible while absorbing the first shock of disorder, contraband, sabotage, or violence. Around Duneshade Outpost, that usually means carrying water scarcity, subterranean predators, convoy delay without letting the role of trade-route security commander visibly slip.",
+  "relationship_refs": [
+    "rel_0996",
+    "rel_0997",
+    "rel_0998",
+    "rel_0999",
+    "rel_1000"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Gorath Steelclad may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "incident_response",
+      "summary": "Gorath Steelclad needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Duneshade Outpost."
+    },
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Gorath Steelclad can draw the party into contraband, false papers, or a suspicious cargo problem tied to Duneshade Outpost."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Gorath Steelclad needs help with a problem in Duneshade Outpost that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "gorath_steelclad",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Gorath Steelclad as visible enforcement before rank ever needs to be named. In Duneshade Outpost, this lands inside a public field already shaped by route captains, rationing families.",
+  "encounter_context": {
+    "usual_environment": "Duneshade Outpost: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Gorath Steelclad presents as Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a trade-route security commander still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Trade-route security commander, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Gorath Steelclad refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Trade-route security commander too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Gorath Steelclad can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Gorath Steelclad adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Gorath Steelclad is Recognized as a trade-route security commander of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Trade-route security commander."
+}

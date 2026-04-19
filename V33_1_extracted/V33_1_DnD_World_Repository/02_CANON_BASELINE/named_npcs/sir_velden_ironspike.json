@@ -1,0 +1,94 @@
+{
+  "npc_id": "sir_velden_ironspike",
+  "canonical_name": "Sir Velden Ironspike",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Commander of Shadowhands",
+  "profession_discipline": "Commander of Shadowhands",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Roaz",
+  "settlement": "Ithtananalor",
+  "locality_scope": "Ithtananalor",
+  "institutional_ties": [
+    "Roaz covert operations; also appears in Shelk espionage-prevention context",
+    "Ithtananalor",
+    "Shadowhands"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a commander of shadowhands of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Ithtananalor"
+    ],
+    "institutions": [
+      "Roaz covert operations; also appears in Shelk espionage-prevention context"
+    ],
+    "factions": []
+  },
+  "appearance": "Usually seen in black leather armor embossed with silver scales, the formal look of Roazian enforcement.",
+  "manner": "Treats routine contact like the first layer of incident response, never fully relaxing into casual talk. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a commander of shadowhands still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of commander of shadowhands in and around the surrounding locality, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep the surrounding locality workable through the obligations of commander of shadowhands while managing the immediate pressure of institutional scrutiny in Roaz.",
+  "hidden_pressure": "Must hold procedure, public trust, and immediate response together when any one of them would be easier to sacrifice. Around the surrounding locality, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of commander of shadowhands visibly slip.",
+  "relationship_refs": [
+    "rel_0015"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "incident_response",
+      "summary": "Sir Velden Ironspike needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through the surrounding locality."
+    },
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Sir Velden Ironspike can draw the party into contraband, false papers, or a suspicious cargo problem tied to the surrounding locality."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Sir Velden Ironspike may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Sir Velden Ironspike needs help with a problem in the surrounding locality that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Manner expanded from direct canon support in The Principality of Roaz. Hidden pressure remains conservative operational inference tied to covert enforcement burdens. Appearance conservatively derived from explicit office, organizational attire, or species/station cues already present in corpus support.",
+  "source_object_ids": [
+    "principality_roaz"
+  ],
+  "compatibility_interface_id": "sir_velden_ironspike",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Uniform, posture, and the way others make room mark Sir Velden Ironspike as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "the surrounding locality: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Sir Velden Ironspike presents as Treats routine contact like the first layer of incident response, never fully relaxing into casual talk. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a commander of shadowhands still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Commander of Shadowhands, and proof that strangers will not create avoidable noise in Principality of Roaz.",
+  "what_they_refuse": "Sir Velden Ironspike refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Commander of Shadowhands too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Sir Velden Ironspike can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Sir Velden Ironspike adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Sir Velden Ironspike is Recognized as a commander of shadowhands of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Commander of Shadowhands."
+}

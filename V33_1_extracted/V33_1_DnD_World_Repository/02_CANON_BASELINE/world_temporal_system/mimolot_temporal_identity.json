@@ -1,0 +1,32 @@
+{
+  "name": "Mimolot Temporal Identity",
+  "truth_layer": "conservative_inference",
+  "calendar_parent": "Principalities temporal frame",
+  "work_cycles": [
+    "Term cycles, archive access, and magical study periods structure life"
+  ],
+  "feast_days": [
+    "Scholarly festivals and year-end contemplation matter strongly"
+  ],
+  "legal_deadlines": [
+    "Book tariff and enrollment calendars shape public pressure"
+  ],
+  "shipping_windows": [
+    "Text and artifact movement follows guarded academic windows"
+  ],
+  "weather_expectations": [
+    "Study intensity often shifts inward during harsher seasons"
+  ],
+  "mourning_and_renewal_customs": [
+    "Memory and learning practices mark both grief and continuity"
+  ],
+  "public_language_about_time": [
+    "Terms, intake periods, and archive windows function as lived time"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

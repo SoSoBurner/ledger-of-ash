@@ -1,0 +1,20 @@
+{
+  "build_version": "V30_3",
+  "required_fields": [
+    "name",
+    "from_locality",
+    "route_name",
+    "truth_layer",
+    "transition_feel",
+    "handoff_custom",
+    "paperwork_and_permission_model",
+    "patrol_rhythm",
+    "seasonal_failure_modes",
+    "safe_stop_chain",
+    "inspection_triggers",
+    "after_dark_change",
+    "sources"
+  ],
+  "checked_packet_count": 48,
+  "status": "pass"
+}

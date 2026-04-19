@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Frozen Sentinel Pillars",
+  "record_count": 1,
+  "npc_ids": [
+    "kest_field"
+  ],
+  "records": [
+    {
+      "npc_id": "kest_field",
+      "canonical_name": "Kest Field",
+      "polity": "Transpolity",
+      "office_or_role": "Watch Scout",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as watch scout.",
+      "current_agenda": "Keep Frozen Sentinel Pillars workable through the obligations of watch scout while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Ancient ice formations humming as possible wards or beacons.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "locations_catalog"
+  ]
+}

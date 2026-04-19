@@ -1,0 +1,19 @@
+{
+  "name": "Embervale Settlement",
+  "inside": "Bath halls, repair shops, ration kitchens, bunk compounds, and shift boards structure a life built around rotation, recovery, and rapid redeployment.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "labor recovery is visibly part of daily life.",
+    "small heat-shrine observances and achievement toasts mark survival, endurance, and return to duty",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

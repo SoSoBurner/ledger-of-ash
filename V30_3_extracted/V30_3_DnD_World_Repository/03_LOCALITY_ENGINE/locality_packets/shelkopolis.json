@@ -1,0 +1,306 @@
+{
+  "name": "Shelkopolis",
+  "type": "city",
+  "parent_polity": "Principality of Shelk",
+  "identity": "Largest metropolis of Shelk and one of the major urban engines of the Principalities, defined by fashion, trade, refined civic order, and visible devotional plurality.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Principality of Shelk",
+    "territory": "House Shelk",
+    "settlement": "Shelkopolis",
+    "district": null
+  },
+  "approach": "Pale stone walls rise from meadows with golden accents, indigo and emerald banners, and flower-lined roads watched by bright-plumed Roadwardens.",
+  "inside": "Curving smooth streets link elegant upper quarters, busy workshop districts, and purposeful lower wards. Textiles, tools, shrines, taverns, and scholars give the city constant motion.",
+  "who_belongs": [
+    "artisans",
+    "merchants",
+    "nobles",
+    "Roadwardens",
+    "students",
+    "traveling scholars"
+  ],
+  "who_is_out_of_place": [
+    "those ignoring decorum at noble sites",
+    "open saboteurs",
+    "careless magic users near protected institutions",
+    "caravan raiders"
+  ],
+  "expected_behavior": [
+    "observe site-specific decorum",
+    "respect local fashion and craft traditions",
+    "follow Roadwarden road and market order",
+    "treat shrines and archives with reverence"
+  ],
+  "visible_power": [
+    "House Shelk nobility",
+    "Roadwardens Order",
+    "Fashion Artisans Collective",
+    "clerical institutions of Cysur, Cyfoes, Felujitas, and Felelem"
+  ],
+  "economy": [
+    "fashion production",
+    "enchanted tailoring",
+    "merchant exchange",
+    "craft education",
+    "Roadwarden support industry"
+  ],
+  "faith": [
+    "Compassion, contemplation, renewal, and fear each have visible public spaces and offerings."
+  ],
+  "seasonal_change": "Balanced seasonal weather preserves outdoor markets and floral ornamentation; observance bands intensify noble and artisan gatherings.",
+  "pressure": [
+    "glyph corruption beyond the city",
+    "trade security obligations",
+    "noble rivalry",
+    "festival traffic"
+  ],
+  "npc_interfaces": [
+    "lady_isabella_shelk",
+    "lady_elowen_shelk",
+    "captain_thalion_windrider",
+    "high_priestess_lyara_dawnlight",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "law_context": [
+    "Fashion and decorum law intensify in noble and ceremonial spaces.",
+    "Intellectual property and espionage law are serious in elite and archival sites."
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog",
+    "principality_shelk"
+  ],
+  "canonical_identity": {
+    "truth_layer": "direct_canon",
+    "identity": "Largest metropolis of Shelk and one of the major urban engines of the Principalities, defined by fashion, trade, refined civic order, and visible devotional plurality.",
+    "approach": "Pale stone walls rise from meadows with golden accents, indigo and emerald banners, and flower-lined roads watched by bright-plumed Roadwardens.",
+    "inside": "Curving smooth streets link elegant upper quarters, busy workshop districts, and purposeful lower wards. Textiles, tools, shrines, taverns, and scholars give the city constant motion.",
+    "who_belongs": [
+      "artisans",
+      "merchants",
+      "nobles",
+      "Roadwardens",
+      "students",
+      "traveling scholars"
+    ],
+    "who_is_out_of_place": [
+      "those ignoring decorum at noble sites",
+      "open saboteurs",
+      "careless magic users near protected institutions",
+      "caravan raiders"
+    ],
+    "expected_behavior": [
+      "observe site-specific decorum",
+      "respect local fashion and craft traditions",
+      "follow Roadwarden road and market order",
+      "treat shrines and archives with reverence"
+    ],
+    "visible_power": [
+      "House Shelk nobility",
+      "Roadwardens Order",
+      "Fashion Artisans Collective",
+      "clerical institutions of Cysur, Cyfoes, Felujitas, and Felelem"
+    ],
+    "economy": [
+      "fashion production",
+      "enchanted tailoring",
+      "merchant exchange",
+      "craft education",
+      "Roadwarden support industry"
+    ],
+    "faith": [
+      "Compassion, contemplation, renewal, and fear each have visible public spaces and offerings."
+    ],
+    "seasonal_change": "Balanced seasonal weather preserves outdoor markets and floral ornamentation; observance bands intensify noble and artisan gatherings.",
+    "pressure": [
+      "glyph corruption beyond the city",
+      "trade security obligations",
+      "noble rivalry",
+      "festival traffic"
+    ],
+    "law_context": [
+      "Fashion and decorum law intensify in noble and ceremonial spaces.",
+      "Intellectual property and espionage law are serious in elite and archival sites."
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Pale stone walls rise from meadows with golden accents, indigo and emerald banners, and flower-lined roads watched by bright-plumed Roadwardens.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Curving smooth streets link elegant upper quarters, busy workshop districts, and purposeful lower wards. Textiles, tools, shrines, taverns, and scholars give the city constant motion.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "glyph corruption beyond the city",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "trade security obligations",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "noble rivalry",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "festival traffic",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "observe site-specific decorum",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "respect local fashion and craft traditions",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "follow Roadwarden road and market order",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "treat shrines and archives with reverence",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "lady_isabella_shelk",
+    "lady_elowen_shelk",
+    "captain_thalion_windrider",
+    "high_priestess_lyara_dawnlight"
+  ],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "local_role_expression": {
+    "innkeeper": {
+      "demeanor": "practical, hospitable, observant",
+      "visible_concerns": [
+        "lodging pressure",
+        "traveler gossip",
+        "unusual arrivals"
+      ],
+      "institutional_tie": "Shelkopolis"
+    },
+    "market_clerk": {
+      "demeanor": "order-minded, queue-aware, attentive",
+      "visible_concerns": [
+        "stall flow",
+        "forms and seals",
+        "disrupted trade rhythm"
+      ],
+      "institutional_tie": "Shelkopolis"
+    },
+    "shrine_attendant": {
+      "demeanor": "quiet, observant, correction-minded",
+      "visible_concerns": [
+        "offering order",
+        "purification lapses",
+        "ritual irregularity"
+      ],
+      "institutional_tie": "Shelkopolis"
+    },
+    "porter": {
+      "demeanor": "hurried, grounded, load-aware",
+      "visible_concerns": [
+        "freight strain",
+        "delayed movement",
+        "suspicious cargo"
+      ],
+      "institutional_tie": "Shelkopolis"
+    },
+    "scribe": {
+      "demeanor": "precise, discreet, patient",
+      "visible_concerns": [
+        "record integrity",
+        "testimony wording",
+        "missing signatures"
+      ],
+      "institutional_tie": "Shelkopolis"
+    },
+    "labor_foreman": {
+      "demeanor": "blunt, protective, schedule-bound",
+      "visible_concerns": [
+        "crew discipline",
+        "equipment strain",
+        "blame transfer"
+      ],
+      "institutional_tie": "Shelkopolis"
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually artisans, merchants, nobles, and public conduct is read through expectations such as observe site-specific decorum, respect local fashion and craft traditions.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by House Shelk nobility, Roadwardens Order, Fashion Artisans Collective.",
+  "local_tension_surface": "The place feels stable only until pressures such as glyph corruption beyond the city, trade security obligations, noble rivalry begin showing through daily routines.",
+  "differentiator": "Shelkopolis stands apart because its economy leans on fashion production, enchanted tailoring; public faith remains visible through Compassion, contemplation, renewal, and fear each have visible public spaces and offerings.; outsiders are noticed fastest when they resemble those ignoring decorum at noble sites, open saboteurs.",
+  "encounter_rhythm": "Most first scenes in Shelkopolis begin through city rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "scene_openers": [
+    "A first arrival at Shelkopolis immediately highlights largest metropolis of shelk and one of the major urban engines of the principalities, defined by fashion, trade, refined civic order, and visible devotional plurality",
+    "The quickest social read of Shelkopolis comes from how locals react to observe site-specific decorum / respect local fashion and craft traditions."
+  ],
+  "social_misstep_examples": [
+    "Treating Shelkopolis like a casual stop rather than a governed space.",
+    "Ignoring local expectation to observe site-specific decorum; respect local fashion and craft traditions."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to fashion production.",
+    "A local intermediary resents outsider assumptions about Shelkopolis."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Shelkopolis",
+    "Formal notice by House Shelk nobility",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Shelkopolis before residents admit them.",
+  "outsider_liability": "Outsiders in Shelkopolis are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around glyph corruption beyond the city.",
+    "Someone mistakes the party for agents tied to House Shelk nobility.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind fashion production surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Shelkopolis feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Shelkopolis is busiest and least forgiving of confusion.",
+    "night": "At night, Shelkopolis reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Shelkopolis mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

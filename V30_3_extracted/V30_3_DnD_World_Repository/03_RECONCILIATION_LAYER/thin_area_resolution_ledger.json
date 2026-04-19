@@ -1,0 +1,12 @@
+{
+  "build_version": "V30_3",
+  "resolved_polities": [
+    "The Union",
+    "Principality of Cosmouth",
+    "Principality of Shirsh",
+    "Principality of Zootia",
+    "Principality of Mimolot",
+    "Principality of Panim"
+  ],
+  "status": "pass"
+}

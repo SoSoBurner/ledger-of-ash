@@ -1,0 +1,30 @@
+{
+  "build_version": "V33_1",
+  "institution": "Frozen Quagmires",
+  "record_count": 1,
+  "npc_ids": [
+    "pela_field"
+  ],
+  "records": [
+    {
+      "npc_id": "pela_field",
+      "canonical_name": "Pela Field",
+      "polity": "The Principalities",
+      "office_or_role": "Coast Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as coast broker.",
+      "current_agenda": "Keep Frozen Quagmires workable through the obligations of coast broker while managing the immediate pressure of house rivalry in The Principalities."
+    }
+  ],
+  "roster_context": {
+    "identity": "Treacherous northern cold terrain shaping travel and conflict.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

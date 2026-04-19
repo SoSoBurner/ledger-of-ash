@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Market Row Guildhall",
+  "record_count": 3,
+  "npc_ids": [
+    "lady_elowen_shelk",
+    "nora_wren",
+    "pela_wren"
+  ]
+}

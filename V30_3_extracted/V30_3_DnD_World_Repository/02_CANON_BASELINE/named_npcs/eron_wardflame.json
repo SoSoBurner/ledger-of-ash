@@ -1,0 +1,93 @@
+{
+  "npc_id": "eron_wardflame",
+  "canonical_name": "Eron Wardflame",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "oathbound_defender",
+  "office_or_role": "Paladins",
+  "profession_discipline": "Paladins",
+  "grouping": "Classic Combat",
+  "polity": "Sheresh Communes",
+  "settlement": "Crystalline Vault Commune",
+  "locality_scope": "Crystalline Vault Commune, Sheresh",
+  "institutional_ties": [
+    "Sheresh Dome Authority"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "recognized_religious_office",
+  "public_reputation": "Dome-oath champion who guards evacuation corridors with almost liturgical severity.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Crystalline Vault Commune, Sheresh"
+    ],
+    "institutions": [
+      "Sheresh Dome Authority"
+    ],
+    "factions": []
+  },
+  "appearance": "Cold-ready layered gear, ward-conscious fastening, and containment-minded kit signal disciplined caution.",
+  "manner": "Speaks with guarded conviction, as if every promise is measured against an older oath. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a paladins still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of paladins in and around Crystalline Vault Commune, Sheresh, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Crystalline Vault Commune, Sheresh workable through the obligations of paladins while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must treat breach as both practical danger and moral failure, which makes compromise costly. Around Crystalline Vault Commune, Sheresh, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of paladins visibly slip.",
+  "relationship_refs": [
+    "rel_1268"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "moral_test",
+      "summary": "Working with Eron Wardflame can force the party to choose between expediency and the stricter obligations that govern Crystalline Vault Commune, Sheresh."
+    },
+    {
+      "hook_type": "rite_guard",
+      "summary": "Eron Wardflame can offer access or protection if the party preserves a rite, vow, or defended passage under pressure."
+    },
+    {
+      "hook_type": "sanctuary_or_threshold",
+      "summary": "Eron Wardflame needs help holding a threshold, escorting the vulnerable, or investigating a breach of sworn protection near Crystalline Vault Commune, Sheresh."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Eron Wardflame needs help with a problem in Crystalline Vault Commune, Sheresh that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Oath-signs, defensive bearing, and ritualized readiness make Eron Wardflame read as a sworn protector rather than a mere combatant.",
+  "encounter_context": {
+    "usual_environment": "Crystalline Vault Commune, Sheresh: gates, sacred thresholds, escorts, or defended chambers",
+    "who_seeks_them_out": [
+      "petitioners needing protection",
+      "ritual authorities",
+      "those seeking safe passage"
+    ],
+    "who_avoids_them": [
+      "oath-breakers",
+      "opportunists",
+      "casual violators of protected space"
+    ],
+    "interaction_anchor": "protection under rule or vow"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Eron Wardflame presents as Speaks with guarded conviction, as if every promise is measured against an older oath. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a paladins still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Paladins, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Eron Wardflame refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Paladins too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Eron Wardflame can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Eron Wardflame adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Eron Wardflame is Dome-oath champion who guards evacuation corridors with almost liturgical severity. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Paladins."
+}

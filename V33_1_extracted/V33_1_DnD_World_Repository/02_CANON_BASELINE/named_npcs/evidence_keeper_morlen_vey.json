@@ -1,0 +1,82 @@
+{
+  "npc_id": "evidence_keeper_morlen_vey",
+  "canonical_name": "Evidence Keeper Morlen Vey",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Evidence Keeper",
+  "profession_discipline": "evidence custodian",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Shirsh",
+  "settlement": "Shirshal",
+  "locality_scope": "Shirshal",
+  "institutional_ties": [
+    "Shirshal"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Custodian of evidence chains, sealed objects, and inquiry access inside Shirsh investigative authority.",
+  "linked_systems": {
+    "polities": [
+      "Shirsh"
+    ],
+    "localities": [
+      "Shirshal"
+    ],
+    "institutions": [
+      "Shirshal"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a evidence keeper whose work is visible through daily procedure, gatekeeping, and the practical pressures of Shirshal.",
+  "daily_function": "Performs the ongoing duties of evidence keeper in and around Shirshal, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Shirshal workable through the obligations of evidence keeper while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of evidence keeper credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Shirshal.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Evidence Keeper Morlen Vey can draw the party into a practical problem centered on Shirshal."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Evidence Keeper Morlen Vey becomes useful when the party needs access, explanation, or relief tied to the work of a evidence keeper."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "evidence_keeper_morlen_vey",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Evidence Keeper Morlen Vey is readable as a evidence keeper tied to Shirshal.",
+  "encounter_context": {
+    "usual_environment": "Shirshal: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "evidence keeper"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Evidence Keeper Morlen Vey presents as someone shaped by the duties of a evidence keeper and the daily pressures of Shirshal.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a evidence keeper, and proof that strangers will not make Shirshal harder to manage.",
+  "what_they_refuse": "Evidence Keeper Morlen Vey refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a evidence keeper too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Evidence Keeper Morlen Vey can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Evidence Keeper Morlen Vey adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Evidence Keeper Morlen Vey always knows more about Shirshal than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to evidence keeper duties in Shirshal."
+}

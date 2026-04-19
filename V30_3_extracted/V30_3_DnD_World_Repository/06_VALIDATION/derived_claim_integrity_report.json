@@ -1,0 +1,6 @@
+{
+  "build_version": "V30_3",
+  "claim_registry": "00_PACKAGE_MANIFEST/release_claim_registry.json",
+  "result": "all active user-visible claims mapped or intentionally editorial",
+  "status": "pass"
+}

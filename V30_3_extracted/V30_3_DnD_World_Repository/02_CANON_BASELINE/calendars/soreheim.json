@@ -1,0 +1,45 @@
+{
+  "civilization": "Soreheim Alliance",
+  "day_divisions": [
+    "24-hour labor and rest structure"
+  ],
+  "week_cycle": [
+    "24-day first week",
+    "24-day second week",
+    "24-day third week"
+  ],
+  "months_per_year": 5,
+  "days_per_month": 72,
+  "intercalary_period": null,
+  "days_per_year": 360,
+  "month_examples": [
+    "Ignis",
+    "Terra"
+  ],
+  "festival_logic": [
+    "12th day emphasizes ambition presentations.",
+    "72nd day celebrates communal progress.",
+    "Festival of Advancement anchors the midyear."
+  ],
+  "labor_bindings": [
+    "Labor shifts and communal contribution are synchronized through long civic cycles.",
+    "Production quotas and regional achievement presentations structure planning."
+  ],
+  "ritual_bindings": [
+    "Morning offerings to Vonalzo.",
+    "Evening reflection honors Eloljaro.",
+    "Ambition and achievement festivals reinforce governance."
+  ],
+  "travel_bindings": [
+    "Terraforming, rail, and caravan schedules follow long-cycle planning.",
+    "Axial flips and 73-day realignments affect seasonal transitions."
+  ],
+  "legal_bindings": [
+    "Regional reporting and contribution review align with cycle checkpoints."
+  ],
+  "sources": [
+    "calendars_world",
+    "soreheim_review",
+    "pantheon_story"
+  ]
+}

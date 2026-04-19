@@ -1,0 +1,30 @@
+{
+  "name": "Great House Citadel Circle",
+  "type": "Psanan house-governance institution",
+  "truth_layer": "conservative_inference",
+  "summary": "The public institutional ring through which Psanan’s Great Houses negotiate precedence, obligation, and production.",
+  "day_to_day": "Hosts house councils, disputes over precedence, and coordination of major civic or martial labor.",
+  "who_works_there": "House clerks, heralds, oath keepers, matriarchal envoys, security retainers.",
+  "who_uses_it": "Great Houses, their sworn workers, and parties entangled in house obligations.",
+  "authority": "Can shape precedence, sponsorship, and public obligation, though house rivalry persists.",
+  "public_manifestation": "Citadel councils, banners, escorted processions, posted house rulings.",
+  "conflict_or_bottleneck": "Institutional unity weakens whenever house competition turns shortages into leverage.",
+  "party_actions": [
+    "carry a house message",
+    "mediate a rivalry",
+    "secure entry to a council",
+    "investigate a broken oath"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "ashra_cindercrest"
+  ],
+  "npc_interfaces": [
+    "ashra_cindercrest"
+  ]
+}

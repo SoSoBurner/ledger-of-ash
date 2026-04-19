@@ -1,0 +1,23 @@
+{
+  "build_version": "V30_3",
+  "rumors": [
+    {
+      "locality": "Harvest Keep",
+      "rumor": "Spoilage reports are being exaggerated to move reserve prices."
+    },
+    {
+      "locality": "Iron Ledger Ward",
+      "rumor": "Someone is altering bond tallies before they reach magistrate review."
+    },
+    {
+      "locality": "Panim Haven",
+      "rumor": "A false promise-seller has attached premium afterlife guarantees to common rites."
+    },
+    {
+      "locality": "Mimolot Academy",
+      "rumor": "Restricted diagrams are leaving the Academy in copied lecture packets."
+    }
+  ],
+  "generated_at": "2026-04-18T03:13:23Z",
+  "status": "pass"
+}

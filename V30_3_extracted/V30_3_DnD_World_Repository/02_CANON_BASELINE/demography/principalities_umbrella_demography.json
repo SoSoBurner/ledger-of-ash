@@ -1,0 +1,256 @@
+{
+  "name": "The Principalities",
+  "object_type": "umbrella_demography_record",
+  "build_version": "V30_3",
+  "truth_layer": "source_backed_canon_baseline",
+  "resolution_status": "resolved world-standard roster",
+  "main_civilizational_base": [
+    "Humans",
+    "Elves",
+    "Half-Elves",
+    "Yuan-Ti"
+  ],
+  "secondary_non_defining": [
+    "Gnomes",
+    "Dragonborn",
+    "Tieflings",
+    "Changelings",
+    "Kalashtar",
+    "Shifters",
+    "Genasi",
+    "Firbolgs",
+    "Tabaxi",
+    "Tritons",
+    "Satyrs",
+    "Tortles"
+  ],
+  "support_classification": {
+    "main_civilizational_base": "corrected_canon",
+    "secondary_non_defining": "reconciled_canon"
+  },
+  "source_ids": [
+    "principalities"
+  ],
+  "canon_note": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+  "claim_level_support": {
+    "Humans": {
+      "population_status": "dominant",
+      "support_type": "direct_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::humans",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Elves": {
+      "population_status": "dominant",
+      "support_type": "direct_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::elves",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Half-Elves": {
+      "population_status": "dominant",
+      "support_type": "direct_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::half_elves",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Yuan-Ti": {
+      "population_status": "dominant",
+      "support_type": "direct_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::yuan_ti",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Gnomes": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::gnomes",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Dragonborn": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::dragonborn",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Tieflings": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::tieflings",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Changelings": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::changelings",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Kalashtar": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::kalashtar",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Shifters": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::shifters",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Genasi": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::genasi",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Firbolgs": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::firbolgs",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Tabaxi": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::tabaxi",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Tritons": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::tritons",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Satyrs": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::satyrs",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    },
+    "Tortles": {
+      "population_status": "secondary",
+      "support_type": "reconciled_canon",
+      "rationale": "Umbrella-level demographic canon for the Principalities is explicit in prior_release and should be used as the top-level demographic interpretation unless a narrower polity record overrides it.",
+      "claim_id": "claim::principalities_umbrella_demography::tortles",
+      "truth_layer": "canon_claim",
+      "source_object_ids": [
+        "principalities"
+      ],
+      "source_passage_ids": []
+    }
+  },
+  "canonical_roster": [
+    "Humans",
+    "Elves",
+    "Half-Elves",
+    "Yuan-Ti",
+    "Gnomes",
+    "Dragonborn",
+    "Tieflings",
+    "Changelings",
+    "Kalashtar",
+    "Shifters",
+    "Genasi",
+    "Firbolgs",
+    "Tabaxi",
+    "Tritons",
+    "Satyrs",
+    "Tortles"
+  ],
+  "dominant_populations": [
+    "Humans",
+    "Elves",
+    "Half-Elves",
+    "Yuan-Ti"
+  ],
+  "secondary_populations": [
+    "Gnomes",
+    "Dragonborn",
+    "Tieflings",
+    "Changelings",
+    "Kalashtar",
+    "Shifters",
+    "Genasi",
+    "Firbolgs",
+    "Tabaxi",
+    "Tritons",
+    "Satyrs",
+    "Tortles"
+  ],
+  "schema_version": "prior_release.demography_record.v1",
+  "repository_id": "V30_3_DnD_World_Repository",
+  "object_id": "principalities_umbrella_demography",
+  "lineage_policy": "Historical version references are confined to explicit lineage and supersession zones.",
+  "source_authority_mode": "claim_level_traceable"
+}

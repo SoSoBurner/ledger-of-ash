@@ -1,0 +1,14 @@
+{
+  "name": "Duneshade Outpost",
+  "seasonal_change": "heat spikes and southern predator pressure can turn the outpost from checkpoint to siege posture within days.",
+  "truth_layer": "reconciled_canon",
+  "seasonal_effects": [
+    "heat spikes and southern predator pressure can turn the outpost from checkpoint to siege posture within days.",
+    "Public schedules, prices, crowding, and enforcement intensity all change before locals bother explaining why.",
+    "Ceremony, supply pressure, and route reliability do not all peak at the same time, forcing local adaptation."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

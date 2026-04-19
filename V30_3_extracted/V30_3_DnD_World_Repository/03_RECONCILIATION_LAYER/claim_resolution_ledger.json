@@ -1,0 +1,5 @@
+{
+  "build_version": "V30_3",
+  "claim_resolution": "All active release claims have been normalized into registry-backed entries under 00_PACKAGE_MANIFEST/release_claim_registry.json",
+  "status": "pass"
+}

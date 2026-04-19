@@ -1,0 +1,14 @@
+{
+  "name": "Guildheart Hub",
+  "pressure": [
+    "legacy Mal claims",
+    "smuggling",
+    "Red Hood rumor presence",
+    "imperial oversight"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

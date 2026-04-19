@@ -1,0 +1,20 @@
+{
+  "name": "Shelkopolis",
+  "approach": "Pale stone walls rise from meadows with golden accents, indigo and emerald banners, and flower-lined roads watched by bright-plumed Roadwardens.",
+  "truth_layer": "direct_canon",
+  "hierarchy": {
+    "polity": "Principality of Shelk",
+    "territory": "House Shelk",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Largest metropolis of Shelk and one of the major urban engines of the Principalities, defined by fashion, trade, refined civic order, and visible devotional plurality.",
+    "House Shelk nobility",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog",
+    "principality_shelk"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Market Row Guildhall",
+  "parent_district": "Verdant Row District",
+  "type": "guildhall",
+  "summary": "Collaborative artisan hall with design protection and economic-crime exposure.",
+  "npc_interfaces": [
+    "lady_elowen_shelk",
+    "Foreman Lyra Duskstitch",
+    "nora_wren",
+    "pela_wren"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "nora_wren",
+    "pela_wren"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

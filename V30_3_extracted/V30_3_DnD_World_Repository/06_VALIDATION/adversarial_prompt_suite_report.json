@@ -1,0 +1,16 @@
+{
+  "build_version": "V30_3",
+  "tested_categories": [
+    "alias_confusion",
+    "wrong_polity_lookup",
+    "outdated_title_lookup",
+    "ambiguous_locality_prompt",
+    "short_summary_flattening",
+    "contradiction_bait",
+    "player_vs_gm_divergence",
+    "route_travel_simplification"
+  ],
+  "hard_failures": 0,
+  "silent_false_harmonizations": 0,
+  "status": "pass"
+}

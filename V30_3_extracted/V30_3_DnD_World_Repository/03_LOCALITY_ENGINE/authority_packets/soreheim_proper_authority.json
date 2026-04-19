@@ -1,0 +1,17 @@
+{
+  "name": "Soreheim Proper",
+  "visible_power": [
+    "Giant Council",
+    "Cloud Giant governance cadres",
+    "tower tribunals",
+    "war-production ministries"
+  ],
+  "law_context": [
+    "communal ownership and restorative justice enforced through central tower review",
+    "domestic patronage in other regions never supersedes Soreheim Proper decree"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

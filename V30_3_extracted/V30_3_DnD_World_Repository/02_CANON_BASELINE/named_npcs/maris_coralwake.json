@@ -1,0 +1,89 @@
+{
+  "npc_id": "maris_coralwake",
+  "canonical_name": "Maris Coralwake",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "religious_officiant",
+  "office_or_role": "Shrine Caretaker",
+  "profession_discipline": "Shrine Caretaker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Cosmouth",
+  "settlement": "Cosmoria",
+  "locality_scope": "Cosmoria",
+  "institutional_ties": [
+    "Cosmoria"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Cosmoria"
+    ],
+    "institutions": [
+      "Cosmoria"
+    ],
+    "factions": []
+  },
+  "appearance": "Maritime ritual detail, polished devotional tokens, and port-worthy fabrics tie worship to tide, memory, and exchange.",
+  "manner": "Balances comfort with correction, sounding gentle until rite, taboo, or consequence is threatened. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of shrine caretaker in and around Cosmoria, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cosmoria workable through the obligations of shrine caretaker while managing the immediate pressure of storm weather in Cosmouth.",
+  "hidden_pressure": "Must hold ritual legitimacy, public comfort, and doctrinal integrity together without letting strain become visible too early. Around Cosmoria, that usually means carrying storm weather, trade vulnerability, archive and tax discipline without letting the role of shrine caretaker visibly slip.",
+  "relationship_refs": [
+    "rel_1097",
+    "rel_1101",
+    "rel_1105",
+    "rel_1106",
+    "rel_1107"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "pastoral_request",
+      "summary": "Maris Coralwake may ask the party to retrieve someone, something, or some truth before a rite can proceed safely."
+    },
+    {
+      "hook_type": "doctrinal_complication",
+      "summary": "Any alliance with Maris Coralwake can expose the party to taboo, doctrine, or institutional expectation centered on Cosmoria."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "principalities"
+  ],
+  "compatibility_interface_id": "maris_coralwake",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Ritual dress, offering marks, and devotional cadence make Maris Coralwake immediately legible as a spiritual intermediary. In Cosmoria, this lands inside a public field already shaped by House Cosmouth.",
+  "encounter_context": {
+    "usual_environment": "Cosmoria: shrines, cathedrals, funerary halls, or ritual precincts",
+    "who_seeks_them_out": [
+      "mourners",
+      "petitioners",
+      "those seeking rite or absolution"
+    ],
+    "who_avoids_them": [
+      "the openly impious",
+      "ritual disturbers",
+      "those asking for sacred shortcuts"
+    ],
+    "interaction_anchor": "ritual mediation or doctrinal reassurance"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Maris Coralwake presents as Balances comfort with correction, sounding gentle until rite, taboo, or consequence is threatened. In Cosmouth, that reads as someone maritime, urbane, and commercially fluid, balancing archive-minded memory with port pragmatism, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Shrine Caretaker, and proof that strangers will not create avoidable noise in Principality of Cosmouth.",
+  "what_they_refuse": "Maris Coralwake refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Shrine Caretaker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Maris Coralwake can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Maris Coralwake adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Maris Coralwake is Known locally through day-to-day work as shrine caretaker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Shrine Caretaker."
+}

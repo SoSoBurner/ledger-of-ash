@@ -1,0 +1,83 @@
+{
+  "npc_id": "quillan_quillmark",
+  "canonical_name": "Quillan Quillmark",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Hostler",
+  "profession_discipline": "Hostler",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Mimolot",
+  "settlement": "Mimolot Academy",
+  "locality_scope": "Mimolot Academy",
+  "institutional_ties": [
+    "Mimolot Academy"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as hostler.",
+  "linked_systems": {
+    "polities": [
+      "Mimolot"
+    ],
+    "localities": [
+      "Mimolot Academy"
+    ],
+    "institutions": [
+      "Mimolot Academy"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Mimolot, that reads as someone scholarly, proprietary, and intellectually guarded, weighing knowledge against access and control, and the habits of a hostler still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of hostler in and around Mimolot Academy, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Mimolot Academy workable through the obligations of hostler while managing the immediate pressure of tariff tensions in Mimolot.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Mimolot Academy, that usually means carrying tariff tensions, book tariff and magical conduct, institutional scrutiny without letting the role of hostler visibly slip.",
+  "relationship_refs": [
+    "rel_0531",
+    "rel_1186"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Quillan Quillmark needs help with a problem in Mimolot Academy that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Quillan Quillmark can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities"
+  ],
+  "compatibility_interface_id": "quillan_quillmark",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Quillan Quillmark carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Mimolot Academy, this lands inside a public field already shaped by House Mimolot.",
+  "encounter_context": {
+    "usual_environment": "Mimolot Academy: the part of Mimolot Academy where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Quillan Quillmark presents as Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Mimolot, that reads as someone scholarly, proprietary, and intellectually guarded, weighing knowledge against access and control, and the habits of a hostler still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Hostler, and proof that strangers will not create avoidable noise in Principality of Mimolot.",
+  "what_they_refuse": "Quillan Quillmark refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Hostler too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Quillan Quillmark can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Quillan Quillmark adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Quillan Quillmark is Known locally through day-to-day work as hostler. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Hostler."
+}

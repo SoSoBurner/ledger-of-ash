@@ -1,0 +1,96 @@
+{
+  "npc_id": "vera_wren",
+  "canonical_name": "Vera Wren",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Door Warden",
+  "profession_discipline": "Door Warden",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "The Rusted Loom Tavern",
+  "locality_scope": "The Rusted Loom Tavern",
+  "institutional_ties": [
+    "The Rusted Loom Tavern"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as door warden.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "The Rusted Loom Tavern"
+    ],
+    "institutions": [
+      "The Rusted Loom Tavern"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a door warden still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of door warden in and around The Rusted Loom Tavern, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep The Rusted Loom Tavern workable through the obligations of door warden while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must notice trouble early enough that force remains legitimate rather than merely reactive. Around The Rusted Loom Tavern, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of door warden visibly slip.",
+  "relationship_refs": [
+    "rel_0481",
+    "rel_0490",
+    "rel_0498",
+    "rel_0505",
+    "rel_0511",
+    "rel_0516",
+    "rel_0520",
+    "rel_0523",
+    "rel_0525",
+    "rel_0527",
+    "rel_1193"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Vera Wren can draw the party into contraband, false papers, or a suspicious cargo problem tied to The Rusted Loom Tavern."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Vera Wren may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "vera_wren",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Uniform, posture, and the way others make room mark Vera Wren as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "The Rusted Loom Tavern: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Vera Wren presents as Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a door warden still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Door Warden, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Vera Wren refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Door Warden too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Vera Wren can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Vera Wren adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Vera Wren is Known locally through day-to-day work as door warden. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Door Warden."
+}

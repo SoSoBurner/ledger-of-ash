@@ -1,0 +1,94 @@
+{
+  "npc_id": "daska_veilrun",
+  "canonical_name": "Daska Veilrun",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Scouts",
+  "profession_discipline": "Scouts",
+  "grouping": "Stealth & Precision",
+  "polity": "Sheresh Communes",
+  "settlement": "Aurora Meadows Domeway",
+  "locality_scope": "Aurora Meadows Domeway, Sheresh",
+  "institutional_ties": [
+    "Nomdara Caravan"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Exterior scout trusted to read flashmelt sheen before a convoy commits.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Aurora Meadows Domeway, Sheresh"
+    ],
+    "institutions": [
+      "Nomdara Caravan"
+    ],
+    "factions": []
+  },
+  "appearance": "Route-ready clothing, travel wear, and movement-focused gear make timing and distance part of their public look.",
+  "manner": "Thinks in movement, timing, and obstacle management, treating delay as a concrete threat. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a scouts still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of scouts in and around Aurora Meadows Domeway, Sheresh, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Aurora Meadows Domeway, Sheresh workable through the obligations of scouts while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must keep timing, safety, and route credibility aligned when any disruption threatens all three. Around Aurora Meadows Domeway, Sheresh, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of scouts visibly slip.",
+  "relationship_refs": [
+    "rel_1240",
+    "rel_1245",
+    "rel_1246",
+    "rel_1247",
+    "rel_1248",
+    "rel_1294"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "travel_complication",
+      "summary": "Daska Veilrun can pull the party into chokepoints, timing failures, or rival claims over how movement should happen."
+    },
+    {
+      "hook_type": "wayfinding_information",
+      "summary": "Daska Veilrun will share route intelligence, hidden timing, or safer alternatives if the party proves useful under travel pressure."
+    },
+    {
+      "hook_type": "route_problem",
+      "summary": "Daska Veilrun needs help reading a blocked path, escorting traffic, or reopening safe movement through Aurora Meadows Domeway, Sheresh."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Daska Veilrun lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Aurora Meadows Domeway, Sheresh: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Daska Veilrun presents as Thinks in movement, timing, and obstacle management, treating delay as a concrete threat. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a scouts still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Scouts, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Daska Veilrun refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Scouts too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Daska Veilrun can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Daska Veilrun adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Daska Veilrun is Exterior scout trusted to read flashmelt sheen before a convoy commits. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Scouts."
+}

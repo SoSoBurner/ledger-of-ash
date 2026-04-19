@@ -1,0 +1,234 @@
+{
+  "name": "Ithtananalor",
+  "region": "Principality of Roaz",
+  "capital_class": true,
+  "truth_layer": "conservative_inference",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "innkeeper",
+      "display_name": "Ithtananalor Innkeeper",
+      "role": "Innkeeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Innkeeper is the locality-facing innkeeper interface in Ithtananalor, useful for provides lodging, local gossip, traveler warnings, and emergency favors."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "market_clerk",
+      "display_name": "Ithtananalor Market Clerk",
+      "role": "Market Clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Market Clerk is the locality-facing market clerk interface in Ithtananalor, useful for manages queues, forms, stall assignments, and the practical memory of who came through."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "shrine_attendant",
+      "display_name": "Ithtananalor Shrine Attendant",
+      "role": "Shrine Attendant",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Shrine Attendant is the locality-facing shrine attendant interface in Ithtananalor, useful for maintains offerings, notices breaches, and guides minor local rites."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "porter",
+      "display_name": "Ithtananalor Porter",
+      "role": "Porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Porter is the locality-facing porter interface in Ithtananalor, useful for moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "scribe",
+      "display_name": "Ithtananalor Scribe",
+      "role": "Scribe",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Scribe is the locality-facing scribe interface in Ithtananalor, useful for records transactions, testimony, obligations, and quiet corrections that later decide public outcomes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "labor_foreman",
+      "display_name": "Ithtananalor Labor Foreman",
+      "role": "Labor Foreman",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Labor Foreman is the locality-facing labor foreman interface in Ithtananalor, useful for coordinates shifts, crews, protection, and blame when practical work goes wrong."
+    }
+  ],
+  "street_level_faction_presence": {
+    "visible_factions": [
+      "Office of Roazian Enforcement",
+      "Iron Accord",
+      "House Roaz"
+    ],
+    "what_they_look_like_in_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "who_benefits": "Those who know the rules, fulfill obligations, or ride aligned patronage tend to benefit first.",
+    "who_fears_them": "Debtors, irregular operators, exposed workers, and those with fragile standing often fear enforcement or scrutiny most."
+  },
+  "social_norm_surface": {
+    "greetings": [
+      "Direct acknowledgment and role-first introductions are favored over ornament."
+    ],
+    "hospitality_rules": [
+      "Hospitality is structured, documented, and often conditional on lawful status or known purpose."
+    ],
+    "insult_triggers": [
+      "mocking the law",
+      "careless handling of controlled magic",
+      "wasting state labor or strategic resources"
+    ],
+    "taboo_topics": [
+      "open praise of unlawful magic",
+      "casual discussion of covert enforcement methods"
+    ],
+    "faith_etiquette": [
+      "quiet respect in civic-religious spaces; spectacle is less valued than discipline"
+    ],
+    "suspicious_behavior": [
+      "evading checkpoints",
+      "unlicensed artifacts",
+      "unaccounted cargo or notes"
+    ],
+    "outsider_mistakes": [
+      "mistaking order for trust",
+      "speaking too freely near enforcement halls"
+    ]
+  },
+  "ordinary_life_surface": {
+    "what_people_do_all_day": "Daily life is shaped by shifts, inspections, filings, quarry traffic, foundry schedules, and legal process.",
+    "what_places_feel_like": "Air carries coal, oil, hot iron, damp paper, and ration kitchens. Streets sound like boots, carts, hammers, whistles, and ordered commands.",
+    "home_and_guest_norms": "Homes are plainer and more compartmentalized by class, with secure storage, work tools, and practical lighting prioritized over display."
+  },
+  "rumor_pool": {
+    "public_rumors": [
+      "People say something in Ithtananalor has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Ithtananalor left someone unpaid or publicly embarrassed."
+    ],
+    "half_true_rumors": [
+      "A respected local figure in Ithtananalor is said to be protecting someone they should have exposed."
+    ],
+    "faction_planted_rumors": [
+      "A faction-friendly story in Ithtananalor insists that harsher oversight is the only thing keeping things from collapse."
+    ],
+    "religious_warnings": [
+      "Some locals in Ithtananalor treat current unease as a warning rather than ordinary trouble."
+    ],
+    "trade_concerns": [
+      "Freight, labor, or supply movement around Ithtananalor is said to be more fragile than the ledgers suggest."
+    ],
+    "criminal_whispers": [
+      "Quiet talk in Ithtananalor says favors can still be bought if one knows who keeps the informal door open."
+    ],
+    "historical_misconceptions": [
+      "Older residents of Ithtananalor repeat a version of local history that does not fully match corrective or official accounts."
+    ],
+    "contradiction_aware_myth_versions": [
+      {
+        "claim": "Older residents of Ithtananalor repeat a version of local history that does not fully match corrective or official accounts.",
+        "truth_layer": "public_belief_record"
+      }
+    ]
+  },
+  "conflict_surfaces": [
+    "law versus survival",
+    "security versus privacy",
+    "innovation versus containment"
+  ],
+  "travel_and_transition_texture": {
+    "feel": "Road entry into Roaz feels increasingly measured: more checkpoints, stronger document culture, and visible consequence for evasion.",
+    "checkpoint_behavior": "Checkpoint, gate, dock, or entry custom reveals who is trusted, who is processed, and who is delayed.",
+    "caravan_or_route_custom": "Route handoff norms matter; escorts, seals, witnesses, or weather-reading often determine who moves next.",
+    "regional_handoff_custom": "Responsibility for travelers and goods visibly changes at territorial boundaries."
+  },
+  "text_rpg_ready_locality_hooks": {
+    "who_you_talk_to_first": "Ithtananalor Innkeeper",
+    "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+    "public_notice_drawing_attention": "A new notice in Ithtananalor is drawing comment because it changes someone’s movement, cost, or safety.",
+    "visible_tension": "People in Ithtananalor are acting as though a pressure everyone knows about has become harder to ignore.",
+    "private_trouble": "Someone respectable in Ithtananalor is privately entangled in an obligation they cannot publicly explain.",
+    "one_hour_entanglement": "A newcomer in Ithtananalor could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+  },
+  "relationship_and_reputation_consequences": {
+    "trust": "People are remembered for reliability, lawful precision, and whether they create risk for their associates.",
+    "what_causes_good_memory": "Keeping one’s word under visible pressure, showing correct public respect, and not creating avoidable trouble.",
+    "what_causes_bad_memory": "Public embarrassment, broken obligations, opportunism during crisis, and forcing others to absorb avoidable risk.",
+    "what_favors_matter": "Timely introductions, queue priority, sealed testimony, repair help, escorting, storage, ritual guidance, and quiet omission when deserved."
+  },
+  "scene_starter_inventory": [
+    "overheard dispute at a public threshold",
+    "public ceremony under pressure",
+    "missing person or missing ledger concern",
+    "labor stoppage or delayed shipment",
+    "funeral procession or shrine petition",
+    "bureaucratic friction with real stakes",
+    "trade dispute with witnesses",
+    "faction test of loyalty or usefulness",
+    "strange celestial sign interpreted three different ways"
+  ],
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "named_npc_refs": [],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "ordinary_interface_surface": [
+    {
+      "interface_type": "local_role",
+      "ref": "innkeeper",
+      "display_name": "Ithtananalor Innkeeper",
+      "role": "Innkeeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Innkeeper is the locality-facing innkeeper interface in Ithtananalor, useful for provides lodging, local gossip, traveler warnings, and emergency favors."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "market_clerk",
+      "display_name": "Ithtananalor Market Clerk",
+      "role": "Market Clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Market Clerk is the locality-facing market clerk interface in Ithtananalor, useful for manages queues, forms, stall assignments, and the practical memory of who came through."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "shrine_attendant",
+      "display_name": "Ithtananalor Shrine Attendant",
+      "role": "Shrine Attendant",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Shrine Attendant is the locality-facing shrine attendant interface in Ithtananalor, useful for maintains offerings, notices breaches, and guides minor local rites."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "porter",
+      "display_name": "Ithtananalor Porter",
+      "role": "Porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Porter is the locality-facing porter interface in Ithtananalor, useful for moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "scribe",
+      "display_name": "Ithtananalor Scribe",
+      "role": "Scribe",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Scribe is the locality-facing scribe interface in Ithtananalor, useful for records transactions, testimony, obligations, and quiet corrections that later decide public outcomes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "labor_foreman",
+      "display_name": "Ithtananalor Labor Foreman",
+      "role": "Labor Foreman",
+      "truth_layer": "conservative_inference",
+      "summary": "Ithtananalor Labor Foreman is the locality-facing labor foreman interface in Ithtananalor, useful for coordinates shifts, crews, protection, and blame when practical work goes wrong."
+    }
+  ]
+}

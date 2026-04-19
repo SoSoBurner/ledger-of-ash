@@ -1,0 +1,35 @@
+{
+  "object_id": "sheresh_communes_demography_runtime_packet",
+  "build_version": "V30_3",
+  "truth_layer": "runtime_derivative",
+  "derived_from": [
+    "sheresh_communes_demography"
+  ],
+  "canon_source_objects": [
+    "sheresh_communes_demography"
+  ],
+  "claim_ids_used": [
+    "claim::sheresh_communes_demography::humans",
+    "claim::sheresh_communes_demography::elves",
+    "claim::sheresh_communes_demography::halflings",
+    "claim::sheresh_communes_demography::half_elves"
+  ],
+  "polity": "Sheresh Communes",
+  "dominant_races": [
+    "Humans",
+    "Elves",
+    "Halflings"
+  ],
+  "secondary_races": [
+    "Half-Elves"
+  ],
+  "excluded_or_shunned_groups": [],
+  "visible_public_consequences": [
+    "Sheresh Communes public life visibly reflects the dominant populations listed in canon.",
+    "Secondary populations appear as durable resident blocs rather than polity-defining majorities."
+  ],
+  "institutional_visibility": "Institutions and street-level expectations align with the canonical demographic balance.",
+  "adjacency_influence": "Humans, Elves, and Halflings are resolved as the core, with Half-Elves retained as a conservative adjacency-based secondary race.",
+  "visitor_facing_observations": "A visitor would notice the dominant bloc first, then the stable secondary populations and any explicit exclusions or shunned groups.",
+  "setting_use_summary": "Use Sheresh Communes with the roster exactly as resolved in canon; do not broaden or soften exclusions without explicit corrective release."
+}

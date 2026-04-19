@@ -1,0 +1,27 @@
+{
+  "name": "House of Shelk Estate",
+  "parent_district": "Aurora Heights District",
+  "type": "government dwelling",
+  "summary": "Noble estate of House Shelk with gardens, artifacts, and strategic private quarters.",
+  "npc_interfaces": [
+    "lady_isabella_shelk",
+    "lord_darius_shelk",
+    "lady_rosalind_shelk",
+    "thalen_warderose",
+    "ilyra_aurorine",
+    "nyelle_threadmere"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "thalen_warderose",
+    "ilyra_aurorine",
+    "nyelle_threadmere"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

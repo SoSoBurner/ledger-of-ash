@@ -1,0 +1,30 @@
+{
+  "build_version": "V33_1",
+  "institution": "Brineland",
+  "record_count": 1,
+  "npc_ids": [
+    "jalen_field"
+  ],
+  "records": [
+    {
+      "npc_id": "jalen_field",
+      "canonical_name": "Jalen Field",
+      "polity": "The Principalities",
+      "office_or_role": "Regional Chronicler",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as regional chronicler.",
+      "current_agenda": "Keep Brineland workable through the obligations of regional chronicler while managing the immediate pressure of house rivalry in The Principalities."
+    }
+  ],
+  "roster_context": {
+    "identity": "Large inland sea bordered by multiple houses and home to floating cities.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

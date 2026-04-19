@@ -1,0 +1,88 @@
+{
+  "flooding_and_canal_failure": {
+    "adaptations": [
+      "elevated granaries",
+      "inspection gates",
+      "embanked labor duty",
+      "paperwork surges after storms"
+    ],
+    "affected_regions": [
+      "Principality Of Zootia",
+      "Principality Of Shelk"
+    ],
+    "law_response": "Temporary movement restrictions and suspicion toward unregistered cargo.",
+    "ritual_response": "blessing of gates, public blame rituals, oath renewals for water labor teams"
+  },
+  "cold_and_dome_breach": {
+    "adaptations": [
+      "airlock discipline",
+      "heat ration schedules",
+      "sealed corridor etiquette",
+      "communal repair brigades"
+    ],
+    "affected_regions": [
+      "Sheresh Communes"
+    ],
+    "law_response": "harsh penalties for negligence or unauthorized opening",
+    "ritual_response": "collective light rites, dead-of-season mourning, thermal stewardship vows"
+  },
+  "archive_leakage_and_knowledge_smuggling": {
+    "adaptations": [
+      "copy permits",
+      "restricted shelves",
+      "tariff archives",
+      "witnessed transcription"
+    ],
+    "affected_regions": [
+      "Principality Of Mimolot",
+      "The Union"
+    ],
+    "law_response": "seizure, fines, reputational quarantine",
+    "ritual_response": "purification of restricted rooms and public language about contamination of order"
+  },
+  "route_banditry_and_smuggling": {
+    "adaptations": [
+      "escort culture",
+      "safe stop chains",
+      "bonded manifests",
+      "roadwarden signaling"
+    ],
+    "affected_regions": [
+      "The Principalities",
+      "Principality Of Roaz",
+      "Soreheim Alliance",
+      "Psanan"
+    ],
+    "law_response": "checkpoint scrutiny and reprisal raids",
+    "ritual_response": "departure oaths, memorial posts, public blessing of freight"
+  },
+  "industrial_accident_and_foundry_stress": {
+    "adaptations": [
+      "workshop bells",
+      "safety chants",
+      "staggered shifts",
+      "injury guild funds"
+    ],
+    "affected_regions": [
+      "The Union",
+      "Ashforge zones"
+    ],
+    "law_response": "shutdown threats, bargaining surges, contract review",
+    "ritual_response": "names of the burned read publicly to preserve bargaining legitimacy"
+  },
+  "succession_and_registry_crisis": {
+    "adaptations": [
+      "duplicate ledgers",
+      "sealed witnesses",
+      "estate steward chains",
+      "private arbitrators"
+    ],
+    "affected_regions": [
+      "Principality Of Shelk",
+      "Principality Of Shirsh",
+      "The Principalities"
+    ],
+    "law_response": "inheritance freezes and emergency review of claims",
+    "ritual_response": "household mourning used to stabilize legitimacy theater"
+  }
+}

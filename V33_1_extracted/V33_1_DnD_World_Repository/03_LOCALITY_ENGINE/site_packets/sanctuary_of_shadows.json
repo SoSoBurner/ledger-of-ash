@@ -1,0 +1,40 @@
+{
+  "name": "Sanctuary of Shadows",
+  "parent_district": "Ironspool Ward District",
+  "type": "hidden temple",
+  "approach": "Small temple to Felelem.",
+  "inside": "Small temple to Felelem with charms and whispered superstitions.",
+  "who_belongs": [
+    "staff",
+    "petitioners",
+    "customers",
+    "clergy",
+    "guild members"
+  ],
+  "who_is_out_of_place": [
+    "blasphemers",
+    "ritual disruptors",
+    "harmful magic users"
+  ],
+  "expected_behavior": [
+    "respect the function of the site",
+    "follow local decorum"
+  ],
+  "visible_power": [
+    "site stewards"
+  ],
+  "economy_or_function": "hidden temple",
+  "law_context": [],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "local_interface_role": "shrine_attendant",
+  "who_you_meet": "Sanctuary of Shadows Attendant",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "shrine_attendant",
+    "display_name": "Sanctuary of Shadows Attendant",
+    "truth_layer": "conservative_inference"
+  }
+}

@@ -1,0 +1,526 @@
+{
+  "build_version": "V33_1",
+  "file_name": "world_question_answering_resolution_contract.json",
+  "recommended_repo_path": "01_CANON_GOVERNANCE/world_question_answering_resolution_contract.json",
+  "purpose": "Standardize how LLMs and code answer repository-grounded worldsetting questions for places, peoples, polities, factions, religions, routes, conflicts, and hidden truths without inventing unsupported canon.",
+  "design_goals": [
+    "Route natural-language questions to the correct canon layers and packet families.",
+    "Prefer direct canon, then corrected canon, then reconciled canon, then conservative inference.",
+    "Return usable answers even when evidence is partial, while exposing uncertainty explicitly.",
+    "Prevent omission of required categories when generating inspection packets or direct answers.",
+    "Support both machine retrieval and human-readable response composition."
+  ],
+  "depends_on_existing_contracts": [
+    "01_CANON_GOVERNANCE/source_hierarchy.json",
+    "01_CANON_GOVERNANCE/truth_layer_model.json",
+    "01_CANON_GOVERNANCE/derivation_rules.json",
+    "01_CANON_GOVERNANCE/world_inspection_packet_contract.json",
+    "01_CANON_GOVERNANCE/locality_packet_contract.json",
+    "01_CANON_GOVERNANCE/reference_view_usability_contract.json"
+  ],
+  "authority_order": [
+    "direct_canon",
+    "corrected_canon",
+    "reconciled_canon",
+    "conservative_inference",
+    "unresolved_contradiction"
+  ],
+  "truth_zone_preference": [
+    "02_CANON_BASELINE",
+    "03_RECONCILIATION_LAYER",
+    "04_CONSERVATIVE_INFERENCE",
+    "11_REFERENCE_VIEWS/current_release",
+    "00_PACKAGE_MANIFEST"
+  ],
+  "entity_resolution_rules": {
+    "resolve_target_before_answering": true,
+    "target_priority_order": [
+      "specific inside or district",
+      "specific locality",
+      "route cluster or corridor",
+      "polity or macroregion",
+      "world or cosmology scope"
+    ],
+    "inheritance_rule": "If a target packet is incomplete, inherit upward from parent locality, then parent polity, then world baseline, but never overwrite stronger local canon.",
+    "alias_resolution_required": true,
+    "minimum_resolved_identity_fields": [
+      "canonical_name",
+      "object_type",
+      "parent_region",
+      "canonical_path_or_packet_family"
+    ]
+  },
+  "question_family_router": {
+    "about_place": {
+      "maps_to_world_inspection_section": "about_place",
+      "keywords": [
+        "where is",
+        "what does it look like",
+        "known for",
+        "how old",
+        "who built",
+        "who lives here",
+        "architecture",
+        "materials",
+        "climate",
+        "surrounding land",
+        "natural resources",
+        "dangers",
+        "landmarks",
+        "frontier",
+        "trade hub",
+        "heartland",
+        "border"
+      ],
+      "preferred_sources": [
+        "03_LOCALITY_ENGINE/locality_packets",
+        "03_LOCALITY_ENGINE/arrival_packets",
+        "03_LOCALITY_ENGINE/inside_packets",
+        "03_LOCALITY_ENGINE/cluster_packets",
+        "02_CANON_BASELINE/cosmology",
+        "02_CANON_BASELINE/ecology",
+        "02_CANON_BASELINE/districts"
+      ]
+    },
+    "about_people": {
+      "maps_to_world_inspection_section": "about_people",
+      "keywords": [
+        "who are the people",
+        "cultures",
+        "languages",
+        "wear",
+        "eat",
+        "make a living",
+        "social classes",
+        "who is respected",
+        "who is feared",
+        "outsiders",
+        "strangers treated",
+        "customs",
+        "manners",
+        "values",
+        "tensions between groups"
+      ],
+      "preferred_sources": [
+        "03_LOCALITY_ENGINE/culture_packets",
+        "02_CANON_BASELINE/demography",
+        "02_CANON_BASELINE/factions",
+        "02_CANON_BASELINE/civic_rites",
+        "11_REFERENCE_VIEWS/world_guides"
+      ]
+    },
+    "government_and_power": {
+      "maps_to_world_inspection_section": "government_and_power",
+      "keywords": [
+        "who rules",
+        "how is it governed",
+        "stability",
+        "behind the scenes",
+        "rival factions",
+        "councils",
+        "guilds",
+        "tribes",
+        "churches",
+        "militias",
+        "laws",
+        "crimes",
+        "justice",
+        "rebellions",
+        "succession"
+      ],
+      "preferred_sources": [
+        "03_LOCALITY_ENGINE/authority_packets",
+        "02_CANON_BASELINE/factions",
+        "02_CANON_BASELINE/institutions",
+        "02_CANON_BASELINE/polities",
+        "03_RECONCILIATION_LAYER"
+      ]
+    },
+    "history": {
+      "maps_to_world_inspection_section": "history",
+      "keywords": [
+        "what happened here",
+        "major events",
+        "wars",
+        "disasters",
+        "miracles",
+        "betrayals",
+        "discoveries",
+        "ruins",
+        "old powers",
+        "local history",
+        "disputed history",
+        "hidden history",
+        "legends",
+        "tragedies",
+        "victories"
+      ],
+      "preferred_sources": [
+        "02_CANON_BASELINE/chronology",
+        "02_CANON_BASELINE/cosmology",
+        "03_RECONCILIATION_LAYER",
+        "10_LINEAGE_HISTORY",
+        "11_REFERENCE_VIEWS/legacy_release_history"
+      ]
+    },
+    "religion_and_belief": {
+      "maps_to_world_inspection_section": "religion_and_belief",
+      "keywords": [
+        "worship",
+        "gods",
+        "spirits",
+        "ancestors",
+        "cosmic forces",
+        "religion in daily life",
+        "temples",
+        "shrines",
+        "pilgrimage",
+        "holidays",
+        "rituals",
+        "forbidden beliefs",
+        "religious authorities",
+        "miracles",
+        "superstitions",
+        "omens",
+        "taboos",
+        "blessings",
+        "curses"
+      ],
+      "preferred_sources": [
+        "02_CANON_BASELINE/religion",
+        "02_CANON_BASELINE/civic_rites",
+        "03_LOCALITY_ENGINE/culture_packets",
+        "02_CANON_BASELINE/cosmology"
+      ]
+    },
+    "magic_and_unknown": {
+      "maps_to_world_inspection_section": "magic_and_unknown",
+      "keywords": [
+        "how common is magic",
+        "who is allowed to use it",
+        "who fears it",
+        "who regulates it",
+        "magic respected",
+        "outlawed",
+        "commercialized",
+        "sacred",
+        "supernatural events",
+        "monsters",
+        "spirits",
+        "hauntings",
+        "anomalies",
+        "unnatural",
+        "ancient powers",
+        "mysterious forces",
+        "places people avoid",
+        "unexplained"
+      ],
+      "preferred_sources": [
+        "02_CANON_BASELINE/cosmology",
+        "02_CANON_BASELINE/ecology",
+        "02_CANON_BASELINE/factions",
+        "03_LOCALITY_ENGINE/culture_packets",
+        "04_CONSERVATIVE_INFERENCE"
+      ]
+    },
+    "economy_and_daily_life": {
+      "maps_to_world_inspection_section": "economy_and_daily_life",
+      "keywords": [
+        "economy",
+        "goods",
+        "imports",
+        "wealthy",
+        "struggling",
+        "trade",
+        "ordinary life",
+        "normal day",
+        "professions",
+        "luxuries",
+        "shortages",
+        "travel",
+        "communicate",
+        "survive"
+      ],
+      "preferred_sources": [
+        "02_CANON_BASELINE/economy",
+        "02_CANON_BASELINE/demography",
+        "03_LOCALITY_ENGINE/cluster_packets",
+        "03_LOCALITY_ENGINE/culture_packets",
+        "11_REFERENCE_VIEWS/world_guides"
+      ]
+    },
+    "conflict_and_instability": {
+      "maps_to_world_inspection_section": "conflict_and_instability",
+      "keywords": [
+        "conflicts right now",
+        "who is fighting",
+        "rivalries",
+        "threats",
+        "fears",
+        "raids",
+        "invasions",
+        "banditry",
+        "monsters",
+        "famine",
+        "plague",
+        "unrest",
+        "crackdowns",
+        "what gets worse",
+        "destabilize",
+        "gain from chaos"
+      ],
+      "preferred_sources": [
+        "02_CANON_BASELINE/conflict_engine",
+        "03_LOCALITY_ENGINE/authority_packets",
+        "03_LOCALITY_ENGINE/cluster_packets",
+        "02_CANON_BASELINE/factions",
+        "03_RECONCILIATION_LAYER"
+      ]
+    },
+    "identity_and_reputation": {
+      "maps_to_world_inspection_section": "identity_and_reputation",
+      "keywords": [
+        "famous for",
+        "infamous for",
+        "outsiders see",
+        "locals see themselves",
+        "stereotypes",
+        "symbols",
+        "banners",
+        "songs",
+        "sayings",
+        "stories represent it",
+        "culturally distinct",
+        "what someone notices immediately"
+      ],
+      "preferred_sources": [
+        "03_LOCALITY_ENGINE/culture_packets",
+        "11_REFERENCE_VIEWS/world_guides",
+        "02_CANON_BASELINE/factions",
+        "02_CANON_BASELINE/civic_rites"
+      ]
+    },
+    "wider_world_relationships": {
+      "maps_to_world_inspection_section": "wider_world_relationships",
+      "keywords": [
+        "allies",
+        "enemies",
+        "neighboring powers",
+        "isolated",
+        "connected",
+        "trade routes",
+        "roads",
+        "ports",
+        "passes",
+        "larger empires",
+        "kingdoms",
+        "movements",
+        "outside threats",
+        "fit into broader world"
+      ],
+      "preferred_sources": [
+        "02_CANON_BASELINE/economy/interpolity_dependency_supply_chain_atlas.json",
+        "03_LOCALITY_ENGINE/route_packets",
+        "03_LOCALITY_ENGINE/cluster_packets",
+        "02_CANON_BASELINE/polities",
+        "02_CANON_BASELINE/chronology"
+      ]
+    },
+    "secrets_and_deeper_truths": {
+      "maps_to_world_inspection_section": "secrets_and_deeper_truths",
+      "keywords": [
+        "not being said openly",
+        "avoid talking about",
+        "secrets under the surface",
+        "official story and reality",
+        "ancient truth",
+        "pretending not to see",
+        "invisible power structures",
+        "buried history influencing the present"
+      ],
+      "preferred_sources": [
+        "03_RECONCILIATION_LAYER",
+        "04_CONSERVATIVE_INFERENCE",
+        "02_CANON_BASELINE/chronology",
+        "02_CANON_BASELINE/factions",
+        "02_CANON_BASELINE/cosmology"
+      ],
+      "special_rule": "Answers in this family must distinguish between hidden direct canon, reconciled implication, and speculative inference."
+    }
+  },
+  "answer_object_contract": {
+    "required_fields": [
+      "question",
+      "target",
+      "answer",
+      "status",
+      "evidence_basis",
+      "primary_paths",
+      "inheritance_chain",
+      "contradictions_considered",
+      "unresolved_edges",
+      "confidence"
+    ],
+    "status_values": [
+      "direct_canon",
+      "corrected_canon",
+      "reconciled_canon",
+      "conservative_inference",
+      "unresolved_contradiction"
+    ],
+    "confidence_scale": [
+      "high",
+      "medium",
+      "guarded",
+      "low"
+    ],
+    "evidence_basis_rule": "Summarize why this answer is justified from the selected canon layers."
+  },
+  "response_composition_rules": {
+    "always_name_scope": true,
+    "scope_examples": [
+      "world",
+      "macroregion",
+      "polity",
+      "locality",
+      "district",
+      "institution",
+      "route"
+    ],
+    "prefer_local_over_global_when_available": true,
+    "forbid_false_specificity": true,
+    "forbid_empty_category_drop": true,
+    "when_evidence_is_missing": "Return the strongest parent-supported answer available, mark status as conservative_inference or unresolved_contradiction, and list what is still unknown.",
+    "when_multiple_valid_layers_apply": "Lead with the most local answer, then explain higher-order forces affecting it.",
+    "when_question_is_broad": "Decompose into the eleven world inspection families and answer each one separately."
+  },
+  "inheritance_matrix": {
+    "specific_inside_or_district": [
+      "03_LOCALITY_ENGINE/inside_packets",
+      "03_LOCALITY_ENGINE/district_packets",
+      "03_LOCALITY_ENGINE/locality_packets",
+      "03_LOCALITY_ENGINE/culture_packets",
+      "03_LOCALITY_ENGINE/authority_packets",
+      "02_CANON_BASELINE parent polity files",
+      "02_CANON_BASELINE world baseline"
+    ],
+    "specific_locality": [
+      "03_LOCALITY_ENGINE/locality_packets",
+      "03_LOCALITY_ENGINE/arrival_packets",
+      "03_LOCALITY_ENGINE/culture_packets",
+      "03_LOCALITY_ENGINE/authority_packets",
+      "02_CANON_BASELINE parent polity files",
+      "02_CANON_BASELINE world baseline"
+    ],
+    "polity_or_macroregion": [
+      "02_CANON_BASELINE relevant polity family",
+      "02_CANON_BASELINE economy and demography",
+      "02_CANON_BASELINE chronology and cosmology",
+      "03_RECONCILIATION_LAYER",
+      "04_CONSERVATIVE_INFERENCE"
+    ],
+    "world_or_cosmology_scope": [
+      "02_CANON_BASELINE/cosmology",
+      "02_CANON_BASELINE/chronology",
+      "02_CANON_BASELINE/conflict_engine",
+      "03_RECONCILIATION_LAYER",
+      "04_CONSERVATIVE_INFERENCE"
+    ]
+  },
+  "broad_query_decomposition": {
+    "trigger_examples": [
+      "Tell me about this place",
+      "Give me a full setting overview",
+      "What is this city like",
+      "How does this region function"
+    ],
+    "required_output_order": [
+      "about_place",
+      "about_people",
+      "government_and_power",
+      "history",
+      "religion_and_belief",
+      "magic_and_unknown",
+      "economy_and_daily_life",
+      "conflict_and_instability",
+      "identity_and_reputation",
+      "wider_world_relationships",
+      "secrets_and_deeper_truths"
+    ]
+  },
+  "canon_sensitivity_rules": {
+    "must_preserve_core_world_truths": [
+      "The world is shaped by Doomsday and its ongoing aftermath.",
+      "Polities have distinct governance, value systems, and material constraints.",
+      "Gods, religions, and supernatural phenomena are setting-structural, not ornamental.",
+      "Local answers must remain compatible with broader cosmology, chronology, and polity structure.",
+      "Trade, law, demography, and conflict should be treated as interconnected rather than isolated facts."
+    ],
+    "must_not_do": [
+      "Invent new major powers, gods, wars, or metaphysical laws to fill a gap.",
+      "Present local custom as world-universal unless supported.",
+      "Collapse conflicting evidence into certainty without reporting reconciliation or uncertainty.",
+      "Use runtime or session artifacts as stronger authority than canon baseline."
+    ]
+  },
+  "recommended_runtime_algorithm": [
+    "1. Resolve the target entity and scope.",
+    "2. Classify the question into one or more question families.",
+    "3. Load the most local packet family first.",
+    "4. Pull supporting parent polity and world-baseline evidence.",
+    "5. Apply source hierarchy and truth zone preference.",
+    "6. Reconcile contradictions only through registered reconciliation logic or conservative inference.",
+    "7. Return structured answer objects with explicit status and unresolved edges.",
+    "8. For broad overviews, emit all eleven families in required order."
+  ],
+  "search_optimization_hints": {
+    "index_priority_tags": [
+      "canonical_name",
+      "aliases",
+      "object_type",
+      "parent_polity",
+      "macroregion",
+      "question_family",
+      "law_signal",
+      "faith_signal",
+      "economy_signal",
+      "conflict_signal",
+      "magic_signal",
+      "secrecy_signal"
+    ],
+    "recommended_synonym_expansion": {
+      "principalities": [
+        "the Principalities",
+        "Principalities of Shelk",
+        "imperial houses",
+        "house domains"
+      ],
+      "sheresh_communes": [
+        "Sherash",
+        "Sheresh",
+        "northern tundra communes",
+        "bubble shield communes"
+      ],
+      "soreheim_alliance": [
+        "Soreheim",
+        "Eternal Lands",
+        "tower alliance",
+        "giant tower realm"
+      ],
+      "nomdara": [
+        "Nomdara Caravan",
+        "Wandering Caravan",
+        "merchant nation caravan",
+        "mobile city"
+      ],
+      "psanan": [
+        "Phoenix Island",
+        "Psanan",
+        "matriarchal island"
+      ]
+    }
+  },
+  "integration_note": "This file is intended to sharpen retrieval and answer synthesis. It does not create new canon and should be used together with existing packet contracts rather than instead of them. Deployed in V33_1 as a governance support contract subordinate to source hierarchy and truth-layer rules.",
+  "failure_rule": "A retrieval or answering pipeline fails this contract if it answers a broad worldsetting question without family routing, without status labeling, or by silently inventing unsupported specifics.",
+  "deployed_from_source_upload": true
+}

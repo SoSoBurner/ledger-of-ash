@@ -1,0 +1,12 @@
+{
+  "name": "Plume’s End Outpost",
+  "visible_power": [
+    "Roadwardens and caravan authorities"
+  ],
+  "law_context": [
+    "route law and storage discipline dominate."
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

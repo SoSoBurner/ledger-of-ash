@@ -1,0 +1,16 @@
+{
+  "name": "Cosmouth",
+  "object_type": "runtime_polity_demography_packet",
+  "build_version": "V33_1",
+  "derived_from": "02_CANON_BASELINE/demography/cosmouth_demography.json",
+  "dominant_populations": [
+    "Humans"
+  ],
+  "secondary_populations": [
+    "Tritons",
+    "Tortles"
+  ],
+  "street_level_visibility": "Humans remain dominant while Tritons and Tortles are retained as the cleanest maritime secondary races for a floating, sea-linked shipwright state.",
+  "visitor_signal": "Visitors to Cosmouth should perceive the dominant populations first and the secondary populations as stable but not polity-defining unless narrower locality canon states otherwise.",
+  "runtime_rule": "Runtime narration may elaborate visible population mix but may not contradict canonical roster or exclusions."
+}

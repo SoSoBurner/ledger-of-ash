@@ -1,0 +1,9 @@
+{
+  "name": "Guildheart Hub",
+  "seasonal_change": "Peak caravan seasons thicken hearings, storage disputes, night-loading, and temporary freight overflow into adjacent urban blocks.",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

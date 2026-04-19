@@ -1,0 +1,90 @@
+{
+  "npc_id": "matron_heshka_emberreign",
+  "canonical_name": "Matron Heshka Emberreign",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Elementalist",
+  "profession_discipline": "Elementalist",
+  "grouping": "Magic & Spellcasting",
+  "polity": "Psanan",
+  "settlement": "Ashforge Citadel",
+  "locality_scope": "Ashforge Citadel, Psanan",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Bound lava-flow practice into civic defense during a major vent crisis.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Ashforge Citadel, Psanan"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Work-worn layers, repair marks, and tools or soot traces show responsibility for systems that fail loudly when neglected.",
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a elementalist still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of elementalist in and around Ashforge Citadel, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ashforge Citadel workable through the obligations of elementalist while managing the immediate pressure of house rivalry in Psanan.",
+  "hidden_pressure": "Must keep the underlying system working while everyone notices it only when stress, wear, or neglect begin to show. Around Ashforge Citadel, that usually means carrying house rivalry, forge accidents, ashfall damage without letting the role of elementalist visibly slip.",
+  "relationship_refs": [
+    "rel_1286",
+    "rel_1287"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Matron Heshka Emberreign needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Ashforge Citadel."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Matron Heshka Emberreign can draw the party into crew discipline, resource shortage, or blame transfer around Ashforge Citadel."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Matron Heshka Emberreign can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Matron Heshka Emberreign needs help with a problem in Ashforge Citadel that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Matron Heshka Emberreign visibly responsible for keeping something larger from failing. In Ashforge Citadel, this lands inside a public field already shaped by Great House Citadel Circle, Forge Dedication Halls.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Citadel: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Matron Heshka Emberreign presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a elementalist still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Elementalist, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Matron Heshka Emberreign refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Elementalist too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Matron Heshka Emberreign can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Matron Heshka Emberreign adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Matron Heshka Emberreign is Bound lava-flow practice into civic defense during a major vent crisis. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Elementalist."
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Status Class and Outsider Matrix",
+  "truth_layer": "conservative_inference",
+  "regional_patterns": [
+    {
+      "region": "Roaz",
+      "trusted": [
+        "inspectors",
+        "engineers",
+        "wardens"
+      ],
+      "watched": [
+        "open mystics",
+        "ornamental wanderers",
+        "unauthorized magic users"
+      ]
+    },
+    {
+      "region": "Shelk",
+      "trusted": [
+        "artisans",
+        "Roadwardens",
+        "scholars"
+      ],
+      "watched": [
+        "those ignoring decorum",
+        "careless saboteurs",
+        "anti-civic boors"
+      ]
+    },
+    {
+      "region": "The Union",
+      "trusted": [
+        "licensed merchants",
+        "arbiters",
+        "clerks"
+      ],
+      "watched": [
+        "unregistered traders",
+        "status-seekers without contract value",
+        "Mal diehards seeking disorder"
+      ]
+    },
+    {
+      "region": "Sheresh",
+      "trusted": [
+        "containment workers",
+        "researchers",
+        "cold-weather logisticians"
+      ],
+      "watched": [
+        "undisciplined outsiders",
+        "mutation deniers",
+        "those careless with barrier safety"
+      ]
+    },
+    {
+      "region": "Soreheim",
+      "trusted": [
+        "contributors",
+        "engineers",
+        "quota-bearing labor specialists"
+      ],
+      "watched": [
+        "idle elites",
+        "resource hoarders",
+        "sabotage cells"
+      ]
+    },
+    {
+      "region": "Psanan",
+      "trusted": [
+        "house retainers",
+        "smiths",
+        "ash-weather sailors"
+      ],
+      "watched": [
+        "soft-climate intruders",
+        "ritual-insensitive diplomats",
+        "undisciplined soldiers"
+      ]
+    }
+  ],
+  "sources": [
+    "principality_shelk",
+    "principality_roaz",
+    "principalities",
+    "soreheim_review",
+    "ai_source_pdf",
+    "topatch_v22_6_spec"
+  ]
+}

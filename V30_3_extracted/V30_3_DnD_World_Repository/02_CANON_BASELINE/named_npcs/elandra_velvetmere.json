@@ -1,0 +1,87 @@
+{
+  "npc_id": "elandra_velvetmere",
+  "canonical_name": "Elandra Velvetmere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Market Broker",
+  "profession_discipline": "Market Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Fairhaven",
+  "locality_scope": "Fairhaven",
+  "institutional_ties": [
+    "Fairhaven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as market broker.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Fairhaven"
+    ],
+    "institutions": [
+      "Fairhaven"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a market broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of market broker in and around Fairhaven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Fairhaven workable through the obligations of market broker while managing the immediate pressure of glyph corruption in Shelk.",
+  "hidden_pressure": "Must balance relationship value against immediate margin without losing either entirely. Around Fairhaven, that usually means carrying glyph corruption, celestial creatures at Watcher’s Perch, suspicious travelers in taverns without letting the role of market broker visibly slip.",
+  "relationship_refs": [
+    "rel_0271",
+    "rel_0272",
+    "rel_1116",
+    "rel_1118"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Elandra Velvetmere can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Elandra Velvetmere will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "elandra_velvetmere",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Elandra Velvetmere read as someone who lives by exchange and reputation. In Fairhaven, this lands inside a public field already shaped by local clergy, market elders.",
+  "encounter_context": {
+    "usual_environment": "Fairhaven: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Elandra Velvetmere presents as Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a market broker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Market Broker, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Elandra Velvetmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Market Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Elandra Velvetmere can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Elandra Velvetmere adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Elandra Velvetmere is Known locally through day-to-day work as market broker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Market Broker."
+}

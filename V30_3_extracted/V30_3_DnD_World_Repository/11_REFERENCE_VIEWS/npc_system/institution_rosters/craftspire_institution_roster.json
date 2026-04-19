@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "Craftspire",
+  "record_count": 2,
+  "npc_ids": [
+    "jorin_ledgermere",
+    "tess_ledgermere"
+  ]
+}

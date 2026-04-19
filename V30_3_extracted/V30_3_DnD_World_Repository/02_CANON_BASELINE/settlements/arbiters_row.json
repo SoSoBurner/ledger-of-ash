@@ -1,0 +1,19 @@
+{
+  "name": "Arbiters Row",
+  "type": "settlement",
+  "hierarchy_parent": "The Union",
+  "truth_layer": "source_backed_inference",
+  "summary": "Union parity-completion locality focused on arbiters row.",
+  "sources": [
+    "V30_3 parity completion synthesis."
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [
+    "authority",
+    "commerce",
+    "fixer"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_PARITY_COMPLETION_SUPPORT"
+}

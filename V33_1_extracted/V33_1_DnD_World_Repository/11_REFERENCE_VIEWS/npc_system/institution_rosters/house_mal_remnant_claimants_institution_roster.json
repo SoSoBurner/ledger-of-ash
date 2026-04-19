@@ -1,0 +1,32 @@
+{
+  "build_version": "V33_1",
+  "institution": "House Mal Remnant Claimants",
+  "record_count": 1,
+  "npc_ids": [
+    "orin_brokerwell"
+  ],
+  "records": [
+    {
+      "npc_id": "orin_brokerwell",
+      "canonical_name": "Orin Brokerwell",
+      "polity": "The Union",
+      "office_or_role": "Internal Skeptic",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as internal skeptic.",
+      "current_agenda": "Keep House Mal Remnant Claimants workable through the obligations of internal skeptic while managing the immediate pressure of institutional scrutiny in The Union."
+    }
+  ],
+  "roster_context": {
+    "identity": "Residual Mal-aligned claimants who preserve debt, title, or memory claims after the Union successor transition.",
+    "visible_power": [],
+    "pressure": [
+      "political irrelevance",
+      "debt conversion",
+      "loss of public legitimacy"
+    ]
+  },
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

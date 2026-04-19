@@ -1,0 +1,18 @@
+{
+  "build_version": "V30_3",
+  "archival_exclusions": [
+    "10_LINEAGE_HISTORY",
+    "11_REFERENCE_VIEWS/legacy_release_history",
+    "02_CANON_BASELINE/chronology",
+    "02_CANON_BASELINE/legacy",
+    "10_LINEAGE_HISTORY/release_note_history/"
+  ],
+  "derived_exclusions": [
+    "00_PACKAGE_MANIFEST/filesystem_inventory.json",
+    "05_PROVENANCE/source_checksum_registry.json",
+    "06_VALIDATION/"
+  ],
+  "stale_tokens_found": 0,
+  "files": [],
+  "status": "pass"
+}

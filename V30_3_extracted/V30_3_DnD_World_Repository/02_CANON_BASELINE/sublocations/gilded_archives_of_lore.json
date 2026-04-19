@@ -1,0 +1,24 @@
+{
+  "name": "Gilded Archives of Lore",
+  "parent_district": "Aurora Heights District",
+  "type": "restricted archive",
+  "summary": "Protected celestial and arcane text repository for high-ranking access.",
+  "npc_interfaces": [
+    "archivist_luthen_valcrest",
+    "Researcher Vynlas Eryndel",
+    "kest_vale",
+    "nora_vale"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "kest_vale",
+    "nora_vale"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

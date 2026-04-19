@@ -1,0 +1,19 @@
+{
+  "name": "Ashforge Quarry",
+  "inside": "Smelter yards, bunk rows, counting sheds, armament lockers, and family-held crew barracks sit under constant hazard posture.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "ore extraction is visibly part of daily life.",
+    "resilience and ambition rites are short, loud, and tied to shifts, losses, and return from danger",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

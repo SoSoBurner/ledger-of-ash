@@ -1,0 +1,14 @@
+{
+  "name": "Unity Square",
+  "pressure": [
+    "price shocks",
+    "cargo theft",
+    "route closures",
+    "public rumor flareups"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

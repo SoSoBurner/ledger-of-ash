@@ -1,0 +1,11 @@
+{
+  "build_version": "V30_3",
+  "claims_checked": [
+    "README standalone status",
+    "README version purity statement",
+    "stale token zero claim",
+    "final closure pass claim"
+  ],
+  "contradicted_claims": [],
+  "status": "pass"
+}

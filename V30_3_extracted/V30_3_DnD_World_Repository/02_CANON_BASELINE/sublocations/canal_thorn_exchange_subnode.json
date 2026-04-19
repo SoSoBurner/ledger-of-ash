@@ -1,0 +1,10 @@
+{
+  "name": "Canal Thorn Exchange Subnode",
+  "parent_locality": "Canal Thorn Exchange",
+  "type": "support node",
+  "truth_layer": "source_backed_inference",
+  "summary": "Support node tied to Canal Thorn Exchange for V30_3 parity completion.",
+  "sources": [
+    "V30_3 parity completion synthesis."
+  ]
+}

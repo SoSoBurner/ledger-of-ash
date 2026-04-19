@@ -1,0 +1,18 @@
+{
+  "name": "Shelk",
+  "object_type": "polity_runtime_demography_packet",
+  "build_version": "V30_3",
+  "derived_from": "02_CANON_BASELINE/demography/shelk_demography.json",
+  "dominant_races": [
+    "Elves"
+  ],
+  "secondary_races": [
+    "Half-Elves",
+    "Humans",
+    "Gnomes",
+    "Firbolgs"
+  ],
+  "excluded_or_shunned": [],
+  "public_visibility_summary": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+  "setting_use_summary": "Use Shelk demographics as the active runtime population reference for play, writing, and locality rendering without overriding canon classification."
+}

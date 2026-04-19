@@ -1,0 +1,83 @@
+{
+  "npc_id": "bastian_chaincourt",
+  "canonical_name": "Bastian Chaincourt",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Quarry Liaison",
+  "profession_discipline": "quarry logistics and labor coordination",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Ashforge Quarry",
+  "locality_scope": "Ashforge Quarry",
+  "institutional_ties": [
+    "Ashforge Quarry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Ashforge Quarry through steady work as a quarry liaison.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Ashforge Quarry"
+    ],
+    "institutions": [
+      "Ashforge Quarry"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries role-shaped habits that make local pressure visible in the way they speak and judge strangers. In Ashforge Quarry, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of a quarry liaison in and around Ashforge Quarry, keeping ordinary obligations from turning into public disorder.",
+  "current_agenda": "Keep Ashforge Quarry workable by absorbing local strain before it becomes a visible scandal, shutdown, or breach of order.",
+  "hidden_pressure": "Must keep the role of quarry liaison credible while managing pressure tied to status, access, logistics, and local reputation in Ashforge Quarry.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Bastian Chaincourt can draw the party into a locality problem centered on gryndal vesskar duties in Ashforge Quarry."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Bastian Chaincourt becomes useful when the party needs grounded help with predators, avalanches, geothermal bursts around Ashforge Quarry."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "ashforge_quarry"
+  ],
+  "compatibility_interface_id": "bastian_chaincourt",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Bastian Chaincourt is immediately readable as a gryndal vesskar tied to Ashforge Quarry.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Quarry: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "quarry liaison"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Bastian Chaincourt presents as someone shaped by the duties of a quarry liaison and the daily pressures of Ashforge Quarry.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a quarry liaison, and proof that strangers will not make Ashforge Quarry harder to manage.",
+  "what_they_refuse": "Bastian Chaincourt refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a gryndal vesskar too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Bastian Chaincourt adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Bastian Chaincourt always knows more about Ashforge Quarry than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a quarry liaison in Ashforge Quarry."
+}

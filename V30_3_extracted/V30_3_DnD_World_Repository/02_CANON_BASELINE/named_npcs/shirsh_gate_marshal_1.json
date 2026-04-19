@@ -1,0 +1,39 @@
+{
+  "npc_id": "shirsh_gate_marshal_1",
+  "canonical_name": "Shirsh Gate Marshal 1",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "authority",
+  "office_or_role": "Gate Marshal",
+  "profession_discipline": "custody and access",
+  "grouping": "locality parity completion",
+  "polity": "Shirsh",
+  "settlement": "Witness Coil",
+  "locality_scope": "Witness Coil",
+  "institutional_ties": [
+    "Gate Marshal"
+  ],
+  "legal_standing": "recognized local actor",
+  "religious_standing": "civically tolerated",
+  "public_reputation": "respected but feared for procedural severity",
+  "linked_systems": [
+    "locality support",
+    "route play",
+    "encounter readiness"
+  ],
+  "appearance": "Shirsh Gate Marshal 1 is visibly shaped by the work and status pressures of Witness Coil.",
+  "manner": "controlled, observant, and economical with attention",
+  "daily_function": "Maintains gate marshal responsibilities in and around Witness Coil.",
+  "hidden_pressure": "Shirsh Gate Marshal 1 is trying to hold local order together without publicly admitting how stretched it has become.",
+  "truth_layer": "source_backed_inference",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Shirsh Gate Marshal 1 quickly reads whether strangers are worth helping, charging, or slowing down.",
+  "what_they_want_from_strangers": "clarity, usefulness, and respect for local process",
+  "what_they_refuse": "carelessness dressed up as confidence",
+  "how_they_create_problems": "turning a small favor into an obligation or delay",
+  "how_they_can_help": "unlocking access, warnings, or introductions",
+  "escalation_if_crossed": "brings scrutiny, reputational friction, and institutional attention",
+  "rumor_about_them": "Locals say Shirsh Gate Marshal 1 is more connected than seems safe.",
+  "best_first_scene": "An arrival, delay, or access problem where practical guidance matters more than combat."
+}

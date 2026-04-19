@@ -1,0 +1,9 @@
+{
+  "package_name": "V30_3_DnD_World_Repository",
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "metric_authority": "00_PACKAGE_MANIFEST/canonical_metric_registry.json",
+  "graph_authority": "07_WORLD_GRAPH/world_graph_index.json",
+  "reference_surface": "11_REFERENCE_VIEWS/current_release",
+  "status": "standalone_complete"
+}

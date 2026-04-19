@@ -1,0 +1,20 @@
+{
+  "name": "Red Milk Cisterns",
+  "parent": "Salted Peninsula",
+  "summary": "A chain of rock cisterns that turn certain algae blooms pink after hard storms. Travelers prize the water; locals prize controlling who gets to call it communal.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Phoenix Island",
+  "travel_tags": [
+    "water rights",
+    "poison fears",
+    "oasis trade"
+  ]
+}

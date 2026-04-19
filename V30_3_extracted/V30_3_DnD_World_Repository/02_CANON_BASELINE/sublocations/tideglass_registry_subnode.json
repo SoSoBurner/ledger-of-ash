@@ -1,0 +1,10 @@
+{
+  "name": "Tideglass Registry Subnode",
+  "parent_locality": "Tideglass Registry",
+  "type": "support node",
+  "truth_layer": "source_backed_inference",
+  "summary": "Support node tied to Tideglass Registry for V30_3 parity completion.",
+  "sources": [
+    "V30_3 parity completion synthesis."
+  ]
+}

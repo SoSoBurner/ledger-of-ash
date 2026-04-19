@@ -1,0 +1,685 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "rows": [
+    {
+      "scenario_id": "border_crossing_zootia",
+      "locality_packets": [
+        "canal_thorn_exchange.json"
+      ],
+      "route_packets": [
+        "principality_of_zootia_route_corridor_1.json"
+      ],
+      "npc_ids": [
+        "zootia_gate_marshal_1",
+        "zootia_factor_2",
+        "zootia_ritual_custodian_3",
+        "zootia_burdened_clerk_4"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "city_arrival_craftspire",
+      "locality_packets": [
+        "craftspire.json"
+      ],
+      "route_packets": [],
+      "npc_ids": [
+        "jorin_ledgermere",
+        "tess_ledgermere",
+        "union_gate_marshal_1",
+        "union_factor_2"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "customs_event_union",
+      "locality_packets": [
+        "ledger_canal.json"
+      ],
+      "route_packets": [
+        "the_union_route_corridor_1.json"
+      ],
+      "npc_ids": [
+        "arin_march",
+        "calia_brokerwell",
+        "calia_ledgermere",
+        "guild_auditor_bren_oss"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "low_crime_consequence_shelk",
+      "locality_packets": [
+        "shelkopolis.json"
+      ],
+      "route_packets": [],
+      "npc_ids": [
+        "corin_lightloom",
+        "elandra_sunweave",
+        "maelin_dawnmantle",
+        "maelis_starbloom"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "market_conflict_cosmouth",
+      "locality_packets": [
+        "tideglass_registry.json"
+      ],
+      "route_packets": [
+        "principality_of_cosmouth_route_corridor_1.json"
+      ],
+      "npc_ids": [
+        "cosmouth_gate_marshal_1",
+        "cosmouth_factor_2",
+        "cosmouth_ritual_custodian_3",
+        "cosmouth_burdened_clerk_4"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "npc_request_escalation_soreheim",
+      "locality_packets": [
+        "soreheim_proper.json"
+      ],
+      "route_packets": [],
+      "npc_ids": [
+        "brala_coalward",
+        "dema_forgebound",
+        "eryndor_bladewright",
+        "helga_ironslope"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "route_interruption_roaz",
+      "locality_packets": [
+        "ithtananalor.json"
+      ],
+      "route_packets": [
+        "principality_of_roaz_route_corridor_1.json"
+      ],
+      "npc_ids": [
+        "casvel_redhinge",
+        "dame_orsella_roaz",
+        "marshal_builder_korrin_wex",
+        "mira_steelmarch"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "rumor_to_faction_shirsh",
+      "locality_packets": [
+        "lantern_docket.json"
+      ],
+      "route_packets": [],
+      "npc_ids": [
+        "examiner_prelate_sira_doveshade",
+        "hel_brenn",
+        "measurer_seln_archive",
+        "mercy_examiner_talan_vey"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "shrine_tension_panim",
+      "locality_packets": [
+        "veilbridge_sepulcher.json"
+      ],
+      "route_packets": [],
+      "npc_ids": [
+        "panim_gate_marshal_1",
+        "panim_factor_2",
+        "panim_ritual_custodian_3",
+        "panim_burdened_clerk_4"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "scenario_id": "social_misstep_mimolot",
+      "locality_packets": [
+        "tariff_lantern_court.json"
+      ],
+      "route_packets": [],
+      "npc_ids": [
+        "mimolot_gate_marshal_1",
+        "mimolot_factor_2",
+        "mimolot_ritual_custodian_3",
+        "mimolot_burdened_clerk_4"
+      ],
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/arbiters_row.md",
+      "maps_to": "arbiters_row.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ashforge_citadel.md",
+      "maps_to": "ashforge_citadel.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ashforge_quarry.md",
+      "maps_to": "ashforge_quarry.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ashwake_port.md",
+      "maps_to": "ashwake_port.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/aurora_crown_commune.md",
+      "maps_to": "aurora_crown_commune.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/aurora_heights_district.md",
+      "maps_to": "aurora_heights_district.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/banner_anchorage.md",
+      "maps_to": "banner_anchorage.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/canal_thorn_exchange.md",
+      "maps_to": "canal_thorn_exchange.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/cindervow_quarter.md",
+      "maps_to": "cindervow_quarter.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/cosmoria.md",
+      "maps_to": "cosmoria.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/craftspire.md",
+      "maps_to": "craftspire.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/duneshade_outpost.md",
+      "maps_to": "duneshade_outpost.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/emberforge_outpost.md",
+      "maps_to": "emberforge_outpost.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/emberhollow_forge_town.md",
+      "maps_to": "emberhollow_forge_town.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/embervale_settlement.md",
+      "maps_to": "embervale_settlement.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/fairhaven.md",
+      "maps_to": "fairhaven.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/glasswake_commune.md",
+      "maps_to": "glasswake_commune.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/guildheart_hub.md",
+      "maps_to": "guildheart_hub.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/harvest_circle.md",
+      "maps_to": "harvest_circle.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/harvest_keep.md",
+      "maps_to": "harvest_keep.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/hearthcoil_commune.md",
+      "maps_to": "hearthcoil_commune.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/housechain_court.md",
+      "maps_to": "housechain_court.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/hullwake_foundry.md",
+      "maps_to": "hullwake_foundry.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/iron_ledger_ward.md",
+      "maps_to": "iron_ledger_ward.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ironhold_quarry.md",
+      "maps_to": "ironhold_quarry.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ironspool_ward_district.md",
+      "maps_to": "ironspool_ward_district.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ithtananalor.md",
+      "maps_to": "ithtananalor.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/lantern_docket.md",
+      "maps_to": "lantern_docket.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/ledger_canal.md",
+      "maps_to": "ledger_canal.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/market_crossroads.md",
+      "maps_to": "market_crossroads.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/maskscar_plaza_district.md",
+      "maps_to": "maskscar_plaza_district.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/mediators_court.md",
+      "maps_to": "mediators_court.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/mimolot_academy.md",
+      "maps_to": "mimolot_academy.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/panim_haven.md",
+      "maps_to": "panim_haven.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/plume_s_end_outpost.md",
+      "maps_to": "plume_s_end_outpost.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/reckoning_quarter.md",
+      "maps_to": "reckoning_quarter.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/scarlet_descent_gate.md",
+      "maps_to": "scarlet_descent_gate.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/scriptorium_steps.md",
+      "maps_to": "scriptorium_steps.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/sealwater_conclave.md",
+      "maps_to": "sealwater_conclave.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/serpent_measure.md",
+      "maps_to": "serpent_measure.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/shelkopolis.md",
+      "maps_to": "shelkopolis.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/shirshal.md",
+      "maps_to": "shirshal.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/silent_haven.md",
+      "maps_to": "silent_haven.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/soreheim_proper.md",
+      "maps_to": "soreheim_proper.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/starbreak_commune.md",
+      "maps_to": "starbreak_commune.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/sunspire_haven.md",
+      "maps_to": "sunspire_haven.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/tariff_lantern_court.md",
+      "maps_to": "tariff_lantern_court.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/tideglass_registry.md",
+      "maps_to": "tideglass_registry.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/unity_square.md",
+      "maps_to": "unity_square.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/veilbridge_sepulcher.md",
+      "maps_to": "veilbridge_sepulcher.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/verdant_row_district.md",
+      "maps_to": "verdant_row_district.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/whitebridge_commune.md",
+      "maps_to": "whitebridge_commune.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "locality_quickstart_cards/witness_coil.md",
+      "maps_to": "witness_coil.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/amber_tides_river.md",
+      "maps_to": "amber_tides_river.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ashforge_citadel_ashwake_harbor_lane.md",
+      "maps_to": "ashforge_citadel_ashwake_harbor_lane.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ashforge_citadel_scarlet_descent_road.md",
+      "maps_to": "ashforge_citadel_scarlet_descent_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ashwake_harbor_lane.md",
+      "maps_to": "ashwake_harbor_lane.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ashwake_port_ashforge_citadel_harbor_road.md",
+      "maps_to": "ashwake_port_ashforge_citadel_harbor_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/aurora_crown_commune_aurora_meadows_patrol_route.md",
+      "maps_to": "aurora_crown_commune_aurora_meadows_patrol_route.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/aurora_crown_commune_whitebridge_domeway.md",
+      "maps_to": "aurora_crown_commune_whitebridge_domeway.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/cosmoria_brineland_harbor_ring.md",
+      "maps_to": "cosmoria_brineland_harbor_ring.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/fairhaven_shelkopolis_road.md",
+      "maps_to": "fairhaven_shelkopolis_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/frostline_crossing_route.md",
+      "maps_to": "frostline_crossing_route.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/guildheart_hub_craftspire_workshop_corridor.md",
+      "maps_to": "guildheart_hub_craftspire_workshop_corridor.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/guildheart_hub_unity_square_bargaining_road.md",
+      "maps_to": "guildheart_hub_unity_square_bargaining_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ironroot_crossing.md",
+      "maps_to": "ironroot_crossing.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ithtananalor_ironhold_quarry_road.md",
+      "maps_to": "ithtananalor_ironhold_quarry_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/ithtananalor_silent_haven_convoy_lane.md",
+      "maps_to": "ithtananalor_silent_haven_convoy_lane.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/mimolot_academy_bookhaven_road.md",
+      "maps_to": "mimolot_academy_bookhaven_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/nomdara_northern_tundra_circuit.md",
+      "maps_to": "nomdara_northern_tundra_circuit.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/nomdara_whirlpool_safe_passage_lane.md",
+      "maps_to": "nomdara_whirlpool_safe_passage_lane.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/panim_haven_sanctum_sands_memorial_road.md",
+      "maps_to": "panim_haven_sanctum_sands_memorial_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_cosmouth_route_corridor_1.md",
+      "maps_to": "principality_of_cosmouth_route_corridor_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_cosmouth_route_corridor_2.md",
+      "maps_to": "principality_of_cosmouth_route_corridor_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_cosmouth_route_corridor_3.md",
+      "maps_to": "principality_of_cosmouth_route_corridor_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_mimolot_route_corridor_1.md",
+      "maps_to": "principality_of_mimolot_route_corridor_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_mimolot_route_corridor_2.md",
+      "maps_to": "principality_of_mimolot_route_corridor_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_mimolot_route_corridor_3.md",
+      "maps_to": "principality_of_mimolot_route_corridor_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_panim_route_corridor_1.md",
+      "maps_to": "principality_of_panim_route_corridor_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_panim_route_corridor_2.md",
+      "maps_to": "principality_of_panim_route_corridor_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_panim_route_corridor_3.md",
+      "maps_to": "principality_of_panim_route_corridor_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_roaz_route_hardening_3.md",
+      "maps_to": "principality_of_roaz_route_hardening_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_shirsh_route_corridor_1.md",
+      "maps_to": "principality_of_shirsh_route_corridor_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_shirsh_route_corridor_2.md",
+      "maps_to": "principality_of_shirsh_route_corridor_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_shirsh_route_corridor_3.md",
+      "maps_to": "principality_of_shirsh_route_corridor_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_zootia_route_corridor_1.md",
+      "maps_to": "principality_of_zootia_route_corridor_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_zootia_route_corridor_2.md",
+      "maps_to": "principality_of_zootia_route_corridor_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/principality_of_zootia_route_corridor_3.md",
+      "maps_to": "principality_of_zootia_route_corridor_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/roaz_northern_trade_route.md",
+      "maps_to": "roaz_northern_trade_route.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/scarlet_descent_road.md",
+      "maps_to": "scarlet_descent_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/shelkopolis_fairhaven_road.md",
+      "maps_to": "shelkopolis_fairhaven_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/shelkopolis_plume_s_end_northern_road.md",
+      "maps_to": "shelkopolis_plume_s_end_northern_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/shelkopolis_plumes_end_northern_road.md",
+      "maps_to": "shelkopolis_plumes_end_northern_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/sheresh_communes_route_hardening_3.md",
+      "maps_to": "sheresh_communes_route_hardening_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/sheresh_dome_road.md",
+      "maps_to": "sheresh_dome_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/shirshal_crystal_grove_route.md",
+      "maps_to": "shirshal_crystal_grove_route.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/soreheim_proper_eternal_lands_freight_route.md",
+      "maps_to": "soreheim_proper_eternal_lands_freight_route.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/soreheim_proper_ironroot_crossing.md",
+      "maps_to": "soreheim_proper_ironroot_crossing.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/sunspire_haven_harvest_circle_road.md",
+      "maps_to": "sunspire_haven_harvest_circle_road.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/sunspire_haven_ironroot_crossing_freight_lane.md",
+      "maps_to": "sunspire_haven_ironroot_crossing_freight_lane.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/the_principalities_route_hardening_1.md",
+      "maps_to": "the_principalities_route_hardening_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/the_principalities_route_hardening_2.md",
+      "maps_to": "the_principalities_route_hardening_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/the_principalities_route_hardening_3.md",
+      "maps_to": "the_principalities_route_hardening_3.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/the_union_route_corridor_1.md",
+      "maps_to": "the_union_route_corridor_1.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/the_union_route_corridor_2.md",
+      "maps_to": "the_union_route_corridor_2.json",
+      "trace_status": "pass"
+    },
+    {
+      "artifact": "route_runner_cards/the_union_route_corridor_3.md",
+      "maps_to": "the_union_route_corridor_3.json",
+      "trace_status": "pass"
+    }
+  ],
+  "status": "pass"
+}

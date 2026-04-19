@@ -1,0 +1,27 @@
+{
+  "name": "Deprecated Legacy Ledger",
+  "truth_layer": "deprecated_material",
+  "entries": [
+    {
+      "subject": "Phoenix Island",
+      "status": "deprecated_active_name_in_favor_of_Psanan"
+    },
+    {
+      "subject": "House Mal as active coequal principality",
+      "status": "deprecated_in_favor_of_union_successor_model"
+    },
+    {
+      "subject": "Unstabilized pantheon count structures",
+      "status": "retained_for_lineage_only"
+    },
+    {
+      "subject": "Drift spellings and one-off locality names",
+      "status": "retained_in_alias_registry_only"
+    }
+  ],
+  "sources": [
+    "ai_source_pdf",
+    "pantheon_story",
+    "topatch_v22_6_spec"
+  ]
+}

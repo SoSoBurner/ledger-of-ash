@@ -1,0 +1,17 @@
+{
+  "name": "Mystical Flora Grove",
+  "parent": "Verdant Caves",
+  "summary": "Hidden cave grove of glowing celestial flora used in potions and enchantment.",
+  "sources": [
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "mira_hart"
+  ],
+  "npc_interfaces": [
+    "mira_hart"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

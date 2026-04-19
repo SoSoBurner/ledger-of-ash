@@ -1,0 +1,25 @@
+{
+  "name": "Hearth of Unity",
+  "parent_settlement": "Sunspire Haven",
+  "type": "communal temple",
+  "truth_layer": "conservative_inference",
+  "identity": "A communal temple in Sunspire Haven that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "Hearth of Unity Scribe",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Sunspire Haven’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Hearth of Unity Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

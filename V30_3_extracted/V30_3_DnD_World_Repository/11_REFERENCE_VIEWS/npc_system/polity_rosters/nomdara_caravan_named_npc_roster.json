@@ -1,0 +1,67 @@
+{
+  "build_version": "V30_3",
+  "polity": "Nomdara Caravan",
+  "record_count": 26,
+  "npc_ids": [
+    "issa_waycord",
+    "issa_wheelwright",
+    "jalen_waycord",
+    "jalen_wheelwright",
+    "kelvi_reedstring",
+    "koro_waycord",
+    "leni_waycord",
+    "mek_waycord",
+    "mek_wheelwright",
+    "nim_waycord",
+    "nim_wheelwright",
+    "odo_three_cups",
+    "orem_lantern_step",
+    "pashko_many_routes",
+    "pavel_waycord",
+    "rema_three_lantern",
+    "sema_reedbasin",
+    "sorra_waycord",
+    "sorra_wheelwright",
+    "torv_waycord",
+    "torv_wheelwright",
+    "varek_duststep",
+    "varek_waycord",
+    "varek_wheelwright",
+    "vivan_duststep",
+    "vivan_waycord"
+  ],
+  "tiers": {
+    "legendary": [
+      "orem_lantern_step",
+      "pashko_many_routes"
+    ],
+    "notable": [
+      "rema_three_lantern"
+    ],
+    "grassroots": [
+      "issa_waycord",
+      "issa_wheelwright",
+      "jalen_waycord",
+      "jalen_wheelwright",
+      "kelvi_reedstring",
+      "koro_waycord",
+      "leni_waycord",
+      "mek_waycord",
+      "mek_wheelwright",
+      "nim_waycord",
+      "nim_wheelwright",
+      "odo_three_cups",
+      "pavel_waycord",
+      "sema_reedbasin",
+      "sorra_waycord",
+      "sorra_wheelwright",
+      "torv_waycord",
+      "torv_wheelwright",
+      "varek_duststep",
+      "varek_waycord",
+      "varek_wheelwright",
+      "vivan_duststep",
+      "vivan_waycord"
+    ]
+  }
+}

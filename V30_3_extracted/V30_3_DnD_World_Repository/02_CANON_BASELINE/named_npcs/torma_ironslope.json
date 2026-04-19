@@ -1,0 +1,91 @@
+{
+  "npc_id": "torma_ironslope",
+  "canonical_name": "Torma Ironslope",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Forage Factor",
+  "profession_discipline": "Forage Factor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as forage factor.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a forage factor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of forage factor in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of forage factor while managing the immediate pressure of quota demands in Soreheim Alliance.",
+  "hidden_pressure": "Must balance relationship value against immediate margin without losing either entirely. Around Soreheim Proper, that usually means carrying quota demands, political rivalry, foreign pressure without letting the role of forage factor visibly slip.",
+  "relationship_refs": [
+    "rel_0393",
+    "rel_0397",
+    "rel_0400",
+    "rel_0402",
+    "rel_0403"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Torma Ironslope needs help protecting a shipment, recovering leverage, or stabilizing exchange around Soreheim Proper before trust collapses."
+    },
+    {
+      "hook_type": "contract_complication",
+      "summary": "Torma Ironslope can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "torma_ironslope",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Torma Ironslope read as someone who lives by exchange and reputation. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Torma Ironslope presents as Sounds hospitable until terms blur, then becomes sharply attentive to cost and precedent. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a forage factor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Forage Factor, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Torma Ironslope refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Forage Factor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Torma Ironslope can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Torma Ironslope adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Torma Ironslope is Known locally through day-to-day work as forage factor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Forage Factor."
+}

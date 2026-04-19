@@ -1,0 +1,94 @@
+{
+  "npc_id": "varik_drillwake",
+  "canonical_name": "Varik Drillwake",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "religious_officiant",
+  "office_or_role": "Shrine Caretaker",
+  "profession_discipline": "Shrine Caretaker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Sunspire Haven",
+  "locality_scope": "Sunspire Haven",
+  "institutional_ties": [
+    "Sunspire Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Sunspire Haven"
+    ],
+    "institutions": [
+      "Sunspire Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Ritual garments, symbolic tokens, and carefully maintained devotional detail make the role legible at a glance.",
+  "manner": "Speaks with ritual calm and practiced reassurance, but watches closely for signs of spiritual or civic disturbance. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of shrine caretaker in and around Sunspire Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Sunspire Haven workable through the obligations of shrine caretaker while managing the immediate pressure of predators in Soreheim Alliance.",
+  "hidden_pressure": "Must ensure that rite remains trustworthy even when civic pressure tries to convert it into mere administration. Around Sunspire Haven, that usually means carrying predators, water system vulnerabilities, storage disputes without letting the role of shrine caretaker visibly slip.",
+  "relationship_refs": [
+    "rel_0259",
+    "rel_0262",
+    "rel_0265",
+    "rel_0266",
+    "rel_1030",
+    "rel_1034",
+    "rel_1037",
+    "rel_1039",
+    "rel_1040"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "pastoral_request",
+      "summary": "Varik Drillwake may ask the party to retrieve someone, something, or some truth before a rite can proceed safely."
+    },
+    {
+      "hook_type": "doctrinal_complication",
+      "summary": "Any alliance with Varik Drillwake can expose the party to taboo, doctrine, or institutional expectation centered on Sunspire Haven."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "varik_drillwake",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Ritual dress, offering marks, and devotional cadence make Varik Drillwake immediately legible as a spiritual intermediary. In Sunspire Haven, this lands inside a public field already shaped by regional leaders, market stewards.",
+  "encounter_context": {
+    "usual_environment": "Sunspire Haven: shrines, cathedrals, funerary halls, or ritual precincts",
+    "who_seeks_them_out": [
+      "mourners",
+      "petitioners",
+      "those seeking rite or absolution"
+    ],
+    "who_avoids_them": [
+      "the openly impious",
+      "ritual disturbers",
+      "those asking for sacred shortcuts"
+    ],
+    "interaction_anchor": "ritual mediation or doctrinal reassurance"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Varik Drillwake presents as Speaks with ritual calm and practiced reassurance, but watches closely for signs of spiritual or civic disturbance. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a shrine caretaker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Shrine Caretaker, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Varik Drillwake refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Shrine Caretaker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Varik Drillwake can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Varik Drillwake adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Varik Drillwake is Known locally through day-to-day work as shrine caretaker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Shrine Caretaker."
+}

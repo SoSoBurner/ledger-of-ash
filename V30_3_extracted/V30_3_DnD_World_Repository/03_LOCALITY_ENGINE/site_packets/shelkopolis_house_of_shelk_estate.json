@@ -1,0 +1,25 @@
+{
+  "name": "House of Shelk Estate",
+  "parent_settlement": "Shelkopolis",
+  "type": "government dwelling",
+  "truth_layer": "conservative_inference",
+  "identity": "A government dwelling in Shelkopolis that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "House of Shelk Estate Scribe",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Shelkopolis’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "House of Shelk Estate Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

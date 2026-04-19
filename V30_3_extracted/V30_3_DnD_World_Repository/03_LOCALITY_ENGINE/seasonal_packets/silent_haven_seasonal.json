@@ -1,0 +1,9 @@
+{
+  "name": "Silent Haven",
+  "seasonal_change": "Harsh northern sea conditions govern activity.",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

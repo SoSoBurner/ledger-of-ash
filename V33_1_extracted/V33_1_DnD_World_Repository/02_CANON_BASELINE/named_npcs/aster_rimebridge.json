@@ -1,0 +1,97 @@
+{
+  "npc_id": "aster_rimebridge",
+  "canonical_name": "Aster Rimebridge",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Market Broker",
+  "profession_discipline": "Market Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Starbreak Commune",
+  "locality_scope": "Starbreak Commune",
+  "institutional_ties": [
+    "Starbreak Commune"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as market broker.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Starbreak Commune"
+    ],
+    "institutions": [
+      "Starbreak Commune"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a market broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of market broker in and around Starbreak Commune, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Starbreak Commune workable through the obligations of market broker while managing the immediate pressure of crew attrition in Sheresh Communes.",
+  "hidden_pressure": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Starbreak Commune, that usually means carrying crew attrition, signal blackout, observation exposure without letting the role of market broker visibly slip.",
+  "relationship_refs": [
+    "rel_0114",
+    "rel_0123",
+    "rel_0131",
+    "rel_0138",
+    "rel_0144",
+    "rel_0149",
+    "rel_0153",
+    "rel_0156",
+    "rel_0159",
+    "rel_0160",
+    "rel_0963",
+    "rel_0964",
+    "rel_0965"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "market_information",
+      "summary": "Aster Rimebridge will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    },
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Aster Rimebridge needs help protecting a shipment, recovering leverage, or stabilizing exchange around Starbreak Commune before trust collapses."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "aster_rimebridge",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Aster Rimebridge read as someone who lives by exchange and reputation. In Starbreak Commune, this lands inside a public field already shaped by Route Warden Compacts, Containment Research Concord.",
+  "encounter_context": {
+    "usual_environment": "Starbreak Commune: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Aster Rimebridge presents as Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a market broker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Market Broker, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Aster Rimebridge refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Market Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Aster Rimebridge can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Aster Rimebridge adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Aster Rimebridge is Known locally through day-to-day work as market broker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Market Broker."
+}

@@ -1,0 +1,9 @@
+# Unity Square NPC roster card
+
+Total named NPCs: 3
+
+Dense urban market-quarter and negotiated exchange ground where guild representatives settle trade and visibility disputes amid stacked commerce, inspection lanes, and constant freight turnover.
+
+- **wildcard**: Vale Brokerwell — Clerk of Arrivals. Keeps language exact, as if wording itself is part of the custody chain. In The Union, that reads as someone deal-aware, balanced, and pr...
+- **wildcard**: Vale Ledgermere — Ward Mediator. Treats planning, posture, and timing as parts of the same problem rather than separate concerns. In The Union, that reads as someone deal...
+- **wildcard**: Vale Tinmarch — Street Physician. Reads as a functional local operator shaped by place, duty, and the practical customs around them. In The Union, that reads as someone de...

@@ -1,0 +1,12 @@
+{
+  "build_version": "V31_6",
+  "prior_build": "V31_5",
+  "release_type": "magic_system_world_integration_release",
+  "summary": [
+    "expanded the baseline magic packet into a structured subsystem",
+    "added current-release magic browse surfaces",
+    "internalized the magic system specification into package provenance",
+    "refreshed release identity and package manifests for V31_6"
+  ],
+  "status": "pass"
+}

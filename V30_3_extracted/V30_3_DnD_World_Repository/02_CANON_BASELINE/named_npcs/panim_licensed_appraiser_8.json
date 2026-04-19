@@ -1,0 +1,39 @@
+{
+  "npc_id": "panim_licensed_appraiser_8",
+  "canonical_name": "Panim Licensed Appraiser 8",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "commerce",
+  "office_or_role": "Licensed Appraiser",
+  "profession_discipline": "valuation and permits",
+  "grouping": "locality parity completion",
+  "polity": "Panim",
+  "settlement": "Veilbridge Sepulcher",
+  "locality_scope": "Veilbridge Sepulcher",
+  "institutional_ties": [
+    "Licensed Appraiser"
+  ],
+  "legal_standing": "recognized local actor",
+  "religious_standing": "civically tolerated",
+  "public_reputation": "hard to fool twice",
+  "linked_systems": [
+    "locality support",
+    "route play",
+    "encounter readiness"
+  ],
+  "appearance": "Panim Licensed Appraiser 8 is visibly shaped by the work and status pressures of Veilbridge Sepulcher.",
+  "manner": "controlled, observant, and economical with attention",
+  "daily_function": "Maintains licensed appraiser responsibilities in and around Veilbridge Sepulcher.",
+  "hidden_pressure": "Panim Licensed Appraiser 8 is trying to hold local order together without publicly admitting how stretched it has become.",
+  "truth_layer": "source_backed_inference",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Panim Licensed Appraiser 8 quickly reads whether strangers are worth helping, charging, or slowing down.",
+  "what_they_want_from_strangers": "clarity, usefulness, and respect for local process",
+  "what_they_refuse": "carelessness dressed up as confidence",
+  "how_they_create_problems": "turning a small favor into an obligation or delay",
+  "how_they_can_help": "unlocking access, warnings, or introductions",
+  "escalation_if_crossed": "brings scrutiny, reputational friction, and institutional attention",
+  "rumor_about_them": "Locals say Panim Licensed Appraiser 8 is more connected than seems safe.",
+  "best_first_scene": "An arrival, delay, or access problem where practical guidance matters more than combat."
+}

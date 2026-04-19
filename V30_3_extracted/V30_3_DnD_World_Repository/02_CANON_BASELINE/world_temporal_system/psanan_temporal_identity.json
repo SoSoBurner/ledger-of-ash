@@ -1,0 +1,35 @@
+{
+  "name": "Psanan Temporal Identity",
+  "truth_layer": "reconciled_canon",
+  "calendar_object": "02_CANON_BASELINE/calendars/psanan.json",
+  "work_cycles": [
+    "Forge and port labor follow volcanic and dormant cycle rhythm inside the 360-day civil calendar"
+  ],
+  "feast_days": [
+    "Volcanic Renewal midpoint observance",
+    "house-linked forge and memorial rites",
+    "Sieve-count overlay in ritual speech"
+  ],
+  "legal_deadlines": [
+    "Descent rights, port windows, and oath obligations often hinge on heat and ash conditions"
+  ],
+  "shipping_windows": [
+    "Cooler, navigable periods are crucial for exports; ash surges interrupt regular flow"
+  ],
+  "weather_expectations": [
+    "Planet of Fire-linked activity and ash seasons dominate expectation"
+  ],
+  "mourning_and_renewal_customs": [
+    "Renewal customs are public and often tied to rebuilding after damage"
+  ],
+  "public_language_about_time": [
+    "People use both civil volcanic cycles and Sieve-count ritual language without collapsing them into one"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

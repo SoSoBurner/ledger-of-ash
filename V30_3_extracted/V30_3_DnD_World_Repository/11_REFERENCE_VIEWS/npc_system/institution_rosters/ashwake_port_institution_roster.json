@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Ashwake Port",
+  "record_count": 3,
+  "npc_ids": [
+    "cindri_ashvein",
+    "morra_ashvein",
+    "port_factor_nemra_sootwake"
+  ]
+}

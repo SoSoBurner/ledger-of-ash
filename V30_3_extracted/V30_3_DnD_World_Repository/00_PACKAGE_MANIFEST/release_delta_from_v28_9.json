@@ -1,0 +1,14 @@
+{
+  "build_version": "V30_3",
+  "delta_role": "integration_of_clean_spatial_surface_into_standalone_repository",
+  "absorbed_products": [
+    "world_graph",
+    "location_key",
+    "polity_summary",
+    "water_audit",
+    "clean_overlay_views"
+  ],
+  "generated_at": "2026-04-18T03:13:23Z",
+  "current_release": "V30_3",
+  "package_name": "V30_3_DnD_World_Repository"
+}

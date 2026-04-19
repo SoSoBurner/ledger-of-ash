@@ -1,0 +1,376 @@
+{
+  "count": 53,
+  "entries": [
+    {
+      "name": "Arbiters Row",
+      "slug": "arbiters_row",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/arbiters_row.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/arbiters_row.md"
+    },
+    {
+      "name": "Ashforge Citadel",
+      "slug": "ashforge_citadel",
+      "parent_polity": "Psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ashforge_citadel.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ashforge_citadel.md"
+    },
+    {
+      "name": "Ashforge Quarry",
+      "slug": "ashforge_quarry",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ashforge_quarry.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ashforge_quarry.md"
+    },
+    {
+      "name": "Ashwake Port",
+      "slug": "ashwake_port",
+      "parent_polity": "Psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ashwake_port.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ashwake_port.md"
+    },
+    {
+      "name": "Aurora Crown Commune",
+      "slug": "aurora_crown_commune",
+      "parent_polity": "Sheresh Communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/aurora_crown_commune.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/aurora_crown_commune.md"
+    },
+    {
+      "name": "Aurora Heights District",
+      "slug": "aurora_heights_district",
+      "parent_polity": "Shelkopolis",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/aurora_heights_district.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/aurora_heights_district.md"
+    },
+    {
+      "name": "Banner Anchorage",
+      "slug": "banner_anchorage",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/banner_anchorage.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/banner_anchorage.md"
+    },
+    {
+      "name": "Canal Thorn Exchange",
+      "slug": "canal_thorn_exchange",
+      "parent_polity": "House Zootia",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/canal_thorn_exchange.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/canal_thorn_exchange.md"
+    },
+    {
+      "name": "Cindervow Quarter",
+      "slug": "cindervow_quarter",
+      "parent_polity": "Psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/cindervow_quarter.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/cindervow_quarter.md"
+    },
+    {
+      "name": "Cosmoria",
+      "slug": "cosmoria",
+      "parent_polity": "House Cosmouth",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/cosmoria.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/cosmoria.md"
+    },
+    {
+      "name": "Craftspire",
+      "slug": "craftspire",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/craftspire.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/craftspire.md"
+    },
+    {
+      "name": "Duneshade Outpost",
+      "slug": "duneshade_outpost",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/duneshade_outpost.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/duneshade_outpost.md"
+    },
+    {
+      "name": "Emberforge Outpost",
+      "slug": "emberforge_outpost",
+      "parent_polity": "Principality of Shelk",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/emberforge_outpost.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/emberforge_outpost.md"
+    },
+    {
+      "name": "Emberhollow Forge Town",
+      "slug": "emberhollow_forge_town",
+      "parent_polity": "Psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/emberhollow_forge_town.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/emberhollow_forge_town.md"
+    },
+    {
+      "name": "Embervale Settlement",
+      "slug": "embervale_settlement",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/embervale_settlement.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/embervale_settlement.md"
+    },
+    {
+      "name": "Fairhaven",
+      "slug": "fairhaven",
+      "parent_polity": "Principality of Shelk",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/fairhaven.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/fairhaven.md"
+    },
+    {
+      "name": "Glasswake Commune",
+      "slug": "glasswake_commune",
+      "parent_polity": "Sheresh Communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/glasswake_commune.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/glasswake_commune.md"
+    },
+    {
+      "name": "Guildheart Hub",
+      "slug": "guildheart_hub",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/guildheart_hub.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/guildheart_hub.md"
+    },
+    {
+      "name": "Harvest Circle",
+      "slug": "harvest_circle",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/harvest_circle.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/harvest_circle.md"
+    },
+    {
+      "name": "Harvest Keep",
+      "slug": "harvest_keep",
+      "parent_polity": "Principality of Zootia",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/harvest_keep.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/harvest_keep.md"
+    },
+    {
+      "name": "Hearthcoil Commune",
+      "slug": "hearthcoil_commune",
+      "parent_polity": "Sheresh Communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/hearthcoil_commune.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/hearthcoil_commune.md"
+    },
+    {
+      "name": "Housechain Court",
+      "slug": "housechain_court",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/housechain_court.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/housechain_court.md"
+    },
+    {
+      "name": "Hullwake Foundry",
+      "slug": "hullwake_foundry",
+      "parent_polity": "House Cosmouth",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/hullwake_foundry.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/hullwake_foundry.md"
+    },
+    {
+      "name": "Iron Ledger Ward",
+      "slug": "iron_ledger_ward",
+      "parent_polity": "Principality of Roaz",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/iron_ledger_ward.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/iron_ledger_ward.md"
+    },
+    {
+      "name": "Ironhold Quarry",
+      "slug": "ironhold_quarry",
+      "parent_polity": "Principality of Roaz",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ironhold_quarry.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ironhold_quarry.md"
+    },
+    {
+      "name": "Ironspool Ward District",
+      "slug": "ironspool_ward_district",
+      "parent_polity": "Shelkopolis",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ironspool_ward_district.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ironspool_ward_district.md"
+    },
+    {
+      "name": "Ithtananalor",
+      "slug": "ithtananalor",
+      "parent_polity": "Principality of Roaz",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ithtananalor.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ithtananalor.md"
+    },
+    {
+      "name": "Lantern Docket",
+      "slug": "lantern_docket",
+      "parent_polity": "House Shirsh",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/lantern_docket.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/lantern_docket.md"
+    },
+    {
+      "name": "Ledger Canal",
+      "slug": "ledger_canal",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/ledger_canal.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/ledger_canal.md"
+    },
+    {
+      "name": "Market Crossroads",
+      "slug": "market_crossroads",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/market_crossroads.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/market_crossroads.md"
+    },
+    {
+      "name": "Maskscar Plaza District",
+      "slug": "maskscar_plaza_district",
+      "parent_polity": "Psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/maskscar_plaza_district.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/maskscar_plaza_district.md"
+    },
+    {
+      "name": "Mediators Court",
+      "slug": "mediators_court",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/mediators_court.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/mediators_court.md"
+    },
+    {
+      "name": "Mimolot Academy",
+      "slug": "mimolot_academy",
+      "parent_polity": "House Mimolot",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/mimolot_academy.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/mimolot_academy.md"
+    },
+    {
+      "name": "Panim Haven",
+      "slug": "panim_haven",
+      "parent_polity": "House Panim",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/panim_haven.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/panim_haven.md"
+    },
+    {
+      "name": "Plume’s End Outpost",
+      "slug": "plume_s_end_outpost",
+      "parent_polity": "Principality of Shelk",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/plume_s_end_outpost.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/plume_s_end_outpost.md"
+    },
+    {
+      "name": "Reckoning Quarter",
+      "slug": "reckoning_quarter",
+      "parent_polity": "House Panim",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/reckoning_quarter.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/reckoning_quarter.md"
+    },
+    {
+      "name": "Scarlet Descent Gate",
+      "slug": "scarlet_descent_gate",
+      "parent_polity": "Psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/scarlet_descent_gate.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/scarlet_descent_gate.md"
+    },
+    {
+      "name": "Scriptorium Steps",
+      "slug": "scriptorium_steps",
+      "parent_polity": "House Mimolot",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/scriptorium_steps.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/scriptorium_steps.md"
+    },
+    {
+      "name": "Sealwater Conclave",
+      "slug": "sealwater_conclave",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/sealwater_conclave.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/sealwater_conclave.md"
+    },
+    {
+      "name": "Serpent Measure",
+      "slug": "serpent_measure",
+      "parent_polity": "House Zootia",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/serpent_measure.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/serpent_measure.md"
+    },
+    {
+      "name": "Shelkopolis",
+      "slug": "shelkopolis",
+      "parent_polity": "Principality of Shelk",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/shelkopolis.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/shelkopolis.md"
+    },
+    {
+      "name": "Shirshal",
+      "slug": "shirshal",
+      "parent_polity": "House Shirsh",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/shirshal.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/shirshal.md"
+    },
+    {
+      "name": "Silent Haven",
+      "slug": "silent_haven",
+      "parent_polity": "Principality of Roaz",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/silent_haven.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/silent_haven.md"
+    },
+    {
+      "name": "Soreheim Proper",
+      "slug": "soreheim_proper",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/soreheim_proper.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/soreheim_proper.md"
+    },
+    {
+      "name": "Starbreak Commune",
+      "slug": "starbreak_commune",
+      "parent_polity": "Sheresh Communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/starbreak_commune.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/starbreak_commune.md"
+    },
+    {
+      "name": "Sunspire Haven",
+      "slug": "sunspire_haven",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/sunspire_haven.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/sunspire_haven.md"
+    },
+    {
+      "name": "Tariff Lantern Court",
+      "slug": "tariff_lantern_court",
+      "parent_polity": "House Mimolot",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/tariff_lantern_court.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/tariff_lantern_court.md"
+    },
+    {
+      "name": "Tideglass Registry",
+      "slug": "tideglass_registry",
+      "parent_polity": "House Cosmouth",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/tideglass_registry.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/tideglass_registry.md"
+    },
+    {
+      "name": "Unity Square",
+      "slug": "unity_square",
+      "parent_polity": "The Union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/unity_square.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/unity_square.md"
+    },
+    {
+      "name": "Veilbridge Sepulcher",
+      "slug": "veilbridge_sepulcher",
+      "parent_polity": "House Panim",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/veilbridge_sepulcher.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/veilbridge_sepulcher.md"
+    },
+    {
+      "name": "Verdant Row District",
+      "slug": "verdant_row_district",
+      "parent_polity": "Shelkopolis",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/verdant_row_district.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/verdant_row_district.md"
+    },
+    {
+      "name": "Whitebridge Commune",
+      "slug": "whitebridge_commune",
+      "parent_polity": "Sheresh Communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/whitebridge_commune.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/whitebridge_commune.md"
+    },
+    {
+      "name": "Witness Coil",
+      "slug": "witness_coil",
+      "parent_polity": "House Shirsh",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/localities/witness_coil.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/localities/witness_coil.md"
+    }
+  ]
+}

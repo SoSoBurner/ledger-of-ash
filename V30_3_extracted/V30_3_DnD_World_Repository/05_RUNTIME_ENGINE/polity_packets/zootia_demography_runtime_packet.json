@@ -1,0 +1,35 @@
+{
+  "object_id": "zootia_demography_runtime_packet",
+  "build_version": "V30_3",
+  "truth_layer": "runtime_derivative",
+  "derived_from": [
+    "zootia_demography"
+  ],
+  "canon_source_objects": [
+    "zootia_demography"
+  ],
+  "claim_ids_used": [
+    "claim::zootia_demography::yuan_ti",
+    "claim::zootia_demography::humans",
+    "claim::zootia_demography::half_elves",
+    "claim::zootia_demography::elves"
+  ],
+  "polity": "Zootia",
+  "dominant_races": [
+    "Yuan-Ti"
+  ],
+  "secondary_races": [
+    "Humans",
+    "Half-Elves",
+    "Elves"
+  ],
+  "excluded_or_shunned_groups": [],
+  "visible_public_consequences": [
+    "Zootia public life visibly reflects the dominant populations listed in canon.",
+    "Secondary populations appear as durable resident blocs rather than polity-defining majorities."
+  ],
+  "institutional_visibility": "Institutions and street-level expectations align with the canonical demographic balance.",
+  "adjacency_influence": "Yuan-Ti remain the defining race, with Humans, Half-Elves, and Elves preserved as secondary populations through labor, trade, and imperial integration.",
+  "visitor_facing_observations": "A visitor would notice the dominant bloc first, then the stable secondary populations and any explicit exclusions or shunned groups.",
+  "setting_use_summary": "Use Zootia with the roster exactly as resolved in canon; do not broaden or soften exclusions without explicit corrective release."
+}

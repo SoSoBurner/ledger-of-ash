@@ -1,0 +1,21 @@
+{
+  "object_id": "system.conflict.world",
+  "system_type": "conflict_engine",
+  "truth_status": "reconciled_canon",
+  "active_tensions_by_polity": "Conflict should be answered through polity-specific tensions, successor orders, faction pressure, and local unrest rather than generic war-state assumptions.",
+  "faction_flashpoints": "Faction conflict must be queryable by locality and institution touchpoints.",
+  "unstable_borders": "Border stability is variable and should be treated as an operational world condition.",
+  "ideological_conflicts": "Religious, civic, trade, and memory-layer conflict may coexist with physical conflict.",
+  "crime_pressure": "Crime pressure must be interpreted through law context, power unevenness, and public fear.",
+  "social_fracture_points": "Class, authority, faith, and successor-order disputes are valid pressure surfaces.",
+  "war_unrest_likelihood": "Escalation should be modeled as pressure gradients rather than binary peace/war.",
+  "sources": [
+    "principalities",
+    "soreheim_review",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "support_type": "engine_synthesis",
+  "truth_layer": "engine_canon",
+  "justification": "Repository synthesis layer built to make strongly supported canon operational without overriding source truth."
+}

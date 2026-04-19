@@ -1,0 +1,59 @@
+{
+  "current_release": "V30_3",
+  "repository_root": "V30_3_DnD_World_Repository",
+  "required_top_level_entries": [
+    "README.md",
+    "PROJECT_INSTRUCTIONS.txt",
+    "00_PACKAGE_MANIFEST",
+    "01_CANON_GOVERNANCE",
+    "02_CANON_BASELINE",
+    "03_LOCALITY_ENGINE",
+    "03_RECONCILIATION_LAYER",
+    "04_CONSERVATIVE_INFERENCE",
+    "05_PROVENANCE",
+    "05_RUNTIME_ENGINE",
+    "06_VALIDATION",
+    "08_RELEASE_NOTES",
+    "09_SUPERSESSION",
+    "10_LINEAGE_HISTORY",
+    "11_REFERENCE_VIEWS"
+  ],
+  "active_zones": [
+    "README.md",
+    "PROJECT_INSTRUCTIONS.txt",
+    "00_PACKAGE_MANIFEST",
+    "01_CANON_GOVERNANCE",
+    "02_CANON_BASELINE",
+    "03_LOCALITY_ENGINE",
+    "03_RECONCILIATION_LAYER",
+    "04_CONSERVATIVE_INFERENCE",
+    "05_PROVENANCE",
+    "05_RUNTIME_ENGINE",
+    "06_VALIDATION",
+    "11_REFERENCE_VIEWS/current_release",
+    "11_REFERENCE_VIEWS/world_guides",
+    "11_REFERENCE_VIEWS/npc_system",
+    "11_REFERENCE_VIEWS/polity_demography_quick_reference.json"
+  ],
+  "lineage_zones": [
+    "10_LINEAGE_HISTORY",
+    "11_REFERENCE_VIEWS/legacy_release_history",
+    "02_CANON_BASELINE/chronology",
+    "02_CANON_BASELINE/legacy"
+  ],
+  "derived_zones": [
+    "00_PACKAGE_MANIFEST",
+    "06_VALIDATION",
+    "11_REFERENCE_VIEWS/current_release"
+  ],
+  "legacy_allowed_zones": [
+    "10_LINEAGE_HISTORY",
+    "11_REFERENCE_VIEWS/legacy_release_history",
+    "02_CANON_BASELINE/chronology",
+    "02_CANON_BASELINE/legacy"
+  ],
+  "prohibited_path_references": [
+    "obsolete runtime zone label",
+    "obsolete legacy reference path label"
+  ]
+}

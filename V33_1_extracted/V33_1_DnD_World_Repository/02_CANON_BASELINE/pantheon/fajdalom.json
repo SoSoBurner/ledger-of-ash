@@ -1,0 +1,11 @@
+{
+  "id": "deity.fajdalom",
+  "name": "Fajdalom",
+  "domain": "Agony",
+  "desire": "Torture denizens of the Material Plane",
+  "current_state": "Fragmented across the Nine Hells; helps contain Mega-Terozash.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

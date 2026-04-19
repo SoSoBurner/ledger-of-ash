@@ -1,0 +1,44 @@
+{
+  "version": "V30_3",
+  "purpose": "Defines release gates for standalone hardening builds with adversarial validation, explicit active-versus-lineage separation, and frozen-snapshot regeneration requirements.",
+  "active_release_zones": [
+    "README.md",
+    "PROJECT_INSTRUCTIONS.txt",
+    "00_PACKAGE_MANIFEST",
+    "01_CANON_GOVERNANCE",
+    "02_CANON_BASELINE",
+    "03_LOCALITY_ENGINE",
+    "03_RECONCILIATION_LAYER",
+    "04_CONSERVATIVE_INFERENCE",
+    "05_PROVENANCE",
+    "05_RUNTIME_ENGINE",
+    "06_VALIDATION",
+    "11_REFERENCE_VIEWS/current_release"
+  ],
+  "allowed_legacy_zones": [
+    "10_LINEAGE_HISTORY",
+    "11_REFERENCE_VIEWS/legacy_release_history",
+    "02_CANON_BASELINE/chronology",
+    "02_CANON_BASELINE/legacy"
+  ],
+  "gates": [
+    "All active package metadata must identify the build as current_release.",
+    "Manifest counts, validation counts, provenance counts, and filesystem counts must be compared in a consistency manifest.",
+    "Older version tokens are permitted only in explicit lineage-retained, reference-history, chronology, or legacy zones.",
+    "Active validation artifacts must be regenerated from one frozen final filesystem snapshot.",
+    "Truth-layer overreach checks must flag any enriched expression mislabeled as direct canon.",
+    "Critical object classes must meet saturation contracts before release.",
+    "Runtime-ready branches must emit validated world effects and world deltas or remain explicitly candidate-only.",
+    "Governance path contracts must match the actual filesystem.",
+    "README and closure claims must be mechanically supportable."
+  ],
+  "fail_if": [
+    "active files contain stale version tokens",
+    "distribution root does not match package manifest",
+    "zip package is incomplete or not standalone",
+    "active validation is not regenerated from the frozen snapshot",
+    "governance policy and package state disagree",
+    "critical object saturation gates are unmet",
+    "usable runtime branches lack validated world deltas"
+  ]
+}

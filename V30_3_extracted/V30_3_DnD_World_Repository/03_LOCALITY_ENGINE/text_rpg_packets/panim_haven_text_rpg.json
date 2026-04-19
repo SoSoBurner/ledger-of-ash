@@ -1,0 +1,232 @@
+{
+  "name": "Panim Haven",
+  "region": "House Panim",
+  "capital_class": true,
+  "truth_layer": "conservative_inference",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "innkeeper",
+      "display_name": "Panim Haven Innkeeper",
+      "role": "Innkeeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Innkeeper is the locality-facing innkeeper interface in Panim Haven, useful for provides lodging, local gossip, traveler warnings, and emergency favors."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "market_clerk",
+      "display_name": "Panim Haven Market Clerk",
+      "role": "Market Clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Market Clerk is the locality-facing market clerk interface in Panim Haven, useful for manages queues, forms, stall assignments, and the practical memory of who came through."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "shrine_attendant",
+      "display_name": "Panim Haven Shrine Attendant",
+      "role": "Shrine Attendant",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Shrine Attendant is the locality-facing shrine attendant interface in Panim Haven, useful for maintains offerings, notices breaches, and guides minor local rites."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "porter",
+      "display_name": "Panim Haven Porter",
+      "role": "Porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Porter is the locality-facing porter interface in Panim Haven, useful for moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "scribe",
+      "display_name": "Panim Haven Scribe",
+      "role": "Scribe",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Scribe is the locality-facing scribe interface in Panim Haven, useful for records transactions, testimony, obligations, and quiet corrections that later decide public outcomes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "labor_foreman",
+      "display_name": "Panim Haven Labor Foreman",
+      "role": "Labor Foreman",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Labor Foreman is the locality-facing labor foreman interface in Panim Haven, useful for coordinates shifts, crews, protection, and blame when practical work goes wrong."
+    }
+  ],
+  "street_level_faction_presence": {
+    "visible_factions": [
+      "House Panim",
+      "Panim Afterlife Registry"
+    ],
+    "what_they_look_like_in_practice": "Authority appears through uniforms, seals, ledgers, ritual markers, escorts, tools, queue control, and which people others make way for.",
+    "who_benefits": "Those who know the rules, fulfill obligations, or ride aligned patronage tend to benefit first.",
+    "who_fears_them": "Debtors, irregular operators, exposed workers, and those with fragile standing often fear enforcement or scrutiny most."
+  },
+  "social_norm_surface": {
+    "greetings": [
+      "Mournful courtesy and measured acknowledgment of family lines, vows, or dead kin are common."
+    ],
+    "hospitality_rules": [
+      "Guests are offered water, incense, and a seat appropriate to the gravity of their business."
+    ],
+    "insult_triggers": [
+      "mocking funerary commerce",
+      "treating grief as spectacle",
+      "failing ritual respect around offerings or coffins"
+    ],
+    "taboo_topics": [
+      "cheap jokes about death",
+      "public bargaining over memorial worth in crude terms"
+    ],
+    "faith_etiquette": [
+      "offerings are handled carefully, names of the dead are spoken with deliberation, and ritual order matters"
+    ],
+    "suspicious_behavior": [
+      "false lineage claims",
+      "tampering with offering records",
+      "desperate attempts to bypass ritual cost"
+    ],
+    "outsider_mistakes": [
+      "seeing Panim as only morbid rather than civic, devotional, and economic"
+    ]
+  },
+  "ordinary_life_surface": {
+    "what_people_do_all_day": "Daily life turns on records, mediation, offering preparation, grief traffic, and the steady movement of family duty through sacred administration.",
+    "what_places_feel_like": "The air carries salt, incense, wax, cedar, linen, and low voices. Public spaces feel watched by memory, accountancy, and doctrine.",
+    "home_and_guest_norms": "Homes keep ancestor spaces, mourning cloth, and clear divisions between guest reception and family grief rooms."
+  },
+  "rumor_pool": {
+    "public_rumors": [
+      "People say something in Panim Haven has grown more tense than the officials admit.",
+      "Merchants claim the last busy cycle in Panim Haven left someone unpaid or publicly embarrassed."
+    ],
+    "half_true_rumors": [
+      "A respected local figure in Panim Haven is said to be protecting someone they should have exposed."
+    ],
+    "faction_planted_rumors": [
+      "A faction-friendly story in Panim Haven insists that harsher oversight is the only thing keeping things from collapse."
+    ],
+    "religious_warnings": [
+      "Some locals in Panim Haven treat current unease as a warning rather than ordinary trouble."
+    ],
+    "trade_concerns": [
+      "Freight, labor, or supply movement around Panim Haven is said to be more fragile than the ledgers suggest."
+    ],
+    "criminal_whispers": [
+      "Quiet talk in Panim Haven says favors can still be bought if one knows who keeps the informal door open."
+    ],
+    "historical_misconceptions": [
+      "Older residents of Panim Haven repeat a version of local history that does not fully match corrective or official accounts."
+    ],
+    "contradiction_aware_myth_versions": [
+      {
+        "claim": "Older residents of Panim Haven repeat a version of local history that does not fully match corrective or official accounts.",
+        "truth_layer": "public_belief_record"
+      }
+    ]
+  },
+  "conflict_surfaces": [
+    "faith versus secrecy",
+    "grief versus cost",
+    "ritual dignity versus opportunistic trade"
+  ],
+  "travel_and_transition_texture": {
+    "feel": "Approaches to Panim feel quieter; cart traffic often includes memorial goods, and strangers quickly learn that tone matters as much as purpose.",
+    "checkpoint_behavior": "Checkpoint, gate, dock, or entry custom reveals who is trusted, who is processed, and who is delayed.",
+    "caravan_or_route_custom": "Route handoff norms matter; escorts, seals, witnesses, or weather-reading often determine who moves next.",
+    "regional_handoff_custom": "Responsibility for travelers and goods visibly changes at territorial boundaries."
+  },
+  "text_rpg_ready_locality_hooks": {
+    "who_you_talk_to_first": "Panim Haven Innkeeper",
+    "where_strangers_gather": "At the most practical public node: inn bench, queue court, market edge, dock gate, shrine steps, or freight lane.",
+    "public_notice_drawing_attention": "A new notice in Panim Haven is drawing comment because it changes someone’s movement, cost, or safety.",
+    "visible_tension": "People in Panim Haven are acting as though a pressure everyone knows about has become harder to ignore.",
+    "private_trouble": "Someone respectable in Panim Haven is privately entangled in an obligation they cannot publicly explain.",
+    "one_hour_entanglement": "A newcomer in Panim Haven could be pulled into a dispute, delivery problem, witness request, or rumor test within an hour of arrival."
+  },
+  "relationship_and_reputation_consequences": {
+    "trust": "People are remembered for reverence, discretion, follow-through on rites, and how they treat the bereaved.",
+    "what_causes_good_memory": "Keeping one’s word under visible pressure, showing correct public respect, and not creating avoidable trouble.",
+    "what_causes_bad_memory": "Public embarrassment, broken obligations, opportunism during crisis, and forcing others to absorb avoidable risk.",
+    "what_favors_matter": "Timely introductions, queue priority, sealed testimony, repair help, escorting, storage, ritual guidance, and quiet omission when deserved."
+  },
+  "scene_starter_inventory": [
+    "overheard dispute at a public threshold",
+    "public ceremony under pressure",
+    "missing person or missing ledger concern",
+    "labor stoppage or delayed shipment",
+    "funeral procession or shrine petition",
+    "bureaucratic friction with real stakes",
+    "trade dispute with witnesses",
+    "faction test of loyalty or usefulness",
+    "strange celestial sign interpreted three different ways"
+  ],
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "named_npc_refs": [],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter",
+    "scribe",
+    "labor_foreman"
+  ],
+  "ordinary_interface_surface": [
+    {
+      "interface_type": "local_role",
+      "ref": "innkeeper",
+      "display_name": "Panim Haven Innkeeper",
+      "role": "Innkeeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Innkeeper is the locality-facing innkeeper interface in Panim Haven, useful for provides lodging, local gossip, traveler warnings, and emergency favors."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "market_clerk",
+      "display_name": "Panim Haven Market Clerk",
+      "role": "Market Clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Market Clerk is the locality-facing market clerk interface in Panim Haven, useful for manages queues, forms, stall assignments, and the practical memory of who came through."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "shrine_attendant",
+      "display_name": "Panim Haven Shrine Attendant",
+      "role": "Shrine Attendant",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Shrine Attendant is the locality-facing shrine attendant interface in Panim Haven, useful for maintains offerings, notices breaches, and guides minor local rites."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "porter",
+      "display_name": "Panim Haven Porter",
+      "role": "Porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Porter is the locality-facing porter interface in Panim Haven, useful for moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "scribe",
+      "display_name": "Panim Haven Scribe",
+      "role": "Scribe",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Scribe is the locality-facing scribe interface in Panim Haven, useful for records transactions, testimony, obligations, and quiet corrections that later decide public outcomes."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "labor_foreman",
+      "display_name": "Panim Haven Labor Foreman",
+      "role": "Labor Foreman",
+      "truth_layer": "conservative_inference",
+      "summary": "Panim Haven Labor Foreman is the locality-facing labor foreman interface in Panim Haven, useful for coordinates shifts, crews, protection, and blame when practical work goes wrong."
+    }
+  ]
+}

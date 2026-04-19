@@ -1,0 +1,99 @@
+{
+  "name": "Creature Ecology and Society Matrix",
+  "truth_layer": "reconciled_canon",
+  "regions": [
+    {
+      "region": "Sheresh and far north",
+      "creatures": [
+        "winter wolves",
+        "rime worms",
+        "ice trolls",
+        "phosphorescent reptilian predators",
+        "blink dogs",
+        "will-o’-wisps",
+        "pixies",
+        "frost elementals"
+      ],
+      "societal_relationships": [
+        "containment planning",
+        "mutation fear",
+        "exile risk",
+        "aurora folklore",
+        "survival engineering"
+      ]
+    },
+    {
+      "region": "Shelk corruption belt and Meadow of Lyra",
+      "creatures": [
+        "celestial enforcers",
+        "blink dogs",
+        "pixies",
+        "boggles",
+        "redcaps",
+        "will-o’-wisps"
+      ],
+      "societal_relationships": [
+        "observatory vigilance",
+        "route danger",
+        "alchemical trade",
+        "Roadwarden response"
+      ]
+    },
+    {
+      "region": "Brineland and Cosmouth waters",
+      "creatures": [
+        "merfolk",
+        "sea serpents",
+        "sirens",
+        "merrow",
+        "giant octopus",
+        "leviathans"
+      ],
+      "societal_relationships": [
+        "fishing",
+        "tide diplomacy",
+        "floating-city adaptation",
+        "safe-passage negotiation"
+      ]
+    },
+    {
+      "region": "Soreheim frontier and Eternal Lands",
+      "creatures": [
+        "biofluorescent predators",
+        "remorhaz",
+        "rocs",
+        "frost salamanders",
+        "lava-linked anomaly creatures"
+      ],
+      "societal_relationships": [
+        "watchtower systems",
+        "industrial defense",
+        "quota disruption risk",
+        "giant–mortal hazard protocols",
+        "patron-family hunting obligations",
+        "clan claims over salvage, carcass rights, and cleared ground"
+      ]
+    },
+    {
+      "region": "Psanan",
+      "creatures": [
+        "volcanic and forge-adapted threats",
+        "beastkeeping lineages",
+        "underworld hazard fauna"
+      ],
+      "societal_relationships": [
+        "martial economies",
+        "ritualized endurance",
+        "beast culture",
+        "underworld descent law"
+      ]
+    }
+  ],
+  "sources": [
+    "locations_catalog",
+    "soreheim_review",
+    "spatial_seasonal",
+    "ai_source_pdf",
+    "topatch_v22_6_spec"
+  ]
+}

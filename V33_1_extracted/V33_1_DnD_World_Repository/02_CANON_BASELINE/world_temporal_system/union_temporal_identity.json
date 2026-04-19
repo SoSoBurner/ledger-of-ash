@@ -1,0 +1,33 @@
+{
+  "name": "Union Temporal Identity",
+  "truth_layer": "conservative_inference",
+  "calendar_parent": "Principalities temporal frame",
+  "work_cycles": [
+    "Trade summits, arbitration surges, and market turnover define lived time more than harvest alone"
+  ],
+  "feast_days": [
+    "Guild gatherings and market festivals function as civic time peaks"
+  ],
+  "legal_deadlines": [
+    "Contract enforcement and sanction review set public urgency rhythms"
+  ],
+  "shipping_windows": [
+    "Caravan and port schedules bunch around market pulses, seasonal route reliability, and dispute resolution windows"
+  ],
+  "weather_expectations": [
+    "Trade actors track route weather pragmatically across multiple polities"
+  ],
+  "mourning_and_renewal_customs": [
+    "Commercial communities remember collapse through debt, settlement, and reputation restoration"
+  ],
+  "public_language_about_time": [
+    "People speak in contract windows, fair dates, summit periods, and settlement deadlines"
+  ],
+  "sources": [
+    "principalities",
+    "additional_legal"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

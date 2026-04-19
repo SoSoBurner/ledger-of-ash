@@ -1,0 +1,20 @@
+{
+  "name": "Aurora Glass Bloom Fields",
+  "parent": "Sheresh Outer Waste",
+  "summary": "A frozen plain where pollution-stiffened blossoms grow in translucent clusters that chime before stormfront spell-surges. Gatherers, exile-runners, and wardens all want the field for different reasons.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_8_constrained_frontier_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Sheresh Communes",
+  "travel_tags": [
+    "mutation harvest",
+    "storm-glass salvage",
+    "contamination watch"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Emberwake Port",
+  "parent_polity": "Psanan",
+  "type": "operational_anchor",
+  "anchor_kind": "primary export harbor",
+  "truth_layer": "conservative_inference",
+  "anchor_status": "canon_safe_extension",
+  "roles_allocated": 10,
+  "territory": "Volcanic Coast",
+  "operational_profile": "More Psanan rather than different Psanan: a direct coastal expression of weapon export and volcanic materials trade.",
+  "role_density_note": "Emitted as matrix-stage administrative thickening rather than full office ledger.",
+  "supporting_logic": "Built from existing polity logic as downward-and-outward operational fill.",
+  "sources": [
+    "operator_target_spec_v22_4",
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

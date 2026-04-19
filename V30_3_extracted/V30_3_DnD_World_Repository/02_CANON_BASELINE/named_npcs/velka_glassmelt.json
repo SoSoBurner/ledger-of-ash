@@ -1,0 +1,90 @@
+{
+  "npc_id": "velka_glassmelt",
+  "canonical_name": "Velka Glassmelt",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Tax Witness",
+  "profession_discipline": "Tax Witness",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": null,
+  "locality_scope": "Psanan",
+  "institutional_ties": [
+    "Psanan"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as tax witness.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Psanan"
+    ],
+    "institutions": [
+      "Psanan"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a tax witness still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of tax witness in and around Psanan, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Psanan workable through the obligations of tax witness while managing the immediate pressure of eruption risk in Psanan.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Psanan, that usually means carrying eruption risk, resource access, underworld danger without letting the role of tax witness visibly slip.",
+  "relationship_refs": [
+    "rel_0772",
+    "rel_0776",
+    "rel_0779",
+    "rel_0782",
+    "rel_0783"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Velka Glassmelt can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Velka Glassmelt needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Psanan."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal",
+    "ai_source_pdf"
+  ],
+  "compatibility_interface_id": "velka_glassmelt",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Velka Glassmelt communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Psanan: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Velka Glassmelt presents as Thinks in testimony, signatures, and remembered sequence, even when everyone else wants to move faster. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a tax witness still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Tax Witness, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Velka Glassmelt refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Tax Witness too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Velka Glassmelt can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Velka Glassmelt adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Velka Glassmelt is Known locally through day-to-day work as tax witness. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Tax Witness."
+}

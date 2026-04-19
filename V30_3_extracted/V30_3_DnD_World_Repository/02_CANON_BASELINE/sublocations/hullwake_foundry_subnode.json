@@ -1,0 +1,10 @@
+{
+  "name": "Hullwake Foundry Subnode",
+  "parent_locality": "Hullwake Foundry",
+  "type": "support node",
+  "truth_layer": "source_backed_inference",
+  "summary": "Support node tied to Hullwake Foundry for V30_3 parity completion.",
+  "sources": [
+    "V30_3 parity completion synthesis."
+  ]
+}

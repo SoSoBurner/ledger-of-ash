@@ -1,0 +1,115 @@
+{
+  "build_version": "V30_3",
+  "major_polities": [
+    {
+      "polity": "Principality of Shelk",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 4,
+      "supporting_nodes": 6,
+      "named_npcs": 49,
+      "route_packets": 3,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Soreheim Alliance",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 6,
+      "supporting_nodes": 6,
+      "named_npcs": 73,
+      "route_packets": 4,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Psanan",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 6,
+      "supporting_nodes": 6,
+      "named_npcs": 38,
+      "route_packets": 3,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Sheresh Communes",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 5,
+      "supporting_nodes": 6,
+      "named_npcs": 42,
+      "route_packets": 3,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Principality of Roaz",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 4,
+      "supporting_nodes": 6,
+      "named_npcs": 32,
+      "route_packets": 3,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "The Principalities",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 3,
+      "supporting_nodes": 6,
+      "named_npcs": 13,
+      "route_packets": 3,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "The Union",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 7,
+      "supporting_nodes": 6,
+      "named_npcs": 37,
+      "route_packets": 5,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Principality of Cosmouth",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 3,
+      "supporting_nodes": 10,
+      "named_npcs": 24,
+      "route_packets": 4,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Principality of Shirsh",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 3,
+      "supporting_nodes": 10,
+      "named_npcs": 21,
+      "route_packets": 4,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Principality of Zootia",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 3,
+      "supporting_nodes": 10,
+      "named_npcs": 19,
+      "route_packets": 3,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Principality of Mimolot",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 3,
+      "supporting_nodes": 8,
+      "named_npcs": 22,
+      "route_packets": 4,
+      "pressure_packets": 3
+    },
+    {
+      "polity": "Principality of Panim",
+      "parity_tier": "playable_complete",
+      "major_locality_packets": 3,
+      "supporting_nodes": 8,
+      "named_npcs": 24,
+      "route_packets": 4,
+      "pressure_packets": 3
+    }
+  ],
+  "failure_rule": "fail on any navigable_but_thin tier in active release",
+  "status": "pass"
+}

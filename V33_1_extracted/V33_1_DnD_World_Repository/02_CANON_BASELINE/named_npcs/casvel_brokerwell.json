@@ -1,0 +1,83 @@
+{
+  "npc_id": "casvel_brokerwell",
+  "canonical_name": "Casvel Brokerwell",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "authority_actor",
+  "office_or_role": "Authority Broker",
+  "profession_discipline": "Authority Broker",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Union",
+  "settlement": "Ledger Canal",
+  "locality_scope": "Ledger Canal",
+  "institutional_ties": [
+    "Ledger Canal"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Ledger Canal through day-to-day work as authority broker.",
+  "linked_systems": {
+    "polities": [
+      "The Union"
+    ],
+    "localities": [
+      "Ledger Canal"
+    ],
+    "institutions": [
+      "Ledger Canal"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Handles access, protocol, and consequence as negotiable surfaces without ever seeming to break the rules outright. In Ledger Canal, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of authority broker in and around Ledger Canal, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ledger Canal workable through the obligations of authority broker while managing the immediate pressure of broker manipulation, paperwork fatigue.",
+  "hidden_pressure": "Must keep the role of authority broker credible while absorbing the strain created by broker manipulation, paperwork fatigue.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Casvel Brokerwell can draw the party into a locality problem centered on authority broker duties in Ledger Canal."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Casvel Brokerwell becomes useful when the party needs grounded help with broker manipulation, paperwork fatigue around Ledger Canal."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "ledger_canal"
+  ],
+  "compatibility_interface_id": "casvel_brokerwell",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Casvel Brokerwell is immediately readable as a authority broker tied to Ledger Canal.",
+  "encounter_context": {
+    "usual_environment": "Ledger Canal: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "authority broker"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Casvel Brokerwell presents as someone shaped by the duties of a authority broker and the daily pressures of Ledger Canal.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a authority broker, and proof that strangers will not make Ledger Canal harder to manage.",
+  "what_they_refuse": "Casvel Brokerwell refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a authority broker too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open procedural doors or make them costly to ignore.",
+  "escalation_if_crossed": "If crossed, Casvel Brokerwell adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Casvel Brokerwell always knows more about Ledger Canal than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a authority broker in Ledger Canal."
+}

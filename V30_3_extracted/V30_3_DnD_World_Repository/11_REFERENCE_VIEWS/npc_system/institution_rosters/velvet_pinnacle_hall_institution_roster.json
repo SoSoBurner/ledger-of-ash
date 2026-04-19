@@ -1,0 +1,11 @@
+{
+  "build_version": "V30_3",
+  "institution": "Velvet Pinnacle Hall",
+  "record_count": 4,
+  "npc_ids": [
+    "lady_isabella_shelk",
+    "magistrate_zethraxis_coilspire",
+    "mira_march",
+    "nora_mere"
+  ]
+}

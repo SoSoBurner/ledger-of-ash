@@ -1,0 +1,22 @@
+{
+  "name": "Psanan support node 5",
+  "type": "support site",
+  "parent_polity": "Psanan",
+  "truth_layer": "source_backed_inference",
+  "identity": "Psanan support node 5 exists to make Psanan stageable without guesswork.",
+  "common_errand_scenes": [
+    "ask for help",
+    "clear a delay",
+    "make a small purchase"
+  ],
+  "low_stakes_trouble": [
+    "queue strain",
+    "misheard title",
+    "minor fee dispute"
+  ],
+  "local_etiquette_error": "Assuming access before invitation.",
+  "quickest_way_to_draw_attention": "Being loud about a problem locals already recognize.",
+  "sources": [
+    "V30_3 parity hardening support node."
+  ]
+}

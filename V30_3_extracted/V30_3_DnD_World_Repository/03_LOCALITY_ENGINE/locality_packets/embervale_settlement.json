@@ -1,0 +1,221 @@
+{
+  "name": "Embervale Settlement",
+  "type": "worker haven",
+  "parent_polity": "Soreheim Alliance",
+  "truth_layer": "reconciled_canon",
+  "identity": "Geothermal labor haven where recovering crews, repair workers, and shift-boss families regroup between tower-expansion and quarry assignments.",
+  "approach": "Steam veils, heated halls, pipeworks, and dormer rows gather around the warmth of underground springs.",
+  "inside": "Bath halls, repair shops, ration kitchens, bunk compounds, and shift boards structure a life built around rotation, recovery, and rapid redeployment.",
+  "who_belongs": [
+    "workers",
+    "repair crews",
+    "haulers",
+    "medics",
+    "family quarterkeepers"
+  ],
+  "who_is_out_of_place": [
+    "idlers",
+    "strangers without crew ties",
+    "people who waste heat, food, or bed space"
+  ],
+  "expected_behavior": [
+    "respect shift rotation",
+    "honor bunk claims and ration order",
+    "clear debts before asking for shelter favors"
+  ],
+  "visible_power": [
+    "regional quartermasters",
+    "shift-boss families",
+    "repair captains",
+    "tower assignment clerks"
+  ],
+  "economy": [
+    "labor recovery",
+    "repair services",
+    "heated shelter",
+    "supply staging"
+  ],
+  "faith": [
+    "small heat-shrine observances and achievement toasts mark survival, endurance, and return to duty"
+  ],
+  "seasonal_change": "freeze and storm periods turn Embervale into a packed refuge, triage node, and labor rebalancing center.",
+  "pressure": [
+    "overcrowding",
+    "sickness",
+    "heat-failure risk",
+    "crew debt disputes"
+  ],
+  "npc_interfaces": [
+    "tharim_coalforge",
+    "malven_torsk",
+    "kairn_steelbrood"
+  ],
+  "law_context": [
+    "beds, heat, and rations remain communal assets even when local families control access order"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "settlement": "Embervale Settlement",
+    "district": null
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "canonical_identity": {
+    "truth_layer": "reconciled_canon",
+    "identity": "Geothermal labor haven where recovering crews, repair workers, and shift-boss families regroup between tower-expansion and quarry assignments.",
+    "approach": "Steam veils, heated halls, pipeworks, and dormer rows gather around the warmth of underground springs.",
+    "inside": "Bath halls, repair shops, ration kitchens, bunk compounds, and shift boards structure a life built around rotation, recovery, and rapid redeployment.",
+    "who_belongs": [
+      "workers",
+      "repair crews",
+      "haulers",
+      "medics",
+      "family quarterkeepers"
+    ],
+    "who_is_out_of_place": [
+      "idlers",
+      "strangers without crew ties",
+      "people who waste heat, food, or bed space"
+    ],
+    "expected_behavior": [
+      "respect shift rotation",
+      "honor bunk claims and ration order",
+      "clear debts before asking for shelter favors"
+    ],
+    "visible_power": [
+      "regional quartermasters",
+      "shift-boss families",
+      "repair captains",
+      "tower assignment clerks"
+    ],
+    "economy": [
+      "labor recovery",
+      "repair services",
+      "heated shelter",
+      "supply staging"
+    ],
+    "faith": [
+      "small heat-shrine observances and achievement toasts mark survival, endurance, and return to duty"
+    ],
+    "seasonal_change": "freeze and storm periods turn Embervale into a packed refuge, triage node, and labor rebalancing center.",
+    "pressure": [
+      "overcrowding",
+      "sickness",
+      "heat-failure risk",
+      "crew debt disputes"
+    ],
+    "law_context": [
+      "beds, heat, and rations remain communal assets even when local families control access order"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Steam veils, heated halls, pipeworks, and dormer rows gather around the warmth of underground springs.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Bath halls, repair shops, ration kitchens, bunk compounds, and shift boards structure a life built around rotation, recovery, and rapid redeployment.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "overcrowding",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "sickness",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "heat-failure risk",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "crew debt disputes",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "respect shift rotation",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "honor bunk claims and ration order",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "clear debts before asking for shelter favors",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "tharim_coalforge",
+    "malven_torsk",
+    "kairn_steelbrood"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually workers, repair crews, haulers, and public conduct is read through expectations such as respect shift rotation, honor bunk claims and ration order.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by regional quartermasters, shift-boss families, repair captains.",
+  "local_tension_surface": "The place feels stable only until pressures such as overcrowding, sickness, heat-failure risk begin showing through daily routines.",
+  "differentiator": "Embervale Settlement stands apart because its economy leans on labor recovery, repair services; public faith remains visible through small heat-shrine observances and achievement toasts mark survival, endurance, and return to duty; outsiders are noticed fastest when they resemble idlers, strangers without crew ties.",
+  "encounter_rhythm": "Most first scenes in Embervale Settlement begin through worker haven rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "scene_openers": [
+    "A first arrival at Embervale Settlement immediately highlights geothermal labor haven where recovering crews, repair workers, and shift-boss families regroup between tower-expansion and quarry assignments",
+    "The quickest social read of Embervale Settlement comes from how locals react to respect shift rotation / honor bunk claims and ration order."
+  ],
+  "social_misstep_examples": [
+    "Treating Embervale Settlement like a casual stop rather than a governed space.",
+    "Ignoring local expectation to respect shift rotation; honor bunk claims and ration order."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to labor recovery.",
+    "A local intermediary resents outsider assumptions about Embervale Settlement."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Embervale Settlement",
+    "Formal notice by regional quartermasters",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Embervale Settlement before residents admit them.",
+  "outsider_liability": "Outsiders in Embervale Settlement are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around overcrowding.",
+    "Someone mistakes the party for agents tied to regional quartermasters.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind labor recovery surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Embervale Settlement feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Embervale Settlement is busiest and least forgiving of confusion.",
+    "night": "At night, Embervale Settlement reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Embervale Settlement mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

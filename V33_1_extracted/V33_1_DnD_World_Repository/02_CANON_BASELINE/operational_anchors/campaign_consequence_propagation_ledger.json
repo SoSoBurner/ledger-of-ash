@@ -1,0 +1,77 @@
+{
+  "propagation_categories": [
+    "political",
+    "legal",
+    "economic",
+    "rumor",
+    "route",
+    "religious",
+    "magical",
+    "personal_vendetta",
+    "household_estate",
+    "faction_retaliation",
+    "archive_registry",
+    "migration_scarcity"
+  ],
+  "example_cascades": [
+    {
+      "trigger": "party exposes forged registry entry in Shelk territory",
+      "immediate": "household embarrassment and legal freeze",
+      "next_order": [
+        "rumor spreads through Fairhaven and Tariff Lantern Court",
+        "route manifests receive extra scrutiny",
+        "inheritance rivals mobilize"
+      ],
+      "downstream": [
+        "price delay on high-value cargo",
+        "violent attempt to seize witnesses",
+        "temple or court asked to sanctify legitimacy"
+      ],
+      "update_files": [
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/CURRENT_CAMPAIGN_STATE.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/CHANGED_LOCALITIES.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/ACTIVE_FACTIONS.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/NPCS_THE_PARTY_DISTURBED.md"
+      ]
+    },
+    {
+      "trigger": "party recovers leaked Mimolot diagrams but sells a copy",
+      "immediate": "academy gratitude mixed with quiet suspicion",
+      "next_order": [
+        "copy markets heat up",
+        "tariff scrutiny widens",
+        "Magi Magistratus pressures escorts and workshops"
+      ],
+      "downstream": [
+        "new restrictions on students",
+        "road searches on book routes",
+        "black-market buyers seek contact"
+      ],
+      "update_files": [
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/CURRENT_CAMPAIGN_STATE.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/ACTIVE_FACTIONS.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/UNRESOLVED_PRESSURES.md"
+      ]
+    },
+    {
+      "trigger": "party sides publicly in a Union contract dispute",
+      "immediate": "one workshop line stalls and one faction remembers the insult",
+      "next_order": [
+        "freight delays hit allied roads",
+        "foundry rumors spread",
+        "bargaining courts lose neutrality veneer"
+      ],
+      "downstream": [
+        "regional scarcity",
+        "escort repricing",
+        "strikebreak violence"
+      ],
+      "update_files": [
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/CURRENT_CAMPAIGN_STATE.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/ACTIVE_FACTIONS.md",
+        "PLAY/CURRENT_CAMPAIGN_PACKETS/CHANGED_LOCALITIES.md"
+      ]
+    }
+  ],
+  "gm_rule": "Never propagate every consequence. Promote only the consequences most visible to witnesses, institutions, and route systems the party has already touched."
+}

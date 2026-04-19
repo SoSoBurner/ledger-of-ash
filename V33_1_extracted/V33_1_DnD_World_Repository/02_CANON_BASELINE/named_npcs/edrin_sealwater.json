@@ -1,0 +1,83 @@
+{
+  "npc_id": "edrin_sealwater",
+  "canonical_name": "Edrin Sealwater",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "labor_actor",
+  "office_or_role": "Porter",
+  "profession_discipline": "Porter",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Ashwake Port",
+  "locality_scope": "Ashwake Port",
+  "institutional_ties": [
+    "Ashwake Port"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Ashwake Port through day-to-day work as porter.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Ashwake Port"
+    ],
+    "institutions": [
+      "Ashwake Port"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Judges the world by weight, delay, and whether moving one thing will jam five others behind it. In Ashwake Port, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of porter in and around Ashwake Port, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ashwake Port workable through the obligations of porter while managing the immediate pressure of harbor ash clogging, storm-whirlpool risk, port rivalry.",
+  "hidden_pressure": "Must keep the role of porter credible while absorbing the strain created by harbor ash clogging, storm-whirlpool risk, port rivalry.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Edrin Sealwater can draw the party into a locality problem centered on porter duties in Ashwake Port."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Edrin Sealwater becomes useful when the party needs grounded help with harbor ash clogging, storm-whirlpool risk, port rivalry around Ashwake Port."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "ashwake_port"
+  ],
+  "compatibility_interface_id": "edrin_sealwater",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Edrin Sealwater is immediately readable as a porter tied to Ashwake Port.",
+  "encounter_context": {
+    "usual_environment": "Ashwake Port: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "porter"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Edrin Sealwater presents as someone shaped by the duties of a porter and the daily pressures of Ashwake Port.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a porter, and proof that strangers will not make Ashwake Port harder to manage.",
+  "what_they_refuse": "Edrin Sealwater refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a porter too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can move people or goods quickly and knows which cargo draws the wrong attention.",
+  "escalation_if_crossed": "If crossed, Edrin Sealwater adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Edrin Sealwater always knows more about Ashwake Port than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a porter in Ashwake Port."
+}

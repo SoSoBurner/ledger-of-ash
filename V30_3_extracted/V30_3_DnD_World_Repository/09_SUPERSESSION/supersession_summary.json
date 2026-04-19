@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "supersedes": [
+    "prior_release"
+  ],
+  "notes": [
+    "prior_release supersedes prior_release with a unified full-content named-NPC architecture and canonical roster views."
+  ]
+}

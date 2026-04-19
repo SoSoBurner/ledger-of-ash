@@ -1,0 +1,85 @@
+{
+  "npc_id": "tovek_gearmark",
+  "canonical_name": "Tovek Gearmark",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Registrar",
+  "profession_discipline": "Registrar",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": null,
+  "locality_scope": "Engineers’ Consortium",
+  "institutional_ties": [
+    "Engineers’ Consortium"
+  ],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as registrar.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Engineers’ Consortium"
+    ],
+    "institutions": [
+      "Engineers’ Consortium"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a registrar still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of registrar in and around Engineers’ Consortium, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Engineers’ Consortium workable through the obligations of registrar while managing the immediate pressure of resource depletion in Soreheim Alliance.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Engineers’ Consortium, that usually means carrying resource depletion, sabotage, predatory frontier ecology without letting the role of registrar visibly slip.",
+  "relationship_refs": [
+    "rel_1208",
+    "rel_1210"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "record_dispute",
+      "summary": "Tovek Gearmark needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Engineers’ Consortium."
+    },
+    {
+      "hook_type": "document_pressure",
+      "summary": "Tovek Gearmark can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "tovek_gearmark",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Tovek Gearmark communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Engineers’ Consortium: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Tovek Gearmark presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a registrar still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Registrar, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Tovek Gearmark refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Registrar too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Tovek Gearmark can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Tovek Gearmark adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Tovek Gearmark is Known locally through day-to-day work as registrar. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Registrar."
+}

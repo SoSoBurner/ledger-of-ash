@@ -1,0 +1,17 @@
+{
+  "build_version": "V30_3",
+  "packet_type": "spatial_polity_packet",
+  "polity": "Shelk–Sheresh frontier",
+  "node_count": 1,
+  "category_counts": {
+    "macroregion": 1
+  },
+  "water_valid_count": 0,
+  "uninhabitable_exclusion_count": 1,
+  "named_npc_hook_count": 0,
+  "generic_npc_role_count": 0,
+  "locality_names": [
+    "Radioactive Frigid Mutation Mountains"
+  ],
+  "status": "integrated"
+}

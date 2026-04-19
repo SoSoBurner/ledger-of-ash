@@ -1,0 +1,8 @@
+{
+  "name": "Ironspool Ward District",
+  "approach": "Harsher edges, cheaper stalls, and visible repair culture replace elite polish.",
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

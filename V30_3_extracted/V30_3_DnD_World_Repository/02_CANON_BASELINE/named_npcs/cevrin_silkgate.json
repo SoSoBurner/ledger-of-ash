@@ -1,0 +1,86 @@
+{
+  "npc_id": "cevrin_silkgate",
+  "canonical_name": "Cevrin Silkgate",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "House Messenger",
+  "profession_discipline": "House Messenger",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shelk",
+  "settlement": "Ironspool Ward District",
+  "locality_scope": "Ironspool Ward District",
+  "institutional_ties": [
+    "Ironspool Ward District"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as house messenger.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Ironspool Ward District"
+    ],
+    "institutions": [
+      "Ironspool Ward District"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a house messenger still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of house messenger in and around Ironspool Ward District, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ironspool Ward District workable through the obligations of house messenger while managing the immediate pressure of desperation contracts in Shelk.",
+  "hidden_pressure": "Must keep their piece of the world working while larger systems push stress downward. Around Ironspool Ward District, that usually means carrying desperation contracts, petty crime, omens and superstition without letting the role of house messenger visibly slip.",
+  "relationship_refs": [
+    "rel_0268",
+    "rel_0270",
+    "rel_1176",
+    "rel_1177"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Cevrin Silkgate can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Cevrin Silkgate can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ],
+  "compatibility_interface_id": "cevrin_silkgate",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Cevrin Silkgate carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Ironspool Ward District, this lands inside a public field already shaped by local warders, repair guilds.",
+  "encounter_context": {
+    "usual_environment": "Ironspool Ward District: the part of Ironspool Ward District where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Cevrin Silkgate presents as Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a house messenger still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for House Messenger, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+  "what_they_refuse": "Cevrin Silkgate refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing House Messenger too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Cevrin Silkgate can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Cevrin Silkgate adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Cevrin Silkgate is Known locally through day-to-day work as house messenger. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a House Messenger."
+}

@@ -1,0 +1,25 @@
+{
+  "build_version": "V33_1",
+  "packet_type": "spatial_polity_packet",
+  "polity": "Principality of Panim",
+  "node_count": 8,
+  "category_counts": {
+    "settlement": 5,
+    "site": 3
+  },
+  "water_valid_count": 0,
+  "uninhabitable_exclusion_count": 0,
+  "named_npc_hook_count": 7,
+  "generic_npc_role_count": 7,
+  "locality_names": [
+    "Celestial Enclave",
+    "Coffin Appraisal Court",
+    "Elysian Grove",
+    "Last Candle",
+    "Offering Wharf",
+    "Panim Afterlife Registry",
+    "Panim Haven",
+    "Sanctum Sands"
+  ],
+  "status": "integrated"
+}

@@ -1,0 +1,21 @@
+{
+  "build_version": "V33_1",
+  "current_conditions": [
+    {
+      "polity": "Roaz",
+      "condition": "law queues elevated in Ithtananalor intake spaces",
+      "source": "current release parity hardening additions"
+    },
+    {
+      "polity": "Zootia",
+      "condition": "Harvest Keep reserve and spoilage tensions are currently narratable as supported runtime pressure",
+      "source": "current release parity hardening additions"
+    },
+    {
+      "polity": "Panim",
+      "condition": "Funerary contract fraud pressure is now represented in current-release views",
+      "source": "current release parity hardening additions"
+    }
+  ],
+  "status": "pass"
+}

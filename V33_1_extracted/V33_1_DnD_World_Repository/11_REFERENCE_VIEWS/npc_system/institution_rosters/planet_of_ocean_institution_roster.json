@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Planet of Ocean",
+  "record_count": 1,
+  "npc_ids": [
+    "sel_march"
+  ],
+  "records": [
+    {
+      "npc_id": "sel_march",
+      "canonical_name": "Sel March",
+      "polity": "Transpolity",
+      "office_or_role": "Moon-Liturgy Keeper",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as moon-liturgy keeper.",
+      "current_agenda": "Keep Planet of Ocean workable through the obligations of moon-liturgy keeper while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Planet of Ocean is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ]
+}

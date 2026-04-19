@@ -1,0 +1,48 @@
+{
+  "id": "porter",
+  "display_name": "Porter",
+  "function": "Moves freight, luggage, and urgent loads while absorbing gossip from thresholds, yards, and lanes.",
+  "default_social_read": "Knows what goods are moving, what routes are tense, and which loads make people nervous.",
+  "truth_layer": "engine_canon",
+  "context_sites": [
+    "Ashforge Citadel",
+    "Ashwake Port",
+    "Aurora Crown Commune",
+    "Cosmoria",
+    "Fairhaven",
+    "Guildheart Hub",
+    "Ithtananalor",
+    "Mimolot Academy",
+    "Panim Haven",
+    "Shelkopolis",
+    "Shirshal",
+    "Soreheim Proper",
+    "Sunspire Haven"
+  ],
+  "context_polities": [
+    "House Cosmouth",
+    "House Mimolot",
+    "House Panim",
+    "House Shirsh",
+    "Principality of Roaz",
+    "Principality of Shelk",
+    "Psanan",
+    "Sheresh Communes",
+    "Soreheim Alliance",
+    "The Union"
+  ],
+  "sources": [
+    "internal_canonical_record",
+    "calendars_world",
+    "locations_catalog",
+    "principalities",
+    "principality_roaz",
+    "principality_shelk",
+    "psc_shelkopolis",
+    "soreheim_review",
+    "spatial_seasonal",
+    "topatch_v22_6_spec"
+  ],
+  "support_type": "reusable_runtime_surface",
+  "context_justification": "Derived from repeated locality packet usage within the active world engine; role remains reusable rather than tied to a single named individual."
+}

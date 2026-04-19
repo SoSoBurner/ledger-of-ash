@@ -1,0 +1,10 @@
+{
+  "id": "cosmology.astral_sky",
+  "name": "Astral Sky",
+  "truth_layer": "direct_canon",
+  "summary": "The surrounding realm of thought and space enveloping the Material Planet and elemental bodies, where movement is conceptual, time effects are slowed, and hunger or aging do not function normally.",
+  "sources": [
+    "pantheon_story",
+    "ai_source_pdf"
+  ]
+}

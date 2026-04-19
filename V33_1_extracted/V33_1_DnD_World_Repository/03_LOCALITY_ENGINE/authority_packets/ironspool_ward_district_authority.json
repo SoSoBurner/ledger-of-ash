@@ -1,0 +1,20 @@
+{
+  "name": "Ironspool Ward District",
+  "visible_power": [
+    "local warders",
+    "repair guilds",
+    "tavern rumor-brokers"
+  ],
+  "law_context": [
+    "public order and vandalism matter more than elite decorum."
+  ],
+  "truth_layer": "conservative_inference",
+  "authority_notes": [
+    "Visitors are read first by purpose, presentation, and whether they understand local procedure.",
+    "Practical authority may sit partly outside formal office, especially where guilds, clergy, nobles, or route enforcers overlap."
+  ],
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

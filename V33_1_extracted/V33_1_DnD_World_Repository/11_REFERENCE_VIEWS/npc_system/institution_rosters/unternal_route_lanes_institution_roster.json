@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Unternal route lanes",
+  "record_count": 1,
+  "npc_ids": [
+    "gorath_steelclad"
+  ],
+  "records": [
+    {
+      "npc_id": "gorath_steelclad",
+      "canonical_name": "Gorath Steelclad",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Trade-route security commander",
+      "tier": "notable",
+      "public_reputation": "Recognized as a trade-route security commander of regional weight.",
+      "current_agenda": "Keep Duneshade Outpost workable through the obligations of trade-route security commander while managing the immediate pressure of water scarcity in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Unternal route lanes is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

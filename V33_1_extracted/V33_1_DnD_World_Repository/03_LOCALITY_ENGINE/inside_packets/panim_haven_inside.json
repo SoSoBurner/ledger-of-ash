@@ -1,0 +1,18 @@
+{
+  "name": "Panim Haven",
+  "inside": "Offerings, mediation, coffins, and divine-balance services dominate.",
+  "truth_layer": "direct_canon",
+  "hierarchy": {
+    "polity": "House Panim",
+    "territory": "The Principalities",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "afterlife preparations is visibly part of daily life.",
+    "very high",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "principalities"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Polar Magical Contamination",
+  "regions": [
+    "Sheresh Communes"
+  ],
+  "summary": "Cold-zone contamination pressure managed by domes and magical infrastructure.",
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sheresh Route Warden Compacts",
+  "record_count": 1,
+  "npc_ids": [
+    "rime_frostglass"
+  ],
+  "records": [
+    {
+      "npc_id": "rime_frostglass",
+      "canonical_name": "Rime Frostglass",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Operations Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as operations steward.",
+      "current_agenda": "Keep Sheresh Route Warden Compacts workable through the obligations of operations steward while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Institutional framework for life-preserving movement, launch windows, and loss-reporting between Sheresh domes.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ]
+}

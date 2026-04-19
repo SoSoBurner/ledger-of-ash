@@ -1,0 +1,29 @@
+{
+  "name": "The Principalities route hardening 3",
+  "from_locality": "The Principalities",
+  "route_name": "The Principalities route hardening 3",
+  "truth_layer": "source_backed_inference",
+  "transition_feel": "The Principalities route hardening 3 reveals The Principalities through patrol logic, trust rules, and movement friction.",
+  "handoff_custom": "Declare purpose, destination, and patronage before suspicion matures.",
+  "paperwork_and_permission_model": "Paper helps, but clear sponsorship and coherent cargo matter just as much.",
+  "patrol_rhythm": "Routine in daylight, selective and sharper after dark.",
+  "seasonal_failure_modes": [
+    "weather delay",
+    "supply interruption",
+    "inspection backlog"
+  ],
+  "safe_stop_chain": [
+    "licensed halt",
+    "trusted household",
+    "watch post or shrine"
+  ],
+  "inspection_triggers": [
+    "undeclared cargo",
+    "night travel",
+    "mismatched destination story"
+  ],
+  "after_dark_change": "Informal power becomes more important than posted procedure after sunset.",
+  "sources": [
+    "V33_1 parity hardening route packet."
+  ]
+}

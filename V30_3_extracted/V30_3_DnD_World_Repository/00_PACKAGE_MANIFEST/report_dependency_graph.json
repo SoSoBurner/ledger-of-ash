@@ -1,0 +1,23 @@
+{
+  "build_version": "V30_3",
+  "generated_at": "2026-04-18T03:13:23Z",
+  "dependencies": {
+    "final_closure_report.json": [
+      "canonical_metric_registry.json",
+      "release_claim_registry.json"
+    ],
+    "metric_consistency_report.json": [
+      "canonical_metric_registry.json"
+    ],
+    "cross_report_metric_alignment_report.json": [
+      "canonical_metric_registry.json",
+      "final_closure_report.json",
+      "locality_quality_audit_report.json"
+    ],
+    "release_notes": [
+      "release_claim_registry.json",
+      "canonical_metric_registry.json"
+    ]
+  },
+  "status": "pass"
+}

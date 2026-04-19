@@ -1,0 +1,15 @@
+{
+  "build_version": "V30_3",
+  "purpose": "Define measurable thresholds for promoting any active major polity into playable_complete or core_complete without silent inflation.",
+  "required_major_polity_floor": "playable_complete",
+  "playable_complete_thresholds": {
+    "minimum_major_locality_packets": 3,
+    "minimum_supporting_nodes": 6,
+    "minimum_named_npcs": 8,
+    "minimum_generic_interface_roles": 4,
+    "minimum_route_hooks_or_packets": 3,
+    "minimum_pressure_models": 3,
+    "minimum_reference_views": 2
+  },
+  "release_rule": "No active final parity report may contain navigable_but_thin for any major polity."
+}

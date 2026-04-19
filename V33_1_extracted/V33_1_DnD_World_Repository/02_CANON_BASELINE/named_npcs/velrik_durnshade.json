@@ -1,0 +1,93 @@
+{
+  "npc_id": "velrik_durnshade",
+  "canonical_name": "Velrik Durnshade",
+  "aliases": [
+    "the mediator"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Guild dispute mediator",
+  "profession_discipline": "Guild dispute mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Harvest Circle",
+  "locality_scope": "Harvest Circle",
+  "institutional_ties": [
+    "Harvest Circle",
+    "market arbitration lanes"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as guild dispute mediator.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Harvest Circle"
+    ],
+    "institutions": [
+      "Harvest Circle",
+      "market arbitration lanes"
+    ],
+    "factions": []
+  },
+  "appearance": "Velrik Durnshade usually presents in ash-marked work leathers reinforced for heat, grit, and long shifts, with details that make their guild dispute mediator status legible before introductions begin.",
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a guild dispute mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of guild dispute mediator in and around Harvest Circle, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Harvest Circle workable through the obligations of guild dispute mediator while managing the immediate pressure of spoilage in Soreheim Alliance.",
+  "hidden_pressure": "Must keep the underlying system working while everyone notices it only when stress, wear, or neglect begin to show. Around Harvest Circle, that usually means carrying spoilage, price pressure, favor feuds without letting the role of guild dispute mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0947",
+    "rel_0952",
+    "rel_0956",
+    "rel_0959",
+    "rel_0961",
+    "rel_0962"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Velrik Durnshade can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Velrik Durnshade needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Harvest Circle."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "velrik_durnshade",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Velrik Durnshade visibly responsible for keeping something larger from failing. In Harvest Circle, this lands inside a public field already shaped by harvest stewards, quota clerks.",
+  "encounter_context": {
+    "usual_environment": "Harvest Circle: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Velrik Durnshade presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a guild dispute mediator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Guild dispute mediator, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Velrik Durnshade refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Guild dispute mediator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Velrik Durnshade can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Velrik Durnshade adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Velrik Durnshade is Known locally through day-to-day work as guild dispute mediator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Guild dispute mediator."
+}

@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "Nomdara Council of Elders",
+  "record_count": 2,
+  "npc_ids": [
+    "jalen_waycord",
+    "sorra_waycord"
+  ]
+}

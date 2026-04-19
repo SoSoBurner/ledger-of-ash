@@ -1,0 +1,82 @@
+{
+  "npc_id": "archive_keeper_ysolde_hailscript",
+  "canonical_name": "Archive Keeper Ysolde Hailscript",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Archive Keeper",
+  "profession_discipline": "vault archivist",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Sheresh Communes",
+  "settlement": "Crystalline Vault",
+  "locality_scope": "Crystalline Vault",
+  "institutional_ties": [
+    "Crystalline Vault"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Keeper of magical texts, experimental device records, and protected archive access inside Crystalline Vault.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Crystalline Vault"
+    ],
+    "institutions": [
+      "Crystalline Vault"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a archive keeper whose work is visible through daily procedure, gatekeeping, and the practical pressures of Crystalline Vault.",
+  "daily_function": "Performs the ongoing duties of archive keeper in and around Crystalline Vault, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Crystalline Vault workable through the obligations of archive keeper while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of archive keeper credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Crystalline Vault.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Archive Keeper Ysolde Hailscript can draw the party into a practical problem centered on Crystalline Vault."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Archive Keeper Ysolde Hailscript becomes useful when the party needs access, explanation, or relief tied to the work of a archive keeper."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "archive_keeper_ysolde_hailscript",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Archive Keeper Ysolde Hailscript is readable as a archive keeper tied to Crystalline Vault.",
+  "encounter_context": {
+    "usual_environment": "Crystalline Vault: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "archive keeper"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Archive Keeper Ysolde Hailscript presents as someone shaped by the duties of a archive keeper and the daily pressures of Crystalline Vault.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a archive keeper, and proof that strangers will not make Crystalline Vault harder to manage.",
+  "what_they_refuse": "Archive Keeper Ysolde Hailscript refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a archive keeper too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Archive Keeper Ysolde Hailscript can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Archive Keeper Ysolde Hailscript adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Archive Keeper Ysolde Hailscript always knows more about Crystalline Vault than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to archive keeper duties in Crystalline Vault."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Silent Haven",
+  "visible_power": [
+    "Roazian enforcers"
+  ],
+  "law_context": [
+    "strict Roazian order"
+  ],
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

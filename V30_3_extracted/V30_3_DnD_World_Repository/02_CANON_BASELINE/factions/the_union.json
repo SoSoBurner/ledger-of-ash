@@ -1,0 +1,42 @@
+{
+  "name": "The Union",
+  "type": "successor guild-governed faction",
+  "truth_layer": "corrected_canon",
+  "summary": "Guild-backed successor order replacing Mal’s active trade-mediation role across the former Mal sphere.",
+  "motive": "Keep trade moving, disputes arbitrated, and guild power coordinated without returning to fallen-house paralysis.",
+  "methods": [
+    "trade mediation",
+    "guild negotiation",
+    "sanctioning",
+    "network infrastructure"
+  ],
+  "geography": [
+    "Guildheart Hub",
+    "Unity Square",
+    "Craftspire",
+    "Market Crossroads"
+  ],
+  "power_relations": [
+    "Dominant in trade governance but dependent on member guild cooperation and imperial sanction"
+  ],
+  "current_pressure": [
+    "claims of favoritism",
+    "legacy Mal grievances",
+    "overloaded dispute channels"
+  ],
+  "visible_membership_base": "Guild delegates, merchant arbiters, sanction clerks, caravan coordinators.",
+  "civilian_contact_surface": [
+    "contracts",
+    "market access",
+    "arbitration hearings",
+    "guild memberships"
+  ],
+  "current_tension_or_vulnerability": "Its legitimacy rests on fairness; once people think the network is rigged, compliance decays fast.",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
+}

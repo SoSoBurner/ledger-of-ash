@@ -1,0 +1,29 @@
+{
+  "build_version": "V33_1",
+  "institution": "Cosmoria Archive Exchange Barge",
+  "record_count": 1,
+  "npc_ids": [
+    "pavel_waycord"
+  ],
+  "records": [
+    {
+      "npc_id": "pavel_waycord",
+      "canonical_name": "Pavel Waycord",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Itinerary Keeper",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as itinerary keeper.",
+      "current_agenda": "Keep Cosmoria Archive Exchange Barge workable through the obligations of itinerary keeper while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Cosmoria Archive Exchange Barge is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

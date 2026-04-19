@@ -1,0 +1,97 @@
+{
+  "npc_id": "mek_wheelwright",
+  "canonical_name": "Mek Wheelwright",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Law Speaker",
+  "profession_discipline": "Law Speaker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": null,
+  "locality_scope": "Nomdara Caravan",
+  "institutional_ties": [
+    "Nomdara Caravan"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as law speaker.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "Nomdara Caravan"
+    ],
+    "institutions": [
+      "Nomdara Caravan"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads roads, loads, and people as one shared logistics problem rather than separate categories. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a law speaker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of law speaker in and around Nomdara Caravan, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Nomdara Caravan workable through the obligations of law speaker while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must turn uncertain terrain and changing terms into something people can actually traverse. Around Nomdara Caravan, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of law speaker visibly slip.",
+  "relationship_refs": [
+    "rel_0832",
+    "rel_0833",
+    "rel_0834",
+    "rel_0835",
+    "rel_0836",
+    "rel_0837",
+    "rel_1242",
+    "rel_1246",
+    "rel_1249",
+    "rel_1252",
+    "rel_1253"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "travel_complication",
+      "summary": "Mek Wheelwright can pull the party into chokepoints, timing failures, or rival claims over how movement should happen."
+    },
+    {
+      "hook_type": "wayfinding_information",
+      "summary": "Mek Wheelwright will share route intelligence, hidden timing, or safer alternatives if the party proves useful under travel pressure."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "principalities",
+    "spatial_seasonal",
+    "ai_source_pdf",
+    "v22_5_repository_zip"
+  ],
+  "compatibility_interface_id": "mek_wheelwright",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Mek Wheelwright lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Nomdara Caravan: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Mek Wheelwright presents as Reads roads, loads, and people as one shared logistics problem rather than separate categories. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a law speaker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Law Speaker, and proof that strangers will not create avoidable noise in Nomdara Caravan.",
+  "what_they_refuse": "Mek Wheelwright refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Law Speaker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Mek Wheelwright can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Mek Wheelwright adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Mek Wheelwright is Known locally through day-to-day work as law speaker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Law Speaker."
+}

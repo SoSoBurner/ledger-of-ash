@@ -1,0 +1,8 @@
+{
+  "name": "Scarlet Descent Gate",
+  "seasonal_change": "Heat vents and collapse risk alter depth access by cycle.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

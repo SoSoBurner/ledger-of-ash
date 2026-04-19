@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Planet of Wind",
+  "record_count": 1,
+  "npc_ids": [
+    "vera_field"
+  ],
+  "records": [
+    {
+      "npc_id": "vera_field",
+      "canonical_name": "Vera Field",
+      "polity": "Transpolity",
+      "office_or_role": "Orbital Omen Reader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as orbital omen reader.",
+      "current_agenda": "Keep Planet of Wind workable through the obligations of orbital omen reader while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Planet of Wind is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ]
+}

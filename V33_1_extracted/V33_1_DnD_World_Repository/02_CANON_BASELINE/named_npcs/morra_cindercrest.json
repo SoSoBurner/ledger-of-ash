@@ -1,0 +1,102 @@
+{
+  "npc_id": "morra_cindercrest",
+  "canonical_name": "Morra Cindercrest",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Ward Mediator",
+  "profession_discipline": "Ward Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Emberhollow Forge Town",
+  "locality_scope": "Emberhollow Forge Town",
+  "institutional_ties": [
+    "Emberhollow Forge Town"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as ward mediator.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Emberhollow Forge Town"
+    ],
+    "institutions": [
+      "Emberhollow Forge Town"
+    ],
+    "factions": []
+  },
+  "appearance": "Morra Cindercrest carries the marks of ward mediator in red dust and doorway ritual: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a ward mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of ward mediator in and around Emberhollow Forge Town, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Emberhollow Forge Town while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to honor loss is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_0162",
+    "rel_0169",
+    "rel_0170",
+    "rel_0171",
+    "rel_0172",
+    "rel_0173",
+    "rel_0174",
+    "rel_1113",
+    "rel_1114"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Morra Cindercrest can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Morra Cindercrest needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Emberhollow Forge Town."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "morra_cindercrest",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Morra Cindercrest visibly responsible for keeping something larger from failing. In Emberhollow Forge Town, this lands inside a public field already shaped by Forge Dedication Halls, Frontier Hammer Companies.",
+  "encounter_context": {
+    "usual_environment": "Emberhollow Forge Town: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Morra Cindercrest presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a ward mediator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Ward Mediator, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Morra Cindercrest refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Ward Mediator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Morra Cindercrest can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Morra Cindercrest adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Morra Cindercrest is Known locally through day-to-day work as ward mediator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Ward Mediator.",
+  "social_texture": "Morra Cindercrest speaks like someone who has spent too long translating private stakes into acceptable public language. Around Emberhollow Forge Town, people read them as ceremony-conscious, prideful, and sharply aware of household honor.",
+  "money_pressure": "Their material pressure is tied to gifts and bridewealth; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but honor loss becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Morra touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Morra Cindercrest when the party needs a socially grounded face for Emberhollow Forge Town: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

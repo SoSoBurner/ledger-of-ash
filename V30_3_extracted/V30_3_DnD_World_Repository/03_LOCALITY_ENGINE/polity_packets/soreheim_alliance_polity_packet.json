@@ -1,0 +1,31 @@
+{
+  "name": "Soreheim Alliance",
+  "object_type": "runtime_polity_demography_packet",
+  "build_version": "V30_3",
+  "derived_from": "02_CANON_BASELINE/demography/soreheim_alliance_demography.json",
+  "dominant_populations": [
+    "Storm Giants",
+    "Cloud Giants",
+    "Fire Giants",
+    "Hill Giants"
+  ],
+  "secondary_populations": [
+    "Humans",
+    "Dwarves",
+    "Gnomes",
+    "Orcs",
+    "Half-Orcs",
+    "Goblins",
+    "Hobgoblins",
+    "Kobolds",
+    "Lizardfolk",
+    "Kenku",
+    "Firbolgs",
+    "Bugbears",
+    "Goliaths",
+    "Dragonborn"
+  ],
+  "street_level_visibility": "The roster is treated as explicit nation-level canon because the source set already strongly supports giant and broad mortal population enumeration.",
+  "visitor_signal": "Visitors to Soreheim Alliance should perceive the dominant populations first and the secondary populations as stable but not polity-defining unless narrower locality canon states otherwise.",
+  "runtime_rule": "Runtime narration may elaborate visible population mix but may not contradict canonical roster or exclusions."
+}

@@ -1,0 +1,94 @@
+{
+  "npc_id": "nora_wren",
+  "canonical_name": "Nora Wren",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Quiet-Room Mediator",
+  "profession_discipline": "Quiet-Room Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Market Row Guildhall",
+  "locality_scope": "Market Row Guildhall",
+  "institutional_ties": [
+    "Market Row Guildhall"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Market Row Guildhall"
+    ],
+    "institutions": [
+      "Market Row Guildhall"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quiet-room mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quiet-room mediator in and around Market Row Guildhall, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Market Row Guildhall workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Market Row Guildhall, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of quiet-room mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0476",
+    "rel_0485",
+    "rel_0493",
+    "rel_0500",
+    "rel_0507",
+    "rel_0508",
+    "rel_0509",
+    "rel_0510",
+    "rel_0511",
+    "rel_0512",
+    "rel_1041",
+    "rel_1043"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Nora Wren can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Nora Wren needs help with a problem in Market Row Guildhall that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "nora_wren",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Nora Wren carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Market Row Guildhall: the part of Market Row Guildhall where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Nora Wren presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a quiet-room mediator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Quiet-Room Mediator, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Nora Wren refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Quiet-Room Mediator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Nora Wren can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Nora Wren adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Nora Wren is Known locally through day-to-day work as quiet-room mediator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quiet-Room Mediator."
+}

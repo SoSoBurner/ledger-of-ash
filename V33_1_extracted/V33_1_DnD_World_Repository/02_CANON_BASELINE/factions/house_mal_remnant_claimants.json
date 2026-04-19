@@ -1,0 +1,45 @@
+{
+  "name": "House Mal Remnant Claimants",
+  "type": "legacy claimant faction",
+  "truth_layer": "corrected_canon",
+  "summary": "Residual Mal-aligned claimants who preserve debt, title, or memory claims after the Union successor transition.",
+  "motive": "Recover lost standing, settle old obligations in their favor, or resist total absorption into the Union order.",
+  "methods": [
+    "document claims",
+    "patronage appeals",
+    "debt leverage",
+    "symbolic legitimacy campaigns"
+  ],
+  "geography": [
+    "Former Mal sphere",
+    "Guildheart-adjacent legal spaces"
+  ],
+  "power_relations": [
+    "Subordinate to the Union successor order but capable of nuisance pressure through paperwork and legacy ties"
+  ],
+  "current_pressure": [
+    "political irrelevance",
+    "debt conversion",
+    "loss of public legitimacy"
+  ],
+  "visible_membership_base": "Claimant nobles, debt advocates, displaced retainers, record pursuers.",
+  "civilian_contact_surface": [
+    "inheritance disputes",
+    "old debt claims",
+    "lineage arguments"
+  ],
+  "current_tension_or_vulnerability": "Their residual legitimacy is strongest where records are messy and people still resent the Union settlement.",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "orin_brokerwell"
+  ],
+  "npc_interfaces": [
+    "orin_brokerwell"
+  ]
+}

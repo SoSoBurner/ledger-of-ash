@@ -1,0 +1,14 @@
+{
+  "name": "Guildheart Hub",
+  "authority": [
+    "The Union",
+    "Guild Sanction Board",
+    "merchant houses",
+    "imperial revenue observers"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Hearth of Unity",
+  "parent_polity": "Soreheim Alliance",
+  "type": "operational_anchor",
+  "anchor_kind": "civic_religious_site",
+  "truth_layer": "conservative_inference",
+  "anchor_status": "baseline_anchor",
+  "roles_allocated": 4,
+  "territory": "Unternal Lands",
+  "operational_profile": "Communal solidarity site reinforcing food, care, and duty obligations.",
+  "role_density_note": "Emitted as matrix-stage administrative thickening rather than full office ledger.",
+  "supporting_logic": "Built from existing polity logic as downward-and-outward operational fill.",
+  "sources": [
+    "operator_target_spec_v22_4",
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

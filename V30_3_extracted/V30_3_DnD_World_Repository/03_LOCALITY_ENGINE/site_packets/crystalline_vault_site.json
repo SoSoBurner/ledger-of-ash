@@ -1,0 +1,38 @@
+{
+  "name": "Crystalline Vault",
+  "parent_district": "Aurora Crown Commune",
+  "type": "subterranean archive facility",
+  "approach": "A reinforced descent into cold crystal chambers marked by seal-locks, archive ribs, and conduit warnings rather than civic ornament.",
+  "inside": "Archive shelves, experimental enclosures, and guarded study chambers make the Vault feel more like a survival memory-engine than a library in comfort mode.",
+  "who_belongs": [
+    "archive custodians",
+    "researchers",
+    "sealed-copy clerks"
+  ],
+  "who_is_out_of_place": [
+    "the impatient",
+    "unauthorized copy-seekers"
+  ],
+  "expected_behavior": [
+    "observe seal protocol",
+    "do not improvise around conduit restrictions"
+  ],
+  "visible_power": [
+    "Containment Research Concord"
+  ],
+  "economy_or_function": "archive custody, experiment records, controlled copy circulation",
+  "law_context": [
+    "containment entry protocol"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet": "Crystalline Vault Scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Crystalline Vault Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

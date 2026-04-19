@@ -1,0 +1,27 @@
+{
+  "name": "Information Ecology Model",
+  "truth_layer": "reconciled_canon",
+  "pillars": [
+    "Gwybodaeth libraries and truth-record traditions",
+    "Cosmouth archives and treasury records",
+    "Mimolot book-copying bureaucracy and tariffs",
+    "Shirsh magical investigation and evidence handling",
+    "Roazian enforcement intelligence",
+    "The Union market records, contracts, and sanction notices",
+    "Red Hood myth versus reality",
+    "prophecy networks and doctrinal rumor"
+  ],
+  "operational_questions": [
+    "who controls copying",
+    "who can inspect records",
+    "how rumor outruns law",
+    "what counts as public belief versus corrected truth",
+    "how false memory becomes civic narrative"
+  ],
+  "sources": [
+    "principalities",
+    "pantheon_story",
+    "gwybodaeth_missing",
+    "topatch_v22_6_spec"
+  ]
+}

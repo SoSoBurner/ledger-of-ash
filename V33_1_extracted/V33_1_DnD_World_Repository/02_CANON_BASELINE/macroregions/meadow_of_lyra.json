@@ -1,0 +1,21 @@
+{
+  "name": "Meadow of Lyra",
+  "parent_polity": "Principality of Shelk",
+  "summary": "Corrupted meadow of elven observation ruins and celestial manifestations.",
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "tavian_dawnsilkmead"
+  ],
+  "npc_interfaces": [
+    "tavian_dawnsilkmead"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

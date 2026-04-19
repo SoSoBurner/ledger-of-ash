@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Soreheim Proper industrial planning",
+  "record_count": 1,
+  "npc_ids": [
+    "mordoth_valinheim"
+  ],
+  "records": [
+    {
+      "npc_id": "mordoth_valinheim",
+      "canonical_name": "Mordoth Valinheim",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Storm Giant councillor and architect of progress",
+      "tier": "notable",
+      "public_reputation": "Recognized as a storm giant councillor and architect of progress of regional weight.",
+      "current_agenda": "Keep Soreheim Proper workable through the obligations of storm giant councillor and architect of progress while managing the immediate pressure of quota demands in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Soreheim Proper industrial planning is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

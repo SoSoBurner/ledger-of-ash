@@ -1,0 +1,9 @@
+{
+  "name": "Ironhold Quarry",
+  "approach": "Severe extraction landscape with visible labor discipline and transport controls.",
+  "sources": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

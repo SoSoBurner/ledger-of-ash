@@ -1,0 +1,18 @@
+{
+  "name": "Cindergrain Basin",
+  "parent_polity": "Soreheim Alliance",
+  "type": "operational_anchor",
+  "anchor_kind": "grain drying, reserve storage, and ration buffering basin",
+  "truth_layer": "conservative_inference",
+  "anchor_status": "canon_safe_extension",
+  "roles_allocated": 8,
+  "territory": "Eternal Lands",
+  "operational_profile": "Valid because Soreheim agriculture and communal ownership require buffer infrastructure against drought, spoilage, and quota shock.",
+  "role_density_note": "Emitted as matrix-stage administrative thickening rather than full office ledger.",
+  "supporting_logic": "Built from existing polity logic as downward-and-outward operational fill.",
+  "sources": [
+    "operator_target_spec_v22_4",
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

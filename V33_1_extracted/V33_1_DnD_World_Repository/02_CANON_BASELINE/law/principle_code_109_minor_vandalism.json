@@ -1,0 +1,20 @@
+{
+  "code": "Principle Code § 109",
+  "title": "Minor Vandalism",
+  "severity": "misdemeanor",
+  "description": "Minor damage to buildings, tools, furnishings, displays, gardens, or public works.",
+  "jurisdictions": [
+    "Velvet Pinnacle Hall",
+    "House of Shelk Estate",
+    "Crystal Loom Emporium",
+    "Roadwardens’ Central Command",
+    "The Starlit Forge",
+    "Amber Fountain Inn",
+    "Silkweaver’s Chapel"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

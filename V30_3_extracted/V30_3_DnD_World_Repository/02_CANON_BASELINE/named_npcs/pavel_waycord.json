@@ -1,0 +1,95 @@
+{
+  "npc_id": "pavel_waycord",
+  "canonical_name": "Pavel Waycord",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Itinerary Keeper",
+  "profession_discipline": "Itinerary Keeper",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": null,
+  "locality_scope": "Cosmoria Archive Exchange Barge",
+  "institutional_ties": [
+    "Cosmoria Archive Exchange Barge"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as itinerary keeper.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "Cosmoria Archive Exchange Barge"
+    ],
+    "institutions": [
+      "Cosmoria Archive Exchange Barge"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Keeps language exact, as if wording itself is part of the custody chain. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a itinerary keeper still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of itinerary keeper in and around Cosmoria Archive Exchange Barge, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cosmoria Archive Exchange Barge workable through the obligations of itinerary keeper while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Cosmoria Archive Exchange Barge, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of itinerary keeper visibly slip.",
+  "relationship_refs": [
+    "rel_0710",
+    "rel_0719",
+    "rel_0727",
+    "rel_0734",
+    "rel_0740",
+    "rel_0746",
+    "rel_0747",
+    "rel_0748",
+    "rel_0749",
+    "rel_0750"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "document_pressure",
+      "summary": "Pavel Waycord can entangle the party in seals, claims, or proof requirements that others are trying to blur on purpose."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Pavel Waycord can trade precise, actionable information once the party secures or clarifies the record they protect."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "pavel_waycord",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Pavel Waycord communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Cosmoria Archive Exchange Barge: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Pavel Waycord presents as Keeps language exact, as if wording itself is part of the custody chain. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a itinerary keeper still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Itinerary Keeper, and proof that strangers will not create avoidable noise in Nomdara Caravan.",
+  "what_they_refuse": "Pavel Waycord refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Itinerary Keeper too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Pavel Waycord can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Pavel Waycord adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Pavel Waycord is Known locally through day-to-day work as itinerary keeper. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Itinerary Keeper."
+}

@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Miners’ Assembly",
+  "record_count": 3,
+  "npc_ids": [
+    "helga_drillwake",
+    "tovek_ashmason",
+    "ysmir_coalward"
+  ]
+}

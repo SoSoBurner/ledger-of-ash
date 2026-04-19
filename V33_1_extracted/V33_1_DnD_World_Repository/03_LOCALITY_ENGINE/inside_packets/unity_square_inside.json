@@ -1,0 +1,18 @@
+{
+  "name": "Unity Square",
+  "inside": "Voices overlap across a managed sprawl of bargaining circles, inspection tables, carrier lanes, and sanctioned dispute corners.",
+  "truth_layer": "direct_canon",
+  "hierarchy": {
+    "polity": "The Union",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "work is visibly part of daily life.",
+    "Local values show in small habits, not just formal ritual.",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

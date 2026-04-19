@@ -1,0 +1,85 @@
+{
+  "npc_id": "veyra_bannerhold",
+  "canonical_name": "Veyra Bannerhold",
+  "aliases": [
+    "the torsk"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Settlement Broker",
+  "profession_discipline": "settlement trade and local mediation",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Embervale Settlement",
+  "locality_scope": "Embervale Settlement",
+  "institutional_ties": [
+    "Embervale Settlement"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Embervale Settlement through steady work as a settlement broker.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Embervale Settlement"
+    ],
+    "institutions": [
+      "Embervale Settlement"
+    ],
+    "factions": []
+  },
+  "appearance": "Veyra Bannerhold usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their malven torsk status legible before introductions begin.",
+  "manner": "Carries role-shaped habits that make local pressure visible in the way they speak and judge strangers. In Embervale Settlement, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of a settlement broker in and around Embervale Settlement, keeping ordinary obligations from turning into public disorder.",
+  "current_agenda": "Keep Embervale Settlement workable by absorbing local strain before it becomes a visible scandal, shutdown, or breach of order.",
+  "hidden_pressure": "Must keep the role of settlement broker credible while managing pressure tied to status, access, logistics, and local reputation in Embervale Settlement.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Veyra Bannerhold can draw the party into a locality problem centered on malven torsk duties in Embervale Settlement."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Veyra Bannerhold becomes useful when the party needs grounded help with overcrowding, sickness, heat-failure risk around Embervale Settlement."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog",
+    "embervale_settlement"
+  ],
+  "compatibility_interface_id": "veyra_bannerhold",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Veyra Bannerhold is immediately readable as a malven torsk tied to Embervale Settlement.",
+  "encounter_context": {
+    "usual_environment": "Embervale Settlement: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "settlement broker"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Veyra Bannerhold presents as someone shaped by the duties of a settlement broker and the daily pressures of Embervale Settlement.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a settlement broker, and proof that strangers will not make Embervale Settlement harder to manage.",
+  "what_they_refuse": "Veyra Bannerhold refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a malven torsk too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Veyra Bannerhold adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Veyra Bannerhold always knows more about Embervale Settlement than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a settlement broker in Embervale Settlement."
+}

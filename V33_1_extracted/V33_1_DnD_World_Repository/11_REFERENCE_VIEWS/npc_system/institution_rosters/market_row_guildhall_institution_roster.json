@@ -1,0 +1,48 @@
+{
+  "build_version": "V33_1",
+  "institution": "Market Row Guildhall",
+  "record_count": 3,
+  "npc_ids": [
+    "nora_wren",
+    "pela_wren",
+    "lady_elowen_shelk"
+  ],
+  "records": [
+    {
+      "npc_id": "nora_wren",
+      "canonical_name": "Nora Wren",
+      "polity": "Transpolity",
+      "office_or_role": "Quiet-Room Mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+      "current_agenda": "Keep Market Row Guildhall workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "pela_wren",
+      "canonical_name": "Pela Wren",
+      "polity": "Transpolity",
+      "office_or_role": "Apprentice Factor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as apprentice factor.",
+      "current_agenda": "Keep Market Row Guildhall workable through the obligations of apprentice factor while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "lady_elowen_shelk",
+      "canonical_name": "Lady Elowen Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Fashion icon and guild chairwoman",
+      "tier": "notable",
+      "public_reputation": "Recognized as a fashion icon and guild chairwoman of regional weight.",
+      "current_agenda": "Keep Market Row Guildhall workable through the obligations of fashion icon and guild chairwoman while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Collaborative artisan hall with design protection and economic-crime exposure.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

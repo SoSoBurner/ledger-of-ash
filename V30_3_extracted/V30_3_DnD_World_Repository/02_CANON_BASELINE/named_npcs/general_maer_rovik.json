@@ -1,0 +1,94 @@
+{
+  "npc_id": "general_maer_rovik",
+  "canonical_name": "General Maer Rovik",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "strategic_actor",
+  "office_or_role": "Tactician",
+  "profession_discipline": "Tactician",
+  "grouping": "Support & Leadership",
+  "polity": "Roaz",
+  "settlement": null,
+  "locality_scope": "Roaz",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Famous for treating warrants, supply timing, and fear display as one battlefield.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Roaz"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Status-conscious attire, controlled insignia, and the kind of detail others read before the first word make authority obvious.",
+  "manner": "Listens for structural consequence before personal grievance. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a tactician still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of tactician in and around Roaz, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Roaz workable through the obligations of tactician while managing the immediate pressure of institutional scrutiny in Roaz.",
+  "hidden_pressure": "Must protect institutional direction from panic, vanity, and overreaction. Around Roaz, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of tactician visibly slip.",
+  "relationship_refs": [
+    "rel_1306",
+    "rel_1307"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "planning_request",
+      "summary": "General Maer Rovik needs help testing a plan, reading a rival move, or securing the missing piece of a larger design tied to Roaz."
+    },
+    {
+      "hook_type": "second_order_complication",
+      "summary": "Working with General Maer Rovik can reveal that the visible problem in Roaz is only the first layer of a larger structural risk."
+    },
+    {
+      "hook_type": "intelligence_trade",
+      "summary": "General Maer Rovik can exchange unusually sharp institutional intelligence if the party solves a planning bottleneck no one else can touch."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "General Maer Rovik needs help with a problem in Roaz that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with General Maer Rovik can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V30_3 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Measured stillness, controlled pacing, and the habit of reading consequences before speaking make General Maer Rovik feel like someone used to planning under pressure.",
+  "encounter_context": {
+    "usual_environment": "Roaz: planning rooms, advisory chambers, command tables, or quiet oversight spaces",
+    "who_seeks_them_out": [
+      "decision-makers",
+      "trusted intermediaries",
+      "those carrying incomplete information"
+    ],
+    "who_avoids_them": [
+      "the impulsive",
+      "the loud",
+      "those who mistake confidence for planning"
+    ],
+    "interaction_anchor": "second-order consequence management"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "General Maer Rovik presents as Listens for structural consequence before personal grievance. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a tactician still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Tactician, and proof that strangers will not create avoidable noise in Principality of Roaz.",
+  "what_they_refuse": "General Maer Rovik refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Tactician too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "General Maer Rovik can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, General Maer Rovik adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say General Maer Rovik is Famous for treating warrants, supply timing, and fear display as one battlefield. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Tactician."
+}

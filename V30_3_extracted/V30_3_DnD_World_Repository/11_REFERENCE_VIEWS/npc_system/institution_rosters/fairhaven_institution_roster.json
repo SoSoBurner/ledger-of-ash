@@ -1,0 +1,10 @@
+{
+  "build_version": "V30_3",
+  "institution": "Fairhaven",
+  "record_count": 3,
+  "npc_ids": [
+    "corin_bloomcrest",
+    "elandra_velvetmere",
+    "tavian_silkgate"
+  ]
+}

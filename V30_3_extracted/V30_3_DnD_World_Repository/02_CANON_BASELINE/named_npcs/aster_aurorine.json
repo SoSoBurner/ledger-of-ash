@@ -1,0 +1,85 @@
+{
+  "npc_id": "aster_aurorine",
+  "canonical_name": "Aster Aurorine",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Glyph Observer",
+  "profession_discipline": "Glyph Observer",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": null,
+  "locality_scope": "Blueglass Exposure Field",
+  "institutional_ties": [
+    "Blueglass Exposure Field"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as glyph observer.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Blueglass Exposure Field"
+    ],
+    "institutions": [
+      "Blueglass Exposure Field"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a glyph observer still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of glyph observer in and around Blueglass Exposure Field, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Blueglass Exposure Field workable through the obligations of glyph observer while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Blueglass Exposure Field, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of glyph observer visibly slip.",
+  "relationship_refs": [
+    "rel_0374",
+    "rel_0377",
+    "rel_0379",
+    "rel_0381"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Aster Aurorine can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Aster Aurorine needs help with a problem in Blueglass Exposure Field that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "aster_aurorine",
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "public_signal": "Aster Aurorine carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Blueglass Exposure Field: the part of Blueglass Exposure Field where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Aster Aurorine presents as Reads as a functional local operator shaped by place, duty, and the practical customs around them. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a glyph observer still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Glyph Observer, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Aster Aurorine refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Glyph Observer too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Aster Aurorine can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Aster Aurorine adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Aster Aurorine is Known locally through day-to-day work as glyph observer. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Glyph Observer."
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Office of Roazian Enforcement",
+  "type": "Roaz law institution",
+  "truth_layer": "direct_canon",
+  "summary": "Roaz’s primary institution of law enforcement, anti-magic policing, and judicial execution.",
+  "day_to_day": "Runs checkpoints, processes prisoners, conducts raids, and implements court rulings.",
+  "who_works_there": "Officers, magistrate liaisons, prison overseers, checkpoint staff, covert specialists.",
+  "who_uses_it": "Residents seeking rulings or security, merchants, accused criminals, bounty actors.",
+  "authority": "Can investigate, arrest, sentence through lawful channels, and administer prison labor programs.",
+  "public_manifestation": "Checkpoints, armored patrols, public punishments, seizure notices, interrogation halls.",
+  "conflict_or_bottleneck": "High authority invites corruption risk and public fear even when the institution is competent.",
+  "party_actions": [
+    "clear a charge",
+    "claim a bounty",
+    "enter evidence",
+    "survive an inspection"
+  ],
+  "sources": [
+    "principality_roaz"
+  ],
+  "version": "V30_3",
+  "generation_timestamp": "2026-04-18T03:13:23Z",
+  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE",
+  "named_npc_refs": [
+    "irena_steelmarch",
+    "lucan_redhinge"
+  ],
+  "npc_interfaces": [
+    "irena_steelmarch",
+    "lucan_redhinge"
+  ]
+}

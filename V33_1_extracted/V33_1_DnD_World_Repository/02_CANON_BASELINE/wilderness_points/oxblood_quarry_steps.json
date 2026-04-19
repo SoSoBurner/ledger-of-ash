@@ -1,0 +1,20 @@
+{
+  "name": "Oxblood Quarry Steps",
+  "parent": "Western Extraction Line",
+  "summary": "A terraced quarry stained red by mineral runoff and old labor deaths. The lower steps still produce superior stone at a social price nobody agrees to count.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Soreheim Alliance",
+  "travel_tags": [
+    "resource pressure",
+    "labor unrest",
+    "structural collapse"
+  ]
+}

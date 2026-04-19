@@ -1,0 +1,9 @@
+{
+  "build_version": "V30_3",
+  "institution": "Verdant Row District",
+  "record_count": 2,
+  "npc_ids": [
+    "faelar_bloomcrest",
+    "nyelle_starbloom"
+  ]
+}
