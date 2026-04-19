@@ -151,7 +151,25 @@
   function updateStage(){ const st=currentStage(G.level); G.stage=st.id; G.stageLabel=st.label; }
   function chooseThreat(){ const loc=getLocality(G.location); return {hazard:pick(loc.hazards,G.dayCount+G.stage+G.worldClocks.pressure), creature:pick(loc.creatures,G.dayCount+G.stage+G.worldClocks.rival)}; }
   function setThreat(){ G.currentThreat = chooseThreat(); }
-  function currentNamedPlacements(location){ return (window.NPC_PLACEMENTS||{})[location] || []; }
+  function currentNamedPlacements(location){ 
+    // Filter legendary and notable NPCs (except Lady Rosalind Shelk) based on stage
+    const list = (window.NPC_PLACEMENTS||{})[location] || [];
+    const stage = (G && typeof G.stage !== 'undefined') ? G.stage : 0;
+    return list.filter(npc => {
+      const id = npc.id || npc.npc_id || npc;
+      if(id === 'lady_rosalind_shelk') return true;
+      const isLegendary = window.LEGENDARY_NPCS && window.LEGENDARY_NPCS.includes(id);
+      const isNotable = window.NOTABLE_NPCS && window.NOTABLE_NPCS.includes(id);
+      if(stage < 4){
+        return !(isLegendary || isNotable);
+      } else {
+        // Stage 4 & 5: interactions with legendary/notable NPCs only occur half the time,
+        // otherwise they are represented as rumors. This approximates story-supported appearances.
+        if(!(isLegendary || isNotable)) return true;
+        return rand(2)===0;
+      }
+    }); 
+  }
   function buildAuditText(){ const b=window.BUILD_VERIFICATION||{}; return `${b.archetypeCount} archetypes · ${b.backgroundCount} backgrounds · ${b.routeSignatureCount} routes · ${b.localityProjectionCount} localities`; }
   function gearBonus(key){ let bonus=0; Object.values(G.equipment||{}).forEach(item=>{ if(item && item.bonus && item.bonus[key]) bonus += item.bonus[key]; }); return bonus; }
   function currentEdgeBonus(action){ return (G.familyEdges||[]).reduce((sum,e)=>sum + (e.action===action?e.bonus:0), 0); }
@@ -1493,5 +1511,8 @@
     const nr=$('newRunBtn'); if(nr) nr.style.display='';
   }
   function loadLegend(){ const code=$('loadCode').value.trim(); const all=storage(); const found=all[code]; if(!found){ alert('Legend not found.'); return; } G=found; if(!G.familyEdges) G.familyEdges=[]; if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; if(!G.inventory) G.inventory=[]; if(!G.equipment) G.equipment={}; if(!G.serviceLog) G.serviceLog=[]; if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]}; if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; if(!G.uiState) G.uiState={activeLayer:'story'}; if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; render(); const ss=$('startScreen'); if(ss) ss.style.display='none'; const gs=$('gameSection'); if(gs) gs.classList.add('active'); const nr=$('newRunBtn'); if(nr) nr.style.display=''; }
+  // Define lists of legendary and notable NPCs for gating logic.
+  window.LEGENDARY_NPCS = [ 'archmagister_leth_quillfire', 'coral_jack_neris', 'dame_orsella_roaz', 'dean_arturon_valegear', 'forge_voice_malzara', 'general_maer_rovik', 'ilyra_foamveil', 'kordr_vulkhand', 'marshal_builder_korrin_wex', 'matron_heshka_emberreign', 'mother_eliane_threadmercy', 'old_marrow_jex', 'orem_lantern_step', 'ossarch_veyn_halcyon', 'pashko_many_routes', 'saint_edris_of_the_unblinking_record', 'saint_physician_orel_vaunt', 'ser_caldrin_vey', 'seraphine_of_the_quiet_pyre', 'tessa_grainmark', 'the_ash_red_widow', 'vael_snowtrace', 'vatra_sul', 'vaud_serrik', 'veyla_inkhand' ];
+  window.NOTABLE_NPCS = [ 'archivist_temeris_quillward', 'brakka_stonewake', 'captain_darian_roaz', 'captain_thalion_windrider', 'commander_halian_roaz', 'cron_udenine', 'daska_veilrun', 'decran_moltglass', 'descent_captain_orrik_lavabound', 'eron_wardflame', 'examiner_prelate_sira_doveshade', 'gorath_steelclad', 'harl_veymask', 'hel_brenn', 'hest_rookbraid', 'high_priestess_lyara_dawnlight', 'high_tide_priest_coren_mirthwake', 'hrolf_ashsight', 'ithra_quillmark', 'lady_elowen_shelk', 'lady_isabella_shelk', 'lord_darius_shelk', 'magister_selro_vann', 'magistrate_zethraxis_coilspire', 'marshal_sera_ironveil', 'matriarch_ashvara_citadel', 'measurer_seln_archive', 'mediator_selka_var', 'mercy_examiner_talan_vey', 'mordoth_valinheim', 'mother_saar_vulkrel', 'niv_brinegrin', 'orien_warderose', 'pell_rookglass', 'professor_cael_mirrortine', 'quen_larkstamp', 'registrar_confessor_othan_mire', 'rema_three_lantern', 'rime_rimebridge', 'risha_veilthorn', 'roth_udenine', 'sir_edrin_valecrest', 'sir_thaddeus_shelk', 'sir_velden_ironspike', 'strategos_nima_glass_law', 'talar_icepulse', 'vara_chitslip', 'varric_icevein', 'vessa_cindermaw', 'vorgul_oxtend', 'warden_pellor_grainhand' ];
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();
