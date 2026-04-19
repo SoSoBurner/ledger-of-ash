@@ -188,7 +188,10 @@
       <div class='createRow'>
         <select id='ageSelect' style='flex:.5'></select>
         <select id='presentationSelect' style='flex:.7'></select>
-        <button id='beginBtn' class='btnPrimary'>Begin Legend</button>
+        <select id='lineageSelect' style='flex:.8'></select>
+      </div>
+      <div class='createRow'>
+        <button id='beginBtn' class='btnPrimary' style='flex:1'>Begin Legend</button>
       </div>
     </div>
     <div class='createCard'>
@@ -4059,7 +4062,7 @@ function triggerCombatEncounter(enemyId, context) {
   function addNotice(text){ G.notices.unshift(`Day ${G.dayCount}: ${text}`); G.notices=G.notices.slice(0,50); }
   function addQuest(id,title,status='Active'){ const q=G.quests.find(q=>q.id===id); if(q){ q.status=status; return; } G.quests.push({id,title,status}); }
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
-  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0) G.dayCount+=1; G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); } }
+  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0) G.dayCount+=1; G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
   function gainXp(n,why=''){ G.xp+=n; while(G.level<20 && G.xp>=XP_PER_LEVEL[G.level+1]){ G.level++; G.maxHp += G.stage>=4?4:3; G.hp=Math.min(G.maxHp,G.hp+4); G.renown+=2; addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);} updateStage(); }
   function updateStage(){ const st=currentStage(G.level); G.stage=st.id; G.stageLabel=st.label; }
   function chooseThreat(){ const loc=getLocality(G.location); return {hazard:pick(loc.hazards,G.dayCount+G.stage+G.worldClocks.pressure), creature:pick(loc.creatures,G.dayCount+G.stage+G.worldClocks.rival)}; }
@@ -4096,10 +4099,39 @@ function triggerCombatEncounter(enemyId, context) {
   }
 
   // ── ALIGNMENT & LEGALITY ─────────────────────────────────
+  function checkCompanionLeaveConditions(){
+    if(!G.companions||!G.companions.length) return;
+    const compDefs=window.COMPANION_DEFS||{};
+    const leaving=[];
+    G.companions=G.companions.filter(comp=>{
+      const def=compDefs[comp.id];
+      if(!def) return true;
+      const evilAligned=(G.alignment&&G.alignment.goodEvil<=-7);
+      const chaoticAligned=(G.alignment&&G.alignment.lawfulChaotic<=-7);
+      const highHeat=(G.legalityState&&G.legalityState.civicHeat>=8);
+      const driftedTrust=(comp.trust||0)<1 && G.dayCount>12 && (comp.joinedDay||0)<G.dayCount-6;
+      const conds=def.leaveConditions||[];
+      let leave=false;
+      if(evilAligned && conds.some(c=>c.includes('morality'))) leave=true;
+      if(chaoticAligned && conds.some(c=>c.includes('order'))) leave=true;
+      if(highHeat && conds.some(c=>c.includes('heat')||c.includes('legal')||c.includes('order'))) leave=true;
+      if(driftedTrust && G.dayCount>15) leave=true;
+      if(leave){ leaving.push({comp,def}); return false; }
+      return true;
+    });
+    leaving.forEach(({comp,def},i)=>{
+      addNotice(`${comp.name} has left the party.`);
+      addJournal('companion',def.leaveScene||`${comp.name} departs without explanation.`,`leave-${comp.id}-${G.dayCount}`);
+      markMoment(`${comp.name} left the party`);
+      if(i===0) G.lastResult=(def.leaveScene||`${comp.name} departs. The reasons are their own, and the road is emptier for it.`);
+    });
+  }
+
   function applyAlignmentShift(moral, civic){
     if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0};
     G.alignment.goodEvil=Math.max(-10,Math.min(10,(G.alignment.goodEvil||0)+moral));
     G.alignment.lawfulChaotic=Math.max(-10,Math.min(10,(G.alignment.lawfulChaotic||0)+civic));
+    checkCompanionLeaveConditions();
   }
   function applyLegalityShift(delta){
     if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]};
@@ -4310,7 +4342,8 @@ function triggerCombatEncounter(enemyId, context) {
     if(action==='spell_slot'){ attackBonus+=3; specialEffect='Spell Slot'; }
     if(action==='spell_raw'){ attackBonus+=1; defenseBonus-=1; specialEffect='Raw Burst'; }
     const skill=action==='stealth_opener'?'stealth':(group==='magic'&&action!=='attack')?'lore':'combat';
-    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus);
+    const compAtk=window.companionBonus?window.companionBonus(G,skill):0;
+    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk);
     const playerRoll=rAtk.total;
     const enemyDC=10+cs.enemyDefense+tierBonus;
     const playerHit=rAtk.isCrit||(playerRoll>=enemyDC&&!rAtk.isFumble);
@@ -4578,6 +4611,22 @@ function triggerCombatEncounter(enemyId, context) {
       G.stageProgress[1]++;
       maybeStageAdvance();
     }};
+    // Named NPC approach — one interactable NPC per action cycle
+    const npcs=currentNamedPlacements(G.location);
+    const npc=npcs.length?npcs[G.dayCount%npcs.length]:null;
+    const npcApproach=npc?{label:`Approach ${(npc.id||'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — ${npc.role}`,tags:['NPC','Persuasion','Observe'],fn(){
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const r=rollD20('persuasion',(G.skills.persuasion||0)+Math.floor(G.level/3));
+      const target=11+G.stage;
+      const success=r.isCrit||(r.total>=target&&!r.isFumble);
+      G.lastRoll={action:`Approach ${(npc.id||'').replace(/_/g,' ')}`,skill:'persuasion',total:r.total,target,success,die:r.die,crit:r.isCrit,fumble:r.isFumble};
+      recordCodex('npcs',npc.id,{name:(npc.id||'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),role:npc.role,office:npc.office,locality:loc.name});
+      if(r.isCrit){ applySuccess(1,'person','persuasion',3,r.flavor); addNotice(`Critical: ${(npc.id||'').replace(/_/g,' ')} gives up something unexpected.`); }
+      else if(r.isFumble){ G.lastResult=r.flavor; G.worldClocks.rival++; addNotice(`Fumble: ${(npc.id||'').replace(/_/g,' ')} is now suspicious of your interest.`); }
+      else if(success){ applySuccess(1,'person','persuasion',2,`${(npc.id||'').replace(/_/g,' ')} at ${npc.office} provides one piece of actionable intelligence. The approach gives it a specific angle the official record does not show.`); addJournal('npc-contact',`Spoke with ${(npc.id||'').replace(/_/g,' ')} at ${npc.office}.`,`npc-${npc.id}-${G.dayCount}`); }
+      else { G.lastResult=`${(npc.id||'').replace(/_/g,' ')} is not available or not willing. The approach did not land.`; G.worldClocks.pressure++; }
+      G.recentOutcomeType='observe'; maybeStageAdvance();
+    }}:null;
     const choices=[
       {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'careful observation'); G.stageProgress[1]++; addJournal('field-note',`Observed ${loc.name} through ${bg.theme}.`,`${bg.id}-observe`); G.recentOutcomeType='observe'; G.lastResult=`A quieter read of ${loc.name} sharpens the first contradiction. The background of ${bg.theme} gives the observation a specific angle the place does not expect.`; maybeStageAdvance(); }},
       classIdentityChoice(),
@@ -4587,8 +4636,18 @@ function triggerCombatEncounter(enemyId, context) {
       moralAxisChoice(),
       civicAxisChoice(),
       {label:'Test the current threat directly',tags:['Risky','Encounter'],fn(){ G.telemetry.actions++; startThreatEncounter('standard'); }},
-      {label:'Make camp and regroup',tags:['Camp'],fn(){ G.lastResult='The line pulls back into a safer rhythm.'; }}
+      {label:'Make camp and recover',tags:['Camp','Rest'],fn(){
+        advanceTime(1); G.telemetry.turns++;
+        const healed=Math.max(3,Math.floor(G.maxHp*0.25));
+        G.hp=Math.min(G.maxHp,G.hp+healed);
+        G.fatigue=Math.max(0,G.fatigue-1);
+        addJournal('camp',`Rested at ${G.currentSafeZone} in ${loc.name}.`,`camp-${G.dayCount}`);
+        G.recentOutcomeType='observe';
+        G.lastResult=`${G.currentSafeZone} provides enough shelter to recover before the next move. HP +${healed} (${G.hp}/${G.maxHp}). Party status reviewed and readiness restored.`;
+        checkCompanionLeaveConditions();
+      }}
     ];
+    if(npcApproach) choices.splice(3,0,npcApproach);
     if(recruit) choices.splice(2,0,recruit);
     return choices.slice(0,9);
   }
@@ -4614,8 +4673,33 @@ function triggerCombatEncounter(enemyId, context) {
       ...scouting.slice(0,1),
       moralAxis_GoodChoice(),
       civicAxis_ChaoticChoice(),
-      {label:'Use the current safe zone for leverage',tags:['Camp','Leverage'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'safe zone leverage'); G.lastResult=`${G.currentSafeZone} provides enough shelter to force one useful concession.`; }},
-      {label:'Call on a settlement service before pushing further',tags:['Service','Adjacent'],fn(){ G.lastResult='A return through the current settlement services sharpens the next move.'; }}
+      {label:'Use the current safe zone for leverage',tags:['Camp','Rest','Leverage'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; G.telemetry.services++;
+        const healed=Math.max(2,Math.floor(G.maxHp*0.2));
+        G.hp=Math.min(G.maxHp,G.hp+healed);
+        G.fatigue=Math.max(0,G.fatigue-1);
+        gainXp(1,'safe zone rest');
+        addJournal('camp',`Rested at ${G.currentSafeZone} between route pushes.`,`safe-zone-${G.dayCount}`);
+        G.recentOutcomeType='observe';
+        G.lastResult=`${G.currentSafeZone} is used for recovery before the next push. HP +${healed} (${G.hp}/${G.maxHp}). The route holds position while the body stabilizes.`;
+        checkCompanionLeaveConditions();
+      }},
+      {label:'Call on a settlement service before pushing further',tags:['Service','Adjacent'],fn(){
+        advanceTime(1); G.telemetry.turns++; G.telemetry.services++;
+        const locPois=(window.SETTLEMENT_POIS||{})[G.location]||{};
+        const infoPoi=locPois.info;
+        if(infoPoi){
+          gainXp(1,'settlement intelligence');
+          addJournal('information',`${infoPoi.name}: ${infoPoi.text}`,`${G.location}-info-s2-${G.dayCount}`);
+          G.lastResult=`${infoPoi.name} surfaces something actionable before the route push continues. The intelligence is narrow but the direction it points is not.`;
+        } else {
+          gainXp(1,'settlement contact');
+          G.lastResult=`The settlement provides what support it can before the route opens again.`;
+        }
+        G.serviceLog.unshift(`Settlement intelligence at ${getLocality(G.location).name}`);
+        G.serviceLog=G.serviceLog.slice(0,20);
+        G.recentOutcomeType='observe';
+      }}
     ].slice(0,9);
   }
 
@@ -4647,7 +4731,29 @@ function triggerCombatEncounter(enemyId, context) {
         addJournal('camp','Spoke with companions around the fire.',`camp-talk-${state.dayCount}`);
         state.companions.forEach(c=>{ if(!c.injured) c.trust=(c.trust||0)+1; });
         markMoment(`Camp talk at ${loc.name}`);
+        checkCompanionLeaveConditions();
       }});
+      // Injured companion recovery — field tending
+      const injuredComps=state.companions.filter(c=>c.injured||c.available===false);
+      if(injuredComps.length){
+        const comp=injuredComps[0];
+        choices.push({label:`Tend to ${comp.name} — field recovery`,tags:['Camp','Recovery','Craft'],fn(){
+          advanceTime(1);
+          const r=rollD20('craft',(state.skills.craft||0)+Math.floor(state.level/3));
+          const healed=r.isCrit||(r.total>=10&&!r.isFumble);
+          if(healed){
+            comp.injured=false; comp.available=true;
+            state.hp=Math.min(state.maxHp,state.hp+2);
+            state.lastResult=`${comp.name} is stabilized and mobile again. Field recovery held. The party is whole.`;
+            addJournal('camp',`${comp.name} recovered from injury at ${loc.name}.`,`recovery-${comp.id}-${state.dayCount}`);
+            addNotice(`${comp.name} has recovered from injury.`);
+          } else if(r.isFumble){
+            state.lastResult=`${r.flavor} The attempt to help ${comp.name} goes badly. They are no worse physically, but the intervention cost time and confidence.`;
+          } else {
+            state.lastResult=`${comp.name}'s condition is improving but they are not ready to move. Another rest may complete it.`;
+          }
+        }});
+      }
     }
     return choices;
   }
@@ -4699,7 +4805,18 @@ function triggerCombatEncounter(enemyId, context) {
       markMoment(`Stage II entered — pressure widening from ${originLoc.name}`);
       addJournal('stage','Stage I work complete. The adjacent route opens and the pressure reveals its regional shape.',`stage2-unlock-${G.dayCount}`);
     }
-    if(G.stage===2 && G.stageProgress[2]>=4 && G.level>=9){ G.stage=3; updateStage(); addNotice('Stage III begins. The world grows wider and less forgiving.'); markMoment('Stage III began'); }
+    if(G.stage===2 && G.stageProgress[2]>=4 && G.level>=9){
+      G.stage=3; updateStage();
+      const sig2=routeSignature(); const originLoc2=getLocality(sig2.originLocality)||getLocality(G.location);
+      const routeName2=window.ROUTE_NAMES&&sig2.stage2Vector?window.ROUTE_NAMES[sig2.stage2Vector]:'the widening route';
+      const fam2=familyTitleForStage2(sig2);
+      const destCount=Object.keys(G.stage2DestinationsSeen||{}).length;
+      G.lastResult=`The regional work is done. ${originLoc2.name} is no longer the edge of the problem — it is its recognized center, and the recognition travels. ${routeName2} has carried names and pressures outward into ${destCount>0?`${destCount} adjacent localities that now register this run as a regional variable`:'territory that has registered the weight of this work'}. The faction pressure of ${fam2} no longer sees a local actor. Stage III: the stakes are national. The route does not widen from here — it deepens into systems that answer to institutional authority, and those institutions have already heard your name.`;
+      addNotice('Stage III begins. The regional widening is complete. National-scale pressure and institution-level opposition are now active.');
+      markMoment(`Stage III entered — national stakes open from ${originLoc2.name}`);
+      addJournal('stage',`Stage II route work resolved. ${routeName2} pressure widened across region. National consequences now active.`,`stage3-unlock-${G.dayCount}`);
+      checkCompanionLeaveConditions();
+    }
     if(G.stage===3 && G.familyMilestones.stage3>=3 && G.level>=13){ G.stage=4; updateStage(); addNotice('Stage IV begins. Your name now changes what institutions dare.'); markMoment('Stage IV began'); }
     if(G.stage===4 && G.familyMilestones.stage4>=3 && G.level>=17){ G.stage=5; updateStage(); addNotice('Stage V begins. Death is now final.'); markMoment('Stage V began'); }
     setObjective();
@@ -4916,11 +5033,13 @@ function triggerCombatEncounter(enemyId, context) {
 
   function renderChronicleLayer(){
     const noticesHtml=noticesLines();
+    const activeQuests=(G.quests||[]).filter(q=>q.status==='Active');
+    const questsHtml=activeQuests.length?`<div class='card'><div class='sectionTitle'>Active Threads</div>${activeQuests.map(q=>`<div style='font-size:12px;padding:3px 0;border-bottom:1px solid #2a1f0f;color:#c9b99b'>· ${q.title}</div>`).join('')}</div>`:'';
     const momentsHtml=G.keyMoments&&G.keyMoments.length?`<div class='card'><div class='sectionTitle'>Key Moments</div>${G.keyMoments.slice(0,8).map(m=>`<div style='font-size:12px;padding:2px 0;border-bottom:1px solid #2a1f0f'>· ${m}</div>`).join('')}</div>`:'';
     const journalHtml=journalLines();
     const legendsHtml=G.legends&&G.legends.length?legendLines():'';
     const rescueHtml=G.rescueLog&&G.rescueLog.length?`<div class='card'><div class='sectionTitle'>Rescue Record</div>${G.rescueLog.slice(0,4).map(r=>`<div style='font-size:12px;padding:2px 0'>${r}</div>`).join('')}</div>`:'';
-    $('journalPanel').innerHTML=noticesHtml+momentsHtml+journalHtml+rescueHtml+legendsHtml;
+    $('journalPanel').innerHTML=questsHtml+noticesHtml+momentsHtml+journalHtml+rescueHtml+legendsHtml;
   }
 
   // ── LAYER SYSTEM ─────────────────────────────────────────
@@ -5003,7 +5122,29 @@ function triggerCombatEncounter(enemyId, context) {
     [...document.querySelectorAll('.layerBtn')].forEach(btn=>btn.onclick=()=>setActiveLayer(btn.dataset.layer));
   }
 
-  function fillSelectors(){ const archSel=$('archSelect'); archSel.innerHTML=window.ARCHETYPES.map(a=>`<option value='${a.id}'>${a.name}</option>`).join(''); $('ageSelect').innerHTML=['18','21','24','28','34','41','53'].map(v=>`<option value='${v}'>Age ${v}</option>`).join(''); $('presentationSelect').innerHTML=['Male','Female','Non-Gendered'].map(v=>`<option value='${v}'>${v}</option>`).join(''); function fillBg(){ const ids=window.BACKGROUNDS[archSel.value]||[]; $('bgSelect').innerHTML=ids.map(b=>`<option value='${b.id}'>${b.name} — ${getLocality(b.originLocality)?.name||b.originLocality}</option>`).join(''); } archSel.onchange=fillBg; fillBg(); }
+  function fillSelectors(){
+    const archSel=$('archSelect');
+    archSel.innerHTML=window.ARCHETYPES.map(a=>`<option value='${a.id}'>${a.name}</option>`).join('');
+    $('ageSelect').innerHTML=['18','21','24','28','34','41','53'].map(v=>`<option value='${v}'>Age ${v}</option>`).join('');
+    $('presentationSelect').innerHTML=['Male','Female','Non-Gendered'].map(v=>`<option value='${v}'>${v}</option>`).join('');
+    function fillLineage(){
+      const bgSel=$('bgSelect'); if(!bgSel) return;
+      const bgId=bgSel.value; const archId=archSel.value;
+      const bg=(window.BACKGROUNDS[archId]||[]).find(b=>b.id===bgId);
+      const loc=bg?bg.originLocality:'shelkopolis';
+      const lineages=(window.LOCALITY_LINEAGES||{})[loc]||['Human'];
+      const linSel=$('lineageSelect'); if(!linSel) return;
+      linSel.innerHTML=lineages.map(l=>`<option value='${l}'>${l}</option>`).join('');
+    }
+    function fillBg(){
+      const ids=window.BACKGROUNDS[archSel.value]||[];
+      $('bgSelect').innerHTML=ids.map(b=>`<option value='${b.id}'>${b.name} — ${getLocality(b.originLocality)?.name||b.originLocality}</option>`).join('');
+      fillLineage();
+    }
+    archSel.onchange=fillBg;
+    $('bgSelect').onchange=fillLineage;
+    fillBg();
+  }
   function beginNew(){
     G=defaultState();
     G.name=$('newName').value.trim()||'Nameless';
@@ -5016,7 +5157,8 @@ function triggerCombatEncounter(enemyId, context) {
     const bg=getBackground(G.archetype,G.backgroundId);
     G.location=bg.originLocality;
     const lineages=(window.LOCALITY_LINEAGES||{})[G.location] || ['Human'];
-    G.lineage=lineages[0];
+    const linSel=$('lineageSelect');
+    G.lineage=(linSel&&linSel.value&&lineages.includes(linSel.value))?linSel.value:lineages[0];
     G.currentSafeZone=bg.firstSafeZone;
     G.safeZoneHistory=[bg.firstSafeZone];
     G.maxHp=20 + (arch.group==='combat'?4:arch.group==='support'?2:0);
