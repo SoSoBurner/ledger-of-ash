@@ -1416,7 +1416,11 @@
     }
     function fillBg(){
       const ids=window.BACKGROUNDS[archSel.value]||[];
-      $('bgSelect').innerHTML=ids.map(b=>`<option value='${b.id}'>${b.name} — ${getLocality(b.originLocality)?.name||b.originLocality}</option>`).join('');
+      $('bgSelect').innerHTML=ids.map(b=>{
+        const loc=getLocality(b.originLocality);
+        const locName=loc?loc.name:b.originLocality;
+        return `<option value='${b.id}'>${b.name} — ${locName}</option>`;
+      }).join('');
       fillLineage();
       updateArchPreview();
     }
