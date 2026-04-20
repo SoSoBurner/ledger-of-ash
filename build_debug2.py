@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+"""Debug build process to find where bundled script is lost"""
+
 import os
 
-def build():
+def build_debug():
     os.makedirs('dist', exist_ok=True)
     
     # Load all runtime files
@@ -15,9 +17,7 @@ def build():
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
-    # Load enriched choice files (Stage 1 + Stage 2)
     enriched_files = [
-        # Stage 1: 12 localities x 20 choices = 240 choices
         'shelkopolis_stage1_enriched_choices.js',
         'soreheim_proper_stage1_enriched_choices.js',
         'guildheart_hub_stage1_enriched_choices.js',
@@ -30,7 +30,6 @@ def build():
         'shirshal_stage1_enriched_choices.js',
         'cosmoria_stage1_enriched_choices.js',
         'harvest_circle_stage1_enriched_choices.js',
-        # Stage 2: 45 choices
         'stage2_enriched_choices.js'
     ]
     
@@ -40,45 +39,46 @@ def build():
         if os.path.exists(filepath):
             with open(filepath, encoding='utf-8-sig') as f:
                 enriched_content += f.read() + '\n'
-        else:
-            print(f'Warning: {filename} not found, skipping')
     
-    # Bundle all JS files into a single script content (preserve order: data deps → engine → enriched)
-    # IMPORTANT: engine.js ends with })(); - we need to remove it, add enriched content, then close again
-    en_without_close = en.rstrip()
-    if en_without_close.endswith('})();'):
-        en_without_close = en_without_close[:-5]  # Remove })();
+    # Bundle all JS files
+    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en + '\n' + enriched_content
     
-    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en_without_close + '\n' + enriched_content + '\n})();'
+    print(f'Bundled size: {len(bundled):,} bytes')
+    print(f'Contains function beginNew: {"function beginNew" in bundled}')
+    print(f'Contains function defaultState: {"function defaultState" in bundled}')
     
     out = html
-    # Remove individual script src tags and replace first one with bundled content
-    out = out.replace("<script src='js/data.js'></script>", '<script>' + bundled + '</script>')
-    out = out.replace("<script src='js/background-locality-map.js'></script>", '')
-    out = out.replace("<script src='js/stage2-backgrounds.js'></script>", '')
-    out = out.replace("<script src='js/narrative.js'></script>", '')
-    out = out.replace("<script src='js/party.js'></script>", '')
-    out = out.replace("<script src='js/combat.js'></script>", '')
-    out = out.replace("<script src='js/combat-ui.js'></script>", '')
-    out = out.replace("<script src='js/engine.js'></script>", '')
+    print(f'\nBefore replacement:')
+    print(f'  HTML contains <script src="js/data.js">: {"<script src=\'js/data.js\'></script>" in out}')
     
-    # Remove enriched choice script tags (they're bundled now)
-    for filename in enriched_files:
-        out = out.replace(f"<script src='{filename}'></script>", '')
+    # The critical replacement
+    old_tag = "<script src='js/data.js'></script>"
+    new_tag = '<script>' + bundled + '</script>'
+    
+    if old_tag in out:
+        out = out.replace(old_tag, new_tag)
+        print(f'  Replacement done: old tag found')
+    else:
+        print(f'  ERROR: old tag NOT found in HTML!')
+        print(f'  Searching for variations...')
+        if '<script src="js/data.js"></script>' in out:
+            print(f'  Found with double quotes!')
+        if '<script src=\'js/data.js\'>' in out:
+            print(f'  Found without closing tag!')
+    
+    # Now check if bundled script made it to output
+    final_script_match = out[out.find('<script>'):out.find('<script>') + 500] if '<script>' in out else None
+    print(f'\nAfter replacement:')
+    print(f'  First 500 chars of <script> tag:')
+    if final_script_match:
+        print(f'    {final_script_match}')
+    print(f'  Final HTML contains function beginNew: {"function beginNew" in out}')
     
     with open('dist/index.html', 'w', encoding='utf-8-sig') as f:
         f.write(out)
-        
-    # Copy assets to dist
-    import shutil
-    if os.path.isdir('assets'):
-        dst = 'dist/assets'
-        if os.path.exists(dst): shutil.rmtree(dst)
-        shutil.copytree('assets', dst)
-        
+    
     size = os.path.getsize("dist/index.html")
-    print(f'Built: {size:,} bytes ({size//1024} KB)')
+    print(f'\nFinal dist/index.html: {size:,} bytes')
 
 if __name__ == '__main__':
-    build()
-
+    build_debug()
