@@ -1465,9 +1465,9 @@
     else if(stage===5){
       // Stage 5 gets special handling with more combat encounters
       arr.push({label:'Commit to the final institutional confrontation',tags:['CreatureCombat','Boss','Final','Institutional','ForceTacticalUI'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }});
-      arr.push({label:'Trigger the climactic hazard that anchors the entire pressure system',tags:['Boss','Final','Hazard'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }});
-      arr.push({label:'Execute a coordinated three-pronged attack on institutional strongpoints',tags:['CreatureCombat','Multi-Target','Elite','Final'],fn(){ G.multiTargetCombat=true; startCreatureEncounter('elite'); }});
-      arr.push({label:'Unleash a devastating strike on the rival faction leadership',tags:['CreatureCombat','Elite','Rival','Final'],fn(){ startCreatureEncounter('elite'); }});
+      arr.push({label:'Trigger the climactic hazard that anchors the entire pressure system',tags:['Boss','Final','Hazard','ForceTacticalUI'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }});
+      arr.push({label:'Execute a coordinated three-pronged attack on institutional strongpoints',tags:['CreatureCombat','Multi-Target','Elite','Final','ForceTacticalUI'],fn(){ G.multiTargetCombat=true; startCreatureEncounter('elite'); }});
+      arr.push({label:'Unleash a devastating strike on the rival faction leadership',tags:['CreatureCombat','Elite','Rival','Final','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }});
       if(isStealthArchetype){
         arr.push({label:'Set an assassination trap for the final institutional head',tags:['Assassination','Elite','Final'],fn(){ startSurpriseAttack('assassination'); }});
         arr.push({label:'Execute a precision strike on the pressure source core',tags:['Assassination','Surgical','Final'],fn(){ startSurpriseAttack('ambush'); }});
@@ -1485,18 +1485,18 @@
     }
     
     return arr.slice(0,stage===5?22:stage===4?16:16).concat((stage===5?[
-      {label:'Prepare defenses against multiple incoming institutional strike teams',tags:['CreatureCombat','Defense','Multi-Enemy','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Attempt to disrupt the institutional command structure mid-strike',tags:['CreatureCombat','Sabotage','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Coordinate a counter-offensive with all gathered allies',tags:['CreatureCombat','Coordination','Allied','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Fall back to prepared strongpoint and force the final confrontation on better ground',tags:['CreatureCombat','Position','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Launch a surprise assault on the institutional decision-makers directly',tags:['CreatureCombat','Strike','Tactical','Assassination'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Establish a siege on the institutional center — force surrender through attrition',tags:['CreatureCombat','Siege','Tactical','Strategy'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Execute emergency evacuation and defensive fortification of the power base',tags:['CreatureCombat','Defense','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Summon or activate final institutional ally resources for coordinated strike',tags:['CreatureCombat','Allied','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Make a psychological break with institutional authority — declare total independence',tags:['CreatureCombat','Rupture','Tactical','Declaration'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Activate the failsafe mechanism that destabilizes the entire institutional system',tags:['CreatureCombat','Destabilize','Nuclear','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Coordinate with covert allies for simultaneous institutional takedowns nationwide',tags:['CreatureCombat','Coordinated','National','Tactical'],fn(){ startCreatureEncounter('elite'); }},
-      {label:'Execute final mercy option — spare the institution but cripple its core authority',tags:['Mercy','CreatureCombat','Tactical','Resolution'],fn(){ startCreatureEncounter('elite'); }}
+      {label:'Prepare defenses against multiple incoming institutional strike teams',tags:['CreatureCombat','Defense','Multi-Enemy','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Attempt to disrupt the institutional command structure mid-strike',tags:['CreatureCombat','Sabotage','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Coordinate a counter-offensive with all gathered allies',tags:['CreatureCombat','Coordination','Allied','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Fall back to prepared strongpoint and force the final confrontation on better ground',tags:['CreatureCombat','Position','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Launch a surprise assault on the institutional decision-makers directly',tags:['CreatureCombat','Strike','Tactical','Assassination','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Establish a siege on the institutional center — force surrender through attrition',tags:['CreatureCombat','Siege','Tactical','Strategy','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Execute emergency evacuation and defensive fortification of the power base',tags:['CreatureCombat','Defense','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Summon or activate final institutional ally resources for coordinated strike',tags:['CreatureCombat','Allied','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Make a psychological break with institutional authority — declare total independence',tags:['CreatureCombat','Rupture','Tactical','Declaration','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Activate the failsafe mechanism that destabilizes the entire institutional system',tags:['CreatureCombat','Destabilize','Nuclear','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Coordinate with covert allies for simultaneous institutional takedowns nationwide',tags:['CreatureCombat','Coordinated','National','Tactical','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }},
+      {label:'Execute final mercy option — spare the institution but cripple its core authority',tags:['Mercy','CreatureCombat','Tactical','Resolution','ForceTacticalUI'],fn(){ startCreatureEncounter('elite'); }}
     ]:[]).slice(0,12)).filter(c=>c!==null);
     
     // Add combat risk to confrontational choices and limit to 5+1

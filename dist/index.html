@@ -4154,12 +4154,19 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     combatSession.enemies = (combatSession.enemies || []).filter(e => e.hp > 0);
     
     // Update turn order to remove dead enemies
+    const oldLength = combatSession.turnOrder.length;
     combatSession.turnOrder = combatSession.turnOrder.filter(t => {
       if (t.actor === 'enemy') {
         return combatSession.enemies.some(e => e.id === t.enemyId);
       }
       return true;
     });
+    const newLength = combatSession.turnOrder.length;
+
+    // If turn order shrunk, adjust currentTurnIdx
+    if (newLength < oldLength && combatSession.currentTurnIdx >= newLength && newLength > 0) {
+      combatSession.currentTurnIdx = combatSession.currentTurnIdx % newLength;
+    }
 
     // Victory check
     if (combatSession.enemies.length === 0) {
