@@ -5040,8 +5040,8 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
    * - Mitigation: day change, location change, priority tags vary pool
    */
   function rotateAndLimitChoices(fullChoiceArray, stage){
-    const baseChoices = fullChoiceArray.filter(c => c && !c.tags?.includes('CreatureCombat'));
-    const tacticalCombatChoices = fullChoiceArray.filter(c => c && c.tags?.includes('CreatureCombat'));
+    const baseChoices = fullChoiceArray.filter(c => c && !hasMechanicTag(c,'creature_combat'));
+    const tacticalCombatChoices = fullChoiceArray.filter(c => c && hasMechanicTag(c,'creature_combat'));
     
     // Calculate which choices to show based on rotation seed
     const rotationSeed = (G.dayCount + G.stage + (G.location?.charCodeAt?.(0)||0)) % 3;
@@ -5288,6 +5288,79 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   function recordConfrontation(type){
     if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0};
     if(typeof G.confrontationHistory[type]==='number') G.confrontationHistory[type]++;
+  }
+
+  // ── TYPED TAG SYSTEM ────────────────────────────────────
+  // Converts flat legacy tags[] into typed {themeTags, mechanicTags, routingTags}
+  function normalizeChoiceTags(choice){
+    if(choice._tagsNormalized) return choice;
+    const flat=choice.tags||[];
+    const theme=[...(choice.themeTags||[])];
+    const mechanic=[...(choice.mechanicTags||[])];
+    const routing=[...(choice.routingTags||[])];
+    const add=(arr,v)=>{ if(!arr.includes(v)) arr.push(v); };
+    for(const t of flat){
+      switch(t){
+        case 'Combat': case 'Direct': case 'Boss': add(mechanic,'combat'); break;
+        case 'CreatureCombat': add(mechanic,'creature_combat'); break;
+        case 'Risk': case 'Risky': case 'Confrontation': add(mechanic,'risk'); break;
+        case 'ForceTacticalUI': add(routing,'force_tactical_ui'); break;
+        case 'Final': add(theme,'finale'); break;
+        case 'Institutional': add(theme,'institutional'); break;
+        case 'Investigation': add(mechanic,'investigation'); break;
+        case 'Assassination': add(mechanic,'combat'); add(theme,'criminal'); break;
+        case 'Faction': add(mechanic,'faction_shift'); break;
+        case 'Travel': add(mechanic,'travel'); break;
+        case 'Rest': add(mechanic,'rest'); break;
+        case 'Meaningful': add(mechanic,'resolution'); break;
+      }
+    }
+    return {...choice, themeTags:theme, mechanicTags:mechanic, routingTags:routing, _tagsNormalized:true};
+  }
+  function hasThemeTag(choice,tag){ return normalizeChoiceTags(choice).themeTags.includes(tag); }
+  function hasMechanicTag(choice,tag){ return normalizeChoiceTags(choice).mechanicTags.includes(tag); }
+  function hasRoutingTag(choice,tag){ return normalizeChoiceTags(choice).routingTags.includes(tag); }
+
+  function buildChoiceTagPills(choice, riskTag){
+    const nc=normalizeChoiceTags(choice);
+    const cp=normalizeChoiceProfile(choice);
+    const pills=[];
+    const tcap=s=>s?s.charAt(0).toUpperCase()+s.slice(1):'';
+
+    // 1. Risk
+    const riskCls=riskTag==='Safe'?'good':riskTag==='Risky'?'bad':'warn';
+    pills.push(`<span class='riskPill riskPill-${riskCls}'>${riskTag}</span>`);
+
+    // 2. Skill method (omit survival — it's the default, not informative)
+    if(cp.skill && cp.skill!=='survival'){
+      const sl={combat:'Combat',lore:'Lore',stealth:'Stealth',craft:'Craft',persuasion:'Persuasion'};
+      pills.push(`<span class='riskPill'>${sl[cp.skill]||tcap(cp.skill)}</span>`);
+    }
+
+    // 3. Order / Anarchy axis
+    if(cp.axis.civic>0) pills.push(`<span class='riskPill' style='border-color:#204858;color:#70a0c8'>Order</span>`);
+    else if(cp.axis.civic<0) pills.push(`<span class='riskPill' style='border-color:#5a3810;color:#d09050'>Anarchy</span>`);
+
+    // 4. Benevolence / Cruelty axis
+    if(cp.axis.moral>0) pills.push(`<span class='riskPill' style='border-color:#1a4828;color:#70a878'>Benevolent</span>`);
+    else if(cp.axis.moral<0) pills.push(`<span class='riskPill' style='border-color:#601010;color:#d06060'>Cruel</span>`);
+
+    // 5. Archetype hook
+    if((choice.tags||[]).includes('Class')) pills.push(`<span class='riskPill'>Archetype</span>`);
+
+    // 6. Notable mechanic tags
+    const showMech=['investigation','faction_shift','subdual','hazard','travel','rest'];
+    for(const t of nc.mechanicTags){
+      if(showMech.includes(t)) pills.push(`<span class='riskPill'>${tcap(t.replace(/_/g,' '))}</span>`);
+    }
+
+    // 7. Notable theme tags (plot significance)
+    const showTheme=['finale','institutional','criminal','ritual','religious'];
+    for(const t of nc.themeTags){
+      if(showTheme.includes(t)) pills.push(`<span class='riskPill' style='border-color:#5a3820;color:#c09060'>${tcap(t)}</span>`);
+    }
+
+    return pills.join(' ');
   }
 
   // ── CHOICE NORMALIZATION & RISK ──────────────────────────
@@ -6673,22 +6746,51 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     $('choices').innerHTML=list.map((c,i)=>{
       const cp=normalizeChoiceProfile(c);
       const risk=computeDynamicRiskTag(cp);
-      const riskCls=risk==='Safe'?'good':risk==='Risky'?'bad':'warn';
-      const tags=(c.tags||[]).join(' · ');
+      const nc=normalizeChoiceTags(c);
       const isClass=(c.tags||[]).includes('Class');
       const isEvil=(c.tags||[]).includes('Evil');
       const isGood=(c.tags||[]).includes('Good');
       const isLawful=(c.tags||[]).includes('Lawful');
-      const isCombat=(c.tags||[]).includes('CreatureCombat')||((c.tags||[]).includes('Assassination'));
+      const isCombat=hasMechanicTag(c,'creature_combat')||hasMechanicTag(c,'combat')&&(c.tags||[]).includes('Assassination');
       const extraCls=(isClass?' classChoice':'')+(isEvil?' evilChoice':'')+(isGood?' goodChoice':'')+(isLawful?' lawfulChoice':'')+(isCombat?' combatChoice':'');
-      return `<button class='choice${extraCls}' data-choice='${i}'><span>${c.label}</span><small>${tags} · <span class='riskPill riskPill-${riskCls}'>${risk}</span></small></button>`;
+      const pills=buildChoiceTagPills(c,risk);
+      return `<button class='choice${extraCls}' data-choice='${i}'><span>${c.label}</span><small>${pills}</small></button>`;
     }).join('');
     [...document.querySelectorAll('[data-choice]')].forEach(btn=>btn.onclick=()=>{
-      const c=list[+btn.dataset.choice]; 
-      G.lastChoiceLabel=c.label; 
-      // Track this choice in history before executing
+      const c=list[+btn.dataset.choice];
+      const cp=normalizeChoiceProfile(c);
+      G.lastChoiceLabel=c.label;
       trackChoiceAction(c.label, c.tags);
+
+      // Stealth rule: capture order state before execution
+      const isStealth=cp.skill==='stealth';
+      const preOrder=G.alignmentSystem?G.alignmentSystem.order:0;
+
       c.fn();
+
+      // Stealth drift rule (post-execution)
+      if(isStealth && G.lastRoll && G.alignmentSystem){
+        const orderDrift=G.alignmentSystem.order-preOrder;
+        if(orderDrift!==0){
+          if(G.lastRoll.success){
+            // Stealth success: cancel Order/Anarchy drift
+            G.alignmentSystem.order=preOrder;
+            updateAlignmentBands();
+          } else if(!G.lastRoll.success && orderDrift<0){
+            // Stealth failure: double Anarchy drift
+            G.alignmentSystem.order=Math.max(-50,preOrder+orderDrift*2);
+            updateAlignmentBands();
+          }
+        }
+      }
+
+      // Combat initiation heat: apply locality heat based on motive when routing to combat
+      if(cp.combatRouting && !G.combatSession){
+        if(cp.axis.civic>0) applyLegalityShift(-1);      // lawful/protective: earns civic trust
+        else if(cp.axis.civic<0) applyLegalityShift(2);  // anarchic: draws scrutiny
+        else applyLegalityShift(1);                       // neutral combat: some attention
+      }
+
       if(G.hp<=0 && !G.stage5Dead) handleDeath();
       setThreat(); setObjective(); persist(); render();
     });
@@ -6903,9 +7005,10 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     }
     
     // Prevent combat choice spam: no 2 combat choices in a row
-    if ((choiceTags.includes('Combat') || choiceTags.includes('CreatureCombat')) && recentChoices.length > 0) {
+    const isCombatChoice = hasMechanicTag({tags:choiceTags},'combat') || hasMechanicTag({tags:choiceTags},'creature_combat');
+    if(isCombatChoice && recentChoices.length > 0){
       const lastChoice = recentChoices[recentChoices.length - 1];
-      if (lastChoice.tags && (lastChoice.tags.includes('Combat') || lastChoice.tags.includes('CreatureCombat'))) {
+      if(lastChoice.tags && (hasMechanicTag({tags:lastChoice.tags},'combat') || hasMechanicTag({tags:lastChoice.tags},'creature_combat'))){
         return true;
       }
     }
@@ -6914,6 +7017,10 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   }
   
   // ── EXPORT ADDITIONAL FUNCTIONS TO WINDOW ──
+  window.normalizeChoiceTags = normalizeChoiceTags;
+  window.hasThemeTag = hasThemeTag;
+  window.hasMechanicTag = hasMechanicTag;
+  window.hasRoutingTag = hasRoutingTag;
   window.companionBonus = companionBonus;
   window.buildCompanionTrust = buildCompanionTrust;
   window.combatSessionChoices = combatSessionChoices;
