@@ -37,7 +37,18 @@
       greeting ? greetingLines[seed] : '',
       ritual ? ritualLines[seed] : ''
     ];
-    return parts.filter(Boolean).join(' ').replace(/\s+/g,' ').trim();
+    let narrative = parts.filter(Boolean).join(' ').replace(/\s+/g,' ').trim();
+    // Shelkopolis darkened aftermath
+    if(loc && loc.id === 'shelkopolis' && state.shelkDarkened){
+      const darkenedLines = [
+        'The city has not recovered and will not. Districts near House Shelk feel stained — shuttered spaces, over-cleaned thresholds, and a polish that no longer feels safe. People know something happened. They have agreed, without discussing it, not to name it precisely.',
+        'Shelkopolis carries its wound quietly. The noble surfaces remain intact. The certainty underneath them does not. Whispers stop when you enter rooms. Eye contact around House Shelk matters breaks early.',
+        'Something residual clings to the city. Black residue in corners that have been cleaned three times. A dimness in the light that the lamps cannot fully account for. The city is trying to present itself as recovered. It is not recovered.',
+        'The locality feels heavier than it was before. Brokers still work their routes. Guards still hold their posts. But the social fabric has a tear in it that shows differently in every face you pass near the Shelk district.'
+      ];
+      narrative += ' ' + darkenedLines[seed];
+    }
+    return narrative;
   }
 
   function resultNarrative(text){

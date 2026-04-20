@@ -222,6 +222,50 @@
       body{padding-bottom:62px}
       .createGrid{grid-template-columns:1fr}
     }
+    /* ── ROSALIND'S FALL ── */
+    .rosalindsPanel{display:flex;flex-direction:column;gap:14px;padding:6px 4px}
+    .rosalindsPanelTitle{font-size:17px;font-weight:bold;color:#c9a46b;border-bottom:1px solid #3a1a0a;padding-bottom:8px}
+    .rosalindsPanelBody{font-size:13.5px;color:#d0b89a;line-height:1.75;max-height:420px;overflow-y:auto;padding-right:6px}
+    .rosalindsContinueBtn{background:linear-gradient(180deg,#2a1208,#1e0e08);color:#e8c87a;border:1px solid #6a2010;border-radius:8px;padding:12px 24px;cursor:pointer;font:14px 'Palatino Linotype',Georgia,serif;align-self:center;transition:border-color .15s,background .15s}
+    .rosalindsContinueBtn:hover{border-color:#c9a46b;background:linear-gradient(180deg,#3a1a10,#2a1008)}
+    .rosalindsInterludeLabel{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8a3a1a}
+    .rosalindsInterludeChoices{display:flex;flex-direction:column;gap:8px}
+    .rosalindsInterludeBtn{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#1e1208,#150e08);color:var(--text);border:1px solid #4a1a08;border-radius:8px;padding:10px 14px;cursor:pointer;font:13px 'Palatino Linotype',Georgia,serif}
+    .rosalindsInterludeBtn:hover{border-color:#c9a46b;background:linear-gradient(180deg,#281408,#1e0e08)}
+    .riLabel{color:#d8b880;font-size:13px}
+    .riSkill{font-size:11px;color:#8a4a28}
+    .rosalindsConclude .rosalindsPanelTitle{color:#7cae73}
+    .rosalindsVictoryLabel{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#7cae73}
+    .rosalindsDefeat .rosalindsPanelTitle, .rosalindsDefeatLabel{color:#a02828;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+    .rosalindsInterlude .rosalindsPanelTitle{color:#c87040}
+
+    /* ── TRAVEL UI ── */
+    .travelPanel{display:flex;flex-direction:column;gap:10px;padding:4px 2px}
+    .travelHeader{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a1a0a;padding-bottom:8px;margin-bottom:4px}
+    .travelTitle{font-size:15px;font-weight:bold;color:var(--accent)}
+    .travelClose{background:none;border:1px solid #3a2a1a;color:#8a6a4a;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:12px}
+    .travelClose:hover{border-color:var(--accent);color:var(--accent)}
+    .travelHorseCard{background:#1a1208;border:1px solid #2a1a0a;border-radius:8px;padding:10px 12px}
+    .travelHorseCard.travelHorseOwned{border-color:#4a3a18;color:#c9a46b}
+    .travelHorseLabel{font-size:11px;color:#8a6a3a;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+    .travelHorseDesc{font-size:12px;color:#a08060;margin-bottom:8px}
+    .travelBuyBtn{display:block;width:100%;text-align:left;background:linear-gradient(180deg,#1e1812,#15110d);color:var(--accent);border:1px solid #4a3010;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:12px}
+    .travelBuyBtn:hover{border-color:var(--accent);background:linear-gradient(180deg,#2a1808,#1c1208)}
+    .travelBuyBtn.travelDisabled{opacity:.4;cursor:not-allowed}
+    .travelGroupHeader{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6a4a28;padding:6px 2px 2px;border-bottom:1px solid #1e1408}
+    .travelDestCard{background:#1a1208;border:1px solid #221408;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+    .travelDestName{font-size:14px;color:#e8c87a;font-weight:bold}
+    .travelDestPolity{font-size:11px;color:#6a4a28}
+    .travelCosmicTag{font-size:10px;color:#7a7abe;background:#1a1a2e;border:1px solid #3a3a6e;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+    .travelModeBtns{display:flex;flex-direction:column;gap:5px}
+    .travelModeBtn{display:flex;justify-content:space-between;align-items:center;text-align:left;background:linear-gradient(180deg,#1e1812,#15110d);color:var(--text);border:1px solid #301e10;border-radius:7px;padding:7px 12px;cursor:pointer;font:13px 'Palatino Linotype',Georgia,serif}
+    .travelModeBtn:hover{border-color:var(--accent);background:linear-gradient(180deg,#281808,#1c1208)}
+    .travelModeBtn.travelDisabled{opacity:.4;cursor:not-allowed}
+    .travelModeName{color:#c8a870}
+    .travelModeCost{font-size:11px;color:#6a4a28}
+    .travelDestList{display:flex;flex-direction:column;gap:8px}
+    .travelEmpty{color:#6a4a28;font-size:13px;padding:10px 4px}
+
     @media(max-width:640px){
       .wrap{padding:8px 12px}
       .topBar{flex-direction:column;align-items:flex-start;gap:4px}

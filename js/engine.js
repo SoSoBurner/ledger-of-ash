@@ -106,9 +106,20 @@
     return bucket[seed % bucket.length];
   }
 
+  // Stats → skills mapping. Stat modifier = floor((statVal-1)/2), so stat 1=+0, 3=+1, 5=+2, 7=+3, 9=+4.
+  const STAT_SKILL_MAP = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',craft:'spirit',persuasion:'charm'};
+  const STAT_DISPLAY_NAMES = {might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',spirit:'Spirit',charm:'Charm'};
+  function getStatBonusForSkill(skillName){
+    if(!G||!G.stats) return 0;
+    const statKey = STAT_SKILL_MAP[skillName];
+    if(!statKey) return 0;
+    return Math.floor(((G.stats[statKey]||1)-1)/2);
+  }
+
   function rollD20(skill, bonuses){
     const die = 1 + rand(20);
-    const total = die + bonuses;
+    const statBonus = skill ? getStatBonusForSkill(skill) : 0;
+    const total = die + bonuses + statBonus;
     const isCrit = die === 20;
     const isFumble = die === 1;
     const seed = (G.dayCount + G.timeIndex + G.worldClocks.pressure) % 4;
@@ -124,7 +135,14 @@
       age:'24', presentation:'Male', lineage:'Human', lifeOverview:'',
       location:startingLocation, currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
       journalRecords:[], notices:[], legends:[], quests:[], factions:{}, morality:0, order:0,
-      skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1,insight:1,perception:1,deception:1,arcana:1,medicine:1,investigation:1}, companions:[], recruitableSeen:{},
+      skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1,insight:1,perception:1,deception:1,arcana:1,medicine:1,investigation:1},
+      stats:{might:1,finesse:1,vigor:1,wits:1,spirit:1,charm:1},
+      acquiredSkills:[],
+      horse:null,
+      travelMode:false,
+      rosalindsfall:false,
+      shelkDarkened:false,
+      companions:[], recruitableSeen:{},
       wounds:[], fatigue:0, deathCount:0, stage5Dead:false, rescueLog:[], trainingDisadvantage:0,
       worldClocks:{pressure:0,rival:0,omens:0}, stageProgress:{1:0,2:0,3:0,4:0,5:0},
       routeScoutLog:[], keyMoments:[], currentThreat:null, encounter:null, lastResult:'Your ledger waits for its first truth.',
@@ -1032,7 +1050,10 @@
     const passiveAtk=getPassiveCombatBonuses('passive_atk');
     const flagAtk=getCompanionFlagBonus(skill);
     const passiveDef=getPassiveCombatBonuses('passive_def');
-    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk+gearAtk+passiveAtk+flagAtk);
+    // Rosalind tactical boost (consumed per-round)
+    const rosalindsBoost = (G.rosalindsEncounter && cs.rosalindsBoost) ? cs.rosalindsBoost : 0;
+    if(rosalindsBoost && cs.rosalindsBoost) cs.rosalindsBoost = 0;
+    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk+gearAtk+passiveAtk+flagAtk+rosalindsBoost);
     const playerRoll=rAtk.total;
     const enemyDC=10+cs.enemyDefense+tierBonus;
     const playerHit=rAtk.isCrit||(playerRoll>=enemyDC&&!rAtk.isFumble);
@@ -1078,17 +1099,33 @@
     cs.log=cs.log.slice(0,10);
     G.lastRoll={action:action==='stealth_opener'?'Stealth Opener':specialEffect||'Direct Attack',skill,total:playerRoll,target:enemyDC,success:playerHit,die:rAtk.die,crit:rAtk.isCrit,fumble:rAtk.isFumble};
     if(cs.enemyHp<=0){
-      G.combatSession=null; G.encounter=null;
-      G.telemetry.wins++;
-      G.gold+=cs.loot.gold||rand(8)+3;
-      recordConfrontation('directCombats');
-      markMoment(`Defeated ${cs.enemyName} at ${getLocality(G.location).name}`);
-      addNotice(`${cs.enemyName} defeated.`);
-      enterPostCombatResolutionEngine(cs);
-      G.lastResult=`${cs.enemyName} is down. `+log.join(' ');
+      if(cs.isRosalind && G.rosalindsEncounter){
+        // Rosalind victory routing — skip post-combat resolution, go to conclusion panels
+        G.combatSession=null; G.encounter=null;
+        G.telemetry.wins++;
+        recordConfrontation('directCombats');
+        markMoment(`Defeated Vonalzo's Concubine at House Shelk Estate`);
+        addNotice(`Vonalzo's Concubine defeated.`);
+        window.handleRosalindsVictory && window.handleRosalindsVictory(G);
+        G.lastResult=log.join(' ')+` The infernal form begins to break.`;
+      } else {
+        G.combatSession=null; G.encounter=null;
+        G.telemetry.wins++;
+        G.gold+=cs.loot.gold||rand(8)+3;
+        recordConfrontation('directCombats');
+        markMoment(`Defeated ${cs.enemyName} at ${getLocality(G.location).name}`);
+        addNotice(`${cs.enemyName} defeated.`);
+        enterPostCombatResolutionEngine(cs);
+        G.lastResult=`${cs.enemyName} is down. `+log.join(' ');
+      }
     } else if(G.hp<=0){
       G.combatSession=null; G.encounter=null;
-      handleDeath();
+      if(cs.isRosalind && G.rosalindsEncounter){
+        // Rosalind defeat routing — no rescue, end run
+        window.handleRosalindsDefeat && window.handleRosalindsDefeat(G);
+      } else {
+        handleDeath();
+      }
     } else {
       G.recentOutcomeType='combat_ongoing';
       G.lastResult=log.join(' ')+` Round ${cs.round} begins.`;
@@ -1506,7 +1543,18 @@
     return (window.STAGE5_ENRICHED_CHOICES || []);
   }
 
-  function travelTo(dest){const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
+  function travelTo(dest){
+    const from=getLocality(G.location)||(window.COSMIC_LOCALITIES||[]).find(l=>l.id===G.location)||{name:G.location,id:G.location};
+    const to=getLocality(dest)||(window.COSMIC_LOCALITIES||[]).find(l=>l.id===dest);
+    if(!to) return;
+    G.location=dest; G.currentSafeZone=to.safeZone||to.name;
+    G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25);
+    G.telemetry.travels++;
+    addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`);
+    G.lastResult=`${to.name}: the route shifts. What awaits here is not what was left behind.`;
+    recordCodex('localities',dest,{name:to.name,polity:to.polity||'',economicRole:to.economicRole||'',lawFeel:to.lawFeel||''});
+    setThreat();
+  }
 
   function stage2Choices(){ const sig=routeSignature(); const atlas=routeAtlasFor(sig);
     let bgStage2Content = (window.BACKGROUND_STAGE2_CONTENT||{})[G.backgroundId];
@@ -1800,6 +1848,13 @@
     }
     
     else if(stage===4){
+      // Rosalind's Fall trigger — House Shelk Estate visit at Shelkopolis in Stage 4
+      if(G.location==='shelkopolis' && !G.rosalindsfall){
+        arr.push({label:'Enter House Shelk Estate',tags:['Event','Boss','Shelk','Critical'],fn(){
+          window.startRosalindsEncounter && window.startRosalindsEncounter(G);
+          persist(); render();
+        }});
+      }
       arr.push({label:'Infiltrate a key institutional facility — high-risk intelligence operation',tags:['Infiltration','Risk','Intelligence'],fn(){
         advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
         const r=rollD20('stealth',(G.skills.stealth||0)+Math.floor(G.level/3));
@@ -1957,7 +2012,22 @@
     return extra.length ? [...choices, ...extra] : choices;
   }
 
-  function currentNonCombatChoices(){ let base; if(G.stage===1) base=stage1Choices(); else if(G.stage===2) base=stage2Choices(); else if(G.stage===3) base=stage3to5Choices(3); else if(G.stage===4) base=stage3to5Choices(4); else base=stage3to5Choices(5); return injectCompanionActiveChoices(injectArchetypeMidSpineChoices(injectSidePlotChoices(base))); }
+  function currentNonCombatChoices(){
+    let base;
+    if(G.stage===1) base=stage1Choices();
+    else if(G.stage===2) base=stage2Choices();
+    else if(G.stage===3) base=stage3to5Choices(3);
+    else if(G.stage===4) base=stage3to5Choices(4);
+    else base=stage3to5Choices(5);
+    const withInjections = injectCompanionActiveChoices(injectArchetypeMidSpineChoices(injectSidePlotChoices(base)));
+    // Always inject Travel Routes as the last choice
+    const travelChoice = {
+      label: 'Open Travel Routes',
+      tags: ['Travel','Routes'],
+      fn(){ G.travelMode = true; }
+    };
+    return [...withInjections, travelChoice];
+  }
   
   function combatSessionChoices(){
     // Use enhanced tactical choices if available (from combat-ui.js)
@@ -1991,7 +2061,7 @@
 
   function startSurpriseAttack(attackType){ const threat=G.currentThreat||chooseThreat(); if(!threat) return; const name=threat.creature; G.telemetry.encounters++; beginEncounter(G,'creature',name,'standard'); if(G.combatSession) G.combatSession.surprise=attackType; }
 
-  function handleDeath(){ G.deathCount+=1; if(G.stage===5){ G.stage5Dead=true; G.lastResult='The final line breaks. This run ends here.'; saveLegend('Permadeath'); persist(); render(); return; } const oldLoc=getLocality(G.location); const rescue=(window.RESCUE_PROFILES||{})[G.location]||{rescuer:'unrecorded rescuers',aftermath:'The cost is real even if the names are not.',safeZone:oldLoc.safeZone}; const next=((window.ADJACENCY[G.location]||[])[0]) || G.location; const nextLoc=getLocality(next); G.location=next; G.currentSafeZone=rescue.safeZone || nextLoc.safeZone; G.safeZoneHistory.unshift(`${G.currentSafeZone} (${nextLoc.name})`); G.safeZoneHistory=G.safeZoneHistory.slice(0,10); G.hp=Math.max(6,Math.floor(G.maxHp*0.4)); G.fatigue+=2; G.gold=Math.max(0,G.gold-3); G.wounds.push(`Near-death at ${oldLoc.name}`); G.wounds=G.wounds.slice(0,6); G.worldClocks.rival+=2; G.worldClocks.pressure+=1; G.telemetry.rescues++; G.companions.forEach(c=>{ if(rand(4)===0){ c.injured=true; c.available=false; c.trust=Math.max(0,(c.trust||1)-1); } }); G.rescueLog.unshift(`Recovered near ${oldLoc.name} by ${rescue.rescuer}; carried to ${G.currentSafeZone}. ${rescue.aftermath}`); G.rescueLog=G.rescueLog.slice(0,10); G.lastResult=`${oldLoc.name} is lost for now. ${rescue.rescuer[0].toUpperCase()+rescue.rescuer.slice(1)} bring the party to ${G.currentSafeZone}. ${rescue.aftermath}`; markMoment(`Rescued after near-death at ${oldLoc.name}`); setThreat(); setObjective(); }
+  function handleDeath(){ G.deathCount+=1; if(G.stage===5){ G.stage5Dead=true; G.lastResult='The final line breaks. This run ends here.'; saveLegend('Permadeath'); persist(); render(); return; } const oldLoc=getLocality(G.location); const rescue=(window.RESCUE_PROFILES||{})[G.location]||{rescuer:'unrecorded rescuers',aftermath:'The cost is real even if the names are not.',safeZone:oldLoc.safeZone}; const next=((window.ADJACENCY[G.location]||[])[0]) || G.location; const nextLoc=getLocality(next); G.location=next; G.currentSafeZone=rescue.safeZone || nextLoc.safeZone; G.safeZoneHistory.unshift(`${G.currentSafeZone} (${nextLoc.name})`); G.safeZoneHistory=G.safeZoneHistory.slice(0,10); G.hp=Math.max(6,Math.floor(G.maxHp*0.4)); G.fatigue+=2; G.gold=Math.max(0,G.gold-3); G.wounds.push(`Near-death at ${oldLoc.name}`); G.wounds=G.wounds.slice(0,6); G.worldClocks.rival+=2; G.worldClocks.pressure+=1; G.telemetry.rescues++; if(G.horse){ G.horse=null; addNotice('Your horse was lost in the rescue. It cannot be recovered.'); } G.companions.forEach(c=>{ if(rand(4)===0){ c.injured=true; c.available=false; c.trust=Math.max(0,(c.trust||1)-1); } }); G.rescueLog.unshift(`Recovered near ${oldLoc.name} by ${rescue.rescuer}; carried to ${G.currentSafeZone}. ${rescue.aftermath}`); G.rescueLog=G.rescueLog.slice(0,10); G.lastResult=`${oldLoc.name} is lost for now. ${rescue.rescuer[0].toUpperCase()+rescue.rescuer.slice(1)} bring the party to ${G.currentSafeZone}. ${rescue.aftermath}`; markMoment(`Rescued after near-death at ${oldLoc.name}`); setThreat(); setObjective(); }
 
   function saveLegend(finalOutcome){ const bg=getBackground(G.archetype,G.backgroundId); const arch=getArchetype(G.archetype); const loc=getLocality(routeSignature().originLocality); G.legends.unshift({name:G.name, archetypeName:arch.name, backgroundName:bg.name, originLocalityName:loc.name, lifeOverview:G.lifeOverview, keyMoments:[...G.keyMoments], safeZones:[...G.safeZoneHistory], finalOutcome, stage5Dead:G.stage5Dead, familyEdges:[...(G.familyEdges||[])], rescueLog:[...G.rescueLog], routeScoutLog:[...G.routeScoutLog], companions:G.companions.map(c=>c.name), dayCount:G.dayCount, level:G.level}); G.legends=G.legends.slice(0,20); }
   function legendLines(){ return G.legends.map((l,i)=>`<div class='card'><b>${i+1}. ${l.name}</b><div>${legendSummary(l)}</div></div>`).join('')||'<div class="card">No legends recorded yet.</div>'; }
@@ -2089,7 +2159,11 @@
     const loc=getLocality(G.location)||{name:'?'};
     const hpPct=Math.max(0,Math.min(100,Math.round(G.hp/G.maxHp*100)));
     const skillKeys=['combat','survival','persuasion','lore','stealth','craft'];
-    const skillRows=skillKeys.map(k=>`<div class='skillRow'><span class='skillName'>${k}</span><span class='skillVal'>${G.skills[k]||0}</span></div>`).join('');
+    const skillRows=skillKeys.map(k=>{
+      const statKey=STAT_SKILL_MAP[k]; const statVal=(G.stats&&G.stats[statKey])||1;
+      const statMod=Math.floor((statVal-1)/2);
+      return `<div class='skillRow'><span class='skillName'>${k}</span><span class='skillVal'>${G.skills[k]||0}</span><span class='statTag' title='${STAT_DISPLAY_NAMES[statKey]}'>${STAT_DISPLAY_NAMES[statKey][0]}${statVal}${statMod>0?` +${statMod}`:''}</span></div>`;
+    }).join('');
     updateSignals();
     const sigLines=Object.values(G.signals||{}).map(v=>`<div class='sigLine'>${v}</div>`).join('');
     const compLines=(G.companions&&G.companions.length)?G.companions.map(c=>`<div class='compLine${c.injured?" compInjured":""}'>${c.name||c.id}${c.injured?' (injured)':''}</div>`).join(''):`<div class='compLine' style='color:#5a4a2a;font-style:italic'>No companions</div>`;
@@ -2101,7 +2175,8 @@
     const heatLine=currentHeat!==0?`<div class='sigLine' style='color:${currentHeat>0?"#d06040":"#70a878"}'>Heat ${currentHeat>0?'+':''}${currentHeat}${currentHeat>=8?' ⚠':''}</div>`:'';
     const inCombatLine=G.combatSession?`<div class='sigLine' style='color:#c9a46b;font-weight:bold'>IN COMBAT — ${G.combatSession.enemyName}</div>`:'';
     const postCombatLine=G.postCombatResolution&&!G.postCombatResolution.resolved?`<div class='sigLine' style='color:#7cae73'>RESOLUTION PENDING</div>`:'';
-    return `<div class='railCard'><div class='railLabel'>Legend</div><div class='railName'>${G.name||'—'}</div><div class='railSub'>${arch.name} · ${bg.name}</div><div class='railSub'>${loc.name}</div></div><div class='railCard'><div class='railLabel'>Vitals</div><div class='hpBar'><div class='hpFill' style='width:${hpPct}%'></div></div><div class='railSub'>HP ${G.hp}/${G.maxHp} · Lvl ${G.level} · XP ${G.xp}</div><div class='railSub' style='margin-top:3px'>Renown ${G.renown} · Gold ${G.gold}</div><div class='railSub' style='margin-top:3px'>Wounds ${G.wounds.length} · Fatigue ${G.fatigue}</div></div><div class='railCard'><div class='railLabel'>Stage</div><span class='stageTag'>${G.stageLabel}</span><div class='objectiveText'>${G.currentObjective||'—'}</div><div class='progressLine'>Progress: ${G.stageProgress[G.stage]||0} actions</div></div><div class='railCard'><div class='railLabel'>Skills</div>${skillRows}</div><div class='railCard'><div class='railLabel'>Readiness</div>${sigLines}${alignLine}${heatLine}${inCombatLine}${postCombatLine}</div><div class='railCard'><div class='railLabel'>Party</div>${compLines}</div>`;
+    const horseLine=G.horse?`<div class='railCard'><div class='railLabel'>Mount</div><div class='railSub' style='color:#c9a46b'>${G.horse.name} — Ready</div></div>`:'';
+    return `<div class='railCard'><div class='railLabel'>Legend</div><div class='railName'>${G.name||'—'}</div><div class='railSub'>${arch.name} · ${bg.name}</div><div class='railSub'>${loc.name}</div></div><div class='railCard'><div class='railLabel'>Vitals</div><div class='hpBar'><div class='hpFill' style='width:${hpPct}%'></div></div><div class='railSub'>HP ${G.hp}/${G.maxHp} · Lvl ${G.level} · XP ${G.xp}</div><div class='railSub' style='margin-top:3px'>Renown ${G.renown} · Gold ${G.gold}</div><div class='railSub' style='margin-top:3px'>Wounds ${G.wounds.length} · Fatigue ${G.fatigue}</div></div><div class='railCard'><div class='railLabel'>Stage</div><span class='stageTag'>${G.stageLabel}</span><div class='objectiveText'>${G.currentObjective||'—'}</div><div class='progressLine'>Progress: ${G.stageProgress[G.stage]||0} actions</div></div><div class='railCard'><div class='railLabel'>Skills</div>${skillRows}</div><div class='railCard'><div class='railLabel'>Readiness</div>${sigLines}${alignLine}${heatLine}${inCombatLine}${postCombatLine}</div><div class='railCard'><div class='railLabel'>Party</div>${compLines}</div>${horseLine}`;
   }
 
   function resultCardLines(){
@@ -2152,9 +2227,11 @@
     updateSignals();
     const skillKeys=['combat','survival','persuasion','lore','stealth','craft'];
     const skillBars=skillKeys.map(k=>{
-      const val=G.skills[k]||0;
-      const pct=Math.min(100,val*8);
-      return `<div class='skillRow'><span class='skillName'>${k}</span><div class='skillBarTrack'><div class='skillBarFill' style='width:${pct}%'></div></div><span class='skillVal'>${val}</span></div>`;
+      const val=G.skills[k]||0; const pct=Math.min(100,val*8);
+      const statKey=STAT_SKILL_MAP[k]; const statVal=(G.stats&&G.stats[statKey])||1;
+      const statMod=Math.floor((statVal-1)/2);
+      const statLabel=`${STAT_DISPLAY_NAMES[statKey]} ${statVal}${statMod>0?` (+${statMod} to ${k} rolls)`:''}`;
+      return `<div class='skillRow'><span class='skillName'>${k}</span><div class='skillBarTrack'><div class='skillBarFill' style='width:${pct}%'></div></div><span class='skillVal'>${val}</span><span class='statTag muted' style='font-size:10px;margin-left:6px'>${statLabel}</span></div>`;
     }).join('');
     const benLabel=alignmentBandLabel(as.currentBandBenevolence||'center');
     const ordLabel=alignmentBandLabel(as.currentBandOrder||'center');
@@ -2170,7 +2247,9 @@
       <div class='card'><div class='sectionTitle'>Confrontations</div><div>Combat ${ch.directCombats||0} · Mercy ${ch.captures||0} · Executions ${ch.executions||0}</div><div>Stealth kills ${ch.stealthKills||0} · Stabilizations ${ch.stabilizations||0}</div></div>
       <div class='card'><div class='sectionTitle'>Wounds</div>${woundList}</div>
       <div class='card'><div class='sectionTitle'>Equipment &amp; Inventory</div><div>${Object.entries(G.equipment||{}).map(([s,i])=>`<div><span class='muted'>${s}:</span> ${i.name}</div>`).join('')||'No equipment'}</div><div style='margin-top:4px;color:#8a7a5a'>${(G.inventory||[]).slice(0,6).map(i=>i.name).join(' · ')||'Empty inventory'}</div></div>
-      <div class='card'><div class='sectionTitle'>Progress</div><div>XP ${G.xp} · Level ${G.level} · Renown ${G.renown} · Gold ${G.gold}</div><div>Stage progress: ${G.stageProgress[G.stage]||0} actions · Stage II seen: ${Object.keys(G.stage2DestinationsSeen||{}).length} destinations</div><div>Family edges: ${familyEdgesText()}</div></div>`;
+      <div class='card'><div class='sectionTitle'>Progress</div><div>XP ${G.xp} · Level ${G.level} · Renown ${G.renown} · Gold ${G.gold}</div><div>Stage progress: ${G.stageProgress[G.stage]||0} actions · Stage II seen: ${Object.keys(G.stage2DestinationsSeen||{}).length} destinations</div><div>Family edges: ${familyEdgesText()}</div></div>
+      <div class='card'><div class='sectionTitle'>Stats</div>${Object.entries(G.stats||{}).map(([k,v])=>`<div class='skillRow'><span class='skillName'>${STAT_DISPLAY_NAMES[k]||k}</span><span class='skillVal'>${v}</span><span class='muted' style='font-size:10px;margin-left:6px'>mod ${Math.floor((v-1)/2)>=0?'+':''}${Math.floor((v-1)/2)}</span></div>`).join('')}</div>
+      <div class='card'><div class='sectionTitle'>Acquired Traits &amp; Skills</div>${(G.acquiredSkills&&G.acquiredSkills.length)?G.acquiredSkills.map(s=>`<div style='margin:2px 0'><b>${s.name}</b><span class='muted' style='font-size:10px;margin-left:4px'>Lvl ${s.level}</span><div style='font-size:11px;color:#9a8a6a'>${s.desc||''}</div></div>`).join(''):'<div style="color:#5a4a2a;font-style:italic">No traits acquired yet.</div>'}</div>`;
   }
 
   function renderPartyLayer(){
@@ -2276,15 +2355,58 @@
   }
 
   function renderLevelUpModal(){
-    const skillKeys=['combat','survival','persuasion','lore','stealth','craft'];
-    const skillBtns=skillKeys.map(skill=>`<button class='choice' data-skill='${skill}'><span>Increase ${skill} by 1</span><small>Current: ${G.skills[skill]||0}</small></button>`).join('');
-    $('choices').innerHTML=`<div style='padding:12px 0;border-bottom:2px solid #6a5a2a;margin-bottom:12px;color:#d4b67a;font-weight:bold'>⭐ Level ${G.level} Reached!</div><div style='font-size:13px;color:#c9b99b;margin-bottom:14px'>Choose one skill to increase:</div>${skillBtns}`;
-    [...document.querySelectorAll('[data-skill]')].forEach(btn=>btn.onclick=()=>{
-      const skill=btn.dataset.skill;
-      G.skills[skill]=(G.skills[skill]||0)+1;
-      G.pendingSkillSelection=false;
-      G.lastResult=`Skill improved: ${skill} is now ${G.skills[skill]}.`;
-      persist(); render();
+    // Step 1: stat selection (pendingStatSelection flag)
+    if(!G.pendingTraitSelection){
+      const statKeys=['might','finesse','vigor','wits','spirit','charm'];
+      const skillLink={might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',spirit:'craft',charm:'persuasion'};
+      const statBtns=statKeys.map(s=>{
+        const curStat=(G.stats&&G.stats[s])||1;
+        const curMod=Math.floor((curStat-1)/2); const nextMod=Math.floor(curStat/2);
+        const linked=skillLink[s];
+        const modNote=nextMod>curMod?` (roll mod +${nextMod})`:'';
+        return `<button class='choice' data-stat='${s}'><span>${STAT_DISPLAY_NAMES[s]||s} → ${curStat+1}${modNote}</span><small>Linked to ${linked} · Current: ${curStat}</small></button>`;
+      }).join('');
+      $('choices').innerHTML=`<div style='padding:12px 0;border-bottom:2px solid #6a5a2a;margin-bottom:12px;color:#d4b67a;font-weight:bold'>⭐ Level ${G.level} — Choose a Stat</div><div style='font-size:13px;color:#c9b99b;margin-bottom:14px'>Stage ${G.stage} · ${G.stageLabel}</div><div style='font-size:12px;color:#8a7a5a;margin-bottom:10px'>Step 1 of 2 — Increase one stat by 1:</div>${statBtns}`;
+      [...document.querySelectorAll('[data-stat]')].forEach(btn=>btn.onclick=()=>{
+        const s=btn.dataset.stat;
+        if(!G.stats) G.stats={might:1,finesse:1,vigor:1,wits:1,spirit:1,charm:1};
+        G.stats[s]=(G.stats[s]||1)+1;
+        G.pendingTraitSelection=true;
+        renderLevelUpModal();
+      });
+      return;
+    }
+    // Step 2: trait/skill selection from archetype pool
+    const db=window.ARCHETYPE_SKILLS_DB&&window.ARCHETYPE_SKILLS_DB[G.archetype];
+    if(!db||!db.length){
+      // Fallback: legacy skill increase if no DB loaded
+      const skillKeys=['combat','survival','persuasion','lore','stealth','craft'];
+      const skillBtns=skillKeys.map(skill=>`<button class='choice' data-skill='${skill}'><span>Increase ${skill} by 1</span><small>Current: ${G.skills[skill]||0}</small></button>`).join('');
+      $('choices').innerHTML=`<div style='padding:12px 0;border-bottom:2px solid #6a5a2a;margin-bottom:12px;color:#d4b67a;font-weight:bold'>⭐ Level ${G.level} — Choose a Trait</div><div style='font-size:12px;color:#8a7a5a;margin-bottom:10px'>Step 2 of 2 — Increase one skill:</div>${skillBtns}`;
+      [...document.querySelectorAll('[data-skill]')].forEach(btn=>btn.onclick=()=>{
+        const skill=btn.dataset.skill; G.skills[skill]=(G.skills[skill]||0)+1;
+        G.pendingSkillSelection=false; G.pendingTraitSelection=false;
+        G.lastResult=`Stat and skill improved at level ${G.level}.`; persist(); render();
+      });
+      return;
+    }
+    // Filter: only options for this exact level, not already owned
+    const owned=new Set((G.acquiredSkills||[]).map(s=>s.id));
+    const options=db.filter(s=>s.level===G.level && !owned.has(s.id));
+    const traitBtns=options.map(s=>`<button class='choice' data-trait='${s.id}'><span>${s.name} <small style='color:#8a7a5a'>[${s.type}]</small></span><small>${s.desc}</small></button>`).join('');
+    $('choices').innerHTML=`<div style='padding:12px 0;border-bottom:2px solid #6a5a2a;margin-bottom:12px;color:#d4b67a;font-weight:bold'>⭐ Level ${G.level} — Choose a Trait</div><div style='font-size:12px;color:#8a7a5a;margin-bottom:10px'>Step 2 of 2 — Select one trait or skill:</div>${traitBtns||'<div style="color:#7cae73;padding:8px">All traits at this level acquired.</div>'}`;
+    [...document.querySelectorAll('[data-trait]')].forEach(btn=>btn.onclick=()=>{
+      const id=btn.dataset.trait;
+      const entry=db.find(s=>s.id===id); if(!entry) return;
+      if(!G.acquiredSkills) G.acquiredSkills=[];
+      G.acquiredSkills.push({...entry, acquiredLevel:G.level});
+      // Apply immediate mechanical effects if present
+      if(entry.effect&&entry.effect.skillBonus){
+        const {skill,bonus}=entry.effect.skillBonus;
+        G.skills[skill]=(G.skills[skill]||0)+bonus;
+      }
+      G.pendingSkillSelection=false; G.pendingTraitSelection=false;
+      G.lastResult=`Acquired: ${entry.name}. ${entry.desc}`; persist(); render();
     });
   }
 
@@ -2293,7 +2415,46 @@
       renderLevelUpModal();
       return;
     }
+    // Rosalind encounter: narration/interlude/conclusion panels
+    if(G.rosalindsEncounter && G.rosalindsEncounter.phase !== 'combat'){
+      window._rosalindsRender = render;
+      window._rosalindsAddNotice = addNotice;
+      window.renderRosalindsPanel && window.renderRosalindsPanel(G);
+      return;
+    }
+    if(G.travelMode && window.renderTravelUI){
+      // Wire engine callbacks for travel.js
+      window._travelEngineG = G;
+      window._travelAdvanceTime = advanceTime;
+      window._travelAddNotice = addNotice;
+      window._travelRender = render;
+      window._travelStartEncounter = startThreatEncounter;
+      window._travelCoreTravelTo = function(destId){
+        // travelTo calls advanceTime(1) — skip that since travel.js already advanced time
+        const from=getLocality(G.location)||(window.COSMIC_LOCALITIES||[]).find(l=>l.id===G.location)||{name:G.location,id:G.location};
+        const to=getLocality(destId)||(window.COSMIC_LOCALITIES||[]).find(l=>l.id===destId);
+        if(!to) return;
+        G.location=destId; G.currentSafeZone=to.safeZone||to.name;
+        G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25);
+        G.telemetry.travels++;
+        recordCodex('localities',destId,{name:to.name,polity:to.polity||'',economicRole:to.economicRole||'',lawFeel:to.lawFeel||''});
+        G.lastResult=`${to.name}: the route shifts. What awaits here is not what was left behind.`;
+        setThreat(); maybeStageAdvance();
+      };
+      window.renderTravelUI(G);
+      return;
+    }
     if(G.combatSession && !G.combatSession.resolved){
+      // Rosalind phase transition check (called each render during her combat)
+      if(G.rosalindsEncounter && G.rosalindsEncounter.phase === 'combat' && window.checkRosalindsPhase){
+        const transitioned = window.checkRosalindsPhase(G);
+        if(transitioned){
+          window._rosalindsRender = render;
+          window._rosalindsAddNotice = addNotice;
+          window.renderRosalindsPanel && window.renderRosalindsPanel(G);
+          return;
+        }
+      }
       renderCombatUI(G, G.combatSession);
       return;
     }

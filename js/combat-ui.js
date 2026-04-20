@@ -274,8 +274,12 @@
     // Render tactical choices
     const choicesList = document.getElementById('tacticalChoices');
     if (window.buildTacticalChoices) {
-      const choices = window.buildTacticalChoices(gameState, combatSession);
-      choices.slice(0, 6).forEach((choice, idx) => {
+      let choices = window.buildTacticalChoices(gameState, combatSession);
+      // Inject Rosalind special tactical moments when active
+      if(combatSession.isRosalind && window.injectRosalindsSpecialMoment){
+        choices = window.injectRosalindsSpecialMoment(gameState, choices);
+      }
+      choices.slice(0, 7).forEach((choice, idx) => {
         const btn = document.createElement('button');
         btn.className = 'tacticalChoice';
         btn.innerHTML = `<strong>${choice.label}</strong>`;
@@ -302,24 +306,36 @@
       });
     }
 
-    // Flee button
+    // Flee button (disabled in boss encounters and Rosalind fight)
     const fleeBtn = document.getElementById('fleeBtn');
     if (fleeBtn) {
-      fleeBtn.onclick = () => {
-        combatSession.resolved = true;
-        combatSession.fled = true;
-        resolveCombat(gameState, combatSession);
-      };
+      if(combatSession.isBoss || combatSession.isRosalind){
+        fleeBtn.disabled = true;
+        fleeBtn.style.opacity = '0.3';
+        fleeBtn.title = 'Cannot flee a boss encounter';
+      } else {
+        fleeBtn.onclick = () => {
+          combatSession.resolved = true;
+          combatSession.fled = true;
+          resolveCombat(gameState, combatSession);
+        };
+      }
     }
 
-    // Mercy button
+    // Mercy button (disabled in Rosalind fight)
     const mercyBtn = document.getElementById('mercyBtn');
     if (mercyBtn) {
-      mercyBtn.onclick = () => {
-        combatSession.resolved = true;
-        combatSession.mercy = true;
-        resolveCombat(gameState, combatSession);
-      };
+      if(combatSession.isRosalind){
+        mercyBtn.disabled = true;
+        mercyBtn.style.opacity = '0.3';
+        mercyBtn.title = 'Vonalzo\'s Concubine does not accept mercy';
+      } else {
+        mercyBtn.onclick = () => {
+          combatSession.resolved = true;
+          combatSession.mercy = true;
+          resolveCombat(gameState, combatSession);
+        };
+      }
     }
   }
 

@@ -12,6 +12,9 @@ def build():
     with open('js/party.js', encoding='utf-8-sig') as f: pj = f.read()
     with open('js/combat.js', encoding='utf-8-sig') as f: cb = f.read()
     with open('js/combat-ui.js', encoding='utf-8-sig') as f: cbui = f.read()
+    with open('js/archetype-skills.js', encoding='utf-8-sig') as f: askills = f.read()
+    with open('js/travel.js', encoding='utf-8-sig') as f: travel = f.read()
+    with open('js/rosalind-fall.js', encoding='utf-8-sig') as f: rosalind = f.read()
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
@@ -59,7 +62,7 @@ def build():
     if en_without_close.endswith('})();'):
         en_without_close = en_without_close[:-5]  # Remove })();
     
-    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en_without_close + '\n' + enriched_content + '\n})();'
+    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + askills + '\n' + travel + '\n' + rosalind + '\n' + en_without_close + '\n' + enriched_content + '\n})();'
     
     out = html
     # Remove individual script src tags and replace first one with bundled content
