@@ -1065,21 +1065,7 @@
   }
 
   function getEnrichedStage2Choices() {
-    const enrichedChoices = [];
-    // Collect all Stage 2 enriched choices from route-specific pools
-    if(window.SHELKOPOLIS_TO_FAIRHAVEN_STAGE2_ENRICHED_CHOICES) {
-      enrichedChoices.push(...window.SHELKOPOLIS_TO_FAIRHAVEN_STAGE2_ENRICHED_CHOICES);
-    }
-    if(window.SHELKOPOLIS_TO_SUNSPIRE_STAGE2_ENRICHED_CHOICES) {
-      enrichedChoices.push(...window.SHELKOPOLIS_TO_SUNSPIRE_STAGE2_ENRICHED_CHOICES);
-    }
-    if(window.FAIRHAVEN_REFUGE_STAGE2_ENRICHED_CHOICES) {
-      enrichedChoices.push(...window.FAIRHAVEN_REFUGE_STAGE2_ENRICHED_CHOICES);
-    }
-    if(window.SUNSPIRE_HAVEN_REFUGE_STAGE2_ENRICHED_CHOICES) {
-      enrichedChoices.push(...window.SUNSPIRE_HAVEN_REFUGE_STAGE2_ENRICHED_CHOICES);
-    }
-    return enrichedChoices;
+    return (window.STAGE2_ENRICHED_CHOICES || []);
   }
 
   function travelTo(dest){const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
@@ -1177,6 +1163,12 @@
         maybeStageAdvance();
       }}
     ].filter(c=>c!==null);
+    
+    // Add enriched Stage 2 choices (45 total)
+    const enrichedStage2Choices = getEnrichedStage2Choices();
+    if (enrichedStage2Choices.length > 0) {
+      choices.push(...enrichedStage2Choices);
+    }
     
     // Add combat risk and limit choices
     const stage2Full = choices.map(c => {

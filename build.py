@@ -30,11 +30,8 @@ def build():
         'shirshal_stage1_enriched_choices.js',
         'cosmoria_stage1_enriched_choices.js',
         'harvest_circle_stage1_enriched_choices.js',
-        # Stage 2: 4 routes x 9-12 choices = 45 choices
-        'shelkopolis_to_fairhaven_stage2_enriched_choices.js',
-        'shelkopolis_to_sunspire_stage2_enriched_choices.js',
-        'fairhaven_refuge_stage2_enriched_choices.js',
-        'sunspire_haven_refuge_stage2_enriched_choices.js'
+        # Stage 2: 45 choices
+        'stage2_enriched_choices.js'
     ]
     
     enriched_content = ''
