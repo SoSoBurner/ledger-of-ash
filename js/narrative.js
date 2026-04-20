@@ -112,14 +112,12 @@
       openLine = opens[seed];
     }
     const pressureLine = pressure ? `${cap(pressure)} shapes how people move and where they pause.` : '';
-    // Law feel line — surfaces canonical law identity of the locality
-    const lawLine = loc.lawFeel ? `The operating law here: ${loc.lawFeel.charAt(0).toLowerCase()}${loc.lawFeel.slice(1)}.` : '';
     // Stage I contradiction hint
     let contradictionLine = '';
     if(ss.stage === 1 && ss.stage1BgEntry && ss.stage1BgEntry.contradiction && (ss.stageProgress||0) === 0){
       contradictionLine = `The first thing that does not add up: ${ss.stage1BgEntry.contradiction}.`;
     }
-    return [openLine, pressureLine, lawLine, contradictionLine].filter(Boolean).join(' ');
+    return [openLine, pressureLine, contradictionLine].filter(Boolean).join(' ');
   }
 
   function composeImmediateResponseLayer(ss, gs){
@@ -153,13 +151,49 @@
       if(threat.creature) parts.push(`${cap((threat.creature||'').replace(/_/g,' '))} has been sighted in this area.`);
       if(threat.hazard) parts.push(`${cap((threat.hazard||'').replace(/_/g,' '))} creates a secondary complication.`);
     }
-    const heat = ss.civicHeat || 0;
-    if(heat >= 3) parts.push(`Civic authority heat is elevated — ${heat} units registered.`);
-    if(heat >= 6) parts.push(`Warrants may be issued at this level of exposure.`);
-    if(gs.worldClocks && gs.worldClocks.rival > 4) parts.push(`The rival clock has run long. Opposing pressure is coherent and organized now.`);
-    if(ss.inCombat) parts.push(`A confrontation is in progress.`);
-    if(ss.inPostCombat) parts.push(`The immediate threat is down. A resolution is required.`);
     return parts.join(' ');
+  }
+
+  function composeStateStrip(ss, gs){
+    const items = [];
+    const loc = ss.locality || {};
+    const heat = ss.localityHeat || 0;
+    const as = ss.alignmentSystem || {};
+    const clocks = gs.worldClocks || {};
+
+    if(loc.lawFeel) items.push({text: loc.lawFeel, cls: 'law'});
+
+    if(heat > 0){
+      const cls = heat >= 8 ? 'heat-hot' : heat >= 4 ? 'heat-warm' : '';
+      items.push({text: `Heat +${heat}`, cls});
+    } else if(heat < 0){
+      items.push({text: `Trust ${heat}`, cls: 'heat-cool'});
+    }
+
+    const warrantActive = heat >= 8 || (gs.legalityState && gs.legalityState.warrants && gs.legalityState.warrants.length);
+    if(warrantActive) items.push({text: 'WARRANT ISSUED', cls: 'warrant'});
+
+    if(as.currentBandBenevolence && as.currentBandBenevolence !== 'center'){
+      const label = as.currentBandBenevolence.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+      items.push({text: label, cls: 'align'});
+    }
+    if(as.currentBandOrder && as.currentBandOrder !== 'center'){
+      const label = as.currentBandOrder.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+      items.push({text: label, cls: 'align'});
+    }
+
+    if(ss.inCombat) items.push({text: `Combat — ${ss.combatEnemy||'unknown'}`, cls: 'combat'});
+    if(ss.inPostCombat) items.push({text: 'Resolution pending', cls: 'combat'});
+
+    if(clocks.rival > 4) items.push({text: `Rival ${clocks.rival}`, cls: 'heat-warm'});
+
+    const companions = (gs.companions||[]).filter(c=>!c.injured&&c.available!==false).length;
+    if(companions > 0) items.push({text: `${companions} companion${companions>1?'s':''}`, cls: ''});
+
+    const wounds = (gs.wounds||[]).length;
+    if(wounds >= 2) items.push({text: `${wounds} wounds`, cls: 'wound'});
+
+    return items;
   }
 
   function composeArchetypePerceptionLayer(ss, gs){
@@ -211,7 +245,6 @@
     if(ss.stage >= 2 && ss.routeHint){
       parts.push(`The ${ss.routeHint} route runs through here and carries more than it shows.`);
     }
-    // Companion trust hint — show when close to recruitable
     if(gs.companionTrust && window.COMPANION_DEFS){
       for(const [id, def] of Object.entries(window.COMPANION_DEFS)){
         if(def.locality !== (ss.locality&&ss.locality.id)) continue;
@@ -221,14 +254,6 @@
         if(trust >= 4) parts.push(`${def.name} is ready to speak with you directly.`);
         break;
       }
-    }
-    // Party status
-    if(ss.companionCount > 0){
-      parts.push(`${ss.companionCount} companion${ss.companionCount>1?'s':''} active.`);
-    }
-    // Wound pressure
-    if(ss.wounds && ss.wounds.length >= 2){
-      parts.push(`Wound accumulation (${ss.wounds.length}) is affecting operational capacity.`);
     }
     return parts.join(' ');
   }
@@ -253,4 +278,5 @@
   window.lifeOverviewText = lifeOverview;
   window.legendSummary = legendSummary;
   window.composeCentralNarrativePanel = composeCentralNarrativePanel;
+  window.composeStateStrip = composeStateStrip;
 })();

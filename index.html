@@ -190,6 +190,18 @@
     .critPill{border-color:#d4a010!important;color:#f8d840!important;background:#181400!important;font-weight:bold;animation:critGlow .6s ease-out}
     .fumblePill{border-color:#701818!important;color:#d06060!important;background:#140404!important;font-weight:bold}
 
+    /* ── STATE STRIP ─────────────────────────────────────── */
+    #stateStrip{display:flex;flex-wrap:wrap;gap:5px;padding:5px 2px;min-height:0}
+    .statePill{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid var(--line2);color:#b0a080;background:#100d08;white-space:nowrap}
+    .statePill-law{border-color:#38281a;color:#8a7860}
+    .statePill-align{border-color:#302818;color:#a09060}
+    .statePill-heat-warm{border-color:#6a3010;color:#d08050;background:#130a04}
+    .statePill-heat-hot{border-color:#801808;color:#d05030;background:#150404}
+    .statePill-heat-cool{border-color:#1a4828;color:#70a878;background:#040e06}
+    .statePill-warrant{border-color:#900808;color:#e04040;background:#160202;font-weight:bold}
+    .statePill-combat{border-color:#7a3808;color:#e07030;background:#130606;font-weight:bold}
+    .statePill-wound{border-color:#601010;color:#c04848;background:#100404}
+
     /* ── MOBILE BOTTOM NAV ───────────────────────────────── */
     .mobileLayerNav{display:none;position:fixed;bottom:0;left:0;right:0;background:#090705;border-top:1px solid #30200e;padding:5px 8px 7px;justify-content:space-around;gap:3px;z-index:200}
     .mobileLayerNav .layerBtn{flex:1;text-align:center;padding:7px 2px;font-size:10px;border-radius:6px}
@@ -301,6 +313,7 @@
 
       <div class='centerCol'>
         <div id='narrative'></div>
+        <div id='stateStrip'></div>
         <div class='resultCard' id='resultCard'></div>
         <div id='choices'></div>
       </div>
