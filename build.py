@@ -15,8 +15,9 @@ def build():
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
-    # Load enriched choice files
+    # Load enriched choice files (Stage 1 + Stage 2)
     enriched_files = [
+        # Stage 1: 12 localities x 20 choices = 240 choices
         'shelkopolis_stage1_enriched_choices.js',
         'soreheim_proper_stage1_enriched_choices.js',
         'guildheart_hub_stage1_enriched_choices.js',
@@ -28,7 +29,12 @@ def build():
         'fairhaven_stage1_enriched_choices.js',
         'shirshal_stage1_enriched_choices.js',
         'cosmoria_stage1_enriched_choices.js',
-        'harvest_circle_stage1_enriched_choices.js'
+        'harvest_circle_stage1_enriched_choices.js',
+        # Stage 2: 4 routes x 9-12 choices = 45 choices
+        'shelkopolis_to_fairhaven_stage2_enriched_choices.js',
+        'shelkopolis_to_sunspire_stage2_enriched_choices.js',
+        'fairhaven_refuge_stage2_enriched_choices.js',
+        'sunspire_haven_refuge_stage2_enriched_choices.js'
     ]
     
     enriched_content = ''
@@ -69,3 +75,4 @@ def build():
 
 if __name__ == '__main__':
     build()
+
