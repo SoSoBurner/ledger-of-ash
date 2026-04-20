@@ -314,20 +314,27 @@
     const selected = [];
     
     // Always include critical path choices first, then rotate others
-    const priorityTags = ['Faction', 'Investigation', 'Institutional', 'Final', 'Risky'];
+    const priorityTags = ['Faction', 'Investigation', 'Institutional', 'Final', 'Risky', 'Meaningful'];
     const prioritized = baseChoices.filter(c => priorityTags.some(tag => c.tags?.includes(tag)));
     const other = baseChoices.filter(c => !priorityTags.some(tag => c.tags?.includes(tag)));
     
+    // For Stage 1, prioritize more enriched choices to break up loops
+    const maxPrioritized = (stage === 1) ? 5 : 3;
+    const maxOther = (stage === 1) ? 4 : 5;
+    
     // Take priority choices first, then fill with rotated other choices
-    selected.push(...prioritized.slice(0, 3));
-    selected.push(...other.slice(rotationSeed, rotationSeed + (5 - selected.length)));
+    selected.push(...prioritized.slice(0, maxPrioritized));
+    const otherSliceSize = Math.min(maxOther, fullChoiceArray.length - selected.length);
+    selected.push(...other.slice(rotationSeed, rotationSeed + otherSliceSize));
     
     // Add one tactical combat choice if available and narratively appropriate
     if(tacticalCombatChoices.length > 0 && (G.stage >= 3 || G.worldClocks.rival >= 3)){
       selected.push(tacticalCombatChoices[0]);
     }
     
-    return selected.slice(0, 6);
+    // Return more choices for Stage 1 to reduce perception of looping (9 for S1, 6 for others)
+    const maxChoicesToReturn = (stage === 1) ? 9 : 6;
+    return selected.slice(0, maxChoicesToReturn);
   }
 
   // Add combat risk to confrontational choices
@@ -1121,6 +1128,12 @@
     const enrichedChoices = getEnrichedStage1Choices(G.location);
     if (enrichedChoices.length > 0) {
       choices = [...choices, ...enrichedChoices];
+    }
+    
+    // Add universal Stage 1 additional choices to provide more variety and break loops
+    const additionalChoices = (window.STAGE1_ADDITIONAL_ENRICHED_CHOICES || []);
+    if (additionalChoices.length > 0) {
+      choices = [...choices, ...additionalChoices];
     }
     
     if(sceneChoice) choices.splice(1,0,sceneChoice);

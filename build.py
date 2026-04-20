@@ -17,7 +17,7 @@ def build():
     
     # Load enriched choice files (Stage 1 + Stage 2 + Stage 3 + Stage 4 + Stage 5)
     enriched_files = [
-        # Stage 1: 12 localities x 20 choices = 240 choices
+        # Stage 1: 12 localities x 20 choices = 240 choices + universal additional choices
         'shelkopolis_stage1_enriched_choices.js',
         'soreheim_proper_stage1_enriched_choices.js',
         'guildheart_hub_stage1_enriched_choices.js',
@@ -30,6 +30,8 @@ def build():
         'shirshal_stage1_enriched_choices.js',
         'cosmoria_stage1_enriched_choices.js',
         'harvest_circle_stage1_enriched_choices.js',
+        # Additional universal Stage 1 choices to break loops and add variety
+        'stage1_additional_enriched_choices.js',
         # Stage 2: 45 choices
         'stage2_enriched_choices.js',
         # Stage 3: 60 choices (institutional investigation)
