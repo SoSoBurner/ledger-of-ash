@@ -130,6 +130,15 @@
     const enemy = combatSession.enemies.find(e => e.id === enemyId);
     if (!enemy) return;
 
+    // Check if enemy lost their action this round (from lose_action_enemy effect)
+    if (combatSession.enemyActionsRemaining !== undefined && combatSession.enemyActionsRemaining <= 0) {
+      combatSession.enemyActionsRemaining = 1;
+      combatSession.log = combatSession.log || [];
+      combatSession.log.unshift(`${enemy.name} is unable to act this round.`);
+      return;
+    }
+    combatSession.enemyActionsRemaining = 1; // reset for next round
+
     // Simple AI: attack if close, move if far
     if (combatSession.distance === 'medium' || combatSession.distance === 'far') {
       // Move closer
@@ -143,7 +152,10 @@
       }
     } else {
       // Attack
-      const roll = Math.floor(Math.random() * 20) + 1 + (enemy.attack || 3);
+      const immunities = window.getPassiveImmunities ? window.getPassiveImmunities() : new Set();
+      const flankBonus = (!immunities.has('flank') && combatSession.flanked) ? 2 : 0;
+      const surpriseBonus = (!immunities.has('surprise') && combatSession.surprised) ? 3 : 0;
+      const roll = Math.floor(Math.random() * 20) + 1 + (enemy.attack || 3) + flankBonus + surpriseBonus;
       const playerDefense = 10 + (gameState.skills?.combat || 0);
       
       if (roll >= playerDefense) {
@@ -420,7 +432,9 @@
         log.push(`${target.name} is now taking ongoing damage.`);
       } else if (eff.type === 'morale_check') {
         const roll = Math.floor(Math.random() * 20) + 1;
-        if (roll <= 10 && target) {
+        combatSession.lastMoraleCheckFailed = roll <= 10;
+        combatSession.lastMoraleCheckSucceeded = roll > 10;
+        if (combatSession.lastMoraleCheckFailed && target) {
           combatSession.resolved = true;
           combatSession.fled = true;
           log.push(`${target.name} fails the morale check and breaks.`);
@@ -482,6 +496,11 @@
         } else {
           log.push(`Splash avoided.`);
         }
+      } else if (eff.type === 'lose_action_enemy') {
+        combatSession.enemyActionsRemaining = Math.max(0,
+          (combatSession.enemyActionsRemaining !== undefined ? combatSession.enemyActionsRemaining : 1) - (eff.value || 1)
+        );
+        log.push(`${target ? target.name : 'Enemy'} loses ${eff.value || 1} action(s) this round.`);
       }
     });
 
@@ -532,9 +551,10 @@
           if (used) return;
           combatSession.log = combatSession.log || [];
           if (ab.flavor) combatSession.log.unshift(ab.flavor);
-          // Non-attack effects applied immediately; attack-affecting effects go to engine
-          const hasAttackEffect = ab.effects && ab.effects.some(e => ['atk_bonus','hp_cost','heal_self','enemy_atk_penalty','enemy_def_penalty'].includes(e.type));
-          if (!hasAttackEffect) applyAbilityEffects(ab, gameState, combatSession);
+          // Apply all non-roll effects immediately (hp_cost, def_self, penalties, etc.)
+          // atk_bonus and def_self are ALSO read by resolveCombatRound for roll math,
+          // but all HP/condition changes happen here to avoid double-application.
+          applyAbilityEffects(ab, gameState, combatSession);
           if (window.resolveCombatRound) {
             window.resolveCombatRound('ability', ab.id, gameState.combatSession || combatSession);
           }

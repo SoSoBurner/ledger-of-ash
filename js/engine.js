@@ -449,6 +449,7 @@
   const GEAR_BONUS_SKILL_MAP={arcana:'arcana',ward:'lore',brace:'combat',guard:'combat',exploit:'stealth',ritual:'lore',concealment:'stealth',kits:'craft',coordination:null};
   function gearSkillBonus(skillName){ let b=0; Object.entries(GEAR_BONUS_SKILL_MAP).forEach(([key,mapped])=>{ if(mapped===skillName) b+=gearBonus(key); }); return b; }
   function getPassiveCombatBonuses(effectType){ const abs=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype])||[]; let total=0; abs.forEach(ab=>{ if(ab.cost!=='passive'||!ab.effects) return; ab.effects.forEach(eff=>{ if(eff.type!==effectType) return; if(eff.value==='per_wound') total+=(G.wounds||[]).length; else if(typeof eff.value==='number') total+=eff.value; }); }); return total; }
+  function getPassiveImmunities(){ const abs=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype])||[]; const imm=new Set(); abs.forEach(ab=>{ if(ab.cost!=='passive'||!ab.effects) return; ab.effects.forEach(eff=>{ if(eff.type==='passive_immune') imm.add(eff.value); }); }); return imm; }
   function getCompanionFlagBonus(skill){ if(!G.companionFlags) return 0; let b=0; if(skill==='persuasion'&&G.companionFlags.nextSocialCheckBonus){ b=G.companionFlags.nextSocialCheckBonus; delete G.companionFlags.nextSocialCheckBonus; } if(G.companionFlags.nextLoreCheckAutoSucceed){ b+=99; delete G.companionFlags.nextLoreCheckAutoSucceed; } return b; }
   function currentEdgeBonus(action){ return (G.familyEdges||[]).reduce((sum,e)=>sum + (e.action===action?e.bonus:0), 0); }
   function familyEdgesText(){ return (G.familyEdges||[]).map(e=>`${e.label} (+${e.bonus} ${e.action})`).join(' · ') || 'None'; }
@@ -999,12 +1000,17 @@
       if(ab){
         if(ab.effects && ab.effects.length){
           ab.effects.forEach(eff=>{
-            if(eff.type==='atk_bonus') attackBonus+=eff.value;
+            // Only atk_bonus and def_self affect the roll — all other effects are applied
+            // by applyAbilityEffects in combat-ui.js before this function is called.
+            if(eff.type==='atk_bonus'){
+              const condMet = !eff.condition ||
+                (eff.condition==='on_fail' && cs.lastMoraleCheckFailed) ||
+                (eff.condition==='axis_event' && G.axisInverted) ||
+                (eff.condition==='on_success' && cs.lastMoraleCheckSucceeded) ||
+                (eff.condition==='exterior_terrain' && !(getLocality(G.location)||{}).indoor);
+              if(condMet) attackBonus+=eff.value;
+            }
             else if(eff.type==='def_self') defenseBonus+=eff.value;
-            else if(eff.type==='hp_cost'){ G.hp=Math.max(1,G.hp-eff.value); }
-            else if(eff.type==='heal_self'){ G.hp=Math.min(G.maxHp,G.hp+(typeof eff.value==='number'?eff.value:4)); }
-            else if(eff.type==='enemy_atk_penalty'){ cs.enemyAttack=Math.max(0,(cs.enemyAttack||0)-eff.value); }
-            else if(eff.type==='enemy_def_penalty'){ cs.enemyDefense=Math.max(0,(cs.enemyDefense||0)-eff.value); }
           });
         } else {
           const eff=ab.effect||'';
@@ -2699,6 +2705,7 @@
   window.buildCompanionTrust = buildCompanionTrust;
   window.combatSessionChoices = combatSessionChoices;
   window.resolveCombatRound = resolveCombatRound;
+  window.getPassiveImmunities = getPassiveImmunities;
   window.trackChoiceAction = trackChoiceAction;
   window.shouldSkipChoice = shouldSkipChoice;
   

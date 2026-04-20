@@ -4088,7 +4088,7 @@ const ARCHETYPE_COMBAT_ABILITIES = {
      effects:[{type:'push_enemy',value:1},{type:'def_self',value:2,duration:1}], req:null},
     {id:'battle_cry',   name:'Battle Cry',   cost:'bonus',
      flavor:'A roar that steadies allied nerve.',
-     effect:'all allies gain +1 attack this round', skillReq:'persuasion', minSkill:1,
+     effect:'all allies gain +1 defense this round', skillReq:'persuasion', minSkill:1,
      effects:[{type:'def_ally',value:1,duration:1}], req:null},
     {id:'disarm',       name:'Disarm',       cost:'action',
      flavor:'Strike the weapon hand, not the body.',
@@ -4438,7 +4438,7 @@ const ARCHETYPE_COMBAT_ABILITIES = {
      effects:[{type:'enemy_atk_penalty',value:2,duration:1}], req:null},
     {id:'bd_rally_cry',  name:'Rally Cry',    cost:'action',
      flavor:'The voice does something the steel cannot.',
-     effect:'all allies gain +1 to their next action this round', skillReq:'persuasion', minSkill:3,
+     effect:'all allies gain +1 defense this round', skillReq:'persuasion', minSkill:3,
      effects:[{type:'def_ally',value:1,duration:1}], req:null},
     {id:'bd_taunt',      name:'Taunt',        cost:'bonus',
      flavor:'Redirect the aggression. Absorb it on your terms.',
@@ -4975,6 +4975,15 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     const enemy = combatSession.enemies.find(e => e.id === enemyId);
     if (!enemy) return;
 
+    // Check if enemy lost their action this round (from lose_action_enemy effect)
+    if (combatSession.enemyActionsRemaining !== undefined && combatSession.enemyActionsRemaining <= 0) {
+      combatSession.enemyActionsRemaining = 1;
+      combatSession.log = combatSession.log || [];
+      combatSession.log.unshift(`${enemy.name} is unable to act this round.`);
+      return;
+    }
+    combatSession.enemyActionsRemaining = 1; // reset for next round
+
     // Simple AI: attack if close, move if far
     if (combatSession.distance === 'medium' || combatSession.distance === 'far') {
       // Move closer
@@ -4988,7 +4997,10 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
       }
     } else {
       // Attack
-      const roll = Math.floor(Math.random() * 20) + 1 + (enemy.attack || 3);
+      const immunities = window.getPassiveImmunities ? window.getPassiveImmunities() : new Set();
+      const flankBonus = (!immunities.has('flank') && combatSession.flanked) ? 2 : 0;
+      const surpriseBonus = (!immunities.has('surprise') && combatSession.surprised) ? 3 : 0;
+      const roll = Math.floor(Math.random() * 20) + 1 + (enemy.attack || 3) + flankBonus + surpriseBonus;
       const playerDefense = 10 + (gameState.skills?.combat || 0);
       
       if (roll >= playerDefense) {
@@ -5265,7 +5277,9 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
         log.push(`${target.name} is now taking ongoing damage.`);
       } else if (eff.type === 'morale_check') {
         const roll = Math.floor(Math.random() * 20) + 1;
-        if (roll <= 10 && target) {
+        combatSession.lastMoraleCheckFailed = roll <= 10;
+        combatSession.lastMoraleCheckSucceeded = roll > 10;
+        if (combatSession.lastMoraleCheckFailed && target) {
           combatSession.resolved = true;
           combatSession.fled = true;
           log.push(`${target.name} fails the morale check and breaks.`);
@@ -5327,6 +5341,11 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
         } else {
           log.push(`Splash avoided.`);
         }
+      } else if (eff.type === 'lose_action_enemy') {
+        combatSession.enemyActionsRemaining = Math.max(0,
+          (combatSession.enemyActionsRemaining !== undefined ? combatSession.enemyActionsRemaining : 1) - (eff.value || 1)
+        );
+        log.push(`${target ? target.name : 'Enemy'} loses ${eff.value || 1} action(s) this round.`);
       }
     });
 
@@ -5377,9 +5396,10 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
           if (used) return;
           combatSession.log = combatSession.log || [];
           if (ab.flavor) combatSession.log.unshift(ab.flavor);
-          // Non-attack effects applied immediately; attack-affecting effects go to engine
-          const hasAttackEffect = ab.effects && ab.effects.some(e => ['atk_bonus','hp_cost','heal_self','enemy_atk_penalty','enemy_def_penalty'].includes(e.type));
-          if (!hasAttackEffect) applyAbilityEffects(ab, gameState, combatSession);
+          // Apply all non-roll effects immediately (hp_cost, def_self, penalties, etc.)
+          // atk_bonus and def_self are ALSO read by resolveCombatRound for roll math,
+          // but all HP/condition changes happen here to avoid double-application.
+          applyAbilityEffects(ab, gameState, combatSession);
           if (window.resolveCombatRound) {
             window.resolveCombatRound('ability', ab.id, gameState.combatSession || combatSession);
           }
@@ -5935,6 +5955,7 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   const GEAR_BONUS_SKILL_MAP={arcana:'arcana',ward:'lore',brace:'combat',guard:'combat',exploit:'stealth',ritual:'lore',concealment:'stealth',kits:'craft',coordination:null};
   function gearSkillBonus(skillName){ let b=0; Object.entries(GEAR_BONUS_SKILL_MAP).forEach(([key,mapped])=>{ if(mapped===skillName) b+=gearBonus(key); }); return b; }
   function getPassiveCombatBonuses(effectType){ const abs=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype])||[]; let total=0; abs.forEach(ab=>{ if(ab.cost!=='passive'||!ab.effects) return; ab.effects.forEach(eff=>{ if(eff.type!==effectType) return; if(eff.value==='per_wound') total+=(G.wounds||[]).length; else if(typeof eff.value==='number') total+=eff.value; }); }); return total; }
+  function getPassiveImmunities(){ const abs=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype])||[]; const imm=new Set(); abs.forEach(ab=>{ if(ab.cost!=='passive'||!ab.effects) return; ab.effects.forEach(eff=>{ if(eff.type==='passive_immune') imm.add(eff.value); }); }); return imm; }
   function getCompanionFlagBonus(skill){ if(!G.companionFlags) return 0; let b=0; if(skill==='persuasion'&&G.companionFlags.nextSocialCheckBonus){ b=G.companionFlags.nextSocialCheckBonus; delete G.companionFlags.nextSocialCheckBonus; } if(G.companionFlags.nextLoreCheckAutoSucceed){ b+=99; delete G.companionFlags.nextLoreCheckAutoSucceed; } return b; }
   function currentEdgeBonus(action){ return (G.familyEdges||[]).reduce((sum,e)=>sum + (e.action===action?e.bonus:0), 0); }
   function familyEdgesText(){ return (G.familyEdges||[]).map(e=>`${e.label} (+${e.bonus} ${e.action})`).join(' · ') || 'None'; }
@@ -6485,12 +6506,17 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
       if(ab){
         if(ab.effects && ab.effects.length){
           ab.effects.forEach(eff=>{
-            if(eff.type==='atk_bonus') attackBonus+=eff.value;
+            // Only atk_bonus and def_self affect the roll — all other effects are applied
+            // by applyAbilityEffects in combat-ui.js before this function is called.
+            if(eff.type==='atk_bonus'){
+              const condMet = !eff.condition ||
+                (eff.condition==='on_fail' && cs.lastMoraleCheckFailed) ||
+                (eff.condition==='axis_event' && G.axisInverted) ||
+                (eff.condition==='on_success' && cs.lastMoraleCheckSucceeded) ||
+                (eff.condition==='exterior_terrain' && !(getLocality(G.location)||{}).indoor);
+              if(condMet) attackBonus+=eff.value;
+            }
             else if(eff.type==='def_self') defenseBonus+=eff.value;
-            else if(eff.type==='hp_cost'){ G.hp=Math.max(1,G.hp-eff.value); }
-            else if(eff.type==='heal_self'){ G.hp=Math.min(G.maxHp,G.hp+(typeof eff.value==='number'?eff.value:4)); }
-            else if(eff.type==='enemy_atk_penalty'){ cs.enemyAttack=Math.max(0,(cs.enemyAttack||0)-eff.value); }
-            else if(eff.type==='enemy_def_penalty'){ cs.enemyDefense=Math.max(0,(cs.enemyDefense||0)-eff.value); }
           });
         } else {
           const eff=ab.effect||'';
@@ -8185,6 +8211,7 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   window.buildCompanionTrust = buildCompanionTrust;
   window.combatSessionChoices = combatSessionChoices;
   window.resolveCombatRound = resolveCombatRound;
+  window.getPassiveImmunities = getPassiveImmunities;
   window.trackChoiceAction = trackChoiceAction;
   window.shouldSkipChoice = shouldSkipChoice;
   
