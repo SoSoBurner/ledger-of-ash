@@ -1,0 +1,291 @@
+{
+  "total_labels": 845,
+  "unique_labels": 805,
+  "duplicates_found": 40,
+  "files_scanned": 24,
+  "duplicate_details": [
+    [
+      "Attack the enemy",
+      2,
+      [
+        "js\\combat-ui.js",
+        "js\\combat-ui-v3.js"
+      ]
+    ],
+    [
+      "Defend and brace for impact",
+      2,
+      [
+        "js\\combat-ui.js",
+        "js\\combat-ui-v3.js"
+      ]
+    ],
+    [
+      "Call on companion support",
+      2,
+      [
+        "js\\combat-ui.js",
+        "js\\combat-ui-v3.js"
+      ]
+    ],
+    [
+      "Gather gossip in merchant quarters and warehouse districts \u2014 what stories are traders telling each other about guild changes?",
+      2,
+      [
+        "guildheart_hub_stage1_enriched_choices.js"
+      ]
+    ],
+    [
+      "Gather gossip at the shift yards and communal meal halls \u2014 what stories are workers telling each other about recent changes?",
+      2,
+      [
+        "soreheim_proper_stage1_enriched_choices.js"
+      ]
+    ],
+    [
+      "You encounter a cloaked trader on the Ridgeway Pass offering strange maps. Investigate their origins and intentions.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A convoy of merchants warns you of bandits blocking the northern route. Choose: risk the bandits or take a longer detour through unstable terrain.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A ferry captain demands an unusual toll\u2014either coin or a ",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "You find abandoned camp with fresh supplies. Do you camp here (risky\u2014may be watched) or press forward into darkness?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A young messenger is being pursued by armed riders. Intervene, hide, or avoid involvement altogether.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A traveling scholar offers to join your group, but their papers are forged. Trust them or report them to authorities?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Strange lights appear on the horizon during night travel. Investigate, flee, or press onward and ignore them.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "You discover a hidden trail that could shorten your journey by three days. But it",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A fellow traveler from your hometown appears on the road. They seem nervous. Reconnect or keep distance?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Your group encounters refugees from a disaster area. Do you help them, question them for information, or move past?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A faction envoy meets you in a roadside inn. They want information or a small deed. Consider carefully before committing.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Two rival factions are competing for your allegiance. One offers wealth, one offers protection. Choose or refuse both.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A faction representative demands you eliminate a rival operative. Refuse, negotiate, or accept the contract.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "You discover a faction safehouse during travels. Report it, infiltrate, or ignore it.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A faction insider offers to defect and provide secrets, but they",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Faction leadership requests you as a mediator between their warring internal groups. This is a test of your loyalty.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A faction operative was supposed to meet you. Instead, you find their body. Cover it up, investigate, or report it?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A faction wants you to spy on a neighboring region. Accept and build a network, or refuse and risk their displeasure?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Faction resources are stolen. You",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion reveals they",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion wants to leave the group to pursue a personal vendetta. Talk them down, let them go, or join them.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion is injured and needs expensive medicine. Spend your resources freely or negotiate carefully?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Two companions have conflicting morals about an important decision. Mediate or side with one?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion confesses they",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion secretly sacrificed something important for the group. Discover this and decide how to respond.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A companion tests your trust by revealing they were hired to watch you initially. Forgive, distance, or retaliate?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A scout brings intelligence of checkpoints ahead. Pay for detailed maps, interrogate them for free information, or use your network?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "You intercept messages between institutions discussing travel restrictions. Decode them or pass the intelligence to a faction?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "An institutional spy offers to trade information for protection. Provide shelter or turn them in for reward?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "You observe institutional officials moving through your region. Follow them covertly to learn their objectives.",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A network of scouts offers to share their route intelligence network in exchange for protection. Accept or decline?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "You find a dead messenger with encrypted documents. Decrypt them, sell them, or investigate the death?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "Institutional archives are breached. Access sensitive information before it",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ],
+    [
+      "A corruption network wants you as a witness against institutional officials. Testify, refuse, or bargain for protection?",
+      2,
+      [
+        "stage2_enriched_choices.js"
+      ]
+    ]
+  ]
+}
