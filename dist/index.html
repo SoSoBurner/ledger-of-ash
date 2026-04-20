@@ -4055,8 +4055,8 @@ function triggerCombatEncounter(enemyId, context) {
 window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
 
 // ═══════════════════════════════════════════════════════
-// COMBAT UI SYSTEM v2
-// Dynamic Tactical Combat with Archetype Abilities & Multi-Opponent Targeting
+// COMBAT UI SYSTEM v3 - TURN-BASED TACTICAL COMBAT
+// Full turn-based system with initiative, enemy AI, death mechanics
 // ═══════════════════════════════════════════════════════
 
 (function(){
@@ -4068,65 +4068,145 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     very_far: { feet: '100+', debuffMelee: Infinity, debuffRanged: 0.3, debuffMagic: 0.4 }
   };
 
-  // Archetype combat abilities
-  const ARCHETYPE_ABILITIES = {
-    // Combat group
-    warrior: ['Power Strike', 'Shield Bash', 'Rally Allies', 'Desperate Defense'],
-    knight: ['Smite', 'Consecrated Ground', 'Protect Ally', 'Holy Resilience'],
-    ranger: ['Multishot', 'Tracking Shot', 'Pack Tactics', 'Evasion'],
-    paladin: ['Righteous Judgment', 'Divine Shield', 'Healing Light', 'Smite Evil'],
-    archer: ['Precision Shot', 'Ricochet', 'Pin Down', 'Acrobatic Evasion'],
-    berserker: ['Raging Charge', 'Whirlwind', 'Intimidate', 'Savage Defense'],
-    warden: ['Fortress Stance', 'Lock Down', 'Protective Seal', 'Stand Firm'],
-    warlord: ['Tactical Command', 'Rally Troops', 'Flank Maneuver', 'Morale Surge'],
-    death_knight: ['Unholy Strike', 'Death Pact', 'Life Drain', 'Undead Resilience'],
+  // Initialize tactical combat session with proper turn order
+  function initTacticalCombat(gameState, combatSession) {
+    if (combatSession.tacticalInitialized) return;
     
-    // Magic group
-    wizard: ['Fireball', 'Frost Nova', 'Arcane Bolt', 'Spell Shield'],
-    cleric: ['Holy Blast', 'Healing Word', 'Divine Protection', 'Smite Undead'],
-    priest: ['Prayer of Healing', 'Holy Fire', 'Sanctify Ground', 'Group Blessing'],
-    necromancer: ['Curse', 'Lifedrain', 'Undead Minion', 'Death Spore'],
-    illusionist: ['Phantom Strike', 'Mirror Image', 'Confusion', 'Invisibility'],
-    inquisitor: ['Interrogate', 'Divine Judgment', 'Zealous Strike', 'Purge Darkness'],
-    elementalist: ['Chain Lightning', 'Stone Wall', 'Earthquake', 'Cyclone'],
-    oracle: ['Glimpse Future', 'Destiny Strike', 'Predestined Healing', 'Fateful Vision'],
-    
-    // Stealth group
-    rogue: ['Backstab', 'Evasion', 'Pickpocket', 'Shadow Step'],
-    assassin: ['Assassination', 'Poison Strike', 'Silent Kill', 'Shadow Clones'],
-    spellthief: ['Spell Steal', 'Arcane Disruption', 'Stolen Power', 'Mana Drain'],
-    scout: ['Precise Shot', 'Taunt', 'Disengage', 'Quick Maneuver'],
-    thief: ['Quick Escape', 'Sleight of Hand', 'Parkour', 'Distract'],
-    trickster: ['Misdirection', 'Prank', 'Clever Trick', 'Vanish'],
-    beastmaster: ['Call Beast', 'Pack Attack', 'Primal Roar', 'Feral Instinct'],
-    
-    // Support group
-    healer: ['Heal All', 'Protective Blessing', 'Resurrection', 'Holy Aura'],
-    artificer: ['Create Device', 'Repair Ally', 'Deploy Trap', 'Empower Weapon'],
-    engineer: ['Construct', 'Reinforce', 'Sabotage', 'Build Fortification'],
-    tactician: ['Flanking', 'Coordinate Strike', 'Strategic Retreat', 'Synergy Bonus'],
-    alchemist: ['Throw Potion', 'Poison Cloud', 'Antidote', 'Alchemical Boost'],
-    saint: ['Miracle', 'Redeem', 'Heal Wounds', 'Divine Intervention'],
-    bard: ['Inspire', 'Debuff Song', 'Entertain', 'Harmonize Party']
-  };
-
-  function initCombatDistance(combatSession) {
-    if (!combatSession.distance) {
-      combatSession.distance = 'medium';
-      combatSession.enemies = combatSession.enemies || [{
+    // Initialize enemies array if not present
+    if (!combatSession.enemies || combatSession.enemies.length === 0) {
+      combatSession.enemies = [{
         id: 'primary',
         name: combatSession.enemyName || 'Enemy',
         hp: combatSession.enemyHp || 12,
-        maxHp: combatSession.enemyMaxHp || 12
+        maxHp: combatSession.enemyMaxHp || 12,
+        template: combatSession.enemyTemplate || 'standard'
       }];
-      combatSession.primaryTarget = combatSession.primaryTarget || 'primary';
+    }
+
+    // Calculate initiative and build turn order
+    combatSession.round = 1;
+    combatSession.turnOrder = [];
+    combatSession.currentTurnIdx = 0;
+
+    // Player party always acts as one actor
+    const playerInit = 10 + (gameState.skills?.combat || 0) + Math.floor(Math.random() * 6);
+    combatSession.turnOrder.push({
+      actor: 'player',
+      initiative: playerInit,
+      faction: 'player'
+    });
+
+    // Build enemy turn order (all enemies act in one round per enemy)
+    combatSession.enemies.forEach((enemy, idx) => {
+      const isBoss = combatSession.isBoss || (enemy.template && enemy.template.includes('boss'));
+      const isLaw = combatSession.isLaw || combatSession.enemyTemplate === 'law_enforcement';
+      
+      // Bosses and law enforcement always get initiative bonus and go first
+      const enemyInit = isBoss || isLaw ? 20 : 8 + Math.floor(Math.random() * 8);
+      
+      combatSession.turnOrder.push({
+        actor: 'enemy',
+        enemyId: enemy.id,
+        initiative: enemyInit,
+        faction: 'enemy'
+      });
+    });
+
+    // Sort by initiative (high to low) - ties go to initiator
+    if (!combatSession.playerInitiated) {
+      combatSession.turnOrder.sort((a, b) => b.initiative - a.initiative);
+    } else {
+      // Player-forced engagement: player always first
+      const playerIdx = combatSession.turnOrder.findIndex(t => t.actor === 'player');
+      const playerTurn = combatSession.turnOrder.splice(playerIdx, 1)[0];
+      combatSession.turnOrder.unshift(playerTurn);
+    }
+
+    combatSession.tacticalInitialized = true;
+  }
+
+  // Get the current actor's turn info
+  function getCurrentActor(combatSession) {
+    if (!combatSession.turnOrder || combatSession.turnOrder.length === 0) return null;
+    return combatSession.turnOrder[combatSession.currentTurnIdx % combatSession.turnOrder.length];
+  }
+
+  // Advance to next actor in turn order
+  function nextTurn(combatSession) {
+    if (!combatSession.turnOrder) return;
+    
+    combatSession.currentTurnIdx++;
+    
+    // Complete round check
+    if (combatSession.currentTurnIdx >= combatSession.turnOrder.length) {
+      combatSession.currentTurnIdx = 0;
+      combatSession.round = (combatSession.round || 0) + 1;
+    }
+
+    // Clean up dead enemies
+    combatSession.enemies = (combatSession.enemies || []).filter(e => e.hp > 0);
+    
+    // Update turn order to remove dead enemies
+    combatSession.turnOrder = combatSession.turnOrder.filter(t => {
+      if (t.actor === 'enemy') {
+        return combatSession.enemies.some(e => e.id === t.enemyId);
+      }
+      return true;
+    });
+
+    // Victory check
+    if (combatSession.enemies.length === 0) {
+      combatSession.resolved = true;
+      combatSession.victory = true;
+      return;
     }
   }
 
+  // Execute enemy AI action
+  function executeEnemyTurn(gameState, combatSession, enemyId) {
+    const enemy = combatSession.enemies.find(e => e.id === enemyId);
+    if (!enemy) return;
+
+    // Simple AI: attack if close, move if far
+    if (combatSession.distance === 'medium' || combatSession.distance === 'far') {
+      // Move closer
+      const distances = ['close', 'medium', 'far', 'very_far'];
+      const currentIdx = distances.indexOf(combatSession.distance);
+      if (currentIdx > 0) {
+        combatSession.distance = distances[currentIdx - 1];
+        const log = `${enemy.name} closes distance to ${distances[currentIdx - 1]}!`;
+        combatSession.log = combatSession.log || [];
+        combatSession.log.unshift(log);
+      }
+    } else {
+      // Attack
+      const roll = Math.floor(Math.random() * 20) + 1 + (enemy.attack || 3);
+      const playerDefense = 10 + (gameState.skills?.combat || 0);
+      
+      if (roll >= playerDefense) {
+        const damage = Math.max(1, Math.floor(Math.random() * 6) + 1);
+        gameState.hp = Math.max(0, gameState.hp - damage);
+        const log = `${enemy.name} hits! You take ${damage} damage.`;
+        combatSession.log = combatSession.log || [];
+        combatSession.log.unshift(log);
+
+        if (gameState.hp <= 0) {
+          combatSession.resolved = true;
+          combatSession.playerDefeated = true;
+        }
+      } else {
+        const log = `${enemy.name} attacks but misses!`;
+        combatSession.log = combatSession.log || [];
+        combatSession.log.unshift(log);
+      }
+    }
+  }
+
+  // Render the tactical combat UI
   function renderCombatUI(gameState, combatSession) {
     if (!gameState || !combatSession) return;
     
-    initCombatDistance(combatSession);
+    initTacticalCombat(gameState, combatSession);
     
     const choicesDiv = document.getElementById('choices');
     if (!choicesDiv) return;
@@ -4135,60 +4215,110 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     
     const combatUI = document.createElement('div');
     combatUI.className = 'combatUI';
+
+    // Determine if it's player turn or enemy turn
+    const currentActor = getCurrentActor(combatSession);
+    const isPlayerTurn = currentActor && currentActor.actor === 'player';
+
+    // Auto-execute enemy turns
+    if (!isPlayerTurn && currentActor) {
+      executeEnemyTurn(gameState, combatSession, currentActor.enemyId);
+      // Render again after enemy action
+      setTimeout(() => {
+        if (!combatSession.resolved) {
+          nextTurn(combatSession);
+          if (!combatSession.resolved) {
+            renderCombatUI(gameState, combatSession);
+          } else {
+            resolveCombat(gameState, combatSession);
+          }
+        } else {
+          resolveCombat(gameState, combatSession);
+        }
+      }, 1000);
+      
+      combatUI.innerHTML = `
+        <div class='combatHeader'>
+          <div class='combatTitle'>⚔ TACTICAL COMBAT - Round ${combatSession.round} ⚔</div>
+          <div class='combatStats'>
+            <span class='stat'>Your HP: ${gameState.hp}/${gameState.maxHp}</span>
+            <span class='stat'>DISTANCE: ${combatSession.distance.toUpperCase()}</span>
+          </div>
+        </div>
+        <div class='combatLog'>
+          <div class='combatLogEntry'>${currentActor.name || 'Enemy'} takes their turn...</div>
+          ${(combatSession.log || []).map(l => `<div class='combatLogEntry'>${l}</div>`).join('')}
+        </div>
+      `;
+      choicesDiv.appendChild(combatUI);
+      return;
+    }
+
     combatUI.innerHTML = `
       <div class='combatHeader'>
-        <div class='combatTitle'>⚔ TACTICAL COMBAT ⚔</div>
+        <div class='combatTitle'>⚔ TACTICAL COMBAT - Round ${combatSession.round} ⚔</div>
         <div class='combatStats'>
           <span class='stat'>Your HP: ${gameState.hp}/${gameState.maxHp}</span>
-          <span class='stat'>DISTANCE: <strong>${combatSession.distance.toUpperCase()}</strong> (${RANGE_BRACKETS[combatSession.distance].feet} ft)</span>
-          <span class='stat'>Round ${combatSession.round || 1}</span>
+          <span class='stat'>DISTANCE: ${combatSession.distance.toUpperCase()}</span>
         </div>
       </div>
-      
-      <div class='targetSelection'>
-        <div class='targetLabel'>SELECT TARGET:</div>
-        <div id='targetButtons' class='targetButtonsContainer'></div>
+
+      <div class='enemyStatus'>
+        <div class='statusLabel'>ENEMIES:</div>
+        ${(combatSession.enemies || []).map(e => `
+          <div class='enemyLine'>
+            <span>${e.name}</span>
+            <span class='hp'>HP: ${e.hp}/${e.maxHp}</span>
+          </div>
+        `).join('')}
       </div>
 
-      <div class='combatActionsPanel'>
+      <div class='combatActions'>
+        <div class='actionsLabel'>YOUR TURN - CHOOSE ACTION:</div>
         <div id='tacticalChoices' class='tacticalChoicesList'></div>
       </div>
-      
+
       <div class='combatOptions'>
-        <button id='fleeBtn' class='tacticalOption flee'>🏃 Flee / Retreat</button>
-        <button id='mercyBtn' class='tacticalOption mercy'>🙏 Show Mercy</button>
+        <button id='fleeBtn' class='tacticalOption flee'>🏃 Retreat from Combat</button>
+        <button id='mercyBtn' class='tacticalOption mercy'>🙏 Attempt Mercy</button>
       </div>
+
+      ${combatSession.log ? `
+        <div class='combatLog'>
+          <div class='logLabel'>COMBAT LOG:</div>
+          ${combatSession.log.slice(0, 3).map(l => `<div class='logEntry'>${l}</div>`).join('')}
+        </div>
+      ` : ''}
     `;
     
     choicesDiv.appendChild(combatUI);
 
-    // Render target selection buttons
-    const targetContainer = document.getElementById('targetButtons');
-    if (combatSession.enemies && combatSession.enemies.length > 0) {
-      combatSession.enemies.forEach(enemy => {
-        const btn = document.createElement('button');
-        btn.className = `targetButton ${enemy.id === combatSession.primaryTarget ? 'selected' : ''}`;
-        btn.innerHTML = `<div>${enemy.name}</div><small>HP: ${enemy.hp}/${enemy.maxHp}</small>`;
-        btn.onclick = () => {
-          combatSession.primaryTarget = enemy.id;
-          window.renderCombatUI(gameState, combatSession);
-        };
-        targetContainer.appendChild(btn);
-      });
-    }
-
     // Render tactical choices
     const choicesList = document.getElementById('tacticalChoices');
-    if (window.combatSessionChoices) {
-      const choices = window.combatSessionChoices();
-      choices.slice(0, 5).forEach((choice, idx) => {
+    if (window.buildTacticalChoices) {
+      const choices = window.buildTacticalChoices(gameState, combatSession);
+      choices.slice(0, 6).forEach((choice, idx) => {
         const btn = document.createElement('button');
         btn.className = 'tacticalChoice';
-        btn.innerHTML = `<strong>${choice.label}</strong><br><small>${(choice.tags || []).join(' | ')}</small>`;
+        btn.innerHTML = `<strong>${choice.label}</strong>`;
+        if (choice.tags) {
+          btn.innerHTML += `<br><small>${choice.tags.join(' | ')}</small>`;
+        }
         btn.onclick = () => {
-          choice.fn();
-          window.persist?.();
-          window.render?.();
+          if (choice.fn) {
+            choice.fn();
+            // Apply enemy action and re-render
+            if (!combatSession.resolved) {
+              setTimeout(() => {
+                nextTurn(combatSession);
+                if (!combatSession.resolved) {
+                  renderCombatUI(gameState, combatSession);
+                } else {
+                  resolveCombat(gameState, combatSession);
+                }
+              }, 500);
+            }
+          }
         };
         choicesList.appendChild(btn);
       });
@@ -4199,9 +4329,8 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     if (fleeBtn) {
       fleeBtn.onclick = () => {
         combatSession.resolved = true;
-        gameState.lastResult = 'Combat disengaged — retreated to safety.';
-        window.renderChoices?.();
-        window.render?.();
+        combatSession.fled = true;
+        resolveCombat(gameState, combatSession);
       };
     }
 
@@ -4210,90 +4339,136 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     if (mercyBtn) {
       mercyBtn.onclick = () => {
         combatSession.resolved = true;
-        gameState.lastResult = 'Chose mercy over violence. The opponent stands down.';
-        window.renderChoices?.();
-        window.render?.();
+        combatSession.mercy = true;
+        resolveCombat(gameState, combatSession);
       };
     }
   }
 
-  // Build dynamic tactical choices based on archetype and combat situation
+  // Resolve combat and return to choice panel
+  function resolveCombat(gameState, combatSession) {
+    if (combatSession.victory) {
+      const totalLoot = (combatSession.enemies || []).reduce((sum, e) => sum + (e.loot?.gold || 5), 0);
+      gameState.gold = (gameState.gold || 0) + totalLoot;
+      gameState.lastResult = `Victory! Combat resolved. You earned ${totalLoot} gold.`;
+      combatSession.log = combatSession.log || [];
+      combatSession.log.unshift('COMBAT WON!');
+    } else if (combatSession.playerDefeated) {
+      gameState.lastResult = 'Defeat. You were overcome. The world darkens...';
+      combatSession.log = combatSession.log || [];
+      combatSession.log.unshift('COMBAT LOST!');
+    } else if (combatSession.fled) {
+      gameState.worldClocks.pressure = (gameState.worldClocks.pressure || 0) + 1;
+      gameState.lastResult = 'You retreated from combat. Pressure increases slightly.';
+      combatSession.log = combatSession.log || [];
+      combatSession.log.unshift('Fled from combat.');
+    } else if (combatSession.mercy) {
+      gameState.lastResult = 'You offered mercy. The opponent stood down.';
+      combatSession.log = combatSession.log || [];
+      combatSession.log.unshift('Combat ended with mercy.');
+    }
+
+    // Clear combat session and restore normal choices
+    gameState.combatSession = null;
+    gameState.encounter = null;
+
+    // Return to choice panel
+    if (window.renderChoices) {
+      window.renderChoices();
+    }
+    if (window.render) {
+      window.render();
+    }
+  }
+
+  // Build tactical choices for player action
   function buildTacticalChoices(gameState, combatSession) {
     const choices = [];
-    const arch = (window.ARCHETYPES || []).find(a => a.id === gameState.archetype) || {};
-    const abilities = ARCHETYPE_ABILITIES[arch.id] || [];
-    
-    // Archetype ability (primary action)
-    if (abilities.length > 0) {
-      const ability = abilities[gameState.dayCount % abilities.length];
-      choices.push({
-        label: `Use ${ability} — unleash archetype power`,
-        tags: ['Ability', 'Primary', arch.group],
-        fn: () => {
-          gameState.lastResult = `${ability} connects! The attack is effective.`;
-          combatSession.round = (combatSession.round || 0) + 1;
-          window.renderCombatUI?.(gameState, combatSession);
-        }
-      });
-    }
 
-    // Range manipulation
-    const distances = ['close', 'medium', 'far', 'very_far'];
-    const currentIdx = distances.indexOf(combatSession.distance);
-    
-    if (currentIdx > 0) {
-      choices.push({
-        label: `Close distance to ${distances[currentIdx - 1].toUpperCase()}`,
-        tags: ['Positioning', 'Movement'],
-        fn: () => {
-          combatSession.distance = distances[currentIdx - 1];
-          gameState.lastResult = `Moved to ${distances[currentIdx - 1]} range for advantage.`;
-          window.renderCombatUI?.(gameState, combatSession);
-        }
-      });
-    }
-    
-    if (currentIdx < distances.length - 1) {
-      choices.push({
-        label: `Increase distance to ${distances[currentIdx + 1].toUpperCase()}`,
-        tags: ['Positioning', 'Movement'],
-        fn: () => {
-          combatSession.distance = distances[currentIdx + 1];
-          gameState.lastResult = `Repositioned to ${distances[currentIdx + 1]} range.`;
-          window.renderCombatUI?.(gameState, combatSession);
-        }
-      });
-    }
-
-    // Tactical maneuver
+    // Attack action
     choices.push({
-      label: `Execute tactical maneuver — attack with advantage`,
-      tags: ['Tactical', 'Attack'],
+      label: 'Attack the enemy',
+      tags: ['Attack', 'Melee'],
       fn: () => {
-        const r = Math.floor(Math.random() * 20) + 1 + (gameState.skills?.combat || 0);
-        const success = r > 12;
-        gameState.lastResult = success ? 
-          `Perfect execution! The tactical maneuver lands decisively.` :
-          `The maneuver partially connects but lacks full impact.`;
-        combatSession.round = (combatSession.round || 0) + 1;
-        window.renderCombatUI?.(gameState, combatSession);
+        const enemies = combatSession.enemies || [];
+        if (enemies.length === 0) return;
+
+        const target = enemies[0];
+        const roll = Math.floor(Math.random() * 20) + 1 + (gameState.skills?.combat || 0);
+        const targetDefense = 10 + (target.defense || 2);
+
+        if (roll >= targetDefense) {
+          const damage = Math.max(1, Math.floor(Math.random() * 8) + 2 + Math.floor((gameState.skills?.combat || 0) / 2));
+          target.hp = Math.max(0, target.hp - damage);
+          const log = `You hit ${target.name} for ${damage} damage!`;
+          combatSession.log = combatSession.log || [];
+          combatSession.log.unshift(log);
+        } else {
+          const log = `Your attack misses!`;
+          combatSession.log = combatSession.log || [];
+          combatSession.log.unshift(log);
+        }
       }
     });
 
-    // Companion support (if companions exist)
-    if (gameState.companions && gameState.companions.length > 0) {
-      const availableComps = gameState.companions.filter(c => !c.injured);
-      if (availableComps.length > 0) {
-        choices.push({
-          label: `Call for companion support — coordinate attack`,
-          tags: ['Coordination', 'Support'],
-          fn: () => {
-            gameState.lastResult = `Companions respond! Coordinated attack increases effectiveness.`;
-            combatSession.round = (combatSession.round || 0) + 1;
-            window.renderCombatUI?.(gameState, combatSession);
-          }
-        });
+    // Close distance action
+    const distances = ['close', 'medium', 'far', 'very_far'];
+    const currentIdx = distances.indexOf(combatSession.distance || 'medium');
+    if (currentIdx > 0) {
+      choices.push({
+        label: `Close to ${distances[currentIdx - 1].toUpperCase()}`,
+        tags: ['Movement', 'Positioning'],
+        fn: () => {
+          combatSession.distance = distances[currentIdx - 1];
+          const log = `You move closer to ${distances[currentIdx - 1]} range.`;
+          combatSession.log = combatSession.log || [];
+          combatSession.log.unshift(log);
+        }
+      });
+    }
+
+    // Increase distance action
+    if (currentIdx < distances.length - 1) {
+      choices.push({
+        label: `Retreat to ${distances[currentIdx + 1].toUpperCase()}`,
+        tags: ['Movement', 'Evasion'],
+        fn: () => {
+          combatSession.distance = distances[currentIdx + 1];
+          const log = `You fall back to ${distances[currentIdx + 1]} range.`;
+          combatSession.log = combatSession.log || [];
+          combatSession.log.unshift(log);
+        }
+      });
+    }
+
+    // Defend action
+    choices.push({
+      label: 'Defend and brace for impact',
+      tags: ['Defense', 'Protect'],
+      fn: () => {
+        combatSession.playerDefending = true;
+        const log = 'You take a defensive stance!';
+        combatSession.log = combatSession.log || [];
+        combatSession.log.unshift(log);
       }
+    });
+
+    // Companion support (if available)
+    if (gameState.companions && gameState.companions.filter(c => !c.injured).length > 0) {
+      choices.push({
+        label: 'Call on companion support',
+        tags: ['Support', 'Coordination'],
+        fn: () => {
+          const damage = Math.floor(Math.random() * 4) + 2;
+          const target = (combatSession.enemies || [])[0];
+          if (target) {
+            target.hp = Math.max(0, target.hp - damage);
+            const log = `Companion strikes! ${damage} damage to ${target.name}.`;
+            combatSession.log = combatSession.log || [];
+            combatSession.log.unshift(log);
+          }
+        }
+      });
     }
 
     return choices;
@@ -4301,8 +4476,8 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
 
   window.renderCombatUI = renderCombatUI;
   window.buildTacticalChoices = buildTacticalChoices;
-  window.ARCHETYPE_ABILITIES = ARCHETYPE_ABILITIES;
-  window.initCombatDistance = initCombatDistance;
+  window.initTacticalCombat = initTacticalCombat;
+  window.nextTurn = nextTurn;
 })();
 
 
@@ -4952,16 +5127,22 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
       enemyName:template.name,
       enemyHp:template.hp+tierMod,
       enemyMaxHp:template.hp+tierMod,
+      enemyTemplate:templateKey,
       enemyAttack:template.attack,
       enemyDefense:template.defense,
       enemyMorale:template.morale,
       tier:tier||'standard',
+      isBoss:tier==='boss',
+      isLaw:templateKey.includes('law')||templateKey.includes('enforce')||templateKey.includes('iron_accord'),
       round:1,
       log:[template.desc+' The confrontation begins.'],
+      distance:'medium',
       stealthOpenerAvailable:arch.group==='stealth'&&G.worldClocks.rival<3,
       surprise:enemySurprised?'enemy':null,
       loot:template.loot||{gold:3,item:null},
-      resolved:false
+      resolved:false,
+      tacticalInitialized:false,
+      playerInitiated:false
     };
     G.recentOutcomeType='combat_start';
     G.encounter=null;
@@ -4976,71 +5157,17 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     G.telemetry.encounters++;
   }
 
+  // Combats choices - DEPRECATED: Now handled by buildTacticalChoices in combat-ui.js
   function combatSessionChoices(){
+    // This function is superseded by combat-ui.js buildTacticalChoices()
+    // Keeping as stub for compatibility
     const cs=G.combatSession;
     if(!cs||cs.resolved) return currentNonCombatChoices();
-    const arch=getArchetype(G.archetype)||{group:'combat'};
-    const group=arch.group||'combat';
-    const abilities=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype]||[]).filter(ab=>(G.skills[ab.skillReq]||0)>=ab.minSkill);
-    const choices=[];
-    // Primary attack — phrased by archetype group
-    const primaryLabels={
-      combat:`Press the line — direct assault on ${cs.enemyName}`,
-      magic:`Cast — channel force into ${cs.enemyName}`,
-      stealth:`Strike from the unseen angle — exploit the gap`,
-      support:`Coordinate the confrontation — direct action against ${cs.enemyName}`
-    };
-    choices.push({label:primaryLabels[group]||primaryLabels.combat,tags:['Combat','Direct'],fn(){
-      resolveCombatRound('attack',null,cs);
-    }});
-    // Magic resource tension: slot tracking
-    if(group==='magic'){
-      if(!cs.spellSlots) cs.spellSlots=3+Math.floor(G.level/4);
-      if(cs.spellSlots>0){
-        choices.push({label:`Spend a spell slot — amplified magical assault (${cs.spellSlots} slots left)`,tags:['Magic','Resource'],fn(){
-          cs.spellSlots--;
-          resolveCombatRound('spell_slot',null,cs);
-        }});
-      } else {
-        choices.push({label:`Spell slots exhausted — improvise a raw magical burst`,tags:['Magic','Desperate'],fn(){
-          resolveCombatRound('spell_raw',null,cs);
-        }});
-      }
+    // Delegate to tactical UI system
+    if(window.buildTacticalChoices){
+      return window.buildTacticalChoices(G, G.combatSession) || [];
     }
-    // Stealth: bypass option
-    if(group==='stealth'){
-      choices.push({label:`Read the engagement — look for a bypass or escape route`,tags:['Stealth','Read'],fn(){
-        advanceTime(1); G.skills.stealth=(G.skills.stealth||0)+1;
-        const bypassRoll=rollD20('stealth',(G.skills.stealth||0)+Math.floor(G.level/3));
-        const success=bypassRoll.isCrit||(bypassRoll.total>=12&&!bypassRoll.isFumble);
-        if(success){
-          cs.stealthOpenerAvailable=true;
-          G.lastResult=`A sightline gap opens. Timing window available — the next strike can come from concealment. Round ${cs.round}.`;
-        } else {
-          G.lastResult=`The engagement does not give a clean angle. ${cs.enemyName} is too aware. Round ${cs.round}.`;
-        }
-        setThreat();setObjective();persist();render();
-      }});
-    }
-    abilities.slice(0,2).forEach(ab=>{
-      choices.push({label:`${ab.name}: ${ab.effect}`,tags:['Combat','Ability'],fn(){
-        resolveCombatRound('ability',ab.id,cs);
-      }});
-    });
-    if(cs.stealthOpenerAvailable){
-      choices.push({label:`Exploit timing window — stealth opener before engagement`,tags:['Stealth','Combat','Opener'],fn(){
-        cs.stealthOpenerAvailable=false;
-        resolveCombatRound('stealth_opener',null,cs);
-      }});
-    }
-    choices.push({label:`Disengage and fall back to the safe zone`,tags:['Retreat','Safe'],fn(){
-      G.combatSession=null; G.encounter=null;
-      G.recentOutcomeType='combat_flee'; advanceTime(1);
-      recordConfrontation('avoidedConflicts');
-      G.lastResult=`Distance gained from ${cs.enemyName}. The safe zone holds for now.`;
-      setThreat();setObjective();persist();render();
-    }});
-    return choices.slice(0,6);
+    return [];
   }
 
   function resolveCombatRound(action,abilityId,cs){

@@ -645,16 +645,22 @@
       enemyName:template.name,
       enemyHp:template.hp+tierMod,
       enemyMaxHp:template.hp+tierMod,
+      enemyTemplate:templateKey,
       enemyAttack:template.attack,
       enemyDefense:template.defense,
       enemyMorale:template.morale,
       tier:tier||'standard',
+      isBoss:tier==='boss',
+      isLaw:templateKey.includes('law')||templateKey.includes('enforce')||templateKey.includes('iron_accord'),
       round:1,
       log:[template.desc+' The confrontation begins.'],
+      distance:'medium',
       stealthOpenerAvailable:arch.group==='stealth'&&G.worldClocks.rival<3,
       surprise:enemySurprised?'enemy':null,
       loot:template.loot||{gold:3,item:null},
-      resolved:false
+      resolved:false,
+      tacticalInitialized:false,
+      playerInitiated:false
     };
     G.recentOutcomeType='combat_start';
     G.encounter=null;
@@ -669,71 +675,17 @@
     G.telemetry.encounters++;
   }
 
+  // Combats choices - DEPRECATED: Now handled by buildTacticalChoices in combat-ui.js
   function combatSessionChoices(){
+    // This function is superseded by combat-ui.js buildTacticalChoices()
+    // Keeping as stub for compatibility
     const cs=G.combatSession;
     if(!cs||cs.resolved) return currentNonCombatChoices();
-    const arch=getArchetype(G.archetype)||{group:'combat'};
-    const group=arch.group||'combat';
-    const abilities=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype]||[]).filter(ab=>(G.skills[ab.skillReq]||0)>=ab.minSkill);
-    const choices=[];
-    // Primary attack — phrased by archetype group
-    const primaryLabels={
-      combat:`Press the line — direct assault on ${cs.enemyName}`,
-      magic:`Cast — channel force into ${cs.enemyName}`,
-      stealth:`Strike from the unseen angle — exploit the gap`,
-      support:`Coordinate the confrontation — direct action against ${cs.enemyName}`
-    };
-    choices.push({label:primaryLabels[group]||primaryLabels.combat,tags:['Combat','Direct'],fn(){
-      resolveCombatRound('attack',null,cs);
-    }});
-    // Magic resource tension: slot tracking
-    if(group==='magic'){
-      if(!cs.spellSlots) cs.spellSlots=3+Math.floor(G.level/4);
-      if(cs.spellSlots>0){
-        choices.push({label:`Spend a spell slot — amplified magical assault (${cs.spellSlots} slots left)`,tags:['Magic','Resource'],fn(){
-          cs.spellSlots--;
-          resolveCombatRound('spell_slot',null,cs);
-        }});
-      } else {
-        choices.push({label:`Spell slots exhausted — improvise a raw magical burst`,tags:['Magic','Desperate'],fn(){
-          resolveCombatRound('spell_raw',null,cs);
-        }});
-      }
+    // Delegate to tactical UI system
+    if(window.buildTacticalChoices){
+      return window.buildTacticalChoices(G, G.combatSession) || [];
     }
-    // Stealth: bypass option
-    if(group==='stealth'){
-      choices.push({label:`Read the engagement — look for a bypass or escape route`,tags:['Stealth','Read'],fn(){
-        advanceTime(1); G.skills.stealth=(G.skills.stealth||0)+1;
-        const bypassRoll=rollD20('stealth',(G.skills.stealth||0)+Math.floor(G.level/3));
-        const success=bypassRoll.isCrit||(bypassRoll.total>=12&&!bypassRoll.isFumble);
-        if(success){
-          cs.stealthOpenerAvailable=true;
-          G.lastResult=`A sightline gap opens. Timing window available — the next strike can come from concealment. Round ${cs.round}.`;
-        } else {
-          G.lastResult=`The engagement does not give a clean angle. ${cs.enemyName} is too aware. Round ${cs.round}.`;
-        }
-        setThreat();setObjective();persist();render();
-      }});
-    }
-    abilities.slice(0,2).forEach(ab=>{
-      choices.push({label:`${ab.name}: ${ab.effect}`,tags:['Combat','Ability'],fn(){
-        resolveCombatRound('ability',ab.id,cs);
-      }});
-    });
-    if(cs.stealthOpenerAvailable){
-      choices.push({label:`Exploit timing window — stealth opener before engagement`,tags:['Stealth','Combat','Opener'],fn(){
-        cs.stealthOpenerAvailable=false;
-        resolveCombatRound('stealth_opener',null,cs);
-      }});
-    }
-    choices.push({label:`Disengage and fall back to the safe zone`,tags:['Retreat','Safe'],fn(){
-      G.combatSession=null; G.encounter=null;
-      G.recentOutcomeType='combat_flee'; advanceTime(1);
-      recordConfrontation('avoidedConflicts');
-      G.lastResult=`Distance gained from ${cs.enemyName}. The safe zone holds for now.`;
-      setThreat();setObjective();persist();render();
-    }});
-    return choices.slice(0,6);
+    return [];
   }
 
   function resolveCombatRound(action,abilityId,cs){
