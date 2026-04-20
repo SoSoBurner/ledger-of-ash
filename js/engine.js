@@ -1036,7 +1036,7 @@
       ...objectiveWebChoices(1).slice(0,2),
       moralAxisChoice(),
       civicAxisChoice(),
-      {label:'Test the current threat directly',tags:['Risky','CreatureCombat'],fn(){ G.telemetry.actions++; startThreatEncounter('standard'); }},
+      {label:'Test the current threat directly',tags:['Risky','Combat','Investigation'],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const r=rollD20('combat',(G.skills.combat||0)+Math.floor(G.level/3)); const success=r.isCrit||(r.total>=12&&!r.isFumble); if(r.isCrit){ G.lastResult=r.flavor+` The threat is read and measured — it is grave but manageable. You understand its weak angles now.`; G.stageProgress[1]++; G.threatAssessment=true; addJournal('assessment',`Critically assessed the threat at ${getLocality(G.location).name}.`,`threat-assess-crit-${G.dayCount}`); addNotice('Critical threat assessment — weakness found'); } else if(success){ G.lastResult=`You read the threat's posture. It is ready, but not yet committed. There is an opening.`; G.stageProgress[1]++; G.threatAssessment=true; addJournal('assessment',`Assessed the threat level successfully.`,`threat-assess-${G.dayCount}`); } else { G.lastResult=`The threat is more immediate than expected. It moves to close the distance.`; G.worldClocks.pressure++; startThreatEncounter('standard'); } maybeStageAdvance(); }},
       {label:'Make camp and recover',tags:['Camp','Rest'],fn(){
         advanceTime(1); G.telemetry.turns++;
         const healed=Math.max(3,Math.floor(G.maxHp*0.25));
@@ -1464,7 +1464,7 @@
     }
     else if(stage===5){
       // Stage 5 gets special handling with more combat encounters
-      arr.push({label:'Commit to the final institutional confrontation',tags:['CreatureCombat','Boss','Final','Institutional'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }});
+      arr.push({label:'Commit to the final institutional confrontation',tags:['CreatureCombat','Boss','Final','Institutional','ForceTacticalUI'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }});
       arr.push({label:'Trigger the climactic hazard that anchors the entire pressure system',tags:['Boss','Final','Hazard'],fn(){ beginEncounter(G,'hazard',G.currentThreat.hazard,'boss'); }});
       arr.push({label:'Execute a coordinated three-pronged attack on institutional strongpoints',tags:['CreatureCombat','Multi-Target','Elite','Final'],fn(){ G.multiTargetCombat=true; startCreatureEncounter('elite'); }});
       arr.push({label:'Unleash a devastating strike on the rival faction leadership',tags:['CreatureCombat','Elite','Rival','Final'],fn(){ startCreatureEncounter('elite'); }});
