@@ -1070,7 +1070,7 @@
     const stealthArchetypes=['rogue','assassin','spellthief','scout','thief','trickster','beastmaster'];
     const supportArchetypes=['healer','artificer','engineer','tactician','alchemist','saint','bard'];
     
-    const choices=[
+    let choices=[
       {label:`Observe ${loc.name} through ${bg.theme}`,tags:['Safe','Observation'],fn(){
         advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; gainXp(1,'careful observation'); G.stageProgress[1]++;
         addJournal('field-note',`Observed ${loc.name} through ${bg.theme}.`,`${bg.id}-observe`); G.recentOutcomeType='observe';
