@@ -2047,6 +2047,7 @@
     fillBg();
   }
   function beginNew(){
+    try {
     G=defaultState();
     G.name=$('newName').value.trim()||'Nameless';
     G.passcode=$('newCode').value.trim() || ('0000'+rand(10000)).slice(-4);
@@ -2088,6 +2089,7 @@
     const ss=$('startScreen'); if(ss) ss.style.display='none';
     const gs=$('gameSection'); if(gs) gs.classList.add('active');
     const nr=$('newRunBtn'); if(nr) nr.style.display='';
+    } catch(e) { console.error('beginNew failed:', e); alert('Error starting game: ' + e.message); }
   }
   function loadLegend(){ 
     const code=$('loadCode').value.trim(); 
@@ -2206,5 +2208,11 @@
   window.trackChoiceAction = trackChoiceAction;
   window.shouldSkipChoice = shouldSkipChoice;
   
-  window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; });
+  window.addEventListener('DOMContentLoaded',()=>{ 
+    try { fillSelectors(); } catch(e) { console.error('fillSelectors failed:', e); }
+    const btn = $('beginBtn');
+    if(btn) btn.onclick = beginNew;
+    const lbtn = $('loadBtn');
+    if(lbtn) lbtn.onclick = loadLegend;
+  });
 })();

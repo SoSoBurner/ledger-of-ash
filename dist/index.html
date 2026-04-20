@@ -270,7 +270,7 @@
 
         <div id='archPreview' class='archPreviewBox'>Select an archetype and background to preview your starting identity.</div>
 
-        <button id='beginBtn' class='btnPrimary'>Begin Legend</button>
+        <button id='beginBtn' class='btnPrimary' onclick='beginNew()'>Begin Legend</button>
       </div>
 
       <div class='createCard'>
@@ -281,7 +281,7 @@
             <input id='loadCode' class='fieldInput' placeholder='4-digit passcode' autocomplete='off'>
           </div>
         </div>
-        <button class='btnSec' id='loadBtn'>Load Legend</button>
+        <button class='btnSec' id='loadBtn' onclick='loadLegend()'>Load Legend</button>
 
         <div class='aboutText'>
           Ledger of Ash is a single-player text RPG. You choose an archetype — combat, magic, stealth, or support — and a background rooted in one of 18 active localities. Stage I is local and personal. Stage II opens into regional consequence. Runs end in the Hall of Legends.
@@ -6543,6 +6543,7 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     fillBg();
   }
   function beginNew(){
+    try {
     G=defaultState();
     G.name=$('newName').value.trim()||'Nameless';
     G.passcode=$('newCode').value.trim() || ('0000'+rand(10000)).slice(-4);
@@ -6584,6 +6585,7 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     const ss=$('startScreen'); if(ss) ss.style.display='none';
     const gs=$('gameSection'); if(gs) gs.classList.add('active');
     const nr=$('newRunBtn'); if(nr) nr.style.display='';
+    } catch(e) { console.error('beginNew failed:', e); alert('Error starting game: ' + e.message); }
   }
   function loadLegend(){ 
     const code=$('loadCode').value.trim(); 
@@ -6702,7 +6704,13 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   window.trackChoiceAction = trackChoiceAction;
   window.shouldSkipChoice = shouldSkipChoice;
   
-  window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; });
+  window.addEventListener('DOMContentLoaded',()=>{ 
+    try { fillSelectors(); } catch(e) { console.error('fillSelectors failed:', e); }
+    const btn = $('beginBtn');
+    if(btn) btn.onclick = beginNew;
+    const lbtn = $('loadBtn');
+    if(lbtn) lbtn.onclick = loadLegend;
+  });
 
 /**
  * SHELKOPOLIS STAGE 1 ENRICHED MEANINGFUL CHOICES
