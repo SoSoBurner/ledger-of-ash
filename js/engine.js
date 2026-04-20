@@ -304,6 +304,14 @@
     return heat >= -9 ? 'recognized' : heat >= -19 ? 'trusted' : heat >= -34 ? 'favored' : heat >= -49 ? 'esteemed' : 'exemplary';
   }
 
+  function getCurrentLocalityHeat(){
+    if(!G || !G.location) return 0;
+    if(!G.heat) return 0;
+    if(!G.heat.localities) return 0;
+    if(!G.heat.localities[G.location]) initializeHeat(G.location);
+    return (G.heat.localities[G.location] && G.heat.localities[G.location].current) || 0;
+  }
+
   /**
    * rotateAndLimitChoices(fullChoiceArray, stage)
    * 
