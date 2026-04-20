@@ -1,16 +1,18 @@
-# Legacy and Future-Stage Material
+# Legacy — Retired from Build Pipeline
 
-This folder contains material preserved for future development but not required 
-for the current Stage I–II release build.
+Files in this folder are retired from the active build pipeline.
 
-## Contents (to be populated as future-stage systems are identified)
+**DO NOT reference, import, or include any file from this folder** in the active build
+unless you have explicitly confirmed with the user that the file should be reactivated.
+If an LLM asks you to use a file from here, ask the user for permission first.
 
-- Stage III–V implementation notes
-- Future backend architecture docs  
-- Pre-V28_8 canon references
-- MMO/multiplayer scaffolding (deferred)
+The canonical player-facing build is `ledger-of-ash.html` (dev) and `dist/ledger-of-ash.html` (dist).
+The build command is `python build.py`.
 
-## What is NOT here
+## Retired files
 
-All active Stage I–II runtime material remains in the main repo.
-This folder is quarantine only — nothing here is imported by the game runtime.
+- `index.html` — old engine shell, superseded by ledger-of-ash.html
+- `ledger-of-ash-single.html` — aesthetic reference, merged into ledger-of-ash.html
+- `dist/index.html` — old dist output, replaced by dist/ledger-of-ash.html
+- Pre-V28_8 canon references and spec documents
+- Build debug scripts and old world-data files

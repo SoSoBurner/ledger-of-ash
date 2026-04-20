@@ -3,22 +3,10 @@ import os
 
 def build():
     os.makedirs('dist', exist_ok=True)
-    
-    # Load all runtime files
-    with open('js/data.js', encoding='utf-8-sig') as f: da = f.read()
-    with open('js/background-locality-map.js', encoding='utf-8-sig') as f: blm = f.read()
-    with open('js/stage2-backgrounds.js', encoding='utf-8-sig') as f: s2bg = f.read()
-    with open('js/narrative.js', encoding='utf-8-sig') as f: na = f.read()
-    with open('js/party.js', encoding='utf-8-sig') as f: pj = f.read()
-    with open('js/combat.js', encoding='utf-8-sig') as f: cb = f.read()
-    with open('js/combat-ui.js', encoding='utf-8-sig') as f: cbui = f.read()
-    with open('js/archetype-skills.js', encoding='utf-8-sig') as f: askills = f.read()
-    with open('js/travel.js', encoding='utf-8-sig') as f: travel = f.read()
-    with open('js/rosalind-fall.js', encoding='utf-8-sig') as f: rosalind = f.read()
-    with open('js/items.js', encoding='utf-8-sig') as f: items = f.read()
-    with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
-    with open('index.html', encoding='utf-8-sig') as f: html = f.read()
-    
+
+    # Read the bridge script
+    with open('js/loa-enriched-bridge.js', encoding='utf-8-sig') as f: bridge = f.read()
+
     # Load enriched choice files (Stage 1 + Stage 2 + Stage 3 + Stage 4 + Stage 5)
     enriched_files = [
         # Stage 1: 12 localities x 20 choices = 240 choices + universal additional choices
@@ -34,7 +22,7 @@ def build():
         'shirshal_stage1_enriched_choices.js',
         'cosmoria_stage1_enriched_choices.js',
         'harvest_circle_stage1_enriched_choices.js',
-        # Additional universal Stage 1 choices to break loops and add variety
+        # Additional universal Stage 1 choices
         'stage1_additional_enriched_choices.js',
         # Bard archetype 3-node mid-spine (Stage 1 consequence chain)
         'bard_midspine.js',
@@ -47,7 +35,7 @@ def build():
         # Stage 5: 45 choices (consequence/payoff)
         'stage5_enriched_choices.js'
     ]
-    
+
     enriched_content = ''
     for filename in enriched_files:
         filepath = os.path.join('.', filename)
@@ -56,47 +44,49 @@ def build():
                 enriched_content += f.read() + '\n'
         else:
             print(f'Warning: {filename} not found, skipping')
-    
-    # Bundle all JS files into a single script content (preserve order: data deps → engine → enriched)
-    # IMPORTANT: engine.js ends with })(); - we need to remove it, add enriched content, then close again
-    en_without_close = en.rstrip()
-    if en_without_close.endswith('})();'):
-        en_without_close = en_without_close[:-5]  # Remove })();
-    
-    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + askills + '\n' + travel + '\n' + rosalind + '\n' + items + '\n' + en_without_close + '\n' + enriched_content + '\n})();'
-    
+
+    # Read ledger-of-ash.html as the template
+    with open('ledger-of-ash.html', encoding='utf-8-sig') as f: html = f.read()
+
+    # Bundle all enriched content + bridge into a single inline script block
+    bundled_script = '<script>\n' + enriched_content + '\n' + bridge + '\n</script>'
+
     out = html
-    # Remove individual script src tags and replace first one with bundled content
-    out = out.replace("<script src='js/data.js'></script>", '<script>' + bundled + '</script>')
-    out = out.replace("<script src='js/background-locality-map.js'></script>", '')
-    out = out.replace("<script src='js/stage2-backgrounds.js'></script>", '')
-    out = out.replace("<script src='js/narrative.js'></script>", '')
-    out = out.replace("<script src='js/party.js'></script>", '')
-    out = out.replace("<script src='js/combat.js'></script>", '')
-    out = out.replace("<script src='js/combat-ui.js'></script>", '')
-    out = out.replace("<script src='js/archetype-skills.js'></script>", '')
-    out = out.replace("<script src='js/travel.js'></script>", '')
-    out = out.replace("<script src='js/rosalind-fall.js'></script>", '')
-    out = out.replace("<script src='js/items.js'></script>", '')
-    out = out.replace("<script src='js/engine.js'></script>", '')
-    
-    # Remove enriched choice script tags (they're bundled now)
+
+    # Replace the external enriched script tags with the bundled block (replace first one found)
+    first_tag = None
+    for filename in enriched_files:
+        tag = f"<script src='{filename}'></script>"
+        if tag in out:
+            if first_tag is None:
+                first_tag = tag
+                out = out.replace(tag, bundled_script, 1)
+            else:
+                out = out.replace(tag, '')
+
+    # If no enriched script tags found, inject before </body>
+    if first_tag is None:
+        out = out.replace('</body>', bundled_script + '\n</body>', 1)
+
+    # Remove the bridge script tag if present
+    out = out.replace("<script src='js/loa-enriched-bridge.js'></script>", '')
+
+    # Remove any remaining enriched script src tags
     for filename in enriched_files:
         out = out.replace(f"<script src='{filename}'></script>", '')
-    
-    with open('dist/index.html', 'w', encoding='utf-8-sig') as f:
+
+    with open('dist/ledger-of-ash.html', 'w', encoding='utf-8-sig') as f:
         f.write(out)
-        
+
     # Copy assets to dist
     import shutil
     if os.path.isdir('assets'):
         dst = 'dist/assets'
         if os.path.exists(dst): shutil.rmtree(dst)
         shutil.copytree('assets', dst)
-        
-    size = os.path.getsize("dist/index.html")
-    print(f'Built: {size:,} bytes ({size//1024} KB)')
+
+    size = os.path.getsize("dist/ledger-of-ash.html")
+    print(f'Built: dist/ledger-of-ash.html — {size:,} bytes ({size//1024} KB)')
 
 if __name__ == '__main__':
     build()
-
