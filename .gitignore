@@ -11,3 +11,4 @@ claude.exe
 dist_base_tmp/
 itch-io-build/
 bundle.min.js
+playtest_results_quick.json
