@@ -1,0 +1,103 @@
+{
+  "side_plot_id": "polity-stage4-succession-fracture",
+  "title": "The Interim Seat",
+  "stage_range": ["IV"],
+  "locality": "Soreheim Proper",
+  "district_or_site": "Civic Chamber, Municipal Registry",
+  "primary_doctrine_rung": "succession",
+  "secondary_doctrine_rung": "ideology",
+  "locality_expression": "The civic seat has been held in 'interim' for four months and the two bodies that should have resolved the succession have each declared the other's process invalid.",
+  "npc_classes": ["official", "enforcer", "scholar", "merchant"],
+  "human_cost": "Without a seated authority, enforcement decisions are being made by junior officers with no chain of accountability — arrests are happening without review, fines are being levied without appeal, and no one can say who authorized any of it.",
+  "circulation_channel": "clerical_network",
+  "clue_families": ["institutional_silence", "testimony_conflict", "document_forgery"],
+  "clue_formats": ["document", "npc_dialogue", "discrepancy_in_records"],
+  "proof_ladder": {
+    "first": "Two separate civic bodies have each issued a notice declaring themselves the legitimate authority during the interim — both notices are posted in the Civic Chamber simultaneously.",
+    "second": "A municipal clerk will confirm that enforcement orders have been issued under a forged interim seal — not either body's seal, but a third seal that no one has formally authorized.",
+    "third": "The third seal traces to a private attorney who has been coordinating with both bodies separately, playing each against the other while collecting fees for advisory services and allowing enforcement to operate without accountability.",
+    "fourth": "The player obtains correspondence between the attorney and an eastern route freight broker — the succession fracture was deliberately prolonged to prevent a seated authority from reviewing the route disruption investigation."
+  },
+  "rumor_bucket": [
+    {
+      "text": "There are two notices on the board in the Chamber. Both say they're the legitimate authority. Both reference the same charter clause. I'm a clerk. I don't know which one I'm supposed to follow.",
+      "source_class": "official",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Examine both notices for inconsistencies in seal or citation",
+      "proof_rung": "first"
+    },
+    {
+      "text": "Enforcement has been operating for four months without a real review chain. I've seen people arrested on orders that nobody's signed off on. Nobody knows whose authority they're acting under.",
+      "source_class": "merchant",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Request to see the enforcement orders — a legal right during interim",
+      "proof_rung": "first"
+    },
+    {
+      "text": "There's a third seal appearing on enforcement orders. Neither body's seal. I checked both registries. No record of a third interim authority being established.",
+      "source_class": "scholar",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Find someone who knows the seals — a notary or senior clerk",
+      "proof_rung": "second"
+    },
+    {
+      "text": "The attorney Halversen has been billing both bodies for advisory services during the interim. Both believe he's working exclusively for them. Neither knows about the other.",
+      "source_class": "official",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Find Halversen — he operates from the Municipal Registry annex",
+      "proof_rung": "third"
+    },
+    {
+      "text": "The succession should have been resolved in the first month. There are clear charter protocols. Someone has an interest in this staying unresolved. That means someone benefits from no seated authority.",
+      "source_class": "scholar",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Identify who benefits from enforcement without accountability — follow the eastern route investigation timeline",
+      "proof_rung": "third"
+    },
+    {
+      "text": "Halversen keeps his personal correspondence in a locked cabinet in the annex. He leaves for the Chamber every morning at the eighth bell. He's alone in the annex until then.",
+      "source_class": "enforcer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Access the annex correspondence before the eighth bell",
+      "proof_rung": "fourth"
+    }
+  ],
+  "rosalind_relevance": "The succession fracture prevented a review of the eastern route disruption that would have occurred under a seated authority. Rosalind's operation may have required this window — or may have caused the fracture.",
+  "criminal_relevance": "The correspondence between Halversen and the freight broker establishes a direct connection between the succession manipulation and the eastern route disruption. This is the closest the player comes to the main campaign source.",
+  "meaningful_choice_pressures": [
+    "Resolving the succession requires choosing which body to support — both have legitimate and illegitimate aspects; supporting either one fully will create powerful enemies in Stage V who control enforcement.",
+    "The attorney Halversen is culpable but also holds information about the route disruption that he will only share in exchange for leniency; choosing to prosecute fully means losing the intelligence."
+  ],
+  "resolution_states": [
+    {
+      "state": "exposed",
+      "condition": "Player presents Halversen's correspondence to a Polity representative above both local bodies",
+      "consequence": "Halversen is removed; a Polity arbitrator seats the legitimate authority; enforcement orders from the interim period are reviewed; the eastern route investigation resumes with proper oversight"
+    },
+    {
+      "state": "suppressed",
+      "condition": "Player does not reach the correspondence or chooses not to escalate",
+      "consequence": "The fracture continues into Stage V; enforcement without accountability persists; the route investigation is permanently blocked at the local level"
+    },
+    {
+      "state": "collapsed",
+      "condition": "Player exposes Halversen but neither body accepts the Polity arbitrator's authority",
+      "consequence": "The civic structure in Soreheim fractures; enforcement dissolves; Stage V begins with the locality in institutional crisis and no legitimate enforcement chain"
+    },
+    {
+      "state": "redirected",
+      "condition": "Player brokers a private agreement between the two bodies without exposing Halversen, in exchange for information",
+      "consequence": "The succession resolves; Halversen remains free; the freight broker connection is known to the player but not on record; Stage V begins with an authority who owes the player a debt"
+    }
+  ],
+  "main_campaign_tieback": "The correspondence in Halversen's cabinet is the most direct evidence available that the eastern route disruption was coordinated with the succession fracture — it establishes intent and a named actor.",
+  "next_stage_hook": "The freight broker named in the correspondence is the Stage V antagonist's proxy. Knowing that name before Stage V begins changes how the final confrontation plays out.",
+  "combat_or_hazard_pressure": "If the player is caught accessing Halversen's annex, enforcement officers operating under the forged seal will detain them — no official oversight, no appeal process. Heat +3, warrant activated.",
+  "memorial_tags": ["broke the Soreheim succession fracture", "named the broker behind the interim manipulation", "unseated Halversen"]
+}

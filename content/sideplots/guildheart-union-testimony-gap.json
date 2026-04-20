@@ -1,0 +1,98 @@
+{
+  "side_plot_id": "guildheart-union-testimony-gap",
+  "title": "The Blank Witness",
+  "stage_range": ["II", "III"],
+  "locality": "Guildheart Hub",
+  "district_or_site": "Guild Registry Office, labor halls",
+  "primary_doctrine_rung": "institution",
+  "secondary_doctrine_rung": "community",
+  "locality_expression": "The guild labor board is full but the halls are half empty, and the workers who are listed won't say where the others went.",
+  "npc_classes": ["laborer", "official", "merchant", "scholar"],
+  "human_cost": "Guild members who filed complaints about route work conditions were removed from the active registry — they exist on paper but receive no assignments, no pay, and no official acknowledgment that they were ever employed.",
+  "circulation_channel": "guild_whisper",
+  "clue_families": ["named_npc_gap", "institutional_silence", "testimony_conflict"],
+  "clue_formats": ["npc_dialogue", "discrepancy_in_records", "overheard"],
+  "proof_ladder": {
+    "first": "Workers who are listed on the guild board claim not to know workers the player has met before — the missing workers' names have been removed from active rosters.",
+    "second": "A guild registry clerk shows the player that three workers filed formal complaints two months ago; all three are now listed as 'inactive status, voluntary' with no further record.",
+    "third": "One of the three inactive workers can be found in the city and will confirm they did not voluntarily leave — they were told their complaint had been reviewed and found invalid, and then their assignments stopped.",
+    "fourth": "The player recovers the original complaint documents from a clerk who kept a personal copy — the complaints name a guild supervisor and describe systematic unsafe conditions on the eastern route labor contracts."
+  },
+  "rumor_bucket": [
+    {
+      "text": "There were people I worked with last season who aren't on the board this year. When I ask the registry they say voluntary inactive. All three of them? At the same time?",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Check the guild labor board against prior season rosters",
+      "proof_rung": "first"
+    },
+    {
+      "text": "The guild's been very quiet about the eastern route contracts this season. Nobody talks about them in the halls anymore. That didn't used to be the case.",
+      "source_class": "laborer",
+      "confidence": "medium",
+      "distortion": "none",
+      "pull_direction": "Ask about the eastern route contracts specifically in the halls",
+      "proof_rung": "first"
+    },
+    {
+      "text": "I know for a fact Maret filed a complaint. She told me about it. The guild said it was reviewed and closed. Then she stopped getting work. That's not a coincidence.",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Find the complaint records at the guild registry",
+      "proof_rung": "second"
+    },
+    {
+      "text": "The registry has two categories for inactive — voluntary and disciplinary. Neither of them requires notifying the member. They can just stop your assignments and call it voluntary and there's nothing you can do.",
+      "source_class": "scholar",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Find a member who was involuntarily inactivated and is still in the city",
+      "proof_rung": "second"
+    },
+    {
+      "text": "There's a woman who used to work the eastern route contracts. She's still in the Hub, selling mended clothes near the south market. She doesn't work through the guild anymore.",
+      "source_class": "outcast",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Find the woman at the south market",
+      "proof_rung": "third"
+    },
+    {
+      "text": "The complaints those workers filed — I've heard they mentioned specific conditions on eastern route work. Unsafe. Underpaid. That's something the guild leadership would want gone before an official review.",
+      "source_class": "official",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Locate the original complaint documents — a clerk may have kept copies outside the official registry",
+      "proof_rung": "fourth"
+    }
+  ],
+  "rosalind_relevance": "The eastern route contracts described in the complaints are part of the same labor network Rosalind's operation relied on. The conditions described may explain how workers were coerced into silence about what moved on that route.",
+  "criminal_relevance": "The complaints reference specific cargo handling conditions that would have made it possible to move unregistered goods without worker testimony. The suppression of the complaints is suppression of potential witnesses.",
+  "meaningful_choice_pressures": [
+    "The inactive workers want to be reinstated, but the only way to achieve that is to challenge the guild supervisor named in the complaints — who also controls the work assignments of everyone the player might need as allies in Stage III.",
+    "The clerk who kept personal copies of the complaint documents did so in violation of guild protocol; using those documents exposes the clerk to discipline, and they will only provide them if the player can guarantee their protection."
+  ],
+  "resolution_states": [
+    {
+      "state": "exposed",
+      "condition": "Player presents original complaint documents to the guild oversight body or a Polity representative",
+      "consequence": "The supervisor is suspended; the three workers are reinstated to active status; the eastern route contracts come under official review in Stage III"
+    },
+    {
+      "state": "suppressed",
+      "condition": "Player does not locate the inactive workers or does not obtain the original documents",
+      "consequence": "The complaint suppression continues; the supervisor retains control; the eastern route labor conditions are never officially documented"
+    },
+    {
+      "state": "absorbed",
+      "condition": "Player exposes the supervisor but the guild oversight body closes the matter internally without reinstatement",
+      "consequence": "The supervisor is moved to a different role; the inactive workers remain inactive; the complaints are re-filed as reviewed and valid but no remedy is issued"
+    }
+  ],
+  "main_campaign_tieback": "The suppressed complaints describe what was happening on the eastern route labor contracts. They are direct testimony about the conditions that preceded the route going wrong.",
+  "next_stage_hook": "In Stage III, the guild supervisor appears in a Polity review of the eastern route contracts — if exposed in Stage II, they are a hostile witness; if not exposed, they are a cooperative one who continues the cover-up.",
+  "combat_or_hazard_pressure": "If the player is seen speaking with the inactive workers near the south market, a guild enforcer will approach and make clear that the conversation should not continue.",
+  "memorial_tags": ["restored the erased workers to the Guildheart registry", "brought the eastern route complaints into evidence"]
+}

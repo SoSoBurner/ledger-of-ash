@@ -1,0 +1,98 @@
+{
+  "side_plot_id": "shelk-fairhaven-ledger-shadow",
+  "title": "The Shadow Ledger",
+  "stage_range": ["I", "II"],
+  "locality": "Shelkopolis",
+  "district_or_site": "Permit Registry, Clerks' Quarter",
+  "primary_doctrine_rung": "circulation",
+  "secondary_doctrine_rung": "institution",
+  "locality_expression": "Permit counters are backed up three days and the clerks are not meeting anyone's eyes.",
+  "npc_classes": ["merchant", "cleric", "official", "laborer"],
+  "human_cost": "Porters and transit workers are being held without pay at the checkpoint while their manifests are 'under review' — some have been waiting four days.",
+  "circulation_channel": "merchant_corridor",
+  "clue_families": ["ledger_discrepancy", "document_forgery", "displaced_labor"],
+  "clue_formats": ["discrepancy_in_records", "npc_dialogue", "physical_evidence"],
+  "proof_ladder": {
+    "first": "Cargo manifests for the eastern corridor are taking three times longer to clear than six weeks ago, and no official reason has been posted.",
+    "second": "A porter shows you two copies of the same manifest — one stamped cleared, one stamped under review — with different cargo weights on each.",
+    "third": "A junior clerk at the Permits Registry will confirm, off the record, that a senior registry official has been issuing parallel seals for a fee — one real, one for the review queue.",
+    "fourth": "You hold the senior official's private ledger, recovered from a drop location in the Clerks' Quarter — it contains names, dates, amounts, and the alternate seal imprint."
+  },
+  "rumor_bucket": [
+    {
+      "text": "Three merchants I know personally have had their eastern manifests pulled into review. Nobody's getting a straight answer from the window clerks. Something changed at the top.",
+      "source_class": "merchant",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Permit Registry counter, Clerks' Quarter",
+      "proof_rung": "first"
+    },
+    {
+      "text": "I heard the delays are because the eastern route inspection standards changed. New compliance order from the Polity. Very official. Very sudden.",
+      "source_class": "official",
+      "confidence": "medium",
+      "distortion": "medium",
+      "pull_direction": "Ask to see the compliance order — it may not exist",
+      "proof_rung": "first"
+    },
+    {
+      "text": "My cousin's a porter, been sitting at the gate since Tuesday. Manifest says cleared, but the gate copy says review. He can't get anyone to explain the difference.",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "low",
+      "pull_direction": "Speak to the porter directly, or examine both manifest copies",
+      "proof_rung": "second"
+    },
+    {
+      "text": "Someone at the registry is running two books. I've seen this before in Fairhaven — someone takes a cut to move cargo to the fast queue. The slow queue is for everyone who won't pay.",
+      "source_class": "merchant",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Find the clerk who processes eastern manifests personally",
+      "proof_rung": "second"
+    },
+    {
+      "text": "There's a junior clerk at the Permits window who keeps looking over his shoulder. He's not the problem — he knows the problem and he's scared of it.",
+      "source_class": "outcast",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Approach the junior clerk when he is not at the window",
+      "proof_rung": "third"
+    },
+    {
+      "text": "The senior man at Permits has a private arrangement with a freight broker on the Fairhaven road. The arrangement has a price list. I don't know where he keeps it.",
+      "source_class": "cleric",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Look for a drop location in the Clerks' Quarter — scribes often use the same three spots",
+      "proof_rung": "fourth"
+    }
+  ],
+  "rosalind_relevance": "Rosalind's contact in Shelkopolis used the eastern manifest system to move information. If the system is compromised, her contact may be exposed or already detained.",
+  "criminal_relevance": "The eastern route disruption that opened this investigation runs through the same manifest system. The shadow ledger may contain cargo entries that explain what actually moved on that route.",
+  "meaningful_choice_pressures": [
+    "The junior clerk will only talk if the player promises to keep his name out of any report — but the fourth-rung proof requires naming him as a witness.",
+    "The shadow ledger names several merchants who paid for the fast queue — exposing it fully exposes them too, including some who had no knowledge the system was corrupt."
+  ],
+  "resolution_states": [
+    {
+      "state": "exposed",
+      "condition": "Player reaches fourth proof rung and presents the ledger to a non-compromised institutional body",
+      "consequence": "The senior registry official is removed; manifest processing normalizes within days; the eastern route re-opens to legitimate traffic"
+    },
+    {
+      "state": "suppressed",
+      "condition": "Player does not reach third proof rung or chooses not to act on the evidence",
+      "consequence": "The shadow ledger system continues; heat in Shelkopolis rises slowly over the following stage; displaced labor accumulates"
+    },
+    {
+      "state": "absorbed",
+      "condition": "Player exposes the official but the institution covers the merchant names and does not reform the system",
+      "consequence": "One official is replaced; the fee structure continues under a new face; the junior clerk disappears from the Registry"
+    }
+  ],
+  "main_campaign_tieback": "The manifest system is one of the primary data trails for what moved on the eastern route before it went wrong. Exposing it reveals cargo records that would otherwise be inaccessible.",
+  "next_stage_hook": "The freight broker on the Fairhaven road appears in Stage II as an NPC with knowledge of the route collapse — they were paid to keep quiet.",
+  "combat_or_hazard_pressure": "If the player is spotted copying manifest records, the senior official can trigger an enforcement call. Heat +2.",
+  "memorial_tags": ["exposed the Shelkopolis shadow ledger", "cleared the eastern manifest queue"]
+}

@@ -141,6 +141,8 @@
       postCombatResolution:null,
       enforcementState:null,
       enforcementCooldown:0,
+      sidePlotProgress:{},
+      sidePlotResolutions:{},
       recentOutcomeType:null,
       uiState:{activeLayer:'story'},
       codex:{npcs:{},localities:{},creatures:{},hazards:{},institutions:{}},
@@ -1878,7 +1880,7 @@
     setObjective();
   }
 
-  function currentNonCombatChoices(){ if(G.stage===1) return stage1Choices(); if(G.stage===2) return stage2Choices(); if(G.stage===3) return stage3to5Choices(3); if(G.stage===4) return stage3to5Choices(4); return stage3to5Choices(5); }
+  function currentNonCombatChoices(){ let base; if(G.stage===1) base=stage1Choices(); else if(G.stage===2) base=stage2Choices(); else if(G.stage===3) base=stage3to5Choices(3); else if(G.stage===4) base=stage3to5Choices(4); else base=stage3to5Choices(5); return injectSidePlotChoices(base); }
   
   function combatSessionChoices(){
     // Use enhanced tactical choices if available (from combat-ui.js)
@@ -2416,6 +2418,8 @@
     if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}};
     if(G.enforcementState===undefined) G.enforcementState=null;
     if(!G.enforcementCooldown) G.enforcementCooldown=0;
+    if(!G.sidePlotProgress) G.sidePlotProgress={};
+    if(!G.sidePlotResolutions) G.sidePlotResolutions={};
     // Migrate raw locality heat numbers to object form
     for(const id in G.heat.localities){
       if(typeof G.heat.localities[id]==='number'){
@@ -2512,7 +2516,101 @@
     return false;
   }
   
+  // ── SIDE-PLOT REGISTRY ────────────────────────────────────
+  const SIDE_PLOT_REGISTRY = {};
+
+  function loadSidePlots(packets) {
+    for (const p of packets) {
+      if (p && p.side_plot_id) SIDE_PLOT_REGISTRY[p.side_plot_id] = p;
+    }
+  }
+
+  function getActiveSidePlots(localityId, stage) {
+    const loc = getLocality(localityId);
+    const localityName = loc ? loc.name : localityId;
+    const stageRoman = ['', 'I', 'II', 'III', 'IV', 'V'][stage] || String(stage);
+    return Object.values(SIDE_PLOT_REGISTRY).filter(p =>
+      p.locality === localityName &&
+      Array.isArray(p.stage_range) &&
+      p.stage_range.includes(stageRoman)
+    );
+  }
+
+  function getSidePlotProofRung(plotId) {
+    if (!G.sidePlotProgress) G.sidePlotProgress = {};
+    return G.sidePlotProgress[plotId] || 'first';
+  }
+
+  function advanceSidePlotProof(plotId) {
+    if (!G.sidePlotProgress) G.sidePlotProgress = {};
+    const rungs = ['first', 'second', 'third', 'fourth'];
+    const current = G.sidePlotProgress[plotId] || 'first';
+    const idx = rungs.indexOf(current);
+    if (idx < rungs.length - 1) G.sidePlotProgress[plotId] = rungs[idx + 1];
+  }
+
+  function buildSidePlotInvestigationChoice(plot) {
+    const rung = getSidePlotProofRung(plot.side_plot_id);
+    const rumor = (plot.rumor_bucket || []).find(r => r.proof_rung === rung);
+    if (!rumor) return null;
+    const doctrineThemeMap = {
+      subsistence: 'theme:survival',
+      community: 'theme:social',
+      circulation: 'theme:route',
+      institution: 'theme:institutional',
+      polity: 'theme:institutional',
+      ideology: 'theme:finale',
+      succession: 'theme:finale'
+    };
+    const themeTag = doctrineThemeMap[plot.primary_doctrine_rung] || 'theme:investigation';
+    return {
+      text: `[Investigate] ${rumor.text.slice(0, 80)}${rumor.text.length > 80 ? '…' : ''}`,
+      mechanicTags: ['investigation'],
+      themeTags: [themeTag],
+      routingTags: [],
+      xpType: 'meaningful',
+      xpReward: 15,
+      fn() {
+        advanceSidePlotProof(plot.side_plot_id);
+        const nextRung = getSidePlotProofRung(plot.side_plot_id);
+        const nextRumor = (plot.rumor_bucket || []).find(r => r.proof_rung === nextRung);
+        G.lastResult = rumor.text;
+        if (nextRumor && nextRung !== rung) {
+          G.lastResult += `\n\n${nextRumor.pull_direction ? `Follow-up: ${nextRumor.pull_direction}` : ''}`;
+        }
+        if (nextRung === rung) {
+          G.lastResult += '\n\nYou have gathered everything there is to find here.';
+          if (!G.sidePlotResolutions) G.sidePlotResolutions = {};
+          if (!G.sidePlotResolutions[plot.side_plot_id]) {
+            G.sidePlotResolutions[plot.side_plot_id] = 'fourth_reached';
+            markMoment(`Reached full proof in: ${plot.title}`);
+          }
+        }
+        gainXp(15);
+        advanceTime(1);
+        persist();
+        render();
+      }
+    };
+  }
+
+  function injectSidePlotChoices(baseChoices) {
+    if (!G || !G.location || !G.stage) return baseChoices;
+    const active = getActiveSidePlots(G.location, G.stage);
+    const injected = active
+      .filter(p => {
+        const res = (G.sidePlotResolutions || {})[p.side_plot_id];
+        return res !== 'fourth_reached' && res !== 'suppressed';
+      })
+      .map(buildSidePlotInvestigationChoice)
+      .filter(Boolean);
+    return [...baseChoices, ...injected];
+  }
+
   // ── EXPORT ADDITIONAL FUNCTIONS TO WINDOW ──
+  window.loadSidePlots = loadSidePlots;
+  window.getActiveSidePlots = getActiveSidePlots;
+  window.SIDE_PLOT_REGISTRY = SIDE_PLOT_REGISTRY;
   window.normalizeChoiceTags = normalizeChoiceTags;
   window.hasThemeTag = hasThemeTag;
   window.hasMechanicTag = hasMechanicTag;

@@ -1,0 +1,98 @@
+{
+  "side_plot_id": "cosmoria-harbor-weight-fraud",
+  "title": "The False Tide",
+  "stage_range": ["I", "II"],
+  "locality": "Cosmoria",
+  "district_or_site": "Harbor Ring, Weighmaster's Dock",
+  "primary_doctrine_rung": "circulation",
+  "secondary_doctrine_rung": "polity",
+  "locality_expression": "Cargo ships are departing at low tide without weighmaster certification, and the dock register is three days behind.",
+  "npc_classes": ["merchant", "enforcer", "laborer", "official"],
+  "human_cost": "Dock laborers are being paid by registered weight, and the false weights mean they receive a fraction of what they're owed for the actual cargo they moved.",
+  "circulation_channel": "labor_circuit",
+  "clue_families": ["ledger_discrepancy", "route_anomaly", "physical_trace"],
+  "clue_formats": ["discrepancy_in_records", "physical_evidence", "overheard"],
+  "proof_ladder": {
+    "first": "Ships have been leaving the harbor without the usual weighmaster seal on their departure papers — dock workers notice but no one has filed a complaint.",
+    "second": "A dock laborer shows you the weight discrepancy in their pay packet against the registered tonnage — the registered tonnage is 30% below what they physically moved.",
+    "third": "The weighmaster's private log — kept separate from the official register — shows actual weights that match the laborers' testimony; the official register has been systematically understated.",
+    "fourth": "You recover a cargo receipt from a departing ship that matches neither register — it shows the true weight, the buyer's name, and a notation that the Polity harbor tax was calculated on the false weight."
+  },
+  "rumor_bucket": [
+    {
+      "text": "Third ship this week left without a weighmaster stamp. Departure papers said weight verified but nobody was at the dock when she went out.",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Check departure papers at the harbor master's office",
+      "proof_rung": "first"
+    },
+    {
+      "text": "There's been a lot of cargo moving at low tide lately. Midnight departures. Nobody asks questions about weight at midnight.",
+      "source_class": "merchant",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Observe the harbor at low tide",
+      "proof_rung": "first"
+    },
+    {
+      "text": "My pay last week was twenty percent short. The dock foreman says my tonnage count was wrong. My tonnage count has never been wrong in three years.",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Find other workers with the same pay discrepancy",
+      "proof_rung": "second"
+    },
+    {
+      "text": "The weighmaster keeps two books. I've seen him carry the second one to the Harbor Ring tavern on Tuesdays. He never brings it to the dock.",
+      "source_class": "enforcer",
+      "confidence": "medium",
+      "distortion": "none",
+      "pull_direction": "Find the weighmaster's second log — the Harbor Ring tavern or his private quarters",
+      "proof_rung": "third"
+    },
+    {
+      "text": "Rope burn on the starboard mooring post at Dock Seven doesn't match a ship that size. Whatever left that post last week was heavier than the register says.",
+      "source_class": "outcast",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Examine the physical trace at Dock Seven before it weathers away",
+      "proof_rung": "third"
+    },
+    {
+      "text": "The harbor tax is collected on registered weight. If someone is shaving the register, the Polity is being underpaid. That's not just fraud — that's a charter violation.",
+      "source_class": "official",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Obtain a cargo receipt from one of the affected ships — they're legally required to carry one",
+      "proof_rung": "fourth"
+    }
+  ],
+  "rosalind_relevance": "Rosalind's supply lines ran through Cosmoria harbor. If the register has been falsified for the past six weeks, the timeline overlaps with when the eastern route went wrong — some of that cargo may have moved through here.",
+  "criminal_relevance": "The understated cargo weight on departure papers is the same mechanism used to move unregistered goods on the eastern route. Cosmoria harbor may be a transit point.",
+  "meaningful_choice_pressures": [
+    "The dock laborers who are owed back pay need the fraud exposed to recover what they're owed, but if the Polity investigates the charter violation, the entire harbor operation shuts down during review — putting everyone out of work in the interim.",
+    "The harbor master may not be involved in the fraud — the weighmaster may have acted alone — but the harbor master signed off on the departure papers; exposing the full chain implicates someone who may be a useful ally."
+  ],
+  "resolution_states": [
+    {
+      "state": "exposed",
+      "condition": "Player presents cargo receipt and private log to a Polity representative or the harbor master's superior",
+      "consequence": "Weighmaster is removed; dock laborers receive a partial back pay settlement; harbor tax discrepancy triggers a Polity audit that increases scrutiny in Stage II"
+    },
+    {
+      "state": "suppressed",
+      "condition": "Player does not find the private log or chooses not to escalate",
+      "consequence": "Fraud continues; labor dissatisfaction rises; the dock community loses trust in any official weight process"
+    },
+    {
+      "state": "absorbed",
+      "condition": "Player exposes the weighmaster but the Polity rep suppresses the charter violation finding to avoid the audit",
+      "consequence": "Weighmaster is replaced; the false weight system continues under different management; the route anomaly remains active in Stage II"
+    }
+  ],
+  "main_campaign_tieback": "The same departure papers that carry false weights also carry cargo descriptions. A full audit of the register would reveal what cargo was moving on the eastern route without proper documentation.",
+  "next_stage_hook": "In Stage II, the Polity audit triggered by a full exposure creates pressure on every merchant who moved goods through Cosmoria — including some who are witnesses to the main campaign event.",
+  "combat_or_hazard_pressure": "The weighmaster has protection from one of the harbor freight houses. If the player is seen examining the mooring posts or the private log, a freight enforcer may confront them.",
+  "memorial_tags": ["broke the Cosmoria weight fraud", "won back pay for the harbor workers"]
+}

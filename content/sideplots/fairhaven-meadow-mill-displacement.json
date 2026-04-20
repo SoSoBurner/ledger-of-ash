@@ -1,0 +1,90 @@
+{
+  "side_plot_id": "fairhaven-meadow-mill-displacement",
+  "title": "The Night Mill",
+  "stage_range": ["I"],
+  "locality": "Fairhaven",
+  "district_or_site": "Outer mill row, Meadow access road",
+  "primary_doctrine_rung": "subsistence",
+  "secondary_doctrine_rung": "community",
+  "locality_expression": "The mill is running at night and the workers on shift are not the regular crew.",
+  "npc_classes": ["laborer", "merchant", "outcast", "enforcer"],
+  "human_cost": "The regular mill workers — families who've held those contracts for years — have been told there's no work this week, while the mill runs double shifts with unknown labor.",
+  "circulation_channel": "labor_circuit",
+  "clue_families": ["displaced_labor", "missing_person", "physical_trace"],
+  "clue_formats": ["overheard", "physical_evidence", "npc_dialogue"],
+  "proof_ladder": {
+    "first": "The mill is visibly operating at night but the regular mill workers are sitting idle at home — no explanation has been given to them.",
+    "second": "A regular worker shows you the mill's labor board — the night shift names are not Fairhaven residents; one name appears that matches a missing persons report from the Meadow district.",
+    "third": "Physical trace: the mill's waste channel is running a different color than usual — a dye or process material that the mill's stated product does not require.",
+    "fourth": "A displaced laborer who found night work through a back channel will name the contractor who brought the replacement crew — a freight agent operating out of the Shelkopolis corridor."
+  },
+  "rumor_bucket": [
+    {
+      "text": "I've worked the mill for six years. Three days ago they told me no work this week, come back Monday. The mill ran all night Tuesday. I could hear it.",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Observe the mill at night, or speak to other displaced workers",
+      "proof_rung": "first"
+    },
+    {
+      "text": "Heard the mill owner got a contract from outside — some freight arrangement, not the usual grain work. Different material, different people.",
+      "source_class": "merchant",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Ask the mill owner about the contract, or find the labor board",
+      "proof_rung": "first"
+    },
+    {
+      "text": "My neighbor's name is on the night shift board but she hasn't been seen in four days. Her family thinks she went to the mill. The mill says they don't know her.",
+      "source_class": "laborer",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Cross-reference the labor board names with Meadow district residents",
+      "proof_rung": "second"
+    },
+    {
+      "text": "The waste channel behind the outer mill smells wrong. Not grain chaff. Something with color to it — I don't know what they're processing but it's not flour.",
+      "source_class": "outcast",
+      "confidence": "high",
+      "distortion": "none",
+      "pull_direction": "Examine the waste channel physically",
+      "proof_rung": "third"
+    },
+    {
+      "text": "There's a freight agent who comes through the Meadow road with work for people who don't ask questions. Pays in kind. Brings his own crew but sometimes needs local bodies to fill gaps.",
+      "source_class": "outcast",
+      "confidence": "medium",
+      "distortion": "low",
+      "pull_direction": "Find someone who took work through this agent",
+      "proof_rung": "fourth"
+    }
+  ],
+  "rosalind_relevance": "If the contractor is connected to the Shelkopolis corridor, the materials being processed may relate to the eastern route disruption — irregular cargo that needed to move without a manifest.",
+  "criminal_relevance": "The freight agent operating through Fairhaven uses the same movement pattern as the shadow ledger network in Shelkopolis. Both are symptoms of the same rerouting.",
+  "meaningful_choice_pressures": [
+    "The displaced workers need the mill contract back, but exposing the night operation means the contract — and whatever is being produced — gets scrutinized, potentially implicating the mill owner who may not have known what the contractor was doing.",
+    "The missing neighbor is likely alive but has been moved to another site; finding her requires following the contractor's network, which takes the player away from Fairhaven and deeper into the route disruption."
+  ],
+  "resolution_states": [
+    {
+      "state": "exposed",
+      "condition": "Player identifies the contractor and presents physical trace evidence to a non-compromised official or guild representative",
+      "consequence": "Night operation shuts down; regular workers recover their contracts; the missing neighbor's location can be found in Stage II"
+    },
+    {
+      "state": "suppressed",
+      "condition": "Player does not investigate the physical trace or is bought off",
+      "consequence": "Night operation continues; missing person count rises; the Fairhaven labor community fragments as workers stop trusting each other"
+    },
+    {
+      "state": "redirected",
+      "condition": "Player exposes the operation but the contractor moves it to Glasswake Commune before enforcement arrives",
+      "consequence": "Fairhaven stabilizes; the problem resurfaces in Stage II at Glasswake"
+    }
+  ],
+  "main_campaign_tieback": "The freight agent is a downstream node in the network responsible for the eastern route disruption. Finding them is a traceable step toward the main campaign's source.",
+  "next_stage_hook": "In Stage II, the missing neighbor appears as a potential witness — if the player can reach her before she is moved again.",
+  "combat_or_hazard_pressure": "The night crew is not local and will not hesitate to remove witnesses. If the player is observed at the waste channel, the contractor may send two enforcers.",
+  "memorial_tags": ["uncovered the Fairhaven night mill", "found the missing from the Meadow district"]
+}
