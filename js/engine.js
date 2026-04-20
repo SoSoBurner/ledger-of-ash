@@ -2206,5 +2206,5 @@
   window.trackChoiceAction = trackChoiceAction;
   window.shouldSkipChoice = shouldSkipChoice;
   
-  window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
+  window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; });
 })();
