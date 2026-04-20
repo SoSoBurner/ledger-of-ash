@@ -32,6 +32,8 @@ def build():
         'harvest_circle_stage1_enriched_choices.js',
         # Additional universal Stage 1 choices to break loops and add variety
         'stage1_additional_enriched_choices.js',
+        # Bard archetype 3-node mid-spine (Stage 1 consequence chain)
+        'bard_midspine.js',
         # Stage 2: 45 choices
         'stage2_enriched_choices.js',
         # Stage 3: 60 choices (institutional investigation)

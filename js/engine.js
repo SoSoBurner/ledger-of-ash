@@ -1867,7 +1867,20 @@
     setObjective();
   }
 
-  function currentNonCombatChoices(){ let base; if(G.stage===1) base=stage1Choices(); else if(G.stage===2) base=stage2Choices(); else if(G.stage===3) base=stage3to5Choices(3); else if(G.stage===4) base=stage3to5Choices(4); else base=stage3to5Choices(5); return injectSidePlotChoices(base); }
+  function injectArchetypeMidSpineChoices(choices){
+    if(!G || G.stage!==1) return choices;
+    const nodes=window.BARD_MIDSPINE_NODES;
+    if(!nodes || G.archetype!=='bard') return choices;
+    const sig=G.signals||{};
+    const node=
+      !sig.bardSpine               ? nodes[0] :
+      sig.bardSpine==='voice_found'   ? nodes[1] :
+      sig.bardSpine==='thread_pulled' ? nodes[2] :
+      null;
+    return node ? [...choices, node] : choices;
+  }
+
+  function currentNonCombatChoices(){ let base; if(G.stage===1) base=stage1Choices(); else if(G.stage===2) base=stage2Choices(); else if(G.stage===3) base=stage3to5Choices(3); else if(G.stage===4) base=stage3to5Choices(4); else base=stage3to5Choices(5); return injectArchetypeMidSpineChoices(injectSidePlotChoices(base)); }
   
   function combatSessionChoices(){
     // Use enhanced tactical choices if available (from combat-ui.js)
