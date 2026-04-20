@@ -1,4 +1,4 @@
-// Travel System — node-to-node travel with mode options, horse acquisition, stage gates, and encounters
+// Travel System — route_matrix-driven travel with district sub-navigation and Nomdara overlay
 
 (function(){
 
@@ -24,13 +24,9 @@
     stellar_remnant:  ['ashgate_crossing','astral_divide']
   };
 
-  // Localities with sea port access
   const PORT_LOCALITIES = ['cosmoria','panim_haven','guildheart_hub','plumes_end_outpost'];
-
-  // Localities with airship dock (stage minimum required)
   const AIRSHIP_LOCALITIES = {cosmoria:3, guildheart_hub:4};
 
-  // Localities with active stables
   const STABLE_LOCALITIES = [
     'shelkopolis','soreheim_proper','guildheart_hub','fairhaven',
     'panim_haven','mimolot_academy','sunspire_haven','harvest_circle',
@@ -43,11 +39,43 @@
     sunspire_haven:17, harvest_circle:15, shirshal:16, ithtananalor:20
   };
 
-  // BFS shortest-path distances from a source locality
+  // ── Helpers ────────────────────────────────────────────────────────────────
+
+  function getLM(){ return window.LOCALITY_MATRIX || null; }
+  function getRM(){ return window.ROUTE_MATRIX || null; }
+
+  // Return the effective settlement ID (handles districts → parent)
+  function getSettlementId(locId){
+    const lm = getLM();
+    if(!lm) return locId;
+    const entry = lm[locId];
+    if(entry && entry.locality_class === 'district') return entry.parent_settlement_id || locId;
+    return locId;
+  }
+
+  // Return district children of a settlement
+  function getLocalDistricts(locId){
+    const lm = getLM();
+    if(!lm) return [];
+    const entry = lm[locId];
+    if(!entry || !entry.children || !entry.children.length) return [];
+    return entry.children.map(id => lm[id]).filter(Boolean);
+  }
+
+  // Find route edge in ROUTE_MATRIX between two settlement IDs
+  function findRoute(fromId, toId){
+    const rm = getRM();
+    if(!rm) return null;
+    return rm.find(r =>
+      (r.from_locality_id === fromId && r.to_locality_id === toId) ||
+      (r.directionality === 'bidirectional' && r.from_locality_id === toId && r.to_locality_id === fromId)
+    ) || null;
+  }
+
+  // BFS over ADJACENCY (fallback when ROUTE_MATRIX unavailable or for cosmic)
   function computeDistances(fromId, stage){
     const adj = Object.assign({}, window.ADJACENCY||{});
     if(stage>=5){
-      // Connect mortal world to cosmic via ashgate_crossing (nearest mortal: shelkopolis)
       adj['shelkopolis'] = [...(adj['shelkopolis']||[]), 'ashgate_crossing'];
       Object.assign(adj, COSMIC_ADJACENCY);
     }
@@ -62,25 +90,6 @@
     return dist;
   }
 
-  function getAvailableDestinations(G){
-    const stage = G.stage||1;
-    const dist = computeDistances(G.location, stage);
-
-    const mortalLocs = Object.values(window.KEY_LOCALITIES||{});
-    const all = stage>=5 ? [...mortalLocs, ...COSMIC_LOCALITIES] : mortalLocs;
-
-    return all
-      .filter(loc => loc.id !== G.location)
-      .map(loc => ({...loc, distance: dist[loc.id] !== undefined ? dist[loc.id] : 999}))
-      .filter(loc => {
-        if(loc.distance===999) return false;
-        if(stage===1) return loc.distance===1;
-        if(stage===2) return loc.distance<=2;
-        return true; // stage 3/4/5: all reachable
-      })
-      .sort((a,b)=>a.distance-b.distance||(a.name<b.name?-1:1));
-  }
-
   function distanceLabel(d){
     if(d===1) return 'Adjacent';
     if(d===2) return 'Near';
@@ -88,8 +97,73 @@
     return 'Very Far';
   }
 
+  // ── Destinations ───────────────────────────────────────────────────────────
+
+  function getAvailableDestinations(G){
+    const stage = G.stage||1;
+    // If in a district, travel departs from parent settlement
+    const travelFrom = getSettlementId(G.location);
+    const rm = getRM();
+
+    let destinations = [];
+
+    if(rm){
+      // Route-matrix driven
+      const edges = rm.filter(r =>
+        r.from_locality_id === travelFrom ||
+        (r.directionality === 'bidirectional' && r.to_locality_id === travelFrom)
+      );
+      const lm = getLM() || {};
+      const kl = window.KEY_LOCALITIES || {};
+      const seen = new Set();
+      for(const r of edges){
+        const toId = r.from_locality_id === travelFrom ? r.to_locality_id : r.from_locality_id;
+        if(seen.has(toId)) continue;
+        seen.add(toId);
+        const locData = lm[toId] || kl[toId] || {id:toId, name:toId};
+        destinations.push({
+          ...locData,
+          id: toId,
+          distance: r.distance_units || 1,
+          _route: r,
+        });
+      }
+      // Add cosmic at stage 5
+      if(stage>=5){
+        const cosmicDist = computeDistances('ashgate_crossing', stage);
+        COSMIC_LOCALITIES.forEach(loc=>{
+          if(!seen.has(loc.id)){
+            destinations.push({...loc, distance: (cosmicDist[loc.id]||1)+1, _route: null});
+          }
+        });
+      }
+    } else {
+      // BFS fallback
+      const dist = computeDistances(travelFrom, stage);
+      const mortalLocs = Object.values(window.KEY_LOCALITIES||{});
+      const all = stage>=5 ? [...mortalLocs, ...COSMIC_LOCALITIES] : mortalLocs;
+      destinations = all
+        .filter(loc => loc.id !== travelFrom)
+        .map(loc => ({...loc, distance: dist[loc.id]!==undefined ? dist[loc.id] : 999, _route:null}))
+        .filter(loc => loc.distance !== 999);
+    }
+
+    // Stage gate filtering
+    destinations = destinations.filter(loc => {
+      if(stage===1) return loc.distance===1;
+      if(stage===2) return loc.distance<=2;
+      return true;
+    });
+
+    // Exclude current location (important when coming from district)
+    destinations = destinations.filter(loc => loc.id !== G.location && loc.id !== travelFrom);
+
+    return destinations.sort((a,b)=>a.distance-b.distance||(a.name<b.name?-1:1));
+  }
+
+  // ── Travel modes ───────────────────────────────────────────────────────────
+
   function getTravelModes(loc, G){
-    const d = loc.distance||1;
     const isCosmic = COSMIC_IDS.includes(loc.id);
     const modes = [];
 
@@ -103,35 +177,45 @@
       return modes;
     }
 
-    const footTime = d===1 ? 2 : d===2 ? 3 : 4;
+    const route = loc._route;
+    const d = loc.distance || 1;
+
+    // Foot
+    const footTime = route ? (route.travel_time_by_mode.foot || (d*2)) : (d===1?2:d===2?3:4);
     modes.push({id:'foot', label:'On Foot', timeCost:footTime, goldCost:0,
       desc:`${footTime} time units. No cost.`});
 
+    // Hired passage (always available, costs gold, faster than foot)
     const hireGold = d===1 ? 2 : d===2 ? 3 : 5;
     const hireTime = d<=2 ? 1 : 2;
     modes.push({id:'hired', label:'Hired Passage', timeCost:hireTime, goldCost:hireGold,
-      desc:`${hireGold} gold · ${hireTime} time unit${hireTime>1?'s':''}.`});
+      desc:`${hireGold} gold \u00b7 ${hireTime} time unit${hireTime>1?'s':''}.`});
 
+    // Horse
     if(G.horse){
-      const horseTime = d<=3 ? 1 : 2;
+      const horseTime = route ? (route.travel_time_by_mode.horse || (d<=3?1:2)) : (d<=3?1:2);
       modes.push({id:'horse', label:'Ride (Your Horse)', timeCost:horseTime, goldCost:0,
         desc:`${horseTime} time unit${horseTime>1?'s':''}. Fastest land option.`});
     }
 
-    // Boat: both localities must be ports
-    if(PORT_LOCALITIES.includes(G.location) && PORT_LOCALITIES.includes(loc.id)){
-      const boatGold = d===1 ? 3 : d===2 ? 5 : d<=4 ? 8 : 12;
-      const boatTime = d<=2 ? 1 : 2;
+    // Boat — only on explicit route edges that include boat, or port-to-port
+    const travelFrom = getSettlementId(G.location);
+    const hasBoatRoute = route
+      ? route.allowed_travel_modes.includes('boat')
+      : (PORT_LOCALITIES.includes(travelFrom) && PORT_LOCALITIES.includes(loc.id));
+    if(hasBoatRoute){
+      const boatTime = route ? (route.travel_time_by_mode.boat || 1) : (d<=2?1:2);
+      const boatGold = d===1?3:d===2?5:d<=4?8:12;
       modes.push({id:'boat', label:'Sea Passage', timeCost:boatTime, goldCost:boatGold,
-        desc:`${boatGold} gold · ${boatTime} time unit${boatTime>1?'s':''}. Faster than foot on port routes.`});
+        desc:`${boatGold} gold \u00b7 ${boatTime} time unit${boatTime>1?'s':''}. Faster on port routes.`});
     }
 
-    // Airship: available from airship localities, stage-gated
-    const airshipStageMin = AIRSHIP_LOCALITIES[G.location];
+    // Airship — explicit infrastructure, stage-gated
+    const airshipStageMin = AIRSHIP_LOCALITIES[travelFrom];
     if(airshipStageMin !== undefined && (G.stage||1) >= airshipStageMin){
-      const airGold = 25 + Math.floor(d * 2);
+      const airGold = 25 + Math.floor(d*2);
       modes.push({id:'airship', label:'Airship Passage', timeCost:1, goldCost:airGold,
-        desc:`${airGold} gold · 1 time unit. Magical airship — available from ${(window.KEY_LOCALITIES||{})[G.location]?.name||G.location}.`});
+        desc:`${airGold} gold \u00b7 1 time unit. Magical airship.`});
     }
 
     return modes;
@@ -141,7 +225,8 @@
     return [0, 0.15, 0.25, 0.35, 0.40, 0.30][stage]||0.20;
   }
 
-  // Called from engine.js when a mode button is clicked
+  // ── Execute travel ─────────────────────────────────────────────────────────
+
   function executeTravelTo(destId, modeId){
     const G = window._travelEngineG;
     if(!G) return;
@@ -154,7 +239,8 @@
     if(!mode){ window._travelAddNotice && window._travelAddNotice('Travel mode not found.'); return; }
 
     if(mode.goldCost > G.gold){
-      window._travelAddNotice && window._travelAddNotice(`Not enough gold. ${mode.label} costs ${mode.goldCost} gold; you have ${G.gold}.`);
+      window._travelAddNotice && window._travelAddNotice(
+        `Not enough gold. ${mode.label} costs ${mode.goldCost} gold; you have ${G.gold}.`);
       window._travelRender && window._travelRender();
       return;
     }
@@ -162,123 +248,242 @@
     G.gold -= mode.goldCost;
     G.travelMode = false;
 
-    // Advance time per mode cost
     if(window._travelAdvanceTime){
-      for(let i=0;i<mode.timeCost;i++) window._travelAdvanceTime(1);
+      for(let i=0; i<mode.timeCost; i++) window._travelAdvanceTime(1);
     }
 
-    // Travel encounter check (not on adjacent foot travel in stage 1)
     const chance = travelEncounterChance(G.stage);
     if(Math.random() < chance){
       window._travelAddNotice && window._travelAddNotice(`Trouble on the road to ${dest.name}.`);
       window._travelStartEncounter && window._travelStartEncounter('road');
     }
 
-    // Execute core travel logic
-    if(window._travelCoreTravelTo){
-      window._travelCoreTravelTo(destId);
-    }
+    if(window._travelCoreTravelTo) window._travelCoreTravelTo(destId);
+    window._travelRender && window._travelRender();
+  }
 
+  function executeEnterDistrict(distId){
+    const G = window._travelEngineG;
+    if(!G) return;
+    G.travelMode = false;
+    if(window._travelAdvanceTime) window._travelAdvanceTime(1);
+    if(window._travelCoreTravelTo) window._travelCoreTravelTo(distId);
+    window._travelRender && window._travelRender();
+  }
+
+  function executeReturnToSettlement(){
+    const G = window._travelEngineG;
+    if(!G) return;
+    const parentId = getSettlementId(G.location);
+    if(!parentId || parentId === G.location) return;
+    G.travelMode = false;
+    if(window._travelAdvanceTime) window._travelAdvanceTime(1);
+    if(window._travelCoreTravelTo) window._travelCoreTravelTo(parentId);
+    window._travelRender && window._travelRender();
+  }
+
+  function executeEnterNomdara(){
+    const G = window._travelEngineG;
+    if(!G) return;
+    G.travelMode = false;
+    if(window._travelAdvanceTime) window._travelAdvanceTime(1);
+    if(window._travelCoreTravelTo) window._travelCoreTravelTo('nomdara_caravan');
+    G.nomdara_visited = true;
     window._travelRender && window._travelRender();
   }
 
   function executeBuyHorse(){
     const G = window._travelEngineG;
     if(!G) return;
-
-    if(!STABLE_LOCALITIES.includes(G.location)){
+    const stableLoc = getSettlementId(G.location);
+    if(!STABLE_LOCALITIES.includes(stableLoc)){
       window._travelAddNotice && window._travelAddNotice('No stable at this location.');
       window._travelRender && window._travelRender();
       return;
     }
-    const cost = HORSE_COSTS[G.location]||20;
+    const cost = HORSE_COSTS[stableLoc]||20;
     if(G.gold < cost){
       window._travelAddNotice && window._travelAddNotice(`Need ${cost} gold for a horse. You have ${G.gold}.`);
       window._travelRender && window._travelRender();
       return;
     }
     G.gold -= cost;
-    G.horse = {name:'Trail Horse', locality:G.location, purchaseDay:G.dayCount};
-    window._travelAddNotice && window._travelAddNotice(`Horse purchased for ${cost} gold at ${(window.KEY_LOCALITIES||{})[G.location]?.name||G.location}. Ride at any time.`);
+    G.horse = {name:'Trail Horse', locality:stableLoc, purchaseDay:G.dayCount};
+    const locName = (window.KEY_LOCALITIES||{})[stableLoc]?.name || stableLoc;
+    window._travelAddNotice && window._travelAddNotice(
+      `Horse purchased for ${cost} gold at ${locName}. Ride at any time.`);
     window._travelRender && window._travelRender();
   }
 
+  // ── Render ─────────────────────────────────────────────────────────────────
+
   function renderTravelUI(G){
-    const el = document.getElementById('choices');
+    // Target action-content panel (new split layout), fallback to legacy choices div
+    const el = document.getElementById('action-content') ||
+               document.getElementById('choices') ||
+               document.getElementById('narrative-content');
     if(!el) return;
 
-    const dest = getAvailableDestinations(G);
-    const stableHere = STABLE_LOCALITIES.includes(G.location);
-    const horseCost = HORSE_COSTS[G.location]||20;
+    const lm = getLM() || {};
+    const kl = window.KEY_LOCALITIES || {};
+    const locEntry = lm[G.location] || kl[G.location] || {};
+    const isDistrict = locEntry.locality_class === 'district';
+    const settlementId = getSettlementId(G.location);
+    const stableLoc = settlementId;
+    const stableHere = STABLE_LOCALITIES.includes(stableLoc);
+    const horseCost = HORSE_COSTS[stableLoc]||20;
 
     let html = `<div class='travelPanel'>`;
-    html += `<div class='travelHeader'><span class='travelTitle'>Travel Routes</span><button class='travelClose' onclick='window._closeTravelUI()'>Close</button></div>`;
+    html += `<div class='travelHeader'><span class='travelTitle'>Travel Routes</span>`;
+    html += `<button class='travelClose' onclick='window._closeTravelUI()'>Close</button></div>`;
 
-    // Horse section
+    // ── District breadcrumb ──────────────────────────────────────────────────
+    if(isDistrict){
+      const parentName = (lm[settlementId] || kl[settlementId] || {}).name || settlementId;
+      html += `<div class='travelDistrictBar'>`;
+      html += `<span class='travelDistrictParent'>${parentName}</span>`;
+      html += ` <span class='travelDistrictSep'>\u203a</span> `;
+      html += `<span class='travelDistrictCurrent'>${locEntry.display_name_raw || locEntry.name || G.location}</span>`;
+      html += `<button class='travelReturnBtn' onclick='window._returnToSettlement()'>Return to ${parentName}</button>`;
+      html += `</div>`;
+    }
+
+    // ── Horse section ────────────────────────────────────────────────────────
     if(!G.horse){
       if(stableHere){
         const canBuy = G.gold >= horseCost;
         html += `<div class='travelHorseCard'>`;
         html += `<div class='travelHorseLabel'>Stable available here</div>`;
-        html += `<div class='travelHorseDesc'>A horse cuts travel time to 1 unit for most journeys and is yours permanently until lost in a rescue.</div>`;
-        html += `<button class='travelBuyBtn${canBuy?'':' travelDisabled'}' onclick='window._buyHorse()'>Buy Trail Horse — ${horseCost} gold (you have ${G.gold})</button>`;
+        html += `<div class='travelHorseDesc'>A horse cuts travel time to 1 unit for most journeys.</div>`;
+        html += `<button class='travelBuyBtn${canBuy?'':' travelDisabled'}' onclick='window._buyHorse()'>`;
+        html += `Buy Trail Horse \u2014 ${horseCost} gold (you have ${G.gold})</button>`;
         html += `</div>`;
       }
     } else {
-      html += `<div class='travelHorseCard travelHorseOwned'><b>${G.horse.name}</b> — Ready to ride. Acquired at ${G.horse.locality ? ((window.KEY_LOCALITIES||{})[G.horse.locality]?.name||G.horse.locality) : 'unknown'}.</div>`;
+      const acquiredName = (lm[G.horse.locality] || kl[G.horse.locality] || {}).name || G.horse.locality || 'unknown';
+      html += `<div class='travelHorseCard travelHorseOwned'>`;
+      html += `<b>${G.horse.name}</b> \u2014 Ready to ride. Acquired at ${acquiredName}.`;
+      html += `</div>`;
     }
 
-    html += `<div class='travelDestList'>`;
-    if(dest.length===0){
-      html += `<div class='travelEmpty'>No destinations available at Stage ${G.stage}. Advance your stage to unlock more routes.</div>`;
-    } else {
-      // Group by distance
-      const groups = {};
-      dest.forEach(d=>{ const k=distanceLabel(d.distance); (groups[k]=groups[k]||[]).push(d); });
-      const groupOrder = ['Adjacent','Near','Far','Very Far'];
-      for(const gk of groupOrder){
-        if(!groups[gk]) continue;
-        html += `<div class='travelGroupHeader'>${gk}</div>`;
-        for(const loc of groups[gk]){
-          const modes = getTravelModes(loc, G);
-          html += `<div class='travelDestCard'>`;
-          html += `<div class='travelDestName'>${loc.name}`;
-          if(COSMIC_IDS.includes(loc.id)) html += ` <span class='travelCosmicTag'>Cosmic</span>`;
-          html += `</div>`;
-          if(loc.polity) html += `<div class='travelDestPolity'>${loc.polity}</div>`;
+    // ── Nomdara overlay ──────────────────────────────────────────────────────
+    const nomdara = window.NOMDARA_OVERLAY;
+    if(nomdara){
+      const nomAttached = nomdara.attached_locality_id;
+      const showNomdara = nomAttached === settlementId ||
+        (window.ADJACENCY && (window.ADJACENCY[settlementId]||[]).includes(nomAttached));
+      if(showNomdara && !isDistrict){
+        const nearText = nomAttached === settlementId ? 'camped here' : 'camped nearby';
+        html += `<div class='travelNomdaraCard'>`;
+        html += `<div class='travelNomdaraLabel'>Nomdara Caravan \u2014 <span class='travelNomdaraNear'>${nearText}</span></div>`;
+        html += `<div class='travelNomdaraDesc'>${nomdara.mobile_flavor_profile}</div>`;
+        html += `<button class='travelModeBtn' onclick='window._enterNomdara()'>`;
+        html += `<span class='travelModeName'>Visit Caravan</span>`;
+        html += `<span class='travelModeCost'>Free \u00b7 1 time</span></button>`;
+        html += `</div>`;
+      }
+    }
+
+    // ── Local districts ──────────────────────────────────────────────────────
+    if(!isDistrict){
+      const localDists = getLocalDistricts(G.location);
+      if(localDists.length){
+        html += `<div class='travelGroupHeader'>Districts</div>`;
+        for(const dist of localDists){
+          html += `<div class='travelDestCard travelDistrictCard'>`;
+          html += `<div class='travelDestName'>${dist.display_name_raw || dist.name}`;
+          html += ` <span class='travelDistrictTag'>${dist.is_synthetic?'district':'district'}</span></div>`;
+          if(dist.identity) html += `<div class='travelDestPolity' style='font-style:italic'>${dist.identity}</div>`;
           html += `<div class='travelModeBtns'>`;
-          for(const mode of modes){
-            const canAfford = G.gold >= mode.goldCost;
-            html += `<button class='travelModeBtn${canAfford?'':' travelDisabled'}' onclick='window._travelTo("${loc.id}","${mode.id}")'>`;
-            html += `<span class='travelModeName'>${mode.label}</span>`;
-            html += `<span class='travelModeCost'>${mode.goldCost>0?mode.goldCost+' gold · ':'Free · '}${mode.timeCost} time</span>`;
-            html += `</button>`;
-          }
+          html += `<button class='travelModeBtn' onclick='window._enterDistrict("${dist.locality_id}")'>`;
+          html += `<span class='travelModeName'>Enter District</span>`;
+          html += `<span class='travelModeCost'>Free \u00b7 1 time</span></button>`;
+          html += `</div></div>`;
+        }
+      }
+    } else {
+      // In a district: show sibling districts
+      const parentEntry = lm[settlementId] || {};
+      const siblings = (parentEntry.children||[])
+        .filter(id => id !== G.location)
+        .map(id => lm[id]).filter(Boolean);
+      if(siblings.length){
+        html += `<div class='travelGroupHeader'>Other Districts</div>`;
+        for(const sib of siblings){
+          html += `<div class='travelDestCard travelDistrictCard'>`;
+          html += `<div class='travelDestName'>${sib.display_name_raw || sib.name}</div>`;
+          if(sib.identity) html += `<div class='travelDestPolity' style='font-style:italic'>${sib.identity}</div>`;
+          html += `<div class='travelModeBtns'>`;
+          html += `<button class='travelModeBtn' onclick='window._enterDistrict("${sib.locality_id}")'>`;
+          html += `<span class='travelModeName'>Enter District</span>`;
+          html += `<span class='travelModeCost'>Free \u00b7 1 time</span></button>`;
           html += `</div></div>`;
         }
       }
     }
-    html += `</div></div>`;
 
+    // ── Long-distance destinations ───────────────────────────────────────────
+    // Only from settlements (not while in a district)
+    if(!isDistrict){
+      const dest = getAvailableDestinations(G);
+      html += `<div class='travelDestList'>`;
+      if(dest.length===0){
+        html += `<div class='travelEmpty'>No destinations available at Stage ${G.stage}.</div>`;
+      } else {
+        const groups = {};
+        dest.forEach(d=>{ const k=distanceLabel(d.distance); (groups[k]=groups[k]||[]).push(d); });
+        for(const gk of ['Adjacent','Near','Far','Very Far']){
+          if(!groups[gk]) continue;
+          html += `<div class='travelGroupHeader'>${gk}</div>`;
+          for(const loc of groups[gk]){
+            const modes = getTravelModes(loc, G);
+            html += `<div class='travelDestCard'>`;
+            html += `<div class='travelDestName'>${loc.name}`;
+            if(COSMIC_IDS.includes(loc.id)) html += ` <span class='travelCosmicTag'>Cosmic</span>`;
+            html += `</div>`;
+            const polityRaw = loc.parent_polity?.raw_value || loc.polity || '';
+            if(polityRaw) html += `<div class='travelDestPolity'>${polityRaw}</div>`;
+            html += `<div class='travelModeBtns'>`;
+            for(const mode of modes){
+              const canAfford = G.gold >= mode.goldCost;
+              html += `<button class='travelModeBtn${canAfford?'':' travelDisabled'}' `;
+              html += `onclick='window._travelTo("${loc.id}","${mode.id}")'>`;
+              html += `<span class='travelModeName'>${mode.label}</span>`;
+              html += `<span class='travelModeCost'>${mode.goldCost>0?mode.goldCost+' gold \u00b7 ':'Free \u00b7 '}${mode.timeCost} time</span>`;
+              html += `</button>`;
+            }
+            html += `</div></div>`;
+          }
+        }
+      }
+      html += `</div>`;
+    }
+
+    html += `</div>`;
     el.innerHTML = html;
   }
 
-  // Public API
-  window.PORT_LOCALITIES = PORT_LOCALITIES;
-  window.AIRSHIP_LOCALITIES = AIRSHIP_LOCALITIES;
-  window.COSMIC_LOCALITIES = COSMIC_LOCALITIES;
-  window.COSMIC_IDS = COSMIC_IDS;
-  window.COSMIC_ADJACENCY = COSMIC_ADJACENCY;
-  window.STABLE_LOCALITIES = STABLE_LOCALITIES;
-  window.HORSE_COSTS = HORSE_COSTS;
-  window.renderTravelUI = renderTravelUI;
-  window.getAvailableDestinations = getAvailableDestinations;
-  window.getTravelModes = getTravelModes;
+  // ── Public API ─────────────────────────────────────────────────────────────
 
-  // Button callbacks (set by engine.js via window._travelTo etc.)
-  window._travelTo = function(destId, modeId){ executeTravelTo(destId, modeId); };
-  window._buyHorse = function(){ executeBuyHorse(); };
-  window._closeTravelUI = function(){
+  window.PORT_LOCALITIES      = PORT_LOCALITIES;
+  window.AIRSHIP_LOCALITIES   = AIRSHIP_LOCALITIES;
+  window.COSMIC_LOCALITIES    = COSMIC_LOCALITIES;
+  window.COSMIC_IDS           = COSMIC_IDS;
+  window.COSMIC_ADJACENCY     = COSMIC_ADJACENCY;
+  window.STABLE_LOCALITIES    = STABLE_LOCALITIES;
+  window.HORSE_COSTS          = HORSE_COSTS;
+  window.renderTravelUI       = renderTravelUI;
+  window.getAvailableDestinations = getAvailableDestinations;
+  window.getTravelModes       = getTravelModes;
+  window.getLocalDistricts    = getLocalDistricts;
+  window.getSettlementId      = getSettlementId;
+
+  window._travelTo             = function(destId, modeId){ executeTravelTo(destId, modeId); };
+  window._enterDistrict        = function(distId){ executeEnterDistrict(distId); };
+  window._returnToSettlement   = function(){ executeReturnToSettlement(); };
+  window._enterNomdara         = function(){ executeEnterNomdara(); };
+  window._buyHorse             = function(){ executeBuyHorse(); };
+  window._closeTravelUI        = function(){
     const G = window._travelEngineG;
     if(G) G.travelMode = false;
     window._travelRender && window._travelRender();

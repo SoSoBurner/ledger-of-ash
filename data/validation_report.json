@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "settlements": 19,
+  "districts_total": 25,
+  "districts_canon": 7,
+  "districts_synthetic": 18,
+  "routes": 32,
+  "errors": [],
+  "warnings": []
+}
