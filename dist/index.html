@@ -4445,7 +4445,43 @@ function triggerCombatEncounter(enemyId, context) {
       postCombatResolution:null,
       recentOutcomeType:null,
       uiState:{activeLayer:'story'},
-      codex:{npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}
+      codex:{npcs:{},localities:{},creatures:{},hazards:{},institutions:{}},
+      // ── PHASE 3: ALIGNMENT & HEAT SYSTEM ──
+      alignmentSystem:{
+        benevolence:0,order:0,
+        baselineBenevolence:0,baselineOrder:0,
+        originLocality:null,originArchetype:null,
+        currentBandBenevolence:'center',currentBandOrder:'center',
+        momentumBenevolence:0,momentumOrder:0,
+        originDeviationBenevolence:0,originDeviationOrder:0,
+        history:[]
+      },
+      heat:{
+        min:-90,max:90,dailyDecayTowardZero:1,
+        localities:{}
+      },
+      lawEnforcementPressure:{
+        settlements:{}
+      },
+      civicSupportPressure:{
+        settlements:{}
+      },
+      lawbreaking:{
+        recentViolations:[],
+        monthlyViolationCount:0,
+        outstandingSubdualRisk:0,
+        lastViolationDay:null
+      },
+      custody:{
+        isImprisoned:false,
+        jailStartDay:null,
+        releaseDay:null,
+        jailSettlementId:null,
+        jailReason:null,
+        sentenceDays:0,
+        wasExecuted:false,
+        executionReason:null
+      }
     };
   }
 
@@ -4453,7 +4489,7 @@ function triggerCombatEncounter(enemyId, context) {
   function addNotice(text){ G.notices.unshift(`Day ${G.dayCount}: ${text}`); G.notices=G.notices.slice(0,50); }
   function addQuest(id,title,status='Active'){ const q=G.quests.find(q=>q.id===id); if(q){ q.status=status; return; } G.quests.push({id,title,status}); }
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
-  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0) G.dayCount+=1; G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
+  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0){ G.dayCount+=1; dailyHeatDecay(); } G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
   function gainXp(n,why=''){ 
     G.xp+=n; 
     const cap = currentLevelCap();
@@ -4465,6 +4501,111 @@ function triggerCombatEncounter(enemyId, context) {
       G.pendingSkillSelection=true; 
       addNotice(`Level ${G.level} reached${why?` — ${why}`:''}.`);
     }
+  }
+  
+  // ── ALIGNMENT & HEAT SYSTEM ─────────────────────────────────────────────
+  function initializeHeat(localityId){
+    if(!G.heat.localities[localityId]){
+      G.heat.localities[localityId]={
+        current:0, recentChange:0, recentSources:[], 
+        monthlyUnlawfulChoiceCount:0, monthlyLawfulAidCount:0,
+        monthlyViolentResistanceCount:0, monthlyFailedEscapeCount:0,
+        monthlyPublicViolationCount:0, monthlyProtectedEntryCount:0,
+        lastHeatChangeDay:null
+      };
+    }
+  }
+  
+  function initializeAlignment(originLocalityId, archetypeId){
+    const locality = getLocality(originLocalityId);
+    const archetype = getArchetype(archetypeId);
+    
+    const localityBase = locality && locality.alignmentBaseline ? 
+      {benevolence: locality.alignmentBaseline.benevolence || 0, order: locality.alignmentBaseline.order || 0} :
+      {benevolence: 0, order: 0};
+    const archetypeMod = archetype && archetype.archetypeAlignmentModifier ? 
+      {benevolence: archetype.archetypeAlignmentModifier.benevolence || 0, order: archetype.archetypeAlignmentModifier.order || 0} :
+      {benevolence: 0, order: 0};
+    
+    // Weighting: 70% locality, 30% archetype
+    G.alignmentSystem.benevolence = Math.round(localityBase.benevolence * 0.7 + archetypeMod.benevolence * 0.3);
+    G.alignmentSystem.order = Math.round(localityBase.order * 0.7 + archetypeMod.order * 0.3);
+    
+    // Clamp to -50 to 50
+    G.alignmentSystem.benevolence = Math.max(-50, Math.min(50, G.alignmentSystem.benevolence));
+    G.alignmentSystem.order = Math.max(-50, Math.min(50, G.alignmentSystem.order));
+    
+    G.alignmentSystem.baselineBenevolence = G.alignmentSystem.benevolence;
+    G.alignmentSystem.baselineOrder = G.alignmentSystem.order;
+    G.alignmentSystem.originLocality = originLocalityId;
+    G.alignmentSystem.originArchetype = archetypeId;
+    
+    updateAlignmentBands();
+    initializeHeat(originLocalityId);
+  }
+  
+  function updateAlignmentBands(){
+    const b = G.alignmentSystem.benevolence;
+    if(b >= 36) G.alignmentSystem.currentBandBenevolence = 'extreme-benevolent';
+    else if(b >= 21) G.alignmentSystem.currentBandBenevolence = 'strong-benevolent';
+    else if(b >= 8) G.alignmentSystem.currentBandBenevolence = 'lean-benevolent';
+    else if(b >= -7 && b <= 7) G.alignmentSystem.currentBandBenevolence = 'center';
+    else if(b >= -20) G.alignmentSystem.currentBandBenevolence = 'lean-cruel';
+    else if(b >= -35) G.alignmentSystem.currentBandBenevolence = 'strong-cruel';
+    else G.alignmentSystem.currentBandBenevolence = 'extreme-cruel';
+    
+    const o = G.alignmentSystem.order;
+    if(o >= 36) G.alignmentSystem.currentBandOrder = 'extreme-order';
+    else if(o >= 21) G.alignmentSystem.currentBandOrder = 'strong-order';
+    else if(o >= 8) G.alignmentSystem.currentBandOrder = 'lean-order';
+    else if(o >= -7 && o <= 7) G.alignmentSystem.currentBandOrder = 'center';
+    else if(o >= -20) G.alignmentSystem.currentBandOrder = 'lean-anarchy';
+    else if(o >= -35) G.alignmentSystem.currentBandOrder = 'strong-anarchy';
+    else G.alignmentSystem.currentBandOrder = 'extreme-anarchy';
+  }
+  
+  function applyAlignmentDrift(benevolenceDelta, orderDelta, heatDelta, localityId, source){
+    G.alignmentSystem.benevolence = Math.max(-50, Math.min(50, G.alignmentSystem.benevolence + benevolenceDelta));
+    G.alignmentSystem.order = Math.max(-50, Math.min(50, G.alignmentSystem.order + orderDelta));
+    updateAlignmentBands();
+    if(benevolenceDelta > 0) G.alignmentSystem.momentumBenevolence += benevolenceDelta;
+    if(orderDelta > 0) G.alignmentSystem.momentumOrder += orderDelta;
+    G.alignmentSystem.originDeviationBenevolence = Math.abs(G.alignmentSystem.benevolence - G.alignmentSystem.baselineBenevolence);
+    G.alignmentSystem.originDeviationOrder = Math.abs(G.alignmentSystem.order - G.alignmentSystem.baselineOrder);
+    if(heatDelta !== 0 && localityId) applyLocalityHeat(localityId, heatDelta);
+    G.alignmentSystem.history.push({day:G.dayCount, source, benevolenceDelta, orderDelta, heatDelta, localityId, resultingAlignment:{benevolence:G.alignmentSystem.benevolence, order:G.alignmentSystem.order}});
+    if(G.alignmentSystem.history.length > 50) G.alignmentSystem.history.shift();
+  }
+  
+  function applyLocalityHeat(localityId, delta){
+    initializeHeat(localityId);
+    const heat = G.heat.localities[localityId];
+    heat.current = Math.max(-90, Math.min(90, heat.current + delta));
+    heat.recentChange = delta;
+    heat.lastHeatChangeDay = G.dayCount;
+    if(delta > 0) heat.recentSources.push({day:G.dayCount, type:'hostile', amount:delta});
+    else if(delta < 0) heat.recentSources.push({day:G.dayCount, type:'protective', amount:delta});
+    if(heat.recentSources.length > 20) heat.recentSources.shift();
+  }
+  
+  function dailyHeatDecay(){
+    for(const localityId in G.heat.localities){
+      const heat = G.heat.localities[localityId];
+      if(heat.current > 0) heat.current = Math.max(0, heat.current - G.heat.dailyDecayTowardZero);
+      else if(heat.current < 0) heat.current = Math.min(0, heat.current + G.heat.dailyDecayTowardZero);
+    }
+  }
+  
+  function getLocalityHeat(localityId){
+    initializeHeat(localityId);
+    return G.heat.localities[localityId].current;
+  }
+  
+  function getLocalityHeatBand(localityId){
+    const heat = getLocalityHeat(localityId);
+    if(heat === 0) return 'neutral';
+    if(heat > 0) return heat <= 9 ? 'watched' : heat <= 19 ? 'noticed' : heat <= 34 ? 'pursued' : heat <= 49 ? 'severe' : 'manhunt';
+    return heat >= -9 ? 'recognized' : heat >= -19 ? 'trusted' : heat >= -34 ? 'favored' : heat >= -49 ? 'esteemed' : 'exemplary';
   }
 
   // Choice limiting: 5 base choices + 1 tactical combat bonus when appropriate
@@ -6184,6 +6325,8 @@ function triggerCombatEncounter(enemyId, context) {
     const startLoc=getLocality(G.location);
     if(startLoc) recordCodex('localities',G.location,{name:startLoc.name,polity:startLoc.polity,economicRole:startLoc.economicRole||'',lawFeel:startLoc.lawFeel||''});
     addQuest('stage1', bg.firstObjective, 'Active');
+    // ── Initialize alignment system ──
+    initializeAlignment(G.location, G.archetype);
     // Opening identity narrative — grounding this run in place, background, and archetype
     const archOpenings={
       combat:`${arch.name} is not a role ${G.name} chose so much as the shape pressure took when it tested the body enough times. The hands know what they are for.`,
@@ -6204,6 +6347,19 @@ function triggerCombatEncounter(enemyId, context) {
   // Define lists of legendary and notable NPCs for gating logic.
   window.LEGENDARY_NPCS = [ 'archmagister_leth_quillfire', 'coral_jack_neris', 'dame_orsella_roaz', 'dean_arturon_valegear', 'forge_voice_malzara', 'general_maer_rovik', 'ilyra_foamveil', 'kordr_vulkhand', 'marshal_builder_korrin_wex', 'matron_heshka_emberreign', 'mother_eliane_threadmercy', 'old_marrow_jex', 'orem_lantern_step', 'ossarch_veyn_halcyon', 'pashko_many_routes', 'saint_edris_of_the_unblinking_record', 'saint_physician_orel_vaunt', 'ser_caldrin_vey', 'seraphine_of_the_quiet_pyre', 'tessa_grainmark', 'the_ash_red_widow', 'vael_snowtrace', 'vatra_sul', 'vaud_serrik', 'veyla_inkhand' ];
   window.NOTABLE_NPCS = [ 'archivist_temeris_quillward', 'brakka_stonewake', 'captain_darian_roaz', 'captain_thalion_windrider', 'commander_halian_roaz', 'cron_udenine', 'daska_veilrun', 'decran_moltglass', 'descent_captain_orrik_lavabound', 'eron_wardflame', 'examiner_prelate_sira_doveshade', 'gorath_steelclad', 'harl_veymask', 'hel_brenn', 'hest_rookbraid', 'high_priestess_lyara_dawnlight', 'high_tide_priest_coren_mirthwake', 'hrolf_ashsight', 'ithra_quillmark', 'lady_elowen_shelk', 'lady_isabella_shelk', 'lord_darius_shelk', 'magister_selro_vann', 'magistrate_zethraxis_coilspire', 'marshal_sera_ironveil', 'matriarch_ashvara_citadel', 'measurer_seln_archive', 'mediator_selka_var', 'mercy_examiner_talan_vey', 'mordoth_valinheim', 'mother_saar_vulkrel', 'niv_brinegrin', 'orien_warderose', 'pell_rookglass', 'professor_cael_mirrortine', 'quen_larkstamp', 'registrar_confessor_othan_mire', 'rema_three_lantern', 'rime_rimebridge', 'risha_veilthorn', 'roth_udenine', 'sir_edrin_valecrest', 'sir_thaddeus_shelk', 'sir_velden_ironspike', 'strategos_nima_glass_law', 'talar_icepulse', 'vara_chitslip', 'varric_icevein', 'vessa_cindermaw', 'vorgul_oxtend', 'warden_pellor_grainhand' ];
+  
+  // ── EXPORT ALIGNMENT SYSTEM TO WINDOW ──
+  window.alignmentSystemExports = {
+    initializeAlignment,
+    applyAlignmentDrift,
+    applyLocalityHeat,
+    getLocalityHeat,
+    getLocalityHeatBand,
+    updateAlignmentBands,
+    dailyHeatDecay,
+    initializeHeat
+  };
+  
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();
 
