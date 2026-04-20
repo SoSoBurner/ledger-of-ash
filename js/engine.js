@@ -1165,6 +1165,14 @@
     return (window.STAGE3_ENRICHED_CHOICES || []);
   }
 
+  function getEnrichedStage4Choices() {
+    return (window.STAGE4_ENRICHED_CHOICES || []);
+  }
+
+  function getEnrichedStage5Choices() {
+    return (window.STAGE5_ENRICHED_CHOICES || []);
+  }
+
   function travelTo(dest){const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
 
   function stage2Choices(){ const sig=routeSignature(); const atlas=routeAtlasFor(sig);
@@ -1475,6 +1483,23 @@
         maybeStageAdvance();
       }});
     }
+    
+    // Add enriched Stage 4 choices for moral/ethical branches
+    if(stage===4) {
+      const enrichedStage4 = getEnrichedStage4Choices();
+      if(enrichedStage4 && enrichedStage4.length > 0) {
+        arr.push(...enrichedStage4.slice(0, 12));  // Add up to 12 enriched Stage 4 choices
+      }
+    }
+    
+    // Add enriched Stage 5 choices for consequence/payoff
+    if(stage===5) {
+      const enrichedStage5 = getEnrichedStage5Choices();
+      if(enrichedStage5 && enrichedStage5.length > 0) {
+        arr.push(...enrichedStage5.slice(0, 12));  // Add up to 12 enriched Stage 5 choices
+      }
+    }
+    
     else if(stage===5){
       // Stage 5 gets special handling with more combat encounters
       arr.push({label:'Commit to the final institutional confrontation',tags:['CreatureCombat','Boss','Final','Institutional','ForceTacticalUI'],fn(){ beginEncounter(G,'creature',G.currentThreat.creature,'boss'); }});
