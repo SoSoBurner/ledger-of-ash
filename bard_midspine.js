@@ -170,7 +170,7 @@ window.BARD_MIDSPINE_NODES = [
 
       const recoveries = {
         shelkopolis: 'The story broker gives you the suppressed account. It names a specific cargo on the eastern route — cleared by a Roadwarden administrative seal that has no matching issuance record. The cargo moved. The paperwork was erased after it did.',
-        guildheart_hub: 'The merchant's private ledger entry surfaces through a Union archive contact. It names an eastern route manifest discrepancy traced to a Shadowhands transit seal applied to Union-registered freight. The Union does not know the seal was used.',
+        guildheart_hub: "The merchant's private ledger entry surfaces through a Union archive contact. It names an eastern route manifest discrepancy traced to a Shadowhands transit seal applied to Union-registered freight. The Union does not know the seal was used.",
         panim_haven: 'The decoded memorial song preserves witness accounts in the voices of the convoy dead. A convoy recorded in the official House Panim ledger as never arriving did arrive — and then was recorded as lost. Something was removed from that convoy before the record was altered.'
       };
       const recovery = recoveries[G.location] ||

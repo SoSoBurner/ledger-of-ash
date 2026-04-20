@@ -92,6 +92,9 @@
     if (combatSession.currentTurnIdx >= combatSession.turnOrder.length) {
       combatSession.currentTurnIdx = 0;
       combatSession.round = (combatSession.round || 0) + 1;
+      // Reset per-round state
+      combatSession.playerDefending = false;
+      combatSession.playerDefenseBonus = 0;
     }
 
     // Clean up dead enemies
@@ -212,13 +215,16 @@
       return;
     }
 
+    const activeStatusEffects = (combatSession.statusEffects || []).filter(se => se.duration > 0);
     combatUI.innerHTML = `
       <div class='combatHeader'>
         <div class='combatTitle'>⚔ TACTICAL COMBAT - Round ${combatSession.round} ⚔</div>
         <div class='combatStats'>
           <span class='stat'>Your HP: ${gameState.hp}/${gameState.maxHp}</span>
-          <span class='stat'>DISTANCE: ${combatSession.distance.toUpperCase()}</span>
+          <span class='stat'>DISTANCE: ${(combatSession.distance||'medium').toUpperCase()}</span>
+          ${combatSession.playerDefending ? '<span class=\'stat defending\'>DEFENDING</span>' : ''}
         </div>
+        ${activeStatusEffects.length ? `<div class='combatStatusEffects'>${activeStatusEffects.map(se=>`<span class='statusBadge'>${se.type}(${se.duration}r)</span>`).join(' ')}</div>` : ''}
       </div>
 
       <div class='enemyStatus'>
@@ -339,91 +345,211 @@
     }
   }
 
+  // Check whether a combat ability's context requirements are met
+  function abilityReqMet(req, gameState, combatSession) {
+    if (!req) return true;
+    if (req.state === 'player_concealed' && !combatSession.playerConcealed) return false;
+    if (req.ally_attacked && !combatSession.allyAttacked) return false;
+    if (req.player_initiated && !combatSession.playerInitiated) return false;
+    if (req.player_unseen && !combatSession.playerConcealed) return false;
+    if (req.target_not_acted && (combatSession.round || 1) > 1) return false;
+    if (req.target_hp_pct) {
+      const target = (combatSession.enemies || [])[0];
+      if (!target || (target.hp / target.maxHp) > req.target_hp_pct) return false;
+    }
+    return true;
+  }
+
+  // Check usage limit for an ability
+  function abilityUsed(ab, gameState) {
+    const usage = gameState.abilityUsage || { perScene: {}, perDay: {} };
+    if (ab.cost === 'once_per_scene' || ab.cost === 'reaction') return !!usage.perScene[ab.id];
+    if (ab.cost === 'once_per_day') return !!usage.perDay[ab.id];
+    return false;
+  }
+
+  // Apply structured effects for a combat ability
+  function applyAbilityEffects(ab, gameState, combatSession) {
+    combatSession.log = combatSession.log || [];
+    if (!ab.effects || !ab.effects.length) return;
+
+    const target = (combatSession.enemies || [])[0];
+    const log = [];
+
+    ab.effects.forEach(eff => {
+      if (eff.type === 'atk_bonus') {
+        // Handled in resolveCombatRound via abilityId
+      } else if (eff.type === 'def_self') {
+        combatSession.playerDefending = true;
+        combatSession.playerDefenseBonus = (combatSession.playerDefenseBonus || 0) + eff.value;
+        log.push(`Defense +${eff.value} this round.`);
+      } else if (eff.type === 'hp_cost') {
+        gameState.hp = Math.max(1, gameState.hp - eff.value);
+        log.push(`${eff.value} HP committed.`);
+      } else if (eff.type === 'heal_self') {
+        const amt = typeof eff.value === 'number' ? eff.value : 4;
+        gameState.hp = Math.min(gameState.maxHp, gameState.hp + amt);
+        log.push(`Recovered ${amt} HP.`);
+      } else if (eff.type === 'enemy_atk_penalty' && target) {
+        combatSession.enemyAttack = Math.max(0, (combatSession.enemyAttack || 0) - eff.value);
+        log.push(`${target.name} attack reduced by ${eff.value}.`);
+      } else if (eff.type === 'enemy_def_penalty' && target) {
+        combatSession.enemyDefense = Math.max(0, (combatSession.enemyDefense || 0) - eff.value);
+        log.push(`${target.name} defense reduced by ${eff.value}.`);
+      } else if (eff.type === 'push_enemy') {
+        const dists = ['close', 'medium', 'far'];
+        const idx = dists.indexOf(combatSession.distance || 'close');
+        if (idx < dists.length - 1) combatSession.distance = dists[idx + 1];
+        log.push(`${target ? target.name : 'Enemy'} pushed back.`);
+      } else if (eff.type === 'concealed') {
+        combatSession.playerConcealed = true;
+        log.push('You slip into concealment.');
+      } else if (eff.type === 'area_damage' && target) {
+        const dmg = Math.floor(Math.random() * 6) + 2;
+        target.hp = Math.max(0, target.hp - dmg);
+        log.push(`Area effect: ${dmg} damage to ${target.name}.`);
+      } else if (eff.type === 'dot_enemy' && target) {
+        combatSession.statusEffects = combatSession.statusEffects || [];
+        combatSession.statusEffects.push({ type: 'dot', target: target.id, value: eff.value || 2, duration: eff.duration || 3 });
+        log.push(`${target.name} is now taking ongoing damage.`);
+      } else if (eff.type === 'morale_check') {
+        const roll = Math.floor(Math.random() * 20) + 1;
+        if (roll <= 10 && target) {
+          combatSession.resolved = true;
+          combatSession.fled = true;
+          log.push(`${target.name} fails the morale check and breaks.`);
+        } else {
+          log.push('Morale check: target holds.');
+        }
+      }
+    });
+
+    if (log.length) combatSession.log.unshift(`${ab.name}: ${log.join(' ')}`);
+  }
+
   // Build tactical choices for player action
   function buildTacticalChoices(gameState, combatSession) {
     const choices = [];
 
-    // Attack action
+    // Apply per-round status effects (dot damage to enemies)
+    if (combatSession.statusEffects && combatSession.statusEffects.length) {
+      combatSession.statusEffects = combatSession.statusEffects.filter(se => se.duration > 0);
+      combatSession.statusEffects.forEach(se => {
+        if (se.type === 'dot') {
+          const enemy = (combatSession.enemies || []).find(e => e.id === se.target);
+          if (enemy) {
+            enemy.hp = Math.max(0, enemy.hp - (se.value || 2));
+            combatSession.log.unshift(`${enemy.name} takes ${se.value} ongoing damage. (${--se.duration} rounds left)`);
+          }
+        }
+      });
+    }
+
+    // ── Archetype abilities ──────────────────────────────────
+    const archetypeId = gameState.archetype;
+    const archetypeAbilities = (window.ARCHETYPE_COMBAT_ABILITIES || {})[archetypeId] || [];
+    const abilitySlots = [];
+
+    archetypeAbilities.forEach(ab => {
+      if (ab.cost === 'passive') return; // passives don't appear as buttons
+      if (abilitySlots.length >= 4) return;
+
+      // Skill prerequisite
+      const skillVal = gameState.skills ? (gameState.skills[ab.skillReq] || 0) : 0;
+      if (skillVal < (ab.minSkill || 0)) return;
+
+      // Context requirements
+      if (!abilityReqMet(ab.req, gameState, combatSession)) return;
+
+      // Usage limit
+      const used = abilityUsed(ab, gameState);
+      const costLabel = ab.cost === 'once_per_scene' ? '(scene)' : ab.cost === 'once_per_day' ? '(day)' : ab.cost || 'action';
+
+      abilitySlots.push({
+        label: `${ab.name} [${costLabel}]${used ? ' — used' : ''}`,
+        tags: [ab.skillReq || 'combat', ...(used ? ['Spent'] : ['Ready'])],
+        disabled: used,
+        fn: () => {
+          if (used) return;
+          combatSession.log = combatSession.log || [];
+          if (ab.flavor) combatSession.log.unshift(ab.flavor);
+          applyAbilityEffects(ab, gameState, combatSession);
+          // Delegate attack-affecting resolution to the engine
+          if (window.resolveCombatRound) {
+            window.resolveCombatRound('ability', ab.id, gameState.combatSession || combatSession);
+          }
+        }
+      });
+    });
+
+    choices.push(...abilitySlots);
+
+    // ── Standard actions ─────────────────────────────────────
     choices.push({
-      label: 'Attack the enemy',
-      tags: ['Attack', 'Melee'],
+      label: 'Attack',
+      tags: ['Attack', 'Direct'],
       fn: () => {
-        const enemies = combatSession.enemies || [];
-        if (enemies.length === 0) return;
-
-        const target = enemies[0];
-        const roll = Math.floor(Math.random() * 20) + 1 + (gameState.skills?.combat || 0);
-        const targetDefense = 10 + (target.defense || 2);
-
-        if (roll >= targetDefense) {
-          const damage = Math.max(1, Math.floor(Math.random() * 8) + 2 + Math.floor((gameState.skills?.combat || 0) / 2));
-          target.hp = Math.max(0, target.hp - damage);
-          const log = `You hit ${target.name} for ${damage} damage!`;
-          combatSession.log = combatSession.log || [];
-          combatSession.log.unshift(log);
+        if (window.resolveCombatRound) {
+          window.resolveCombatRound('attack', null, gameState.combatSession || combatSession);
         } else {
-          const log = `Your attack misses!`;
-          combatSession.log = combatSession.log || [];
-          combatSession.log.unshift(log);
+          const target = (combatSession.enemies || [])[0];
+          if (!target) return;
+          const roll = Math.floor(Math.random() * 20) + 1 + (gameState.skills?.combat || 0);
+          if (roll >= 10 + (target.defense || 2)) {
+            const dmg = Math.max(1, Math.floor(Math.random() * 8) + 2);
+            target.hp = Math.max(0, target.hp - dmg);
+            combatSession.log.unshift(`You hit ${target.name} for ${dmg} damage.`);
+          } else {
+            combatSession.log.unshift('Attack misses.');
+          }
         }
       }
     });
 
-    // Close distance action
-    const distances = ['close', 'medium', 'far', 'very_far'];
+    // Movement
+    const distances = ['close', 'medium', 'far'];
     const currentIdx = distances.indexOf(combatSession.distance || 'medium');
     if (currentIdx > 0) {
       choices.push({
-        label: `Close to ${distances[currentIdx - 1].toUpperCase()}`,
+        label: `Close distance — ${distances[currentIdx - 1].toUpperCase()}`,
         tags: ['Movement', 'Positioning'],
         fn: () => {
           combatSession.distance = distances[currentIdx - 1];
-          const log = `You move closer to ${distances[currentIdx - 1]} range.`;
-          combatSession.log = combatSession.log || [];
-          combatSession.log.unshift(log);
+          combatSession.log.unshift(`Closed to ${distances[currentIdx - 1]} range.`);
         }
       });
     }
-
-    // Increase distance action
     if (currentIdx < distances.length - 1) {
       choices.push({
-        label: `Retreat to ${distances[currentIdx + 1].toUpperCase()}`,
+        label: `Fall back — ${distances[currentIdx + 1].toUpperCase()}`,
         tags: ['Movement', 'Evasion'],
         fn: () => {
           combatSession.distance = distances[currentIdx + 1];
-          const log = `You fall back to ${distances[currentIdx + 1]} range.`;
-          combatSession.log = combatSession.log || [];
-          combatSession.log.unshift(log);
+          combatSession.log.unshift(`Fell back to ${distances[currentIdx + 1]} range.`);
         }
       });
     }
 
-    // Defend action
     choices.push({
-      label: 'Defend and brace for impact',
-      tags: ['Defense', 'Protect'],
+      label: 'Defend and brace',
+      tags: ['Defense', 'Stance'],
       fn: () => {
         combatSession.playerDefending = true;
-        const log = 'You take a defensive stance!';
-        combatSession.log = combatSession.log || [];
-        combatSession.log.unshift(log);
+        combatSession.playerDefenseBonus = (combatSession.playerDefenseBonus || 0) + 2;
+        combatSession.log.unshift('Defensive stance: +2 defense this round.');
       }
     });
 
-    // Companion support (if available)
-    if (gameState.companions && gameState.companions.filter(c => !c.injured).length > 0) {
+    if (gameState.companions && gameState.companions.filter(c => !c.injured && c.available !== false).length > 0) {
       choices.push({
-        label: 'Call on companion support',
+        label: 'Companion support',
         tags: ['Support', 'Coordination'],
         fn: () => {
-          const damage = Math.floor(Math.random() * 4) + 2;
+          const dmg = Math.floor(Math.random() * 4) + 2;
           const target = (combatSession.enemies || [])[0];
           if (target) {
-            target.hp = Math.max(0, target.hp - damage);
-            const log = `Companion strikes! ${damage} damage to ${target.name}.`;
-            combatSession.log = combatSession.log || [];
-            combatSession.log.unshift(log);
+            target.hp = Math.max(0, target.hp - dmg);
+            combatSession.log.unshift(`Companion strikes — ${dmg} damage to ${target.name}.`);
           }
         }
       });

@@ -64,165 +64,456 @@ const ENEMY_TEMPLATES = {
   }
 };
 
+// ── ABILITY EFFECT TYPES ─────────────────────────────────
+// effects[] — machine-readable ability mechanics
+//   { type, value, duration, target, condition }
+// types: atk_bonus, def_self, def_ally, enemy_atk_penalty,
+//   enemy_def_penalty, push_enemy, lose_action_enemy,
+//   extra_action_ally, heal_self, heal_ally, dot_enemy,
+//   hp_cost, instant_kill, morale_check, area_damage,
+//   copy_enemy_ability, redirect_attack, cover,
+//   condition_apply, condition_clear, concealed,
+//   passive_atk, passive_def, passive_immune, reveal_intel
+// req: null | { state, ally_attacked, target_hp_pct,
+//               player_unseen, player_initiated,
+//               target_not_acted, axis_event, witnesses }
+
 // ── ARCHETYPE COMBAT ABILITIES ───────────────────────────
 const ARCHETYPE_COMBAT_ABILITIES = {
   warrior:[
-    {id:'shield_press', name:'Shield Press', cost:'action', effect:'push enemy back, gain +2 defense this round', skillReq:'combat', minSkill:2},
-    {id:'battle_cry',   name:'Battle Cry',   cost:'bonus',  effect:'all allies gain +1 attack this round', skillReq:'persuasion', minSkill:1},
-    {id:'disarm',       name:'Disarm',       cost:'action', effect:'enemy loses attack next round on success', skillReq:'combat', minSkill:3}
+    {id:'shield_press', name:'Shield Press', cost:'action',
+     flavor:'Drive shield into enemy with controlled force.',
+     effect:'push enemy back, gain +2 defense this round', skillReq:'combat', minSkill:2,
+     effects:[{type:'push_enemy',value:1},{type:'def_self',value:2,duration:1}], req:null},
+    {id:'battle_cry',   name:'Battle Cry',   cost:'bonus',
+     flavor:'A roar that steadies allied nerve.',
+     effect:'all allies gain +1 attack this round', skillReq:'persuasion', minSkill:1,
+     effects:[{type:'def_ally',value:1,duration:1}], req:null},
+    {id:'disarm',       name:'Disarm',       cost:'action',
+     flavor:'Strike the weapon hand, not the body.',
+     effect:'enemy loses attack next round on success', skillReq:'combat', minSkill:3,
+     effects:[{type:'lose_action_enemy',value:1,duration:1}], req:null}
   ],
   knight:[
-    {id:'challenge',    name:'Challenge',    cost:'action', effect:'enemy must target you this round. You gain +1 defense vs their attacks.', skillReq:'persuasion', minSkill:2},
-    {id:'oath_strike',  name:'Oath Strike',  cost:'action', effect:'+4 attack vs enemies who have attacked an ally', skillReq:'combat', minSkill:2},
-    {id:'parry',        name:'Parry',        cost:'reaction', effect:'negate one attack this round', skillReq:'combat', minSkill:3}
+    {id:'challenge',    name:'Challenge',    cost:'action',
+     flavor:'Fix the enemy attention on you alone.',
+     effect:'enemy must target you this round. You gain +1 defense vs their attacks.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'enemy_redirect',value:1},{type:'def_self',value:1,duration:1}], req:null},
+    {id:'oath_strike',  name:'Oath Strike',  cost:'action',
+     flavor:'The oath demands this blow.',
+     effect:'+4 attack vs enemies who have attacked an ally', skillReq:'combat', minSkill:2,
+     effects:[{type:'atk_bonus',value:4}], req:{ally_attacked:true}},
+    {id:'parry',        name:'Parry',        cost:'reaction',
+     flavor:'Read the angle and turn it aside.',
+     effect:'negate one attack this round', skillReq:'combat', minSkill:3,
+     effects:[{type:'def_self',value:20,duration:1}], req:null}
   ],
   ranger:[
-    {id:'marked_shot',  name:'Marked Shot',  cost:'action', effect:'+3 attack if you did not move this round', skillReq:'combat', minSkill:2},
-    {id:'set_trap',     name:'Set Trap',     cost:'bonus',  effect:'enemy disadvantage next round', skillReq:'survival', minSkill:2},
-    {id:'withdraw',     name:'Withdraw',     cost:'action', effect:'disengage safely, force enemy to expose flank', skillReq:'stealth', minSkill:1}
+    {id:'marked_shot',  name:'Marked Shot',  cost:'action',
+     flavor:'Still feet, clear eye, clean release.',
+     effect:'+3 attack if you did not move this round', skillReq:'combat', minSkill:2,
+     effects:[{type:'atk_bonus',value:3}], req:{state:'player_stationary'}},
+    {id:'set_trap',     name:'Set Trap',     cost:'bonus',
+     flavor:'Plant the hazard before they reach you.',
+     effect:'enemy disadvantage next round', skillReq:'survival', minSkill:2,
+     effects:[{type:'enemy_atk_penalty',value:2,duration:1}], req:null},
+    {id:'withdraw',     name:'Withdraw',     cost:'action',
+     flavor:'A clean disengage that invites pursuit on your terms.',
+     effect:'disengage safely, force enemy to expose flank', skillReq:'stealth', minSkill:1,
+     effects:[{type:'concealed',value:1},{type:'enemy_def_penalty',value:1,duration:1}], req:null}
   ],
   paladin:[
-    {id:'smite',        name:'Smite',        cost:'action', effect:'+5 attack vs unjust targets. Costs 3 HP.', skillReq:'combat', minSkill:3},
-    {id:'lay_on_hands', name:'Lay On Hands', cost:'action', effect:'restore 1d8+persuasion HP to self or ally', skillReq:'persuasion', minSkill:1},
-    {id:'divine_ward',  name:'Divine Ward',  cost:'bonus',  effect:'ally gains +3 defense this round', skillReq:'lore', minSkill:2}
+    {id:'smite',        name:'Smite',        cost:'action',
+     flavor:'Costly commitment. The blow carries weight beyond steel.',
+     effect:'+5 attack vs unjust targets. Costs 3 HP.', skillReq:'combat', minSkill:3,
+     effects:[{type:'hp_cost',value:3},{type:'atk_bonus',value:5}], req:null},
+    {id:'lay_on_hands', name:'Lay On Hands', cost:'action',
+     flavor:'Steady pressure, focused will, real result.',
+     effect:'restore 1d8+persuasion HP to self or ally', skillReq:'persuasion', minSkill:1,
+     effects:[{type:'heal_ally',value:'1d8+persuasion',target:'any'}], req:null},
+    {id:'divine_ward',  name:'Divine Ward',  cost:'bonus',
+     flavor:'Place yourself between the blow and the faithful.',
+     effect:'ally gains +3 defense this round', skillReq:'lore', minSkill:2,
+     effects:[{type:'def_ally',value:3,duration:1}], req:null}
   ],
   archer:[
-    {id:'cover_shot',   name:'Cover Shot',   cost:'action', effect:'attack while behind cover. Defense+3 this round.', skillReq:'stealth', minSkill:1},
-    {id:'pinning_shot', name:'Pinning Shot', cost:'action', effect:'enemy cannot advance this round', skillReq:'combat', minSkill:2},
-    {id:'rapid_fire',   name:'Rapid Fire',   cost:'action', effect:'two attacks at -2 each', skillReq:'combat', minSkill:3}
+    {id:'cover_shot',   name:'Cover Shot',   cost:'action',
+     flavor:'Fire from behind the edge. Economy of risk.',
+     effect:'attack while behind cover. Defense+3 this round.', skillReq:'stealth', minSkill:1,
+     effects:[{type:'atk_bonus',value:0},{type:'def_self',value:3,duration:1}], req:null},
+    {id:'pinning_shot', name:'Pinning Shot', cost:'action',
+     flavor:'Not to wound — to anchor.',
+     effect:'enemy cannot advance this round', skillReq:'combat', minSkill:2,
+     effects:[{type:'push_enemy',value:-1},{type:'lose_action_enemy',value:1,duration:1,subtype:'advance'}], req:null},
+    {id:'rapid_fire',   name:'Rapid Fire',   cost:'action',
+     flavor:'Speed costs precision. Acceptable trade.',
+     effect:'two attacks at -2 each', skillReq:'combat', minSkill:3,
+     effects:[{type:'atk_bonus',value:-2},{type:'extra_action_ally',value:1,target:'self'}], req:null}
   ],
   berserker:[
-    {id:'rage_surge',   name:'Rage Surge',   cost:'bonus',  effect:'spend 4 HP for +4 attack and +2 damage', skillReq:'combat', minSkill:2},
-    {id:'cleave',       name:'Cleave',       cost:'action', effect:'attack all adjacent enemies', skillReq:'combat', minSkill:3},
-    {id:'pain_feed',    name:'Pain Feed',    cost:'passive',effect:'gain +1 attack for each wound you carry', skillReq:'survival', minSkill:1}
+    {id:'rage_surge',   name:'Rage Surge',   cost:'bonus',
+     flavor:'Spend blood to spend harder.',
+     effect:'spend 4 HP for +4 attack and +2 damage', skillReq:'combat', minSkill:2,
+     effects:[{type:'hp_cost',value:4},{type:'atk_bonus',value:4},{type:'def_self',value:-2,duration:1}], req:null},
+    {id:'cleave',       name:'Cleave',       cost:'action',
+     flavor:'One arc, every target in reach.',
+     effect:'attack all adjacent enemies', skillReq:'combat', minSkill:3,
+     effects:[{type:'area_damage',value:1,target:'all_enemies'}], req:null},
+    {id:'pain_feed',    name:'Pain Feed',    cost:'passive',
+     flavor:'Each wound makes the next blow cleaner.',
+     effect:'gain +1 attack for each wound you carry', skillReq:'survival', minSkill:1,
+     effects:[{type:'passive_atk',value:'per_wound'}], req:null}
   ],
   wizard:[
-    {id:'force_push',   name:'Force Push',   cost:'action', effect:'ranged attack. Enemy pushed back and disoriented (-2 next round)', skillReq:'lore', minSkill:2},
-    {id:'arcane_shield',name:'Arcane Shield',cost:'bonus',  effect:'+3 defense vs one attack. Costs 2 HP.', skillReq:'lore', minSkill:1},
-    {id:'identify_weakness', name:'Identify Weakness', cost:'bonus', effect:'learn enemy ability. +2 attack for rest of combat.', skillReq:'lore', minSkill:3}
+    {id:'force_push',   name:'Force Push',   cost:'action',
+     flavor:'Directed kinetic burst. Clean and impersonal.',
+     effect:'ranged attack. Enemy pushed back and disoriented (-2 next round)', skillReq:'lore', minSkill:2,
+     effects:[{type:'push_enemy',value:1},{type:'enemy_atk_penalty',value:2,duration:1}], req:null},
+    {id:'arcane_shield',name:'Arcane Shield',cost:'bonus',
+     flavor:'Spend reserve to stop what cannot be dodged.',
+     effect:'+3 defense vs one attack. Costs 2 HP.', skillReq:'lore', minSkill:1,
+     effects:[{type:'hp_cost',value:2},{type:'def_self',value:3,duration:1}], req:null},
+    {id:'identify_weakness',name:'Identify Weakness',cost:'bonus',
+     flavor:'Read the structure before you strike it.',
+     effect:'learn enemy ability. +2 attack for rest of combat.', skillReq:'lore', minSkill:3,
+     effects:[{type:'reveal_intel',value:'enemy_ability'},{type:'atk_bonus',value:2,duration:'combat'}], req:null}
   ],
   cleric:[
-    {id:'sacred_strike',name:'Sacred Strike',cost:'action', effect:'+3 attack vs undead or those who broke oaths', skillReq:'combat', minSkill:2},
-    {id:'blessing',     name:'Blessing',     cost:'bonus',  effect:'ally +2 to all rolls this round', skillReq:'persuasion', minSkill:1},
-    {id:'turn_hostile', name:'Turn Hostile', cost:'action', effect:'force fearful or weak-willed enemies to retreat', skillReq:'lore', minSkill:2}
+    {id:'sacred_strike',name:'Sacred Strike',cost:'action',
+     flavor:'Doctrine made physical.',
+     effect:'+3 attack vs undead or those who broke oaths', skillReq:'combat', minSkill:2,
+     effects:[{type:'atk_bonus',value:3,condition:'enemy_undead_or_oathbreaker'}], req:null},
+    {id:'blessing',     name:'Blessing',     cost:'bonus',
+     flavor:'The word costs nothing. The result does not.',
+     effect:'ally +2 to all rolls this round', skillReq:'persuasion', minSkill:1,
+     effects:[{type:'def_ally',value:2,duration:1}], req:null},
+    {id:'turn_hostile', name:'Turn Hostile', cost:'action',
+     flavor:'Doctrinal pressure on the morally unstable.',
+     effect:'force fearful or weak-willed enemies to retreat', skillReq:'lore', minSkill:2,
+     effects:[{type:'morale_check',value:'flee',target:'all_enemies'}], req:null}
   ],
   priest:[
-    {id:'ward_off',     name:'Ward Off',     cost:'action', effect:'+2 defense for allies in melee. Persuasion check.', skillReq:'persuasion', minSkill:2},
-    {id:'censure',      name:'Censure',      cost:'action', effect:'enemy morale check. On fail, they hesitate.', skillReq:'persuasion', minSkill:2},
-    {id:'communal_aid', name:'Communal Aid', cost:'bonus',  effect:'restore 4 HP to an ally', skillReq:'persuasion', minSkill:1}
+    {id:'ward_off',     name:'Ward Off',     cost:'action',
+     flavor:'Public ritual has battlefield application.',
+     effect:'+2 defense for allies in melee. Persuasion check.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'def_ally',value:2,duration:1}], req:null},
+    {id:'censure',      name:'Censure',      cost:'action',
+     flavor:'Named and condemned. The effect is real.',
+     effect:'enemy morale check. On fail, they hesitate.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'morale_check',value:'hesitate'}], req:null},
+    {id:'communal_aid', name:'Communal Aid', cost:'bonus',
+     flavor:'Direct transfer. No ceremony required.',
+     effect:'restore 4 HP to an ally', skillReq:'persuasion', minSkill:1,
+     effects:[{type:'heal_ally',value:4,target:'any'}], req:null}
   ],
   necromancer:[
-    {id:'drain_will',   name:'Drain Will',   cost:'action', effect:'enemy -2 to all rolls this round. Lore check.', skillReq:'lore', minSkill:3},
-    {id:'death_sight',  name:'Death Sight',  cost:'passive',effect:'immune to fear effects from undead', skillReq:'lore', minSkill:1},
-    {id:'decay_touch',  name:'Decay Touch',  cost:'action', effect:'melee attack: +0 damage but wounding. Enemy -1 per round.', skillReq:'combat', minSkill:2}
+    {id:'drain_will',   name:'Drain Will',   cost:'action',
+     flavor:'Extract the animating force. Leave the shell.',
+     effect:'enemy -2 to all rolls this round. Lore check.', skillReq:'lore', minSkill:3,
+     effects:[{type:'enemy_atk_penalty',value:2,duration:1},{type:'enemy_def_penalty',value:2,duration:1}], req:null},
+    {id:'death_sight',  name:'Death Sight',  cost:'passive',
+     flavor:'You have seen past this threshold. Fear has no grip here.',
+     effect:'immune to fear effects from undead', skillReq:'lore', minSkill:1,
+     effects:[{type:'passive_immune',value:'fear'}], req:null},
+    {id:'decay_touch',  name:'Decay Touch',  cost:'action',
+     flavor:'Not a killing blow. A rotting one.',
+     effect:'melee attack: +0 damage but wounding. Enemy -1 per round.', skillReq:'combat', minSkill:2,
+     effects:[{type:'dot_enemy',value:1,duration:3}], req:null}
   ],
   illusionist:[
-    {id:'phantom_double', name:'Phantom Double', cost:'action', effect:'50% chance enemy attacks illusion this round', skillReq:'stealth', minSkill:2},
-    {id:'fear_image',   name:'Fear Image',   cost:'action', effect:'morale check. Low morale enemies flee.', skillReq:'persuasion', minSkill:2},
-    {id:'blind_spot',   name:'Blind Spot',   cost:'bonus',  effect:'enemy cannot detect you next round if you disengage', skillReq:'stealth', minSkill:1}
+    {id:'phantom_double',name:'Phantom Double',cost:'action',
+     flavor:'Give the eye something to chase.',
+     effect:'50% chance enemy attacks illusion this round', skillReq:'stealth', minSkill:2,
+     effects:[{type:'def_self',value:10,duration:1,subtype:'evade_chance'}], req:null},
+    {id:'fear_image',   name:'Fear Image',   cost:'action',
+     flavor:'Show them the thing they carry.',
+     effect:'morale check. Low morale enemies flee.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'morale_check',value:'flee'}], req:null},
+    {id:'blind_spot',   name:'Blind Spot',   cost:'bonus',
+     flavor:'Vanish into the gap between their attention.',
+     effect:'enemy cannot detect you next round if you disengage', skillReq:'stealth', minSkill:1,
+     effects:[{type:'concealed',value:1}], req:null}
   ],
   inquisitor:[
-    {id:'interrogate_combat', name:'Interrogate', cost:'action', effect:'demand surrender. On success enemy surrenders. On fail, combat bonus +2.', skillReq:'persuasion', minSkill:3},
-    {id:'read_intent',  name:'Read Intent',  cost:'passive',effect:'+1 defense at start of each combat round (reads telegraphed attacks)', skillReq:'lore', minSkill:1},
-    {id:'command_stop', name:'Command Stop', cost:'action', effect:'one enemy must stop advancing. Lore check vs morale.', skillReq:'lore', minSkill:2}
+    {id:'interrogate_combat',name:'Interrogate',cost:'action',
+     flavor:'The question has teeth here too.',
+     effect:'demand surrender. On success enemy surrenders. On fail, combat bonus +2.', skillReq:'persuasion', minSkill:3,
+     effects:[{type:'morale_check',value:'surrender'},{type:'atk_bonus',value:2,condition:'on_fail',duration:'combat'}], req:null},
+    {id:'read_intent',  name:'Read Intent',  cost:'passive',
+     flavor:'Every telegraphed attack is a text you have read before.',
+     effect:'+1 defense at start of each combat round', skillReq:'lore', minSkill:1,
+     effects:[{type:'passive_def',value:1}], req:null},
+    {id:'command_stop', name:'Command Stop', cost:'action',
+     flavor:'Authority expressed as physical pressure.',
+     effect:'one enemy must stop advancing. Lore check vs morale.', skillReq:'lore', minSkill:2,
+     effects:[{type:'lose_action_enemy',value:1,duration:1,subtype:'advance'}], req:null}
   ],
   elementalist:[
-    {id:'axis_surge',   name:'Axis Surge',   cost:'action', effect:'+4 attack during axis events. Normal: +2 attack', skillReq:'lore', minSkill:2},
-    {id:'force_field',  name:'Force Field',  cost:'bonus',  effect:'+2 defense this round. Costs 2 HP.', skillReq:'survival', minSkill:1},
-    {id:'elemental_shock', name:'Elemental Shock', cost:'action', effect:'area attack. All enemies -1 next round.', skillReq:'lore', minSkill:3}
+    {id:'axis_surge',   name:'Axis Surge',   cost:'action',
+     flavor:'Use the inversion rather than fight it.',
+     effect:'+4 attack during axis events. Normal: +2 attack', skillReq:'lore', minSkill:2,
+     effects:[{type:'atk_bonus',value:4,condition:'axis_event'},{type:'atk_bonus',value:2,condition:'default'}], req:null},
+    {id:'force_field',  name:'Force Field',  cost:'bonus',
+     flavor:'Shape the axis pressure outward.',
+     effect:'+2 defense this round. Costs 2 HP.', skillReq:'survival', minSkill:1,
+     effects:[{type:'hp_cost',value:2},{type:'def_self',value:2,duration:1}], req:null},
+    {id:'elemental_shock',name:'Elemental Shock',cost:'action',
+     flavor:'The arc does not distinguish between them.',
+     effect:'area attack. All enemies -1 next round.', skillReq:'lore', minSkill:3,
+     effects:[{type:'area_damage',value:'1d4',target:'all_enemies'},{type:'enemy_atk_penalty',value:1,duration:1,target:'all_enemies'}], req:null}
   ],
   rogue:[
-    {id:'backstab',     name:'Backstab',     cost:'action', effect:'+4 attack from concealment or flanking', skillReq:'stealth', minSkill:2},
-    {id:'smoke_out',    name:'Smoke Out',    cost:'bonus',  effect:'create diversion. Enemy loses next action.', skillReq:'stealth', minSkill:1},
-    {id:'pickpocket_fight', name:'Lift Item', cost:'action', effect:'steal one item or weapon component during combat', skillReq:'stealth', minSkill:3}
+    {id:'backstab',     name:'Backstab',     cost:'action',
+     flavor:'Position acquired. Strike committed.',
+     effect:'+4 attack from concealment or flanking', skillReq:'stealth', minSkill:2,
+     effects:[{type:'atk_bonus',value:4}], req:{state:'player_concealed'}},
+    {id:'smoke_out',    name:'Smoke Out',    cost:'bonus',
+     flavor:'Break their attention and move before it reforms.',
+     effect:'create diversion. Enemy loses next action.', skillReq:'stealth', minSkill:1,
+     effects:[{type:'lose_action_enemy',value:1,duration:1}], req:null},
+    {id:'pickpocket_fight',name:'Lift Item',  cost:'action',
+     flavor:'The objective was never to wound.',
+     effect:'steal one item or weapon component during combat', skillReq:'stealth', minSkill:3,
+     effects:[{type:'condition_apply',value:'disarmed',target:'enemy',duration:1}], req:null}
   ],
   assassin:[
-    {id:'precise_strike', name:'Precise Strike', cost:'action', effect:'+3 attack if target has not acted yet this round', skillReq:'stealth', minSkill:2},
-    {id:'poison_blade',  name:'Poison Blade',  cost:'bonus',  effect:'next hit adds ongoing 1 HP/round for 3 rounds', skillReq:'craft', minSkill:2},
-    {id:'silent_kill',   name:'Silent Kill',   cost:'action', effect:'instant kill if target below 30% HP and you are unseen', skillReq:'stealth', minSkill:4}
+    {id:'precise_strike',name:'Precise Strike',cost:'action',
+     flavor:'First action, last action. One deliberate thing.',
+     effect:'+3 attack if target has not acted yet this round', skillReq:'stealth', minSkill:2,
+     effects:[{type:'atk_bonus',value:3}], req:{target_not_acted:true}},
+    {id:'poison_blade',  name:'Poison Blade', cost:'bonus',
+     flavor:'The work continues after the blow.',
+     effect:'next hit adds ongoing 1 HP/round for 3 rounds', skillReq:'craft', minSkill:2,
+     effects:[{type:'dot_enemy',value:1,duration:3}], req:null},
+    {id:'silent_kill',   name:'Silent Kill',  cost:'action',
+     flavor:'Unseen approach. No margin for error.',
+     effect:'instant kill if target below 30% HP and you are unseen', skillReq:'stealth', minSkill:4,
+     effects:[{type:'instant_kill',value:1}], req:{target_hp_pct:0.3,player_unseen:true}}
   ],
   spellthief:[
-    {id:'steal_technique', name:'Steal Technique', cost:'action', effect:'copy one enemy ability for use this combat', skillReq:'stealth', minSkill:3},
-    {id:'arcane_disruption', name:'Arcane Disruption', cost:'action', effect:'enemy caster cannot use abilities next round', skillReq:'lore', minSkill:2},
-    {id:'redirect',       name:'Redirect',      cost:'reaction', effect:'redirect one magical effect to different target', skillReq:'lore', minSkill:3}
+    {id:'steal_technique',name:'Steal Technique',cost:'action',
+     flavor:'Read the structure as they use it. Replicate it.',
+     effect:'copy one enemy ability for use this combat', skillReq:'stealth', minSkill:3,
+     effects:[{type:'copy_enemy_ability',value:1}], req:null},
+    {id:'arcane_disruption',name:'Arcane Disruption',cost:'action',
+     flavor:'Collapse the pattern before it resolves.',
+     effect:'enemy caster cannot use abilities next round', skillReq:'lore', minSkill:2,
+     effects:[{type:'lose_action_enemy',value:1,duration:1,subtype:'abilities'}], req:null},
+    {id:'redirect',       name:'Redirect',     cost:'reaction',
+     flavor:'Accept the force. Give it a new address.',
+     effect:'redirect one magical effect to different target', skillReq:'lore', minSkill:3,
+     effects:[{type:'redirect_attack',value:1}], req:null}
   ],
   scout:[
-    {id:'ambush_prep',  name:'Ambush Prep',  cost:'bonus',  effect:'+3 attack if combat initiated by you', skillReq:'stealth', minSkill:2},
-    {id:'flank_call',   name:'Flank Call',   cost:'bonus',  effect:'identify weak point. All attacks gain +1 for 2 rounds.', skillReq:'survival', minSkill:1},
-    {id:'cover_break',  name:'Cover Break',  cost:'action', effect:'deny enemy use of cover this round', skillReq:'stealth', minSkill:2}
+    {id:'ambush_prep',  name:'Ambush Prep',  cost:'bonus',
+     flavor:'The first strike was prepared before they arrived.',
+     effect:'+3 attack if combat initiated by you', skillReq:'stealth', minSkill:2,
+     effects:[{type:'atk_bonus',value:3}], req:{state:'player_initiated'}},
+    {id:'flank_call',   name:'Flank Call',   cost:'bonus',
+     flavor:'Name the weakness. Everyone benefits.',
+     effect:'identify weak point. All attacks gain +1 for 2 rounds.', skillReq:'survival', minSkill:1,
+     effects:[{type:'atk_bonus',value:1,duration:2,target:'all_allies'}], req:null},
+    {id:'cover_break',  name:'Cover Break',  cost:'action',
+     flavor:'Remove the advantage. Force them into the open.',
+     effect:'deny enemy use of cover this round', skillReq:'stealth', minSkill:2,
+     effects:[{type:'enemy_def_penalty',value:3,duration:1}], req:null}
   ],
   thief:[
-    {id:'misdirect',    name:'Misdirect',    cost:'action', effect:'enemy attacks wrong target this round', skillReq:'stealth', minSkill:2},
-    {id:'quick_hands',  name:'Quick Hands',  cost:'bonus',  effect:'disarm or trip enemy as bonus action', skillReq:'craft', minSkill:2},
-    {id:'vanishing_act',name:'Vanishing Act',cost:'action', effect:'disengage and become hidden if cover is available', skillReq:'stealth', minSkill:3}
+    {id:'misdirect',    name:'Misdirect',    cost:'action',
+     flavor:'The hand they see is not the hand that moves.',
+     effect:'enemy attacks wrong target this round', skillReq:'stealth', minSkill:2,
+     effects:[{type:'redirect_attack',value:1,target:'away_from_player'}], req:null},
+    {id:'quick_hands',  name:'Quick Hands',  cost:'bonus',
+     flavor:'The weapon leaves the hand before they realize.',
+     effect:'disarm or trip enemy as bonus action', skillReq:'craft', minSkill:2,
+     effects:[{type:'condition_apply',value:'disarmed',target:'enemy',duration:1}], req:null},
+    {id:'vanishing_act',name:'Vanishing Act',cost:'action',
+     flavor:'The space where you were is empty.',
+     effect:'disengage and become hidden if cover is available', skillReq:'stealth', minSkill:3,
+     effects:[{type:'concealed',value:1},{type:'push_enemy',value:1}], req:null}
   ],
   trickster:[
-    {id:'mock',         name:'Mock',         cost:'bonus',  effect:'enemy morale -2. They must target you this round.', skillReq:'persuasion', minSkill:2},
-    {id:'bait_and_switch', name:'Bait and Switch', cost:'action', effect:'force enemy to attack position you just left', skillReq:'persuasion', minSkill:2},
-    {id:'crowd_favor',  name:'Crowd Favor',  cost:'action', effect:'if witnesses present, enemy cannot make violent move without renown cost', skillReq:'persuasion', minSkill:3}
+    {id:'mock',         name:'Mock',         cost:'bonus',
+     flavor:'Peel the composure off. Watch the decision-making collapse.',
+     effect:'enemy morale -2. They must target you this round.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'enemy_atk_penalty',value:2,duration:1},{type:'enemy_redirect',value:1}], req:null},
+    {id:'bait_and_switch',name:'Bait and Switch',cost:'action',
+     flavor:'Commit to the wrong position. Invite the strike. Be elsewhere.',
+     effect:'force enemy to attack position you just left', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'def_self',value:20,duration:1,subtype:'evade_redirect'}], req:null},
+    {id:'crowd_favor',  name:'Crowd Favor',  cost:'action',
+     flavor:'Witnesses change the calculation.',
+     effect:'if witnesses present, enemy cannot make violent move without renown cost', skillReq:'persuasion', minSkill:3,
+     effects:[{type:'morale_check',value:'hesitate'}], req:{witnesses:true}}
   ],
   healer:[
-    {id:'field_triage', name:'Field Triage', cost:'action', effect:'restore 1d8+2 HP to self or ally. Can stabilize dying.', skillReq:'lore', minSkill:1},
-    {id:'pain_block',   name:'Pain Block',   cost:'bonus',  effect:'ally ignores wound penalties this round', skillReq:'craft', minSkill:2},
-    {id:'expose_wound', name:'Expose Wound', cost:'action', effect:'enemy -2 defense by targeting existing injury', skillReq:'lore', minSkill:3}
+    {id:'field_triage', name:'Field Triage', cost:'action',
+     flavor:'Controlled hands, fast assessment, immediate effect.',
+     effect:'restore 1d8+2 HP to self or ally. Can stabilize dying.', skillReq:'lore', minSkill:1,
+     effects:[{type:'heal_ally',value:'1d8+2',target:'any'}], req:null},
+    {id:'pain_block',   name:'Pain Block',   cost:'bonus',
+     flavor:'Interrupt the signal. Buy the round.',
+     effect:'ally ignores wound penalties this round', skillReq:'craft', minSkill:2,
+     effects:[{type:'condition_clear',value:'wound_penalty',target:'any',duration:1}], req:null},
+    {id:'expose_wound', name:'Expose Wound', cost:'action',
+     flavor:'Clinical targeting. Not cruelty — efficiency.',
+     effect:'enemy -2 defense by targeting existing injury', skillReq:'lore', minSkill:3,
+     effects:[{type:'enemy_def_penalty',value:2,duration:1}], req:null}
   ],
   artificer:[
-    {id:'deploy_device',name:'Deploy Device',cost:'action', effect:'improvised mechanism. Effect varies (trap, distraction, shield)', skillReq:'craft', minSkill:2},
-    {id:'structural_blow', name:'Structural Blow', cost:'action', effect:'+3 attack vs armored enemies. Degrades their protection.', skillReq:'craft', minSkill:2},
-    {id:'emergency_repair', name:'Emergency Repair', cost:'bonus', effect:'restore 4 HP using available materials', skillReq:'craft', minSkill:1}
+    {id:'deploy_device',name:'Deploy Device',cost:'action',
+     flavor:'Improvised mechanism. Reliable enough.',
+     effect:'improvised mechanism. Effect varies (trap, distraction, shield)', skillReq:'craft', minSkill:2,
+     effects:[{type:'lose_action_enemy',value:1,duration:1},{type:'def_self',value:2,duration:1}], req:null},
+    {id:'structural_blow',name:'Structural Blow',cost:'action',
+     flavor:'Target the joins. Degrade the protection.',
+     effect:'+3 attack vs armored enemies. Degrades their protection.', skillReq:'craft', minSkill:2,
+     effects:[{type:'atk_bonus',value:3},{type:'enemy_def_penalty',value:1,duration:'combat'}], req:null},
+    {id:'emergency_repair',name:'Emergency Repair',cost:'bonus',
+     flavor:'Salvage what is available. It is enough.',
+     effect:'restore 4 HP using available materials', skillReq:'craft', minSkill:1,
+     effects:[{type:'heal_self',value:4}], req:null}
   ],
   engineer:[
-    {id:'terrain_use',  name:'Terrain Use',  cost:'bonus',  effect:'+2 defense by using environment intelligently', skillReq:'craft', minSkill:1},
-    {id:'collapse_structure', name:'Collapse', cost:'action', effect:'structural damage to area. All in range take 1d6 damage.', skillReq:'craft', minSkill:3},
-    {id:'fortify_position', name:'Fortify',  cost:'action', effect:'create cover. Allies gain +2 defense for 2 rounds.', skillReq:'craft', minSkill:2}
+    {id:'terrain_use',  name:'Terrain Use',  cost:'bonus',
+     flavor:'The environment was always a tool.',
+     effect:'+2 defense by using environment intelligently', skillReq:'craft', minSkill:1,
+     effects:[{type:'def_self',value:2,duration:1}], req:null},
+    {id:'collapse_structure',name:'Collapse',cost:'action',
+     flavor:'Controlled demolition. Uncontrolled consequences.',
+     effect:'structural damage to area. All in range take 1d6 damage.', skillReq:'craft', minSkill:3,
+     effects:[{type:'area_damage',value:'1d6',target:'all_enemies'}], req:null},
+    {id:'fortify_position',name:'Fortify',   cost:'action',
+     flavor:'Convert the ground into a position.',
+     effect:'create cover. Allies gain +2 defense for 2 rounds.', skillReq:'craft', minSkill:2,
+     effects:[{type:'cover',value:2,duration:2,target:'all_allies'}], req:null}
   ],
   tactician:[
-    {id:'coordinate',   name:'Coordinate',   cost:'bonus',  effect:'one ally may take an extra action this round', skillReq:'lore', minSkill:2},
-    {id:'suppress',     name:'Suppress',     cost:'action', effect:'enemy cannot advance and loses 1 action', skillReq:'lore', minSkill:2},
-    {id:'battle_plan',  name:'Battle Plan',  cost:'action', effect:'set up: next round all allies +2 attack and defense', skillReq:'lore', minSkill:3}
+    {id:'coordinate',   name:'Coordinate',   cost:'bonus',
+     flavor:'The sequence was always there. Name it.',
+     effect:'one ally may take an extra action this round', skillReq:'lore', minSkill:2,
+     effects:[{type:'extra_action_ally',value:1}], req:null},
+    {id:'suppress',     name:'Suppress',     cost:'action',
+     flavor:'Contain the advance. Define the edge.',
+     effect:'enemy cannot advance and loses 1 action', skillReq:'lore', minSkill:2,
+     effects:[{type:'lose_action_enemy',value:1,duration:1},{type:'push_enemy',value:-1}], req:null},
+    {id:'battle_plan',  name:'Battle Plan',  cost:'action',
+     flavor:'Spend a round to own the next one.',
+     effect:'set up: next round all allies +2 attack and defense', skillReq:'lore', minSkill:3,
+     effects:[{type:'atk_bonus',value:2,duration:1,target:'all_allies',delay:1},{type:'def_ally',value:2,duration:1,delay:1}], req:null}
   ],
   alchemist:[
-    {id:'throw_compound', name:'Throw Compound', cost:'action', effect:'area effect: 1d6 damage or condition (acid/sleep/blind)', skillReq:'craft', minSkill:2},
-    {id:'antidote_burst', name:'Antidote Burst', cost:'bonus', effect:'self or ally clears one condition immediately', skillReq:'craft', minSkill:1},
-    {id:'volatile_mix',   name:'Volatile Mix',   cost:'action', effect:'+4 damage but 1-in-6 chance of self-splash', skillReq:'craft', minSkill:3}
+    {id:'throw_compound',name:'Throw Compound',cost:'action',
+     flavor:'The effect depends on what is in the vial.',
+     effect:'area effect: 1d6 damage or condition (acid/sleep/blind)', skillReq:'craft', minSkill:2,
+     effects:[{type:'area_damage',value:'1d6',target:'all_enemies'},{type:'condition_apply',value:'acid',target:'all_enemies',duration:2}], req:null},
+    {id:'antidote_burst',name:'Antidote Burst',cost:'bonus',
+     flavor:'Counteragent applied directly. Immediate clearance.',
+     effect:'self or ally clears one condition immediately', skillReq:'craft', minSkill:1,
+     effects:[{type:'condition_clear',value:'any',target:'any'}], req:null},
+    {id:'volatile_mix',  name:'Volatile Mix',  cost:'action',
+     flavor:'High yield. Marginal safety. Worth it.',
+     effect:'+4 damage but 1-in-6 chance of self-splash', skillReq:'craft', minSkill:3,
+     effects:[{type:'atk_bonus',value:4},{type:'dot_enemy',value:2,duration:2},{type:'self_splash_risk',value:0.167}], req:null}
   ],
   saint:[
-    {id:'presence',     name:'Presence',     cost:'passive',effect:'hostile non-fanatics must succeed morale check to attack you', skillReq:'persuasion', minSkill:3},
-    {id:'appeal',       name:'Appeal',       cost:'action', effect:'demand enemy surrender. Common enemies: high success rate.', skillReq:'persuasion', minSkill:2},
-    {id:'sanctified_ground', name:'Sanctified Ground', cost:'action', effect:'enemies in area -2 morale, allies +2 defense', skillReq:'lore', minSkill:2}
+    {id:'presence',     name:'Presence',     cost:'passive',
+     flavor:'The cost of attacking you is visible to them.',
+     effect:'hostile non-fanatics must succeed morale check to attack you', skillReq:'persuasion', minSkill:3,
+     effects:[{type:'passive_immune',value:'casual_attack'}], req:null},
+    {id:'appeal',       name:'Appeal',       cost:'action',
+     flavor:'Name the alternative. Give them the chance.',
+     effect:'demand enemy surrender. Common enemies: high success rate.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'morale_check',value:'surrender'}], req:null},
+    {id:'sanctified_ground',name:'Sanctified Ground',cost:'action',
+     flavor:'Claim the space. The effect is immediate.',
+     effect:'enemies in area -2 morale, allies +2 defense', skillReq:'lore', minSkill:2,
+     effects:[{type:'enemy_atk_penalty',value:2,duration:2,target:'all_enemies'},{type:'def_ally',value:2,duration:2}], req:null}
   ],
-
   bard:[
-    {id:'bd_distraction', name:'Distraction', cost:'bonus', effect:'enemy loses focus — -2 to their next action', skillReq:'persuasion', minSkill:2},
-    {id:'bd_rally_cry', name:'Rally Cry', cost:'action', effect:'all allies gain +1 to their next action this round', skillReq:'persuasion', minSkill:3},
-    {id:'bd_taunt', name:'Taunt', cost:'bonus', effect:'enemy must target you this round. You gain +1 defense.', skillReq:'persuasion', minSkill:2}
+    {id:'bd_distraction',name:'Distraction',  cost:'bonus',
+     flavor:'Fracture the focus before the blow.',
+     effect:'enemy loses focus — -2 to their next action', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'enemy_atk_penalty',value:2,duration:1}], req:null},
+    {id:'bd_rally_cry',  name:'Rally Cry',    cost:'action',
+     flavor:'The voice does something the steel cannot.',
+     effect:'all allies gain +1 to their next action this round', skillReq:'persuasion', minSkill:3,
+     effects:[{type:'def_ally',value:1,duration:1}], req:null},
+    {id:'bd_taunt',      name:'Taunt',        cost:'bonus',
+     flavor:'Redirect the aggression. Absorb it on your terms.',
+     effect:'enemy must target you this round. You gain +1 defense.', skillReq:'persuasion', minSkill:2,
+     effects:[{type:'enemy_redirect',value:1},{type:'def_self',value:1,duration:1}], req:null}
   ],
   oracle:[
-    {id:'or_foresee', name:'Foresee Attack', cost:'passive', effect:'+1 defense at start of each combat round — you read the telegraphed movement', skillReq:'lore', minSkill:2},
-    {id:'or_predicted', name:'Predicted Move', cost:'action', effect:'declare enemy action before they act. If correct, auto-succeed your counter.', skillReq:'lore', minSkill:3},
-    {id:'or_outcome', name:'See the Outcome', cost:'bonus', effect:'learn whether attacking or defending will produce better results this round. No roll.', skillReq:'lore', minSkill:2}
+    {id:'or_foresee',   name:'Foresee Attack',cost:'passive',
+     flavor:'The movement was decided before they executed it.',
+     effect:'+1 defense at start of each combat round', skillReq:'lore', minSkill:2,
+     effects:[{type:'passive_def',value:1}], req:null},
+    {id:'or_predicted', name:'Predicted Move', cost:'action',
+     flavor:'Name the thing before it happens. Then respond to the thing.',
+     effect:'declare enemy action before they act. If correct, auto-succeed your counter.', skillReq:'lore', minSkill:3,
+     effects:[{type:'def_self',value:20,duration:1,subtype:'predicted_counter'}], req:null},
+    {id:'or_outcome',   name:'See the Outcome',cost:'bonus',
+     flavor:'The better path is visible from here.',
+     effect:'learn whether attacking or defending will produce better results this round. No roll.', skillReq:'lore', minSkill:2,
+     effects:[{type:'reveal_intel',value:'optimal_action'}], req:null}
   ],
   warden:[
-    {id:'wd_cover', name:'Cover Ally', cost:'reaction', effect:'negate one attack that would hit an ally. Take half the damage instead.', skillReq:'combat', minSkill:2},
-    {id:'wd_push_back', name:'Push Back', cost:'action', effect:'force enemy back two positions. They cannot advance next round.', skillReq:'combat', minSkill:3},
-    {id:'wd_fortify', name:'Fortify Position', cost:'action', effect:'all allies in current position gain +3 defense for 2 rounds', skillReq:'survival', minSkill:2}
+    {id:'wd_cover',     name:'Cover Ally',   cost:'reaction',
+     flavor:'Interpose yourself. Accept the redistribution.',
+     effect:'negate one attack that would hit an ally. Take half the damage instead.', skillReq:'combat', minSkill:2,
+     effects:[{type:'def_ally',value:20,duration:1,subtype:'intercept'}], req:null},
+    {id:'wd_push_back', name:'Push Back',    cost:'action',
+     flavor:'Custody includes containment.',
+     effect:'force enemy back two positions. They cannot advance next round.', skillReq:'combat', minSkill:3,
+     effects:[{type:'push_enemy',value:2},{type:'lose_action_enemy',value:1,duration:1,subtype:'advance'}], req:null},
+    {id:'wd_fortify',   name:'Fortify Position',cost:'action',
+     flavor:'Hold the line. Make it cost them.',
+     effect:'all allies in current position gain +3 defense for 2 rounds', skillReq:'survival', minSkill:2,
+     effects:[{type:'cover',value:3,duration:2,target:'all_allies'}], req:null}
   ],
   warlord:[
-    {id:'wl_coordinate_w', name:'Coordinate', cost:'bonus', effect:'one ally takes an extra action this round', skillReq:'lore', minSkill:2},
-    {id:'wl_press', name:'Press the Advantage', cost:'action', effect:'after any success this round, immediate follow-up attack at +2', skillReq:'combat', minSkill:3},
-    {id:'wl_suppress_w', name:'Suppress', cost:'action', effect:'enemy cannot advance and loses one action next round', skillReq:'lore', minSkill:2}
+    {id:'wl_coordinate_w',name:'Coordinate', cost:'bonus',
+     flavor:'The sequence was always there. Execute it.',
+     effect:'one ally takes an extra action this round', skillReq:'lore', minSkill:2,
+     effects:[{type:'extra_action_ally',value:1}], req:null},
+    {id:'wl_press',     name:'Press the Advantage',cost:'action',
+     flavor:'Every success is an opening if you move fast enough.',
+     effect:'after any success this round, immediate follow-up attack at +2', skillReq:'combat', minSkill:3,
+     effects:[{type:'atk_bonus',value:2,condition:'on_success'}], req:null},
+    {id:'wl_suppress_w',name:'Suppress',     cost:'action',
+     flavor:'Fix them. Control the tempo.',
+     effect:'enemy cannot advance and loses one action next round', skillReq:'lore', minSkill:2,
+     effects:[{type:'lose_action_enemy',value:1,duration:1},{type:'push_enemy',value:-1}], req:null}
   ],
   death_knight:[
-    {id:'dk_relentless', name:'Relentless', cost:'passive', effect:'cannot be stunned or stopped by non-lethal effects. Always act on your turn.', skillReq:'combat', minSkill:3},
-    {id:'dk_intimidate', name:'Intimidate', cost:'bonus', effect:'enemy morale -3. Low-morale enemies must check before continuing.', skillReq:'combat', minSkill:2},
-    {id:'dk_oath_strike_dk', name:'Oath Strike', cost:'action', effect:'+4 attack against the target of your declared objective', skillReq:'combat', minSkill:3}
+    {id:'dk_relentless',name:'Relentless',   cost:'passive',
+     flavor:'The oath does not permit interruption.',
+     effect:'cannot be stunned or stopped by non-lethal effects. Always act on your turn.', skillReq:'combat', minSkill:3,
+     effects:[{type:'passive_immune',value:'stun'},{type:'passive_immune',value:'slow'}], req:null},
+    {id:'dk_intimidate',name:'Intimidate',   cost:'bonus',
+     flavor:'The intention is visible. The nerve breaks.',
+     effect:'enemy morale -3. Low-morale enemies must check before continuing.', skillReq:'combat', minSkill:2,
+     effects:[{type:'enemy_atk_penalty',value:3,duration:1},{type:'morale_check',value:'hesitate',condition:'low_morale'}], req:null},
+    {id:'dk_oath_strike_dk',name:'Oath Strike',cost:'action',
+     flavor:'The declared target. The full weight of the commitment.',
+     effect:'+4 attack against the target of your declared objective', skillReq:'combat', minSkill:3,
+     effects:[{type:'atk_bonus',value:4}], req:null}
   ],
   beastmaster:[
-    {id:'bm_flank', name:'Flanking Read', cost:'passive', effect:'always know enemy position relative to you. Cannot be flanked or surprised.', skillReq:'stealth', minSkill:2},
-    {id:'bm_terrain_adv', name:'Terrain Advantage', cost:'bonus', effect:'+2 to all rolls when fighting in wilderness or exterior terrain', skillReq:'survival', minSkill:2},
-    {id:'bm_tracking_shot', name:'Tracking Strike', cost:'action', effect:'+3 attack — you have been reading this target for at least one round', skillReq:'stealth', minSkill:3}
+    {id:'bm_flank',     name:'Flanking Read',cost:'passive',
+     flavor:'You read terrain and position before the exchange begins.',
+     effect:'always know enemy position relative to you. Cannot be flanked or surprised.', skillReq:'stealth', minSkill:2,
+     effects:[{type:'passive_immune',value:'flank'},{type:'passive_immune',value:'surprise'}], req:null},
+    {id:'bm_terrain_adv',name:'Terrain Advantage',cost:'bonus',
+     flavor:'Exterior ground is familiar ground.',
+     effect:'+2 to all rolls when fighting in wilderness or exterior terrain', skillReq:'survival', minSkill:2,
+     effects:[{type:'atk_bonus',value:2,condition:'exterior_terrain'},{type:'def_self',value:2,condition:'exterior_terrain',duration:1}], req:null},
+    {id:'bm_tracking_shot',name:'Tracking Strike',cost:'action',
+     flavor:'A full round of reading resolves into a single clean action.',
+     effect:'+3 attack — you have been reading this target for at least one round', skillReq:'stealth', minSkill:3,
+     effects:[{type:'atk_bonus',value:3}], req:{state:'player_observed_target'}}
   ]
-
 };
 
 // ── COMBAT STATE ─────────────────────────────────────────

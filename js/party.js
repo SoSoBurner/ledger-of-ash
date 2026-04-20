@@ -25,8 +25,10 @@ const COMPANION_DEFS = {
     leaveConditions: ['morality < -40', 'order < -50', 'vera_trust < 5'],
     leaveScene: "Vera finds you after a long silence. 'I signed up to help find out what happened. I didn't sign up for this.' She leaves her key on the table and walks out.",
     abilities: [
-      { type: 'passive', desc: "Shelkopolis street network: learn one piece of local intelligence per day for free." },
-      { type: 'active',  desc: "Once per scene: Vera's contact confirms or denies any claim about a named Shelkopolis figure. Persuasion -2 on all social checks replaced by automatic partial success." }
+      { type:'passive', trigger:'always', effect:'roll_bonus', skill:'persuasion', locality:'shelkopolis', axisState:null, bonus:1,
+        desc:'Shelkopolis street network: +1 persuasion in Shelkopolis. Learn one piece of local intelligence per day for free.' },
+      { type:'active', trigger:'once_per_scene', effect:'auto_partial', skill:'persuasion', locality:'shelkopolis', axisState:null, bonus:0,
+        desc:'Once per scene: Vera\'s contact confirms or denies any claim about a named Shelkopolis figure. Persuasion check auto-succeeds as partial.' }
     ],
     campLines: [
       "Vera is quiet for a while, then: 'The Brennach family will want to know what we find. Whatever it is.'",
@@ -56,8 +58,10 @@ const COMPANION_DEFS = {
     leaveConditions: ['morality < -30', 'G.quests includes registry_corruption_ignored'],
     leaveScene: "'You had the information and chose not to act on it,' Toriel says. 'That's a medical decision too. I can't work with that.' He takes his bag and goes.",
     abilities: [
-      { type: 'passive', desc: "Panim registry access: can read death records, flag discrepancies, and request secondary review without institutional clearance." },
-      { type: 'active',  desc: "Once per scene: field medical assessment. Stabilize any wound, identify cause of injury/death from physical evidence. Lore checks relating to bodies and cause of death auto-succeed." }
+      { type:'passive', trigger:'always', effect:'roll_bonus', skill:'lore', locality:null, axisState:null, bonus:1,
+        desc:'Panim registry access: +1 lore. Can read death records and flag discrepancies without institutional clearance.' },
+      { type:'active', trigger:'once_per_scene', effect:'no_roll', skill:'lore', locality:null, axisState:null, bonus:0,
+        desc:'Once per scene: field medical assessment. Stabilize any wound, identify cause of injury/death. Lore checks on bodies auto-succeed.' }
     ],
     campLines: [
       "'There's a pattern in the injury types. The missing persons from the eastern route — the ones who came back injured — they all have the same kind of damage. Not accidental. Purposeful.'",
@@ -87,8 +91,10 @@ const COMPANION_DEFS = {
     leaveConditions: ['G.axisTick > 60 without acting', 'morality < -20'],
     leaveScene: "'The dome stabilizers are failing and we're investigating politics,' Neren says quietly. 'I have to go back. The commune needs me more than this does.' He leaves at dawn.",
     abilities: [
-      { type: 'passive', desc: "Axis attunement: always know exact axis state, time to next event, and corridor anomaly readings. Axis events give +2 to all rolls instead of penalties." },
-      { type: 'active',  desc: "Once per day: technical analysis of any elemental or structural anomaly. Produces a lore-equivalent finding without requiring a roll." }
+      { type:'passive', trigger:'always', effect:'roll_bonus', skill:null, locality:null, axisState:'inverted', bonus:2,
+        desc:'Axis attunement: +2 to all rolls during axis events. Always know exact axis state and corridor anomaly readings.' },
+      { type:'active', trigger:'once_per_day', effect:'no_roll', skill:'lore', locality:null, axisState:null, bonus:0,
+        desc:'Once per day: technical analysis of any elemental or structural anomaly. Lore-equivalent finding without requiring a roll.' }
     ],
     campLines: [
       "'The pre-inversion window lasts approximately three hours. Whatever moves through the eastern corridor moves in that window. That's not improvisation — that's someone with dome-level knowledge.'",
@@ -118,8 +124,12 @@ const COMPANION_DEFS = {
     leaveConditions: ['order > 70 and morality < -10'],
     leaveScene: "'You're doing this the wrong way,' Elyra says. 'I'll make sure the frontier is still there when you come back.' She takes the southern route at dusk.",
     abilities: [
-      { type: 'passive', desc: "Frontier navigation: travel never costs more than 1 axis tick. Automatically identify ambushes, track groups through wilderness, and find hidden waypoints." },
-      { type: 'active',  desc: "Once per scene: Elyra scouts ahead. Learn the next location's threat level, dominant faction presence, and one hidden detail before you arrive." }
+      { type:'passive', trigger:'always', effect:'roll_bonus', skill:'survival', locality:null, axisState:null, bonus:1,
+        desc:'Frontier navigation: +1 survival. Travel never costs more than 1 axis tick. Automatically identify ambushes and hidden waypoints.' },
+      { type:'passive', trigger:'always', effect:'roll_bonus', skill:'stealth', locality:null, axisState:null, bonus:1,
+        desc:'+1 stealth in wilderness terrain.' },
+      { type:'active', trigger:'once_per_scene', effect:'scout_ahead', skill:'stealth', locality:null, axisState:null, bonus:0,
+        desc:'Once per scene: scout ahead. Learn next location\'s threat level, faction presence, and one hidden detail before arriving.' }
     ],
     campLines: [
       "'I mapped the eastern waypoints after the third group went through. There are twelve active crossing points not on any official chart. Someone built them.'",
@@ -346,44 +356,36 @@ function showPartyOverlay() {
   showOverlay('overlay-party');
 }
 
-// Companion ability passive bonuses applied to rolls
-function getCompanionRollBonus(skill) {
-  const active = getActiveCompanions();
+// General companion ability resolver — reads structured ability objects, no hardcoding per companion
+function resolveCompanionAbilities(companions, skill, location, axisInverted) {
+  if (!companions || !companions.length) return 0;
   let bonus = 0;
-  active.forEach(comp => {
-    if (comp.injured) return;
+  companions.forEach(comp => {
+    if (comp.injured || comp.available === false) return;
     const def = COMPANION_DEFS[comp.id];
     if (!def) return;
-    // Vera: persuasion in Shelkopolis
-    if (def.id === 'vera_wren' && skill === 'persuasion' && G.location === 'shelkopolis') bonus += 1;
-    if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
-    // Toriel: lore relating to bodies (lore checks generally)
-    if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
-    // Neren: survival during axis events
-    if (def.id === 'neren_rimebridge' && skill === 'survival' && G.axisInverted) bonus += 2;
-    // Elyra: survival always, stealth in wilderness
-    if (def.id === 'elyra_mossbane' && skill === 'survival') bonus += 1;
-    if (def.id === 'elyra_mossbane' && skill === 'stealth') bonus += 1;
+    def.abilities.forEach(ab => {
+      if (ab.type !== 'passive' || ab.effect !== 'roll_bonus') return;
+      if (ab.skill !== null && ab.skill !== skill) return;
+      if (ab.locality && ab.locality !== location) return;
+      if (ab.axisState === 'inverted' && !axisInverted) return;
+      bonus += ab.bonus || 0;
+    });
   });
   return bonus;
 }
 
 // Engine interface: engine.js calls window.companionBonus(state, skill)
-// state.companions is an array of {id, ...} in engine.js architecture
 function companionBonus(state, skill) {
-  if (!state || !state.companions || !state.companions.length) return 0;
-  let bonus = 0;
-  state.companions.forEach(comp => {
-    if (comp.injured || comp.available === false) return;
-    const def = COMPANION_DEFS[comp.id];
-    if (!def) return;
-    if (def.id === 'vera_wren' && skill === 'persuasion' && state.location === 'shelkopolis') bonus += 1;
-    if (def.id === 'toriel_palevow' && skill === 'lore') bonus += 1;
-    if (def.id === 'neren_rimebridge' && skill === 'survival') bonus += 1;
-    if (def.id === 'elyra_mossbane' && skill === 'survival') bonus += 1;
-    if (def.id === 'elyra_mossbane' && skill === 'stealth') bonus += 1;
-  });
-  return bonus;
+  if (!state) return 0;
+  const companions = state.companions || (state.id ? getActiveCompanions() : []);
+  return resolveCompanionAbilities(companions, skill, state.location, state.axisInverted);
+}
+
+// Internal HUD helper — uses G.companions object keyed by id
+function getCompanionRollBonus(skill) {
+  const active = getActiveCompanions();
+  return resolveCompanionAbilities(active, skill, G.location, G.axisInverted);
 }
 
 // ── RECRUIT FLOW ─────────────────────────────────────────

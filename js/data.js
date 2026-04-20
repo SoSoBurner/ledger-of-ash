@@ -20,17 +20,17 @@
     ['thief','Thief','stealth','Urban extraction and leverage','stealth'],
     ['trickster','Trickster','stealth','Social disruption and baiting','persuasion'],
     ['beastmaster','Beastmaster','stealth','Animal reading and field control','survival'],
-    ['healer','Healer','support','Body, recovery, and consequence','craft'],
-    ['artificer','Artificer','support','Tools, seals, and field devices','craft'],
-    ['engineer','Engineer','support','Systems repair and route works','craft'],
-    ['tactician','Tactician','support','Formation logic and command','lore'],
-    ['alchemist','Alchemist','support','Compounds, antidotes, solvents','craft'],
-    ['saint','Saint','support','Mercy, witness, and costly resolve','persuasion'],
+    ['healer','Healer','magic','Body, recovery, and consequence','craft'],
+    ['artificer','Artificer','stealth','Tools, seals, and field devices','craft'],
+    ['engineer','Engineer','combat','Systems repair and route works','craft'],
+    ['tactician','Tactician','combat','Formation logic and command','lore'],
+    ['alchemist','Alchemist','magic','Compounds, antidotes, solvents','craft'],
+    ['saint','Saint','magic','Mercy, witness, and costly resolve','persuasion'],
     ['warden','Warden','combat','Custody and boundary enforcement','combat'],
     ['warlord','Warlord','combat','Field command and morale pressure','persuasion'],
     ['death_knight','Death Knight','combat','Terrible oath and ruinous force','combat'],
     ['oracle','Oracle','magic','Omens, patterns, and dread certainty','lore'],
-    ['bard','Bard','support','Voice, memory, and public sway','persuasion']
+    ['bard','Bard','stealth','Voice, memory, and public sway','persuasion']
   ].map(([id,name,group,desc,focus])=>({id,name,group,desc,focus}));
 
   const KEY_LOCALITIES = {
@@ -1096,16 +1096,22 @@
   const ARCHETYPE_GROUP_SIGNALS = {
     combat:{primary:'Stance',secondary:'Guard',tertiary:'Armor Readiness'},
     magic:{primary:'Arcana',secondary:'Ward',tertiary:'Reagents'},
-    stealth:{primary:'Concealment',secondary:'Suspicion',tertiary:'Tools'},
-    support:{primary:'Kits',secondary:'Resolve',tertiary:'Coordination'}
+    stealth:{primary:'Concealment',secondary:'Suspicion',tertiary:'Tools'}
   };
 
   const STARTING_LOADOUT_BY_GROUP = {
     combat:['worn weapon','field armor','travel shield'],
     magic:['focus implement','ward chalk','reagent satchel'],
-    stealth:['concealed blade','soft boots','entry tools'],
-    support:['med kit','utility satchel','field ledger']
+    stealth:['concealed blade','soft boots','entry tools']
   };
+
+  // Player-facing group display names
+  const ARCHETYPE_GROUP_LABELS = {
+    combat:'Classic Combat',
+    magic:'Magic and Spellcasting',
+    stealth:'Stealth and Precision'
+  };
+  window.ARCHETYPE_GROUP_LABELS = ARCHETYPE_GROUP_LABELS;
 
 
 

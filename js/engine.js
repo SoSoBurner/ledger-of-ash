@@ -139,6 +139,7 @@
       woundData:{minor:[],major:[],traumaTags:[]},
       combatSession:null,
       postCombatResolution:null,
+      abilityUsage:{perScene:{},perDay:{}},
       enforcementState:null,
       enforcementCooldown:0,
       sidePlotProgress:{},
@@ -442,6 +443,8 @@
   }
   function buildAuditText(){ const b=window.BUILD_VERIFICATION||{}; return `${b.archetypeCount} archetypes · ${b.backgroundCount} backgrounds · ${b.routeSignatureCount} routes · ${b.localityProjectionCount} localities`; }
   function gearBonus(key){ let bonus=0; Object.values(G.equipment||{}).forEach(item=>{ if(item && item.bonus && item.bonus[key]) bonus += item.bonus[key]; }); return bonus; }
+  const GEAR_BONUS_SKILL_MAP={arcana:'arcana',ward:'lore',brace:'combat',guard:'combat',exploit:'stealth',ritual:'lore',concealment:'stealth',kits:'craft',coordination:null};
+  function gearSkillBonus(skillName){ let b=0; Object.entries(GEAR_BONUS_SKILL_MAP).forEach(([key,mapped])=>{ if(mapped===skillName) b+=gearBonus(key); }); return b; }
   function currentEdgeBonus(action){ return (G.familyEdges||[]).reduce((sum,e)=>sum + (e.action===action?e.bonus:0), 0); }
   function familyEdgesText(){ return (G.familyEdges||[]).map(e=>`${e.label} (+${e.bonus} ${e.action})`).join(' · ') || 'None'; }
   function updateSignals(){
@@ -868,7 +871,7 @@
   function computeDynamicRisk(cp){
     const playerSkill=G.skills[cp.skill]||0;
     const compBonus=window.companionBonus?companionBonus(G,cp.skill):0;
-    const gearB=gearBonus(cp.skill);
+    const gearB=gearSkillBonus(cp.skill);
     const edgeB=currentEdgeBonus(cp.axis.mode);
     const effectiveSkill=playerSkill+compBonus+gearB+edgeB;
     const adjustedDC=cp.baseDC-10-Math.floor(G.level/3);
@@ -962,6 +965,8 @@
       tacticalInitialized:false,
       playerInitiated:false
     };
+    if(!G.abilityUsage) G.abilityUsage={perScene:{},perDay:{}};
+    G.abilityUsage.perScene={};
     G.recentOutcomeType='combat_start';
     G.encounter=null;
     if(enemySurprised){
@@ -983,10 +988,24 @@
     if(action==='ability'&&abilityId){
       const ab=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype]||[]).find(a=>a.id===abilityId);
       if(ab){
-        const eff=ab.effect;
-        const atk=eff.match(/attack\+(\d+)/); if(atk) attackBonus+=parseInt(atk[1]);
-        const def=eff.match(/defense\+(\d+)/); if(def) defenseBonus+=parseInt(def[1]);
+        if(ab.effects && ab.effects.length){
+          ab.effects.forEach(eff=>{
+            if(eff.type==='atk_bonus') attackBonus+=eff.value;
+            else if(eff.type==='def_self') defenseBonus+=eff.value;
+            else if(eff.type==='hp_cost'){ G.hp=Math.max(1,G.hp-eff.value); }
+            else if(eff.type==='heal_self'){ G.hp=Math.min(G.maxHp,G.hp+(typeof eff.value==='number'?eff.value:4)); }
+            else if(eff.type==='enemy_atk_penalty'){ cs.enemyAttack=Math.max(0,(cs.enemyAttack||0)-eff.value); }
+            else if(eff.type==='enemy_def_penalty'){ cs.enemyDefense=Math.max(0,(cs.enemyDefense||0)-eff.value); }
+          });
+        } else {
+          const eff=ab.effect||'';
+          const atk=eff.match(/attack\+(\d+)/); if(atk) attackBonus+=parseInt(atk[1]);
+          const def=eff.match(/defense\+(\d+)/); if(def) defenseBonus+=parseInt(def[1]);
+        }
         specialEffect=ab.name;
+        if(!G.abilityUsage) G.abilityUsage={perScene:{},perDay:{}};
+        if(ab.cost==='once_per_scene'||ab.cost==='reaction') G.abilityUsage.perScene[abilityId]=true;
+        if(ab.cost==='once_per_day') G.abilityUsage.perDay[abilityId]=true;
       }
     }
     if(action==='stealth_opener'){ attackBonus+=4; defenseBonus+=2; specialEffect='Stealth Opener'; }
@@ -994,7 +1013,8 @@
     if(action==='spell_raw'){ attackBonus+=1; defenseBonus-=1; specialEffect='Raw Burst'; }
     const skill=action==='stealth_opener'?'stealth':(group==='magic'&&action!=='attack')?'lore':'combat';
     const compAtk=window.companionBonus?window.companionBonus(G,skill):0;
-    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk);
+    const gearAtk=gearSkillBonus(skill);
+    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk+gearAtk);
     const playerRoll=rAtk.total;
     const enemyDC=10+cs.enemyDefense+tierBonus;
     const playerHit=rAtk.isCrit||(playerRoll>=enemyDC&&!rAtk.isFumble);
