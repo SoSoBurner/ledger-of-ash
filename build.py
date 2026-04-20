@@ -15,8 +15,33 @@ def build():
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
-    # Bundle all JS files into a single script content (preserve order: data deps come first)
-    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en
+    # Load enriched choice files
+    enriched_files = [
+        'shelkopolis_stage1_enriched_choices.js',
+        'soreheim_proper_stage1_enriched_choices.js',
+        'guildheart_hub_stage1_enriched_choices.js',
+        'sunspire_haven_stage1_enriched_choices.js',
+        'aurora_crown_commune_stage1_enriched_choices.js',
+        'ithtananalor_stage1_enriched_choices.js',
+        'mimolot_academy_stage1_enriched_choices.js',
+        'panim_haven_stage1_enriched_choices.js',
+        'fairhaven_stage1_enriched_choices.js',
+        'shirshal_stage1_enriched_choices.js',
+        'cosmoria_stage1_enriched_choices.js',
+        'harvest_circle_stage1_enriched_choices.js'
+    ]
+    
+    enriched_content = ''
+    for filename in enriched_files:
+        filepath = os.path.join('.', filename)
+        if os.path.exists(filepath):
+            with open(filepath, encoding='utf-8-sig') as f:
+                enriched_content += f.read() + '\n'
+        else:
+            print(f'Warning: {filename} not found, skipping')
+    
+    # Bundle all JS files into a single script content (preserve order: data deps → engine → enriched)
+    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en + '\n' + enriched_content
     
     out = html
     # Remove individual script src tags and replace first one with bundled content

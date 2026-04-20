@@ -1023,6 +1023,13 @@
         G.recentOutcomeType='investigate'; maybeStageAdvance();
       }}
     ];
+    
+    // Add enriched choices for this locality (if available)
+    const enrichedChoices = getEnrichedStage1Choices(G.location);
+    if (enrichedChoices.length > 0) {
+      choices = [...choices, ...enrichedChoices];
+    }
+    
     if(sceneChoice) choices.splice(1,0,sceneChoice);
     if(rumorChoice) choices.splice(2,0,rumorChoice);
     if(npcApproach) choices.splice(4,0,npcApproach);
@@ -1039,7 +1046,25 @@
     return rotateAndLimitChoices(choices, 1);
   }
 
-  function travelTo(dest){ const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
+  function getEnrichedStage1Choices(locality) {
+    const enrichedMap = {
+      'shelkopolis': window.SHELKOPOLIS_STAGE1_ENRICHED_CHOICES || [],
+      'soreheim_proper': window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES || [],
+      'guildheart_hub': window.GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES || [],
+      'sunspire_haven': window.SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES || [],
+      'aurora_crown_commune': window.AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES || [],
+      'ithtananalor': window.ITHTANANALOR_STAGE1_ENRICHED_CHOICES || [],
+      'mimolot_academy': window.MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES || [],
+      'panim_haven': window.PANIM_HAVEN_STAGE1_ENRICHED_CHOICES || [],
+      'fairhaven': window.FAIRHAVEN_STAGE1_ENRICHED_CHOICES || [],
+      'shirshal': window.SHIRSHAL_STAGE1_ENRICHED_CHOICES || [],
+      'cosmoria': window.COSMORIA_STAGE1_ENRICHED_CHOICES || [],
+      'harvest_circle': window.HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES || []
+    };
+    return enrichedMap[locality] || [];
+  }
+
+  function travelTo(dest){const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
 
   function stage2Choices(){ const sig=routeSignature(); const atlas=routeAtlasFor(sig);
     let bgStage2Content = (window.BACKGROUND_STAGE2_CONTENT||{})[G.backgroundId];
