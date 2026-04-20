@@ -320,6 +320,7 @@
       items.push({text: label, cls: 'align'});
     }
 
+    if(gs.enforcementState) items.push({text: gs.enforcementState.level==='arrest'?'ARREST ATTEMPT':'Authority Attention', cls: 'warrant'});
     if(ss.inCombat) items.push({text: `Combat — ${ss.combatEnemy||'unknown'}`, cls: 'combat'});
     if(ss.inPostCombat) items.push({text: 'Resolution pending', cls: 'combat'});
 

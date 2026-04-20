@@ -3143,6 +3143,7 @@ const STAGE2_DESTINATION_CONTENT = {
       items.push({text: label, cls: 'align'});
     }
 
+    if(gs.enforcementState) items.push({text: gs.enforcementState.level==='arrest'?'ARREST ATTEMPT':'Authority Attention', cls: 'warrant'});
     if(ss.inCombat) items.push({text: `Combat — ${ss.combatEnemy||'unknown'}`, cls: 'combat'});
     if(ss.inPostCombat) items.push({text: 'Resolution pending', cls: 'combat'});
 
@@ -4813,6 +4814,8 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
       woundData:{minor:[],major:[],traumaTags:[]},
       combatSession:null,
       postCombatResolution:null,
+      enforcementState:null,
+      enforcementCooldown:0,
       recentOutcomeType:null,
       uiState:{activeLayer:'story'},
       codex:{npcs:{},localities:{},creatures:{},hazards:{},institutions:{}},
@@ -4859,7 +4862,7 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   function addNotice(text){ G.notices.unshift(`Day ${G.dayCount}: ${text}`); G.notices=G.notices.slice(0,50); }
   function addQuest(id,title,status='Active'){ const q=G.quests.find(q=>q.id===id); if(q){ q.status=status; return; } G.quests.push({id,title,status}); }
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
-  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0){ G.dayCount+=1; dailyHeatDecay(); } G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
+  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0){ G.dayCount+=1; dailyHeatDecay(); if(G.dayCount%30===0) monthlyLocalityReset(); } G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
   function gainXp(n,why=''){ 
     G.xp+=n; 
     const cap = currentLevelCap();
@@ -5279,12 +5282,164 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     checkCompanionLeaveConditions();
   }
   function applyLegalityShift(delta){
-    // Migrate to new heat system by locality
-    if(!G.heat.localities[G.location]) G.heat.localities[G.location]=0;
-    G.heat.localities[G.location]=Math.max(-90,Math.min(90,(G.heat.localities[G.location]||0)+delta));
-    const newHeat=G.heat.localities[G.location];
-    if(newHeat>=8 && !G.legalityState.warrants.includes('active_warrant')){ G.legalityState.warrants.push('active_warrant'); addNotice('An active warrant has been issued for your character.'); }
+    applyLocalityHeat(G.location, delta);
+    const newHeat=getCurrentLocalityHeat();
+    if(newHeat>=8 && G.legalityState && !G.legalityState.warrants.includes('active_warrant')){
+      G.legalityState.warrants.push('active_warrant');
+      addNotice('An active warrant has been issued for your character.');
+    }
   }
+
+  // ── SETTLEMENT PRESSURE ─────────────────────────────────
+  function evaluateSettlementPressure(localityId){
+    initializeHeat(localityId);
+    const heat=G.heat.localities[localityId];
+    const current=heat.current;
+    const as=G.alignmentSystem||{benevolence:0,order:0};
+    const anarchy=Math.max(0,-as.order);
+    const cruel=Math.max(0,-as.benevolence);
+    const monthlyHostile=(heat.monthlyUnlawfulChoiceCount||0)+(heat.monthlyViolentResistanceCount||0)+(heat.monthlyPublicViolationCount||0);
+    const monthlyFriendly=(heat.monthlyLawfulAidCount||0)+(heat.monthlyProtectedEntryCount||0);
+    const warrantActive=G.legalityState&&G.legalityState.warrants&&G.legalityState.warrants.includes('active_warrant');
+    const enfScore=current*2+(anarchy*0.8)+(cruel*0.4)+monthlyHostile*3+(warrantActive?20:0);
+    const supScore=(-current)+(Math.max(0,as.order)*0.5)+(Math.max(0,as.benevolence)*0.5)+monthlyFriendly*2;
+    if(supScore>15 && current<=-8) return {type:'support',level:supScore>30?'strong':'mild'};
+    if(enfScore>=40||warrantActive) return {type:'enforcement',level:'arrest'};
+    if(enfScore>=20) return {type:'enforcement',level:'confrontation'};
+    if(enfScore>=10) return {type:'scrutiny',level:'mild'};
+    return {type:'none'};
+  }
+
+  function maybeActivateEnforcement(){
+    if(G.enforcementState) return;
+    if(G.combatSession||G.encounter||G.postCombatResolution) return;
+    if(G.enforcementCooldown && G.dayCount < G.enforcementCooldown) return;
+    const pressure=evaluateSettlementPressure(G.location);
+    if(pressure.type!=='enforcement') return;
+    const chance=pressure.level==='arrest'?0.55:0.32;
+    if(Math.random()<chance){
+      G.enforcementState={level:pressure.level,localityId:G.location,day:G.dayCount};
+      const msg=pressure.level==='arrest'?
+        'Authority figures are moving to intercept you. An arrest attempt is in progress.':
+        'Official attention has found you. A confrontation is developing.';
+      addNotice(msg,'urgent');
+      G.lastResult=msg;
+    }
+  }
+
+  function enforcementChoices(){
+    const heat=getCurrentLocalityHeat();
+    const as=G.alignmentSystem||{benevolence:0,order:0};
+    const deepMisaligned=as.benevolence<-35||as.order<-35;
+    const isStage45=G.stage>=4;
+    const level=G.enforcementState&&G.enforcementState.level||'confrontation';
+
+    function resolveEnforcement(){ G.enforcementState=null; G.enforcementCooldown=G.dayCount+10; }
+
+    return [
+      {
+        label:'Submit to the authority and accept the process',
+        tags:['Lawful','Submission'],mechanicTags:['subdual'],
+        fn(){
+          if(deepMisaligned&&!isStage45){
+            G.hp=0;
+            G.lastResult='The authority determined the charges merited final resolution. The ledger closes here.';
+            G.recentOutcomeType='combat_execute';
+            addNotice('Executed by authority order.');
+          } else {
+            const jailDays=deepMisaligned&&isStage45?180:Math.min(90,Math.max(1,Math.floor(heat*2.5)));
+            advanceTime(jailDays);
+            applyLocalityHeat(G.location,-Math.floor(heat*0.6));
+            if(G.legalityState) G.legalityState.warrants=G.legalityState.warrants.filter(w=>w!=='active_warrant');
+            G.lastResult=`${jailDays} days of custody. The sentence is served. The warrant is lifted — the heat has not fully cleared.`;
+            G.recentOutcomeType='civic_lawful';
+            addNotice(`Custody: ${jailDays} days served. Warrant lifted.`,'stage');
+          }
+          resolveEnforcement();
+        }
+      },
+      {
+        label:'Identify yourself and request authorized passage',
+        tags:['Lawful','Negotiation'],mechanicTags:['resolution'],
+        fn(){
+          advanceTime(1);
+          const bonus=(G.skills.persuasion||0)+Math.max(0,Math.floor(-heat/3));
+          const roll=rollD20('persuasion',bonus);
+          const target=10+Math.max(0,Math.floor(heat*0.8));
+          G.lastRoll={action:'Request authorized passage',skill:'persuasion',total:roll.total,target,success:roll.isCrit||(roll.total>=target&&!roll.isFumble),die:roll.die,crit:roll.isCrit,fumble:roll.isFumble};
+          if(G.lastRoll.success){
+            applyLocalityHeat(G.location,-2);
+            G.lastResult='The identification and account was accepted. Passage authorized with reduced scrutiny.';
+            G.recentOutcomeType='civic_lawful';
+            addNotice('Negotiated passage — heat reduced.','world');
+          } else {
+            applyLocalityHeat(G.location,1);
+            G.lastResult='The request did not satisfy the authority. Scrutiny increased.';
+            G.recentOutcomeType='civic_chaotic';
+          }
+          resolveEnforcement();
+        }
+      },
+      {
+        label:'Break past before the closure completes',
+        tags:['Chaotic','Stealth'],mechanicTags:['risk'],
+        fn(){
+          advanceTime(1);
+          const bonus=G.skills.stealth||0;
+          const roll=rollD20('stealth',bonus);
+          const target=12+Math.max(0,Math.floor(heat*0.6));
+          G.lastRoll={action:'Break past enforcement closure',skill:'stealth',total:roll.total,target,success:roll.isCrit||(roll.total>=target&&!roll.isFumble),die:roll.die,crit:roll.isCrit,fumble:roll.isFumble};
+          if(G.lastRoll.success){
+            G.lastResult='Distance and angle were enough. The pursuit dissolved before it organized.';
+            G.recentOutcomeType='class_stealth';
+            addNotice('Slipped enforcement closure.','world');
+          } else {
+            applyLocalityHeat(G.location,roll.isFumble?5:3);
+            const h=G.heat.localities[G.location]; if(h) h.monthlyFailedEscapeCount=(h.monthlyFailedEscapeCount||0)+1;
+            G.lastResult='The attempt to clear the area failed. The authority now has cause to escalate.';
+            G.recentOutcomeType='civic_chaotic';
+          }
+          resolveEnforcement();
+        }
+      },
+      {
+        label:'Force through the enforcement line',
+        tags:['Chaotic','Combat','Confrontation'],mechanicTags:['combat','risk'],
+        fn(){
+          applyLocalityHeat(G.location,4);
+          const h=G.heat.localities[G.location]; if(h) h.monthlyViolentResistanceCount=(h.monthlyViolentResistanceCount||0)+1;
+          G.lastResult='The confrontation with authority escalated to violence. The heat is now severe.';
+          G.recentOutcomeType='combat_start';
+          resolveEnforcement();
+          startThreatEncounter('enforcement');
+        }
+      }
+    ];
+  }
+
+  function checkCivicSupport(){
+    const heat=getCurrentLocalityHeat();
+    const as=G.alignmentSystem||{benevolence:0,order:0};
+    if(heat>-8) return null;
+    if(as.order<10 && as.benevolence<10) return null;
+    if(heat<=-35) return 'The authority here knows your work. They clear the way and offer assistance without being asked.';
+    if(heat<=-20) return 'A local official nods recognition. The inspection is brief and the result is favorable.';
+    return 'The checkpoint gives you an easier pass than most people receive here.';
+  }
+
+  function monthlyLocalityReset(){
+    for(const id in G.heat.localities){
+      const h=G.heat.localities[id];
+      if(!h||typeof h!=='object') continue;
+      h.monthlyUnlawfulChoiceCount=0;
+      h.monthlyLawfulAidCount=0;
+      h.monthlyViolentResistanceCount=0;
+      h.monthlyFailedEscapeCount=0;
+      h.monthlyPublicViolationCount=0;
+      h.monthlyProtectedEntryCount=0;
+    }
+  }
+
   function recordConfrontation(type){
     if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0};
     if(typeof G.confrontationHistory[type]==='number') G.confrontationHistory[type]++;
@@ -5432,7 +5587,9 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
       inCombat:!!G.combatSession,
       inPostCombat:!!G.postCombatResolution,
       combatEnemy:G.combatSession?G.combatSession.enemyName:null,
-      worldClocks:G.worldClocks||{pressure:0,rival:0,omens:0}
+      worldClocks:G.worldClocks||{pressure:0,rival:0,omens:0},
+      enforcementState:G.enforcementState||null,
+      heatBand:getLocalityHeatBand(G.location)
     };
   }
 
@@ -6419,6 +6576,9 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     if(G.postCombatResolution&&!G.postCombatResolution.resolved) return postCombatResolutionChoices();
     if(G.combatSession&&!G.combatSession.resolved) return combatSessionChoices();
     if(G.encounter) return encounterChoices(G);
+    if(G.enforcementState) return enforcementChoices();
+    maybeActivateEnforcement();
+    if(G.enforcementState) return enforcementChoices();
     return currentNonCombatChoices();
   }
   function startThreatEncounter(tier){ const threat=G.currentThreat||chooseThreat(); if(!threat) return; const kind=rand(2)===0?'creature':'hazard'; const name=kind==='creature'?threat.creature:threat.hazard; G.telemetry.encounters++; beginEncounter(G,kind,name,tier||'standard'); }
@@ -6786,9 +6946,11 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
 
       // Combat initiation heat: apply locality heat based on motive when routing to combat
       if(cp.combatRouting && !G.combatSession){
-        if(cp.axis.civic>0) applyLegalityShift(-1);      // lawful/protective: earns civic trust
-        else if(cp.axis.civic<0) applyLegalityShift(2);  // anarchic: draws scrutiny
-        else applyLegalityShift(1);                       // neutral combat: some attention
+        if(cp.axis.civic>0) applyLocalityHeat(G.location,-1);      // lawful/protective: earns civic trust
+        else if(cp.axis.civic<0) applyLocalityHeat(G.location,2);  // anarchic: draws scrutiny
+        else applyLocalityHeat(G.location,1);                       // neutral combat: some attention
+        // Track monthly public violation if anarchic
+        if(cp.axis.civic<0){ const h=G.heat.localities[G.location]; if(h) h.monthlyPublicViolationCount=(h.monthlyPublicViolationCount||0)+1; }
       }
 
       if(G.hp<=0 && !G.stage5Dead) handleDeath();
@@ -6925,8 +7087,17 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     }
     if(!G.legalityState) G.legalityState={warrants:[],knownCrimes:[],sanctionedActions:[]}; 
     if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; 
-    if(!G.uiState) G.uiState={activeLayer:'story'}; 
-    if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; 
+    if(!G.uiState) G.uiState={activeLayer:'story'};
+    if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}};
+    if(G.enforcementState===undefined) G.enforcementState=null;
+    if(!G.enforcementCooldown) G.enforcementCooldown=0;
+    // Migrate raw locality heat numbers to object form
+    for(const id in G.heat.localities){
+      if(typeof G.heat.localities[id]==='number'){
+        const val=G.heat.localities[id];
+        G.heat.localities[id]={current:val,recentChange:0,recentSources:[],monthlyUnlawfulChoiceCount:0,monthlyLawfulAidCount:0,monthlyViolentResistanceCount:0,monthlyFailedEscapeCount:0,monthlyPublicViolationCount:0,monthlyProtectedEntryCount:0,lastHeatChangeDay:null};
+      }
+    }
     render(); 
     const ss=$('startScreen'); if(ss) ss.style.display='none'; 
     const gs=$('gameSection'); if(gs) gs.classList.add('active'); 
