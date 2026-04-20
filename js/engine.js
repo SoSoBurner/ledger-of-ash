@@ -975,19 +975,6 @@
     G.telemetry.encounters++;
   }
 
-  // Combats choices - DEPRECATED: Now handled by buildTacticalChoices in combat-ui.js
-  function combatSessionChoices(){
-    // This function is superseded by combat-ui.js buildTacticalChoices()
-    // Keeping as stub for compatibility
-    const cs=G.combatSession;
-    if(!cs||cs.resolved) return currentNonCombatChoices();
-    // Delegate to tactical UI system
-    if(window.buildTacticalChoices){
-      return window.buildTacticalChoices(G, G.combatSession) || [];
-    }
-    return [];
-  }
-
   function resolveCombatRound(action,abilityId,cs){
     const arch=getArchetype(G.archetype)||{group:'combat'};
     const group=arch.group||'combat';
@@ -2608,6 +2595,8 @@
   }
 
   // ── EXPORT ADDITIONAL FUNCTIONS TO WINDOW ──
+  window.render = render;
+  window.renderChoices = renderChoices;
   window.loadSidePlots = loadSidePlots;
   window.getActiveSidePlots = getActiveSidePlots;
   window.SIDE_PLOT_REGISTRY = SIDE_PLOT_REGISTRY;
