@@ -140,6 +140,9 @@
       combatSession:null,
       postCombatResolution:null,
       abilityUsage:{perScene:{},perDay:{}},
+      companionAbilityUsage:{perScene:{},perDay:{}},
+      companionFlags:{},
+      axisInverted:false,
       enforcementState:null,
       enforcementCooldown:0,
       sidePlotProgress:{},
@@ -190,7 +193,7 @@
   function addNotice(text){ G.notices.unshift(`Day ${G.dayCount}: ${text}`); G.notices=G.notices.slice(0,50); }
   function addQuest(id,title,status='Active'){ const q=G.quests.find(q=>q.id===id); if(q){ q.status=status; return; } G.quests.push({id,title,status}); }
   function markMoment(text){ G.keyMoments.unshift(`Day ${G.dayCount}: ${text}`); G.keyMoments=G.keyMoments.slice(0,25); }
-  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0){ G.dayCount+=1; dailyHeatDecay(); if(G.dayCount%30===0) monthlyLocalityReset(); } G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4) G.worldClocks.omens++; if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
+  function advanceTime(t=1){ for(let i=0;i<t;i++){ G.timeIndex=(G.timeIndex+1)%5; if(G.timeIndex===0){ G.dayCount+=1; dailyHeatDecay(); if(G.dayCount%30===0) monthlyLocalityReset(); if(G.abilityUsage) G.abilityUsage.perDay={}; if(G.companionAbilityUsage) G.companionAbilityUsage.perDay={}; if(G.companionFlags) G.companionFlags={}; } G.worldClocks.pressure++; if(G.stage>=2) G.worldClocks.rival++; if(G.stage>=4){ G.worldClocks.omens++; G.axisInverted=(G.worldClocks.omens>=5); } if(G.trainingDisadvantage>0) G.trainingDisadvantage--; if(window.buildCompanionTrust) window.buildCompanionTrust(G,1); if(G.stage>=2 && G.worldClocks.rival===5) addNotice('Rival clock at 5 — opposing pressure has become organized and directed toward you specifically.'); if(G.stage>=2 && G.worldClocks.rival===10) addNotice('Rival clock at 10 — a coordinated opposing force is now actively moving against you.'); if(G.worldClocks.pressure===8) addNotice('Pressure clock at 8 — locality strain is reaching visible crisis levels.'); if(G.stage>=3 && G.worldClocks.rival===15) addNotice('Rival clock at 15 — a named adversary is now closing distance with institutional support.'); } }
   function gainXp(n,why=''){ 
     G.xp+=n; 
     const cap = currentLevelCap();
@@ -445,6 +448,8 @@
   function gearBonus(key){ let bonus=0; Object.values(G.equipment||{}).forEach(item=>{ if(item && item.bonus && item.bonus[key]) bonus += item.bonus[key]; }); return bonus; }
   const GEAR_BONUS_SKILL_MAP={arcana:'arcana',ward:'lore',brace:'combat',guard:'combat',exploit:'stealth',ritual:'lore',concealment:'stealth',kits:'craft',coordination:null};
   function gearSkillBonus(skillName){ let b=0; Object.entries(GEAR_BONUS_SKILL_MAP).forEach(([key,mapped])=>{ if(mapped===skillName) b+=gearBonus(key); }); return b; }
+  function getPassiveCombatBonuses(effectType){ const abs=((window.ARCHETYPE_COMBAT_ABILITIES||{})[G.archetype])||[]; let total=0; abs.forEach(ab=>{ if(ab.cost!=='passive'||!ab.effects) return; ab.effects.forEach(eff=>{ if(eff.type!==effectType) return; if(eff.value==='per_wound') total+=(G.wounds||[]).length; else if(typeof eff.value==='number') total+=eff.value; }); }); return total; }
+  function getCompanionFlagBonus(skill){ if(!G.companionFlags) return 0; let b=0; if(skill==='persuasion'&&G.companionFlags.nextSocialCheckBonus){ b=G.companionFlags.nextSocialCheckBonus; delete G.companionFlags.nextSocialCheckBonus; } if(G.companionFlags.nextLoreCheckAutoSucceed){ b+=99; delete G.companionFlags.nextLoreCheckAutoSucceed; } return b; }
   function currentEdgeBonus(action){ return (G.familyEdges||[]).reduce((sum,e)=>sum + (e.action===action?e.bonus:0), 0); }
   function familyEdgesText(){ return (G.familyEdges||[]).map(e=>`${e.label} (+${e.bonus} ${e.action})`).join(' · ') || 'None'; }
   function updateSignals(){
@@ -462,7 +467,7 @@
   function stage5Objective(){ const fam=window.FAMILY_OBJECTIVES[routeSignature().stage5Family]; return G.finalBreak?`Final break committed in ${fam.title}. Face the endgame.`:`${fam.stage5} Milestones: ${G.familyMilestones.stage5}/4.`; }
   function setObjective(){ G.currentObjective = G.stage===1?stage1Objective():G.stage===2?stage2Objective():G.stage===3?stage3Objective():G.stage===4?stage4Objective():stage5Objective(); }
   function applySuccess(stage, mode, skill, xp, text){ G.stageProgress[stage]+=1; gainXp(xp, `${mode} pressure`); if(stage>=3){ G.familyMilestones[`stage${stage}`]=(G.familyMilestones[`stage${stage}`]||0)+1; if(G.familyMilestones[`stage${stage}`]===2) maybeUnlockFamilyEdge(stage); } G.lastResult=text; if(stage===5 && G.familyMilestones.stage5>=4 && !G.finalBreak){ G.finalBreak=true; maybeUnlockFamilyEdge(5); addNotice('A final break becomes possible.'); } }
-  function objectiveWebChoices(stage){ const verbs=[['Question a person at the center of the pressure','person','persuasion'],['Search the place where the pressure shows physically','place','lore'],['Pull records and compare what should not align','records','lore'],['Work the quiet edge and move unseen','stealth','stealth'],['Force an opening in the line','force','combat'],['Use ritual or procedure to open a blocked answer','ritual','craft'],['Trace the route itself for what it carries','route','survival']]; return verbs.map(([label,mode,skill],i)=>({label,tags:['Objective',mode],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const comp=window.companionBonus?companionBonus(G,skill):0; const bonuses=(G.skills[skill]||0)+comp+Math.floor(G.level/3)+currentEdgeBonus(mode); const r=rollD20(skill,bonuses); const target=10+stage*2+i%2; const success=r.isCrit||(r.total>=target&&!r.isFumble); G.lastRoll={action:label,skill,total:r.total,target,success,die:r.die,crit:r.isCrit,fumble:r.isFumble}; addJournal('field-note',`${label} in ${getLocality(G.location).name}.`,`${G.backgroundId}-${stage}-${mode}-${G.dayCount}`); if(r.isCrit){ applySuccess(stage,mode,skill,stage*2,r.flavor); addNotice(`Critical success — ${label.toLowerCase()}.`); markMoment(`Critical: ${label}`); } else if(r.isFumble){ G.lastResult=r.flavor; G.worldClocks.rival+=2; G.hp=Math.max(1,G.hp-1); addNotice(`Critical fumble — ${label.toLowerCase()}.`); startThreatEncounter('standard'); } else if(success){ applySuccess(stage,mode,skill,stage,`${label} pays off. The route opens a little wider, and the shape of the pressure becomes harder to hide.`); } else { G.lastResult=`${label} fails to settle the matter. The opposition keeps the initiative.`; G.worldClocks.rival+=1; if(rand(3)===0) startThreatEncounter('standard'); } maybeStageAdvance(); }})); }
+  function objectiveWebChoices(stage){ const verbs=[['Question a person at the center of the pressure','person','persuasion'],['Search the place where the pressure shows physically','place','lore'],['Pull records and compare what should not align','records','lore'],['Work the quiet edge and move unseen','stealth','stealth'],['Force an opening in the line','force','combat'],['Use ritual or procedure to open a blocked answer','ritual','craft'],['Trace the route itself for what it carries','route','survival']]; return verbs.map(([label,mode,skill],i)=>({label,tags:['Objective',mode],fn(){ advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; const comp=window.companionBonus?companionBonus(G,skill):0; const flagB=getCompanionFlagBonus(skill); const bonuses=(G.skills[skill]||0)+comp+flagB+Math.floor(G.level/3)+currentEdgeBonus(mode)+gearSkillBonus(skill); const r=rollD20(skill,bonuses); const target=10+stage*2+i%2; const success=r.isCrit||(r.total>=target&&!r.isFumble); G.lastRoll={action:label,skill,total:r.total,target,success,die:r.die,crit:r.isCrit,fumble:r.isFumble}; addJournal('field-note',`${label} in ${getLocality(G.location).name}.`,`${G.backgroundId}-${stage}-${mode}-${G.dayCount}`); if(r.isCrit){ applySuccess(stage,mode,skill,stage*2,r.flavor); addNotice(`Critical success — ${label.toLowerCase()}.`); markMoment(`Critical: ${label}`); } else if(r.isFumble){ G.lastResult=r.flavor; G.worldClocks.rival+=2; G.hp=Math.max(1,G.hp-1); addNotice(`Critical fumble — ${label.toLowerCase()}.`); startThreatEncounter('standard'); } else if(success){ applySuccess(stage,mode,skill,stage,`${label} pays off. The route opens a little wider, and the shape of the pressure becomes harder to hide.`); } else { G.lastResult=`${label} fails to settle the matter. The opposition keeps the initiative.`; G.worldClocks.rival+=1; if(rand(3)===0) startThreatEncounter('standard'); } maybeStageAdvance(); }})); }
   function localMagicContext(){ const ms=window.MAGIC_SYSTEM||[]; const entry=ms.find(m=>m.localities&&m.localities.includes(G.location)); return entry||{identity:'arcane detection and ward reading',expressions:['residue reading','ward strain analysis'],socialReading:'',localities:[]}; }
   function classIdentityChoice(){
     const a=getArchetype(G.archetype); const group=a.group;
@@ -981,6 +986,10 @@
   }
 
   function resolveCombatRound(action,abilityId,cs){
+    if(!cs) cs=G.combatSession;
+    if(!cs) return;
+    // Sync tactical enemies[] → flat fields so both UI systems stay consistent
+    if(cs.enemies&&cs.enemies.length>0){ cs.enemyHp=cs.enemies[0].hp; cs.enemyMaxHp=cs.enemies[0].maxHp; if(cs.enemies[0].attack!==undefined) cs.enemyAttack=cs.enemies[0].attack; if(cs.enemies[0].defense!==undefined) cs.enemyDefense=cs.enemies[0].defense; }
     const arch=getArchetype(G.archetype)||{group:'combat'};
     const group=arch.group||'combat';
     const tierBonus=cs.tier==='elite'?2:cs.tier==='boss'?5:0;
@@ -1014,12 +1023,15 @@
     const skill=action==='stealth_opener'?'stealth':(group==='magic'&&action!=='attack')?'lore':'combat';
     const compAtk=window.companionBonus?window.companionBonus(G,skill):0;
     const gearAtk=gearSkillBonus(skill);
-    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk+gearAtk);
+    const passiveAtk=getPassiveCombatBonuses('passive_atk');
+    const flagAtk=getCompanionFlagBonus(skill);
+    const passiveDef=getPassiveCombatBonuses('passive_def');
+    const rAtk=rollD20(skill,(G.skills[skill]||0)+Math.floor(G.level/3)+attackBonus+compAtk+gearAtk+passiveAtk+flagAtk);
     const playerRoll=rAtk.total;
     const enemyDC=10+cs.enemyDefense+tierBonus;
     const playerHit=rAtk.isCrit||(playerRoll>=enemyDC&&!rAtk.isFumble);
     const enemyRoll=1+rand(20)+cs.enemyAttack;
-    const playerDC=10+(G.skills.combat||0)+Math.floor(G.level/3)+defenseBonus;
+    const playerDC=10+(G.skills.combat||0)+Math.floor(G.level/3)+defenseBonus+passiveDef+(cs.playerDefenseBonus||0);
     const enemyHit=enemyRoll>=playerDC&&cs.enemyHp>0&&!rAtk.isCrit;
     // Archetype-specific hit/miss text
     const hitText={
@@ -1053,6 +1065,8 @@
     } else { log.push(missText[group]||missText.combat); }
     if(enemyHit){ const dmg=Math.max(1,rand(6)+(cs.tier==='boss'?4:cs.tier==='elite'?2:0)); G.hp=Math.max(0,G.hp-dmg); log.push(`${cs.enemyName} answers for ${dmg}. Your HP: ${G.hp}/${G.maxHp}.`); }
     else if(cs.enemyHp>0&&!rAtk.isFumble){ log.push(`${cs.enemyName} counterattack misses.`); }
+    // Sync flat fields back to tactical enemies[] array
+    if(cs.enemies&&cs.enemies.length>0){ cs.enemies[0].hp=cs.enemyHp; cs.enemies[0].attack=cs.enemyAttack; cs.enemies[0].defense=cs.enemyDefense; }
     cs.round++;
     cs.log.unshift(`Round ${cs.round-1}: `+log.join(' '));
     cs.log=cs.log.slice(0,10);
@@ -1900,7 +1914,44 @@
     return node ? [...choices, node] : choices;
   }
 
-  function currentNonCombatChoices(){ let base; if(G.stage===1) base=stage1Choices(); else if(G.stage===2) base=stage2Choices(); else if(G.stage===3) base=stage3to5Choices(3); else if(G.stage===4) base=stage3to5Choices(4); else base=stage3to5Choices(5); return injectArchetypeMidSpineChoices(injectSidePlotChoices(base)); }
+  function injectCompanionActiveChoices(choices){
+    if(!G||!G.companions||!G.companions.length) return choices;
+    const defs=window.COMPANION_DEFS||{};
+    const extra=[];
+    G.companions.forEach(comp=>{
+      if(comp.injured||comp.available===false) return;
+      const def=defs[comp.id]; if(!def) return;
+      def.abilities.forEach((ab,idx)=>{
+        if(ab.type!=='active') return;
+        if(!G.companionAbilityUsage) G.companionAbilityUsage={perScene:{},perDay:{}};
+        const key=`${comp.id}_${idx}`;
+        if(ab.trigger==='once_per_scene'&&G.companionAbilityUsage.perScene[key]) return;
+        if(ab.trigger==='once_per_day'&&G.companionAbilityUsage.perDay[key]) return;
+        const trigLabel=ab.trigger==='once_per_day'?'day':'scene';
+        extra.push({
+          label:`[${comp.name}] ${ab.desc.split('.')[0]}`,
+          tags:['Companion','Support'],
+          fn(){
+            advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+            if(!G.companionFlags) G.companionFlags={};
+            if(!G.companionAbilityUsage) G.companionAbilityUsage={perScene:{},perDay:{}};
+            const loc=getLocality(G.location);
+            if(ab.effect==='auto_partial') G.companionFlags.nextSocialCheckBonus=3;
+            if(ab.effect==='no_roll'&&ab.skill==='lore') G.companionFlags.nextLoreCheckAutoSucceed=true;
+            if(ab.effect==='scout_ahead'){ const thr=G.currentThreat||chooseThreat(); G.lastResult=`${comp.name} scouts ahead in ${loc.name}. Threat: ${thr?thr.creature||'none':'clear'}. ${(loc.hazards||[]).length?'Hazards present.':'No immediate hazards noted.'}`; addNotice(`${comp.name} scouted ${loc.name}.`); addJournal('intel',`${comp.name} scout report: ${loc.name}.`,`scout-${comp.id}-${G.dayCount}`); }
+            if(ab.effect==='intel'){ addJournal('intel',`${comp.name}: local intelligence from ${loc.name}.`,`intel-${comp.id}-${G.dayCount}`); G.lastResult=`${comp.name} brings intelligence. ${ab.desc}`; addNotice(`${comp.name}: intelligence provided.`); }
+            if(ab.effect!=='scout_ahead'&&ab.effect!=='intel') G.lastResult=`${comp.name}: ${ab.desc}`;
+            if(ab.trigger==='once_per_scene') G.companionAbilityUsage.perScene[key]=true;
+            if(ab.trigger==='once_per_day') G.companionAbilityUsage.perDay[key]=true;
+            G.recentOutcomeType='intel'; setThreat(); setObjective(); persist(); render();
+          }
+        });
+      });
+    });
+    return extra.length ? [...choices, ...extra] : choices;
+  }
+
+  function currentNonCombatChoices(){ let base; if(G.stage===1) base=stage1Choices(); else if(G.stage===2) base=stage2Choices(); else if(G.stage===3) base=stage3to5Choices(3); else if(G.stage===4) base=stage3to5Choices(4); else base=stage3to5Choices(5); return injectCompanionActiveChoices(injectArchetypeMidSpineChoices(injectSidePlotChoices(base))); }
   
   function combatSessionChoices(){
     // Use enhanced tactical choices if available (from combat-ui.js)
@@ -2436,7 +2487,11 @@
       G.heat.localities[G.location]=G.legalityState.civicHeat;
     }
     if(!G.legalityState) G.legalityState={warrants:[],knownCrimes:[],sanctionedActions:[]}; 
-    if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; 
+    if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0};
+    if(!G.abilityUsage) G.abilityUsage={perScene:{},perDay:{}};
+    if(!G.companionAbilityUsage) G.companionAbilityUsage={perScene:{},perDay:{}};
+    if(!G.companionFlags) G.companionFlags={};
+    if(G.axisInverted===undefined) G.axisInverted=false;
     if(!G.uiState) G.uiState={activeLayer:'story'};
     if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}};
     if(G.enforcementState===undefined) G.enforcementState=null;
@@ -2643,6 +2698,7 @@
   window.companionBonus = companionBonus;
   window.buildCompanionTrust = buildCompanionTrust;
   window.combatSessionChoices = combatSessionChoices;
+  window.resolveCombatRound = resolveCombatRound;
   window.trackChoiceAction = trackChoiceAction;
   window.shouldSkipChoice = shouldSkipChoice;
   
