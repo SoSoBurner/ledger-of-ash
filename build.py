@@ -15,7 +15,7 @@ def build():
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
-    # Load enriched choice files (Stage 1 + Stage 2)
+    # Load enriched choice files (Stage 1 + Stage 2 + Stage 3)
     enriched_files = [
         # Stage 1: 12 localities x 20 choices = 240 choices
         'shelkopolis_stage1_enriched_choices.js',
@@ -31,7 +31,9 @@ def build():
         'cosmoria_stage1_enriched_choices.js',
         'harvest_circle_stage1_enriched_choices.js',
         # Stage 2: 45 choices
-        'stage2_enriched_choices.js'
+        'stage2_enriched_choices.js',
+        # Stage 3: 60 choices (institutional investigation)
+        'stage3_enriched_choices.js'
     ]
     
     enriched_content = ''

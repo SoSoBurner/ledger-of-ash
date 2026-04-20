@@ -1161,6 +1161,10 @@
     return (window.STAGE2_ENRICHED_CHOICES || []);
   }
 
+  function getEnrichedStage3Choices() {
+    return (window.STAGE3_ENRICHED_CHOICES || []);
+  }
+
   function travelTo(dest){const from=getLocality(G.location); const to=getLocality(dest); G.location=dest; G.currentSafeZone=to.safeZone; G.routeHistory.unshift(`${from.name} → ${to.name}`); G.routeHistory=G.routeHistory.slice(0,25); G.telemetry.travels++; advanceTime(1); addJournal('travel',`Moved from ${from.name} to ${to.name}.`,`${G.backgroundId}-travel-${from.id}-${to.id}-${G.dayCount}`); G.lastResult=`${to.name} takes the run into a more adjacent, less forgiving version of the same pressure.`; recordCodex('localities',dest,{name:to.name,polity:to.polity,economicRole:to.economicRole||'',lawFeel:to.lawFeel||''}); setThreat(); }
 
   function stage2Choices(){ const sig=routeSignature(); const atlas=routeAtlasFor(sig);
@@ -1445,6 +1449,15 @@
         maybeStageAdvance();
       }});
     }
+    
+    // Add enriched Stage 3 choices for institutional investigation
+    if(stage===3) {
+      const enrichedStage3 = getEnrichedStage3Choices();
+      if(enrichedStage3 && enrichedStage3.length > 0) {
+        arr.push(...enrichedStage3.slice(0, 15));  // Add up to 15 enriched Stage 3 choices
+      }
+    }
+    
     else if(stage===4){
       arr.push({label:'Infiltrate a key institutional facility — high-risk intelligence operation',tags:['Infiltration','Risk','Intelligence'],fn(){
         advanceTime(1); G.telemetry.turns++; G.telemetry.actions++; 
