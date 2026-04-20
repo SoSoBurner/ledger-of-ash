@@ -4079,7 +4079,10 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
         name: combatSession.enemyName || 'Enemy',
         hp: combatSession.enemyHp || 12,
         maxHp: combatSession.enemyMaxHp || 12,
-        template: combatSession.enemyTemplate || 'standard'
+        template: combatSession.enemyTemplate || 'standard',
+        attack: combatSession.enemyAttack || 4,
+        defense: combatSession.enemyDefense || 5,
+        loot: combatSession.loot || { gold: 5, item: null }
       }];
     }
 
@@ -4127,7 +4130,11 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
 
   // Get the current actor's turn info
   function getCurrentActor(combatSession) {
-    if (!combatSession.turnOrder || combatSession.turnOrder.length === 0) return null;
+    if (!combatSession.turnOrder || combatSession.turnOrder.length === 0) {
+      combatSession.resolved = true;
+      combatSession.victory = true;
+      return null;
+    }
     return combatSession.turnOrder[combatSession.currentTurnIdx % combatSession.turnOrder.length];
   }
 

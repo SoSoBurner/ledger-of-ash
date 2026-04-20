@@ -23,7 +23,10 @@
         name: combatSession.enemyName || 'Enemy',
         hp: combatSession.enemyHp || 12,
         maxHp: combatSession.enemyMaxHp || 12,
-        template: combatSession.enemyTemplate || 'standard'
+        template: combatSession.enemyTemplate || 'standard',
+        attack: combatSession.enemyAttack || 4,
+        defense: combatSession.enemyDefense || 5,
+        loot: combatSession.loot || { gold: 5, item: null }
       }];
     }
 
@@ -71,7 +74,11 @@
 
   // Get the current actor's turn info
   function getCurrentActor(combatSession) {
-    if (!combatSession.turnOrder || combatSession.turnOrder.length === 0) return null;
+    if (!combatSession.turnOrder || combatSession.turnOrder.length === 0) {
+      combatSession.resolved = true;
+      combatSession.victory = true;
+      return null;
+    }
     return combatSession.turnOrder[combatSession.currentTurnIdx % combatSession.turnOrder.length];
   }
 
@@ -91,12 +98,19 @@
     combatSession.enemies = (combatSession.enemies || []).filter(e => e.hp > 0);
     
     // Update turn order to remove dead enemies
+    const oldLength = combatSession.turnOrder.length;
     combatSession.turnOrder = combatSession.turnOrder.filter(t => {
       if (t.actor === 'enemy') {
         return combatSession.enemies.some(e => e.id === t.enemyId);
       }
       return true;
     });
+    const newLength = combatSession.turnOrder.length;
+
+    // If turn order shrunk, adjust currentTurnIdx
+    if (newLength < oldLength && combatSession.currentTurnIdx >= newLength && newLength > 0) {
+      combatSession.currentTurnIdx = combatSession.currentTurnIdx % newLength;
+    }
 
     // Victory check
     if (combatSession.enemies.length === 0) {
