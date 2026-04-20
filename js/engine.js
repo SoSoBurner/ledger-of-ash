@@ -551,7 +551,7 @@
       if(!def) return true;
       const evilAligned=(G.alignmentSystem&&G.alignmentSystem.benevolence<=-7);
       const chaoticAligned=(G.alignmentSystem&&G.alignmentSystem.order<=-7);
-      const highHeat=(G.legalityState&&G.legalityState.civicHeat>=8);
+      const highHeat=(getCurrentLocalityHeat()>=8);
       const driftedTrust=(comp.trust||0)<1 && G.dayCount>12 && (comp.joinedDay||0)<G.dayCount-6;
       const conds=def.leaveConditions||[];
       let leave=false;
@@ -577,9 +577,11 @@
     checkCompanionLeaveConditions();
   }
   function applyLegalityShift(delta){
-    if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]};
-    G.legalityState.civicHeat=Math.max(0,(G.legalityState.civicHeat||0)+delta);
-    if(G.legalityState.civicHeat>=8 && !G.legalityState.warrants.includes('active_warrant')){ G.legalityState.warrants.push('active_warrant'); addNotice('An active warrant has been issued for your character.'); }
+    // Migrate to new heat system by locality
+    if(!G.heat.localities[G.location]) G.heat.localities[G.location]=0;
+    G.heat.localities[G.location]=Math.max(-90,Math.min(90,(G.heat.localities[G.location]||0)+delta));
+    const newHeat=G.heat.localities[G.location];
+    if(newHeat>=8 && !G.legalityState.warrants.includes('active_warrant')){ G.legalityState.warrants.push('active_warrant'); addNotice('An active warrant has been issued for your character.'); }
   }
   function recordConfrontation(type){
     if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0};
@@ -644,7 +646,7 @@
       dayCount:G.dayCount,
       timeIndex:G.timeIndex,
       serviceLog:G.serviceLog,
-      civicHeat:(G.legalityState||{}).civicHeat||0,
+      civicHeat:getCurrentLocalityHeat(),
       alignment:G.alignment||{goodEvil:0,lawfulChaotic:0},
       confrontationHistory:G.confrontationHistory||{},
       recentOutcomeType:G.recentOutcomeType,
@@ -1732,10 +1734,10 @@
     const inv=(G.inventory||[]).slice(0,6).map(i=>i.name).join(', ')||'None';
     const eq=Object.entries(G.equipment||{}).map(([slot,item])=>`${slot}: ${item.name}`).join(' · ')||'None';
     const al=G.alignment||{goodEvil:0,lawfulChaotic:0};
-    const ls=G.legalityState||{civicHeat:0};
+    const currentHeat=getCurrentLocalityHeat();
     const ch=G.confrontationHistory||{};
     const alignStr=`Moral ${al.goodEvil>0?'+':''}${al.goodEvil} · Civic ${al.lawfulChaotic>0?'+':''}${al.lawfulChaotic}`;
-    const heatStr=ls.civicHeat>0?`<span style='color:#c27f7f'>Civic Heat: ${ls.civicHeat}</span>`:'Clean record';
+    const heatStr=currentHeat>0?`<span style='color:#c27f7f'>Civic Heat: ${currentHeat}</span>`:'Clean record';
     const confrontStr=`Combats ${ch.directCombats||0} · Mercy ${ch.captures||0} · Executions ${ch.executions||0}`;
     return `<div class='card'><div class='sectionTitle'>Identity</div><b>${arch.name}</b> · ${bg.name}<br>${G.stageLabel}<br>${buildAuditText()}<br>${G.lifeOverview}</div><div class='card'><div class='sectionTitle'>State</div>Objective: ${G.currentObjective}<br>Companions: ${G.companions.map(c=>c.name).join(', ') || 'None'}<br>Family edges: ${familyEdgesText()}<br>Stage II destinations seen: ${Object.keys(G.stage2DestinationsSeen||{}).length}<br>Rescues: ${G.rescueLog.length} · Legends: ${G.legends.length}<br>Telemetry: ${G.telemetry.actions} actions · ${G.telemetry.encounters} encounters · ${G.telemetry.services} services</div><div class='card'><div class='sectionTitle'>Alignment &amp; Law</div>${alignStr}<br>${heatStr}<br>${confrontStr}</div><div class='card'><div class='sectionTitle'>Readiness</div>${Object.values(G.signals||{}).join(' · ')}</div><div class='card'><div class='sectionTitle'>Equipment</div>${eq}<br><span class='muted'>Inventory:</span> ${inv}</div>`;
   }
@@ -1751,9 +1753,9 @@
     const sigLines=Object.values(G.signals||{}).map(v=>`<div class='sigLine'>${v}</div>`).join('');
     const compLines=(G.companions&&G.companions.length)?G.companions.map(c=>`<div class='compLine${c.injured?" compInjured":""}'>${c.name||c.id}${c.injured?' (injured)':''}</div>`).join(''):`<div class='compLine' style='color:#5a4a2a;font-style:italic'>No companions</div>`;
     const al=G.alignment||{goodEvil:0,lawfulChaotic:0};
-    const ls=G.legalityState||{civicHeat:0};
+    const currentHeat=getCurrentLocalityHeat();
     const alignLine=`<div class='sigLine'>Moral ${al.goodEvil>0?'+':''}${al.goodEvil} · Civic ${al.lawfulChaotic>0?'+':''}${al.lawfulChaotic}</div>`;
-    const heatLine=ls.civicHeat>0?`<div class='sigLine' style='color:#c27f7f'>Heat ${ls.civicHeat}</div>`:'';
+    const heatLine=currentHeat>0?`<div class='sigLine' style='color:#c27f7f'>Heat ${currentHeat}</div>`:'';
     const inCombatLine=G.combatSession?`<div class='sigLine' style='color:#c9a46b;font-weight:bold'>IN COMBAT — ${G.combatSession.enemyName}</div>`:'';
     const postCombatLine=G.postCombatResolution&&!G.postCombatResolution.resolved?`<div class='sigLine' style='color:#7cae73'>RESOLUTION PENDING</div>`:'';
     return `<div class='railCard'><div class='railLabel'>Legend</div><div class='railName'>${G.name||'—'}</div><div class='railSub'>${arch.name} · ${bg.name}</div><div class='railSub'>${loc.name}</div></div><div class='railCard'><div class='railLabel'>Vitals</div><div class='hpBar'><div class='hpFill' style='width:${hpPct}%'></div></div><div class='railSub'>HP ${G.hp}/${G.maxHp} · Lvl ${G.level} · XP ${G.xp}</div><div class='railSub' style='margin-top:3px'>Renown ${G.renown} · Gold ${G.gold}</div><div class='railSub' style='margin-top:3px'>Wounds ${G.wounds.length} · Fatigue ${G.fatigue}</div></div><div class='railCard'><div class='railLabel'>Stage</div><span class='stageTag'>${G.stageLabel}</span><div class='objectiveText'>${G.currentObjective||'—'}</div><div class='progressLine'>Progress: ${G.stageProgress[G.stage]||0} actions</div></div><div class='railCard'><div class='railLabel'>Skills</div>${skillRows}</div><div class='railCard'><div class='railLabel'>Readiness</div>${sigLines}${alignLine}${heatLine}${inCombatLine}${postCombatLine}</div><div class='railCard'><div class='railLabel'>Party</div>${compLines}</div>`;
@@ -1802,7 +1804,7 @@
     const bg=getBackground(G.archetype,G.backgroundId)||{name:'?',theme:'',firstObjective:''};
     const loc=getLocality(G.location)||{name:'?'};
     const al=G.alignment||{goodEvil:0,lawfulChaotic:0};
-    const ls=G.legalityState||{civicHeat:0,warrants:[],knownCrimes:[]};
+    const currentHeat=getCurrentLocalityHeat();
     const ch=G.confrontationHistory||{};
     updateSignals();
     const skillKeys=['combat','survival','persuasion','lore','stealth','craft'];
@@ -1812,14 +1814,14 @@
       return `<div class='skillRow'><span class='skillName'>${k}</span><div class='skillBarTrack'><div class='skillBarFill' style='width:${pct}%'></div></div><span class='skillVal'>${val}</span></div>`;
     }).join('');
     const alignLine=`Moral ${al.goodEvil>0?'+':''}${al.goodEvil} (${al.goodEvil>3?'Good':al.goodEvil<-3?'Evil':'Neutral'}) · Civic ${al.lawfulChaotic>0?'+':''}${al.lawfulChaotic} (${al.lawfulChaotic>3?'Lawful':al.lawfulChaotic<-3?'Chaotic':'Neutral'})`;
-    const heatClass=ls.civicHeat>=6?'color:#c27f7f':ls.civicHeat>=3?'color:#d4b67a':'color:#7cae73';
+    const heatClass=currentHeat>=6?'color:#c27f7f':currentHeat>=3?'color:#d4b67a':'color:#7cae73';
     const woundList=(G.wounds||[]).slice(0,4).map(w=>`<div style='color:#c27f7f;font-size:11px'>· ${w}</div>`).join('')||'<div style="color:#7cae73;font-size:11px">No wounds</div>';
 
     $('sheetPanel').innerHTML=`
       <div class='card'><div class='sectionTitle'>Legend</div><b>${G.name||'—'}</b> · Age ${G.age} · ${G.presentation} · ${G.lineage}<br><span class='muted'>${arch.name}</span> / <span class='muted'>${bg.name}</span><br><span class='muted'>${loc.name}</span> · ${G.stageLabel}<div style='margin-top:6px;font-style:italic;font-size:12px'>${G.lifeOverview||''}</div></div>
       <div class='card'><div class='sectionTitle'>Skills</div>${skillBars}</div>
       <div class='card'><div class='sectionTitle'>Readiness</div>${Object.values(G.signals||{}).map(v=>`<div class='sigLine'>${v}</div>`).join('')}</div>
-      <div class='card'><div class='sectionTitle'>Alignment</div><div>${alignLine}</div><div style='margin-top:4px;${heatClass}'>Civic Heat: ${ls.civicHeat}${ls.warrants&&ls.warrants.length?` · <b>WARRANT ISSUED</b>`:''}</div></div>
+      <div class='card'><div class='sectionTitle'>Alignment</div><div>${alignLine}</div><div style='margin-top:4px;${heatClass}'>Civic Heat: ${currentHeat}${G.legalityState&&G.legalityState.warrants&&G.legalityState.warrants.length?` · <b>WARRANT ISSUED</b>`:''}</div></div>
       <div class='card'><div class='sectionTitle'>Confrontations</div><div>Combat ${ch.directCombats||0} · Mercy ${ch.captures||0} · Executions ${ch.executions||0}</div><div>Stealth kills ${ch.stealthKills||0} · Stabilizations ${ch.stabilizations||0}</div></div>
       <div class='card'><div class='sectionTitle'>Wounds</div>${woundList}</div>
       <div class='card'><div class='sectionTitle'>Equipment &amp; Inventory</div><div>${Object.entries(G.equipment||{}).map(([s,i])=>`<div><span class='muted'>${s}:</span> ${i.name}</div>`).join('')||'No equipment'}</div><div style='margin-top:4px;color:#8a7a5a'>${(G.inventory||[]).slice(0,6).map(i=>i.name).join(' · ')||'Empty inventory'}</div></div>
@@ -1988,7 +1990,7 @@
     updateStage(); setObjective(); updateSignals();
     let sig={}, atlas={};
     try{ sig=routeSignature()||{}; atlas=routeAtlasFor(sig)||{}; }catch(e){}
-    const _loc=getLocality(G.location); const _timeLabel=['Dawn','Morning','Midday','Late Day','Night'][G.timeIndex]; const _heatBadge=(G.legalityState&&G.legalityState.civicHeat>0)?`<span style='color:#c27f7f;margin-left:6px'>Heat ${G.legalityState.civicHeat}</span>`:''; const _combatBadge=G.combatSession?`<span style='color:#c9a46b;margin-left:6px'>IN COMBAT</span>`:''; $('header').innerHTML=`<span style='color:var(--accent)'>${_loc.name}</span> · Day ${G.dayCount} · ${_timeLabel} · Lvl ${G.level} · ${G.stageLabel} · ${_loc.polity||''}${_heatBadge}${_combatBadge}`;
+    const _loc=getLocality(G.location); const _timeLabel=['Dawn','Morning','Midday','Late Day','Night'][G.timeIndex]; const _heatBadge=(getCurrentLocalityHeat()>0)?`<span style='color:#c27f7f;margin-left:6px'>Heat ${getCurrentLocalityHeat()}</span>`:''; const _combatBadge=G.combatSession?`<span style='color:#c9a46b;margin-left:6px'>IN COMBAT</span>`:''; $('header').innerHTML=`<span style='color:var(--accent)'>${_loc.name}</span> · Day ${G.dayCount} · ${_timeLabel} · Lvl ${G.level} · ${G.stageLabel} · ${_loc.polity||''}${_heatBadge}${_combatBadge}`;
     $('leftRail').innerHTML=leftRailLines();
     // Central narrative panel — composeCentralNarrativePanel when game started
     if(window.composeCentralNarrativePanel && G.name){
@@ -2087,7 +2089,33 @@
     const gs=$('gameSection'); if(gs) gs.classList.add('active');
     const nr=$('newRunBtn'); if(nr) nr.style.display='';
   }
-  function loadLegend(){ const code=$('loadCode').value.trim(); const all=storage(); const found=all[code]; if(!found){ alert('Legend not found.'); return; } G=found; if(!G.familyEdges) G.familyEdges=[]; if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; if(!G.inventory) G.inventory=[]; if(!G.equipment) G.equipment={}; if(!G.serviceLog) G.serviceLog=[]; if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; if(!G.legalityState) G.legalityState={civicHeat:0,warrants:[],knownCrimes:[],sanctionedActions:[]}; if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; if(!G.uiState) G.uiState={activeLayer:'story'}; if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; render(); const ss=$('startScreen'); if(ss) ss.style.display='none'; const gs=$('gameSection'); if(gs) gs.classList.add('active'); const nr=$('newRunBtn'); if(nr) nr.style.display=''; }
+  function loadLegend(){ 
+    const code=$('loadCode').value.trim(); 
+    const all=storage(); 
+    const found=all[code]; 
+    if(!found){ alert('Legend not found.'); return; } 
+    G=found; 
+    if(!G.familyEdges) G.familyEdges=[]; 
+    if(!G.telemetry) G.telemetry={turns:0,actions:0,travels:0,scouts:0,encounters:0,wins:0,rescues:0,services:0}; 
+    if(!G.inventory) G.inventory=[]; 
+    if(!G.equipment) G.equipment={}; 
+    if(!G.serviceLog) G.serviceLog=[]; 
+    if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0}; 
+    // Migrate old civicHeat to new locality heat system
+    if(!G.heat) G.heat={min:-90,max:90,dailyDecayTowardZero:1,localities:{}};
+    if(!G.heat.localities) G.heat.localities={};
+    if(!G.heat.localities[G.location] && G.legalityState && G.legalityState.civicHeat) {
+      G.heat.localities[G.location]=G.legalityState.civicHeat;
+    }
+    if(!G.legalityState) G.legalityState={warrants:[],knownCrimes:[],sanctionedActions:[]}; 
+    if(!G.confrontationHistory) G.confrontationHistory={directCombats:0,avoidedConflicts:0,stealthKills:0,captures:0,executions:0,stabilizations:0,ritualResolutions:0,escortsCompleted:0}; 
+    if(!G.uiState) G.uiState={activeLayer:'story'}; 
+    if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}}; 
+    render(); 
+    const ss=$('startScreen'); if(ss) ss.style.display='none'; 
+    const gs=$('gameSection'); if(gs) gs.classList.add('active'); 
+    const nr=$('newRunBtn'); if(nr) nr.style.display=''; 
+  }
   // Define lists of legendary and notable NPCs for gating logic.
   window.LEGENDARY_NPCS = [ 'archmagister_leth_quillfire', 'coral_jack_neris', 'dame_orsella_roaz', 'dean_arturon_valegear', 'forge_voice_malzara', 'general_maer_rovik', 'ilyra_foamveil', 'kordr_vulkhand', 'marshal_builder_korrin_wex', 'matron_heshka_emberreign', 'mother_eliane_threadmercy', 'old_marrow_jex', 'orem_lantern_step', 'ossarch_veyn_halcyon', 'pashko_many_routes', 'saint_edris_of_the_unblinking_record', 'saint_physician_orel_vaunt', 'ser_caldrin_vey', 'seraphine_of_the_quiet_pyre', 'tessa_grainmark', 'the_ash_red_widow', 'vael_snowtrace', 'vatra_sul', 'vaud_serrik', 'veyla_inkhand' ];
   window.NOTABLE_NPCS = [ 'archivist_temeris_quillward', 'brakka_stonewake', 'captain_darian_roaz', 'captain_thalion_windrider', 'commander_halian_roaz', 'cron_udenine', 'daska_veilrun', 'decran_moltglass', 'descent_captain_orrik_lavabound', 'eron_wardflame', 'examiner_prelate_sira_doveshade', 'gorath_steelclad', 'harl_veymask', 'hel_brenn', 'hest_rookbraid', 'high_priestess_lyara_dawnlight', 'high_tide_priest_coren_mirthwake', 'hrolf_ashsight', 'ithra_quillmark', 'lady_elowen_shelk', 'lady_isabella_shelk', 'lord_darius_shelk', 'magister_selro_vann', 'magistrate_zethraxis_coilspire', 'marshal_sera_ironveil', 'matriarch_ashvara_citadel', 'measurer_seln_archive', 'mediator_selka_var', 'mercy_examiner_talan_vey', 'mordoth_valinheim', 'mother_saar_vulkrel', 'niv_brinegrin', 'orien_warderose', 'pell_rookglass', 'professor_cael_mirrortine', 'quen_larkstamp', 'registrar_confessor_othan_mire', 'rema_three_lantern', 'rime_rimebridge', 'risha_veilthorn', 'roth_udenine', 'sir_edrin_valecrest', 'sir_thaddeus_shelk', 'sir_velden_ironspike', 'strategos_nima_glass_law', 'talar_icepulse', 'vara_chitslip', 'varric_icevein', 'vessa_cindermaw', 'vorgul_oxtend', 'warden_pellor_grainhand' ];
