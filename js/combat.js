@@ -547,3 +547,6 @@ function triggerCombatEncounter(enemyId, context) {
       cid:'passive_intel' }
   ]), 300);
 }
+
+// Export ENEMY_TEMPLATES for engine.js
+window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
