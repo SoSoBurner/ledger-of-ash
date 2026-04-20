@@ -266,6 +266,63 @@
     .travelDestList{display:flex;flex-direction:column;gap:8px}
     .travelEmpty{color:#6a4a28;font-size:13px;padding:10px 4px}
 
+    /* ── IDENTITY TABS ──────────────────────────────────── */
+    .sheetTabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:10px}
+    .sheetTab{background:none;color:#6a4a28;border:none;border-bottom:2px solid transparent;padding:5px 14px 7px;cursor:pointer;font:12px 'Palatino Linotype',Georgia,serif;letter-spacing:.06em;text-transform:capitalize;transition:color .15s,border-color .15s}
+    .sheetTab:hover{color:var(--muted)}
+    .sheetTabActive{color:var(--ember);border-bottom-color:var(--ember)}
+    .sheetTabBody{min-height:40px}
+
+    /* ── EQUIPPED TAB ───────────────────────────────────── */
+    .eqTotalCard{background:#0f0d09;border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:10px}
+    .eqTotalLabel{font-size:9px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#4a3020;margin-bottom:6px}
+    .eqStatPills{display:flex;flex-wrap:wrap;gap:5px}
+    .eqStatPill{background:#1e1208;color:#c9a46b;border:1px solid #3a1a08;border-radius:5px;padding:2px 8px;font-size:11px}
+    .eqStatPill.eqLegacy{color:#7cae73;border-color:#1a3012}
+    .eqSlotGrid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+    .eqSlotCard{background:#0f0d09;border:1px solid var(--line);border-radius:7px;padding:7px 10px}
+    .eqSlotCard.eqEmpty{opacity:.45}
+    .eqSlotLabel{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#4a3020;display:block;margin-bottom:3px}
+    .eqSlotEmpty{color:#3a2810;font-size:12px}
+    .eqItemName{font-size:12px;color:var(--text);margin-bottom:2px}
+    .eqItemBonuses{font-size:11px;color:#8a7a5a;margin-bottom:5px}
+    .eqUnequipBtn{background:#1e1208;color:#a07050;border:1px solid #3a1a08;border-radius:5px;padding:2px 8px;cursor:pointer;font:11px 'Palatino Linotype',Georgia,serif}
+    .eqUnequipBtn:hover{color:var(--ember);border-color:var(--line2)}
+    .eqTierCommon{color:#9a8a6a}.eqTierUncommon{color:#38b8a8}.eqTierRare{color:#6080c8}.eqTierVeryRare{color:#c878c8}.eqTierLegendary{color:#e0a820}
+
+    /* ── INVENTORY TAB ──────────────────────────────────── */
+    .invEmpty{color:#4a3020;font-style:italic;font-size:13px;padding:10px 0}
+    .invCard{background:#0f0d09;border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin-bottom:7px}
+    .invCardHeader{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+    .invItemName{font-size:13px;color:var(--text);font-weight:bold}
+    .invTier,.invSlotTag{font-size:10px;padding:1px 6px;border-radius:4px;background:#1a1410;border:1px solid #2a1a0a}
+    .invTierCommon{color:#9a8a6a}.invTierUncommon{color:#38b8a8}.invTierRare{color:#6080c8}.invTierVeryRare{color:#c878c8}.invTierLegendary{color:#e0a820}
+    .invSlotTag{color:#6a4a28}
+    .invItemDesc{font-size:12px;color:#7a6040;line-height:1.55;margin-bottom:4px}
+    .invBonusLine{font-size:11px;color:#8a7a5a;margin-bottom:6px}
+    .invActions{display:flex;gap:6px}
+    .invEquipBtn{background:linear-gradient(180deg,#1e1208,#150e08);color:#c9a46b;border:1px solid #4a2010;border-radius:6px;padding:4px 12px;cursor:pointer;font:12px 'Palatino Linotype',Georgia,serif}
+    .invEquipBtn:hover{border-color:var(--ember);color:var(--ember)}
+    .invDropBtn{background:none;color:#6a3020;border:1px solid #2a1208;border-radius:6px;padding:4px 10px;cursor:pointer;font:12px 'Palatino Linotype',Georgia,serif}
+    .invDropBtn:hover{color:#c27f7f;border-color:#5a2010}
+    .invEquippedTag{font-size:11px;color:#4a6030;padding:4px 8px}
+
+    /* ── SHOP SECTION ───────────────────────────────────── */
+    .shopGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+    .shopCard{background:#0f0d09;border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+    .shopCardHeader{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:4px}
+    .shopItemName{font-size:13px;color:var(--text);font-weight:bold}
+    .shopTier,.shopSlotTag{font-size:10px;padding:1px 5px;border-radius:4px;background:#1a1410;border:1px solid #2a1a0a}
+    .shopTierCommon{color:#9a8a6a}.shopTierUncommon{color:#38b8a8}.shopTierRare{color:#6080c8}.shopTierVeryRare{color:#c878c8}.shopTierLegendary{color:#e0a820}
+    .shopSlotTag{color:#6a4a28}
+    .shopCost{margin-left:auto;font-size:12px;color:#c9a46b;font-weight:bold}
+    .shopItemDesc{font-size:12px;color:#7a6040;line-height:1.5;margin-bottom:4px}
+    .shopBonusLine{font-size:11px;color:#8a7a5a;margin-bottom:6px}
+    .shopBuyBtn{background:linear-gradient(180deg,#1e1208,#150e08);color:#c9a46b;border:1px solid #4a2010;border-radius:6px;padding:5px 12px;cursor:pointer;font:12px 'Palatino Linotype',Georgia,serif;width:100%}
+    .shopBuyBtn:hover{border-color:var(--ember);color:var(--ember)}
+    .shopBuyBtn.shopDisabled{opacity:.4;cursor:not-allowed}
+    .shopOwned{font-size:11px;color:#4a6030;display:block;padding:4px 0}
+
     @media(max-width:640px){
       .wrap{padding:8px 12px}
       .topBar{flex-direction:column;align-items:flex-start;gap:4px}
@@ -417,6 +474,10 @@
 <script src='js/party.js'></script>
 <script src='js/combat.js'></script>
 <script src='js/combat-ui.js'></script>
+<script src='js/archetype-skills.js'></script>
+<script src='js/travel.js'></script>
+<script src='js/rosalind-fall.js'></script>
+<script src='js/items.js'></script>
 <script src='js/engine.js'></script>
 <!-- Stage 1 enriched choices (12 localities) -->
 <script src='shelkopolis_stage1_enriched_choices.js'></script>

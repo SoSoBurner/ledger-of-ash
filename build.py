@@ -15,6 +15,7 @@ def build():
     with open('js/archetype-skills.js', encoding='utf-8-sig') as f: askills = f.read()
     with open('js/travel.js', encoding='utf-8-sig') as f: travel = f.read()
     with open('js/rosalind-fall.js', encoding='utf-8-sig') as f: rosalind = f.read()
+    with open('js/items.js', encoding='utf-8-sig') as f: items = f.read()
     with open('js/engine.js', encoding='utf-8-sig') as f: en = f.read()
     with open('index.html', encoding='utf-8-sig') as f: html = f.read()
     
@@ -62,7 +63,7 @@ def build():
     if en_without_close.endswith('})();'):
         en_without_close = en_without_close[:-5]  # Remove })();
     
-    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + askills + '\n' + travel + '\n' + rosalind + '\n' + en_without_close + '\n' + enriched_content + '\n})();'
+    bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + askills + '\n' + travel + '\n' + rosalind + '\n' + items + '\n' + en_without_close + '\n' + enriched_content + '\n})();'
     
     out = html
     # Remove individual script src tags and replace first one with bundled content
@@ -73,6 +74,10 @@ def build():
     out = out.replace("<script src='js/party.js'></script>", '')
     out = out.replace("<script src='js/combat.js'></script>", '')
     out = out.replace("<script src='js/combat-ui.js'></script>", '')
+    out = out.replace("<script src='js/archetype-skills.js'></script>", '')
+    out = out.replace("<script src='js/travel.js'></script>", '')
+    out = out.replace("<script src='js/rosalind-fall.js'></script>", '')
+    out = out.replace("<script src='js/items.js'></script>", '')
     out = out.replace("<script src='js/engine.js'></script>", '')
     
     # Remove enriched choice script tags (they're bundled now)

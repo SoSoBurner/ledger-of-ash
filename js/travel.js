@@ -24,6 +24,12 @@
     stellar_remnant:  ['ashgate_crossing','astral_divide']
   };
 
+  // Localities with sea port access
+  const PORT_LOCALITIES = ['cosmoria','panim_haven','guildheart_hub','plumes_end_outpost'];
+
+  // Localities with airship dock (stage minimum required)
+  const AIRSHIP_LOCALITIES = {cosmoria:3, guildheart_hub:4};
+
   // Localities with active stables
   const STABLE_LOCALITIES = [
     'shelkopolis','soreheim_proper','guildheart_hub','fairhaven',
@@ -110,6 +116,22 @@
       const horseTime = d<=3 ? 1 : 2;
       modes.push({id:'horse', label:'Ride (Your Horse)', timeCost:horseTime, goldCost:0,
         desc:`${horseTime} time unit${horseTime>1?'s':''}. Fastest land option.`});
+    }
+
+    // Boat: both localities must be ports
+    if(PORT_LOCALITIES.includes(G.location) && PORT_LOCALITIES.includes(loc.id)){
+      const boatGold = d===1 ? 3 : d===2 ? 5 : d<=4 ? 8 : 12;
+      const boatTime = d<=2 ? 1 : 2;
+      modes.push({id:'boat', label:'Sea Passage', timeCost:boatTime, goldCost:boatGold,
+        desc:`${boatGold} gold · ${boatTime} time unit${boatTime>1?'s':''}. Faster than foot on port routes.`});
+    }
+
+    // Airship: available from airship localities, stage-gated
+    const airshipStageMin = AIRSHIP_LOCALITIES[G.location];
+    if(airshipStageMin !== undefined && (G.stage||1) >= airshipStageMin){
+      const airGold = 25 + Math.floor(d * 2);
+      modes.push({id:'airship', label:'Airship Passage', timeCost:1, goldCost:airGold,
+        desc:`${airGold} gold · 1 time unit. Magical airship — available from ${(window.KEY_LOCALITIES||{})[G.location]?.name||G.location}.`});
     }
 
     return modes;
@@ -242,6 +264,8 @@
   }
 
   // Public API
+  window.PORT_LOCALITIES = PORT_LOCALITIES;
+  window.AIRSHIP_LOCALITIES = AIRSHIP_LOCALITIES;
   window.COSMIC_LOCALITIES = COSMIC_LOCALITIES;
   window.COSMIC_IDS = COSMIC_IDS;
   window.COSMIC_ADJACENCY = COSMIC_ADJACENCY;

@@ -113,7 +113,9 @@
     if(!G||!G.stats) return 0;
     const statKey = STAT_SKILL_MAP[skillName];
     if(!statKey) return 0;
-    return Math.floor(((G.stats[statKey]||1)-1)/2);
+    const base = Math.floor(((G.stats[statKey]||1)-1)/2);
+    const equip = window.getEquipmentStatBonus ? window.getEquipmentStatBonus(G, statKey) : 0;
+    return base + Math.floor(equip/2);
   }
 
   function rollD20(skill, bonuses){
@@ -166,7 +168,7 @@
       sidePlotProgress:{},
       sidePlotResolutions:{},
       recentOutcomeType:null,
-      uiState:{activeLayer:'story'},
+      uiState:{activeLayer:'story', identityTab:'profile'},
       codex:{npcs:{},localities:{},creatures:{},hazards:{},institutions:{}},
       // ── PHASE 3: ALIGNMENT & HEAT SYSTEM ──
       alignmentSystem:{
@@ -1137,6 +1139,12 @@
     G.postCombatResolution={enemyName:cs.enemyName,tier:cs.tier,templateKey:cs.templateKey,loot:cs.loot||{},resolved:false};
     G.recentOutcomeType='combat_victory';
     G.lastResult=`${cs.enemyName} is defeated. How do you resolve this?`;
+    // Combat item drop
+    if(window.rollCombatDrop){
+      const dropTier = cs.tier==='boss' ? 'boss' : cs.tier==='elite' ? 'elite' : 'standard';
+      const dropped = window.rollCombatDrop(G, dropTier);
+      if(dropped) G.lastResult += ` A ${dropped.name} was left behind.`;
+    }
   }
 
   function postCombatResolutionChoices(){
@@ -2135,7 +2143,7 @@
     else if(key==='flavor'){ G.renown+=1; addJournal('locality', `${poi.name}: ${poi.text}`, `${G.location}-${key}`); G.lastResult=`${poi.name} makes the place feel fully inhabited and harder to mistake for anywhere else.`; }
     else if(key==='secret'){ G.settlementSecrets[G.location]=true; G.gold+=3; addJournal('secret', `${poi.name}: ${poi.text}`, `${G.location}-secret`); G.lastResult=`${poi.name} yields a hidden leverage point and a small practical gain.`; }
     G.serviceLog.unshift(`${poi.name} (${key}) at ${getLocality(G.location).name}`); G.serviceLog=G.serviceLog.slice(0,20); setThreat(); persist(); render(); }})); }
-  function servicesLines(){ return poiActions().map((p,i)=>{ const stock=p.key==='equipment'&&p.itemPool.length?`<div class='stockLine'>Stock: ${p.itemPool.slice(0,2).map(x=>x.name).join(', ')}</div>`:''; return `<div class='card'><div class='sectionTitle'>${p.key}</div><div class='poiName'>${p.poi.name}</div><div class='poiText'>${p.poi.text}</div>${stock}<button class='choice small' data-service='${i}'>Use ${p.poi.name}</button></div>`; }).join('')||'<div class="card">No services here yet.</div>'; }
+  function servicesLines(){ return poiActions().filter(p=>p.key!=='equipment').map((p,i)=>{ return `<div class='card'><div class='sectionTitle'>${p.key}</div><div class='poiName'>${p.poi.name}</div><div class='poiText'>${p.poi.text}</div><button class='choice small' data-service='${i}'>Use ${p.poi.name}</button></div>`; }).join('')||'<div class="card">No services here yet.</div>'; }
 
   function sheetLines(){
     const arch=getArchetype(G.archetype), bg=getBackground(G.archetype,G.backgroundId);
@@ -2214,7 +2222,8 @@
 
     const npcsCard=currentNamedPlacements(G.location).length?`<div class='card'><div class='sectionTitle'>Named Persons</div>${currentNamedPlacements(G.location).map(n=>`<div><b>${n.id.replace(/_/g,' ')}</b> — ${n.role} · ${n.office}</div>`).join('')}</div>`:'';
 
-    $('mapPanel').innerHTML=localityCard+clockCard+threatCard+routeCard+adjCards+npcsCard;
+    const shopsCard = window.renderShopsSection ? window.renderShopsSection(G) : '';
+    $('mapPanel').innerHTML=localityCard+clockCard+threatCard+routeCard+adjCards+npcsCard+shopsCard;
   }
 
   function renderIdentityLayer(){
@@ -2246,7 +2255,17 @@
       <div class='card'><div class='sectionTitle'>Alignment &amp; Heat</div><div>${alignLine}</div><div style='margin-top:4px;${heatClass}'>${currentHeat>0?`Heat +${currentHeat}${currentHeat>=8?' · <b>WARRANT ACTIVE</b>':''}`:currentHeat<0?`Civic trust ${currentHeat}`:'Clean record'}</div></div>
       <div class='card'><div class='sectionTitle'>Confrontations</div><div>Combat ${ch.directCombats||0} · Mercy ${ch.captures||0} · Executions ${ch.executions||0}</div><div>Stealth kills ${ch.stealthKills||0} · Stabilizations ${ch.stabilizations||0}</div></div>
       <div class='card'><div class='sectionTitle'>Wounds</div>${woundList}</div>
-      <div class='card'><div class='sectionTitle'>Equipment &amp; Inventory</div><div>${Object.entries(G.equipment||{}).map(([s,i])=>`<div><span class='muted'>${s}:</span> ${i.name}</div>`).join('')||'No equipment'}</div><div style='margin-top:4px;color:#8a7a5a'>${(G.inventory||[]).slice(0,6).map(i=>i.name).join(' · ')||'Empty inventory'}</div></div>
+      ${(()=>{
+        const tab=G.uiState.identityTab||'profile';
+        const tabs=['profile','equipped','inventory'];
+        const tabBar=tabs.map(t=>`<button class='sheetTab${tab===t?' sheetTabActive':''}' onclick='window._setIdentityTab("${t}")'>${t.charAt(0).toUpperCase()+t.slice(1)}</button>`).join('');
+        let body='';
+        if(tab==='equipped') body=window.renderEquippedTab?window.renderEquippedTab(G):'<div class="muted">Item system loading…</div>';
+        else if(tab==='inventory') body=window.renderInventoryTab?window.renderInventoryTab(G):'<div class="muted">Item system loading…</div>';
+        else body=`
+          <div class='card'><div class='sectionTitle'>Legend</div><b>${G.name||'—'}</b> · Age ${G.age} · ${G.presentation} · ${G.lineage}<br><span class='muted'>${(getArchetype(G.archetype)||{name:'?'}).name}</span> / <span class='muted'>${(getBackground(G.archetype,G.backgroundId)||{name:'?'}).name}</span><br><span class='muted'>${(getLocality(G.location)||{name:'?'}).name}</span> · ${G.stageLabel}</div>`;
+        return `<div class='card'><div class='sheetTabs'>${tabBar}</div><div class='sheetTabBody'>${body}</div></div>`;
+      })()}
       <div class='card'><div class='sectionTitle'>Progress</div><div>XP ${G.xp} · Level ${G.level} · Renown ${G.renown} · Gold ${G.gold}</div><div>Stage progress: ${G.stageProgress[G.stage]||0} actions · Stage II seen: ${Object.keys(G.stage2DestinationsSeen||{}).length} destinations</div><div>Family edges: ${familyEdgesText()}</div></div>
       <div class='card'><div class='sectionTitle'>Stats</div>${Object.entries(G.stats||{}).map(([k,v])=>`<div class='skillRow'><span class='skillName'>${STAT_DISPLAY_NAMES[k]||k}</span><span class='skillVal'>${v}</span><span class='muted' style='font-size:10px;margin-left:6px'>mod ${Math.floor((v-1)/2)>=0?'+':''}${Math.floor((v-1)/2)}</span></div>`).join('')}</div>
       <div class='card'><div class='sectionTitle'>Acquired Traits &amp; Skills</div>${(G.acquiredSkills&&G.acquiredSkills.length)?G.acquiredSkills.map(s=>`<div style='margin:2px 0'><b>${s.name}</b><span class='muted' style='font-size:10px;margin-left:4px'>Lvl ${s.level}</span><div style='font-size:11px;color:#9a8a6a'>${s.desc||''}</div></div>`).join(''):'<div style="color:#5a4a2a;font-style:italic">No traits acquired yet.</div>'}</div>`;
@@ -2547,6 +2566,10 @@
       }catch(e){ $('narrative').textContent='Locality narrative unavailable.'; }
     }
     $('resultCard').innerHTML=resultCardLines();
+    window._itemsEngineG = G;
+    window._itemsRender = render;
+    window._itemsAddNotice = addNotice;
+    window._setIdentityTab = function(tab){ if(!G.uiState) G.uiState={activeLayer:'story',identityTab:'profile'}; G.uiState.identityTab=tab; render(); };
     $('servicesPanel').innerHTML=servicesLines();
     $('noticesPanel').innerHTML=noticesLines();
     $('npcsPanel').innerHTML=npcsLines();
@@ -2659,7 +2682,8 @@
     if(!G.companionAbilityUsage) G.companionAbilityUsage={perScene:{},perDay:{}};
     if(!G.companionFlags) G.companionFlags={};
     if(G.axisInverted===undefined) G.axisInverted=false;
-    if(!G.uiState) G.uiState={activeLayer:'story'};
+    if(!G.uiState) G.uiState={activeLayer:'story',identityTab:'profile'};
+    if(!G.uiState.identityTab) G.uiState.identityTab='profile';
     if(!G.codex) G.codex={npcs:{},localities:{},creatures:{},hazards:{},institutions:{}};
     if(G.enforcementState===undefined) G.enforcementState=null;
     if(!G.enforcementCooldown) G.enforcementCooldown=0;
