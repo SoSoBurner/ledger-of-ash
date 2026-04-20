@@ -2008,10 +2008,51 @@
     initializeHeat
   };
   
+  // ── CHOICE LOOP PREVENTION ──
+  function trackChoiceAction(choiceLabel, choiceTags) {
+    if (!G.choiceHistory) G.choiceHistory = [];
+    G.choiceHistory.push({
+      label: choiceLabel,
+      tags: choiceTags,
+      turn: G.telemetry.turns,
+      stage: G.stage,
+      location: G.location
+    });
+    // Keep last 50 choices to prevent memory overflow
+    if (G.choiceHistory.length > 50) {
+      G.choiceHistory.shift();
+    }
+  }
+
+  function shouldSkipChoice(choiceLabel, choiceTags) {
+    if (!G.choiceHistory || !Array.isArray(choiceTags)) return false;
+    
+    // Check for exact same choice taken in the last 5 turns
+    const recentChoices = G.choiceHistory.slice(-5);
+    if (recentChoices.some(c => c.label === choiceLabel)) {
+      return true; // Skip: same choice taken recently
+    }
+    
+    // Check for choice loops: same tag sequence repeated
+    if (choiceTags.includes('Combat') || choiceTags.includes('CreatureCombat')) {
+      const recentCombatChoices = G.choiceHistory.slice(-3).filter(c => 
+        c.tags && (c.tags.includes('Combat') || c.tags.includes('CreatureCombat'))
+      );
+      // Allow combat choices to repeat, but not instantly
+      if (recentCombatChoices.length > 0 && recentCombatChoices[recentCombatChoices.length - 1].turn === G.telemetry.turns - 1) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+  
   // ── EXPORT ADDITIONAL FUNCTIONS TO WINDOW ──
   window.companionBonus = companionBonus;
   window.buildCompanionTrust = buildCompanionTrust;
   window.combatSessionChoices = combatSessionChoices;
+  window.trackChoiceAction = trackChoiceAction;
+  window.shouldSkipChoice = shouldSkipChoice;
   
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();
