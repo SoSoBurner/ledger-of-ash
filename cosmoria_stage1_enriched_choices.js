@@ -1,4 +1,4 @@
-/**
+﻿/**
  * COSMORIA STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to maritime archives, shipwright trade, and personal ambition corruption
  * Generated for: Personal ambition vs collective trust, individual power weaponized, archives/records as control
@@ -675,7 +675,6 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of institutional corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -700,3 +699,4 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.COSMORIA_STAGE1_ENRICHED_CHOICES = COSMORIA_STAGE1_ENRICHED_CHOICES;

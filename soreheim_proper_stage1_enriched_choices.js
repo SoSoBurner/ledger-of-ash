@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SOREHEIM PROPER STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to labor tensions and quota systems
  * Generated for: Community autonomy vs merchant control, craft integrity vs production quota, quota manipulation and worker displacement
@@ -698,7 +698,6 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of displacement');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -723,3 +722,4 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;

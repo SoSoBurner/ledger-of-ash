@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SHELKOPOLIS STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to NPC work and locality tensions
  * Generated for: Trade vs dignity, refinement vs necessity, public harmony vs covert rivalry
@@ -665,7 +665,6 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.arcana || 0) / 2 + Math.floor(G.level / 3));
 
@@ -690,3 +689,4 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = SHELKOPOLIS_STAGE1_ENRICHED_CHOICES;

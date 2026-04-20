@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ITHTANANALOR STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to martial structure, oath-binding, and honor
  * Generated for: Martial honor vs personal conscience, duty vs individual bond, order vs corruption
@@ -623,7 +623,6 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of military conspiracy');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -696,7 +695,6 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'achieving military occupation understanding');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -721,3 +719,4 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.ITHTANANALOR_STAGE1_ENRICHED_CHOICES = ITHTANANALOR_STAGE1_ENRICHED_CHOICES;

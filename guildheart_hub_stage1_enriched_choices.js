@@ -1,4 +1,4 @@
-/**
+﻿/**
  * GUILDHEART HUB STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to guild arbitration and trade disputes
  * Generated for: Guild loyalty vs individual innovation, tradition vs progress, records corruption and arbitration poisoning
@@ -701,7 +701,6 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of arbitration corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -726,3 +725,4 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES;

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SHIRSHAL STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to investigative work and magical law
  * Generated for: Truth versus convenience, safety versus secrecy, jurisdiction versus private power
@@ -643,3 +643,4 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SHIRSHAL_STAGE1_ENRICHED_CHOICES = SHIRSHAL_STAGE1_ENRICHED_CHOICES;

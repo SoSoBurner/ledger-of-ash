@@ -1,4 +1,4 @@
-const STAGE2_ENRICHED_CHOICES = [
+﻿const STAGE2_ENRICHED_CHOICES = [
   // ========== TRAVEL ENCOUNTERS: Mysterious Figures & Hazardous Routes ==========
   {
     label: "You encounter a cloaked trader on the Ridgeway Pass offering strange maps. Investigate their origins and intentions.",
@@ -12,14 +12,14 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'engaging mysterious traveler');
       
       const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
-      const target = 12 + Math.max(0, G.worldClocks.threat);
+      const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You see through their deception—they're actually a refugee with genuine intelligence about safe passage.`;
         addJournal('alliance', 'Trader contact established', `trader-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `You're too trusting. The maps are forgeries designed to lead travelers astray.`;
         addJournal('complication', 'Misled by false information', `false-maps-${G.dayCount}`);
       } else {
@@ -115,7 +115,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You detect recent tracks and deduce the camp's occupants are friendly scouts.`;
         addJournal('alliance', 'Scout network mapped', `scouts-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `Approaching darkness and you're ambushed by the camp's actual owners.`;
         addJournal('combat', 'Ambush encounter', `ambush-${G.dayCount}`);
       } else {
@@ -179,7 +179,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You hide them from authorities and earn fierce loyalty. They're a refugee scholar.`;
         addJournal('companion', 'Scholar joined', `scholar-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `Your deception is transparent. You're both questioned and detained briefly.`;
         addJournal('complication', 'Authority suspicion', `authority-${G.dayCount}`);
       } else {
@@ -243,7 +243,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You traverse it flawlessly and reach your destination early, gaining valuable knowledge.`;
         addJournal('route', 'Secret passage mapped', `secret-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `The terrain is forbidden for a reason—territorial creatures attack you.`;
         addJournal('combat', 'Territorial encounter', `terr-${G.dayCount}`);
       } else {
@@ -430,14 +430,14 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'discovering faction infrastructure');
       
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
-      const target = 13 + Math.max(0, G.worldClocks.threat);
+      const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You infiltrate unseen and gather valuable intelligence.`;
         addJournal('intelligence', 'Safehouse intelligence', `safe-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `You're caught infiltrating. The faction now actively hunts you.`;
         addJournal('threat', 'Active faction pursuit', `pursue-${G.dayCount}`);
       } else {
@@ -533,7 +533,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You deduce the killer's identity and find clues about a rival faction plot.`;
         addJournal('intelligence', 'Operative assassination solved', `death-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `The real killer spots you and now considers you a threat.`;
         addJournal('threat', 'Killer attention gained', `killer-${G.dayCount}`);
       } else {
@@ -558,7 +558,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'undertaking espionage assignment');
       
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
-      const target = 12 + Math.max(0, G.worldClocks.threat);
+      const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -784,7 +784,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(73, 'managing companion family crisis');
       
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
-      const target = 13 + Math.max(0, G.worldClocks.threat);
+      const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -921,7 +921,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You decode the messages and understand the full restriction strategy.`;
         addJournal('intelligence', 'Institutional strategy decoded', `decode-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `The message is trapped. Your attempt to decode alerts the sender.`;
         addJournal('threat', 'Interception detected', `det-${G.dayCount}`);
       } else {
@@ -985,7 +985,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You follow undetected and uncover a major institutional objective.`;
         addJournal('intelligence', 'Institutional objective revealed', `obj-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `You're spotted. The officials now know they're being tracked.`;
         addJournal('threat', 'Observation discovered', `obs-disc-${G.dayCount}`);
       } else {
@@ -1113,7 +1113,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You negotiate strong protection and immunity in exchange for powerful testimony.`;
         addJournal('legal', 'Protected witness status', `prot-wit-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `Officials learn of the testimony and attempt to silence you.`;
         addJournal('threat', 'Official retaliation', `ret-${G.dayCount}`);
       } else {
@@ -1127,3 +1127,4 @@ const STAGE2_ENRICHED_CHOICES = [
     }
   }
 ];
+window.STAGE2_ENRICHED_CHOICES = STAGE2_ENRICHED_CHOICES;

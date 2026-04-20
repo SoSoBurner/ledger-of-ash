@@ -1,4 +1,4 @@
-/**
+﻿/**
  * MIMOLOT ACADEMY STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to knowledge, scholarship, and restricted truth
  * Generated for: Knowledge hoarding vs public truth, preservation vs dangerous revelation, authority vs questioning
@@ -623,7 +623,6 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of knowledge suppression');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -696,7 +695,6 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'achieving knowledge weaponization understanding');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -721,3 +719,4 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES;

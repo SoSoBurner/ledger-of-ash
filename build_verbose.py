@@ -17,7 +17,6 @@ def build():
     
     # Load enriched choice files (Stage 1 + Stage 2)
     enriched_files = [
-        # Stage 1: 12 localities x 20 choices = 240 choices
         'shelkopolis_stage1_enriched_choices.js',
         'soreheim_proper_stage1_enriched_choices.js',
         'guildheart_hub_stage1_enriched_choices.js',
@@ -30,7 +29,6 @@ def build():
         'shirshal_stage1_enriched_choices.js',
         'cosmoria_stage1_enriched_choices.js',
         'harvest_circle_stage1_enriched_choices.js',
-        # Stage 2: 45 choices
         'stage2_enriched_choices.js'
     ]
     
@@ -39,12 +37,18 @@ def build():
         filepath = os.path.join('.', filename)
         if os.path.exists(filepath):
             with open(filepath, encoding='utf-8-sig') as f:
-                enriched_content += f.read() + '\n'
+                content = f.read()
+                enriched_content += content + '\n'
+                print(f'✓ Loaded {filename}: {len(content):,} bytes')
         else:
-            print(f'Warning: {filename} not found, skipping')
+            print(f'⚠ {filename} not found')
+    
+    print(f'\nTotal enriched content: {len(enriched_content):,} bytes')
     
     # Bundle all JS files into a single script content (preserve order: data deps → engine → enriched)
     bundled = da + '\n' + blm + '\n' + s2bg + '\n' + na + '\n' + pj + '\n' + cb + '\n' + cbui + '\n' + en + '\n' + enriched_content
+    
+    print(f'Total bundled size: {len(bundled):,} bytes')
     
     out = html
     # Remove individual script src tags and replace first one with bundled content
@@ -76,4 +80,3 @@ def build():
 
 if __name__ == '__main__':
     build()
-

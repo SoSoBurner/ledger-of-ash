@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SUNSPIRE HAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to family syndicate control and resource isolation
  * Generated for: Fair exchange vs family obligation, communal good vs personal profit, syndicate weaponization and coercion
@@ -677,7 +677,6 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of extraction');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -702,3 +701,4 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES;

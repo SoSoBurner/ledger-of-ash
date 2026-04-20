@@ -124,7 +124,7 @@
       age:'24', presentation:'Male', lineage:'Human', lifeOverview:'',
       location:startingLocation, currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
       journalRecords:[], notices:[], legends:[], quests:[], factions:{}, morality:0, order:0,
-      skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1}, companions:[], recruitableSeen:{},
+      skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1,insight:1,perception:1,deception:1,arcana:1,medicine:1,investigation:1}, companions:[], recruitableSeen:{},
       wounds:[], fatigue:0, deathCount:0, stage5Dead:false, rescueLog:[], trainingDisadvantage:0,
       worldClocks:{pressure:0,rival:0,omens:0}, stageProgress:{1:0,2:0,3:0,4:0,5:0},
       routeScoutLog:[], keyMoments:[], currentThreat:null, encounter:null, lastResult:'Your ledger waits for its first truth.',
@@ -510,8 +510,8 @@
     G.companions=G.companions.filter(comp=>{
       const def=compDefs[comp.id];
       if(!def) return true;
-      const evilAligned=(G.alignment&&G.alignment.goodEvil<=-7);
-      const chaoticAligned=(G.alignment&&G.alignment.lawfulChaotic<=-7);
+      const evilAligned=(G.alignmentSystem&&G.alignmentSystem.benevolence<=-7);
+      const chaoticAligned=(G.alignmentSystem&&G.alignmentSystem.order<=-7);
       const highHeat=(G.legalityState&&G.legalityState.civicHeat>=8);
       const driftedTrust=(comp.trust||0)<1 && G.dayCount>12 && (comp.joinedDay||0)<G.dayCount-6;
       const conds=def.leaveConditions||[];
@@ -532,9 +532,9 @@
   }
 
   function applyAlignmentShift(moral, civic){
-    if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0};
-    G.alignment.goodEvil=Math.max(-10,Math.min(10,(G.alignment.goodEvil||0)+moral));
-    G.alignment.lawfulChaotic=Math.max(-10,Math.min(10,(G.alignment.lawfulChaotic||0)+civic));
+    if(!G.alignmentSystem) G.alignmentSystem={benevolence:0,order:0};
+    G.alignmentSystem.benevolence=Math.max(-50,Math.min(50,(G.alignmentSystem.benevolence||0)+moral));
+    G.alignmentSystem.order=Math.max(-50,Math.min(50,(G.alignmentSystem.order||0)+civic));
     checkCompanionLeaveConditions();
   }
   function applyLegalityShift(delta){
@@ -2055,6 +2055,11 @@
     dailyHeatDecay,
     initializeHeat
   };
+  
+  // ── EXPORT ADDITIONAL FUNCTIONS TO WINDOW ──
+  window.companionBonus = companionBonus;
+  window.buildCompanionTrust = buildCompanionTrust;
+  window.combatSessionChoices = combatSessionChoices;
   
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();

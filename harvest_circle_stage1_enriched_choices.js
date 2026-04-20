@@ -1,4 +1,4 @@
-/**
+﻿/**
  * HARVEST CIRCLE STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to grain distribution, festival trade, and family-controlled commerce corruption
  * Generated for: Fair market exchange vs family duty, spoilage urgency vs quality care, festival unity vs economic pressure
@@ -639,7 +639,6 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of harvest system corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -676,7 +675,6 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'confirming full external harvest conspiracy');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -701,3 +699,4 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES;

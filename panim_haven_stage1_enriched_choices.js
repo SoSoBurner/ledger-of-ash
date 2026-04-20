@@ -1,4 +1,4 @@
-/**
+﻿/**
  * PANIM HAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to shrine work and mediation service
  * Generated for: Divine balance vs mortal need, ritual correctness vs human compassion, mediation vs grief
@@ -640,3 +640,4 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = PANIM_HAVEN_STAGE1_ENRICHED_CHOICES;

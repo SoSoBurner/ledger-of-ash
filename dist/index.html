@@ -4431,7 +4431,7 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
       age:'24', presentation:'Male', lineage:'Human', lifeOverview:'',
       location:startingLocation, currentSafeZone:'Roadwarden Annex Ward', routeHistory:[], safeZoneHistory:[],
       journalRecords:[], notices:[], legends:[], quests:[], factions:{}, morality:0, order:0,
-      skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1}, companions:[], recruitableSeen:{},
+      skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:1,craft:1,insight:1,perception:1,deception:1,arcana:1,medicine:1,investigation:1}, companions:[], recruitableSeen:{},
       wounds:[], fatigue:0, deathCount:0, stage5Dead:false, rescueLog:[], trainingDisadvantage:0,
       worldClocks:{pressure:0,rival:0,omens:0}, stageProgress:{1:0,2:0,3:0,4:0,5:0},
       routeScoutLog:[], keyMoments:[], currentThreat:null, encounter:null, lastResult:'Your ledger waits for its first truth.',
@@ -4817,8 +4817,8 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     G.companions=G.companions.filter(comp=>{
       const def=compDefs[comp.id];
       if(!def) return true;
-      const evilAligned=(G.alignment&&G.alignment.goodEvil<=-7);
-      const chaoticAligned=(G.alignment&&G.alignment.lawfulChaotic<=-7);
+      const evilAligned=(G.alignmentSystem&&G.alignmentSystem.benevolence<=-7);
+      const chaoticAligned=(G.alignmentSystem&&G.alignmentSystem.order<=-7);
       const highHeat=(G.legalityState&&G.legalityState.civicHeat>=8);
       const driftedTrust=(comp.trust||0)<1 && G.dayCount>12 && (comp.joinedDay||0)<G.dayCount-6;
       const conds=def.leaveConditions||[];
@@ -4839,9 +4839,9 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
   }
 
   function applyAlignmentShift(moral, civic){
-    if(!G.alignment) G.alignment={goodEvil:0,lawfulChaotic:0};
-    G.alignment.goodEvil=Math.max(-10,Math.min(10,(G.alignment.goodEvil||0)+moral));
-    G.alignment.lawfulChaotic=Math.max(-10,Math.min(10,(G.alignment.lawfulChaotic||0)+civic));
+    if(!G.alignmentSystem) G.alignmentSystem={benevolence:0,order:0};
+    G.alignmentSystem.benevolence=Math.max(-50,Math.min(50,(G.alignmentSystem.benevolence||0)+moral));
+    G.alignmentSystem.order=Math.max(-50,Math.min(50,(G.alignmentSystem.order||0)+civic));
     checkCompanionLeaveConditions();
   }
   function applyLegalityShift(delta){
@@ -6363,6 +6363,11 @@ window.ENEMY_TEMPLATES = ENEMY_TEMPLATES;
     initializeHeat
   };
   
+  // ── EXPORT ADDITIONAL FUNCTIONS TO WINDOW ──
+  window.companionBonus = companionBonus;
+  window.buildCompanionTrust = buildCompanionTrust;
+  window.combatSessionChoices = combatSessionChoices;
+  
   window.addEventListener('DOMContentLoaded',()=>{ fillSelectors(); $('beginBtn').onclick=beginNew; $('loadBtn').onclick=loadLegend; G=defaultState(); G.lifeOverview='Create a new legend to enter the world.'; setThreat(); render(); });
 })();
 
@@ -7033,7 +7038,6 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.arcana || 0) / 2 + Math.floor(G.level / 3));
 
@@ -7058,6 +7062,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = SHELKOPOLIS_STAGE1_ENRICHED_CHOICES;
 
 /**
  * SOREHEIM PROPER STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -7759,7 +7764,6 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of displacement');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -7784,6 +7788,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;
 
 /**
  * GUILDHEART HUB STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -8488,7 +8493,6 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of arbitration corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -8513,6 +8517,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES;
 
 /**
  * SUNSPIRE HAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -9193,7 +9198,6 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of extraction');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -9218,6 +9222,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES;
 
 /**
  * AURORA CROWN COMMUNE STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -9844,7 +9849,6 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of dome sabotage');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -9917,7 +9921,6 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'achieving systemic wrongness understanding');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -9942,6 +9945,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES;
 
 /**
  * ITHTANANALOR STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -10568,7 +10572,6 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of military conspiracy');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -10641,7 +10644,6 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'achieving military occupation understanding');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -10666,6 +10668,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.ITHTANANALOR_STAGE1_ENRICHED_CHOICES = ITHTANANALOR_STAGE1_ENRICHED_CHOICES;
 
 /**
  * MIMOLOT ACADEMY STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -11292,7 +11295,6 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of knowledge suppression');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -11365,7 +11367,6 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'achieving knowledge weaponization understanding');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -11390,6 +11391,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES;
 
 /**
  * PANIM HAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -12033,6 +12035,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = PANIM_HAVEN_STAGE1_ENRICHED_CHOICES;
 
 /**
  * FAIRHAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -12679,6 +12682,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.FAIRHAVEN_STAGE1_ENRICHED_CHOICES = FAIRHAVEN_STAGE1_ENRICHED_CHOICES;
 
 /**
  * SHIRSHAL STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -13325,6 +13329,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.SHIRSHAL_STAGE1_ENRICHED_CHOICES = SHIRSHAL_STAGE1_ENRICHED_CHOICES;
 
 /**
  * COSMORIA STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -14003,7 +14008,6 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of institutional corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -14028,6 +14032,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.COSMORIA_STAGE1_ENRICHED_CHOICES = COSMORIA_STAGE1_ENRICHED_CHOICES;
 
 /**
  * HARVEST CIRCLE STAGE 1 ENRICHED MEANINGFUL CHOICES
@@ -14670,7 +14675,6 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of harvest system corruption');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
 
@@ -14707,7 +14711,6 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'confirming full external harvest conspiracy');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -14732,6 +14735,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES;
 
 const STAGE2_ENRICHED_CHOICES = [
   // ========== TRAVEL ENCOUNTERS: Mysterious Figures & Hazardous Routes ==========
@@ -14747,14 +14751,14 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'engaging mysterious traveler');
       
       const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
-      const target = 12 + Math.max(0, G.worldClocks.threat);
+      const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You see through their deception—they're actually a refugee with genuine intelligence about safe passage.`;
         addJournal('alliance', 'Trader contact established', `trader-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `You're too trusting. The maps are forgeries designed to lead travelers astray.`;
         addJournal('complication', 'Misled by false information', `false-maps-${G.dayCount}`);
       } else {
@@ -14850,7 +14854,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You detect recent tracks and deduce the camp's occupants are friendly scouts.`;
         addJournal('alliance', 'Scout network mapped', `scouts-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `Approaching darkness and you're ambushed by the camp's actual owners.`;
         addJournal('combat', 'Ambush encounter', `ambush-${G.dayCount}`);
       } else {
@@ -14914,7 +14918,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You hide them from authorities and earn fierce loyalty. They're a refugee scholar.`;
         addJournal('companion', 'Scholar joined', `scholar-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `Your deception is transparent. You're both questioned and detained briefly.`;
         addJournal('complication', 'Authority suspicion', `authority-${G.dayCount}`);
       } else {
@@ -14978,7 +14982,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You traverse it flawlessly and reach your destination early, gaining valuable knowledge.`;
         addJournal('route', 'Secret passage mapped', `secret-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `The terrain is forbidden for a reason—territorial creatures attack you.`;
         addJournal('combat', 'Territorial encounter', `terr-${G.dayCount}`);
       } else {
@@ -15165,14 +15169,14 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'discovering faction infrastructure');
       
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
-      const target = 13 + Math.max(0, G.worldClocks.threat);
+      const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You infiltrate unseen and gather valuable intelligence.`;
         addJournal('intelligence', 'Safehouse intelligence', `safe-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `You're caught infiltrating. The faction now actively hunts you.`;
         addJournal('threat', 'Active faction pursuit', `pursue-${G.dayCount}`);
       } else {
@@ -15268,7 +15272,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You deduce the killer's identity and find clues about a rival faction plot.`;
         addJournal('intelligence', 'Operative assassination solved', `death-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `The real killer spots you and now considers you a threat.`;
         addJournal('threat', 'Killer attention gained', `killer-${G.dayCount}`);
       } else {
@@ -15293,7 +15297,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'undertaking espionage assignment');
       
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
-      const target = 12 + Math.max(0, G.worldClocks.threat);
+      const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -15519,7 +15523,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(73, 'managing companion family crisis');
       
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
-      const target = 13 + Math.max(0, G.worldClocks.threat);
+      const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -15656,7 +15660,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You decode the messages and understand the full restriction strategy.`;
         addJournal('intelligence', 'Institutional strategy decoded', `decode-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `The message is trapped. Your attempt to decode alerts the sender.`;
         addJournal('threat', 'Interception detected', `det-${G.dayCount}`);
       } else {
@@ -15720,7 +15724,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You follow undetected and uncover a major institutional objective.`;
         addJournal('intelligence', 'Institutional objective revealed', `obj-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `You're spotted. The officials now know they're being tracked.`;
         addJournal('threat', 'Observation discovered', `obs-disc-${G.dayCount}`);
       } else {
@@ -15848,7 +15852,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You negotiate strong protection and immunity in exchange for powerful testimony.`;
         addJournal('legal', 'Protected witness status', `prot-wit-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.worldClocks.threat++;
+        G.worldClocks.pressure++;
         G.lastResult = `Officials learn of the testimony and attempt to silence you.`;
         addJournal('threat', 'Official retaliation', `ret-${G.dayCount}`);
       } else {
@@ -15862,6 +15866,7 @@ const STAGE2_ENRICHED_CHOICES = [
     }
   }
 ];
+window.STAGE2_ENRICHED_CHOICES = STAGE2_ENRICHED_CHOICES;
 
 </script>
 
@@ -15869,6 +15874,22 @@ const STAGE2_ENRICHED_CHOICES = [
 
 
 
+
+
+<!-- Stage 1 enriched choices (12 localities) -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Stage 2 enriched choices -->
 
 </body>
 </html>

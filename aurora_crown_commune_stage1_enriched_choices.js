@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AURORA CROWN COMMUNE STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to dome maintenance, survival, and contamination
  * Generated for: Individual need vs collective survival, hope vs fatalism, containment vs contamination
@@ -623,7 +623,6 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'discovering origin source of dome sabotage');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -696,7 +695,6 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'achieving systemic wrongness understanding');
       G.stageProgress[1]++;
-      G.stageProgress[1]++;
 
       const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
 
@@ -721,3 +719,4 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+window.AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES;
