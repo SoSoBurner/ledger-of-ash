@@ -95,6 +95,8 @@
       // Reset per-round state
       combatSession.playerDefending = false;
       combatSession.playerDefenseBonus = 0;
+      combatSession.playerMoved = false;
+      combatSession.pendingCopyBonus = 0;
     }
 
     // Clean up dead enemies
@@ -349,10 +351,14 @@
   function abilityReqMet(req, gameState, combatSession) {
     if (!req) return true;
     if (req.state === 'player_concealed' && !combatSession.playerConcealed) return false;
+    if (req.state === 'player_stationary' && combatSession.playerMoved) return false;
+    if (req.state === 'player_observed_target' && combatSession.playerConcealed) return false;
     if (req.ally_attacked && !combatSession.allyAttacked) return false;
     if (req.player_initiated && !combatSession.playerInitiated) return false;
     if (req.player_unseen && !combatSession.playerConcealed) return false;
     if (req.target_not_acted && (combatSession.round || 1) > 1) return false;
+    if (req.witnesses === false && (gameState.companions || []).filter(c => !c.injured && c.available !== false).length > 0) return false;
+    if (req.axis_event && !gameState.axisInverted) return false;
     if (req.target_hp_pct) {
       const target = (combatSession.enemies || [])[0];
       if (!target || (target.hp / target.maxHp) > req.target_hp_pct) return false;
@@ -421,6 +427,61 @@
         } else {
           log.push('Morale check: target holds.');
         }
+      } else if (eff.type === 'def_ally') {
+        combatSession.playerDefenseBonus = (combatSession.playerDefenseBonus || 0) + eff.value;
+        log.push(`Formation defense +${eff.value} this round.`);
+      } else if (eff.type === 'extra_action_ally') {
+        combatSession.pendingCompanionDamage = (combatSession.pendingCompanionDamage || 0) + (eff.value || 3);
+        log.push(`Companion readied for support strike (+${eff.value || 3} damage next hit).`);
+      } else if (eff.type === 'heal_ally') {
+        const rawVal = eff.value || 4;
+        const healAmt = typeof rawVal === 'number' ? rawVal : parseInt(rawVal) || 4;
+        gameState.hp = Math.min(gameState.maxHp, gameState.hp + healAmt);
+        log.push(`Healed ${healAmt} HP.`);
+      } else if (eff.type === 'enemy_redirect') {
+        log.push(`${target ? target.name : 'Enemy'} forced to focus attack on you.`);
+      } else if (eff.type === 'condition_apply') {
+        combatSession.statusEffects = combatSession.statusEffects || [];
+        combatSession.statusEffects.push({ type: eff.condition || 'weakened', value: eff.value || 1, duration: eff.duration || 2, target: target ? target.id : 'primary' });
+        log.push(`${target ? target.name : 'Enemy'} condition applied: ${eff.condition || 'weakened'}.`);
+      } else if (eff.type === 'condition_clear') {
+        if (combatSession.statusEffects) {
+          const before = combatSession.statusEffects.length;
+          combatSession.statusEffects = combatSession.statusEffects.filter(se => se.type !== (eff.condition || ''));
+          const cleared = before - combatSession.statusEffects.length;
+          log.push(cleared > 0 ? `Condition cleared.` : `No matching condition to clear.`);
+        }
+      } else if (eff.type === 'reveal_intel') {
+        if (target) log.push(`Intel: ${target.name} — attack ${target.attack || '?'}, defense ${target.defense || '?'}, HP ${target.hp}/${target.maxHp}.`);
+        combatSession.enemyIntelRevealed = true;
+      } else if (eff.type === 'instant_kill') {
+        if (target && target.hp / target.maxHp <= 0.25) {
+          target.hp = 0;
+          log.push(`${target.name} is finished.`);
+        } else {
+          log.push(`Instant kill: target not vulnerable (requires ≤25% HP).`);
+        }
+      } else if (eff.type === 'cover') {
+        combatSession.playerDefenseBonus = (combatSession.playerDefenseBonus || 0) + (eff.value || 3);
+        log.push(`Cover position: defense +${eff.value || 3} this round.`);
+      } else if (eff.type === 'copy_enemy_ability') {
+        if (target) {
+          const copyBonus = Math.floor((target.attack || 3) / 2);
+          combatSession.pendingCopyBonus = copyBonus;
+          log.push(`Copied enemy technique: +${copyBonus} attack next round.`);
+        }
+      } else if (eff.type === 'redirect_attack') {
+        combatSession.playerDefenseBonus = (combatSession.playerDefenseBonus || 0) + (eff.value || 4);
+        log.push(`Attack redirected. Defense +${eff.value || 4} this round.`);
+      } else if (eff.type === 'self_splash_risk') {
+        const risk = Math.floor(Math.random() * 20) + 1;
+        if (risk <= 5) {
+          const selfHit = Math.floor(Math.random() * 4) + 1;
+          gameState.hp = Math.max(0, gameState.hp - selfHit);
+          log.push(`Splash risk triggered — you take ${selfHit} damage.`);
+        } else {
+          log.push(`Splash avoided.`);
+        }
       }
     });
 
@@ -451,30 +512,29 @@
     const abilitySlots = [];
 
     archetypeAbilities.forEach(ab => {
-      if (ab.cost === 'passive') return; // passives don't appear as buttons
+      if (ab.cost === 'passive') return;
       if (abilitySlots.length >= 4) return;
 
-      // Skill prerequisite
       const skillVal = gameState.skills ? (gameState.skills[ab.skillReq] || 0) : 0;
       if (skillVal < (ab.minSkill || 0)) return;
 
-      // Context requirements
       if (!abilityReqMet(ab.req, gameState, combatSession)) return;
 
-      // Usage limit
       const used = abilityUsed(ab, gameState);
-      const costLabel = ab.cost === 'once_per_scene' ? '(scene)' : ab.cost === 'once_per_day' ? '(day)' : ab.cost || 'action';
+      const isReaction = ab.cost === 'reaction';
+      const costLabel = isReaction ? 'reaction' : ab.cost === 'once_per_scene' ? 'scene' : ab.cost === 'once_per_day' ? 'day' : 'action';
 
       abilitySlots.push({
         label: `${ab.name} [${costLabel}]${used ? ' — used' : ''}`,
-        tags: [ab.skillReq || 'combat', ...(used ? ['Spent'] : ['Ready'])],
+        tags: [ab.skillReq || 'combat', isReaction ? 'Reaction' : 'Active', ...(used ? ['Spent'] : ['Ready'])],
         disabled: used,
         fn: () => {
           if (used) return;
           combatSession.log = combatSession.log || [];
           if (ab.flavor) combatSession.log.unshift(ab.flavor);
-          applyAbilityEffects(ab, gameState, combatSession);
-          // Delegate attack-affecting resolution to the engine
+          // Non-attack effects applied immediately; attack-affecting effects go to engine
+          const hasAttackEffect = ab.effects && ab.effects.some(e => ['atk_bonus','hp_cost','heal_self','enemy_atk_penalty','enemy_def_penalty'].includes(e.type));
+          if (!hasAttackEffect) applyAbilityEffects(ab, gameState, combatSession);
           if (window.resolveCombatRound) {
             window.resolveCombatRound('ability', ab.id, gameState.combatSession || combatSession);
           }
@@ -506,6 +566,19 @@
       }
     });
 
+    // Apply pending companion/copy bonuses from previous round
+    if (combatSession.pendingCompanionDamage) {
+      const target = (combatSession.enemies || [])[0];
+      if (target) {
+        target.hp = Math.max(0, target.hp - combatSession.pendingCompanionDamage);
+        combatSession.log.unshift(`Companion support strikes — ${combatSession.pendingCompanionDamage} damage to ${target.name}.`);
+      }
+      combatSession.pendingCompanionDamage = 0;
+    }
+    if (combatSession.pendingCopyBonus) {
+      combatSession.log.unshift(`Copied technique active: +${combatSession.pendingCopyBonus} attack this round.`);
+    }
+
     // Movement
     const distances = ['close', 'medium', 'far'];
     const currentIdx = distances.indexOf(combatSession.distance || 'medium');
@@ -515,6 +588,7 @@
         tags: ['Movement', 'Positioning'],
         fn: () => {
           combatSession.distance = distances[currentIdx - 1];
+          combatSession.playerMoved = true;
           combatSession.log.unshift(`Closed to ${distances[currentIdx - 1]} range.`);
         }
       });
@@ -525,6 +599,7 @@
         tags: ['Movement', 'Evasion'],
         fn: () => {
           combatSession.distance = distances[currentIdx + 1];
+          combatSession.playerMoved = true;
           combatSession.log.unshift(`Fell back to ${distances[currentIdx + 1]} range.`);
         }
       });
