@@ -2287,6 +2287,9 @@
         const stripItems=window.composeStateStrip(ss,G);
         $('stateStrip').innerHTML=stripItems.map(item=>`<span class='statePill${item.cls?' statePill-'+item.cls:''}'>${item.text}</span>`).join('');
       }
+      if($('eventLine') && window.composeEventLine){
+        $('eventLine').textContent=window.composeEventLine(ss,G)||'';
+      }
     } else {
       try{
         $('narrative').textContent=localityNarrative(G,getLocality(G.location),{pressure:pick(getLocality(G.location).pressures,G.worldClocks.pressure),routeHint:window.ROUTE_NAMES&&sig.stage2Vector?window.ROUTE_NAMES[sig.stage2Vector]:'',routeStyle:atlas.style||'',routeRisk:atlas.risk||'',hazardHint:G.currentThreat?.hazard,creatureHint:G.currentThreat?.creature,namedHint:currentNamedPlacements(G.location).map(n=>`${n.id.replace(/_/g,' ')} at ${n.office}`).join('; '), serviceHint:(G.serviceLog[0]||''), familyHint:familyTitleForStage2(sig)||'', destinationHint:Object.keys(G.stage2DestinationsSeen||{}).length?`The widening route now carries remembered names like ${Object.keys(G.stage2DestinationsSeen).slice(0,2).map(id=>getLocality(id)?.name||id).join(' and ')}.`:''});

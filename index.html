@@ -192,6 +192,10 @@
 
     /* ── STATE STRIP ─────────────────────────────────────── */
     #stateStrip{display:flex;flex-wrap:wrap;gap:5px;padding:5px 2px;min-height:0}
+
+    /* ── EVENT LINE ──────────────────────────────────────── */
+    #eventLine{font-size:12px;color:#7a6040;font-style:italic;padding:4px 2px;min-height:0;line-height:1.5;letter-spacing:.01em}
+    #eventLine:empty{display:none}
     .statePill{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid var(--line2);color:#b0a080;background:#100d08;white-space:nowrap}
     .statePill-law{border-color:#38281a;color:#8a7860}
     .statePill-align{border-color:#302818;color:#a09060}
@@ -314,6 +318,7 @@
       <div class='centerCol'>
         <div id='narrative'></div>
         <div id='stateStrip'></div>
+        <div id='eventLine'></div>
         <div class='resultCard' id='resultCard'></div>
         <div id='choices'></div>
       </div>

@@ -198,6 +198,408 @@
     }
   };
 
+  // ── LOCALITY SCENE DATA ──────────────────────────────────
+  // Sensory content model for the narration UI rewrite.
+  // Each entry maps a locality id to observable scene details.
+  window.LOCALITY_SCENE_DATA = {
+    panim_haven: {
+      sensory:{
+        sight:['incense smoke rising from shallow offering bowls on ledge rows','petitioners in careful dress waiting at threshold markers','ledger seals placed face-down on mediation tables'],
+        sound:['low petition exchanges near entry thresholds','a formal debt recitation murmured by a waiting clerk','one bell struck at long irregular intervals'],
+        smell:['incense and dried flower water','old parchment and offering ash','faint stone-cold air from the deeper shrine halls']
+      },
+      movement:['petitioners stand behind floor-stone markers and do not move until acknowledged','nobody approaches an active mediation table without invitation'],
+      greetings:['open palms shown at the threshold','name and dispute-type stated before any question at the desk'],
+      rituals:['small coin offering set on the nearest ledge before entering any negotiation room','hands touched to the basin water before signing any mediation document'],
+      microInteractions:{
+        warm:['A mediation clerk corrects a petitioner\'s procedure quietly before it becomes a recorded error.'],
+        cautious:['A shrine attendant waits through an entire offering cycle before speaking.'],
+        fatigued:['Two mediation clerks sort documents in silence with a system that took weeks to develop.'],
+        humorous:['A petitioner places a grief offering instead of a debt offering. The attendant explains the difference without expression.']
+      },
+      archetypeNotices:{
+        combat:['The threshold markers create fixed distance between petitioners and officials — nobody closes that gap without a signal.'],
+        magic:['The incense bowls show layered residue from at least three different smoke types, each associated with a different ceremony.'],
+        stealth:['The offering room\'s stone layout creates a corner where conversation cannot be heard from the entrance.'],
+        support:['The petition backlog visible on the clerk\'s table represents months of unresolved cases and no one is adding staff.']
+      }
+    },
+    sunspire_haven: {
+      sensory:{
+        sight:['sealed workshop gates marked with syndicate symbols','grain carts parked in strict rotation order along the holding yard','cloth quality samples hung at stall edges for comparison'],
+        sound:['weight measures striking balance in the open stalls','a family name called across the yard at each new transaction','draft animals shifting in the holding pen'],
+        smell:['fresh sawdust and tool-grade oil','grain hulls and field dust','sun-warmed wood from the cart racks']
+      },
+      movement:['syndicate workers stay in their family\'s lane and do not cross into another','sealed papers are visible on anyone moving grain or labor between posts'],
+      greetings:['sealed paper held up before any labor question','family name acknowledged before any price is discussed'],
+      rituals:['route prayer spoken quietly over convoy loads before departure','brief oath-touch on a contract before any major seal is pressed'],
+      microInteractions:{
+        warm:['A syndicate worker orients a newcomer to the lane system without being asked and without making it formal.'],
+        cautious:['A stall keeper reads the sealed papers through twice before replying.'],
+        fatigued:['Two convoy workers have given up speaking and direct each other entirely by gesture.'],
+        humorous:['A route prayer runs long enough that the animals in the convoy visibly lose interest.']
+      },
+      archetypeNotices:{
+        combat:['The holding yard creates a blind between the main road and the syndicate gates — the gap is not covered.'],
+        magic:['The syndicate marks burned into workshop gates include protective forms that are more than identification.'],
+        stealth:['The lane discipline creates consistent unmonitored angles behind the grain cart row along the east wall.'],
+        support:['Two families are sharing a scale that needs repair. Neither has reported it because neither wants to be seen needing it.']
+      }
+    },
+    aurora_crown_commune: {
+      sensory:{
+        sight:['dome repair patches visible overhead in the upper arc','communal notice boards packed with rotation assignments and maintenance updates','personnel moving in coordinated maintenance pairs throughout the corridors'],
+        sound:['dome resonance testing tones through the walls','morning ration count broadcasts from the central post','containment-checked materials being shifted with deliberate care'],
+        smell:['recycled air with a thin metallic edge','maintenance sealant and cold stone','communal kitchen grain and pressed water']
+      },
+      movement:['everyone moves with awareness of the overhead dome condition — eyes go up regularly','work pairs move in coordinated step without discussing it'],
+      greetings:['dome section number stated before personal name at checkpoints','protocol compliance acknowledged before any request is made'],
+      rituals:['communal dome-dawn aurora observation at the start of each cycle','mandatory repair rotation acknowledgement read aloud at every shift start'],
+      microInteractions:{
+        warm:['A maintenance pair helps a newcomer learn dome protocol without making it a formal correction.'],
+        cautious:['A dome inspector checks a ceiling seal twice before answering a question.'],
+        fatigued:['Two ration workers complete their handover in thirty seconds of practiced silence.'],
+        humorous:['The communal broadcast makes an announcement error. The correction plays three times.']
+      },
+      archetypeNotices:{
+        combat:['The maintenance corridor layout creates unavoidable single-file passages between dome sections — chokepoints are structural.'],
+        magic:['Dome-edge seal marks show the pattern of previous breaches. The newest marks are recent.'],
+        stealth:['The ration broadcast schedule is regular enough to use as a timing clock.'],
+        support:['Three maintenance pairs are covering assignments designed for five. The rotation board shows it and no one has flagged it yet.']
+      }
+    },
+    shelkopolis: {
+      sensory:{
+        sight:['embroidered coats and trade house banners visible down the main avenue','Roadwarden chevron patrols rotating between district posts','small shrine offerings pressed into the windowsill ledges of every second building'],
+        sound:['cart wheels on polished cobblestone','a tailor calling measurements to an apprentice across a narrow lane','shrine bells marking district edges at irregular intervals'],
+        smell:['pressed cloth and beeswax polish','perfumed lamp oil from the archival quarter','fresh-cut leather near the southern market']
+      },
+      movement:['people clear a lane for Roadwarden patrols without stopping their own movement','strangers\' clothing is read at a glance before eye contact is offered'],
+      greetings:['brief nod with hand held at chest height','name and district offered before any business is stated'],
+      rituals:['small offering set on the nearest shrine ledge before a negotiation begins','hem of formal clothing touched before entering a noble estate'],
+      microInteractions:{
+        warm:['A tailor waves an apprentice forward to fix a stranger\'s loose button. No charge is discussed.'],
+        cautious:['A merchant glances over both shoulders before answering a question about inventory.'],
+        fatigued:['Two apprentices pass a heavy bolt of cloth between them in complete silence, six times.'],
+        humorous:['A Roadwarden pauses to study an unusual hat. The wearer nods approval. The Roadwarden moves on.']
+      },
+      archetypeNotices:{
+        combat:['The patrol rotation has a gap near the south market at shift change. It is predictable and approximately forty seconds wide.'],
+        magic:['Shrine marks around archway lintels are worn smooth from repeated touch. The amber fountain shows faint residue around the base.'],
+        stealth:['Awning canvas and stall structure break the patrol sightlines every thirty paces along Verdant Row.'],
+        support:['The apprentices doing street maintenance are sharing one set of tools between four workers. No replacement tools are visible.']
+      }
+    },
+    harvest_circle: {
+      sensory:{
+        sight:['oxcarts stacked with grain sacks in rotating lot order','chalk tallies marked on stall posts in family-specific hands','festival banners sun-bleached from months of hanging'],
+        sound:['weight measures clinking against stall hooks','lot numbers called across the market floor','draft animals shifting in the main lane'],
+        smell:['grain dust and fermented mash','sun-baked wood from the stall frames','field soil from incoming carts']
+      },
+      movement:['people step wide around loaded carts without being directed','patron-family members walk the center of the lane and are given it'],
+      greetings:['chin-raise and stated weight before any transaction opens','patron-family members acknowledged by name at every stall they pass'],
+      rituals:['a pinch of grain tipped from hand to ground at the day\'s first sale','route blessings spoken over convoy loads before departure'],
+      microInteractions:{
+        warm:['A stall keeper adjusts the weights for an elder who lost count and says nothing about it.'],
+        cautious:['A clerk reads a document completely through before answering even a simple question.'],
+        fatigued:['Two convoy workers share a water skin passed without looking at each other.'],
+        humorous:['A goat gets into a grain stall. The entire market lane stops to watch before anyone acts.']
+      },
+      archetypeNotices:{
+        combat:['The patron-family lane down the center is clear by social force. No one tests it. The margins are where disputes happen.'],
+        magic:['The grain blessings at convoy departure include a hand gesture that doesn\'t appear in any standard ritual guide.'],
+        stealth:['The stall arrangement creates a natural dead angle between the ox lanes and the east wall.'],
+        support:['Three stalls are sharing one scale and the queue behind it is backing up. The solution is obvious and no one has implemented it.']
+      }
+    },
+    glasswake_commune: {
+      sensory:{
+        sight:['personnel in layered linen wraps marked with containment clearance levels','green-marked equipment crates stacked in precise numbered order','patched dome panels visible in the upper section of every room'],
+        sound:['instrument calibration tones through closed lab doors','soft counting in corridors near quarantine boundaries','the intermittent hiss of a pressure test behind a sealed wall'],
+        smell:['cold stone and chemical astringent','a faint burnt trace near the instrument rooms','preserved air with the sharpness of recent decontamination']
+      },
+      movement:['everyone keeps arms in when passing through any doorway','no one moves quickly near equipment tables'],
+      greetings:['hand held flat at chest height — palm out','protocol clearance number stated before name at any checkpoint'],
+      rituals:['equipment touched to a standard reference before use','three slow counted breaths before entering any quarantine zone'],
+      microInteractions:{
+        warm:['A senior researcher shares calibration notes without being asked.'],
+        cautious:['A checkpoint guard reads every line of a permit before looking up.'],
+        fatigued:['Two researchers finish each other\'s sentences during shift handover. They\'ve stopped noticing they do it.'],
+        humorous:['A containment alarm triggers near someone eating. The most experienced person present doesn\'t move.']
+      },
+      archetypeNotices:{
+        combat:['The checkpoint arrangement creates natural chokepoints at every equipment room door. Movement between sections requires passing through at least one.'],
+        magic:['Ward marks on quarantine thresholds have been reapplied recently. The original chalk lines show through the new layer.'],
+        stealth:['The calibration schedule creates predictable quiet windows in the instrument corridors.'],
+        support:['Four people are visibly working with equipment that needs maintenance. No maintenance request is visible on any board.']
+      }
+    },
+    fairhaven: {
+      sensory:{
+        sight:['shrine flags tied to market stall posts in pairs','lamp-trimming residue left in small clay dishes beside thresholds','road dust still on travelers entering from the eastern gate'],
+        sound:['market criers calling fresh lots','chapel bells at uneven intervals','the creak of the north gate patrol post in wind'],
+        smell:['lamp oil and turned earth from the cart track','something sweet from the chapel direction','hay and livestock from the south yard']
+      },
+      movement:['travelers pause at the fountain before entering the market — it is expected','locals use the east alley to bypass the Roadwarden checkpoint without discussion'],
+      greetings:['two-finger press at the inside of the wrist','a nod toward shrine flags before opening price discussion'],
+      rituals:['lamp oil added to the threshold dish at dawn and again at dusk','a circuit around the fountain before making any large purchase'],
+      microInteractions:{
+        warm:['A stall keeper wraps extra cloth around an elder\'s vegetables without being asked.'],
+        cautious:['A traveler checks the north gate position before asking anything.'],
+        fatigued:['A market porter sits down in the middle of unloading. No one says anything.'],
+        humorous:['A chapel bell rings during a heated negotiation. Both sides pause and laugh before resuming.']
+      },
+      archetypeNotices:{
+        combat:['The Roadwarden checkpoint covers all main entry. The east alley and the south yard fence are not watched.'],
+        magic:['The lamp dishes at thresholds are freshly filled — the ritual is active and someone is maintaining it consistently.'],
+        stealth:['The fountain blind spot and the east alley angle create a gap that neither the checkpoint nor the chapel observation covers.'],
+        support:['The market has more vendors than buyers today. The stall keepers are not discussing it but the atmosphere carries it.']
+      }
+    },
+    mimolot_academy: {
+      sensory:{
+        sight:['candlelit alcoves visible through archive windows at all hours','sealed courier packets stacked at the tariff desk in submission order','robed figures moving between buildings with both hands occupied by documents'],
+        sound:['low scholarly exchange in doorways','the scratch of copy-work through half-open windows','the tariff desk seal pressed down at metered intervals'],
+        smell:['lamp oil and fine paper dust','preservation wax with a faint sweetness','stone floors cleaned with something slightly herbal']
+      },
+      movement:['scholars yield right-of-way to sealed document carriers without discussion','rank is read from robe trim at a glance before any exchange opens'],
+      greetings:['slight bow with sponsoring house cited first','citation of house rank before any business question'],
+      rituals:['ink touched to the writing thumb before a lecture begins','candle placed in the memorial alcove before accessing restricted archive sections'],
+      microInteractions:{
+        warm:['An archivist corrects a citation error in a visitor\'s document and returns it without comment.'],
+        cautious:['A scholar waits for the corridor to clear before discussing anything near a tariff clerk.'],
+        fatigued:['Two copy-workers have developed a hand signal system. They no longer speak during shifts.'],
+        humorous:['A candle placement for the memorial alcove is done incorrectly. Two scholars spend several minutes debating the proper procedure.']
+      },
+      archetypeNotices:{
+        combat:['The archive layout and single main access point create a natural bottleneck at the entrance. Anyone controlling that door controls the building.'],
+        magic:['The preservation wax on sealed documents carries a secondary trace compound not listed on any notice.'],
+        stealth:['The copy-work rotation creates empty corridors during the transition period between sessions.'],
+        support:['At least two scholars are working past sustainable capacity. The archive access queue shows it.']
+      }
+    },
+    soreheim_proper: {
+      sensory:{
+        sight:['Titan Tower plumes visible above every roofline from any point in the city','quota boards at every main intersection updated with fresh chalk each morning','forge-crew workers moving in ranked column formation near tower gates'],
+        sound:['shift-change horns from multiple towers in overlapping sequence','hammer work through stone walls at every hour','decree readings broadcast from tower gate posts at intervals'],
+        smell:['slag and machine grease','grain mash from the worker canteen sections','hot metal cooling in the outer foundry yards']
+      },
+      movement:['workers move in column formation near tower gates — individual movement outside of formation attracts notice','lower-ranked workers step aside for tower-rank holders without breaking stride'],
+      greetings:['status assignment number stated at gate posts','spark-offering acknowledged with a raised fist at forge altars before approach'],
+      rituals:['spark set at forge altars before every shift start','merit statement spoken aloud at public tower oath displays'],
+      microInteractions:{
+        warm:['A senior worker absorbs a junior\'s quota error before the clerk records it.'],
+        cautious:['A worker recites their assignment number before answering any question from a stranger.'],
+        fatigued:['Two forge-hands share a meal in complete silence, passing the container without eye contact.'],
+        humorous:['A decree reading runs so long that the assembled workers start finishing the sentences.']
+      },
+      archetypeNotices:{
+        combat:['The ranked formation movement makes individual threat assessment immediate. The gap between formation leaders is where authority breaks down.'],
+        magic:['The forge altars show spark-offering residue from thousands of ceremonies. The accumulation is thick and old and still carries charge.'],
+        stealth:['The shift-change horn covers all ambient sound for approximately forty seconds. It is predictable.'],
+        support:['Three quota boards show discrepancies that have not been corrected. No one has flagged them to the clerks yet.']
+      }
+    },
+    shirshal: {
+      sensory:{
+        sight:['Magi Magistratus compliance seals on every doorframe and threshold','witness queue extending from the court building into the street','arcane compliance runes cut into the pavement at every chamber approach'],
+        sound:['formal truth-invocation phrases murmured by witnesses in the queue','the contained sound of arcane discharge from a sealed chamber wall','the court clerk reading procedure aloud at a measured pace'],
+        smell:['stone and ozone','a thin metallic trace near compliance threshold runes','the faint charge of sealed arcane work behind closed doors']
+      },
+      movement:['everyone in queue stays behind the floor markers without being directed','no one speaks above a murmur within range of a chamber door'],
+      greetings:['formal truth-invocation spoken before each exchange','compliance seal touched before entering any proceeding chamber'],
+      rituals:['hand touched to the water basin before testimony','oath phrase repeated three times consecutively while waiting in the witness queue'],
+      microInteractions:{
+        warm:['A court clerk quietly corrects a visitor\'s procedure before it becomes a citation on the record.'],
+        cautious:['A witness refuses to answer until their compliance seal is physically verified by the clerk.'],
+        fatigued:['Two witnesses have been in the queue long enough to know each other\'s cases. They no longer discuss them.'],
+        humorous:['A compliance rune activates on someone eating near a chamber door. The procedure for this is lengthy.']
+      },
+      archetypeNotices:{
+        combat:['The chamber arrangement controls who can move freely. The Magi Magistratus always has at least one clear exit path that visitors are not shown.'],
+        magic:['The compliance runes in the pavement are active. The residue shows they have been triggered recently.'],
+        stealth:['The witness queue provides natural cover for the archive building\'s side entry, which is not monitored during peak queue hours.'],
+        support:['The witness queue has been waiting for a proceeding that has not opened. No one will say why.']
+      }
+    },
+    ithtananalor: {
+      sensory:{
+        sight:['enforcement checkpoint barriers at every main entry point with guards in Roazian compliance markings','prison labor crews moving in visible work columns through the outer ward','anti-magic suppression symbols burned into public building facades'],
+        sound:['checkpoint announcement calls at every entry','labor column march count spoken aloud','the low murmur of compliance processing from the documentation desks'],
+        smell:['stone dust and suppression ward oil','enforcement-grade lamp fuel','the thin metallic presence of active containment fields near the central administrative buildings']
+      },
+      movement:['all pedestrian movement follows marked lane discipline — deviation is noticed immediately','eye contact with enforcement officers is managed: acknowledged but not held'],
+      greetings:['document held open before approaching any checkpoint','formal compliance phrase spoken before any commercial transaction'],
+      rituals:['document verification repeated three times before any major passage','seal inspection spoken aloud at every gate post'],
+      microInteractions:{
+        warm:['An enforcement officer waves through a known local without the full protocol check.'],
+        cautious:['A laborer gives an answer only after checking over both shoulders.'],
+        fatigued:['Two checkpoint guards swap positions at an unmarked interval that has no official basis. They\'ve been doing it for months.'],
+        humorous:['A stray dog navigates the checkpoint lane successfully. A labor crew watches with visible appreciation.']
+      },
+      archetypeNotices:{
+        combat:['The lane discipline makes everyone\'s movement predictable. The enforcement officer positions show exactly where authority concentrates and where it doesn\'t.'],
+        magic:['The suppression ward markings are renewed on a regular schedule. The newest applications are visible by color difference from the older layers.'],
+        stealth:['The enforcement checkpoint creates sightline focus on the main lanes. The maintenance corridors running parallel are unmonitored.'],
+        support:['Three of the visible labor crews are working without adequate water in the current heat. No supply run is scheduled.']
+      }
+    },
+    guildheart_hub: {
+      sensory:{
+        sight:['guild sanction notices posted in vertical columns on every major wall','freight exchange boards with morning chalk assignments still drying','inspection crews moving between warehouse doors in practiced sequence'],
+        sound:['arbitration proceedings audible through open windows on the upper floor','freight assignment calls from the exchange floor','the constant low scratch of ledger work from the counting house'],
+        smell:['chalk dust and warehouse timber','ink and dry paper from the counting house vents','the particular smell of compressed freight documentation']
+      },
+      movement:['guild-ranked individuals walk with papers visible — rank is communicated before it is spoken','disputes stop when inspection crews pass and resume after'],
+      greetings:['guild colors noted before name','relevant record produced before questions are asked at any official desk'],
+      rituals:['sanction notice read aloud at market open by the exchange caller','contract seal verification spoken with both parties\' hands on the document'],
+      microInteractions:{
+        warm:['A senior guild member countersigns a minor clerk\'s form without requiring a second review.'],
+        cautious:['A freight broker won\'t answer until they\'ve confirmed the questioner\'s guild affiliation.'],
+        fatigued:['Two ledger clerks are passing the same work back and forth. A growing error in the count has gone unaddressed.'],
+        humorous:['An arbitration hearing pauses when both parties realize they filed identical evidence.']
+      },
+      archetypeNotices:{
+        combat:['The warehouse loading area creates a choke near the freight exchange. Inspection crews move on a predictable circuit and the gaps are visible.'],
+        magic:['The sanction notice ink carries a trace compound that indicates which notices are currently active and which have quietly lapsed.'],
+        stealth:['The freight exchange floor traffic provides enough movement cover that the north-to-east exit route goes unmonitored during peak hours.'],
+        support:['The arbitration waiting area has no seating. The queue is several hours long. This is not unusual.']
+      }
+    },
+    cosmoria: {
+      sensory:{
+        sight:['rigging visible above the roofline from every street in the lower district','archive banners hanging from upper-tier windows with house identifiers','dock-level crews working the edges of floating platform sections in coordinated lines'],
+        sound:['water against hull-timber beneath the boarding walkways','archive clerks exchanging document references in the upper colonnade','the creak of upper-tier walkways under wind load'],
+        smell:['salt water and tar','archive seal wax warming in the upper sun','wood that has never fully dried']
+      },
+      movement:['dock-level workers move in tight formation around rigging lines','upper-tier visitors keep clear of platform edges without being directed — it is understood'],
+      greetings:['sea-acknowledgment gesture made before any significant conversation begins','archive citation offered before asking about any specific record'],
+      rituals:['maritime blessing spoken before the first boarding of each day','sea communion exchange between upper-tier residents at the first clear view of open water'],
+      microInteractions:{
+        warm:['An archive clerk retrieves a document that wasn\'t asked for because the need was obvious.'],
+        cautious:['A dock worker checks the watermark on a visiting permit before confirming any cargo detail.'],
+        fatigued:['Two rigging crew members have developed a nonverbal handover system. It takes four seconds.'],
+        humorous:['An upper-tier noble performs the sea blessing facing the wrong direction. A dock worker gently turns them.']
+      },
+      archetypeNotices:{
+        combat:['The dock-level rigging creates overhead cover and a reliable threat boundary at the platform edge.'],
+        magic:['Archive seals show faint luminescence on documents sealed within the last two weeks. It is not advertised.'],
+        stealth:['The lower boarding sections generate consistent sound cover from the upper tier. The archive colonnade has reliable blind angles.'],
+        support:['Three dock-level crews are visibly short-handed, running roles designed for twice as many people.']
+      }
+    },
+    craftspire: {
+      sensory:{
+        sight:['book-copy distribution stacks visible through every open workshop door','tariff verification marks chalked on packages waiting for release','artisan guild colors displayed at every stall in the showcase section'],
+        sound:['copy presses running in the inner workshops','tariff clerks calling lot numbers for release','the particular scrape of a book-binding press resetting'],
+        smell:['fresh ink and binding paste','lamp oil from copy-room vents','cut paper and wood sizing']
+      },
+      movement:['queue discipline at tariff counters is rigidly observed — anyone skipping is confronted by the line, not officials','commissioned work is never touched by non-owners'],
+      greetings:['tariff mark shown before any question about a package','guild color acknowledged before production discussion'],
+      rituals:['brief workshop invocation before a major press run','opening examination of tools before any commissioned work begins'],
+      microInteractions:{
+        warm:['A copy-worker covers a binding error for a newer colleague before the quality check reaches it.'],
+        cautious:['A tariff clerk reads both sides of a mark before releasing any package.'],
+        fatigued:['Two press operators have synchronized their movements so completely they no longer speak during a run.'],
+        humorous:['A binding press sticks on a particularly thick volume. Four workers offer a solution. None are the same.']
+      },
+      archetypeNotices:{
+        combat:['The workshop arrangement and single tariff exit create a natural single-point constraint on movement through the district.'],
+        magic:['The preservation compound used on high-value manuscripts has a secondary detection property not listed in the tariff codes.'],
+        stealth:['The press noise during a major run covers conversation and movement through adjacent corridors.'],
+        support:['The queue at the tariff counter is backed up past the building entrance. The clerk count has not changed.']
+      }
+    },
+    unity_square: {
+      sensory:{
+        sight:['guild colors worn visibly as working identification on jackets and arm bands','inspection crews moving through stall rows with chalked boards','shrine edges at the market perimeter with small offerings from the morning'],
+        sound:['posted rates called aloud at exchange gates','inspection challenges at stall rows','the particular ambient of a high-density market: overlapping voices, no silence'],
+        smell:['chalk dust and crowd-warmth','cargo transit oil from the exchange dock section','the faint sweetness of the market edge shrines']
+      },
+      movement:['guild colors signal right-of-way at exchange gates — it is read and acted on without discussion','inspection lines are joined without being directed'],
+      greetings:['terms stated plainly at exchange gates before any question','guild color acknowledged before price discussion'],
+      rituals:['brief opening invocation at the exchange desk shrines before the day\'s first transaction','posted rates reviewed and acknowledged aloud before the market opens'],
+      microInteractions:{
+        warm:['A senior exchange worker holds a gate for a younger one carrying a heavy lot without comment.'],
+        cautious:['A stall holder confirms a questioner\'s guild color before giving a real answer.'],
+        fatigued:['Two inspection crew members are running the same stall row twice without realizing it.'],
+        humorous:['Two stalls posting contradictory rates for the same commodity are adjacent. Both have queues.']
+      },
+      archetypeNotices:{
+        combat:['The exchange gate creates a natural single-entry constraint. Guild color determines who passes quickly.'],
+        magic:['The shrine offerings at the market edges are not purely ceremonial. The specific items left correspond to known ward-maintenance materials.'],
+        stealth:['The market density creates consistent crowd-cover between the south stall rows and the exchange dock section.'],
+        support:['Two inspection crews are covering a route that requires three. The backlog is visible in the stall-hold markers.']
+      }
+    },
+    ironhold_quarry: {
+      sensory:{
+        sight:['labor zone markers staked at every work site perimeter','ore carts on fixed rail lines moving at regulated intervals','Roazian authority emblems on every overseer post and entry gate'],
+        sound:['extraction work carried through stone — felt as much as heard','overseer count calls at labor zone transitions','the clank of ore carts on rails above the ambient noise'],
+        smell:['rock dust and stone cold','machine lubricant from the cart rails','the sharp mineral smell of freshly broken ore']
+      },
+      movement:['all movement follows labor zone boundaries — crossing them without authorization is a Roazian authority matter','overseer instructions are carried out without visible hesitation'],
+      greetings:['assignment number stated at every entry post','labor zone compliance acknowledged before any conversation with an overseer'],
+      rituals:['low-ceremony shift acknowledgement at start — no ornament, just statement of readiness','civic necessity affirmation before extraction work begins'],
+      microInteractions:{
+        warm:['An overseer approves a water break without waiting for the scheduled time.'],
+        cautious:['A worker states their assignment number before answering any question from an unfamiliar face.'],
+        fatigued:['Two rail operators move carts without speaking. The communication is entirely positional.'],
+        humorous:['An ore cart jams at an intersection. The official fix procedure is twelve steps and everyone knows the actual fix is two.']
+      },
+      archetypeNotices:{
+        combat:['Labor zone markers define movement corridors. Authority is concentrated at zone transitions. The rail intersections are where gaps appear.'],
+        magic:['The suppression wards at zone boundaries are maintained on a cycle. The oldest marks show where compliance is most assumed.'],
+        stealth:['The noise from extraction work covers movement in the tunnel sections below the main rail lines.'],
+        support:['Water distribution at the south zone is running two hours behind schedule. The workers there know it and so do the overseers.']
+      }
+    },
+    plumes_end_outpost: {
+      sensory:{
+        sight:['Cysur shrine offerings fresh on the roadside post','caravan staging markers chalked on the northern ground','patrol leader at the gate with route record open'],
+        sound:['caravan equipment being checked and counted','patrol report exchange at the gate post','wind through the outpost timbers carrying sound from the northern road'],
+        smell:['road dust from the north','shrine incense on the wind','caravan livestock and leather']
+      },
+      movement:['caravans form staging order before the gate post — no one proceeds without route acknowledgement','shrine approach is done on foot regardless of how the traveler arrived'],
+      greetings:['route intent stated at the gate post before entry','shrine approach acknowledged with a low head before the offering stand'],
+      rituals:['safe-journey offering placed at the Cysur shrine before northward departure','route acknowledgement read back by the patrol leader before the caravan moves'],
+      microInteractions:{
+        warm:['A patrol leader adds a recent hazard note to a traveler\'s route record without being asked.'],
+        cautious:['A stall keeper at the caravan rest post won\'t confirm supply availability until they\'ve seen the route papers.'],
+        fatigued:['Two caravan workers are doing the loading check together in the specific kind of silence that means neither slept.'],
+        humorous:['A shrine offering rolls off the stand. The traveler replaces it. The patrol leader pretends not to have seen.']
+      },
+      archetypeNotices:{
+        combat:['The gate post and shrine position create a natural double-check on movement through the outpost. No one clears both without intent.'],
+        magic:['The Cysur shrine shows burn marks from offerings that go back further than the current outpost structure.'],
+        stealth:['The caravan staging area is observed from the gate post but the eastern perimeter is watched only at marked intervals.'],
+        support:['The supply situation at the rest post is tighter than posted. The stall keeper is rationing without saying so.']
+      }
+    },
+    whitebridge_commune: {
+      sensory:{
+        sight:['bridge surface marked with recent ice warning chalk at the crossing approach','commune notice boards layered with hazard reports and departure declarations','crossing shelter smoke visible from the main road'],
+        sound:['departure briefings given at the crossing registration table','survival stories told in the evening shelter — audible from the main hall','the specific creak of bridge timbers under temperature change'],
+        smell:['cold river air at the crossing approach','wood smoke from the shelter','wet wool and trail gear from travelers in the rest area']
+      },
+      movement:['all crossing movement is declared at registration first — departures without declaration are a communal matter','hazard knowledge is shared before departures, not after'],
+      greetings:['route intent declared at crossing registration','hazard acknowledgement stated before the bridge approach'],
+      rituals:['crossing acknowledgement spoken at the bridge approach before setting foot on it','evening survival storytelling in the shelter — attendance is customary'],
+      microInteractions:{
+        warm:['A commune member adds a known hazard to a traveler\'s route notes without being asked.'],
+        cautious:['A registration clerk asks for confirmation of route intent before issuing a crossing acknowledgement.'],
+        fatigued:['Two shelter workers complete the evening preparation without speaking. The sequence is established.'],
+        humorous:['A survival story in the evening shelter goes considerably longer than expected. No one leaves.']
+      },
+      archetypeNotices:{
+        combat:['The bridge approach is single-file and the registration table creates a natural control point. Anyone who knows the commune structure knows this.'],
+        magic:['The crossing acknowledgement ritual uses a form that predates the current commune structure by a significant margin.'],
+        stealth:['The crossing registration creates a record of all declared crossings. Undeclared movement through the river requires going well upstream.'],
+        support:['The shelter is at capacity and the supply estimation for the next three days assumes less traffic than is present.']
+      }
+    }
+  };
+
   const LOCALITY_IDS = Object.keys(KEY_LOCALITIES);
 
   const STAGES = [
