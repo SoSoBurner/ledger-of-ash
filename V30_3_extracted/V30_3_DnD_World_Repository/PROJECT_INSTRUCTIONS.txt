@@ -1,1 +1,0 @@
-V30_3 is the world-unifying release. Treat canonical_metric_registry.json as the sole active metric authority, 07_WORLD_GRAPH as the connectivity layer, 05_RUNTIME_ENGINE/*scope* files as runtime boundaries, and 11_REFERENCE_VIEWS/current_release as the primary human browse surface. The package must function standalone after unzip.

@@ -1,9 +1,0 @@
-{
-  "npc_id": "banner_master_liora_embermask",
-  "compatibility_surface": "named_npc_reference",
-  "truth_layer": "engine_canon",
-  "support_type": "named_interface_compatibility",
-  "version": "V30_3",
-  "generation_timestamp": "2026-04-18T03:13:23Z",
-  "build_signature": "V30_3_REPOSITORY_HARDENING_AND_TRUTH_RESTORATION_RELEASE"
-}

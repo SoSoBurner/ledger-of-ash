@@ -1,8 +1,0 @@
-{
-  "name": "Ashwake Port",
-  "seasonal_change": "Trade surges during dormant periods and contracts under violent heat.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

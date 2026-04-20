@@ -1,7 +1,0 @@
-{
-  "build_version": "V30_3",
-  "excluded_files": [
-    "05_PROVENANCE/source_checksum_registry.json"
-  ],
-  "status": "pass"
-}

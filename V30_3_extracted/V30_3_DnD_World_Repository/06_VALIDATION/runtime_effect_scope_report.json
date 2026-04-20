@@ -1,8 +1,0 @@
-{
-  "build_version": "V30_3",
-  "validated_effects": [
-    "validated_route_alert_harvest_keep"
-  ],
-  "scope_integrity": "pass",
-  "status": "pass"
-}

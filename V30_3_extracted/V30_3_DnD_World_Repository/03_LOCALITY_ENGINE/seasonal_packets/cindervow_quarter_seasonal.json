@@ -1,8 +1,0 @@
-{
-  "name": "Cindervow Quarter",
-  "seasonal_change": "Damage repair and observance build toward the year midpoint.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

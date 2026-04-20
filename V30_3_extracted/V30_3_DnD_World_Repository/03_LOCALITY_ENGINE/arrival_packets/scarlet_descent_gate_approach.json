@@ -1,9 +1,0 @@
-{
-  "name": "Scarlet Descent Gate",
-  "approach": "Winch towers, red-lit vent shafts, and hardened gatehouses signal a place built to go downward and return altered.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal",
-    "ai_source_pdf"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "name": "Duneshade Outpost",
-  "seasonal_change": "heat spikes and southern predator pressure can turn the outpost from checkpoint to siege posture within days.",
-  "sources": [
-    "soreheim_review",
-    "spatial_seasonal"
-  ]
-}

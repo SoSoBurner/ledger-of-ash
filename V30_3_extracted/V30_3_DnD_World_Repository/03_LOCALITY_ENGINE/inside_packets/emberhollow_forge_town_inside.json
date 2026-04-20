@@ -1,8 +1,0 @@
-{
-  "name": "Emberhollow Forge Town",
-  "inside": "Smithing yards, labor barracks, family compounds, and dedication braziers create a blunt but proud civic rhythm.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

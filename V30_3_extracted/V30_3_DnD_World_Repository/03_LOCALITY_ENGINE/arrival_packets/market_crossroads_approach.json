@@ -1,9 +1,0 @@
-{
-  "name": "Market Crossroads",
-  "approach": "Dust, wheel-rut geometry, ferry callouts, and stacked relay barns make it obvious that nothing here exists without movement.",
-  "truth_layer": "conservative_inference",
-  "sources": [
-    "principalities",
-    "topatch_v22_6_spec"
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "name": "Ashwake Port",
-  "inside": "Port ledgers, storage vaults, ash-dye houses, and processional squares give the harbor both commerce and ceremony.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal",
-    "ai_source_pdf"
-  ]
-}

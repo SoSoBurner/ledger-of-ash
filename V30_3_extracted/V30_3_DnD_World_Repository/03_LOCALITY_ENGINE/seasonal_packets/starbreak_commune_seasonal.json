@@ -1,8 +1,0 @@
-{
-  "name": "Starbreak Commune",
-  "seasonal_change": "Visibility windows define the commune more than temperature alone.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

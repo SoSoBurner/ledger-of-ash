@@ -1,7 +1,0 @@
-{
-  "build_version": "V30_3",
-  "rules": [
-    "Inference may increase playability but may not claim direct-canon status.",
-    "Support objects added for thin-area completion must remain source_backed_inference or promoted_interface_record unless later source-backed revision exists."
-  ]
-}

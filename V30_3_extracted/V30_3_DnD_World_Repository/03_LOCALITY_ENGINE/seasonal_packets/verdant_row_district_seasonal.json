@@ -1,8 +1,0 @@
-{
-  "name": "Verdant Row District",
-  "seasonal_change": "Market energy adjusts with contract flow and festival workshops.",
-  "sources": [
-    "psc_shelkopolis",
-    "locations_catalog"
-  ]
-}
