@@ -1867,7 +1867,16 @@
       renderCombatUI(G, G.combatSession);
       return;
     }
-    const list=currentChoices();
+    let list=currentChoices();
+    // Filter out choices that shouldn't be shown due to recent duplication
+    list=list.filter((c,idx)=>{
+      const shouldSkip=shouldSkipChoice(c.label, c.tags);
+      if(shouldSkip) return false;
+      return true;
+    });
+    // Ensure we have at least 1 choice available
+    if(list.length===0) list=currentChoices().slice(0,1);
+    
     $('choices').innerHTML=list.map((c,i)=>{
       const cp=normalizeChoiceProfile(c);
       const risk=computeDynamicRiskTag(cp);
@@ -1882,7 +1891,11 @@
       return `<button class='choice${extraCls}' data-choice='${i}'><span>${c.label}</span><small>${tags} · <span class='riskPill riskPill-${riskCls}'>${risk}</span></small></button>`;
     }).join('');
     [...document.querySelectorAll('[data-choice]')].forEach(btn=>btn.onclick=()=>{
-      const c=list[+btn.dataset.choice]; G.lastChoiceLabel=c.label; c.fn();
+      const c=list[+btn.dataset.choice]; 
+      G.lastChoiceLabel=c.label; 
+      // Track this choice in history before executing
+      trackChoiceAction(c.label, c.tags);
+      c.fn();
       if(G.hp<=0 && !G.stage5Dead) handleDeath();
       setThreat(); setObjective(); persist(); render();
     });
