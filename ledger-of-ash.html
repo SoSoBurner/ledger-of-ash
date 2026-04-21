@@ -1826,7 +1826,9 @@ const COMPANION_DEFS = {
       ]
     },
     refusalScene: "Vera nods once, unsurprised. 'The offer stands if you change your mind.' She goes back to work.",
-    leaveConditions: ['morality < -40', 'order < -50', 'vera_trust < 5'],
+    tolerances: { benevolenceFloor: -18, orderMin: -22, orderMax: null, trustMin: 5 },
+    warnScene: "Vera's been quieter than usual. When you make camp she says nothing for a long time, then: 'I've seen what happens when people decide the end justifies the method. It usually ends with someone else justifying something worse.' She doesn't look at you when she says it.",
+    confrontScene: "'I need to say this plainly.' Vera sets down her drink. 'What we just did — I understand why. I even understand the logic. But I've been the person who understood the logic before, and I watched where it went. If this keeps going in that direction, I won't be able to stay.'",
     leaveScene: "Vera finds you after a long silence. 'I signed up to help find out what happened. I didn't sign up for this.' She leaves her key on the table and walks out.",
     abilities: [
       { type: 'passive', desc: "Shelkopolis street network: learn one piece of local intelligence per day for free." },
@@ -1857,7 +1859,9 @@ const COMPANION_DEFS = {
       ]
     },
     refusalScene: "Toriel shrugs without offense. 'The offer was practical, not personal. Good luck.'",
-    leaveConditions: ['morality < -30', 'G.quests includes registry_corruption_ignored'],
+    tolerances: { benevolenceFloor: -15, orderMin: -35, orderMax: 35, trustMin: null },
+    warnScene: "Toriel updates his notes without comment for a while. Then: 'In medicine, we have a term for a treatment that causes more damage than the disease. I'm not drawing a direct comparison. I'm noting I've been thinking about that term.'",
+    confrontScene: "'I've been documenting what I observe,' Toriel says. 'Professionally. That's how I process things. What I'm observing lately concerns me. Not abstractly — specifically, about the direction of these decisions. I want you to know that. I'm not leaving today. But I'm telling you because the next step after this conversation is that I do.'",
     leaveScene: "'You had the information and chose not to act on it,' Toriel says. 'That's a medical decision too. I can't work with that.' He takes his bag and goes.",
     abilities: [
       { type: 'passive', desc: "Panim registry access: can read death records, flag discrepancies, and request secondary review without institutional clearance." },
@@ -1888,7 +1892,9 @@ const COMPANION_DEFS = {
       ]
     },
     refusalScene: "Neren nods. 'The data is yours regardless. Come back if that changes.' He pins the readings back to the board.",
-    leaveConditions: ['G.axisTick > 60 without acting', 'morality < -20'],
+    tolerances: { benevolenceFloor: -22, orderMin: null, orderMax: 25, trustMin: null },
+    warnScene: "Neren is doing his calculations in the dirt again. He erases them before you can read them. 'I've been running projections,' he says. 'Not about the dome. About this.' He doesn't elaborate.",
+    confrontScene: "'I grew up learning which rules you could bend and which ones would break you,' Neren says. 'The Principality didn't care about the distinction — they enforced both equally. I left because I didn't want to become someone who also didn't care about the distinction. I need to know that you do.'",
     leaveScene: "'The dome stabilizers are failing and we're investigating politics,' Neren says quietly. 'I have to go back. The commune needs me more than this does.' He leaves at dawn.",
     abilities: [
       { type: 'passive', desc: "Axis attunement: always know exact axis state, time to next event, and corridor anomaly readings. Axis events give +2 to all rolls instead of penalties." },
@@ -1919,7 +1925,9 @@ const COMPANION_DEFS = {
       ]
     },
     refusalScene: "Elyra nods once. 'Fair enough. Watch the southern waypoint — something comes through there every three days, regular as a patrol schedule.' She goes back to watching the road.",
-    leaveConditions: ['order > 70 and morality < -10'],
+    tolerances: { benevolenceFloor: -5, orderMin: -40, orderMax: 20, trustMin: null },
+    warnScene: "Elyra doesn't eat with the group that evening. When you find her she's watching the dark. 'There's a village east of the frontier I haven't gone back to,' she says. 'The ones who sealed it told themselves what they did was for the larger good. I think about them when I think about choices.'",
+    confrontScene: "'I sealed off a village once,' Elyra says. 'I didn't give the order, but I didn't stop it either. I told myself the math was right. I've spent years since then trying to understand why the math was wrong.' She looks at you steadily. 'What we're doing is starting to feel like math. I need you to convince me it isn't.'",
     leaveScene: "'You're doing this the wrong way,' Elyra says. 'I'll make sure the frontier is still there when you come back.' She takes the southern route at dusk.",
     abilities: [
       { type: 'passive', desc: "Frontier navigation: travel never costs more than 1 axis tick. Automatically identify ambushes, track groups through wilderness, and find hidden waypoints." },
@@ -1932,6 +1940,108 @@ const COMPANION_DEFS = {
     ],
     injuredText: "Elyra is tracking a lead at the southern waypoint. She'll be back by Dawnrise.",
     role_tag: 'scout'
+  },
+
+  // Stage II — available after G.stage === 'Stage II'
+  kaevrin_sorel: {
+    id: 'kaevrin_sorel',
+    name: 'Kaevrin Sorel',
+    role: 'Information Broker & Former Collegium Notary',
+    locality: 'shelkopolis',
+    npcId: 'Kaevrin Sorel',
+    stageMin: 'Stage II',
+    joinScene: {
+      text: "The man at the corner table has been watching the door longer than you have. He doesn't pretend otherwise when you approach. 'Kaevrin Sorel. I used to work for the Collegium — not as an Inquisitor, nothing that clean. I processed disappearance notices. Filed them. Sealed them.' He straightens his coat. 'I know which names are on the ledger and I know which names were supposed to be on it but aren't. I've been waiting for someone to ask the right questions. You're asking them. What are we doing about that?'",
+      choices: [
+        { text: "Bring him in. His Collegium knowledge is essential.", outcome: 'join' },
+        { text: "Ask why he left the Collegium and what he wants.", outcome: 'negotiate' },
+        { text: "Tell him you need to verify his information first.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "Kaevrin nods without offense. 'The offer was practical. Come back when the verification is done — I'll be in the same seat.' He goes back to watching the door.",
+    tolerances: { benevolenceFloor: -30, orderMin: -40, orderMax: 40, trustMin: null },
+    warnScene: "Kaevrin's been quieter than usual. At camp he says: 'There's a difference between hard decisions and wrong ones. I've seen organizations convince themselves the distinction doesn't exist. It never ends well for the people who weren't in the room when the decision was made.'",
+    confrontScene: "'I'm going to be direct with you,' Kaevrin says. 'I process information for a living, and the pattern I'm seeing in our recent choices concerns me. Not the difficulty of them — I've worked in difficult situations. The direction. I need to understand where we're heading before I can stay useful to you.'",
+    leaveScene: "'I left the Collegium when I understood what the notices meant,' Kaevrin says. 'I'm not going to help build another version of what I left.' He hands back everything you've shared with him, packed cleanly. 'Nothing personal. This is a line I don't cross.'",
+    abilities: [
+      { type: 'passive', desc: "Collegium memory: Kaevrin identifies any Collegium seal, notice, or filing procedure on sight. Automatically spots forged or altered official documents." },
+      { type: 'active', desc: "Once per scene: trace a name through Collegium records (from memory). Reveals official status, any filed notices, and whether they appear in the suppressed registry." }
+    ],
+    campLines: [
+      "'The notary system is designed to look like bureaucracy and function like surveillance. Every routine filing is a data point. I filed thousands. I know what patterns look like.'",
+      "'The Collegium doesn't erase people arbitrarily. There's a cost-benefit calculus. If a name is on the ledger, someone decided the cost of that person existing on the record was too high. That tells you a lot about who's doing the deciding.'",
+      "'I've been thinking about Inquisitor Orveth. She's not a true believer — those are easier to read. She's a pragmatist. That makes her more dangerous and potentially more useful.'"
+    ],
+    injuredText: "Kaevrin is managing a secure information handoff. He'll be back before nightfall.",
+    role_tag: 'analyst'
+  },
+
+  vorath_gelden: {
+    id: 'vorath_gelden',
+    name: 'Vorath Gelden',
+    role: 'Former Garrison Commander & Labor Advocate',
+    locality: 'shelkopolis',
+    npcId: 'Vorath Gelden',
+    stageMin: 'Stage II',
+    stageMinFlag: 'maren_oss_resolved',
+    joinScene: {
+      text: "The big man at the labor registry looks like he belongs in a garrison, not behind a desk. He doesn't explain the discrepancy. 'I commanded the mine suppression four years ago. I was given an order and I executed it and six people died who didn't have to.' He doesn't flinch. 'I'm not here to confess — I'm here because I've been watching someone else build the same situation and I have enough experience to know how it ends. You're trying to stop it from ending that way. I want to help with that.'",
+      choices: [
+        { text: "Accept. His tactical knowledge and Shelk contacts are invaluable.", outcome: 'join' },
+        { text: "Ask what he knows about the mine suppression specifically.", outcome: 'negotiate' },
+        { text: "Tell him you need people who didn't give those orders.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "'Fair enough,' Vorath says. 'For what it's worth — the order came from someone above the garrison. That's what I've been trying to prove.' He goes back to his paperwork.",
+    tolerances: { benevolenceFloor: -20, orderMin: -45, orderMax: 45, trustMin: null },
+    warnScene: "Vorath is unusually still that evening. 'I've been doing inventory,' he says finally. 'Not gear. Decisions. The column I was part of — we did the same inventory, a week before things got bad. We told ourselves each item was justified.' He's quiet after that.",
+    confrontScene: "'I'm going to tell you something I learned the hard way,' Vorath says. 'The moment when everything feels justified is usually the moment when you're furthest from being right. I'm not saying stop. I'm saying look hard at what we're justifying and make sure it's worth what it costs. I need to know you're looking.'",
+    leaveScene: "'I've done this calculation before,' Vorath says. 'In the garrison, we called it strategic necessity. I know what it leads to. I won't be part of building that again — even if I understand why we're building it.' He leaves without drama.",
+    abilities: [
+      { type: 'passive', desc: "Garrison authority: Vorath's presence reduces hostile intent from Shelk soldiers and labor enforcement. Social checks with garrison-affiliated NPCs gain +2." },
+      { type: 'active', desc: "Once per scene: tactical assessment. Vorath identifies the highest-value target, the weakest point, and one exit route the opposition hasn't covered." }
+    ],
+    campLines: [
+      "'The garrison command structure hasn't changed since the suppression. The same people who gave those orders are still giving orders. That's either reassuring or it's the problem — I haven't decided which.'",
+      "'Labor organization in the mines didn't stop after the suppression. It went underground. Someone's been keeping it alive. I don't know if that's brave or if it's going to get more people killed.'",
+      "'The people who gave me the order never came to the mine. That's the part I keep coming back to. The distance between the order and the consequence — that's where the logic breaks.'"
+    ],
+    injuredText: "Vorath took a hit intended for someone else. He's functional but slower.",
+    role_tag: 'fighter'
+  },
+
+  mira_calden: {
+    id: 'mira_calden',
+    name: 'Mira Calden',
+    role: 'Merchant Assembly Liaison & Collegium Watchdog',
+    locality: 'shelkopolis',
+    npcId: 'Mira Calden',
+    stageMin: 'Stage II',
+    stageMinFlag: 'maren_oss_resolved',
+    joinScene: {
+      text: "The woman with the Assembly seal in her lapel has been building a file for two years. She slides a portion of it across the table without preamble. 'The Collegium has been suppressing commercial records that would expose three years of route manipulation. The Assembly doesn't care — they're making money on the manipulation. I care because someone on the Assembly approved it, and when this breaks open — and it will — I need to be on the right side of it.' She looks at you. 'You're already investigating the rest of it. Work with me and we both get what we need.'",
+      choices: [
+        { text: "Accept. Her Assembly access opens doors nothing else can.", outcome: 'join' },
+        { text: "Ask what her file actually contains before committing.", outcome: 'negotiate' },
+        { text: "Tell her the investigation doesn't need political entanglement.", outcome: 'refuse' }
+      ]
+    },
+    refusalScene: "Mira closes the file and picks up her drink. 'Understood. The Assembly's interests and yours are going to intersect eventually whether you want them to or not. I'll be available when they do.'",
+    tolerances: { benevolenceFloor: -10, orderMin: -20, orderMax: 45, trustMin: null },
+    warnScene: "Mira is drafting something at the edge of camp. She puts it away when you approach. 'I've been thinking about contingencies,' she says carefully. 'Nothing specific. Just — in my experience, when the work starts to feel like something other than what I signed up for, it usually is.'",
+    confrontScene: "'Let me ask you something directly,' Mira says. 'What's the outcome we're trying to produce here? Not the immediate goal — the actual outcome. Because I've been running the trajectory of recent decisions and I want to make sure I understand where we're going. I'm not threatening to leave. I'm asking because the answer matters to whether I stay.'",
+    leaveScene: "'I work within systems because systems are what change things at scale,' Mira says. 'What we're doing now isn't working within a system — it's working against everyone's systems at once. I'm not built for that.' She stands. 'Call me when you have something the Assembly can act on.'",
+    abilities: [
+      { type: 'passive', desc: "Assembly intelligence: once per locality, learn current trade anomalies, unofficial price manipulation, and which factions are profiting from route disruptions." },
+      { type: 'active', desc: "Once per scene: political read. Mira identifies an NPC or faction's primary leverage point, what they fear most, and what offer they cannot refuse." }
+    ],
+    campLines: [
+      "'The Assembly approved the route manipulations because the short-term profit was too good to question. That's not corruption — that's a structural failure that produces corruption as a byproduct. The distinction matters for how you fix it.'",
+      "'Someone on the Assembly has been receiving Collegium briefings that aren't on the official circulation list. Two more data points and I have it.'",
+      "'The interesting thing about Inquisitor Orveth is that the Collegium doesn't know what she actually knows. She plays information very carefully. I've been trying to figure out if that's because she's protecting herself or protecting someone else.'"
+    ],
+    injuredText: "Mira is managing a source who panicked. She'll have them stabilized by morning.",
+    role_tag: 'strategist'
   }
 };
 
@@ -1958,6 +2068,8 @@ function canRecruit(npcId) {
   const def = Object.values(COMPANION_DEFS).find(d => d.npcId === npcId);
   if (!def) return false;
   if (hasCompanion(def.id)) return false;
+  if (def.stageMin && G.stage !== def.stageMin && G.stage < def.stageMin) return false;
+  if (def.stageMinFlag && !(G.flags && G.flags[def.stageMinFlag])) return false;
   const trust = G.npcMemory && G.npcMemory[npcId] ? G.npcMemory[npcId].trust : 0;
   return trust >= 15;
 }
@@ -1971,7 +2083,7 @@ function showRecruitScene(npcId) {
 
   const choices = def.joinScene.choices.map(c => ({
     text: c.text,
-    skill: 'persuasion',
+    skill: 'charm',
     tag: c.outcome === 'join' ? 'safe' : c.outcome === 'negotiate' ? 'risky' : 'bold',
     align: c.outcome === 'join' ? 'good' : 'neutral',
     cid: '__recruit__' + def.id + '__' + c.outcome
@@ -1998,7 +2110,9 @@ function resolveRecruitChoice(defId, outcome) {
       injuredDay: null,
       joinedDay: G.dayCount || 0,
       locality: def.locality,
-      role_tag: def.role_tag
+      role_tag: def.role_tag,
+      warnStage: 0,
+      rerecruit: 0
     };
 
     const joinText = outcome === 'negotiate'
@@ -2014,8 +2128,8 @@ function resolveRecruitChoice(defId, outcome) {
     if (typeof saveGame === 'function') saveGame();
 
     setTimeout(() => renderChoices([
-      { text: 'Continue the investigation together.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
-      { text: 'Camp and hear what they know before moving.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__camp_talk__' }
+      { text: 'Continue the investigation together.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
+      { text: 'Camp and hear what they know before moving.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__camp_talk__' }
     ]), 400);
 
   } else {
@@ -2026,29 +2140,67 @@ function resolveRecruitChoice(defId, outcome) {
   }
 }
 
-// Check companion leave conditions
+// Check companion leave conditions — 3-stage: warn → confront → depart
 function checkCompanionLeave() {
   if (!G.companions) return;
   Object.values(G.companions).forEach(comp => {
     if (comp.status !== 'active') return;
     const def = COMPANION_DEFS[comp.id];
-    if (!def) return;
-    def.leaveConditions.forEach(condition => {
-      let shouldLeave = false;
-      if (condition === 'morality < -40' && (G.benevolence||0) < -35) shouldLeave = true;
-      if (condition === 'morality < -30' && (G.benevolence||0) < -30) shouldLeave = true;
-      if (condition === 'morality < -20' && (G.benevolence||0) < -10) shouldLeave = true;
-      if (condition === 'order < -50' && (G.orderAxis||0) < -45) shouldLeave = true;
-      if (condition === 'order > 70 and morality < -10' && (G.orderAxis||0) > 45 && (G.benevolence||0) < -10) shouldLeave = true;
-      if (shouldLeave) {
-        comp.status = 'left';
-        addNarration(comp.name, def.leaveScene);
-        addJournal(comp.name + ' has left the party.');
-        addWorldNotice('[PARTY] ' + comp.name + ' has left your investigation.');
-        if (typeof updateHUD === 'function') updateHUD();
-      }
-    });
+    if (!def || !def.tolerances) return;
+    const t = def.tolerances;
+    let outOfBounds = false;
+    if (t.benevolenceFloor !== null && t.benevolenceFloor !== undefined && (G.benevolence||0) < t.benevolenceFloor) outOfBounds = true;
+    if (t.orderMin !== null && t.orderMin !== undefined && (G.orderAxis||0) < t.orderMin) outOfBounds = true;
+    if (t.orderMax !== null && t.orderMax !== undefined && (G.orderAxis||0) > t.orderMax) outOfBounds = true;
+    if (t.trustMin !== null && t.trustMin !== undefined && (comp.trust||0) < t.trustMin) outOfBounds = true;
+
+    if (!outOfBounds) {
+      if ((comp.warnStage||0) > 0) comp.warnStage = Math.max(0, (comp.warnStage||0) - 1);
+      return;
+    }
+
+    const stage = comp.warnStage || 0;
+    if (stage === 0) {
+      comp.warnStage = 1;
+      addNarration(comp.name, def.warnScene || def.leaveScene);
+    } else if (stage === 1) {
+      comp.warnStage = 2;
+      addNarration(comp.name, def.confrontScene || def.leaveScene);
+    } else {
+      comp.status = 'departed';
+      comp.departedDay = G.dayCount || 0;
+      addNarration(comp.name, def.leaveScene);
+      addJournal(comp.name + ' has left the party.');
+      addWorldNotice('[PARTY] ' + comp.name + ' has left your investigation.');
+      if (typeof updateHUD === 'function') updateHUD();
+    }
   });
+}
+
+function canRerecruit(id) {
+  var comp = G.companions && G.companions[id];
+  var def = COMPANION_DEFS[id];
+  if (!comp || !def) return false;
+  if (comp.status !== 'departed') return false;
+  if ((comp.rerecruit||0) >= 2) return false;
+  var t = def.tolerances;
+  if (t && t.benevolenceFloor !== null && t.benevolenceFloor !== undefined) {
+    if ((G.benevolence||0) < t.benevolenceFloor + Math.abs(t.benevolenceFloor * 0.25)) return false;
+  }
+  return true;
+}
+
+function startRerecruitQuest(id) {
+  var def = COMPANION_DEFS[id];
+  if (!def || !canRerecruit(id)) return;
+  var comp = G.companions[id];
+  var attempt = (comp.rerecruit || 0) + 1;
+  G.flags['rerecruitQuest_' + id] = { stage: 0, started: G.dayCount || 0, attempt: attempt };
+  var intro = attempt === 1
+    ? 'You hear word of where ' + def.name + ' has gone. The door isn\'t closed — but it isn\'t open either. You\'ll need to find them and show them something has changed.'
+    : def.name + ' is harder to find this time. They remember the last reconciliation. Whatever you show them will need to be more convincing than before.';
+  addNarration('Investigation', intro);
+  addJournal('Re-recruitment quest started: ' + def.name + ' (attempt ' + attempt + ').');
 }
 
 // ── CAMP TALK ──────────────────────────────────────────
@@ -7143,7 +7295,7 @@ let G = {
   traits:[], location:'shelkopolis',
   timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
   stage:'Stage I', stageLabel:'Grass Roots',
-  benevolence:0, orderAxis:0, localityHeat:{},
+  benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
   factions:[], quests:[], journal:[], journalRecords:[], history:[],
   inventory:[], equipped:{weapon:null, armor:null, tool:null},
   wounds:[], fatigue:0, recoveryState:'stable',
@@ -7310,7 +7462,7 @@ function initCreate() {
   G = { name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
         skills:{combat:0,survival:0,persuasion:0,lore:0,stealth:0,craft:0},
         traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
-        stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{},
+        stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
         factions:[], quests:[], journal:[], journalRecords:[], history:[],
         inventory:[], equipped:{weapon:null,armor:null,tool:null},
         wounds:[], fatigue:0, recoveryState:'stable',
