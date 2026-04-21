@@ -9631,7 +9631,7 @@ function exportSave() {
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
   a.href = url; a.download = filename; a.click();
-  URL.revokeObjectURL(url);
+  setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
 }
 
 function saveKey() {

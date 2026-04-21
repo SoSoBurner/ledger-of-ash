@@ -25,7 +25,7 @@ global.window = {
   saveGame:        function() {},
   addNarration:    function() {},
   advanceTime:     function(d) { if (window.G) window.G.dayCount += (d || 1); },
-  gainXP:          function(n) { if (window.G) window.G.xp = (window.G.xp || 0) + n; },
+  gainXp:          function(n) { if (window.G) window.G.xp = (window.G.xp || 0) + n; },
   // Stubs for functions the bridge wraps (must exist before bridge loads)
   handleChoice:    function() {},
   beginLegend:     function() {},
@@ -39,7 +39,7 @@ global.checkStageAdvance = window.checkStageAdvance;
 global.saveGame        = window.saveGame;
 global.addNarration    = window.addNarration;
 global.advanceTime     = window.advanceTime;
-global.gainXP          = window.gainXP;
+global.gainXp          = window.gainXp;
 global.handleChoice    = window.handleChoice;
 global.beginLegend     = window.beginLegend;
 global.document        = { querySelectorAll: function() { return { forEach: function() {} }; } };
