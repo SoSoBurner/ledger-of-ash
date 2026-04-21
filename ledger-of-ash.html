@@ -8618,14 +8618,17 @@ function gainXP(n) {
   checkLevelUp();
 }
 
+const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
+
 function checkLevelUp() {
-  if (G.level >= 20) {
+  const stageCap = STAGE_LEVEL_CAP[G.stage] || 20;
+  if (G.level >= stageCap) {
     G.masteryXP = (G.masteryXP || 0) + (G.xp || 0);
     G.xp = 0;
     if (typeof updateHUD === 'function') updateHUD();
     return;
   }
-  const needed = G.level * 60;
+  const needed = G.level === 1 ? 120 : G.level * 60;
   if (G.xp >= needed && !_awaitingLevelUp) {
     _awaitingLevelUp = true;
     G.xp -= needed;
