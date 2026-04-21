@@ -506,6 +506,32 @@ input, button, select, textarea { font-family: inherit; }
   transition: width .4s ease;
   width: 0%;
 }
+#hud-safe-streak {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px;
+  color: var(--gold-dim); opacity: 0.8; margin: 1px auto 0;
+  text-align: center; display: none;
+}
+#hud-case-file {
+  display: none; margin: 3px auto 0; text-align: center;
+}
+#hud-case-file-label {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px;
+  color: var(--ink-faint); text-transform: uppercase; display: block;
+}
+#hud-case-file-track {
+  width: 120px; height: 4px;
+  background: rgba(255,255,255,.12);
+  border-radius: 2px; margin: 2px auto 0; overflow: hidden;
+}
+#hud-case-file-fill {
+  height: 100%;
+  background: var(--storm-hi, #6ab0d4);
+  border-radius: 2px; transition: width .4s ease; width: 0%;
+}
+#hud-case-file-count {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px;
+  color: var(--storm-hi); display: block; margin-top: 1px;
+}
 .topbar-nav { display: flex; align-items: center; gap: 1px; }
 .tnav-btn {
   background: transparent; border: none; cursor: pointer;
@@ -1010,6 +1036,7 @@ input, button, select, textarea { font-family: inherit; }
 .choice-tag.risky { background: rgba(110,16,16,.35); color: var(--blood-bright); }
 .choice-tag.safe  { background: var(--jade); color: var(--jade-bright); }
 .choice-align     { color: var(--ink-faint); font-size: 9.9px; letter-spacing: 1px; }
+.choice-dc        { font-size: 0.75em; opacity: 0.65; margin-left: 0.5em; color: var(--gold-dim); }
 
 /* Trait button */
 .trait-use-area { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
@@ -1591,6 +1618,12 @@ input, button, select, textarea { font-family: inherit; }
       <span class="game-title">Ledger of Ash</span>
       <span class="stage-pill" id="topbar-stage">Stage I</span>
       <div id="stage-progress-track"><div id="stage-progress-fill"></div></div>
+      <div id="hud-safe-streak"></div>
+      <div id="hud-case-file">
+        <span id="hud-case-file-label">Case File</span>
+        <div id="hud-case-file-track"><div id="hud-case-file-fill"></div></div>
+        <span id="hud-case-file-count">0 / 10</span>
+      </div>
     </div>
     <nav class="topbar-nav">
       <button class="tnav-btn" id="btn-map">Map</button>
@@ -7791,6 +7824,7 @@ function renderChoices(choices) {
       (c.skill ? '<span class="choice-skill">' + c.skill + '</span>' : '') +
       (c.tag ? '<span class="choice-tag ' + c.tag + '">' + c.tag + '</span>' : '') +
       (c.align && c.align !== 'neutral' ? '<span class="choice-align ' + c.align + '">' + alignSymbol + ' ' + c.align + '</span>' : '') +
+      (c.dc ? '<span class="choice-dc">DC ' + c.dc + '</span>' : '') +
       '</span></button>';
   });
   html += '</div>';
@@ -9512,6 +9546,36 @@ function updateHUD() {
   if (typeof updateNoticesBadge === 'function') updateNoticesBadge();
   if (typeof updatePartyHUD === 'function') updatePartyHUD();
   updateStageProgressBar();
+  updateSafeStreakHUD();
+  updateCaseFileHUD();
+}
+
+function updateSafeStreakHUD() {
+  const el = document.getElementById('hud-safe-streak');
+  if (!el) return;
+  const streak = (G && G._consecutiveSafeChoices) ? G._consecutiveSafeChoices : 0;
+  if (streak === 1 || streak === 2) {
+    el.style.display = 'block';
+    el.textContent = 'streak: ' + streak;
+  } else {
+    el.style.display = 'none';
+    el.textContent = '';
+  }
+}
+
+function updateCaseFileHUD() {
+  const container = document.getElementById('hud-case-file');
+  const fill = document.getElementById('hud-case-file-fill');
+  const count = document.getElementById('hud-case-file-count');
+  if (!container || !fill || !count) return;
+  const inv = (G && G.investigationProgress) ? G.investigationProgress : 0;
+  if (inv > 0) {
+    container.style.display = 'block';
+    fill.style.width = Math.min(100, Math.round((inv / 10) * 100)) + '%';
+    count.textContent = inv + ' / 10';
+  } else {
+    container.style.display = 'none';
+  }
 }
 
 function updateStageProgressBar() {
