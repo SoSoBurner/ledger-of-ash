@@ -278,6 +278,12 @@ function toEnrichedChoice(c) {
         G.worldClocks.rival = (G.worldClocks.rival || 0) + 1;
         G._consecutiveSafeChoices = 0;
         checkRivalClock();
+        if (!G.flags._rivalNotice_safeStreak) {
+          G.flags._rivalNotice_safeStreak = true;
+          if (typeof window.addWorldNotice === 'function') {
+            window.addWorldNotice('You have played it safe three times running. Word reaches Maren Oss\'s contacts.');
+          }
+        }
       }
     } else {
       G._consecutiveSafeChoices = 0;
@@ -398,9 +404,15 @@ function handleEnrichedChoice(choice) {
     var stageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
                  : (G.stage === 'Stage III' || G.stage === 3) ? 3
                  : 1;
-    G.worldClocks.rival = Math.max(0, (G.worldClocks.rival || 0) - 1);
-    G.stageProgress[stageKey] = Math.max(0, (G.stageProgress[stageKey] || 0) - 1);
-    G.lastResult = 'You go quiet — no meetings, no movement, no trail. The rival loses a step. The investigation loses one too.';
+    var _rivalBefore = G.worldClocks.rival || 0;
+    G.worldClocks.rival = Math.max(0, _rivalBefore - 1);
+    if (_rivalBefore >= 7) {
+      // rival >= 7: emergency triage — skip stageProgress deduction
+      G.lastResult = 'The situation is critical. You go to ground completely — the rival loses a step, but the investigation pauses.';
+    } else {
+      G.stageProgress[stageKey] = Math.max(0, (G.stageProgress[stageKey] || 0) - 1);
+      G.lastResult = 'You go quiet — no meetings, no movement, no trail. The rival loses a step. The investigation loses one too.';
+    }
     G.recentOutcomeType = 'partial';
     advanceTime(1);
     if (typeof updateHUD === 'function') updateHUD();
@@ -488,7 +500,7 @@ function handleEnrichedChoice(choice) {
         // Inject backup choice into the pool
         var backupId = cid + '_backup';
         if (!G.flags['fumble_locked_' + backupId]) {
-          G._pendingBackupChoice = {
+          var backup = {
             id: backupId,
             cid: backupId,
             text: 'Pursue the investigation through a different angle \u2014 the path is harder, but not closed.',
@@ -508,6 +520,8 @@ function handleEnrichedChoice(choice) {
               advanceTime(1);
             }
           };
+          backup.dc = Math.max(8, (choice.dc || 14) - 2);
+          G._pendingBackupChoice = backup;
         }
       } else if (choice.criticalSideplot === true) {
         G.flags['sideplot_failed_' + cid] = true;
@@ -566,6 +580,12 @@ window.handleChoice = function(choice) {
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.rival = (G.worldClocks.rival || 0) + 1;
       checkRivalClock();
+      if (!G.flags._rivalNotice_rest) {
+        G.flags._rivalNotice_rest = true;
+        if (typeof window.addWorldNotice === 'function') {
+          window.addWorldNotice('Taking time to recover lets Maren Oss gain ground.');
+        }
+      }
 
       // C2 — rest costs 1 stageProgress in current stage (min 0)
       var _restStageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
