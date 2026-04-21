@@ -345,7 +345,7 @@ const CLOCK_THRESHOLDS = [
 // 3C — Rival clock thresholds (declared before checkClockThresholds which references it)
 var _RIVAL_THRESHOLDS = [
   { at: 3, flag: 'rival_notice_3', notice: 'Word reaches you that another investigator has been asking questions along the Ridgeway.' },
-  { at: 6, flag: 'rival_notice_6', notice: 'The rival has reached a key contact before you. The path grows harder.' },
+  { at: 6, flag: 'rival_notice_6', notice: 'The rival has reached a key contact before you. The path grows harder.', dcPenalty: 1 },
   { at: 9, flag: 'rival_notice_9', notice: 'The rival has submitted a partial report. Time is running out.', dcPenalty: 1 },
 ];
 
@@ -392,6 +392,19 @@ function handleEnrichedChoice(choice) {
   const G = window.G; if (!G) return;
   G.lastResult = '';
   G.recentOutcomeType = '';
+
+  if (choice.id === 'lay_low') {
+    var stageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
+                 : (G.stage === 'Stage III' || G.stage === 3) ? 3
+                 : 1;
+    G.worldClocks.rival = Math.max(0, (G.worldClocks.rival || 0) - 1);
+    G.stageProgress[stageKey] = Math.max(0, (G.stageProgress[stageKey] || 0) - 1);
+    G.lastResult = 'You go quiet — no meetings, no movement, no trail. The rival loses a step. The investigation loses one too.';
+    G.recentOutcomeType = 'partial';
+    advanceTime(1);
+    if (typeof updateHUD === 'function') updateHUD();
+    return;
+  }
 
   try {
     choice.__enrichedFn.call(null);
@@ -616,6 +629,18 @@ window.renderChoices = function(choices) {
   if (window.G && window.G._pendingBackupChoice) {
     choices = choices.concat([window.G._pendingBackupChoice]);
     window.G._pendingBackupChoice = null;
+  }
+  // Inject lay_low choice when rival clock is high
+  if (window.G && (window.G.worldClocks.rival || 0) >= 4) {
+    var hasLayLow = choices.some(function(c) { return c.id === 'lay_low'; });
+    if (!hasLayLow) {
+      choices = choices.concat([{
+        id: 'lay_low', cid: 'lay_low',
+        text: 'Lay low — go quiet for a day, let the rival lose your trail.',
+        tag: 'safe', plot: 'side', dc: 0, skill: 'survival', xpReward: 5,
+        __enrichedFn: function() {}
+      }]);
+    }
   }
   _origRenderChoices(choices);
 };
