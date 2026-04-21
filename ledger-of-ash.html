@@ -1443,8 +1443,39 @@ input, button, select, textarea { font-family: inherit; }
   .char-sheet-grid { grid-template-columns: 1fr; }
 }
 </style>
+<style>
+#onboarding-modal {
+  display: none; position: fixed; inset: 0; z-index: 9000;
+  background: rgba(10,5,2,.92);
+  align-items: center; justify-content: center;
+}
+#onboarding-modal.active { display: flex; }
+#onboarding-box {
+  background: #1a0e08; border: 1px solid var(--ember-glow, #c84b10);
+  border-radius: 6px; padding: 2rem 2.5rem; max-width: 520px; width: 90%;
+  color: var(--gold-bright, #e8b84b); font-family: 'Crimson Pro', serif;
+}
+#onboarding-box h2 { font-family: 'Cinzel', serif; color: var(--ember-glow, #c84b10); margin-bottom: .75rem; }
+#onboarding-box p { line-height: 1.6; margin-bottom: 1rem; }
+.onboarding-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
+.onboarding-nav button { background: transparent; border: 1px solid var(--ember-glow, #c84b10); color: var(--gold-bright, #e8b84b); padding: .4rem 1.2rem; border-radius: 3px; cursor: pointer; font-family: 'Cinzel', serif; font-size: .8rem; letter-spacing: .05em; }
+.onboarding-skip { font-size: .75rem; color: var(--gold-dim, #9a7a32); cursor: pointer; background: none; border: none; margin-top: .5rem; display: block; text-align: right; }
+</style>
 </head>
 <body>
+
+<!-- ONBOARDING MODAL -->
+<div id="onboarding-modal">
+  <div id="onboarding-box">
+    <h2 id="onboarding-title"></h2>
+    <div id="onboarding-body"></div>
+    <div class="onboarding-nav">
+      <button id="onboarding-prev">← Back</button>
+      <button id="onboarding-next">Next →</button>
+    </div>
+    <button class="onboarding-skip" id="onboarding-skip">Skip introduction</button>
+  </div>
+</div>
 
 <!-- TITLE SCREEN -->
 <div class="screen active" id="screen-title">
@@ -7310,6 +7341,54 @@ function checkBeginReady() {
   document.getElementById('begin-btn').style.display = (name && /^[0-9]{4}$/.test(code) && G.archetype && G.background) ? 'inline-flex' : 'none';
 }
 
+// ── ONBOARDING MODAL ────────────────────────────────────────
+var ONBOARDING_PAGES = [
+  { title: 'The Investigation', body: 'A ledger of ash and secrets leads you to Shelkopolis — a city where factions war in shadow and truth is currency. You are an investigator. Every choice you make shapes what the city remembers of you.' },
+  { title: 'Making Choices', body: 'Some choices are <strong style="color:var(--gold-dim,#9a7a32)">safe</strong> — low risk, modest reward. <strong style="color:var(--ember-glow,#c84b10)">Risky</strong> choices roll a d20 against a difficulty. <strong style="color:var(--blood-bright,#c0392b)">Bold</strong> choices are high-stakes confrontations. Risk wisely.' },
+  { title: 'World Clocks', body: 'Three forces shape your investigation: <em>Watchfulness</em> tracks how closely the city watches you. <em>Pressure</em> reflects the weight of your choices. <em>Reverence</em> rises with your legend. Each has a breaking point.' },
+  { title: 'Your Legend', body: 'Your four-digit code is your legend\'s identity. The game saves automatically after every choice. Return any time — enter your code at the title screen to resume where you left off.' },
+  { title: 'Begin', body: 'For full rules, open the How to Play screen from the menu at any time. Your investigation begins now.' }
+];
+
+var _onboardingPage = 0;
+
+function showOnboarding() {
+  if (!window.G || window.G.flags.onboarding_complete) return;
+  _onboardingPage = 0;
+  _renderOnboardingPage();
+  document.getElementById('onboarding-modal').classList.add('active');
+}
+
+function _renderOnboardingPage() {
+  var p = ONBOARDING_PAGES[_onboardingPage];
+  document.getElementById('onboarding-title').textContent = p.title;
+  document.getElementById('onboarding-body').innerHTML = p.body;
+  var prev = document.getElementById('onboarding-prev');
+  var next = document.getElementById('onboarding-next');
+  prev.style.visibility = _onboardingPage === 0 ? 'hidden' : 'visible';
+  next.textContent = _onboardingPage === ONBOARDING_PAGES.length - 1 ? 'Begin Your Legend' : 'Next →';
+}
+
+function _closeOnboarding() {
+  document.getElementById('onboarding-modal').classList.remove('active');
+  if (window.G) window.G.flags.onboarding_complete = true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('onboarding-next').addEventListener('click', function() {
+    if (_onboardingPage < ONBOARDING_PAGES.length - 1) {
+      _onboardingPage++;
+      _renderOnboardingPage();
+    } else {
+      _closeOnboarding();
+    }
+  });
+  document.getElementById('onboarding-prev').addEventListener('click', function() {
+    if (_onboardingPage > 0) { _onboardingPage--; _renderOnboardingPage(); }
+  });
+  document.getElementById('onboarding-skip').addEventListener('click', _closeOnboarding);
+});
+
 function beginLegend() {
   const name = document.getElementById('char-name').value.trim();
   const code = (document.getElementById('char-passcode')||{value:''}).value.trim();
@@ -7349,6 +7428,9 @@ function beginLegend() {
   showScreen('screen-game');
   updateHUD(); updateEnvironmentPanel();
   startOpeningScene();
+  if (window.G && !window.G.flags.onboarding_complete) {
+    setTimeout(showOnboarding, 400);
+  }
 }
 
 // ── RIVAL ADVENTURERS ────────────────────────────────────
