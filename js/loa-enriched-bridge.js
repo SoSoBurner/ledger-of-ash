@@ -438,6 +438,19 @@ function handleEnrichedChoice(choice) {
   var stageOffset = STAGE_DC_OFFSET[G.stage] || 0;
   var _lastDC = G._lastDC || 10;
   var effectiveDC = _lastDC + stageOffset;
+
+  // Reverence bonus: at reverence >= 7, reduce DC by 1 on social/persuasion checks
+  var reverenceBonus = 0;
+  if ((G.worldClocks.reverence || 0) >= 7) {
+    var socialSkills = ['persuasion', 'performance', 'empathy'];
+    if (socialSkills.indexOf(choice.skill) !== -1 ||
+        (choice.tag === 'safe' && choice.plot !== 'main')) {
+      reverenceBonus = 1;
+    }
+  }
+  effectiveDC = Math.max(0, effectiveDC - reverenceBonus);
+  G._reverenceBonus = reverenceBonus;
+
   var _lastTotal = G._lastRollTotal || 0;
 
   // C1 — Roll visibility: inject compact roll-summary line after fn executes
