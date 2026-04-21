@@ -7692,6 +7692,7 @@ function updateEnvironmentPanel() {
       '<span class="env-pill">' + timeStr + ' &middot; Day ' + (G.dayCount||1) + '</span>' +
       '<span class="env-pill' + (G.axisInverted ? ' inverted' : '') + '">' + axisStr + '</span>' +
       (G.wounds && G.wounds.length ? '<span class="env-pill danger">Wounded</span>' : '') +
+      (function(){ var aw = (G.wounds||[]).filter(function(w){return !w.healed;}).length; return (aw >= 3 || (G.fatigue||0) >= 5) ? '<span class="env-pill danger">\u22121 to all rolls</span>' : ''; })() +
       (G.trainingDisadvantage > 0 ? '<span class="env-pill warn">Training fatigue (' + G.trainingDisadvantage + ')</span>' : '') +
     '</div>';
 

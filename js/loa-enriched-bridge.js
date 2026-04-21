@@ -38,7 +38,12 @@ window.rollD20 = function(skill, bonus) {
   const normSkill = SKILL_NORM[skill] || skill;
   const roll = Math.floor(Math.random() * 20) + 1;
   const skillVal = (window.G && window.G.skills && window.G.skills[normSkill]) ? window.G.skills[normSkill] : 0;
-  const penalty = ((window.G && window.G._dcPenalty) || 0) + ((window.G && window.G._alignmentDCPenalty) || 0);
+  const woundFatiguePenalty = (function() {
+    if (!window.G) return 0;
+    const activeWounds = (window.G.wounds || []).filter(function(w){ return !w.healed; }).length;
+    return (activeWounds >= 3 || (window.G.fatigue || 0) >= 5) ? 1 : 0;
+  })();
+  const penalty = ((window.G && window.G._dcPenalty) || 0) + ((window.G && window.G._alignmentDCPenalty) || 0) + woundFatiguePenalty;
   const total = roll + skillVal + (bonus || 0) - penalty;
   if (window.G) {
     window.G._lastRollWasCrit = (roll === 20);
