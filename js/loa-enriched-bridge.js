@@ -340,6 +340,13 @@ const CLOCK_THRESHOLDS = [
     notice: 'Your reputation opens doors. Allied factions are watching your progress with interest.' },
 ];
 
+// 3C — Rival clock thresholds (declared before checkClockThresholds which references it)
+var _RIVAL_THRESHOLDS = [
+  { at: 3, flag: 'rival_notice_3', notice: 'Word reaches you that another investigator has been asking questions along the Ridgeway.' },
+  { at: 6, flag: 'rival_notice_6', notice: 'The rival has reached a key contact before you. The path grows harder.' },
+  { at: 9, flag: 'rival_notice_9', notice: 'The rival has submitted a partial report. Time is running out.', dcPenalty: 1 },
+];
+
 function checkClockThresholds() {
   const G = window.G;
   if (!G || !G.worldClocks) return;
@@ -363,12 +370,6 @@ function checkClockThresholds() {
   G._dcPenalty = newPenalty;
 }
 
-// 3C — Rival clock thresholds
-var _RIVAL_THRESHOLDS = [
-  { at: 3, flag: 'rival_notice_3', notice: 'Word reaches you that another investigator has been asking questions along the Ridgeway.' },
-  { at: 6, flag: 'rival_notice_6', notice: 'The rival has reached a key contact before you. The path grows harder.' },
-  { at: 9, flag: 'rival_notice_9', notice: 'The rival has submitted a partial report. Time is running out.', dcPenalty: 1 },
-];
 function checkRivalClock() {
   var G = window.G;
   if (!G || !G.worldClocks) return;
@@ -398,13 +399,26 @@ function handleEnrichedChoice(choice) {
     G.recentOutcomeType = 'partial';
   }
 
+  // Fix A3: stage-aware stageProgress key
+  var stageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
+               : (G.stage === 'Stage III' || G.stage === 3) ? 3
+               : (G.stage === 'Stage IV' || G.stage === 4) ? 4
+               : 1;
+
+  // Fix A1: award tag-based stageProgress on roll success, not recentOutcomeType string
+  // 3D — stage-based DC offset (computed before display so roll summary shows effectiveDC)
+  var stageOffset = STAGE_DC_OFFSET[G.stage] || 0;
+  var _lastDC = G._lastDC || 10;
+  var effectiveDC = _lastDC + stageOffset;
+  var _lastTotal = G._lastRollTotal || 0;
+
   // C1 — Roll visibility: inject compact roll-summary line after fn executes
   (function() {
     var _roll = G._lastRollRaw || 0;
     var _skillVal = G._lastRollSkillVal || 0;
     var _pen = G._dcPenalty || 0;
     var _total = G._lastRollTotal || 0;
-    var _dc = G._lastDC || 10;
+    var _dc = effectiveDC; // use effectiveDC (includes stage offset) so displayed DC matches check DC
     var _outcome = (_roll === 20) ? 'Critical!'
                  : (_roll === 1)  ? 'Fumble'
                  : (_total >= _dc) ? 'Success'
@@ -424,19 +438,6 @@ function handleEnrichedChoice(choice) {
   if (G._lastRollWasFumble && G.recentOutcomeType === 'complication') G.recentOutcomeType = 'fumble';
 
   checkClockThresholds();
-
-  // Fix A3: stage-aware stageProgress key
-  var stageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
-               : (G.stage === 'Stage III' || G.stage === 3) ? 3
-               : (G.stage === 'Stage IV' || G.stage === 4) ? 4
-               : 1;
-
-  // Fix A1: award tag-based stageProgress on roll success, not recentOutcomeType string
-  // 3D — stage-based DC offset
-  var stageOffset = STAGE_DC_OFFSET[G.stage] || 0;
-  var _lastDC = G._lastDC || 10;
-  var effectiveDC = _lastDC + stageOffset;
-  var _lastTotal = G._lastRollTotal || 0;
   var rollSucceeded = (_lastTotal >= effectiveDC) && !G._lastRollWasFumble;
   if (rollSucceeded) {
     if (choice.tag === 'risky') {
@@ -452,10 +453,7 @@ function handleEnrichedChoice(choice) {
   // 3E — Crit rewards: bonus XP and stageProgress
   if (G._lastRollWasCrit || G.recentOutcomeType === 'crit') {
     if (typeof gainXp === 'function') gainXp(1, 'crit bonus');
-    var critStageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
-                     : (G.stage === 'Stage III' || G.stage === 3) ? 3
-                     : (G.stage === 'Stage IV' || G.stage === 4) ? 4 : 1;
-    G.stageProgress[critStageKey] = (G.stageProgress[critStageKey] || 0) + 1;
+    G.stageProgress[stageKey] = (G.stageProgress[stageKey] || 0) + 1; // crit bonus stacks on top of tag bonus (by design)
   }
 
   // 3C — fumble on main plot increments rival clock
@@ -499,7 +497,7 @@ window.handleChoice = function(choice) {
       // 3B — enforce 2× per day rest limit
       if (!G.restLastDay || G.restLastDay !== G.dayCount) {
         G.restCount = 0;
-        G.restLastDay = G.dayCount || 0;
+        G.restLastDay = G.dayCount != null ? G.dayCount : 0;
       }
       if ((G.restCount || 0) >= 2) {
         if (typeof addNarration === 'function') {
