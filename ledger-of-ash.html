@@ -9233,6 +9233,9 @@ const TUTORIAL_FLAGS = {
   first_npc: false,
   first_shop: false,
   first_map: false,
+  first_watchfulness: false,
+  first_pressure: false,
+  first_reverence: false,
 };
 
 function showTutorial(flag, message) {
@@ -9262,9 +9265,24 @@ function maybeShowTutorial(event) {
     first_map: '<strong>Map:</strong> In Stage I, you are restricted to your origin polity. At Level 6, Stage II opens cross-polity travel. Travel advances the axis and time of day.',
     first_combat: '<strong>Combat:</strong> You enter combat only when you choose to or are forced into it. You can always attempt to talk, flee, or find another approach before fighting.',
     first_shop: '<strong>Shopping:</strong> Each location has goods available from local sites. Gold is limited — spend it on what your archetype actually uses.',
+    first_watchfulness: 'The city\'s gaze sharpens. Watchfulness rises when your actions draw scrutiny — if it peaks, the authorities move against you.',
+    first_pressure: 'The weight of the investigation mounts. Pressure rises with reckless choices — if it peaks, your investigation fractures.',
+    first_reverence: 'A thread of fate winds tighter. Reverence rises with significant acts — at its peak, the world takes notice of your legend.',
   };
   if (msgs[event] && !G.tutorialFlags[event]) {
     showTutorial(event, msgs[event]);
+  }
+  // Auto-check world clock first-increment triggers
+  if (G.worldClocks) {
+    if ((G.worldClocks.watchfulness || 0) > 0 && !G.tutorialFlags['first_watchfulness']) {
+      showTutorial('first_watchfulness', msgs['first_watchfulness']);
+    }
+    if ((G.worldClocks.pressure || 0) > 0 && !G.tutorialFlags['first_pressure']) {
+      showTutorial('first_pressure', msgs['first_pressure']);
+    }
+    if ((G.worldClocks.reverence || 0) > 0 && !G.tutorialFlags['first_reverence']) {
+      showTutorial('first_reverence', msgs['first_reverence']);
+    }
   }
 }
 
