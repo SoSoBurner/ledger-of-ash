@@ -700,6 +700,11 @@ window.renderChoices = function(choices) {
       }]);
     }
   }
+  // Inject pending sideplot entry choices
+  if (window.G && window.G._pendingSideplots && window.G._pendingSideplots.length > 0) {
+    var pending = window.G._pendingSideplots.splice(0);
+    choices = choices.concat(pending);
+  }
   _origRenderChoices(choices);
 };
 
@@ -721,6 +726,42 @@ if (typeof _origEnterPasscode === 'function') {
     setTimeout(patchGState, 100);
   };
 }
+
+// ── SIDEPLOT TRIGGERS ────────────────────────────────────
+var SIDEPLOT_TRIGGERS = [
+  { id:'cosmoria_weight_fraud', locality:'cosmoria', clock:'pressure', threshold:3, flag:'sideplot_cosmoria_started',
+    openingText:'At the Cosmoria docks, a stevedore pulls you aside. "The harbor master has been signing off weights he hasn\'t measured. Three ships have been shorted this month alone. The guild knows and isn\'t acting." He presses a folded manifest into your hand.',
+    choiceText:'Examine the harbor weight discrepancies.' },
+  { id:'fairhaven_mill', locality:'fairhaven', clock:'isolation', threshold:3, flag:'sideplot_fairhaven_started',
+    openingText:'A woman stops you near the Fairhaven mill. Her hands are rough from work she no longer has. "They closed the old mill — said it was unsafe. Built the new one in Shelk district and hired Shelk workers. Twenty families here have nothing. No one is investigating whether the safety report was real."',
+    choiceText:'Look into the Fairhaven mill displacement.' },
+  { id:'guildheart_testimony', locality:'guildheart', clock:'watchfulness', threshold:3, flag:'sideplot_guildheart_started',
+    openingText:'A clerk at the Guildheart records office is waiting when you arrive. "There\'s a gap in the testimony archive for the eastern route inquiry. Three witnesses appeared on the registered list. None of their statements are in the file." He doesn\'t look up.',
+    choiceText:'Investigate the missing testimony in the Guildheart archive.' },
+  { id:'panim_registry', locality:'panim', clock:'pressure', threshold:3, flag:'sideplot_panim_started',
+    openingText:'At the Panim divine registry, a family is being turned away from the rites office. Their son\'s death certificate lists a cause incompatible with his known condition — and under Panim law, contested records void funeral access until resolved. Someone filed that false record deliberately.',
+    choiceText:'Help the family resolve the false death certificate.' },
+  { id:'aurora_contamination', locality:'aurora', clock:'watchfulness', threshold:3, flag:'sideplot_aurora_started',
+    openingText:'A dome technician intercepts you near the Aurora Crown monitoring station. "The contamination readings for sectors seven through nine have been logged as normal for six weeks. They\'re not normal." She hands you a printout. "Someone is changing the numbers before they reach the Warden."',
+    choiceText:'Investigate the falsified contamination readings.' }
+];
+
+window._checkSideplots = function() {
+  var G = window.G;
+  if (!G) return;
+  var loc = (G.currentLocality || G.location || '').toLowerCase();
+  SIDEPLOT_TRIGGERS.forEach(function(sp) {
+    if (G.flags && G.flags[sp.flag]) return;
+    if (loc.indexOf(sp.locality) === -1) return;
+    var clockVal = (G.worldClocks && G.worldClocks[sp.clock]) || 0;
+    if (clockVal < sp.threshold) return;
+    G.flags[sp.flag] = true;
+    if (typeof addNarration === 'function') addNarration('Investigation', sp.openingText);
+    if (!G._pendingSideplots) G._pendingSideplots = [];
+    G._pendingSideplots.push({ text: sp.choiceText, skill:'wits', tag:'risky', align:'neutral', cid:'sideplot_' + sp.id });
+  });
+};
+var _checkSideplots = window._checkSideplots;
 
 // ── TEST HARNESS EXPORTS ──────────────────────────────────
 window.handleEnrichedChoice = handleEnrichedChoice;

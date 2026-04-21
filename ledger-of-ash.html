@@ -9066,15 +9066,17 @@ function travelTo(locId) {
     return;
   }
   G.location = locId;
+  G.currentLocality = locId;
   tickAxis(Math.floor(Math.random() * 3) + 1);
   advanceTime(2);
   addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
   G.history.push('Traveled to ' + loc.name + '.');
+  if (typeof _checkSideplots === 'function') _checkSideplots();
   updateHUD(); updateEnvironmentPanel(); saveGame();
   setTimeout(() => renderChoices([
-    { text:'Find the local inn and ask what people know.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival' },
-    { text:'Walk the settlement and read it.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
-    { text:'Seek the local authority.', skill:'persuasion', tag:'bold', align:'lawful', cid:'garrison_contact' }
+    { text:'Find the local inn and ask what people know.', skill:'charm', tag:'safe', align:'neutral', cid:'inn_arrival' },
+    { text:'Walk the settlement and read it.', skill:'wits', tag:'safe', align:'neutral', cid:'market_intel' },
+    { text:'Seek the local authority.', skill:'charm', tag:'bold', align:'lawful', cid:'garrison_contact' }
   ]), 300);
 }
 
