@@ -38,6 +38,9 @@ window.rollD20 = function(skill, bonus) {
   if (window.G) {
     window.G._lastRollWasCrit = (roll === 20);
     window.G._lastRollWasFumble = (roll === 1);
+    window.G._lastRollRaw = roll;
+    window.G._lastRollSkillVal = skillVal;
+    window.G._lastRollTotal = total;
   }
   return { roll, total, isCrit: roll === 20, isFumble: roll === 1 };
 };
@@ -350,6 +353,27 @@ function handleEnrichedChoice(choice) {
     G.recentOutcomeType = 'partial';
   }
 
+  // C1 — Roll visibility: inject compact roll-summary line after fn executes
+  (function() {
+    var _roll = G._lastRollRaw || 0;
+    var _skillVal = G._lastRollSkillVal || 0;
+    var _pen = G._dcPenalty || 0;
+    var _total = G._lastRollTotal || 0;
+    var _dc = G._lastDC || 10;
+    var _outcome = (_roll === 20) ? 'Critical!'
+                 : (_roll === 1)  ? 'Fumble'
+                 : (_total >= _dc) ? 'Success'
+                 : 'Failure';
+    if (_roll > 0) {
+      var _parts = 'Rolled ' + _roll;
+      if (_skillVal > 0) _parts += ' + ' + _skillVal + ' (skill)';
+      if (_pen > 0)      _parts += ' \u2212 ' + _pen + ' (pressure)';
+      _parts += ' = ' + _total + ' vs DC ' + _dc + ' \u2014 ' + _outcome;
+      var _line = '<span class="roll-result">' + _parts + '</span>';
+      if (typeof addNarration === 'function') addNarration('', _line, 'roll');
+    }
+  })();
+
   // Promote outcome type to crit/fumble if roll warranted it
   if (G._lastRollWasCrit && G.recentOutcomeType === 'success') G.recentOutcomeType = 'crit';
   if (G._lastRollWasFumble && G.recentOutcomeType === 'complication') G.recentOutcomeType = 'fumble';
@@ -408,6 +432,17 @@ window.handleChoice = function(choice) {
   // Fix 2: "Rest and reconsider" drains world clocks before passing to original handler
   if (choice && choice.cid === 'rest_recover') {
     const G = window.G;
+    if (G) {
+      // C2 — rest costs 1 stageProgress in current stage (min 0)
+      var _restStageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
+                        : (G.stage === 'Stage III' || G.stage === 3) ? 3
+                        : (G.stage === 'Stage IV' || G.stage === 4) ? 4 : 1;
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      G.stageProgress[_restStageKey] = Math.max(0, (G.stageProgress[_restStageKey] || 0) - 1);
+      if (typeof addNarration === 'function') {
+        addNarration('', 'You pause to regroup. The investigation loses ground.', 'rest');
+      }
+    }
     if (G && G.worldClocks) {
       if (G.worldClocks.watchfulness > 0) G.worldClocks.watchfulness--;
       if (G.worldClocks.pressure > 0) G.worldClocks.pressure--;
