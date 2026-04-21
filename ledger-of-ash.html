@@ -2752,6 +2752,69 @@ const ARCHETYPE_COMBAT_ABILITIES = {
 
 };
 
+const ARCHETYPE_TRAIT_POOLS = {
+  warrior:   [
+    {id:'tw_tenacity',   name:'Tenacity',           type:'passive',      desc:'Below 30% HP, +1 to all attack rolls.', levelMin:2},
+    {id:'tw_press',      name:'Relentless Press',    type:'active',       desc:'After landing a hit, one immediate follow-up attack costs no action (1/combat).', levelMin:5},
+    {id:'tw_steel',      name:'Iron Discipline',     type:'passive',      desc:'Wound penalties apply at 4 wounds instead of 3.', levelMin:8},
+    {id:'tw_read',       name:'Combat Read',         type:'investigation',desc:'+1 Wits when assessing an enemy\'s intent or weakness.', levelMin:3},
+  ],
+  knight:    [
+    {id:'tk_oath',       name:'Sworn Oath',          type:'passive',      desc:'+2 to all rolls when defending someone you aided this scene.', levelMin:2},
+    {id:'tk_presence',   name:'Noble Presence',      type:'active',       desc:'Social check to halt aggression before it escalates.', levelMin:4},
+    {id:'tk_endure',     name:'Endurance',           type:'passive',      desc:'Recover +1 HP at the start of each combat round.', levelMin:6},
+    {id:'tk_code',       name:'Code of Honor',       type:'investigation',desc:'+1 Charm when dealing with institutional or noble figures.', levelMin:3},
+  ],
+  ranger:    [
+    {id:'tr_track',      name:'Tracker',             type:'passive',      desc:'+1 Finesse when following a trail or predicting movement.', levelMin:2},
+    {id:'tr_distance',   name:'Distance Mastery',    type:'passive',      desc:'+1 attack at Medium and Long range.', levelMin:4},
+    {id:'tr_wild',       name:'Wilderness Lore',     type:'investigation',desc:'+1 Wits when reading natural or rural environments.', levelMin:3},
+    {id:'tr_patience',   name:'Patient Hunter',      type:'active',       desc:'Skip your action: next attack gains +3 and costs no action.', levelMin:6},
+  ],
+  rogue:     [
+    {id:'tro_shadow',    name:'Shadow Step',         type:'passive',      desc:'Move between cover positions without triggering detection.', levelMin:2},
+    {id:'tro_exit',      name:'Quick Exit',          type:'active',       desc:'Disengage without rolling if you are currently undetected.', levelMin:4},
+    {id:'tro_read',      name:'Read the Room',       type:'investigation',desc:'+1 Wits when assessing social dynamics or threat level.', levelMin:3},
+    {id:'tro_opportunist',name:'Opportunist',        type:'passive',      desc:'+2 attack when a distraction was created this round.', levelMin:6},
+  ],
+  assassin:  [
+    {id:'ta_mark',       name:'Marked Target',       type:'passive',      desc:'+1 to all rolls against a target you\'ve observed for one full round.', levelMin:2},
+    {id:'ta_vanish',     name:'Vanish',              type:'active',       desc:'After any kill, become hidden without a roll.', levelMin:5},
+    {id:'ta_cold',       name:'Cold Approach',       type:'investigation',desc:'+1 Finesse when entering a hostile area undetected.', levelMin:3},
+    {id:'ta_precision',  name:'Precision',           type:'passive',      desc:'Critical threshold reduced by 1 (crits on 19–20).', levelMin:7},
+  ],
+  wizard:    [
+    {id:'twz_focus',     name:'Arcane Focus',        type:'passive',      desc:'+1 Wits on all knowledge and arcane checks.', levelMin:2},
+    {id:'twz_pattern',   name:'Pattern Memory',      type:'investigation',desc:'+1 when recognizing recurring patterns, codes, or behavioral signatures.', levelMin:3},
+    {id:'twz_overdrive', name:'Arcane Overdrive',    type:'active',       desc:'Force a re-roll on any failed Wits check (1/scene).', levelMin:6},
+    {id:'twz_depth',     name:'Deep Lore',           type:'passive',      desc:'Access esoteric knowledge without a library or DC check.', levelMin:4},
+  ],
+  inquisitor:[
+    {id:'ti_pressure',   name:'Applied Pressure',    type:'active',       desc:'Spend an action to impose -2 on target\'s next check.', levelMin:2},
+    {id:'ti_truth',      name:'Truth Sense',         type:'passive',      desc:'+1 Wits when detecting deception or omission.', levelMin:3},
+    {id:'ti_authority',  name:'Institutional Weight',type:'investigation',desc:'+1 Charm when invoking legal or organizational authority.', levelMin:4},
+    {id:'ti_relentless', name:'Relentless Inquiry',  type:'passive',      desc:'Failed social checks shift the scene rather than ending it.', levelMin:6},
+  ],
+  bard:      [
+    {id:'tb_eye',        name:'Performer\'s Eye',    type:'investigation',desc:'+1 Charm when reading an audience or adapting a narrative.', levelMin:2},
+    {id:'tb_distract',   name:'Social Distraction',  type:'active',       desc:'Draw attention — allies gain +1 Finesse for one check this scene.', levelMin:3},
+    {id:'tb_inspire',    name:'Inspire',             type:'active',       desc:'One companion gains +2 on their next check this scene.', levelMin:5},
+    {id:'tb_memory',     name:'Perfect Memory',      type:'passive',      desc:'+1 Wits when recalling names, faces, or prior conversations.', levelMin:4},
+  ],
+  healer:    [
+    {id:'th_triage',     name:'Field Triage',        type:'passive',      desc:'Stabilize a dying ally as a free action (1/combat).', levelMin:2},
+    {id:'th_mend',       name:'Rapid Mend',          type:'active',       desc:'Restore 1d6+2 HP to self or ally outside combat (1/scene).', levelMin:4},
+    {id:'th_calm',       name:'Calming Presence',    type:'investigation',desc:'+1 Charm when de-escalating fear, grief, or panic.', levelMin:3},
+    {id:'th_resilience', name:'Resilience',          type:'passive',      desc:'Wound penalties apply at 4 wounds instead of 3.', levelMin:6},
+  ],
+  _default:  [
+    {id:'td_instincts',  name:'Sharp Instincts',     type:'passive',      desc:'+1 to the first roll made in any new scene.', levelMin:2},
+    {id:'td_adapt',      name:'Adaptability',        type:'active',       desc:'Re-roll one failed check per scene.', levelMin:4},
+    {id:'td_contacts',   name:'Contacts',            type:'investigation',desc:'+1 Charm when seeking information through personal networks.', levelMin:3},
+    {id:'td_resolve',    name:'Inner Resolve',       type:'passive',      desc:'Once per session, treat a failure as a minimal success (no crit effects).', levelMin:7},
+  ],
+};
+
 // ── COMBAT STATE ─────────────────────────────────────────
 let CS = null; // active combat session
 
@@ -8476,8 +8539,14 @@ function gainXP(n) {
 }
 
 function checkLevelUp() {
+  if (G.level >= 20) {
+    G.masteryXP = (G.masteryXP || 0) + (G.xp || 0);
+    G.xp = 0;
+    if (typeof updateHUD === 'function') updateHUD();
+    return;
+  }
   const needed = G.level * 60;
-  if (G.xp >= needed && G.level < 20 && !_awaitingLevelUp) {
+  if (G.xp >= needed && !_awaitingLevelUp) {
     _awaitingLevelUp = true;
     G.xp -= needed;
     G.level++;
@@ -8706,137 +8775,108 @@ function driftNomdara() {
 
 function showLevelUpScreen() {
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
-  const archId = G.archetype ? G.archetype.id : 'warrior';
-  const tree = (typeof ARCHETYPE_ABILITY_TREES !== 'undefined' && ARCHETYPE_ABILITY_TREES[archId]) || [];
-  const combatAbs = (typeof ARCHETYPE_COMBAT_ABILITIES !== 'undefined' && ARCHETYPE_COMBAT_ABILITIES[archId]) || [];
 
-  // Build 5 options: mix of skills and archetype abilities
-  const allOptions = [];
-
-  // Skills (always available if not maxed)
-  ['combat','survival','persuasion','lore','stealth','craft'].forEach(sk => {
-    const cur = G.skills[sk] || 0;
-    if (cur < 5) {
-      allOptions.push({
-        kind:'skill', sk,
-        label: sk.charAt(0).toUpperCase() + sk.slice(1) + ' +1',
-        detail: 'Improve ' + sk + ' from ' + cur + ' to ' + (cur+1) + '/5',
-        locked: false,
-        tag: 'skill'
-      });
-    }
-  });
-
-  // Archetype passive/active abilities unlocked at this level
-  const unlockedAbils = tree.filter(ab => {
-    const levelOk = ab.unlockLevel <= G.level;
-    const skillOk = (G.skills[ab.skillReq.skill] || 0) >= ab.skillReq.min;
-    const notOwned = !(G.unlockedAbilities || []).includes(ab.id);
-    return levelOk && skillOk && notOwned;
-  });
-
-  unlockedAbils.forEach(ab => {
-    allOptions.push({
-      kind: 'ability', ab,
-      label: ab.name + (ab.type === 'passive' ? ' (Passive)' : ' (Active)'),
-      detail: ab.gameEffect,
-      locked: false,
-      tag: ab.type
-    });
-  });
-
-  // Combat abilities
-  const unlockedCombat = combatAbs.filter(ab => {
-    const skillOk = (G.skills[ab.skillReq] || 0) >= ab.minSkill;
-    const notOwned = !(G.unlockedCombatAbilities || []).includes(ab.id);
-    return skillOk && notOwned;
-  });
-  unlockedCombat.forEach(ab => {
-    allOptions.push({
-      kind: 'combat_ability', ab,
-      label: ab.name + ' (Combat)',
-      detail: ab.effect + (ab.cost ? ' [' + ab.cost + ']' : ''),
-      locked: false,
-      tag: 'combat'
-    });
-  });
-
-  // Show up to 5 options, prioritizing abilities over basic skills if available
-  const prioritized = [
-    ...allOptions.filter(o => o.kind !== 'skill'),  // abilities first
-    ...allOptions.filter(o => o.kind === 'skill'),  // skills after
-  ].slice(0, 5);
-
-  // If fewer than 2 options (very late game), show all skills
-  if (prioritized.length < 2) {
-    ['combat','survival','persuasion','lore','stealth','craft'].forEach(sk => {
-      const cur = G.skills[sk] || 0;
-      if (cur < 5 && !prioritized.find(o => o.kind==='skill' && o.sk===sk)) {
-        prioritized.push({ kind:'skill', sk, label:sk+' +1', detail:cur+'/5 → '+(cur+1)+'/5', locked:false, tag:'skill' });
-      }
-    });
-  }
-
-  const title = prioritized.length === 0 ?
-    'Your skills and abilities are at their peak for your current level.' :
-    'Choose one advancement:';
+  const STAT_DISPLAY = [
+    { key:'combat',     name:'Might',   hint:'Physical power and weapon skill' },
+    { key:'stealth',    name:'Finesse', hint:'Agility, precision, subtlety' },
+    { key:'survival',   name:'Vigor',   hint:'Endurance and resilience' },
+    { key:'lore',       name:'Wits',    hint:'Intelligence, perception, memory' },
+    { key:'persuasion', name:'Charm',   hint:'Influence, presence, diplomacy' },
+    { key:'craft',      name:'Spirit',  hint:'Willpower, faith, inner force' },
+  ];
 
   addNarration('', '<em class="level-up-msg">&#x2014; LEVEL ' + G.level + ' REACHED &#x2014;</em><br><span style="color:var(--gold-dim);font-size:13px">' + getRenownedTitle() + ' &middot; ' + (G.stageLabel||G.stage) + '</span>');
 
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
-  const block = document.createElement('div');
-  block.className = 'scene-block levelup-block';
 
-  let html = '<div class="lu-title">' + title + '</div>';
-
-  if (prioritized.length === 0) {
-    html += '<button class="btn btn-ghost btn-sm" id="btn-lu-close" style="margin-top:12px">Continue</button>';
-  } else {
-    html += '<div class="lu-options">';
-    prioritized.forEach((opt, i) => {
-      const tagClass = opt.tag === 'passive' ? 'jade' : opt.tag === 'active' ? 'gold' : opt.tag === 'combat' ? 'blood' : 'neutral';
-      html += '<button class="lu-option-btn" data-lu-idx="' + i + '">' +
-        '<div class="lu-opt-label">' + opt.label + '</div>' +
-        '<div class="lu-opt-detail">' + opt.detail + '</div>' +
-        '<div class="lu-opt-tag lu-tag-' + tagClass + '">' + opt.tag + '</div>' +
+  function renderStatStep() {
+    const block = document.createElement('div');
+    block.className = 'scene-block levelup-block';
+    let html = '<div class="lu-title">Choose a stat to improve:</div><div class="lu-options lu-stat-grid">';
+    STAT_DISPLAY.forEach(stat => {
+      const cur = G.skills[stat.key] || 0;
+      const maxed = cur >= 5;
+      html += '<button class="lu-option-btn' + (maxed ? ' lu-maxed' : '') + '" data-lu-stat="' + stat.key + '"' + (maxed ? ' disabled' : '') + '>' +
+        '<div class="lu-opt-label">' + stat.name + (maxed ? ' <span style="opacity:.5">(max)</span>' : '') + '</div>' +
+        '<div class="lu-opt-detail">' + stat.hint + '</div>' +
+        '<div class="lu-opt-tag lu-tag-neutral">' + cur + ' / 5</div>' +
         '</button>';
     });
-    html += '</div>';
-    html += '<div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">SELECT ONE ADVANCEMENT</div>';
-  }
-
-  block.innerHTML = html;
-  el.appendChild(block);
-
-  if (prioritized.length === 0) {
-    block.querySelector('#btn-lu-close').addEventListener('click', () => {
-      block.remove(); _awaitingLevelUp = false;
-      saveGame(); updateHUD();
-      renderChoices([{text:'Continue.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]);
-    });
-  } else {
-    block.querySelectorAll('.lu-option-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const idx = parseInt(btn.dataset.luIdx, 10);
-        const opt = prioritized[idx];
-        applyLevelUpChoice(opt);
+    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP 1 OF 2 \u2014 STAT POINT</div>';
+    block.innerHTML = html;
+    el.appendChild(block);
+    scrollNarrative();
+    block.querySelectorAll('.lu-option-btn:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const sk = this.dataset.luStat;
+        G.skills[sk] = Math.min(5, (G.skills[sk] || 0) + 1);
         block.remove();
-        _awaitingLevelUp = false;
-        saveGame(); updateHUD();
-        const desc = opt.kind === 'skill' ? opt.sk + ' improved to ' + G.skills[opt.sk] + '/5.' :
-                     opt.kind === 'ability' ? 'Learned: ' + opt.ab.name + '. ' + opt.ab.gameEffect :
-                     'Learned combat ability: ' + opt.ab.name + '.';
-        addNarration('Level ' + G.level, desc, 'success');
-        addJournal('Level ' + G.level + ': ' + desc);
-        G.history.push('Level ' + G.level + ' — ' + desc);
-        renderChoices([
-          {text:'Continue the investigation.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'},
-          {text:'Apply your new capabilities.',skill:opt.kind==='skill'?opt.sk:'combat',tag:'safe',align:'neutral',cid:'market_intel'}
-        ]);
+        renderTraitStep(sk);
       });
     });
   }
-  scrollNarrative();
+
+  function renderTraitStep(chosenStat) {
+    const archId = G.archetype ? G.archetype.id : '_default';
+    const pool = (ARCHETYPE_TRAIT_POOLS[archId] || ARCHETYPE_TRAIT_POOLS._default)
+      .filter(t => t.levelMin <= G.level && !(G.unlockedTraits || []).includes(t.id));
+    const options = pool.length > 0 ? pool.slice(0, 4)
+      : ARCHETYPE_TRAIT_POOLS._default.filter(t => !(G.unlockedTraits||[]).includes(t.id)).slice(0, 4);
+
+    const block = document.createElement('div');
+    block.className = 'scene-block levelup-block';
+
+    if (options.length === 0) {
+      block.innerHTML = '<div class="lu-title">Your abilities are at their peak.</div>' +
+        '<button class="btn btn-ghost btn-sm" id="btn-lu-done" style="margin-top:12px">Continue</button>';
+      el.appendChild(block);
+      scrollNarrative();
+      block.querySelector('#btn-lu-done').addEventListener('click', function() {
+        block.remove(); _finalizeLevelUp(chosenStat, null);
+      });
+      return;
+    }
+
+    let html = '<div class="lu-title">Choose a trait:</div><div class="lu-options">';
+    options.forEach((trait, i) => {
+      const tagClass = trait.type === 'passive' ? 'jade' : trait.type === 'active' ? 'gold' : 'neutral';
+      html += '<button class="lu-option-btn" data-lu-trait="' + i + '">' +
+        '<div class="lu-opt-label">' + trait.name + '</div>' +
+        '<div class="lu-opt-detail">' + trait.desc + '</div>' +
+        '<div class="lu-opt-tag lu-tag-' + tagClass + '">' + trait.type + '</div>' +
+        '</button>';
+    });
+    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP 2 OF 2 \u2014 TRAIT</div>';
+    block.innerHTML = html;
+    el.appendChild(block);
+    scrollNarrative();
+    block.querySelectorAll('.lu-option-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const trait = options[parseInt(this.dataset.luTrait, 10)];
+        if (!G.unlockedTraits) G.unlockedTraits = [];
+        G.unlockedTraits.push(trait.id);
+        block.remove();
+        _finalizeLevelUp(chosenStat, trait);
+      });
+    });
+  }
+
+  renderStatStep();
+}
+
+function _finalizeLevelUp(statKey, trait) {
+  _awaitingLevelUp = false;
+  saveGame(); updateHUD();
+  const STAT_NAMES = {combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit'};
+  let desc = (STAT_NAMES[statKey] || statKey) + ' improved to ' + (G.skills[statKey] || 0) + '/5.';
+  if (trait) desc += ' Trait gained: ' + trait.name + '.';
+  addNarration('Level ' + G.level, desc, 'success');
+  addJournal('Level ' + G.level + ': ' + desc);
+  G.history.push('Level ' + G.level + ' \u2014 ' + desc);
+  renderChoices([
+    {text:'Continue the investigation.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'},
+    {text:'Apply your new capabilities.', skill:statKey, tag:'safe', align:'neutral', cid:'market_intel'}
+  ]);
 }
 
 function applyLevelUpChoice(opt) {
@@ -8845,7 +8885,6 @@ function applyLevelUpChoice(opt) {
   } else if (opt.kind === 'ability') {
     if (!G.unlockedAbilities) G.unlockedAbilities = [];
     G.unlockedAbilities.push(opt.ab.id);
-    // Apply passive effects immediately
     applyPassiveAbility(opt.ab);
   } else if (opt.kind === 'combat_ability') {
     if (!G.unlockedCombatAbilities) G.unlockedCombatAbilities = [];
