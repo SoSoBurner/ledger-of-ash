@@ -13,6 +13,12 @@ window.gainXp = function(n, _reason) {
   if (typeof gainXP === 'function') gainXP(n);
 };
 
+if (typeof window.advanceTime !== 'function') {
+  window.advanceTime = function(days) {
+    if (window.G && typeof window.G.dayCount !== 'undefined') window.G.dayCount += (days || 1);
+  };
+}
+
 // Canonical skill map — all non-standard skill names normalized to valid game skills
 const SKILL_NORM = {
   investigation: 'lore', perception: 'survival', deception: 'stealth',
@@ -27,7 +33,12 @@ window.rollD20 = function(skill, bonus) {
   const normSkill = SKILL_NORM[skill] || skill;
   const roll = Math.floor(Math.random() * 20) + 1;
   const skillVal = (window.G && window.G.skills && window.G.skills[normSkill]) ? window.G.skills[normSkill] : 0;
-  const total = roll + skillVal + (bonus || 0);
+  const penalty = (window.G && window.G._dcPenalty) ? window.G._dcPenalty : 0;
+  const total = roll + skillVal + (bonus || 0) - penalty;
+  if (window.G) {
+    window.G._lastRollWasCrit = (roll === 20);
+    window.G._lastRollWasFumble = (roll === 1);
+  }
   return { roll, total, isCrit: roll === 20, isFumble: roll === 1 };
 };
 
@@ -238,11 +249,20 @@ function sampleEnrichedChoices(locId, n, stage) {
   });
 }
 
+var _TAG_SKILL = { Combat: 'combat', Magic: 'lore', Stealth: 'stealth', Support: 'persuasion', Bard: 'persuasion' };
+
+var _TAG_RISK = {
+  Combat: 'bold', Confrontation: 'bold', Infiltration: 'bold', Ritual: 'bold', Assassination: 'bold',
+  Social: 'safe', Rest: 'safe', Trade: 'safe', Observation: 'safe', Research: 'safe'
+};
+
 function toEnrichedChoice(c) {
+  var tagSkill = c.tags && c.tags.reduce(function(found, t) { return found || _TAG_SKILL[t] || null; }, null);
+  var riskTag = c.tags && c.tags.reduce(function(found, t) { return found || _TAG_RISK[t] || null; }, null);
   return {
     text: c.label || c.text || 'A critical moment demands attention.',
-    skill: SKILL_NORM[c.skill] || c.skill || 'persuasion',
-    tag: c.tag || 'risky',
+    skill: SKILL_NORM[c.skill] || c.skill || tagSkill || 'persuasion',
+    tag: c.tag || riskTag || 'risky',
     align: c.align || 'neutral',
     cid: '__enriched__',
     __enrichedFn: c.fn
@@ -252,6 +272,10 @@ function toEnrichedChoice(c) {
 function getActiveMidspineChoices() {
   const G = window.G;
   if (!G) return [];
+  // Normalize string archetype so condition() checks like G.archetype.group work
+  if (G.archetype && typeof G.archetype === 'string') {
+    G.archetype = { id: G.archetype, group: G.archetype };
+  }
   const active = [];
 
   // Non-bard midspines: use built-in condition()
@@ -277,11 +301,44 @@ function getActiveMidspineChoices() {
   return active;
 }
 
+// ── WORLD CLOCK THRESHOLD OBSERVER ───────────────────────
+
+const CLOCK_THRESHOLDS = [
+  { clock: 'watchfulness', at: 3, flag: 'clock_watch_3',
+    notice: 'You sense you\'re being watched. The Warden Order has opened a parallel file on your investigation.' },
+  { clock: 'watchfulness', at: 5, flag: 'clock_watch_5', dcPenalty: 2,
+    notice: 'Agents are actively tracking your movements. All skill checks are harder until you reduce exposure.' },
+  { clock: 'pressure',     at: 4, flag: 'clock_pressure_4',
+    notice: 'The investigation is drawing dangerous attention. Something will have to give.' },
+  { clock: 'pressure',     at: 7, flag: 'clock_pressure_7', dcPenalty: 1,
+    notice: 'You are running out of room. Faction pressure is affecting everything you attempt.' },
+  { clock: 'reverence',    at: 3, flag: 'clock_reverence_3',
+    notice: 'Your reputation opens doors. Allied factions are watching your progress with interest.' },
+];
+
+function checkClockThresholds() {
+  const G = window.G;
+  if (!G || !G.worldClocks) return;
+  if (!G.flags) G.flags = {};
+  var newPenalty = 0;
+  CLOCK_THRESHOLDS.forEach(function(t) {
+    var val = G.worldClocks[t.clock] || 0;
+    if (val >= t.at) {
+      if (!G.flags[t.flag]) {
+        G.flags[t.flag] = true;
+        if (typeof addWorldNotice === 'function') addWorldNotice(t.notice);
+      }
+      if (t.dcPenalty) newPenalty += t.dcPenalty;
+    }
+  });
+  G._dcPenalty = newPenalty;
+}
+
 // ── ENRICHED CHOICE HANDLER ───────────────────────────────
 
 function handleEnrichedChoice(choice) {
-  const G = window.G;
   patchGState();
+  const G = window.G; if (!G) return;
   G.lastResult = '';
   G.recentOutcomeType = '';
 
@@ -291,6 +348,33 @@ function handleEnrichedChoice(choice) {
     console.warn('[enriched bridge] fn error:', e);
     G.lastResult = 'The situation develops. Observe and proceed.';
     G.recentOutcomeType = 'partial';
+  }
+
+  // Promote outcome type to crit/fumble if roll warranted it
+  if (G._lastRollWasCrit && G.recentOutcomeType === 'success') G.recentOutcomeType = 'crit';
+  if (G._lastRollWasFumble && G.recentOutcomeType === 'complication') G.recentOutcomeType = 'fumble';
+
+  checkClockThresholds();
+
+  // Fix A3: stage-aware stageProgress key
+  var stageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
+               : (G.stage === 'Stage III' || G.stage === 3) ? 3
+               : (G.stage === 'Stage IV' || G.stage === 4) ? 4
+               : 1;
+
+  // Fix A1: award tag-based stageProgress on roll success, not recentOutcomeType string
+  var _lastDC = G._lastDC || 10;
+  var _lastTotal = G._lastRollTotal || 0;
+  var rollSucceeded = (_lastTotal >= _lastDC) && !G._lastRollWasFumble;
+  if (rollSucceeded) {
+    if (choice.tag === 'risky') {
+      G.stageProgress[stageKey] = (G.stageProgress[stageKey] || 0) + 1;
+      G.flags['risky_discovery_' + G.dayCount] = true;
+    } else if (choice.tag === 'bold') {
+      G.stageProgress[stageKey] = (G.stageProgress[stageKey] || 0) + 2;
+      G.flags['bold_discovery_' + G.dayCount] = true;
+      G.worldClocks.reverence = (G.worldClocks.reverence || 0) + 1;
+    }
   }
 
   const resultText = G.lastResult || 'The action proceeds without clear resolution.';
@@ -321,6 +405,34 @@ function buildNextChoiceSet(locId, stage) {
 
 const _origHandleChoice = window.handleChoice;
 window.handleChoice = function(choice) {
+  // Fix 2: "Rest and reconsider" drains world clocks before passing to original handler
+  if (choice && choice.cid === 'rest_recover') {
+    const G = window.G;
+    if (G && G.worldClocks) {
+      if (G.worldClocks.watchfulness > 0) G.worldClocks.watchfulness--;
+      if (G.worldClocks.pressure > 0) G.worldClocks.pressure--;
+      if (typeof addWorldNotice === 'function' && (G.worldClocks.watchfulness <= 2)) {
+        addWorldNotice('You kept a low profile. The scrutiny has eased slightly.');
+      }
+    }
+    if (typeof checkClockThresholds === 'function') checkClockThresholds();
+    // fall through to original handler
+  }
+  if (choice && choice.cid === 'market_intel') {
+    const G = window.G;
+    if (G) {
+      if (!G.stageProgress) G.stageProgress = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      var _miStageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
+                      : (G.stage === 'Stage III' || G.stage === 3) ? 3
+                      : (G.stage === 'Stage IV' || G.stage === 4) ? 4
+                      : 1;
+      G.stageProgress[_miStageKey] = (G.stageProgress[_miStageKey] || 0) + 1;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      if (typeof checkClockThresholds === 'function') checkClockThresholds();
+    }
+    // fall through to original handler
+  }
   if (choice && typeof choice.__enrichedFn === 'function') {
     document.querySelectorAll('.choice-block,.move-block').forEach(function(b) { b.remove(); });
     if (typeof addNarration === 'function') {
