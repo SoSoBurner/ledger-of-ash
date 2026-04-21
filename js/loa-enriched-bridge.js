@@ -38,7 +38,7 @@ window.rollD20 = function(skill, bonus) {
   const normSkill = SKILL_NORM[skill] || skill;
   const roll = Math.floor(Math.random() * 20) + 1;
   const skillVal = (window.G && window.G.skills && window.G.skills[normSkill]) ? window.G.skills[normSkill] : 0;
-  const penalty = (window.G && window.G._dcPenalty) ? window.G._dcPenalty : 0;
+  const penalty = ((window.G && window.G._dcPenalty) || 0) + ((window.G && window.G._alignmentDCPenalty) || 0);
   const total = roll + skillVal + (bonus || 0) - penalty;
   if (window.G) {
     window.G._lastRollWasCrit = (roll === 20);

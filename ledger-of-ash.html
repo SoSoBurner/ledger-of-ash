@@ -2035,11 +2035,11 @@ function checkCompanionLeave() {
     if (!def) return;
     def.leaveConditions.forEach(condition => {
       let shouldLeave = false;
-      if (condition === 'morality < -40' && (G.morality||0) < -40) shouldLeave = true;
-      if (condition === 'morality < -30' && (G.morality||0) < -30) shouldLeave = true;
-      if (condition === 'morality < -20' && (G.morality||0) < -20) shouldLeave = true;
-      if (condition === 'order < -50' && (G.order||0) < -50) shouldLeave = true;
-      if (condition === 'order > 70 and morality < -10' && (G.order||0) > 70 && (G.morality||0) < -10) shouldLeave = true;
+      if (condition === 'morality < -40' && (G.benevolence||0) < -35) shouldLeave = true;
+      if (condition === 'morality < -30' && (G.benevolence||0) < -30) shouldLeave = true;
+      if (condition === 'morality < -20' && (G.benevolence||0) < -10) shouldLeave = true;
+      if (condition === 'order < -50' && (G.orderAxis||0) < -45) shouldLeave = true;
+      if (condition === 'order > 70 and morality < -10' && (G.orderAxis||0) > 45 && (G.benevolence||0) < -10) shouldLeave = true;
       if (shouldLeave) {
         comp.status = 'left';
         addNarration(comp.name, def.leaveScene);
@@ -7143,7 +7143,7 @@ let G = {
   traits:[], location:'shelkopolis',
   timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
   stage:'Stage I', stageLabel:'Grass Roots',
-  morality:0, order:0,
+  benevolence:0, orderAxis:0, localityHeat:{},
   factions:[], quests:[], journal:[], journalRecords:[], history:[],
   inventory:[], equipped:{weapon:null, armor:null, tool:null},
   wounds:[], fatigue:0, recoveryState:'stable',
@@ -7310,7 +7310,7 @@ function initCreate() {
   G = { name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
         skills:{combat:0,survival:0,persuasion:0,lore:0,stealth:0,craft:0},
         traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
-        stage:'Stage I', stageLabel:'Grass Roots', morality:0, order:0,
+        stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{},
         factions:[], quests:[], journal:[], journalRecords:[], history:[],
         inventory:[], equipped:{weapon:null,armor:null,tool:null},
         wounds:[], fatigue:0, recoveryState:'stable',
@@ -8163,8 +8163,8 @@ function applyEffect(fx) {
     case 'heal':      G.hp = Math.min(G.maxHp, G.hp + Math.floor(G.maxHp * (fx.pct || 0.2))); updateHUD(); break;
     case 'tick':      tickAxis(fx.n || 1); break;
     case 'renown':    G.renown = Math.max(0, (G.renown||0) + fx.n); updateHUD(); break;
-    case 'morality':  shiftAlignment(fx.n, 0); break;
-    case 'order':     shiftAlignment(0, fx.n); break;
+    case 'morality': case 'benevolence': shiftAlignment(fx.n, 0); break;
+    case 'order': case 'orderAxis':     shiftAlignment(0, fx.n); break;
     case 'combat':    if (typeof triggerCombatEncounter === 'function') triggerCombatEncounter(fx.enemy, fx.context||{}); break;
     case 'npcmem':    updateNPCMemory(fx.npc, fx.change); break;
     case 'additem':   addToInventory(fx.item); break;
@@ -8583,18 +8583,127 @@ function checkStage2Unlock() {
 }
 
 // ── ALIGNMENT ────────────────────────────────────────────
-function shiftAlignment(morChange, ordChange) {
-  G.morality = Math.max(-100, Math.min(100, (G.morality||0) + morChange));
-  G.order    = Math.max(-100, Math.min(100, (G.order||0) + ordChange));
+// Axes: benevolence (+50=Benevolent, -50=Cruel), orderAxis (+50=Order, -50=Anarchy)
+function shiftAlignment(benChange, ordChange) {
+  G.benevolence = Math.max(-50, Math.min(50, (G.benevolence||0) + benChange));
+  G.orderAxis   = Math.max(-50, Math.min(50, (G.orderAxis||0) + ordChange));
+  _applyAlignmentDCModifier();
   updateAlignmentHUD();
 }
 
+function _applyAlignmentDCModifier() {
+  // DC +1 penalty at moral extremes (≤−30 on either axis)
+  const b = G.benevolence||0, o = G.orderAxis||0;
+  let penalty = 0;
+  if (b <= -30) penalty++;  // very cruel: social rolls harder
+  if (o <= -30) penalty++;  // very anarchic: institutional rolls harder
+  if (b >= 30 && o >= 30) penalty = Math.max(0, penalty - 1); // order+benevolence: slight DC relief
+  G._alignmentDCPenalty = penalty;
+}
+
 function getAlignmentLabel() {
-  const m = G.morality||0, o = G.order||0;
-  const mor = m>30?'Good':m<-30?'Evil':'Neutral';
-  const ord = o>30?'Lawful':o<-30?'Chaotic':'Neutral';
-  if (mor==='Neutral' && ord==='Neutral') return 'True Neutral';
-  return ord + ' ' + mor;
+  const b = G.benevolence||0, o = G.orderAxis||0;
+  const ben = b > 15 ? 'Benevolent' : b < -15 ? 'Cruel' : 'Neutral';
+  const ord = o > 15 ? 'Order' : o < -15 ? 'Anarchy' : 'Neutral';
+  if (ben === 'Neutral' && ord === 'Neutral') return 'Unaligned';
+  if (ben === 'Neutral') return ord;
+  if (ord === 'Neutral') return ben;
+  return ben + ' / ' + ord;
+}
+
+// ── LOCALITY HEAT ─────────────────────────────────────────
+// Tiers per locality: clean (0), watched (1), hot (2)
+// Stored in G.localityHeat[localityId] as numeric value (-30 to +30)
+// Positive = enforcement attention, negative = institutional support
+function updateLocalityHeat(locId, delta) {
+  if (!G.localityHeat) G.localityHeat = {};
+  locId = locId || G.location || 'shelkopolis';
+  G.localityHeat[locId] = Math.max(-30, Math.min(30, (G.localityHeat[locId]||0) + delta));
+}
+
+function getLocalityHeatTier(locId) {
+  if (!G.localityHeat) return 'clean';
+  locId = locId || G.location || 'shelkopolis';
+  const v = G.localityHeat[locId] || 0;
+  if (v >= 15) return 'hot';
+  if (v >= 6) return 'watched';
+  return 'clean';
+}
+
+function decayLocalityHeat() {
+  // Called on travel — heat decays toward 0 when player leaves
+  if (!G.localityHeat) return;
+  Object.keys(G.localityHeat).forEach(id => {
+    if (id !== G.location) {
+      const v = G.localityHeat[id];
+      if (v > 0) G.localityHeat[id] = Math.max(0, v - 2);
+      if (v < 0) G.localityHeat[id] = Math.min(0, v + 2);
+    }
+  });
+}
+
+function checkEnforcementEncounter() {
+  const tier = getLocalityHeatTier(G.location);
+  const b = G.benevolence||0, o = G.orderAxis||0;
+  // Law enforcement activates when: Hot tier OR Cruel+Anarchy both ≤ -25
+  const cruelAnarchy = b <= -25 && o <= -25;
+  if (tier !== 'hot' && !cruelAnarchy) return false;
+  if (G.flags && G.flags['enforcement_' + G.location + '_' + (G.dayCount||0)]) return false;
+  if (G.flags) G.flags['enforcement_' + G.location + '_' + (G.dayCount||0)] = true;
+  return true;
+}
+
+function showEnforcementEncounter() {
+  const tier = getLocalityHeatTier(G.location);
+  const el = document.getElementById('action-content') || document.getElementById('narrative-content');
+  if (!el) return;
+  const block = document.createElement('div');
+  block.className = 'scene-block choice-block enforcement-block';
+  const intro = tier === 'hot'
+    ? 'Guardsfolk step into your path as you move through the settlement. Their hands are not on weapons — yet. "A word," the lead officer says. This is not a request.'
+    : 'Two officials in Principality colors have been watching you. They move to intercept. Word travels fast in this city.';
+  block.innerHTML = '<div class="choice-label" style="color:var(--blood-bright)">\u26A0 Enforcement Attention</div>' +
+    '<p style="margin:0.5rem 0;font-style:italic">' + intro + '</p>' +
+    '<div class="choices">' +
+    '<button class="choice-btn" data-enf="submit"><span class="choice-text">Submit — cooperate and face the consequences</span><span class="choice-meta"><span class="choice-tag safe">submit</span></span></button>' +
+    '<button class="choice-btn" data-enf="fight"><span class="choice-text">Refuse — this escalates to combat</span><span class="choice-meta"><span class="choice-tag bold">fight</span></span></button>' +
+    '<button class="choice-btn" data-enf="stealth"><span class="choice-text">Slip away — use the crowd to disappear</span><span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag risky">stealth</span></span></button>' +
+    '</div>';
+  el.appendChild(block);
+  block.querySelectorAll('[data-enf]').forEach(btn => {
+    btn.addEventListener('click', () => { block.remove(); resolveEnforcementChoice(btn.dataset.enf); });
+  });
+  if (typeof scrollNarrative === 'function') scrollNarrative();
+}
+
+function resolveEnforcementChoice(choice) {
+  const tier = getLocalityHeatTier(G.location);
+  if (choice === 'submit') {
+    const days = tier === 'hot' ? Math.floor(Math.random()*20)+5 : Math.floor(Math.random()*5)+1;
+    G.dayCount = (G.dayCount||0) + days;
+    G.worldClocks = G.worldClocks || {};
+    G.worldClocks.rival = (G.worldClocks.rival||0) + Math.ceil(days/3);
+    updateLocalityHeat(G.location, -10);
+    addNarration('', 'You submit without incident. ' + days + ' days pass in custody — fined, cautioned, and released. The rival has not been idle. ' + (days >= 10 ? 'A warrant note remains on file.' : ''), 'complication');
+    if (typeof updateHUD === 'function') updateHUD();
+  } else if (choice === 'fight') {
+    if (typeof startCombat === 'function') startCombat('patrol_guard', { enforcement: true });
+    else addNarration('', 'The confrontation turns violent. The street clears around you.', 'combat');
+    updateLocalityHeat(G.location, 8);
+    shiftAlignment(-3, -2);
+  } else {
+    const roll = Math.floor(Math.random()*20)+1 + (G.skills.finesse||0);
+    const dc = tier === 'hot' ? 14 : 10;
+    if (roll >= dc) {
+      updateLocalityHeat(G.location, 2);
+      addNarration('', 'You read the crowd, slip between market stalls, and lose them three blocks east. Your face will be remembered.', 'success');
+    } else {
+      updateLocalityHeat(G.location, 5);
+      addNarration('', 'They catch up at the alley mouth. You have run out of options.', 'complication');
+      setTimeout(() => { if (typeof startCombat === 'function') startCombat('patrol_guard', { enforcement: true }); }, 400);
+    }
+  }
+  if (typeof saveGame === 'function') saveGame();
 }
 
 // ── MECHANICS ────────────────────────────────────────────
@@ -9196,13 +9305,13 @@ function showCharSheet() {
     '<div style="margin-top:20px"><div class="char-section-title">Alignment</div>' +
     '<div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap">' +
     '<div style="flex:1;min-width:100px">' +
-    '<div style="font-size:10px;color:var(--gold-dim);margin-bottom:4px;font-family:Cinzel,serif;letter-spacing:2px">MORALITY</div>' +
-    '<div class="align-bar"><div class="align-fill morality" style="width:'+((G.morality||0)+100)/2+'%"></div></div>' +
-    '<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--ink-faint);margin-top:2px"><span>Evil</span><span>Good</span></div></div>' +
+    '<div style="font-size:10px;color:var(--gold-dim);margin-bottom:4px;font-family:Cinzel,serif;letter-spacing:2px">BENEVOLENCE</div>' +
+    '<div class="align-bar"><div class="align-fill benevolence" style="width:'+((G.benevolence||0)+50)*1+'%"></div></div>' +
+    '<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--ink-faint);margin-top:2px"><span>Cruel</span><span>Benevolent</span></div></div>' +
     '<div style="flex:1;min-width:100px">' +
-    '<div style="font-size:10px;color:var(--gold-dim);margin-bottom:4px;font-family:Cinzel,serif;letter-spacing:2px">ORDER</div>' +
-    '<div class="align-bar"><div class="align-fill order" style="width:'+((G.order||0)+100)/2+'%"></div></div>' +
-    '<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--ink-faint);margin-top:2px"><span>Chaotic</span><span>Lawful</span></div></div>' +
+    '<div style="font-size:10px;color:var(--gold-dim);margin-bottom:4px;font-family:Cinzel,serif;letter-spacing:2px">ORDER AXIS</div>' +
+    '<div class="align-bar"><div class="align-fill order-axis" style="width:'+((G.orderAxis||0)+50)*1+'%"></div></div>' +
+    '<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--ink-faint);margin-top:2px"><span>Anarchy</span><span>Order</span></div></div>' +
     '</div></div>' +
 
     '<div style="margin-top:20px"><div class="char-section-title">Wounds</div>' + woundRows + '</div>' +
@@ -9403,10 +9512,10 @@ function showShop() {
 // ── SAVE SCHEMA MIGRATION ────────────────────────────────
 function migrateState(loaded) {
   const v = loaded.schemaVersion || 1;
-  // v1 -> v2: add alignment fields
+  // v1 -> v2: add alignment fields (migrated to benevolence/orderAxis in v6)
   if (v < 2) {
-    loaded.morality = loaded.morality || 0;
-    loaded.order = loaded.order || 0;
+    loaded.benevolence = loaded.benevolence || loaded.morality || 0;
+    loaded.orderAxis = loaded.orderAxis || loaded.order || 0;
   }
   // v2 -> v3: add wounds, fatigue, NPC memory, inventory, rivals
   if (v < 3) {
@@ -9648,8 +9757,8 @@ function updateAlignmentHUD() {
   const el = document.getElementById('hud-alignment');
   if (!el) return;
   el.textContent = getAlignmentLabel();
-  const m=G.morality||0, o=G.order||0;
-  el.className='align-label '+(m>30?'good':m<-30?'evil':'')+' '+(o>30?'lawful':o<-30?'chaotic':'');
+  const m=G.benevolence||0, o=G.orderAxis||0;
+  el.className='align-label '+(m>20?'good':m<-20?'evil':'')+' '+(o>20?'lawful':o<-20?'chaotic':'');
 }
 
 function updateFactionHUD() {
@@ -9903,7 +10012,7 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
   document.querySelectorAll('.choice-block,.move-block').forEach(b=>b.remove());
   if (mode === 'retreat') {
     addNarration('', 'You extract yourself. They let you go — or you move too quickly for them to follow.');
-    G.morality = Math.max(-100, (G.morality||0) - 2);
+    G.benevolence = Math.max(-50, (G.benevolence||0) - 2);
     setTimeout(() => renderChoices([{text:'Regroup and find another approach.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}]), 300);
     return;
   }
@@ -9916,7 +10025,7 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
     const success = total >= diff;
     addNarration('', '<div class="roll-result ' + (success?'success':'failure') + '">d20: ' + roll + ' + persuasion ' + persuasion + (compBonus?' + companion '+compBonus:'') + ' = <strong>' + total + '</strong> vs ' + diff + ' — ' + (success ? '<span style="color:var(--jade-bright)">De-escalated</span>' : '<span style="color:var(--blood-bright)">Refused</span>') + '</div>' + (success ? 'They stand down. You have one question while they are still willing.' : 'They are not interested in talking.'));
     if (success) {
-      G.renown = (G.renown||0) + 1; G.morality = Math.min(100, (G.morality||0) + 5);
+      G.renown = (G.renown||0) + 1; G.benevolence = Math.min(50, (G.benevolence||0) + 5);
       setTimeout(() => renderChoices([{text:'Ask who sent them.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},{text:'Ask what they were told to do.', skill:'lore', tag:'safe', align:'neutral', cid:'trace_directive'},{text:'Let them leave.', skill:'lore', tag:'safe', align:'good', cid:'passive_intel'}]), 300);
     } else { setTimeout(() => startCombat(enemyKey, {}), 400); }
     return;
