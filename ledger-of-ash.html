@@ -8030,6 +8030,64 @@ function checkLevelUp() {
   }
 }
 
+function showStage3Blocker() {
+  // Remove any existing blocker
+  const existing = document.getElementById('stage3-blocker-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'stage3-blocker-modal';
+  modal.style.cssText = [
+    'position:fixed;inset:0;z-index:9999',
+    'background:rgba(8,8,12,0.97)',
+    'display:flex;flex-direction:column;align-items:center;justify-content:center',
+    'padding:2rem;text-align:center;font-family:"Crimson Pro",serif'
+  ].join(';');
+
+  modal.innerHTML = `
+    <div style="max-width:600px">
+      <div style="font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--ink-faint,#666);margin-bottom:1.5rem;text-transform:uppercase">
+        Ledger of Ash
+      </div>
+      <h2 style="font-family:'Cinzel',serif;font-size:2rem;color:var(--gold-bright,#d89a2c);margin-bottom:1rem;line-height:1.3">
+        Thank You for Playing v0.1
+      </h2>
+      <p style="color:var(--ink-mid,#b0a89a);font-size:1.1rem;line-height:1.7;margin-bottom:1.5rem">
+        You have reached the end of what is playable in this release. The investigation has
+        cracked open something larger than it appeared — and what comes next will change
+        everything you think you know about the axis, the factions, and the ash itself.
+      </p>
+      <p style="color:var(--ink-faint,#666);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;font-style:italic">
+        Stages III through V are in development. What you uncovered in Stage II will matter.
+        Your choices, your faction alignments, your failures — they carry forward.
+        The ledger remembers.
+      </p>
+      <button id="stage3-blocker-close" style="
+        font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;
+        padding:0.75rem 2rem;border:1px solid var(--gold-dim,#6e4a10);
+        background:transparent;color:var(--gold-bright,#d89a2c);cursor:pointer;
+        transition:background 0.2s
+      ">Return to Stage II — Continue Your Story</button>
+      <p style="color:var(--ink-faint,#666);font-size:0.8rem;margin-top:1.5rem">
+        Stage II remains fully open. Complete unfinished investigations, forge alliances,
+        and prepare for what is coming.
+      </p>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  document.getElementById('stage3-blocker-close').addEventListener('click', function() {
+    modal.style.opacity = '0';
+    modal.style.transition = 'opacity 0.4s';
+    setTimeout(function() { modal.remove(); }, 400);
+    // Update stage advancement hint for sandbox mode
+    if (window.G) {
+      window.G.flags.stage3_blocked = true;
+    }
+  });
+}
+
 function checkStageAdvance() {
   if (G.level === 6 && G.stage === 'Stage I') {
     G.stage = 'Stage II'; G.stageLabel = 'Local Inter-Polity';
@@ -8042,18 +8100,26 @@ function checkStageAdvance() {
       // Hint player toward missing gate conditions
       if (typeof addNarration === 'function' && !G.flags._stage3_hint_shown) {
         G.flags._stage3_hint_shown = true;
-        const missing = [];
-        if ((G.investigationProgress||0) < 8) missing.push('the investigation is unresolved');
-        if (!G.worldClocks || (G.worldClocks.pressure||0) < 3) missing.push('the pressure has not yet built');
-        if (!G.flags || !G.flags.stage2_faction_contact_made) missing.push('no faction contact established');
-        addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
+        if (G.flags.stage3_blocked) {
+          addNarration('', '<em style="color:var(--ink-faint)">Your investigation is complete. Stage II remains open for continued exploration.</em>');
+        } else {
+          const missing = [];
+          if (!G.flags.stage2_climax_complete) missing.push('the investigation has no resolution yet');
+          if ((G.investigationProgress||0) < 10) missing.push('the investigation is incomplete');
+          if (!G.flags.stage2_faction_contact_made) missing.push('no faction contact established');
+          if ((G.stageProgress && G.stageProgress[2]||0) < 15) missing.push('more time is needed in the field');
+          addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
+        }
       }
       return;
     }
-    G.stage = 'Stage III'; G.stageLabel = 'Greater Inter-Polity';
-    addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE III &#x2014; Your name reaches across polity lines.</em>');
-    addJournal('Advanced to Stage III: Greater Inter-Polity.');
-    G.history.push('Completed Stage II. Name known across the Material Planet at Level 11.');
+    // Instead of advancing to Stage III, show v0.1 thank-you blocker
+    if (!G.flags.stage3_blocked) {
+      G.flags.stage3_blocked = true;
+      // Do NOT change G.stage — player stays in Stage II
+      showStage3Blocker();
+    }
+    return; // never advance to Stage III in v0.1
   } else if (G.level === 16 && G.stage === 'Stage III') {
     G.stage = 'Stage IV'; G.stageLabel = 'International';
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE IV &#x2014; International consequence. What you do now echoes.</em>');
@@ -8073,10 +8139,11 @@ function checkStageAdvance() {
 }
 
 function canAdvanceToStage3() {
-  const inv = (G.investigationProgress || 0) >= 8;
-  const clk = G.worldClocks && (G.worldClocks.pressure || 0) >= 3;
-  const npc = !!(G.flags && G.flags.stage2_faction_contact_made);
-  return inv && clk && npc;
+  const climax  = !!(G.flags && G.flags.stage2_climax_complete);
+  const inv     = (G.investigationProgress || 0) >= 10;
+  const contact = !!(G.flags && G.flags.stage2_faction_contact_made);
+  const prog    = (G.stageProgress && G.stageProgress[2] || 0) >= 15;
+  return climax && inv && contact && prog;
 }
 
 function driftNomdara() {
