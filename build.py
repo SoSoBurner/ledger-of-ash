@@ -166,6 +166,25 @@ def build():
         if os.path.exists(dst): shutil.rmtree(dst)
         shutil.copytree('assets', dst)
 
+        # Compress large PNG images
+        try:
+            from PIL import Image
+            cover_png = os.path.join(dst, 'cover.png')
+            if os.path.exists(cover_png):
+                img = Image.open(cover_png)
+                # Resize if > 500KB, compress to target size
+                original_size = os.path.getsize(cover_png)
+                if original_size > 500 * 1024:
+                    # Resize to 80% and recompress
+                    w, h = img.size
+                    new_size = (int(w * 0.8), int(h * 0.8))
+                    img = img.resize(new_size, Image.Resampling.LANCZOS)
+                    img.save(cover_png, 'PNG', optimize=True)
+                    new_size_bytes = os.path.getsize(cover_png)
+                    print(f'Compressed: {cover_png} — {original_size:,} → {new_size_bytes:,} bytes ({new_size_bytes//1024} KB)')
+        except ImportError:
+            print('Note: PIL/Pillow not installed; skipping image compression')
+
     size = os.path.getsize("dist/ledger-of-ash.html")
     print(f'Built: dist/ledger-of-ash.html — {size:,} bytes ({size//1024} KB)')
 
