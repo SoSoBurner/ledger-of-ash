@@ -345,9 +345,9 @@ const CLOCK_THRESHOLDS = [
 
 // 3C — Rival clock thresholds (declared before checkClockThresholds which references it)
 var _RIVAL_THRESHOLDS = [
-  { at: 3, flag: 'rival_notice_3', notice: 'Word reaches you that another investigator has been asking questions along the Ridgeway.' },
-  { at: 6, flag: 'rival_notice_6', notice: 'The rival has reached a key contact before you. The path grows harder.', dcPenalty: 1 },
-  { at: 9, flag: 'rival_notice_9', notice: 'The rival has submitted a partial report. Time is running out.', dcPenalty: 1 },
+  { at: 3, flag: 'rival_notice_3', notice: 'Word reaches you that an investigator named Maren Oss has been asking questions along the Ridgeway. She is licensed. She is thorough. She has a head start.' },
+  { at: 6, flag: 'rival_notice_6', notice: 'At the archive in Guildheart Hub, the clerk tells you someone was here yesterday asking about the same names. She left a card: Maren Oss, Licensed Inquiry. The path grows harder.', dcPenalty: 1 },
+  { at: 9, flag: 'rival_notice_9', notice: 'Maren Oss has submitted a partial report to the Oversight Collegium. The window is closing. She is one step ahead.', dcPenalty: 1 },
 ];
 
 function checkClockThresholds() {
