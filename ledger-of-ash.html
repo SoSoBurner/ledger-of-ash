@@ -42,7 +42,7 @@
 
   /* ── Old brass / gold: renown, level, titles */
   --gold:          #b87c18;
-  --gold-hi:       --gold-bright;
+  --gold-hi:       var(--gold-bright);
   --gold-bright:   #d89a2c;
   --gold-pale:     #e8b840;
   --gold-lo:       #5a3a08;
@@ -57,13 +57,13 @@
   /* ── Blood crimson: wounds, death, critical */
   --blood:         #6e1010;
   --blood-mid:     #8c1818;
-  --blood-hi:      --blood-bright;
+  --blood-hi:      var(--blood-bright);
   --blood-bright:  #be2828;
 
   /* ── Jade sanctuary: allies, safe paths, success */
   --jade:          #163828;
   --jade-mid:      #1c4c34;
-  --jade-hi:       --jade-bright;
+  --jade-hi:       var(--jade-bright);
   --jade-bright:   #26603e;
 
   /* ── Borders: subtle, warm-tinted */
@@ -72,12 +72,6 @@
   --border-warm:   #362010;
   --border-em:     #3a1404;
   --border-gold:   #4a3010;
-
-  /* ── Legacy compat — engine references these directly */
-  --gold-bright:   #d89a2c;
-  --gold-dim:      #6e4a10;
-  --blood-bright:  #be2828;
-  --jade-bright:   #26603e;
 
   /* ── Texture */
   --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -823,11 +817,23 @@ input, button, select, textarea { font-family: inherit; }
 .result-tag.success { color: var(--jade-bright); }
 .result-tag.failure { color: var(--blood-bright); }
 .result-tag.partial { color: var(--gold-bright); }
+.result-tag.crit { color: var(--ember-hi); }
+.result-tag.fumble { color: var(--blood-bright); }
+.result-block.crit {
+  background: linear-gradient(135deg, rgba(160,50,10,.22) 0%, rgba(80,20,5,.18) 100%);
+  border-left: 3px solid var(--ember-hi);
+  box-shadow: 0 0 12px var(--ember-glow), inset 0 1px 0 rgba(38,96,62,.15);
+}
+.result-block.fumble {
+  background: linear-gradient(135deg, rgba(110,16,16,.24) 0%, rgba(110,16,16,.14) 100%);
+  border-left: 3px solid var(--blood-bright);
+  box-shadow: 0 0 8px rgba(110,16,16,0.4), inset 0 1px 0 rgba(110,16,16,.15);
+}
 .result-text { font-family: 'Crimson Pro', serif; font-size: 17.6px; line-height: 1.70; color: var(--ink); }
 
 /* ── ROLL DISPLAY LINE ── */
 .roll-result, .roll-line {
-  font-family: 'Cinzel', monospace; font-size: 11px; letter-spacing: .5px;
+  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .5px;
   color: var(--ink-faint); padding: 8px 14px; margin: 8px 0 4px;
   background: rgba(0,0,0,.35);
   border-left: 2px solid var(--storm);
@@ -1230,7 +1236,7 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ═══ NOTICE BOARD ═══════════════════════════════════════════════ */
 .notice-section-label { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 9px; padding-bottom: 5px; border-bottom: 1px solid var(--border-warm); }
-.notice-card { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 12px; margin-bottom: 8px; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.notice-card { background: var(--storm-mid); border: 1px solid var(--storm-hi); border-left: 3px solid var(--storm-hi); color: var(--ink); padding: 12px; margin-bottom: 8px; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
 .notice-card:not(.seen) { border-left: 3px solid var(--ember-hi); }
 .notice-text { font-family: 'Crimson Pro', serif; font-size: 14.3px; color: var(--ink-dim); line-height: 1.55; font-style: italic; }
 .notice-day { font-family: 'Cinzel', serif; font-size: 8.8px; color: var(--ink-faint); letter-spacing: 1px; margin-top: 7px; }
@@ -2074,7 +2080,7 @@ function showNoticesOverlay() {
     if (unseen.length) {
       html += '<div class="notice-section-label">NEW</div>';
       html += unseen.map(n =>
-        '<div class="notice-card unread" data-nid="' + n.id + '">' +
+        '<div class="notice-card" data-nid="' + n.id + '">' +
         '<div class="notice-text">' + n.text + '</div>' +
         '<div class="notice-day">Day ' + (n.day||1) + '</div>' +
         '</div>'
@@ -2092,10 +2098,10 @@ function showNoticesOverlay() {
   }
 
   el.innerHTML = html;
-  el.querySelectorAll('.notice-card.unread').forEach(card => {
+  el.querySelectorAll('.notice-card:not(.seen)').forEach(card => {
     card.addEventListener('click', () => {
       markNoticeSeen(card.dataset.nid);
-      card.classList.remove('unread');
+      card.classList.add('seen');
     });
   });
   showOverlay('overlay-notices');
@@ -2111,7 +2117,7 @@ const FACTION_CLOCKS = {
 };
 
 function advanceFactionClocks(ticks) {
-  if (!G.factionClocks) G.factionClocks = JSON.parse(JSON.stringify(FACTION_CLOCKS));
+  if (!G.factionClocks) G.factionClocks = typeof structuredClone === 'function' ? structuredClone(FACTION_CLOCKS) : JSON.parse(JSON.stringify(FACTION_CLOCKS));
   ticks = ticks || 1;
   Object.entries(G.factionClocks).forEach(([fid, clock]) => {
     if (clock.progress >= clock.goal) return; // already resolved
@@ -7045,12 +7051,39 @@ function loadAndStart(name, code) {
   }
 }
 
+const SAVE_INDEX_KEY = 'loa_save_index';
+
+function _readSaveIndex() {
+  try { return JSON.parse(localStorage.getItem(SAVE_INDEX_KEY) || '{}'); } catch(e) { return {}; }
+}
+function _writeSaveIndex(idx) {
+  try { localStorage.setItem(SAVE_INDEX_KEY, JSON.stringify(idx)); } catch(e) {}
+}
+function _updateSaveIndex(k) {
+  if (!k || !G.name) return;
+  const idx = _readSaveIndex();
+  idx[k] = { key:k, name:G.name, level:G.level||1, archetype:G.archetype?G.archetype.name:'Unknown', location:G.location||'shelkopolis', stage:G.stage||'Stage I', passcode:G.passcode||'' };
+  _writeSaveIndex(idx);
+}
+function _removeSaveIndex(k) {
+  if (!k) return;
+  const idx = _readSaveIndex();
+  delete idx[k];
+  _writeSaveIndex(idx);
+}
+
 function getLegendsByCode(code) {
+  try {
+    const idx = _readSaveIndex();
+    const indexed = Object.values(idx).filter(e => e.passcode === code);
+    if (indexed.length) return indexed;
+  } catch(e) {}
+  // Fallback: scan for players with saves predating the index
   const out = [];
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k && k.startsWith('loa_save_') && k.endsWith('_' + code)) {
+      if (k && k.startsWith('loa_save_') && k !== SAVE_INDEX_KEY && k.endsWith('_' + code)) {
         try { const d = JSON.parse(localStorage.getItem(k)); if (d && d.name) out.push({ key:k, name:d.name, level:d.level||1, archetype:d.archetype?d.archetype.name:'Unknown' }); } catch(e) {}
       }
     }
@@ -7059,11 +7092,17 @@ function getLegendsByCode(code) {
 }
 
 function getAllLegends() {
+  try {
+    const idx = _readSaveIndex();
+    const entries = Object.values(idx);
+    if (entries.length) return entries;
+  } catch(e) {}
+  // Fallback: scan for players with saves predating the index
   const out = [];
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
-      if (k && k.startsWith('loa_save_')) {
+      if (k && k.startsWith('loa_save_') && k !== SAVE_INDEX_KEY) {
         try { const d = JSON.parse(localStorage.getItem(k)); if (d && d.name) out.push({ key:k, name:d.name, level:d.level||1, archetype:d.archetype?d.archetype.name:'Unknown', location:d.location||'shelkopolis', stage:d.stage||'Stage I' }); } catch(e) {}
       }
     }
@@ -7497,7 +7536,7 @@ function addNarration(label, html, resultType) {
   let inner = '';
   if (label) inner += '<div class="scene-location">' + label + '</div>';
   if (resultType) {
-    const icon = resultType === 'success' ? '&#x2713; Success' : resultType === 'failure' ? '&#x2717; Failure' : '~ Partial';
+    const icon = resultType === 'crit' ? '&#x2605; Critical Success' : resultType === 'fumble' ? '&#x2620; Fumble' : resultType === 'success' ? '&#x2713; Success' : resultType === 'failure' ? '&#x2717; Failure' : '~ Partial';
     inner += '<div class="result-block ' + resultType + '"><div class="result-tag ' + resultType + '">' + icon + '</div><div class="result-text">' + html + '</div></div>';
   } else {
     inner += '<div class="narrative-text">' + html + '</div>';
@@ -9226,7 +9265,7 @@ function endLegend() {
   });
   localStorage.setItem('loa_legends', JSON.stringify(legends));
   const k = saveKey();
-  if (k) localStorage.removeItem(k);
+  if (k) { localStorage.removeItem(k); _removeSaveIndex(k); }
   closeOverlay('overlay-death');
   showScreen('screen-title');
 }
@@ -9236,9 +9275,13 @@ function saveKey() {
   if (!G.name||!G.passcode) return null;
   return 'loa_save_' + G.name.toLowerCase().replace(/\s+/g,'_') + '_' + G.passcode;
 }
+const JOURNAL_MAX = 200;
 function saveGame() {
   const k = saveKey(); if (!k) return;
-  try { localStorage.setItem(k, JSON.stringify(G)); } catch(e) {}
+  if (G.journal && G.journal.length > JOURNAL_MAX) G.journal = G.journal.slice(-JOURNAL_MAX);
+  if (G.journalRecords && G.journalRecords.length > JOURNAL_MAX) G.journalRecords = G.journalRecords.slice(-JOURNAL_MAX);
+  try { localStorage.setItem(k, JSON.stringify(G)); } catch(e) { if (typeof showToast === 'function') showToast('Save failed — storage full. Clear old saves.'); }
+  _updateSaveIndex(k);
 }
 function loadGame(name, code) {
   const k = 'loa_save_' + name.toLowerCase().replace(/\s+/g,'_') + '_' + code;
