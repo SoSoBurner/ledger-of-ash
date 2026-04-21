@@ -1587,6 +1587,7 @@ input, button, select, textarea { font-family: inherit; }
       <button class="tnav-btn" id="btn-camp">Camp</button>
       <button class="tnav-btn" id="btn-charsheet">Sheet</button>
       <button class="tnav-btn" id="btn-howto">How to Play</button>
+      <button class="tnav-btn" id="btn-export-save" onclick="exportSave()">Export Save</button>
       <span class="tnav-sep"></span>
       <button class="tnav-btn tnav-end" id="btn-end-legend">End</button>
     </nav>
@@ -8003,7 +8004,17 @@ function handleChoice(choice) {
   (document.getElementById('action-content') || document.getElementById('narrative-content')).appendChild(loading);
   scrollNarrative();
 
-  setTimeout(() => { loading.remove(); resolveConsequence(choice.cid, success, partial); }, 600);
+  setTimeout(() => {
+    loading.remove();
+    resolveConsequence(choice.cid, success, partial);
+    if (typeof saveGame === 'function') {
+      saveGame();
+      if (!sessionStorage.getItem('loa_saved_once')) {
+        sessionStorage.setItem('loa_saved_once', '1');
+        if (typeof showToast === 'function') showToast('Saved.');
+      }
+    }
+  }, 600);
 }
 
 function getTraitBonus(skill) {
@@ -9577,6 +9588,20 @@ function endLegend() {
 }
 
 // ── SAVE / LOAD ──────────────────────────────────────────
+function exportSave() {
+  if (!window.G) return;
+  var G = window.G;
+  var name = (G.characterName || G.name || 'legend').replace(/[^a-z0-9]/gi, '-').toLowerCase();
+  var code = G.passcode || G.code || '0000';
+  var filename = 'loa-save-' + name + '-' + code + '.json';
+  var data = JSON.stringify(G, null, 2);
+  var blob = new Blob([data], { type: 'application/json' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  URL.revokeObjectURL(url);
+}
+
 function saveKey() {
   if (!G.name||!G.passcode) return null;
   return 'loa_save_' + G.name.toLowerCase().replace(/\s+/g,'_') + '_' + G.passcode;
