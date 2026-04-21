@@ -29,9 +29,9 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('investigation', 'Innkeeper flagged unnatural guest coordination', `shelkopolis-innkeeper-guests-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The innkeeper's expression closes. "I don't discuss guests with strangers, even ones who stay." Her tone has changed. You've made an enemy of someone who hears everything in Shelkopolis.`;
+        G.lastResult = `You asked too directly, too soon. The innkeeper's eyes go flat — not angry, just closed. She straightens the bar cloth. A small shrine-token near the tap sits slightly askew where her hand passed, a detail you notice only because nothing else moved. The silence that follows is careful, like a door being locked from the inside. Whatever she knew, she's decided you won't hear it.`;
         G.worldClocks.pressure++;
-        addJournal('complication', 'Innkeeper now distrustful', `shelkopolis-innkeeper-hostile-${G.dayCount}`);
+        addJournal('complication', 'Innkeeper went silent — pushed too hard into private ground', `shelkopolis-innkeeper-hostile-${G.dayCount}`);
       } else {
         G.lastResult = `The innkeeper mentions a few recent guests seemed unusually careful about their movements. One asked for a room without the main entrance view. Another left early and paid extra to not be mentioned to anyone. "Nothing concrete," she says, "but the pattern registers strange."`;
         addJournal('investigation', 'Innkeeper noticed unusual guest discretion', `shelkopolis-innkeeper-caution-${G.dayCount}`);
@@ -62,9 +62,9 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('investigation', 'Sealed letter network mapped to chapel intermediary', `shelkopolis-letters-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your questions draw too much attention. A chapel worker warns you pointedly: the shrine master does not welcome curiosity about chapel matters. You feel watched now in this sacred space.`;
+        G.lastResult = `Brother Aldwin says nothing alarming — he thanks you for your interest, wishes you well, and sees you to the door with practiced courtesy. Only later do you notice: a junior clerk was writing at a desk in the alcove the entire time. You don't know what was written. The chapel doesn't need to threaten you. It simply notes your visit.`;
         G.worldClocks.watchfulness++;
-        addJournal('complication', 'Chapel now aware of investigation', `shelkopolis-chapel-alert-${G.dayCount}`);
+        addJournal('complication', 'Chapel clerk logged your inquiry — visit officially noted', `shelkopolis-chapel-alert-${G.dayCount}`);
       } else {
         G.lastResult = `Brother Aldwin admits letters come through the chapel. He won't elaborate on frequency or recipients, but you notice his hands shake slightly when you mention them. There's fear here — fear of consequences for speaking.`;
         addJournal('investigation', 'Chapel involved in letter routing but details refused', `shelkopolis-letters-blocked-${G.dayCount}`);
@@ -95,8 +95,8 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('investigation', 'Tailor identified pattern commissioning as deliberate interference', `shelkopolis-tailor-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The tailor becomes curt. "That's guild business, not street conversation." He turns his back and returns to his loom. You're reminded that Shelkopolis artisans protect their mysteries.`;
-        addJournal('complication', 'Tailor refuses future inquiry', `shelkopolis-tailor-silent-${G.dayCount}`);
+        G.lastResult = `Master Sereth smiles politely and gives you a thorough answer about seasonal commissions and standard guild variance. It's a perfectly reasonable explanation. His hands keep working the whole time — he never stops, never flinches. When you leave, you realize you received nothing useful and yet nothing you could object to. He knows you were probing. He's telling you, warmly, that you won't find it here.`;
+        addJournal('complication', 'Tailor gave polished non-answer — probe clearly identified', `shelkopolis-tailor-silent-${G.dayCount}`);
       } else {
         G.lastResult = `The tailor mentions a unusual order pattern lately — high-paying commissions that get abandoned before completion. "Rare for Shelkopolis," he notes. "Usually patrons see their work through." Something about the economics feels deliberately broken.`;
         addJournal('investigation', 'Tailor acknowledged unusual commission abandonment', `shelkopolis-tailor-pattern-${G.dayCount}`);
@@ -127,9 +127,9 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('investigation', 'Clerk revealed three-week gap in northern trade records', `shelkopolis-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The record keeper refuses access entirely. "You need written authorization from the merchant council. Those are official records." He calls for guards. Your presence in the merchant house is now officially noted and questioned.`;
+        G.lastResult = `Thom is helpful — perhaps too helpful. He opens three ledger volumes and walks you through the northern silkwood entries in detail, explaining every column. You learn that the shipments were stopped, the dates, the authorization codes. You've learned something true. And then you see it: Thom's eyes. He's watching you read. He knows exactly what you now know, and he has already decided who he'll tell. You leave with real information and the certainty that someone in this building will hear about it before nightfall.`;
         G.worldClocks.watchfulness++;
-        addJournal('complication', 'Merchant house guards now investigating your inquiry', `shelkopolis-merchant-alert-${G.dayCount}`);
+        addJournal('complication', 'Learned real evidence — but Thom marked exactly what you found', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The record keeper shows you the ledgers after some persuasion. You notice pages have been carefully removed — not torn hastily, but extracted with deliberation. The dates correspond to the autumn trade season. Whatever was recorded, someone wanted it gone permanently.`;
         addJournal('investigation', 'Clerk confirmed deliberate ledger removal pattern', `shelkopolis-ledger-removed-${G.dayCount}`);
@@ -163,9 +163,9 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('investigation', 'Shrine worker revealed systematic blessing degradation', `shelkopolis-blessing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sister Velda is insulted by the question. "The shrine's work is beyond scrutiny from outsiders. Our blessings are eternal. If you lack faith, that is your failing, not ours." She closes the conversation with finality. The shrine is now hostile to inquiry.`;
+        G.lastResult = `Sister Velda answers immediately: the blessings are strong, renewal cycles are normal, the shrine's protection is undiminished. She even offers to arrange a personal blessing for you, which takes the next hour. By the time you leave, the morning is gone and you've gathered nothing. Later you realize she described the blessing schedule from three years ago — the answer was specific, confident, and wrong. You wasted a full investigation window on a polished fiction. Journal updated: the shrine may be deliberately feeding false baselines.`;
         G.worldClocks.reverence++;
-        addJournal('complication', 'Shrine now hostile to external questioning', `shelkopolis-shrine-hostile-${G.dayCount}`);
+        addJournal('complication', 'Shrine fed false baseline data — wasted morning, investigation window lost', `shelkopolis-shrine-hostile-${G.dayCount}`);
       } else {
         G.lastResult = `The shrine worker is evasive but admits that blessings require renewal more frequently lately. "It's normal variation," they claim, though their uncertainty suggests otherwise. Something unseen is working against the shrine's protective magic.`;
         addJournal('investigation', 'Shrine worker confirmed increased blessing maintenance needs', `shelkopolis-blessing-strain-${G.dayCount}`);
