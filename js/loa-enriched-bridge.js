@@ -665,6 +665,9 @@ window.handleChoice = function(choice) {
   }
   _origHandleChoice(choice);
   _autoSaveTick();
+  if (choice && (choice.align === 'chaotic' || choice.tag === 'bold')) {
+    if (typeof shiftTension === 'function') shiftTension(1);
+  }
 };
 
 // ── WRAP renderChoices — inject enriched choices ───────────

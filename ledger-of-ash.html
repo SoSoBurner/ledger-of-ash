@@ -1020,6 +1020,9 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn.plot-main {
   border-left: 2px solid var(--gold-dim, #9a7a32);
 }
+.choice-btn.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
+.choice-btn.tension-hot  { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
+@keyframes pulse-red { 0%,100% { box-shadow: 0 0 8px rgba(139,32,32,0.45); } 50% { box-shadow: 0 0 16px rgba(139,32,32,0.75); } }
 .choice-tutorial-hint { font-size: 0.78em; color: var(--ink-mid, #c4b49a); font-style: italic; padding: 0.2em 0.75em 0.5em; }
 
 .choice-text { display: block; }
@@ -2762,11 +2765,63 @@ function startCombat(enemyTemplateId, context) {
     entryBonus: entryBonus,
     playerActed: false,
     context: context || {},
-    log: []
+    log: [],
+    rangeTier: 'close',
+    isBossFight: !!(tpl && tpl.boss),
+    strategyActive: null
   };
   CS.enemy.maxHp = CS.enemy.maxHp || CS.enemy.hp;
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
   renderCombatRound();
+}
+
+function shiftTension(delta) {
+  if (!G) return;
+  G.tensionLevel = Math.max(0, Math.min(2, (G.tensionLevel||0) + delta));
+  if (typeof updateHUD === 'function') updateHUD();
+}
+
+function getRangeModifier(attackType) {
+  var tier = (CS && CS.rangeTier) || 'close';
+  if (attackType === 'melee') return tier === 'close' ? 0 : -99;
+  if (attackType === 'ranged' || attackType === 'magic') {
+    if (tier === 'close') return 0;
+    if (tier === 'medium') return 2;
+    if (tier === 'long') return 1;
+    if (tier === 'veryfar') return attackType === 'magic' ? 0 : -99;
+  }
+  return 0;
+}
+
+function fleeRoll() {
+  var tier = (CS && CS.rangeTier) || 'close';
+  var r1 = rollD20('finesse');
+  if (tier === 'veryfar') {
+    var r2 = rollD20('finesse');
+    return r1.total >= r2.total ? r1 : r2;
+  }
+  return r1;
+}
+
+function showRangeOptions() {
+  var tiers = ['close','medium','long','veryfar'];
+  var current = CS ? (CS.rangeTier || 'close') : 'close';
+  var opts = tiers.filter(function(t){ return t !== current; }).map(function(t) {
+    var label = { close:'Close (melee only)', medium:'Medium (+2 ranged/magic)', long:'Long (+1 ranged/magic)', veryfar:'Very Far (magic only; flee advantage)' }[t];
+    return { text: label, action: function(){ CS.rangeTier = t; addNarration('Combat','You shift to ' + t + ' range.','neutral'); renderCombatRound(); } };
+  });
+  (window._rawRenderChoices || window.renderChoices)(opts);
+}
+
+function showStrategyCalls() {
+  if (!CS) return;
+  var flavor = (G.orderAxis||0) > 20 ? 'tactical precision' : (G.benevolence||0) > 15 ? 'protective urgency' : 'cold assessment';
+  (window._rawRenderChoices || window.renderChoices)([
+    { text: 'Focus minions — eliminate support first', action: function(){ CS.strategyActive = 'focus_minions'; addNarration('Strategy','You call with ' + flavor + ': eliminate their support. Companions shift focus.'); renderCombatRound(); } },
+    { text: 'Focus boss — all pressure on the primary target', action: function(){ CS.strategyActive = 'focus_boss'; addNarration('Strategy','You point at the center. Every companion understands.'); renderCombatRound(); } },
+    { text: 'Defensive line — hold position, protect wounded', action: function(){ CS.strategyActive = 'defensive'; addNarration('Strategy','Hold. You make the word sound like a wall.'); renderCombatRound(); } },
+    { text: 'Hold range — maintain distance, let ranged attack', action: function(){ CS.strategyActive = 'hold_range'; CS.rangeTier = 'medium'; addNarration('Strategy','Back. Give yourself room. The companions spread.'); renderCombatRound(); } }
+  ]);
 }
 
 function renderCombatRound() {
@@ -2819,10 +2874,25 @@ function renderCombatRound() {
       '</button>';
   });
 
+  // Move — change range tier
+  var rangeTierLabel = { close:'Close', medium:'Medium', long:'Long', veryfar:'Very Far' }[CS.rangeTier||'close'] || 'Close';
+  html += '<button class="choice-btn combat-btn" data-action="move">' +
+    '<span class="choice-text">Move — change range (now: ' + rangeTierLabel + ')</span>' +
+    '<span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag safe">move</span></span>' +
+    '</button>';
+
+  // Strategy Call (boss fights only)
+  if (CS.isBossFight) {
+    html += '<button class="choice-btn combat-btn" data-action="strategy">' +
+      '<span class="choice-text">Strategy Call — direct your companions (uses your action)</span>' +
+      '<span class="choice-meta"><span class="choice-skill">wits</span><span class="choice-tag risky">strategy</span></span>' +
+      '</button>';
+  }
+
   // Attempt to flee
   html += '<button class="choice-btn combat-btn" data-action="flee">' +
     '<span class="choice-text">Flee — break from combat</span>' +
-    '<span class="choice-meta"><span class="choice-skill">survival</span><span class="choice-tag risky">risky</span></span>' +
+    '<span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag risky">risky</span></span>' +
     '</button>';
 
   html += '</div></div>';
@@ -7988,6 +8058,8 @@ function renderChoices(choices) {
     var btnClasses = 'choice-btn';
     if (isLocked) btnClasses += ' fumble-locked';
     if (c.plot === 'main') btnClasses += ' plot-main';
+    if (window.G && (window.G.tensionLevel||0) >= 1) btnClasses += ' tension-warn';
+    if (window.G && (window.G.tensionLevel||0) >= 2) btnClasses += ' tension-hot';
     html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + '>' +
       '<span class="choice-text">' + c.text + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
       '<span class="choice-meta">' +
