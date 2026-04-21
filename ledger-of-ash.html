@@ -1460,9 +1460,34 @@ input, button, select, textarea { font-family: inherit; }
 .onboarding-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
 .onboarding-nav button { background: transparent; border: 1px solid var(--ember-glow, #c84b10); color: var(--gold-bright, #e8b84b); padding: .4rem 1.2rem; border-radius: 3px; cursor: pointer; font-family: 'Cinzel', serif; font-size: .8rem; letter-spacing: .05em; }
 .onboarding-skip { font-size: .75rem; color: var(--gold-dim, #9a7a32); cursor: pointer; background: none; border: none; margin-top: .5rem; display: block; text-align: right; }
+#howto-modal {
+  display: none; position: fixed; inset: 0; z-index: 9000;
+  background: rgba(10,5,2,.92);
+  align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem 1rem;
+}
+#howto-modal.active { display: flex; }
+#howto-box {
+  background: #1a0e08; border: 1px solid var(--ember-glow, #c84b10);
+  border-radius: 6px; padding: 2rem 2.5rem; max-width: 560px; width: 90%;
+  color: var(--gold-bright, #e8b84b); font-family: 'Crimson Pro', serif;
+}
+#howto-box h2 { font-family: 'Cinzel', serif; color: var(--ember-glow, #c84b10); margin-bottom: 1rem; }
+#howto-box h3 { font-family: 'Cinzel', serif; color: var(--gold-dim, #9a7a32); font-size: .85rem; letter-spacing: .08em; margin: 1.2rem 0 .4rem; }
+#howto-box p, #howto-box li { line-height: 1.65; font-size: .95rem; }
+#howto-box ul { padding-left: 1.2rem; margin-bottom: .5rem; }
+#howto-close { float: right; background: transparent; border: 1px solid var(--ember-glow,#c84b10); color: var(--gold-bright,#e8b84b); padding: .3rem .9rem; border-radius: 3px; cursor: pointer; font-family: 'Cinzel', serif; font-size: .75rem; }
 </style>
 </head>
 <body>
+
+<!-- HOW TO PLAY MODAL -->
+<div id="howto-modal">
+  <div id="howto-box">
+    <button id="howto-close">&#x2715; Close</button>
+    <h2>How to Play</h2>
+    <div id="howto-content"></div>
+  </div>
+</div>
 
 <!-- ONBOARDING MODAL -->
 <div id="onboarding-modal">
@@ -1499,6 +1524,7 @@ input, button, select, textarea { font-family: inherit; }
     <div class="title-actions">
       <button class="btn btn-primary" id="btn-new-legend">Begin New Legend</button>
       <button class="btn btn-ghost btn-sm" id="btn-hall">Hall of Legends</button>
+      <button class="btn btn-ghost btn-sm" id="btn-howto-title" onclick="showHowToPlay()">How to Play</button>
     </div>
     <div class="title-version">Stage I&#x2013;II &nbsp;&middot;&nbsp; V28_8 Canon &nbsp;&middot;&nbsp; v2.0</div>
   </div>
@@ -1559,6 +1585,7 @@ input, button, select, textarea { font-family: inherit; }
       <button class="tnav-btn" id="btn-party">Party</button>
       <button class="tnav-btn" id="btn-camp">Camp</button>
       <button class="tnav-btn" id="btn-charsheet">Sheet</button>
+      <button class="tnav-btn" id="btn-howto">How to Play</button>
       <span class="tnav-sep"></span>
       <button class="tnav-btn tnav-end" id="btn-end-legend">End</button>
     </nav>
@@ -9671,6 +9698,31 @@ document.getElementById('btn-end-legend').addEventListener('click', confirmDeath
 document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeOverlay(btn.dataset.close)));
 document.querySelectorAll('[data-camp]').forEach(btn => btn.addEventListener('click', () => campAction(btn.dataset.camp)));
 document.getElementById('btn-confirm-end').addEventListener('click', endLegend);
+document.getElementById('btn-howto').addEventListener('click', showHowToPlay);
+document.getElementById('howto-close').addEventListener('click', function() {
+  document.getElementById('howto-modal').classList.remove('active');
+});
+</script>
+
+<script>
+var HOWTO_SECTIONS = [
+  { heading: 'Risk Tiers', body: 'Every choice is tagged: <strong>Safe</strong> choices carry no roll — they always succeed at modest reward. <strong>Risky</strong> choices roll a d20 plus your relevant skill against a difficulty (DC). <strong>Bold</strong> choices are high-stakes — higher DC, higher reward on success, harder consequences on failure. A natural 20 is a critical success.' },
+  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — rises when you draw scrutiny. At high levels, faction agents begin to interfere.</li><li><strong>Pressure</strong> — rises with reckless investigation. Too much pressure fractures your leads.</li><li><strong>Reverence</strong> — rises with significant acts. At its peak, your legend draws powerful attention.</li></ul>' },
+  { heading: 'Stage Progression', body: 'Your investigation unfolds in stages. The progress bar beneath your stage name tracks advancement. Bold and risky successes move the investigation forward. The rival investigator also advances — rest too often and they may reach key contacts first.' },
+  { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The investigation always continues: a backup path appears for main investigation choices. Some side paths, once closed, are closed for good.' },
+  { heading: 'Rest', body: 'You may rest twice per in-game day to recover. Resting costs investigation momentum and gives the rival clock one tick. A third rest in the same day is too exhausting to attempt.' },
+  { heading: 'Saving', body: 'The game saves automatically after every choice. Your four-digit code is your legend\'s identity — enter it at the title screen to return to your investigation exactly where you left off. You can export your full save as a JSON file from the menu.' },
+];
+
+function showHowToPlay() {
+  var box = document.getElementById('howto-content');
+  if (box && !box.innerHTML) {
+    box.innerHTML = HOWTO_SECTIONS.map(function(s) {
+      return '<h3>' + s.heading + '</h3><p>' + s.body + '</p>';
+    }).join('');
+  }
+  document.getElementById('howto-modal').classList.add('active');
+}
 </script>
 
 <!-- ── LOCALITY MATRIX DATA (generated by build_locality_matrix.py) ── -->
