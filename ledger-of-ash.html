@@ -134,6 +134,11 @@
   --border-hi:     #2c2238;
   --border-warm:   #362010;
   --border-em:     #3a1404;
+
+  /* ── Utility */
+  --white:         #fff;
+  --ink-mid:       #c4b49a;
+  --modal-bg:      #1a0e08;
   --border-gold:   #4a3010;
 
   /* ── Texture */
@@ -327,7 +332,7 @@ input, button, select, textarea { font-family: inherit; }
     var(--ember-hi) 0%,
     var(--ember) 55%,
     var(--ember-mid) 100%);
-  color: #fff;
+  color: var(--white);
   border: 1px solid rgba(240,120,50,.25);
   box-shadow:
     0 2px 20px var(--ember-glow),
@@ -336,7 +341,7 @@ input, button, select, textarea { font-family: inherit; }
   padding: 13px 40px; font-size: 12px;
 }
 .btn-primary:hover {
-  background: linear-gradient(180deg, #ff8840 0%, var(--ember-hi) 60%, var(--ember) 100%);
+  background: linear-gradient(180deg, var(--ember-hi) 0%, var(--ember-hi) 60%, var(--ember) 100%);
   box-shadow: 0 5px 32px rgba(200,80,16,.60), 0 1px 0 rgba(255,255,255,.1) inset;
   transform: translateY(-1px);
 }
@@ -1232,7 +1237,7 @@ input, button, select, textarea { font-family: inherit; }
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
 }
 .combat-btn:hover { border-color: var(--ember-lo); color: var(--gold-bright); }
-.combat-btn.primary { background: linear-gradient(180deg, var(--ember-hi), var(--ember)); color: #fff; border-color: rgba(240,120,50,.3); box-shadow: 0 2px 12px var(--ember-glow); }
+.combat-btn.primary { background: linear-gradient(180deg, var(--ember-hi), var(--ember)); color: var(--white); border-color: rgba(240,120,50,.3); box-shadow: 0 2px 12px var(--ember-glow); }
 .combat-btn.danger  { background: linear-gradient(180deg, var(--blood-bright), var(--blood-mid)); color: var(--ink); border-color: var(--blood-mid); }
 
 
@@ -1318,7 +1323,7 @@ input, button, select, textarea { font-family: inherit; }
 .map-loc-desc { font-size: 11px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; font-style: italic; margin-top: 4px; line-height: 1.3; }
 .map-loc-status { font-size: 8.8px; color: var(--ember-hi); font-family: 'Cinzel', serif; margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
 .map-travel-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 0; background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); cursor: pointer; font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; text-align: center; }
-.map-travel-btn:hover { background: var(--ember); color: #fff; }
+.map-travel-btn:hover { background: var(--ember); color: var(--white); }
 
 
 /* ═══ NOTICE BOARD ═══════════════════════════════════════════════ */
@@ -1349,7 +1354,7 @@ input, button, select, textarea { font-family: inherit; }
 .shop-item-desc { font-size: 13.2px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; line-height: 1.4; font-style: italic; }
 .shop-item-cost { font-family: 'Cinzel', serif; font-size: 12.1px; color: var(--gold); font-weight: 700; white-space: nowrap; }
 .shop-buy-btn { background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); padding: 5px 10px; cursor: pointer; font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
-.shop-buy-btn:hover { background: var(--ember); color: #fff; box-shadow: 0 2px 10px var(--ember-glow); }
+.shop-buy-btn:hover { background: var(--ember); color: var(--white); box-shadow: 0 2px 10px var(--ember-glow); }
 .train-btn { background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); padding: 6px 12px; cursor: pointer; font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
 .train-btn:hover { border-color: var(--gold-lo); color: var(--gold-bright); }
 
@@ -1461,7 +1466,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 #onboarding-modal.active { display: flex; }
 #onboarding-box {
-  background: #1a0e08; border: 1px solid var(--ember-glow, #c84b10);
+  background: var(--modal-bg); border: 1px solid var(--ember-glow, #c84b10);
   border-radius: 6px; padding: 2rem 2.5rem; max-width: 520px; width: 90%;
   color: var(--gold-bright, #e8b84b); font-family: 'Crimson Pro', serif;
 }
@@ -1477,7 +1482,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 #howto-modal.active { display: flex; }
 #howto-box {
-  background: #1a0e08; border: 1px solid var(--ember-glow, #c84b10);
+  background: var(--modal-bg); border: 1px solid var(--ember-glow, #c84b10);
   border-radius: 6px; padding: 2rem 2.5rem; max-width: 560px; width: 90%;
   color: var(--gold-bright, #e8b84b); font-family: 'Crimson Pro', serif;
 }
