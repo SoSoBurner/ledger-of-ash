@@ -7,6 +7,7 @@ into spec-compliant runtime JS data files under data/
 Run: python build_locality_matrix.py
 """
 import json, os, re
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -45,6 +46,7 @@ UMBRELLA = {
     'psanan':                 ('psanan',             'Psanan'),
 }
 
+@lru_cache(maxsize=512)
 def nkey(s):
     return re.sub(r'[^a-z0-9]+', '_', s.lower()).strip('_')
 
@@ -770,33 +772,32 @@ def main():
         'hazards':['caravan_rivalry','waylay'],'creatures':['road_predator'],
     }
 
-    # 8. Narrative lookup
+    # 8+9+10. Narrative lookup, bestiary lookup, and validation in one pass
     narrative_lookup = {}
-    for loc_id, entry in locality_matrix.items():
-        if entry['locality_class'] == 'district':
-            narrative_lookup[loc_id] = narrative_from_district(entry)
-        else:
-            narrative_lookup[loc_id] = narrative_from_loc(entry)
-
-    # 9. Bestiary lookup
     bestiary_lookup = {}
     for loc_id, entry in locality_matrix.items():
-        env_key = entry.get('macroregion_environment_profile',{}).get('primary_environment_label_key','')
-        if entry['locality_class'] == 'district':
-            parent_id = entry.get('parent_settlement_id','')
-            parent = locality_matrix.get(parent_id,{})
-            creatures = parent.get('creatures',[])
-            enc_table = entry.get('_enc_table', ENCOUNTER_TABLES.get(parent_id,['patrol_guard']))
+        is_district = entry['locality_class'] == 'district'
+        # Narrative
+        narrative_lookup[loc_id] = (
+            narrative_from_district(entry) if is_district else narrative_from_loc(entry)
+        )
+        # Bestiary
+        env_key = entry.get('macroregion_environment_profile', {}).get('primary_environment_label_key', '')
+        if is_district:
+            parent_id = entry.get('parent_settlement_id', '')
+            parent = locality_matrix.get(parent_id, {})
+            creatures = parent.get('creatures', [])
+            enc_table = entry.get('_enc_table', ENCOUNTER_TABLES.get(parent_id, ['patrol_guard']))
         else:
-            creatures = entry.get('creatures',[])
-            enc_table = ENCOUNTER_TABLES.get(loc_id,['patrol_guard','frontier_militia'])
+            creatures = entry.get('creatures', [])
+            enc_table = ENCOUNTER_TABLES.get(loc_id, ['patrol_guard', 'frontier_militia'])
         bestiary_lookup[loc_id] = {
             'creatures': creatures,
             'encounter_table': enc_table,
             'environment_key': env_key,
         }
 
-    # 10. Validation
+    # Validation
     for loc_id, entry in locality_matrix.items():
         if not entry.get('parent_polity',{}).get('normalized_key'):
             errors.append(f'HIERARCHY: {loc_id} missing parent_polity')
