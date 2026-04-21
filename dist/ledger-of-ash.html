@@ -41190,12 +41190,17 @@ function handleEnrichedChoice(choice) {
     return;
   }
 
+  var _XP_BY_TAG = {safe: 8, risky: 20, bold: 40, climax: 68};
+  var _xpBefore = G.xp || 0;
   try {
     choice.__enrichedFn.call(null);
   } catch (e) {
     console.warn('[enriched bridge] fn error:', e);
     G.lastResult = 'The situation develops. Observe and proceed.';
     G.recentOutcomeType = 'partial';
+  }
+  if ((G.xp || 0) === _xpBefore && typeof gainXp === 'function') {
+    gainXp(_XP_BY_TAG[choice.tag] || 20, 'tag-dispatch');
   }
 
   // Fix A3: stage-aware stageProgress key
