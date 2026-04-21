@@ -94,6 +94,28 @@ Shirshal, Harvest Circle, and 5 V32_2 adjacent localities.
 **V32_2 DnD World Repository** is the source of truth for all settlement names, localities,
 factions, NPCs, routes, and archetype grounding. Canon zip: `V31_3_DnD_World_Repository.zip`.
 
+## Deployment
+
+### GitHub Pages
+
+Push to `main` triggers CI automatically. The game is served at:
+
+```
+https://<user>.github.io/ledger-of-ash/
+```
+
+> Note: GitHub Pages requires a public repo or GitHub Pro. Enable via repo Settings > Pages if the repo is private.
+
+### itch.io
+
+Run the packaging script, then upload the zip manually:
+
+```bash
+./itch-deploy.sh
+# Output: dist/ledger-of-ash-itchio.zip
+# Upload at: https://itch.io/dashboard
+```
+
 ## Contributing
 
 1. Edit source files in `js/` or enriched choice files in the repo root
