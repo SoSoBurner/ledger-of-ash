@@ -19,14 +19,19 @@ if (typeof window.advanceTime !== 'function') {
   };
 }
 
-// Canonical skill map — all non-standard skill names normalized to valid game skills
+// Canonical skill map — normalizes all old and variant skill names to new canonical keys
+// New canonical keys: might, finesse, vigor, wits, charm, spirit
 const SKILL_NORM = {
-  investigation: 'lore', perception: 'survival', deception: 'stealth',
-  empathy: 'persuasion', insight: 'lore', awareness: 'survival',
-  arcane: 'lore', arcana: 'lore', repair: 'craft', labor: 'craft',
-  alchemy: 'craft', medicine: 'craft', endurance: 'survival',
-  athletics: 'combat', intimidation: 'combat', performance: 'persuasion',
-  history: 'lore', nature: 'survival', religion: 'lore'
+  // Old canonical names → new canonical names (backward compat for all enriched files)
+  combat: 'might', stealth: 'finesse', survival: 'vigor',
+  lore: 'wits', persuasion: 'charm', craft: 'spirit',
+  // Variant names → new canonical names
+  investigation: 'wits', perception: 'vigor', deception: 'finesse',
+  empathy: 'charm', insight: 'wits', awareness: 'vigor',
+  arcane: 'wits', arcana: 'wits', repair: 'spirit', labor: 'spirit',
+  alchemy: 'spirit', medicine: 'spirit', endurance: 'vigor',
+  athletics: 'might', intimidation: 'might', performance: 'charm',
+  history: 'wits', nature: 'vigor', religion: 'spirit'
 };
 
 window.rollD20 = function(skill, bonus) {
@@ -82,6 +87,15 @@ function patchGState() {
   if (!G.flags) G.flags = {};
   if (typeof G.rivalId === 'undefined') G.rivalId = null;
   if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+}
+
+function _autoSaveTick() {
+  const G = window.G;
+  if (!G) return;
+  G.choiceCount = (G.choiceCount || 0) + 1;
+  if (G.choiceCount % 20 === 0 && typeof saveGame === 'function') {
+    saveGame(G._lastSlot || 1);
+  }
 }
 
 // ── ENRICHED CHOICE POOLS ─────────────────────────────────
@@ -641,9 +655,11 @@ window.handleChoice = function(choice) {
       addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     }
     handleEnrichedChoice(choice);
+    _autoSaveTick();
     return;
   }
   _origHandleChoice(choice);
+  _autoSaveTick();
 };
 
 // ── WRAP renderChoices — inject enriched choices ───────────
@@ -685,6 +701,7 @@ const _origBeginLegend = window.beginLegend;
 window.beginLegend = function() {
   _origBeginLegend();
   patchGState();
+  if (typeof initRunIdentity === 'function') initRunIdentity();
 };
 
 // ── WRAP enterPasscode — patch G after load ───────────────
@@ -700,5 +717,6 @@ if (typeof _origEnterPasscode === 'function') {
 // ── TEST HARNESS EXPORTS ──────────────────────────────────
 window.handleEnrichedChoice = handleEnrichedChoice;
 window.checkClockThresholds = checkClockThresholds;
+window._rawRenderChoices = _origRenderChoices;
 
 })();

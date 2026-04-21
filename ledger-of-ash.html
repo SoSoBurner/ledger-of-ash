@@ -2612,6 +2612,7 @@ function startCombat(enemyTemplateId, context) {
     context: context || {},
     log: []
   };
+  CS.enemy.maxHp = CS.enemy.maxHp || CS.enemy.hp;
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
   renderCombatRound();
 }
@@ -2620,8 +2621,10 @@ function renderCombatRound() {
   if (!CS) return;
   const archId = G.archetype ? G.archetype.id : 'warrior';
   const abilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
+  const _abilRemap = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm',craft:'spirit'};
   const usableAbilities = abilities.filter(a => {
-    const sk = G.skills[a.skillReq] || 0;
+    const normKey = _abilRemap[a.skillReq] || a.skillReq;
+    const sk = G.skills[normKey] || 0;
     return sk >= a.minSkill;
   });
 
@@ -2686,8 +2689,8 @@ function renderCombatRound() {
 function resolveCombatAction(action, abilityId) {
   document.querySelectorAll('.combat-block').forEach(b => b.remove());
   const archId = G.archetype ? G.archetype.id : 'warrior';
-  const combatSkill = G.skills.combat || 0;
-  const survSkill = G.skills.survival || 0;
+  const combatSkill = G.skills.might || 0;
+  const survSkill = G.skills.vigor || 0;
   const traitCombatBonus = getTraitBonus('combat');
 
   let resultText = '';
@@ -2762,7 +2765,7 @@ function resolveCombatAction(action, abilityId) {
       if (success) {
         // Apply ability effects
         if (ab.id === 'lay_on_hands' || ab.id === 'communal_aid' || ab.id === 'field_triage' || ab.id === 'emergency_repair') {
-          const healed = Math.floor(Math.random() * 8) + (G.skills.persuasion || G.skills.craft || 1);
+          const healed = Math.floor(Math.random() * 8) + (G.skills.charm || G.skills.spirit || 1);
           G.hp = Math.min(G.maxHp, G.hp + healed);
           resultText += 'You restore ' + healed + ' HP. ' + ab.effect;
           updateHUD();
@@ -7481,7 +7484,10 @@ function beginLegend() {
   if (!/^[0-9]{4}$/.test(code)) { showToast('Enter a 4-digit passcode.'); return; }
   if (!G.archetype || !G.background) { showToast('Choose class and background.'); return; }
   G.name = name; G.passcode = code;
-  G.skills = Object.assign({}, G.archetype.skills);
+  const _SKILL_REMAP = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm',craft:'spirit'};
+  const _rawSkills = G.archetype.skills || {};
+  G.skills = {};
+  Object.keys(_rawSkills).forEach(k => { G.skills[_SKILL_REMAP[k] || k] = _rawSkills[k]; });
   G.maxHp = G.archetype.hp; G.hp = G.maxHp;
   G.gold = G.archetype.startGold;
   G.traits = [{ name:G.archetype.trait, desc:G.archetype.traitDesc, used:false }];
@@ -8237,7 +8243,9 @@ function modHP(n) {
 
 // ── XP AND LEVEL UP ──────────────────────────────────────
 function gainXP(n) {
-  n = Math.min(n, 8);
+  const stageMultipliers = { 'Stage I': 1.0, 'Stage II': 1.5, 'Stage III': 2.0 };
+  const mult = stageMultipliers[G.stage] || 1.0;
+  n = Math.min(Math.round(n * mult), 68);
   G.xp = (G.xp || 0) + n;
   checkLevelUp();
 }
@@ -8555,7 +8563,7 @@ function applyPassiveAbility(ab) {
     }
   }
   if (effect.includes('Craft +2 permanently')) {
-    if ((G.skills.craft||0) < 5) G.skills.craft++;
+    if ((G.skills.spirit||0) < 5) G.skills.spirit++;
   }
   if (effect.includes('Lore gains +2')) {
     // Handled by getTraitBonus at roll time
@@ -8728,7 +8736,7 @@ function seekProfessionalCare() {
     choices.push({text:'Pay for treatment. (' + cost + ' gold)', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_service'});
   }
   choices.push({text:'Ask for partial treatment you can afford.', skill:'persuasion', tag:'risky', align:'neutral', cid:'shrine_contact'});
-  if ((G.skills.persuasion||0) >= 3) {
+  if ((G.skills.charm||0) >= 3) {
     choices.push({text:'Offer your skills in exchange for treatment.', skill:'persuasion', tag:'risky', align:'good', cid:'shrine_service'});
   }
   choices.push({text:'Decline and manage your own recovery.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'});
@@ -8776,7 +8784,7 @@ function campAction(type) {
       setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
     } else {
       tickAxis(1); modGold(-5);
-      const craftRoll = Math.floor(Math.random() * 20) + 1 + (G.skills.craft||0);
+      const craftRoll = Math.floor(Math.random() * 20) + 1 + (G.skills.spirit||0);
       if (craftRoll >= 10) {
         addToInventory({ name:'Crafted Supplies', type:'tool', skillBonus:'craft', bonus:1, equipped:false });
         addNarration('Camp', 'You craft useful supplies. A tool that gives +1 craft added to inventory.', 'success');
@@ -8806,7 +8814,7 @@ function showTrainingMenu() {
   let html = '<div class="choice-label">Train which skill? (Costs 1 axis tick &middot; Next 5 choices: -2 disadvantage)</div><div class="choices">';
   skills.forEach(([sk, val]) => {
     html += '<button class="choice-btn train-btn" data-skill="' + sk + '">' +
-      '<span class="choice-text">Train <strong>' + sk + '</strong> (' + val + '/5)</span>' +
+      '<span class="choice-text">Train <strong>' + (sk.charAt(0).toUpperCase()+sk.slice(1)) + '</strong> (' + val + '/5)</span>' +
       '<span class="choice-meta"><span class="choice-tag safe">train</span></span></button>';
   });
   html += '</div><div style="margin-top:8px"><button class="btn btn-ghost btn-sm" id="btn-cancel-train">Cancel</button></div>';
@@ -8924,7 +8932,7 @@ function showNPCMenu() {
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_npc');
   const loc = WORLD_LOCATIONS[G.location];
   if (!loc) return;
-  const loreSkill = G.skills.lore || 0;
+  const loreSkill = G.skills.wits || 0;
   const npcs = loc.npcData || [];
   const visible = npcs.filter(n => loreSkill >= (n.skillReq || 0));
   const hidden  = npcs.filter(n => loreSkill < (n.skillReq || 0));
@@ -8986,7 +8994,7 @@ function approachNPC(npcName, site) {
   addNarration(npcName, intro + trustNote + ' ' + npc.note);
 
   // Generate context-appropriate NPC choices
-  const persuasion = G.skills.persuasion || 0;
+  const persuasion = G.skills.charm || 0;
   const choices = [];
 
   // Always available: ask about the local situation
@@ -9433,7 +9441,24 @@ function migrateState(loaded) {
       }));
     }
   }
-  loaded.schemaVersion = 5;
+  // v5 -> v6: add Stage II fields + rename skill keys to new stat names
+  if (v < 6) {
+    loaded.investigationProgress = loaded.investigationProgress || 0;
+    loaded.rivalId = loaded.rivalId || null;
+    loaded.factionHostility = loaded.factionHostility || { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+    loaded.stageProgress = loaded.stageProgress || { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+    loaded.telemetry = loaded.telemetry || { turns: 0, actions: 0 };
+    loaded.discoveries = loaded.discoveries || [];
+    loaded.flags = loaded.flags || {};
+    // Rename skill keys: old → new canonical stat names
+    if (loaded.skills) {
+      const _sr = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm',craft:'spirit'};
+      const _ns = {};
+      Object.keys(loaded.skills).forEach(k => { _ns[_sr[k] || k] = loaded.skills[k]; });
+      loaded.skills = _ns;
+    }
+  }
+  loaded.schemaVersion = 6;
   return loaded;
 }
 
@@ -9556,7 +9581,7 @@ function updateHUD() {
     Object.entries(G.skills||{}).forEach(([k,v]) => {
       const r = document.createElement('div'); r.className='skill-item';
       let dots=''; for(let i=0;i<5;i++) dots+='<div class="dot'+(i<v?' filled':'')+'"></div>';
-      r.innerHTML='<span class="skill-name">'+k+'</span><div class="skill-dots">'+dots+'</div>';
+      r.innerHTML='<span class="skill-name">'+(k.charAt(0).toUpperCase()+k.slice(1))+'</span><div class="skill-dots">'+dots+'</div>';
       sk.appendChild(r);
     });
   }
@@ -9701,47 +9726,124 @@ function endLegend() {
   showScreen('screen-title');
 }
 
-// ── SAVE / LOAD ──────────────────────────────────────────
-function exportSave() {
-  if (!window.G) return;
-  var G = window.G;
-  var name = (G.characterName || G.name || 'legend').replace(/[^a-z0-9]/gi, '-').toLowerCase();
-  var code = G.passcode || G.code || '0000';
-  var filename = 'loa-save-' + name + '-' + code + '.json';
-  var data = JSON.stringify(G, null, 2);
-  var blob = new Blob([data], { type: 'application/json' });
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url; a.download = filename; a.click();
-  setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+// ── SAVE / LOAD v2 ───────────────────────────────────────
+
+function _genRunId() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0;
+    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  });
 }
 
-function saveKey() {
-  if (!G.name||!G.passcode) return null;
-  return 'loa_save_' + G.name.toLowerCase().replace(/\s+/g,'_') + '_' + G.passcode;
+function _genCaseCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
 }
+
+function initRunIdentity() {
+  if (!G.runId) G.runId = _genRunId();
+  if (!G.caseCode) G.caseCode = _genCaseCode();
+  if (!G.choiceCount) G.choiceCount = 0;
+}
+
+function _saveRunIndex(slotNum) {
+  let index = [];
+  try { index = JSON.parse(localStorage.getItem('loa_runs') || '[]'); } catch(e) {}
+  const existing = index.findIndex(r => r.runId === G.runId);
+  const base = existing >= 0 ? index[existing] : { runId: G.runId, caseCode: G.caseCode, name: G.name || 'Unknown', slots: [] };
+  const slot = { slot: slotNum, savedAt: Date.now(), stage: G.stage || 'Stage I', level: G.level || 1, location: G.location || '' };
+  base.slots = base.slots.filter(s => s.slot !== slotNum).concat(slot);
+  base.lastSaved = Date.now();
+  base.name = G.name || base.name;
+  if (existing >= 0) index[existing] = base; else index.unshift(base);
+  try { localStorage.setItem('loa_runs', JSON.stringify(index.slice(0, 20))); } catch(e) {}
+}
+
 const JOURNAL_MAX = 200;
-function saveGame() {
-  const k = saveKey(); if (!k) return;
+
+function saveGame(slotNum) {
+  if (!G.runId) initRunIdentity();
+  slotNum = slotNum || G._lastSlot || 1;
+  G._lastSlot = slotNum;
   if (G.journal && G.journal.length > JOURNAL_MAX) G.journal = G.journal.slice(-JOURNAL_MAX);
   if (G.journalRecords && G.journalRecords.length > JOURNAL_MAX) G.journalRecords = G.journalRecords.slice(-JOURNAL_MAX);
-  try { localStorage.setItem(k, JSON.stringify(G)); } catch(e) { if (typeof showToast === 'function') showToast('Save failed — storage full. Clear old saves.'); }
-  _updateSaveIndex(k);
-}
-function loadGame(name, code) {
-  const k = 'loa_save_' + name.toLowerCase().replace(/\s+/g,'_') + '_' + code;
+  const key = 'loa_run_' + G.runId + '_s' + slotNum;
   try {
-    const s = localStorage.getItem(k);
-    if (s) {
-      let d;
-      try { d = JSON.parse(s); } catch(e) { showToast('Save data corrupted. Starting fresh.'); return false; }
-      if (!d || typeof d !== 'object') { showToast('Save format invalid.'); return false; }
-      d = migrateState(d);
-      Object.assign(G, d);
-      return true;
-    }
-  } catch(e) { showToast('Could not load save: ' + e.message); }
+    localStorage.setItem(key, JSON.stringify(G));
+    _saveRunIndex(slotNum);
+  } catch(e) {
+    if (typeof showToast === 'function') showToast('Save failed — storage full. Export your save to back up.');
+  }
+}
+
+function loadGame(runIdOrName, slotNumOrCode) {
+  // New format: loadGame(runId, slotNum)
+  const newKey = 'loa_run_' + runIdOrName + '_s' + (slotNumOrCode || 1);
+  if (localStorage.getItem(newKey)) {
+    return _loadFromKey(newKey, true);
+  }
+  // Legacy format: loadGame(name, passcode)
+  const legacyKey = 'loa_save_' + (runIdOrName||'').toLowerCase().replace(/\s+/g,'_') + '_' + (slotNumOrCode||'');
+  if (localStorage.getItem(legacyKey)) {
+    return _loadFromKey(legacyKey, false);
+  }
   return false;
+}
+
+function _loadFromKey(key, isNew) {
+  try {
+    const s = localStorage.getItem(key);
+    if (!s) return false;
+    let d;
+    try { d = JSON.parse(s); } catch(e) { showToast('Save data corrupted.'); return false; }
+    if (!d || typeof d !== 'object') { showToast('Save format invalid.'); return false; }
+    d = migrateState(d);
+    Object.assign(G, d);
+    if (!isNew) {
+      // Migrate legacy save to new format
+      if (!G.runId) { G.runId = _genRunId(); G.caseCode = _genCaseCode(); }
+      saveGame(1);
+      showToast('Save migrated. Your case code: ' + G.caseCode);
+    }
+    return true;
+  } catch(e) { showToast('Could not load save: ' + e.message); return false; }
+}
+
+function exportSave() {
+  if (!window.G) return;
+  const name = (G.name || 'legend').replace(/[^a-z0-9]/gi, '-').toLowerCase();
+  const code = G.caseCode || G.passcode || '0000';
+  const blob = new Blob([JSON.stringify(G, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'loa-save-' + name + '-' + code + '.json'; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function importSave(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      let d = JSON.parse(e.target.result);
+      if (!d || typeof d !== 'object') { showToast('Invalid save file.'); return; }
+      d = migrateState(d);
+      if (!d.runId) { d.runId = _genRunId(); d.caseCode = _genCaseCode(); }
+      Object.assign(G, d);
+      saveGame(1);
+      showToast('Save imported. Case code: ' + G.caseCode);
+      if (typeof updateHUD === 'function') updateHUD();
+    } catch(err) { showToast('Import failed: ' + err.message); }
+  };
+  reader.readAsText(file);
+}
+
+// Legacy key helper (used by death screen cleanup)
+function saveKey() {
+  if (G.runId) return 'loa_run_' + G.runId + '_s' + (G._lastSlot || 1);
+  if (!G.name || !G.passcode) return null;
+  return 'loa_save_' + G.name.toLowerCase().replace(/\s+/g,'_') + '_' + G.passcode;
 }
 
 // ── TOAST ────────────────────────────────────────────────
@@ -9807,7 +9909,7 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
   }
   if (mode === 'talk') {
     const roll = Math.floor(Math.random()*20)+1;
-    const persuasion = G.skills ? (G.skills.persuasion||0) : 0;
+    const persuasion = G.skills ? (G.skills.charm||0) : 0;
     const compBonus = typeof getCompanionRollBonus === 'function' ? getCompanionRollBonus('persuasion') : 0;
     const total = roll + persuasion + compBonus;
     const diff = enemyKey === 'hired_muscle' ? 10 : enemyKey === 'roadwarden_officer' ? 8 : 13;

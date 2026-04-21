@@ -11,7 +11,7 @@ var STAGE2_CLIMAX = (function() {
     G.lastResult = 'A sealed letter bearing the Oversight Collegium\'s iron-quill seal arrives at your lodgings. Inside, a single line: "Your inquiries have been noted. Present yourself at the Collegium Hall by sundown. Refusal will be noted as well." The city holds its breath.';
     G.recentOutcomeType = 'investigation';
 
-    window.renderChoices([
+    (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p1_negotiate',
         text: 'Present yourself openly — negotiate your position',
@@ -83,7 +83,7 @@ var STAGE2_CLIMAX = (function() {
     G.flags.stage2_revelation_received = true;
     window.addJournal('investigation', G.lastResult);
     if (typeof updateHUD === 'function') updateHUD();
-    phase3();
+    setTimeout(phase3, 400);
   }
 
   // Phase 3 — The Resolution
@@ -91,7 +91,7 @@ var STAGE2_CLIMAX = (function() {
     var G = window.G;
     G.lastResult += '\n\nSeld presses a folded document into your hands — a partial copy of the ledger. "What you do with this determines everything," he says. Three paths remain.';
 
-    window.renderChoices([
+    (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p3_expose',
         text: 'Expose — bring the ledger to the public record. Let the city decide.',
