@@ -1020,6 +1020,7 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn.plot-main {
   border-left: 2px solid var(--gold-dim, #9a7a32);
 }
+.choice-tutorial-hint { font-size: 0.78em; color: var(--ink-mid, #c4b49a); font-style: italic; padding: 0.2em 0.75em 0.5em; }
 
 .choice-text { display: block; }
 .choice-meta {
@@ -7428,7 +7429,7 @@ function checkBeginReady() {
 // ── ONBOARDING MODAL ────────────────────────────────────────
 var ONBOARDING_PAGES = [
   { title: 'The Investigation', body: 'A ledger of ash and secrets leads you to Shelkopolis — a city where factions war in shadow and truth is currency. You are an investigator. Every choice you make shapes what the city remembers of you.' },
-  { title: 'Making Choices', body: 'Some choices are <strong style="color:var(--gold-dim,#9a7a32)">safe</strong> — low risk, modest reward. <strong style="color:var(--ember-glow,#c84b10)">Risky</strong> choices roll a d20 against a difficulty. <strong style="color:var(--blood-bright,#c0392b)">Bold</strong> choices are high-stakes confrontations. Risk wisely.' },
+  { title: 'Making Choices', body: 'Each choice shows its risk tier — you\'ll learn what they mean as you play.' },
   { title: 'World Clocks', body: 'Three forces shape your investigation: <em>Watchfulness</em> tracks how closely the city watches you. <em>Pressure</em> reflects the weight of your choices. <em>Reverence</em> rises with your legend. Each has a breaking point.' },
   { title: 'Your Legend', body: 'Your four-digit code is your legend\'s identity. The game saves automatically after every choice. Return any time — enter your code at the title screen to resume where you left off.' },
   { title: 'Begin', body: 'For full rules, open the How to Play screen from the menu at any time. Your investigation begins now.' }
@@ -7804,12 +7805,22 @@ function addNarration(label, html, resultType) {
 
 function renderChoices(choices) {
   _pendingChoices = choices;
+  // Fumble backup notice (one-time)
+  if (window.G && window.G._pendingBackupChoice && !window.G.flags._taught_backup) {
+    window.G.flags._taught_backup = true;
+    if (typeof window.addWorldNotice === 'function') addWorldNotice('A path has closed. Another has opened — though it may be harder to walk.');
+  }
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
   const block = document.createElement('div');
   block.className = 'scene-block choice-block';
   const disadv = G.trainingDisadvantage > 0;
   let html = '<div class="choice-label">What do you do?' + (disadv ? ' <span style="color:var(--gold-dim);font-size:10px">[Training fatigue: -2 to rolls, ' + G.trainingDisadvantage + ' left]</span>' : '') + '</div><div class="choices">';
 
+  const _tierHints = {
+    safe: 'Safe choices always succeed — steady progress, no risk.',
+    risky: 'Risky choices roll d20 against a DC. Success advances faster.',
+    bold: 'Bold choices are high stakes — greater reward, permanent consequences on fumble.'
+  };
   choices.forEach((c, i) => {
     const alignSymbol = {lawful:'&#x2696;', chaotic:'&#x2605;', good:'&#x2665;', evil:'&#x2620;'}[c.align] || '';
     // Check fumble lock
@@ -7826,6 +7837,11 @@ function renderChoices(choices) {
       (c.align && c.align !== 'neutral' ? '<span class="choice-align ' + c.align + '">' + alignSymbol + ' ' + c.align + '</span>' : '') +
       (c.dc ? '<span class="choice-dc">DC ' + c.dc + '</span>' : '') +
       '</span></button>';
+    // Per-tier first-encounter hint
+    if (c.tag && _tierHints[c.tag] && window.G && window.G.flags && !window.G.flags['taught_' + c.tag]) {
+      window.G.flags['taught_' + c.tag] = true;
+      html += '<div class="choice-tutorial-hint" data-tier="' + c.tag + '">' + _tierHints[c.tag] + '</div>';
+    }
   });
   html += '</div>';
 
