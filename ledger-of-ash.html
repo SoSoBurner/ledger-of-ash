@@ -8417,7 +8417,89 @@ function checkLevelUp() {
   }
 }
 
-function showStage3Blocker() {
+function showStage3Epilogue() {
+  if (G.flags.stage3_epilogue_shown) return;
+  G.flags.stage3_epilogue_shown = true;
+
+  var res = G.flags.stage2_climax_resolution || 'withdraw';
+  var hasInquisitor = !!(G.flags && G.flags.stage2_climax_inquisitor_contact);
+  var hasMaren = !!(G.flags && G.flags.maren_oss_resolved);
+
+  var opening = 'The investigation is not over. It has changed shape.';
+  if (res === 'expose') opening = 'The ledger\'s contents are out. The city is reading them. You cannot unsay what was said.';
+  else if (res === 'align') opening = 'You have an uneasy alliance with the Oversight Collegium. Inquisitor Orveth has not explained what she intends to do with what you gave her.';
+  else opening = 'The ledger is hidden. Seld is gone. The city breathes, unknowing. You are the only person who knows what you know.';
+  if (hasMaren) opening += ' Maren Oss is still out there — whatever their role in this, it isn\'t finished.';
+
+  addNarration('Stage II Complete', opening);
+  setTimeout(_renderEpilogueChoice1, 500);
+}
+
+function _renderEpilogueChoice1() {
+  var wrap = document.createElement('div');
+  wrap.className = 'choice-block';
+  wrap.innerHTML = '<div class="choice-label">Sit with what you know.</div><div class="choices"></div>';
+  var choicesEl = wrap.querySelector('.choices');
+
+  var btn = document.createElement('button');
+  btn.className = 'choice-btn';
+  btn.textContent = 'Who are you becoming in the face of it?';
+  btn.addEventListener('click', function() {
+    wrap.remove();
+    var ben = G.benevolence || 0;
+    var reflection;
+    if (ben > 15) reflection = 'You\'ve tried to hold to something through this. Whether that was wisdom or naivety, you haven\'t decided yet. The city doesn\'t know what you know. That weight is yours.';
+    else if (ben < -10) reflection = 'You\'ve made decisions you couldn\'t have predicted. Some of them still feel correct. Some of them you won\'t think about directly. Both of those things can be true at once.';
+    else reflection = 'You\'ve learned things about this city and things about yourself. They\'re not separate lessons.';
+    addNarration('', reflection);
+    setTimeout(_renderEpilogueChoice2, 600);
+  });
+  choicesEl.appendChild(btn);
+  var narr = document.getElementById('narration');
+  if (narr) narr.appendChild(wrap);
+  if (typeof scrollNarrative === 'function') scrollNarrative();
+}
+
+function _renderEpilogueChoice2() {
+  var res = G.flags.stage2_climax_resolution || 'withdraw';
+  var wrap = document.createElement('div');
+  wrap.className = 'choice-block';
+  wrap.innerHTML = '<div class="choice-label">There is something wrong in the Principality. What have you heard?</div><div class="choices"></div>';
+  var choicesEl = wrap.querySelector('.choices');
+
+  var hooks = [];
+  if (res === 'expose' || res === 'align') {
+    hooks.push("The Collegium's erasures didn't begin with the ledger. And they didn't end there. Someone inside the Collegium has been protecting the erased names — and someone else has been selling that protection. Inquisitor Orveth is watching. But Orveth reports to someone.");
+  }
+  hooks.push("The faith districts have been quiet in a way that doesn't feel like peace. Three of the principal shrines changed their observance schedules in the last month — all within the same week. Coincidences in Shelkopolis are rarely coincidences.");
+  hooks.push("Someone keeps saying the name Ronalind in contexts where it doesn't belong. A trader in the Cosmoria district. A warden who stopped mid-sentence. A sealed letter that came through the registry the day before the Collegium summons. You don't know who that is yet. But the name keeps surfacing.");
+
+  hooks.forEach(function(hookText) {
+    var btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = hookText.length > 80 ? hookText.substring(0, 77) + '…' : hookText;
+    btn.title = hookText;
+    btn.addEventListener('click', function() {
+      wrap.remove();
+      addNarration('Stage III', hookText);
+      G.stage = 'Stage III';
+      G.stageLabel = 'Local Inter-Polity (Deep)';
+      addJournal('Advanced to Stage III. The investigation enters a new phase.');
+      addWorldNotice('Stage II complete. The investigation enters a new phase.');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame(1);
+      var code = G.caseCode || '';
+      if (code) addNarration('Case File', 'Investigation record updated. Your case code: <strong>' + code + '</strong>');
+    });
+    choicesEl.appendChild(btn);
+  });
+
+  var narr = document.getElementById('narration');
+  if (narr) narr.appendChild(wrap);
+  if (typeof scrollNarrative === 'function') scrollNarrative();
+}
+
+function _showStage3BlockerLegacy() {
   // Remove any existing blocker
   const existing = document.getElementById('stage3-blocker-modal');
   if (existing) existing.remove();
@@ -8503,13 +8585,10 @@ function checkStageAdvance() {
       }
       return;
     }
-    // Instead of advancing to Stage III, show v0.1 thank-you blocker
-    if (!G.flags.stage3_blocked) {
-      G.flags.stage3_blocked = true;
-      // Do NOT change G.stage — player stays in Stage II
-      showStage3Blocker();
+    if (!G.flags.stage3_epilogue_shown) {
+      showStage3Epilogue();
     }
-    return; // never advance to Stage III in v0.1
+    return;
   } else if (G.level === 16 && G.stage === 'Stage III') {
     G.stage = 'Stage IV'; G.stageLabel = 'International';
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE IV &#x2014; International consequence. What you do now echoes.</em>');
