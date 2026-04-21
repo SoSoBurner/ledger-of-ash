@@ -355,6 +355,11 @@ function checkClockThresholds() {
       if (t.dcPenalty) newPenalty += t.dcPenalty;
     }
   });
+  // Include rival clock dc penalty so call order doesn't matter
+  var rival = G.worldClocks.rival || 0;
+  _RIVAL_THRESHOLDS.forEach(function(t) {
+    if (rival >= t.at && t.dcPenalty) newPenalty += t.dcPenalty;
+  });
   G._dcPenalty = newPenalty;
 }
 
@@ -372,7 +377,7 @@ function checkRivalClock() {
     if (rival >= t.at && !G.flags[t.flag]) {
       G.flags[t.flag] = true;
       if (typeof addWorldNotice === 'function') addWorldNotice(t.notice);
-      if (t.dcPenalty) G._dcPenalty = (G._dcPenalty || 0) + t.dcPenalty;
+      // dcPenalty is accumulated in checkClockThresholds to avoid clobber
     }
   });
 }
