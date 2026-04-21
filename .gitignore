@@ -12,3 +12,7 @@ dist_base_tmp/
 itch-io-build/
 bundle.min.js
 playtest_results_quick.json
+dist/test_bundle.js
+dist/index.html
+download_fonts.py
+_font_faces.css
