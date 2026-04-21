@@ -238,6 +238,45 @@ function sampleEnrichedChoices(locId, n, stage) {
   });
 }
 
+function toEnrichedChoice(c) {
+  return {
+    text: c.label || c.text || 'A critical moment demands attention.',
+    skill: SKILL_NORM[c.skill] || c.skill || 'persuasion',
+    tag: c.tag || 'risky',
+    align: c.align || 'neutral',
+    cid: '__enriched__',
+    __enrichedFn: c.fn
+  };
+}
+
+function getActiveMidspineChoices() {
+  const G = window.G;
+  if (!G) return [];
+  const active = [];
+
+  // Non-bard midspines: use built-in condition()
+  [window.COMBAT_MIDSPINE_CHOICES, window.MAGIC_MIDSPINE_CHOICES,
+   window.STEALTH_MIDSPINE_CHOICES, window.SUPPORT_MIDSPINE_CHOICES].forEach(function(arr) {
+    if (!Array.isArray(arr)) return;
+    arr.forEach(function(entry) {
+      if (typeof entry.condition === 'function') {
+        try { if (entry.condition()) active.push(entry); } catch(e) {}
+      }
+    });
+  });
+
+  // Bard midspine: signal-based gating
+  var bard = window.BARD_MIDSPINE_NODES;
+  if (Array.isArray(bard) && G.archetype && (G.archetype.id === 'bard' || G.archetype === 'bard')) {
+    var sig = (G.signals && G.signals.bardSpine) || '';
+    if (!sig && bard[0]) active.push(bard[0]);
+    else if (sig === 'voice_found' && bard[1]) active.push(bard[1]);
+    else if (sig === 'thread_pulled' && bard[2]) active.push(bard[2]);
+  }
+
+  return active;
+}
+
 // ── ENRICHED CHOICE HANDLER ───────────────────────────────
 
 function handleEnrichedChoice(choice) {
@@ -269,12 +308,13 @@ function handleEnrichedChoice(choice) {
 }
 
 function buildNextChoiceSet(locId, stage) {
-  const enriched = sampleEnrichedChoices(locId, 2, stage);
+  const midspine = getActiveMidspineChoices().slice(0, 1).map(toEnrichedChoice);
+  const enriched = sampleEnrichedChoices(locId, Math.max(0, 2 - midspine.length), stage);
   const standard = [
     { text: 'Look for more leads in the settlement.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' },
     { text: 'Rest and reconsider.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'rest_recover' }
   ];
-  return enriched.concat(standard).slice(0, 4);
+  return midspine.concat(enriched).concat(standard).slice(0, 4);
 }
 
 // ── WRAP handleChoice ─────────────────────────────────────
@@ -300,9 +340,10 @@ window.renderChoices = function(choices) {
   if (!G) { _origRenderChoices(choices); return; }
   const injectStages = ['Stage I', 'Stage II'];
   if (injectStages.indexOf(G.stage) !== -1 && choices.length < 4) {
-    const slots = Math.min(2, 4 - choices.length);
-    const enriched = sampleEnrichedChoices(G.location, slots, G.stage);
-    if (enriched.length) choices = choices.concat(enriched);
+    const midspine = getActiveMidspineChoices().slice(0, 1).map(toEnrichedChoice);
+    const slots = Math.min(2, 4 - choices.length) - midspine.length;
+    const enriched = slots > 0 ? sampleEnrichedChoices(G.location, slots, G.stage) : [];
+    if (midspine.length || enriched.length) choices = choices.concat(midspine).concat(enriched);
   }
   _origRenderChoices(choices);
 };

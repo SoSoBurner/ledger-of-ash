@@ -9368,7 +9368,7 @@ document.getElementById('btn-confirm-end').addEventListener('click', endLegend);
 <script src='data/bestiary_lookup.js'></script>
 <script src='data/nomdara_overlay.js'></script>
 
-<!-- ── ENRICHED CHOICES (Stage 1–5) ── -->
+<!-- ── ENRICHED CHOICES Stage 1: original 12 localities ── -->
 <script src='shelkopolis_stage1_enriched_choices.js'></script>
 <script src='soreheim_proper_stage1_enriched_choices.js'></script>
 <script src='guildheart_hub_stage1_enriched_choices.js'></script>
@@ -9381,14 +9381,124 @@ document.getElementById('btn-confirm-end').addEventListener('click', endLegend);
 <script src='shirshal_stage1_enriched_choices.js'></script>
 <script src='cosmoria_stage1_enriched_choices.js'></script>
 <script src='harvest_circle_stage1_enriched_choices.js'></script>
+<!-- ── ENRICHED CHOICES Stage 1: 6 expansion localities ── -->
+<script src='glasswake_commune_stage1_enriched_choices.js'></script>
+<script src='whitebridge_commune_stage1_enriched_choices.js'></script>
+<script src='craftspire_stage1_enriched_choices.js'></script>
+<script src='unity_square_stage1_enriched_choices.js'></script>
+<script src='ironhold_quarry_stage1_enriched_choices.js'></script>
+<script src='plumes_end_outpost_stage1_enriched_choices.js'></script>
+<!-- ── DISTRICTS + NOMDARA Stage 1 ── -->
+<script src='districts_stage1_enriched_choices.js'></script>
+<script src='nomdara_stage1_choices.js'></script>
+<!-- ── CATCH-ALL + MIDSPINES ── -->
 <script src='stage1_additional_enriched_choices.js'></script>
 <script src='bard_midspine.js'></script>
+<script src='combat_midspine.js'></script>
+<script src='magic_midspine.js'></script>
+<script src='stealth_midspine.js'></script>
+<script src='support_midspine.js'></script>
+<!-- ── TRAVEL ARCS (Stage 1→2 transition) ── -->
+<script src='aurora_crown_to_shelk_arc.js'></script>
+<script src='cosmoria_to_shelk_arc.js'></script>
+<script src='glasswake_to_shelk_arc.js'></script>
+<script src='guildheart_hub_to_shelk_arc.js'></script>
+<script src='harvest_circle_to_shelk_arc.js'></script>
+<script src='ithtananalor_to_shelk_arc.js'></script>
+<script src='mimolot_academy_to_shelk_arc.js'></script>
+<script src='panim_haven_to_shelk_arc.js'></script>
+<script src='shirshal_to_shelk_arc.js'></script>
+<script src='soreheim_proper_to_shelk_arc.js'></script>
+<script src='sunspire_haven_to_shelk_arc.js'></script>
+<script src='whitebridge_to_shelk_arc.js'></script>
+<!-- ── ENRICHED CHOICES Stage 2: per-locality ── -->
+<script src='shelkopolis_stage2_enriched_choices.js'></script>
+<script src='soreheim_proper_stage2_enriched_choices.js'></script>
+<script src='guildheart_hub_stage2_enriched_choices.js'></script>
+<script src='sunspire_haven_stage2_enriched_choices.js'></script>
+<script src='aurora_crown_commune_stage2_enriched_choices.js'></script>
+<script src='ithtananalor_stage2_enriched_choices.js'></script>
+<script src='mimolot_academy_stage2_enriched_choices.js'></script>
+<script src='panim_haven_stage2_enriched_choices.js'></script>
+<script src='fairhaven_stage2_enriched_choices.js'></script>
+<script src='shirshal_stage2_enriched_choices.js'></script>
+<script src='cosmoria_stage2_enriched_choices.js'></script>
+<script src='harvest_circle_stage2_enriched_choices.js'></script>
+<script src='craftspire_stage2_enriched_choices.js'></script>
+<script src='unity_square_stage2_enriched_choices.js'></script>
+<script src='glasswake_commune_stage2_enriched_choices.js'></script>
+<script src='ironhold_quarry_stage2_enriched_choices.js'></script>
+<script src='plumes_end_outpost_stage2_enriched_choices.js'></script>
+<script src='whitebridge_commune_stage2_enriched_choices.js'></script>
+<!-- ── DISTRICTS + NOMDARA Stage 2 ── -->
+<script src='districts_stage2_enriched_choices.js'></script>
+<script src='nomdara_stage2_choices.js'></script>
+<!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
 <script src='stage2_enriched_choices.js'></script>
 <script src='stage3_enriched_choices.js'></script>
 <script src='stage4_enriched_choices.js'></script>
 <script src='stage5_enriched_choices.js'></script>
+<!-- ── TRAVEL ENGINE ── -->
+<script src='js/travel.js'></script>
 <!-- ── ENRICHED CHOICE BRIDGE ── -->
 <script src='js/loa-enriched-bridge.js'></script>
+
+<!-- ── TRAVEL ENGINE CALLBACKS ── -->
+<script>
+(function() {
+  // _travelEngineG: live getter so travel.js always sees the current G
+  Object.defineProperty(window, '_travelEngineG', {
+    get: function() { return window.G; },
+    configurable: true
+  });
+
+  window._travelRender = function() {
+    if (typeof updateHUD === 'function') updateHUD();
+    if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
+  };
+
+  window._travelAdvanceTime = function(n) {
+    if (typeof advanceTime === 'function') advanceTime(n);
+  };
+
+  // Handles location change without double-counting time (travel.js already advanced time)
+  window._travelCoreTravelTo = function(locId) {
+    const loc = (typeof WORLD_LOCATIONS !== 'undefined') && WORLD_LOCATIONS[locId];
+    const G = window.G;
+    if (!G || !loc) return;
+    G.location = locId;
+    if (typeof tickAxis === 'function') tickAxis(Math.floor(Math.random() * 3) + 1);
+    if (typeof addNarration === 'function') {
+      addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+    }
+    G.history.push('Traveled to ' + loc.name + '.');
+    if (typeof saveGame === 'function') saveGame();
+    setTimeout(function() {
+      if (typeof renderChoices === 'function') {
+        renderChoices([
+          { text: 'Find the local inn and ask what people know.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
+          { text: 'Walk the settlement and read it.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' },
+          { text: 'Seek the local authority.', skill: 'persuasion', tag: 'bold', align: 'lawful', cid: 'garrison_contact' }
+        ]);
+      }
+    }, 300);
+  };
+
+  window._travelAddNotice = function(msg) {
+    if (typeof addWorldNotice === 'function') addWorldNotice(msg);
+  };
+
+  window._travelStartEncounter = function(type) {
+    if (typeof renderChoices === 'function') {
+      renderChoices([
+        { text: 'Stand your ground.', skill: 'combat', tag: 'bold', align: 'neutral', cid: 'road_ambush' },
+        { text: 'Attempt to evade.', skill: 'survival', tag: 'risky', align: 'neutral', cid: 'road_evade' },
+        { text: 'Negotiate or bluff.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: 'road_talk' }
+      ]);
+    }
+  };
+})();
+</script>
 
 </body>
 </html>
