@@ -980,6 +980,15 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn.bold:hover  { border-color: var(--ember-lo); }
 .choice-btn.risky:hover { border-color: rgba(110,16,16,.6); }
 .choice-btn.safe:hover  { border-color: var(--jade); }
+.choice-btn.fumble-locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.6);
+}
+.choice-btn.plot-main {
+  border-left: 2px solid var(--gold-dim, #9a7a32);
+}
 
 .choice-text { display: block; }
 .choice-meta {
@@ -7753,8 +7762,14 @@ function renderChoices(choices) {
 
   choices.forEach((c, i) => {
     const alignSymbol = {lawful:'&#x2696;', chaotic:'&#x2605;', good:'&#x2665;', evil:'&#x2620;'}[c.align] || '';
-    html += '<button class="choice-btn" data-idx="' + i + '">' +
-      '<span class="choice-text">' + c.text + '</span>' +
+    // Check fumble lock
+    var cid = c.cid || c.id;
+    var isLocked = cid && window.G && window.G.flags && window.G.flags['fumble_locked_' + cid];
+    var btnClasses = 'choice-btn';
+    if (isLocked) btnClasses += ' fumble-locked';
+    if (c.plot === 'main') btnClasses += ' plot-main';
+    html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + '>' +
+      '<span class="choice-text">' + c.text + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
       '<span class="choice-meta">' +
       (c.skill ? '<span class="choice-skill">' + c.skill + '</span>' : '') +
       (c.tag ? '<span class="choice-tag ' + c.tag + '">' + c.tag + '</span>' : '') +

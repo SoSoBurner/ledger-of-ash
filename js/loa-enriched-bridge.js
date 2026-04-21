@@ -289,6 +289,8 @@ function toEnrichedChoice(c) {
     tag: resolvedTag,
     align: c.align || 'neutral',
     cid: '__enriched__',
+    plot: c.plot || 'side',
+    criticalSideplot: c.criticalSideplot || false,
     __enrichedFn: c.fn
   };
 }
@@ -462,6 +464,46 @@ function handleEnrichedChoice(choice) {
     checkRivalClock();
   }
 
+  // Fumble locking
+  if (G._lastRollWasFumble) {
+    var cid = choice.cid || choice.id;
+    if (cid) {
+      G.flags['fumble_locked_' + cid] = true;
+
+      if (choice.plot === 'main') {
+        // Inject backup choice into the pool
+        var backupId = cid + '_backup';
+        if (!G.flags['fumble_locked_' + backupId]) {
+          G._pendingBackupChoice = {
+            id: backupId,
+            cid: backupId,
+            text: 'Pursue the investigation through a different angle \u2014 the path is harder, but not closed.',
+            tag: 'risky',
+            plot: 'main',
+            isBackup: true,
+            dc: 14,
+            skill: choice.skill || 'lore',
+            xpReward: Math.max(10, (choice.xpReward || 20) - 10),
+            __enrichedFn: function() {
+              var G = window.G;
+              G.lastResult = 'A different thread of the investigation opens. The way is longer and the leads are cold, but the case is not lost.';
+              G.recentOutcomeType = 'partial';
+              G.stageProgress = G.stageProgress || {};
+              var sk = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
+              G.stageProgress[sk] = (G.stageProgress[sk] || 0) + 1;
+              advanceTime(1);
+            }
+          };
+        }
+      } else if (choice.criticalSideplot === true) {
+        G.flags['sideplot_failed_' + cid] = true;
+        if (typeof addJournal === 'function') {
+          addJournal('consequence', 'This path has closed. Some doors, once shut, do not reopen.');
+        }
+      }
+    }
+  }
+
   const resultText = G.lastResult || 'The action proceeds without clear resolution.';
 
   if (typeof saveGame === 'function') saveGame();
@@ -569,6 +611,11 @@ window.renderChoices = function(choices) {
     const slots = Math.min(2, 4 - choices.length) - midspine.length;
     const enriched = slots > 0 ? sampleEnrichedChoices(G.location, slots, G.stage) : [];
     if (midspine.length || enriched.length) choices = choices.concat(midspine).concat(enriched);
+  }
+  // Inject pending backup choice from fumble locking
+  if (window.G && window.G._pendingBackupChoice) {
+    choices = choices.concat([window.G._pendingBackupChoice]);
+    window.G._pendingBackupChoice = null;
   }
   _origRenderChoices(choices);
 };
