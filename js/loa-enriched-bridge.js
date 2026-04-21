@@ -86,6 +86,37 @@ const POOL_MAP_S1 = {
   shirshal:            'SHIRSHAL_STAGE1_ENRICHED_CHOICES',
   cosmoria:            'COSMORIA_STAGE1_ENRICHED_CHOICES',
   harvest_circle:      'HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES',
+  // 6 new Stage 1 localities
+  glasswake_commune:   'GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES',
+  whitebridge_commune: 'WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES',
+  craftspire:          'CRAFTSPIRE_STAGE1_ENRICHED_CHOICES',
+  unity_square:        'UNITY_SQUARE_STAGE1_ENRICHED_CHOICES',
+  ironhold_quarry:     'IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES',
+  plumes_end_outpost:  'PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES',
+  // Canon district pools for Stage 1
+  shelkopolis_aurora_heights:       'AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES',
+  shelkopolis_ironspool_ward:       'IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES',
+  shelkopolis_verdant_row:          'VERDANT_ROW_STAGE1_ENRICHED_CHOICES',
+  harvest_keep_granary_steps:       'GRANARY_STEPS_STAGE1_ENRICHED_CHOICES',
+  ithtananalor_iron_ledger_ward:    'IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES',
+  panim_haven_reckoning_quarter:    'RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES',
+  mimolot_academy_scriptorium_steps:'SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES',
+};
+
+// Travel arc pools (non-Shelk localities → Shelkopolis)
+const POOL_MAP_ARC = {
+  soreheim_proper:     'SOREHEIM_PROPER_TO_SHELK_ARC',
+  sunspire_haven:      'SUNSPIRE_HAVEN_TO_SHELK_ARC',
+  harvest_circle:      'HARVEST_CIRCLE_TO_SHELK_ARC',
+  panim_haven:         'PANIM_HAVEN_TO_SHELK_ARC',
+  aurora_crown_commune:'AURORA_CROWN_TO_SHELK_ARC',
+  glasswake_commune:   'GLASSWAKE_TO_SHELK_ARC',
+  whitebridge_commune: 'WHITEBRIDGE_TO_SHELK_ARC',
+  ithtananalor:        'ITHTANANALOR_TO_SHELK_ARC',
+  mimolot_academy:     'MIMOLOT_ACADEMY_TO_SHELK_ARC',
+  guildheart_hub:      'GUILDHEART_HUB_TO_SHELK_ARC',
+  shirshal:            'SHIRSHAL_TO_SHELK_ARC',
+  cosmoria:            'COSMORIA_TO_SHELK_ARC',
 };
 
 // Stage 2 locality pools (dedicated per-locality files)
@@ -137,9 +168,44 @@ function getLocDistrictType(locId) {
 }
 
 function getEnrichedPool(locId, stage) {
+  // Nomdara: stage-routed services
+  if (locId === 'nomdara_caravan') {
+    const G = window.G;
+    const gStage = G && G.stage;
+    if (gStage && gStage >= 2 && window.NOMDARA_STAGE2_CHOICES) return window.NOMDARA_STAGE2_CHOICES.slice();
+    if (window.NOMDARA_STAGE1_CHOICES) return window.NOMDARA_STAGE1_CHOICES.slice();
+    return [];
+  }
+  // Travel arc: inject arc pool for non-Shelk S1 localities when arc trigger conditions met
+  if (stage !== 'Stage II') {
+    const G = window.G;
+    const arcVarName = POOL_MAP_ARC[locId];
+    if (arcVarName && window[arcVarName]) {
+      const invProg = (G && G.investigationProgress) || 0;
+      const level = (G && G.level) || 1;
+      if (invProg >= 5 || level >= 6) {
+        // Merge arc choices into S1 pool
+        const s1VarName = POOL_MAP_S1[locId];
+        const base = (s1VarName && window[s1VarName]) ? window[s1VarName].slice() : [];
+        return base.concat(window[arcVarName].slice());
+      }
+    }
+  }
   const map = stage === 'Stage II' ? POOL_MAP_S2 : POOL_MAP_S1;
   let varName = map[locId];
-  // Synthetic district fallback
+  // Stage 1 synthetic district fallback
+  if (!varName && stage !== 'Stage II') {
+    const distType = getLocDistrictType(locId);
+    if (distType) {
+      const s1DistMap = {
+        high_quarter_type:   'HIGH_QUARTER_STAGE1_ENRICHED_CHOICES',
+        common_quarter_type: 'COMMON_QUARTER_STAGE1_ENRICHED_CHOICES',
+        low_ward_type:       'LOW_WARD_STAGE1_ENRICHED_CHOICES',
+      };
+      varName = s1DistMap[distType];
+    }
+  }
+  // Stage 2 synthetic district fallback
   if (!varName && stage === 'Stage II') {
     const distType = getLocDistrictType(locId);
     if (distType) varName = POOL_MAP_S2[distType];

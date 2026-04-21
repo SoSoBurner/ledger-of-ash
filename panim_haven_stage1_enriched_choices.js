@@ -91,7 +91,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading grief manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The memorial counselor (Kaelas) speaks with genuine alarm. "Families used to grieve for weeks, sometimes months. Now they're done in days. And they're not healing — they're hollow. Like something vital has been cut from the process. People who should be angry are numb. People who should be sad are accepting things they shouldn't accept. I mentioned it to the ritual authority, and they said grieving too long was becoming 'spiritually inefficient.' But grief isn't efficient. It's necessary. Panim Haven is being taught to mourn incorrectly."`;
@@ -157,7 +157,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading divine protection corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The chapel keeper (Meryl) speaks in hushed tones. "People are returning to say their blessings aren't holding. A merchant received a blessing for protection and was robbed on the way north. A widow was blessed for guidance through grief and says the blessing made her feel numb instead of safe. When I reported these failures to the ritual authority, I was told the blessings were 'working as intended' and people's expectations were wrong. But I know when a blessing fails. Panim Haven's blessings are becoming corrupted from within."`;
@@ -637,6 +637,197 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 19. CLUE: BUREAU CASE FRAGMENTS
+  {
+    label: "Access the Bureau of Reckoning's public case register — look for cases that were opened and closed without recorded resolution.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'reading Bureau case register');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `Forty-three cases in the past year were opened, assigned to senior mediators, and closed within seventy-two hours with the status "resolved per supplementary doctrine." No transcripts. No outcome records. No parties listed. The "supplementary doctrine" citation references a doctrine revision that itself cites a doctrine revision — a circular loop that leads nowhere. These cases didn't resolve. They disappeared.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_bureau_ghost_cases = true;
+        addJournal('investigation', 'Bureau register: 43 cases closed via circular doctrine citation — no records, no parties', `panim-bureau-${G.dayCount}`);
+      } else {
+        G.lastResult = `The register shows cases with unusual resolution codes. Without doctrine reference access you can't interpret the codes, but the pattern of fast closures is visible.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 20. CLUE: COASTAL ROUTE PASSAGE RECORDS
+  {
+    label: "Check the coastal passage logs at the harbor authority — trace what vessels have been flagged for Bureau involvement.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing coastal passage records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `Three vessels in the past six months departed Panim Haven under Bureau escort classification — a category normally reserved for transporting material evidence under active mediation. But the cases those vessels were assigned to are among the forty-three ghost cases: no records, no resolution. The vessels left carrying something under official Bureau protection. Whatever they were transporting is now outside Panim Haven's jurisdiction and evidence chain.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_coastal_passage_records = true;
+      addJournal('investigation', 'Harbor logs: three Bureau-escorted vessels departed during ghost case windows — cargo unknown, jurisdiction transferred', `panim-harbor-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 21. ARCHETYPE-GATED: READING THE RECKONING QUARTER
+  {
+    label: "Walk the Reckoning Quarter at midday and observe how the Bureau's presence shapes the space.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading Reckoning Quarter');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The Bureau guards carry themselves like occupation forces. Not hostile — careful. They position for coverage, not assistance. Whatever function they were designed to perform, they've been retrained for a different one. Their eyes track complainants entering the Bureau the same way you'd track a potentially hostile approach.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The Reckoning Quarter's acoustic design channels sound toward the Bureau building's upper windows — it was built for public transparency, so proceedings could be heard. Today, the Bureau operates in silence. The windows are shuttered. The architectural commitment to openness has been closed off from within.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `Two men follow the same irregular route through the quarter, twelve minutes apart, never intersecting. A patrol pattern, but unofficial. They're not Bureau guards — they wear no marks. Civilian watchers maintaining surveillance coverage outside the official perimeter.`;
+      } else {
+        G.lastResult = `The people waiting outside the Bureau have been there for hours. No one is called in. No one leaves. The queue doesn't move. It's not a processing delay — it's a deterrence mechanism. The waiting itself is the response. People here have learned that formal requests receive silence, and eventually they stop making them.`;
+      }
+      addJournal('investigation', 'Reckoning Quarter: Bureau functioning as deterrent rather than service, unofficial surveillance active', `panim-quarter-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. FACTION SEED: OVERSIGHT COLLEGIUM OBSERVER
+  {
+    label: "Speak to the Oversight Collegium's observer posted at the Panim Haven civic hall.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Oversight Collegium contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Observer Tren Callow has been stationed at Panim Haven for four months. "The Collegium received a formal complaint about Bureau case handling fourteen weeks ago," he tells you. "The complaint was received, logged, acknowledged, and assigned to a review panel. That review panel has not yet convened." His tone communicates what his words don't: the delay is engineered. He asks if you have access to the case register data. When you describe what you found, he makes a note and says the information will "support the existing complaint file."`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_oversight_collegium_panim = true;
+        G.factionHostility.oversight_collegium += 1;
+        addJournal('faction', 'Oversight Collegium observer Tren Callow: Bureau complaint review deliberately delayed, collecting supporting evidence', `panim-collegium-${G.dayCount}`);
+      } else {
+        G.lastResult = `Observer Callow is formally correct. He can receive written complaints and provide receipt confirmation. He cannot discuss ongoing review processes or their status. The Collegium process is real but not moving.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_oversight_collegium_panim = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ATMOSPHERE: TAZREN'S SHADOW
+  {
+    label: "Ask the oldest Bureau worker about Tazren — the name that keeps appearing in the pre-reform case archive.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 52,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(52, 'asking about Tazren');
+
+      G.lastResult = `The clerk pauses. "Tazren ran the Bureau for twenty-two years. He retired when the doctrine revision came in. Didn't fight it — just left." She goes quiet for a moment. "He used to say: Panim Haven doesn't need justice. It needs to be believed that justice is possible." She returns to her filing. The name doesn't appear in current Bureau materials. Someone made sure of that.`;
+      addJournal('discovery', 'Tazren: former Bureau head, left at doctrine revision, name removed from current materials', `panim-tazren-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 24. PERSONAL ARC: FIND TAZREN
+  {
+    label: "Track down Tazren — the retired Bureau head whose name has been erased from current institutional records.",
+    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'finding Tazren');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Tazren lives in the Reckoning Quarter's outer ring, two streets from the Bureau he spent his career in. He received you without asking who you were, which means he was expecting someone eventually. "The doctrine revision wasn't a reform," he says. "It was a handover. I don't know to whom. I left because I couldn't operate in a system I no longer recognized." He has twenty-two years of case memory in his head and a copy of the pre-reform doctrine text he kept out of principle. He'll help — but carefully, and on his own terms.`;
+        G.flags.met_tazren = true;
+        addJournal('contact', 'Tazren found: former Bureau head, has pre-reform doctrine, willing to assist conditionally', `panim-tazren-found-${G.dayCount}`);
+      } else {
+        G.lastResult = `Tazren's neighbors say he doesn't receive visitors. He's still in the quarter but he's not accessible to strangers. You need an introduction — someone who knew him from the Bureau era.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 25. SOCIAL: THE CASE THAT WAS CLOSED YESTERDAY
+  {
+    label: "Find the party whose case was closed yesterday under the ghost closure code — speak to them before they leave Panim Haven.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'interviewing recent ghost case complainant');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Sera brought a land dispute to the Bureau six weeks ago. Yesterday she was told it was "resolved per supplementary doctrine" and given a sealed letter with a small payment. "They told me the doctrine resolution supersedes the dispute. I asked what that means. They said it means the case is closed." She hasn't opened the letter yet. She's afraid to. She lets you read it: it's a standard release of claim form signed in her name. She didn't sign it. Her name is forged.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_sera_complainant = true;
+        addJournal('contact', 'Complainant Sera: Bureau forged her signature on a release of claim form, case closed without her consent', `panim-sera-${G.dayCount}`);
+      } else {
+        G.lastResult = `By the time you find the address, the complainant has already left Panim Haven. The Bureau's response was quick enough to get them moving before anyone could speak to them.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 26. SHADOW RIVAL INTRO
+  {
+    label: "Tazren mentions a visitor came to see him last month — someone who claimed to be researching Bureau reform history.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 57,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(57, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"They asked which senior mediators had left voluntarily versus been pushed out," Tazren says. "Specifically about who left with retirement packages versus who walked away empty-handed. They were building a list of people who might have grievances. A recruitment map for potential operatives."`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"They asked about the pre-reform doctrine text specifically," Tazren says. "How many copies exist. Whether any copies were in circulation outside institutional archives. They weren't studying reform — they were performing a document inventory. They want to know how many copies of the evidence exist."`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"They were very good at listening," Tazren says. "Asked almost nothing. Let me talk. At the end I realized I'd told them everything I know without being asked a direct question. Very practiced. They're not an amateur — that's a developed technique." A trained information harvester. They extracted Tazren's knowledge without leaving a trace of what they were actually after.`;
+      } else {
+        G.lastResult = `"They offered to help," Tazren says. "Restoration of my name in Bureau records. Formal recognition. It would have meant everything to me two years ago." He pauses. "I told them no. It felt like something they'd use to own me afterward." Someone tried to buy Tazren's cooperation using the thing that would have been easiest to accept.`;
+      }
+
+      G.lastResult += ` This person preceded you and extracted what you came for.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative interviewed Tazren before you — expert social engineering, preceded your investigation', `panim-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

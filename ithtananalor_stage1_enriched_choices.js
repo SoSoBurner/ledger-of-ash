@@ -58,7 +58,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering oath corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The honor guard (Elira) is conflicted and speaks quietly. Oaths that have bound soldiers to the garrison for generations are now binding them to specific commanders — not to principle, but to obedience. Traditional oaths that swore soldiers to protect the people have been reworded subtly so they swear obedience to command instead. "The new oath language is clever. It sounds the same. It honors the old traditions. But the binding intent has shifted. People are swearing themselves to serve authority, not justice. And because they're oath-bound, they can't refuse unjust orders. The oath itself has become a weapon."`;
@@ -129,7 +129,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing training abuse');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The training master (Kross) shows you the training regimen in detail. Traditional martial discipline is being exceeded. Soldiers are being pushed to breaking points regularly. Recovery periods have been shortened. Pain tolerance training has become systematic infliction. "This isn't martial conditioning anymore," Kross says grimly. "This is breaking people down. Making them compliant through physical exhaustion and systematic suffering. I've trained soldiers for decades. I know the difference between discipline and cruelty. This is cruelty disguised as training. Someone wants the soldiers weakened, traumatized, and obedient."`;
@@ -165,7 +165,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading personnel disappearance');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The garrison clerk (Helix) is nervous but provides access. Rosters show soldiers assigned to positions that don't officially exist. These soldiers are completely removed from standard garrison documentation — they don't appear on duty rotations, supply manifests, or casualty reports. "I was told to maintain two rosters. The official one for administration, and the hidden one for the actual deployments. These soldiers are being used for something outside the normal command structure. No one's supposed to know they exist. When I asked why, I was told to stop asking and keep the records separate."`;
@@ -273,7 +273,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping authority corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The ritual authority (Daven) is deeply troubled and speaks in confidence. The traditional chain of command has been spiritually replaced. Military hierarchy used to be validated through sacred rituals that confirmed legitimate authority. But the validation process has been corrupted. Current commanders are being spiritually certified as legitimate even though they haven't earned legitimacy through traditional standards. "I'm blessing authority that has no moral foundation. I'm spiritually validating corruption. And when I've tried to refuse, I'm told that questioning the command is questioning faith itself. I'm being used as a tool to make illegitimate authority seem sacred."`;
@@ -311,7 +311,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'military structural analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('perception', (G.skills.perception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The garrison's defensive architecture reveals intentional degradation. Fortifications that protected key choke points have been structurally weakened. Sightlines that covered approach routes have been deliberately obscured. Weapon placements that would create overlapping defensive fields have been repositioned to create gaps. This isn't natural decay or poor maintenance — this is surgical sabotage. The garrison is being deliberately made vulnerable in specific tactical areas while maintaining appearance of strength in others.`;
@@ -347,7 +347,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping shadow military structure');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `By tracking supply movements, hidden rosters, and off-books weapon caches, you map the hidden force. Disappeared soldiers are being deployed to locations outside the official garrison structure. They're operating under command that doesn't flow through traditional hierarchy. They wear unmarked insignia. They report through communication channels that avoid the main garrison network. This is a shadow military force operating in parallel to the official garrison. They're organized, equipped, and answering to someone other than the traditional command structure. Someone is building a separate army within Ithtananalor.`;
@@ -419,7 +419,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping oath-based coercion');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Through careful listening, a pattern emerges. Soldiers are being pressured to swear additional oaths beyond traditional binding. These new oaths tie them to specific commanders rather than principle. Those who refuse face public shaming and reassignment to dangerous positions. Those who later attempt to break these oaths face spiritual consequences — they're declared oath-breakers, stripped of rank, and exiled. The oath system has been weaponized to ensure compliance through spiritual coercion. Breaking an oath means losing identity and community. Everyone knows this. Everyone is trapped.`;
@@ -455,7 +455,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'military morale analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The military's psychological state is deteriorating. Soldiers move through their duties mechanically. They avoid making eye contact with officers. Camaraderie that used to bond units is being replaced by isolated compliance. When asked about the future, responses are uniformly hopeless. "We're being broken down," they say quietly. "We swear oaths we don't understand. We see soldiers disappear. We follow orders we know are wrong. And we can't do anything about it because we're oath-bound." This is systematic demoralization. The military structure is being psychologically dismantled from inside while maintaining external appearance of order.`;
@@ -463,7 +463,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         addJournal('investigation', 'Morale analysis revealed systematic military demoralization', `ithtananalor-morale-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Your questions about morale make soldiers deeply uncomfortable. They view your inquiry as diagnostic and report you to the training master.`;
-        G.worldClocks.distance++;
+        G.worldClocks.isolation++;
         addJournal('complication', 'Soldiers reported your morale assessment as suspicious', `ithtananalor-morale-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `You observe that soldiers seem unusually withdrawn. Their confidence in command appears diminished, though the extent is difficult to quantify.`;
@@ -491,7 +491,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering command conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('perception', (G.skills.perception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The command hierarchy reveals coordination beyond Ithtananalor's traditional authority. The garrison commander takes orders from someone outside the military structure. The oath keeper receives directives that override traditional protocols. The shadow military force answers to a hidden authority that communicates through encrypted messages arriving from outside Ithtananalor. Following the chain outward, orders are being issued from an external source — someone with authority to override Ithtananalor's own military establishment. The conspiracy has external direction. This is not internal military corruption; this is external military occupation disguised as internal command.`;
@@ -553,7 +553,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing military conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together documents: orders contradicting traditional command authority. Encrypted messages arriving from external sources. Oath records being falsified to bind soldiers to external authority rather than Ithtananalor's principles. Shadow military rosters maintained separately from official records. Individual pieces could be dismissed, but together they form undeniable proof. Someone with external authority has systematically compromised Ithtananalor's military hierarchy. The garrison is being occupied by an external force disguised as internal command. This is military overthrow, not corruption.`;
@@ -599,12 +599,11 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're afraid, complicit, and trapped. You must decide: Do you expose them to pressure the military into stopping the conspiracy? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an enemy or an ally — and whether Ithtananalor's military begins to resist or sinks deeper into external control.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide information. Build an informant. Risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s complicity. Pressure the system. But you'll have made an enemy who might warn the conspiracy.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about complicity in military conspiracy`, `ithtananalor-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity in military conspiracy`, `ithtananalor-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -624,19 +623,19 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of military conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the corrupted oaths, the hidden military force, the falsified records — you find the thread that leads out of Ithtananalor. Encrypted messages in a sealed military courier pouch. Directives signed by an authority that doesn't belong to Ithtananalor. Orders bearing insignia from Shelkopolis. Ithtananalor's military has been systematically placed under external command. Someone in Shelkopolis — or someone allied with Shelkopolis — is orchestrating military control of Ithtananalor. They're not trying to destroy the garrison; they're trying to possess it. And the military takeover has only just begun its consolidation.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Ithtananalor military conspiracy identified as external Shelkopolis coordination', `ithtananalor-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Ithtananalor military conspiracy identified as external Shelkopolis coordination', `ithtananalor-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach the central evidence, you're intercepted. The conspiracy is aware of your investigation and moves to stop you. You're seized and threatened. You've discovered pieces, but the full origin remains hidden — and now you're marked for elimination.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation interrupted by conspiracy operators', `ithtananalor-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Ithtananalor. Encrypted messages reference external authorities. The conspiracy is coordinated from outside. You don't know the exact source yet, but you know Ithtananalor is under siege by an external military force.`;
-        addJournal('major-discovery', 'External coordination of Ithtananalor military conspiracy confirmed', `ithtananalor-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Ithtananalor military conspiracy confirmed', `ithtananalor-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find evidence suggesting external coordination, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully through encrypted channels and deniable intermediaries.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `ithtananalor-origin-unclear-${G.dayCount}`);
@@ -696,19 +695,19 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'achieving military occupation understanding');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Everything connects. Oaths are being corrupted deliberately. The command hierarchy is being replaced deliberately. A shadow military force is being built deliberately. The traditional garrison is being made complicit through oath-binding. Someone is not just attacking Ithtananalor's military — they're absorbing it. The soldiers are being systematically transformed from defenders of Ithtananalor into tools of an external force. The military isn't being conquered; it's being converted. And this same process is likely being replicated in other garrisons. Ithtananalor isn't a victory; it's a proof of concept for systematic military occupation. The real expansion is just beginning.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Ithtananalor military understood as proof of concept for systematic military conversion', `ithtananalor-understanding-${G.dayCount}`);
+        addJournal('discovery', 'Ithtananalor military understood as proof of concept for systematic military conversion', `ithtananalor-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach full understanding, you're stopped. The shadow military force doesn't want you to complete this synthesis. You're confronted and threatened. Your investigation has endangered something critical to their occupation.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Final understanding synthesis blocked by shadow force threat', `ithtananalor-understanding-stopped-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points toward Ithtananalor being used as an experimental model for external military occupation. Once perfected here, the methods will be replicated elsewhere. You don't have complete certainty, but the pattern is compelling.`;
-        addJournal('major-discovery', 'Ithtananalor as experimental military occupation model suspected', `ithtananalor-understanding-experimental-${G.dayCount}`);
+        addJournal('discovery', 'Ithtananalor as experimental military occupation model suspected', `ithtananalor-understanding-experimental-${G.dayCount}`);
       } else {
         G.lastResult = `You have pieces of understanding, but the full picture remains partially obscured. The ultimate purpose behind the military occupation eludes you still.`;
         addJournal('investigation', 'Occupation purpose not yet fully revealed', `ithtananalor-understanding-incomplete-${G.dayCount}`);
@@ -716,6 +715,198 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: IRON LEDGER ANOMALY
+  {
+    label: "Request a read-only audit pass for the Iron Ledger Ward's public records terminal — scan the last six months of transaction summaries.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'scanning Iron Ledger anomalies');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `Three accounts appear in transaction summaries under non-standard registration codes — the ledger system accepts them, but the codes don't correspond to any registered entity in the public directory. These accounts are moving significant sums. They're not hidden: they're in plain sight, formatted to look like administrative clearing accounts. Whoever created them knows the ledger's formatting conventions well enough to make invisible money look like overhead.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_ledger_ghost_accounts = true;
+        addJournal('investigation', 'Iron Ledger: three ghost accounts using valid formatting codes without registered entities', `ithtananalor-ledger-${G.dayCount}`);
+      } else {
+        G.lastResult = `The terminal gives you summary data but the anomalous accounts are flagged as restricted — you can see their totals but not their transaction histories without elevated access credentials.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: DEBT LEVERAGE TRAIL
+  {
+    label: "Follow the debt leverage trail — find who holds the outstanding obligations of three recently displaced garrison officers.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'mapping debt leverage trail');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `All three displaced officers' outstanding debts were purchased from their original creditors within the same two-week window — four months ago. The purchaser is listed as a "consolidated obligations arbitrage firm" registered in a northern market jurisdiction. Their debts are now held by a single entity that has the legal authority to call them without notice. Three officers with leverage held over them simultaneously. This isn't coincidence — it's a coordinated acquisition of control instruments.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_debt_leverage_trail = true;
+      addJournal('investigation', 'Debt leverage: three officers\' obligations purchased simultaneously by single external entity', `ithtananalor-debt-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE GARRISON
+  {
+    label: "Walk the garrison courtyard at change of watch — read what the soldier transitions tell you about the command structure.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'reading garrison command structure');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The watch change procedure is technically correct but the acknowledgment is off. Outgoing soldiers look at the incoming commander, then look away — not deference, avoidance. The incoming officers have authority but not legitimacy. The garrison is complying with its occupiers through learned silence. These soldiers haven't been converted. They're waiting.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `There's a structural residue in how orders are phrased here. The new command cadre uses slightly different idiom than garrison standard — subtle, but consistent. The phrasing was borrowed from a different military tradition. These officers were trained elsewhere. They're using Ithtananalor's forms but their foundations are foreign.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `At the watch change, a single courier passes a folded slip to the incoming officer — not a formal message, an informal note. The officer reads it, folds it back, pockets it. This happens at every watch change. There's a parallel reporting structure running below the garrison's official chain of command. Someone outside the garrison is reading every watch.`;
+      } else {
+        G.lastResult = `A junior soldier breaks formation briefly to speak to a departing officer. The senior officer on duty doesn't reprimand the break — pretends not to see it. The garrison's formal discipline has been selectively suspended. The new command structure has created informal permission zones. They're managing compliance through inconsistent enforcement.`;
+      }
+      addJournal('investigation', 'Garrison: occupying officers foreign-trained, parallel reporting structure, selective discipline enforcement', `ithtananalor-garrison-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: WARDEN ORDER FINANCIAL ATTACHE
+  {
+    label: "Speak to the Warden Order's financial attaché stationed at the Iron Ledger Ward.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Warden Order contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Attaché Denn Calver is measuring you carefully. He's aware of the ghost accounts and declines to confirm what he knows about them. "The Warden Order's interest in Ithtananalor's financial architecture is ongoing and appropriately scoped." He offers a reference number for a formal inquiry channel. The offer feels like a test of whether you'll go official or stay unofficial. The Warden Order wants to know which you are.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_warden_order_ithtananalor = true;
+        G.factionHostility.warden_order += 1;
+        addJournal('faction', 'Warden Order attaché Denn Calver: confirmed awareness of financial anomalies, gauging investigator alignment', `ithtananalor-warden-${G.dayCount}`);
+      } else {
+        G.lastResult = `The attaché is busy and professional. Formal appointment required. The Warden Order's financial presence here is real but bureaucratically guarded. Access requires proper introduction.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_warden_order_ithtananalor = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE IRON LEDGER WARD AT NIGHT
+  {
+    label: "Walk the Iron Ledger Ward after the market closes — observe what it does when it thinks no one is watching.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 52,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(52, 'observing ward after hours');
+
+      G.lastResult = `After dark the ward doesn't empty. Clerks move between buildings carrying sealed cases. Lights burn in third-floor windows of the registration offices. A courier arrives at the rear entrance of the main ledger building and leaves without the package they arrived with. Ithtananalor's financial machinery doesn't stop when the market closes — it just stops being visible. The city's real economic activity runs at night.`;
+      addJournal('discovery', 'Iron Ledger Ward: night financial operations ongoing — real transactions happen after official hours', `ithtananalor-night-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: MARET VOSS INTRODUCTION
+  {
+    label: "Introduce yourself to Maret Voss at the Iron Ledger Ward — the specialist in disputed account resolution.",
+    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'meeting Maret Voss');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Maret Voss is precise and unhurried. She's been handling disputed accounts for seven years. You don't mention the ghost accounts directly — you ask a technical question about formatting codes in the public registry. She answers without hesitation, then pauses. "That's an interesting question to come in with." She's smart enough to know you're not here about a formatting question. She gives you her direct schedule and says the door is open for follow-up.`;
+        G.flags.met_maret_voss = true;
+        addJournal('contact', 'Maret Voss introduced: Iron Ledger specialist, aware you have a real purpose, door open for return', `ithtananalor-maret-${G.dayCount}`);
+      } else {
+        G.lastResult = `Maret Voss is professional and busy. She answers your initial question correctly and moves on. She's not unfriendly — she just operates on appointment time. Come back with something more specific.`;
+        G.flags.located_maret_voss = true;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE DISPLACED GARRISON OFFICER
+  {
+    label: "Find one of the three displaced garrison officers and understand what leverage was used against them.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'interviewing displaced officer');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Captain Lysel retired "voluntarily" four months ago. She won't say what was used against her. But she will say this: "The debt wasn't even current. I'd been managing it. Then a letter arrived saying it had been called in — full amount, thirty days. I couldn't produce that in thirty days. Nobody could." She took the retirement offer instead. "I don't know who holds it now. I was told it would be canceled if I left quietly." She sounds like she believes it won't be.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_lysel_displaced_officer = true;
+        addJournal('contact', 'Displaced Captain Lysel: debt called suddenly then offered retirement — leverage still potentially active', `ithtananalor-lysel-${G.dayCount}`);
+      } else {
+        G.lastResult = `The officer is living quietly outside the garrison quarter and doesn't want contact with anyone connected to military or financial investigations. They agreed to leave — part of that agreement may have included silence.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "Maret Voss mentions a researcher visited the day before you asking about the same formatting codes — their credentials were from a prestigious northern archive.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"Military posture," Maret says. "Sat like someone who'd spent time in formal dress uniform. Asked about the accounts, then asked if any garrison officers had accessed the ledger recently. Not financial questions — threat-mapping questions. They were cross-referencing financial anomalies with military access patterns."`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"The credentials were from the Northern Archive Research Consortium," Maret says. "Real institution, real format. But the questions weren't archival — they were audit-level. Whoever sent them knows the difference between research and investigation and deliberately used research as cover." Professional institutional camouflage.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"They never asked about the ghost accounts directly," Maret says. "They asked whether anyone else had asked about them. Specifically, whether any inquiry had been logged. They were checking if there was a paper trail of other investigators before proceeding." A counter-surveillance check. They're clean of records and they want to stay that way.`;
+      } else {
+        G.lastResult = `"Charming," Maret says, with a slight tone. "Brought a gift — a small reference book, completely appropriate, completely unnecessary. Asked about any parties who'd recently inquired about account resolution processes." Social mapping with gifts as social lubricant. This person builds rapport as an operational tool.`;
+      }
+
+      G.lastResult += ` They were here yesterday. They knew the same thread you're pulling.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative visited Maret Voss one day before you — investigating same financial anomalies', `ithtananalor-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

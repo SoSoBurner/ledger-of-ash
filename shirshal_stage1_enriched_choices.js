@@ -160,7 +160,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading information obstruction');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Investigator Kess is frustrated. "We're being assigned cases with incomplete briefings. Details that should be provided are 'under review' or 'reserved for magistrate eyes.' We investigate without full information, and when we request clarification, we're told the cases are already resolved by higher authority. It's like someone is deliberately preventing investigations from developing. We're given just enough to go through procedural motions, but not enough to actually investigate. I have a case I've been working on for three weeks, and I just learned it was marked 'closed' yesterday without my knowledge."`;
@@ -640,6 +640,197 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 19. CLUE: SUPPRESSED TAZREN CASE EVIDENCE
+  {
+    label: "Search the public case archive for the cases that reference Tazren's original ruling — before the doctrine revision that superseded it.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'searching Tazren case precedents');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `Fourteen cases in the archive cite the Tazren precedent as their ruling basis. In the past eight months, six of those cases have been re-opened and "re-adjudicated under current doctrine." The re-adjudications consistently reverse the original rulings, transferring property and rights to institutional parties over individual claimants. The precedent isn't being updated — it's being systematically erased case by case, each erasure disguised as a separate legal proceeding.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_tazren_case_erasure = true;
+        addJournal('investigation', 'Tazren precedent: six re-adjudications reversing original rulings — systematic case-by-case erasure', `shirshal-tazren-cases-${G.dayCount}`);
+      } else {
+        G.lastResult = `You find the Tazren citations but the re-adjudication records aren't in the public archive — they're filed under a classification level you don't have access to without a magistrate's sponsorship.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 20. CLUE: BUREAU GHOST VISITOR RECORDS
+  {
+    label: "Review the justice hall's visitor log for the past six months — identify visitors who have no corresponding case file.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'identifying Bureau ghost visitors');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `Eight visitors signed the log with institutional affiliations but have no corresponding case filings, hearing appearances, or witness registrations. They visited and were received, but left no official trace of why. Three of the eight signed in on the same days as the re-adjudications that erased Tazren precedent cases. Someone authorized by the institution is directing the re-adjudications without appearing in any case record. They visit, direct, and leave. The visits are the instruction chain.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_bureau_ghost_visitors = true;
+      addJournal('investigation', 'Bureau ghost visitors: eight untraced institutional visits, three coincide with Tazren erasure re-adjudications', `shirshal-ghost-visitors-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 21. ARCHETYPE-GATED: READING THE JUSTICE HALL
+  {
+    label: "Sit in the public gallery during an open hearing — read what the proceeding is actually doing.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading justice hall hearing');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The hearing follows procedure precisely. Too precisely — every objection is overruled with the same citation, every ruling uses identical phrasing. This isn't a magistrate making judgments; this is a magistrate executing predetermined outputs. The hearing form is being used as a delivery mechanism for decisions that were made elsewhere.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The language of the ruling contains a phrase that doesn't appear in any public doctrine document: "per the administrative continuity resolution." An internal category with no public referent. The ruling cites law that isn't publicly accessible. The magistrate issued it without citation anxiety — they know it exists. It exists somewhere that isn't the public archive.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `The losing party's reaction is notable for its absence. No protest, no shock. They expected this outcome. Either they'd been informed privately, or they've seen enough hearings to know the result before they enter. The hall's theater of justice isn't for the parties involved — it's for the record.`;
+      } else {
+        G.lastResult = `The winning party has a representative seated three rows behind them who takes notes throughout. Not a lawyer — they make no procedural motions. But when the ruling is issued, the representative leaves first. The party follows. Someone off-record is managing this hearing from the public gallery.`;
+      }
+      addJournal('investigation', 'Justice hall hearing: predetermined outcomes, hidden doctrine citations, off-record management from gallery', `shirshal-hearing-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. FACTION SEED: OVERSIGHT COLLEGIUM LIAISON
+  {
+    label: "Contact the Oversight Collegium's judicial liaison stationed in Shirshal.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Oversight Collegium contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Liaison Parro has been stationed in Shirshal for six months, ostensibly reviewing procedural compliance. "The Collegium has concerns about the rate of re-adjudications," she tells you. "We've flagged it as a compliance monitoring category. We have not yet escalated." She asks detailed questions about the ghost visitor pattern. When you describe the visit-timing correlation with the re-adjudications, she pauses. "That would change the Collegium's escalation timeline." She's careful with her words but the direction is clear: give her the correlation data.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_oversight_collegium_shirshal = true;
+        G.factionHostility.oversight_collegium += 1;
+        addJournal('faction', 'Oversight Collegium liaison Parro: ready to escalate if given ghost visitor correlation evidence', `shirshal-collegium-${G.dayCount}`);
+      } else {
+        G.lastResult = `The liaison is formally inaccessible without a written introduction from a registered party in an active case. The Collegium process requires proper procedural entry.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_oversight_collegium_shirshal = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ATMOSPHERE: THE HARBOR AT NIGHT
+  {
+    label: "Walk Shirshal's harbor at low tide — observe what the port does after the justice hall closes.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'observing harbor night activity');
+
+      G.lastResult = `Three vessels are moored under low lanterns. Two were impounded in re-adjudicated cases — property transfers currently under "administrative review." Their former owners stand at the pier's edge and watch them. They don't speak to each other. They're watching something they no longer have legal claim to but haven't emotionally released. The harbor holds what the justice hall took.`;
+      addJournal('discovery', 'Harbor at night: impounded vessels from re-adjudicated cases — former owners still watching', `shirshal-harbor-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 24. PERSONAL ARC: THE MAGISTRATE WHO REFUSED
+  {
+    label: "Find the magistrate who refused to issue a re-adjudication and was subsequently 'transferred' out of Shirshal.",
+    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'finding transferred magistrate');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Magistrate Corin lives in a coastal village three hours from Shirshal. She was transferred eight months ago. "I refused one re-adjudication," she says. "I told them the doctrine revision didn't grant authority to override settled property rights retroactively. They thanked me for my service and assigned me to here." She has the case files from the refused re-adjudication — she kept copies, which was technically improper. "I thought I might need them someday." Today is that day.`;
+        G.flags.met_corin_magistrate = true;
+        addJournal('contact', 'Magistrate Corin: refused re-adjudication, transferred, has original case files with her unauthorized copies', `shirshal-corin-${G.dayCount}`);
+      } else {
+        G.lastResult = `The village residents know of a former magistrate but she's been careful about contact with strangers since the transfer. She won't receive you without a warm introduction.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 25. SOCIAL: THE DISPOSSESSED SHIPOWNER
+  {
+    label: "Approach one of the former vessel owners watching their impounded ship from the harbor pier.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'speaking to dispossessed shipowner');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Wend hasn't moved far from the harbor since the re-adjudication six weeks ago. "The verdict said the vessel was 'improperly registered under the terms of the administrative continuity resolution.' I've been operating that vessel for eleven years. Under the same registration. The administration never objected." He pulls out the original registration — valid, unstamped, entirely legal under the laws that were in effect when it was issued. The law changed after he registered it and was applied retroactively.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_wend_shipowner = true;
+        addJournal('contact', 'Dispossessed shipowner Wend: retroactive law application used to seize property registered under prior law', `shirshal-wend-${G.dayCount}`);
+      } else {
+        G.lastResult = `The former owner has been warned about speaking to strangers regarding their case. Legal advice they've received tells them talking to outsiders could jeopardize any appeal. They stay silent.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 26. SHADOW RIVAL INTRO
+  {
+    label: "Magistrate Corin mentions someone visited her two weeks ago — also asking about the refused re-adjudication case.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 57,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(57, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"They introduced themselves as a judicial compliance officer," Corin says. "But they asked about the enforcement chain — who issued the re-adjudication directive, not whether it was legal. They were building a command structure map, not a legal case." Someone is mapping the chain of authority behind the re-adjudications. Not to challenge it — to understand it.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"They asked about the 'administrative continuity resolution' — whether I'd ever seen a written version of it," Corin says. "I told them no. They seemed unsurprised. They said: 'That's the interesting part, isn't it?'" Someone already knows the hidden doctrine reference is the key. They're further along the legal analysis than you are.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"They knew about the case files before I mentioned them," Corin says. "Asked if I still had them before I'd said I'd kept anything. They already knew I'd kept copies." Someone mapped what Corin would have retained based on her professional profile. They didn't guess — they predicted. Professional research methodology.`;
+      } else {
+        G.lastResult = `"They were kind," Corin says. "Brought food. Listened for an hour before asking a single question. And the question, when it came, was very precise: 'What would it take for you to testify?' Not to whom. Not where. Just what it would take." Someone is already thinking about using Corin as a witness. They're at the prosecution-building stage already.`;
+      }
+
+      G.lastResult += ` This person is ahead of you on the Shirshal thread.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative interviewed Magistrate Corin two weeks before you — further along Shirshal investigation', `shirshal-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

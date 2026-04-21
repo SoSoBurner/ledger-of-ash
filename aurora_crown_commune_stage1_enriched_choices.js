@@ -58,7 +58,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering data suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The research archivist (Meren) pulls you aside to a secure room. The celestial observation logs from the past month have been flagged for "archive consolidation" — which is jargon for removal. The records show aurora pattern anomalies that should be studied, but someone ordered them sealed. "The orders came through the contamination monitor, but they're not medical. They're not safety protocols. They're intentional suppression of what the skies are showing." The archivist is appalled: "Our job is to record truth. This is erasing it."`;
@@ -129,7 +129,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing maintenance sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The repair coordinator (Yani) hands you the work order queue. Several critical repairs have been flagged as "under review" for weeks — far longer than normal assessment periods. The orders show dome structural stress that needs immediate attention. But they're stuck. When Yani followed up, they were told to stop asking. "Someone is deliberately slowing dome maintenance. If we don't get those repairs through, we'll have cascade failures. The dome will start to fail, and when it does, they can blame it on 'structural age' instead of what it really is: intentional neglect."`;
@@ -201,7 +201,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading containment sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The contamination monitor (Kael) looks exhausted and defeated. The barrier protocols have been changed. Seepage that should trigger emergency lockdown is now being rerouted to specific containment cells — deliberately. When Kael reported this as a safety violation, they were told the new protocols were "authorized at higher levels." They suspect someone is collecting contamination samples, or testing exposure limits, or weaponizing the barrier itself. "If that containment fails, everything fails. But I'm being told to record the breaches and do nothing."`;
@@ -273,7 +273,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping emergency system sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The survival planner (Seer) shows you the emergency protocol documentation. Recent revisions have removed contingency procedures. If the dome fails catastrophically, there's no evacuation plan anymore. If contamination breaches critically, there's no bunker access. The revised protocols seem to assume failure is not survivable — so why plan for survival? "I asked why the contingencies were removed. The answer was: 'They're no longer necessary.' That's not administrative logic. That's someone ensuring that if the dome fails, we fail with it. There's no escape prepared."`;
@@ -419,7 +419,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping coercion network');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Through careful listening, a pattern emerges. People are afraid to speak about dome failures, resource shortages, or contamination seepage because they fear reassignment to worse work, loss of ration allocations, or separation from their families. Someone is weaponizing administrative power. The threats are subtle and indirect — no overt violence, but the consequences of speaking are immediate and devastating. Everyone knows someone who spoke and was reassigned. Everyone knows rations can be adjusted by administrative decision. The commune is being held in silence through collective fear.`;
@@ -455,7 +455,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'psychological pressure analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The psychological deterioration of Aurora Crown is visible. People move quietly and carefully. They avoid eye contact. Long-term residents show signs of fatigue beyond normal survival work — this is psychological exhaustion. The commons spaces that used to host community gatherings are now empty. People isolate. When questioned about the future, responses are uniformly hopeless. "The dome will fail," they say with certainty. "There's no way out." This is not observation; this is manufactured hopelessness. Someone is psychologically breaking the commune's will to resist.`;
@@ -463,7 +463,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         addJournal('investigation', 'Psychological analysis revealed systematic demoralization campaign', `aurora-psychology-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Your questions about psychological state make people deeply uncomfortable. They view your inquiry as invasive or diagnostic, implying they're unstable. Several people report your questions as concerning behavior.`;
-        G.worldClocks.distance++;
+        G.worldClocks.isolation++;
         addJournal('complication', 'Population reports your psychological inquiry as suspicious', `aurora-psychology-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `You observe that people seem unusually withdrawn and anxious. Their hope about the future seems diminished compared to what would be normal for a survival community.`;
@@ -491,7 +491,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering administrative conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('perception', (G.skills.perception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The administrative hierarchy reveals coordination beyond Aurora Crown's borders. The maintenance chief takes orders from the contamination monitor. The contamination monitor receives directives from the survival planner. The survival planner's decisions align perfectly with external pressure that appears to come through the relay system. Following the chain outward, orders are coming from someone outside Aurora Crown — someone with authority to override local administrators and issue commands that sabotage the dome's integrity. The conspiracy has external direction.`;
@@ -553,7 +553,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing systemic sabotage conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together documents: maintenance policies requiring critical repairs are contradicted by work order freezes. Contamination protocols specify barrier integrity requirements that are deliberately violated by redirected seepage. Emergency protocols guarantee evacuation procedures that have been officially removed. Resource allocations state survival-first priorities while resources are systematically diverted. Individual pieces could be explained. But together they form undeniable proof of coordination. Someone with authority over multiple systems has deliberately modified Aurora Crown's safety architecture to enable catastrophic failure. This is conspiracy, not accident.`;
@@ -599,12 +599,11 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're afraid, complicit, and trapped. You must decide: Do you expose them to pressure the system into stopping the sabotage? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an enemy or an ally — and whether Aurora Crown's people begin to resist or sink deeper into complicity.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide information. Build an informant. Risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s complicity. Pressure the system. But you'll have made an enemy who might warn the conspiracy.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about complicity in sabotage`, `aurora-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity in sabotage`, `aurora-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -624,19 +623,19 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of dome sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the modified maintenance protocols, the redirected resources, the corrupted barrier protocols — you find the thread that leads out of Aurora Crown. A correspondence hidden in the relay system, in trade-marked canisters that come from Sunspire Haven. Orders sent from an external authority, directing the contamination monitor and the survival planner. Aurora Crown is being deliberately destroyed from outside. Someone beyond the commune — someone in a connected locality or regional authority — is orchestrating the dome's sabotage. They're not trying to save the commune; they're trying to collapse it strategically. And the conspiracy has only just begun its acceleration.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Aurora Crown sabotage identified as external coordination', `aurora-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Aurora Crown sabotage identified as external coordination', `aurora-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach the central evidence, you're intercepted. The conspiracy is aware of your investigation and moves to stop you. You're cornered, threatened, and forced to flee. You've discovered pieces, but the full origin remains hidden — and now you're marked as a direct threat to whoever's orchestrating this.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation interrupted by conspiracy operators', `aurora-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Aurora Crown. Messages reference "external interests" and "broader strategy." The conspiracy is larger than the commune itself. You don't know the exact source yet, but you know Aurora Crown is under siege by an external force coordinating its destruction.`;
-        addJournal('major-discovery', 'External coordination of Aurora Crown sabotage confirmed', `aurora-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Aurora Crown sabotage confirmed', `aurora-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find pieces of evidence suggesting coordination, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully behind layers of intermediaries.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `aurora-origin-unclear-${G.dayCount}`);
@@ -696,19 +695,19 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'achieving systemic wrongness understanding');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Everything connects. The dome is being weakened deliberately. Resources are being diverted deliberately. Contamination is being weaponized deliberately. The population is being broken deliberately. Someone is not just attacking Aurora Crown — they're testing it. Seeing how much pressure a survival commune can withstand. How much psychological breaking is possible. How long it takes for a population to lose hope. The commune is an experiment in collapse. And the external force directing it is learning the answers. This knowledge will be used elsewhere. Aurora Crown isn't a target; it's a laboratory. The real attack is just beginning.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Aurora Crown understood as experimental laboratory for systematic collapse engineering', `aurora-understanding-${G.dayCount}`);
+        addJournal('discovery', 'Aurora Crown understood as experimental laboratory for systematic collapse engineering', `aurora-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach full understanding, you're stopped. Someone doesn't want you to complete this synthesis. You're confronted and threatened. Your investigation has endangered something important to someone.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Final understanding synthesis blocked by direct threat', `aurora-understanding-stopped-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points toward a coordinated external assault being used to study how communities break under systematic pressure. You don't have complete certainty, but the pattern is compelling.`;
-        addJournal('major-discovery', 'External experimental pressure testing of Aurora Crown suspected', `aurora-understanding-experimental-${G.dayCount}`);
+        addJournal('discovery', 'External experimental pressure testing of Aurora Crown suspected', `aurora-understanding-experimental-${G.dayCount}`);
       } else {
         G.lastResult = `You have pieces of understanding, but the full picture remains partially obscured. The purpose behind the attack eludes you still.`;
         addJournal('investigation', 'Systemic purpose not yet fully revealed', `aurora-understanding-incomplete-${G.dayCount}`);
@@ -716,6 +715,206 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: FILTRATION SYSTEM DOCUMENTATION
+  {
+    label: "Recover the original filtration system installation records from the commune's maintenance archive.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'reading filtration system documentation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The original specification calls for quarterly maintenance cycles and specific mineral additives to prevent atmospheric contamination. The most recent service log — eighteen months ago — notes a "material substitution" in the additive compound. No further detail. The substitute isn't named. But the dome's degradation pattern matches exactly what would happen if a key stabilizing compound were replaced with an inert filler. Someone swapped the additive. The contamination is engineered.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_filtration_documentation = true;
+        addJournal('investigation', 'Filtration records: additive substitution eighteen months ago matches dome degradation pattern', `aurora-filtration-${G.dayCount}`);
+      } else {
+        G.lastResult = `The records exist but the relevant service logs are missing from the bound volume — the pages have been carefully removed, not torn. Someone visited the archive before you.`;
+        if (!G.worldClocks) G.worldClocks = {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: DOME PRESSURE GRADIENT DATA
+  {
+    label: "Take pressure gradient readings at four points around the dome perimeter — compare the variance to structural tolerances.",
+    tags: ['Investigation', 'Evidence', 'Craft', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'measuring dome pressure gradient');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.lastResult = `The variance at the northeast quadrant is seventeen percent above tolerance — it should trigger automatic maintenance protocol under the dome's own safety system. It hasn't triggered. You find the monitoring sensor for that quadrant has been physically disabled. A wire loop bypasses the reading entirely. The dome is failing and the alarm system has been manually disconnected. Someone wanted this failure to proceed invisibly.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_dome_sensor_bypass = true;
+        addJournal('discovery', 'Dome sensor bypass: NE quadrant failure alarm manually disconnected', `aurora-dome-sensor-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Pressure variance across the dome is irregular — the northeast quadrant reads significantly higher than the others. The distribution suggests either structural failure or external stress concentrated in that area. The dome is not failing uniformly.`;
+      } else {
+        G.lastResult = `Your readings show general pressure variance but you'd need calibrated equipment to draw precise conclusions. You can tell the dome is stressed. You can't tell where it started.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE COMMUNE
+  {
+    label: "Walk Aurora Crown's central commons at midday — read what the assembled commune members are actually communicating through their behavior.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading commune social fabric');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The commune runs emergency rotations — watchers on the dome perimeter in eight-hour shifts. Not structural engineers: commune members in work gear taking turns. They've organized their own defense response without leadership direction. The formal structure has failed and the community is running security laterally. This is a population that's stopped trusting its institutions.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The atmospheric contamination is creating cognitive pressure — you can feel it in the way conversations lose their thread, the way people forget what they were doing mid-sentence. It's below thresholds that would trigger formal medical protocol. Whoever designed this wanted degradation, not crisis. They're not trying to kill Aurora Crown. They're trying to make it impossible to think clearly.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `Three commune members circle the commons in irregular patterns. Not guards — their body language is too casual. Information couriers, using movement as cover for message passing. The commune has a parallel communication network operating below its visible structure. They're organizing in the spaces between official sight.`;
+      } else {
+        G.lastResult = `The communal meal distribution is off. Portions are slightly smaller in the outer residential blocks than in the central sector. Not a conscious decision — a symptom of a logistics breakdown that's been ongoing long enough to become normalized. The resource pressure is being absorbed unequally and no one has named it yet.`;
+      }
+      addJournal('investigation', 'Aurora Crown commons: parallel security structure, cognitive contamination, unequal resource distribution', `aurora-commons-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: OVERSIGHT COLLEGIUM
+  {
+    label: "Contact the Oversight Collegium representative whose name appears in the commune's external correspondence log.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Oversight Collegium contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Representative Merav Solind has been corresponding with Aurora Crown for three months. "The commune submitted a formal complaint under Communal Integrity Protocol seven weeks ago," she tells you. "The Collegium opened a preliminary review. That review has been… delayed." She doesn't say by whom. She asks if you have documentation. She's careful about what she offers in return — but she's clearly looking for material that would let the Collegium move from review to investigation.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_oversight_collegium_aurora = true;
+        G.factionHostility.oversight_collegium += 1;
+        addJournal('faction', 'Oversight Collegium rep Merav Solind: complaint review delayed, actively seeking documentation', `aurora-collegium-${G.dayCount}`);
+      } else {
+        G.lastResult = `Representative Solind is accessible but procedurally careful. She confirms the complaint is logged and declines to discuss the review process with someone not formally associated with the case. You need either documentation or a formal introduction to proceed.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_oversight_collegium_aurora = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE COMMUNE MEMORIAL STONE
+  {
+    label: "Study the founding stone at the dome's original anchor point — read what Aurora Crown was built for.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'reading founding memorial');
+
+      G.lastResult = `The inscription reads: "We built to breathe where others said nothing would grow. The dome is not shelter from the world. It is proof the world can be changed." Below it, smaller text added later: "Maintained by the hands of those who live within it." The stone is clean. Someone still polishes it. In the ash-grey light of a dome running at sixty percent capacity, the inscription feels less like history and more like a threat someone made to the future. The commune remembers what it was built for even as it's being taken apart.`;
+      addJournal('discovery', 'Aurora Crown founding stone: dome as proof of communal will, memorial maintained', `aurora-founding-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: SECURE THE FILTRATION DATA
+  {
+    label: "Make copies of the filtration anomaly data and get them to someone outside Aurora Crown's compromised archive.",
+    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'securing filtration evidence offsite');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `A commune member who regularly travels between Aurora Crown and the outer settlements agrees to carry a sealed tube in her standard supply pack. She doesn't know what's inside. The filtration records — or your copies of them — are now outside Aurora Crown's reach. Whatever happens to the archive here, the data survives.`;
+        G.flags.aurora_evidence_secured = true;
+        addJournal('consequence', 'Filtration anomaly data secured via commune traveler — offsite copy created', `aurora-evidence-${G.dayCount}`);
+      } else {
+        G.lastResult = `Every outgoing package through official channels is being checked by the same administration that controls the archive. You need an unofficial route and you haven't found one yet.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE ENGINEER WHO FILED THE COMPLAINT
+  {
+    label: "Find the dome engineer who submitted the original formal complaint and ask what happened afterward.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'hearing engineer account');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Orren filed the complaint nine weeks ago with supporting pressure data and photographic documentation of the NE quadrant stress fractures. "Three days later I was reassigned to residential maintenance. They called it a 'rotation.' I wasn't consulted." His replacement has no dome engineering background. "Someone needed my complaint to disappear without formally suppressing it. So they moved me sideways and replaced me with someone who wouldn't file another one." He still has copies of everything.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_orren_engineer = true;
+        addJournal('contact', 'Engineer Orren: complaint filed, then reassigned — has original supporting documentation', `aurora-orren-${G.dayCount}`);
+      } else {
+        G.lastResult = `Orren is cautious. "I don't talk about the complaint anymore. I was told it was being handled." He's been warned, or he's afraid, or both. He doesn't close the door entirely — but he's not opening it today.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "Orren mentions that someone else came asking about the dome a week ago — a researcher with credentials that didn't quite add up.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 57,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(57, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"Asked about the commune's security response to the dome degradation. Not the engineering — the community response. How organized. How coordinated." Someone was assessing whether Aurora Crown could mount a coordinated defense of its own investigation.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"Claimed to be from a material sciences faculty. But her questions were about the additive compound specifically — not the failure pattern, not the dome design. She knew what compound to ask about before she'd seen the records." Someone already has the technical answer. They were verifying it.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"Didn't ask Orren anything directly. Just asked for a tour of the maintenance areas, took notes, and left. But Orren noticed the notes were in code — not a private shorthand, an actual cipher." Someone is documenting the dome failure in a format that can't be read if intercepted. Professional compartmentalization.`;
+      } else {
+        G.lastResult = `"Said they were from an external support organization. Wanted to know which commune members had tried to organize a collective response to the dome issue. Names, positions, who was coordinating with whom." Someone is mapping the commune's leadership structure. Not to help it — to understand its vulnerabilities.`;
+      }
+
+      G.lastResult += ` Whoever this person is, they're a step ahead on the Aurora Crown thread.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative confirmed investigating Aurora Crown dome failure ahead of you', `aurora-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

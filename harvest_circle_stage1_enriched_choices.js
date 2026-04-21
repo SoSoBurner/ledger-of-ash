@@ -21,7 +21,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading quota manipulation patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -127,7 +127,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering grain storage diversion');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Storage Keeper pulls you into the grain stores. "Grain inventory records are being falsified. Stores allocated for festival distribution are being secretly diverted to private family warehouses. Storage space reserved for independent farmer reserves is being restricted. Someone is redirecting community grain supplies to benefit connected families. Festival provisions that should be equitably distributed are disappearing into private channels. Storage allocation, which should protect the entire community during shortage, is being weaponized to concentrate resources toward certain families. This is systematic theft of shared resources."`;
@@ -271,7 +271,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering mediation corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Mediator Velrik speaks with difficulty. "Family disputes used to be resolved by examining grievance and applying fairness. Now I receive directives about outcomes before mediation begins. Disputes involving connected families receive rulings favorable to power. Disputes brought by independent farmers are systematically disadvantaged. I'm being asked to use conflict mediation as a tool to consolidate family power. Those who complain about manipulation are isolated through biased mediation outcomes. The mechanism that should provide justice is being weaponized to enforce compliance."`;
@@ -309,7 +309,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'grain hierarchy analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The grain steward hierarchy has been systematically restructured. Positions that were meant to be independent have been consolidated under patron family authority. Councils that used to hold collective decision power have been made advisory-only. Officials who disagreed with recent changes have been replaced with family loyalists. The organization is being transformed from distributed collective governance into centralized family control. Power is concentrating rapidly around connected families.`;
@@ -342,7 +342,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'farming family network displacement mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The farming family network is being systematically recomposed. Independent farmers who were previously active are being excluded through denials of quota allocation, storage access, and festival participation. Meanwhile, farmers allied with patron families are gaining unprecedented access to resources and favorable quota treatment. The economic foundation of Harvest Circle is being remapped to concentrate agricultural power among connected families. This is economic restructuring disguised as normal harvest operations.`;
@@ -411,7 +411,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'family power pattern mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Certain families are being systematically elevated into positions of unusual power. Minor farming families with no prior governance experience are now controlling quota allocation. Merchant families with limited agricultural background are advising on festival policy. Families with limited community history are being positioned as quota arbiters. These families are being elevated through corrupted systems — they're not earning authority through tradition or merit. They're being installed. Their rapid power acquisition depends on systematic corruption of institutions that normally regulate family authority advancement.`;
@@ -447,7 +447,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'quota dependency system documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Quota dependency is being systematically weaponized. Independent farmers depend on quota allocation for economic survival — they're forced to cooperate through threat of quota denial. Farmers depend on storage access for harvest protection — they're pressured through storage restriction. Communities depend on festival distribution for seasonal food security — they're isolated through distribution exclusion. The quota system is being transformed into a control apparatus. Every farmer is trapped within dependencies that force compliance with corrupted quota authority.`;
@@ -569,7 +569,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing harvest system conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together the evidence: grain records showing falsified quotas in a single hand, storage manifests with systematic diversions, market prices predetermined before official announcement, festival allocation lists showing family hierarchy applied throughout, quality inspection marks that disappear from official records. The paper trail is clear: Harvest Circle's grain and festival systems are being systematically corrupted as part of coordinated strategy. The quota system, storage, market, inspection, and festival are all being weaponized simultaneously to concentrate power among connected families. This is institutional capture through economic manipulation.`;
@@ -615,12 +615,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're trapped, complicit, and frightened. You must decide: Do you protect them and maintain your investigation quietly? Do you expose them to stop the corruption system? Your choice determines whether this person becomes an informant or enemy — and whether Harvest Circle's corruption can be challenged from within or continues unchecked.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide insider information. Gain an informant but risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s role in system corruption. Disrupt the apparatus but lose access to internal grain operations.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about system corruption participation`, `harvest-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about system corruption participation`, `harvest-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -640,19 +639,19 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of harvest system corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the corrupted quota records, diverted grain, manipulated prices, and weaponized festivals, you find the thread leading outside Harvest Circle. Courier manifests reference cities in northern territories with detailed instructions for "grain system restructuring." Merchant house letters from external allied contacts directing family elevation. Financial transfers originating from north-aligned entities. Harvest Circle's grain system is being systematically captured by external interests. Someone in the northern territories — or someone allied with them — is using Harvest Circle's own institutions and families to extract agricultural resources and consolidate control. The conspiracy is coordinated, resourced, and external.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Harvest Circle corruption identified as external coordination', `harvest-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Harvest Circle corruption identified as external coordination', `harvest-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach evidence of external coordination, you're intercepted directly. Someone stops you and makes clear that pursuing this further will result in your removal from Harvest Circle or worse. You've discovered pieces, but full external coordination remains hidden — and now you're marked as direct threat.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation intercepted by external coordination operators', `harvest-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Harvest Circle. Courier routes reference "northern family authorities." Resource orders show external authorization. The conspiracy is larger than Harvest Circle itself. You don't know exact source yet, but you know corruption is being directed from outside Harvest Circle's borders.`;
-        addJournal('major-discovery', 'External coordination of Harvest Circle confirmed', `harvest-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Harvest Circle confirmed', `harvest-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find pieces suggesting external involvement, but the origin source remains obscured. Whoever's orchestrating this has hidden their coordination carefully.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `harvest-origin-unclear-${G.dayCount}`);
@@ -676,19 +675,19 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'confirming full external harvest conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The full conspiracy is now clear: Northern merchant authorities are systematically extracting Harvest Circle's agricultural surplus through corrupted systems. Grain quotas are being artificially inflated to force overproduction. Storage systems are being diverted to send grain north. Festival manipulation is preventing community awareness of shortage. Selected families are being elevated specifically to cooperate with external extraction. The entire Harvest Circle grain system has been weaponized as a resource extraction apparatus. Harvest Circle remains unaware its economic foundation is being deliberately harvested by external interests.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Full external conspiracy confirmed: Harvest Circle systematically harvested by northern interests', `harvest-conspiracy-${G.dayCount}`);
+        addJournal('discovery', 'Full external conspiracy confirmed: Harvest Circle systematically harvested by northern interests', `harvest-conspiracy-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you prepare to confirm the complete conspiracy, you're stopped directly by coordinated authorities. They make it abundantly clear that knowledge of the full scope will result in permanent removal or elimination. You've understood the scale of the conspiracy, but speaking it aloud will make you expendable.`;
         G.worldClocks.pressure += 3;
         addJournal('complication', 'Direct threat issued: Full conspiracy knowledge has made you dangerous to external operators', `harvest-conspiracy-caught-${G.dayCount}`);
       } else if (result.total >= 15) {
         G.lastResult = `The conspiracy scope becomes clear: External interests are systematically extracting Harvest Circle resources through corrupted grain systems. The scale is larger than you initially understood. This is coordinated regional resource harvesting.`;
-        addJournal('major-discovery', 'Harvest Circle resource extraction conspiracy partially confirmed', `harvest-conspiracy-partial-${G.dayCount}`);
+        addJournal('discovery', 'Harvest Circle resource extraction conspiracy partially confirmed', `harvest-conspiracy-partial-${G.dayCount}`);
       } else {
         G.lastResult = `You understand significant corruption exists, but the full scope of external coordination remains partially obscured. The conspiracy extends further than local Harvest Circle corruption.`;
         addJournal('investigation', 'External conspiracy scope not fully understood', `harvest-conspiracy-incomplete-${G.dayCount}`);
@@ -696,6 +695,197 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: ROUTING NUMBER ANOMALY
+  {
+    label: "Examine the Northern Provision Compact's routing records — check for grain shipments that don't match Harvest Circle's logged output.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'analyzing routing number anomalies');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `Routing records show Harvest Circle shipped 340 tonnes of grain north in the past quarter under Provision Compact routing numbers. Harvest Circle's own production logs show 310 tonnes harvested. Thirty tonnes that weren't produced were apparently shipped. Either the production records are understating output, or routing numbers are being assigned to grain that originated elsewhere and is being laundered through Harvest Circle's Compact allocation. The routing number is creating false provenance.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_routing_anomaly = true;
+        addJournal('investigation', 'Routing anomaly: 30 tonnes shipped without production record — false provenance laundering via Compact allocation', `harvest-routing-${G.dayCount}`);
+      } else {
+        G.lastResult = `You find the routing records but matching them against production logs requires both datasets simultaneously — you have access to one at a time, not both.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: CHARTER MARK CONTAINER
+  {
+    label: "Track down the charter-marked storage container that was reported in the routing anomaly — find where it went.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracking charter mark container');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `One container in the routing sequence bears a secondary charter mark — not a Provision Compact mark, a trade house mark from a northern merchant consortium that shouldn't have access to Compact routing numbers. The container was last logged entering Harvest Circle's outbound staging area and exited under a Compact number. The charter mark identifies the originating party as someone outside the Provision Compact's membership register. External commercial interests are piggybacking on Harvest Circle's Compact allocation.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_charter_mark_container = true;
+      addJournal('investigation', 'Charter mark container: northern merchant consortium using Harvest Circle allocation — unauthorized piggybacking', `harvest-charter-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING HARVEST CIRCLE
+  {
+    label: "Walk the harvest fields at dawn — read what the labor patterns tell you about what Harvest Circle is actually producing.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'reading harvest field labor patterns');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The field organization has changed. Workers move in sections with specific handoff points — not efficient for harvest yield, but efficient for oversight. Someone reorganized the fieldwork so that no individual worker sees the full output. Each worker sees their section. Nobody has a complete count. The organization is designed to prevent workers from knowing how much they're actually producing.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `Two fields are being harvested at different rates despite identical soil and planting density. The western field is being harvested carefully — maximum yield extraction. The eastern field is being harvested quickly — speed over yield. The differential suggests the eastern field's output is going somewhere different, under a different time pressure. Two destinations, one harvest.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `A separate cart leaves the staging area every morning before the main convoy. It doesn't go to the central weighing station — it goes to the northern storage facility that feeds directly into the suspect routing chain. Pre-staging the laundered volume before official weighing begins. The separation happens before anyone creates a count.`;
+      } else {
+        G.lastResult = `A field overseer argues with a worker about quota credit. The worker says their section met target; the overseer says the records show otherwise. The worker is right — you watched the section work. The overseer is reading from a document that doesn't match what happened. The production records are being edited at point-of-collection.`;
+      }
+      addJournal('investigation', 'Harvest field analysis: segmented oversight blocks worker counts, differential harvesting rates, pre-staging of laundered volume', `harvest-fields-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: IRON COMPACT PROVISION CONTACT
+  {
+    label: "Speak to the Iron Compact's Provision Compact liaison stationed at Harvest Circle's distribution center.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Iron Compact contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Liaison Veth Karst manages Iron Compact allocation tracking for the Provision Compact's northern routes. She's aware of the routing anomaly — it's showing up as inventory discrepancy in Iron Compact's own logistics chain. "We're receiving grain attributed to Harvest Circle that we haven't formally purchased through Compact channels." She wants to understand the routing number source. She'll share Iron Compact's incoming cargo data if you'll share the charter mark identification. Commercial alignment, not ideological.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_iron_compact_harvest = true;
+        G.factionHostility.iron_compact += 1;
+        addJournal('faction', 'Iron Compact liaison Veth Karst: routing anomaly visible in Iron Compact logistics, willing to exchange cargo data', `harvest-iron-${G.dayCount}`);
+      } else {
+        G.lastResult = `The Iron Compact liaison is occupied with official Provision Compact business. Informal inquiry requires either a formal introduction or documented evidence of a compliance issue affecting Iron Compact interests.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_iron_compact_harvest = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE GRANARY STEPS AT MIDDAY
+  {
+    label: "Sit at the Granary Steps during the distribution hour — observe how food reaches the community.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'observing granary distribution');
+
+      G.lastResult = `The distribution line moves efficiently. Families receive their allocation with practiced acceptance — no negotiation, no question. This is a community that's learned to take what it's given without asking why the amount changed from last season. Two seasons ago there would have been comparison, dispute, memory of better yields. That institutional memory has been quietly managed away. Harvest Circle's population has been acclimatized to reduced allocation so gradually they don't name it as reduction.`;
+      addJournal('discovery', 'Granary Steps: community accepts reduced allocation without naming reduction — gradual acclimatization to scarcity', `harvest-granary-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: THE INDEPENDENT COUNTER
+  {
+    label: "Commission an independent count of a full harvest section — compare it against the official production log entry.",
+    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'running independent harvest count');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Your count: 12.4 tonnes from the west mid-field section. Official log entry for the same section, filed the same day: 10.8 tonnes. A 1.6 tonne discrepancy — 13 percent — on a single section. Scale that across the full harvest area and you have the routing anomaly's source. The production logs are being systematically understated at collection, and the difference is being routed out under the Provision Compact allocation numbers. You have proof now. A single section count against a single log entry.`;
+        G.flags.independent_count_completed = true;
+        addJournal('consequence', 'Independent count: 13% discrepancy between actual yield and official log — production understatement at collection confirmed', `harvest-count-${G.dayCount}`);
+      } else {
+        G.lastResult = `Your count is complicated by the segmented field layout — you can't get a complete section view without being inside the official measurement area, which requires authorization you don't have.`;
+      }
+      G.recentOutcomeType = 'craft'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE QUOTA WORKER WITH A MEMORY
+  {
+    label: "Find a worker who has been at Harvest Circle long enough to remember the pre-quota-change era — speak to them about what changed.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'interviewing long-tenure worker');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Elder fieldworker Nann has worked at Harvest Circle for thirty-one years. "The measurement changed about eighteen months ago. Before: we counted the full load at the central scale. After: section leads count first, then totals are reported to the central scale. The full load still goes on the central scale — but the reported number is the section leads' count, not the central weighing." She understands exactly what happened. "The central scale's reading stopped being the official number. Someone replaced the scale with the section leads." She kept three seasons of her own personal field tallies. They match the central scale readings. They don't match the official reports.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_nann_fieldworker = true;
+        addJournal('contact', 'Fieldworker Nann: measurement system changed 18 months ago, has personal tallies matching central scale vs official reports', `harvest-nann-${G.dayCount}`);
+      } else {
+        G.lastResult = `The long-tenure workers have learned that comparison to previous seasons leads to arguments with supervisors. They've stopped making comparisons — at least to strangers.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "A Provision Compact transport driver mentions a researcher traveled with his convoy last week asking questions about routing documentation.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 57,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(57, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"Carried no visible weapons but moved like someone who expected to need them," the driver says. "Asked about the security on the northern leg — not what we were carrying, but whether anyone was watching the route." Someone is assessing the transit corridor's vulnerability, not investigating the cargo discrepancy. They're planning for movement, not documentation.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"Had a small instrument they used at the staging area before we departed," the driver says. "Checked the containers without touching them. Put the instrument away and made a note." A trace reading at the staging area — characterizing what passed through before us. They're working from physical evidence, not records.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"Never asked the same question twice," the driver says. "I noticed because I've had investigators travel with us before — they always circle back. This one moved forward, never repeated." Professional non-redundant questioning. They extract the maximum from each exchange and don't telegraph their data gaps. A trained information gatherer.`;
+      } else {
+        G.lastResult = `"Bought food for the whole convoy," the driver says. "Generous. Said it was company policy — they always fed the people they worked with. And everyone talked more than they should have. Generous gestures are very effective on a long drive." Social infrastructure deployment. They funded cooperation before asking for it.`;
+      }
+
+      G.lastResult += ` They were on the Harvest Circle routing thread last week. They're ahead of you.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative traveled with Provision Compact convoy last week — working Harvest Circle routing thread ahead of you', `harvest-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

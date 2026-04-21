@@ -55,7 +55,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering supply chain manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Quartermaster Coralyn shows you inventory records that have been falsified. Naval supply allocations marked as "standard crew provisions" have been secretly diverted to private vessels. Rope, sailcloth, repair materials destined for independent shipwrights have disappeared from ledgers. Crews connected to House Cosmouth loyalists receive augmented provisions disguised as routine maintenance. "This is systematic diversion," Coralyn says quietly. "Someone's using the quartermaster system to redirect maritime resources to preferred parties. Independent crews are being starved of supplies while loyalist operations flourish."`;
@@ -127,7 +127,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering archive record tampering');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Clerk of Arrivals Tideon pulls you into the archive shadows. "Arrival records are being systematically falsified. Vessels are being documented as arriving on dates they didn't. Departures are being erased from logs. Someone is creating false documentation history to hide movements of people and cargo. Archive records, which should be immutable truth, are being weaponized to conceal unauthorized vessel traffic. Private shipments are being hidden within legitimate trade records. The documentation system that Cosmoria depends on for taxation and safety has been corrupted as a tool for smuggling and unauthorized operations."`;
@@ -163,7 +163,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering mediation system corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Ward Mediator Nerissa speaks with difficulty. "District disputes used to be resolved by examining evidence and applying principle. Now I receive directives about outcomes before mediation begins. Districts aligned with power factions receive favorable rulings. Independent district representatives are systematically disadvantaged. I'm being asked to use conflict resolution as a tool to consolidate floating city loyalty. The independence of each district ward is being undermined through corrupted mediation. This threatens the entire delicate balance of Cosmoria's floating governance."`;
@@ -309,7 +309,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'maritime hierarchy analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The floating district hierarchy has been systematically restructured. Positions that were meant to be independent ward representatives have been consolidated under House Cosmouth authority. District councils that used to hold decision power have been made advisory-only. Ward leaders who disagreed with recent changes have been replaced with compliant loyalists. The organization is being transformed from distributed floating governance into centralized control by the nobility. Power is concentrating rapidly.`;
@@ -342,7 +342,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'merchant network displacement mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The maritime merchant network is being systematically recomposed. Independent traders who were previously active are being excluded through denials of dock access, cargo handling, or favorable tide allocations. Meanwhile, merchants allied with House Cosmouth are gaining unprecedented access to maritime resources and preferred berth positioning. The economic foundation of Cosmoria's floating trade is being remapped to concentrate maritime power among approved houses. This is economic restructuring disguised as normal navigation operations.`;
@@ -411,7 +411,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'personal ambition pattern mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Certain individuals within House Cosmouth are being systematically elevated into positions of unusual power. A minor treasury official is now controlling resource allocation. A merchant with no prior governance experience is advising on archive policy. A shipwright with family connections is setting industry standards. These individuals are being positioned through corrupted systems — they're not earning authority through merit or traditional advancement. They're being installed by an external force. Their rapid power acquisition is dependent on systematic corruption of the institutions that normally regulate authority advancement.`;
@@ -447,7 +447,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'institutional dependency system documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Institution dependency is being systematically weaponized. Independent merchants depend on archive documentation for taxation credibility — they're forced to cooperate through threat of audit. Crews depend on shipwright certification for employment — they're pressured through certification denial. Patients depend on shrine blessing for maritime safety — they're coerced through ritual exclusion. People depend on district mediation for dispute resolution — they're isolated through biased outcomes. The institutional network is being transformed into a control system. Every citizen is trapped within dependencies that force compliance with corrupted authority.`;
@@ -605,7 +605,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing institutional corruption conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together the evidence: archive records showing falsified arrival documentation, supply records with handwritten diversions in a single hand, ritual instructions contradicting traditional practices, mediation rulings predetermined and annotated before public hearing, resource allocation lists showing systematic exclusion patterns. The paper trail is clear: Cosmoria's maritime institutions are being systematically corrupted as part of coordinated strategy. The archive, supply system, shrine, mediation, and governance are all being weaponized simultaneously. This is institutional capture.`;
@@ -651,12 +651,11 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're trapped, complicit, and frightened. You must decide: Do you protect them and maintain your investigation quietly? Do you expose them to stop the institutional system? Your choice determines whether this person becomes an informant or an enemy — and whether Cosmoria's institutional corruption can be challenged from within or continues unchecked.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide insider information. Gain an institutional informant but risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s role in institutional corruption. Disrupt the system but lose access to internal operations.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about institutional corruption participation`, `cosmoria-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about institutional corruption participation`, `cosmoria-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -676,19 +675,19 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of institutional corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the corrupted arrival records, diverted supplies, weaponized rituals, and compromised mediation, you find the thread leading outside Cosmoria. Courier manifests reference cities in northern territories with detailed instructions for "maritime institution restructuring." Merchant house letters from affiliated northern contacts directing resource diversion. Financial transfers originating from north-aligned entities. Cosmoria's maritime system is being systematically captured by external interests. Someone in the northern territories — or someone allied with them — is using Cosmoria's own institutions to extract resources and consolidate control. The conspiracy is coordinated, resourced, and external.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Cosmoria institutional corruption identified as external coordination', `cosmoria-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Cosmoria institutional corruption identified as external coordination', `cosmoria-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach evidence of external coordination, you're intercepted directly. Someone stops you and makes clear that pursuing this further will result in your removal from Cosmoria or elimination. You've discovered pieces, but the full external coordination remains hidden — and now you're marked as direct threat.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation intercepted by external coordination operators', `cosmoria-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Cosmoria. Courier routes reference "northern merchant authorities." Resource orders show external authorization signatures. The conspiracy is larger than Cosmoria itself. You don't know exact source yet, but you know institutional corruption is being directed from outside Cosmoria's borders.`;
-        addJournal('major-discovery', 'External coordination of Cosmoria confirmed', `cosmoria-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Cosmoria confirmed', `cosmoria-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find pieces suggesting external involvement, but the origin source remains obscured. Whoever's orchestrating this has hidden their coordination carefully.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `cosmoria-origin-unclear-${G.dayCount}`);
@@ -696,6 +695,197 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: GHOST VESSEL EVIDENCE
+  {
+    label: "Examine the maritime registry for vessels that departed Cosmoria without filing a return manifest — ghost vessels.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'identifying ghost vessel registry entries');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `Seven vessels departed Cosmoria under standard cargo manifests in the past four months without filing return entries. Under maritime law, vessels without return manifests should trigger an automatic follow-up from the harbor authority. None of these seven triggered any follow-up. The harbor authority's notification log shows the flags were received and manually cleared — by the same harbor administrator, on days that don't follow a standard schedule. The ghost vessels are being actively cleared from the record.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_ghost_vessel_evidence = true;
+        addJournal('investigation', 'Ghost vessels: seven without return manifests, flags manually cleared by single administrator on irregular schedule', `cosmoria-ghost-vessels-${G.dayCount}`);
+      } else {
+        G.lastResult = `You find vessels with missing return manifests but the clearance records are in a harbor administration category you'd need a maritime inspector's credential to access.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: MARITIME TRANSIT LAUNDERING
+  {
+    label: "Trace the cargo manifests of the ghost vessels — follow the paper chain from departure documentation to origin ownership.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing maritime cargo laundering chain');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `The departure manifests list cargo as "mineral aggregate — industrial grade." All seven vessels. The same description, the same category code, the same weight class. The probability of seven independent cargo shipments being identical across four months is negligible. These are template manifests — the same document, filed seven times with different vessel names and dates. Whoever is operating this transit chain isn't hiding the cargo; they're making it look too boring to investigate.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_template_manifests = true;
+      addJournal('investigation', 'Transit chain: identical template manifests filed seven times — systematic laundering via bureaucratic camouflage', `cosmoria-manifest-chain-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE HARBOR
+  {
+    label: "Walk Cosmoria's working harbor at peak tide — read what the port's activity pattern is actually communicating.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading harbor activity pattern');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The loading pattern for two specific berths doesn't match standard cargo work. The handlers work in a trained sequence — not dock training, something more systematic. Loading order optimized for rapid departure under a specific weight distribution. These handlers were trained for a different kind of vessel movement. Someone put military logistics expertise on a civilian dock.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `One berth consistently loads in the late morning, when harbor traffic peaks and attention is distributed. Not the optimal time for efficient loading — the optimal time for loading that disappears into the general volume. The timing is deliberate. Someone scheduled those departures for maximum ambient cover.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `The harbor administrator's office window faces the two suspicious berths directly. The administrator watches every loading from the office. Not curiosity — supervision. They know what's on those vessels and they're confirming each departure personally. The ghost vessel clearances weren't careless. They were supervised.`;
+      } else {
+        G.lastResult = `Three dock workers at the suspicious berths have new equipment — better ropes, new tool belts, work gear that's recent enough to still be clean. Someone paid for upgraded equipment at these specific berths and not others. The workers who handle the ghost vessels are being compensated above standard rate. The cooperation is purchased.`;
+      }
+      addJournal('investigation', 'Harbor analysis: suspicious berths use military loading sequence, peak-hour cover timing, administrator supervision, compensated workers', `cosmoria-harbor-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: IRON COMPACT MARITIME CONTACT
+  {
+    label: "Approach the Iron Compact's Cosmoria trade agent — they maintain an office in the maritime quarter.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Iron Compact contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Trade agent Sull Crenn manages Iron Compact cargo through Cosmoria's port. He knows about the ghost vessels. "Seven departures without returns disrupts the Iron Compact's routing calculations — we lose visibility on what's moving through Cosmoria." He's not helpful out of principle; he's helpful because the ghost vessels are interfering with Iron Compact logistics tracking. He'll share cargo pattern data in exchange for the template manifest evidence. A transactional relationship, but a useful one.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_iron_compact_cosmoria = true;
+        G.factionHostility.iron_compact += 1;
+        addJournal('faction', 'Iron Compact agent Sull Crenn: ghost vessels disrupt routing data, willing to exchange cargo pattern information', `cosmoria-iron-${G.dayCount}`);
+      } else {
+        G.lastResult = `The Iron Compact's Cosmoria office is busy with legitimate trade business. The agent is available by scheduled appointment only and not interested in unofficial inquiries without prior introduction.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_iron_compact_cosmoria = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE TIDE MARKER
+  {
+    label: "Study the tide markers at the harbor mouth — observe what they show about how Cosmoria reads time.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'reading Cosmoria tide markers');
+
+      G.lastResult = `The tide markers at Cosmoria's harbor mouth have been used for three hundred years. They're carved with departure records — generations of sailors marking their first passages. The newest additions stop two years ago. The most recent carved names are still there, unchanged. The tradition has simply ended. No explanation. The Harbor Authority hasn't forbidden it — it just isn't happening. Something changed in the harbor's community culture two years ago and nobody is saying what.`;
+      addJournal('discovery', 'Harbor tide markers: departure tradition stopped two years ago without explanation — harbor culture shifted', `cosmoria-tides-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: THE HARBOR ADMINISTRATOR'S RECORD
+  {
+    label: "Obtain a copy of the harbor administrator's personal appointment log — document when they personally cleared the ghost vessel flags.",
+    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'obtaining administrator appointment log');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `The administrator's appointment log shows seven entries on the days the ghost vessel flags were cleared, each logged as "internal compliance review — duration 15 minutes." No parties listed. No case numbers. Fifteen minutes to clear a flag that should require harbor authority confirmation and registry update. The log was being kept carefully — the administrator recorded the activity because the record itself provides institutional cover. They created the paper trail of their own suppression.`;
+        G.flags.obtained_administrator_log = true;
+        addJournal('consequence', 'Administrator appointment log secured: seven ghost vessel clearances documented as unauthorized 15-minute compliance reviews', `cosmoria-admin-log-${G.dayCount}`);
+      } else {
+        G.lastResult = `The appointment log is kept in the administrator's private office. Without either social access or a distraction, you can't reach it without the administrator present.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE RETURNING SAILOR
+  {
+    label: "Speak to a sailor who was crew on one of the vessels that departed with a template manifest — find out where it actually went.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'interviewing returning crew member');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Kavan is back from the second template manifest departure. "We went to the Shelf Islands. Private mooring, no harbor authority present." He describes the cargo — not mineral aggregate. Sealed uniform cases, handled by men who weren't Cosmoria dockworkers. "They offloaded fast. Knew exactly what they were doing. We turned around inside six hours." He was paid triple rate and told not to file a return manifest. He assumed it was tax avoidance. Now he's not sure.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_kavan_sailor = true;
+        addJournal('contact', 'Sailor Kavan: Shelf Islands delivery, sealed uniform cases, private mooring, no official presence — triple rate', `cosmoria-kavan-${G.dayCount}`);
+      } else {
+        G.lastResult = `The sailors who ran the template manifest routes are avoiding the harbor this week. Word traveled that someone is asking questions. They know what they transported and they know it wasn't mineral aggregate.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "A maritime insurance broker mentions someone visited them last week asking about the same ghost vessels — claiming to be a cargo verification specialist.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 57,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(57, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"They asked about the cargo destination's security capabilities," the broker says. "Not whether the cargo was properly registered — whether the receiving location was a defended site. Military logistics question in a commercial insurance conversation." Someone is mapping the supply chain's endpoint security, not investigating the fraud.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"They produced a sampling instrument when I mentioned the cargo category," the broker says. "Checked the air near where the cases had been staged before loading. Some kind of detector. I don't know what they were measuring." Material analysis at the staging site. Someone is characterizing the cargo through trace evidence — they don't know what it was, but they're working to find out.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"They came twice," the broker says. "First visit was general questions. Second visit, they'd already confirmed the cargo route from somewhere else. They were triangulating — using multiple sources to build a complete picture before committing to any single line of inquiry." Counter-investigation methodology. They're building a case from multiple angles simultaneously.`;
+      } else {
+        G.lastResult = `"Very thorough," the broker says. "Bought me lunch and asked about every client who'd handled those berths in the past year. Not just the ghost vessels — everyone. They were building a complete contact map of everyone with information about those berths." Total environmental scan. They want every person who knows anything, not just the directly involved parties.`;
+      }
+
+      G.lastResult += ` This person was working the Cosmoria harbor thread before you arrived.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative investigated Cosmoria ghost vessels before you — multi-source triangulation approach', `cosmoria-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

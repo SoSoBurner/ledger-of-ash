@@ -55,7 +55,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering obligation weaponization');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Family Broker Lysander speaks carefully. "Family obligations have always been part of Sunspire culture. But lately, obligations are being used as leverage. Families that resist syndicate preferences are told their obligations to community service will be increased or revoked entirely — destroying their standing. Families that comply are given obligation waivers or reductions. The system is being weaponized to reward compliance and punish resistance. Mutual family duty is becoming a tool of control."`;
@@ -123,7 +123,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering trade preference bias');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Textile Merchant Keldan speaks quietly. "Trade preferences have shifted. Families with syndicate connections get favorable contracts, longer payment terms, and preferential access to premium materials. Families without those connections struggle to get any contracts at all. This used to be a system where quality and need determined access. Now it's purely about family alignment. The market is being restructured to concentrate economic advantage."`;
@@ -159,7 +159,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading quota pressure patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Quota Keeper Neria is conflicted but speaks. "Quotas are being set impossibly high for certain families. They're designed to fail. When failure happens, families lose syndicate standing, access to resources, and community respect. Meanwhile, families with syndicate connections get flexible quotas that they can easily meet. The system is being used to concentrate production power and control. It's systematic family displacement through quota engineering."`;
@@ -228,7 +228,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering authority erosion');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Family Elder Daven speaks with genuine grief. "I've been an elder for thirty years. My family looked to me for decisions. Now? Syndicate directives arrive with the authority of tradition but without actual family consultation. I'm told to implement policies that harm my own family's interests. When I resist, I'm reminded that family autonomy depends on syndicate goodwill. The elders have been transformed into administrators of policies we didn't choose. Family governance has been captured."`;
@@ -302,7 +302,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'family structure analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Family structures have been systematically altered. Independent families are being fragmented — children of resistant families are directed to different work assignments, economic opportunities, or housing separate from their families. Meanwhile, families aligned with the syndicate are being consolidated and given preferential resource access. Multi-generational family units that were sources of independence are being broken into smaller dependent units. The syndicate is restructuring family as a unit of control rather than a unit of identity.`;
@@ -404,7 +404,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'coercion apparatus documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A pattern of threats emerges. Families who question syndicate decisions face resource allocation reductions. Families who speak publicly about manipulation face social isolation and removal from communal events. Families who attempt to organize resistance face threats to family members' employment and housing. Children of resistant families are directed to dangerous work assignments. The threats are calibrated — severe enough to enforce compliance, but maintained at levels that prevent open resistance. Coercion has become the hidden infrastructure of syndicate control.`;
@@ -440,7 +440,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'resource extraction tracking');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Resources that should sustain Sunspire Haven are being systematically extracted. Food beyond basic rations is being moved to external storage and destinations. Tools and materials are being diverted to external interests. Family craftwork is being accumulated in external warehouses. Sunspire Haven is being treated as a production facility rather than a community — resources are extracted after basic subsistence allowances are provided. The community is being economically hollowed out.`;
@@ -473,7 +473,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'community fragmentation documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Community bonds that once held Sunspire Haven together are being deliberately fractured. Families that traditionally cooperated are now in competition for syndicate-controlled resources. Mutual aid networks are being disrupted through resource control. Shared celebrations and gathering events are being limited or canceled. Young people are isolated from elders through separate work assignments. The social infrastructure that enabled collective action is being systematically destroyed. What's replacing it is individual family desperation and dependence on syndicate favor.`;
@@ -509,7 +509,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'family fragmentation mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Family bonds are being systematically severed. Children are separated from parents through work assignments to distant locations. Extended families that traditionally lived and worked together are being parceled into separate housing. Couples are assigned to different production cycles. Multi-generational families are losing their cohesion. Attempts to maintain family connections are viewed as suspicious loyalty questions. The primary tool of control — the family unit — is being deliberately fractured to prevent collective resistance. Families as economic and social units have been weaponized against themselves.`;
@@ -545,7 +545,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'manufactured consent structure analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The system maintains a fiction of voluntary participation. Communities are told they've "agreed" to resource distributions and family obligations. Families are told they've "accepted" their roles in production quotas. The syndicate maintains the appearance that the community is consenting to the system. In reality, families that resist face threats, exclusion, and starvation. The consent is manufactured through coercion disguised as voluntary choice. The system is designed to break resistance while maintaining the appearance that the community has accepted its own subjugation.`;
@@ -607,7 +607,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing syndicate conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together the evidence: resource accounting showing more harvested food diverted than distributed. Records showing families allocated less than subsistence levels while syndicate leadership stores surplus. Communications showing syndicate coordination with external parties about resource extraction. Work records showing families directed to production far beyond their own needs. Family obligation records showing systematic targeting of resistant families. The documentation is clear: the syndicate is deliberately extracting resources from Sunspire Haven and sending them externally while maintaining community dependence through artificial scarcity. The wrongness has architectural documentation.`;
@@ -653,12 +653,11 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}." They're trapped, complicit, and terrified. You must decide: Do you expose them to stop the extraction system? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an informant or an enemy — and whether Sunspire Haven's resource hemorrhage can be challenged or continues unchecked.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide insider information. Gain a family informant but risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s role in resource extraction. Disrupt the apparatus but lose internal family access.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about syndicate extraction participation`, `sunspire-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about syndicate extraction participation`, `sunspire-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -678,19 +677,19 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of extraction');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the diverted resources and artificial scarcity, you find the thread that leads outside Sunspire Haven. Courier receipts from northern territories with instructions to maximize resource extraction and minimize community distribution. Financial transfers paying the syndicate leadership for cooperation. Orders for "family atomization protocols" designed to prevent collective resistance. Sunspire Haven's community is being systematically harvested by external interests using the syndicate as a management apparatus. Someone in the northern territories — or someone allied with them — is coordinating the resource extraction and social destruction. The conspiracy is coordinated, resourced, and external.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Sunspire Haven extraction identified as external coordination', `sunspire-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Sunspire Haven extraction identified as external coordination', `sunspire-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach the evidence of external coordination, you're intercepted. Someone stops you directly and makes it clear that pursuing this further will result in your removal from Sunspire Haven or worse. You've discovered pieces, but the full external coordination remains hidden — and now you're marked as a direct threat.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation interrupted by external coordination operators', `sunspire-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Sunspire Haven. Courier routes reference "northern resource authorities." Extraction orders show external signature. The conspiracy is larger than the community itself. You don't know the exact source yet, but you know the resource extraction is being directed from outside Sunspire Haven's borders.`;
-        addJournal('major-discovery', 'External coordination of Sunspire Haven extraction confirmed', `sunspire-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Sunspire Haven extraction confirmed', `sunspire-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find pieces suggesting external involvement, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `sunspire-origin-unclear-${G.dayCount}`);
@@ -698,6 +697,198 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: SIGNAL-DAMPING CONTAINER
+  {
+    label: "Examine the sealed container recovered from the disrupted convoy — study its construction and the markings on the interior lining.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'analyzing signal-damping container');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The interior lining is composite — ash-resin layered over a fine copper mesh. Signal damping, but not commercial. The precision exceeds anything in trade-grade shielding. A craftmark on the base reads a three-digit code followed by what looks like a municipal stamp from Shelkopolis's outer fabrication district. This container was manufactured specifically and recently. Someone ordered it custom for a payload they didn't want detected in transit.`;
+        if (!G.flags) G.flags = {};
+        G.flags.analyzed_signal_container = true;
+        addJournal('investigation', 'Signal-damping container: custom-fabricated, Shelkopolis craftmark, military-grade shielding', `sunspire-container-${G.dayCount}`);
+      } else {
+        G.lastResult = `The container construction is unusual — heavier than it looks, with a layered interior. You recognize the material isn't standard trade shielding but can't place the specification without a reference guide.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: CONVOY ROUTE DEVIATION
+  {
+    label: "Pull the convoy route logs and compare the filed route to the route the convoy actually traveled.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'mapping convoy route deviation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `Filed route: eastern trade road, standard checkpoint stops. Actual route: a two-hour deviation northwest, avoiding the Warden Order post at Milegate. The convoy wasn't disrupted on its filed path — it was disrupted on a detour that was never officially logged. Whoever organized this knew the route, arranged the deviation, and arranged the interception at a point where no Warden checkpoint would have record of the convoy passing.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_convoy_route_deviation = true;
+      addJournal('investigation', 'Convoy route deviation: off-record detour avoided Warden checkpoint at Milegate', `sunspire-route-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE AFTERMATH
+  {
+    label: "Study the site where the convoy disruption occurred — read what the scene tells you that the official report didn't.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'reading disruption site');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The positions of the guards when they fell tell you this wasn't a surprise attack — they were already moving into defensive formation when contact happened. They knew something was wrong before the interception began. The convoy security was compromised from inside. Someone on the convoy itself signaled the moment.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `Residue on the ground near the container position suggests the damping material had been activated before the convoy stopped. The container was already shielded before the disruption happened. This wasn't an ambush on a moving target — it was a scheduled handoff staged to look like a hijacking.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `The site has been cleaned. Not badly — it looks natural — but too natural. Wheel ruts that should be there aren't. The ground is even where a heavy container would have been dragged. Someone came back after the disruption and removed traces. Professional scene-clearing, done in daylight.`;
+      } else {
+        G.lastResult = `Two supply crates are still at the site, undisturbed. The disruption was selective — the sealed container was taken; everything else was left. This wasn't a raid on the convoy. It was retrieval of one specific item. The rest of the cargo was never the point.`;
+      }
+      addJournal('investigation', 'Convoy disruption site: selective retrieval confirmed, scene-cleared, inside contact suspected', `sunspire-site-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: WARDEN ORDER CONTACT
+  {
+    label: "Report the convoy route deviation to the Warden Order post at Sunspire's north gate.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'making Warden Order contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Captain-Adjutant Sera receives your report with calibrated attention. She asks three clarifying questions — all about the container, none about the disruption itself. "We're aware of the deviation category," she says finally. "What you've added is the Milegate confirmation." She gives you a reference number and tells you an inquiry is open. She doesn't tell you what the inquiry is about. The Warden Order knows more than they're sharing.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_warden_order_sunspire = true;
+        G.factionHostility.warden_order += 1;
+        addJournal('faction', 'Warden Order Captain-Adjutant Sera: confirmed awareness of container category, open inquiry exists', `sunspire-warden-${G.dayCount}`);
+      } else {
+        G.lastResult = `The duty officer takes your report by rote. It goes into a form stack. No one follows up. Either the Warden Order isn't concerned with this convoy or they've been told not to be.`;
+        if (!G.flags) G.flags = {};
+        G.flags.attempted_warden_order_sunspire = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE SIGNAL TOWER
+  {
+    label: "Climb to Sunspire's signal tower at dusk — observe the pattern of lights and what they're actually communicating.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 53,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(53, 'reading signal tower light pattern');
+
+      G.lastResult = `The tower keeper lights three sequences: north, east, south. Standard all-clear. But between the second and third, there's a half-beat pause that isn't in the protocol guide. You've seen that pause three times today. It means something — not to you, not yet. But whoever reads these lights from the road already knows. Sunspire is communicating in a layer you don't have the key to.`;
+      addJournal('discovery', 'Signal tower: undocumented pause pattern — secondary communication channel suspected', `sunspire-tower-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: DOCUMENT THE CONTAINER
+  {
+    label: "Make a complete technical sketch of the container and its craftmark before it's catalogued and locked away.",
+    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 62,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(62, 'documenting container specifications');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Your sketch captures dimensions, material layering, and the craftmark precisely — enough that a fabricator could identify the manufacture source from the drawing alone. You copy it twice and cache the second in your personal kit. Whatever happens to the physical container, you have its record.`;
+        G.flags.container_documentation = true;
+        addJournal('consequence', 'Container documentation completed and secured — craftmark recorded for later identification', `sunspire-document-${G.dayCount}`);
+      } else {
+        G.lastResult = `You get most of it — dimensions, general construction — but the craftmark is already partially obscured by handling. What you have is better than nothing.`;
+        G.flags.container_documentation = true;
+      }
+      G.recentOutcomeType = 'craft'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE CONVOY GUARD SURVIVOR
+  {
+    label: "Find the convoy guard who survived the disruption and is still recovering at the waystation infirmary.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'interviewing convoy survivor');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the contact." He's told the Warden Order this. They thanked him and told him to rest. The driver can't be found.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_tennen_guard = true;
+        addJournal('contact', 'Convoy guard Tennen: inside contact was the second driver, Warden Order informed but took no visible action', `sunspire-tennen-${G.dayCount}`);
+      } else {
+        G.lastResult = `Tennen is drifting in and out. He gives you fragments — a wrong turn, a man he didn't recognize — but can't hold the thread. Come back tomorrow when the concussion clears.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "The waystation innkeeper mentions a traveler asking about the convoy disruption — their description of events was more detailed than any official report.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"Military bearing," the innkeeper says. "Asked whether the guards fired before or after the container was moved. Not whether they fired at all — specifically in what order. Someone with tactical training, working out a timeline." They knew what questions to ask. That means they already know what happened.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"Carried a measuring instrument — brass, cylindrical," the innkeeper says. "Held it near the container storage area before asking questions. I thought it was for surveying." A resonance reader or material sensor. This person was characterizing the container's damping field, not investigating the disruption. They came for the container specifically.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"Didn't ask about the disruption at all," the innkeeper says. "Just asked who'd been asking about it. Named three people by description before they'd been introduced." A counter-investigator. They were mapping inquirers, not events. Your name isn't on their list yet — but it will be.`;
+      } else {
+        G.lastResult = `"Spoke to every staff member separately," the innkeeper says. "Different questions each time. I only put it together afterward — they were building a complete picture of everyone involved." Methodical social mapping. They have a profile of this investigation's participants already assembled.`;
+      }
+
+      G.lastResult += ` This person was here before you. They know what you're looking for.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative confirmed investigating Sunspire convoy disruption ahead of you', `sunspire-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

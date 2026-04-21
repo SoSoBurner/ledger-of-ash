@@ -36,6 +36,34 @@ def build():
         'stage1_additional_enriched_choices.js',
         # Bard archetype 3-node mid-spine (Stage 1 consequence chain)
         'bard_midspine.js',
+        # Stage 1: 6 new locality files
+        'glasswake_commune_stage1_enriched_choices.js',
+        'whitebridge_commune_stage1_enriched_choices.js',
+        'craftspire_stage1_enriched_choices.js',
+        'unity_square_stage1_enriched_choices.js',
+        'ironhold_quarry_stage1_enriched_choices.js',
+        'plumes_end_outpost_stage1_enriched_choices.js',
+        # Stage 1: districts + Nomdara
+        'districts_stage1_enriched_choices.js',
+        'nomdara_stage1_choices.js',
+        # Stage 1: archetype midspines
+        'combat_midspine.js',
+        'magic_midspine.js',
+        'stealth_midspine.js',
+        'support_midspine.js',
+        # Travel arcs: 12 non-Shelk localities → Shelkopolis
+        'soreheim_proper_to_shelk_arc.js',
+        'sunspire_haven_to_shelk_arc.js',
+        'harvest_circle_to_shelk_arc.js',
+        'panim_haven_to_shelk_arc.js',
+        'aurora_crown_to_shelk_arc.js',
+        'glasswake_to_shelk_arc.js',
+        'whitebridge_to_shelk_arc.js',
+        'ithtananalor_to_shelk_arc.js',
+        'mimolot_academy_to_shelk_arc.js',
+        'guildheart_hub_to_shelk_arc.js',
+        'shirshal_to_shelk_arc.js',
+        'cosmoria_to_shelk_arc.js',
         # Stage 2: generic fallback + 18 locality files + districts + Nomdara
         'stage2_enriched_choices.js',
         'shelkopolis_stage2_enriched_choices.js',

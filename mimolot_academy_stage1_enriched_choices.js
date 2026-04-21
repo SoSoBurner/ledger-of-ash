@@ -58,7 +58,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering research suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A research scholar (Dalmir) speaks carefully in a private study. Certain research lines have been quietly shut down. Scholars investigating regional political corruption have been reassigned. Those studying economic systems that challenge current authority have been told their work is "not aligned with institutional priorities." Those researching historical precedent for challenging authority are being watched. "It's not open suppression. It's subtle redirection. But the intent is clear: Don't ask questions about whether authority is legitimate. Don't research whether corruption exists. Don't find historical precedent for resistance." The Academy is being used to prevent truth-seeking.`;
@@ -129,7 +129,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing historical record corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The knowledge archivist (Kensa) shows you documentation with careful detail. Historical records are being professionally altered. Scholarly analysis of past institutional failures is being revised to show those failures didn't actually happen or were less significant than originally documented. Records of authority overreach are being edited to remove the most damaging details. "It's sophisticated work," Kensa explains. "The alterations maintain surface consistency with the original documents while changing the actual content. Scholars comparing current records to historical manuscripts will find discrepancies. And when they do, they'll be told the manuscripts were transcribed incorrectly." The historical record itself is being corrupted.`;
@@ -209,7 +209,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         addJournal('investigation', 'Keeper revealed weaponized knowledge classification system', `mimolot-keeper-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The restriction keeper refuses to discuss classified materials. "That information is restricted for reasons beyond your clearance. Your questions are inappropriate." The keeper reports your inquiry.`;
-        G.worldClocks.distance++;
+        G.worldClocks.isolation++;
         addJournal('complication', 'Restriction keeper reported your classification inquiry', `mimolot-keeper-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The keeper admits that materials are classified as dangerous, though they're guarded about the specific criteria used for classification.`;
@@ -273,7 +273,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing truth verification corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A verification scribe (Theron) confides in you carefully. The verification process has been compromised. Scribes are being pressured to approve documentation that contradicts evidence. When they flag discrepancies, they're told "institutional needs sometimes require flexibility with detail." Some scribes have been reassigned when they refused to approve false verification. Others have been threatened with loss of scholarly standing. "The verification system was supposed to ensure truth. Now it's being used to legitimize lies. We're being forced to validate false narratives with official institutional authority. Truth verification has become a tool of deception."`;
@@ -347,7 +347,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing arcane knowledge suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('arcana', (G.skills.arcana || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Magical research documentation shows systematic suppression. Spells that allow independent magical power have been reclassified as "dangerous." Theories that expand personal magical autonomy have been marked as restricted research. "The restriction is always framed as safety," explains an arcanist you speak with quietly. "But it's control. Someone is making sure that magical knowledge can't be used to challenge authority. The restricted spells are the ones that empower individual will. The suppressed theories are the ones that would make people less dependent on institutional magical guidance." Arcane knowledge is being controlled as a tool of power.`;
@@ -383,7 +383,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'researcher surveillance mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Investigation records reveal systematic monitoring of scholars. Those researching institutional corruption are watched. Those asking questions about authority legitimacy are monitored. Those accessing restricted historical materials are tracked. The monitoring is systematic and coordinated. Some scholars have been quietly reassigned after their monitored research was deemed "inappropriate." Others have been warned that their inquiry topics "concern institutional leadership." The result is that scholars self-censor. They pursue only research they know won't trigger monitoring. Scholarly curiosity is being controlled through surveillance.`;
@@ -419,7 +419,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping intellectual autonomy erosion');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The intellectual climate of the Academy has deteriorated. Scholars move through their research mechanically, pursuing only topics that won't trigger attention. They avoid discussing controversial interpretations. They self-censor their findings. When they do publish, the work reflects institutional perspectives rather than genuine inquiry. "The Academy used to be a place where brilliant minds challenged each other," an older scholar tells you quietly. "Now it's a place where careful minds follow approved paths. We used to think independently. Now we think in approved patterns. Intellectual autonomy has been replaced with intellectual compliance."`;
@@ -455,7 +455,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'administrative hierarchy mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('perception', (G.skills.perception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The administrative hierarchy reveals hidden coordination. Research restrictions come from a council that exists outside the traditional scholarly hierarchy. Knowledge access decisions are made by administrators who don't answer to the scholarly community. The Academy's official structure shows scholars in authority, but actual power flows through administrative channels that bypass scholarly input. Following the chain upward, administrative authority appears to take direction from someone beyond the Academy itself. The control structure has been inverted: administration has replaced scholarship as the source of institutional direction.`;
@@ -491,7 +491,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering external institutional control');
       G.stageProgress[1]++;
 
-      const result = rollD20('perception', (G.skills.perception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The external control structure becomes clear. Administrative directives about research restrictions are not coming from the Academy's leadership. They're coming through sealed communications from outside sources. The Academy administration is coordinating with external authority. Following the communication chains, orders originate from somewhere beyond Mimolot Academy — someone with authority to direct the institution's policies without being accountable to the scholarly community. The Academy has been captured. It's being controlled from outside. The knowledge suppression is systematic, coordinated, and directed from an external source.`;
@@ -553,7 +553,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing knowledge suppression conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together documents: research restriction decrees. Historical record alterations. Truth verification compromises. Student enrollment manipulations. Academic framework revisions designed to exclude challenge. Individual pieces suggest incompetence or poor administration. Together they form undeniable proof of coordination. Someone has systematically corrupted Mimolot Academy's truth function. The institution that was supposed to preserve and disseminate truth is instead suppressing it. This is not institutional failure; this is institutional capture. Knowledge is being weaponized against truth.`;
@@ -599,12 +599,11 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're afraid, complicit, and trapped. You must decide: Do you expose them to pressure the Academy into stopping the suppression? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an enemy or an ally — and whether Mimolot's scholars begin to resist or sink deeper into intellectual compromise.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide information. Build an informant. Risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s complicity. Pressure the system. But you'll have made an enemy who might warn the conspiracy.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about complicity in knowledge suppression`, `mimolot-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity in knowledge suppression`, `mimolot-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -624,19 +623,19 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of knowledge suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the research restrictions, the falsified records, the corrupted verification system — you find the thread that leads out of Mimolot Academy. Sealed orders in an administrative vault, bearing the seal of House Shelk. Directives about which truths can be taught, which knowledge must be suppressed, which perspectives must be eliminated. Mimolot Academy has been captured by external authority. Someone in Shelkopolis is orchestrating the Academy's corruption. They're not trying to destroy the institution; they're trying to own it. They want to use it to shape truth itself. And the capture has only just begun its systematic reshaping of what knowledge survives and what knowledge is erased.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Mimolot knowledge suppression identified as external Shelkopolis House Shelk coordination', `mimolot-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Mimolot knowledge suppression identified as external Shelkopolis House Shelk coordination', `mimolot-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach the central evidence, you're intercepted. The conspiracy is aware of your investigation. You're seized and threatened. You've discovered pieces, but the full origin remains hidden — and now you're marked for silence.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation interrupted by conspiracy operators', `mimolot-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Mimolot Academy. Administrative orders reference external authority. The conspiracy is coordinated from outside the institution. You don't know the exact source yet, but you know Mimolot is under siege by an external force controlling its knowledge function.`;
-        addJournal('major-discovery', 'External coordination of Mimolot knowledge suppression confirmed', `mimolot-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Mimolot knowledge suppression confirmed', `mimolot-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find evidence suggesting external coordination, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully through administrative intermediaries and deniable channels.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `mimolot-origin-unclear-${G.dayCount}`);
@@ -696,19 +695,19 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'achieving knowledge weaponization understanding');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.lore || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Everything connects. Research is being suppressed deliberately. Records are being rewritten deliberately. Verification is being corrupted deliberately. Scholars are being broken into compliance deliberately. Someone is not just attacking Mimolot Academy — they're transforming it. The institution that was supposed to preserve and share truth is being weaponized to suppress and manipulate truth. Knowledge that could empower people to resist is being locked away. Historical precedent that could inspire resistance is being erased. Scholarship itself is being converted into propaganda. And this process is likely being replicated in other academies. Mimolot isn't a loss; it's a proof of concept for systematic knowledge weaponization. The real campaign of intellectual conquest is just beginning.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Mimolot Academy understood as proof of concept for systematic knowledge weaponization', `mimolot-understanding-${G.dayCount}`);
+        addJournal('discovery', 'Mimolot Academy understood as proof of concept for systematic knowledge weaponization', `mimolot-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach full understanding, you're stopped. The conspiracy doesn't want you to complete this synthesis. You're confronted and threatened. Your investigation has endangered something critical to their knowledge conquest.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Final understanding synthesis blocked by direct threat', `mimolot-understanding-stopped-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points toward Mimolot being used as a proof of concept for external knowledge weaponization. Once perfected here, the methods will be replicated across the scholarly world. You don't have complete certainty, but the pattern is compelling.`;
-        addJournal('major-discovery', 'Mimolot as experimental knowledge weaponization model suspected', `mimolot-understanding-experimental-${G.dayCount}`);
+        addJournal('discovery', 'Mimolot as experimental knowledge weaponization model suspected', `mimolot-understanding-experimental-${G.dayCount}`);
       } else {
         G.lastResult = `You have pieces of understanding, but the full picture remains partially obscured. The ultimate purpose behind the knowledge conquest eludes you still.`;
         addJournal('investigation', 'Knowledge warfare purpose not yet fully revealed', `mimolot-understanding-incomplete-${G.dayCount}`);
@@ -716,6 +715,208 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: CLASSIFIED FORMULA FRAGMENTS
+  {
+    label: "Access the Restricted Holdings alcove in the lower scriptorium — study the formula fragments that were pulled from the main catalogue.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'reading restricted formula fragments');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The fragments are from a process chemistry text — a study of atmospheric stabilization compounds. The sections redacted in the public catalogue are exactly the sections that would explain the Aurora Crown dome degradation mechanism. Someone didn't just suppress this research — they identified which specific pages needed to be removed to prevent anyone from connecting the compounds to the contamination pattern. The suppression was targeted. Whoever ordered it knew what Aurora Crown was experiencing and knew this text would explain why.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_classified_formula_fragments = true;
+        addJournal('investigation', 'Restricted formula fragments: targeted redaction matches Aurora Crown contamination mechanism', `mimolot-formula-${G.dayCount}`);
+      } else {
+        G.lastResult = `The holdings alcove is catalogued but the relevant text boxes are empty — the documents were recently moved to a location marked "administrative review." The movement was logged last week. Someone removed them recently.`;
+        if (!G.worldClocks) G.worldClocks = {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: MEMORY HALL SUPPRESSED DOCUMENTS
+  {
+    label: "Search the Memory Hall's off-catalogue section — the reading room that requires senior faculty endorsement.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'searching Memory Hall off-catalogue');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.lastResult = `The off-catalogue section holds a two-decade archive of suppressed correspondence between Mimolot Academy and the Principality's administrative council. The most recent bundle — six months old — contains a detailed request from the council to reclassify twenty-three research papers as restricted. The reason given: "content requires administrative context before public dissemination." The papers are all by the same three faculty members. All three are currently on indefinite academic leave.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_memory_hall_documents = true;
+        addJournal('discovery', 'Memory Hall: council-ordered suppression of 23 papers by three faculty now on leave', `mimolot-memoryhall-${G.dayCount}`);
+      } else if (result.total >= 11) {
+        G.lastResult = `You get into the off-catalogue reading room but the most relevant bundles are locked behind a second tier of access. You can see the filing structure — enough to know what's there — but you can't read it without the senior endorsement you don't have.`;
+      } else {
+        G.lastResult = `A faculty member catches you in the Memory Hall's restricted corridor and politely but firmly redirects you. Access denied without showing cause.`;
+        if (!G.worldClocks) G.worldClocks = {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE ACADEMY
+  {
+    label: "Attend an open lecture at Mimolot Academy and read what the room is actually about.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading academy lecture dynamics');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The students in the front rows ask questions; the ones in the back stay silent. Not from disinterest — from calibration. The ones who know when to speak and when to defer have survived the academic climate shifts. The back rows are the ones who've been here through the changes. They've learned which thoughts are currently safe to voice.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The lecture text has been recently revised — the binding is new, the pages smell of fresh ink, but the chapter numbering has gaps. Chapters seven, twelve, and fifteen are missing from the public syllabus copy. The students are being taught a curriculum with structural absences they haven't been told about.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `Two people in the lecture hall aren't students or faculty — they're auditors. Their note-taking patterns are observational, not educational. They're logging who asks certain questions. One flagged a student for asking about the pre-revision edition of the text. The surveillance of academic inquiry is active and present in this room.`;
+      } else {
+        G.lastResult = `The instructor pauses three times mid-lecture. Each pause follows a sentence that would, in a less constrained context, lead to a larger point. The pauses are practiced — this instructor knows exactly where the boundaries are and has learned to stop just before them. Knowledge is being trimmed in real time.`;
+      }
+      addJournal('investigation', 'Academy lecture: knowledge suppression active — auditors present, curriculum has structural gaps, instructors self-censoring', `mimolot-lecture-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: WARDEN ORDER ACADEMIC LIASON
+  {
+    label: "Locate the Warden Order's academic liaison stationed at the Mimolot Archive annexe.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Warden Order contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Liaison Brevard Ashe is reading a volume of administrative law when you find him. His presence at Mimolot is "ongoing materials coordination." He's careful about what he acknowledges but clearly knows about the suppression. "The Warden Order has institutional interests in academic freedom," he says, which means the opposite of what it sounds like. He gives you a secondary contact name — a scholar who left the Academy last year and is "willing to discuss the previous academic environment." Not an endorsement, but a lead.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_warden_order_mimolot = true;
+        G.factionHostility.warden_order += 1;
+        addJournal('faction', 'Warden Order liaison Brevard Ashe: institutional interest in suppression, provided secondary scholar contact', `mimolot-warden-${G.dayCount}`);
+      } else {
+        G.lastResult = `The liaison is procedurally correct and unhelpful. Formal appointment required for any substantive conversation. The Warden Order's presence at Mimolot is established but gatekept.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_warden_order_mimolot = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE SCRIPTORIUM STEPS AT NIGHT
+  {
+    label: "Sit on the Scriptorium Steps at dusk and observe who comes and goes when the Academy officially closes.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'observing Academy after hours');
+
+      G.lastResult = `After closing, three faculty members leave through the side gate and don't return. A fourth stays. The lights in the Memory Hall burn until midnight. At tenth bell, a courier arrives at the administrative wing's rear entrance and leaves carrying a sealed case. Mimolot doesn't close — it changes its activity. The official Academy and the real one operate on different schedules.`;
+      addJournal('discovery', 'Scriptorium Steps: real Academy activity runs after closing hours — Memory Hall, courier exchange', `mimolot-steps-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: THE SCHOLAR ON LEAVE
+  {
+    label: "Find one of the three suppressed faculty members currently on 'academic leave' and hear what happened to them.",
+    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'meeting suppressed faculty member');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Archivist Doss left "voluntarily" eight months ago. She still lives near the Academy — she can't leave; her research materials are locked in storage under administrative hold. "They didn't fire me. They made it impossible to work. No access to my own notes, no publication approvals, no student assignments." She has copies of the suppressed papers. She's been waiting for someone to ask. She'll share them — but not until she's sure you're not carrying the request back to the administrative council.`;
+        G.flags.met_doss_suppressed_scholar = true;
+        addJournal('contact', 'Archivist Doss: suppressed scholar on leave, has copies of restricted papers, ready to share conditionally', `mimolot-doss-${G.dayCount}`);
+      } else {
+        G.lastResult = `The scholar has made themselves intentionally hard to find. A neighbor says they moved without forwarding address — though their belongings are still at the old address. They're nearby but not accessible yet.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE STUDENT WHO ASKS THE WRONG QUESTIONS
+  {
+    label: "Speak to the student who was flagged by the auditor in the lecture hall.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'speaking to surveilled student');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Tavin is a third-year materials student who hasn't noticed he's been flagged. He's genuinely excited about the pre-revision text differences — he found an old edition in a used book stall outside the Academy walls. "The original chapter twelve is completely different from what we're taught. It describes a stabilization failure mode that's not in any current curriculum." He doesn't know why. He just knows it's interesting. He has no idea how interesting the auditors find his interest.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_tavin_student = true;
+        addJournal('contact', 'Student Tavin: has pre-revision edition with original chapter 12, unaware he is under surveillance', `mimolot-tavin-${G.dayCount}`);
+      } else {
+        G.lastResult = `The student is wary of being approached by a stranger after a lecture. Academic culture here has trained caution into everyone. They move on before you establish enough trust.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "Archivist Doss mentions someone else came asking about the suppressed papers — they claimed to be from a northern scholarly institution.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"They asked which papers described weapons applications," Doss says. "Not which papers were suppressed — which ones had tactical or military relevance. I didn't tell them. But they already seemed to know." Someone is cataloguing the suppressed research for its operational value, not its academic value.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"Their questions were about process chemistry specifically," Doss says. "They understood the subject well enough to know which sections described scalable applications versus theoretical ones. Expert-level knowledge, using research credentials as cover." Someone with genuine expertise is working this thread. Their interest is professional.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"They came twice," Doss says. "First visit: general inquiry, established that I existed and knew the material. Second visit: specific questions about who else had asked. They were building a list of contacts before making a move." Counter-network mapping. They're identifying everyone who knows about the suppression before they take any action.`;
+      } else {
+        G.lastResult = `"They offered funding," Doss says. "Research grants, publication support, relocation assistance. Everything a scholar in my position would want. It felt generous. It felt too generous." A recruitment attempt masked as academic patronage. Someone is trying to acquire the suppressed research and its custodians through financial leverage.`;
+      }
+
+      G.lastResult += ` This person is pursuing the same thread you are — and they have institutional resources you don't.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative contacted Archivist Doss before you — expert-level knowledge, well-resourced', `mimolot-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

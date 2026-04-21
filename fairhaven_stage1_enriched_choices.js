@@ -641,6 +641,197 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 19. CLUE: FORMULA SUBSTITUTION RECORD
+  {
+    label: "Find the original supply records for Fairhaven's shrine compound formula — compare what was ordered to what was received.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'comparing formula supply records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The supply orders specify the traditional compound ingredients precisely. The delivery receipts show "equivalent substitution approved per regional materials update" — a category that exists in the administrative system but which the shrine's own records show was never formally enacted. Someone inserted a substitution authorization that isn't backed by any actual policy change. The formula was changed through a bureaucratic ghost — a category that looks official but has no origin.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_formula_substitution = true;
+        addJournal('investigation', 'Formula substitution: ghost authorization category used — no backing policy, substitution inserted covertly', `fairhaven-formula-${G.dayCount}`);
+      } else {
+        G.lastResult = `You find the supply records but the delivery receipts reference a regional administrative code you don't have a reference guide for. The substitution is documented — you just can't decode the authorization chain without further resources.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 20. CLUE: GARRISON REDUCTION ORDERS
+  {
+    label: "Access the garrison rotation orders from the past year — track the timing of personnel reductions.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing garrison reduction orders');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `The garrison reductions happened in three tranches, each occurring one week after a shrine doctrine revision announcement. The timing is too consistent to be coincidence: first the doctrine changes what the community accepts, then the garrison is reduced before resistance can organize. The sequence is designed. Someone used doctrinal acceptance as a leading indicator for when the security reduction would face minimal organized pushback.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_garrison_timing = true;
+      addJournal('investigation', 'Garrison reductions followed doctrine revisions by one week — sequenced destabilization confirmed', `fairhaven-garrison-timing-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 21. ARCHETYPE-GATED: READING FAIRHAVEN
+  {
+    label: "Attend the morning community gathering at the shrine and read what the assembled people are actually expressing.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'reading shrine community gathering');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The community arranges itself by household without being instructed to. Old defense instinct — clusters of known-trust around a central point. They haven't formed a line or spread out. They've formed a defensive pattern. Their bodies remember something their doctrine is telling them to forget.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The shrine's compound smoke patterns differently than the doctrinal text describes. The community breathes it and becomes calm — not peaceful calm, sedated calm. The formula substitution is behaviorally active. This community isn't choosing acceptance of hardship. They're being pharmacologically conditioned toward it.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `Three people at the gathering are watching the crowd, not participating. They're positioned at different angles to cover the full gathering. When someone in the crowd shows agitation — a whispered argument, a child crying — one of the watchers moves toward the situation before the shrine keeper does. Pre-emptive social management. The gathering has embedded monitors.`;
+      } else {
+        G.lastResult = `Two families don't speak to each other despite standing adjacent. Old alliance from before the resource shortages — you can see it in the posture, the slight acknowledgment. They've been separated by something recent. Whatever divided them happened in the past season. Resource allocation disputes fracture communities this way: gradually, quietly, at the household level.`;
+      }
+      addJournal('investigation', 'Shrine gathering: pharmacological sedation via compound, embedded monitors, household fractures from resource pressure', `fairhaven-gathering-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. FACTION SEED: OVERSIGHT COLLEGIUM CONTACT
+  {
+    label: "Locate the Oversight Collegium's regional correspondent in Fairhaven.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'making Oversight Collegium contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Collegium correspondent Avel Prenn runs a small goods trade from a market stall as cover. She's been gathering information on Fairhaven's institutional changes for five months. "The doctrine revisions are being reported to us as voluntary community spiritual development," she says. "The Collegium hasn't categorized them as a compliance concern yet. I've been waiting for hard evidence of coordination." The formula substitution data would move the Collegium's assessment from "monitoring" to "investigating."`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_oversight_collegium_fairhaven = true;
+        G.factionHostility.oversight_collegium += 1;
+        addJournal('faction', 'Oversight Collegium correspondent Avel Prenn: monitoring Fairhaven, needs hard evidence to trigger investigation', `fairhaven-collegium-${G.dayCount}`);
+      } else {
+        G.lastResult = `You find a Collegium address in the civic registry but no one answers at the listed location. The Collegium presence here is light or intentionally low-profile.`;
+        if (!G.flags) G.flags = {};
+        G.flags.sought_oversight_collegium_fairhaven = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ATMOSPHERE: THE SHRINE AT DUSK
+  {
+    label: "Stay at the shrine through the evening and observe the community that gathers after the official hours end.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'observing shrine after hours');
+
+      G.lastResult = `After the official gathering disperses, a smaller group remains. Older community members. They perform a different version of the ceremony — the pre-revision form, from memory, without the new doctrinal additions. No compound burned. No embedded monitors present. They finish quickly and leave separately. The original practice survives in the margins of the new one, preserved by people old enough to remember what was there before.`;
+      addJournal('discovery', 'Shrine after hours: original pre-revision ceremony preserved by memory in elder community members', `fairhaven-shrine-dusk-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 24. PERSONAL ARC: THE ELDER KEEPER
+  {
+    label: "Speak privately to one of the elders who performed the original ceremony — find out what they know.",
+    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'speaking to elder keeper');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Elder Cassian is eighty-three and unhurried. "The compound changed about a year ago. I could smell the difference immediately. The new formula doesn't carry the same quality of presence. It carries quiet." She pauses. "I know the difference between sacred quiet and managed quiet. This is managed." She kept a sample of the old compound. She'll give it to you — "so someone can name what was taken."`;
+        G.flags.met_elder_cassian = true;
+        addJournal('contact', 'Elder Cassian: recognized compound substitution by smell, has original sample, knows the community is being managed', `fairhaven-cassian-${G.dayCount}`);
+      } else {
+        G.lastResult = `The elder is willing to talk but becomes cautious when the conversation approaches specifics. She's lived through enough transitions to know when speaking plainly is dangerous.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 25. SOCIAL: THE GARRISON SOLDIER WHO STAYED
+  {
+    label: "Find a garrison soldier who stayed in Fairhaven after the reduction — ask why they didn't transfer.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'interviewing retained garrison soldier');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Corporal Nyse wasn't transferred — she was retained specifically. "They kept six of us. The ones who'd been here longest. I think they kept us because we know the community. We'd recognize faces in a crowd." She says it without accusation. She hasn't connected what she's describing to what it means. The retained garrison soldiers are the ones with community knowledge: surveillance assets in military uniforms.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_nyse_garrison = true;
+        addJournal('contact', 'Corporal Nyse: retained specifically for community knowledge — long-term soldiers being used as surveillance assets', `fairhaven-nyse-${G.dayCount}`);
+      } else {
+        G.lastResult = `The soldier is professional and brief. "Orders." That's the full explanation she's willing to give.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 26. SHADOW RIVAL INTRO
+  {
+    label: "A traveler passing through mentions they met someone on the road who was heading away from Fairhaven with a supply sample case.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"Military bearing," the traveler says. "Moved like someone who has the road to themselves by right. Wasn't nervous about the sample case — carried it openly. Whoever they were, they left Fairhaven with something official enough to carry without cover." A senior operative transporting verified evidence openly. They've already completed what you're still beginning.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"Carried the sample case with both hands, carefully," the traveler says. "Like something fragile. But the case was sealed, not padded. They were preserving a substance, not an object." Someone is carrying the original compound sample — or a sample of the substituted formula — out of Fairhaven for analysis. They're doing the same investigation but they're already at the laboratory stage.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"Walked like they were counting their steps," the traveler says. "Looked back twice on the main road, once when they thought no one was watching. Spotted me watching them on the second check." Counter-surveillance habits. This person is professionally careful and they know they're carrying something that matters.`;
+      } else {
+        G.lastResult = `"Friendly," the traveler says. "Asked about my route, whether I'd noticed anything unusual in Fairhaven, offered good directions. Very helpful. And then I realized afterward that the whole conversation was them gathering information, not giving it." A social operator. They information-gathered from a chance traveler without it feeling like gathering.`;
+      }
+
+      G.lastResult += ` They were in Fairhaven before you and they left with something.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative departed Fairhaven with supply sample before your arrival', `fairhaven-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
   }
 ];
 window.FAIRHAVEN_STAGE1_ENRICHED_CHOICES = FAIRHAVEN_STAGE1_ENRICHED_CHOICES;

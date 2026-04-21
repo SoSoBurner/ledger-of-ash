@@ -55,7 +55,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering covert communication network');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       
       if (result.isCrit || (result.total >= 13 && !result.isFumble)) {
         G.lastResult = `The chapel helper (Brother Aldwin) is conflicted but answers. A pattern emerges: sealed letters arrive twice weekly, always Thursday and Sunday evenings. They're taken by a veiled intermediary who speaks in trade tongue with a northern accent. No names exchanged. The letters smell faintly of wax and something else — something ceremonial. Brother Aldwin whispers: "It feels wrong. Blessings don't work the same since this started."`;
@@ -120,7 +120,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering administrative concealment');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       
       if (result.isCrit) {
         G.lastResult = `The record keeper (Thom) is terrified but complies after you mention the seal of House Shelk. He points to gaps in the ledger. "See here? Entries for silkwood shipments from the northern territories. They stop abruptly three weeks ago. Not declined — just erased. Someone with ledger access removed them. Usually, erasures leave traces. These are clean. Professional."`;
@@ -128,7 +128,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         addJournal('investigation', 'Clerk revealed three-week gap in northern trade records', `shelkopolis-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The record keeper refuses access entirely. "You need written authorization from the merchant council. Those are official records." He calls for guards. Your presence in the merchant house is now officially noted and questioned.`;
-        G.worldClocks.attention++;
+        G.worldClocks.watchfulness++;
         addJournal('complication', 'Merchant house guards now investigating your inquiry', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The record keeper shows you the ledgers after some persuasion. You notice pages have been carefully removed — not torn hastily, but extracted with deliberation. The dates correspond to the autumn trade season. Whatever was recorded, someone wanted it gone permanently.`;
@@ -156,7 +156,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading spiritual corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Sister Velda speaks with genuine fear. "The prayers are answered slower now. Blessings that protected merchants for decades... they're fading faster. We've increased rituals by forty percent just to maintain the same coverage. And the worst part? We don't know why. The formulas haven't changed. The faith is as strong. Something external is draining the blessing capacity." She looks haunted: "Shelkopolis's protection is eroding."`;
@@ -255,7 +255,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering spiritual coercion');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Brother Aldwin confesses in a whisper. "The confessions have changed. More people are confessing fear, not guilt. They speak of being watched. Of expectations they don't understand. Of pressure from sources they can't name. It's like Shelkopolis is being spiritually compressed. The faith is still there, but it's boxed in, suffocating." He's disturbed: "Something is using the chapel as a lever."`;
@@ -290,7 +290,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'military structural analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('perception', (G.skills.perception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The garrison's layout reveals deliberate restructuring. Weapon stores have been relocated to less defensible positions — unusual for a military operation. Fortifications near the trade district have been weakened, while defenses around administrative buildings have been reinforced. This isn't about safety; it's about controlling what can be defended and what can't. The garrison has been quietly rearranged to make Shelkopolis vulnerable in specific directions.`;
@@ -323,7 +323,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'military logistics analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The quartermaster is drunk enough to talk. Supply logs show weapons transfers to an unmarked warehouse in the Ironspool district — not official garrison equipment, but redirected from stores. The transfers are marked as "training surplus" but the numbers don't match standard rotation. Someone's been building an off-books armory. And the quartermaster was ordered to keep records incomplete: "I was told it was for tactical security. But I think someone's preparing for something the garrison command doesn't know about."`;
@@ -359,7 +359,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'arcane architecture analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('arcana', (G.skills.arcana || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The arcane signature of Shelkopolis reveals intentional restructuring. Traditional protective wards that covered trade routes and marketplaces have been weakened or removed. New wards have been installed in a perimeter around administrative buildings and the garrison. More importantly, the new wards don't protect — they contain. They're designed to keep people in specific zones, not defend against external threats. The entire spell architecture has been inverted. Someone with deep arcane knowledge has rewritten Shelkopolis's magical foundations.`;
@@ -395,7 +395,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering ritual sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('arcana', (G.skills.arcana || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Sister Velda lets you examine the ritual books under seal of confidentiality. The formulas are corrupted subtly — component measurements have been altered by fractions. Not enough to immediately fail rituals, but enough to degrade their efficacy over time. Someone with intimate knowledge of shrine practices has been systematically weakening blessings from within the ritual structure itself. This required access to the ritual books, understanding of sacred geometry, and knowledge of exactly how much to change without raising immediate suspicion. The corruption is surgical, deliberate, and deeply embedded.`;
@@ -464,7 +464,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'penetrating surveillance network');
       G.stageProgress[1]++;
 
-      const result = rollD20('deception', (G.skills.deception || 0) + Math.floor(G.level / 3));
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `An older street informant (Crow) trusts you enough to confess. The whisper network that once moved freely through Shelkopolis is being monitored. Not by the garrison — by someone with resources and reach. Informants who talk too freely about certain topics disappear for days, then reappear chastened and silent. "Someone's breaking the network from the inside," Crow says. "Making examples. I'm careful now about what I share. We all are. The city's losing its voice."`;
@@ -500,7 +500,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'community analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The social deterioration of Shelkopolis is visible. The Amber Fountain Inn used to host neighborhood councils. Now people drink quietly alone. The market that once buzzed with negotiation is tense and transactional. Families aren't gathering in public squares. Something has made Shelkopolis's citizens afraid to congregate freely. The casual social bonds that held the city together are being systematically severed through pressure and fear. The city is being isolated from itself.`;
@@ -508,7 +508,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         addJournal('investigation', 'Support analysis revealed systematic social isolation', `shelkopolis-social-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Your questioning about community bonds makes people uncomfortable. They interpret your interest as either investigative scrutiny or nosiness. People withdraw further from you.`;
-        G.worldClocks.distance++;
+        G.worldClocks.isolation++;
         addJournal('complication', 'Community now views you with suspicion', `shelkopolis-social-hostile-${G.dayCount}`);
       } else {
         G.lastResult = `Community gathering spaces show signs of reduced activity. The Amber Fountain is quieter than expected. Market interactions seem more cautious. Something's changed in how people relate to each other.`;
@@ -533,7 +533,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping institutional distrust');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `After careful listening, a pattern emerges. Merchants are afraid to communicate with each other for fear of being reported. Artisans won't collaborate on shared projects. The garrison is distrusted by civilians. Civilians distrust each other. The shrine no longer feels like a sanctuary. And beneath all of it, there's fear of unnamed consequences. Someone has weaponized distrust itself — fracturing Shelkopolis not through overt control but through the systematic destruction of mutual confidence. Fear has become the city's invisible infrastructure.`;
@@ -595,7 +595,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing institutional conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together documents: official garrison orders showing weapon redistributions to off-books locations. Shrine ledgers showing ritual formula tampering. Trade records with entries deliberately removed. Individual pieces are inconclusive, but together they form undeniable proof of coordination. Someone with access to garrison, shrine, and merchant records has been systematically weakening Shelkopolis's institutions from within. This is not accident or gradual decay — this is conspiracy. The wrongness has a hand behind it.`;
@@ -641,12 +641,11 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}." They're afraid, complicit, and trapped. You must decide: Do you expose them to save Shelkopolis? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an enemy or an ally — and whether Shelkopolis's institutions fracture further or begin to trust.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide information. Build an informant. Risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s complicity. Pressure the system. But you'll have made an enemy who might warn the conspiracy.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about complicity`, `shelkopolis-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity`, `shelkopolis-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -666,19 +665,19 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + (G.skills.arcana || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the sealed letters, the altered records, the corrupted rituals — you find the thread that leads out of Shelkopolis. A correspondence in northern trade tongue, hidden in the chapel's letter system. Orders sent from beyond the city's borders, directing the garrison commander, the shrine hierarchy, the merchant council. Shelkopolis is being systematically sabotaged from outside. Someone in the northern territories — or someone with northern allies — is coordinating the corruption. They're not trying to destroy the city; they're trying to break it into submission. And the conspiracy has only just begun.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Shelkopolis corruption identified as external coordination', `shelkopolis-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Shelkopolis corruption identified as external coordination', `shelkopolis-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach the central evidence, you're intercepted. The conspiracy is aware of your investigation and moves to stop you. You're cornered, threatened, and forced to flee. You've discovered pieces, but the full origin remains hidden — and now you're marked as a threat to whoever's orchestrating this.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation interrupted by conspiracy operators', `shelkopolis-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Shelkopolis. Sealed letters reference "northern interests." The conspiracy is larger than the city itself. You don't know the exact source yet, but you know the corruption is being directed from outside Shelkopolis's borders. The city is under siege by an external force.`;
-        addJournal('major-discovery', 'External coordination of Shelkopolis conspiracy confirmed', `shelkopolis-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Shelkopolis conspiracy confirmed', `shelkopolis-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find pieces of evidence suggesting coordination, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `shelkopolis-origin-unclear-${G.dayCount}`);
@@ -686,6 +685,222 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION: INVESTIGATION PROGRESS + ARCHETYPE + FACTION SEEDS ==========
+
+  {
+    label: "Cross-reference the pattern of sealed letters with the timing of supply disruptions — the coordination suggests a single orchestrating hand.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'cross-referencing coordination evidence');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.lastResult = `The timing is unmistakable. Each supply disruption began two days after a sealed letter was deposited at the chapel. The letters are operational directives. The chapel's letter system is the command channel for the conspiracy running through Shelkopolis.`;
+        addJournal('investigation', 'Letters confirmed as operational directives — chapel is command channel', `shelk-crossref-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The records you need are not available. Someone moved them. The conspiracy has reached the archive.`;
+      } else {
+        G.lastResult = `The pattern is suggestive but not conclusive. Multiple events align, but you need another data point to confirm the command channel.`;
+        addJournal('investigation', 'Coordination pattern suggestive but inconclusive', `shelk-crossref-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Examine the ward failure zones — the locations where protection degraded first form a pattern pointing northwest.",
+    tags: ['Investigation', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'mapping ward failure zones');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+      G.lastResult = `Ward failures originated in the Ironspool district and spread inward. The failure vector points northwest — toward the northern territories. Whatever is suppressing the ward network, its source is outside Shelkopolis. The city is being weakened from a distance.`;
+      addJournal('investigation', 'Ward failure vector confirmed pointing northwest', `shelk-wards-vector-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The garrison's defensive restructuring left three specific entry points unguarded — this is a prepared access corridor, not a security failure.",
+    tags: ['Investigation', 'Combat', 'Stage1', 'Meaningful'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'analyzing prepared access corridor');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `Your military training reads the gaps immediately. This is a prepared corridor — someone needs to move something through Shelkopolis undetected, and the garrison was restructured to allow it. The access points form a path from the northern gate to the administrative quarter. The conspiracy isn't attacking Shelkopolis — it's using it as a transit point.`;
+      } else {
+        G.lastResult = `Three undefended entry points form a straight line through Shelkopolis. Not a coincidence. Someone cleared a path. Whatever is being moved through the city doesn't want the garrison to see it.`;
+      }
+      addJournal('investigation', 'Prepared access corridor identified — conspiracy using Shelkopolis as transit', `shelk-corridor-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A Warden Order officer has been asking similar questions about the chapel correspondence network — your paths are converging.",
+    tags: ['NPC', 'Faction', 'Stage1', 'Meaningful'],
+    xpReward: 60,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(60, 'identifying parallel investigation');
+      if (!G.flags) G.flags = {};
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+      G.flags.met_warden_order_contact = true;
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `The Warden Order officer introduces himself as someone who follows the same evidence trail. "We're working toward the same thing," he says. His bearing is precise. He doesn't ask for your help — he notes your existence. The Warden Order has its own stake in this.`;
+        G.factionHostility.warden_order = Math.max(0, G.factionHostility.warden_order - 1);
+      } else {
+        G.lastResult = `A Warden Order officer acknowledges you without hostility. "We've noticed the same anomalies," she says. "Don't mistake our silence for ignorance." The Principalities' enforcement arm is watching the conspiracy too.`;
+      }
+      addJournal('faction', 'Warden Order contact made — parallel investigation confirmed', `shelk-warden-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A merchant contact mentions that someone else has been asking about the northern correspondence network — they described their questions as 'professional.'",
+    tags: ['NPC', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'learning of rival investigator');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const arch = G.archetype && G.archetype.group;
+      G.lastResult = `The merchant is uneasy. "They were thorough. Methodical. They didn't seem alarmed by what they found — more like they were confirming something they already knew." A contact mentions someone matching the description of a ${arch === 'combat' ? 'Warden Order field operative' : arch === 'magic' ? 'Collegium-affiliated archivist' : arch === 'stealth' ? 'private intelligence contractor' : 'institutional compliance officer'} has been asking similar questions.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival investigator confirmed — methodical, already ahead on evidence trail', `shelk-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Spend the evening at the Amber Fountain, listening to what the regulars are willing to say now that they've seen you around for a while.",
+    tags: ['Social', 'Rest', 'Stage1'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'building community trust');
+      const observations = [
+        "A dockworker mentions that northern shipments don't come through anymore. 'Not since the weather changed.' But the weather hasn't changed.",
+        "A shrine worker says the evening prayers feel different lately. 'Less heard.' She doesn't know why.",
+        "A merchant complains about a customs clerk who's been replaced three times in six months. 'They keep leaving without notice.'",
+        "A patrol guard, off-duty, mentions his route was changed again. 'Third time this month. Nobody explains why.'"
+      ];
+      G.lastResult = observations[Math.floor(Math.random() * observations.length)];
+      G.recentOutcomeType = 'rest'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Review the chapel's public blessing records — the dates and recipients form a communication pattern when read in sequence.",
+    tags: ['Investigation', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'decoding blessing record communication pattern');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.lastResult = `The blessings aren't random — they're coded. Recipients correspond to specific operative contacts, dates correspond to action windows. The chapel blessing records are an open-access operational schedule. Anyone with this book and the right cipher knows exactly when and where to move. The conspiracy is broadcasting its timetable through sacred record.`;
+        addJournal('discovery', 'Chapel blessing records decoded as operational schedule cipher', `shelk-cipher-${G.dayCount}`);
+      } else {
+        G.lastResult = `The blessing records show some irregularity — recipients who received unusual attention, dates that cluster oddly. The pattern is there but the cipher eludes you.`;
+        addJournal('investigation', 'Blessing records show unusual patterns — cipher suspected', `shelk-cipher-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Talk to the garrison's night-watch commander about what they've seen on unreported rounds.",
+    tags: ['NPC', 'Combat', 'Stage1', 'Meaningful'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'gathering night-watch intelligence');
+      if (!G.flags) G.flags = {};
+      G.flags.met_night_watch_commander = true;
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11 || result.isCrit) {
+        G.lastResult = `The night-watch commander is careful. "I file reports. Some reports get filed further, and come back... amended. I don't ask what happened to them anymore." She describes movement in the Ironspool district after midnight — unmarked carts, no manifest, no guards. "I was told those were authorized transports. I stopped following up."`;
+        addJournal('investigation', 'Night-watch confirms unauthorized Ironspool midnight transports', `shelk-nightwatch-${G.dayCount}`);
+      } else {
+        G.lastResult = `The night-watch commander is professional and tight-lipped. "Nothing to report." Her eyes say otherwise.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Check whether the Verdant Row herbalists have noticed anything unusual — botanical compounds sometimes move through healer networks before they reach other channels.",
+    tags: ['Investigation', 'Survival', 'Stage1', 'Meaningful'],
+    xpReward: 62,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(62, 'checking botanical compound movement');
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11 || result.isCrit) {
+        G.lastResult = `A herbalist mentions orders for dried glasswake moss — an unusual compound with resonance-amplifying properties — began arriving from northern contacts eight months ago. "More than we'd sell in a year. We assumed it was for the Academy." The compound isn't for the Academy. It's a precursor material for something else.`;
+        if (!G.investigationProgress) G.investigationProgress = 0;
+        G.investigationProgress++;
+        addJournal('investigation', 'Glasswake moss compound orders tracked — resonance precursor moving through Verdant Row', `shelk-botanical-${G.dayCount}`);
+      } else {
+        G.lastResult = `The herbalists are guarded. They mention unusual orders but won't say more without trust they haven't yet extended.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Revisit the sealed letter network — has the frequency changed since you started asking questions?",
+    tags: ['Investigation', 'Stealth', 'Stage1', 'Meaningful'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'monitoring surveillance response');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.lastResult = `The letter frequency has doubled. Your investigation triggered a response — the conspiracy is accelerating its communication schedule. Either they know you're watching, or something has changed in the operation's timeline. The pressure gradient is building.`;
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        addJournal('warning', 'Letter frequency doubled — conspiracy accelerating in response to investigation', `shelk-monitor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `You're spotted watching the chapel. The letter network goes silent for three days. Your surveillance has been detected.`;
+      } else {
+        G.lastResult = `The letter frequency has increased slightly. The conspiracy is aware of increased attention in Shelkopolis, even if it hasn't identified you specifically.`;
+        addJournal('investigation', 'Letter frequency increased — general alertness elevated', `shelk-monitor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];

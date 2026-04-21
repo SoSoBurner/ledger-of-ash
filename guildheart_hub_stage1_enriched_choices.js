@@ -55,7 +55,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering trade agreement manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Merchant representative Ilya shows you trade agreements that have been modified after signing. Favorable terms for independent merchants have been quietly rewritten. Merchants with connections to the guild leadership receive amended agreements that are more generous than originals. "This is systematic manipulation," Ilya says quietly. "Someone's using the arbitration system to retroactively rewrite contracts in favor of their allies. Independent traders are being bound by terms they didn't agree to."`;
@@ -123,7 +123,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering access control manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Hall Keeper Emry speaks carefully. "Membership denials have increased sharply. Reasons given are vague — 'insufficient trade history,' 'reputation concerns,' 'administrative review pending.' But the pattern is clear: merchants who question guild leadership or operate independently are being excluded. Meanwhile, merchants allied with the arbitrator's faction are fast-tracked to membership. The hall is being transformed into a private space for aligned merchants only."`;
@@ -159,7 +159,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading ledger manipulation patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Ledger Master Toren is terrified but provides access. Guild financial records show two parallel sets of entries. Official records that show balanced, legitimate trade. Hidden entries that show transactions to external entities, payments for services unrelated to legitimate guild business, and mysterious accounts that don't correlate to any known merchants. "Someone's been using the guild's ledgers to hide external payments," Toren whispers. "Converting guild resources to fund something outside the guild's actual trading mission."`;
@@ -195,7 +195,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'tracing merchandise diversion');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Warehouse Broker Selain pulls you aside. "Goods are being held in the warehouse longer than trade routes justify. Standard holding time is three days. Some shipments sit for weeks. They're then diverted to destinations that don't match original trade agreements. The diversion is coordinated — orders come through channels that bypass normal warehouse management. Someone's using the warehouse infrastructure to redirect guild merchandise to external parties without merchant knowledge."`;
@@ -228,7 +228,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering coercive membership practices');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Initiation Overseer Drell is deeply uncomfortable. "New members are required to take oaths that go far beyond traditional guild commitments. They're asked to place guild loyalty above family, above personal judgment, to report internal dissent, to accept orders without question. These aren't craft traditions — these are control mechanisms. I've been ordered to enforce increasingly stringent oaths. Members who refuse the new requirements are denied membership or stripped of standing. The guild is being transformed into something coercive."`;
@@ -264,7 +264,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering craft knowledge suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Apprentice Master Keon speaks quietly. "I've been forbidden from teaching certain negotiation techniques, quality assessment skills, and independent assessment methods to apprentices. The rationale given is 'apprentices need to master basic skills first,' but it's clearly restriction. Apprentices are being trained to follow procedures without understanding the underlying principles. They're being deliberately kept dependent on guild authority for judgment. This is systematic de-skilling of the next generation."`;
@@ -302,7 +302,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'guild hierarchy analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The guild hierarchy has been systematically restructured. Positions that were meant to be independent have been consolidated under the arbitrator's authority. Merchant councils that used to hold decision power have been made advisory-only. Department heads who disagreed with recent changes have been replaced with compliant allies. The organization is being transformed from a distributed guild structure into a centralized control apparatus. Power is concentrating rapidly.`;
@@ -335,7 +335,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'merchant network displacement mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The merchant network is being systematically recomposed. Independent merchants who were previously active are being excluded through denials of warehouse access, merchandise handling, or arbitration support. Meanwhile, merchants allied with the arbitrator are gaining unprecedented access to resources and favorable trade terms. The economic foundation of Guildheart is being remapped to concentrate trading power among approved merchants. This is economic restructuring disguised as normal business operations.`;
@@ -404,7 +404,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'coercion apparatus documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A pattern of threats emerges. Merchants who resist unfavorable arbitration decisions face warehouse access denial. Merchants who question membership policies face sudden trade agreement cancellations. Merchants who speak publicly about corruption face exclusion from guild gatherings. Merchants who try to organize collective resistance face financial ruin through coordinated price-fixing against them. The threats are systematic and calibrated — severe enough to force compliance, but deniable as formal policy. Coercion has become the invisible infrastructure of guild control.`;
@@ -440,7 +440,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'resource flow tracking');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Guild resources are being systematically redirected outside Guildheart. Merchant fees that should support guild infrastructure are being diverted to external accounts. Warehouse goods that should be available to all members are being moved to external storage. The guild's economic foundation is being extracted and moved elsewhere. Guildheart is being treated as a collection point for resources destined for external use.`;
@@ -473,7 +473,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'institutional trust erosion documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The merchant community has lost faith in guild arbitration. Merchants no longer believe disputes will be settled fairly — they see the system as politically manipulated. Trust in the guild's financial management is gone — merchants suspect resources are being stolen. Cooperation between independent merchants is breaking down because they're afraid of being reported to guild leadership. What's replacing trust is fear, suspicion, and individual self-protection. The social bonds that made the guild functional are being deliberately destroyed.`;
@@ -509,7 +509,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'merchant vulnerability mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Merchant vulnerability is being systematically weaponized. Independent merchants without family connections are most exposed — they can be denied warehouse access or favorable arbitration rulings. Merchants with debt obligations are pressured through financial threats. Merchants dependent on specific trade routes can be isolated by controlling their access. Newer merchants are excluded from established networks. The system creates economic pressure that forces merchants to either accept syndicate terms or face ruin. Individual merchants have been isolated and made dependent on syndicate favor for survival.`;
@@ -545,7 +545,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'authority structure opacity analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('insight', (G.skills.insight || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The decision structure is deliberately opaque. Formal decisions appear to come from traditional guild structures, but those structures are being overridden by external directives that arrive through private channels. The formal leaders maintain appearance of authority while actual power is exercised from outside their official structures. Merchants don't know who's really making decisions or by what process. This opacity prevents organized resistance and leaves everyone guessing about who truly holds power. The confusion is intentional.`;
@@ -631,7 +631,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing arbitration conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together the evidence: official arbitration records with handwritten notes in a single hand — the arbitrator's. Those notes contradict the written decisions. You find copies of letters from external parties directing specific outcomes. You find evidence that arbitration hearings are being scheduled around predetermined conclusions. The paper trail is clear: arbitration is being coordinated from outside, with the arbitrator serving as a mechanism for external will rather than independent judgment. The guild's dispute resolution system is a façade.`;
@@ -677,12 +677,11 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}." They're trapped, complicit, and frightened. You must decide: Do you expose them to stop the arbitration system? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an informant or an enemy — and whether the guild's arbitrary corruption can be challenged from within or continues unchecked.`;
 
-      G.moralChoice = {
-        protect: `Offer to shield ${npc.name} if they provide insider information. Gain a guild informant but risk becoming complicit yourself.`,
-        expose: `Report ${npc.name}'s role in arbitration corruption. Disrupt the apparatus but lose access to internal guild workings.`
-      };
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('moral-choice', `Confronted ${npc.name} (${npc.role}) about arbitration corruption participation`, `guildheart-moral-${G.dayCount}`);
+      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about arbitration corruption participation`, `guildheart-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -702,19 +701,19 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of arbitration corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('investigation', (G.skills.investigation || 0) + Math.floor(G.level / 3));
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the corrupted arbitration records and diverted resources, you find the thread that leads outside Guildheart. Courier receipts from northern territories with detailed instructions for "merchant network restructuring." Orders for "arbitration procedure modifications." Financial transfers to the arbitrator with source cities that match northern merchant cities. Guildheart's guild structure is being systematically captured by external interests. Someone in the northern territories — or someone allied with them — is using the guild's own institutions to extract value and consolidate control. The conspiracy is coordinated, resourced, and external.`;
         G.stageProgress[1]++;
-        addJournal('major-discovery', 'Origin source of Guildheart arbitration corruption identified as external coordination', `guildheart-origin-${G.dayCount}`);
+        addJournal('discovery', 'Origin source of Guildheart arbitration corruption identified as external coordination', `guildheart-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach the evidence of external coordination, you're intercepted. Someone stops you directly and makes it clear that pursuing this further will result in your removal from the guild or worse. You've discovered pieces, but the full external coordination remains hidden — and now you're marked as a direct threat.`;
         G.worldClocks.pressure += 2;
         addJournal('complication', 'Investigation interrupted by external coordination operators', `guildheart-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Guildheart. Courier routes reference "northern merchant authorities." Arbitration orders show external signature. The conspiracy is larger than the guild itself. You don't know the exact source yet, but you know the arbitration corruption is being directed from outside Guildheart's borders.`;
-        addJournal('major-discovery', 'External coordination of Guildheart arbitration confirmed', `guildheart-origin-external-${G.dayCount}`);
+        addJournal('discovery', 'External coordination of Guildheart arbitration confirmed', `guildheart-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find pieces suggesting external involvement, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully.`;
         addJournal('investigation', 'External coordination suspected but source not yet identified', `guildheart-origin-unclear-${G.dayCount}`);
@@ -722,6 +721,207 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: PRE-UNION CHARTER FRAGMENT
+  {
+    label: "Locate a fragment of the pre-Union charter in the guild archive basement — compare it to the current arbitration mandate.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'reading charter discrepancy evidence');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The pre-Union charter reserved final arbitration authority to a council of seven elected guild representatives. The current mandate gives that same authority to a single senior arbiter appointed by a "coordinating oversight body." Nowhere in the current mandate is that oversight body named. Someone rewrote the charter under a neutral-sounding title that points nowhere.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_charter_discrepancy = true;
+        addJournal('investigation', 'Charter discrepancy identified: arbitration authority reassigned to unnamed oversight body', `guildheart-charter-${G.dayCount}`);
+      } else {
+        G.lastResult = `You find an older charter section, but the key provisions are water-damaged. You can see the structure differs from current practice, but you can't read the original authority clauses clearly.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: OFF-CHANNEL ARBITER CONTACT
+  {
+    label: "Shadow the senior arbiter's movements after the guild hall closes — follow where they go that isn't on the official schedule.",
+    tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'tracking off-channel contacts');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.lastResult = `The arbiter meets a courier at a cartwright's workshop three blocks from the guild. No exchange of goods — just a sealed letter received and a hand gesture of confirmation. The courier's pack bears a small pressed mark: a lamp above a scale. Not any guild sigil you recognize. The arbiter returns to the hall within twenty minutes. Whatever was in the letter was expected.`;
+        if (!G.flags) G.flags = {};
+        G.flags.witnessed_arbiter_contact = true;
+        addJournal('investigation', 'Arbiter off-channel contact witnessed — unrecognized sigil: lamp above scale', `guildheart-arbiter-tail-${G.dayCount}`);
+      } else if (result.total >= 11) {
+        G.lastResult = `You follow the arbiter to a tavern on the east end. They sit alone for twenty minutes, then leave without speaking to anyone visible. But the seat they chose faces the rear entrance. You're certain the meeting happened — you just didn't see the other party.`;
+      } else {
+        G.lastResult = `The arbiter travels directly home. Either they spotted you or tonight wasn't a contact night. The tail was clean but produced nothing.`;
+        if (!G.worldClocks) G.worldClocks = {};
+        // No penalty — stealth fails shouldn't always punish
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE GUILD FLOOR
+  {
+    label: "Walk the guild trading floor at peak hours and read what's actually happening beneath the commerce.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading the trading floor');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The floor runs on fear of a specific kind: not fear of losing a deal, fear of being noticed as disloyal. Every merchant who catches the arbiter's eye slightly adjusts their behavior — prices shift, concessions appear. The arbiter isn't mediating. They're collecting compliance. Each interaction is a tax.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The language of trade is layered here. Surface prices are theater. Real agreements happen in the pause after the formal quote — the moment of eye contact, the small nod. You map seven micro-transactions in an hour that will never appear in the ledger. The floor has a second economy running parallel.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `Three men on the floor aren't merchants. They're positioned for coverage: one near the door, one near the record desk, one circulating. They track which merchants speak to which. Guildheart's trading floor has watchers embedded in it. Someone is building a social map of every relationship on this floor.`;
+      } else {
+        G.lastResult = `A guild factor approaches you thinking you're a buyer. As you deflect the pitch, you notice her relief when the senior arbiter moves away from her area. Relief — not comfort. She's afraid of the arbiter in a way that has nothing to do with arbitration. The arbiter is exercising power outside their formal role.`;
+      }
+      addJournal('investigation', 'Guild floor analysis: second economy and coercive arbiter control confirmed', `guildheart-floor-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: OVERSIGHT COLLEGIUM
+  {
+    label: "Speak to the Oversight Collegium observer stationed at the guild hall's east annexe.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'making Oversight Collegium contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Observer Calla Trent is precise and unhurried. She's been stationed at Guildheart for two months. "The Collegium is aware the arbitration process has shifted. We are in a monitoring phase." She won't elaborate on what monitoring leads to, but she's willing to receive a written summary of your findings — formal, signed, addressable. The Collegium wants documentation. They're not acting yet, but they're preparing to act.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_oversight_collegium_observer = true;
+        G.factionHostility.oversight_collegium += 1;
+        addJournal('faction', 'Oversight Collegium observer Calla Trent made contact — monitoring phase declared', `guildheart-collegium-${G.dayCount}`);
+      } else {
+        G.lastResult = `Observer Trent is polite but procedural. She requires formal introduction through guild registry before she can hold an unofficial conversation. The Collegium's presence is real — but access requires form.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_oversight_collegium_observer = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE GUILD MEMORIAL BELL
+  {
+    label: "Listen to the guild memorial bell at midday and ask a local factor what it commemorates.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 52,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(52, 'reading local memorial culture');
+
+      G.lastResult = `The bell rings nine times, one for each guild that signed the original Guildheart compact. "Nine guilds made this place," the factor says. "Now there are twelve registered, but the bell still rings nine. No one voted to change the number. I think no one wants to admit the original nine don't run it anymore." She moves on to her next stall. The bell rings into an afternoon that doesn't match what it's counting.`;
+      addJournal('discovery', 'Guild memorial bell: original nine-guild compact no longer reflects current power structure', `guildheart-bell-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC SETUP: COURIER NETWORK
+  {
+    label: "Establish a courier drop — a way to get information out of Guildheart without it passing through the guild's monitored channels.",
+    tags: ['PersonalArc', 'Stealth', 'Stage1', 'Meaningful'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'establishing courier drop');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `A wool merchant who runs between Guildheart and outlying settlements agrees to carry sealed messages as part of her normal cargo manifest. She doesn't ask what's in them. "I move things that don't need explaining" is sufficient for her. You have a channel that bypasses the guild's message monitoring.`;
+        G.flags.courier_drop_guildheart = true;
+        addJournal('consequence', 'Independent courier channel established through wool merchant', `guildheart-courier-${G.dayCount}`);
+      } else {
+        G.lastResult = `Every courier you approach works through the guild's message registry. Getting anything out of Guildheart without guild awareness requires either a bribe you can't afford or a contact you don't have yet.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE DISPLACED FACTOR
+  {
+    label: "Find the factor who lost their trade license last month and ask what actually happened.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'hearing displaced factor account');
+
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 10) {
+        G.lastResult = `Paerun Delst still hasn't left Guildheart. "I'm waiting," he says, though he doesn't specify for what. His license was revoked for "inconsistent weight measurement" — a standard violation that used to result in a warning and correction. Now it results in permanent revocation. "The rules didn't change. The enforcement did. And the arbiter who revoked mine? He didn't touch the three stalls next to me with the exact same scales." His voice is flat. He's past anger into something colder.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_paerun_delst = true;
+        addJournal('contact', 'Displaced factor Paerun Delst: selective enforcement of trade violations confirmed', `guildheart-paerun-${G.dayCount}`);
+      } else {
+        G.lastResult = `Paerun is suspicious of anyone asking about his license case. "Guild business," he says. "Don't involve yourself." He's been told not to speak about it, or he's afraid to.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "A dockside factor quietly passes you a note — someone has been asking about you specifically, and their questions are detailed.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `The note describes someone asking which faction you work with and whether you've made contact with any security-adjacent figures. Military intelligence framing — this person is mapping your affiliations, not your findings.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `The questions recorded in the note are about what documents you've accessed. Not what you found — what you touched. Someone is reconstructing your research path through the archive logs. They're a step behind but they know exactly where to look.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `The note lists three people you've spoken to in the past two days. The information is accurate to within an hour. Someone has your movement pattern. They're not following you — they're using a network to track you passively. Professional work.`;
+      } else {
+        G.lastResult = `The questions recorded focus on who you've offered to help and who's accepted. Someone is mapping your trust relationships to find your most vulnerable contact. They want leverage, not evidence.`;
+      }
+
+      G.lastResult += ` Whoever this is, they already know more about your investigation than you've formally shared with anyone.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      addJournal('warning', 'Rival-adjacent operative confirmed actively surveilling your Guildheart investigation', `guildheart-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
 ];
