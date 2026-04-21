@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Ledger of Ash — A Living World RPG</title>
+  <meta name="description" content="A text RPG of investigation and consequence. Navigate the factional politics of Shelkopolis — where every choice shapes the city's memory of you.">
 <style id="offline-fonts">
 @font-face {
   font-family: 'Cinzel';
@@ -1490,6 +1491,39 @@ input, button, select, textarea { font-family: inherit; }
 }
 </style>
 <style>
+#splash-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--ember-dark, #0a0604);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.9s ease;
+  cursor: pointer;
+}
+#splash-screen.fade-out { opacity: 0; pointer-events: none; }
+.splash-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.8rem, 9vw, 5.5rem);
+  color: var(--ember-glow, #c84b10);
+  letter-spacing: 0.12em;
+  text-align: center;
+  line-height: 1.05;
+  text-shadow: 0 0 40px rgba(200,75,16,0.4);
+}
+.splash-of {
+  font-size: 0.45em;
+  letter-spacing: 0.6em;
+  color: var(--gold-dim, #9a7a32);
+  display: block;
+  margin: 0.2em 0;
+}
+.splash-sub {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.9rem);
+  color: var(--gold-dim, #9a7a32);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+}
+
 #onboarding-modal {
   display: none; position: fixed; inset: 0; z-index: 9000;
   background: rgba(10,5,2,.92);
@@ -1548,6 +1582,12 @@ input, button, select, textarea { font-family: inherit; }
   </div>
 </div>
 
+<!-- SPLASH SCREEN -->
+<div id="splash-screen">
+  <div class="splash-title">Ledger<span class="splash-of">of</span>Ash</div>
+  <div class="splash-sub">A Living World RPG</div>
+</div>
+
 <!-- TITLE SCREEN -->
 <div class="screen active" id="screen-title">
   <div class="title-bg" style="background-image:url('assets/cover.jpg')"></div>
@@ -1572,7 +1612,7 @@ input, button, select, textarea { font-family: inherit; }
       <button class="btn btn-ghost btn-sm" id="btn-hall">Hall of Legends</button>
       <button class="btn btn-ghost btn-sm" id="btn-howto-title" onclick="showHowToPlay()">How to Play</button>
     </div>
-    <div class="title-version">Stage I&#x2013;II &nbsp;&middot;&nbsp; V28_8 Canon &nbsp;&middot;&nbsp; v2.0</div>
+    <div class="title-version">Stage I&#x2013;II &nbsp;&middot;&nbsp; V33 Canon &nbsp;&middot;&nbsp; v0.1</div>
   </div>
 </div>
 
@@ -7715,31 +7755,54 @@ function checkBeginReady() {
 }
 
 // ── ONBOARDING MODAL ────────────────────────────────────────
-var ONBOARDING_PAGES = [
-  { title: 'The Investigation', body: 'A ledger of ash and secrets leads you to Shelkopolis — a city where factions war in shadow and truth is currency. You are an investigator. Every choice you make shapes what the city remembers of you.' },
-  { title: 'Making Choices', body: 'Each choice shows its risk tier — you\'ll learn what they mean as you play.' },
-  { title: 'World Clocks', body: 'Three forces shape your investigation: <em>Watchfulness</em> tracks how closely the city watches you. <em>Pressure</em> reflects the weight of your choices. <em>Reverence</em> rises with your legend. Each has a breaking point.' },
-  { title: 'Your Legend', body: 'Your four-digit code is your legend\'s identity. The game saves automatically after every choice. Return any time — enter your code at the title screen to resume where you left off.' },
-  { title: 'Begin', body: 'For full rules, open the How to Play screen from the menu at any time. Your investigation begins now.' }
-];
-
 var _onboardingPage = 0;
+var _currentOnboardingPages = [];
+
+function _buildOnboardingPages() {
+  var archGroup = (G.archetype && G.archetype.group) || 'combat';
+  var archHooks = {
+    combat:  'You have resolved disputes with steel. Shelkopolis is a city where steel settles very little — but knowing where the bodies are buried matters enormously.',
+    magic:   'You have read patterns where others see noise. Something in the city\'s ledgers does not add up. You\'ve learned to trust that instinct.',
+    stealth: 'You\'ve moved through the cracks of commerce and law. The investigation leads somewhere only someone like you can go without being seen.',
+    support: 'You\'ve watched what happens when people are quietly removed — from rosters, from memory, from record. This investigation has that same smell.'
+  };
+  return [
+    {
+      title: 'How to Read This Game',
+      body:  'Each <strong>choice</strong> shows its risk tier: <em>safe</em> is low-stakes, <em>risky</em> raises the tension, <em>bold</em> can change everything. The <strong>HUD</strong> at the top tracks your HP, case progress, and three world clocks — <em>Watchfulness</em>, <em>Pressure</em>, <em>Reverence</em>. Read them. They tell you how the city sees you.'
+    },
+    {
+      title: 'The World',
+      body:  'Two hundred years ago the Catastrophe ended the Axis Age. The great systems of power — magical, political, mercantile — shattered and rebuilt into the Principality you now inhabit. Shelkopolis is its centre: a city of factions, ledgers, and things that were supposed to stay buried.'
+    },
+    {
+      title: 'Your Place in It',
+      body:  archHooks[archGroup] || archHooks.combat
+    },
+    {
+      title: 'The Investigation Begins',
+      body:  'A contact is dead. A ledger has surfaced. Someone wants both forgotten. You are the investigator the city did not send — which means you are the only one who might find the truth.<br><br>The game saves automatically. Open <strong>How to Play</strong> from the menu at any time.'
+    }
+  ];
+}
 
 function showOnboarding() {
   if (!window.G || window.G.flags.onboarding_complete) return;
+  _currentOnboardingPages = _buildOnboardingPages();
   _onboardingPage = 0;
   _renderOnboardingPage();
   document.getElementById('onboarding-modal').classList.add('active');
 }
 
 function _renderOnboardingPage() {
-  var p = ONBOARDING_PAGES[_onboardingPage];
+  var p = _currentOnboardingPages[_onboardingPage];
+  if (!p) return;
   document.getElementById('onboarding-title').textContent = p.title;
   document.getElementById('onboarding-body').innerHTML = p.body;
   var prev = document.getElementById('onboarding-prev');
   var next = document.getElementById('onboarding-next');
   prev.style.visibility = _onboardingPage === 0 ? 'hidden' : 'visible';
-  next.textContent = _onboardingPage === ONBOARDING_PAGES.length - 1 ? 'Begin Your Legend' : 'Next →';
+  next.textContent = _onboardingPage === _currentOnboardingPages.length - 1 ? 'Begin Your Legend' : 'Next \u2192';
 }
 
 function _closeOnboarding() {
@@ -7748,8 +7811,20 @@ function _closeOnboarding() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  var _splash = document.getElementById('splash-screen');
+  if (_splash) {
+    var _hideSplash = function() {
+      _splash.classList.add('fade-out');
+      setTimeout(function() { _splash.style.display = 'none'; }, 900);
+    };
+    setTimeout(_hideSplash, 1800);
+    _splash.addEventListener('click', _hideSplash);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('onboarding-next').addEventListener('click', function() {
-    if (_onboardingPage < ONBOARDING_PAGES.length - 1) {
+    if (_onboardingPage < _currentOnboardingPages.length - 1) {
       _onboardingPage++;
       _renderOnboardingPage();
     } else {
