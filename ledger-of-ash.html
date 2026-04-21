@@ -8307,6 +8307,7 @@ function checkStageAdvance() {
     updateHUD();
   } else if (G.level >= 11 && G.stage === 'Stage II') {
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
+    if (window.STAGE2_ANTECHAMBER && window.STAGE2_ANTECHAMBER.shouldTrigger()) { window.STAGE2_ANTECHAMBER.trigger(); return; }
     if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && canAdvanceToStage3()) { window.STAGE2_CLIMAX.trigger(); return; }
     if (!canAdvanceToStage3()) {
       // Hint player toward missing gate conditions
@@ -9931,6 +9932,7 @@ function showHowToPlay() {
 <script src='nomdara_stage2_choices.js'></script>
 <!-- ── STAGE 2 CLIMAX ── -->
 <script src='maren_oss_encounter.js'></script>
+<script src='stage2_antechamber.js'></script>
 <script src='stage2_climax.js'></script>
 <!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
 <script src='stage2_enriched_choices.js'></script>

@@ -11,7 +11,7 @@ var STAGE2_CLIMAX = (function() {
     G.lastResult = 'A sealed letter bearing the Oversight Collegium\'s iron-quill seal arrives at your lodgings. Inside, a single line: "Your inquiries have been noted. Present yourself at the Collegium Hall by sundown. Refusal will be noted as well." The city holds its breath.';
     G.recentOutcomeType = 'investigation';
 
-    renderChoices([
+    window.renderChoices([
       {
         id: 'climax_p1_negotiate',
         text: 'Present yourself openly — negotiate your position',
@@ -44,7 +44,7 @@ var STAGE2_CLIMAX = (function() {
       G.flags.stage2_climax_person_of_interest = true;
       G.recentOutcomeType = 'complication';
     }
-    addJournal('faction', G.lastResult);
+    window.addJournal('faction', G.lastResult);
     phase2();
   }
 
@@ -60,7 +60,7 @@ var STAGE2_CLIMAX = (function() {
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       G.recentOutcomeType = 'complication';
     }
-    addJournal('faction', G.lastResult);
+    window.addJournal('faction', G.lastResult);
     phase2();
   }
 
@@ -70,22 +70,20 @@ var STAGE2_CLIMAX = (function() {
     G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
     G.flags.stage2_climax_refused_summons = true;
     G.recentOutcomeType = 'partial';
-    addJournal('faction', G.lastResult);
+    window.addJournal('faction', G.lastResult);
     phase2();
   }
 
   // Phase 2 — The Revelation
   function phase2() {
     var G = window.G;
-    setTimeout(function() {
-      G.lastResult = 'The contact you least expected finds you that night — a junior Collegium archivist named Seld who has been feeding you information in fragments. He is trembling. "They know I\'ve been talking. I need to tell you everything before they find out how much." What he reveals reshapes the investigation: the ledger of ash is not a record of crimes. It is a record of suppressed names — people the Collegium erased from official history. Someone inside the Collegium has been protecting those names. And someone else has been hunting them.';
-      G.recentOutcomeType = 'discovery';
-      G.investigationProgress = Math.max(G.investigationProgress || 0, 10);
-      G.flags.stage2_revelation_received = true;
-      addJournal('investigation', G.lastResult);
-      if (typeof updateHUD === 'function') updateHUD();
-      phase3();
-    }, 300);
+    G.lastResult = 'The contact you least expected finds you that night — a junior Collegium archivist named Seld who has been feeding you information in fragments. He is trembling. "They know I\'ve been talking. I need to tell you everything before they find out how much." What he reveals reshapes the investigation: the ledger of ash is not a record of crimes. It is a record of suppressed names — people the Collegium erased from official history. Someone inside the Collegium has been protecting those names. And someone else has been hunting them.';
+    G.recentOutcomeType = 'discovery';
+    G.investigationProgress = Math.max(G.investigationProgress || 0, 10);
+    G.flags.stage2_revelation_received = true;
+    window.addJournal('investigation', G.lastResult);
+    if (typeof updateHUD === 'function') updateHUD();
+    phase3();
   }
 
   // Phase 3 — The Resolution
@@ -93,7 +91,7 @@ var STAGE2_CLIMAX = (function() {
     var G = window.G;
     G.lastResult += '\n\nSeld presses a folded document into your hands — a partial copy of the ledger. "What you do with this determines everything," he says. Three paths remain.';
 
-    renderChoices([
+    window.renderChoices([
       {
         id: 'climax_p3_expose',
         text: 'Expose — bring the ledger to the public record. Let the city decide.',
@@ -119,7 +117,7 @@ var STAGE2_CLIMAX = (function() {
     if (r.success) {
       G.lastResult = 'The partial ledger reaches three independent sources before dawn. By midmorning, it is being read aloud in the Merchant Assembly. The Collegium moves to suppress it — but it is too late. The names are out. The city is fractured. You have lit a fire. What it burns will not be yours to choose.';
       G.recentOutcomeType = 'success';
-      addWorldNotice('The ledger of ash has been exposed. Shelkopolis will not be the same.');
+      window.addWorldNotice('The ledger of ash has been exposed. Shelkopolis will not be the same.');
     } else {
       G.lastResult = 'Your contact chain is intercepted before the ledger reaches more than one source. The partial copy is confiscated. You are not arrested — but Inquisitor Orveth sends a message: "You tried. I respect that. Come find me when you are ready to try more carefully." The ledger\'s existence is now known. Its contents, still secret.';
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 2;
@@ -134,7 +132,7 @@ var STAGE2_CLIMAX = (function() {
     G.lastResult = 'Orveth receives the ledger without expression. She reads for a long moment. "You chose correctly," she says. "The names on this list are under Collegium protection — what remains of it. Someone inside has been selling that protection. That someone is your next lead." She is not your ally. But for now, your interests align. That is enough.';
     G.recentOutcomeType = 'success';
     G.flags.stage2_climax_inquisitor_contact = true;
-    addWorldNotice('An uneasy alliance with the Oversight Collegium. Watch your back.');
+    window.addWorldNotice('An uneasy alliance with the Oversight Collegium. Watch your back.');
     _closeClimax();
   }
 
@@ -144,14 +142,14 @@ var STAGE2_CLIMAX = (function() {
     G.lastResult = 'The ledger goes into a hidden cache in a location only you know. Seld disappears the following day — you do not know if this is his choice or not. The Collegium\'s watchers have not moved against you. The rival investigator\'s trail has gone cold. The city breathes, unknowing. You have the ledger. You have time. Use it wisely.';
     G.recentOutcomeType = 'partial';
     G.worldClocks.rival = Math.max(0, (G.worldClocks.rival || 0) - 2);
-    addWorldNotice('The ledger is hidden. The silence will not last.');
+    window.addWorldNotice('The ledger is hidden. The silence will not last.');
     _closeClimax();
   }
 
   function _closeClimax() {
     var G = window.G;
     G.flags.stage2_climax_complete = true;
-    addJournal('investigation', G.lastResult);
+    window.addJournal('investigation', G.lastResult);
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }
