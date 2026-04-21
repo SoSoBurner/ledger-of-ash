@@ -2198,9 +2198,14 @@ function checkCompanionLeave() {
     if (t.trustMin !== null && t.trustMin !== undefined && (comp.trust||0) < t.trustMin) outOfBounds = true;
 
     if (!outOfBounds) {
-      if ((comp.warnStage||0) > 0) comp.warnStage = Math.max(0, (comp.warnStage||0) - 1);
+      comp.warnCooldown = (comp.warnCooldown || 0) + 1;
+      if ((comp.warnStage||0) > 0 && comp.warnCooldown >= 3) {
+        comp.warnStage = Math.max(0, (comp.warnStage||0) - 1);
+        comp.warnCooldown = 0;
+      }
       return;
     }
+    comp.warnCooldown = 0;
 
     const stage = comp.warnStage || 0;
     if (stage === 0) {
