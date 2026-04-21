@@ -254,6 +254,9 @@ function sampleEnrichedChoices(locId, n, stage) {
 
 var _TAG_SKILL = { Combat: 'combat', Magic: 'lore', Stealth: 'stealth', Support: 'persuasion', Bard: 'persuasion' };
 
+// 3D — Stage DC offset lookup
+var STAGE_DC_OFFSET = { 'Stage I': 0, 'Stage II': 2, 'Stage III': 4, 'Stage IV': 6, 'Stage V': 8 };
+
 var _TAG_RISK = {
   Combat: 'bold', Confrontation: 'bold', Infiltration: 'bold', Ritual: 'bold', Assassination: 'bold',
   Social: 'safe', Rest: 'safe', Trade: 'safe', Observation: 'safe', Research: 'safe'
@@ -262,10 +265,28 @@ var _TAG_RISK = {
 function toEnrichedChoice(c) {
   var tagSkill = c.tags && c.tags.reduce(function(found, t) { return found || _TAG_SKILL[t] || null; }, null);
   var riskTag = c.tags && c.tags.reduce(function(found, t) { return found || _TAG_RISK[t] || null; }, null);
+  var resolvedTag = c.tag || riskTag || 'risky';
+
+  // 3C — track consecutive safe choices; rival clock advances at 3
+  var G = window.G;
+  if (G) {
+    if (resolvedTag === 'safe') {
+      G._consecutiveSafeChoices = (G._consecutiveSafeChoices || 0) + 1;
+      if (G._consecutiveSafeChoices >= 3) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.rival = (G.worldClocks.rival || 0) + 1;
+        G._consecutiveSafeChoices = 0;
+        checkRivalClock();
+      }
+    } else {
+      G._consecutiveSafeChoices = 0;
+    }
+  }
+
   return {
     text: c.label || c.text || 'A critical moment demands attention.',
     skill: SKILL_NORM[c.skill] || c.skill || tagSkill || 'persuasion',
-    tag: c.tag || riskTag || 'risky',
+    tag: resolvedTag,
     align: c.align || 'neutral',
     cid: '__enriched__',
     __enrichedFn: c.fn
@@ -337,6 +358,25 @@ function checkClockThresholds() {
   G._dcPenalty = newPenalty;
 }
 
+// 3C — Rival clock thresholds
+var _RIVAL_THRESHOLDS = [
+  { at: 3, flag: 'rival_notice_3', notice: 'Word reaches you that another investigator has been asking questions along the Ridgeway.' },
+  { at: 6, flag: 'rival_notice_6', notice: 'The rival has reached a key contact before you. The path grows harder.' },
+  { at: 9, flag: 'rival_notice_9', notice: 'The rival has submitted a partial report. Time is running out.', dcPenalty: 1 },
+];
+function checkRivalClock() {
+  var G = window.G;
+  if (!G || !G.worldClocks) return;
+  var rival = G.worldClocks.rival || 0;
+  _RIVAL_THRESHOLDS.forEach(function(t) {
+    if (rival >= t.at && !G.flags[t.flag]) {
+      G.flags[t.flag] = true;
+      if (typeof addWorldNotice === 'function') addWorldNotice(t.notice);
+      if (t.dcPenalty) G._dcPenalty = (G._dcPenalty || 0) + t.dcPenalty;
+    }
+  });
+}
+
 // ── ENRICHED CHOICE HANDLER ───────────────────────────────
 
 function handleEnrichedChoice(choice) {
@@ -387,9 +427,12 @@ function handleEnrichedChoice(choice) {
                : 1;
 
   // Fix A1: award tag-based stageProgress on roll success, not recentOutcomeType string
+  // 3D — stage-based DC offset
+  var stageOffset = STAGE_DC_OFFSET[G.stage] || 0;
   var _lastDC = G._lastDC || 10;
+  var effectiveDC = _lastDC + stageOffset;
   var _lastTotal = G._lastRollTotal || 0;
-  var rollSucceeded = (_lastTotal >= _lastDC) && !G._lastRollWasFumble;
+  var rollSucceeded = (_lastTotal >= effectiveDC) && !G._lastRollWasFumble;
   if (rollSucceeded) {
     if (choice.tag === 'risky') {
       G.stageProgress[stageKey] = (G.stageProgress[stageKey] || 0) + 1;
@@ -399,6 +442,21 @@ function handleEnrichedChoice(choice) {
       G.flags['bold_discovery_' + G.dayCount] = true;
       G.worldClocks.reverence = (G.worldClocks.reverence || 0) + 1;
     }
+  }
+
+  // 3E — Crit rewards: bonus XP and stageProgress
+  if (G._lastRollWasCrit || G.recentOutcomeType === 'crit') {
+    if (typeof gainXp === 'function') gainXp(1, 'crit bonus');
+    var critStageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
+                     : (G.stage === 'Stage III' || G.stage === 3) ? 3
+                     : (G.stage === 'Stage IV' || G.stage === 4) ? 4 : 1;
+    G.stageProgress[critStageKey] = (G.stageProgress[critStageKey] || 0) + 1;
+  }
+
+  // 3C — fumble on main plot increments rival clock
+  if (G._lastRollWasFumble && choice.plot === 'main') {
+    G.worldClocks.rival = (G.worldClocks.rival || 0) + 1;
+    checkRivalClock();
   }
 
   const resultText = G.lastResult || 'The action proceeds without clear resolution.';
@@ -433,6 +491,23 @@ window.handleChoice = function(choice) {
   if (choice && choice.cid === 'rest_recover') {
     const G = window.G;
     if (G) {
+      // 3B — enforce 2× per day rest limit
+      if (!G.restLastDay || G.restLastDay !== G.dayCount) {
+        G.restCount = 0;
+        G.restLastDay = G.dayCount || 0;
+      }
+      if ((G.restCount || 0) >= 2) {
+        if (typeof addNarration === 'function') {
+          addNarration('', 'You are too exhausted to rest again today.', 'rest');
+        }
+        return; // skip all rest effects
+      }
+      G.restCount = (G.restCount || 0) + 1;
+      // 3C — rival advances when you rest
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.rival = (G.worldClocks.rival || 0) + 1;
+      checkRivalClock();
+
       // C2 — rest costs 1 stageProgress in current stage (min 0)
       var _restStageKey = (G.stage === 'Stage II' || G.stage === 2) ? 2
                         : (G.stage === 'Stage III' || G.stage === 3) ? 3
