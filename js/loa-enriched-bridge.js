@@ -638,4 +638,8 @@ if (typeof _origEnterPasscode === 'function') {
   };
 }
 
+// ── TEST HARNESS EXPORTS ──────────────────────────────────
+window.handleEnrichedChoice = handleEnrichedChoice;
+window.checkClockThresholds = checkClockThresholds;
+
 })();
