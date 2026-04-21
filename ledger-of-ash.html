@@ -7482,6 +7482,18 @@ function beginLegend() {
   if (window.G && !window.G.flags.onboarding_complete) {
     setTimeout(showOnboarding, 400);
   }
+  // Plant the mystery hook on first session
+  if (window.G && !window.G.flags.mystery_hook_shown) {
+    window.G.flags.mystery_hook_shown = true;
+    setTimeout(function() {
+      if (typeof addJournal === 'function') {
+        addJournal('investigation', 'Among the Registry of Deaths, you find a name marked "expunged from record." No cause. No witness. Just: expunged. Shelkopolis keeps a ledger of ash — names burned from official memory. Someone maintains it. Someone else is hunting the names on it. This is what you\'ve been sent to find.');
+      }
+      if (typeof addWorldNotice === 'function') {
+        addWorldNotice('A lead emerges: the ledger of ash is a register of erased names. The investigation begins.');
+      }
+    }, 800);
+  }
 }
 
 // ── RIVAL ADVENTURERS ────────────────────────────────────
