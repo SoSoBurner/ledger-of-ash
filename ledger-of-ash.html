@@ -487,6 +487,20 @@ input, button, select, textarea { font-family: inherit; }
   background: var(--storm-lo); border: 1px solid var(--storm);
   color: var(--storm-hi);
 }
+#stage-progress-track {
+  width: 120px; height: 4px;
+  background: rgba(255,255,255,.12);
+  border-radius: 2px;
+  margin: 2px auto 0;
+  overflow: hidden;
+}
+#stage-progress-fill {
+  height: 100%;
+  background: var(--ember-glow, #c84b10);
+  border-radius: 2px;
+  transition: width .4s ease;
+  width: 0%;
+}
 .topbar-nav { display: flex; align-items: center; gap: 1px; }
 .tnav-btn {
   background: transparent; border: none; cursor: pointer;
@@ -1504,6 +1518,7 @@ input, button, select, textarea { font-family: inherit; }
     <div class="topbar-brand">
       <span class="game-title">Ledger of Ash</span>
       <span class="stage-pill" id="topbar-stage">Stage I</span>
+      <div id="stage-progress-track"><div id="stage-progress-fill"></div></div>
     </div>
     <nav class="topbar-nav">
       <button class="tnav-btn" id="btn-map">Map</button>
@@ -9316,6 +9331,30 @@ function updateHUD() {
   updateAlignmentHUD(); updateFactionHUD(); updateQuestHUD(); updateEnvironmentPanel();
   if (typeof updateNoticesBadge === 'function') updateNoticesBadge();
   if (typeof updatePartyHUD === 'function') updatePartyHUD();
+  updateStageProgressBar();
+}
+
+function updateStageProgressBar() {
+  if (!window.G) return;
+  var track = document.getElementById('stage-progress-track');
+  var fill  = document.getElementById('stage-progress-fill');
+  if (!track || !fill) return;
+  var stageStr = G.stage || 'Stage I';
+  var stageNum = 1;
+  var m = stageStr.match(/(\d+)|([IVX]+)/i);
+  if (m) {
+    var raw = m[0];
+    var parsed = parseInt(raw, 10);
+    if (!isNaN(parsed)) {
+      stageNum = parsed;
+    } else {
+      var roman = { I:1, II:2, III:3, IV:4, V:5 };
+      stageNum = roman[raw.toUpperCase()] || 1;
+    }
+  }
+  var threshold = (stageNum === 1) ? 20 : (stageNum === 2) ? 15 : 20;
+  var progress  = (G.stageProgress && G.stageProgress[stageNum]) ? G.stageProgress[stageNum] : 0;
+  fill.style.width = Math.min(100, Math.round((progress / threshold) * 100)) + '%';
 }
 
 function updateAlignmentHUD() {
