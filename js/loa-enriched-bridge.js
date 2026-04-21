@@ -259,6 +259,7 @@ var STAGE_DC_OFFSET = { 'Stage I': 0, 'Stage II': 2, 'Stage III': 4, 'Stage IV':
 
 var _TAG_RISK = {
   Combat: 'bold', Confrontation: 'bold', Infiltration: 'bold', Ritual: 'bold', Assassination: 'bold',
+  Accusation: 'bold', Negotiation: 'bold', Exposure: 'bold', Betrayal: 'bold', Tribunal: 'bold',
   Social: 'safe', Rest: 'safe', Trade: 'safe', Observation: 'safe', Research: 'safe'
 };
 
