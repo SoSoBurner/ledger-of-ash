@@ -8230,6 +8230,7 @@ function renderChoices(choices) {
   });
   const tb = block.querySelector('#btn-use-trait');
   if (tb) tb.addEventListener('click', useTrait);
+  el.innerHTML = '';
   el.appendChild(block);
   scrollNarrative();
 }
