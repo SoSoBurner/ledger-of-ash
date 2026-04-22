@@ -448,7 +448,14 @@ function handleEnrichedChoice(choice) {
     G.recentOutcomeType = 'partial';
   }
   if ((G.xp || 0) === _xpBefore && typeof gainXp === 'function') {
-    gainXp(_XP_BY_TAG[choice.tag] || 20, 'tag-dispatch');
+    var cid = choice.cid || choice.id || null;
+    var isSandbox = !!(choice.sandbox);
+    var alreadySeen = cid && window.G && window.G.seenChoices && window.G.seenChoices[cid];
+    if (!isSandbox && !alreadySeen) {
+      gainXp(_XP_BY_TAG[choice.tag] || 20, 'tag-dispatch');
+      if (cid && window.G && window.G.seenChoices) window.G.seenChoices[cid] = true;
+    }
+    // sandbox or already-seen: award 0 XP
   }
 
   // Fix A3: stage-aware stageProgress key

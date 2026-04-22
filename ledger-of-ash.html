@@ -7655,6 +7655,7 @@ function initCreate() {
         factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
         stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
         nomdara_last_visit_locality:null,
+        seenChoices:{},
         schemaVersion:6 };
   _awaitingLevelUp = false;
 
@@ -10008,6 +10009,7 @@ function migrateState(loaded) {
       loaded.skills = _ns;
     }
   }
+  if (!loaded.seenChoices) loaded.seenChoices = {};
   loaded.schemaVersion = 6;
   return loaded;
 }
