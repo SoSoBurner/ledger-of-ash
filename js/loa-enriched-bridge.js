@@ -69,6 +69,7 @@ const JOURNAL_TYPES = new Set([
 ]);
 const _origAddJournal = window.addJournal;
 window.addJournal = function(arg1, arg2, arg3) {
+  if (typeof _origAddJournal !== 'function') return;
   if (JOURNAL_TYPES.has(arg1) && arg2) {
     _origAddJournal(arg2, arg1, arg3);
   } else {
@@ -92,6 +93,9 @@ function patchGState() {
   if (!G.flags) G.flags = {};
   if (typeof G.rivalId === 'undefined') G.rivalId = null;
   if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+  if (typeof G.dayCount === 'undefined') G.dayCount = 0;
+  if (typeof G.level === 'undefined') G.level = 1;
+  if (!G.seenChoices) G.seenChoices = {};
 }
 
 function _autoSaveTick() {
@@ -695,7 +699,8 @@ window.handleChoice = function(choice) {
   if (choice && (choice.tag === 'risky' || choice.tag === 'bold') &&
       (choice.plot === 'main' || choice.skill === 'lore' || choice.skill === 'wits')) {
     var _omenCid = choice.id || choice.cid || choice.text;
-    if (window.G && G.worldClocks && _omenCid && !G.seenChoices['_omen_' + _omenCid]) {
+    if (window.G && G.worldClocks && _omenCid && !(G.seenChoices && G.seenChoices['_omen_' + _omenCid])) {
+      if (!G.seenChoices) G.seenChoices = {};
       G.seenChoices['_omen_' + _omenCid] = true;
       G.worldClocks.omens = Math.min(10, (G.worldClocks.omens || 0) + 1);
     }

@@ -7662,7 +7662,7 @@ function _readSaveIndex() {
   try { return JSON.parse(localStorage.getItem(SAVE_INDEX_KEY) || '{}'); } catch(e) { return {}; }
 }
 function _writeSaveIndex(idx) {
-  try { localStorage.setItem(SAVE_INDEX_KEY, JSON.stringify(idx)); } catch(e) {}
+  try { localStorage.setItem(SAVE_INDEX_KEY, JSON.stringify(idx)); } catch(e) { if (typeof showToast === 'function') showToast('Save index failed — storage may be full.'); }
 }
 function _updateSaveIndex(k) {
   if (!k || !G.name) return;
@@ -7836,7 +7836,8 @@ function selectArchetype(id) {
   }
 
   // Select — collapse all other cards in the active row, show only selected
-  G.archetype = ARCHETYPES.find(a => a.id === id);
+  G.archetype = ARCHETYPES.find(a => a.id === id) || null;
+  if (!G.archetype) return;
   if (activeRow) {
     activeRow.querySelectorAll('.card').forEach(c => {
       c.classList.toggle('selected', c.dataset.id === id);
@@ -8958,7 +8959,8 @@ function _showStage3BlockerLegacy() {
 
   document.body.appendChild(modal);
 
-  document.getElementById('stage3-blocker-close').addEventListener('click', function() {
+  const _s3close = document.getElementById('stage3-blocker-close');
+  if (_s3close) _s3close.addEventListener('click', function() {
     modal.style.opacity = '0';
     modal.style.transition = 'opacity 0.4s';
     setTimeout(function() { modal.remove(); }, 400);
@@ -10338,7 +10340,7 @@ function maybeShowTutorial(event) {
 
 // ── HALL OF LEGENDS ───────────────────────────────────────
 function showHallOfLegends() {
-  const legends = JSON.parse(localStorage.getItem('loa_legends')||'[]');
+  const legends = (function(){ try { return JSON.parse(localStorage.getItem('loa_legends')||'[]'); } catch(e) { return []; } })();
   const hb = document.getElementById('hall-body');
   hb.innerHTML = !legends.length ? '<p style="color:var(--ink-faint);font-style:italic">No legends recorded yet. When a legend ends, its story lives here.</p>' :
     legends.map(l =>
@@ -10560,7 +10562,7 @@ function showCamp() { showOverlay('overlay-camp'); }
 
 function confirmDeath() { showOverlay('overlay-death'); }
 function endLegend() {
-  const legends = JSON.parse(localStorage.getItem('loa_legends')||'[]');
+  const legends = (function(){ try { return JSON.parse(localStorage.getItem('loa_legends')||'[]'); } catch(e) { return []; } })();
   const topFaction = (G.factions||[]).sort((a,b)=>b.rep-a.rep)[0];
   const topNegFaction = (G.factions||[]).sort((a,b)=>a.rep-b.rep)[0];
   const allies = G.companions ? Object.values(G.companions).filter(c=>c.status==='active').map(c=>c.name) : [];
