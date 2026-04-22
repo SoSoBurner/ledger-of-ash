@@ -10178,7 +10178,7 @@ function migrateState(loaded) {
   // One-time migration: old loa_save_<name>_<4digit> keys -> loa_slot_1
   try {
     if (typeof localStorage !== 'undefined' && !localStorage.getItem('loa_slot_1') && !localStorage.getItem('loa_legacy_migrated')) {
-      var oldKeys = Object.keys(localStorage).filter(function(k){ return /^loa_save_[^_]+_\d{4}$/.test(k); });
+      var oldKeys = Object.keys(localStorage).filter(function(k){ return /^loa_save_.+_\d{4}$/.test(k); });
       if (oldKeys.length) {
         // Pick the "newest" by payload size (proxy for progress) — matches spec heuristic
         var newest = oldKeys.sort(function(a,b){ return (localStorage.getItem(b)||'').length - (localStorage.getItem(a)||'').length; })[0];
