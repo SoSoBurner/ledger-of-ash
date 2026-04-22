@@ -1690,7 +1690,9 @@ input, button, select, textarea { font-family: inherit; }
       <button class="tnav-btn" id="btn-camp">Camp</button>
       <button class="tnav-btn" id="btn-charsheet">Sheet</button>
       <button class="tnav-btn" id="btn-howto">How to Play</button>
-      <button class="tnav-btn" id="btn-export-save" onclick="exportSave()">Export Save</button>
+      <button class="tnav-btn" id="btn-save" onclick="showSaveModal('save')">Save</button>
+      <button class="tnav-btn" id="btn-load" onclick="showSaveModal('load')">Load</button>
+      <button class="tnav-btn" id="btn-export-save" onclick="exportSave()">Export</button>
       <span class="tnav-sep"></span>
       <button class="tnav-btn tnav-end" id="btn-end-legend">End</button>
     </nav>
@@ -1860,6 +1862,13 @@ input, button, select, textarea { font-family: inherit; }
       <button class="btn btn-danger" id="btn-confirm-end">Record My End</button>
       <button class="btn btn-ghost btn-sm" data-close="overlay-death">Not yet.</button>
     </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-save">
+  <div class="overlay-box overlay-narrow">
+    <div class="overlay-header"><span class="overlay-title">Save Game</span><button class="overlay-close" data-close="overlay-save">&#x00D7;</button></div>
+    <div class="overlay-body"></div>
   </div>
 </div>
 
@@ -7915,6 +7924,11 @@ function beginLegend() {
   if (!/^[0-9]{4}$/.test(code)) { showToast('Enter a 4-digit passcode.'); return; }
   if (!G.archetype || !G.background) { showToast('Choose class and background.'); return; }
   G.name = name; G.passcode = code;
+  // New-run identity (spec: runId/caseCode/lastUsedSlot/choiceCount)
+  G.runId = _generateUUID();
+  G.caseCode = _makeCaseCode(G.runId);
+  G.lastUsedSlot = 'loa_slot_1';
+  G.choiceCount = G.choiceCount || 0;
   const _SKILL_REMAP = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm',craft:'spirit'};
   const _rawSkills = G.archetype.skills || {};
   G.skills = {};
@@ -8886,6 +8900,7 @@ function checkStageAdvance() {
     G.history.push('Completed Stage I. Entered the wider world at Level 6.');
     updateHUD();
   } else if (G.level >= 11 && G.stage === 'Stage II') {
+    checkNeutralArcScene();
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
     if (window.STAGE2_ANTECHAMBER && window.STAGE2_ANTECHAMBER.shouldTrigger()) { window.STAGE2_ANTECHAMBER.trigger(); return; }
     if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && canAdvanceToStage3()) { window.STAGE2_CLIMAX.trigger(); return; }
@@ -8927,6 +8942,56 @@ function checkStageAdvance() {
     addQuest('Stage V: Prevent the next inversion window from being used again.');
   }
 }
+
+function getNPCTone() {
+  if (!window.G) return 'neutral';
+  var b = G.benevolence || 0;
+  var o = G.orderAxis || 0;
+  if (b >= 30 && o >= 20) return 'lawful_good';
+  if (b >= 30 && o <= -20) return 'chaotic_good';
+  if (b <= -30 && o >= 20) return 'lawful_evil';
+  if (b <= -30 && o <= -20) return 'chaotic_evil';
+  if (b >= 20) return 'benevolent';
+  if (b <= -20) return 'cruel';
+  if (o >= 20) return 'orderly';
+  if (o <= -20) return 'anarchic';
+  return 'neutral';
+}
+window.getNPCTone = getNPCTone;
+
+function getNPCToneText(npcContext) {
+  var tone = getNPCTone();
+  var tones = {
+    lawful_good:   npcContext + ' acknowledges your record — principled and consistent. There is a degree of professional trust here.',
+    chaotic_good:  npcContext + ' has heard you are unpredictable but not cruel. That combination commands a particular kind of respect.',
+    lawful_evil:   npcContext + ' notes your reputation for getting results without sentiment. They find that useful.',
+    chaotic_evil:  npcContext + ' watches you carefully. Your methods are known. They are not sure yet what that means for them.',
+    benevolent:    npcContext + ' has heard you deal fairly. They are slightly more forthcoming than they would otherwise be.',
+    cruel:         npcContext + ' is wary. Your reputation has preceded you in ways that do not make this easier.',
+    orderly:       npcContext + ' notes your institutional record. They will work within process with you.',
+    anarchic:      npcContext + ' has clocked your disregard for protocol. They keep one hand near the door.',
+    neutral:       ''
+  };
+  return tones[tone] || '';
+}
+window.getNPCToneText = getNPCToneText;
+
+function checkNeutralArcScene() {
+  if (!window.G) return;
+  var b = Math.abs(G.benevolence || 0);
+  var o = Math.abs(G.orderAxis || 0);
+  var inv = G.investigationProgress || 0;
+  if (b <= 8 && o <= 8 && inv >= 6 && G.stage === 'Stage II' && !G.flags.neutral_arc_fired) {
+    G.flags.neutral_arc_fired = true;
+    if (typeof addNarration === 'function') {
+      addNarration('Contact', 'A message reaches you through an intermediary — no name, no faction seal. <em>"We have been watching how you work. You have not aligned yourself with any of the parties who have an interest in this investigation. That is either very careful or very naive. Either way, it makes you useful. There is a meeting. If you want it, the invitation is in the transit post at Soreheim. Ask for the Unmarked Ledger."</em>');
+    }
+    if (typeof addJournal === 'function') addJournal('investigation', 'An anonymous contact has noticed your neutrality. A meeting is offered at Soreheim transit post — ask for the Unmarked Ledger.');
+    if (typeof addWorldNotice === 'function') addWorldNotice('An unknown faction has made contact. Your neutrality appears to be worth something.');
+    G.worldClocks.omens = (G.worldClocks.omens || 0) + 1;
+  }
+}
+window.checkNeutralArcScene = checkNeutralArcScene;
 
 function canAdvanceToStage3() {
   const climax  = !!(G.flags && G.flags.stage2_climax_complete);
@@ -10109,6 +10174,23 @@ function migrateState(loaded) {
     }
   });
   loaded.schemaVersion = 6;
+  // One-time migration: old loa_save_<name>_<4digit> keys -> loa_slot_1
+  try {
+    if (typeof localStorage !== 'undefined' && !localStorage.getItem('loa_slot_1') && !localStorage.getItem('loa_legacy_migrated')) {
+      var oldKeys = Object.keys(localStorage).filter(function(k){ return /^loa_save_[^_]+_\d{4}$/.test(k); });
+      if (oldKeys.length) {
+        // Pick the "newest" by payload size (proxy for progress) — matches spec heuristic
+        var newest = oldKeys.sort(function(a,b){ return (localStorage.getItem(b)||'').length - (localStorage.getItem(a)||'').length; })[0];
+        var oldData = localStorage.getItem(newest);
+        if (oldData) {
+          localStorage.setItem('loa_slot_1', oldData);
+          oldKeys.forEach(function(k){ localStorage.removeItem(k); });
+          localStorage.setItem('loa_legacy_migrated', '1');
+          if (typeof showToast === 'function') setTimeout(function(){ showToast('Save migrated to new slot system.'); }, 600);
+        }
+      }
+    }
+  } catch(e) { /* non-fatal */ }
   return loaded;
 }
 
@@ -10442,124 +10524,244 @@ function endLegend() {
   showScreen('screen-title');
 }
 
-// ── SAVE / LOAD v2 ───────────────────────────────────────
+// ── SAVE / LOAD v3 — 3 NAMED SLOTS ───────────────────────
 
-function _genRunId() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-    const r = Math.random() * 16 | 0;
+const SAVE_SLOT_KEYS = ['loa_slot_1', 'loa_slot_2', 'loa_slot_3'];
+
+function _generateUUID() {
+  // RFC4122 v4 UUID
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0;
     return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
   });
 }
 
-function _genCaseCode() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code = '';
-  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
-  return code;
+function _makeCaseCode(uuid) {
+  // Take first 6 chars of the uuid (stripped of non-alphanumerics), uppercase.
+  // Pad with random alphanumeric chars if needed (uuid dashes make 8 usable chars easily, but be safe).
+  var cleaned = (uuid || '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+  var pool = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  while (cleaned.length < 6) cleaned += pool[Math.floor(Math.random() * pool.length)];
+  return cleaned.slice(0, 6);
 }
+
+// Back-compat aliases used elsewhere in the file
+function _genRunId() { return _generateUUID(); }
+function _genCaseCode() { return _makeCaseCode(_generateUUID()); }
 
 function initRunIdentity() {
-  if (!G.runId) G.runId = _genRunId();
-  if (!G.caseCode) G.caseCode = _genCaseCode();
+  if (!G.runId) G.runId = _generateUUID();
+  if (!G.caseCode) G.caseCode = _makeCaseCode(G.runId);
   if (!G.choiceCount) G.choiceCount = 0;
-}
-
-function _saveRunIndex(slotNum) {
-  let index = [];
-  try { index = JSON.parse(localStorage.getItem('loa_runs') || '[]'); } catch(e) {}
-  const existing = index.findIndex(r => r.runId === G.runId);
-  const base = existing >= 0 ? index[existing] : { runId: G.runId, caseCode: G.caseCode, name: G.name || 'Unknown', slots: [] };
-  const slot = { slot: slotNum, savedAt: Date.now(), stage: G.stage || 'Stage I', level: G.level || 1, location: G.location || '' };
-  base.slots = base.slots.filter(s => s.slot !== slotNum).concat(slot);
-  base.lastSaved = Date.now();
-  base.name = G.name || base.name;
-  if (existing >= 0) index[existing] = base; else index.unshift(base);
-  try { localStorage.setItem('loa_runs', JSON.stringify(index.slice(0, 20))); } catch(e) {}
+  if (!G.lastUsedSlot) G.lastUsedSlot = 'loa_slot_1';
 }
 
 const JOURNAL_MAX = 200;
 
-function saveGame(slotNum) {
+function _slotLabelFor(slotKey) {
+  var n = String(slotKey).replace(/^loa_slot_/, '');
+  return 'Slot ' + n;
+}
+
+function saveToSlot(slotKey) {
+  if (!slotKey || SAVE_SLOT_KEYS.indexOf(slotKey) < 0) slotKey = 'loa_slot_1';
   if (!G.runId) initRunIdentity();
-  slotNum = slotNum || G._lastSlot || 1;
-  G._lastSlot = slotNum;
+  G.lastUsedSlot = slotKey;
+  G.savedAt = new Date().toISOString();
+  G.slotLabel = _slotLabelFor(slotKey);
   if (G.journal && G.journal.length > JOURNAL_MAX) G.journal = G.journal.slice(-JOURNAL_MAX);
   if (G.journalRecords && G.journalRecords.length > JOURNAL_MAX) G.journalRecords = G.journalRecords.slice(-JOURNAL_MAX);
-  const key = 'loa_run_' + G.runId + '_s' + slotNum;
   try {
-    localStorage.setItem(key, JSON.stringify(G));
-    _saveRunIndex(slotNum);
+    localStorage.setItem(slotKey, JSON.stringify(G));
   } catch(e) {
     if (typeof showToast === 'function') showToast('Save failed — storage full. Export your save to back up.');
   }
 }
 
-function loadGame(runIdOrName, slotNumOrCode) {
-  // New format: loadGame(runId, slotNum)
-  const newKey = 'loa_run_' + runIdOrName + '_s' + (slotNumOrCode || 1);
-  if (localStorage.getItem(newKey)) {
-    return _loadFromKey(newKey, true);
-  }
-  // Legacy format: loadGame(name, passcode)
-  const legacyKey = 'loa_save_' + (runIdOrName||'').toLowerCase().replace(/\s+/g,'_') + '_' + (slotNumOrCode||'');
-  if (localStorage.getItem(legacyKey)) {
-    return _loadFromKey(legacyKey, false);
-  }
-  return false;
-}
-
-function _loadFromKey(key, isNew) {
+function loadFromSlot(slotKey) {
+  if (!slotKey || SAVE_SLOT_KEYS.indexOf(slotKey) < 0) slotKey = 'loa_slot_1';
   try {
-    const s = localStorage.getItem(key);
-    if (!s) return false;
-    let d;
+    var s = localStorage.getItem(slotKey);
+    if (!s) { if (typeof showToast === 'function') showToast(_slotLabelFor(slotKey) + ' is empty.'); return false; }
+    var d;
     try { d = JSON.parse(s); } catch(e) { showToast('Save data corrupted.'); return false; }
     if (!d || typeof d !== 'object') { showToast('Save format invalid.'); return false; }
     d = migrateState(d);
     Object.assign(G, d);
-    if (!isNew) {
-      // Migrate legacy save to new format
-      if (!G.runId) { G.runId = _genRunId(); G.caseCode = _genCaseCode(); }
-      saveGame(1);
-      showToast('Save migrated. Your case code: ' + G.caseCode);
-    }
+    if (!G.runId) G.runId = _generateUUID();
+    if (!G.caseCode) G.caseCode = _makeCaseCode(G.runId);
+    G.lastUsedSlot = slotKey;
+    if (typeof updateHUD === 'function') updateHUD();
+    if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
     return true;
-  } catch(e) { showToast('Could not load save: ' + e.message); return false; }
+  } catch(e) { if (typeof showToast === 'function') showToast('Could not load save: ' + e.message); return false; }
+}
+
+function readSlotMeta(slotKey) {
+  try {
+    var s = localStorage.getItem(slotKey);
+    if (!s) return null;
+    var d = JSON.parse(s);
+    if (!d || typeof d !== 'object') return null;
+    return {
+      name: d.name || 'Unnamed',
+      stage: d.stage || d.stageLabel || 'Stage I',
+      level: d.level || 1,
+      savedAt: d.savedAt || null,
+      caseCode: d.caseCode || '',
+      slotLabel: d.slotLabel || _slotLabelFor(slotKey)
+    };
+  } catch(e) { return null; }
+}
+
+// Backward-compat: saveGame(slotNumOrKey?) — saves to last-used slot by default.
+function saveGame(slotArg) {
+  var slotKey = null;
+  if (typeof slotArg === 'string' && /^loa_slot_[123]$/.test(slotArg)) slotKey = slotArg;
+  else if (typeof slotArg === 'number' && slotArg >= 1 && slotArg <= 3) slotKey = 'loa_slot_' + slotArg;
+  else slotKey = (G && G.lastUsedSlot) || 'loa_slot_1';
+  saveToSlot(slotKey);
+}
+
+// Backward-compat: loadGame(slotNumOrKey?) — loads from last-used slot by default.
+// Also still accepts legacy (name, passcode) for a one-time migration.
+function loadGame(slotArg, legacyCode) {
+  // Legacy form: (name, 4-digit code)
+  if (typeof slotArg === 'string' && typeof legacyCode === 'string' && /^\d{4}$/.test(legacyCode)) {
+    var legacyKey = 'loa_save_' + (slotArg || '').toLowerCase().replace(/\s+/g, '_') + '_' + legacyCode;
+    var raw = localStorage.getItem(legacyKey);
+    if (raw) {
+      try {
+        var d = JSON.parse(raw);
+        d = migrateState(d);
+        if (!d.runId) d.runId = _generateUUID();
+        if (!d.caseCode) d.caseCode = _makeCaseCode(d.runId);
+        Object.assign(G, d);
+        saveToSlot('loa_slot_1');
+        localStorage.removeItem(legacyKey);
+        if (typeof showToast === 'function') showToast('Legacy save migrated to Slot 1. Case: ' + G.caseCode);
+        if (typeof updateHUD === 'function') updateHUD();
+        return true;
+      } catch(e) { return false; }
+    }
+    return false;
+  }
+  var slotKey = null;
+  if (typeof slotArg === 'string' && /^loa_slot_[123]$/.test(slotArg)) slotKey = slotArg;
+  else if (typeof slotArg === 'number' && slotArg >= 1 && slotArg <= 3) slotKey = 'loa_slot_' + slotArg;
+  else slotKey = (G && G.lastUsedSlot) || 'loa_slot_1';
+  return loadFromSlot(slotKey);
 }
 
 function exportSave() {
   if (!window.G) return;
-  const name = (G.name || 'legend').replace(/[^a-z0-9]/gi, '-').toLowerCase();
-  const code = G.caseCode || G.passcode || '0000';
-  const blob = new Blob([JSON.stringify(G, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'loa-save-' + name + '-' + code + '.json'; a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  if (!G.runId) initRunIdentity();
+  var code = G.caseCode || _makeCaseCode(G.runId);
+  var blob = new Blob([JSON.stringify(G, null, 2)], { type: 'application/json' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = 'loa-save-' + code + '.json'; a.click();
+  setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
 }
 
 function importSave(file) {
-  const reader = new FileReader();
-  reader.onload = e => {
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
     try {
-      let d = JSON.parse(e.target.result);
+      var d = JSON.parse(e.target.result);
       if (!d || typeof d !== 'object') { showToast('Invalid save file.'); return; }
+      if (!d.runId || !d.name) { showToast('Save missing runId or name — cannot import.'); return; }
       d = migrateState(d);
-      if (!d.runId) { d.runId = _genRunId(); d.caseCode = _genCaseCode(); }
+      if (!d.caseCode) d.caseCode = _makeCaseCode(d.runId);
       Object.assign(G, d);
-      saveGame(1);
-      showToast('Save imported. Case code: ' + G.caseCode);
+      var slot = G.lastUsedSlot || 'loa_slot_1';
+      saveToSlot(slot);
       if (typeof updateHUD === 'function') updateHUD();
-    } catch(err) { showToast('Import failed: ' + err.message); }
+      if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
+      if (typeof showToast === 'function') showToast('Save imported to ' + _slotLabelFor(slot) + '. Case: ' + G.caseCode);
+    } catch(err) { if (typeof showToast === 'function') showToast('Import failed: ' + err.message); }
   };
   reader.readAsText(file);
 }
 
+function showSaveModal(mode) {
+  // mode: 'save' (default) or 'load'
+  mode = mode || 'save';
+  var overlay = document.getElementById('overlay-save');
+  if (!overlay) return;
+  var body = overlay.querySelector('.overlay-body');
+  var title = overlay.querySelector('.overlay-title');
+  if (title) title.textContent = mode === 'load' ? 'Load Game' : 'Save Game';
+  if (!body) return;
+  var parts = [];
+  parts.push('<div style="margin-bottom:10px;color:var(--ink-dim);font-size:13px">' +
+    (mode === 'load'
+      ? 'Click a slot to load that save.'
+      : 'Click a slot to save your current run there.') +
+    (G && G.caseCode ? ' <span style="color:var(--gold-dim)">Case ' + G.caseCode + '</span>' : '') +
+    '</div>');
+  SAVE_SLOT_KEYS.forEach(function(key) {
+    var meta = readSlotMeta(key);
+    var label = _slotLabelFor(key);
+    if (meta) {
+      var when = meta.savedAt ? new Date(meta.savedAt).toLocaleString() : 'unknown time';
+      parts.push(
+        '<div class="save-slot-card" data-slot="' + key + '" data-mode="' + mode + '">' +
+        '<div style="font-weight:600">' + label + ' &mdash; ' + meta.name + '</div>' +
+        '<div style="font-size:12px;color:var(--ink-dim)">Level ' + meta.level + ' &middot; ' + meta.stage +
+        (meta.caseCode ? ' &middot; Case ' + meta.caseCode : '') + '</div>' +
+        '<div style="font-size:11px;color:var(--ink-faint)">Saved ' + when + '</div>' +
+        '</div>'
+      );
+    } else {
+      parts.push(
+        '<div class="save-slot-card save-slot-empty" data-slot="' + key + '" data-mode="' + mode + '">' +
+        '<div style="font-weight:600">' + label + ' &mdash; <em>empty</em></div>' +
+        '<div style="font-size:12px;color:var(--ink-faint)">' +
+          (mode === 'load' ? 'Nothing to load.' : 'Click to save here.') +
+        '</div></div>'
+      );
+    }
+  });
+  parts.push(
+    '<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">' +
+    '<button class="btn btn-sm" onclick="exportSave()">Export JSON</button>' +
+    '<label class="btn btn-sm" style="cursor:pointer">Import JSON' +
+    '<input type="file" accept="application/json" style="display:none" ' +
+    'onchange="if(this.files&&this.files[0]){importSave(this.files[0]);this.value=\'\';}"></label>' +
+    '<button class="btn btn-ghost btn-sm" data-close="overlay-save">Close</button>' +
+    '</div>'
+  );
+  body.innerHTML = parts.join('');
+  // Wire slot clicks
+  body.querySelectorAll('.save-slot-card').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var key = el.getAttribute('data-slot');
+      var m = el.getAttribute('data-mode') || 'save';
+      if (m === 'load') {
+        if (!localStorage.getItem(key)) { showToast('That slot is empty.'); return; }
+        if (loadFromSlot(key)) {
+          closeOverlay('overlay-save');
+          showToast('Loaded ' + _slotLabelFor(key) + '.');
+        }
+      } else {
+        saveToSlot(key);
+        closeOverlay('overlay-save');
+        showToast('Saved to ' + _slotLabelFor(key) + '.');
+      }
+    });
+  });
+  // Wire close buttons
+  body.querySelectorAll('[data-close="overlay-save"]').forEach(function(el) {
+    el.addEventListener('click', function() { closeOverlay('overlay-save'); });
+  });
+  showOverlay('overlay-save');
+}
+
 // Legacy key helper (used by death screen cleanup)
 function saveKey() {
-  if (G.runId) return 'loa_run_' + G.runId + '_s' + (G._lastSlot || 1);
-  if (!G.name || !G.passcode) return null;
-  return 'loa_save_' + G.name.toLowerCase().replace(/\s+/g,'_') + '_' + G.passcode;
+  return (G && G.lastUsedSlot) || 'loa_slot_1';
 }
 
 // ── TOAST ────────────────────────────────────────────────
