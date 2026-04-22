@@ -8978,6 +8978,7 @@ window.getNPCToneText = getNPCToneText;
 
 function checkNeutralArcScene() {
   if (!window.G) return;
+  if (!G.worldClocks) G.worldClocks = {};
   var b = Math.abs(G.benevolence || 0);
   var o = Math.abs(G.orderAxis || 0);
   var inv = G.investigationProgress || 0;
@@ -10685,6 +10686,8 @@ function importSave(file) {
   reader.readAsText(file);
 }
 
+function _htmlEsc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
 function showSaveModal(mode) {
   // mode: 'save' (default) or 'load'
   mode = mode || 'save';
@@ -10708,10 +10711,10 @@ function showSaveModal(mode) {
       var when = meta.savedAt ? new Date(meta.savedAt).toLocaleString() : 'unknown time';
       parts.push(
         '<div class="save-slot-card" data-slot="' + key + '" data-mode="' + mode + '">' +
-        '<div style="font-weight:600">' + label + ' &mdash; ' + meta.name + '</div>' +
-        '<div style="font-size:12px;color:var(--ink-dim)">Level ' + meta.level + ' &middot; ' + meta.stage +
-        (meta.caseCode ? ' &middot; Case ' + meta.caseCode : '') + '</div>' +
-        '<div style="font-size:11px;color:var(--ink-faint)">Saved ' + when + '</div>' +
+        '<div style="font-weight:600">' + label + ' &mdash; ' + _htmlEsc(meta.name) + '</div>' +
+        '<div style="font-size:12px;color:var(--ink-dim)">Level ' + meta.level + ' &middot; ' + _htmlEsc(meta.stage) +
+        (meta.caseCode ? ' &middot; Case ' + _htmlEsc(meta.caseCode) : '') + '</div>' +
+        '<div style="font-size:11px;color:var(--ink-faint)">Saved ' + _htmlEsc(when) + '</div>' +
         '</div>'
       );
     } else {
@@ -39941,6 +39944,7 @@ var SCOPE_REVEAL = (function() {
       { id: 'scope_take_document', text: 'Take the document. It should not be here.', tag: 'safe',
         action: function() {
           window.G.flags.scope_reveal_document_taken = true;
+          window.G.investigationProgress = Math.max(6, (window.G.investigationProgress || 0) + 1);
           if (typeof addNarration === 'function') addNarration('', 'You fold it into your case notes. Evidence. Pattern. Purpose.');
           if (typeof checkStageAdvance === 'function') checkStageAdvance();
         }
@@ -40028,7 +40032,7 @@ var SOREHEIM_STAGE1 = (function() {
   function resolveCorrect() {
     var G = window.G;
     G.lastResult = 'The clerk — a young woman who clearly understands exactly what she has been participating in — makes the correction quietly and thanks you in a way that suggests she has been waiting for someone to give her a reason to. The record is right. Nobody is watching.';
-    G.investigationProgress = Math.max(G.investigationProgress || 0, (G.investigationProgress || 0) + 1);
+    G.investigationProgress = (G.investigationProgress || 0) + 1;
     G.flags.sideplot_interim_seat_complete = true;
     G.flags.interim_seat_resolution = 'corrected';
     _close();
@@ -42254,7 +42258,7 @@ function handleEnrichedChoice(choice) {
   // Reverence bonus: at reverence >= 7, reduce DC by 1 on social/persuasion checks
   var reverenceBonus = 0;
   if ((G.worldClocks.reverence || 0) >= 7) {
-    var socialSkills = ['persuasion', 'performance', 'empathy'];
+    var socialSkills = ['charm', 'spirit'];
     if (socialSkills.indexOf(choice.skill) !== -1 ||
         (choice.tag === 'safe' && choice.plot !== 'main')) {
       reverenceBonus = 1;
@@ -42472,10 +42476,12 @@ window.handleChoice = function(choice) {
   if (choice && (choice.align === 'chaotic' || choice.tag === 'bold')) {
     if (typeof shiftTension === 'function') shiftTension(1);
   }
-  // Risky investigation choices advance the omens clock
+  // Risky investigation choices advance the omens clock (once per unique choice id)
   if (choice && (choice.tag === 'risky' || choice.tag === 'bold') &&
       (choice.plot === 'main' || choice.skill === 'lore' || choice.skill === 'wits')) {
-    if (window.G && G.worldClocks) {
+    var _omenCid = choice.id || choice.cid || choice.text;
+    if (window.G && G.worldClocks && _omenCid && !G.seenChoices['_omen_' + _omenCid]) {
+      G.seenChoices['_omen_' + _omenCid] = true;
       G.worldClocks.omens = Math.min(10, (G.worldClocks.omens || 0) + 1);
     }
   }
