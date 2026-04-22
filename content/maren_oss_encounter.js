@@ -12,7 +12,17 @@ var MAREN_OSS_ENCOUNTER = (function() {
     if (!G || G.flags.maren_oss_trail_found || G.flags.maren_oss_encounter_done) return;
     G.flags.maren_oss_trail_found = true;
 
-    G.lastResult = 'The shelf is organized by acquisition date, not subject — whoever filed these did not want them found. Behind a monograph on transit law, a thin folder with no name on the cover. Inside: case notes. Someone has been mapping the same case. The handwriting is precise, unhurried. The analysis is two steps ahead of yours. At the bottom of the last page, a single annotation in different ink — added after, by a different hand: "Subject is operational. Do not interfere with their findings."';
+    var archetypeObservation = '';
+    if (G.archetype && G.archetype.group === 'support') {
+      archetypeObservation = ' The source chain they used is the same one you would have used — not the obvious route, but the one that runs through supply manifests.';
+    } else if (G.archetype && G.archetype.group === 'stealth') {
+      archetypeObservation = ' The filing location is not accidental. Whoever placed this here knows how archives are searched.';
+    } else if (G.archetype && G.archetype.group === 'magic') {
+      archetypeObservation = ' The notation in the margins uses a referencing shorthand you recognize from Collegium record-keeping — this was written by someone with institutional training.';
+    } else if (G.archetype && G.archetype.group === 'combat') {
+      archetypeObservation = ' The annotations are written as if the author knew they were being watched. Every reference is oblique, nothing named directly.';
+    }
+    G.lastResult = 'The shelf is organized by acquisition date, not subject — whoever filed these did not want them found. Behind a monograph on transit law, a thin folder with no name on the cover. Inside: case notes. Someone has been mapping the same case. The handwriting is precise, unhurried. The analysis is two steps ahead of yours.' + archetypeObservation + ' At the bottom of the last page, a single annotation in different ink — added after, by a different hand: "Subject is operational. Do not interfere with their findings."';
     G.recentOutcomeType = 'discovery';
     window.addJournal('investigation', G.lastResult);
     if (typeof addNarration === 'function') addNarration('Found — Archive Shelf', G.lastResult);
@@ -46,7 +56,11 @@ var MAREN_OSS_ENCOUNTER = (function() {
     var G = window.G;
     var r = rollD20('wits');
     if (r.success) {
-      G.lastResult = 'You read carefully, piecing together a methodology that mirrors your own but extends further. Whoever wrote these has access to sources you have not found yet — and has been at this longer. You leave the folder exactly as you found it. Walking out, you find yourself rethinking two assumptions you had treated as settled.';
+      var renownLine = '';
+      if ((G.renown || 0) >= 10) {
+        renownLine = ' Near the end, a margin note references "the new party" making similar inquiries — followed by a description that matches you closely enough to be intentional. She already knows who you are.';
+      }
+      G.lastResult = 'You read carefully, piecing together a methodology that mirrors your own but extends further. Whoever wrote these has access to sources you have not found yet — and has been at this longer. You leave the folder exactly as you found it. Walking out, you find yourself rethinking two assumptions you had treated as settled.' + renownLine;
       G.flags.maren_oss_profiled = true;
       G.investigationProgress = Math.max(G.investigationProgress || 0, 6);
       G.recentOutcomeType = 'success';

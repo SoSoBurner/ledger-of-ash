@@ -34,7 +34,10 @@ var STAGE2_CLIMAX = (function() {
     var G = window.G;
     var r = _roll('persuasion', 14);
     if (r.success) {
-      G.lastResult = 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk, then gives you her full attention. She listens without speaking. When you finish, she says: "You have been thorough. Perhaps too thorough. We will be watching." She rises to indicate the meeting is over. You are not detained. The door closes behind you with the quiet click of something not quite resolved.';
+      var orvethOpener = (G.renown || 0) >= 10
+        ? 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk. "I had heard your name before you were shown in. That is unusual for someone at your stage of things." She gives you her full attention.'
+        : 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk, then gives you her full attention.';
+      G.lastResult = orvethOpener + ' She listens without speaking. When you finish, she says: "You have been thorough. Perhaps too thorough. We will be watching." She rises to indicate the meeting is over. You are not detained. The door closes behind you with the quiet click of something not quite resolved.';
       G.flags.stage2_climax_negotiated = true;
       if (r.isCrit) { G.lastResult += ' At the door, she stops you: "If you find what I think you will find — bring it to me first. Before anyone else." She does not wait for an answer.'; G.flags.stage2_climax_inquisitor_contact = true; }
       G.recentOutcomeType = 'success';
