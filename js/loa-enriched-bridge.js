@@ -473,7 +473,7 @@ function handleEnrichedChoice(choice) {
   // Reverence bonus: at reverence >= 7, reduce DC by 1 on social/persuasion checks
   var reverenceBonus = 0;
   if ((G.worldClocks.reverence || 0) >= 7) {
-    var socialSkills = ['persuasion', 'performance', 'empathy'];
+    var socialSkills = ['charm', 'spirit'];
     if (socialSkills.indexOf(choice.skill) !== -1 ||
         (choice.tag === 'safe' && choice.plot !== 'main')) {
       reverenceBonus = 1;
@@ -691,10 +691,12 @@ window.handleChoice = function(choice) {
   if (choice && (choice.align === 'chaotic' || choice.tag === 'bold')) {
     if (typeof shiftTension === 'function') shiftTension(1);
   }
-  // Risky investigation choices advance the omens clock
+  // Risky investigation choices advance the omens clock (once per unique choice id)
   if (choice && (choice.tag === 'risky' || choice.tag === 'bold') &&
       (choice.plot === 'main' || choice.skill === 'lore' || choice.skill === 'wits')) {
-    if (window.G && G.worldClocks) {
+    var _omenCid = choice.id || choice.cid || choice.text;
+    if (window.G && G.worldClocks && _omenCid && !G.seenChoices['_omen_' + _omenCid]) {
+      G.seenChoices['_omen_' + _omenCid] = true;
       G.worldClocks.omens = Math.min(10, (G.worldClocks.omens || 0) + 1);
     }
   }
