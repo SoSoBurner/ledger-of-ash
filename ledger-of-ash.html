@@ -1023,6 +1023,8 @@ input, button, select, textarea { font-family: inherit; }
 }
 .choice-btn.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
 .choice-btn.tension-hot  { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
+.npc-container.tension-warn, .npc-display.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
+.npc-container.tension-hot, .npc-display.tension-hot   { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
 @keyframes pulse-red { 0%,100% { box-shadow: 0 0 8px rgba(139,32,32,0.45); } 50% { box-shadow: 0 0 16px rgba(139,32,32,0.75); } }
 .choice-tutorial-hint { font-size: 0.78em; color: var(--ink-mid, #c4b49a); font-style: italic; padding: 0.2em 0.75em 0.5em; }
 
@@ -8203,6 +8205,11 @@ function renderChoices(choices) {
     if (c.plot === 'main') btnClasses += ' plot-main';
     if (window.G && (window.G.tensionLevel||0) >= 1) btnClasses += ' tension-warn';
     if (window.G && (window.G.tensionLevel||0) >= 2) btnClasses += ' tension-hot';
+    var npcEl = document.getElementById('npc-container') || document.getElementById('npc-display');
+    if (npcEl) {
+      npcEl.classList.toggle('tension-warn', (window.G && (window.G.tensionLevel||0) >= 1));
+      npcEl.classList.toggle('tension-hot',  (window.G && (window.G.tensionLevel||0) >= 2));
+    }
     html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + '>' +
       '<span class="choice-text">' + c.text + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
       '<span class="choice-meta">' +
@@ -8356,7 +8363,7 @@ function useTrait() {
   G._traitBonus = entry.bonus;
   addNarration('', '+' + entry.bonus.n + ' to ' + entry.bonus.skill + ' on your next action.');
   saveGame(); updateHUD();
-  setTimeout(() => renderChoices(entry.choices), 300);
+  if (typeof showToast === 'function') showToast('Trait activated.');
 }
 
 // ── CHOICE RESOLUTION ─────────────────────────────────────
@@ -8861,12 +8868,12 @@ function showLevelUpScreen() {
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
 
   const STAT_DISPLAY = [
-    { key:'combat',     name:'Might',   hint:'Physical power and weapon skill' },
-    { key:'stealth',    name:'Finesse', hint:'Agility, precision, subtlety' },
-    { key:'survival',   name:'Vigor',   hint:'Endurance and resilience' },
-    { key:'lore',       name:'Wits',    hint:'Intelligence, perception, memory' },
-    { key:'persuasion', name:'Charm',   hint:'Influence, presence, diplomacy' },
-    { key:'craft',      name:'Spirit',  hint:'Willpower, faith, inner force' },
+    { key:'combat',     name:'Might',   hint:'Governs combat rolls, forced entry, and feats of physical strength.' },
+    { key:'stealth',    name:'Finesse', hint:'Governs stealth, picking locks, sleight of hand, and precision strikes.' },
+    { key:'survival',   name:'Vigor',   hint:'Governs endurance, resistance to wounds, and survival checks.' },
+    { key:'lore',       name:'Wits',    hint:'Governs investigation, lore, trap disarmament, and tactical reads.' },
+    { key:'persuasion', name:'Charm',   hint:'Governs persuasion, deception, social maneuvering, and first impressions.' },
+    { key:'craft',      name:'Spirit',  hint:'Governs healing, crafting, ritual knowledge, and attunement to the unseen.' },
   ];
 
   addNarration('', '<em class="level-up-msg">&#x2014; LEVEL ' + G.level + ' REACHED &#x2014;</em><br><span style="color:var(--gold-dim);font-size:13px">' + getRenownedTitle() + ' &middot; ' + (G.stageLabel||G.stage) + '</span>');
@@ -9467,6 +9474,11 @@ function showMap() {
 
 // ── LOCAL NPC MENU ────────────────────────────────────────
 function showNPCMenu() {
+  var G = window.G;
+  if (!G || !G.location) {
+    if (typeof showToast === 'function') showToast('Travel to a settlement to find contacts.');
+    return;
+  }
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_npc');
   const loc = WORLD_LOCATIONS[G.location];
   if (!loc) return;
