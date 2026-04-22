@@ -1100,6 +1100,14 @@ input, button, select, textarea { font-family: inherit; }
 .r-empty { font-family: 'Crimson Pro', serif; font-size: 13.2px; color: var(--ink-faint); }
 .r-empty.italic { font-style: italic; }
 
+/* World clock bars */
+.clock-row { display:flex; align-items:center; gap:6px; margin-bottom:5px; font-size:0.78em; }
+.clock-label { color:var(--ink-dim); width:80px; flex-shrink:0; }
+.clock-track { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+.clock-fill { height:100%; background:var(--ember-lo,#8b4a1a); border-radius:2px; transition:width 0.3s; }
+.clock-val { color:var(--ink-faint); width:16px; text-align:right; flex-shrink:0; }
+.world-notice { font-size:0.78em; color:var(--ink-faint); font-style:italic; margin:4px 0 0; }
+
 /* Quest items */
 .quest-item {
   font-family: 'Crimson Pro', serif; font-size: 14.3px; color: var(--gold-lo);
@@ -1766,6 +1774,14 @@ input, button, select, textarea { font-family: inherit; }
         <div id="faction-list"></div>
       </div>
       <div class="r-section" id="party-hud"></div>
+      <div class="r-section">
+        <div class="r-section-title"><span class="r-icon">&#x29BF;</span> World Clocks</div>
+        <div id="tab-world"><div class="r-empty">No pressures recorded.</div></div>
+      </div>
+      <div class="r-section">
+        <div class="r-section-title"><span class="r-icon">&#x2605;</span> Party</div>
+        <div id="tab-party"><div class="r-empty">Traveling alone.</div></div>
+      </div>
       <div class="r-section">
         <div class="r-section-title"><span class="r-icon">&#x25CE;</span> Ledger</div>
         <div id="journal-list"><div class="r-empty italic">Your ledger awaits its first entry.</div></div>
@@ -10167,6 +10183,8 @@ function updateHUD() {
   updateStageProgressBar();
   updateSafeStreakHUD();
   updateCaseFileHUD();
+  updateWorldTab();
+  updatePartyTab();
 }
 
 function updateSafeStreakHUD() {
@@ -10196,6 +10214,70 @@ function updateCaseFileHUD() {
     container.style.display = 'none';
   }
 }
+
+function updateEnvDesc(text) {
+  var el = document.querySelector('.env-desc');
+  if (el) el.innerHTML = text ? '<p>' + text + '</p>' : '';
+}
+window.updateEnvDesc = updateEnvDesc;
+
+function showSandboxPanel() {
+  if (!window.G || !G.location) return;
+  var kl = window.KEY_LOCALITIES || {};
+  var loc = kl[G.location];
+  var locName = loc ? (loc.name || G.location) : G.location;
+  var choices = [];
+  choices.push({ id:'sandbox_look', text:'Look around ' + locName + '.', sandbox:true,
+    action: function() {
+      var narr = (window.LOCALITY_NARRATIONS || {})[G.location];
+      updateEnvDesc(narr || 'You take in your surroundings.');
+      addNarration('', narr || 'Nothing unusual catches your eye.');
+      showSandboxPanel();
+    }
+  });
+  choices.push({ id:'sandbox_camp', text:'Make camp.', sandbox:true,
+    action: function() { if (typeof showCampMenu === 'function') showCampMenu(); }
+  });
+  window.renderChoices(choices);
+}
+window.showSandboxPanel = showSandboxPanel;
+
+function updateWorldTab() {
+  var el = document.getElementById('tab-world');
+  if (!el || !window.G || !G.worldClocks) return;
+  var clocks = ['pressure','watchfulness','rival','reverence','omens','isolation'];
+  var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'Rival',reverence:'Reverence',omens:'Omens',isolation:'Isolation'};
+  var html = clocks.map(function(c) {
+    var val = Math.max(0, G.worldClocks[c] || 0);
+    var pct = Math.min(100, (val / 10) * 100);
+    return '<div class="clock-row"><span class="clock-label">' + labels[c] + '</span>' +
+           '<div class="clock-track"><div class="clock-fill" style="width:' + pct + '%"></div></div>' +
+           '<span class="clock-val">' + val + '</span></div>';
+  }).join('');
+  var notices = (G.worldNotices || []).slice(-3).map(function(n){ return '<p class="world-notice">' + n + '</p>'; }).join('');
+  el.innerHTML = '<h4 style="margin:0 0 8px;font-size:0.8em;color:var(--ink-dim)">WORLD CLOCKS</h4>' + html + notices;
+}
+window.updateWorldTab = updateWorldTab;
+
+function updatePartyTab() {
+  var el = document.getElementById('tab-party');
+  if (!el || !window.G) return;
+  var companions = G.companions ? (Array.isArray(G.companions) ? G.companions : Object.values(G.companions)) : [];
+  var active = companions.filter(function(c){ return c.active; });
+  if (!active.length) { el.innerHTML = '<p style="color:var(--ink-dim);font-size:0.85em">No companions.</p>'; return; }
+  var html = active.map(function(c) {
+    var def = (window.COMPANION_DEFS || {})[c.id] || {};
+    var strikes = c.strikes || 0;
+    var pct = Math.min(100, (strikes / 5) * 100);
+    var col = strikes >= 3 ? 'var(--blood,#8b1a1a)' : strikes >= 1 ? 'var(--gold,#c9a227)' : 'var(--clover,#4a7c4e)';
+    return '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:0.85em"><span>' +
+           (def.name || c.id) + '</span><span style="color:var(--ink-dim);font-size:0.75em">' + (c.archetype || '') + '</span></div>' +
+           '<div style="height:3px;background:var(--border);border-radius:2px;margin-top:3px">' +
+           '<div style="width:' + pct + '%;height:100%;background:' + col + ';border-radius:2px"></div></div></div>';
+  }).join('');
+  el.innerHTML = '<h4 style="margin:0 0 8px;font-size:0.8em;color:var(--ink-dim)">PARTY</h4>' + html;
+}
+window.updatePartyTab = updatePartyTab;
 
 function updateStageProgressBar() {
   if (!window.G) return;
