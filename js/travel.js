@@ -24,6 +24,18 @@
     stellar_remnant:  ['ashgate_crossing','astral_divide']
   };
 
+  window.PRINCIPALITIES_ROUTE = [
+    { id:'crossing_the_brinelands', name:'The Brinelands Crossing',
+      narration:'The Brinelands stretch flat and salt-white under a pale sky. Caravans move in loose clusters here, wary of the open ground. The far shore is a brown smear against the horizon — the Principality of Shelk beginning its slow rise. A merchant argues with her cart driver about weight limits. Nobody agrees on anything out here except the direction of travel.',
+      encounterChance:0.25, enemyPool:['brinelands_bandit','desperate_traveler'] },
+    { id:'shelk_border_approach', name:'Shelk Border Road',
+      narration:'The road narrows and the stone changes character — quarried, deliberate, laid by a civilization that planned ahead. Iron Accord checkpoints appear at intervals: a gatepost, a ledger, a bored clerk with a stamp. The smell of the city reaches you before it comes into view. Something burning. Something cooking. Something old.',
+      encounterChance:0.15, enemyPool:['toll_collector','patrol_guard'] },
+    { id:'shelkopolis_gates', name:'The Gates of Shelkopolis',
+      narration:'The city announces itself with noise before architecture: vendors, quarrels, the creak of loaded carts on ancient paving stones. The gates are iron and old, half-decorative now, flanked by city wardens who watch without urgency. A letter of introduction helps. A convincing face helps more. You step through.',
+      encounterChance:0, destination:'shelkopolis' }
+  ];
+
   const PORT_LOCALITIES = ['cosmoria','panim_haven','guildheart_hub','plumes_end_outpost'];
   const AIRSHIP_LOCALITIES = {cosmoria:3, guildheart_hub:4};
 
@@ -299,6 +311,23 @@
     }
 
     if(window._travelCoreTravelTo) window._travelCoreTravelTo(destId);
+
+    // Fog of war: mark visited
+    const G2 = window._travelEngineG;
+    if(G2){
+      G2.discoveredLocalities = G2.discoveredLocalities || {};
+      G2.discoveredLocalities[destId] = 'visited';
+      // First-visit narration
+      const narr = (window.LOCALITY_NARRATIONS || {})[destId];
+      if(narr){
+        if(typeof updateEnvDesc === 'function') updateEnvDesc(narr);
+        if(!G2.flags['visited_' + destId]){
+          G2.flags['visited_' + destId] = true;
+          if(typeof addNarration === 'function') addNarration('Arriving', narr);
+        }
+      }
+    }
+
     window._travelRender && window._travelRender();
   }
 
@@ -465,6 +494,20 @@
     // ── Long-distance destinations ───────────────────────────────────────────
     // Only from settlements (not while in a district)
     if(!isDistrict){
+      // Principalities route button (Stage II, non-Principalities player, route unlocked)
+      if(G.flags && G.flags.principalities_route_unlocked && !G.flags.principalities_route_complete){
+        const lmEntry = lm[G.startingLocality || G.location] || {};
+        const startPolity = lmEntry.parent_polity && lmEntry.parent_polity.normalized_key;
+        if(startPolity && startPolity !== 'principality_of_shelk'){
+          html += `<div class='travelGroupHeader'>The Long Road</div>`;
+          html += `<div class='travelDestCard' style='border-color:var(--gold,#c9a227)'>`;
+          html += `<div class='travelDestName'>Journey to the Principalities</div>`;
+          html += `<div class='travelDestPolity' style='font-style:italic'>A three-day road. Encounters possible.</div>`;
+          html += `<div class='travelModeBtns'><button class='travelModeBtn' onclick='window.startPrincipalitiesRoute()'>`;
+          html += `<span class='travelModeName'>Begin the Journey</span>`;
+          html += `<span class='travelModeCost'>Free \u00b7 3 days</span></button></div></div>`;
+        }
+      }
       const dest = getAvailableDestinations(G);
       html += `<div class='travelDestList'>`;
       if(dest.length===0){
@@ -477,8 +520,10 @@
           html += `<div class='travelGroupHeader'>${gk}</div>`;
           for(const loc of groups[gk]){
             const modes = getTravelModes(loc, G);
-            html += `<div class='travelDestCard'>`;
-            html += `<div class='travelDestName'>${loc.name}`;
+            const disc = (G.discoveredLocalities || {})[loc.id];
+            const dispName = !disc ? '[Unknown]' : (disc === 'rumor' ? loc.name + ' <span class="travelRumorTag">heard of</span>' : loc.name);
+            html += `<div class='travelDestCard${!disc ? ' travelDestUnknown' : ''}'>`;
+            html += `<div class='travelDestName'>${dispName}`;
             if(COSMIC_IDS.includes(loc.id)) html += ` <span class='travelCosmicTag'>Cosmic</span>`;
             html += `</div>`;
             const polityRaw = loc.parent_polity?.raw_value || loc.polity || '';
@@ -502,6 +547,43 @@
     html += `</div>`;
     el.innerHTML = html;
   }
+
+  // ── Principalities leg-by-leg route ────────────────────────────────────────
+
+  function startPrincipalitiesRoute(){
+    const G = window._travelEngineG || window.G;
+    if(!G || !G.flags || !G.flags.principalities_route_unlocked) return;
+    if(G.flags.principalities_route_complete){ executeTravelTo('shelkopolis','foot'); return; }
+    G._routeProgress = G._routeProgress || 0;
+    advancePrincipalitiesLeg();
+  }
+
+  function advancePrincipalitiesLeg(){
+    const G = window._travelEngineG || window.G;
+    const route = window.PRINCIPALITIES_ROUTE;
+    const leg = route[G._routeProgress || 0];
+    if(!leg){ G.flags.principalities_route_complete = true; executeTravelTo('shelkopolis','foot'); return; }
+    if(typeof updateEnvDesc === 'function') updateEnvDesc(leg.narration);
+    if(typeof addNarration === 'function') addNarration(leg.name, leg.narration);
+    if(leg.encounterChance > 0 && Math.random() < leg.encounterChance){
+      const enemy = leg.enemyPool[Math.floor(Math.random()*leg.enemyPool.length)];
+      if(typeof addNarration === 'function') addNarration('Encounter','The road is not empty.');
+      setTimeout(function(){
+        if(typeof startCombat === 'function') startCombat(enemy, {routeLeg:leg.id});
+        else advancePrincipalitiesLeg();
+      }, 600);
+      return;
+    }
+    G._routeProgress = (G._routeProgress || 0) + 1;
+    if(leg.destination){ executeTravelTo(leg.destination,'foot'); return; }
+    const legId = leg.id;
+    window.renderChoices && window.renderChoices([{
+      id:'route_continue_'+legId, text:'Continue toward Shelkopolis.', sandbox:true,
+      action: function(){ advancePrincipalitiesLeg(); }
+    }]);
+  }
+
+  window.startPrincipalitiesRoute = startPrincipalitiesRoute;
 
   // ── Public API ─────────────────────────────────────────────────────────────
 

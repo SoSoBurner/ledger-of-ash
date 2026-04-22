@@ -678,6 +678,13 @@ window.handleChoice = function(choice) {
   if (choice) {
     _maybeIncrementIsolation(choice);
     if (window.G) window.G._lastChoice = choice;
+    // Fog of war: reveals_locality marks a place as rumored
+    if (window.G && choice.reveals_locality) {
+      window.G.discoveredLocalities = window.G.discoveredLocalities || {};
+      if (!window.G.discoveredLocalities[choice.reveals_locality]) {
+        window.G.discoveredLocalities[choice.reveals_locality] = 'rumor';
+      }
+    }
   }
   _origHandleChoice(choice);
   _autoSaveTick();
