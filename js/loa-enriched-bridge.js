@@ -668,6 +668,10 @@ window.handleChoice = function(choice) {
     _autoSaveTick();
     return;
   }
+  if (choice) {
+    _maybeIncrementIsolation(choice);
+    if (window.G) window.G._lastChoice = choice;
+  }
   _origHandleChoice(choice);
   _autoSaveTick();
   if (choice && (choice.align === 'chaotic' || choice.tag === 'bold')) {
@@ -734,7 +738,7 @@ if (typeof _origEnterPasscode === 'function') {
 
 // ── SIDEPLOT TRIGGERS ────────────────────────────────────
 var SIDEPLOT_TRIGGERS = [
-  { id:'cosmoria_weight_fraud', locality:'cosmoria_harbor', clock:'pressure', threshold:3, flag:'sideplot_cosmoria_started',
+  { id:'cosmoria_weight_fraud', locality:'cosmoria', clock:'pressure', threshold:3, flag:'sideplot_cosmoria_started',
     openingText:'At the Cosmoria docks, a stevedore pulls you aside. "The harbor master has been signing off weights he hasn\'t measured. Three ships have been shorted this month alone. The guild knows and isn\'t acting." He presses a folded manifest into your hand.',
     choiceText:'Examine the harbor weight discrepancies.' },
   { id:'fairhaven_mill', locality:'fairhaven', clock:'isolation', threshold:3, flag:'sideplot_fairhaven_started',
@@ -753,11 +757,25 @@ var SIDEPLOT_TRIGGERS = [
     choiceText:'Investigate the parallel permit seal scheme.' }
 ];
 
+function _maybeIncrementIsolation(choice) {
+  var G = window.G;
+  if (!G || !G.worldClocks) return;
+  // Camp/break choices (passive_intel cid) in Stage I without active companions
+  var cid = choice.cid || choice.id || '';
+  if (cid === 'passive_intel' || cid === 'market_intel') {
+    var activeCompanions = (G.companions || []).filter(function(c) { return c.active; });
+    if (activeCompanions.length === 0) {
+      G.worldClocks.isolation = (G.worldClocks.isolation || 0) + 1;
+    }
+  }
+}
+
 window._checkSideplots = function() {
   var G = window.G;
   if (!G) return;
   var loc = (G.currentLocality || G.location || '').toLowerCase();
   SIDEPLOT_TRIGGERS.forEach(function(sp) {
+    if (G._lastChoice) _maybeIncrementIsolation(G._lastChoice);
     if (G.flags && G.flags[sp.flag]) return;
     if (loc.indexOf(sp.locality) === -1) return;
     if (sp.thresholdFn) {
