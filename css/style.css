@@ -1257,6 +1257,44 @@ input, button, select, textarea { font-family: inherit; }
 .env-pill.warn { background: rgba(184,124,24,.14); border-color: var(--gold-lo); color: var(--gold); }
 
 
+/* ═══ SAVE SLOT CARDS ════════════════════════════════════════════ */
+.save-slot-card {
+  background: linear-gradient(180deg, var(--cinder) 0%, var(--char) 100%);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-warm);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .18s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  font-family: 'Crimson Pro', serif;
+  color: var(--ink);
+}
+.save-slot-card:hover {
+  border-color: var(--ember-lo);
+  border-left-color: var(--ember);
+  background: linear-gradient(180deg, var(--slate) 0%, var(--cinder) 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,.45), 0 0 0 1px var(--ember-lo);
+  transform: translateY(-1px);
+}
+.save-slot-card:active {
+  transform: translateY(0);
+}
+.save-slot-card.save-slot-empty {
+  border-left-color: var(--border-hi);
+  opacity: .6;
+  cursor: default;
+}
+.save-slot-card.save-slot-empty:hover {
+  border-left-color: var(--jade-bright);
+  opacity: .85;
+  background: linear-gradient(180deg, var(--cinder) 0%, var(--char) 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  transform: none;
+}
+
+
 /* ═══ RESPONSIVE ══════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .game-body { grid-template-columns: 192px 1fr 200px; }
