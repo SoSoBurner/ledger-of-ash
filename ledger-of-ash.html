@@ -7667,6 +7667,7 @@ function initCreate() {
         stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
         nomdara_last_visit_locality:null,
         seenChoices:{},
+        startingLocality:'shelkopolis',
         schemaVersion:6 };
   _awaitingLevelUp = false;
 
@@ -7871,6 +7872,7 @@ function beginLegend() {
   G.gold = G.archetype.startGold;
   G.traits = [{ name:G.archetype.trait, desc:G.archetype.traitDesc, used:false }];
   G.location = BG_LOCATION_MAP[G.background.region] || 'shelkopolis';
+  G.startingLocality = G.location;
   G.history.push('Born as ' + G.name + ', ' + G.archetype.name + ' of ' + G.background.region + '.');
   G.history.push(G.background.opening);
   G.factions = FACTIONS_BASE.map(f => ({ id:f.id, name:f.name, rep:f.rep }));
@@ -8804,6 +8806,7 @@ function _showStage3BlockerLegacy() {
 function checkStageAdvance() {
   if (G.level === 6 && G.stage === 'Stage I') {
     G.stage = 'Stage II'; G.stageLabel = 'Local Inter-Polity';
+    G.flags.principalities_route_unlocked = true;
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE II UNLOCKED &#x2014; The world widens. You may now travel beyond your origin polity where routes support it.</em>');
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
     G.history.push('Completed Stage I. Entered the wider world at Level 6.');
@@ -10021,6 +10024,7 @@ function migrateState(loaded) {
     }
   }
   if (!loaded.seenChoices) loaded.seenChoices = {};
+  if (!loaded.startingLocality) loaded.startingLocality = loaded.location || 'shelkopolis';
   // Migrate companion objects to strikes counter system
   (loaded.companions ? Object.values(loaded.companions) : []).forEach(function(comp) {
     if (comp.strikes === undefined) {

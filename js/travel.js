@@ -99,8 +99,52 @@
 
   // ── Destinations ───────────────────────────────────────────────────────────
 
+  const ADJACENT_POLITIES = {
+    'principality_of_shelk': ['principality_of_cosmoria', 'principality_of_fairhaven'],
+    'principality_of_cosmoria': ['principality_of_shelk', 'soreheim_western_reaches'],
+    'principality_of_fairhaven': ['principality_of_shelk', 'sheresh_northern_communes'],
+    'soreheim_western_reaches': ['principality_of_cosmoria', 'soreheim_central_range'],
+    'soreheim_central_range': ['soreheim_western_reaches', 'soreheim_eastern_reaches'],
+    'soreheim_eastern_reaches': ['soreheim_central_range'],
+    'sheresh_northern_communes': ['principality_of_fairhaven', 'sheresh_coastal_communes'],
+    'sheresh_coastal_communes': ['sheresh_northern_communes']
+  };
+
+  function _stageNum(G) {
+    if (!G || !G.stage) return 1;
+    if (typeof G.stage === 'number') return G.stage;
+    var m = String(G.stage).match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : 1;
+  }
+
+  function _canTravelByPolity(destId, G) {
+    var stageN = _stageNum(G);
+    if (stageN >= 3) return true;
+    var lm = getLM() || {};
+    var dest = lm[destId];
+    if (!dest) return true;
+    var startId = G.startingLocality || G.location || 'shelkopolis';
+    var start = lm[startId];
+    if (!start) return true;
+    var destParent = dest.parent_polity && dest.parent_polity.normalized_key;
+    var startParent = start.parent_polity && start.parent_polity.normalized_key;
+    var destUmbrella = dest.umbrella_polity && dest.umbrella_polity.normalized_key;
+    // Stage I: same parent polity only
+    if (stageN === 1) return destParent === startParent;
+    // Stage II: same parent, adjacent, or Principalities route unlocked
+    if (stageN === 2) {
+      if (destParent === startParent) return true;
+      var adj = ADJACENT_POLITIES[startParent] || [];
+      if (adj.indexOf(destParent) !== -1) return true;
+      if (G.flags && G.flags.principalities_route_unlocked && destUmbrella === 'the_principalities') return true;
+      return false;
+    }
+    return true;
+  }
+
   function getAvailableDestinations(G){
-    const stage = G.stage||1;
+    const stageN = _stageNum(G);
+    const stage = stageN;
     // If in a district, travel departs from parent settlement
     const travelFrom = getSettlementId(G.location);
     const rm = getRM();
@@ -148,12 +192,8 @@
         .filter(loc => loc.distance !== 999);
     }
 
-    // Stage gate filtering
-    destinations = destinations.filter(loc => {
-      if(stage===1) return loc.distance===1;
-      if(stage===2) return loc.distance<=2;
-      return true;
-    });
+    // Stage gate filtering (polity-hierarchy based)
+    destinations = destinations.filter(loc => _canTravelByPolity(loc.id, G));
 
     // Exclude current location (important when coming from district)
     destinations = destinations.filter(loc => loc.id !== G.location && loc.id !== travelFrom);
