@@ -8254,6 +8254,28 @@ function renderChoices(choices) {
       html += '<div class="choice-tutorial-hint" data-tier="' + c.tag + '">' + _tierHints[c.tag] + '</div>';
     }
   });
+  // Combat flip: at tensionLevel 2, inject a "force it" option that opens tactical UI
+  if (window.G && (window.G.tensionLevel||0) >= 2) {
+    var fightIdx = choices.length;
+    html += '<button class="choice-btn tension-hot combat-flip-btn" data-idx="' + fightIdx + '">' +
+      '<span class="choice-text">Force it — reach for your weapon.</span>' +
+      '<span class="choice-meta"><span class="choice-tag bold">bold</span><span class="choice-align chaotic">&#x2605; chaotic</span></span></button>';
+    // Synthetic choice stored at end of _pendingChoices
+    _pendingChoices = _pendingChoices.concat([{
+      id: '_tension_combat_flip', text: 'Force it', tag: 'bold', align: 'chaotic',
+      action: function() {
+        G.tensionLevel = 0;
+        G.benevolence = (G.benevolence||0) - 3;
+        G.orderAxis   = (G.orderAxis||0)   - 3;
+        if (typeof addNarration === 'function') addNarration('', 'You reach for steel. Conversation ends.');
+        var npcId = window._activeCombatantId || null;
+        var enemy = npcId && window.ENCOUNTER_TABLE ? (window.ENCOUNTER_TABLE[npcId] || null) : null;
+        if (!enemy) enemy = { name: 'Hostile NPC', hp: 10, maxHp: 10, atk: 4, def: 8, xp: 20 };
+        if (typeof startCombat === 'function') startCombat(enemy);
+        else addNarration('', '[Combat system not loaded — enemy driven off.]');
+      }
+    }]);
+  }
   html += '</div>';
 
   // Trait use button
