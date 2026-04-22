@@ -6,6 +6,10 @@
 
 **Architecture:** The game is a single-file browser text RPG (`ledger-of-ash.html` ~10k lines) with companion JS modules in `js/`. Global state lives in `window.G`. The build script (`build.py`) inlines all `js/` files into `dist/ledger-of-ash.html`. All source edits go to the root `ledger-of-ash.html` or the `js/` files — never to `dist/`.
 
+**CRITICAL — build.py file placement:** `build.py` only picks up files explicitly listed in its `enriched_files` array. New scene files (scope_reveal, sheresh_stage1, etc.) must go in the **root directory** (same level as `ledger-of-ash.html`), NOT in `js/scenes/`. Each new root-level JS file must also be added to `build.py`'s `enriched_files` list.
+
+**Locality polity data:** `data/locality_matrix.js` already has `parent_polity.normalized_key` and `umbrella_polity.normalized_key` on all 44 localities. Task 7 uses these directly — no separate mapping needed. Polity adjacency is derived from `data/route_matrix.js` edges grouped by `parent_polity.normalized_key`.
+
 **Tech Stack:** Vanilla JS/HTML/CSS, localStorage persistence, no build dependencies beyond `build.py`.
 
 ---
@@ -19,7 +23,10 @@
 | `js/travel.js` | Stage lock system, fog of war, Principalities route |
 | `js/engine.js` | Clock increment paths, crit next-roll bonus |
 | `maren_oss_encounter.js` | Full rewrite as indirect evidence scene |
-| `js/scenes/` | New files: `scope_reveal.js`, `sheresh_stage1.js`, `soreheim_stage1.js`, `shadow_ledger_hints.js` |
+| `scope_reveal.js` | New root-level file; add to build.py enriched_files |
+| `sheresh_stage1.js` | New root-level file; add to build.py enriched_files |
+| `soreheim_stage1.js` | New root-level file (replaces interim_seat); add to build.py enriched_files |
+| `shadow_ledger_hints.js` | New root-level file; add to build.py enriched_files |
 
 ---
 
