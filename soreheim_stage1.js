@@ -73,7 +73,7 @@ var SOREHEIM_STAGE1 = (function() {
   function resolveCorrect() {
     var G = window.G;
     G.lastResult = 'The clerk — a young woman who clearly understands exactly what she has been participating in — makes the correction quietly and thanks you in a way that suggests she has been waiting for someone to give her a reason to. The record is right. Nobody is watching.';
-    G.investigationProgress = Math.max(G.investigationProgress || 0, (G.investigationProgress || 0) + 1);
+    G.investigationProgress = (G.investigationProgress || 0) + 1;
     G.flags.sideplot_interim_seat_complete = true;
     G.flags.interim_seat_resolution = 'corrected';
     _close();

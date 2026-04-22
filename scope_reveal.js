@@ -26,6 +26,7 @@ var SCOPE_REVEAL = (function() {
       { id: 'scope_take_document', text: 'Take the document. It should not be here.', tag: 'safe',
         action: function() {
           window.G.flags.scope_reveal_document_taken = true;
+          window.G.investigationProgress = Math.max(6, (window.G.investigationProgress || 0) + 1);
           if (typeof addNarration === 'function') addNarration('', 'You fold it into your case notes. Evidence. Pattern. Purpose.');
           if (typeof checkStageAdvance === 'function') checkStageAdvance();
         }

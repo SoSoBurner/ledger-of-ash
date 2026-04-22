@@ -8978,6 +8978,7 @@ window.getNPCToneText = getNPCToneText;
 
 function checkNeutralArcScene() {
   if (!window.G) return;
+  if (!G.worldClocks) G.worldClocks = {};
   var b = Math.abs(G.benevolence || 0);
   var o = Math.abs(G.orderAxis || 0);
   var inv = G.investigationProgress || 0;
@@ -10685,6 +10686,8 @@ function importSave(file) {
   reader.readAsText(file);
 }
 
+function _htmlEsc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
 function showSaveModal(mode) {
   // mode: 'save' (default) or 'load'
   mode = mode || 'save';
@@ -10708,10 +10711,10 @@ function showSaveModal(mode) {
       var when = meta.savedAt ? new Date(meta.savedAt).toLocaleString() : 'unknown time';
       parts.push(
         '<div class="save-slot-card" data-slot="' + key + '" data-mode="' + mode + '">' +
-        '<div style="font-weight:600">' + label + ' &mdash; ' + meta.name + '</div>' +
-        '<div style="font-size:12px;color:var(--ink-dim)">Level ' + meta.level + ' &middot; ' + meta.stage +
-        (meta.caseCode ? ' &middot; Case ' + meta.caseCode : '') + '</div>' +
-        '<div style="font-size:11px;color:var(--ink-faint)">Saved ' + when + '</div>' +
+        '<div style="font-weight:600">' + label + ' &mdash; ' + _htmlEsc(meta.name) + '</div>' +
+        '<div style="font-size:12px;color:var(--ink-dim)">Level ' + meta.level + ' &middot; ' + _htmlEsc(meta.stage) +
+        (meta.caseCode ? ' &middot; Case ' + _htmlEsc(meta.caseCode) : '') + '</div>' +
+        '<div style="font-size:11px;color:var(--ink-faint)">Saved ' + _htmlEsc(when) + '</div>' +
         '</div>'
       );
     } else {
