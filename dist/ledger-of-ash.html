@@ -8260,7 +8260,7 @@ function addNarration(label, html, resultType) {
 function renderChoices(choices) {
   _pendingChoices = choices;
   // Fumble backup notice (one-time)
-  if (window.G && window.G._pendingBackupChoice && !window.G.flags._taught_backup) {
+  if (window.G && window.G._pendingBackupChoices && window.G._pendingBackupChoices.length > 0 && !window.G.flags._taught_backup) {
     window.G.flags._taught_backup = true;
     if (typeof window.addWorldNotice === 'function') addWorldNotice('A path has closed. Another has opened — though it may be harder to walk.');
   }
@@ -10178,7 +10178,7 @@ function migrateState(loaded) {
   // One-time migration: old loa_save_<name>_<4digit> keys -> loa_slot_1
   try {
     if (typeof localStorage !== 'undefined' && !localStorage.getItem('loa_slot_1') && !localStorage.getItem('loa_legacy_migrated')) {
-      var oldKeys = Object.keys(localStorage).filter(function(k){ return /^loa_save_[^_]+_\d{4}$/.test(k); });
+      var oldKeys = Object.keys(localStorage).filter(function(k){ return /^loa_save_.+_\d{4}$/.test(k); });
       if (oldKeys.length) {
         // Pick the "newest" by payload size (proxy for progress) — matches spec heuristic
         var newest = oldKeys.sort(function(a,b){ return (localStorage.getItem(b)||'').length - (localStorage.getItem(a)||'').length; })[0];
@@ -10530,7 +10530,8 @@ function endLegend() {
 const SAVE_SLOT_KEYS = ['loa_slot_1', 'loa_slot_2', 'loa_slot_3'];
 
 function _generateUUID() {
-  // RFC4122 v4 UUID
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+  // RFC4122 v4 UUID fallback
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     var r = Math.random() * 16 | 0;
     return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
@@ -42350,7 +42351,7 @@ function handleEnrichedChoice(choice) {
             }
           };
           backup.dc = Math.max(8, (choice.dc || 14) - 2);
-          G._pendingBackupChoice = backup;
+          (G._pendingBackupChoices = G._pendingBackupChoices || []).push(backup);
         }
       } else if (choice.criticalSideplot === true) {
         G.flags['sideplot_failed_' + cid] = true;
@@ -42501,9 +42502,8 @@ window.renderChoices = function(choices) {
     if (midspine.length || enriched.length) choices = choices.concat(midspine).concat(enriched);
   }
   // Inject pending backup choice from fumble locking
-  if (window.G && window.G._pendingBackupChoice) {
-    choices = choices.concat([window.G._pendingBackupChoice]);
-    window.G._pendingBackupChoice = null;
+  if (window.G && window.G._pendingBackupChoices && window.G._pendingBackupChoices.length > 0) {
+    choices = choices.concat([window.G._pendingBackupChoices.shift()]);
   }
   // Inject lay_low choice when rival clock is high
   if (window.G && (window.G.worldClocks.rival || 0) >= 4) {
