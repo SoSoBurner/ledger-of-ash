@@ -339,6 +339,22 @@
     G.travelMode = false;
     if(window._travelAdvanceTime) window._travelAdvanceTime(1);
     if(window._travelCoreTravelTo) window._travelCoreTravelTo(distId);
+
+    // Fog of war: mark district as visited
+    if(G && G.discoveredLocalities !== undefined) {
+      G.discoveredLocalities[distId] = 'visited';
+    }
+
+    // First-visit narration for districts
+    const narr = (window.LOCALITY_NARRATIONS || {})[distId];
+    if(narr){
+      if(typeof updateEnvDesc === 'function') updateEnvDesc(narr);
+      if(!G.flags['visited_' + distId]){
+        G.flags['visited_' + distId] = true;
+        if(typeof addNarration === 'function') addNarration('Arriving', narr);
+      }
+    }
+
     window._travelRender && window._travelRender();
   }
 
