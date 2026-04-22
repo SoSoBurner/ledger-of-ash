@@ -86,6 +86,15 @@ def build():
         'plumes_end_outpost_stage2_enriched_choices.js',
         'districts_stage2_enriched_choices.js',
         'nomdara_stage2_choices.js',
+        # Scene modules: narrations, sideplots, reveals
+        'locality_narrations.js',
+        'scope_reveal.js',
+        'soreheim_stage1.js',
+        'sheresh_stage1.js',
+        'shadow_ledger_hints.js',
+        'maren_oss_encounter.js',
+        'stage2_antechamber.js',
+        'stage2_climax.js',
         # Stage 3: 60 choices (institutional investigation)
         'stage3_enriched_choices.js',
         # Stage 4: 50 choices (moral/ethical branches)

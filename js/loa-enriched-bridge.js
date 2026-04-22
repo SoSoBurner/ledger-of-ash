@@ -762,9 +762,11 @@ var SIDEPLOT_TRIGGERS = [
     openingText:'A clerk at the Guildheart records office is waiting when you arrive. "There\'s a gap in the testimony archive for the eastern route inquiry. Three witnesses appeared on the registered list. None of their statements are in the file." He doesn\'t look up.',
     choiceText:'Investigate the missing testimony in the Guildheart archive.' },
   { id:'interim_seat', locality:'soreheim_proper', flag:'sideplot_interim_seat_started',
-    thresholdFn: function(G) { return G.stage === 'Stage IV' || ((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 4; },
-    openingText:'Someone mentions the name Halversen twice in an hour — once at the civic registrar, once at a trade broker\'s table. The Soreheim civic seat has been held "in interim" for four months. Two bodies declared each other\'s process invalid. The deadlock has a name, and it has been collecting advisory fees from both sides.',
-    choiceText:'Look into the Soreheim succession fracture.' },
+    thresholdFn: function(G) { return ((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 2; },
+    moduleTrigger: function() { if (window.SOREHEIM_STAGE1) window.SOREHEIM_STAGE1.openingHook(); } },
+  { id:'sheresh_memory_gap', locality:'sheresh_coastal_commune', flag:'sideplot_sheresh_started',
+    thresholdFn: function(G) { return ((G.worldClocks && G.worldClocks.isolation) || 0) >= 1; },
+    moduleTrigger: function() { if (window.SHERESH_STAGE1) window.SHERESH_STAGE1.openingHook(); } },
   { id:'shadow_ledger', locality:'shelkopolis', flag:'sideplot_shadow_ledger_started',
     thresholdFn: function(G) { return ((G.worldClocks && G.worldClocks.pressure) || 0) >= 2 && (G.stage === 'Stage I' || G.stage === 'Stage II'); },
     openingText:'The permit counters have been backed up three days. A dock worker tells you why: a senior registry official has been issuing parallel seals — one for the real queue, one for immediate clearance, for a fee. Transit workers are being held at checkpoints without pay. The dock register is three days behind.',
@@ -799,10 +801,20 @@ window._checkSideplots = function() {
       if (clockVal < sp.threshold) return;
     }
     G.flags[sp.flag] = true;
-    if (typeof addNarration === 'function') addNarration('Investigation', sp.openingText);
-    if (!G._pendingSideplots) G._pendingSideplots = [];
-    G._pendingSideplots.push({ text: sp.choiceText, skill:'wits', tag:'risky', align:'neutral', cid:'sideplot_' + sp.id });
+    if (sp.moduleTrigger) {
+      setTimeout(sp.moduleTrigger, 200);
+    } else {
+      if (typeof addNarration === 'function') addNarration('Investigation', sp.openingText);
+      if (!G._pendingSideplots) G._pendingSideplots = [];
+      G._pendingSideplots.push({ text: sp.choiceText, skill:'wits', tag:'risky', align:'neutral', cid:'sideplot_' + sp.id });
+    }
   });
+  // Shadow ledger hints fire on every check
+  if (window.SHADOW_LEDGER_HINTS) window.SHADOW_LEDGER_HINTS.checkAndFire();
+  // Scope reveal fires when investigationProgress >= 5
+  if (window.SCOPE_REVEAL && (G.investigationProgress || 0) >= 5 && !G.flags.scope_reveal_shown) {
+    setTimeout(function() { window.SCOPE_REVEAL.trigger(); }, 500);
+  }
 };
 var _checkSideplots = window._checkSideplots;
 
