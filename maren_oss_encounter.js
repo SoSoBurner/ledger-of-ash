@@ -1,123 +1,98 @@
-// ═══════════════════════════════════════════════════════
-// MAREN OSS — SCRIPTED STAGE II ENCOUNTER
-// Guildheart Hub archive, Shelkopolis
-// Triggers: Stage II, rival >= 4, encounter not done, climax not started
-// ═══════════════════════════════════════════════════════
-
-window.MAREN_ENCOUNTER = (function() {
-
-  function _roll(skill, dc) {
-    var result = rollD20(skill);
-    return { success: result.total >= dc, isCrit: result.isCrit, isFumble: result.isFumble, total: result.total };
-  }
+var MAREN_OSS_ENCOUNTER = (function() {
 
   function shouldTrigger() {
     var G = window.G;
-    if (!G) return false;
-    return (
-      G.stage === 'Stage II' &&
-      (G.worldClocks.rival || 0) >= 4 &&
-      !G.flags.maren_oss_encounter_done &&
-      !G.flags.stage2_climax_started
-    );
+    return G && !G.flags.maren_oss_trail_found && !G.flags.maren_oss_encounter_done &&
+           (G.investigationProgress || 0) >= 4 &&
+           (G.location === 'guildheart_archive' || G.location === 'guildheart_hub');
   }
 
   function trigger() {
     var G = window.G;
-    G.flags.maren_oss_encounter_started = true;
+    if (!G || G.flags.maren_oss_trail_found || G.flags.maren_oss_encounter_done) return;
+    G.flags.maren_oss_trail_found = true;
 
-    addJournal('investigation',
-      'The archivist at Guildheart Hub lets slip that another investigator was here this morning — ' +
-      'a woman, licensed, asked the same questions about the Ledger registrations. ' +
-      'She left two hours ago.'
-    );
-
-    renderChoices([
-      {
-        id: 'maren_enc_follow',
-        text: 'Follow her trail — she can\'t be far. The archivist might know where she went.',
-        action: function() { _choiceFollow(); }
-      },
-      {
-        id: 'maren_enc_mislead',
-        text: 'Leave a false trail — feed the archivist misleading information she\'ll pass on if Maren returns.',
-        action: function() { _choiceMislead(); }
-      },
-      {
-        id: 'maren_enc_note',
-        text: 'Note the encounter and move on — knowing she\'s working the same case is information enough.',
-        action: function() { _choiceNote(); }
-      }
-    ]);
-  }
-
-  // Choice A — Follow her trail (persuasion DC 13)
-  function _choiceFollow() {
-    var G = window.G;
-    var r = _roll('persuasion', 13);
-    if (r.success) {
-      addJournal('investigation',
-        'The archivist, with some persuasion, describes Maren Oss — lean, methodical, carries a red-bound notebook. ' +
-        'She asked about the Soreheim registrations specifically. ' +
-        'She\'s ahead of you, but you know her angle now.'
-      );
-      G.flags.maren_oss_profiled = true;
-      G.worldClocks.rival = Math.max(0, (G.worldClocks.rival || 0) - 1);
-      gainXp(40, 'Profiled Maren Oss');
-    } else {
-      addJournal('investigation',
-        'The archivist clams up. Whatever Maren paid for discretion, it held.'
-      );
-      gainXp(20, 'Attempted to follow Maren\'s trail');
-    }
-    _conclude();
-  }
-
-  // Choice B — Leave a false trail (deception DC 11)
-  function _choiceMislead() {
-    var G = window.G;
-    var r = _roll('deception', 11);
-    if (r.success) {
-      addJournal('investigation',
-        'You describe yourself as interested in the Aurora Crown water records — entirely different from your actual inquiry. ' +
-        'If Maren comes back, she\'ll chase the wrong thread for a day.'
-      );
-      G.flags.maren_oss_misled = true;
-      G.worldClocks.rival = Math.max(0, (G.worldClocks.rival || 0) - 2);
-      gainXp(35, 'Misled Maren Oss via false trail');
-    } else {
-      addJournal('investigation',
-        'The archivist is professional and unimpressed. She\'ll remember exactly what you asked about.'
-      );
-      gainXp(15, 'Failed to plant false trail');
-    }
-    _conclude();
-  }
-
-  // Choice C — Note and move on (observation DC 0, always succeeds)
-  function _choiceNote() {
-    var G = window.G;
-    addJournal('investigation',
-      'Maren Oss is real, licensed, and close. She\'s not a rumor anymore.'
-    );
-    G.flags.maren_oss_confirmed = true;
-    gainXp(20, 'Noted Maren Oss encounter');
-    _conclude();
-  }
-
-  function _conclude() {
-    var G = window.G;
-    G.flags.maren_oss_encounter_done = true;
-    advanceTime(1);
-    if (typeof addWorldNotice === 'function') {
-      addWorldNotice('The encounter with Maren Oss is behind you. But she\'s not.');
-    }
+    G.lastResult = 'The archive shelf is organized by acquisition date, not subject — whoever filed these did not want them found. Tucked behind a monograph on transit law, a thin folder with no name on the cover. Inside: case notes. Someone has been mapping the same investigation you are running. The handwriting is precise, unhurried. The analysis is two steps ahead of yours. At the bottom of the last page, a single annotation in a different ink, added later: "Subject is operational. Do not interfere with their findings." You do not know who wrote this. But they know you exist.';
+    G.recentOutcomeType = 'discovery';
+    window.addJournal('investigation', G.lastResult);
+    if (typeof addNarration === 'function') addNarration('Found — Archive Shelf', G.lastResult);
     if (typeof updateHUD === 'function') updateHUD();
+
+    setTimeout(function() {
+      (window._rawRenderChoices || window.renderChoices)([
+        {
+          id: 'maren_evidence_study',
+          text: 'Study the notes thoroughly — record what you can before returning them.',
+          tag: 'bold',
+          action: function() { studyNotes(); }
+        },
+        {
+          id: 'maren_evidence_take',
+          text: 'Take a copy — transcribe the key sections.',
+          tag: 'risky',
+          action: function() { copyNotes(); }
+        },
+        {
+          id: 'maren_evidence_leave',
+          text: 'Leave them undisturbed. Whoever placed them here may be watching.',
+          tag: 'safe',
+          action: function() { leaveNotes(); }
+        }
+      ]);
+    }, 400);
   }
 
-  return {
-    shouldTrigger: shouldTrigger,
-    trigger: trigger
-  };
+  function studyNotes() {
+    var G = window.G;
+    var r = rollD20('wits');
+    if (r.success) {
+      G.lastResult = 'You read carefully, piecing together a methodology that mirrors your own but extends further. Whoever this investigator is, they have access to sources you have not found yet — and they have been at this longer. You leave the folder exactly as you found it. What you have read is already changing how you see the investigation.';
+      G.flags.maren_oss_profiled = true;
+      G.investigationProgress = Math.max(G.investigationProgress || 0, 6);
+      G.recentOutcomeType = 'success';
+    } else {
+      G.lastResult = 'You work quickly but cannot retain everything. The methodology is clear enough — this investigator is systematic, careful, and connected. But the specific names blur under haste. You replace the folder without the full picture.';
+      G.flags.maren_oss_profiled = true;
+      G.recentOutcomeType = 'partial';
+    }
+    _close();
+  }
 
+  function copyNotes() {
+    var G = window.G;
+    var r = rollD20('finesse');
+    if (r.success) {
+      G.lastResult = 'Your transcription is fast and clean. Three pages of methodology, two pages of source chains you have not seen before. The folder is back on the shelf before the archive clerk returns from her break. You carry more than you found.';
+      G.flags.maren_oss_profiled = true;
+      G.flags.maren_oss_notes_copied = true;
+      G.investigationProgress = Math.max(G.investigationProgress || 0, 7);
+      G.recentOutcomeType = 'success';
+    } else {
+      G.lastResult = 'The transcription takes longer than expected. The clerk returns; you manage to step away without the folder but without everything you needed. She glances at the shelf. She does not comment. But she looked.';
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      G.flags.maren_oss_profiled = true;
+      G.recentOutcomeType = 'complication';
+    }
+    _close();
+  }
+
+  function leaveNotes() {
+    var G = window.G;
+    G.lastResult = 'You replace the folder exactly as you found it. Whoever left this here may return. Whatever they want you to know, they already decided you should find it — which means the question is not whether to trust the information, but why they want you to have it.';
+    G.flags.maren_oss_suspected = true;
+    G.recentOutcomeType = 'investigation';
+    _close();
+  }
+
+  function _close() {
+    var G = window.G;
+    window.addJournal('investigation', G.lastResult);
+    if (typeof updateHUD === 'function') updateHUD();
+    if (typeof checkStageAdvance === 'function') checkStageAdvance();
+  }
+
+  return { trigger: trigger, shouldTrigger: shouldTrigger };
 })();
+
+window.MAREN_OSS_ENCOUNTER = MAREN_OSS_ENCOUNTER;
