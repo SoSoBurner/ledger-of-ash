@@ -373,10 +373,11 @@ input, button, select, textarea { font-family: inherit; }
 }
 .create-header-bar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 16px 24px; border-bottom: 1px solid var(--border-warm);
+  padding: 20px 28px; border-bottom: 1px solid var(--border-warm);
   background: rgba(0,0,0,.4); position: sticky; top: 0; z-index: 10;
   backdrop-filter: blur(8px);
 }
+#begin-btn { padding: 14px 48px; font-size: 13px; letter-spacing: 2px; }
 .create-header-title {
   font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700;
   color: var(--gold-bright); letter-spacing: 3px; text-transform: uppercase;
@@ -1655,7 +1656,7 @@ input, button, select, textarea { font-family: inherit; }
   <div class="create-header-bar">
     <button class="btn btn-ghost btn-xs" id="btn-back-title">&#x2190; Return</button>
     <div class="create-header-title">Begin Your Ledger</div>
-    <div style="width:80px"></div>
+    <button class="btn btn-primary" id="begin-btn" style="display:none">Begin Your Legend &#x2192;</button>
   </div>
   <div class="create-split">
     <div class="create-left">
@@ -1676,10 +1677,6 @@ input, button, select, textarea { font-family: inherit; }
       <div class="create-step" id="bg-step" style="display:none">
         <div class="step-label">IV &#x2014; Background</div>
         <div class="card-grid" id="background-grid"></div>
-      </div>
-      <div class="create-actions">
-        <div></div>
-        <button class="btn btn-primary" id="begin-btn" style="display:none">Begin Your Legend &#x2192;</button>
       </div>
     </div>
     <div class="create-right">
