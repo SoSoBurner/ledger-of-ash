@@ -2,6 +2,8 @@
 
 (function(){
 
+  function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
   const COSMIC_LOCALITIES = [
     {id:'fire_ascent', name:'Fire Ascent', polity:'Elemental Dominion of Ash', safeZone:'Ember Threshold Sanctuary', economicRole:'Elemental forge-site', lawFeel:'Raw elemental authority'},
     {id:'umbral_shore', name:'Umbral Shore', polity:'Court of Umbra', safeZone:'Shadow Tide Refuge', economicRole:'Umbral trade nexus', lawFeel:'Shadow court law'},
@@ -134,10 +136,10 @@
     if (stageN >= 3) return true;
     var lm = getLM() || {};
     var dest = lm[destId];
-    if (!dest) return true;
+    if (!dest) return false;
     var startId = G.startingLocality || G.location || 'shelkopolis';
     var start = lm[startId];
-    if (!start) return true;
+    if (!start) return false;
     var destParent = dest.parent_polity && dest.parent_polity.normalized_key;
     var startParent = start.parent_polity && start.parent_polity.normalized_key;
     var destUmbrella = dest.umbrella_polity && dest.umbrella_polity.normalized_key;
@@ -264,7 +266,7 @@
 
     // Airship — explicit infrastructure, stage-gated
     const airshipStageMin = AIRSHIP_LOCALITIES[travelFrom];
-    if(airshipStageMin !== undefined && (G.stage||1) >= airshipStageMin){
+    if(airshipStageMin !== undefined && _stageNum(G) >= airshipStageMin){
       const airGold = 25 + Math.floor(d*2);
       modes.push({id:'airship', label:'Airship Passage', timeCost:1, goldCost:airGold,
         desc:`${airGold} gold \u00b7 1 time unit. Magical airship.`});
@@ -304,7 +306,7 @@
       for(let i=0; i<mode.timeCost; i++) window._travelAdvanceTime(1);
     }
 
-    const chance = travelEncounterChance(G.stage);
+    const chance = travelEncounterChance(_stageNum(G));
     if(Math.random() < chance){
       window._travelAddNotice && window._travelAddNotice(`Trouble on the road to ${dest.name}.`);
       window._travelStartEncounter && window._travelStartEncounter('road');
@@ -410,10 +412,10 @@
     if(isDistrict){
       const parentName = (lm[settlementId] || kl[settlementId] || {}).name || settlementId;
       html += `<div class='travelDistrictBar'>`;
-      html += `<span class='travelDistrictParent'>${parentName}</span>`;
+      html += `<span class='travelDistrictParent'>${_esc(parentName)}</span>`;
       html += ` <span class='travelDistrictSep'>\u203a</span> `;
-      html += `<span class='travelDistrictCurrent'>${locEntry.display_name_raw || locEntry.name || G.location}</span>`;
-      html += `<button class='travelReturnBtn' onclick='window._returnToSettlement()'>Return to ${parentName}</button>`;
+      html += `<span class='travelDistrictCurrent'>${_esc(locEntry.display_name_raw || locEntry.name || G.location)}</span>`;
+      html += `<button class='travelReturnBtn' onclick='window._returnToSettlement()'>Return to ${_esc(parentName)}</button>`;
       html += `</div>`;
     }
 
@@ -460,11 +462,11 @@
         html += `<div class='travelGroupHeader'>Districts</div>`;
         for(const dist of localDists){
           html += `<div class='travelDestCard travelDistrictCard'>`;
-          html += `<div class='travelDestName'>${dist.display_name_raw || dist.name}`;
+          html += `<div class='travelDestName'>${_esc(dist.display_name_raw || dist.name)}`;
           html += ` <span class='travelDistrictTag'>${dist.is_synthetic?'district':'district'}</span></div>`;
-          if(dist.identity) html += `<div class='travelDestPolity' style='font-style:italic'>${dist.identity}</div>`;
+          if(dist.identity) html += `<div class='travelDestPolity' style='font-style:italic'>${_esc(dist.identity)}</div>`;
           html += `<div class='travelModeBtns'>`;
-          html += `<button class='travelModeBtn' onclick='window._enterDistrict("${dist.locality_id}")'>`;
+          html += `<button class='travelModeBtn' onclick='window._enterDistrict("${_esc(dist.locality_id)}")'>`;
           html += `<span class='travelModeName'>Enter District</span>`;
           html += `<span class='travelModeCost'>Free \u00b7 1 time</span></button>`;
           html += `</div></div>`;
@@ -480,10 +482,10 @@
         html += `<div class='travelGroupHeader'>Other Districts</div>`;
         for(const sib of siblings){
           html += `<div class='travelDestCard travelDistrictCard'>`;
-          html += `<div class='travelDestName'>${sib.display_name_raw || sib.name}</div>`;
-          if(sib.identity) html += `<div class='travelDestPolity' style='font-style:italic'>${sib.identity}</div>`;
+          html += `<div class='travelDestName'>${_esc(sib.display_name_raw || sib.name)}</div>`;
+          if(sib.identity) html += `<div class='travelDestPolity' style='font-style:italic'>${_esc(sib.identity)}</div>`;
           html += `<div class='travelModeBtns'>`;
-          html += `<button class='travelModeBtn' onclick='window._enterDistrict("${sib.locality_id}")'>`;
+          html += `<button class='travelModeBtn' onclick='window._enterDistrict("${_esc(sib.locality_id)}")'>`;
           html += `<span class='travelModeName'>Enter District</span>`;
           html += `<span class='travelModeCost'>Free \u00b7 1 time</span></button>`;
           html += `</div></div>`;
@@ -521,18 +523,18 @@
           for(const loc of groups[gk]){
             const modes = getTravelModes(loc, G);
             const disc = (G.discoveredLocalities || {})[loc.id];
-            const dispName = !disc ? '[Unknown]' : (disc === 'rumor' ? loc.name + ' <span class="travelRumorTag">heard of</span>' : loc.name);
+            const dispName = !disc ? '[Unknown]' : (disc === 'rumor' ? _esc(loc.name) + ' <span class="travelRumorTag">heard of</span>' : _esc(loc.name));
             html += `<div class='travelDestCard${!disc ? ' travelDestUnknown' : ''}'>`;
             html += `<div class='travelDestName'>${dispName}`;
             if(COSMIC_IDS.includes(loc.id)) html += ` <span class='travelCosmicTag'>Cosmic</span>`;
             html += `</div>`;
             const polityRaw = loc.parent_polity?.raw_value || loc.polity || '';
-            if(polityRaw) html += `<div class='travelDestPolity'>${polityRaw}</div>`;
+            if(polityRaw) html += `<div class='travelDestPolity'>${_esc(polityRaw)}</div>`;
             html += `<div class='travelModeBtns'>`;
             for(const mode of modes){
               const canAfford = G.gold >= mode.goldCost;
               html += `<button class='travelModeBtn${canAfford?'':' travelDisabled'}' `;
-              html += `onclick='window._travelTo("${loc.id}","${mode.id}")'>`;
+              html += `onclick='window._travelTo("${_esc(loc.id)}","${_esc(mode.id)}")'>`;
               html += `<span class='travelModeName'>${mode.label}</span>`;
               html += `<span class='travelModeCost'>${mode.goldCost>0?mode.goldCost+' gold \u00b7 ':'Free \u00b7 '}${mode.timeCost} time</span>`;
               html += `</button>`;
@@ -553,6 +555,8 @@
   function startPrincipalitiesRoute(){
     const G = window._travelEngineG || window.G;
     if(!G || !G.flags || !G.flags.principalities_route_unlocked) return;
+    if(G.flags.principalities_route_in_progress) return;
+    G.flags.principalities_route_in_progress = true;
     if(G.flags.principalities_route_complete){ executeTravelTo('shelkopolis','foot'); return; }
     G._routeProgress = G._routeProgress || 0;
     advancePrincipalitiesLeg();
@@ -575,7 +579,7 @@
       return;
     }
     G._routeProgress = (G._routeProgress || 0) + 1;
-    if(leg.destination){ executeTravelTo(leg.destination,'foot'); return; }
+    if(leg.destination){ G.flags.principalities_route_in_progress = false; executeTravelTo(leg.destination,'foot'); return; }
     const legId = leg.id;
     window.renderChoices && window.renderChoices([{
       id:'route_continue_'+legId, text:'Continue toward Shelkopolis.', sandbox:true,
