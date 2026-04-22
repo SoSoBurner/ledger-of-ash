@@ -483,6 +483,8 @@ Backgrounds starting in Sheresh Communes or Soreheim Alliance need their own Sta
 
 **Sheresh Communes**: A collective memory registry has been expunged — a commune's shared record no longer contains a person. That person doesn't officially exist in commune history. Same theme, communal governance context. Leads to discovering the erasure connects to a wider pattern.
 
+**Emotional hook (Sheresh)**: In Sheresh culture, communal memory *is* identity — to be erased from the registry is to have never existed. The player's Sheresh background ties them personally to the erased person: someone they remember from childhood, a mentor, a relative who shaped them. They remember the name. They remember the voice. But the official record has a gap where that person should be. The horror isn't just institutional — it's the terror that what happened to that person could happen to anyone. Could happen to them. That personal stake drives the investigation from duty into need.
+
 Both plots use canonical NPCs and factions from V33_1.
 
 ---
