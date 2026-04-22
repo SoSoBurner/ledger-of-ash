@@ -691,6 +691,13 @@ window.handleChoice = function(choice) {
   if (choice && (choice.align === 'chaotic' || choice.tag === 'bold')) {
     if (typeof shiftTension === 'function') shiftTension(1);
   }
+  // Risky investigation choices advance the omens clock
+  if (choice && (choice.tag === 'risky' || choice.tag === 'bold') &&
+      (choice.plot === 'main' || choice.skill === 'lore' || choice.skill === 'wits')) {
+    if (window.G && G.worldClocks) {
+      G.worldClocks.omens = Math.min(10, (G.worldClocks.omens || 0) + 1);
+    }
+  }
 };
 
 // ── WRAP renderChoices — inject enriched choices ───────────
