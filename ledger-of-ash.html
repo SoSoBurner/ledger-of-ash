@@ -1970,7 +1970,7 @@ const COMPANION_DEFS = {
       ]
     },
     refusalScene: "Elyra nods once. 'Fair enough. Watch the southern waypoint — something comes through there every three days, regular as a patrol schedule.' She goes back to watching the road.",
-    tolerances: { benevolenceFloor: -5, orderMin: -40, orderMax: 20, trustMin: null },
+    tolerances: { benevolenceFloor: -20, orderMin: -40, orderMax: 20, trustMin: null },
     warnScene: "Elyra doesn't eat with the group that evening. When you find her she's watching the dark. 'There's a village east of the frontier I haven't gone back to,' she says. 'The ones who sealed it told themselves what they did was for the larger good. I think about them when I think about choices.'",
     confrontScene: "'I sealed off a village once,' Elyra says. 'I didn't give the order, but I didn't stop it either. I told myself the math was right. I've spent years since then trying to understand why the math was wrong.' She looks at you steadily. 'What we're doing is starting to feel like math. I need you to convince me it isn't.'",
     leaveScene: "'You're doing this the wrong way,' Elyra says. 'I'll make sure the frontier is still there when you come back.' She takes the southern route at dusk.",
@@ -2157,6 +2157,10 @@ function resolveRecruitChoice(defId, outcome) {
       locality: def.locality,
       role_tag: def.role_tag,
       warnStage: 0,
+      strikes: 0,
+      consecutiveInBounds: 0,
+      _warnFired: false,
+      _confrontFired: false,
       rerecruit: 0
     };
 
@@ -2200,29 +2204,36 @@ function checkCompanionLeave() {
     if (t.trustMin !== null && t.trustMin !== undefined && (comp.trust||0) < t.trustMin) outOfBounds = true;
 
     if (!outOfBounds) {
-      comp.warnCooldown = (comp.warnCooldown || 0) + 1;
-      if ((comp.warnStage||0) > 0 && comp.warnCooldown >= 3) {
-        comp.warnStage = Math.max(0, (comp.warnStage||0) - 1);
-        comp.warnCooldown = 0;
+      // In-bounds: track consecutive, reduce strikes
+      comp.consecutiveInBounds = (comp.consecutiveInBounds || 0) + 1;
+      if (comp.consecutiveInBounds >= 2) {
+        comp.strikes = Math.max(0, (comp.strikes || 0) - 1);
+        comp.consecutiveInBounds = 0;
+        // Reset warn/confront flags if strikes dropped below threshold
+        if ((comp.strikes || 0) < 3) comp._confrontFired = false;
+        if ((comp.strikes || 0) < 1) comp._warnFired = false;
       }
       return;
     }
-    comp.warnCooldown = 0;
 
-    const stage = comp.warnStage || 0;
-    if (stage === 0) {
-      comp.warnStage = 1;
-      addNarration(comp.name, def.warnScene || def.leaveScene);
-    } else if (stage === 1) {
-      comp.warnStage = 2;
-      addNarration(comp.name, def.confrontScene || def.leaveScene);
-    } else {
+    // Violation: increment strikes, reset consecutiveInBounds
+    comp.strikes = (comp.strikes || 0) + 1;
+    comp.consecutiveInBounds = 0;
+
+    // Fire scenes at thresholds (once each)
+    if (comp.strikes >= 5) {
       comp.status = 'departed';
       comp.departedDay = G.dayCount || 0;
-      addNarration(comp.name, def.leaveScene);
-      addJournal(comp.name + ' has left the party.');
-      addWorldNotice('[PARTY] ' + comp.name + ' has left your investigation.');
+      addNarration(comp.name || def.name, def.leaveScene);
+      addJournal((comp.name || def.name) + ' has left the party.');
+      addWorldNotice('[PARTY] ' + (comp.name || def.name) + ' has left your investigation.');
       if (typeof updateHUD === 'function') updateHUD();
+    } else if (comp.strikes >= 3 && !comp._confrontFired) {
+      comp._confrontFired = true;
+      addNarration(comp.name || def.name, def.confrontScene || def.leaveScene);
+    } else if (comp.strikes >= 1 && !comp._warnFired) {
+      comp._warnFired = true;
+      addNarration(comp.name || def.name, def.warnScene || def.leaveScene);
     }
   });
 }
@@ -10010,6 +10021,15 @@ function migrateState(loaded) {
     }
   }
   if (!loaded.seenChoices) loaded.seenChoices = {};
+  // Migrate companion objects to strikes counter system
+  (loaded.companions ? Object.values(loaded.companions) : []).forEach(function(comp) {
+    if (comp.strikes === undefined) {
+      comp.strikes = (comp.warnStage || 0) * 2;
+      comp.consecutiveInBounds = 0;
+      comp._warnFired = (comp.warnStage || 0) >= 1;
+      comp._confrontFired = (comp.warnStage || 0) >= 2;
+    }
+  });
   loaded.schemaVersion = 6;
   return loaded;
 }
