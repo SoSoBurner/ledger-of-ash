@@ -565,7 +565,7 @@ function handleEnrichedChoice(choice) {
             }
           };
           backup.dc = Math.max(8, (choice.dc || 14) - 2);
-          G._pendingBackupChoice = backup;
+          (G._pendingBackupChoices = G._pendingBackupChoices || []).push(backup);
         }
       } else if (choice.criticalSideplot === true) {
         G.flags['sideplot_failed_' + cid] = true;
@@ -716,9 +716,8 @@ window.renderChoices = function(choices) {
     if (midspine.length || enriched.length) choices = choices.concat(midspine).concat(enriched);
   }
   // Inject pending backup choice from fumble locking
-  if (window.G && window.G._pendingBackupChoice) {
-    choices = choices.concat([window.G._pendingBackupChoice]);
-    window.G._pendingBackupChoice = null;
+  if (window.G && window.G._pendingBackupChoices && window.G._pendingBackupChoices.length > 0) {
+    choices = choices.concat([window.G._pendingBackupChoices.shift()]);
   }
   // Inject lay_low choice when rival clock is high
   if (window.G && (window.G.worldClocks.rival || 0) >= 4) {

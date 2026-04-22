@@ -8260,7 +8260,7 @@ function addNarration(label, html, resultType) {
 function renderChoices(choices) {
   _pendingChoices = choices;
   // Fumble backup notice (one-time)
-  if (window.G && window.G._pendingBackupChoice && !window.G.flags._taught_backup) {
+  if (window.G && window.G._pendingBackupChoices && window.G._pendingBackupChoices.length > 0 && !window.G.flags._taught_backup) {
     window.G.flags._taught_backup = true;
     if (typeof window.addWorldNotice === 'function') addWorldNotice('A path has closed. Another has opened — though it may be harder to walk.');
   }
@@ -10530,7 +10530,8 @@ function endLegend() {
 const SAVE_SLOT_KEYS = ['loa_slot_1', 'loa_slot_2', 'loa_slot_3'];
 
 function _generateUUID() {
-  // RFC4122 v4 UUID
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+  // RFC4122 v4 UUID fallback
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     var r = Math.random() * 16 | 0;
     return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
