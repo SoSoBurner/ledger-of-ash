@@ -1575,7 +1575,7 @@ input, button, select, textarea { font-family: inherit; }
 <!-- HOW TO PLAY MODAL -->
 <div id="howto-modal">
   <div id="howto-box">
-    <button id="howto-close">&#x2715; Close</button>
+    <button id="howto-close" onclick="document.getElementById('howto-modal').classList.remove('active')">&#x2715; Close</button>
     <h2>How to Play</h2>
     <div id="howto-content"></div>
   </div>
@@ -1606,21 +1606,14 @@ input, button, select, textarea { font-family: inherit; }
   <div class="title-overlay"></div>
   <div class="title-grain"></div>
   <div class="title-content">
-    <div class="title-eyebrow">The Material Planet</div>
-    <h1 class="title-main">Ledger<br><span class="title-of">of</span><br>Ash</h1>
-    <div class="title-tagline">A Living World RPG</div>
     <div class="title-rule"></div>
     <div class="title-entry-block">
-      <p class="title-entry-label">Enter your passcode to resume, or begin anew.</p>
-      <div class="title-pin-row">
-        <input type="password" id="title-passcode" maxlength="4" pattern="[0-9]{4}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;" autocomplete="off" inputmode="numeric">
-        <button class="btn btn-ghost" id="btn-enter-code">Load</button>
-      </div>
       <div id="title-code-error" class="title-error" style="display:none">No legend found for that code.</div>
       <div id="title-legend-list" style="display:none"></div>
     </div>
     <div class="title-actions">
       <button class="btn btn-primary" id="btn-new-legend">Begin New Legend</button>
+      <button class="btn btn-ghost btn-sm" id="btn-enter-code" onclick="showSaveModal('load')">Load Save</button>
       <button class="btn btn-ghost btn-sm" id="btn-hall">Hall of Legends</button>
       <button class="btn btn-ghost btn-sm" id="btn-howto-title" onclick="showHowToPlay()">How to Play</button>
     </div>
