@@ -9233,6 +9233,39 @@ function adaptEnrichedChoice(c) {
   };
 }
 
+function adaptSeedChoice(c) {
+  return {
+    text: c.text,
+    tag: c.tag || 'risky',
+    align: 'neutral',
+    action: function() {
+      document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
+      addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + c.text + '</em>');
+      var result = rollD20(c.skill);
+      if (result.total >= (c.dc || 12)) {
+        try { if (c.onSuccess) c.onSuccess(); } catch(e) { console.error('[seed]', e); }
+      } else {
+        try { if (c.onFail) c.onFail(); } catch(e) { console.error('[seed]', e); }
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+      setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
+    }
+  };
+}
+
+function _injectBossSeedChoices(choices) {
+  var toInject = null;
+  if (G.stage === 'Stage I' && window.STAGE1_MINIBOSS_SEED_CHOICES && (G.stageProgress && G.stageProgress[1] || 0) >= 3) {
+    if (!G.flags.stage1_miniboss_seeded_1) toInject = window.STAGE1_MINIBOSS_SEED_CHOICES[0];
+    else if (!G.flags.stage1_miniboss_seeded_2) toInject = window.STAGE1_MINIBOSS_SEED_CHOICES[1];
+  } else if (G.stage !== 'Stage I' && window.STAGE2_MINIBOSS_SEED_CHOICES && !G.flags.stage2_miniboss_seed_seen && !G.flags.stage2_miniboss_complete && (G.stageProgress && G.stageProgress[2] || 0) >= 4) {
+    toInject = window.STAGE2_MINIBOSS_SEED_CHOICES[Math.floor(Math.random() * window.STAGE2_MINIBOSS_SEED_CHOICES.length)];
+  }
+  if (!toInject) return choices;
+  return [adaptSeedChoice(toInject)].concat(choices);
+}
+
 function loadStageChoices(locId) {
   const loc = locId || G.location || '';
   const stageNum = /II/.test(G.stage || '') ? '2' : '1';
@@ -9261,7 +9294,7 @@ function loadStageChoices(locId) {
       var arrivalChoice = buildArrivalChoice(G.location);
       if (arrivalChoice) adapted.unshift(adaptEnrichedChoice(arrivalChoice));
     }
-    renderChoices(adapted);
+    renderChoices(_injectBossSeedChoices(adapted));
     return;
   }
 
@@ -9285,7 +9318,7 @@ function loadStageChoices(locId) {
     var arrivalChoiceFallback = buildArrivalChoice(G.location);
     if (arrivalChoiceFallback) base.unshift(arrivalChoiceFallback);
   }
-  if (typeof renderChoices === 'function') renderChoices(base);
+  if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(base));
 }
 
 function renderNavChoices() {
