@@ -10191,10 +10191,12 @@ function checkStageAdvance() {
       showStage3Epilogue();
     }
     return;
-  } else if (G.level === 16 && G.stage === 'Stage III') {
+  } else if (G.stage === 'Stage III' && !G.flags.stage3_climax_complete && !G.flags.stage3_climax_started && (G.stageProgress && G.stageProgress[3] || 0) >= 15) {
+    if (window.STAGE3_CLIMAX) { window.STAGE3_CLIMAX.trigger(); return; }
+  } else if (G.level >= 16 && G.stage === 'Stage III' && G.flags.stage3_climax_complete) {
     G.stage = 'Stage IV'; G.stageLabel = 'International';
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE IV &#x2014; International consequence. What you do now echoes.</em>');
-    addJournal('Advanced to Stage IV: International.');
+    addJournal('Advanced to Stage IV: International.', 'discovery');
     G.history.push('Reached Stage IV at Level 16. Your name crosses borders.');
   } else if (G.level === 19 && G.stage === 'Stage IV') {
     G.stage = 'Stage V'; G.stageLabel = 'International to Cosmic';
