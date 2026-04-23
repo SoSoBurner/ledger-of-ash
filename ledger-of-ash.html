@@ -9117,6 +9117,12 @@ function handleChoice(choice) {
                  (curPol && toPol && curPol !== toPol) ? 'medium' : 'short';
     const encList = (window.CORRIDOR_ENCOUNTERS || {})[tier] || [];
     if (!encList.length) { resolveArrival(destId); return; }
+    // Stage 2+ rate modifier: small chance of second encounter on same journey
+    const _stageKey = ['Stage I','Stage II','Stage III','Stage IV','Stage V'][(G.stage||1)-1] || 'Stage I';
+    const _scaling = (typeof COMBAT_SCALING_TABLE !== 'undefined' && COMBAT_SCALING_TABLE[_stageKey]) || { rateModifier: 1.0 };
+    const _extraChance = _scaling.rateModifier - 1.0;
+    G._extraEncounter = (_extraChance > 0 && encList.length > 1 && Math.random() < _extraChance)
+      ? encList[Math.floor(Math.random() * encList.length)] : null;
     const enc = encList[Math.floor(Math.random() * encList.length)];
     advanceRivals();
     advanceMaren();
@@ -9128,6 +9134,13 @@ function handleChoice(choice) {
   // Journey: arrive at destination
   if (choice.cid === '__arrive__') {
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+    if (G._extraEncounter) {
+      const _xEnc = G._extraEncounter;
+      G._extraEncounter = null;
+      addNarration(_xEnc.title, _xEnc.text);
+      setTimeout(() => renderChoices(_xEnc.choices), 300);
+      return;
+    }
     resolveArrival(G._journeyDest || G.location);
     return;
   }
