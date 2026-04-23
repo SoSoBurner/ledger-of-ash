@@ -155,6 +155,90 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Elyra keeps her supplier ledger face-down when I approach — she knows I've seen the name.",
+    tags: ['stage2', 'harvest_circle', 'npc_escalation'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.elyra_agenda_revealed = true;
+        G.investigationProgress++;
+        addNarration(
+          'The Ledger She Won\'t Open',
+          'Elyra does not look up when you stop at her counting table. Her thumb rests on the cover of a supplier ledger, pressing it flat. When you name the Northern Provision Compact aloud, she exhales through her nose — a small, controlled sound. She slides a single page across the table without meeting your eyes. A patron-family entry, one line struck through in red chalk. "They took a handling fee three seasons ago," she says. "I have been waiting to see whether that debt would follow them here." The name at the top of the struck line matches a stall holder two rows east.'
+        );
+        addJournal('Elyra Mossbane identified a patron-family that received a handling fee from the Northern Provision Compact three seasons ago', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration(
+          'Closed Ledger',
+          'Elyra lifts the ledger off the table and tucks it under one arm before you finish speaking. Her expression stays level, the kind of level that takes practice. "My patron-family records are not for circulation," she says. A cart rolls past the stall, loud enough that you cannot push further without raising your voice. She has already turned to the next person in line.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "The chalk marks on the drying rack posts run in the wrong direction for moisture tallies.",
+    tags: ['stage2', 'harvest_circle', 'physical_evidence'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.flags.drying_rack_cipher_found = true;
+        G.investigationProgress++;
+        addNarration(
+          'The Second Ledger',
+          'Standard moisture tallies run post to post, left to right across the rack line. These run vertical, top to bottom, grouped in threes. The pattern resolves when you treat each group as a manifest digit — the notation system used in Farlan\'s quota records, compressed into a shorthand a grain worker could read at a glance. Three posts carry numbers that match the routing prefix of the Northern Provision Compact manifests exactly. Someone has been marking incoming ghost shipment confirmations in chalk on public infrastructure, hiding them inside ordinary harvest record-keeping.'
+        );
+        addJournal('Drying rack chalk marks encode Northern Provision Compact routing numbers in compressed quota notation', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration(
+          'Ordinary Tally Marks',
+          'The chalk marks run in columns along the lower posts — moisture tallies, you assume, or daily load counts. A grain worker passing with an empty barrow glances at what you\'re studying and shrugs. "Rack numbers," he says. "Foreman changes them every third day." You copy them down anyway, but without the right notation key they stay inert on the page.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "I stepped into the wrong convoy line — the stall holder at the front has already noticed.",
+    tags: ['stage2', 'harvest_circle', 'social_complication'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.flags.convoy_line_recovered = true;
+        G.investigationProgress++;
+        addNarration(
+          'Recovered Ground',
+          'You catch the stall holder\'s eye before she can signal Jorva\'s enforcer at the end of the row. A cart factor two positions back in the correct queue nods once — he has seen outsiders make this mistake before and he is not unkind about it. You extract yourself without theater, join the right line, and the moment passes. The stall holder\'s gaze follows you a beat longer than necessary, but the enforcer\'s attention stays elsewhere. You have bought goodwill with the cart factor, who introduces himself as a Crestmark cousin between loads.'
+        );
+        addJournal('Cart factor in Crestmark family introduced during convoy queue — potential source on shipment timing', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration(
+          'Marked as Out of Order',
+          'Jorva\'s enforcer is already moving by the time you realize your mistake. The stall holder says nothing — she does not need to. The enforcer stops beside you and requests your load declaration in the flat tone reserved for people who have just broken a rule in a governed space. You have no load. He writes something in a small bound register, closes it, and nods you out of the line. The queue watches without comment, which is its own kind of correction.'
+        );
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Harvest Circle finale — the agricultural routing fraud and ghost supplier are confirmed. Report to the commune council or use the routing number data to intercept the next shipment.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,

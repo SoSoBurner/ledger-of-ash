@@ -155,6 +155,90 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Selene Brokerwell's name keeps appearing on the subsidiary archive requests — she filed three in the same week the charter rider was renewed.",
+    tags: ['stage2', 'guildheart_hub'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.met_selene_brokerwell = true;
+        G.investigationProgress++;
+        addNarration(
+          'The Brokerwell Ledger',
+          'Selene Brokerwell meets you in the arbitration pavilion\'s side corridor rather than a formal hearing chamber — a deliberate choice that puts the conversation off the public record. She speaks in clauses. Each one is technically a question about your credentials and each one confirms she already knows the answer. The subsidiary archive requests, she says, were filed to close a compliance gap that predated her appointment. She sets a single document on the bench between you and does not pick it up again. The compliance gap was never formally closed.'
+        );
+        addJournal('Selene Brokerwell acknowledged unclosed compliance gap tied to charter renewal week', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration(
+          'Referred Upward',
+          'Selene Brokerwell\'s secretary intercepts the inquiry before it reaches her floor. Archive requests of that classification require a filed review petition and a ten-day processing window. The secretary writes the petition form number on a slip and hands it across the counter without looking up. The number does not match the standard petition series on the wall chart. Someone changed the series recently.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "The bonded warehouse blocks along the canal run — the loading crane at bay seven has chalk marks that don't match any active freight manifest.",
+    tags: ['stage2', 'guildheart_hub'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.flags.guildheart_bay7_examined = true;
+        G.investigationProgress++;
+        addNarration(
+          'Bay Seven',
+          'The chalk marks on the crane guide post are a weight-load notation system — standard for heavy freight staging. The numbers match the density range Luthen described: too dense for textile, too light for stone. A second set of marks lower on the post uses a different notation entirely, one more commonly seen on Shelkopolis dock infrastructure. Someone who learned crane work on the Shelk coast staged cargo here and did not bother to use the local system. The bay has been cleared since, but chalk on iron takes longer to fully fade than whoever used it expected.'
+        );
+        addJournal('Bay seven crane marks: Shelk-system weight notation, matches charter-exempt cargo density range', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration(
+          'Freight Jurisdiction',
+          'A labor foreman cuts across the loading lane before you reach the crane post, clipboard in hand and pace already set for someone who has interrupted his morning twice before. Bonded warehouse access requires a registered freight interest or an Arbiter-issued inspection pass. He recites it without slowing down. The canal side smells of treated rope and old water. Bay seven is gated by the time you reach the end of the lane.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "The Guild Sanction Board hearing queue moves on strict rotation — cutting it would resolve this faster, but the room notices everything.",
+    tags: ['stage2', 'guildheart_hub'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration(
+          'Out of Order',
+          'The Sanction Board anteroom runs on a chalk-board queue. You move the slip without touching the board — a quiet word with the copy clerk about a jurisdictional cross-reference, no urgency implied. The clerk pulls the relevant packet to verify the reference. The packet contains a notation in the charter exemption series that does not appear in the copies filed at the tariff counter. Two versions of the same document. The clerk sets the packet down and writes something in his own notebook without reading the notation aloud.'
+        );
+        addJournal('Sanction Board packet: charter exemption notation absent from tariff counter copies — two divergent versions', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addNarration(
+          'Queue Order Restored',
+          'The anteroom clerk sees the slip out of rotation before the word is half finished. He does not raise his voice. He replaces the slip at the back of the board, prints a new queue number, and states the expected wait time — two hours, possibly three given afternoon hearings. The parties already waiting have noticed. One of them, a licensed merchant two positions up, is writing something on the back of his own forms. The room has recorded what happened.'
+        );
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Guildheart Hub finale — the pre-Union charter, zero-rated imports, and shrine document exchange form a complete financing chain. Move through guild channels or route it informally.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,

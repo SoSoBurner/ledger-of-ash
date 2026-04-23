@@ -125,6 +125,132 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Arbiter Nyra has seen this container mark before — her Loss Ledger records reach back further than any crossing log.",
+    tags: ['stage2', 'whitebridge_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.met_arbiter_nyra_thawmark = true;
+        G.investigationProgress++;
+        addNarration('Loss Ledger — Thawmark', 'Nyra opens the Loss Ledger binder to a tab marked three seasons back. The page describes a wagon axle failure mid-crossing — cargo declared as preserved goods, settlement paid, case closed. She points to the claimant\'s mark in the margin: the same geometric cipher from the seized vials. Her thumbnail stays on it. "Identical mark. Different crossing, different claim type, same party." She does not say what that means. She doesn\'t need to.');
+        addJournal('Loss Ledger links cipher mark to prior cargo claim — same party across multiple incidents', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Loss Ledger — Thawmark', 'Nyra locates the binder but sets it on the shelf behind her. The Loss Ledger is a formal arbitration record — sharing it outside a proceeding requires a written request to the Compacts council. She writes the request reference number on a slip and passes it across the desk. "Three to four days. If the Compacts approve it, I\'ll have the relevant pages ready." She is not obstructing. The process simply does not bend.');
+      }
+    }
+  },
+
+  {
+    label: "The signal brazier platform on the east pier is the only vantage point that overlooks the full midspan.",
+    tags: ['stage2', 'whitebridge_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('East Pier Brazier Platform', 'The platform is fixed to the outer rib of the bridgework, three meters above the crossing deck. Wind off the ice shelf cuts straight through. From here the full midspan is visible: both banks, the center support post, the gap between the rail sections where the decking flexes in freeze-thaw cycles. That gap is wider than it should be — the planking on the south side has been reset recently, fasteners new against weathered wood. The disturbed planks form a rough square large enough to conceal a container beneath the decking surface.');
+        addJournal('Bridge midspan decking reset recently — concealment space beneath planks consistent with container transfer method', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('East Pier Brazier Platform', 'The climb is straightforward but the platform surface is glazed with ice melt refrozen at the edges. A boot slips on the return descent — nothing torn, nothing broken, but the noise carries. A route warden at the west bank gate turns and holds his position until you are back on the crossing deck. He logs something in the gate book. The vantage was not reached in time to see what needed seeing.');
+      }
+    }
+  },
+
+  {
+    label: "A hauler at the shelter hall is loudly declaring a route condition the wardens have already cleared — the commune does not tolerate panic spreading.",
+    tags: ['stage2', 'whitebridge_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Shelter Hall — Hauler\'s Complaint', 'The hauler is gesturing at the gate roster board, voice carrying across the shelter hall benches. Two wardens are moving to intervene. In the moment before they reach him, you position close enough to hear the specific complaint under the noise: he held at the east gate for two hours on a crossing that should have taken twenty minutes. The gate log showed his slot filled by an unlisted priority crossing — sealed cargo, diplomatic exemption, no declared route intent filed. The wardens reach him. The conversation becomes quiet and official. The gate log page is still visible on the board.');
+        addJournal('Unlisted priority crossing displaced a registered hauler — no route intent declaration filed for diplomatic exemption transit', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Shelter Hall — Hauler\'s Complaint', 'The wardens reach the hauler before you do. By the time you are close enough to hear clearly, they have moved him to a side bench and the conversation has dropped to a murmur. One warden catches you standing nearby and steps between you and the bench without a word. The shelter hall goes back to its ordinary noise. Whatever the hauler was describing is now a private matter between him and the Compacts.');
+      }
+    }
+  },
+
+  {
+    label: "Cadrin left one name off the record — the override signature is a person, not a position.",
+    tags: ['stage2', 'whitebridge_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.met_cadrin_crownmere = true;
+        G.investigationProgress++;
+        addNarration('Override Signature — Crownmere', 'Cadrin sets a single sheet on the corner of the desk — the administrative override clearance, two lines of procedural language and a signature block at the bottom. The name in the block is handwritten: Overseer-Liaison Peleth Vorn, Northern Routes Collegium. The title does not appear in any published Compacts registry. Cadrin taps the bottom margin where the stamp should be. The stamp is absent. The clearance is valid by content, not by form. Someone signed it knowing the form would not be checked.');
+        addJournal('Override clearances signed by Overseer-Liaison Peleth Vorn — title absent from published Compacts registry', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Override Signature — Crownmere', 'Cadrin pulls the override file and reads the signature block himself. His expression does not change. "I know the name. I\'m not going to be the one to put it in front of you in writing." He closes the file and slides it back into the binder. He is not protecting the name. He is protecting the distance between himself and whatever comes next.');
+      }
+    }
+  },
+
+  {
+    label: "The center support post carries every load that crosses — the scoring on it reads like a ledger.",
+    tags: ['stage2', 'whitebridge_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Center Support Post — Load Scoring', 'The post is two meters of fitted stone wrapped in iron banding. The banding shows compression scoring in horizontal bands at three distinct heights — normal crossing traffic scores in a scatter pattern; these are clean parallel lines, consistent with a rigid container edge resting in the same position across repeated crossings. The lowest band sits at crate-base height, roughly forty centimeters off the deck. The iron is scored there more than anywhere else on the structure. Whatever rested against this post, it rested here many times, always the same dimensions.');
+        addJournal('Center support post iron banding shows repeated identical container scoring — consistent with staged midspan transfers', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Center Support Post — Load Scoring', 'The post is visible from the crossing deck but a route warden is stationed at the midspan marker, logging traffic. Getting close enough to examine the banding means standing at the post longer than a hauler checking clearance — long enough for the warden to step over and ask for a declared route intent. The form takes ten minutes and goes into the gate log. The post goes unexamined.');
+      }
+    }
+  },
+
+  {
+    label: "The gate warden flagged my pack before I said a word — he knows I haven't declared a route.",
+    tags: ['stage2', 'whitebridge_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('East Gate — Undeclared Transit', 'The warden lifts the barrier log and taps the blank column where a route declaration should be. You produce a transit chit from the shelter hall — technically a supply-run permit, not a crossing declaration, but the form shares a column header. The warden reads the chit twice, looks at your pack once, and enters it in the log under supply transit. While he writes, you read the facing page: three crossing slots this week marked with a stamp you have not seen before — a double-circle mark, no declared route, approved directly. The warden closes the log before you can read the approval source.');
+        addJournal('Three recent crossings logged under unknown double-circle stamp — no route declared, approved outside normal channel', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('East Gate — Undeclared Transit', 'The warden stops you at the barrier and sets the log open to the declaration column. "Route and stated purpose, before the plank." There is no room to deflect — he has done this ten thousand times and the posture of someone who does not want to declare is familiar to him. You declare a general supply run. He logs it, notes the vagueness with a single word in the margin, and watches your exit. The gate log now carries your name against a flagged entry.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Whitebridge Commune finale — the bridge is both a transit point and evidence source. Use Nyra's samples and Aster's log to formally close the crossing or quietly document the next transfer.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,

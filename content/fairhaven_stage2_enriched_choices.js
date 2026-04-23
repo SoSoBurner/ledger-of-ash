@@ -152,6 +152,132 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Naevys keeps her old guild records separate from the shop ledger. The separation itself is the tell.",
+    tags: ['stage2', 'fairhaven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.met_naevys_sunweave = true;
+        G.investigationProgress++;
+        addNarration('Naevys Sunweave — Guild Archive', 'Naevys does not fetch the archive without being asked twice. The second time, she sets it on the workbench with both hands and does not step back. The records run twelve years — guild commissions, tool certifications, craft inspections. A gap appears eighteen months ago: two full seasons with no inspection stamps, no commissions, no certifications. She taps the blank column. "They stopped coming," she says. "I assumed the route had changed. Now I am less sure."');
+        addJournal('Naevys guild archive gap — eighteen months without inspection stamps, northern route disruption', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Naevys Sunweave — Deflection', 'Naevys listens to the question and then arranges three tools on her workbench in order of size, taking her time. "Guild records are a private matter between myself and the certification body." She doesn\'t say no. She says it in a way that ends the conversation without requiring her to have said anything at all.');
+      }
+    }
+  },
+
+  {
+    label: "The purification fountain in the market square drains east. It hasn't drained east in living memory.",
+    tags: ['stage2', 'fairhaven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Cyfoes Fountain — Drainage Shift', 'The market square fountain runs from a carved stone basin fed by a spring channel under the paving. The drain faces east now — the basin lip has been re-seated, recently, with fresh mortar still pale against the old stone. The original drain faced west toward the chapel. An eastward drain in Cyfoes fountain practice routes the blessing flow away from the faith ward and toward the field roads. Someone relocated the basin without announcing it. The shrine attendant nearby has not acknowledged the change, which is its own kind of acknowledgment.');
+        addJournal('Cyfoes fountain re-seated — drain redirected away from chapel ward, unreported', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Cyfoes Fountain — Nothing Legible', 'The fountain basin looks worn and ordinary. The water moves. The mortar at the base is patchy in a few places, but Fairhaven is an old town and old mortar cracks. Nothing here reads as unusual without more to go on.');
+      }
+    }
+  },
+
+  {
+    label: "Elira brings a Cyfoes oil lamp to a glyph-marked table. The whole room goes quiet.",
+    tags: ['stage2', 'fairhaven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.flags.met_elira_sunweave = true;
+        G.investigationProgress++;
+        addNarration('Elira Sunweave — Lamp Test', 'Elira carries the Cyfoes lamp through the common room without comment, but the path she takes is deliberate. She passes the corner table where the three regulars sit with their backs to the wall. When the lamp comes within arm\'s reach, one of them sets down his cup without drinking and does not pick it up again. His hand stays flat on the table. The lamp moves on. Elira does not look back. Outside, in the yard, she says quietly: "They know what that lamp tests for. Anyone who doesn\'t know just watches the light."');
+        addJournal('Elira lamp test — glyph-sensitized guests at corner table, self-identified by reaction', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Elira Sunweave — Noticed', 'The lamp test works, but you are watching too openly. The man at the corner table looks up before Elira reaches him. His gaze goes to you first, not to her. He picks up his cup and drains it and stands. By the time the lamp passes his table he is already at the door. Elira comes back to the yard with nothing to report, and a careful expression that says she knows exactly what went wrong.');
+      }
+    }
+  },
+
+  {
+    label: "Serin has been keeping a second log. The chapel doesn't know it exists.",
+    tags: ['stage2', 'fairhaven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.met_serin_sunweave = true;
+        G.investigationProgress++;
+        addNarration('Serin Sunweave — Private Record', 'Serin pulls the second log from under a stack of hymnals and sets it face-down on the table before turning it over. The entries run in smaller script than his official records — dates, compass headings, estimated altitudes. Every sighting he logged for himself after submitting the chapel copy. The private entries include three observations he left out of the formal record: two with approach vectors from the northwest, one that landed briefly on the cave shelf before lifting again. "The doctrine says to record what is seen," he says. "It does not say to record what it means."');
+        addJournal('Serin private log — northwest approach vectors and cave shelf landing omitted from chapel record', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Serin Sunweave — Closed', 'Serin listens to the question and then straightens the hymnals on the shelf beside him, spine by spine, taking his time. "My records are submitted to the chapel archive on a quarterly basis." He does not say there are no other records. He says it in a way that makes clear the quarterly submission is the only thing he intends to discuss.');
+      }
+    }
+  },
+
+  {
+    label: "The western field road has fresh cart ruts. Nothing west of the marker road ships bulk goods.",
+    tags: ['stage2', 'fairhaven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Western Field Road — Cart Track', 'The ruts cut through field road clay that hasn\'t been graded since last season. Two sets of wheel marks, wide gauge, heavily loaded — the near wheel sank four finger-widths into the soft shoulder at the bend. The road ends at the equipment barn and the old drainage channel. Neither receives bulk deliveries. Backtracking the tire marks to the market gate shows the departure time was after the second watch bell, when the market records close for the night. Whatever moved through here was not moving under a manifest.');
+        addJournal('Western field road — overnight heavy-load cart tracks, no market manifest coverage', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Western Field Road — Inconclusive', 'The field road shows cart traffic, but the clay is churned enough from the last market week that individual tracks can\'t be separated cleanly. Farm equipment, delivery carts, a traveling smith\'s wagon — all of it has passed here recently. The depth and gauge of specific ruts isn\'t readable without better conditions or a clearer baseline.');
+      }
+    }
+  },
+
+  {
+    label: "Bringing a sealed Shelkopolis charter to a Cyfoes shrine marks the bearer as someone who answers to neither.",
+    tags: ['stage2', 'fairhaven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Cyfoes Shrine — Charter Bearer', 'The shrine attendant\'s hands stop mid-offering arrangement when the sealed charter comes out. He does not look at the bearer\'s face — he looks at the seal, and then at the charter ribbon, and then at the seal again. His thumb finds the chalk edge of the ward mark in the doorframe without him seeming to notice it. In Fairhaven, presenting a Shelkopolis administrative charter at a Cyfoes shrine signals that the bearer operates outside both the guild registry and the chapel record. The attendant finishes his arrangement and steps to the far side of the altar without speaking. He will not record having seen this person.');
+        addJournal('Cyfoes shrine — sealed charter bearer observed, outside both guild and chapel record systems', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Cyfoes Shrine — Wrong Read', 'The approach draws the attendant\'s attention but not in the right direction. He steps forward to correct what he reads as a purification lapse — a visitor standing too close to the offering basin before completing the hand-ward sequence. The correction is quiet and procedural, but it pulls focus from the charter bearer, who uses the moment to complete the exchange and leave. The window closes before anything useful passes through it.');
+      }
+    }
+  },
+
+  {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
