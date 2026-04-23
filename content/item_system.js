@@ -472,6 +472,395 @@ function getEquippedBonus(type) {
   return def?.effect?.def_bonus ?? slot.effect?.def_bonus ?? slot.def_bonus ?? 0;
 }
 
+// ─── Block H: Stage I Item Expansion — 240 items (4 families × 3 slots × 4 chains × 5 levels) ───
+Object.assign(ITEM_DEFS, {
+
+  // ════════════════════════════════════════════════════════════════
+  // COMBAT FAMILY — WEAPON
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Heavy (iron/steel, atk + combat)
+  combat_weapon_a_1: { id: 'combat_weapon_a_1', name: 'Frontier Iron Blade', type: 'weapon', family: 'combat', chain: 'a', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'combat', bonus: 1 } },
+  combat_weapon_a_2: { id: 'combat_weapon_a_2', name: 'Road-Tempered Blade', type: 'weapon', family: 'combat', chain: 'a', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'combat', bonus: 1 } },
+  combat_weapon_a_3: { id: 'combat_weapon_a_3', name: 'Union-Stamped Sword', type: 'weapon', family: 'combat', chain: 'a', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'combat', bonus: 1 } },
+  combat_weapon_a_4: { id: 'combat_weapon_a_4', name: 'Iron Accord Blade', type: 'weapon', family: 'combat', chain: 'a', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'combat', bonus: 2 } },
+  combat_weapon_a_5: { id: 'combat_weapon_a_5', name: 'Garrison War Blade', type: 'weapon', family: 'combat', chain: 'a', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'combat', bonus: 2 } },
+
+  // Chain B — Speed (light blades, atk + stealth)
+  combat_weapon_b_1: { id: 'combat_weapon_b_1', name: 'Shiv', type: 'weapon', family: 'combat', chain: 'b', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  combat_weapon_b_2: { id: 'combat_weapon_b_2', name: 'Verdant Row Knife', type: 'weapon', family: 'combat', chain: 'b', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  combat_weapon_b_3: { id: 'combat_weapon_b_3', name: 'Shadowhands Blade', type: 'weapon', family: 'combat', chain: 'b', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 1 } },
+  combat_weapon_b_4: { id: 'combat_weapon_b_4', name: 'Quick-Draw Knife', type: 'weapon', family: 'combat', chain: 'b', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 2 } },
+  combat_weapon_b_5: { id: 'combat_weapon_b_5', name: 'Precision Strike Blade', type: 'weapon', family: 'combat', chain: 'b', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'stealth', bonus: 2 } },
+
+  // Chain C — Technique (warden, atk + survival)
+  combat_weapon_c_1: { id: 'combat_weapon_c_1', name: 'Warden Short Blade', type: 'weapon', family: 'combat', chain: 'c', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  combat_weapon_c_2: { id: 'combat_weapon_c_2', name: 'Route Patrol Blade', type: 'weapon', family: 'combat', chain: 'c', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  combat_weapon_c_3: { id: 'combat_weapon_c_3', name: 'Roadwarden Standard', type: 'weapon', family: 'combat', chain: 'c', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'survival', bonus: 1 } },
+  combat_weapon_c_4: { id: 'combat_weapon_c_4', name: 'Warden Officer Blade', type: 'weapon', family: 'combat', chain: 'c', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'survival', bonus: 2 } },
+  combat_weapon_c_5: { id: 'combat_weapon_c_5', name: 'Elite Warden Blade', type: 'weapon', family: 'combat', chain: 'c', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'survival', bonus: 2 } },
+
+  // Chain D — Ceremonial (house-marked, atk + persuasion)
+  combat_weapon_d_1: { id: 'combat_weapon_d_1', name: 'House-Marked Blade', type: 'weapon', family: 'combat', chain: 'd', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  combat_weapon_d_2: { id: 'combat_weapon_d_2', name: 'Shelk Court Blade', type: 'weapon', family: 'combat', chain: 'd', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  combat_weapon_d_3: { id: 'combat_weapon_d_3', name: 'Noble Presentation Sword', type: 'weapon', family: 'combat', chain: 'd', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'persuasion', bonus: 1 } },
+  combat_weapon_d_4: { id: 'combat_weapon_d_4', name: 'House Shelk Ceremonial', type: 'weapon', family: 'combat', chain: 'd', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'persuasion', bonus: 2 } },
+  combat_weapon_d_5: { id: 'combat_weapon_d_5', name: 'Principality Dress Sword', type: 'weapon', family: 'combat', chain: 'd', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'persuasion', bonus: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // COMBAT FAMILY — ARMOR
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Heavy plate (def focused)
+  combat_armor_a_1: { id: 'combat_armor_a_1', name: 'Iron Plates', type: 'armor', family: 'combat', chain: 'a', level: 1, rarity: 'common', effect: { def_bonus: 1 } },
+  combat_armor_a_2: { id: 'combat_armor_a_2', name: 'Riveted Iron', type: 'armor', family: 'combat', chain: 'a', level: 2, rarity: 'common', effect: { def_bonus: 1 } },
+  combat_armor_a_3: { id: 'combat_armor_a_3', name: 'Garrison Plate', type: 'armor', family: 'combat', chain: 'a', level: 3, rarity: 'uncommon', effect: { def_bonus: 2 } },
+  combat_armor_a_4: { id: 'combat_armor_a_4', name: 'Accord Plate', type: 'armor', family: 'combat', chain: 'a', level: 4, rarity: 'uncommon', effect: { def_bonus: 2 } },
+  combat_armor_a_5: { id: 'combat_armor_a_5', name: 'Iron Accord Full Plate', type: 'armor', family: 'combat', chain: 'a', level: 5, rarity: 'rare', effect: { def_bonus: 3 } },
+
+  // Chain B — Chain (def + survival)
+  combat_armor_b_1: { id: 'combat_armor_b_1', name: 'Ring Mail', type: 'armor', family: 'combat', chain: 'b', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  combat_armor_b_2: { id: 'combat_armor_b_2', name: 'Route Mail', type: 'armor', family: 'combat', chain: 'b', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  combat_armor_b_3: { id: 'combat_armor_b_3', name: 'Roadwarden Mail', type: 'armor', family: 'combat', chain: 'b', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 1 } },
+  combat_armor_b_4: { id: 'combat_armor_b_4', name: 'Warden Chain', type: 'armor', family: 'combat', chain: 'b', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 2 } },
+  combat_armor_b_5: { id: 'combat_armor_b_5', name: 'Elite Warden Mail', type: 'armor', family: 'combat', chain: 'b', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'survival', bonus: 2 } },
+
+  // Chain C — Reinforced (def + combat)
+  combat_armor_c_1: { id: 'combat_armor_c_1', name: 'Reinforced Leather', type: 'armor', family: 'combat', chain: 'c', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'combat', bonus: 1 } },
+  combat_armor_c_2: { id: 'combat_armor_c_2', name: 'Studded Leather', type: 'armor', family: 'combat', chain: 'c', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'combat', bonus: 1 } },
+  combat_armor_c_3: { id: 'combat_armor_c_3', name: 'Iron-Studded Vest', type: 'armor', family: 'combat', chain: 'c', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'combat', bonus: 1 } },
+  combat_armor_c_4: { id: 'combat_armor_c_4', name: 'Battle-Hardened Vest', type: 'armor', family: 'combat', chain: 'c', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'combat', bonus: 2 } },
+  combat_armor_c_5: { id: 'combat_armor_c_5', name: 'Combat-Grade Vest', type: 'armor', family: 'combat', chain: 'c', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'combat', bonus: 2 } },
+
+  // Chain D — Formal (def + persuasion)
+  combat_armor_d_1: { id: 'combat_armor_d_1', name: 'House-Seal Doublet', type: 'armor', family: 'combat', chain: 'd', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  combat_armor_d_2: { id: 'combat_armor_d_2', name: 'Court Reinforced Doublet', type: 'armor', family: 'combat', chain: 'd', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  combat_armor_d_3: { id: 'combat_armor_d_3', name: 'Noble Guard Coat', type: 'armor', family: 'combat', chain: 'd', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 1 } },
+  combat_armor_d_4: { id: 'combat_armor_d_4', name: 'House Shelk Livery', type: 'armor', family: 'combat', chain: 'd', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 2 } },
+  combat_armor_d_5: { id: 'combat_armor_d_5', name: 'Principality Dress Guard', type: 'armor', family: 'combat', chain: 'd', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'persuasion', bonus: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // COMBAT FAMILY — TOOL
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Combat (combat skillBonus focused)
+  combat_tool_a_1: { id: 'combat_tool_a_1', name: 'Whetstone', type: 'tool', family: 'combat', chain: 'a', level: 1, rarity: 'common', effect: { skillBonus: 'combat', bonus: 1 } },
+  combat_tool_a_2: { id: 'combat_tool_a_2', name: 'Route Whetstone', type: 'tool', family: 'combat', chain: 'a', level: 2, rarity: 'common', effect: { skillBonus: 'combat', bonus: 1 } },
+  combat_tool_a_3: { id: 'combat_tool_a_3', name: 'Garrison Whetstone', type: 'tool', family: 'combat', chain: 'a', level: 3, rarity: 'uncommon', effect: { skillBonus: 'combat', bonus: 1 } },
+  combat_tool_a_4: { id: 'combat_tool_a_4', name: 'Warden-Grade Whetstone', type: 'tool', family: 'combat', chain: 'a', level: 4, rarity: 'uncommon', effect: { skillBonus: 'combat', bonus: 2 } },
+  combat_tool_a_5: { id: 'combat_tool_a_5', name: 'Elite Combat Stone', type: 'tool', family: 'combat', chain: 'a', level: 5, rarity: 'rare', effect: { skillBonus: 'combat', bonus: 2 } },
+
+  // Chain B — Tactics (lore + combat)
+  combat_tool_b_1: { id: 'combat_tool_b_1', name: 'Route Map', type: 'tool', family: 'combat', chain: 'b', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  combat_tool_b_2: { id: 'combat_tool_b_2', name: 'Patrol Chart', type: 'tool', family: 'combat', chain: 'b', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  combat_tool_b_3: { id: 'combat_tool_b_3', name: 'Roadwarden Intelligence Map', type: 'tool', family: 'combat', chain: 'b', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1, skillBonus2: 'combat', bonus2: 1 } },
+  combat_tool_b_4: { id: 'combat_tool_b_4', name: 'Warden Strategic Map', type: 'tool', family: 'combat', chain: 'b', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'combat', bonus2: 2 } },
+  combat_tool_b_5: { id: 'combat_tool_b_5', name: 'Military Intelligence Folio', type: 'tool', family: 'combat', chain: 'b', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'combat', bonus2: 2 } },
+
+  // Chain C — Supply (survival + combat)
+  combat_tool_c_1: { id: 'combat_tool_c_1', name: 'Field Rations (Standard)', type: 'tool', family: 'combat', chain: 'c', level: 1, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  combat_tool_c_2: { id: 'combat_tool_c_2', name: 'Route Rations', type: 'tool', family: 'combat', chain: 'c', level: 2, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  combat_tool_c_3: { id: 'combat_tool_c_3', name: 'Garrison Rations', type: 'tool', family: 'combat', chain: 'c', level: 3, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 1, skillBonus2: 'combat', bonus2: 1 } },
+  combat_tool_c_4: { id: 'combat_tool_c_4', name: 'Extended Campaign Rations', type: 'tool', family: 'combat', chain: 'c', level: 4, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'combat', bonus2: 2 } },
+  combat_tool_c_5: { id: 'combat_tool_c_5', name: 'Elite Field Kit', type: 'tool', family: 'combat', chain: 'c', level: 5, rarity: 'rare', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'combat', bonus2: 2 } },
+
+  // Chain D — Authority (persuasion)
+  combat_tool_d_1: { id: 'combat_tool_d_1', name: 'Letter of Introduction', type: 'tool', family: 'combat', chain: 'd', level: 1, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  combat_tool_d_2: { id: 'combat_tool_d_2', name: 'House Shelk Papers', type: 'tool', family: 'combat', chain: 'd', level: 2, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  combat_tool_d_3: { id: 'combat_tool_d_3', name: 'Roadwarden Credentials', type: 'tool', family: 'combat', chain: 'd', level: 3, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  combat_tool_d_4: { id: 'combat_tool_d_4', name: 'Warden Officer Seal', type: 'tool', family: 'combat', chain: 'd', level: 4, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 2 } },
+  combat_tool_d_5: { id: 'combat_tool_d_5', name: 'Principality Authorization', type: 'tool', family: 'combat', chain: 'd', level: 5, rarity: 'rare', effect: { skillBonus: 'persuasion', bonus: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // MAGIC FAMILY — WEAPON (implements/foci)
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Codex (lore focused)
+  magic_weapon_a_1: { id: 'magic_weapon_a_1', name: 'Study Notes', type: 'weapon', family: 'magic', chain: 'a', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_a_2: { id: 'magic_weapon_a_2', name: 'Annotated Codex', type: 'weapon', family: 'magic', chain: 'a', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_a_3: { id: 'magic_weapon_a_3', name: 'Mimolot Scholar Text', type: 'weapon', family: 'magic', chain: 'a', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_a_4: { id: 'magic_weapon_a_4', name: 'Restricted Archive Volume', type: 'weapon', family: 'magic', chain: 'a', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2 } },
+  magic_weapon_a_5: { id: 'magic_weapon_a_5', name: 'Tariff-Exempt Research Text', type: 'weapon', family: 'magic', chain: 'a', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2 } },
+
+  // Chain B — Runed (lore + atk_bonus)
+  magic_weapon_b_1: { id: 'magic_weapon_b_1', name: 'Runed Rod', type: 'weapon', family: 'magic', chain: 'b', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_b_2: { id: 'magic_weapon_b_2', name: 'Inscribed Rod', type: 'weapon', family: 'magic', chain: 'b', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_b_3: { id: 'magic_weapon_b_3', name: 'Mimolot Inscribed Focus', type: 'weapon', family: 'magic', chain: 'b', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_b_4: { id: 'magic_weapon_b_4', name: 'Archive-Runed Focus', type: 'weapon', family: 'magic', chain: 'b', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'lore', bonus: 2 } },
+  magic_weapon_b_5: { id: 'magic_weapon_b_5', name: 'Tariff-Exempt Focus', type: 'weapon', family: 'magic', chain: 'b', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'lore', bonus: 2 } },
+
+  // Chain C — Omen (survival + lore)
+  magic_weapon_c_1: { id: 'magic_weapon_c_1', name: 'Axis Reading Stone', type: 'weapon', family: 'magic', chain: 'c', level: 1, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  magic_weapon_c_2: { id: 'magic_weapon_c_2', name: 'Dome Survey Crystal', type: 'weapon', family: 'magic', chain: 'c', level: 2, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  magic_weapon_c_3: { id: 'magic_weapon_c_3', name: 'Inversion Reading Focus', type: 'weapon', family: 'magic', chain: 'c', level: 3, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 1, skillBonus2: 'lore', bonus2: 1 } },
+  magic_weapon_c_4: { id: 'magic_weapon_c_4', name: 'Axis Data Crystal', type: 'weapon', family: 'magic', chain: 'c', level: 4, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+  magic_weapon_c_5: { id: 'magic_weapon_c_5', name: 'Sheresh Inversion Stone', type: 'weapon', family: 'magic', chain: 'c', level: 5, rarity: 'rare', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+
+  // Chain D — Bound (lore + persuasion)
+  magic_weapon_d_1: { id: 'magic_weapon_d_1', name: 'Covenant Token', type: 'weapon', family: 'magic', chain: 'd', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_d_2: { id: 'magic_weapon_d_2', name: 'Temple Inscription Token', type: 'weapon', family: 'magic', chain: 'd', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_weapon_d_3: { id: 'magic_weapon_d_3', name: 'Order Covenant Focus', type: 'weapon', family: 'magic', chain: 'd', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1, skillBonus2: 'persuasion', bonus2: 1 } },
+  magic_weapon_d_4: { id: 'magic_weapon_d_4', name: 'Divine Mandate Token', type: 'weapon', family: 'magic', chain: 'd', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'persuasion', bonus2: 2 } },
+  magic_weapon_d_5: { id: 'magic_weapon_d_5', name: 'Sacred Order Inscription', type: 'weapon', family: 'magic', chain: 'd', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'persuasion', bonus2: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // MAGIC FAMILY — ARMOR
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Scholar robes (def + lore)
+  magic_armor_a_1: { id: 'magic_armor_a_1', name: 'Mimolot Student Robes', type: 'armor', family: 'magic', chain: 'a', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  magic_armor_a_2: { id: 'magic_armor_a_2', name: 'Scholar Robes', type: 'armor', family: 'magic', chain: 'a', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  magic_armor_a_3: { id: 'magic_armor_a_3', name: 'Academy Robes', type: 'armor', family: 'magic', chain: 'a', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'lore', bonus: 1 } },
+  magic_armor_a_4: { id: 'magic_armor_a_4', name: 'Restricted Section Pass', type: 'armor', family: 'magic', chain: 'a', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'lore', bonus: 2 } },
+  magic_armor_a_5: { id: 'magic_armor_a_5', name: 'Senior Mimolot Robes', type: 'armor', family: 'magic', chain: 'a', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'lore', bonus: 2 } },
+
+  // Chain B — Warded (def + lore)
+  magic_armor_b_1: { id: 'magic_armor_b_1', name: 'Warded Coat', type: 'armor', family: 'magic', chain: 'b', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  magic_armor_b_2: { id: 'magic_armor_b_2', name: 'Inscribed Coat', type: 'armor', family: 'magic', chain: 'b', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  magic_armor_b_3: { id: 'magic_armor_b_3', name: 'Archive Warded Coat', type: 'armor', family: 'magic', chain: 'b', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'lore', bonus: 1 } },
+  magic_armor_b_4: { id: 'magic_armor_b_4', name: 'Mimolot Warded Mantle', type: 'armor', family: 'magic', chain: 'b', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'lore', bonus: 2 } },
+  magic_armor_b_5: { id: 'magic_armor_b_5', name: 'Fully-Warded Robes', type: 'armor', family: 'magic', chain: 'b', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'lore', bonus: 2 } },
+
+  // Chain C — Commune (def + survival)
+  magic_armor_c_1: { id: 'magic_armor_c_1', name: 'Commune Wool Wrap', type: 'armor', family: 'magic', chain: 'c', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  magic_armor_c_2: { id: 'magic_armor_c_2', name: 'Sheresh Wool Coat', type: 'armor', family: 'magic', chain: 'c', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  magic_armor_c_3: { id: 'magic_armor_c_3', name: 'Dome Commune Wrap', type: 'armor', family: 'magic', chain: 'c', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 1 } },
+  magic_armor_c_4: { id: 'magic_armor_c_4', name: 'Dome Environmental Coat', type: 'armor', family: 'magic', chain: 'c', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 2 } },
+  magic_armor_c_5: { id: 'magic_armor_c_5', name: 'Axis-Sealed Mantle', type: 'armor', family: 'magic', chain: 'c', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'survival', bonus: 2 } },
+
+  // Chain D — Ceremonial (def + persuasion)
+  magic_armor_d_1: { id: 'magic_armor_d_1', name: 'Temple Vestment', type: 'armor', family: 'magic', chain: 'd', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  magic_armor_d_2: { id: 'magic_armor_d_2', name: 'Order Vestment', type: 'armor', family: 'magic', chain: 'd', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  magic_armor_d_3: { id: 'magic_armor_d_3', name: 'Panim Vestment', type: 'armor', family: 'magic', chain: 'd', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 1 } },
+  magic_armor_d_4: { id: 'magic_armor_d_4', name: 'Gwybodaeth Order Robe', type: 'armor', family: 'magic', chain: 'd', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 2 } },
+  magic_armor_d_5: { id: 'magic_armor_d_5', name: 'Sacred Archive Vestment', type: 'armor', family: 'magic', chain: 'd', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'persuasion', bonus: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // MAGIC FAMILY — TOOL
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Research (lore focused)
+  magic_tool_a_1: { id: 'magic_tool_a_1', name: 'Field Notes', type: 'tool', family: 'magic', chain: 'a', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_tool_a_2: { id: 'magic_tool_a_2', name: 'Annotated Field Notes', type: 'tool', family: 'magic', chain: 'a', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_tool_a_3: { id: 'magic_tool_a_3', name: 'Mimolot Research Summary', type: 'tool', family: 'magic', chain: 'a', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_tool_a_4: { id: 'magic_tool_a_4', name: 'Classified Research Summary', type: 'tool', family: 'magic', chain: 'a', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2 } },
+  magic_tool_a_5: { id: 'magic_tool_a_5', name: 'Restricted Archive Summary', type: 'tool', family: 'magic', chain: 'a', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2 } },
+
+  // Chain B — Components (craft + lore)
+  magic_tool_b_1: { id: 'magic_tool_b_1', name: 'Reagent Pouch', type: 'tool', family: 'magic', chain: 'b', level: 1, rarity: 'common', effect: { skillBonus: 'craft', bonus: 1 } },
+  magic_tool_b_2: { id: 'magic_tool_b_2', name: 'Labeled Reagent Pouch', type: 'tool', family: 'magic', chain: 'b', level: 2, rarity: 'common', effect: { skillBonus: 'craft', bonus: 1 } },
+  magic_tool_b_3: { id: 'magic_tool_b_3', name: 'Mimolot Reagent Set', type: 'tool', family: 'magic', chain: 'b', level: 3, rarity: 'uncommon', effect: { skillBonus: 'craft', bonus: 1, skillBonus2: 'lore', bonus2: 1 } },
+  magic_tool_b_4: { id: 'magic_tool_b_4', name: 'Tariff-Exempt Reagents', type: 'tool', family: 'magic', chain: 'b', level: 4, rarity: 'uncommon', effect: { skillBonus: 'craft', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+  magic_tool_b_5: { id: 'magic_tool_b_5', name: 'Archive-Grade Reagents', type: 'tool', family: 'magic', chain: 'b', level: 5, rarity: 'rare', effect: { skillBonus: 'craft', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+
+  // Chain C — Divination (lore + survival)
+  magic_tool_c_1: { id: 'magic_tool_c_1', name: 'Axis Barometer', type: 'tool', family: 'magic', chain: 'c', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_tool_c_2: { id: 'magic_tool_c_2', name: 'Inversion Barometer', type: 'tool', family: 'magic', chain: 'c', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  magic_tool_c_3: { id: 'magic_tool_c_3', name: 'Dome Data Instrument', type: 'tool', family: 'magic', chain: 'c', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1, skillBonus2: 'survival', bonus2: 1 } },
+  magic_tool_c_4: { id: 'magic_tool_c_4', name: 'Certified Axis Instrument', type: 'tool', family: 'magic', chain: 'c', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'survival', bonus2: 2 } },
+  magic_tool_c_5: { id: 'magic_tool_c_5', name: 'Sheresh Calibrated Instrument', type: 'tool', family: 'magic', chain: 'c', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'survival', bonus2: 2 } },
+
+  // Chain D — Ritual (persuasion + lore)
+  magic_tool_d_1: { id: 'magic_tool_d_1', name: 'Shrine Token', type: 'tool', family: 'magic', chain: 'd', level: 1, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  magic_tool_d_2: { id: 'magic_tool_d_2', name: 'Temple Offering Token', type: 'tool', family: 'magic', chain: 'd', level: 2, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  magic_tool_d_3: { id: 'magic_tool_d_3', name: 'Order Ritual Token', type: 'tool', family: 'magic', chain: 'd', level: 3, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 1, skillBonus2: 'lore', bonus2: 1 } },
+  magic_tool_d_4: { id: 'magic_tool_d_4', name: 'Panim Rite Token', type: 'tool', family: 'magic', chain: 'd', level: 4, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+  magic_tool_d_5: { id: 'magic_tool_d_5', name: 'Sacred Order Covenant Token', type: 'tool', family: 'magic', chain: 'd', level: 5, rarity: 'rare', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // STEALTH FAMILY — WEAPON
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Shadow (stealth + atk)
+  stealth_weapon_a_1: { id: 'stealth_weapon_a_1', name: 'Short Blade', type: 'weapon', family: 'stealth', chain: 'a', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_a_2: { id: 'stealth_weapon_a_2', name: 'Shadow Blade', type: 'weapon', family: 'stealth', chain: 'a', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_a_3: { id: 'stealth_weapon_a_3', name: 'Shadowhands Field Blade', type: 'weapon', family: 'stealth', chain: 'a', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_a_4: { id: 'stealth_weapon_a_4', name: 'Red Hood Blade', type: 'weapon', family: 'stealth', chain: 'a', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 2 } },
+  stealth_weapon_a_5: { id: 'stealth_weapon_a_5', name: 'Red Hood Master Blade', type: 'weapon', family: 'stealth', chain: 'a', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'stealth', bonus: 2 } },
+
+  // Chain B — Precision (stealth + atk)
+  stealth_weapon_b_1: { id: 'stealth_weapon_b_1', name: 'Throwing Knife (3)', type: 'weapon', family: 'stealth', chain: 'b', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_b_2: { id: 'stealth_weapon_b_2', name: 'Balanced Throwing Knife', type: 'weapon', family: 'stealth', chain: 'b', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_b_3: { id: 'stealth_weapon_b_3', name: 'Red Hood Throwing Set', type: 'weapon', family: 'stealth', chain: 'b', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_b_4: { id: 'stealth_weapon_b_4', name: 'Shadowhands Precision Blades', type: 'weapon', family: 'stealth', chain: 'b', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 2 } },
+  stealth_weapon_b_5: { id: 'stealth_weapon_b_5', name: 'Master Precision Set', type: 'weapon', family: 'stealth', chain: 'b', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'stealth', bonus: 2 } },
+
+  // Chain C — Tool-blade (stealth + survival)
+  stealth_weapon_c_1: { id: 'stealth_weapon_c_1', name: 'Boot Knife', type: 'weapon', family: 'stealth', chain: 'c', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_c_2: { id: 'stealth_weapon_c_2', name: 'Route Boot Knife', type: 'weapon', family: 'stealth', chain: 'c', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_c_3: { id: 'stealth_weapon_c_3', name: 'Caravan Boot Knife', type: 'weapon', family: 'stealth', chain: 'c', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 1, skillBonus2: 'survival', bonus2: 1 } },
+  stealth_weapon_c_4: { id: 'stealth_weapon_c_4', name: 'Frontier Tool-Blade', type: 'weapon', family: 'stealth', chain: 'c', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 2, skillBonus2: 'survival', bonus2: 2 } },
+  stealth_weapon_c_5: { id: 'stealth_weapon_c_5', name: 'Master Tool-Blade', type: 'weapon', family: 'stealth', chain: 'c', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'stealth', bonus: 2, skillBonus2: 'survival', bonus2: 2 } },
+
+  // Chain D — Marked (stealth + persuasion)
+  stealth_weapon_d_1: { id: 'stealth_weapon_d_1', name: 'Forgery Seal Blade', type: 'weapon', family: 'stealth', chain: 'd', level: 1, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_d_2: { id: 'stealth_weapon_d_2', name: 'Notary Blade', type: 'weapon', family: 'stealth', chain: 'd', level: 2, rarity: 'common', effect: { atk_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_weapon_d_3: { id: 'stealth_weapon_d_3', name: 'Court Acquisition Blade', type: 'weapon', family: 'stealth', chain: 'd', level: 3, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 1, skillBonus2: 'persuasion', bonus2: 1 } },
+  stealth_weapon_d_4: { id: 'stealth_weapon_d_4', name: 'Magi Magistratus Blade', type: 'weapon', family: 'stealth', chain: 'd', level: 4, rarity: 'uncommon', effect: { atk_bonus: 2, skillBonus: 'stealth', bonus: 2, skillBonus2: 'persuasion', bonus2: 2 } },
+  stealth_weapon_d_5: { id: 'stealth_weapon_d_5', name: 'Intelligence Asset Blade', type: 'weapon', family: 'stealth', chain: 'd', level: 5, rarity: 'rare', effect: { atk_bonus: 3, skillBonus: 'stealth', bonus: 2, skillBonus2: 'persuasion', bonus2: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // STEALTH FAMILY — ARMOR
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Shadow cloth (def + stealth)
+  stealth_armor_a_1: { id: 'stealth_armor_a_1', name: 'Dark Wrap', type: 'armor', family: 'stealth', chain: 'a', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_armor_a_2: { id: 'stealth_armor_a_2', name: 'Shadowhands Wrap', type: 'armor', family: 'stealth', chain: 'a', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_armor_a_3: { id: 'stealth_armor_a_3', name: 'Field Operative Wrap', type: 'armor', family: 'stealth', chain: 'a', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'stealth', bonus: 1 } },
+  stealth_armor_a_4: { id: 'stealth_armor_a_4', name: 'Red Hood Wrap', type: 'armor', family: 'stealth', chain: 'a', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'stealth', bonus: 2 } },
+  stealth_armor_a_5: { id: 'stealth_armor_a_5', name: 'Red Hood Infiltration Suit', type: 'armor', family: 'stealth', chain: 'a', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'stealth', bonus: 2 } },
+
+  // Chain B — Practical (def + survival)
+  stealth_armor_b_1: { id: 'stealth_armor_b_1', name: 'Caravan Leather', type: 'armor', family: 'stealth', chain: 'b', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  stealth_armor_b_2: { id: 'stealth_armor_b_2', name: 'Road Leather', type: 'armor', family: 'stealth', chain: 'b', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  stealth_armor_b_3: { id: 'stealth_armor_b_3', name: 'Nomdara Travel Coat', type: 'armor', family: 'stealth', chain: 'b', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 1 } },
+  stealth_armor_b_4: { id: 'stealth_armor_b_4', name: 'Cross-Polity Travel Coat', type: 'armor', family: 'stealth', chain: 'b', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 2 } },
+  stealth_armor_b_5: { id: 'stealth_armor_b_5', name: 'Frontier Travel Armor', type: 'armor', family: 'stealth', chain: 'b', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'survival', bonus: 2 } },
+
+  // Chain C — Disguise (def + persuasion)
+  stealth_armor_c_1: { id: 'stealth_armor_c_1', name: 'Merchant Coat', type: 'armor', family: 'stealth', chain: 'c', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  stealth_armor_c_2: { id: 'stealth_armor_c_2', name: 'Guild Exchange Coat', type: 'armor', family: 'stealth', chain: 'c', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  stealth_armor_c_3: { id: 'stealth_armor_c_3', name: 'Union Trader Coat', type: 'armor', family: 'stealth', chain: 'c', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 1 } },
+  stealth_armor_c_4: { id: 'stealth_armor_c_4', name: 'Senior Trader Coat', type: 'armor', family: 'stealth', chain: 'c', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 2 } },
+  stealth_armor_c_5: { id: 'stealth_armor_c_5', name: 'Guild Master Coat', type: 'armor', family: 'stealth', chain: 'c', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'persuasion', bonus: 2 } },
+
+  // Chain D — Infiltration (def + stealth)
+  stealth_armor_d_1: { id: 'stealth_armor_d_1', name: 'Infiltration Harness', type: 'armor', family: 'stealth', chain: 'd', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_armor_d_2: { id: 'stealth_armor_d_2', name: 'Operative Harness', type: 'armor', family: 'stealth', chain: 'd', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'stealth', bonus: 1 } },
+  stealth_armor_d_3: { id: 'stealth_armor_d_3', name: 'Shadowhands Harness', type: 'armor', family: 'stealth', chain: 'd', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'stealth', bonus: 1 } },
+  stealth_armor_d_4: { id: 'stealth_armor_d_4', name: 'Red Hood Harness', type: 'armor', family: 'stealth', chain: 'd', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'stealth', bonus: 2 } },
+  stealth_armor_d_5: { id: 'stealth_armor_d_5', name: 'Master Infiltration Harness', type: 'armor', family: 'stealth', chain: 'd', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'stealth', bonus: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // STEALTH FAMILY — TOOL
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Lock (stealth focused)
+  stealth_tool_a_1: { id: 'stealth_tool_a_1', name: 'Pick Set (Basic)', type: 'tool', family: 'stealth', chain: 'a', level: 1, rarity: 'common', effect: { skillBonus: 'stealth', bonus: 1 } },
+  stealth_tool_a_2: { id: 'stealth_tool_a_2', name: 'Shadowhands Pick Set', type: 'tool', family: 'stealth', chain: 'a', level: 2, rarity: 'common', effect: { skillBonus: 'stealth', bonus: 1 } },
+  stealth_tool_a_3: { id: 'stealth_tool_a_3', name: 'Red Hood Pick Set', type: 'tool', family: 'stealth', chain: 'a', level: 3, rarity: 'uncommon', effect: { skillBonus: 'stealth', bonus: 1 } },
+  stealth_tool_a_4: { id: 'stealth_tool_a_4', name: 'Precision Pick Set', type: 'tool', family: 'stealth', chain: 'a', level: 4, rarity: 'uncommon', effect: { skillBonus: 'stealth', bonus: 2 } },
+  stealth_tool_a_5: { id: 'stealth_tool_a_5', name: 'Master Lock Kit', type: 'tool', family: 'stealth', chain: 'a', level: 5, rarity: 'rare', effect: { skillBonus: 'stealth', bonus: 2 } },
+
+  // Chain B — Forgery (lore + stealth)
+  stealth_tool_b_1: { id: 'stealth_tool_b_1', name: 'Blank Seal', type: 'tool', family: 'stealth', chain: 'b', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  stealth_tool_b_2: { id: 'stealth_tool_b_2', name: 'Copy Seal', type: 'tool', family: 'stealth', chain: 'b', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  stealth_tool_b_3: { id: 'stealth_tool_b_3', name: 'Archive Copy Seal', type: 'tool', family: 'stealth', chain: 'b', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1, skillBonus2: 'stealth', bonus2: 1 } },
+  stealth_tool_b_4: { id: 'stealth_tool_b_4', name: 'Tariff Office Seal Copy', type: 'tool', family: 'stealth', chain: 'b', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'stealth', bonus2: 2 } },
+  stealth_tool_b_5: { id: 'stealth_tool_b_5', name: 'Master Forgery Kit', type: 'tool', family: 'stealth', chain: 'b', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2, skillBonus2: 'stealth', bonus2: 2 } },
+
+  // Chain C — Scouting (survival + stealth)
+  stealth_tool_c_1: { id: 'stealth_tool_c_1', name: 'Chalk Route Markers', type: 'tool', family: 'stealth', chain: 'c', level: 1, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  stealth_tool_c_2: { id: 'stealth_tool_c_2', name: 'Shadowhands Route Kit', type: 'tool', family: 'stealth', chain: 'c', level: 2, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  stealth_tool_c_3: { id: 'stealth_tool_c_3', name: 'Red Hood Scout Kit', type: 'tool', family: 'stealth', chain: 'c', level: 3, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 1, skillBonus2: 'stealth', bonus2: 1 } },
+  stealth_tool_c_4: { id: 'stealth_tool_c_4', name: 'Frontier Scout Kit', type: 'tool', family: 'stealth', chain: 'c', level: 4, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'stealth', bonus2: 2 } },
+  stealth_tool_c_5: { id: 'stealth_tool_c_5', name: 'Master Scout Kit', type: 'tool', family: 'stealth', chain: 'c', level: 5, rarity: 'rare', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'stealth', bonus2: 2 } },
+
+  // Chain D — Social (persuasion + stealth)
+  stealth_tool_d_1: { id: 'stealth_tool_d_1', name: 'False Identity Papers', type: 'tool', family: 'stealth', chain: 'd', level: 1, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  stealth_tool_d_2: { id: 'stealth_tool_d_2', name: 'Nomdara Travel Papers', type: 'tool', family: 'stealth', chain: 'd', level: 2, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  stealth_tool_d_3: { id: 'stealth_tool_d_3', name: 'Union Merchant Papers', type: 'tool', family: 'stealth', chain: 'd', level: 3, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 1, skillBonus2: 'stealth', bonus2: 1 } },
+  stealth_tool_d_4: { id: 'stealth_tool_d_4', name: 'Cross-Polity Cover Papers', type: 'tool', family: 'stealth', chain: 'd', level: 4, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'stealth', bonus2: 2 } },
+  stealth_tool_d_5: { id: 'stealth_tool_d_5', name: 'Master Cover Identity', type: 'tool', family: 'stealth', chain: 'd', level: 5, rarity: 'rare', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'stealth', bonus2: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // SUPPORT FAMILY — WEAPON (implements/tools used as primary)
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Medic (survival + craft)
+  support_weapon_a_1: { id: 'support_weapon_a_1', name: 'Field Dressing Kit', type: 'weapon', family: 'support', chain: 'a', level: 1, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  support_weapon_a_2: { id: 'support_weapon_a_2', name: 'Roadwarden Medic Kit', type: 'weapon', family: 'support', chain: 'a', level: 2, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  support_weapon_a_3: { id: 'support_weapon_a_3', name: 'Allocation Hall Kit', type: 'weapon', family: 'support', chain: 'a', level: 3, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 1, skillBonus2: 'craft', bonus2: 1 } },
+  support_weapon_a_4: { id: 'support_weapon_a_4', name: 'Recovery Specialist Kit', type: 'weapon', family: 'support', chain: 'a', level: 4, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'craft', bonus2: 2 } },
+  support_weapon_a_5: { id: 'support_weapon_a_5', name: 'Panim Recovery Kit', type: 'weapon', family: 'support', chain: 'a', level: 5, rarity: 'rare', effect: { skillBonus: 'survival', bonus: 2, skillBonus2: 'craft', bonus2: 2 } },
+
+  // Chain B — Engineered (craft + lore)
+  support_weapon_b_1: { id: 'support_weapon_b_1', name: 'Survey Instrument', type: 'weapon', family: 'support', chain: 'b', level: 1, rarity: 'common', effect: { skillBonus: 'craft', bonus: 1 } },
+  support_weapon_b_2: { id: 'support_weapon_b_2', name: 'Soreheim Survey Tool', type: 'weapon', family: 'support', chain: 'b', level: 2, rarity: 'common', effect: { skillBonus: 'craft', bonus: 1 } },
+  support_weapon_b_3: { id: 'support_weapon_b_3', name: 'Engineers Corps Tool', type: 'weapon', family: 'support', chain: 'b', level: 3, rarity: 'uncommon', effect: { skillBonus: 'craft', bonus: 1, skillBonus2: 'lore', bonus2: 1 } },
+  support_weapon_b_4: { id: 'support_weapon_b_4', name: 'Consortium Grade Instrument', type: 'weapon', family: 'support', chain: 'b', level: 4, rarity: 'uncommon', effect: { skillBonus: 'craft', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+  support_weapon_b_5: { id: 'support_weapon_b_5', name: 'Senior Consortium Instrument', type: 'weapon', family: 'support', chain: 'b', level: 5, rarity: 'rare', effect: { skillBonus: 'craft', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+
+  // Chain C — Bard (persuasion + lore)
+  support_weapon_c_1: { id: 'support_weapon_c_1', name: 'Performance Notes', type: 'weapon', family: 'support', chain: 'c', level: 1, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_weapon_c_2: { id: 'support_weapon_c_2', name: 'Polity Circuit Notes', type: 'weapon', family: 'support', chain: 'c', level: 2, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_weapon_c_3: { id: 'support_weapon_c_3', name: 'Trade Fair Performance Book', type: 'weapon', family: 'support', chain: 'c', level: 3, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 1, skillBonus2: 'lore', bonus2: 1 } },
+  support_weapon_c_4: { id: 'support_weapon_c_4', name: 'Multi-Polity Performance Folio', type: 'weapon', family: 'support', chain: 'c', level: 4, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+  support_weapon_c_5: { id: 'support_weapon_c_5', name: 'Master Performer Archive', type: 'weapon', family: 'support', chain: 'c', level: 5, rarity: 'rare', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'lore', bonus2: 2 } },
+
+  // Chain D — Sacred (persuasion + craft)
+  support_weapon_d_1: { id: 'support_weapon_d_1', name: 'Shrine Blessing Token', type: 'weapon', family: 'support', chain: 'd', level: 1, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_weapon_d_2: { id: 'support_weapon_d_2', name: 'Temple Blessing Token', type: 'weapon', family: 'support', chain: 'd', level: 2, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_weapon_d_3: { id: 'support_weapon_d_3', name: 'Order Blessing Token', type: 'weapon', family: 'support', chain: 'd', level: 3, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 1, skillBonus2: 'craft', bonus2: 1 } },
+  support_weapon_d_4: { id: 'support_weapon_d_4', name: 'Panim Sacred Token', type: 'weapon', family: 'support', chain: 'd', level: 4, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'craft', bonus2: 2 } },
+  support_weapon_d_5: { id: 'support_weapon_d_5', name: 'Divine Mandate Blessing', type: 'weapon', family: 'support', chain: 'd', level: 5, rarity: 'rare', effect: { skillBonus: 'persuasion', bonus: 2, skillBonus2: 'craft', bonus2: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // SUPPORT FAMILY — ARMOR
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Healer (def + survival)
+  support_armor_a_1: { id: 'support_armor_a_1', name: 'Medic Tabard', type: 'armor', family: 'support', chain: 'a', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  support_armor_a_2: { id: 'support_armor_a_2', name: 'Field Medic Coat', type: 'armor', family: 'support', chain: 'a', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'survival', bonus: 1 } },
+  support_armor_a_3: { id: 'support_armor_a_3', name: 'Roadwarden Medic Vest', type: 'armor', family: 'support', chain: 'a', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 1 } },
+  support_armor_a_4: { id: 'support_armor_a_4', name: 'Senior Medic Coat', type: 'armor', family: 'support', chain: 'a', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'survival', bonus: 2 } },
+  support_armor_a_5: { id: 'support_armor_a_5', name: 'Elite Medic Vest', type: 'armor', family: 'support', chain: 'a', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'survival', bonus: 2 } },
+
+  // Chain B — Artisan (def + craft)
+  support_armor_b_1: { id: 'support_armor_b_1', name: 'Artisan Apron', type: 'armor', family: 'support', chain: 'b', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'craft', bonus: 1 } },
+  support_armor_b_2: { id: 'support_armor_b_2', name: 'Guild Artisan Coat', type: 'armor', family: 'support', chain: 'b', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'craft', bonus: 1 } },
+  support_armor_b_3: { id: 'support_armor_b_3', name: 'Artificers Guild Vest', type: 'armor', family: 'support', chain: 'b', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'craft', bonus: 1 } },
+  support_armor_b_4: { id: 'support_armor_b_4', name: 'Senior Guild Vest', type: 'armor', family: 'support', chain: 'b', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'craft', bonus: 2 } },
+  support_armor_b_5: { id: 'support_armor_b_5', name: 'Master Artisan Coat', type: 'armor', family: 'support', chain: 'b', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'craft', bonus: 2 } },
+
+  // Chain C — Performer (def + persuasion)
+  support_armor_c_1: { id: 'support_armor_c_1', name: 'Performance Costume', type: 'armor', family: 'support', chain: 'c', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  support_armor_c_2: { id: 'support_armor_c_2', name: 'Circuit Performer Costume', type: 'armor', family: 'support', chain: 'c', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'persuasion', bonus: 1 } },
+  support_armor_c_3: { id: 'support_armor_c_3', name: 'Trade Fair Costume', type: 'armor', family: 'support', chain: 'c', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 1 } },
+  support_armor_c_4: { id: 'support_armor_c_4', name: 'Polity Performer Suit', type: 'armor', family: 'support', chain: 'c', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'persuasion', bonus: 2 } },
+  support_armor_c_5: { id: 'support_armor_c_5', name: 'Senior Performer Costume', type: 'armor', family: 'support', chain: 'c', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'persuasion', bonus: 2 } },
+
+  // Chain D — Sanctuary (def + lore)
+  support_armor_d_1: { id: 'support_armor_d_1', name: 'Temple Robe', type: 'armor', family: 'support', chain: 'd', level: 1, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  support_armor_d_2: { id: 'support_armor_d_2', name: 'Order Robe', type: 'armor', family: 'support', chain: 'd', level: 2, rarity: 'common', effect: { def_bonus: 1, skillBonus: 'lore', bonus: 1 } },
+  support_armor_d_3: { id: 'support_armor_d_3', name: 'Cysur Temple Robe', type: 'armor', family: 'support', chain: 'd', level: 3, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'lore', bonus: 1 } },
+  support_armor_d_4: { id: 'support_armor_d_4', name: 'Senior Temple Robe', type: 'armor', family: 'support', chain: 'd', level: 4, rarity: 'uncommon', effect: { def_bonus: 2, skillBonus: 'lore', bonus: 2 } },
+  support_armor_d_5: { id: 'support_armor_d_5', name: 'High Order Robe', type: 'armor', family: 'support', chain: 'd', level: 5, rarity: 'rare', effect: { def_bonus: 3, skillBonus: 'lore', bonus: 2 } },
+
+  // ════════════════════════════════════════════════════════════════
+  // SUPPORT FAMILY — TOOL
+  // ════════════════════════════════════════════════════════════════
+
+  // Chain A — Medical (survival focused)
+  support_tool_a_1: { id: 'support_tool_a_1', name: 'Bandage Roll', type: 'tool', family: 'support', chain: 'a', level: 1, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  support_tool_a_2: { id: 'support_tool_a_2', name: 'Medic Bandage Kit', type: 'tool', family: 'support', chain: 'a', level: 2, rarity: 'common', effect: { skillBonus: 'survival', bonus: 1 } },
+  support_tool_a_3: { id: 'support_tool_a_3', name: 'Allocation Hall Medic Kit', type: 'tool', family: 'support', chain: 'a', level: 3, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 1 } },
+  support_tool_a_4: { id: 'support_tool_a_4', name: 'Senior Medic Kit', type: 'tool', family: 'support', chain: 'a', level: 4, rarity: 'uncommon', effect: { skillBonus: 'survival', bonus: 2 } },
+  support_tool_a_5: { id: 'support_tool_a_5', name: 'Elite Recovery Kit', type: 'tool', family: 'support', chain: 'a', level: 5, rarity: 'rare', effect: { skillBonus: 'survival', bonus: 2 } },
+
+  // Chain B — Engineering (craft focused)
+  support_tool_b_1: { id: 'support_tool_b_1', name: 'Repair Tools (Basic)', type: 'tool', family: 'support', chain: 'b', level: 1, rarity: 'common', effect: { skillBonus: 'craft', bonus: 1 } },
+  support_tool_b_2: { id: 'support_tool_b_2', name: 'Guild Repair Kit', type: 'tool', family: 'support', chain: 'b', level: 2, rarity: 'common', effect: { skillBonus: 'craft', bonus: 1 } },
+  support_tool_b_3: { id: 'support_tool_b_3', name: 'Artificers Kit', type: 'tool', family: 'support', chain: 'b', level: 3, rarity: 'uncommon', effect: { skillBonus: 'craft', bonus: 1 } },
+  support_tool_b_4: { id: 'support_tool_b_4', name: 'Senior Artificers Kit', type: 'tool', family: 'support', chain: 'b', level: 4, rarity: 'uncommon', effect: { skillBonus: 'craft', bonus: 2 } },
+  support_tool_b_5: { id: 'support_tool_b_5', name: 'Consortium Master Kit', type: 'tool', family: 'support', chain: 'b', level: 5, rarity: 'rare', effect: { skillBonus: 'craft', bonus: 2 } },
+
+  // Chain C — Performance (persuasion focused)
+  support_tool_c_1: { id: 'support_tool_c_1', name: 'Instrument (Basic)', type: 'tool', family: 'support', chain: 'c', level: 1, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_tool_c_2: { id: 'support_tool_c_2', name: 'Circuit Instrument', type: 'tool', family: 'support', chain: 'c', level: 2, rarity: 'common', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_tool_c_3: { id: 'support_tool_c_3', name: 'Fair Performance Instrument', type: 'tool', family: 'support', chain: 'c', level: 3, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 1 } },
+  support_tool_c_4: { id: 'support_tool_c_4', name: 'Trade Fair Showcase Instrument', type: 'tool', family: 'support', chain: 'c', level: 4, rarity: 'uncommon', effect: { skillBonus: 'persuasion', bonus: 2 } },
+  support_tool_c_5: { id: 'support_tool_c_5', name: 'Master Performance Instrument', type: 'tool', family: 'support', chain: 'c', level: 5, rarity: 'rare', effect: { skillBonus: 'persuasion', bonus: 2 } },
+
+  // Chain D — Archive (lore focused)
+  support_tool_d_1: { id: 'support_tool_d_1', name: 'Reference Pamphlet', type: 'tool', family: 'support', chain: 'd', level: 1, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  support_tool_d_2: { id: 'support_tool_d_2', name: 'Study Pamphlet', type: 'tool', family: 'support', chain: 'd', level: 2, rarity: 'common', effect: { skillBonus: 'lore', bonus: 1 } },
+  support_tool_d_3: { id: 'support_tool_d_3', name: 'Academy Reference Set', type: 'tool', family: 'support', chain: 'd', level: 3, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 1 } },
+  support_tool_d_4: { id: 'support_tool_d_4', name: 'Archive Reference Collection', type: 'tool', family: 'support', chain: 'd', level: 4, rarity: 'uncommon', effect: { skillBonus: 'lore', bonus: 2 } },
+  support_tool_d_5: { id: 'support_tool_d_5', name: 'Restricted Reference Archive', type: 'tool', family: 'support', chain: 'd', level: 5, rarity: 'rare', effect: { skillBonus: 'lore', bonus: 2 } }
+
+});
+
 window.MATERIAL_DEFS = MATERIAL_DEFS;
 window.ITEM_DEFS = ITEM_DEFS;
 window.CRAFT_RECIPES = CRAFT_RECIPES;
