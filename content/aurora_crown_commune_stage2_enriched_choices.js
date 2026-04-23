@@ -161,6 +161,69 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Alis Sealwater has been sitting on something — the commune scribe does not file documents she cannot account for.",
+    tags: ['stage2', 'aurora_crown_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.flags.met_alis_sealwater = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Scribe\'s Undocketed File', 'Alis pulls a slim folder from the back of her lower drawer — not the cabinet, the drawer, where the desk surface would hide it from anyone standing. She sets it on the table and folds her hands on top of it before she opens it. An amendment to the dome filtration maintenance contract, dated four months ago. Signed by the Collegium liaison and countersigned by a name Alis does not recognize. "Undocketed," she says. "I was told to hold it pending formal registry. No one has come back to register it."');
+        addJournal('Undocketed contract amendment held by commune scribe — Collegium liaison signature, unknown countersignature', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Record Protocol', 'Alis pulls the registry index without urgency, runs her finger down two columns, and closes it. "The document you are describing would require a formal access request to the dome administration archive." She caps her pen. "I can prepare the form now if you would like to submit it." She is not obstructing — this is simply what the process looks like when someone is precise about it. The form is three pages. She sets it on the counter and waits.');
+      }
+    }
+  },
+
+  {
+    label: "The maintenance gallery smells wrong — filtration infrastructure leaves residue that does not match what the manifests say is running through it.",
+    tags: ['stage2', 'aurora_crown_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Residue in the Intake Gallery', 'The maintenance gallery runs along the dome\'s lower curve, warm from the thermal conduits packed into the wall behind the paneling. The filtration intake manifold is third on the left — a chest-high unit bolted into the floor, inspection cover accessible without tools. The residue ring inside the intake throat is the wrong color: pale amber where it should be grey-white, with a waxy deposit along the lower seam. The service log clipped to the unit shows the last inspection as routine. Nothing about amber. Nothing about the waxy line.');
+        addJournal('Filtration intake manifold — amber residue and waxy deposit inconsistent with standard filtration compounds', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Maintenance Rotation', 'A labor crew is mid-rotation in the gallery when you arrive — four workers running conduit diagnostics along the wall bank. The foreman clocks you immediately and plants himself at the intake section before you reach it. "Maintenance corridor is active rotation. Non-crew need a safety clearance to be in here right now." He says it without heat. He has said it before. He does not move until you do.');
+      }
+    }
+  },
+
+  {
+    label: "The contamination check queue has me marked as a repeat non-compliant — the dome's intake screening protocol has flagged my transit record.",
+    tags: ['stage2', 'aurora_crown_commune'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Screening Queue, Side Gate', 'The side gate queue moves faster and the steward running it is younger — checking transit stamps without reading the names above them. The contamination-check notation on your record is a secondary flag, not a primary hold; it only surfaces if the steward cross-references the transit log against the daily alert sheet. This one does not. You are through in four minutes. Behind you, another steward at the main gate is going sheet by sheet. The two queues are twenty meters apart and processing the same list by different methods.');
+        addJournal('Transit flag workaround — dome intake screening inconsistently applied between entry gates', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Secondary Hold', 'The contamination-check flag pulls you to the secondary screening bay — a narrow room off the main corridor with two benches and a Dome Steward at a standing desk. She reads the transit log entry twice, notes the flag, and writes your name in the daily hold register before she looks up. "You\'ll need to account for your last three entry points." A formal notation goes into your transit record while you stand there. It will be visible at every dome checkpoint until a steward manually clears it.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Aurora Crown finale — the dome population is being dosed through a compromised filtration system. Expose through Warden Whiteglass's official channel or immediately disable the supply chain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,

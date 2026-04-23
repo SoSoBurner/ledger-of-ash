@@ -298,6 +298,71 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Elior knows whose name is on the suppression order — he has been protecting it for two years.",
+    tags: ['stage2', 'panim_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.elior_source_revealed = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Weight of a Name', 'Elior does not sit down. He stands at the narrow window with his back to you long enough that the candle on the table has burned a noticeable fraction when he finally speaks. The name is Caldor — his own cousin, holding a scribe appointment at the oversight tier above him. Two years of signed suppression orders, all in the same hand. Elior sets a folded paper on the table. He does not look at it again. "I cannot be the one to file this."');
+        addJournal('Caldor Sepulcher identified as suppression signatory — scribe, oversight tier', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Closed Door', 'Elior listens to your question with his eyes on the floor between you. When he raises them his expression has changed — not hostile, but sealed. "There are things I confirmed for you because I believed it would help. This is a different question." He straightens the papers on his desk with precise, deliberate movements. The audience is over. The name stays where he keeps it.');
+      }
+    }
+  },
+
+  {
+    label: "The unregistered building at the processional gap has marks on its threshold that do not belong to any current rite.",
+    tags: ['stage2', 'panim_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Threshold Marks', 'The building faces the street with blank shuttered windows and a door painted the standard memorial grey. The threshold is the tell. Three ward-marks are incised into the stone at foot level — old cuts, not recent. Two are standard Panim purification glyphs. The third is an accounting notation from a pre-reform ledger system discontinued eleven years ago: it denotes a storage site for valuables under active claim dispute. Someone retrofitted an administrative classification into a ritual inscription.');
+        addJournal('Unregistered building — pre-reform accounting mark confirms active storage use', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Stone and Silence', 'The threshold marks are worn and you cannot place them without better light or a reference text you do not have to hand. The building gives nothing else — no sound from inside, no visible entry wear, no posted notice. You have confirmed it exists and is used. You have not confirmed what it holds.');
+      }
+    }
+  },
+
+  {
+    label: "The offering market queue has its own protocol — the wrong step here gets noted by everyone within earshot.",
+    tags: ['stage2', 'panim_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Quiet Hands', 'You move through the offering queue without disrupting its rhythm — presenting correctly at each transition, keeping the submission posture that marks a petition rather than a purchase. The clerk two positions ahead does not register you as out of place. That invisibility is enough. From this angle the stall\'s secondary ledger is visible between transactions: its binding is a different color than the primary, and the hand entering figures into it is not Saryna\'s.');
+        addJournal('Offering stall secondary ledger confirmed — different hand from primary clerk', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Wrong Step', 'You move ahead of a petitioner who had already established queue position through a ritual gesture you did not recognize. The correction comes from three directions at once — quiet, firm, and thoroughly documented in the faces of everyone watching. Saryna glances up from her stall. Whatever angle you had on the secondary ledger is gone now. The queue reforms around you with the careful distance reserved for those who have already made one error.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Panim finale — present the phantom memorial evidence and decide whether to proceed through official or informal channels.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,

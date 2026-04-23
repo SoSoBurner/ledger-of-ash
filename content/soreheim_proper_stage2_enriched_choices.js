@@ -171,6 +171,67 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Lyria Firesoul's forge manifest shows a discrepancy — the allotment numbers don't match the war-production quota ledger.",
+    tags: ['stage2', 'soreheim_proper'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.met_lyria_firesoul = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Forge Manifest Discrepancy', 'The quota ledger is stamped and sealed — production figures in red-chalked columns down the left margin. The forge manifest beside it shows different numbers for the same allotment period. Lyria Firesoul does not look up when you set them side by side on the counter. She keeps her eyes on the manifest. One finger moves to the column header — not pointing, just resting there. The variance is not small. "Tower registries reconcile on the last day of each period," she says. "They haven\'t reconciled in six weeks."');
+        addJournal('Forge manifest allotment figures diverge from war-production quota ledger — six-week gap in tower reconciliation', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Restricted Registry Access', 'The quota ledger is kept behind the forge registry counter. The labor foreman at the counter is polite but thorough — work assignment seal required, tower-rank identifier required. You have neither. He writes a referral slip in a careful hand and slides it across the counter. The referral slip is for a different office in a different tower. The queue there runs three days.');
+      }
+    }
+  },
+
+  {
+    label: "The porter moving crates through the third-tower logistics yard knows exactly what\'s in the manifest discrepancy — and who signed the transfer order.",
+    tags: ['stage2', 'soreheim_proper'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Porter\'s Account', 'He doesn\'t stop moving. The crate goes onto the freight sled and he picks up the next one before answering. "Transfer order came down with a Relic Strategy Wing seal on it. I moved it because the seal was good." He sets the second crate down harder than necessary. "Four loads that week. Same destination each time. Not on the standard route manifest." He straightens up and looks at the loading dock clock rather than at you. "Staging depot, north bridge access road. I wrote it in my personal log because the route number didn\'t exist."');
+        addJournal('Porter confirms Relic Strategy Wing transfer orders routed to north bridge staging depot — not logged in standard manifest', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Tower Rank Suspicion', 'The porter sets down his crate and takes a step back. His eyes move to your hands — no tower-rank mark, no work assignment badge. "Logistics inquiries go through the freight registry office, second floor, east tower." He picks the crate back up and turns away. The conversation is over. Three workers nearby have noticed the exchange and are watching without appearing to watch.');
+      }
+    }
+  },
+
+  {
+    label: "The shrine attendant\'s record of public oath displays shows the wrong name on a tower merit judgment — someone substituted into a ceremony they had no standing to attend.",
+    tags: ['stage2', 'soreheim_proper'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Ceremony Record', 'The shrine attendance rolls are kept in a cedar cabinet behind the offering table. The attendant is at the far end of the hall, adjusting a candle arrangement with careful attention. The ceremony record for the sixth-week merit judgment is third from the top — the name entered under the Northern Ambition bloc representative slot does not match the councillor\'s registered seal. The substituted name is a Relic Strategy Wing clerk designation. Whoever attended that merit judgment was not authorized to receive the production allocation it conveyed. The allocation is still in effect.');
+        addJournal('Tower merit judgment record shows unauthorized substitution — Relic Strategy Wing clerk received Northern Ambition production allocation', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Ritual Correction', 'The shrine attendant notices the direction of your attention before you reach the cedar cabinet. She moves to stand between you and it without appearing to hurry. "Attendance records are closed to review outside formal tribunal process." Her voice carries the flat certainty of someone who has corrected this particular mistake before. She waits until you step back. A purification offering is suggested, loudly enough for the two worshippers near the entrance to hear.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Soreheim Proper finale — the operation's command structure is confirmed. Use Cron's Arbiter seal for formal prosecution or expose the expansion budget publicly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,

@@ -156,6 +156,75 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Coralyn's secondary ledger has a third column she didn't show — the one that logs who reviewed each entry.",
+    tags: ['stage2', 'cosmoria'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'pressing Coralyn Tideglass on the reviewer log behind the secondary ledger');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.coralyn_reviewer_log_seen = true;
+        G.investigationProgress++;
+        addNarration('The Third Column', 'Coralyn doesn\'t open the ledger again immediately. She sets both hands flat on the counter and looks at the wall behind you for a moment before she moves. The third column is narrow — initials and a date stamp, one entry per reviewed row. Six of the Pallmark Reach declarations carry the same two letters. She covers them with her thumb, then lifts it. "That office was restructured fourteen months ago. The person these initials belong to is no longer in Cosmoria." She closes the ledger carefully, both latches.');
+        addJournal('Archive reviewer initials on ghost vessel declarations — linked to restructured Cosmouth office', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('The Record Stands Closed', 'Coralyn listens to the question and doesn\'t move to open anything. "Reviewer attribution is an internal archive administration record. It\'s not part of the public access filing." She says it without apology and without particular warmth. The ledger stays under the counter. The access log for this conversation is already filling in behind her, ink still wet on the date line.');
+      }
+    }
+  },
+
+  {
+    label: "The night airship loading platform uses different quay markings than the day berths — someone painted them over.",
+    tags: ['stage2', 'cosmoria'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'examining the night airship loading quay for physical evidence');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll >= 13) {
+        G.flags.quay_markings_examined = true;
+        G.investigationProgress++;
+        addNarration('Painted Over', 'The night platform smells of salt and cooling timber. The original quay markings are still readable under the new paint if the angle is right — weight classifications in the old Harbor Authority format, each berth rated for a specific load range. The painted-over marks on berth seven are noticeably lower than the surrounding berths. Someone reclassified it upward. A sealed container routed through berth seven under the new classification would not trigger the secondary weight inspection that the original rating requires. The paint job is three to five months old by the oxidation pattern.');
+        addJournal('Night airship berth seven weight classification painted over — bypasses secondary inspection threshold', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Platform Crew', 'A loading crew foreman intercepts before the quay markings are close enough to read. "Night platform is restricted during pre-departure staging." He doesn\'t raise his voice. He stands between you and the berths with the patient authority of someone who has moved people off this platform before and will do it again. The airship\'s running lights are already on. The crew is watching.');
+      }
+    }
+  },
+
+  {
+    label: "The archive staff noticed the wrong thing about the research request — the form, not the question.",
+    tags: ['stage2', 'cosmoria'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'navigating a social correction from Maritime Archive Hall staff');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.flags.archive_form_navigated = true;
+        G.investigationProgress++;
+        addNarration('Correct Form', 'The archive scribe who flags the incomplete research request form is precise about exactly which line was left blank. He produces the correct form himself — the approved version, which happens to route through a different administrative tray than the standard inquiry log. "If the form is incorrect it goes to corrections review. Corrections review is currently backed up fourteen days." He slides the right form across the desk. The difference between the two forms is one checkbox. He\'s already filled in the date.');
+        addJournal('Archive scribe routed inquiry through non-logged form — intentional procedural bypass', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Logged Correction', 'The scribe notes the form error in the corrections register before explaining what the error was. The explanation is delivered clearly and without condescension, which somehow makes the register entry worse. The inquiry goes into corrections review. Fourteen days. The note in the register includes the date, the nature of the error, and a physical description rendered in three words: height, build, clothing color. It is thorough.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Cosmoria finale — the maritime transit laundering route and tidal surge mechanics are confirmed. Report to House Cosmouth authority or expose through the airship network.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,

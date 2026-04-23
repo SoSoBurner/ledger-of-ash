@@ -156,6 +156,72 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Ravel Coilspire keeps two sets of interview transcripts — one filed, one hidden. The gap between them is where the real testimony went.",
+    tags: ['stage2', 'shirshal'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.flags.met_ravel_coilspire = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Hidden Record', 'Ravel retrieves the second set without preamble — a leather sleeve tucked inside the cover board of a ledger that officially holds supply requisitions. The transcripts are in his own hand, uncorrected, with margin notes in a different ink. Three witnesses named glyph surge origin points that never appeared in the filed versions. "I write what they say. What goes into the record is not always what I write." He doesn\'t look up from straightening the pages.');
+        addJournal('Ravel Coilspire holds unsanctioned witness transcripts naming glyph surge origins not in official record', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Closed Door', 'Ravel sets his pen down. "Testimony integrity is protected under Magi Magistratus charter." He recites it without affect, the way a person does when the rule is real and so is the thing it is protecting against. He opens the filed transcript to the first page and lays it on the counter with both hands flat. The conversation ends there.');
+      }
+    }
+  },
+
+  {
+    label: "The Bureau's warding array has calibration stones mounted at every corridor junction — one stone is misaligned in a way no standard maintenance cycle would produce.",
+    tags: ['stage2', 'shirshal'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Calibration Stone', 'The stone at the north corridor junction sits three finger-widths off its seat, rotated clockwise past its mount notch. The notch exists precisely to prevent this rotation. The ward it anchors covers the archive wing entrance — not suppressed, but redirected: pulses that should register on the Bureau\'s monitoring array are being shed sideways, absorbed into the wall cavity instead of logged. Someone repositioned this with the patience to understand what repositioning it would do.');
+        addJournal('Bureau warding stone deliberately misaligned — archive wing monitoring pulses shed without logging', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Routine Inspection', 'The maintenance notation on the stone reads current. The calibration marks are worn but present. Whatever the stones are doing, it reads as standard operation to anyone without a reason to look closer — and closer requires knowing what the mount notch is for in the first place.');
+      }
+    }
+  },
+
+  {
+    label: "Eris Coilspire holds the labor foreman role and controls who enters restricted sections — the wrong question here ends up in a Magistratus incident log.",
+    tags: ['stage2', 'shirshal'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.flags.met_eris_coilspire = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Access Record', 'Eris runs the crew assignment board by habit, not by checking it — her eyes go to the board and come back before she answers. The restricted section crew rotation changed four months ago: two of the regular maintenance workers were replaced by names she doesn\'t recognize, assigned through a sub-contractor notation she\'s never seen used for interior work. "My workers sign in. Those two never did." She says it to herself as much as to you, like she\'s confirming something she didn\'t want confirmed.');
+        addJournal('Restricted section workers replaced via unknown sub-contractor — never signed in through Eris Coilspire\'s crew log', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Documented', 'Eris lifts a form from the left side of her desk before you finish the question. "Unauthorized access queries go here." She fills in the time and a description with the speed of someone who fills this form often. The form has a routing stamp already inked — it goes to Magistratus duty log on the hour. The question is now part of the record whether or not you answer any more of them.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Shirshal finale — Tazren's suppressed case file and the compliance record inversion confirm coordinated evidence management. Present to the Bureau director or route around it.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,

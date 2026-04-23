@@ -217,6 +217,69 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Ivena's practiced deflection was a rehearsed line — she rehearses lines when she has something to protect",
+    tags: ['stage2', 'ithtananalor'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        G.flags.ivena_second_contact = true;
+        G.investigationProgress++;
+        addNarration('Ivena — Second Approach', 'You find her at the Licensed Goods Counter near closing hour, when the queue has thinned. Her thumb traces the edge of a transaction stamp without pressing it. When you mention the threshold calibration — the one-unit margin — she sets the stamp down with too much precision. She says she once filed a discrepancy report through the internal channel. The report was returned to her desk the following morning with no routing record and a single word crossed through: "resolved."');
+        addJournal('Ivena filed a discrepancy report — returned without routing, marked resolved', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Ivena — Closed Door', 'She sees you coming this time. By the time you reach the counter she has a queue citation form ready and her eyes fixed on the seal press. The practiced statement surfaces again, word for word, same cadence. Whatever opened briefly last time has closed.');
+      }
+    }
+  },
+
+  {
+    label: "The foundry loading dock runs night shifts — unmarked crates move through here when the quota ledger says nothing is moving",
+    tags: ['stage2', 'ithtananalor'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Foundry Dock — Night Manifest', 'The dock manifest board runs in two columns: daytime shipments in black ink with quota stamps, night entries in red with a classification mark you do not recognize. You copy three red entries. The weight figures in the red column do not correspond to any ore grade in the public extraction registry — the loads are too light for raw ore, too heavy for refined ingot. A fourth entry has been physically cut from the board and pasted over. The paper underneath is a different weight.');
+        addJournal('Foundry night manifest — unregistered weight class, one entry physically excised', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Foundry Dock — Watched', 'A labor foreman notices you at the manifest board before you can copy anything. He does not ask what you are doing. He simply stands beside the board until you move away, one hand resting on the quota stamp rack, his expression the particular blankness of someone who has learned not to witness things.');
+      }
+    }
+  },
+
+  {
+    label: "The checkpoint officer clocked my hesitation — in Ithtananalor that hesitation is already a record",
+    tags: ['stage2', 'ithtananalor'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Checkpoint — Controlled Entry', 'You present credentials before the officer asks. The seal gets checked twice — that is standard — but you keep your weight forward and your eyes on the gate frame rather than the officer\'s hands, the way locals do when they have nothing to hide and are mildly bored by the process. He logs you through without a secondary notation. On the other side, the administrative wing archive is accessible for the next two hours without an escort requirement.');
+        addJournal('Administrative wing archive accessed without escort — two-hour window', 'discovery');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Checkpoint — Secondary Notation', 'The pause before answering is half a second too long. The officer does not escalate but his stylus adds a line to the log beneath your entry. Secondary notation: purpose unclear. In Ithtananalor that line follows your credentials to every checkpoint you pass today.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Ithtananalor finale — act on the ghost account evidence through Roaz command or through independent disclosure.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,

@@ -548,6 +548,80 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW BEATS ─────────────────────────────────────────────────────────────
+
+  {
+    label: "Elowen Shelk hasn't stopped auditing. She's reached a name she won't say out loud.",
+    tags: ['stage2', 'shelkopolis'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1);
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        addNarration(
+          'The Name She Won\'t Write Down',
+          'Elowen meets you in the guild anteroom, not her office. She keeps the door to the corridor open. When she speaks she does it quietly, facing the window that overlooks the Artisans Quarter. She\'s found a third contract that routes revenue through a subsidiary with no registered master craftsman — a dead shell, four years old, active only during disruption windows. She slides the contract face-down across the table and does not touch it again. The name of the subsidiary\'s founding signatory is visible through the paper when the light catches it right.'
+        );
+        addJournal('Elowen Shelk — shell subsidiary linked to disruption windows, founding signatory visible', 'evidence');
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration(
+          'Not Yet',
+          'Elowen\'s administrative clerk intercepts you at the guild entrance. The Chairwoman is in closed session. The clerk says it without apology and writes your name in the visitor queue before you finish acknowledging it. The queue has four names ahead of yours. Two of them belong to Roadwarden liaison officers. Something has changed in the last twenty-four hours — the queue tells you that without telling you what.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "The Great Registry seal archive runs three floors below street level. The dates on those seals don't match what was filed above.",
+    tags: ['stage2', 'shelkopolis'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1);
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        addNarration(
+          'The Archive That Doesn\'t Line Up',
+          'The Great Registry\'s sub-level seal archive smells of old wax and stone cold enough to see breath in. The shelf markers are hand-labeled in two different scripts — the originals and a second hand that came through later, re-sorting. You find the block covering the chapel letter period. Three seal impressions carry dates that precede the corresponding filings by eleven days. Pre-dated registrations are a charter technique: the authorization existed before the action, which means someone planned the cover before the operation began.'
+        );
+        addJournal('Great Registry — pre-dated seal impressions confirm pre-planned authorization structure', 'evidence');
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration(
+          'The Wrong Index',
+          'The sub-level archive attendant pulls the correct shelf block, sets it on the reading table, and waits. The seal records for the relevant period are present but the index sheet that would let you cross-reference against the filing dates upstairs is missing — removed cleanly, not torn. The attendant notes the absence in the duty log without being asked and names it a routine loss. The notation is made in the same ink as everything else on the page. It isn\'t routine.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "Wearing a House Shelk guild token in the wrong quarter reads as a provocation here. It already has.",
+    tags: ['stage2', 'shelkopolis'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1);
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        addNarration(
+          'Reading the Room Before the Room Reads You',
+          'The Fashion Artisans Collective mark on your coat tag is the wrong House color for the Verdant Row end of the market — visible enough that two stall runners clock it in the first thirty seconds. You catch the look before either of them moves and peel the tag at the seam before it becomes a formal correction. The man who was watching from the grain exchange doorway stops watching and goes back inside. The Collective\'s territorial grammar here is enforced by attention, not ordinance, and you\'ve just demonstrated you can read it.'
+        );
+        addJournal('Shelkopolis Artisans Collective — territorial mark system observed, decorum breach avoided', 'discovery');
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration(
+          'The Correction Arrives Formally',
+          'A Collective warden steps out from the covered stall row and addresses you by the honorific used for persons under formal notice. The House color on your tag is documented, your name requested, your purpose in this quarter recorded. The process is courteous and takes eight minutes. By the end you have a correction notice stamped with the Collective seal and a name in the warden\'s duty log. The correction notice is the kind that gets shared with the Roadwarden Market Order desk at end of shift.'
+        );
+      }
+    }
+  },
+
   {
     label: "The evidence is complete. The choice about how to use it doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent', 'Meaningful'],

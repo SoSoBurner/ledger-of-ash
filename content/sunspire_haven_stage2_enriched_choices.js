@@ -155,6 +155,71 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Kael is holding something back — the requisition ledger has a gap where a page was removed.",
+    tags: ['stage2', 'sunspire_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.kael_ledger_gap_revealed = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Missing Page', 'Kael sets the requisition ledger on the workbench and turns away, the back of his neck reddening. The binding shows it cleanly — a razor cut through stitching, no stub left. He taps the iron clasp twice before he speaks. "Someone came back after the work was done. Said the commission had been logged wrong. I let them correct it." His thumb presses against the clasp and stays there. "I should not have let them correct it."');
+        addJournal('Kael confirms a requisition page was removed post-completion by the commissioning party', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Workshop Confidentiality', 'Kael straightens the ledger and slides it to the far end of the bench. "Workshop records are syndicate property. I can confirm work was done. I cannot walk through every line with an outsider." He picks up a caliper and turns back to the bench in a way that closes the conversation.');
+      }
+    }
+  },
+
+  {
+    label: "The grain storehouse wall carries glyph-scoring marks at the wrong height — not structural, not decorative.",
+    tags: ['stage2', 'sunspire_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.storehouse_glyph_marks_examined = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Scoring Marks', 'The marks run in a horizontal band along the storehouse\'s interior wall at hip height — shallow cuts in the stone, spaced too evenly for damage, too low for ward-lines. Dust has settled differently inside each groove. Taldan\'s countermeasure documentation describes exactly this: a pressure-sampling array, used to measure glyph saturation in enclosed cargo spaces. Someone ran a calibration here. The storehouse was a test environment before the containers were built.');
+        addJournal('Storehouse interior shows glyph pressure-sampling array marks — calibration site for container modification work', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Stone Damage', 'The marks could be tool drag, old ward lines, or simple wear. Without sharper reference material the distinction between deliberate scoring and incidental damage stays open. A syndicate clerk spots the examination and asks, with some edge, whether there is a problem with the storage facility.');
+      }
+    }
+  },
+
+  {
+    label: "Presenting sealed papers without a family endorsement mark is the kind of error that draws attention here.",
+    tags: ['stage2', 'sunspire_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.sunspire_social_breach_navigated = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Wrong Seal, Right Moment', 'The market clerk\'s eyes drop to the papers and stay there a half-beat too long. The endorsement column is blank. He draws breath to speak and you step into the pause — naming the Crownmere family yard three streets north, asking about freight timing. His posture shifts. The question is familiar enough to settle him. By the time he hands the papers back, his attention has moved on, and the freight manifest on his desk — the one with the charter subsidiary stamp — remains face-up long enough to read the reference number.');
+        addJournal('Charter subsidiary reference number confirmed on Sunspire freight manifest — same code as commissioning party', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Logged', 'The clerk does not raise his voice. He simply asks for a family endorsement mark, writes something in his ledger, and waits. The pause stretches until retreat is the only clean option. The entry stays in his book.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Sunspire Haven finale — the convoy modification workshop and knowledge suppression campaign confirm Sunspire as an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,

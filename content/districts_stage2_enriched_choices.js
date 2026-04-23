@@ -200,6 +200,27 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+  {
+    label: "The ward boundary markers here carry more than paint — something was written over.",
+    tags: ['stage2', 'districts'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'examining Granary Steps ward boundary markers');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('survival', G.skills.survival || 0);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Ward Marker Palimpsest', 'The stone post at the granary district boundary shows three layers of mark — the current ward designation in fresh chalk, an older grain routing code in wax crayon beneath it, and underneath both, a carved cipher that matches the charter subsidiary format you have seen in the Aurora Heights filings. The carving was meant to be permanent. Someone chalked over it when the routing number changed. The original claim is still there in the stone.');
+        addJournal('Granary Steps boundary post: charter subsidiary cipher carved into stone beneath two newer mark layers', 'evidence');
+        G.flags.granary_marker_found = true;
+        maybeStageAdvance();
+      } else {
+        addNarration('Ward Marker, Unremarkable', 'The posts at the granary boundary are standard — district designation, date of last arbitration, constable patrol signature in chalk. The chalk is fresh. Whatever was underneath has been scrubbed, not just covered. The stone is still damp.');
+      }
+    }
   }
 ];
 
@@ -231,6 +252,27 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+  {
+    label: "The Guild Arbiter processed that filing — she knows which claim date came first.",
+    tags: ['stage2', 'districts'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'pressing Guild Arbiter on Iron Ledger Ward claim dates');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('persuasion', G.skills.persuasion || 0);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Arbiter Seniris, Off the Record', 'She lays the two documents on her desk in the order she always does — seniority of claim date, not guild seniority. The Northern Provision Compact filing is dated four months before the Guild Merchant\'s counter-claim. Her thumb rests on the date without pointing to it. "A provisional determination reflects what the documents show," she says, not looking up. "A full arbitration outcome reflects what the documents are worth." She does not explain the difference. She does not have to.');
+        addJournal('Iron Ledger Ward arbiter: NPC claim predates Guild Merchant counter-claim by four months — provenance question open', 'intelligence');
+        G.flags.iron_ledger_arbiter_consulted = true;
+        maybeStageAdvance();
+      } else {
+        addNarration('Arbiter Seniris, On the Record', 'She lays both documents down and gives you the same answer she gives everyone: the provisional determination is posted on the notice board. The full arbitration schedule is public. She will not discuss active filings outside the formal process. Her desk is already sorted before you finish asking.');
+      }
+    }
   }
 ];
 
@@ -260,6 +302,29 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Reckoning Quarter: memorial fraud still active, complainant unwilling to restate formally', 'evidence', `rq-complaint-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+  {
+    label: "The permit inspector patrols that corridor — a wrong word here closes every door in the quarter.",
+    tags: ['stage2', 'districts'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(30, 'navigating Reckoning Quarter permit inspector social check');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('stealth', G.skills.stealth || 0);
+      if (roll >= 13) {
+        G.investigationProgress++;
+        addNarration('Permit Corridor, Clean Transit', 'You catch the inspector mid-patrol at the passage between the justice hall and the public record annex. She folds her document to the scope field first — the habit is automatic. Your transit papers show exactly what they need to show and nothing more. She returns the document without comment and moves to the next corner marker. The constabulary log at the annex entrance has no new entry after you pass. The corridor stays open.');
+        addJournal('Reckoning Quarter: permit passage clean — no flag logged at annex entry', 'discovery');
+        G.flags.reckoning_passage_clear = true;
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Permit Corridor, Flagged', 'She folds the document to the scope field and holds it there longer than she should. Your authorization covers the justice hall but not the passage beyond it — a boundary you missed. She does not raise her voice. She logs the scope discrepancy in the incident record, not the patrol log, which means it goes to the arbitration queue rather than constabulary enforcement. The distinction is small now. It will matter later.');
+      }
     }
   }
 ];
