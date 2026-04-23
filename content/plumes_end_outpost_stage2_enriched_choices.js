@@ -98,6 +98,97 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Shrine Keeper Cysur has been keeping something back. A second conversation — after the shrine clears of travelers — may draw it out.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'second conversation with Shrine Keeper Cysur');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.cysur_second_meeting = true;
+        G.investigationProgress++;
+        G.lastResult = `Cysur waits until the last caravan hand leaves the shrine, then closes the door. She pulls a folded paper from behind the offering ledger — a transit receipt, signed with a Warden Order seal, for a cargo load described as "pressure stabilization components." Delivered four months ago to a northern waypoint that doesn't appear on any public route list. She found it tucked inside a pilgrim's donation pouch. "I kept it because I didn't know who was safe to give it to."`;
+        addJournal('Cysur: Warden Order transit receipt for pressure stabilization components — delivered to unlisted northern waypoint', 'evidence', `plumes-cysur2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Cysur's expression closes the moment you press. A Roadwarden steps into the shrine doorway behind you — routine patrol timing, but the coincidence reads badly. She gestures toward the door. "This is a place of passage. Not of questions."`;
+        addJournal('Cysur closed second meeting — Roadwarden presence noted, shrine relationship strained', 'complication', `plumes-cysur2-fail-${G.dayCount}`);
+      } else {
+        G.flags.cysur_second_meeting = true;
+        G.investigationProgress++;
+        G.lastResult = `Cysur confirms what she withheld before. Three of the frightened travelers she mentioned weren't passing through — they were leaving the structure for good. All three described the same thing: a second chamber below the main floor, accessed through a locked grate, with equipment she didn't recognize from their descriptions. She never reported it. "I pray for travelers. I don't manage what they carry."`;
+        addJournal('Cysur confirms: departing workers described sub-floor chamber with unidentified equipment at staging structure', 'evidence', `plumes-cysur2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The staging structure's guard rotation has a gap — a narrow window between the northern and western patrol legs where the tree line reaches within thirty meters of the outer wall.",
+    tags: ['Stage2', 'Scouting'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'scouting the staging structure guard rotation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.staging_structure_scouted = true;
+        G.investigationProgress++;
+        G.lastResult = `The rotation gap is eleven minutes, not the eight you estimated. You get close enough to read the perimeter posts: standard Soreheim military marking on the east face, a second mark below it — a Warden Order brand, newer, applied over the original paint. Through the northern embrasure you count three guards on the upper level and hear the sound of mechanical cycling below the floor — a pump or compressor running at intervals. The lower chamber is real.`;
+        addJournal('Staging structure: dual-branded perimeter, Warden Order over Soreheim military — sub-floor mechanical equipment confirmed audible', 'evidence', `plumes-scout-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
+        G.lastResult = `You close to within fifty meters before a guard dog picks up the scent from the wrong angle. You pull back into the tree line without being seen, but the dog's alert prompts a full rotation check — the gap closes, and a fourth guard is added to the northern leg for the rest of the day. The rotation is now tighter.`;
+        addJournal('Scout attempt blown by guard dog — staging structure rotation tightened, watchfulness elevated', 'complication', `plumes-scout-fail-${G.dayCount}`);
+      } else {
+        G.flags.staging_structure_scouted = true;
+        G.investigationProgress++;
+        G.lastResult = `You hold position in the tree line for two rotation cycles and confirm the gap is real — eleven minutes between the northern and western legs passing the blind corner. Four guards on rotation, a fifth stationed at the main entry. The structure is larger than the Patrol Leader described: a second roofline visible behind the first, extending back into the hillside. Whatever the main building holds, there is more behind it.`;
+        addJournal('Staging structure: 5-guard rotation confirmed, secondary roofline extending into hillside — structure larger than reported', 'evidence', `plumes-scout-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A Roadwarden checkpoint at the northern gate requires stating your business before you pass. The wrong answer here is anything vague.",
+    tags: ['Stage2', 'Social'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'navigating Roadwarden checkpoint friction');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.roadwarden_checkpoint_passed = true;
+        G.investigationProgress++;
+        G.lastResult = `The Roadwarden on the gate is thorough but fair. You give him a trade purpose, specific enough to check and mundane enough to not warrant it. He stamps the transit log and waves you through. As he hands back your mark, he lowers his voice: "Whatever you're looking into up north — three other travelers asked about the same road this month. None of them came back through this gate."`;
+        addJournal('Roadwarden checkpoint: three prior travelers asked about northern road — none returned through the gate', 'intelligence', `plumes-checkpoint-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The Roadwarden flags your transit record for a secondary hold — your stated purpose doesn't match the route you came in on. You spend two hours in the waystation anteroom while a second Roadwarden cross-checks your documents. The delay is noted in the outpost log, keyed to your name and arrival date.`;
+        addJournal('Flagged at Roadwarden checkpoint — secondary hold, name logged against northern road inquiry', 'complication', `plumes-checkpoint-fail-${G.dayCount}`);
+      } else {
+        G.flags.roadwarden_checkpoint_passed = true;
+        G.investigationProgress++;
+        G.lastResult = `The gate Roadwarden is satisfied with your stated purpose but adds a note to the transit log regardless — standard procedure for anyone heading north of the outpost boundary. The stamp goes in. He doesn't look up when he says it: "Route law applies past the marker. Anything you find out there, you're responsible for documenting through us."`;
+        addJournal('Roadwarden checkpoint passed — northern transit logged, route law reminder issued', 'intelligence', `plumes-checkpoint-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Plume's End Outpost finale — the staging location is physically located. Scout it formally with Patrol Leader backup or use Letha's map to infiltrate quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,

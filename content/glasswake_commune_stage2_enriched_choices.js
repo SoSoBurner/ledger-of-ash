@@ -104,6 +104,99 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Toman Iceveil returns to the observation gallery with a second data set — shard resonance patterns from three separate clear-sky windows. The amplification is not random. It is timed.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'tracing timed shard resonance pattern with Toman Iceveil');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.toman_second_meeting = true;
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `Toman spreads three parchment charts across the gallery table, weighted at the corners with sample jars. The resonance spikes align to the same two-hour window across all three clear-sky events — separated by forty-three days each. He taps the interval column. "That is not a natural period. The glasswake formation doesn't have a forty-three day cycle. Something external does." The amplification network has a clock. Someone is running it on a schedule.`;
+        addJournal('Shard resonance spikes on 43-day interval — external schedule confirmed by Iceveil', 'evidence', `glass-toman2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Toman arrives at the gallery but stops short when he notices a containment warden logging instrument readings nearby. He rolls the charts back without unfolding them. "Not here." He leaves. The warden watches the door for a long moment before returning to the log.`;
+        addJournal('Iceveil second data set blocked — warden present, meeting aborted', 'complication', `glass-toman2-fail-${G.dayCount}`);
+      } else {
+        G.flags.toman_second_meeting = true;
+        G.investigationProgress++;
+        G.lastResult = `Toman shows one chart — the most recent clear-sky window. The resonance spike is narrow, precise, and two hours after solar peak. "I have two more that match." He won't produce them here, but he confirms the interval is consistent. "Forty-three days. Every time." He folds the chart and pockets it before anyone passes the doorway.`;
+        addJournal('One confirmed spike — 43-day interval, Iceveil has two more matching charts', 'evidence', `glass-toman2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The flagged exposure trenches outside the dome mark the shard formation perimeter. At low-observation hours the pylons go dark. The glyph pressure gradient is readable directly from the trench edge.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'reading glyph pressure gradient at the shard formation site');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.shard_site_observed = true;
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The trench edge is cold enough that breath fogs immediately. The shards here are small — irregular clusters the size of a fist, dark at the base and pale at the tip. The glyph pressure visible to a trained eye runs inward rather than outward: the formation is drawing pressure toward its center, not dispersing it. A natural shard vents. This one collects. The flagging markers are spaced for quarantine, not study. No researcher has stood this close in some time.`;
+        addJournal('Shard formation draws pressure inward — collector behavior, not natural venting', 'evidence', `glass-site-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `A pylon activates early — the sensor grid runs a sweep cycle that doesn't match the posted schedule. The light sweeps the trench edge and catches movement. A containment warden is at the dome entrance within minutes, citation board in hand. Your presence at the perimeter outside observation hours goes into the formal log.`;
+        addJournal('Caught at shard perimeter — pylon sweep early, formal citation logged', 'complication', `glass-site-fail-${G.dayCount}`);
+      } else {
+        G.flags.shard_site_observed = true;
+        G.investigationProgress++;
+        G.lastResult = `The shards are denser at the formation center than the quarantine maps show. The pressure gradient at the trench edge runs counter to what the posted data boards list — inward pull where the readings claim neutral. The discrepancy is measurable with bare attention. Whether it was misread or misreported is a different question.`;
+        addJournal('Pressure gradient counter to posted readings — inward pull at shard center', 'evidence', `glass-site-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Lenna Bannerhold flags a procedural breach: you accessed the shard perimeter log without submitting a prior scan record. The Containment Research Concord requires collective sign-off before field access.",
+    tags: ['Stage2', 'Persuasion'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'navigating collective process breach with Lenna Bannerhold');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.lenna_trust_built = true;
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `Lenna sets the citation form down without filing it. She studies the scan record gap for a moment, then slides the log closed. "The Concord requires process because process creates a record. If your record is missing, that means someone else's record is the only one." She glances toward the suppression files across the room. "That happens to be relevant right now." She marks your access as a supervised observation and countersigns it herself.`;
+        addJournal('Lenna countersigned access — process breach resolved, trust established', 'contact_made', `glass-lenna2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Lenna files the citation before the conversation ends. "I understand you have reasons. So does everyone who skips scanning." She is not hostile — she is procedurally obligated and says so plainly. The citation goes to the Containment Research Concord. It will attach to any future access request.`;
+        addJournal('Citation filed with Concord — future access requests flagged', 'complication', `glass-lenna2-fail-${G.dayCount}`);
+      } else {
+        G.flags.lenna_trust_built = true;
+        G.investigationProgress++;
+        G.lastResult = `Lenna accepts the explanation but logs a formal note rather than dismissing the breach. "I can mark this as remediated, not absent." She hands over a blank scan form. "Submit this before any further perimeter access. The Concord reads absences as intent." It is not a threat. It is the actual rule, stated without editorial.`;
+        addJournal('Breach marked remediated — scan form required for further perimeter access', 'intelligence', `glass-lenna2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Glasswake Commune finale — the shard amplification proof and suppressed conclusions confirm the full operation mechanism. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 106,

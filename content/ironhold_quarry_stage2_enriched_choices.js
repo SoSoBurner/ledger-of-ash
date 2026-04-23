@@ -96,6 +96,97 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Darian Ironspike is at the secondary gate post — the detention record from the last encounter sits between you. He has something he didn't say then.",
+    tags: ['Stage2', 'NPC', 'Escalation'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'pressing Darian Ironspike at the secondary gate for the second time');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_darian_ironspike_quarry = true;
+        G.flags.darian_second_encounter = true;
+        G.investigationProgress++;
+        G.lastResult = `Darian pulls the detention record from his coat and sets it on the post shelf rather than in his pocket. "This stays here." He doesn't explain. He tells you that the special extraction order came with a transport directive — the classified mineral doesn't go to the nearest ORE processing station. It moves under a separate manifest, flagged for an ORE Supreme Command intake point in the capital. No site-level custody transfer documented. The chain ends before it can be traced from Ironhold. He folds his hands on the shelf and doesn't look away.`;
+        addJournal('Ironhold classified mineral routed to ORE Supreme Command capital intake — transport chain breaks at source', 'evidence', `iron-darian2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Darian reads the approach as a provocation. He picks up the detention record and files it in the post log rather than his pocket — now it's formal, not discretionary. "You've been at this gate twice. The third time I write an ORE security referral." He means it. Whatever he might have said in a different register is gone. The detention record is now a pattern, not an incident.`;
+        addJournal('Darian escalated — second approach logged, ORE security referral threatened', 'complication', `iron-darian2-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_darian_ironspike_quarry = true;
+        G.flags.darian_second_encounter = true;
+        G.investigationProgress++;
+        G.lastResult = `Darian keeps his hands on the post shelf. He confirms one thing without being asked twice: the classified mineral doesn't move through the standard ORE processing chain. Where it goes is above his authorization to know. "Classification at that level doesn't come from the quarry. It doesn't come from this territory." He says it to the shelf. The detention record stays in his coat.`;
+        addJournal('Classified mineral bypasses local ORE processing — capital-level authorization confirmed', 'evidence', `iron-darian2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The special assessment section is accessible during the midday shift break — the extraction face and the ore staging area both visible from the ridge above the lower vein.",
+    tags: ['Stage2', 'Physical', 'Survival'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'observing the special assessment section from the ridge during midday break');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.flags.special_assessment_observed = true;
+        G.lastResult = `From the ridge the full layout is readable: a standard ore staging area, and forty meters along the lower vein face, a separate bay with its own manifest board and a different color of marker flag on the extraction posts. No mixed loads — the special assessment ore is sorted at extraction, not at the weighing station. Three workers assigned to it at any one time, rotating faster than the standard crew. The transport dock at the bay's far end has no ORE insignia. Whatever moves ore out of that bay doesn't leave a standard manifest.`;
+        addJournal('Special assessment bay isolated at extraction point — separate transport dock, no ORE manifest markings', 'evidence', `iron-assess-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The ridge path is less stable than the quarry's surface maps suggest. A loose section gives way on the descent — audible from the lower work area. A guard at the staging perimeter looks up and marks the position. No immediate response, but the ridge is now a noted approach. The special assessment bay is visible only partially from the position reached before the slide. The transport dock is obscured by the ore screening wall.`;
+        addJournal('Ridge approach to special assessment bay marked by quarry security', 'complication', `iron-assess-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.flags.special_assessment_observed = true;
+        G.lastResult = `The midday break thins the crew enough to distinguish the two work areas. The special assessment bay runs its own color-coded marker flags, separate from the main extraction zone. The ore from that section doesn't go to the central weighing station — it moves directly to a dock at the far end of the lower vein. The dock is occupied during the break by a transport crew who don't wear quarry insignia.`;
+        addJournal('Special assessment ore transported separately — crew with no quarry insignia, isolated dock', 'evidence', `iron-assess-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A queue dispute at the ore weighing station — an outsider questioning the tally process in front of the crew is the fastest way to become the day's problem in Ironhold.",
+    tags: ['Stage2', 'Social', 'Complication'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'navigating a labor-culture dispute at the weighing station');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.flags.weighing_station_trust = true;
+        G.lastResult = `The queue dispute is a tally discrepancy — a prison laborer's daily count is two units short, which means two units docked from his rations. The weighing station recorder isn't changing it. You don't challenge the recorder directly. You ask the recorder to read the tally aloud while the laborer counts his marks. The recorder reads it, the marks don't match, and three crew members watching hear the gap. The recorder corrects the entry without a word. The laborer doesn't thank you. He nods once. An engineer at the back of the queue tells you where the night tally supervisor takes his breaks.`;
+        addJournal('Weighing station tally corrected publicly — engineer offers night supervisor location', 'intelligence', `iron-social-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The approach reads as a casual outsider treating Ironhold like a market dispute. The recorder doesn't engage. The crew around the station goes quiet in the specific way that means everyone is watching and no one will intervene. A guard supervisor arrives before the exchange can be reversed. "Weighing station isn't public space." You're moved off the floor. The laborer's tally isn't corrected. Two workers who might have spoken have now seen that talking to you comes with an audience.`;
+        addJournal('Weighing station approach failed — read as outsider intrusion, guard supervisor involved', 'complication', `iron-social-fail-${G.dayCount}`);
+      } else {
+        G.lastResult = `The recorder closes the dispute before it opens — standard deflection, practiced enough to suggest it happens regularly. The laborer takes the short tally without pressing it. The crew around the station returns to their work. No escalation, but no ground gained either. The dispute ends the way most do here: in the recorder's favor, with everyone watching and no one surprised.`;
+        addJournal('Weighing station dispute — recorder deflected, no ground gained', 'complication', `iron-social-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Ironhold Quarry finale — the raw material source is confirmed. Report through ORE command chain or route the evidence to the Roadwarden Ithtananalor post.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,

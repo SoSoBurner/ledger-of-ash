@@ -96,6 +96,96 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Vale Brokerwell pulls you aside near the tally towers — he has found a second shadow ledger he didn't build, and the handwriting isn't his. Someone else inside the registry has been logging the same parties.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'second shadow ledger discovered via Vale Brokerwell escalation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.brokerwell_second_ledger = true;
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The second ledger is older — it predates Brokerwell's tenure by fourteen months. The handwriting is clipped and formal, each entry consistent in format, each one referencing a charter designation that doesn't appear in any public filing index. The charter series follows a sequence Brokerwell doesn't recognize as standard Union administrative numbering. He's been keeping a parallel record of something that was already being tracked before he arrived. He sets both ledgers on the desk side by side. The columns align.`;
+        addJournal('Pre-existing shadow ledger confirms operation predates Brokerwell — charter series unindexed', 'evidence', `unity-brokerwell2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The second ledger's entries are in cipher — not an elaborate one, but consistent enough that a quick read produces nothing useful. Brokerwell watches you work through it. "I wasn't able to make sense of it either." The cipher key isn't in the registry. Without it, the entries are a sequence of marks. You photograph the column headers and leave. The content stays locked.`;
+        addJournal('Second ledger entries in cipher — key not present in registry', 'complication', `unity-brokerwell2-fail-${G.dayCount}`);
+      } else {
+        G.flags.brokerwell_second_ledger = true;
+        G.investigationProgress++;
+        G.lastResult = `Brokerwell has already cross-referenced six entries between the two ledgers. The same parties appear in both — dates offset by two to three days, as if the second logger was recording arrivals slightly before or after the official transit window. "Whoever kept this wasn't operating on the same schedule I was given," he says. He doesn't name who it might be. The dual entries narrow the window around each party's actual presence in the square.`;
+        addJournal('Dual shadow ledgers cross-referenced — arrival windows narrowed per party', 'evidence', `unity-brokerwell2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "One of the unlogged diplomatic arrivals lists a consignment weight that matches no known cargo class — tracing the transit route back through the loading lane manifests may locate where it was staged.",
+    tags: ['Stage2', 'Registry'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing unlogged consignment weight back through loading lane manifests');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.consignment_route_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The covered loading lane keeps a secondary manifest board — a chalk-and-slate running record that the lane steward updates by hand and clears each evening. The entry you need is from six weeks ago, and the lane steward hasn't erased a slate from that period because one of the chalk rollers seized and they've been working around it. The weight notation matches the shadow register entry exactly. The staging address is on the slate: a counting house two blocks east, licensed under a charter name that appears in the unindexed series.`;
+        addJournal('Consignment staging address confirmed — counting house under unindexed charter', 'evidence', `unity-consignment-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The loading lane steward notices you at the manifest board longer than a casual passerby would stop. He doesn't say anything directly, but by the time you reach the far end of the lane, one of the arbitration runners has fallen into step behind you. The board told you nothing useful. The runner follows you two blocks before peeling off toward the tally towers. The lane is now alert.`;
+        addJournal('Loading lane steward flagged presence — arbitration runner observed following', 'complication', `unity-consignment-fail-${G.dayCount}`);
+      } else {
+        G.flags.consignment_route_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The manifest board has the consignment weight but not the staging address — the entry uses a transit code rather than a named location. The code format is consistent with a short-haul storage arrangement rather than through-routing. The lane steward, when asked about the code class generally, says those entries cover staging holds rented by the hour rather than the day. Day-rental holders don't appear in the main registry. The staging point is close. The specific address needs another source.`;
+        addJournal('Consignment staged in short-term hourly hold — specific address requires second source', 'intelligence', `unity-consignment-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A ward mediation session spills into the open exchange court — one of the disputing parties recognizes you and assumes you are an arbitration runner sent to document the proceedings against them.",
+    tags: ['Stage2', 'Social'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'navigating mistaken-identity friction in ward mediation session');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ward_mediation_friction_resolved = true;
+        G.investigationProgress++;
+        G.lastResult = `The disputing party — a freight broker with a guild mark you don't recognize — stops mid-sentence when he sees you and reverses his earlier position entirely, suddenly agreeable to terms he'd refused three times in the session. Vale Ledgermere watches the shift with visible confusion. After the session clears, he finds you at the outer corridor. "Whatever he thought you were, it moved him." He pauses. "If you need the session calendar for the next ten days, I can leave it open on my desk between nine and ten."`;
+        addJournal('Ward mediation mistaken identity — Ledgermere offers session calendar access', 'discovery', `unity-mediation-friction-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The freight broker raises his voice before you can clarify — "I want this person's credentials logged before this session continues" — and the mediation runner pulls out an intake form. Vale Ledgermere closes his session folder and asks both parties to step back. Your name goes into the intake register with a note flagging the interruption. The mediation reconvenes without you present. Two other people in the waiting area watched the whole exchange.`;
+        addJournal('Ward mediation disrupted — name logged in intake register, session interrupted', 'complication', `unity-mediation-friction-fail-${G.dayCount}`);
+      } else {
+        G.flags.ward_mediation_friction_resolved = true;
+        G.lastResult = `The freight broker doesn't fully accept your explanation, but the exchange costs him enough composure that he agrees to an extended documentation hold — meaning the session terms are now recorded rather than verbal. Vale Ledgermere acknowledges you with a slight nod from across the court as both parties file out. The broker's guild mark is one you haven't catalogued yet. The mediation runner, who writes everything down, has it in his intake notes.`;
+        addJournal('Ward mediation friction defused — broker guild mark identified via intake notes', 'intelligence', `unity-mediation-friction-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Unity Square finale — the coordination hub is confirmed. Expose the shadow register publicly or use it to map and intercept the final operation meeting.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
