@@ -1125,6 +1125,94 @@
       G.recentOutcomeType = 'intelligence';
       maybeStageAdvance();
     }
+  },
+
+  // ========== FACTION CONTACTS ==========
+
+  // Faction 1: Oversight Collegium
+  {
+    label: 'Seld has been building the same picture from the other side.',
+    tags: ['stage2', 'faction_contact'],
+    xpReward: 60,
+    fn: function() {
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll >= 13) {
+        addNarration('Collegium Archive Access', 'Seld sets a folder on the table between you — not hers to share, technically. She opens it anyway. The cross-reference sheets inside are hand-annotated in two different inks: her notes layered over redactions that were made before she ever touched the file. She marks three suppressed filing numbers with her thumbnail and slides the folder toward you. Outside, the archive bell rings the close-of-day cycle. Neither of you moves until it stops.');
+        addJournal('Collegium archivist provided suppressed filing cross-references from three registries.', 'intelligence');
+        G.flags.collegium_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.flags.shadowhands_alerted = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration('Archive Meeting — No Exchange', 'Seld reads your hesitation before you say anything. She closes the folder and tucks it back under her arm. The offer stands, she says, but only until end of the third week. After that the files rotate to deep storage and she loses access. She leaves through the staff corridor. The archive reading room empties around you.');
+      }
+    }
+  },
+
+  // Faction 2: Shadowhands
+  {
+    label: 'The question in that note could only come from someone tracking the same routes.',
+    tags: ['stage2', 'faction_contact'],
+    xpReward: 60,
+    fn: function() {
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll >= 13) {
+        addNarration('Courier Relay — Drop Confirmed', 'The waypoint is a flour merchant\'s loading dock, which is either deliberate or convenient. The courier takes the unmarked packet without looking at it and hands you a wax-sealed tube in return. Inside: enforcement operation logs, dates, route designations, and a column of ledger shorthand you\'ll need time to decode. The courier is gone before you reseal your coat. The dock smells of milled grain and nothing else.');
+        addJournal('Shadowhands courier relay yielded covert enforcement operation logs from Roazian-adjacent routes.', 'intelligence');
+        G.flags.shadowhands_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.flags.collegium_alerted = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration('Relay — Aborted', 'The waypoint is clear when you arrive. No courier, no signal. An hour later a child passes and drops a folded note at your feet without slowing: one word, "watched." You leave the packet at the lodging and spend the evening doing nothing that looks like waiting. Whatever window existed has closed.');
+      }
+    }
+  },
+
+  // Faction 3: Road Wardens Order
+  {
+    label: 'The Warden flagged my transit pattern — she already knows what I\'ve been tracking.',
+    tags: ['stage2', 'faction_contact'],
+    xpReward: 60,
+    fn: function() {
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        addNarration('Warden Route Exchange', 'The patrol leader walks you to a field desk at the edge of the checkpoint post and sets out three corridor maps. One has no public manifest notation — she points to it without comment. You file the complication report in your own name, which she witnesses and stamps. She gives you the maps in exchange. The transaction is entirely procedural. What she doesn\'t say is that your name is now in the Order\'s active monitoring log, and she knows you know that.');
+        addJournal('Road Wardens Order provided route intelligence for three corridors, including one with no public manifest.', 'intelligence');
+        G.flags.wardens_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.flags.red_hood_warned = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration('Checkpoint — No Filing', 'The Warden listens, then shakes her head once. Without a formal complication report on record, she can\'t share monitored route data with a civilian transit — Order protocol. She\'s not unfriendly about it. The checkpoint clears and traffic resumes around you. The maps stay rolled under her arm.');
+      }
+    }
+  },
+
+  // Faction 4: Red Hood Guild
+  {
+    label: 'She knows about the unmarked cargo — that phrase wasn\'t an accident.',
+    tags: ['stage2', 'faction_contact'],
+    xpReward: 60,
+    fn: function() {
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll >= 13) {
+        addNarration('Guild Fence Exchange', 'The market stall is loud enough that no one nearby can track the conversation. She doesn\'t want gold — she names a specific piece of institutional detail and waits. You give it. She listens without writing anything down, then produces a folded manifest from somewhere inside her coat. The routes marked are not on any public ledger. One column lists cargo descriptors the Guild uses internally; another lists the operations they\'ve been running parallel to. The stall bell rings. She resumes haggling with the next customer before you\'ve pocketed the paper.');
+        addJournal('Red Hood Guild fence provided black-market access routes and an underworld manifest tied to the same operation.', 'intelligence');
+        G.flags.red_hood_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.flags.wardens_hostile = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        maybeStageAdvance();
+      } else {
+        addNarration('Guild Fence — No Deal', 'She names what she wants and you don\'t have it — or you have it and won\'t give it. Either way her expression doesn\'t change. She picks up a clay jar and turns it in her hands, appraising the glaze. The conversation is over. The stall stays busy around you and she doesn\'t look at you again.');
+      }
+    }
   }
 ];
+
+window.STAGE2_ENRICHED_CHOICES = STAGE2_ENRICHED_CHOICES;
 window.STAGE2_ENRICHED_CHOICES = STAGE2_ENRICHED_CHOICES;
