@@ -9219,6 +9219,11 @@ function adaptEnrichedChoice(c) {
       try { c.fn(); } catch(e) { console.error('[enriched]', e); }
       const txt = G.lastResult || '';
       if (txt) addNarration('', txt, G.lastResultType || 'neutral');
+      // Soreheim plot currency: increment on enriched choice execution in Soreheim territory
+      const _soreLocs = ['soreheim','sunspire'];
+      if (_soreLocs.indexOf(G.location) !== -1) {
+        G.sorePlotCredits = Math.min(30, (G.sorePlotCredits || 0) + 1);
+      }
       G.lastResult = null;
       G.lastResultType = null;
       if (typeof updateHUD === 'function') updateHUD();
@@ -11700,60 +11705,123 @@ function updateNoticesBadge() {
 const SHOP_INVENTORY = {
   shelkopolis:[
     {id:'basic_sword',name:'Roadwarden Blade',desc:'Standard issue. Reliable in a fight.',cost:18,type:'weapon',skillBonus:'combat',bonus:1,site:'Ironspool Ward'},
-    {id:'lore_tome',name:'Principalities Almanac',desc:'Trade routes, faction rosters, settlement notes. Lore +1 for one scene.',cost:12,type:'tool',skillBonus:'lore',bonus:1,site:'Gilded Archives of Lore'},
-    {id:'road_kit',name:'Road Kit',desc:'Bandages, rations, fire-steel. Survival +1 for one journey.',cost:8,type:'tool',skillBonus:'survival',bonus:1,site:'Verdant Row District'},
-    {id:'lock_tools',name:'Locksmith Tools',desc:'Quality. Craft +1 on locks and security.',cost:15,type:'tool',skillBonus:'craft',bonus:1,site:'Ironspool Ward'},
-    {id:'shelk_papers',name:'Shelk Transit Papers',desc:'Genuine. One checkpoint clears automatically.',cost:20,type:'tool',skillBonus:'persuasion',bonus:1,site:'House of Shelk Estate'},
+    {id:'compact_blade',name:'Compact Enforcement Sword',desc:'Guild-stamped. Heavier grip, longer edge. Combat +2.',cost:45,type:'weapon',skillBonus:'combat',bonus:2,site:'Ironspool Ward'},
+    {id:'lore_tome',name:'Principalities Almanac',desc:'Trade routes, faction rosters, settlement notes. Lore +1 for one scene.',cost:22,type:'tool',skillBonus:'lore',bonus:1,site:'Gilded Archives of Lore'},
+    {id:'union_doctrine_guide',name:'Union Doctrine Compendium',desc:'Current statutes, procedural codes, institutional hierarchies. Lore +2 in formal settings.',cost:55,type:'tool',skillBonus:'lore',bonus:2,site:'Gilded Archives of Lore'},
+    {id:'road_kit',name:'Road Kit',desc:'Bandages, rations, fire-steel. Survival +1 for one journey.',cost:12,type:'tool',skillBonus:'survival',bonus:1,site:'Verdant Row District'},
+    {id:'lock_tools',name:'Locksmith Tools',desc:'Quality. Craft +1 on locks and security.',cost:20,type:'tool',skillBonus:'craft',bonus:1,site:'Ironspool Ward'},
+    {id:'shelk_papers',name:'Shelk Transit Papers',desc:'Genuine. One checkpoint clears automatically.',cost:35,type:'tool',skillBonus:'persuasion',bonus:1,site:'House of Shelk Estate'},
+    {id:'union_ward_token',name:'Union Ward Token',desc:'Marks the bearer as an authorized Compact agent. Persuasion +2 with Union officials.',cost:65,type:'tool',skillBonus:'persuasion',bonus:2,site:'House of Shelk Estate'},
+    {id:'shelk_healing_poultice',name:'Medic Poultice',desc:'Three uses. Each restores 5 HP.',cost:25,type:'consumable',skillBonus:'survival',bonus:0,site:'Verdant Row District'},
   ],
   fairhaven:[
-    {id:'farmers_blade',name:'Harvest Blade',desc:'Sturdy. Combat +1 in rural terrain.',cost:10,type:'weapon',skillBonus:'combat',bonus:1,site:'Fairhaven Market'},
-    {id:'route_map',name:'Eastern Route Map',desc:'Hand-drawn. Shows waypoints the official charts omit.',cost:14,type:'tool',skillBonus:'survival',bonus:1,site:'Fairhaven Market'},
-    {id:'healing_herbs',name:'Healing Herbs',desc:'Three uses. Each restores 4 HP.',cost:9,type:'consumable',skillBonus:'survival',bonus:0,site:'Fairhaven Market'},
+    {id:'farmers_blade',name:'Harvest Blade',desc:'Sturdy. Combat +1 in rural terrain.',cost:15,type:'weapon',skillBonus:'combat',bonus:1,site:'Fairhaven Market'},
+    {id:'route_map',name:'Eastern Route Map',desc:'Hand-drawn. Shows waypoints the official charts omit.',cost:18,type:'tool',skillBonus:'survival',bonus:1,site:'Fairhaven Market'},
+    {id:'healing_herbs',name:'Healing Herbs',desc:'Three uses. Each restores 4 HP.',cost:14,type:'consumable',skillBonus:'survival',bonus:0,site:'Fairhaven Market'},
+    {id:'fairhaven_lantern',name:'Warded Trail Lantern',desc:'Keeps a steady burn in wind and wet. Survival +1 at night.',cost:20,type:'tool',skillBonus:'survival',bonus:1,site:'Fairhaven Market'},
+    {id:'fairhaven_salve',name:'Field Salve',desc:'One-use. Restores 8 HP after a fight.',cost:22,type:'consumable',skillBonus:'survival',bonus:0,site:'Fairhaven Market'},
   ],
   soreheim:[
-    {id:'giant_wrench',name:'Engineering Wrench',desc:'Giant-forged. Craft +2 on mechanisms and structures.',cost:25,type:'tool',skillBonus:'craft',bonus:2,site:'Engineers Consortium Office'},
-    {id:'allocation_pass',name:'Allocation Pass',desc:'Legitimate. Clears Soreheim checkpoints.',cost:30,type:'tool',skillBonus:'persuasion',bonus:1,site:'Allocation Hall'},
-    {id:'frontier_armor',name:'Frontier Plate',desc:'Worn but solid. Defense +1 in all combat.',cost:35,type:'armor',skillBonus:'survival',bonus:1,site:'Workers Barracks'},
+    {id:'giant_wrench',name:'Engineering Wrench',desc:'Giant-forged. Craft +2 on mechanisms and structures.',cost:38,type:'tool',skillBonus:'craft',bonus:2,site:'Engineers Consortium Office'},
+    {id:'sore_precision_tools',name:'Precision Tool Set',desc:'Machined to Frontier tolerances. Craft +3 on complex mechanisms.',cost:95,type:'tool',skillBonus:'craft',bonus:3,site:'Engineers Consortium Office'},
+    {id:'allocation_pass',name:'Allocation Pass',desc:'Legitimate. Clears Soreheim checkpoints.',cost:35,type:'tool',skillBonus:'persuasion',bonus:1,site:'Allocation Hall'},
+    {id:'frontier_armor',name:'Frontier Plate',desc:'Worn but solid. Defense +1 in all combat.',cost:50,type:'armor',skillBonus:'survival',bonus:1,site:'Workers Barracks'},
+    {id:'sore_heavy_armor',name:'Reinforced Frontier Plate',desc:'Giant-forged reinforcement at the joints. Defense +2.',cost:130,type:'armor',skillBonus:'survival',bonus:2,site:'Workers Barracks'},
+    {id:'sore_survival_rations',name:'Frontier Rations',desc:'Five days of high-calorie provisions. Survival +1 on long journeys.',cost:20,type:'consumable',skillBonus:'survival',bonus:1,site:'Allocation Hall'},
+    {id:'sore_blade',name:'Frontier Work Blade',desc:'Heavy, practical. Keeps an edge in field conditions. Combat +1.',cost:22,type:'weapon',skillBonus:'combat',bonus:1,site:'Workers Barracks'},
+    {id:'sore_siege_blade',name:'Frontier Siege Blade',desc:'Oversized, two-handed. Forged for Frontier conditions. Combat +2.',cost:70,type:'weapon',skillBonus:'combat',bonus:2,site:'Workers Barracks'},
   ],
   guildheart:[
-    {id:'union_seal',name:'Union Merchant Seal',desc:'Legitimate documentation. Trade interactions gain +1.',cost:22,type:'tool',skillBonus:'persuasion',bonus:1,site:'Neutral Counting House'},
-    {id:'manifest_blank',name:'Blank Manifest',desc:'Official Union format. Stealth +1 when moving goods.',cost:18,type:'tool',skillBonus:'stealth',bonus:1,site:'Freight Exchange'},
+    {id:'union_seal',name:'Union Merchant Seal',desc:'Legitimate documentation. Trade interactions gain +1.',cost:30,type:'tool',skillBonus:'persuasion',bonus:1,site:'Neutral Counting House'},
+    {id:'guild_master_seal',name:'Guild Master Seal',desc:'High-grade authorization document. Persuasion +2 in cross-polity dealings.',cost:75,type:'tool',skillBonus:'persuasion',bonus:2,site:'Neutral Counting House'},
+    {id:'manifest_blank',name:'Blank Manifest',desc:'Official Union format. Stealth +1 when moving goods.',cost:22,type:'tool',skillBonus:'stealth',bonus:1,site:'Freight Exchange'},
+    {id:'courier_cipher',name:'Courier Cipher Set',desc:'Encoded routing keys for freight exchange. Lore +1 on institutional records.',cost:35,type:'tool',skillBonus:'lore',bonus:1,site:'Freight Exchange'},
+    {id:'guild_short_blade',name:'Guild Enforcer Blade',desc:'Standard issue for Guild security details. Combat +1.',cost:18,type:'weapon',skillBonus:'combat',bonus:1,site:'Neutral Counting House'},
+    {id:'guild_road_kit',name:'Cross-Polity Road Kit',desc:'Rations, maps, and emergency funds for Guild routes. Survival +1.',cost:25,type:'tool',skillBonus:'survival',bonus:1,site:'Freight Exchange'},
   ],
   panim:[
-    {id:'registry_excerpt',name:'Registry Excerpt',desc:'A certified copy of a death record. Evidence.',cost:15,type:'tool',skillBonus:'lore',bonus:1,site:'Panim Afterlife Registry'},
-    {id:'grief_kit',name:'Grief Mediation Kit',desc:'Practical tools for the work. Persuasion +1 with bereaved.',cost:10,type:'tool',skillBonus:'persuasion',bonus:1,site:'Grief Mediation Office'},
+    {id:'registry_excerpt',name:'Registry Excerpt',desc:'A certified copy of a death record. Evidence.',cost:22,type:'tool',skillBonus:'lore',bonus:1,site:'Panim Afterlife Registry'},
+    {id:'panim_deep_record',name:'Deep Archive Record',desc:'Pre-Compact registry entry. Lore +2 on lineage and inheritance questions.',cost:60,type:'tool',skillBonus:'lore',bonus:2,site:'Panim Afterlife Registry'},
+    {id:'grief_kit',name:'Grief Mediation Kit',desc:'Practical tools for the work. Persuasion +1 with bereaved.',cost:18,type:'tool',skillBonus:'persuasion',bonus:1,site:'Grief Mediation Office'},
+    {id:'panim_ward_chalk',name:'Ward Chalk',desc:'Ritual boundary markers. Craft +1 on ward-setting actions.',cost:14,type:'tool',skillBonus:'craft',bonus:1,site:'Grief Mediation Office'},
+    {id:'panim_salve',name:'Afterlife Salve',desc:'One use. Restores 6 HP.',cost:20,type:'consumable',skillBonus:'survival',bonus:0,site:'Grief Mediation Office'},
   ],
   ithtananalor:[
-    {id:'iron_accord_pass',name:'Iron Accord Pass',desc:'Checkpoint clearance in Roaz territory.',cost:28,type:'tool',skillBonus:'persuasion',bonus:1,site:'Iron Accord Offices'},
-    {id:'quarry_blade',name:'Quarry Pick-Blade',desc:'Extraction work tool, effective weapon. Combat +1.',cost:12,type:'weapon',skillBonus:'combat',bonus:1,site:'Ironhold Quarry Gate'},
+    {id:'iron_accord_pass',name:'Iron Accord Pass',desc:'Checkpoint clearance in Roaz territory.',cost:35,type:'tool',skillBonus:'persuasion',bonus:1,site:'Iron Accord Offices'},
+    {id:'quarry_blade',name:'Quarry Pick-Blade',desc:'Extraction work tool, effective weapon. Combat +1.',cost:18,type:'weapon',skillBonus:'combat',bonus:1,site:'Ironhold Quarry Gate'},
+    {id:'roaz_field_blade',name:'Roaz Field Blade',desc:'Compact and heavy. Made for confined tunnel work. Combat +2.',cost:55,type:'weapon',skillBonus:'combat',bonus:2,site:'Ironhold Quarry Gate'},
+    {id:'quarry_map',name:'Quarry Survey Map',desc:'Shows extraction levels and passage routes. Survival +1 in Roaz terrain.',cost:20,type:'tool',skillBonus:'survival',bonus:1,site:'Ironhold Quarry Gate'},
+    {id:'ith_armor_patch',name:'Quarry Armor Patch',desc:'Reinforced leather for quarry work. Survival +1 in rough terrain.',cost:25,type:'armor',skillBonus:'survival',bonus:1,site:'Ironhold Quarry Gate'},
   ],
   aurora:[
-    {id:'dome_kit',name:'Dome Survival Kit',desc:'Axis inversion protection for one event.',cost:20,type:'tool',skillBonus:'survival',bonus:2,site:'Dome Operations Center'},
-    {id:'research_notes',name:'Research Concord Notes',desc:'Containment data. Lore +1 on containment-related rolls.',cost:25,type:'tool',skillBonus:'lore',bonus:1,site:'Research Concord Station'},
+    {id:'dome_kit',name:'Dome Survival Kit',desc:'Axis inversion protection for one event.',cost:30,type:'tool',skillBonus:'survival',bonus:2,site:'Dome Operations Center'},
+    {id:'aurora_axis_brace',name:'Axis Brace Set',desc:'Full-spectrum containment gear. Survival +3 during axial flip events.',cost:120,type:'tool',skillBonus:'survival',bonus:3,site:'Dome Operations Center'},
+    {id:'research_notes',name:'Research Concord Notes',desc:'Containment data. Lore +1 on containment-related rolls.',cost:35,type:'tool',skillBonus:'lore',bonus:1,site:'Research Concord Station'},
+    {id:'concord_deep_files',name:'Concord Deep Files',desc:'Restricted research archive extracts. Lore +2 on arcane containment.',cost:90,type:'tool',skillBonus:'lore',bonus:2,site:'Research Concord Station'},
+    {id:'aurora_blade',name:'Aurora Warden Blade',desc:'Issued to dome patrol. Combat +1.',cost:20,type:'weapon',skillBonus:'combat',bonus:1,site:'Dome Operations Center'},
   ],
   cosmoria:[
-    {id:'maritime_charts',name:'Maritime Charts',desc:'Cosmouth coastal routes. Survival +1 at sea.',cost:16,type:'tool',skillBonus:'survival',bonus:1,site:'Cosmouth Harbor'},
+    {id:'maritime_charts',name:'Maritime Charts',desc:'Cosmouth coastal routes. Survival +1 at sea.',cost:22,type:'tool',skillBonus:'survival',bonus:1,site:'Cosmouth Harbor'},
+    {id:'deep_sea_charts',name:'Deep Sea Charts',desc:'Full Cosmouth offshore grid. Survival +2 on sea routes.',cost:55,type:'tool',skillBonus:'survival',bonus:2,site:'Cosmouth Harbor'},
     {id:'cosmouth_blade',name:'Cosmouth Cutlass',desc:'Lightweight, reliable. Combat +1.',cost:20,type:'weapon',skillBonus:'combat',bonus:1,site:'Shipwright Yards'},
+    {id:'cosmouth_naval_blade',name:'Naval Boarding Sword',desc:'Balanced for close quarters on ship decks. Combat +2.',cost:50,type:'weapon',skillBonus:'combat',bonus:2,site:'Shipwright Yards'},
+    {id:'tide_kit',name:'Tide & Weather Kit',desc:'Barometer, tide tables, rope sealant. Survival +1 at sea.',cost:18,type:'tool',skillBonus:'survival',bonus:1,site:'Cosmouth Harbor'},
+    {id:'cosmouth_salve',name:'Ship Surgeon Salve',desc:'Two uses. Each restores 5 HP.',cost:25,type:'consumable',skillBonus:'survival',bonus:0,site:'Cosmouth Harbor'},
   ],
   shirshal:[
-    {id:'law_brief',name:'Shirsh Legal Brief',desc:'Certified. Persuasion +1 in formal proceedings.',cost:18,type:'tool',skillBonus:'persuasion',bonus:1,site:'Law Archive'},
-    {id:'evidence_kit',name:'Evidence Collection Kit',desc:'Lore +1 when gathering or presenting evidence.',cost:14,type:'tool',skillBonus:'lore',bonus:1,site:'Shirsh Evidence Vaults'},
+    {id:'law_brief',name:'Shirsh Legal Brief',desc:'Certified. Persuasion +1 in formal proceedings.',cost:25,type:'tool',skillBonus:'persuasion',bonus:1,site:'Law Archive'},
+    {id:'shirsh_precedent_file',name:'Precedent File Bundle',desc:'Three landmark rulings with annotations. Persuasion +2 in legal disputes.',cost:65,type:'tool',skillBonus:'persuasion',bonus:2,site:'Law Archive'},
+    {id:'evidence_kit',name:'Evidence Collection Kit',desc:'Lore +1 when gathering or presenting evidence.',cost:22,type:'tool',skillBonus:'lore',bonus:1,site:'Shirsh Evidence Vaults'},
+    {id:'shirsh_archive_key',name:'Vault Access Token',desc:'Temporary authorization for sealed archive sections. Lore +2 on legal records.',cost:70,type:'tool',skillBonus:'lore',bonus:2,site:'Shirsh Evidence Vaults'},
+    {id:'shirsh_blade',name:'Shirsh Court Blade',desc:'Ceremonial but functional. Combat +1.',cost:20,type:'weapon',skillBonus:'combat',bonus:1,site:'Law Archive'},
   ],
   mimolot:[
-    {id:'tariff_license',name:'Mimolot Tariff License',desc:'Archive access without sponsorship.',cost:30,type:'tool',skillBonus:'lore',bonus:1,site:'Book Tariff Office'},
-    {id:'scholarly_notes',name:'Scholarly Research Notes',desc:'Lore +1 on magic-related rolls.',cost:20,type:'tool',skillBonus:'lore',bonus:1,site:'Scholar Residences'},
+    {id:'tariff_license',name:'Mimolot Tariff License',desc:'Archive access without sponsorship.',cost:40,type:'tool',skillBonus:'lore',bonus:1,site:'Book Tariff Office'},
+    {id:'mimolot_deep_access',name:'Unrestricted Archive Pass',desc:'Full collection access including sealed stacks. Lore +2 on any scholarly research.',cost:110,type:'tool',skillBonus:'lore',bonus:2,site:'Book Tariff Office'},
+    {id:'scholarly_notes',name:'Scholarly Research Notes',desc:'Lore +1 on magic-related rolls.',cost:28,type:'tool',skillBonus:'lore',bonus:1,site:'Scholar Residences'},
+    {id:'mimolot_theory_text',name:'Theoretical Foundations Vol. I',desc:'Foundational text on arcane law and enforcement. Lore +2 on magic regulation.',cost:75,type:'tool',skillBonus:'lore',bonus:2,site:'Scholar Residences'},
+    {id:'mimolot_cipher_tools',name:'Cipher Tools',desc:'Decryption aids for encoded academic texts. Craft +1 on encoded document work.',cost:35,type:'tool',skillBonus:'craft',bonus:1,site:'Scholar Residences'},
+    {id:'mimolot_salve',name:'Scholar Field Poultice',desc:'Two uses. Each restores 4 HP.',cost:18,type:'consumable',skillBonus:'survival',bonus:0,site:'Scholar Residences'},
   ],
   sunspire:[
-    {id:'frontier_kit',name:'Frontier Survival Kit',desc:'Axis event protection. Survival +2 in wilderness.',cost:22,type:'tool',skillBonus:'survival',bonus:2,site:'Frontier Company Office'},
-    {id:'compliance_papers',name:'Arcane Compliance Papers',desc:'Clears magical checkpoints.',cost:25,type:'tool',skillBonus:'lore',bonus:1,site:'Arcane Compliance Post'},
+    {id:'frontier_kit',name:'Frontier Survival Kit',desc:'Axis event protection. Survival +2 in wilderness.',cost:32,type:'tool',skillBonus:'survival',bonus:2,site:'Frontier Company Office'},
+    {id:'sunspire_deep_survival',name:'Extended Frontier Kit',desc:'Long-range provisions and axis-proof shelter components. Survival +3 on wilderness journeys.',cost:90,type:'tool',skillBonus:'survival',bonus:3,site:'Frontier Company Office'},
+    {id:'compliance_papers',name:'Arcane Compliance Papers',desc:'Clears magical checkpoints.',cost:35,type:'tool',skillBonus:'lore',bonus:1,site:'Arcane Compliance Post'},
+    {id:'sunspire_blade',name:'Sunspire Frontier Blade',desc:'Heavy-duty. Made for Frontier-condition combat. Combat +2.',cost:55,type:'weapon',skillBonus:'combat',bonus:2,site:'Frontier Company Office'},
+    {id:'sunspire_armor',name:'Frontier Work Armor',desc:'Layered leather and iron. Survival +1 in combat.',cost:45,type:'armor',skillBonus:'survival',bonus:1,site:'Frontier Company Office'},
+    {id:'sunspire_rations',name:'Frontier Provisions',desc:'Five days at full ration. Survival +1 on long overland routes.',cost:22,type:'consumable',skillBonus:'survival',bonus:1,site:'Frontier Company Office'},
   ],
 };
+
+// Soreheim shop social roll — once per in-game day per shop
+function trySorehimCreditBoost(shopId) {
+  const key = 'sorecredit_' + shopId;
+  G.soreCreditUsed = G.soreCreditUsed || {};
+  if (G.soreCreditUsed[key] === G.dayCount) {
+    addNarration('', 'You have already called in your standing here today.');
+    return;
+  }
+  const roll = Math.floor(Math.random() * 20) + 1;
+  const bonus = (G.skills.persuasion || 0) + Math.floor((G.sorePlotCredits || 0) / 3);
+  const total = roll + bonus;
+  const dc = 12;
+  G.soreCreditUsed[key] = G.dayCount;
+  if (total >= dc) {
+    const boost = Math.floor((G.sorePlotCredits || 0) * 0.5);
+    G.shopCreditBoost = boost;
+    addNarration('', 'The allocation clerk nods when you mention the route work. A temporary line of credit — ' + boost + ' gold — opens for this visit.');
+  } else {
+    G.shopCreditBoost = 0;
+    addNarration('', 'The clerk is courteous but the connection does not land. No additional line today.');
+  }
+}
 
 function showShop() {
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_shop');
   const locId = G.location;
   const items = SHOP_INVENTORY[locId] || [];
   const loc = WORLD_LOCATIONS[locId];
+  const isSorehimShop = (locId === 'soreheim' || locId === 'sunspire');
 
   if (!items.length) {
     addNarration('', 'No goods of consequence are available for purchase here.');
@@ -11767,18 +11835,29 @@ function showShop() {
   block.className = 'scene-block';
 
   let html = '<div class="jov-title">Goods available in ' + (loc?loc.name:locId) + '</div>';
-  html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">Your gold: <strong style="color:var(--gold)">' + G.gold + '</strong></div>';
+  html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">Your gold: <strong style="color:var(--gold)" id="shop-gold-display">' + G.gold + '</strong>';
+  if (isSorehimShop && (G.shopCreditBoost || 0) > 0) {
+    html += ' &nbsp;<span style="color:var(--jade-bright);font-size:11px">(+' + G.shopCreditBoost + 'g credit active)</span>';
+  }
+  html += '</div>';
+
+  if (isSorehimShop) {
+    html += '<div style="margin-bottom:10px"><button class="btn btn-ghost btn-xs" id="btn-sore-credit">Call in your standing</button></div>';
+  }
 
   items.forEach((item, i) => {
-    const canAfford = G.gold >= item.cost;
+    const boost = isSorehimShop ? (G.shopCreditBoost || 0) : 0;
+    const effectiveCost = Math.max(1, item.cost - boost);
+    const canAfford = G.gold >= effectiveCost;
     const alreadyOwned = (G.inventory||[]).find(inv => inv.id === item.id);
+    const costLabel = boost > 0 ? '<span style="text-decoration:line-through;color:var(--ink-faint)">' + item.cost + 'g</span> <span style="color:var(--jade-bright)">' + effectiveCost + 'g</span>' : item.cost + 'g';
     html += '<div class="shop-item">' +
       '<div class="shop-item-info">' +
         '<div class="shop-item-name">' + item.name + '</div>' +
         '<div class="shop-item-desc">' + item.desc + ' &middot; ' + item.site + '</div>' +
       '</div>' +
       '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">' +
-        '<div class="shop-item-cost">' + item.cost + 'g</div>' +
+        '<div class="shop-item-cost">' + costLabel + '</div>' +
         (!alreadyOwned && canAfford ?
           '<button class="btn btn-ghost btn-xs shop-buy-btn" data-shop-idx="' + i + '">Buy</button>' :
           alreadyOwned ? '<span style="font-size:10px;color:var(--jade-bright);font-family:Cinzel,serif">OWNED</span>' :
@@ -11790,11 +11869,23 @@ function showShop() {
   html += '<div style="margin-top:12px"><button class="btn btn-ghost btn-sm" id="btn-shop-close">Done shopping</button></div>';
   block.innerHTML = html;
 
+  if (isSorehimShop) {
+    const creditBtn = block.querySelector('#btn-sore-credit');
+    if (creditBtn) creditBtn.addEventListener('click', () => {
+      trySorehimCreditBoost(locId);
+      // Refresh shop to reflect new credit
+      block.remove();
+      showShop();
+    });
+  }
+
   block.querySelectorAll('.shop-buy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = items[parseInt(btn.dataset.shopIdx, 10)];
-      if (G.gold < item.cost) { showToast('Not enough gold.'); return; }
-      modGold(-item.cost);
+      const boost = isSorehimShop ? (G.shopCreditBoost || 0) : 0;
+      const effectiveCost = Math.max(1, item.cost - boost);
+      if (G.gold < effectiveCost) { showToast('Not enough gold.'); return; }
+      modGold(-effectiveCost);
       addToInventory(Object.assign({}, item, { equipped:false }));
       // Refresh the shop display
       btn.closest('.shop-item').querySelector('.shop-buy-btn').replaceWith(
@@ -11803,9 +11894,8 @@ function showShop() {
           textContent:'OWNED'
         })
       );
-      block.querySelector('.shop-item-info + div > .shop-item-cost').previousSibling;
       // Update gold display
-      const goldEl = block.querySelector('[style*="margin-bottom:12px"] strong');
+      const goldEl = block.querySelector('#shop-gold-display');
       if (goldEl) goldEl.textContent = G.gold;
       showToast('Purchased: ' + item.name);
     });
@@ -11813,6 +11903,7 @@ function showShop() {
 
   const closeBtn = block.querySelector('#btn-shop-close');
   if (closeBtn) closeBtn.addEventListener('click', () => {
+    G.shopCreditBoost = 0;
     block.remove();
     renderChoices([{text:'Continue.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]);
   });
