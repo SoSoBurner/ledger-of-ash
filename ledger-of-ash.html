@@ -769,27 +769,24 @@ input, button, select, textarea { font-family: inherit; }
   font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px;
   text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px;
 }
-/* Engine: .skill-item > .skill-name + .skill-dots > .dot.filled */
-.skill-item { display: flex; align-items: center; gap: 9px; margin-bottom: 7px; }
+.skill-item { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
 .skill-name {
   font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px;
   text-transform: uppercase; color: var(--ink-dim);
   width: 48px; flex-shrink: 0;
 }
-.skill-dots { display: flex; gap: 4px; align-items: center; }
-/* Skill dot: diamond-ish square — the armor pip */
-.dot {
-  width: 10px; height: 10px;
-  border-radius: 2px;
-  background: var(--border-hi);
-  flex-shrink: 0; transition: background .2s, box-shadow .2s;
-  transform: rotate(45deg);
+.skill-val {
+  font-family: var(--font-display); font-size: 9.9px; color: var(--ink-mid);
+  width: 14px; text-align: right; flex-shrink: 0;
 }
-.dot.filled {
-  background: var(--ember);
-  box-shadow:
-    0 0 6px rgba(200,80,16,.60),
-    0 0 2px rgba(200,80,16,.30);
+.skill-bar-track {
+  flex: 1; height: 5px; border-radius: 3px;
+  background: var(--border-hi); overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(to right, #2d6b4a, var(--ember));
+  transition: width .3s ease;
 }
 
 /* ── LOCATION: atmospheric footer ── */
@@ -901,8 +898,8 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ─── NARRATIVE SCROLL: the stage ─────────────────────────────── */
 #narrative-scroll {
-  flex: 1; overflow-y: auto; min-height: 0;
-  padding: 24px 22px 80px;
+  flex: 1; overflow-y: scroll; min-height: 0;
+  padding: 24px 22px 100px;
   scroll-behavior: smooth;
   background:
     radial-gradient(ellipse 80% 30% at 50% 100%,
@@ -938,7 +935,7 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ── NARRATIVE PROSE ── */
 .narrative-text {
-  font-family: 'Crimson Pro', serif; font-size: 19px; font-weight: 300; font-style: normal; line-height: 1.85;
+  font-family: 'Crimson Pro', serif; font-size: 18px; font-weight: 300; font-style: normal; line-height: 1.85;
   color: var(--ink);
 }
 .narrative-text p { margin: 0 0 10px; }
@@ -984,7 +981,7 @@ input, button, select, textarea { font-family: inherit; }
   border-left: 3px solid var(--blood-bright);
   box-shadow: 0 0 8px rgba(110,16,16,0.4), inset 0 1px 0 rgba(110,16,16,.15);
 }
-.result-text { font-family: 'Crimson Pro', serif; font-size: 17px; font-weight: 300; font-style: normal; line-height: 1.85; color: var(--ink); }
+.result-text { font-family: 'Crimson Pro', serif; font-size: 16px; font-weight: 300; font-style: normal; line-height: 1.85; color: var(--ink); }
 .result-block .result-tag { animation: fadeUp .35s .08s ease both; }
 .result-block .result-text { animation: fadeUp .4s .18s ease both; }
 
@@ -1380,9 +1377,7 @@ input, button, select, textarea { font-family: inherit; }
 .char-stat-val { color: var(--ink); font-family: var(--font-display); font-weight: 600; }
 .char-skill-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
 .char-skill-name { color: var(--ink-dim); font-size: 12.1px; font-family: var(--font-display); letter-spacing: .5px; }
-.char-skill-dots { display: flex; gap: 4px; }
-.char-dot { width: 10px; height: 10px; border-radius: 2px; background: var(--border-hi); transform: rotate(45deg); }
-.char-dot.filled { background: var(--ember); box-shadow: 0 0 6px rgba(200,80,16,.5); }
+.char-skill-row { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; justify-content: flex-start; }
 .ability-card { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 11px; border-radius: 2px; margin-bottom: 6px; }
 .ability-card-name { font-family: var(--font-display); font-size: 12.1px; font-weight: 700; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: .5px; }
 .ability-card-type { font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-display); color: var(--ember-hi); margin-bottom: 4px; }
@@ -2569,6 +2564,7 @@ function showNoticesOverlay() {
   }
 
   el.innerHTML = html;
+  if (typeof updateNoticesBadge === 'function') updateNoticesBadge();
   showOverlay('overlay-notices');
 }
 
@@ -9887,8 +9883,8 @@ function campAction(type) {
     addJournal('Rested at camp. Recovered HP. Trait refreshed.');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([
-      { text:'Continue the investigation.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
-      { text:'Move forward along the eastern route.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road' }
+      { text:'The city still has threads worth pulling.', skill:'lore', tag:'risky', align:'neutral', cid:'market_intel' },
+      { text:'The eastern route is where this leads.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road' }
     ]), 300);
   } else if (type === 'talk') {
     if (typeof showCampTalk === 'function') {
@@ -10420,8 +10416,8 @@ function showCharSheet() {
     '<div style="margin-top:20px"><div class="char-section-title">Skills</div>' +
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">' +
     Object.entries(G.skills||{}).map(([k,v]) => {
-      let dots=''; for(let i=0;i<5;i++) dots+='<div class="char-dot'+(i<v?' filled':'')+'"></div>';
-      return '<div class="char-skill-row"><span class="char-skill-name">'+cap(k)+'</span><div class="char-skill-dots">'+dots+'</div></div>';
+      const pct=Math.round((v/20)*100);
+      return '<div class="char-skill-row"><span class="char-skill-name">'+cap(k)+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
     }).join('') + '</div></div>' +
 
     '<div style="margin-top:20px"><div class="char-section-title">Trait</div>' +
@@ -10864,8 +10860,8 @@ function updateHUD() {
     sk.innerHTML = '';
     Object.entries(G.skills||{}).forEach(([k,v]) => {
       const r = document.createElement('div'); r.className='skill-item';
-      let dots=''; for(let i=0;i<5;i++) dots+='<div class="dot'+(i<v?' filled':'')+'"></div>';
-      r.innerHTML='<span class="skill-name">'+(k.charAt(0).toUpperCase()+k.slice(1))+'</span><div class="skill-dots">'+dots+'</div>';
+      const pct=Math.round((v/20)*100);
+      r.innerHTML='<span class="skill-name">'+(k.charAt(0).toUpperCase()+k.slice(1))+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div>';
       sk.appendChild(r);
     });
   }
@@ -11030,6 +11026,11 @@ function setText(id,val) { const el=document.getElementById(id); if(el) el.inner
 function showOverlay(id) { document.getElementById(id)?.classList.add('active'); }
 function closeOverlay(id) { document.getElementById(id)?.classList.remove('active'); }
 function showCamp() {
+  if ((G.timeIndex || 0) < 2) {
+    const timeName = ['Dawnrise','Midlight','Duskcall','Nightwatch'][G.timeIndex||0];
+    addNarration('Camp', 'It is still ' + timeName + '. Make camp after Duskcall.', 'failure');
+    return;
+  }
   const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
   const pw = document.getElementById('btn-post-watches');
   if (pw) pw.style.display = (INN_NAMES && INN_NAMES[loc]) ? 'none' : '';

@@ -242,7 +242,7 @@ const C = {
       xp:8, effects:[{type:'journal',msg:'Union Rep Garrin: unauthorized Union manifests. Internal breach confirmed.'},{type:'faction',id:'the_union',n:10},{type:'quest',msg:'Find who within the Union authorized the unauthorized eastern depot manifests.'}],
       next:[
         {text:'Work with Garrin to identify the insider.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'},
-        {text:'Keep the Union out of it. Internal investigations favor the insider.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'},
+        {text:'Keep the Union out of it. Internal processes protect insiders.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'},
         {text:'Bring this to House Shelk. Their depot was compromised.', skill:'persuasion', tag:'bold', align:'lawful', cid:'house_shelk_meeting'}
       ]
     },
@@ -797,7 +797,7 @@ const C = {
       xp:8, effects:[{type:'gold',n:22},{type:'journal',msg:'Sold route corrections to trade registry for 22 gold. Registry already flagged same corridor — parallel investigation.'},{type:'quest',msg:'Find who is running the parallel eastern corridor investigation.'}],
       next:[
         {text:'Ask the clerk who flagged it.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},
-        {text:'The parallel investigation will have the same evidence. Find who is furthest ahead.', skill:'lore', tag:'bold', align:'neutral', cid:'union_contact'},
+        {text:'Someone else is working the same thread. Find who is furthest ahead.', skill:'lore', tag:'bold', align:'neutral', cid:'union_contact'},
         {text:'You are now on record as an expert on this route. That is either good or dangerous.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
@@ -996,7 +996,7 @@ const C = {
       text:'The House Shelk operations analyst introduces herself as Maret and says, before you can ask: The broadsheet you buried. We need to know who asked you to bury it.',
       xp:8, effects:[{type:'faction',id:'house_shelk',n:15},{type:'journal',msg:'House Shelk analyst Maret: asking about the buried broadsheet. Shelk investigating Union press interference.'},{type:'quest',msg:'Decide how much to tell Maret and what to ask for in return.'}],
       next:[
-        {text:'Tell her everything. If Shelk is investigating the same thing you are, alignment makes sense.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'},
+        {text:'Tell her everything. If Shelk is working the same thread, alignment makes sense.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'},
         {text:'I will tell you who gave the order if you tell me what they were covering.', skill:'persuasion', tag:'bold', align:'neutral', cid:'probe_order_origin'},
         {text:'Say nothing until you understand what Maret involvement actually is.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'}
       ]
@@ -1320,7 +1320,7 @@ const C = {
       next:[
         {text:'Cross-reference with current Mimolot archive access lists.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
         {text:'Find who taught this encoding format in the last thirty years.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
-        {text:'Bring the encoding anomaly to the Shirsh investigators.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'}
+        {text:'Bring the encoding anomaly to the Shirsh garrison.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'}
       ]
     },
     failure:{
@@ -1592,7 +1592,7 @@ const C = {
       text:"Toriel reads the injury documentation slowly. When he looks up his expression is controlled but not calm. 'I flagged these three cases. My flags were overridden by administrative review.' He opens a drawer and removes a folder. 'I kept copies. I always keep copies.' He sets the folder on the table between you. 'I've been waiting for someone who wasn't going to tell me the review was sufficient.'",
       xp:7, effects:[{type:'journal',msg:'Toriel Palevow has documentation of three flagged cases, overridden by administrative review. Has retained copies.',category:'fact',dedupeKey:'toriel_flagged_cases'},{type:'npcmem',npc:'Toriel Palevow',change:{trust:8,note:'holds override-suppressed flag documentation'}}],
       next:[
-        {text:"Ask Toriel to come with you. This investigation needs a medical witness.", skill:'persuasion', tag:'safe', align:'good', cid:'__recruit__toriel_palevow__join'},
+        {text:"Ask Toriel to come with you. A medical witness changes what this becomes.", skill:'persuasion', tag:'safe', align:'good', cid:'__recruit__toriel_palevow__join'},
         {text:"Take the folder and move. You have what you need.", skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
         {text:"Ask him who filed the administrative override.", skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'}
       ]
@@ -1793,7 +1793,7 @@ const C = {
       next:[
         {text:"Pull the full access log and isolate the unregistered credential.", skill:'lore', tag:'safe', align:'lawful', cid:'inquisitor_shirsh_log'},
         {text:"Formally open a case file. This evidence needs official protection.", skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
-        {text:"Find the four multi-event personnel before they know they're being investigated.", skill:'stealth', tag:'risky', align:'neutral', cid:'inquisitor_shirsh_subjects'}
+        {text:"Find the four multi-event personnel before they know you have their names.", skill:'stealth', tag:'risky', align:'neutral', cid:'inquisitor_shirsh_subjects'}
       ]
     },
     failure:{
@@ -1915,7 +1915,7 @@ const C = {
       xp:2, effects:[],
       next:[
         {text:"Approach families at the memorial sites directly.", skill:'persuasion', tag:'safe', align:'good', cid:'trace_missing_persons'},
-        {text:"Get formal investigative standing. A Cysur mandate carries weight here.", skill:'persuasion', tag:'risky', align:'lawful', cid:'garrison_contact'}
+        {text:"Get a formal Cysur mandate. It carries weight here.", skill:'persuasion', tag:'risky', align:'lawful', cid:'garrison_contact'}
       ]
     }
   },
@@ -2103,7 +2103,7 @@ const C = {
       text:"The Shirsh evidence vault holds everything that was collected and never prosecuted. You're looking for something specific: any investigation touching the eastern corridor that was opened and then closed without outcome. You find four. Three are old — ten years or more, administrative. The fourth was opened eight months ago, collected seventeen items of physical evidence, and was closed six weeks ago with a single notation: 'Superseded by administrative review.' Seventeen items of evidence don't get superseded by administrative review. They get suppressed.",
       xp:7, effects:[{type:'journal',msg:"Shirsh vault: four eastern corridor investigations, one recent — opened 8 months ago, 17 evidence items, closed 6 weeks ago: 'superseded by administrative review.' Evidence suppression.",category:'fact',dedupeKey:'shirshal_vault_suppressed_case'},{type:'quest',msg:"Access the seventeen suppressed evidence items from the closed investigation."}],
       next:[
-        {text:"Request access to the closed investigation through formal Shirsh inquiry channels.", skill:'lore', tag:'safe', align:'lawful', cid:'garrison_contact'},
+        {text:"Request access to the closed case through formal Shirsh inquiry channels.", skill:'lore', tag:'safe', align:'lawful', cid:'garrison_contact'},
         {text:"Find who filed the 'superseded by administrative review' notation — that's the suppression point.", skill:'lore', tag:'risky', align:'neutral', cid:'inquisitor_shirsh_log'},
         {text:"The evidence is still in the vault. Find a way to access it before it's transferred out.", skill:'stealth', tag:'bold', align:'chaotic', cid:'depot_logs'}
       ]
@@ -2113,7 +2113,7 @@ const C = {
       xp:2, effects:[],
       next:[
         {text:"Get Magi Magistratus authorization. Three days is workable.", skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
-        {text:"Find the Inquisitor whose investigation this was. They may have kept personal copies.", skill:'lore', tag:'risky', align:'neutral', cid:'inquisitor_shirsh_subjects'}
+        {text:"Find the Inquisitor who ran this case. They may have kept personal copies.", skill:'lore', tag:'risky', align:'neutral', cid:'inquisitor_shirsh_subjects'}
       ]
     }
   },
@@ -2274,7 +2274,7 @@ const C = {
       text:"The performer circuit goes quiet when you ask about that week. Word has traveled that someone is asking, and people who trade in information know when to stop trading.",
       xp:2, effects:[{type:'tick',n:1}],
       next:[
-        {text:"Change your approach. Come as an audience member, not an investigator.", skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'},
+        {text:"Change your approach. Come as an audience member, not a name they have flagged.", skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'},
         {text:"Try the official record instead of the informal circuit.", skill:'lore', tag:'safe', align:'neutral', cid:'probe_order_origin'}
       ]
     }
@@ -2325,7 +2325,7 @@ const C = {
       xp:8, effects:[{type:'journal',msg:"Oracle prediction: phase four — active investigator suppression — begins in approximately 6 days based on escalation rate. Investigation window is closing.",category:'fact',dedupeKey:'oracle_phase_four_prediction'},{type:'quest',msg:"Complete the core investigation before phase four begins."},{type:'renown',n:1}],
       next:[
         {text:"Move immediately. Six days is short — prioritize the highest-value evidence.", skill:'lore', tag:'bold', align:'neutral', cid:'study_packet'},
-        {text:"Warn the other investigators before phase four begins. They may not know the window is closing.", skill:'persuasion', tag:'safe', align:'good', cid:'report_findings'},
+        {text:"Warn the others before phase four begins. They may not know the window is closing.", skill:'persuasion', tag:'safe', align:'good', cid:'report_findings'},
         {text:"Position yourself to observe when phase four starts rather than running from it.", skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'}
       ]
     },
@@ -2427,7 +2427,7 @@ const C = {
       next:[
         {text:"Find the authorization document with that signature in the current records.", skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
         {text:"Find Selwyn Coth and use what you know about the name above him to pressure him.", skill:'persuasion', tag:'bold', align:'chaotic', cid:'confront_coth'},
-        {text:"Take what you've recovered to the Roadwardens. It's enough to reopen the investigation formally.", skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'}
+        {text:"Take what you've recovered to the Roadwardens. It's enough to reopen the case formally.", skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'}
       ]
     },
     failure:{

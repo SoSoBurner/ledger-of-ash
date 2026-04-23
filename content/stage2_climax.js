@@ -47,7 +47,7 @@ var STAGE2_CLIMAX = (function() {
       G.flags.stage2_climax_person_of_interest = true;
       G.recentOutcomeType = 'complication';
     }
-    window.addJournal('faction', G.lastResult);
+    addJournal(G.lastResult, 'intelligence');
     phase2();
   }
 
@@ -63,7 +63,7 @@ var STAGE2_CLIMAX = (function() {
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       G.recentOutcomeType = 'complication';
     }
-    window.addJournal('faction', G.lastResult);
+    addJournal(G.lastResult, 'intelligence');
     phase2();
   }
 
@@ -73,7 +73,7 @@ var STAGE2_CLIMAX = (function() {
     G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
     G.flags.stage2_climax_refused_summons = true;
     G.recentOutcomeType = 'partial';
-    window.addJournal('faction', G.lastResult);
+    addJournal(G.lastResult, 'intelligence');
     phase2();
   }
 
