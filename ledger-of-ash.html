@@ -2942,6 +2942,12 @@ function startCombat(enemyTemplateId, context) {
   const tpl = ENEMY_TEMPLATES[enemyTemplateId];
   if (!tpl) return;
   const entryBonus = (context && context.entryBonus) ? context.entryBonus : 0;
+  // G3: Initial range based on archetype family
+  var _startRangeTier = 'close';
+  if (typeof getArchetypeFamily === 'function' && G && G.archetype) {
+    var _startFam = getArchetypeFamily(G.archetype.id);
+    if (_startFam === 'magic' || _startFam === 'support') _startRangeTier = 'medium';
+  }
   CS = {
     enemy: Object.assign({}, tpl, { id: enemyTemplateId }),
     round: 1,
@@ -2949,7 +2955,7 @@ function startCombat(enemyTemplateId, context) {
     playerActed: false,
     context: context || {},
     log: [],
-    rangeTier: 'close',
+    rangeTier: _startRangeTier,
     isBossFight: !!(tpl && tpl.boss),
     strategyActive: null
   };
@@ -3020,7 +3026,11 @@ function renderCombatRound() {
   const ePct = Math.round(pct * 100);
   const eStatus = pct > 0.6 ? 'Active' : pct > 0.3 ? 'Wounded' : 'Critical';
 
-  let html = '<div class="combat-header">' +
+  // G3: Persistent range display
+  var _rangeLabelMap = {close:'Close', medium:'Medium', long:'Long', veryfar:'Very Far'};
+  var _rangeLabel = _rangeLabelMap[CS.rangeTier||'close'] || 'Close';
+  let html = '<div id="combat-range-display" style="text-align:center;font-size:12px;color:var(--ink-dim);margin-bottom:8px;font-family:var(--font-display);letter-spacing:1px">RANGE: <span id="combat-range-tier">' + _rangeLabel + '</span></div>';
+  html += '<div class="combat-header">' +
     '<div class="combat-title">&#x2694; COMBAT &#x2014; Round ' + CS.round + '</div>' +
     '<div class="combat-enemy">' +
       '<div class="enemy-name">' + CS.enemy.name + '</div>' +
@@ -8969,6 +8979,18 @@ function renderChoices(choices) {
     risky: 'Risky choices roll d20 against a DC. Success advances faster.',
     bold: 'Bold choices are high stakes — greater reward, permanent consequences on fumble.'
   };
+  // G2: Escalation weight injection — inject threatLevel:1 on random non-safe choices by archetype
+  var _escalStage = G.stage === 'Stage I' || G.stage === 'Stage II';
+  if (_escalStage) {
+    var _archFam2 = typeof getArchetypeFamily === 'function' && G.archetype ? getArchetypeFamily(G.archetype.id) : null;
+    var _escalChance = _archFam2 === 'combat' ? 0.40 : (_archFam2 === 'magic' || _archFam2 === 'stealth') ? 0.30 : 0.10;
+    choices.forEach(function(c) {
+      if (c.threatLevel == null && c.tag !== 'safe' && Math.random() < _escalChance) {
+        c.threatLevel = 1;
+      }
+    });
+  }
+
   choices.forEach((c, i) => {
     const alignSymbol = {lawful:'&#x2696;', chaotic:'&#x2605;', good:'&#x2665;', evil:'&#x2620;'}[c.align] || '';
     // Check fumble lock
@@ -8984,7 +9006,12 @@ function renderChoices(choices) {
       npcEl.classList.toggle('tension-warn', (window.G && (window.G.tensionLevel||0) >= 1));
       npcEl.classList.toggle('tension-hot',  (window.G && (window.G.tensionLevel||0) >= 2));
     }
-    html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + '>' +
+    // G1: threatLevel border color
+    var threatStyle = '';
+    if (c.threatLevel === 1) threatStyle = ' style="border-color:#d4a017"';
+    else if (c.threatLevel === 2) threatStyle = ' style="border-color:#d47517"';
+    else if (c.threatLevel === 3) threatStyle = ' style="border-color:var(--blood-bright)"';
+    html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + threatStyle + '>' +
       '<span class="choice-text">' + c.text + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
       '<span class="choice-meta">' +
       (c.skill ? '<span class="choice-skill">' + c.skill + '</span>' : '') +
@@ -8996,6 +9023,18 @@ function renderChoices(choices) {
     if (c.tag && _tierHints[c.tag] && window.G && window.G.flags && !window.G.flags['taught_' + c.tag]) {
       window.G.flags['taught_' + c.tag] = true;
       html += '<div class="choice-tutorial-hint" data-tier="' + c.tag + '">' + _tierHints[c.tag] + '</div>';
+    }
+    // G1: instant-attack escalation injection after threatLevel:1 choices
+    if (c.threatLevel === 1) {
+      var _archFamG1 = typeof getArchetypeFamily === 'function' && G.archetype ? getArchetypeFamily(G.archetype.id) : null;
+      var _benev = G.benevolence || 0;
+      if (_archFamG1 === 'combat' || _benev < -20) {
+        var escIdx = _pendingChoices.length; // will be appended below
+        html += '<button class="choice-btn" data-idx="__escal_' + i + '__" style="border-color:#d47517">' +
+          '<span class="choice-text">There\'s no reason to wait for them to start it.</span>' +
+          '<span class="choice-meta"><span class="choice-skill">combat</span><span class="choice-tag risky">risky</span></span>' +
+          '</button>';
+      }
     }
   });
   // Combat flip: at tensionLevel 2, inject a "force it" option that opens tactical UI
@@ -9029,7 +9068,14 @@ function renderChoices(choices) {
 
   block.innerHTML = html;
   block.querySelectorAll('.choice-btn').forEach(btn => {
-    btn.addEventListener('click', () => handleChoice(_pendingChoices[parseInt(btn.dataset.idx, 10)]));
+    btn.addEventListener('click', () => {
+      var idx = btn.dataset.idx;
+      if (idx && idx.startsWith('__escal_')) {
+        handleChoice({text:"There's no reason to wait for them to start it.", tag:'risky', skill:'combat', cid:'__instant_attack_escalation__', threatLevel:2});
+      } else {
+        handleChoice(_pendingChoices[parseInt(idx, 10)]);
+      }
+    });
   });
   const tb = block.querySelector('#btn-use-trait');
   if (tb) tb.addEventListener('click', useTrait);
@@ -9186,6 +9232,14 @@ function maybeStageAdvance() {
 
 // ── CHOICE RESOLUTION ─────────────────────────────────────
 function handleChoice(choice) {
+  // Route instant-attack escalation
+  if (choice.cid === '__instant_attack_escalation__') {
+    document.querySelectorAll('.choice-block,.move-block').forEach(b=>b.remove());
+    G.benevolence = Math.max(-50, (G.benevolence||0) - 4);
+    var _escalEnemy = (window._activeCombatantId && ENEMY_TEMPLATES && ENEMY_TEMPLATES[window._activeCombatantId]) ? window._activeCombatantId : 'patrol_guard';
+    if (typeof enterCombat === 'function') enterCombat(_escalEnemy, {escalated:true});
+    return;
+  }
   // Route legacy combat cids through enterCombat
   const legacyCombatCids = ['do_combat_patrol','confront_coth','take_private_contract'];
   if (legacyCombatCids.includes(choice.cid)) {
