@@ -164,7 +164,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.elyra_agenda_revealed = true;
         G.investigationProgress++;
         addNarration(
@@ -192,7 +192,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('lore', G.skills.lore);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.drying_rack_cipher_found = true;
         G.investigationProgress++;
         addNarration(
@@ -219,7 +219,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.convoy_line_recovered = true;
         G.investigationProgress++;
         addNarration(

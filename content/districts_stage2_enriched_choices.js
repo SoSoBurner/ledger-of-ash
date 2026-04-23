@@ -211,7 +211,7 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('survival', G.skills.survival || 0);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Ward Marker Palimpsest', 'The stone post at the granary district boundary shows three layers of mark — the current ward designation in fresh chalk, an older grain routing code in wax crayon beneath it, and underneath both, a carved cipher that matches the charter subsidiary format you have seen in the Aurora Heights filings. The carving was meant to be permanent. Someone chalked over it when the routing number changed. The original claim is still there in the stone.');
         addJournal('Granary Steps boundary post: charter subsidiary cipher carved into stone beneath two newer mark layers', 'evidence');
@@ -263,7 +263,7 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('persuasion', G.skills.persuasion || 0);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Arbiter Seniris, Off the Record', 'She lays the two documents on her desk in the order she always does — seniority of claim date, not guild seniority. The Northern Provision Compact filing is dated four months before the Guild Merchant\'s counter-claim. Her thumb rests on the date without pointing to it. "A provisional determination reflects what the documents show," she says, not looking up. "A full arbitration outcome reflects what the documents are worth." She does not explain the difference. She does not have to.');
         addJournal('Iron Ledger Ward arbiter: NPC claim predates Guild Merchant counter-claim by four months — provenance question open', 'intelligence');
@@ -315,7 +315,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', G.skills.stealth || 0);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Permit Corridor, Clean Transit', 'You catch the inspector mid-patrol at the passage between the justice hall and the public record annex. She folds her document to the scope field first — the habit is automatic. Your transit papers show exactly what they need to show and nothing more. She returns the document without comment and moves to the next corner marker. The constabulary log at the annex entrance has no new entry after you pass. The corridor stays open.');
         addJournal('Reckoning Quarter: permit passage clean — no flag logged at annex entry', 'discovery');

@@ -165,7 +165,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('lore', G.skills.lore);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_ravel_coilspire = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Hidden Record', 'Ravel retrieves the second set without preamble — a leather sleeve tucked inside the cover board of a ledger that officially holds supply requisitions. The transcripts are in his own hand, uncorrected, with margin notes in a different ink. Three witnesses named glyph surge origin points that never appeared in the filed versions. "I write what they say. What goes into the record is not always what I write." He doesn\'t look up from straightening the pages.');
@@ -187,7 +187,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('survival', G.skills.survival);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Calibration Stone', 'The stone at the north corridor junction sits three finger-widths off its seat, rotated clockwise past its mount notch. The notch exists precisely to prevent this rotation. The ward it anchors covers the archive wing entrance — not suppressed, but redirected: pulses that should register on the Bureau\'s monitoring array are being shed sideways, absorbed into the wall cavity instead of logged. Someone repositioned this with the patience to understand what repositioning it would do.');
         addJournal('Bureau warding stone deliberately misaligned — archive wing monitoring pulses shed without logging', 'discovery');
@@ -208,7 +208,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_eris_coilspire = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Access Record', 'Eris runs the crew assignment board by habit, not by checking it — her eyes go to the board and come back before she answers. The restricted section crew rotation changed four months ago: two of the regular maintenance workers were replaced by names she doesn\'t recognize, assigned through a sub-contractor notation she\'s never seen used for interior work. "My workers sign in. Those two never did." She says it to herself as much as to you, like she\'s confirming something she didn\'t want confirmed.');

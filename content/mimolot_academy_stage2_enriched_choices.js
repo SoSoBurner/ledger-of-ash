@@ -165,7 +165,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
-      if (roll >= 16) {
+      if (roll.total >= 16) {
         G.flags.met_leth_quillfire = true;
         G.investigationProgress++;
         addNarration('The Scribe\'s Ledger', 'Leth sets the ledger on the reading-room table and slides it across without speaking. His thumb stays on the cover for a moment before he lifts it away. The entries inside are written in two different hands — his precise, vertical script for the Academy entries, and a second, compressed hand for the external requisitions. The compressed hand matches the charter notation on Sarith\'s exemption records. Leth confirms this when pressed. He has been holding the ledger because nobody told him to file it, and he does not file things without instruction.');
@@ -195,7 +195,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Restricted Stacks', 'The archive housing is original construction — stone cut and set during the Academy\'s founding period, the mortar joints darkened with decades of lamp-oil residue. The seal on the Restricted Stacks gate is a different story: pressed wax over a cast-iron plate, the wax still showing tool marks, the plate mounted in brackets that have not oxidized yet. Somebody sealed this section recently. The classification directive date on Quenra\'s files is the same month as the bracket installation, judging by the hardware finish.');
         addJournal('Restricted Stacks seal is recent installation — matches classification directive date', 'discovery');
@@ -223,7 +223,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_calia_quillfire = true;
         G.investigationProgress++;
         addNarration('The Foreman\'s Ledger', 'Calia is the labor foreman\'s clerk, and she asked the question that cleared the room: whether the crew that reinforced the Restricted Stacks gate was the same crew that serviced the Watchers Perch access tunnel last season. The lecture hall went quiet because the answer is yes, and everyone with a work-order number in their head knows it. She finds you after the session ends and gives you the crew rotation log without explanation. Her handwriting is in the margins of two separate entries.');

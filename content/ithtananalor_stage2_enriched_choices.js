@@ -225,7 +225,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.ivena_second_contact = true;
         G.investigationProgress++;
         addNarration('Ivena — Second Approach', 'You find her at the Licensed Goods Counter near closing hour, when the queue has thinned. Her thumb traces the edge of a transaction stamp without pressing it. When you mention the threshold calibration — the one-unit margin — she sets the stamp down with too much precision. She says she once filed a discrepancy report through the internal channel. The report was returned to her desk the following morning with no routing record and a single word crossed through: "resolved."');
@@ -246,7 +246,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('lore', G.skills.lore);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Foundry Dock — Night Manifest', 'The dock manifest board runs in two columns: daytime shipments in black ink with quota stamps, night entries in red with a classification mark you do not recognize. You copy three red entries. The weight figures in the red column do not correspond to any ore grade in the public extraction registry — the loads are too light for raw ore, too heavy for refined ingot. A fourth entry has been physically cut from the board and pasted over. The paper underneath is a different weight.');
         addJournal('Foundry night manifest — unregistered weight class, one entry physically excised', 'evidence');
@@ -267,7 +267,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Checkpoint — Controlled Entry', 'You present credentials before the officer asks. The seal gets checked twice — that is standard — but you keep your weight forward and your eyes on the gate frame rather than the officer\'s hands, the way locals do when they have nothing to hide and are mildly bored by the process. He logs you through without a secondary notation. On the other side, the administrative wing archive is accessible for the next two hours without an escort requirement.');
         addJournal('Administrative wing archive accessed without escort — two-hour window', 'discovery');

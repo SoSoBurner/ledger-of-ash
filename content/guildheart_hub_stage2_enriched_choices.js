@@ -164,7 +164,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_selene_brokerwell = true;
         G.investigationProgress++;
         addNarration(
@@ -192,7 +192,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('lore', G.skills.lore);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.guildheart_bay7_examined = true;
         G.investigationProgress++;
         addNarration(
@@ -220,7 +220,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration(
           'Out of Order',

@@ -557,7 +557,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         addNarration(
           'The Name She Won\'t Write Down',
           'Elowen meets you in the guild anteroom, not her office. She keeps the door to the corridor open. When she speaks she does it quietly, facing the window that overlooks the Artisans Quarter. She\'s found a third contract that routes revenue through a subsidiary with no registered master craftsman — a dead shell, four years old, active only during disruption windows. She slides the contract face-down across the table and does not touch it again. The name of the subsidiary\'s founding signatory is visible through the paper when the light catches it right.'
@@ -581,7 +581,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       var roll = rollD20('lore', G.skills.lore);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         addNarration(
           'The Archive That Doesn\'t Line Up',
           'The Great Registry\'s sub-level seal archive smells of old wax and stone cold enough to see breath in. The shelf markers are hand-labeled in two different scripts — the originals and a second hand that came through later, re-sorting. You find the block covering the chapel letter period. Three seal impressions carry dates that precede the corresponding filings by eleven days. Pre-dated registrations are a charter technique: the authorization existed before the action, which means someone planned the cover before the operation began.'
@@ -605,7 +605,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         addNarration(
           'Reading the Room Before the Room Reads You',
           'The Fashion Artisans Collective mark on your coat tag is the wrong House color for the Verdant Row end of the market — visible enough that two stall runners clock it in the first thirty seconds. You catch the look before either of them moves and peel the tag at the seam before it becomes a formal correction. The man who was watching from the grain exchange doorway stops watching and goes back inside. The Collective\'s territorial grammar here is enforced by attention, not ordinance, and you\'ve just demonstrated you can read it.'

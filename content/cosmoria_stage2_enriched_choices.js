@@ -166,7 +166,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.coralyn_reviewer_log_seen = true;
         G.investigationProgress++;
         addNarration('The Third Column', 'Coralyn doesn\'t open the ledger again immediately. She sets both hands flat on the counter and looks at the wall behind you for a moment before she moves. The third column is narrow — initials and a date stamp, one entry per reviewed row. Six of the Pallmark Reach declarations carry the same two letters. She covers them with her thumb, then lifts it. "That office was restructured fourteen months ago. The person these initials belong to is no longer in Cosmoria." She closes the ledger carefully, both latches.');
@@ -188,7 +188,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('survival', G.skills.survival);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.quay_markings_examined = true;
         G.investigationProgress++;
         addNarration('Painted Over', 'The night platform smells of salt and cooling timber. The original quay markings are still readable under the new paint if the angle is right — weight classifications in the old Harbor Authority format, each berth rated for a specific load range. The painted-over marks on berth seven are noticeably lower than the surrounding berths. Someone reclassified it upward. A sealed container routed through berth seven under the new classification would not trigger the secondary weight inspection that the original rating requires. The paint job is three to five months old by the oxidation pattern.');
@@ -211,7 +211,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.archive_form_navigated = true;
         G.investigationProgress++;
         addNarration('Correct Form', 'The archive scribe who flags the incomplete research request form is precise about exactly which line was left blank. He produces the correct form himself — the approved version, which happens to route through a different administrative tray than the standard inquiry log. "If the form is incorrect it goes to corrections review. Corrections review is currently backed up fourteen days." He slides the right form across the desk. The difference between the two forms is one checkbox. He\'s already filled in the date.');

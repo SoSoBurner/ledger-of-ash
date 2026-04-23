@@ -160,7 +160,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_naevys_sunweave = true;
         G.investigationProgress++;
         addNarration('Naevys Sunweave — Guild Archive', 'Naevys does not fetch the archive without being asked twice. The second time, she sets it on the workbench with both hands and does not step back. The records run twelve years — guild commissions, tool certifications, craft inspections. A gap appears eighteen months ago: two full seasons with no inspection stamps, no commissions, no certifications. She taps the blank column. "They stopped coming," she says. "I assumed the route had changed. Now I am less sure."');
@@ -181,7 +181,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('lore', G.skills.lore);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Cyfoes Fountain — Drainage Shift', 'The market square fountain runs from a carved stone basin fed by a spring channel under the paving. The drain faces east now — the basin lip has been re-seated, recently, with fresh mortar still pale against the old stone. The original drain faced west toward the chapel. An eastward drain in Cyfoes fountain practice routes the blessing flow away from the faith ward and toward the field roads. Someone relocated the basin without announcing it. The shrine attendant nearby has not acknowledged the change, which is its own kind of acknowledgment.');
         addJournal('Cyfoes fountain re-seated — drain redirected away from chapel ward, unreported', 'discovery');
@@ -202,7 +202,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_elira_sunweave = true;
         G.investigationProgress++;
         addNarration('Elira Sunweave — Lamp Test', 'Elira carries the Cyfoes lamp through the common room without comment, but the path she takes is deliberate. She passes the corner table where the three regulars sit with their backs to the wall. When the lamp comes within arm\'s reach, one of them sets down his cup without drinking and does not pick it up again. His hand stays flat on the table. The lamp moves on. Elira does not look back. Outside, in the yard, she says quietly: "They know what that lamp tests for. Anyone who doesn\'t know just watches the light."');
@@ -224,7 +224,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
         addNarration('Serin Sunweave — Private Record', 'Serin pulls the second log from under a stack of hymnals and sets it face-down on the table before turning it over. The entries run in smaller script than his official records — dates, compass headings, estimated altitudes. Every sighting he logged for himself after submitting the chapel copy. The private entries include three observations he left out of the formal record: two with approach vectors from the northwest, one that landed briefly on the cave shelf before lifting again. "The doctrine says to record what is seen," he says. "It does not say to record what it means."');
@@ -245,7 +245,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('survival', G.skills.survival);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Western Field Road — Cart Track', 'The ruts cut through field road clay that hasn\'t been graded since last season. Two sets of wheel marks, wide gauge, heavily loaded — the near wheel sank four finger-widths into the soft shoulder at the bend. The road ends at the equipment barn and the old drainage channel. Neither receives bulk deliveries. Backtracking the tire marks to the market gate shows the departure time was after the second watch bell, when the market records close for the night. Whatever moved through here was not moving under a manifest.');
         addJournal('Western field road — overnight heavy-load cart tracks, no market manifest coverage', 'discovery');
@@ -265,7 +265,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', G.skills.stealth);
-      if (roll >= 13) {
+      if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Cyfoes Shrine — Charter Bearer', 'The shrine attendant\'s hands stop mid-offering arrangement when the sealed charter comes out. He does not look at the bearer\'s face — he looks at the seal, and then at the charter ribbon, and then at the seal again. His thumb finds the chalk edge of the ward mark in the doorframe without him seeming to notice it. In Fairhaven, presenting a Shelkopolis administrative charter at a Cyfoes shrine signals that the bearer operates outside both the guild registry and the chapel record. The attendant finishes his arrangement and steps to the far side of the altar without speaking. He will not record having seen this person.');
         addJournal('Cyfoes shrine — sealed charter bearer observed, outside both guild and chapel record systems', 'intelligence');
