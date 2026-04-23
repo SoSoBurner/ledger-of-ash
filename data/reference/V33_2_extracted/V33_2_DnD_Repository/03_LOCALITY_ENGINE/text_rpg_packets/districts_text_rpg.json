@@ -1,0 +1,81 @@
+{
+  "locality_id": "districts",
+  "locality_name": "Districts",
+  "polity": "The Union / Shelk",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "districts_transition_clerk",
+      "display_name": "District Transition Clerk",
+      "role": "Inter-district transit clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Processes transit authorizations at district boundary crossings; manages the competing jurisdiction claims that accumulate at every transition point.",
+      "surface_behavior": "Asks for the destination district before accepting any document. Routes documents to the correct authority queue — not to a general intake — before processing. Maintains separate piles for each competing jurisdiction on the desk.",
+      "what_they_know": "Which jurisdiction controls which district boundaries today, which boundary claims are under active dispute, what the transition authorization hierarchy is when jurisdictions overlap, which transit categories are currently restricted at which boundaries.",
+      "how_they_speak": "Jurisdictional and precise. Names the authority, not the rule, when explaining a requirement. Does not take sides in jurisdiction disputes — routes to the appropriate authority.",
+      "tell": "Organizes the desk into separate jurisdiction zones by pushing documents to their respective corners before reading any of them — the sorting happens before the processing, always."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "districts_guild_arbiter",
+      "display_name": "Guild Jurisdiction Arbiter",
+      "role": "Inter-guild jurisdiction arbiter",
+      "truth_layer": "conservative_inference",
+      "summary": "Mediates competing guild mark claims over district territory; issues provisional determinations pending full arbitration.",
+      "surface_behavior": "Asks both guilds to produce their mark documentation before speaking. Lays the documents side by side — always in order of seniority of claim, not seniority of guild — before making any statement.",
+      "what_they_know": "Which district territory has active competing claims, what the precedent cases say about overlapping marks in similar configurations, which guilds have active arbitration filings, what a provisional determination allows and does not allow.",
+      "how_they_speak": "Arbitration register: states what each party's documentation shows, then states what the provisional determination will be. Does not predict the full arbitration outcome.",
+      "tell": "Lays the two claim documents in order of seniority of claim date — not guild seniority, claim date — adjusting their positions relative to each other before speaking."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "districts_ward_constable",
+      "display_name": "Ward Constable",
+      "role": "District ward constable",
+      "truth_layer": "conservative_inference",
+      "summary": "Enforces ward boundaries and local ordinance within the district; first responder to boundary disputes that escalate past paper arbitration.",
+      "surface_behavior": "Patrols the ward boundary on foot, checking boundary markers at each corner before logging the patrol complete. Notes any marker alterations — paint, signage, physical — in a separate incident log, not the patrol log.",
+      "what_they_know": "Current ward boundary status and any recent marker disputes, which guild activities are operating under provisional authorization in the ward, what the escalation threshold is for a boundary dispute to move from arbitration to enforcement, what incidents are currently open.",
+      "how_they_speak": "Enforcement register: states what is authorized and what is not, without explaining the authorization chain unless asked directly. Does not speculate about outcomes.",
+      "tell": "Checks the boundary markers at the corner before logging the patrol complete — the log entry waits for the physical check, never the reverse."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "districts_permit_inspector",
+      "display_name": "Permit Inspector",
+      "role": "District activity permit inspector",
+      "truth_layer": "conservative_inference",
+      "summary": "Inspects commercial and guild activity permits across district boundaries; flags activities operating outside their authorized district.",
+      "surface_behavior": "Checks the permit's district scope before anything else on the document. If the scope doesn't cover the current location, the conversation ends at that point — not at the end of the full review.",
+      "what_they_know": "Current permit categories, which activities require multi-district permits versus single-district, which organizations have recently had their district scope challenged, what the penalty structure is for operating outside permitted districts.",
+      "how_they_speak": "Permit-scope focused. States the scope of the permit and whether the current activity falls within it. Does not negotiate scope — that is an arbitration matter.",
+      "tell": "Reads the district scope field on the permit first — folding the document to expose only that section — before unfolding it to review the rest."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "districts_notice_board_clerk",
+      "display_name": "Notice Board Clerk",
+      "role": "District notice board administrator",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages district notice boards; posts, archives, and removes notices according to authority, date, and relevance — maintaining the board as a current-state document, not a historical one.",
+      "surface_behavior": "Removes expired notices before posting new ones — the board state at the start of the posting is always the current cleared state. Archives removed notices by authority and date, not by topic.",
+      "what_they_know": "What is currently posted on each district board and when each notice expires, which authorities have posting priority on which boards, which notices are contested by competing jurisdictions, what has been removed and archived recently.",
+      "how_they_speak": "Board-state focused. Describes what is currently posted and what is pending. Does not comment on the content of notices — only on their status.",
+      "tell": "Removes expired notices before any posting action, even if the posting is urgent — the board is cleared first, then updated, never updated onto a cluttered board."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Competing Guild Authorities",
+      "visibility": "high",
+      "manifestation": "Multiple guild marks visible on the same buildings and boundary markers, sometimes overlapping. Guild representatives present at district transition points with documentation. The presence is layered — different guilds control different aspects of the same space simultaneously. Disputes are routine, managed through the arbitration system rather than resolved.",
+      "what_they_want": "Clear jurisdictional authority over their claimed district territory; transit authorization that reflects their mark's precedence; permit decisions that don't create precedent against their district claims."
+    },
+    {
+      "faction": "Ward Constabulary",
+      "visibility": "medium",
+      "manifestation": "Constables on patrol at ward boundaries. Constabulary notice board at each ward entry with current enforcement advisories. Constable authority is local — they enforce what arbitration has settled, not what is still in dispute.",
+      "what_they_want": "Clear arbitration outcomes to enforce, boundary markers that match the current determination, permit compliance within their ward's settled jurisdictions."
+    }
+  ]
+}

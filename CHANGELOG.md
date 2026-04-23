@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.2.0 — 2026-04-22
+
+### Added
+- Enriched choice engine: `adaptEnrichedChoice` + `loadStageChoices` serves authored per-locality inner-voice choices instead of generic fallbacks; seen-tracking rotates pool every 4 picks
+- Companion recruitment system: 7 companions (4 Stage I, 3 Stage II) with trust gate (≥15), stage flags, and `__recruit__{id}__{outcome}` CID routing; re-recruitment quest support
+- Stage 2 climax encounter (`content/stage2_climax.js`): 3-phase narrative (summons → revelation → resolution) with renown-reactive Orveth dialogue and 3 resolution branches
+- Archetype-aware NPC branches: Maren Oss and Inquisitor Orveth react to player archetype and renown level
+- `buildEnvReactiveLine()`: env-desc second sentence reacts to investigationProgress, renown, and fatigue
+- `buildEnvPanelText()`: rotating locality tone descriptor appended even when authored paragraph exists
+- Gradient skill progress bar: replaces dot pips; shows numeric value + linear-gradient fill (value/20); both HUD and character sheet render paths updated
+- Camp sundown gate: `showCamp()` blocks before Duskcall (timeIndex < 2) with narration feedback
+- Notice board badge: clears correctly after viewing notices
+- Rest follow-on choices rewritten to inner-voice standard with proper CIDs
+- `bard` entry added to `traitChoiceMap`
+- `G.flags.maren_oss_resolved` set in `_closeClimax()` — unblocks Stage II companion recruitment
+- Character creation: non-active archetype group headers hide on archetype selection; restore on deselect or group switch
+
+### Changed
+- 47+ choice labels in `consequences.js` rewritten to inner-voice standard (player thought, not action description)
+- 12 remaining "investigation" labels in `consequences.js` replaced with specific alternatives
+- Narrative text 19 → 18px; result text 17 → 16px
+- `#narrative-scroll` overflow-y: scroll; padding-bottom 100px (fixes result-block clipping)
+- Stage 1 result text full rewrite; locality narration fixes across Shelkopolis and Fairhaven
+- NPC dossiers and backgrounds narrative quality pass
+- Begin button moved into create-header-bar and sized up
+
+### Fixed
+- `addJournal` argument order reversed in 3 calls in `stage2_climax.js`; category corrected from 'faction' to 'intelligence'
+- `adaptEnrichedChoice` 500ms guard prevents overwriting choices rendered by enriched fn
+- `skill:'combat'` badge on passive CIDs corrected to `skill:'survival'`
+
 ## v0.1.0 — 2026-04-20
 
 ### Added

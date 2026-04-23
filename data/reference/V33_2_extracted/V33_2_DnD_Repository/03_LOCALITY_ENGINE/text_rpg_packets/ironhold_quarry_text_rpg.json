@@ -1,0 +1,75 @@
+{
+  "locality_id": "ironhold_quarry",
+  "locality_name": "Ironhold Quarry",
+  "polity": "Principality of Roaz",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "darian_ironspike",
+      "display_name": "Darian Ironspike",
+      "role": "ORE Ore Officer, Ironhold extraction authority",
+      "truth_layer": "direct_canon",
+      "summary": "Enforces ORE authority over extraction quotas, labor zone compliance, and outbound ore transport at Ironhold.",
+      "surface_behavior": "Holds inspection position at the main extraction gate. Checks transit manifests against the day's extraction log before authorizing any load to move. Does not process multiple requests simultaneously.",
+      "what_they_know": "Current extraction quota status, which labor zones are under elevated monitoring, which transport operators have been flagged for irregularities, what ORE's standing orders are for border-adjacent disputes.",
+      "how_they_speak": "ORE authority register: states regulatory position without hedging. Does not explain the reason for a requirement unless formally asked in writing. Addresses compliance questions; redirects labor condition questions to the quarry overseer.",
+      "tell": "Holds his authorization stamp in his right hand throughout the inspection — never setting it down — so that approval and denial are separated only by the stamp's position, not a search for the implement."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "velka_ironspike",
+      "display_name": "Velka Ironspike",
+      "role": "Guard sergeant, Ironhold quarry perimeter",
+      "truth_layer": "direct_canon",
+      "summary": "Commands the quarry perimeter guard detail; enforces labor zone boundaries and responds to theft incidents.",
+      "surface_behavior": "Moves the perimeter in a varied pattern — same zones, different sequence — noting positions at the labor zone markers. Checks boundary flags before entering any contested zone. Does not enter zones without logging the entry.",
+      "what_they_know": "Current perimeter status, recent theft incidents and their resolution status, which labor zones have active boundary disputes, which guard posts are under-strength today.",
+      "how_they_speak": "Military-adjacent register: brief, positional, uses compass directions and zone designations rather than descriptive language. Does not elaborate unless the question is specific.",
+      "tell": "Adjusts her belt buckle to center before entering any building — a pre-action check from field training that she applies to doorways the same way she applies it to confrontations."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "ironhold_quarry_overseer",
+      "display_name": "Quarry Overseer",
+      "role": "Extraction floor overseer",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages daily extraction operations, worker assignments, and output logging against ORE quota.",
+      "surface_behavior": "Stationed at the extraction floor's elevated platform with a view of all active zones. Calls zone status down to the floor using a numbered code system. Does not leave the platform during active extraction.",
+      "what_they_know": "Daily extraction progress against quota, which zones are ahead or behind, what the current equipment status is, which workers have active flagged incidents in their records.",
+      "how_they_speak": "Production-focused. Gives zone status in numbers. Answers questions about output; defers questions about working conditions to ORE authority.",
+      "tell": "Counts active drill stations by pointing at each one individually before logging the production number — always the physical count, never the roster."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "ironhold_camp_medic",
+      "display_name": "Camp Medic",
+      "role": "Quarry labor camp medical officer",
+      "truth_layer": "conservative_inference",
+      "summary": "Provides medical care for quarry labor; documents injuries and illness against ORE labor compliance records.",
+      "surface_behavior": "Holds morning assessments at the camp medical station before extraction shifts begin. Logs every assessment, including those that clear workers for duty. Does not clear workers who request delay — that determination is medical, not production.",
+      "what_they_know": "Current labor health status in aggregate, what the recent injury pattern shows, which conditions are trending in the camp, what ORE's medical compliance requirements specify.",
+      "how_they_speak": "Medical register: states findings and recommendations with equal weight. Does not soften medical conclusions for production concerns. Speaks to ORE authority and workers in the same tone.",
+      "tell": "Before writing in the medical log, she dates the entry before anything else — day first, then time — even if she's mid-thought about the entry itself."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "ironhold_transport_driver",
+      "display_name": "Transport Driver",
+      "role": "Ore transport driver",
+      "truth_layer": "conservative_inference",
+      "summary": "Moves extracted ore from the quarry to the regional transport network under manifest and ORE seal.",
+      "surface_behavior": "Waits at the transport staging area with manifest in hand before any loading begins. Checks load seals after loading and before departure. Does not move until the Ore Officer clears the manifest.",
+      "what_they_know": "Current route conditions on outbound paths, which routes are under elevated scrutiny, how the border-adjacent situation affects transport timing, what the manifest discrepancy process involves if flagged.",
+      "how_they_speak": "Practical and route-focused. Talks about timing, load weights, and road conditions. Avoids opinions about ORE authority.",
+      "tell": "Walks a full circuit around the loaded vehicle before boarding — checks all four corners at ground level — even on routes he has driven daily for years."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "ORE (Roazian Ore Authority)",
+      "visibility": "high",
+      "manifestation": "ORE seals on every outbound load, every transit manifest, every labor zone boundary marker. Ore Officers visible at the main gate and extraction floor access points. ORE notice board at the camp entry carries standing orders and active advisories. Workers acknowledge ORE presence through compliance behavior, not deference.",
+      "what_they_want": "Quota compliance, clean transport manifests, zero unauthorized zone access, incident reporting within the mandated window."
+    }
+  ]
+}

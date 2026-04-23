@@ -1,0 +1,81 @@
+{
+  "locality_id": "harvest_circle",
+  "locality_name": "Harvest Circle",
+  "polity": "Soreheim Alliance",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "elyra_mossbane",
+      "display_name": "Elyra Mossbane",
+      "role": "Harvest steward, patron-family Mossbane",
+      "truth_layer": "reconciled_canon",
+      "summary": "Manages the Mossbane family's harvest stall assignments, route convoy order, and festival-day distribution duties.",
+      "surface_behavior": "Walks the market ring at the start of each day checking stall boundaries against the posted plan. Marks discrepancies on her clipboard without speaking to the stall holder first. Addresses discrepancies after the full circuit.",
+      "what_they_know": "Which families have priority stall positions this season and why, current spoilage rates by produce category, which convoy slots are contested and who holds the prior-season claim, what the festival distribution quota looks like.",
+      "how_they_speak": "Patron-family register: assured, expects to be heard the first time, references family precedent rather than bureau regulation when disputing.",
+      "tell": "Smooths the top page of the clipboard with her palm before reading it — always, even if she was holding it moments before — as if the information requires a clean surface to land on."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "velrik_durnshade",
+      "display_name": "Velrik Durnshade",
+      "role": "Quota clerk, regional harvest bureau",
+      "truth_layer": "reconciled_canon",
+      "summary": "Records and verifies harvest loads against regional quota; flags shortfalls and surpluses for redistribution.",
+      "surface_behavior": "Sits at the quota station at the market ring's east entry. Weighs loads against the morning quota sheet. Enters figures in silence and hands the receipt without comment unless the load is out of range.",
+      "what_they_know": "Today's quota targets per produce category, which family convoys are logged in and which are pending, where shortfalls are accumulating, which loads have been flagged for inspection.",
+      "how_they_speak": "Numbers-first. Quotes figures rather than describing situations. When something is wrong, states the variance rather than the judgment.",
+      "tell": "Taps his pen three times on the ledger spine before writing a new entry — not a nervous habit, more like clearing the instrument before use."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "jorva_helmrune",
+      "display_name": "Jorva Helmrune",
+      "role": "Festival broker, Harvest Circle market authority",
+      "truth_layer": "reconciled_canon",
+      "summary": "Coordinates festival-day trade allocations, manages inter-family negotiation over sale rights, and runs the post-festival redistribution ledger.",
+      "surface_behavior": "Moves through the market ring talking to stall holders in sequence — never stopping at any one stall long enough to suggest preference — taking brief notes after each conversation rather than during.",
+      "what_they_know": "Which families are in surplus or deficit heading into festival, where inter-family tensions over pricing are running high, what the redistribution formula will likely produce this season, which deals are still open.",
+      "how_they_speak": "Broker register: listens longer than she speaks, asks clarifying questions rather than offering positions, states conclusions as observations rather than decisions.",
+      "tell": "Closes her notebook against her chest before walking away from any conversation — cover facing out, as if it's a shield or a signal, though she does it whether the conversation went well or poorly."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "harvest_circle_wagon_master",
+      "display_name": "Wagon Master",
+      "role": "Convoy wagon master",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages convoy order, load security, and route timing for the harvest family convoys moving through and out of Harvest Circle.",
+      "surface_behavior": "Checks wagon hitches and load covers at the staging area before convoy departure. Counts loads against the convoy manifest twice. Does not authorize movement until both counts match.",
+      "what_they_know": "Current convoy queue and departure order, which routes are operating on schedule and which are congested, which loads are under special handling requirements, whether there have been any incidents on recent outbound routes.",
+      "how_they_speak": "Operational, focused on sequence and timing. Answers questions about routes and loads but redirects questions about trade disputes to the quota clerk or broker.",
+      "tell": "Pushes each hitch pin fully into place then pulls back on the tongue before marking the manifest — the pull-test is the check, not the push, and he does it even when he watched the pin go in."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "harvest_circle_load_inspector",
+      "display_name": "Load Inspector",
+      "role": "Produce load inspector",
+      "truth_layer": "conservative_inference",
+      "summary": "Inspects incoming and outgoing produce loads for spoilage, honest declaration, and correct family marking.",
+      "surface_behavior": "Works the market ring's entry points with a sample probe and the day's honesty-declaration checklist. Cuts a sample from bulk loads before logging them. Marks declarations against physical inspection, not family attestation.",
+      "what_they_know": "Which produce categories are showing elevated spoilage this cycle, which family loads have had recent declaration discrepancies, what the threshold is for referral to the quota clerk versus direct rejection.",
+      "how_they_speak": "Matter-of-fact about findings. Does not speculate about intent. States what the inspection found; what happens next is for the clerk to determine.",
+      "tell": "Wipes the probe on the same spot on his left sleeve after each sample — the sleeve has a faint stain line there from months of this — before inserting it into the log case."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Harvest patron-families",
+      "visibility": "high",
+      "manifestation": "Family markers on every stall, wagon, and load. Patron-family members move through the market with priority access to quota stations. Disputes between families are conducted publicly at the market ring — loudly enough to be heard, not loudly enough to require arbitration unless a line gets crossed.",
+      "what_they_want": "Favorable stall assignments, accurate quota recording that reflects their family's output, redistribution formulas that reward established families."
+    },
+    {
+      "faction": "Regional harvest bureau",
+      "visibility": "medium",
+      "manifestation": "Quota station at the east entry. Bureau notices posted on the ring's central pillar. Clerks wear bureau-standard green armbands. Bureau authority is procedural — they record and flag, but enforcement comes from the patron-families or the convoy system.",
+      "what_they_want": "Accurate declarations, clean quota records, festival redistribution that closes without appeals."
+    }
+  ]
+}

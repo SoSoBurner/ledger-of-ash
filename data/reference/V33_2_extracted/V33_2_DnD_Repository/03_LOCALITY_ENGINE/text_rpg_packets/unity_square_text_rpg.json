@@ -1,0 +1,81 @@
+{
+  "locality_id": "unity_square",
+  "locality_name": "Unity Square",
+  "polity": "The Union",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "unity_square_union_steward",
+      "display_name": "Union Steward",
+      "role": "Trade Union arbitration steward",
+      "truth_layer": "conservative_inference",
+      "summary": "Mediates trade disputes, enforces posted rate compliance, and manages inspection line protocol in the exchange quarter.",
+      "surface_behavior": "Moves through the exchange courts in a visible circuit, stopping at dispute clusters rather than proceeding past them. Notes the dispute category on a small ledger before intervening. Does not intervene until both parties are present.",
+      "what_they_know": "Current active disputes by category, which traders have repeat complaint records, where price shock pressure is concentrated today, what the Union's current arbitration precedent holds on the contested categories.",
+      "how_they_speak": "Arbitration register: states positions without taking sides, asks parties to confirm their stated terms before recording them. Announces findings using the same phrasing regardless of which party benefits.",
+      "tell": "Puts his pen in his breast pocket before speaking during any arbitration — never holds it during the conversation — then retrieves it to write after both parties have finished."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "unity_square_cargo_inspector",
+      "display_name": "Cargo Inspector",
+      "role": "Exchange quarter cargo inspector",
+      "truth_layer": "conservative_inference",
+      "summary": "Inspects incoming cargo against posted guild colors and trade classifications; flags misclassifications for Union review.",
+      "surface_behavior": "Stationed at the exchange court entry points with the day's classification guide. Checks cargo markings against the guide before allowing entry to the exchange floor. Marks the inspection log whether the cargo passes or fails.",
+      "what_they_know": "Current classification guide and any same-day amendments, which cargo categories are under elevated scrutiny, which operators have recent misclassification flags, where cargo theft incidents have occurred recently.",
+      "how_they_speak": "Classification-focused. Refers to cargo by trade category code rather than common name. States the inspection result clearly; explains the basis if asked.",
+      "tell": "Flips the classification guide to the relevant page using her thumb rather than fanning through — she knows where every page is by thumb-position and goes directly, without looking."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "unity_square_rate_clerk",
+      "display_name": "Rate Clerk",
+      "role": "Posted rate maintenance clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Maintains the exchange quarter's posted rate boards; updates rates as market conditions shift and logs all changes.",
+      "surface_behavior": "Updates rate boards at the start of each market session and after any arbitrated price change. Reads the current rate aloud before posting the new one. Logs the old rate before erasing it.",
+      "what_they_know": "Current posted rates by category, which rates have changed in the last session and why, which categories are under price shock pressure, how the Union's rate-setting authority interacts with patron-family price claims.",
+      "how_they_speak": "Rate-and-change focused. States numbers precisely. If a trader disputes a posted rate, refers them to the union steward without debating.",
+      "tell": "Reads the board from the bottom row upward before making any change — checking the current state from the less-important rates to the important ones — even when the change only affects the top line."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "unity_square_exchange_broker",
+      "display_name": "Exchange Broker",
+      "role": "Licensed trade exchange broker",
+      "truth_layer": "conservative_inference",
+      "summary": "Brokers trade agreements between parties on the exchange floor; charges a licensed fee per completed transaction.",
+      "surface_behavior": "Positioned in the exchange court's central zone, available to both parties in a negotiation without being adjacent to either. Takes notes during negotiations in a shorthand that neither party can read.",
+      "what_they_know": "Which traders are currently looking to buy and sell in volume, where the real price movement is versus where the posted rate says it is, which deals are close to closing and which are stalled.",
+      "how_they_speak": "Broker register: neutral, listens more than speaks, confirms terms back to both parties before recording. Does not volunteer market intelligence; answers direct questions about current conditions briefly.",
+      "tell": "Keeps both hands visible on the table during any negotiation — flat, open — and does not pick up a pen until both parties have verbally confirmed the terms."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "unity_square_queue_arbiter",
+      "display_name": "Queue Arbiter",
+      "role": "Inspection line queue arbiter",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages the inspection line queue order, resolves priority disputes, and maintains throughput at the exchange court entries.",
+      "surface_behavior": "Stands at the queue head with a numbered tile system — each trader takes a tile on entry, returns it when inspected. Calls numbers in strict order. Addresses priority disputes by asking for documentation of the claimed priority rather than judging the claim.",
+      "what_they_know": "Current queue length and approximate wait time, which traders have documented priority status, where queue pressure is building, what the Union's queue-jumping penalty structure is.",
+      "how_they_speak": "Queue-state focused. Gives wait times as ranges, not promises. Addresses disputes by asking for the documentation first and making no other response until it's provided.",
+      "tell": "Stacks the returned tiles in the exact order they were issued — re-sorting if necessary — rather than dropping them into a general pile, so the tile sequence matches the inspection log."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Trade Union",
+      "visibility": "high",
+      "manifestation": "Union stewards present at the exchange court's main points throughout trading hours. Posted rate boards carry Union authority seals. Union-standard guild color awnings mark the exchange court boundaries. Union arbitration is the first resort for disputes — there is no parallel track.",
+      "what_they_want": "Clean transaction records, posted rate compliance, dispute resolution that closes within the session, cargo classifications that match trade guild standards."
+    },
+    {
+      "faction": "Trade Arbitration Guild",
+      "visibility": "medium",
+      "manifestation": "Guild-licensed brokers wear a small guild marker on the left shoulder. Guild notice board near the exchange court's exit posts current broker availability and fee schedules. Guild and Union authority overlap in broker-mediated deals — both seals required on completed agreements.",
+      "what_they_want": "Broker fee protection, dispute resolution that routes complex cases to guild arbitration rather than Union stewards, clean transaction records that validate broker involvement."
+    }
+  ]
+}

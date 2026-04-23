@@ -1,0 +1,81 @@
+{
+  "locality_id": "craftspire",
+  "locality_name": "Craftspire",
+  "polity": "The Union",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "craftspire_copy_clerk",
+      "display_name": "Copy Clerk",
+      "role": "Licensed copy shop clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Processes copy orders, validates licenses, and logs each transaction in the district ledger.",
+      "surface_behavior": "Stands behind a high counter sorting commission slips by priority tier. Checks each slip against a reference board of current licensing status before accepting. Calls out order numbers in a flat register rather than names.",
+      "what_they_know": "Which workshops have active copy licenses, current queue wait times by tier, which materials are under shortage tariff, which commissions have outstanding IP disputes attached.",
+      "how_they_speak": "Terse, form-driven. Answers questions with counter-questions about documentation status. Does not explain process unless directly asked twice.",
+      "tell": "Holds a commission slip at arm's length to read it before bringing it back to her body — she reads at distance, always, as if the paper needs space to be understood."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "craftspire_workshop_overseer",
+      "display_name": "Workshop Overseer",
+      "role": "Artisan workshop floor overseer",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages production lines, enforces workshop boundary rules, and logs output against quota.",
+      "surface_behavior": "Walks the floor perimeter at irregular intervals, never the center. Marks something on a clipboard at each pass — always the same column, never explaining what it tracks.",
+      "what_they_know": "Which commissions are behind schedule, which artisans have been flagged for boundary violations, where current material shortages are creating production gaps.",
+      "how_they_speak": "Gives warnings before corrections — once, then twice, then stops speaking and marks the clipboard. Speaks to outsiders in the same tone as workers: flat, functional.",
+      "tell": "Rubs the back of his left hand against his hip before turning corners — a habit from years of checking for hot press residue that doesn't exist anymore."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "craftspire_tariff_inspector",
+      "display_name": "Tariff Inspector",
+      "role": "Union Copy Licensing Bureau inspector",
+      "truth_layer": "conservative_inference",
+      "summary": "Validates tariff stamps on materials and finished goods; flags unlicensed work for bureau review.",
+      "surface_behavior": "Moves between workshop exits with a stamp kit and reference ledger. Checks goods against the master catalog before any item leaves the production block. Does not move quickly.",
+      "what_they_know": "Current tariff rates, which workshops have outstanding inspection violations, which material suppliers are under provisional licensing, which routes out of Craftspire are currently under elevated scrutiny.",
+      "how_they_speak": "Precise without being formal. States what is required; does not debate whether the requirement is fair. If an item is compliant, says so and moves on.",
+      "tell": "Opens his stamp kit the same way every time — lid to the left, reference card pulled first, stamp second — even when he's not going to stamp anything."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "craftspire_material_porter",
+      "display_name": "Material Porter",
+      "role": "Workshop supply chain porter",
+      "truth_layer": "conservative_inference",
+      "summary": "Moves materials between workshops and storage under consignment note; tracks loads against shortage lists.",
+      "surface_behavior": "Carries loads in a specific sequence — heaviest first, marked loads last — and consults a folded shortage list before every depot visit. Does not skip the list check even for familiar items.",
+      "what_they_know": "Which materials are currently short, which suppliers are delayed, which workshops have accepted substitute materials and which have refused, which loading zones are congested.",
+      "how_they_speak": "Short sentences. Names things by their consignment codes rather than common names. Will ask for a reference number before discussing any specific material.",
+      "tell": "Sets every load down before opening a door — never tries to manage both at once — and repositions the load before picking it back up even if nothing changed."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "craftspire_ip_arbitrator",
+      "display_name": "IP Arbitrator",
+      "role": "Intellectual property dispute arbitrator",
+      "truth_layer": "conservative_inference",
+      "summary": "Mediates IP disputes between copy shops, artisans, and licensing claimants under Union bureau authority.",
+      "surface_behavior": "Sits at a desk in the arbitration hall with both parties' documentation spread in two columns, never mixed. Takes notes by hand during proceedings. Does not look up when either party speaks.",
+      "what_they_know": "Current active disputes, precedent cases cited in recent rulings, which workshops have repeat filing patterns, which commissions have multiple outstanding claims.",
+      "how_they_speak": "Speaks only to summarize claims and request clarification. Does not offer opinions. Announces findings without preamble and does not restate them.",
+      "tell": "Keeps both columns of documentation exactly parallel by touching them into alignment before each session begins — sometimes three adjustments before she's satisfied."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Union Copy Licensing Bureau",
+      "visibility": "high",
+      "manifestation": "Bureau inspectors conduct random audits of copy shops and materials suppliers throughout the day. Bureau notice boards at each production block carry active licensing updates. Workers acknowledge inspectors by pausing work — not stopping it — while documentation is checked.",
+      "what_they_want": "Tariff compliance, IP dispute resolution that closes cases rather than extends them, production records that match licensing records."
+    },
+    {
+      "faction": "Artisan Guilds (collective)",
+      "visibility": "medium",
+      "manifestation": "Guild marks on workshop doors and tool chests. Guild representatives visible at arbitration queues, not production floors. Occasional posted notices disputing specific bureau rulings — always signed, never anonymous.",
+      "what_they_want": "Licensing terms that reflect actual production realities; material shortage exceptions; dispute resolutions that don't create precedent against guild-standard methods."
+    }
+  ]
+}

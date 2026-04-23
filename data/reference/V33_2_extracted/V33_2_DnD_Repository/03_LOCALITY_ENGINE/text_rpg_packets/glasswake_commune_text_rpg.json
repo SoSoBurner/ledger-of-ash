@@ -1,0 +1,75 @@
+{
+  "locality_id": "glasswake_commune",
+  "locality_name": "Glasswake Commune",
+  "polity": "Sheresh Communes",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "glasswake_containment_warden",
+      "display_name": "Containment Warden",
+      "role": "Sheresh Containment Concord warden",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages scanning checkpoints, responds to exposure incidents, and enforces quarantine protocol.",
+      "surface_behavior": "Stands at the checkpoint with scanner kit open and logging slate visible. Asks for entry documentation before greeting. Processes each arrival at the same pace regardless of queue length.",
+      "what_they_know": "Current exposure status across the commune's sectors, which areas are under active quarantine, what the recent incident log shows, which containment instruments are flagged for calibration.",
+      "how_they_speak": "Procedural, without apology. States required steps as a list. Does not negotiate steps, but will explain the reason for each if asked directly.",
+      "tell": "Closes the scanner kit the same way each time — left latch before right, top buckle last — even during non-scanning conversations, as if resetting a state."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "glasswake_instrument_technician",
+      "display_name": "Instrument Technician",
+      "role": "Cold-light and containment instrument technician",
+      "truth_layer": "conservative_inference",
+      "summary": "Maintains, calibrates, and replaces the containment and measurement instruments across the commune's sensor pylons.",
+      "surface_behavior": "Moves between pylon stations with a calibration kit and maintenance log. Checks the instrument reading against the baseline before touching anything. Marks whether the drift is within acceptable range or requires intervention.",
+      "what_they_know": "Which instruments are currently drifting, which pylons have had recent anomalous readings, what the last equipment failure was and how it was resolved, what the calibration backlog looks like.",
+      "how_they_speak": "Technical and specific. Refers to instruments by designation rather than description. Gives numerical readings when asked about status, not qualitative assessments.",
+      "tell": "Blows across the tip of the calibration stylus before every measurement — a habit from cold-weather fieldwork that serves no function indoors but continues anyway."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "toman_iceveil",
+      "display_name": "Toman Iceveil",
+      "role": "Senior contamination researcher",
+      "truth_layer": "conservative_inference",
+      "summary": "Leads cold-light exposure measurement research; manages the commune's exposure data archive.",
+      "surface_behavior": "Works at the archive station with exposure charts spread across the table in chronological order, not sorted by severity. Takes notes in two columns — observed data on the left, inferences on the right — and keeps them strictly separated.",
+      "what_they_know": "Longitudinal exposure patterns across the commune, which measurement methodologies are considered authoritative versus provisional, what the current research consensus holds about long-exposure effects.",
+      "how_they_speak": "Distinguishes carefully between what the data shows and what he thinks it means. Will not state a conclusion without naming the data it rests on. Speaks slowly when the question is good.",
+      "tell": "When listening, he moves the right-hand inference column of his notes slightly away from the left — physically separating the columns further — as if to prevent contamination between the two."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "lenna_bannerhold",
+      "display_name": "Lenna Bannerhold",
+      "role": "Field exposure observer",
+      "truth_layer": "conservative_inference",
+      "summary": "Conducts perimeter and field exposure readings; first to respond to anomalous pylon alerts.",
+      "surface_behavior": "Carries a portable scanner and field log at all times inside the commune. Responds to alert signals before finishing current tasks. Marks her position on the route map at each pylon check.",
+      "what_they_know": "Current perimeter readings, where recent anomalies have occurred and what the follow-up showed, which routes are currently under elevated monitoring, what the alert response protocol requires at each stage.",
+      "how_they_speak": "Direct, alert-status oriented. Gives updates in terms of current state, not history. If the situation is stable, says so briefly; if not, stays focused on what's active.",
+      "tell": "Taps the side of the portable scanner twice before reading it — not a calibration step, just a habit — then checks the reading, then taps it once more."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "glasswake_quarantine_medic",
+      "display_name": "Quarantine Medic",
+      "role": "Exposure response and quarantine medical officer",
+      "truth_layer": "conservative_inference",
+      "summary": "Assesses exposure cases, issues quarantine orders, and manages the medical side of containment response.",
+      "surface_behavior": "Moves through the commune on a scheduled check circuit that covers all active quarantine zones. Carries a medical log and exposure assessment kit. Checks in at each station before entering.",
+      "what_they_know": "Which individuals are currently under medical quarantine and what their status is, what the exposure thresholds for quarantine action are, how the current caseload compares to recent baselines.",
+      "how_they_speak": "Calm, unhurried. Explains medical status in plain terms without minimizing. Does not speculate about outcomes; stays with what the current data shows.",
+      "tell": "Writes every entry in the medical log standing up, never sitting — a habit that started as expediency in the field and became fixed practice everywhere."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Containment Concord",
+      "visibility": "high",
+      "manifestation": "Concord notices posted at every checkpoint and pylon station. Wardens visible at entry and sector boundaries. Concord-standard scanning equipment is the only equipment in use — no improvised or personal instruments. Alert signal tones audible across the commune during any pylon anomaly.",
+      "what_they_want": "Full scanning compliance, immediate incident reporting, no unauthorized zone entry, accurate logging of all exposure events."
+    }
+  ]
+}

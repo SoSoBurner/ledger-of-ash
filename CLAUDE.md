@@ -13,9 +13,69 @@
 
 - `ledger-of-ash.html` — single-file game engine: all CSS, core JS, game data, and HTML
 - `content/` — stage files, encounter scripts, narrations, NPC data (loaded via `<script>` tags in HTML)
+- `content/locality_narrations.js` — locality opening narration strings
+- `content/locality_voice_guide.js` — locality style reference (not dialogue trees)
+- `content/maren_oss_encounter.js` — Maren Oss encounter logic
+- `content/travel_corridors.js` — travel encounter system
+- `data/narrative_lookup.js` — prose snippets keyed to localities (504 lines)
+- `data/bestiary_lookup.js` — creature stats and encounter groups (602 lines)
 - `css/style.css` — external stylesheet (not used by play.bat; source HTML has inline `<style>`)
 - `dist/` — bundled build output; NOT what play.bat serves
 - `play.bat` — opens root source HTML in Chrome app mode
+- `js/` — **NOT loaded by the game.** `js/consequences.js` and other files here are dead copies. All choice/consequence data is inline in `ledger-of-ash.html`. Edits to `js/` have no effect.
+- `js/travel.js` — **DEAD FILE (635 lines).** Looks authoritative but is never loaded. All travel implementation goes in `ledger-of-ash.html` + `content/travel_corridors.js`.
+
+## Travel Data Sources
+
+- Node graph: `data/reference/07_WORLD_GRAPH/locality_travel_network.json` — edges with travel times
+- Per-route complications: `data/reference/V33_2_extracted/V33_2_DnD_Repository/12_TABLE_KITS/travel_complications/` — one `.md` per route with authored complication flavor
+
+## Reference Library (V33_2 — Do Not Edit)
+
+All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
+- `03_LOCALITY_ENGINE/locality_packets/` — 53 JSON locality files (identity, encounter rhythm, scene openers, social misstep examples)
+- `03_LOCALITY_ENGINE/text_rpg_packets/` — 14 MD narrative flavor bundles (10 Stage 1 localities are missing these)
+- `12_TABLE_KITS/arrival_kits/` — 53 MD first-arrival scene seeds, one per locality
+- `11_REFERENCE_VIEWS/locality_quickstart_cards/` — 53 MD quick-reference cards (Districts, Nomdara, Plumes End Outpost, Sheresh missing)
+- `02_CANON_BASELINE/named_npcs/` — 723 NPC JSON profiles
+- `02_CANON_BASELINE/interface_role_instances/` — NPC role instances by polity
+
+## Stage Content Status
+
+- **V1.0 Release scope: Stages 1, 2, and 3** — all three must be complete for release. Do not artificially limit development scope to Stage 1 or 2.
+- **Stage 1**: Complete — 22 localities, ~15K lines, ~534 KB of enriched choice files. All authored.
+- **Stage 2**: Structurally present but thin — 27% of Stage 1 density. Needs escalation pass.
+- **Stage 3**: Not yet authored. Stage gate declared in `G.stageProgress` but no content files exist.
+- Stage 1→2 bridge arcs: `*_to_shelk_arc.js` files in `content/` (12 files, inject when progress ≥ 5 OR level ≥ 6)
+- Stage 2 global specials: `stage2_enriched_choices.js` (pool), `stage2_antechamber.js` (triggers at stageProgress[2] ≥ 12), `stage2_climax.js` (confrontation)
+
+## Stage Gate Logic
+
+- Stage I → II: Level 6 required — `checkStageAdvance()` ~line 8777 in `ledger-of-ash.html`
+- Stage II → III: `canAdvanceToStage3()` ~line 8786 — requires `stage2_climax_complete` flag + `stage2_faction_contact_made` flag + `stageProgress[2] >= 15`
+- `G.stageProgress` is `{1:0, 2:0, 3:0, 4:0, 5:0}` — all 5 stages declared, 3–5 not yet authored
+
+## Travel Mode System
+
+`G.travelMode` is declared in G defaults (`false`) but not yet activated. Modes: foot (1 unit/day, free), horse (2/day, gold rental), cart (1/day, gold, no fast pace), boat (3/day, gold passage, route-fixed). `G.pace` controls fast/normal/slow where available. All travel implementation lives in `ledger-of-ash.html` and `content/travel_corridors.js` — never in `js/travel.js`.
+
+## Archetype System
+
+31 archetypes total. `getArchetypeFamily(archetype)` returns family string. Support family (7 archetypes): Healer, Artificer, Engineer, Tactician, Alchemist, Saint, Bard. Craft-heavy (highest base craft): Artificer (4), Engineer (4), Alchemist (3). Knight has Mounted Discipline passive. Archetype-sensitive NPC reactions: Tier 1 polity NPCs and named antagonists only.
+
+## Camp System
+
+`doSleepScene()` — handles rest and healing. `campAction(type)` — available types: `'post_watches'` (converts night ambush to warned encounter), `'craft'` (craft skill action). `G.companions` — array of active companion objects. `vorath_gelden` and `mira_calden` gate on `G.flags.maren_oss_resolved`.
+
+## Plans Directory Warning
+
+`C:\Users\CEO\.claude\plans\` has 28+ plan files that are NOT auto-loaded into sessions. Check `memory/ACTIVE_PLANS_INDEX.md` at session start. Do not re-derive decisions that are already recorded there.
+
+## Locality Status Constraints
+
+- **Nomdara**: Transit-only — no NPC encounters. Zero canon NPCs. Mobile settlement; no authored quickstart card.
+- **Sheresh**: Stage 1 content only (no Stage 2). Zero canon NPCs — any Sheresh NPCs must be authored from scratch, canon-consistent.
+- **Districts + Plumes End Outpost**: Missing quickstart cards — use locality packet data as working reference substitute.
 
 ## Skill Keys vs Display Names
 
@@ -29,6 +89,10 @@
 | lore       | Wits    |
 | persuasion | Charm   |
 | craft      | Spirit  |
+
+## window.G is undefined
+
+`G` is declared `let G` at module scope — `window.G` is `undefined`. Never use `var G = window.G` as a local alias (it silently breaks the function). Always reference the outer `G` directly, as every other function does.
 
 ## G Defaults Rule
 
@@ -142,6 +206,8 @@ Subtext: NPCs rarely say exactly what they mean. One unsaid layer per scene.
 
 ## Forbidden in Player-Facing Narrative Strings Only (not code or variable names)
 
+**Scope:** These words live in inline HTML data — choice text, result text, NPC dialogue, background copy. Check `ledger-of-ash.html` directly. `js/consequences.js` is a dead copy and does not reflect what the game runs.
+
 * "investigation" / "investigate" — retire; use specific alternatives
 * "meaningful" — cut entirely
 * "contact" as a noun for a person
@@ -186,7 +252,14 @@ Rules:
 - Group related sub-questions under one number rather than splitting them
 - Use this format for prework, not mid-task clarifications
 
+## Memory Save Points
+
+- **Before large tasks**: Save a memory checkpoint of current project state and the plan before starting any large or wide-ranging task.
+- **Before 5+ questions**: When asking more than 5 clarifying questions, save a memory checkpoint first — record decisions made so far and open items, so nothing is lost if the session ends.
+
 ## Research Before Asking
+
+Do a light sweep before asking any question. If the code answers it, find it — don't ask. Never ask needless questions or manufacture alternatives to fill a quota.
 
 Before writing any prework question, check whether the code already answers it. Most design questions about mechanics, clocks, UI, combat, or rivals have answers in the existing source.
 

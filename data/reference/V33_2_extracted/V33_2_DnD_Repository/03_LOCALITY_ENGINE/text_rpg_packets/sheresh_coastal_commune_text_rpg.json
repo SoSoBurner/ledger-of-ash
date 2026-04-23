@@ -1,0 +1,81 @@
+{
+  "locality_id": "sheresh_coastal_commune",
+  "locality_name": "Sheresh Coastal Commune",
+  "polity": "Sheresh Communes",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "sheresh_coastal_checkpoint_warden",
+      "display_name": "Checkpoint Warden",
+      "role": "Dome perimeter checkpoint warden",
+      "truth_layer": "conservative_inference",
+      "summary": "Controls all entry and exit through the dome perimeter checkpoint; enforces contamination scan protocol without exception.",
+      "surface_behavior": "Runs the scan protocol on every entrant in the same order — scanner first, log entry second, authorization third — regardless of whether the entrant is a first-timer or a daily regular. Does not expedite for familiarity.",
+      "what_they_know": "Current dome perimeter status, which transit categories require extended scanning, what the log discrepancy protocol involves, whether any recent incidents have changed the standard authorization criteria.",
+      "how_they_speak": "Protocol-first, flat affect. States what the next step is; does not explain why unless asked. If an entrant is flagged, names the flag category and the required response without elaboration.",
+      "tell": "Sets the scanner down on the same spot on the checkpoint ledge after every use — left edge, parallel to the ledge — before logging the result, as if the placement is part of the read."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "sheresh_coastal_dome_proximity_monitor",
+      "display_name": "Dome Proximity Monitor",
+      "role": "Dome proximity and cold-light exposure monitor",
+      "truth_layer": "conservative_inference",
+      "summary": "Tracks proximity readings near the dome perimeter; logs cold-light exposure levels for all personnel in the outer zone.",
+      "surface_behavior": "Records readings at fixed perimeter intervals, not on demand. Notes the delta between current and prior reading before logging the absolute value — the change is the primary data point, not the level alone.",
+      "what_they_know": "Current proximity readings across all outer-zone stations, what the acceptable delta range is before escalation is required, which outer-zone areas have had elevated readings recently, what the escalation protocol involves.",
+      "how_they_speak": "Data-register: gives readings as deltas first, then absolutes. Does not characterize a reading as good or bad — states whether it is within range or outside it.",
+      "tell": "Records the delta before the absolute in every log entry, even when the delta is zero — the format never changes regardless of what the numbers are."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "sheresh_coastal_transit_coordinator",
+      "display_name": "Transit Coordinator",
+      "role": "Dome perimeter transit coordinator",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages the schedule and authorization sequence for transit through the dome perimeter zone; coordinates with checkpoint wardens on queue flow.",
+      "surface_behavior": "Manages transit windows in fixed blocks — authorizing groups, not individuals — and holds the queue between windows. Does not open a new window early, even if the queue is short.",
+      "what_they_know": "Current transit window schedule, which categories of transit are operating on restriction, what the queue state looks like across all checkpoint points, whether any dome maintenance is affecting the transit schedule.",
+      "how_they_speak": "Schedule-oriented. States the next window time, not the wait time. Does not speculate about delays — states what the schedule shows and refers deviations to the checkpoint warden.",
+      "tell": "Checks his transit schedule board from the right side to the left — counter to reading order — as if verifying the end state before confirming the sequence that leads to it."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "sheresh_coastal_log_verification_clerk",
+      "display_name": "Log Verification Clerk",
+      "role": "Dome transit log verification clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Cross-references checkpoint entry logs against transit authorization records; flags discrepancies for warden review.",
+      "surface_behavior": "Runs verification in pairs — compares checkpoint log against transit authorization, not against memory. Flags every discrepancy regardless of apparent cause. Does not resolve discrepancies unilaterally; routes them to the warden.",
+      "what_they_know": "Current log discrepancy count and categories, what the most recent flagged incidents involved, what the resolution process requires from each party, whether any discrepancies remain open from prior shifts.",
+      "how_they_speak": "Comparative register: frames everything in terms of what matches and what does not. Does not attribute intent to a discrepancy — names what is there and what should be there.",
+      "tell": "Places both documents side by side before reading either — the checkpoint log on the left, the transit authorization on the right, always — and aligns them by top edge before beginning comparison."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "sheresh_coastal_medical_screener",
+      "display_name": "Medical Screener",
+      "role": "Dome perimeter medical screener",
+      "truth_layer": "conservative_inference",
+      "summary": "Conducts medical screening at the dome perimeter; assesses cold-light exposure symptoms and authorizes or holds transit on medical grounds.",
+      "surface_behavior": "Completes the symptom checklist verbally — asking each item, recording the response, then moving to the next — without skipping or grouping. Does not interpret an absence of symptoms as a clean result until the full list is complete.",
+      "what_they_know": "Current symptom threshold criteria for each exposure category, what the hold protocol requires medically versus logistically, how the current caseload compares to the seasonal baseline, what the referral process to the Containment Concord involves.",
+      "how_they_speak": "Medical-procedural. States the checklist item before asking it. Uses the symptom category names rather than descriptions. Does not offer reassurance about clean results until the checklist is complete.",
+      "tell": "Puts the symptom checklist face-down after completing it — before announcing the result — as if the conclusion needs a moment separate from the process that produced it."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Sheresh Dome Stewards",
+      "visibility": "high",
+      "manifestation": "Steward notices at every checkpoint and transit coordination point. Dome Steward authority covers all perimeter access decisions — no transit occurs without Steward authorization codes on the manifest. Steward personnel visible at escalation points throughout the day.",
+      "what_they_want": "Full scan compliance, clean log records, zero unauthorized perimeter crossings, all discrepancies routed through the warden before resolution."
+    },
+    {
+      "faction": "Containment Concord (liaison presence)",
+      "visibility": "medium",
+      "manifestation": "Concord liaison desk at the medical screening station. Concord notices alongside Steward notices at elevated-exposure areas. Concord representatives observe medical escalation decisions but do not override Steward authority — they record and advise.",
+      "what_they_want": "Accurate exposure logging, medical escalation data, access to flagged cases for Concord review."
+    }
+  ]
+}

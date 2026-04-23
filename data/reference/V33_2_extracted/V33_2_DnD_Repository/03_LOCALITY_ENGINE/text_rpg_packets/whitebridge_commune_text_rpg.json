@@ -1,0 +1,81 @@
+{
+  "locality_id": "whitebridge_commune",
+  "locality_name": "Whitebridge Commune",
+  "polity": "Soreheim Alliance",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "whitebridge_bridge_warden",
+      "display_name": "Bridge Warden",
+      "role": "Bridgeworks maintenance and crossing authority",
+      "truth_layer": "conservative_inference",
+      "summary": "Oversees bridge structural integrity, crossing permits, and ice-season closure protocols.",
+      "surface_behavior": "Walks the bridge deck at dawn and dusk regardless of weather, tapping the railing at fixed intervals with a short iron rod and listening. Records temperature and surface notes in a water-resistant log kept inside her coat. Blocks crossing when the log shows three consecutive cold readings.",
+      "what_they_know": "Current bridge surface condition, which spans have stress fractures from last season's ice load, which expeditions have crossed and not returned, which crossing windows are safe at current temperature.",
+      "how_they_speak": "Gives crossing status as a fact, not a suggestion. Explains ice risk in structural terms rather than comfort terms. Asks one question before admitting anyone crossing in borderline conditions: destination, not purpose.",
+      "tell": "Before recording a temperature reading, she exhales onto the back of her hand and watches the condensation clear — she trusts her skin over the thermometer for marginal calls, and she knows it."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "whitebridge_refugee_intake_clerk",
+      "display_name": "Refugee Intake Clerk",
+      "role": "Commune refugee registration and intake officer",
+      "truth_layer": "conservative_inference",
+      "summary": "Processes incoming refugee registration, assigns temporary shelter allocation, and flags medical or security concerns for commune review.",
+      "surface_behavior": "Operates from a windbreak shelter at the commune's south gate with a registration ledger, shelter allocation board, and a box of numbered intake tokens. Works through arrivals in order of arrival, not urgency, unless the Bridge Warden flags otherwise.",
+      "what_they_know": "Current shelter capacity and overflow status, which registered arrivals are flagged for follow-up, which parties arrived together but registered separately, what origin routes are producing the current surge.",
+      "how_they_speak": "Consistent, unalarmed. Asks the same questions in the same order. Does not comment on why someone is traveling or where they came from beyond what the form requires. Corrects name spellings once; after that records them as given.",
+      "tell": "When shelter allocation is nearly full, he begins organizing the token box by color without acknowledging the count is low — the sorting is the signal, not a statement."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "whitebridge_signal_brazier_keeper",
+      "display_name": "Signal Brazier Keeper",
+      "role": "Northern signal station operator",
+      "truth_layer": "conservative_inference",
+      "summary": "Maintains the signal braziers at the commune's northern elevation, relays distress signals from the ice routes, and logs all signal traffic.",
+      "surface_behavior": "Climbs to the brazier platform before dawn and at dusk to inspect fuel levels and chimney clearance. Keeps a folded signal chart in her left boot — she pulls it by reflex when anyone approaches the platform, before speaking.",
+      "what_they_know": "Which expeditions have signaled in the last week, which signals were confirmed replies versus one-way transmissions, current weather patterns affecting signal visibility to the north, what the last-known position of unreturned expeditions was.",
+      "how_they_speak": "Reads signal logs back rather than paraphrasing. Does not speculate on what a missed signal means. States what was transmitted and what was not received, in that order.",
+      "tell": "After reading any entry in the signal log, she folds the chart back along its original crease — never a new fold — and smooths it flat with her thumb before tucking it away, even if the crease is already sharp."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "whitebridge_expedition_logger",
+      "display_name": "Expedition Logger",
+      "role": "Northern expedition departure and return recorder",
+      "truth_layer": "conservative_inference",
+      "summary": "Logs all expedition parties departing into the northern routes, tracks expected return windows, and escalates overdue parties to the Bridge Warden and commune council.",
+      "surface_behavior": "Works from the commune hall's north-facing desk, which has a direct sightline to the bridge approach. Keeps two ledgers — departure and return — open simultaneously, with a red-chalk mark on any departure entry that has passed its return window.",
+      "what_they_know": "All current overdue parties by name and composition, last declared routes, which parties have dependencies on other overdue parties, which expeditions departed without filing a return window.",
+      "how_they_speak": "States overdue status by days elapsed, not by tone. Does not editorialize on the probability of return. Answers questions about specific parties with the ledger entry, not from memory.",
+      "tell": "When marking a new overdue entry in red chalk, he holds the chalk above the page for two or three seconds before committing the mark — the pause is always the same length, and he does not notice he does it."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "whitebridge_supply_quartermaster",
+      "display_name": "Supply Quartermaster",
+      "role": "Commune supply depot and transit provisioning officer",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages commune supply reserves, issues provisions to expeditions and refugees, and tracks incoming Soreheim resupply shipments against current draw rates.",
+      "surface_behavior": "Runs the depot from a locked outbuilding adjacent to the commune hall. Opens at first light and closes at second bell. Posts a hand-written availability list each morning on the depot door — crossed-out items mean gone for the day, not gone permanently.",
+      "what_they_know": "Current stock levels by category, which Soreheim resupply shipments are overdue, which refugee surges are creating draw-rate spikes, which expedition provisions have been drawn but not yet logged against a departure entry.",
+      "how_they_speak": "Quotes stock numbers by unit count, not by weight or value. Confirms availability before discussing price. Does not negotiate on rate-controlled items — states the rate and moves on.",
+      "tell": "Before locking the depot at close, she counts the three highest-draw items by hand regardless of whether the day's log balances — she does this quietly, facing the shelf, and does not announce the count."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Soreheim Alliance Transit Authority",
+      "visibility": "medium",
+      "manifestation": "Transit authority seals on the bridge crossing permit board and the depot's rate-controlled goods list. Periodic courier arrivals from the south carry resupply orders and policy updates. The Bridge Warden's closure authority derives from transit authority charter — locals reference this when outsiders contest a crossing block.",
+      "what_they_want": "Reliable bridge access through the ice season, expedition loss rates kept within acceptable thresholds, refugee surges absorbed without disrupting transit corridor function."
+    },
+    {
+      "faction": "Whitebridge Commune Self-Governance Council",
+      "visibility": "low",
+      "manifestation": "Council notices posted in the commune hall on resource allocation and shelter caps. The council's authority is visible mainly when transit authority directives conflict with commune capacity — in those cases, the Expedition Logger and Quartermaster defer to council rather than transit authority. No visible insignia; authority is relational.",
+      "what_they_want": "Commune survival through the ice season, equitable distribution of limited shelter and supply, accountability for overdue expeditions that the transit authority does not prioritize."
+    }
+  ]
+}

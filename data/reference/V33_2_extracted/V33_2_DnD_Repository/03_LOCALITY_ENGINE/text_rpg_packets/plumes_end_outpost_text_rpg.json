@@ -1,0 +1,81 @@
+{
+  "locality_id": "plumes_end_outpost",
+  "locality_name": "Plumes End Outpost",
+  "polity": "Road Wardens Order",
+  "ordinary_npc_fabric": [
+    {
+      "interface_type": "local_role",
+      "ref": "plumes_end_waystation_keeper",
+      "display_name": "Waystation Keeper",
+      "role": "Outpost waystation keeper",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages the waystation compound — tavern, common room, stable — and maintains the outpost's supply log for passing travelers.",
+      "surface_behavior": "Updates the supply availability board at the start of each half-day, not on demand. If stock changes between updates, marks it with a hand-written addendum rather than altering the board early.",
+      "what_they_know": "Current supply stock and resupply schedule, which caravans are registered to arrive or depart in the next window, what the current route condition reports show for the southern approaches, which outpost rooms are occupied and by whom.",
+      "how_they_speak": "Waystation practical: answers what's available, what it costs, what the current route situation is. Does not editorialize about travelers or caravans. Treats every party the same regardless of apparent wealth.",
+      "tell": "Marks supply addenda in a different hand than her standard board entries — a deliberate shift to a larger, slower script — so addenda are visually distinct from the scheduled update, even to herself."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "plumes_end_warden_liaison",
+      "display_name": "Road Warden Liaison",
+      "role": "Road Wardens Order outpost liaison",
+      "truth_layer": "conservative_inference",
+      "summary": "Coordinates Road Warden patrol information at the outpost; collects and posts route intelligence from arriving wardens.",
+      "surface_behavior": "Posts route intelligence immediately on receipt, before filing the report that generated it. The board is always ahead of the archive — travelers get current information as the first use of incoming data.",
+      "what_they_know": "Current route conditions on all southern approaches, which patrols are active and where they were last reported, what the celestial enforcer sighting reports contain, which caravans have Warden escort and which are traveling independently.",
+      "how_they_speak": "Route-intelligence register: states conditions in terms of what was reported and when. Does not assess whether conditions are dangerous — presents what the patrol found and lets the listener decide.",
+      "tell": "Posts route intelligence before filing the underlying report — the board update always precedes the archive entry, and he considers the sequence reversed if he finds himself archiving first."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "plumes_end_armory_clerk",
+      "display_name": "Armory Clerk",
+      "role": "Outpost armory clerk",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages outpost armory inventory; processes equipment loans and repairs for wardens and registered travelers.",
+      "surface_behavior": "Runs a full visual sweep of the armory rack before processing any loan or repair request — the state of the rack is confirmed before any transaction changes it. Logs what left and what returned with equal detail.",
+      "what_they_know": "Current armory inventory, which items are on loan and to whom, what the repair queue looks like and which items are priority, whether any items show damage patterns consistent with the reported route conditions.",
+      "how_they_speak": "Inventory-focused. Names items by their armory designation rather than common names. States condition before discussing availability.",
+      "tell": "Runs a visual sweep of the full rack before processing any request — left to right, top shelf to bottom — even if the relevant item is immediately visible."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "plumes_end_shrine_intermediary",
+      "display_name": "Shrine Intermediary",
+      "role": "Outpost shrine intermediary",
+      "truth_layer": "conservative_inference",
+      "summary": "Manages the outpost shrine; handles offerings, travel blessings, and any ritual obligations parties need to discharge before entering the southern routes.",
+      "surface_behavior": "Accepts offerings without comment on their size. Conducts travel blessings at the traveler's pace, not a standard time. Logs every offering in the shrine record — including declined offerings — without recording the reason for decline.",
+      "what_they_know": "What obligations are traditionally discharged at this shrine for southern route travel, what the current ritual calendar holds for the route season, which parties have recently taken blessings and for which routes, what the celestial enforcer reports mean in terms of ritual precaution.",
+      "how_they_speak": "Shrine register: measured, unhurried, does not raise the volume or pace for urgency. Speaks to the ritual context rather than the practical one — if a party asks about danger, frames the answer in terms of preparation, not probability.",
+      "tell": "Logs declined offerings in the same format as accepted ones — entry line, date, route — without any indication of the outcome, so the shrine record shows only that an offering interaction occurred."
+    },
+    {
+      "interface_type": "local_role",
+      "ref": "plumes_end_caravan_broker",
+      "display_name": "Caravan Broker",
+      "role": "Independent caravan broker",
+      "truth_layer": "conservative_inference",
+      "summary": "Brokers travel arrangements for parties joining or departing caravans at the outpost; independent operator, not Road Wardens authority.",
+      "surface_behavior": "Keeps a separate caravan board from the Wardens' route intelligence board — his board shows commercial arrangements, not patrol data. Updates it from his own network of contacts, not from Warden postings.",
+      "what_they_know": "Which caravans are forming or passing through, what the going rate is for passage or escort on current southern routes, which caravan operators he's brokered for before and what their reliability looks like, where the supply variance between outpost stock and caravan need creates opportunity.",
+      "how_they_speak": "Broker register: asks what the party needs before stating what he has. Presents options with costs, not recommendations. Acknowledges uncertainty about route conditions without dismissing the Warden intelligence.",
+      "tell": "Checks his caravan board before responding to any route question — even when he already knows the answer — as if the board needs to confirm what he's about to say."
+    }
+  ],
+  "street_level_faction_presence": [
+    {
+      "faction": "Road Wardens Order",
+      "visibility": "high",
+      "manifestation": "Warden livery on the liaison post and armory entrance. Route intelligence board updated continuously from incoming patrol reports. Warden authority is operational here — the outpost exists under their administration. Wardens moving through the compound are on active patrol rotation, not stationed.",
+      "what_they_want": "Accurate route condition reporting, caravan registration before southern route departure, armory accountability, celestial enforcer sighting data collected and relayed."
+    },
+    {
+      "faction": "Traveling factions (variable)",
+      "visibility": "low",
+      "manifestation": "Different faction markers appear on caravans passing through — no single faction has permanent presence. Faction representatives occasionally post notices on the caravan broker's board. The outpost is neutral ground by Warden authority — faction disputes are deferred until parties leave the compound.",
+      "what_they_want": "Safe passage, supply resupply, route intelligence, brokered arrangements. What any specific faction wants depends on who is currently present."
+    }
+  ]
+}
