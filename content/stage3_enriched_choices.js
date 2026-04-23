@@ -16,7 +16,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You slip past the drowsy clerk and find ledgers documenting systematic tax evasion by the merchant council. Names, amounts, dates—everything."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
         G.lastResult = "Guards catch you red-handed. You escape, but the archive is now under increased scrutiny. Someone knows you were there."; 
       }
@@ -48,9 +48,9 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "The accountant becomes your informant. She's tired of hiding the truth. The Church owns seventeen properties with annual income exceeding the Crown's tax revenue."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.omens++;
-        G.lastResult = "The accountant reports you to the High Priest. They know you're investigating. Religious authority issues a public denunciation of your 'heretical intrusions.'"; 
+        G.lastResult = "The accountant reports you to the High Priest. They know what you were after. Religious authority issues a public denunciation of your 'heretical intrusions.'"; 
       }
       else if(r.total >= 13) { 
         G.stageProgress[3]++; 
@@ -79,7 +79,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "Your forgery is flawless and your bearing confident. You spend hours photographing records that show how merchant families systematically laundered pirate profits through 'legitimate' trade routes."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
         G.lastResult = "The real auditor arrives early. Your forgery is detected immediately. The Council's security gives chase. You escape but your face is now known to powerful merchants."; 
       }
@@ -110,7 +110,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "The files reveal a network of corruption within the Watch itself. Officers receiving payments from crime syndicates, their careers protected by a chain of command complicit in the scheme."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=3;
         G.lastResult = "A guard catches you mid-burglary. You fight your way out, but now the Watch is actively hunting you. Every officer in the city has your description."; 
       }
@@ -134,7 +134,7 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 3,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.contacts.push('terrorizedClerk');
@@ -142,7 +142,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You discover leverage over the clerk and establish control. They show you trials sealed by judicial order—political enemies of the Council silenced, their convictions hidden from public record."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
         G.lastResult = "The clerk refuses and reports you to their superior. The courts now have your name. A warrant for 'extortion and coercion' is quietly issued."; 
       }
@@ -173,7 +173,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You access restricted documents revealing systematic suppression of scholarly work critical of the ruling families. The university itself has become a tool for controlling knowledge and truth."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.omens++;
         G.lastResult = "You're caught by the head archivist. She knows who sent you—or assumes she does. The university's scholars are now locked in dispute about who to trust."; 
       }
@@ -205,7 +205,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You excel in training, earning trust. A disillusioned officer shows you sealed operational orders: contingency plans for martial law, population control protocols, and named targets."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
         G.lastResult = "Your cover collapses during combat training when you hesitate in ways a real recruit wouldn't. You're identified as a spy and barely escape the barracks alive."; 
       }
@@ -216,7 +216,7 @@ const STAGE3_ENRICHED_CHOICES = [
       }
       else { 
         G.worldClocks.rival++; 
-        G.lastResult = "Something about you feels off to the drill instructors. You're reassigned to latrine duty and watched constantly. No access to anything useful before you're released."; 
+        G.lastResult = "Something about you reads wrong to the drill instructors. You're reassigned to latrine duty and watched constantly. No access to anything useful before you're released."; 
       }
       maybeStageAdvance();
     }
@@ -236,7 +236,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You access the sealed correspondence. The letters reveal coordination between officials on matters they publicly deny—illegal trade agreements, assassination contracts, and coordinated suppression of dissent."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=2;
         G.lastResult = "You're discovered mid-theft. The Lord Mayor's personal guard chases you through the city. You escape but your face is now known to the highest authority."; 
       }
@@ -268,7 +268,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "The assistant becomes a reliable informant. You discover manifests for shipments of weapons, alchemical substances, and prisoners—all routed through hidden channels to unknown destinations."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival+=2;
         G.lastResult = "The assistant reports your bribe attempt. Harbor security increases dramatically. Anyone attempting to access manifests is now scrutinized immediately."; 
       }
@@ -299,9 +299,9 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "Your audit reveals a complex scheme: interest rates hidden in 'administrative fees,' contracts deliberately written to trap borrowers in perpetual debt, and systematic theft of collateral."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
-        G.lastResult = "The Guild discovers your investigation and moves to suppress you legally. They're powerful and well-connected. A warrant is issued for 'fraudulent auditing and extortion.'"; 
+        G.lastResult = "The Guild discovers what you've been doing and moves to suppress you legally. They're powerful and well-connected. A warrant is issued for 'fraudulent auditing and extortion.'"; 
       }
       else if(r.total >= 11) { 
         G.stageProgress[3]++; 
@@ -330,7 +330,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You discover the pharmacy has been supplying restricted substances to specific individuals—powerful people being kept addicted and dependent on regular doses of custom preparations."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.omens++;
         G.lastResult = "A guild master arrives unexpectedly. You're caught in the pharmacy archive. They let you leave but now they know someone is watching their operation."; 
       }
@@ -362,7 +362,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "Your disguise is flawless and you blend perfectly. You overhear conversations about manipulating trade wars, blackmailing judges, and coordinating to maintain power. A sympathetic noble even shares names."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival+=2;
         G.lastResult = "Someone recognizes you or suspects your cover. Security is called. You escape but the elite are now aware someone tried to infiltrate their gathering."; 
       }
@@ -383,28 +383,28 @@ const STAGE3_ENRICHED_CHOICES = [
   // MORAL & ETHICAL DECISION POINTS (15 choices)
   // ============================================================================
   {
-    label: "An innocent person is blamed for a crime you know was committed by someone in power. You could expose the truth, but it would expose your investigation methods and burn sources.",
+    label: "An innocent person is blamed for a crime you know was committed by someone in power. You could expose the truth, but it would expose your methods and burn sources.",
     tags: ['Moral', 'Investigation', 'Consequence'],
     xpReward: 75,
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You find a way to reveal the truth that protects your sources. Anonymous evidence reaches the court. The innocent is freed, the guilty remains at large but now watching over their shoulder."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.omens+=2;
-        G.lastResult = "You expose the truth but your methods are traced. Your best informant is silenced. The innocent is freed but your investigation is now deeply compromised."; 
+        G.lastResult = "You expose the truth but your methods are traced. Your best informant is silenced. The innocent is freed but your operation is now deeply compromised."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You stay silent. The innocent is convicted. You know you could have saved them. The guilt is a weight you'll carry, but your investigation survives intact."; 
+        G.lastResult = "You stay silent. The innocent is convicted. You know you could have saved them. The guilt is a weight you'll carry, but your operation survives intact."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.lastResult = "Trying to remain neutral fails. Word of your knowledge reaches both sides. Everyone assumes you know more than you do. Pressure from all directions increases."; 
       }
       maybeStageAdvance();
@@ -424,13 +424,13 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You convince them to stay, but protect them first. You arrange genuine safety measures—relocation funds, safe houses. They become loyal because you proved you care about them."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "You push too hard. They contact the authorities instead, trying to make a deal. Your operation is exposed. You survive but half your network is compromised."; 
       }
       else if(r.total >= 11) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You let them go quietly. It hurts your investigation, but you sleep better at night. They thank you. Somewhere, a person who could have hurt innocent people won't have extra leverage."; 
+        G.lastResult = "You let them go quietly. It costs you ground, but you sleep better at night. They thank you. Somewhere, a person who could have hurt innocent people won't have extra leverage."; 
       }
       else { 
         G.worldClocks.rival++; 
@@ -441,25 +441,25 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "You discover that someone you care about is deeply involved in the corruption you're investigating. Do you turn them in, protect them, or try to turn them as an informant?",
+    label: "Someone you care about is deeply involved in the corruption. Turn them in, protect them, or try to turn them as a source.",
     tags: ['Moral', 'Investigation', 'Consequence', 'Network'],
     xpReward: 76,
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You confront them with evidence. They confess fully and agree to testify in exchange for reduced consequences. Their cooperation cracks open the case, but your relationship is forever changed."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
-        G.lastResult = "Your attempt to turn them backfires. They warn the conspiracy. Your relationship ends in betrayal and they become an enemy with intimate knowledge of your investigation."; 
+        G.lastResult = "Your attempt to turn them backfires. They warn the conspiracy. Your relationship ends in betrayal and they become an enemy with intimate knowledge of your operation."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You choose to protect them but distance yourself from the investigation temporarily. The guilt eats at you, but you buy time to decide how to proceed without compromising your relationship further."; 
+        G.lastResult = "You choose to protect them but pull back from your work temporarily. The guilt eats at you, but you buy time to decide how to proceed without compromising your relationship further."; 
       }
       else { 
         G.worldClocks.rival++; 
@@ -470,25 +470,25 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "An institution offers you a bribe to stop your investigation and falsify your findings. The amount would solve all your immediate problems. No one would ever know.",
+    label: "An institution offers you a bribe to stop your work and falsify your findings. The amount would solve all your immediate problems. No one would ever know.",
     tags: ['Moral', 'Corruption', 'Consequence'],
     xpReward: 75,
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You refuse with such conviction that they become unsettled. They offer information instead to 'make peace.' You gain intelligence without compromising yourself."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival++;
         G.lastResult = "You accept. Word spreads. Your reputation is destroyed. Worse, they pressure you to continue covering things up. You're trapped and everyone knows it."; 
       }
       else if(r.total >= 11) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You refuse but negotiate instead. They offer protection for some findings in exchange for silence on others. It's a compromise that lets the investigation continue in limited ways."; 
+        G.lastResult = "You refuse but negotiate instead. They offer protection for some findings in exchange for silence on others. It's a compromise that lets the work continue in limited ways."; 
       }
       else { 
         G.worldClocks.rival++; 
@@ -505,13 +505,13 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You contact a sympathetic authority figure and work together to prevent the attack without revealing your involvement. The threat is neutralized quietly and your investigation remains protected."; 
+        G.lastResult = "You reach a sympathetic authority figure and work together to prevent the attack without revealing your involvement. The threat is neutralized quietly and your operation remains protected."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.omens+=2;
         G.lastResult = "Whichever you choose, your involvement is discovered. Authorities suspect you're funding the radical group. The group suspects you betrayed them. Everyone wants answers."; 
       }
@@ -520,7 +520,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You manage to contact the radicals first and convince them your findings don't justify violence. They stand down. You've made a moral choice and gained an unexpected ally."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.lastResult = "Your attempt to intervene fails. The attack happens anyway. You're left haunted by what you could have prevented, and questions are asked about your role."; 
       }
       maybeStageAdvance();
@@ -534,13 +534,13 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 3,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You find a way to expose the conspiracy gradually, giving institutions time to adapt and reforming gradually. Fewer lives are lost in chaos, and change happens with less violence."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.omens+=2;
         G.lastResult = "Your attempt to manage the exposure fails spectacularly. The conspiracy is exposed in the worst possible way, causing immediate chaos and conflict."; 
       }
@@ -549,7 +549,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You choose to keep it hidden. Fewer die in the short term, but corruption continues and you bear the weight of that choice forever."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "Your indecision costs you both ways. The conspiracy is partially exposed through other channels. Chaos and instability follow, and you're blamed for it."; 
       }
@@ -564,13 +564,13 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You help them exit gracefully and anonymously before exposure. They disappear, rebuilding elsewhere. Justice is served without unnecessary cruelty."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "They discover you know and panic. They become dangerous, doing whatever it takes to protect themselves. Good people become threats."; 
       }
@@ -587,19 +587,19 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "An informant provides information obtained through torture of a victim. The information is accurate and crucial to your investigation, but using it means condoning the method.",
+    label: "An informant provides information obtained through torture of a victim. The information is accurate and crucial, but using it means condoning the method.",
     tags: ['Moral', 'Investigation', 'Consequence'],
     xpReward: 74,
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You use the information but immediately work to rescue the victim and hold the torturer accountable. The conspiracy is exposed and so is the brutality used to conceal it."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.omens++;
         G.lastResult = "You refuse to use the information. The victim is abandoned. The informant becomes hostile. Your moral stand costs you both intelligence and allies."; 
       }
@@ -608,7 +608,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You use the information but document the torture separately. Both the conspiracy and the brutality are eventually exposed. Justice is complicated but comprehensive."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.lastResult = "You're unable to decide immediately. The victim dies before you can act. The guilt haunts you and your hesitation is noted by everyone watching."; 
       }
       maybeStageAdvance();
@@ -616,58 +616,58 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "You have evidence that would solve a cold case and bring closure to a grieving family, but the evidence also implicates your investigation's main source. Revealing it exposes them.",
+    label: "You have evidence that would solve a cold case and bring closure to a grieving family, but it also implicates your main source. Revealing it exposes them.",
     tags: ['Moral', 'Exposure', 'Consequence', 'Network'],
     xpReward: 75,
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You reveal the evidence but protect your source by finding alternative explanations or creating reasonable doubt. The family gets closure and your investigation continues."; 
+        G.lastResult = "You reveal the evidence but protect your source by finding alternative explanations or creating reasonable doubt. The family gets closure and your operation continues."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
-        G.lastResult = "You expose your source trying to protect the family. The source is discovered. Your investigation is compromised and the family still doesn't get full justice."; 
+        G.lastResult = "You expose your source trying to protect the family. The source is discovered. Your operation is compromised and the family still doesn't get full justice."; 
       }
       else if(r.total >= 11) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You choose to protect your source. The family never learns the truth. You carry their disappointment, but the investigation continues."; 
+        G.lastResult = "You choose to protect your source. The family never learns the truth. You carry their disappointment, but the operation continues."; 
       }
       else { 
         G.worldClocks.rival++; 
-        G.lastResult = "Your hesitation is noticed. The family begins investigating your evasiveness. Pressure comes from multiple directions—the family, your source, and everyone else with stakes."; 
+        G.lastResult = "Your hesitation is noticed. The family begins pressing you directly. Pressure comes from multiple directions—the family, your source, and everyone else with stakes."; 
       }
       maybeStageAdvance();
     }
   },
 
   {
-    label: "Corruption you've exposed has led to punishment of low-level workers while the architects remain untouched. Your investigation is being co-opted to appear to address corruption without real change.",
+    label: "Corruption you've exposed has led to punishment of low-level workers while the architects remain untouched. Your work is being co-opted to appear to address corruption without real change.",
     tags: ['Moral', 'Exposure', 'Consequence', 'Corruption'],
     xpReward: 77,
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You publicly expose this co-option and redirect blame to the real architects. The low-level workers are freed and the investigation regains its original purpose."; 
+        G.lastResult = "You publicly expose this co-option and redirect blame to the real architects. The low-level workers are freed and the work regains its original purpose."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
         G.lastResult = "You resist too publicly. Authorities move against you, framing you for the corruption you've exposed. You're forced to flee and go underground."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You work quietly to expand the investigation to include higher targets. It takes longer but is less risky. The original suspects eventually face real consequences."; 
+        G.lastResult = "You work quietly to expand your scope to include higher targets. It takes longer but is less risky. The original suspects eventually face real consequences."; 
       }
       else { 
-        G.worldClocks.pressure++; 
-        G.lastResult = "You attempt reform but are outmaneuvered. The investigation remains limited. You're left with the bitter taste of partial justice and full complicity."; 
+        G.worldClocks.watchfulness++; 
+        G.lastResult = "You attempt reform but are outmaneuvered. Your reach remains limited. You're left with the bitter taste of partial justice and full complicity."; 
       }
       maybeStageAdvance();
     }
@@ -690,7 +690,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You convince them the loyalty test is unnecessary. You offer a sacrifice they'll accept—exposing corruption they already know about, creating the appearance of payment without betraying anyone."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "You refuse and they become hostile. They contact your other sources, warning them you're unstable. Trust throughout your network fractures."; 
       }
@@ -714,13 +714,13 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You mediate their conflict by revealing they've been given different pieces of the same puzzle. They realize you were playing them against each other strategically. Both respect the move and deepen cooperation."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "Your attempt at mediation is interpreted as manipulation. Both informants turn against you and coordinate to expose your operation."; 
       }
@@ -743,14 +743,14 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 3,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.contacts.push('formerRival');
         G.lastResult = "You accept and structure the arrangement with safeguards. They prove invaluable, using their rivalry history to access places you couldn't. The rivalry becomes strength."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
         G.lastResult = "You accept but they betray you immediately, using the agreement as cover to infiltrate and sabotage your operation from within."; 
       }
@@ -768,31 +768,31 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A powerful noble wants to join your investigation as a partner, claiming they're equally invested in exposing corruption. But their motivations seem personal, not principled.",
+    label: "A powerful noble wants to join your work as a partner, claiming they're equally invested in exposing corruption. Their motivations seem personal, not principled.",
     tags: ['Network', 'Alliance', 'Manipulation', 'Risky'],
     xpReward: 77,
     stageProgress: 3,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.contacts.push('powerfulAlly');
-        G.lastResult = "You accept and use their motivations strategically. They want to take down a rival—you want to expose corruption. You leverage their resources and power while maintaining control of the investigation's direction."; 
+        G.lastResult = "You accept and use their motivations strategically. They want to take down a rival—you want to expose corruption. You leverage their resources and power while maintaining control of your own direction."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
-        G.lastResult = "You accept but they take over the investigation, redirecting it to their personal vendetta. Your investigation is corrupted by their politics. You're forced to leave or become complicit."; 
+        G.lastResult = "You accept but they take over the work, redirecting it to their personal vendetta. Your operation is corrupted by their politics. You're forced to leave or become complicit."; 
       }
       else if(r.total >= 13) { 
         G.stageProgress[3]++; 
         G.contacts.push('cautionsNoble');
-        G.lastResult = "You accept them partially—you accept their resources but keep your investigation separate. They eventually lose interest when they realize you won't be their tool."; 
+        G.lastResult = "You accept them partially—you accept their resources but keep your work separate. They eventually lose interest when they realize you won't be their tool."; 
       }
       else { 
         G.worldClocks.rival++; 
-        G.lastResult = "You refuse. They become a competitor, starting their own investigation and interfering with yours out of spite and ambition."; 
+        G.lastResult = "You refuse. They become a competitor, starting their own pursuit and interfering with yours out of spite and ambition."; 
       }
       maybeStageAdvance();
     }
@@ -812,7 +812,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You train them carefully. They become a reliable asset and their fresh perspective helps you see patterns you'd missed. The time investment pays off dramatically."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "You recruit them but can't control their recklessness. They take an action without permission that exposes part of your operation and endangers everyone."; 
       }
@@ -823,7 +823,7 @@ const STAGE3_ENRICHED_CHOICES = [
       }
       else { 
         G.worldClocks.rival++; 
-        G.lastResult = "You refuse. They're hurt but become obsessed with proving themselves. They begin their own investigation, accidentally interfering with yours."; 
+        G.lastResult = "You refuse. They're hurt but become obsessed with proving themselves. They begin their own pursuit, accidentally interfering with yours."; 
       }
       maybeStageAdvance();
     }
@@ -844,7 +844,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You establish a robust system of street-level informants. They see movements, hear conversations, and report patterns. Your coverage increases exponentially and institutions can't hide large-scale activities."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "You try to organize them but they're too chaotic and independent. Word spreads that you're recruiting spies. Authorities crack down on street populations to limit information flow."; 
       }
@@ -862,7 +862,7 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A former employee of an institution you're investigating wants to defect fully—move away, testify publicly, do everything. But this is the highest-risk informant scenario.",
+    label: "A former employee of an institution you've been watching wants to defect fully—move away, testify publicly, do everything. But this is the highest-risk informant scenario.",
     tags: ['Network', 'Alliance', 'Risky', 'Consequence'],
     xpReward: 78,
     stageProgress: 3,
@@ -876,7 +876,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You orchestrate their defection carefully, creating false trails that make it appear they disappeared naturally. They escape cleanly and later testify under protection. The case becomes ironclad."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=2;
         G.lastResult = "The defection is detected immediately. The institution moves against both of you. The defector is captured before reaching safety. You're blamed for the disaster."; 
       }
@@ -886,7 +886,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You help them escape but they stay in contact anonymously. They're too afraid to testify publicly, but they provide ongoing intelligence from their new location."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "The defection attempt fails. They're discovered trying to contact you. The institution uses them to trace back to your operation. Both of you are compromised."; 
       }
@@ -901,15 +901,15 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 2,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You choose the connected informant but find ways to eventually involve the activist in lower-risk activities. Both are eventually working together, each providing what the other lacks."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
-        G.lastResult = "The one you reject becomes hostile. They begin their own investigation and actively interfere with yours out of spite."; 
+        G.lastResult = "The one you reject becomes hostile. They begin their own pursuit and actively interfere with yours out of spite."; 
       }
       else if(r.total >= 11) { 
         G.stageProgress[3]++; 
@@ -924,19 +924,19 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Your network reports that someone is investigating who your informants are. Your sources are being targeted. You must decide who to protect and whether to move operations entirely.",
+    label: "Your network reports that someone is hunting your informants. Sources are being targeted. You must decide who to protect and whether to move operations entirely.",
     tags: ['Network', 'Consequence', 'Risky', 'Pressure'],
     xpReward: 77,
     stageProgress: 3,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You identify the investigator and feed them false information about your network. They chase ghosts while your real operation relocates and continues. You're now hidden and they've wasted resources."; 
+        G.lastResult = "You identify who is hunting your network and feed them false information. They chase ghosts while your real operation relocates and continues. You're now hidden and they've wasted resources."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=2;
         G.lastResult = "Your attempt to protect informants fails catastrophically. Several are discovered and pressured. Your network collapses. You're forced to rebuild from scratch."; 
       }
@@ -945,7 +945,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You move operations carefully, relocating key informants to safe houses and changing communication methods. Most of your network survives but the disruption costs momentum."; 
       }
       else { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
         G.lastResult = "You can't protect everyone. Some informants are captured or exposed. Your network is damaged but not destroyed. You'll need to rebuild trust with survivors."; 
       }
@@ -966,16 +966,16 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You find a way to save them that doesn't expose your operation. You arrange their escape using non-obvious methods. Both survive and their loyalty increases immensely."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
         G.lastResult = "Your rescue attempt fails. The informant is captured and you're discovered trying to save them. Both the informant and your operation are compromised."; 
       }
       else if(r.total >= 11) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You sacrifice the informant to protect your operation. It haunts you, but the investigation continues. Other informants understand it was necessary but trust is permanently damaged."; 
+        G.lastResult = "You sacrifice the informant to protect your operation. It haunts you, but the work continues. Other informants understand it was necessary but trust is permanently damaged."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
         G.lastResult = "Your indecision costs you both. The informant is captured and begins providing information about you under duress. Your operation is partially exposed."; 
       }
@@ -984,7 +984,7 @@ const STAGE3_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two rival factions want to use your investigation for their own purposes. Both offer resources and access. Accepting either means becoming a tool for their agenda.",
+    label: "Two rival factions want to use your work for their own purposes. Both offer resources and access. Accepting either means becoming a tool for their agenda.",
     tags: ['Network', 'Alliance', 'Manipulation', 'Risky'],
     xpReward: 77,
     stageProgress: 2,
@@ -996,7 +996,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You accept resources from both while remaining independent. You tell each faction what they need to hear about helping you. Both remain convinced you're their asset while you control your own destiny."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
         G.lastResult = "Your deception is discovered. Both factions turn against you simultaneously, viewing you as a common enemy. You're caught between them."; 
       }
@@ -1016,30 +1016,30 @@ const STAGE3_ENRICHED_CHOICES = [
   // PRESSURE ESCALATION & CONSEQUENCE (10 choices)
   // ============================================================================
   {
-    label: "The conspiracy discovers you're investigating them. They don't move overtly yet, but you feel the threat. It's time to decide: go deeper before they move, or consolidate what you have.",
+    label: "The conspiracy discovers you've been watching them. They haven't moved overtly yet. Go deeper before they tighten security, or consolidate what you have.",
     tags: ['Pressure', 'Consequence', 'Risky', 'Investigation'],
     xpReward: 76,
     stageProgress: 4,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]+=2; 
         G.lastResult = "You move faster than they expect, accessing crucial information before they can tighten security. You're in and out before they know you were there. The pressure builds but you're ahead."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=2;
-        G.lastResult = "They move first. Your investigation site is attacked, your safe houses discovered. You're forced to run and consolidate from hiding. Everything is now more difficult."; 
+        G.lastResult = "They move first. Your base of operations is attacked, your safe houses discovered. You're forced to run and consolidate from hiding. Everything is now more difficult."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
         G.lastResult = "You consolidate carefully. The evidence you have is secured and distributed. When the conspiracy strikes, you've already protected what matters most."; 
       }
       else { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
-        G.lastResult = "You delay too long. They strike before you can act. You lose some evidence and some contacts. The investigation survives but is severely weakened."; 
+        G.lastResult = "You delay too long. They strike before you can act. You lose some evidence and some sources. The operation survives but is severely weakened."; 
       }
       maybeStageAdvance();
     }
@@ -1059,7 +1059,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You not only survive but capture and interrogate the assassin. They provide information about who ordered the hit, revealing connections you didn't know existed. The assassination backfires spectacularly."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=3;
         G.lastResult = "You barely escape with your life. You're injured, traumatized, and hunted. The assassination attempt becomes the least of your problems—the conspiracy is now in open conflict with you."; 
       }
@@ -1068,16 +1068,16 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You survive and escape. The assassination proves the conspiracy is desperate. You know you're close to something important, but you're also marked for death."; 
       }
       else { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival+=2;
-        G.lastResult = "You survive but witnesses are killed. The investigators will come looking for you. It becomes unclear if you're the target or a suspect in their deaths."; 
+        G.lastResult = "You survive but witnesses are killed. The Watch will come looking for you. It becomes unclear if you're the target or a suspect in their deaths."; 
       }
       maybeStageAdvance();
     }
   },
 
   {
-    label: "Your investigation has resulted in institutional crackdowns that harm innocent people. The conspiracy is successfully painting you as the destabilizer. Public opinion turns against you.",
+    label: "Your work has triggered institutional crackdowns that harm innocent people. The conspiracy is successfully painting you as the destabilizer. Public opinion turns against you.",
     tags: ['Pressure', 'Consequence', 'Exposure'],
     xpReward: 75,
     stageProgress: 3,
@@ -1086,10 +1086,10 @@ const STAGE3_ENRICHED_CHOICES = [
       const r = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You publicly explain your investigation and show evidence of the conspiracy's guilt. Public opinion swings back. The conspiracy's attempt to use innocents as shields backfires."; 
+        G.lastResult = "You publicly lay out what you've uncovered and show evidence of the conspiracy's guilt. Public opinion swings back. The conspiracy's attempt to use innocents as shields backfires."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.omens++;
         G.lastResult = "Your attempted explanation fails. Conspiracy operatives have better PR. Public sentiment hardens against you. You're now as much a threat as they are to ordinary people."; 
       }
@@ -1098,7 +1098,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You accept partial responsibility and redirect blame to the conspiracy simultaneously. It's a careful balance but you regain enough public support to continue quietly."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.lastResult = "You can't manage public opinion. Innocents suffer more crackdowns. You're left with a moral weight and reduced resources as support dries up."; 
       }
       maybeStageAdvance();
@@ -1115,19 +1115,19 @@ const STAGE3_ENRICHED_CHOICES = [
       const r = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
-        G.lastResult = "You disappear completely. False trails, hidden identity, network protection—you vanish from public view while continuing the investigation from the shadows. The bounty becomes irrelevant when they can't find you."; 
+        G.lastResult = "You disappear completely. False trails, hidden identity, network protection—you vanish from public view while continuing your work from the shadows. The bounty becomes irrelevant when they can't find you."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=3;
-        G.lastResult = "Bounty hunters track you relentlessly. You're constantly on the run. The investigation becomes secondary to survival. Multiple close calls in quick succession."; 
+        G.lastResult = "Bounty hunters track you relentlessly. You're constantly on the run. Everything else becomes secondary to survival. Multiple close calls in quick succession."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
         G.lastResult = "You survive but must change your entire operational security. Safe houses are used only once. Communication is sparse and careful. Progress slows but continues."; 
       }
       else { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
         G.lastResult = "You're injured in bounty hunter confrontations. You survive but are increasingly compromised. Every day brings new close calls."; 
       }
@@ -1142,24 +1142,24 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 4,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]+=2; 
-        G.lastResult = "You leak your evidence publicly just before they arrest you. The revelation spreads before they can suppress it. The institution's move becomes obviously political. You're arrested but the investigation is now public knowledge and unstoppable."; 
+        G.lastResult = "You leak your evidence publicly just before they arrest you. The revelation spreads before they can suppress it. The institution's move becomes obviously political. You're arrested but what you uncovered is now public knowledge and unstoppable."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=2;
-        G.lastResult = "You flee but you're tracked. You're arrested anyway, this time as a fugitive. The investigation is buried while you're detained. Everything is lost."; 
+        G.lastResult = "You flee but you're tracked. You're arrested anyway, this time as a fugitive. Your work is buried while you're detained. Everything is lost."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
         G.lastResult = "You surrender but your allies ensure the evidence is protected and released slowly over time. Your arrest becomes a catalyst for wider exposure rather than the end."; 
       }
       else { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
-        G.lastResult = "You're undecided. They arrest you during your hesitation. You're detained without formal charges, your investigation frozen."; 
+        G.lastResult = "You're undecided. They arrest you during your hesitation. You're detained without formal charges, your work frozen."; 
       }
       maybeStageAdvance();
     }
@@ -1178,7 +1178,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You turn the factions against each other, making them fight over you instead of with you. The chaos buys you breathing room. You use it to establish protection through leverage and fear."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=4; 
+        G.worldClocks.watchfulness+=4; 
         G.worldClocks.rival+=3;
         G.lastResult = "The pressure reaches a breaking point. You're cornered, nearly killed multiple times in the same day. You escape barely alive but are completely exhausted and hunted more than ever."; 
       }
@@ -1187,7 +1187,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You survive through careful movement and strategy. Each faction is kept at arm's length through different leverage. It's fragile but sustainable for now."; 
       }
       else { 
-        G.worldClocks.pressure+=3; 
+        G.worldClocks.watchfulness+=3; 
         G.worldClocks.rival+=2;
         G.lastResult = "You survive but barely. You're injured and cornered. Your only option is to find allies quickly or risk being caught between multiple forces simultaneously."; 
       }
@@ -1208,7 +1208,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You immediately reveal the frame-up with counter-evidence. You expose the conspiracy's manipulation publicly. Your allies are freed and the conspiracy's credibility is destroyed."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.omens+=2;
         G.lastResult = "You can't counter the narrative fast enough. Allies are arrested and convicted. The conspiracy successfully frames you as a manipulator who arranged everything. Your network is destroyed."; 
       }
@@ -1217,7 +1217,7 @@ const STAGE3_ENRICHED_CHOICES = [
         G.lastResult = "You expose part of the frame-up but not all. Some allies are freed, others remain in custody. The conspiracy's manipulation is partially revealed but not fully understood."; 
       }
       else { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
         G.lastResult = "You delay your response too long. Allies are locked away before you can act. You can only begin dismantling the frame-up after the damage is done."; 
       }
@@ -1232,26 +1232,27 @@ const STAGE3_ENRICHED_CHOICES = [
     stageProgress: 3,
     fn: function() {
       advanceTime(1);
-      const r = rollD20('insight', (G.skills.insight||0) + Math.floor(G.level/3));
+      const r = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if(r.isCrit) { 
         G.stageProgress[3]++; 
         G.lastResult = "You prove it was murder by the conspiracy. The evidence is clear. Your network is angry but united. Everyone sees the threat and redoubles their commitment."; 
       }
       else if(r.isFumble) { 
-        G.worldClocks.pressure+=2; 
+        G.worldClocks.watchfulness+=2; 
         G.worldClocks.rival++;
-        G.lastResult = "You can't determine what happened. Your network fractures. Some think you got the informant killed. Others think you caused it through careless investigation. The network dissolves."; 
+        G.lastResult = "You can't determine what happened. Your network fractures. Some think you got the informant killed. Others think you caused it through careless work. The network dissolves."; 
       }
       else if(r.total >= 12) { 
         G.stageProgress[3]++; 
         G.lastResult = "You determine it was likely the conspiracy but can't prove it conclusively. Your network is frightened but doesn't abandon you. Everyone becomes more careful and security-conscious."; 
       }
       else { 
-        G.worldClocks.pressure++; 
+        G.worldClocks.watchfulness++; 
         G.worldClocks.rival++;
-        G.lastResult = "The death is mysterious. You lose investigative momentum while you investigate the investigation. Several informants withdraw out of fear, reducing your capabilities significantly."; 
+        G.lastResult = "The death is mysterious. You lose momentum chasing the circumstances of it. Several informants withdraw out of fear, reducing your capabilities significantly."; 
       }
       maybeStageAdvance();
     }
   }
 ];
+window.STAGE3_ENRICHED_CHOICES = STAGE3_ENRICHED_CHOICES;
