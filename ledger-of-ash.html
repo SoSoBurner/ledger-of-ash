@@ -935,7 +935,7 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ── NARRATIVE PROSE ── */
 .narrative-text {
-  font-family: 'Crimson Pro', serif; font-size: 18px; font-weight: 300; font-style: normal; line-height: 1.85;
+  font-family: 'Crimson Pro', serif; font-size: 16.6px; font-weight: 300; font-style: normal; line-height: 1.85;
   color: var(--ink);
 }
 .narrative-text p { margin: 0 0 10px; }
@@ -981,7 +981,7 @@ input, button, select, textarea { font-family: inherit; }
   border-left: 3px solid var(--blood-bright);
   box-shadow: 0 0 8px rgba(110,16,16,0.4), inset 0 1px 0 rgba(110,16,16,.15);
 }
-.result-text { font-family: 'Crimson Pro', serif; font-size: 16px; font-weight: 300; font-style: normal; line-height: 1.85; color: var(--ink); }
+.result-text { font-family: 'Crimson Pro', serif; font-size: 14.7px; font-weight: 300; font-style: normal; line-height: 1.85; color: var(--ink); }
 .result-block .result-tag { animation: fadeUp .35s .08s ease both; }
 .result-block .result-text { animation: fadeUp .4s .18s ease both; }
 
@@ -1372,8 +1372,8 @@ input, button, select, textarea { font-family: inherit; }
 /* ═══ CHARACTER SHEET ════════════════════════════════════════════ */
 .char-sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .char-section-title { grid-column: 1/-1; font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--ember-hi); text-transform: uppercase; padding-bottom: 7px; border-bottom: 1px solid var(--border-warm); margin-top: 8px; }
-.char-stat-row { display: flex; justify-content: space-between; font-size: 13.2px; margin-bottom: 5px; }
-.char-stat-key { color: var(--ink-faint); font-family: var(--font-display); font-size: 11px; }
+.char-stat-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13.2px; margin-bottom: 5px; }
+.char-stat-key { color: var(--ink-faint); font-family: var(--font-display); font-size: 11px; flex-shrink: 0; }
 .char-stat-val { color: var(--ink); font-family: var(--font-display); font-weight: 600; }
 .char-skill-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
 .char-skill-name { color: var(--ink-dim); font-size: 12.1px; font-family: var(--font-display); letter-spacing: .5px; }
@@ -3365,7 +3365,7 @@ const GROUP_BACKSTORIES = {
   },
   stealth: {
     hook: 'Every city runs two economies. You work in the one that doesn\'t appear in ledgers.',
-    body: 'You operate in the gap between what is official and what is actual. Maybe that gap was always professional — courier networks, factor intermediaries, information brokers. Maybe it was survival. Either way, you understand that the material plane runs on two economies: the one recorded in ledgers, and the one that makes the ledger-keeping possible.',
+    body: 'You operate in the gap between what is sanctioned and what is actual. Maybe that gap was always professional — courier networks, factor intermediaries, information brokers. Maybe it was survival. Either way, you understand that the material plane runs on two economies: the one recorded in ledgers, and the one that makes the ledger-keeping possible.',
     tension: 'This will take you into supply chains and institutional records. You are the right instrument for this problem. Whether that is comfortable or not is beside the point.'
   },
   support: {
@@ -5132,10 +5132,10 @@ const C = {
       ]
     },
     failure:{
-      text:'The checkpoint clerk is new and unenthused. She checks your papers with the careful attention of someone recently warned against informal contact. You get nothing useful except confirmation that something official has changed — she is too careful to be operating normally.',
+      text:'The checkpoint clerk is new and unenthused. She checks your papers with the careful attention of someone recently warned against informal contact. You get nothing useful except confirmation that the protocol has shifted — she is too careful to be operating normally.',
       xp:0, effects:[{type:'journal',msg:'Roadwardens front gate: new clerk, overcautious. Recent protocol change confirmed.'}],
       next:[
-        {text:'Find a Roadwarden off-duty. Official channels are closed.', skill:'stealth', tag:'risky', align:'lawful', cid:'find_roadwarden'},
+        {text:'Find a Roadwarden off-duty. The front gate is not the way in.', skill:'stealth', tag:'risky', align:'lawful', cid:'find_roadwarden'},
         {text:'The overcautious clerk is working from a recent directive. Try to find it.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
         {text:'Abandon this line. The market has less surveillance.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'}
       ]
@@ -5288,7 +5288,7 @@ const C = {
       ]
     },
     failure:{
-      text:'You follow the tracks for two hours before they disperse in a rocky streambed. Whatever moved through here knew how to lose a follower. You return to the road empty-handed but certain that something organized happened here.',
+      text:'You follow the tracks for two hours before they disperse in a rocky streambed. The terrain is worse than it looked — loose shale, one hard fall, a crossing that takes too long and costs you more than time. Whatever moved through here knew how to lose a follower. You return to the road cut and empty-handed, certain that something organized happened here.',
       xp:0, effects:[{type:'damage',n:3},{type:'tick',n:2},{type:'journal',msg:'Lost the tracks in the streambed. Organized evasion, not random.'}],
       next:[
         {text:'Return to the depot. Look again with fresh context.', skill:'lore', tag:'safe', align:'neutral', cid:'document_depot'},
@@ -5588,7 +5588,7 @@ const C = {
       ]
     },
     failure:{
-      text:'You fall asleep. When you wake it is Dawnrise, something bit you through your coat, and the tracks are gone.',
+      text:'You fall asleep against a root sometime before Nightwatch. When you wake it is Dawnrise — your coat sleeve is torn and something has opened the skin of your forearm, deep enough to need attention. The tracks are gone. Whatever you were waiting for passed while you slept.',
       xp:0, effects:[{type:'damage',n:5},{type:'tick',n:4},{type:'journal',msg:'Fell asleep on wilderness watch. Woke at Dawnrise, tracks gone.'}],
       next:[
         {text:'Back to Shelkopolis immediately.', skill:'survival', tag:'safe', align:'lawful', cid:'report_findings'},
@@ -7559,6 +7559,127 @@ const C = {
         {text:"Find who knew to clear it — the warning came from somewhere.", skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'}
       ]
     }
+  },
+
+  corridor_warden_papers:{
+    success:{text:'The warden runs her finger to the end of the list, nods, and lifts the barrier arm. She writes a single character in the field ledger -- not a name, something coded. The barrier drops behind you before you are twenty meters on.',xp:4,effects:[{type:'journal',msg:'Roadwarden transit checkpoint cleared. Warden maintained a coded field log.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She holds you at the post for twenty minutes, writing in a field book with the methodical patience of someone specifically instructed to be slow. You clear the checkpoint with your documentation annotated and your time shortened.',xp:0,effects:[{type:'tick',n:1}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_warden_probe:{
+    success:{text:'She was checking a restricted transit list. Your name is not on it, but three are. She does not share the names. She shares the number, and the fact that all three originated from the same departure point two days ago.',xp:6,effects:[{type:'journal',msg:'Roadwarden restricted transit list: three flagged names, same departure point, two days ago.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She closes the ledger, straightens the barrier arm, and becomes formally polite. The conversation is over. You have learned that a restricted list exists and that asking about it is noted.',xp:2,effects:[{type:'journal',msg:'Roadwarden checkpoint: restricted transit list confirmed. Query noted in field log.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_warden_evade:{
+    success:{text:'You rejoin the road a quarter-mile on, uphill from the post. A second glance back shows the barrier still raised -- she is working through the cart behind you.',xp:4,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She calls after you. Not loudly, but clearly, and her hand moves to the dispatch box on the post. You stop and return. The next fifteen minutes are a formal transit query with your destination recorded.',xp:0,effects:[{type:'tick',n:1},{type:'journal',msg:'Roadwarden checkpoint: destination recorded after attempted bypass.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_traveler_ignore:{
+    success:{text:'He peels off at the next junction without looking back. A Guild courier route -- the satchel stamped with a Fairhaven transfer number. He was running parallel to avoid the checkpoint queue.',xp:3,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'He stays through two junctions and into the next settlement. You are not certain what he noted. His Guild satchel does not answer the question.',xp:0,effects:[{type:'journal',msg:'Unidentified Guild courier tracked your route through two junctions.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_traveler_confront:{
+    success:{text:'He passes with a nod and a Guild acknowledgment. Lost consignment on the east route -- he was matching pace with anyone moving the same direction to ask. He has already found his answer elsewhere.',xp:3,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'He shrugs and falls back but does not explain himself. He remains visible on the road until the first bend. He does not catch up again.',xp:0,effects:[{type:'journal',msg:'Unidentified traveler shadowed route, declined explanation when confronted.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_cart_inspect:{
+    success:{text:'The manifest tag shows a Shelkopolis origin, a Fairhaven destination, and a departure date that does not match the Roadwarden seal by four days. That gap represents transit time for something that should not have needed it.',xp:6,effects:[{type:'journal',msg:'Roadside cart: manifest-to-seal date discrepancy of four days. Intermediate stop not declared.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The carter stands and positions himself between you and the crates before you reach them. He has nothing to say but his posture does. The crates carry a Roadwarden inspection seal that cannot be broken without a warden present.',xp:0,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_cart_help:{
+    success:{text:'The wheel seats on the first attempt. The carter, grateful, passes along a route advisory: a checkpoint two miles ahead has been running slow since a manifest dispute three days ago. The eastern verge at the ridge post is the way around.',xp:4,effects:[{type:'journal',msg:'Road advisory: slow checkpoint ahead. Bypass via eastern verge at ridge post.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The wheel requires three attempts and a borrowed linchpin from your pack. You leave an hour behind schedule with your kit one fastener short.',xp:0,effects:[{type:'tick',n:1}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_milestone_copy:{
+    success:{text:'It is a relay marker -- a private message system using public road infrastructure. The vertical-bisect code is a timing mark. Someone is tracking movement on this route and leaving confirmation signals for a reader who knows what they mean.',xp:6,effects:[{type:'journal',msg:'Milestone relay markers: private timing code on public road posts. Active tracking on this route.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'You copy the mark and take two steps before noticing a third, lower, scratched into the hedge post facing away from the road. The relay is two-way. Someone has been answering.',xp:3,effects:[{type:'journal',msg:'Milestone marks: two-way relay system confirmed. Responses on same posts.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_milestone_pass:{
+    success:{text:'The marks stay behind you as the road bends. The next league post shows nothing but the standard Roadwarden seal.',xp:2,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The same mark appears twice more before the next league post, each one freshly scratched. Someone is tracking this road in real time and the marks are ahead of your pace.',xp:0,effects:[{type:'journal',msg:'Milestone relay marks reappear ahead of current position. Real-time tracking on this route.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_quota_declare:{
+    success:{text:'The ledger-keeper notes personal goods and writes a reference number. She stamps your transit paper with a pale yellow mark -- low-value personal effects, no levy applicable. The stamp is a record more than a clearance.',xp:4,effects:[{type:'journal',msg:'Quota Authority check: personal goods declared, reference number issued, transit paper stamped.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She asks you to open your pack and count items aloud. She writes down quantities with the deliberate care of someone building a secondary manifest. The reference number she assigns is flagged in a second column.',xp:0,effects:[{type:'tick',n:1},{type:'journal',msg:'Quota Authority check: pack inventoried and logged. Flagged secondary reference assigned.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_quota_avoid:{
+    success:{text:'You rejoin the road two hundred meters beyond the patrol working range, behind a stand of roadside timber. The patrol does not extend to this point.',xp:4,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'One of the three has looped wide. He is standing at the road edge when you step back onto it, ledger open, stylus ready. You go through the declaration process in the field rather than at the post.',xp:0,effects:[{type:'tick',n:1},{type:'journal',msg:'Quota Authority: bypass attempt noted. Declaration completed in field, name logged.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_quota_through:{
+    success:{text:'The ledger-keeper glances at you, finds you uninteresting, and waves you past without writing anything. You are either convincingly unremarkable or she is behind on her quota count and cutting process time.',xp:3,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She stops you anyway. Personal goods -- what kind, where from, where to. She writes it down with the efficiency of someone who has done this nine hundred times. Your name and direction are in her ledger.',xp:0,effects:[{type:'journal',msg:'Quota Authority check: name and direction logged despite personal goods declaration.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_incident_bypass:{
+    success:{text:'You clear the scene without drawing attention, keeping to the outer verge. The wardens do not look up. Whatever is happening on the road surface is contained to it.',xp:2,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The warden with the field ledger tracks your direction as you pass. Not your name -- you are too far for that -- but your direction. He adds a note below the current entry and watches until the road bends.',xp:0,effects:[{type:'journal',msg:'Roadwarden incident scene: direction noted in field ledger.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_incident_read:{
+    success:{text:'The lining was cut looking for something flat and rectangular -- document-case sized. The cut is clean. Someone knew exactly what they were looking for and where a person carries it. This was not opportunistic work.',xp:6,effects:[{type:'journal',msg:'Road incident: lining cut targeting document-case sized object. Targeted, not opportunistic.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The watching warden steps toward you before you finish the thought. She is polite and specific: are you associated with this transit? Do you know this individual? She wants your name and destination before she allows you to continue.',xp:0,effects:[{type:'tick',n:1},{type:'journal',msg:'Roadwarden incident query: name and destination taken.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_camp_approach:{
+    success:{text:'The standing watcher steps aside. The camp is a road traders waystation -- a private levy arrangement for regular freight runners. The fire-keepers know this stretch well. One of them names three checkpoints ahead and their current state.',xp:6,effects:[{type:'journal',msg:'Off-road waystation: private freight camp. Three checkpoints ahead identified with current dispositions.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The watcher blocks the path before you are close. The two at the fire do not look up. Whatever the camp is for, you are not welcome in it, and pressing the question would make the situation worse.',xp:0,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_camp_evade:{
+    success:{text:'You pass without pausing, your pace consistent and your line on the far side of the road. The watcher tracks you with his eyes but does not move from his position.',xp:3,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'He falls into step on the road shoulder behind you for a hundred meters -- not threatening, noting. He turns back when the camp is out of sight. Your direction is in his accounting.',xp:0,effects:[{type:'journal',msg:'Road camp watcher: followed for 100m, direction noted.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_camp_ignore:{
+    success:{text:'Your pace carries you past the camp sight line before the watcher finishes his read of you.',xp:2,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'He follows the road behind you for a short distance at a walk, then stops. Not a pursuit -- a count. He is noting how many passed this point and in which direction.',xp:0,effects:[{type:'journal',msg:'Road camp watcher: road-count conducted, direction logged.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_seal_examine:{
+    success:{text:'The object removed was document-case sized. The manifest tag shows a routing code that does not connect the two cities printed on it -- there is an intermediate stop not declared on the outer label.',xp:6,effects:[{type:'journal',msg:'Abandoned sealed crate: document-case object removed. Manifest shows undeclared intermediate stop.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'A Roadwarden post is visible at the next bend. You are standing over abandoned sealed cargo on an open road and the post warden has just stepped outside.',xp:0,effects:[{type:'tick',n:1}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_seal_leave:{
+    success:{text:'You clear the area before anyone comes to examine the crate.',xp:2,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'Fifty meters on, a Roadwarden on horseback passes you heading back toward the crate at a deliberate pace. She has seen you near it. She continues past without stopping but does not accelerate.',xp:0,effects:[{type:'journal',msg:'Roadwarden observed proximity to abandoned sealed cargo.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_ambush_fight:{
+    success:{text:'They break at the first exchange. They were counting on compliance -- the positioning was for intimidation, not extended engagement. One bruise, a torn coat sleeve, and an open road. Their retreat is organized enough to confirm this was not their first attempt.',xp:8,effects:[{type:'damage',n:1},{type:'journal',msg:'Road ambush: four individuals, broke at first resistance. Organized operation confirmed.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'They know the ground better than the approach suggested. You take a strike getting through -- coat torn, pack strap cut. They take worse, but they were ready for resistance.',xp:3,effects:[{type:'damage',n:3},{type:'journal',msg:'Road ambush: forced through with injury. Attackers knew the ground.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_ambush_talk:{
+    success:{text:'They want the cargo manifest from a sealed case. They believe you are carrying one. You are not. The man with the knife accepts this after a long pause -- his hand stays on the handle but he does not draw. They move to the verge. You continue.',xp:6,effects:[{type:'journal',msg:'Road ambush: attackers seeking sealed cargo manifest. Talked through without incident.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'They are not convinced. The standoff holds for twenty minutes until another traveler comes down the road and they melt into the hedgerow. You are through, but your description is in their accounting.',xp:2,effects:[{type:'tick',n:1},{type:'journal',msg:'Road ambush standoff: broke on third-party arrival. Description noted by attackers.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_ambush_break:{
+    success:{text:'The gap opens onto a parallel cart track. You rejoin the main road a half-mile on with no pursuit visible behind you.',xp:5,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The hedgerow is thicker than the angle suggested. You force through but they hear it. One of them tracks the hedge line. You are through and moving, but the exit was not clean.',xp:2,effects:[{type:'damage',n:1}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_courier_bag:{
+    success:{text:'She relaxes when she understands you are reading the situation rather than the bag. The bag is empty -- she transferred the contents at the waystation twelve kilometers back because she had already been followed once. The dispatch is safe. She was the decoy.',xp:7,effects:[{type:'journal',msg:'Road courier running decoy: dispatch transferred to safety. Active surveillance on this route confirmed.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She will not discuss the bag, the horse, or where she came from. She thanks you for stopping and returns her attention to the ankle wrap. The conversation is finished.',xp:0,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_courier_help:{
+    success:{text:'The wrapping holds on the first pass. She gives you a waystation code word for the next overnight post -- the kind that gets you a private room and a locked door without a name in the register.',xp:5,effects:[{type:'journal',msg:'Road courier aided: waystation code word received for private overnight post access.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The cord slips twice before it holds. She is patient but the ankle needs proper immobilization, not field wrapping. She will not make the next post today and she knows it.',xp:2,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_courier_ask:{
+    success:{text:'She was stopped once, at what she describes as a false checkpoint two miles back -- barrier and tabards correct, but the seal on the post was wrong. She memorized the difference. She can describe the deviation in three specific details.',xp:7,effects:[{type:'journal',msg:'Road courier: false checkpoint confirmed two miles back. Fake seal details -- three specific deviations from standard.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She answers in clipped sentences -- not refusing, still processing. The stop was recent and she is still deciding what it means. She offers the fact of the interception and nothing further.',xp:3,effects:[{type:'journal',msg:'Road courier: confirmed single interception on route. No further details given.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_crossroads_read:{
+    success:{text:'The commander list is a cargo cross-check -- verifying consignments against a Shelkopolis origin manifest. The secondary structure beside the post was not there last month. Someone authorized a permanent checkpoint presence at this junction within the last thirty days.',xp:7,effects:[{type:'journal',msg:'Crossroads post: new permanent checkpoint, authorized within 30 days. Cargo cross-checked against Shelkopolis manifest.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'Your pause was long enough. She adds you to the secondary log -- not the manifest check, the persons-of-interest notation. It is a different column in her book, and she dates it as she writes.',xp:0,effects:[{type:'journal',msg:'Crossroads commander: added to persons-of-interest secondary log.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_crossroads_through:{
+    success:{text:'You cross without registering in any of the three visible ledgers. The commander watches you pass with the particular attention of someone who has learned to identify people trying not to be identified -- and has found you uninteresting.',xp:4,effects:[],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'She stops you anyway. Routine check, she says, but the questions are specific to this road and this week. Your name and departure point go into the manifest column.',xp:0,effects:[{type:'journal',msg:'Crossroads commander: name and departure point logged in manifest column.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_crossroads_detour:{
+    success:{text:'The secondary road is passable and rejoins the main route a clean half-day beyond the post. The extra time is real but the crossing is unrecorded.',xp:4,effects:[{type:'tick',n:1}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The secondary road rejoins the main route directly in front of the post. The cutoff was rerouted at some point and the old markers were not updated. You walk back into the commander sight line from an unexpected direction, which reads worse than arriving normally.',xp:0,effects:[{type:'tick',n:1},{type:'journal',msg:'Crossroads detour failed: re-entered commander sight line from secondary road.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_find_take:{
+    success:{text:'The legible name is a Roadwardens route manager -- three postings above front-gate clerk level. The struck-through text is a transit authorization for the eastern supply depot, dated six days ago. The authorization was revoked and then placed here deliberately for someone to find.',xp:8,effects:[{type:'journal',msg:'Road document case: eastern depot transit authorization, revoked six days ago, placed deliberately. Route manager name confirmed.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'The name is legible but the struck-through text has been redacted a second time with the same red ink. Someone came back. What remains is a name, a revocation, and no readable reason for either.',xp:4,effects:[{type:'journal',msg:'Road document case: route manager name recovered, authorization text double-redacted.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
+  },
+  corridor_find_read_only:{
+    success:{text:'You memorize the route manager name, the depot stamp, the shape of the revocation mark. You leave the case as you found it and clear the spot before anyone arrives. The information is yours without a trail.',xp:6,effects:[{type:'journal',msg:'Road document case: route manager name, depot stamp, and revocation mark memorized. Case left in place.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]},
+    failure:{text:'A horseman passes at a canter before you are clear. He does not stop, but his line takes him within three meters of the case and his head turns as he passes. He saw you crouching there.',xp:2,effects:[{type:'journal',msg:'Road document case: observed by horseman while reading.'}],next:[{text:'The road continues.',skill:'survival',tag:'safe',align:'neutral',cid:'__arrive__'}]}
   }
 
 };</script>
@@ -8691,8 +8812,8 @@ function renderChoices(choices) {
   }
   html += '</div>';
 
-  // Trait use button
-  if (G.archetype && G.traits && G.traits[0] && !G.traits[0].used) {
+  // Trait use button — combat only
+  if (CS && G.archetype && G.traits && G.traits[0] && !G.traits[0].used) {
     html += '<div class="trait-use-area"><button class="trait-use-btn" id="btn-use-trait">&#x2736; Use Trait: ' + G.archetype.trait + '</button></div>';
   }
 
@@ -8886,6 +9007,38 @@ function handleChoice(choice) {
   if (choice.cid === '__camp_talk__') {
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
     if (typeof showCampTalk === 'function') showCampTalk();
+    return;
+  }
+  // Journey: pack choice -> encounter
+  if (choice.cid && choice.cid.startsWith('__journey__')) {
+    const raw = choice.cid.slice(11);
+    const sep = raw.indexOf('__');
+    const loadout = sep > -1 ? raw.slice(0, sep) : 'standard';
+    const destId = sep > -1 ? raw.slice(sep + 2) : raw;
+    G._journeyDest = destId;
+    G._journeyLoadout = loadout;
+    document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
+    const lmr = window.LOCALITY_MACROREGION || {};
+    const fromMacro = lmr[G.location], toMacro = lmr[destId];
+    const curPol = WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].polity;
+    const toPol = WORLD_LOCATIONS[destId] && WORLD_LOCATIONS[destId].polity;
+    const tier = (fromMacro && toMacro && fromMacro !== toMacro) ? 'long' :
+                 (curPol && toPol && curPol !== toPol) ? 'medium' : 'short';
+    const encList = (window.CORRIDOR_ENCOUNTERS || {})[tier] || [];
+    if (!encList.length) { resolveArrival(destId); return; }
+    const enc = encList[Math.floor(Math.random() * encList.length)];
+    advanceRivals();
+    advanceMaren();
+    if (typeof advanceFactionClocks === 'function') advanceFactionClocks(1);
+    addNarration(enc.title, enc.text);
+    setTimeout(() => renderChoices(enc.choices), 300);
+    return;
+  }
+  // Journey: arrive at destination
+  if (choice.cid === '__arrive__') {
+    document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+    resolveArrival(G._journeyDest || G.location);
     return;
   }
   // Check for shop trigger
@@ -9778,23 +9931,65 @@ function travelTo(locId) {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
   const cur = WORLD_LOCATIONS[G.location];
-  if ((G.stage === 'Stage I') && cur && loc.region !== cur.region) {
-    addNarration('', '<em style="color:var(--gold-dim)">Stage I confines you to ' + cur.region + '. Reach Level 6 to journey beyond.</em>');
-    return;
+  if (G.stage === 'Stage I' && cur) {
+    const lmr = window.LOCALITY_MACROREGION || {};
+    const samePolitya = loc.polity === cur.polity;
+    const sameMacro = lmr[locId] && lmr[G.location] && lmr[locId] === lmr[G.location];
+    const plotUnlock = G.flags && G.flags['travel_unlock_' + locId];
+    if (!samePolitya && !sameMacro && !plotUnlock) {
+      addNarration('', '<em style="color:var(--gold-dim)">The road to ' + loc.name + ' lies beyond your current range. Advance to Stage II to journey further.</em>');
+      return;
+    }
   }
+  G._journeyDest = locId;
+  beginJourney(G.location, locId);
+}
+
+function beginJourney(fromId, toId) {
+  const from = WORLD_LOCATIONS[fromId];
+  const to = WORLD_LOCATIONS[toId];
+  if (!from || !to) return;
+  const lmr = window.LOCALITY_MACROREGION || {};
+  const macro = lmr[fromId] || 'principalities';
+  const narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];
+  const ambient = narrs[Math.floor(Math.random() * narrs.length)] || 'The road opens ahead.';
+  document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+  addNarration('Road to ' + to.name, ambient);
+  setTimeout(() => renderChoices([
+    { text: 'Travel light -- speed over supply.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__journey__light__' + toId },
+    { text: 'Standard kit. Everything I need, nothing extra.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__journey__standard__' + toId },
+    { text: 'Full pack. The weight is a problem I can manage.', skill: 'craft', tag: 'risky', align: 'neutral', cid: '__journey__heavy__' + toId }
+  ]), 300);
+}
+
+function resolveArrival(locId) {
+  const loc = WORLD_LOCATIONS[locId];
+  if (!loc) return;
+  const fromId = G.location;
+  const lmr = window.LOCALITY_MACROREGION || {};
+  const crossMacro = lmr[fromId] && lmr[locId] && lmr[fromId] !== lmr[locId];
+  const ticks = crossMacro ? 3 : 2;
   G.location = locId;
   G.currentLocality = locId;
-  tickAxis(Math.floor(Math.random() * 3) + 1);
-  advanceTime(2);
-  addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+  tickAxis(1);
+  advanceTime(ticks);
+  advanceRivals();
+  advanceMaren();
   G.history.push('Traveled to ' + loc.name + '.');
   if (typeof _checkSideplots === 'function') _checkSideplots();
   updateHUD(); updateEnvironmentPanel(); saveGame();
-  setTimeout(() => renderChoices([
-    { text:'Find the local inn and ask what people know.', skill:'charm', tag:'safe', align:'neutral', cid:'inn_arrival' },
-    { text:'Walk the settlement and read it.', skill:'wits', tag:'safe', align:'neutral', cid:'market_intel' },
-    { text:'Seek the local authority.', skill:'charm', tag:'bold', align:'lawful', cid:'garrison_contact' }
-  ]), 300);
+  addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+  setTimeout(() => {
+    if (typeof loadStageChoices === 'function') {
+      loadStageChoices(locId, G.stage);
+    } else {
+      renderChoices([
+        { text: 'The inn is where arrivals talk. Start there.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
+        { text: 'Walk the settlement before making contact.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' },
+        { text: 'The local authority will know what has changed here.', skill: 'persuasion', tag: 'bold', align: 'lawful', cid: 'garrison_contact' }
+      ]);
+    }
+  }, 400);
 }
 
 
@@ -9850,18 +10045,25 @@ function enterNomdara() {
 }
 
 // ── RECOVERY SERVICES ─────────────────────────────────────
+const HEALER_UNAVAILABLE = new Set(['wilderness','eastern_road','waypoint','outpost','ruins','the_frontier']);
+
 function seekProfessionalCare() {
   const loc = WORLD_LOCATIONS[G.location];
-  const healerNPC = loc && loc.npcData ? loc.npcData.find(n => /physician|healer|medic/i.test(n.role)) : null;
+  const healerNPC = (loc && loc.npcData)
+    ? loc.npcData.find(n => /physician|healer|medic/i.test(n.role))
+    : null;
   const cost = Math.max(5, (G.wounds||[]).filter(w=>!w.healed).length * 8);
 
-  if (!healerNPC) {
-    addNarration('Recovery', 'No professional healer found in this settlement. Try a larger settlement or make camp.');
+  const locId = (G.location||'').toLowerCase().replace(/-/g,'_');
+  if (!healerNPC && HEALER_UNAVAILABLE.has(locId)) {
+    addNarration('Recovery', 'No healer here. Reach a settlement before seeking care.');
     renderChoices([{text:'Make camp and rest.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'}]);
     return;
   }
 
-  addNarration('Recovery — ' + healerNPC.name, healerNPC.name + ' (' + healerNPC.role + ') examines your condition. Professional care will cost ' + cost + ' gold.');
+  const healer = healerNPC || { name: 'Local Healer', role: 'healer' };
+
+  addNarration('Recovery — ' + healer.name, healer.name + ' (' + healer.role + ') examines your condition. Professional care will cost ' + cost + ' gold.');
 
   const choices = [];
   if (G.gold >= cost) {
@@ -10163,7 +10365,6 @@ function showMap() {
 
 // ── LOCAL NPC MENU ────────────────────────────────────────
 function showNPCMenu() {
-  var G = window.G;
   if (!G || !G.location) {
     if (typeof showToast === 'function') showToast('Travel to a settlement to find contacts.');
     return;
@@ -11033,14 +11234,11 @@ function setText(id,val) { const el=document.getElementById(id); if(el) el.inner
 function showOverlay(id) { document.getElementById(id)?.classList.add('active'); }
 function closeOverlay(id) { document.getElementById(id)?.classList.remove('active'); }
 function showCamp() {
-  if ((G.timeIndex || 0) < 2) {
-    const timeName = ['Dawnrise','Midlight','Duskcall','Nightwatch'][G.timeIndex||0];
-    addNarration('Camp', 'It is still ' + timeName + '. Make camp after Duskcall.', 'failure');
-    return;
-  }
   const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
   const pw = document.getElementById('btn-post-watches');
   if (pw) pw.style.display = (INN_NAMES && INN_NAMES[loc]) ? 'none' : '';
+  const sleepBtn = document.querySelector('[data-camp="sleep"]');
+  if (sleepBtn) sleepBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
   showOverlay('overlay-camp');
 }
 
