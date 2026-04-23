@@ -48,7 +48,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         if (result.total >= 12) {
           G.lastResult = `Jorin's analysis sheets go back six months, each batch logged by delivery date, declared concentration, and measured concentration. The gap is always 30-40%, always in the same compound class, always precise to within two percentage points. "Degradation is irregular," Jorin says. "This is consistent. The precision tells you it's controlled." He taps the most recent entry. The extracted fraction, accumulated over six months, isn't incidental material loss. Someone is running a separate extraction operation through Craftspire's supply chain and the supply chain is the mechanism.`;
           G.flags.found_chemical_discrepancy = true;
-          addJournal('investigation', 'Chemical inputs: deliberate 30-40% extraction from specific compound class — supply chain used as material extraction mechanism', `craftspire-chemical-${G.dayCount}`);
+          addJournal('Chemical inputs: deliberate 30-40% extraction from specific compound class — supply chain used as material extraction mechanism', 'evidence', `craftspire-chemical-${G.dayCount}`);
         } else {
           G.lastResult = `The incoming analysis sheets are readable — columns of numbers, compound codes, concentration readings — but interpreting whether the gap between declared and measured concentration is significant, deliberate, or within acceptable variance requires Jorin's expertise. You can see the numbers. You can't yet say what they mean without him.`;
         }
@@ -76,7 +76,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       if (G.flags.met_jorin) {
         G.lastResult = `Jorin takes his reference texts down from the shelf — three volumes, the kind that live on a work bench rather than a display shelf — and goes through them methodically. Twenty minutes of quiet. The forge outside runs steady. Finally he closes the last volume and puts his hands flat on the table. "Two categories. Atmospheric dome filtration at industrial scale, or precursor synthesis for reactive compounds." He marks the volume page. "If it's filtration, whoever has this needs access to dome infrastructure I've never seen outside a major city. If it's synthesis —" He stops. He marks the page anyway. His handwriting is very precise.`;
         G.flags.identified_compound_purpose = true;
-        addJournal('investigation', 'Extracted compound: accumulation volume consistent with dome filtration use OR reactive compound synthesis — industrial-scale implication', `craftspire-compound-purpose-${G.dayCount}`);
+        addJournal('Extracted compound: accumulation volume consistent with dome filtration use OR reactive compound synthesis — industrial-scale implication', 'evidence', `craftspire-compound-purpose-${G.dayCount}`);
       } else {
         G.lastResult = `The compound code from Jorin's analysis sheets is a technical reference — meaningful to a trained fabrication chemist, opaque without that training. You can read the code. You can't interpret whether its extracted volume implies atmospheric processing, reactive synthesis, or something else. Jorin has that expertise. He doesn't have a reason to share it with you yet.`;
       }
@@ -102,7 +102,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The supply chain runs in three stages: production, waystation, delivery. You get sample analysis from each stage — production facility output is full concentration, waystation intake is full concentration. Waystation output is 60-70%. The gap appears between waystation intake and output. Whatever processing happens in that building is removing material and passing the remainder forward as if nothing changed. The waystation is the extraction point. The operation is running inside a legitimate transit facility.`;
         if (!G.flags) G.flags = {};
         G.flags.found_modification_point = true;
-        addJournal('investigation', 'Supply chain: modification happens at transit waystation between intake and output — extraction infrastructure in place there', `craftspire-supply-chain-${G.dayCount}`);
+        addJournal('Supply chain: modification happens at transit waystation between intake and output — extraction infrastructure in place there', 'evidence', `craftspire-supply-chain-${G.dayCount}`);
       } else {
         G.lastResult = `The production facility's output records are accessible. The final delivery analysis is in Jorin's logs. The middle stage — waystation intake versus output — requires the waystation's own processing records, which are under the supply contractor's internal administration and not available to guild parties. You can identify that the modification happens in transit. Pinpointing the waystation as the specific extraction point requires access you don't have yet.`;
       }
@@ -129,7 +129,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `The guild common area at the midday break: two workshop masters who run adjacent workshops haven't spoken to each other in three weeks. Their assistants move between shops freely, borrow tools, share the water basin. The masters eat at opposite ends of the table. Whatever separated them happened recently and specifically — it's not a long-standing disagreement. One of them learned something about the other's work and decided not to report it and is now carrying that decision with visible difficulty.`;
       }
-      addJournal('investigation', 'Guild district: military-tolerance products, ventilation modifications, uninspected exit route, masters in conflict', `craftspire-district-read-${G.dayCount}`);
+      addJournal('Guild district: military-tolerance products, ventilation modifications, uninspected exit route, masters in conflict', 'evidence', `craftspire-district-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -218,7 +218,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The transit variance category was added to the waystation log format seven months ago — one month before the first chemical input discrepancy appeared in Jorin's records. The category addition was authorized by a supply chain standards update issued by a "regional materials coordination body" that has no public registration in guild records. The documentation system was prepared to receive the extraction evidence before the extraction began.`;
         if (!G.flags) G.flags = {};
         G.flags.traced_variance_log_origin = true;
-        addJournal('investigation', 'Transit variance log: created one month before extraction began, authorized by unregistered "regional materials coordination body"', `craftspire-variance-origin-${G.dayCount}`);
+        addJournal('Transit variance log: created one month before extraction began, authorized by unregistered "regional materials coordination body"', 'evidence', `craftspire-variance-origin-${G.dayCount}`);
       } else {
         G.lastResult = `The log format history exists but the authorization documentation for category additions is in the waystation's internal administrative records — not accessible through guild channels.`;
       }
@@ -236,7 +236,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'attending guild briefing');
 
       G.lastResult = `The briefing covers quotas, delivery timelines, and safety compliance. It does not cover chemical input quality or compound concentration standards. These topics are listed on the agenda but marked "deferred pending standards review." This is the fourth consecutive briefing where the chemical standards discussion has been deferred. Either there's genuine standards uncertainty, or someone is ensuring the topic doesn't receive collective guild attention. The guild is being kept from discussing what Jorin has been documenting.`;
-      addJournal('discovery', 'Guild briefing: chemical input quality deferred for fourth consecutive meeting — collective discussion being suppressed', `craftspire-briefing-${G.dayCount}`);
+      addJournal('Guild briefing: chemical input quality deferred for fourth consecutive meeting — collective discussion being suppressed', 'discovery', `craftspire-briefing-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -259,7 +259,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `You follow a crate through the uninspected exit route to a staging yard two streets from the guild. The yard is commercial storage on record — available for hire — but it's been continuously occupied by the same party for eight months. The crates entering the yard don't have outgoing transit manifests. They're being held in the yard, not shipped onward. Whatever is being accumulated here hasn't reached its destination yet. The accumulation is ongoing.`;
         if (!G.flags) G.flags = {};
         G.flags.found_accumulation_yard = true;
-        addJournal('discovery', 'Uninspected exit destination: staging yard accumulating unmarked crates for 8 months — accumulation ongoing, no outgoing manifests', `craftspire-exit-route-${G.dayCount}`);
+        addJournal('Uninspected exit destination: staging yard accumulating unmarked crates for 8 months — accumulation ongoing, no outgoing manifests', 'discovery', `craftspire-exit-route-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The exit route leads to commercial storage, but you can't get close enough to identify the specific yard or its contents without risk of detection.`;
       } else {
@@ -311,7 +311,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
       G.lastResult = `Guild district whisper: "${selected}." The pattern of suppression extends further than Jorin's specific complaint.`;
-      addJournal('investigation', `Craftspire guild rumor: "${selected}"`, `craftspire-rumor-${G.dayCount}`);
+      addJournal(`Craftspire guild rumor: "${selected}"`, 'evidence', `craftspire-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -330,7 +330,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two other workshop masters have noticed the same concentration discrepancies. Neither filed a complaint: one was told it was standard transit degradation; the other was quietly offered a contract extension and didn't connect the two events. The extraction affects at least three workshops using the same supply chain. The scope is larger than Jorin realized — the compound is being extracted from multiple product lines simultaneously, which dramatically increases the accumulation volume.`;
         if (!G.flags) G.flags = {};
         G.flags.found_multi_workshop_extraction = true;
-        addJournal('investigation', 'Multi-workshop extraction: three workshops affected simultaneously — accumulation volume dramatically larger than single-source estimate', `craftspire-multi-workshop-${G.dayCount}`);
+        addJournal('Multi-workshop extraction: three workshops affected simultaneously — accumulation volume dramatically larger than single-source estimate', 'evidence', `craftspire-multi-workshop-${G.dayCount}`);
       } else {
         G.lastResult = `Other workshop masters are cautious about sharing internal production data with someone outside their specific guild registration. Jorin's endorsement would help.`;
       }
@@ -370,7 +370,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing forge after hours');
 
       G.lastResult = `The official workshops go dark at ninth bell. The central forge continues. Work under special production contracts runs late — this is standard in guild culture, unremarkable. But tonight the materials being processed are different from today's registered production runs. The forge is running off the official schedule. Whatever this production is, it isn't being counted in tomorrow morning's yield report.`;
-      addJournal('discovery', 'Craftspire central forge: off-schedule production runs after official close — material processed not in registered production runs', `craftspire-forge-night-${G.dayCount}`);
+      addJournal('Craftspire central forge: off-schedule production runs after official close — material processed not in registered production runs', 'discovery', `craftspire-forge-night-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -394,7 +394,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         if (result.total >= 12) {
           G.lastResult = `Jorin's six months plus the other two workshops' data: approximately 340 kilograms of concentrated compound extracted. At dome filtration application rates, this is enough to process fifteen to twenty dome atmospheres. At reactive compound synthesis rates, Jorin goes quiet for a long time. "That's not a small operation," he finally says. "Whatever they're building, they've been preparing for it for at least six months and they have industrial-scale capacity." He looks disturbed. "This needs to go to Shelkopolis. This is bigger than Craftspire."`;
           G.flags.calculated_accumulation = true;
-          addJournal('discovery', '340kg extracted over 6 months: enough for 15-20 dome atmospheres or large-scale reactive synthesis — Jorin confirms this needs Shelkopolis', `craftspire-volume-${G.dayCount}`);
+          addJournal('340kg extracted over 6 months: enough for 15-20 dome atmospheres or large-scale reactive synthesis — Jorin confirms this needs Shelkopolis', 'discovery', `craftspire-volume-${G.dayCount}`);
         } else {
           G.lastResult = `The calculation is complex and Jorin needs more time with the data. Come back after he's worked through the numbers.`;
         }
@@ -415,7 +415,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'reading guild founding charter');
 
       G.lastResult = `The charter begins: "We make things that work, correctly, every time. The guild's obligation is precision in service of those who depend on what we produce." Below that: "What leaves this guild does what it was made to do. Our name on a product is a guarantee." The founding charter is a precision ethic. The current chemical extraction uses the guild's supply chain as a mechanism while producing something that the guild didn't agree to make and doesn't know it's making. The founding guarantee has been subverted from within.`;
-      addJournal('discovery', 'Guild founding charter: precision ethic — "what leaves this guild works correctly." Supply chain subversion violates founding purpose.', `craftspire-charter-${G.dayCount}`);
+      addJournal('Guild founding charter: precision ethic — "what leaves this guild works correctly." Supply chain subversion violates founding purpose.', 'discovery', `craftspire-charter-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },

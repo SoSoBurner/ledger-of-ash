@@ -42,7 +42,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
         G.flags.met_ashe_whitebridge = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Ashe: removed via fabricated audit for refusing to sign duty schedule creating night gaps', `whitebridge-arc-ashe-${G.dayCount}`);
+        addJournal('Ashe: removed via fabricated audit for refusing to sign duty schedule creating night gaps', 'discovery', `whitebridge-arc-ashe-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Ashe is cautious with strangers and won't engage. You leave a message and continue south.`;
@@ -65,7 +65,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       G.flags.karnn_in_shelkopolis = true;
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-      addJournal('discovery', 'Karnn transferred to Shelkopolis ahead of you — knows charter mark operation details', `whitebridge-arc-karnn-${G.dayCount}`);
+      addJournal('Karnn transferred to Shelkopolis ahead of you — knows charter mark operation details', 'discovery', `whitebridge-arc-karnn-${G.dayCount}`);
       G.recentOutcomeType = 'complication';
     }
   },
@@ -87,7 +87,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
 
       G.lastResult = `The glove type Cadrin described — heavy insulated, elbow-length, with secondary wrist seal — is the Principalities industrial standard for reactive atmospheric compound handling. He described it from memory. He's never worked with reactive compounds himself, so he didn't know what the protocol meant. You do. The charter mark containers crossing Whitebridge's bridge at midnight were carrying the same material class as the Craftspire accumulation and the Ironhold extraction.`;
       G.flags.whitebridge_arc_reactive_confirmed = true;
-      addJournal('discovery', 'Handler gloves confirm reactive compound protocol — charter mark containers = same material class as Craftspire/Ironhold', `whitebridge-arc-reactive-${G.dayCount}`);
+      addJournal('Handler gloves confirm reactive compound protocol — charter mark containers = same material class as Craftspire/Ironhold', 'discovery', `whitebridge-arc-reactive-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -107,7 +107,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
         G.lastResult = `The bridge's main span flexes measurably under loads above two tonnes — Cadrin noted the flex sound specifically. His thirty-one entries include twenty-four where he heard the flex. Three-to-five tonne range. Industrial shipping containers for reactive precursor run 2.8-4.6 tonnes when full. Cadrin's weight estimates are consistent with full containers. Whatever came across that bridge over five months could supply a large-scale atmospheric application.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Bridge stress analysis confirms 3-5 tonne loads — full reactive precursor containers for large-scale application', `whitebridge-arc-weight-${G.dayCount}`);
+        addJournal('Bridge stress analysis confirms 3-5 tonne loads — full reactive precursor containers for large-scale application', 'discovery', `whitebridge-arc-weight-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `You can estimate load weight from bridge stress data in general terms but not precisely enough to make a confident claim. The general weight range is still useful.`;
@@ -131,7 +131,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
         G.lastResult = `The staging area is a cleared section of riverbank two kilometers east of the bridge — enough room for four large carts, with wheel ruts in the soil consistent with heavy loads. The soil near the edge shows trace reactive compound residue — the kind left when containers are imperfectly sealed. The ruts run northeast. Northeast of Whitebridge, at the distance implied by the rut depth and direction, is Ironhold Quarry. The supply chain is confirmed end-to-end.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'East bank staging area: ruts run northeast toward Ironhold — supply chain confirmed end-to-end', `whitebridge-arc-staging-${G.dayCount}`);
+        addJournal('East bank staging area: ruts run northeast toward Ironhold — supply chain confirmed end-to-end', 'discovery', `whitebridge-arc-staging-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `You find a cleared riverbank area but it's been swept. The ground is disturbed in a way that's consistent with deliberate removal of evidence. Someone knew it would be looked for.`;
@@ -187,7 +187,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('discovery', 'Brev: Karnn\'s transfer paperwork is forged using same fabricated category as Whitebridge ghost account', `whitebridge-arc-brev-${G.dayCount}`);
+        addJournal('Brev: Karnn\'s transfer paperwork is forged using same fabricated category as Whitebridge ghost account', 'discovery', `whitebridge-arc-brev-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The office is understaffed and Brev is handling an unrelated dispute. She asks you to come back in the morning.`;

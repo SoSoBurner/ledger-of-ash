@@ -27,17 +27,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Torvin waits until the cup is half empty before speaking. His voice drops to the register of someone watching the door. "Orders contradict each other. Hold the line, then pull three soldiers off the line for unspecified duties. Prepare for external threat, then reposition the northern gate coverage in a way that leaves a specific approach angle open." He sets the cup down. "When I flag the discrepancy up the chain, I'm told compliance is sufficient. I've commanded this garrison for nine years. I know the difference between orders under pressure and orders with a purpose I'm not meant to understand."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Commander flagged contradictory and weakening orders', `ithtananalor-commander-${G.dayCount}`);
+        addJournal('Commander flagged contradictory and weakening orders', 'evidence', `ithtananalor-commander-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The commander's posture shifts before the second question is finished. "Command decisions aren't civilian business. That is operational security." He stands and opens the office door. The inquiry is reported to garrison administration within the hour. Whatever record exists of your visit now has an official annotation attached to it.`;
         G.worldClocks.pressure++;
-        addJournal('complication', 'Military command now aware of your inquiry', `ithtananalor-commander-alert-${G.dayCount}`);
+        addJournal('Military command now aware of your inquiry', 'complication', `ithtananalor-commander-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The commander acknowledges pressure in the command structure without naming a source. "Orders come down. We execute them. That's the structure." He doesn't move toward the door, but he doesn't continue either. The answer has been chosen in advance — specific enough to acknowledge the question, empty enough to say nothing.`;
-        addJournal('investigation', 'Commander confirmed command pressure but details refused', `ithtananalor-commander-pressure-${G.dayCount}`);
+        addJournal('Commander confirmed command pressure but details refused', 'evidence', `ithtananalor-commander-pressure-${G.dayCount}`);
       } else {
         G.lastResult = `The commander gives back exactly what the garrison manual provides on chain of command and discipline. Nothing outside the prepared answer. Either the pressure hasn't reached him or he's practiced at not showing it. The conversation ends without a crack in either direction.`;
-        addJournal('investigation', 'Military command inquiry inconclusive', `ithtananalor-commander-blocked-${G.dayCount}`);
+        addJournal('Military command inquiry inconclusive', 'evidence', `ithtananalor-commander-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -63,17 +63,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Elira speaks without looking up from the armor she's checking. Her voice is flat and careful. "The old oath ran: I bind myself to the protection of those I serve. The new version runs: I bind myself to the commands of those above me in the line of duty." She sets the arm plate down. "The wording sounds like tradition. Most soldiers don't hear the change. But the binding target is different. Principle to authority. Justice to obedience." She picks the plate back up. "An oath-bound soldier who receives an unjust order has no recourse. The oath removes the recourse."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Honor guard revealed oath language corruption', `ithtananalor-guard-${G.dayCount}`);
+        addJournal('Honor guard revealed oath language corruption', 'evidence', `ithtananalor-guard-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Elira stops mid-check. "Oaths are sacred binding. Questions about their content from someone outside the sworn line are a breach of that sanctity." She doesn't raise her voice — the stillness carries more than volume would. The conversation is over. The dishonor of the question will circulate within the guard rotation before the day is out.`;
         G.worldClocks.reverence++;
-        addJournal('complication', 'Honor guard considers oath inquiry a sacred violation', `ithtananalor-guard-hostile-${G.dayCount}`);
+        addJournal('Honor guard considers oath inquiry a sacred violation', 'complication', `ithtananalor-guard-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The oath documentation is accessible in the garrison's civic records section. Recent administrations show text variants from the standard form — subtle, embedded in archaic binding-law phrasing that requires specialist reading to parse. The language has changed. Whether the change is administrative revision or deliberate reinterpretation takes a closer reading than the access window permits.`;
-        addJournal('investigation', 'Oath documents show language modification patterns', `ithtananalor-guard-modified-${G.dayCount}`);
+        addJournal('Oath documents show language modification patterns', 'evidence', `ithtananalor-guard-modified-${G.dayCount}`);
       } else {
         G.lastResult = `Oath documents are administered under the garrison's sacred records protocols — accessible for ceremonial review but not for comparative textual analysis without a named legal proceeding. The oaths are being given. What they contain is behind a classification that requires a practitioner of binding law to formally access.`;
-        addJournal('investigation', 'Oath administration inquiry inconclusive', `ithtananalor-guard-blocked-${G.dayCount}`);
+        addJournal('Oath administration inquiry inconclusive', 'evidence', `ithtananalor-guard-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -99,16 +99,16 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Mordain pulls a record from three years ago against a current record for the same soldier. Sets them side by side on the table. "The sworn text in the original reads: protection of those in my charge. The current record reads: compliance with lawful command." He speaks slowly, like someone who's been rehearsing this disclosure and isn't sure it's safe. "When I flagged it, I was told these are administrative alignments — bringing older records into current terminology. They aren't. The soldiers swore one thing. Their records now say another. They don't know."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Oath keeper revealed systematic oath record falsification', `ithtananalor-keeper-${G.dayCount}`);
+        addJournal('Oath keeper revealed systematic oath record falsification', 'evidence', `ithtananalor-keeper-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Mordain's desk is positioned between the visitor and the record shelves. "Oath documentation is sacred and access is restricted to named parties with ceremonial standing." He doesn't gesture toward the door — he simply doesn't move from the desk. The record system has a gatekeeper and the gatekeeper isn't moving today.`;
-        addJournal('complication', 'Oath keeper refusing record access', `ithtananalor-keeper-silent-${G.dayCount}`);
+        addJournal('Oath keeper refusing record access', 'complication', `ithtananalor-keeper-silent-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Mordain grants access to current records only — the archive copies are held separately and require a separate authorization. Current entries show modification timestamps on several files. What was modified and how it differs from the sworn original requires pulling the archived versions, which means a return visit with the right credentials.`;
-        addJournal('investigation', 'Oath records show recent modification patterns', `ithtananalor-keeper-modified-${G.dayCount}`);
+        addJournal('Oath records show recent modification patterns', 'evidence', `ithtananalor-keeper-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The records room is maintained and current — ledgers shelved in proper order, entries up to date. What's visible confirms the system is active. What's not visible is whether the content matches what soldiers originally swore. Confirming that requires archive access and a comparison methodology that this visit hasn't produced.`;
-        addJournal('investigation', 'Oath record verification inconclusive', `ithtananalor-keeper-blocked-${G.dayCount}`);
+        addJournal('Oath record verification inconclusive', 'evidence', `ithtananalor-keeper-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -134,17 +134,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Kross walks you through the week's schedule on the board outside the training yard. The numbers are visible: rest periods cut from eight hours to four, endurance thresholds set above the garrison's own baseline standards, pain tolerance cycles running every third day instead of every seventh. "I've run training programs for thirty years," he says, without inflection. "The line between discipline and damage is not ambiguous to someone who's stood on both sides of it. This crosses it. Deliberately. Someone designed this schedule to produce compliant exhaustion, not capable soldiers."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Training master revealed systematic abuse disguised as discipline', `ithtananalor-trainer-${G.dayCount}`);
+        addJournal('Training master revealed systematic abuse disguised as discipline', 'evidence', `ithtananalor-trainer-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Kross signals a halt the moment you step onto the observation line. "Training ground is restricted to assigned personnel." He doesn't wait for a response. Two soldiers appear at your shoulders and walk you back through the gate without acknowledgment. The session continues behind you. The training master's territorial response is its own kind of data.`;
         G.worldClocks.pressure++;
-        addJournal('complication', 'Training master banned you from training grounds', `ithtananalor-trainer-hostile-${G.dayCount}`);
+        addJournal('Training master banned you from training grounds', 'complication', `ithtananalor-trainer-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `From the observation line, the training session runs at a pace that leaves soldiers unable to speak between repetitions. The duration goes past what a conditioning session requires. At the end, the rest period is four minutes before the next block begins. Whether this is beyond garrison standard requires knowledge of the baseline — but the soldiers' faces at the rest bell aren't the faces of people being conditioned. They're the faces of people being worn down.`;
-        addJournal('investigation', 'Training intensity observed as higher than typical', `ithtananalor-trainer-intense-${G.dayCount}`);
+        addJournal('Training intensity observed as higher than typical', 'evidence', `ithtananalor-trainer-intense-${G.dayCount}`);
       } else {
         G.lastResult = `The training runs hard but within what a martial regimen might justify. Nothing overtly wrong from the outside. The training master's response to your presence — the speed with which he marks you and the two soldiers who appear at your shoulder — is harder to explain within a normal operation. The practice may be defensible. The supervision of the practice is not.`;
-        addJournal('investigation', 'Training observation inconclusive', `ithtananalor-trainer-unclear-${G.dayCount}`);
+        addJournal('Training observation inconclusive', 'evidence', `ithtananalor-trainer-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -169,17 +169,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
       if (result.isCrit) {
         G.lastResult = `Helix checks the door before pulling the second ledger from the back of the lower drawer. His hands are steady but his breath isn't. The official roster and the assignment roster don't match — soldiers listed in the second ledger don't appear anywhere in the first. No duty rotation, no supply allocation, no casualty protocol. "I maintain both," he says. "When I asked what the second one was for I was told to keep accurate records and stop asking what they were for." His voice has the flatness of someone who stopped asking months ago.`;        G.stageProgress[1]++;
-        addJournal('investigation', 'Clerk revealed hidden roster of disappeared soldiers', `ithtananalor-clerk-${G.dayCount}`);
+        addJournal('Clerk revealed hidden roster of disappeared soldiers', 'evidence', `ithtananalor-clerk-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Helix doesn't pull anything from the desk. "Garrison records require command authorization for access. In writing, signed by an officer of senior rank." He gives the answer quickly — practiced. The records exist, the authorization process exists, and neither is going to happen today.`;
         G.worldClocks.pressure++;
-        addJournal('complication', 'Garrison clerk refusing record access', `ithtananalor-clerk-blocked-${G.dayCount}`);
+        addJournal('Garrison clerk refusing record access', 'complication', `ithtananalor-clerk-blocked-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `Helix grants access to the main roster under general garrison audit rights. Seventeen soldiers appear in assignment entries from the past four months that have no corresponding active duty position, no transfer record, and no discharge notation. They were assigned somewhere. There's no documentation of where. The gap in the record is consistent and deliberate.`;
-        addJournal('investigation', 'Roster analysis shows unexplained personnel disappearance', `ithtananalor-clerk-disappear-${G.dayCount}`);
+        addJournal('Roster analysis shows unexplained personnel disappearance', 'evidence', `ithtananalor-clerk-disappear-${G.dayCount}`);
       } else {
         G.lastResult = `The roster covers four hundred soldiers across fourteen rotations. Movement between assignments is frequent and the pattern is complex enough that identifying anomalous gaps requires comparison between the assignment log and active deployment records — a task that needs more time and a clearer authorization level than this access provides.`;
-        addJournal('investigation', 'Personnel roster analysis inconclusive', `ithtananalor-clerk-unclear-${G.dayCount}`);
+        addJournal('Personnel roster analysis inconclusive', 'evidence', `ithtananalor-clerk-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -205,17 +205,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Sarn takes you to the inventory board before speaking. Points at the storage totals for the eastern weapons depot, then at the physical count he ran last week. The numbers don't match. "I've been marking equipment as training surplus and routing it to three addresses listed as maintenance facilities. I visited one of those addresses." He stops. "It's a warehouse. Empty shelving except for what arrived from here." He closes the inventory log. "The garrison's service weapons are being moved out. Whoever holds those addresses is being armed while the garrison is quietly reduced."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Quartermaster revealed hidden arsenal redistribution', `ithtananalor-quartermaster-${G.dayCount}`);
+        addJournal('Quartermaster revealed hidden arsenal redistribution', 'evidence', `ithtananalor-quartermaster-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Sarn answers from behind the inventory board without looking up. "Military logistics is confidential to the command chain. I can't discuss movements with parties outside that chain." He's not hostile — he's following procedure. The procedure protects the supply record from exactly this kind of external review.`;
         G.worldClocks.pressure++;
-        addJournal('complication', 'Quartermaster refusing supply discussion', `ithtananalor-quartermaster-hostile-${G.dayCount}`);
+        addJournal('Quartermaster refusing supply discussion', 'complication', `ithtananalor-quartermaster-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Sarn confirms supply movements have been happening and describes them as equipment rotation to maintenance facilities. He gives this in a practiced sequence — type, volume, destination category, classification. The description is complete in structure and empty of the one detail that would make it verifiable: the facility addresses. When asked for them directly, he pauses before citing restricted logistics protocols.`;
-        addJournal('investigation', 'Quartermaster confirmed supply movements but explanation incomplete', `ithtananalor-quartermaster-unusual-${G.dayCount}`);
+        addJournal('Quartermaster confirmed supply movements but explanation incomplete', 'evidence', `ithtananalor-quartermaster-unusual-${G.dayCount}`);
       } else {
         G.lastResult = `Sarn gives technically accurate answers about the supply management process: categories, rotation schedules, classification tiers. Nothing outside standard procedure emerges as a discrepancy from this conversation. Either the redistribution hasn't reached Sarn's level or he's describing the surface of it in terms that reveal nothing.`;
-        addJournal('investigation', 'Supply movement inquiry inconclusive', `ithtananalor-quartermaster-blocked-${G.dayCount}`);
+        addJournal('Supply movement inquiry inconclusive', 'evidence', `ithtananalor-quartermaster-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -241,17 +241,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Marin brings out a ceremonial scroll and places it beside an older one from the archive shelf. Reads them in parallel, pointing to specific passages. The old invocation calls the soldier to serve the people they protect. The revised version calls the soldier to serve the command above them. The words surrounding each phrase are the same — the traditional cadence preserved, the central binding redirected. "If you hear it without a reference point, it sounds correct. That's the design." Her hand rests on the archive scroll. "The form is intact. The meaning was replaced."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Ritual keeper revealed sacred formula rewriting', `ithtananalor-ritual-${G.dayCount}`);
+        addJournal('Ritual keeper revealed sacred formula rewriting', 'evidence', `ithtananalor-ritual-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Marin's response comes before the second sentence is finished. "Sacred practice does not submit to interrogation from outside the sanctioned line." She doesn't move toward the archive — she moves toward the door and opens it. The ritual system closes behind the question. Any return approach requires a different framing or a different door.`;
         G.worldClocks.reverence++;
-        addJournal('complication', 'Ritual keeper offended by sacred practice inquiry', `ithtananalor-ritual-hostile-${G.dayCount}`);
+        addJournal('Ritual keeper offended by sacred practice inquiry', 'complication', `ithtananalor-ritual-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Marin permits access to the current ceremony texts. Several formulas show variant language from the traditional forms — small substitutions embedded in the archaic binding-law phrasing where substitutions are hardest to detect without a direct comparison. Whether the variants are scholarly reinterpretation or deliberate corruption requires side-by-side analysis with the original archived scrolls, which Marin hasn't offered access to.`;
-        addJournal('investigation', 'Ritual documentation shows subtle archaic variation', `ithtananalor-ritual-varied-${G.dayCount}`);
+        addJournal('Ritual documentation shows subtle archaic variation', 'evidence', `ithtananalor-ritual-varied-${G.dayCount}`);
       } else {
         G.lastResult = `The ritual documentation is accessible through the standard ceremonial record process but reading modification into binding-law phrasing requires training in the specific archaic legal tradition used in oath and ritual texts. Without that background, the texts are opaque in the right places — the places where change would be hidden.`;
-        addJournal('investigation', 'Ritual corruption analysis inconclusive', `ithtananalor-ritual-unclear-${G.dayCount}`);
+        addJournal('Ritual corruption analysis inconclusive', 'evidence', `ithtananalor-ritual-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -277,17 +277,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Daven speaks at the side entrance of the authority chamber, not inside it. He keeps his voice low and his back to the inner door. "The validation ritual confirms that a commander carries legitimate authority within the chain of sacred duty. I have performed that ritual for commanders who haven't passed the three trials that legitimacy requires." He pauses, watching the inner door. "When I noted the discrepancy I was told the trials were conducted under expedited wartime protocol. There is no active wartime protocol. I am certifying authority I cannot verify — and when I have raised this, I am told that questioning command is questioning the order itself."`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Authority revealed spiritual validation of illegitimate command', `ithtananalor-authority-${G.dayCount}`);
+        addJournal('Authority revealed spiritual validation of illegitimate command', 'evidence', `ithtananalor-authority-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Daven straightens and his tone shifts register. "The validation of authority through sacred rite is a matter of faith. Questioning that process from outside the sanctioned line constitutes a crisis of faith in the command structure." He will file an inquiry record before the hour ends. The question has been categorized and the category has consequences.`;
         G.worldClocks.reverence++;
-        addJournal('complication', 'Ritual authority reported faith crisis inquiry', `ithtananalor-authority-hostile-${G.dayCount}`);
+        addJournal('Ritual authority reported faith crisis inquiry', 'complication', `ithtananalor-authority-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The validation ceremony for a newly appointed section commander runs in under twelve minutes. From the record of prior ceremonies visible in the public documentation, the standard duration is between forty-five minutes and an hour. The ritual structure is present — the words, the positions, the marks. The time required to do them with the full traditional weight is absent.`;
-        addJournal('investigation', 'Authority validation ceremonies show expedited patterns', `ithtananalor-authority-expedited-${G.dayCount}`);
+        addJournal('Authority validation ceremonies show expedited patterns', 'evidence', `ithtananalor-authority-expedited-${G.dayCount}`);
       } else {
         G.lastResult = `Validation ceremonies are public by design — the garrison community is meant to witness them. What the ceremonies mean, and whether shortened or modified forms carry the same binding weight as traditional forms, is a question of sacred law that the ritual authority interprets. From outside that interpretive tradition, the ceremonies look complete. Whether they are is a different question.`;
-        addJournal('investigation', 'Authority validation analysis inconclusive', `ithtananalor-authority-unclear-${G.dayCount}`);
+        addJournal('Authority validation analysis inconclusive', 'evidence', `ithtananalor-authority-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -315,17 +315,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `The northern gate's sightline has been broken by a storage structure added three months ago — positioned to cover exactly the angle the gate watch needs to hold. The southern choke point has load-bearing repairs pending, with temporary barriers that are passable by a coordinated group. Two weapon emplacements on the eastern wall were repositioned in the last quarter; the new positions create a gap in overlapping coverage that the old positions didn't allow. None of these are maintenance failures. Each creates a specific vulnerability at a specific tactical point.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Combat analysis revealed surgical fortification sabotage', `ithtananalor-fortification-${G.dayCount}`);
+        addJournal('Combat analysis revealed surgical fortification sabotage', 'evidence', `ithtananalor-fortification-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `A guard at the eastern wall notes the angle of your attention — not the wall, but the gap between the repositioned emplacements. He steps toward you and asks your purpose at the fortification. The question is polite. The two soldiers who appear at the corner behind him are not a coincidence. "Tactical observation of defensive positions is restricted." You're walked to the garrison gate. The report of a civilian studying the wall's coverage gap will reach the watch supervisor before you're off the street.`;
         G.worldClocks.watchfulness++;
-        addJournal('complication', 'Military security alerted to fortification analysis', `ithtananalor-fortification-alert-${G.dayCount}`);
+        addJournal('Military security alerted to fortification analysis', 'complication', `ithtananalor-fortification-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Several fortification points carry signs of recent modification — new masonry, repositioned fittings, fresh timber at two gate brackets. Whether the modifications improve or degrade the defensive position requires a more detailed survey than a pass from the public walkway provides. The work has been done. Its purpose is what's unclear.`;
-        addJournal('investigation', 'Fortification modifications observed but purpose unclear', `ithtananalor-fortification-unclear-${G.dayCount}`);
+        addJournal('Fortification modifications observed but purpose unclear', 'evidence', `ithtananalor-fortification-unclear-${G.dayCount}`);
       } else {
         G.lastResult = `The garrison's outer structure is intact and maintained. What's visible from the public approach — walls, gates, patrol positions — reads as operational. Reading the tactical implications of specific modifications requires ground-level access to the fortification positions, which the public walkway doesn't provide. The garrison looks defended. Whether it is requires a closer look.`;
-        addJournal('investigation', 'Fortification analysis inconclusive', `ithtananalor-fortification-blocked-${G.dayCount}`);
+        addJournal('Fortification analysis inconclusive', 'evidence', `ithtananalor-fortification-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -351,17 +351,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Cross-referencing the hidden roster against the supply movement records and the weapon cache addresses produces a coherent picture: the disappeared soldiers are deployed to three external locations outside the garrison's administrative boundary. No traditional command insignia. Communication through courier routing that bypasses the garrison's standard messenger network. They're organized, equipped from the redistributed garrison weapons, and answering to a command authority that doesn't appear in any official record. A second military structure is operating inside Ithtananalor's geographic footprint with none of Ithtananalor's institutional accountability.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Military tracking revealed shadow force structure and deployment', `ithtananalor-shadow-${G.dayCount}`);
+        addJournal('Military tracking revealed shadow force structure and deployment', 'evidence', `ithtananalor-shadow-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The tracking draws attention before the destination is reached. Two soldiers in unmarked coats intercept at the edge of the third supply route — no garrison insignia, no identification offered. The taller one speaks once: "This route doesn't concern you." They stay between you and the route until you move. They don't follow. The shadow force knows it's being tracked and chose to show itself rather than let the tracking continue. They want the message delivered, not a confrontation logged.`;
         G.worldClocks.pressure += 2;
-        addJournal('complication', 'Shadow force directly warned you away from investigation', `ithtananalor-shadow-caught-${G.dayCount}`);
+        addJournal('Shadow force directly warned you away from investigation', 'complication', `ithtananalor-shadow-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The supply trace points the disappeared soldiers toward a single delivery cluster — three addresses, close enough to be one operational zone, outside the garrison's administrative boundary. What the zone is used for isn't visible from the supply record alone. The soldiers are there. The command structure above them isn't documented anywhere this search has reached.`;
-        addJournal('investigation', 'Shadow military deployment zone identified but purpose unclear', `ithtananalor-shadow-deployed-${G.dayCount}`);
+        addJournal('Shadow military deployment zone identified but purpose unclear', 'evidence', `ithtananalor-shadow-deployed-${G.dayCount}`);
       } else {
         G.lastResult = `The assignment record shows the soldiers leaving their documented positions. Where the assignment leads requires a routing record that sits above the clerk level — either a command transfer log or an external deployment manifest, neither of which was accessible in the sources available today.`;
-        addJournal('investigation', 'Hidden force tracking inconclusive', `ithtananalor-shadow-blocked-${G.dayCount}`);
+        addJournal('Hidden force tracking inconclusive', 'evidence', `ithtananalor-shadow-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -387,17 +387,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Oath law runs back four centuries. The core language: soldiers bind to principle and justice. A legal reinterpretation entered the precedent record eight months ago — a ruling that "principle" is defined by the commanding authority's declaration rather than by independent ethical standard. The implication: soldiers are bound to whatever the command declares as principle, not to any external definition of the word. Three scholars who filed objections to that ruling were removed from the precedent council within ninety days of their submission. The ruling stands. The objections are not in the official record.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Oath law analysis revealed legal system corruption', `ithtananalor-law-${G.dayCount}`);
+        addJournal('Oath law analysis revealed legal system corruption', 'evidence', `ithtananalor-law-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The pattern of records access — specifically the combination of oath language archives and the precedent council's personnel records — draws a notice from the registry oversight office. A legal authority representative meets you at the door on the way out. "Legal precedent is proprietary to the council's jurisdiction. External analysis without standing is not permitted." The notice is filed. The analysis has been logged as unauthorized.`;
         G.worldClocks.watchfulness++;
-        addJournal('complication', 'Legal authorities alerted to oath law analysis', `ithtananalor-law-alert-${G.dayCount}`);
+        addJournal('Legal authorities alerted to oath law analysis', 'complication', `ithtananalor-law-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Recent legal precedent in oath law has expanded the interpretive scope of "principle" — where the term previously referred to an ethical standard external to the command structure, the current ruling allows the command structure to define it. Soldiers swearing to principle may now be swearing to whatever the command declares. Whether this was intended as a tool for control or as an administrative simplification isn't determinable from the ruling text alone.`;
-        addJournal('investigation', 'Oath law shows recent broadened interpretation', `ithtananalor-law-expanded-${G.dayCount}`);
+        addJournal('Oath law shows recent broadened interpretation', 'evidence', `ithtananalor-law-expanded-${G.dayCount}`);
       } else {
         G.lastResult = `Oath law is built on layered precedent dating back several centuries, with variation by locality, military branch, and ceremonial tradition. Reading deliberate corruption into the system versus administrative drift requires a specialist in the historical baseline — without that grounding, the current state of the law looks like complicated law rather than manipulated law.`;
-        addJournal('investigation', 'Oath law analysis inconclusive', `ithtananalor-law-unclear-${G.dayCount}`);
+        addJournal('Oath law analysis inconclusive', 'evidence', `ithtananalor-law-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -423,17 +423,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `The pattern assembles over three conversations in separate corners of the garrison commons. Soldiers are being asked to swear supplementary oaths — not at the standard binding ceremony, but in private, to specific commanders by name. Refusing results in reassignment to exposed positions and public notation as "uncommitted." Those who have attempted to walk back a supplementary oath are declared oath-breakers: stripped of rank, barred from the garrison community, exiled. Swearing binds the soldier to the commander. Breaking destroys the soldier's place in the only institution they belong to. The mechanism doesn't require force. It only requires the oath.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Coercion analysis mapped oath-weaponization for compliance', `ithtananalor-coercion-${G.dayCount}`);
+        addJournal('Coercion analysis mapped oath-weaponization for compliance', 'evidence', `ithtananalor-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The first question about supplementary oaths produces a polite end to the conversation. By the second attempt, word has moved ahead. A third soldier doesn't let the question finish before stepping back. Being associated with an inquiry about oath-breaking carries its own risk — if the supplementary oath system is real, proximity to someone questioning it could mark a soldier as a potential oath-breaker themselves. The garrison has grown too careful to speak to someone with this particular set of questions.`;
         G.worldClocks.isolation++;
-        addJournal('complication', 'Population distancing from you due to oath-breaking inquiry', `ithtananalor-coercion-hostile-${G.dayCount}`);
+        addJournal('Population distancing from you due to oath-breaking inquiry', 'complication', `ithtananalor-coercion-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Three soldiers confirm pressure to swear beyond the standard binding. None will describe the specific content or the commander they were asked to swear to. Two cite the oath itself as the reason they can't speak — once sworn, discussing the oath with an outsider may constitute breach. The pressure is confirmed. The specific mechanism stays behind the oath that enforces the silence.`;
-        addJournal('investigation', 'Oath-based pressure confirmed by soldier interviews', `ithtananalor-coercion-confirmed-${G.dayCount}`);
+        addJournal('Oath-based pressure confirmed by soldier interviews', 'evidence', `ithtananalor-coercion-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `Soldiers in the commons don't finish sentences about oaths before redirecting. The guardedness is consistent and present across multiple conversations, but none of it yields specifics. Something is being protected by the silence. Mapping what it is and how it operates requires a source willing to speak past the point where everyone else stops.`;
-        addJournal('investigation', 'Oath coercion patterns sensed but not documented', `ithtananalor-coercion-unclear-${G.dayCount}`);
+        addJournal('Oath coercion patterns sensed but not documented', 'evidence', `ithtananalor-coercion-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -459,17 +459,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Soldiers at the end of rotation walk past each other without acknowledgment. In the commons, unit groups that would normally share a table eat in separated clusters. Officers receive compliance — no eye contact, no voluntary communication beyond the required response. A sergeant who's been at the garrison fifteen years doesn't look up when a superior passes. When asked directly about the unit's condition, the answer is brief and identical across four different conversations: "We do what's required." The garrison is mechanically functional and socially emptied. The form of military order without any of its substance.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Morale analysis revealed systematic military demoralization', `ithtananalor-morale-${G.dayCount}`);
+        addJournal('Morale analysis revealed systematic military demoralization', 'evidence', `ithtananalor-morale-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Questions about unit cohesion and command confidence land wrong in the garrison commons. A soldier who's been sitting quietly at the end of the table stands and walks toward the training block. Within twenty minutes Kross appears at the commons entrance and sweeps the room. The morale questions have been classified as a diagnostic attempt — the kind that precedes formal review. Soldiers in a coercion system protect the system even when they hate it.`;
         G.worldClocks.isolation++;
-        addJournal('complication', 'Soldiers reported your morale assessment as suspicious', `ithtananalor-morale-hostile-${G.dayCount}`);
+        addJournal('Soldiers reported your morale assessment as suspicious', 'complication', `ithtananalor-morale-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The garrison commons is quieter than a functioning unit this size should be. Soldiers eat without conversation. At shift change, the handover is correct in form and empty of any informal exchange between incoming and outgoing watch. Whether this represents a garrison under exceptional operational pressure or a garrison whose internal bonds have been deliberately broken isn't readable from a single observation session.`;
-        addJournal('investigation', 'Military morale observed as lower than expected', `ithtananalor-morale-low-${G.dayCount}`);
+        addJournal('Military morale observed as lower than expected', 'evidence', `ithtananalor-morale-low-${G.dayCount}`);
       } else {
         G.lastResult = `The garrison shows the baseline signs of operational stress — short responses, fatigue visible at end of shift, officers working past standard hours. Whether the stress is proportionate to the actual operational load or has been engineered beyond it requires baseline data from prior periods or comparative garrison data that isn't available from this vantage point.`;
-        addJournal('investigation', 'Military morale assessment inconclusive', `ithtananalor-morale-unclear-${G.dayCount}`);
+        addJournal('Military morale assessment inconclusive', 'evidence', `ithtananalor-morale-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -495,17 +495,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `The command communication pattern tells the story. Torvin receives written orders that don't originate from any Ithtananalor command office — the formatting and authentication marks are external. Mordain receives directives about record modifications through a sealed courier pouch with no garrison return address. The shadow force deployment orders, when one surfaces through the supply trace, bear authentication from a source outside Ithtananalor's military structure entirely. The orders arriving at every corrupted node come from the same external direction. Someone outside this garrison has the authority to direct it — and the people inside are executing those directions as if they were their own.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Command conspiracy revealed external direction of internal sabotage', `ithtananalor-command-${G.dayCount}`);
+        addJournal('Command conspiracy revealed external direction of internal sabotage', 'evidence', `ithtananalor-command-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The command communication mapping draws a response before it's finished. Three officers in unmarked dress appear in the records corridor — not garrison officers, shadow force. The one in front doesn't identify himself. "You're assembling a picture that doesn't belong to you." They don't touch you. They stand between you and the next set of records until you leave. The shadow command structure has read the shape of your inquiry and chosen a direct response. They now know how close the picture is to complete.`;
         G.worldClocks.pressure += 2;
-        addJournal('complication', 'Shadow command directly confronted you about hierarchy mapping', `ithtananalor-command-caught-${G.dayCount}`);
+        addJournal('Shadow command directly confronted you about hierarchy mapping', 'complication', `ithtananalor-command-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The command communication trail shows a consistent pattern: directives arriving at the garrison's senior nodes carry authentication marks from outside the standard Ithtananalor military hierarchy. The specific external authority isn't named in the documents that are accessible, but the routing is clear — commands are entering from somewhere that isn't the garrison's own chain.`;
-        addJournal('investigation', 'Command hierarchy shows external coordination patterns', `ithtananalor-command-external-${G.dayCount}`);
+        addJournal('Command hierarchy shows external coordination patterns', 'evidence', `ithtananalor-command-external-${G.dayCount}`);
       } else {
         G.lastResult = `Orders flow down through the garrison's command structure in the standard pattern. At the top of the observable chain, the directives originate from senior garrison command. Whether those senior commanders are themselves receiving direction from an external source requires access to their incoming communication records — which sit above the access level this approach has produced.`;
-        addJournal('investigation', 'Command hierarchy mapping incomplete', `ithtananalor-command-unclear-${G.dayCount}`);
+        addJournal('Command hierarchy mapping incomplete', 'evidence', `ithtananalor-command-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -532,7 +532,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
         G.lastResult = `In the garrison commons, over the sound of the evening meal: "${selected}." The same fragment passes through three separate conversations in different corners of the room, each speaker careful about who's within earshot. Soldiers at Ithtananalor carry pieces of the picture without a frame for it. The anxiety is specific — not the generalized unease of a garrison under pressure, but the particular tension of people who know something they've been told not to know.`;
-      addJournal('investigation', `Street rumor gathered: "${selected}"`, `ithtananalor-rumor-${G.dayCount}`);
+      addJournal(`Street rumor gathered: "${selected}"`, 'evidence', `ithtananalor-rumor-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -557,16 +557,16 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `The documents assembled together: external-authenticated orders contradicting garrison command authority. Oath records modified to bind soldiers to command rather than principle. Helix's hidden roster. Sarn's weapon redistribution log. The shadow force deployment addresses. Each piece has an alternative explanation in isolation — administrative error, policy change, record-keeping variance. Together they don't. The pattern is coordinated, executed across multiple systems simultaneously, and structured to replace Ithtananalor's own military authority with an external command structure disguised as internal administration. This is not corruption from within. This is occupation from outside.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Military coup documentation compiled', `ithtananalor-proof-${G.dayCount}`);
+        addJournal('Military coup documentation compiled', 'evidence', `ithtananalor-proof-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The evidence assembly draws attention before it's complete. Three shadow force operatives appear at the records station — not to detain, to interrupt. The documents in hand are taken. Not all of them, only the ones that connect multiple systems together. The pieces that remain are individually dismissible. What's been removed was the connective tissue. The conspiracy has read the assembly in progress and made a surgical cut. The picture has gaps now that weren't there an hour ago, and the people who created those gaps know you were close.`;
         G.worldClocks.pressure += 2;
-        addJournal('complication', 'Investigation directly noticed by conspiracy operators', `ithtananalor-proof-caught-${G.dayCount}`);
+        addJournal('Investigation directly noticed by conspiracy operators', 'complication', `ithtananalor-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The contradictions between external command authentication, oath record modifications, and shadow roster maintenance are significant enough in combination to move past "something is wrong" toward "the garrison command structure has been systematically replaced." Not all the links are fully documented, but the pattern is compelling. The pieces that remain missing are the specific external authority and the final deployment purpose.`;        addJournal('investigation', 'Compelling military conspiracy evidence found', `ithtananalor-proof-partial-${G.dayCount}`);
+        G.lastResult = `The contradictions between external command authentication, oath record modifications, and shadow roster maintenance are significant enough in combination to move past "something is wrong" toward "the garrison command structure has been systematically replaced." Not all the links are fully documented, but the pattern is compelling. The pieces that remain missing are the specific external authority and the final deployment purpose.`;        addJournal('Compelling military conspiracy evidence found', 'evidence', `ithtananalor-proof-partial-${G.dayCount}`);
       } else {
         G.lastResult = `The fragments exist: modified oath records, supply movements, roster discrepancies, command communication anomalies. Each is documentable. What isn't documentable yet is the connection between them — the shared intent or authority that ties them into a single operation rather than a collection of administrative failures. The fragments need assembly and the assembly needs more access than today's sources have provided.`;
-        addJournal('investigation', 'Evidence fragments found but incomplete', `ithtananalor-proof-incomplete-${G.dayCount}`);
+        addJournal('Evidence fragments found but incomplete', 'evidence', `ithtananalor-proof-incomplete-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -626,17 +626,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `A sealed courier pouch in the command records room — not in the filing system, kept flat under the directory ledger. Inside: four directives, each signed with insignia that doesn't belong to any Ithtananalor command office. The authentication marks are Shelkopolis. Orders directing the oath record modifications, the shadow force deployment, the garrison disarmament — all of it traced back to a single external authority operating out of Shelkopolis. Not destroying the garrison. Absorbing it. The garrison's identity stays intact as a shell. The command inside it has been replaced. And the consolidation is still in progress.`;
         G.stageProgress[1]++;
-        addJournal('discovery', 'Origin source of Ithtananalor military conspiracy identified as external Shelkopolis coordination', `ithtananalor-origin-${G.dayCount}`);
+        addJournal('Origin source of Ithtananalor military conspiracy identified as external Shelkopolis coordination', 'discovery', `ithtananalor-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The command records room has a guard that wasn't present yesterday. He doesn't let you reach the directory ledger. Two more appear before the question is asked. The sealed pouch — wherever it is — stays sealed. You're walked out of the command block without a formal charge and without a formal record. The origin source hasn't been reached. But the shadow command knows you came looking for it, and they've closed the room.`;
         G.worldClocks.pressure += 2;
-        addJournal('complication', 'Investigation interrupted by conspiracy operators', `ithtananalor-origin-caught-${G.dayCount}`);
+        addJournal('Investigation interrupted by conspiracy operators', 'complication', `ithtananalor-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `Three directives from the partial access carry authentication marks from outside Ithtananalor's command hierarchy. The external authority isn't named in what's accessible — the signatures use a classification code rather than a named office. But the routing is unmistakable: orders for the garrison's internal restructuring are originating from somewhere that isn't the garrison. Ithtananalor isn't being corrupted from within. It's being directed from outside.`;
-        addJournal('discovery', 'External coordination of Ithtananalor military conspiracy confirmed', `ithtananalor-origin-external-${G.dayCount}`);
+        addJournal('External coordination of Ithtananalor military conspiracy confirmed', 'discovery', `ithtananalor-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `You find evidence suggesting external coordination, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully through encrypted channels and deniable intermediaries.`;
-        addJournal('investigation', 'External coordination suspected but source not yet identified', `ithtananalor-origin-unclear-${G.dayCount}`);
+        addJournal('External coordination suspected but source not yet identified', 'evidence', `ithtananalor-origin-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -662,17 +662,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `The pattern becomes undeniable. Oaths are being corrupted to bind soldiers to external authority. The military hierarchy is being restructured to replace legitimate command. A shadow force is being built outside accountability. These aren't separate military failures — they're coordinated occupation tactics. When combined, they create total compromise: soldiers are oath-bound to obey external authority, the legitimate command structure is replaced, and a shadow force enforces occupation while claiming to be garrison. It's a military takeover disguised as internal restructuring. Someone has engineered Ithtananalor's complete military capture.`;
         G.stageProgress[1]++;
-        addJournal('investigation', 'Military systems analysis revealed coordinated occupation engineering', `ithtananalor-pattern-${G.dayCount}`);
+        addJournal('Military systems analysis revealed coordinated occupation engineering', 'evidence', `ithtananalor-pattern-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you compile the pattern analysis, military intelligence notices. You're questioned about why you're developing comprehensive military compromise models.`;
         G.worldClocks.watchfulness++;
-        addJournal('complication', 'Your military pattern analysis drew intelligence scrutiny', `ithtananalor-pattern-alert-${G.dayCount}`);
+        addJournal('Your military pattern analysis drew intelligence scrutiny', 'complication', `ithtananalor-pattern-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `You recognize connections between oath corruption, command restructuring, and shadow force development. They don't appear independent; they seem designed to achieve total military control.`;
-        addJournal('investigation', 'Military failure connections mapped', `ithtananalor-pattern-connected-${G.dayCount}`);
+        addJournal('Military failure connections mapped', 'evidence', `ithtananalor-pattern-connected-${G.dayCount}`);
       } else {
         G.lastResult = `The military compromises appear to be separate issues, though they may be related in ways you can't yet see.`;
-        addJournal('investigation', 'Military system pattern analysis inconclusive', `ithtananalor-pattern-unclear-${G.dayCount}`);
+        addJournal('Military system pattern analysis inconclusive', 'evidence', `ithtananalor-pattern-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -698,17 +698,17 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Everything connects. Oaths are being corrupted deliberately. The command hierarchy is being replaced deliberately. A shadow military force is being built deliberately. The traditional garrison is being made complicit through oath-binding. Someone is not just attacking Ithtananalor's military — they're absorbing it. The soldiers are being systematically transformed from defenders of Ithtananalor into tools of an external force. The military isn't being conquered; it's being converted. And this same process is likely being replicated in other garrisons. Ithtananalor isn't a victory; it's a proof of concept for systematic military occupation. The real expansion is just beginning.`;
         G.stageProgress[1]++;
-        addJournal('discovery', 'Ithtananalor military understood as proof of concept for systematic military conversion', `ithtananalor-understanding-${G.dayCount}`);
+        addJournal('Ithtananalor military understood as proof of concept for systematic military conversion', 'discovery', `ithtananalor-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `As you approach full understanding, you're stopped. The shadow military force doesn't want you to complete this synthesis. You're confronted and threatened. Your investigation has endangered something critical to their occupation.`;
         G.worldClocks.pressure += 2;
-        addJournal('complication', 'Final understanding synthesis blocked by shadow force threat', `ithtananalor-understanding-stopped-${G.dayCount}`);
+        addJournal('Final understanding synthesis blocked by shadow force threat', 'complication', `ithtananalor-understanding-stopped-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points toward Ithtananalor being used as an experimental model for external military occupation. Once perfected here, the methods will be replicated elsewhere. You don't have complete certainty, but the pattern is compelling.`;
-        addJournal('discovery', 'Ithtananalor as experimental military occupation model suspected', `ithtananalor-understanding-experimental-${G.dayCount}`);
+        addJournal('Ithtananalor as experimental military occupation model suspected', 'discovery', `ithtananalor-understanding-experimental-${G.dayCount}`);
       } else {
         G.lastResult = `You have pieces of understanding, but the full picture remains partially obscured. The ultimate purpose behind the military occupation eludes you still.`;
-        addJournal('investigation', 'Occupation purpose not yet fully revealed', `ithtananalor-understanding-incomplete-${G.dayCount}`);
+        addJournal('Occupation purpose not yet fully revealed', 'evidence', `ithtananalor-understanding-incomplete-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -736,7 +736,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three accounts appear in transaction summaries under non-standard registration codes — the ledger system accepts them, but the codes don't correspond to any registered entity in the public directory. These accounts are moving significant sums. They're not hidden: they're in plain sight, formatted to look like administrative clearing accounts. Whoever created them knows the ledger's formatting conventions well enough to make invisible money look like overhead.`;
         if (!G.flags) G.flags = {};
         G.flags.found_ledger_ghost_accounts = true;
-        addJournal('investigation', 'Iron Ledger: three ghost accounts using valid formatting codes without registered entities', `ithtananalor-ledger-${G.dayCount}`);
+        addJournal('Iron Ledger: three ghost accounts using valid formatting codes without registered entities', 'evidence', `ithtananalor-ledger-${G.dayCount}`);
       } else {
         G.lastResult = `The terminal gives you summary data but the anomalous accounts are flagged as restricted — you can see their totals but not their transaction histories without elevated access credentials.`;
       }
@@ -760,7 +760,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `All three displaced officers' outstanding debts were purchased from their original creditors within the same two-week window — four months ago. The purchaser is listed as a "consolidated obligations arbitrage firm" registered in a northern market jurisdiction. Their debts are now held by a single entity that has the legal authority to call them without notice. Three officers with leverage held over them simultaneously. This isn't coincidence — it's a coordinated acquisition of control instruments.`;
       if (!G.flags) G.flags = {};
       G.flags.found_debt_leverage_trail = true;
-      addJournal('investigation', 'Debt leverage: three officers\' obligations purchased simultaneously by single external entity', `ithtananalor-debt-${G.dayCount}`);
+      addJournal('Debt leverage: three officers\' obligations purchased simultaneously by single external entity', 'evidence', `ithtananalor-debt-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -784,7 +784,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `A junior soldier breaks formation briefly to speak to a departing officer. The senior officer on duty doesn't reprimand the break — pretends not to see it. The garrison's formal discipline has been selectively suspended. The new command structure has created informal permission zones. They're managing compliance through inconsistent enforcement.`;
       }
-      addJournal('investigation', 'Garrison: occupying officers foreign-trained, parallel reporting structure, selective discipline enforcement', `ithtananalor-garrison-read-${G.dayCount}`);
+      addJournal('Garrison: occupying officers foreign-trained, parallel reporting structure, selective discipline enforcement', 'evidence', `ithtananalor-garrison-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -825,7 +825,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(52, 'observing ward after hours');
 
       G.lastResult = `After dark the ward doesn't empty. Clerks move between buildings carrying sealed cases. Lights burn in third-floor windows of the registration offices. A courier arrives at the rear entrance of the main ledger building and leaves without the package they arrived with. Ithtananalor's financial machinery doesn't stop when the market closes — it just stops being visible. The city's real economic activity runs at night.`;
-      addJournal('discovery', 'Iron Ledger Ward: night financial operations ongoing — real transactions happen after official hours', `ithtananalor-night-${G.dayCount}`);
+      addJournal('Iron Ledger Ward: night financial operations ongoing — real transactions happen after official hours', 'discovery', `ithtananalor-night-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },

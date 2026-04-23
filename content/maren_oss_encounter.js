@@ -24,7 +24,7 @@ var MAREN_OSS_ENCOUNTER = (function() {
     }
     G.lastResult = 'The shelf is organized by acquisition date, not subject — whoever filed these did not want them found. Behind a monograph on transit law, a thin folder with no name on the cover. Inside: case notes. Someone has been mapping the same case. The handwriting is precise, unhurried. The analysis is two steps ahead of yours.' + archetypeObservation + ' At the bottom of the last page, a single annotation in different ink — added after, by a different hand: "Subject is operational. Do not interfere with their findings."';
     G.recentOutcomeType = 'discovery';
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'discovery');
     if (typeof addNarration === 'function') addNarration('Found — Archive Shelf', G.lastResult);
     if (typeof updateHUD === 'function') updateHUD();
 
@@ -32,19 +32,19 @@ var MAREN_OSS_ENCOUNTER = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'maren_evidence_study',
-          text: 'Study the notes thoroughly — record what you can before returning them.',
+          text: 'The methodology is two steps ahead. You need to understand it before you leave.',
           tag: 'bold',
           action: function() { studyNotes(); }
         },
         {
           id: 'maren_evidence_take',
-          text: 'Take a copy — transcribe the key sections.',
+          text: 'A copy in your coat. The clerk is still on break.',
           tag: 'risky',
           action: function() { copyNotes(); }
         },
         {
           id: 'maren_evidence_leave',
-          text: 'Leave them undisturbed. Whoever placed them here may be watching.',
+          text: 'Whoever left this decided you should find it. The question is why.',
           tag: 'safe',
           action: function() { leaveNotes(); }
         }
@@ -95,13 +95,13 @@ var MAREN_OSS_ENCOUNTER = (function() {
     var G = window.G;
     G.lastResult = 'You replace the folder exactly as you found it. Whoever left this here may return. Whatever they want you to know, they already decided you should find it — which means the question is why.';
     G.flags.maren_oss_suspected = true;
-    G.recentOutcomeType = 'investigation';
+    G.recentOutcomeType = 'discovery';
     _close();
   }
 
   function _close() {
     var G = window.G;
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'discovery');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }

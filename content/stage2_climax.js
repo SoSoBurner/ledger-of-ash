@@ -14,17 +14,17 @@ var STAGE2_CLIMAX = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p1_negotiate',
-        text: 'Present yourself openly — negotiate your position',
+        text: 'You present yourself openly \u2014 negotiate your position directly.',
         action: function() { phase1_negotiate(); }
       },
       {
         id: 'climax_p1_deflect',
-        text: 'Attend but deflect — claim your investigation is routine',
+        text: 'You go, but give them nothing \u2014 a clerk following cold files, nothing more.',
         action: function() { phase1_deflect(); }
       },
       {
         id: 'climax_p1_refuse',
-        text: 'Refuse — send a counter-message asserting your independence',
+        text: 'You refuse \u2014 send a counter-message asserting your independence.',
         action: function() { phase1_refuse(); }
       }
     ]);
@@ -84,7 +84,7 @@ var STAGE2_CLIMAX = (function() {
     G.recentOutcomeType = 'discovery';
     G.investigationProgress = Math.max(G.investigationProgress || 0, 10);
     G.flags.stage2_revelation_received = true;
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     setTimeout(phase3, 400);
   }
@@ -97,17 +97,17 @@ var STAGE2_CLIMAX = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p3_expose',
-        text: 'Expose — bring the ledger to the public record. Let the city decide.',
+        text: 'You expose it \u2014 bring the record to public hands. Let the city decide.',
         action: function() { phase3_expose(); }
       },
       {
         id: 'climax_p3_align',
-        text: 'Align — take the ledger to Inquisitor Orveth. Work from within.',
+        text: 'You align with Orveth \u2014 bring her the record and work from within.',
         action: function() { phase3_align(); }
       },
       {
         id: 'climax_p3_withdraw',
-        text: 'Withdraw — hide the ledger. Buy time to understand what you hold.',
+        text: 'You withdraw \u2014 hide the record and buy time to understand what you hold.',
         action: function() { phase3_withdraw(); }
       }
     ]);
@@ -152,7 +152,8 @@ var STAGE2_CLIMAX = (function() {
   function _closeClimax() {
     var G = window.G;
     G.flags.stage2_climax_complete = true;
-    window.addJournal('investigation', G.lastResult);
+    G.flags.maren_oss_resolved = true;
+    addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }

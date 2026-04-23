@@ -23,16 +23,16 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Tazren pulls the copy from a locked drawer, not the filing cabinet. Eight months of work: the sealed charter pattern, the Fairhaven staging point, the glyph surge correlation — all named, all dated. He was pulled from the case six months ago and told the file was archived. "Archived means it stops. I wasn't finished." He slides the copy across the desk without ceremony. The pages are organized. He was waiting for someone to ask.`;
-        addJournal('investigation', 'Bureau investigator Tazren — 8-month parallel case file shared, case was suppressed', `shir-tazren-${G.dayCount}`);
+        addJournal('Bureau investigator Tazren — 8-month parallel case file shared, case was suppressed', 'evidence', `shir-tazren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `Tazren listens to your first two sentences and reaches for his visitor log. "Knowing the specifics of a Bureau investigation thread without credentials is a concern I'm required to document." He copies your name and asks for origin papers with the flat efficiency of someone who has done this before. By the time the conversation ends, a summary of your visit has already gone to his supervisory chain.`;
-        addJournal('complication', 'Bureau visit logged — origin documentation requested', `shir-tazren-fail-${G.dayCount}`);
+        addJournal('Bureau visit logged — origin documentation requested', 'complication', `shir-tazren-fail-${G.dayCount}`);
       } else {
         G.flags.met_tazren_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Tazren confirms the case and stops there. "I can't share an archived file without a reinstatement order." He pauses. "The charter pattern you described is in it. I'll confirm that much." He straightens the papers on his desk. "An archived case doesn't mean the subject stopped moving. It means the oversight stopped."`;
-        addJournal('investigation', 'Bureau archived case confirmed — investigation moved off-record', `shir-tazren-partial-${G.dayCount}`);
+        addJournal('Bureau archived case confirmed — investigation moved off-record', 'evidence', `shir-tazren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -52,15 +52,15 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_luneth_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Luneth traces the three packages through his transfer log with practiced speed. All marked "received — archive." The receiving address is a sub-registry notation that doesn't appear in the Bureau's official branch directory — he's checked twice. He maps the address against a regional index and holds the result up without speaking. The notation places it in the same northern staging district that came up in the Fairhaven thread.`;
-        addJournal('investigation', 'Evidence transfers to unlisted sub-registry — maps to northern staging district', `shir-luneth-${G.dayCount}`);
+        addJournal('Evidence transfers to unlisted sub-registry — maps to northern staging district', 'evidence', `shir-luneth-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Luneth pulls the request form and stops. The transfer records are under retention audit this week — standard cycle, nothing unusual on paper. Except your request triggers a hold on the specific packages in question, freezing access for thirty days. Luneth looks at the hold notice with the particular expression of someone who has just understood something they didn't want to. The audit timing selected for these packages.`;
-        addJournal('complication', 'Evidence records frozen under retention audit — access blocked 30 days', `shir-luneth-fail-${G.dayCount}`);
+        addJournal('Evidence records frozen under retention audit — access blocked 30 days', 'complication', `shir-luneth-fail-${G.dayCount}`);
       } else {
         G.flags.met_luneth_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Luneth cross-checks the delivery confirmation against the destination branch's receipt log. Three packages out, zero arrivals recorded. He turns the ledger toward you. "That's a clerical error or the branch isn't a branch." He says it evenly, but he writes both options down before he hands the log back.`;
-        addJournal('investigation', 'Evidence delivery gap confirmed — receiving party unknown or unlisted', `shir-luneth-partial-${G.dayCount}`);
+        addJournal('Evidence delivery gap confirmed — receiving party unknown or unlisted', 'evidence', `shir-luneth-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -80,16 +80,16 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_khalis_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Khalis shows you the flag stack — months of inconsistency reports, each one cleared by the same Bureau override code. The material profiles read as resonance damping precursors; they're logged in the system as ceremonial incense components. "I know what incense weighs. I know what it smells like at the border of a ward boundary." He taps the override column. "That code clears every flag I file. I've never been able to trace it to a name or a position."  `;
-        addJournal('investigation', 'Arcane precursors misclassified as ceremonial — Bureau override clears all flags', `shir-khalis-${G.dayCount}`);
+        addJournal('Arcane precursors misclassified as ceremonial — Bureau override clears all flags', 'evidence', `shir-khalis-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Khalis runs a finger down the tariff review authorization list without looking up. "You're not on the list." He logs the inquiry — date, description, access level noted — with practiced speed. He's not hostile about it. He's compliant with a procedure that was written by someone else, and the procedure has a memory.`;
-        addJournal('complication', 'Unauthorized tariff review logged — credentials checked', `shir-khalis-fail-${G.dayCount}`);
+        addJournal('Unauthorized tariff review logged — credentials checked', 'complication', `shir-khalis-fail-${G.dayCount}`);
       } else {
         G.flags.met_khalis_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Khalis pulls the import volume figures without argument. The classification reads ceremonial; the volume is twelve times what ceremonial use across all registered institutions would account for. He's already done the math. "I flagged it. Multiple times." He closes the ledger. "Nothing happened to the flags. The imports continued."  `;
-        addJournal('investigation', 'Arcane import volumes 12x ceremonial threshold — flags ignored', `shir-khalis-partial-${G.dayCount}`);
+        addJournal('Arcane import volumes 12x ceremonial threshold — flags ignored', 'evidence', `shir-khalis-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -109,16 +109,16 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Mirae sets down her cloth and names two visitors from memory — she has a good one, and she keeps it private for situations like this. Monthly for the past year, never on the roster board, always received promptly. "That one" — she describes the first — "has the look of someone whose job it is to appear unremarkable." The description matches the Oversight Collegium's known field coordination profile. The second matches the intermediary description from Vaelis Sunweave's account at Shelkopolis.`;
-        addJournal('investigation', 'Shirshal inn: Bureau ghost-visitors match Collegium field agent + Shelkopolis intermediary', `shir-mirae-${G.dayCount}`);
+        addJournal('Shirshal inn: Bureau ghost-visitors match Collegium field agent + Shelkopolis intermediary', 'evidence', `shir-mirae-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
         G.lastResult = `Mirae pours without being asked. "Bureau guests are not a subject I discuss. That policy is twenty-three years old and it's why this inn is still open." She's pleasant about it. The subject changes to the weather and the road conditions north, and she means it — no angle, no further opening. The door has been closed cleanly.`;
-        addJournal('complication', 'Bureau inn confidentiality — policy refusal, no information', `shir-mirae-fail-${G.dayCount}`);
+        addJournal('Bureau inn confidentiality — policy refusal, no information', 'complication', `shir-mirae-fail-${G.dayCount}`);
       } else {
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Mirae won't give names — she doesn't have them — but she has the rest: height, build, the particular way each one carries themselves when they think they're not being watched. Third day of the ten-day cycle, always before noon, north road departure. "I notice patterns. It's the work." She refills your cup and doesn't comment further.`;
-        addJournal('investigation', 'Bureau off-roster visitors on fixed 10-day cycle — north road departures', `shir-mirae-partial-${G.dayCount}`);
+        addJournal('Bureau off-roster visitors on fixed 10-day cycle — north road departures', 'evidence', `shir-mirae-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -140,16 +140,16 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Sivren opens the petition archive and finds the cluster without searching — she's already bookmarked it. Seven petitions: Shelkopolis, Panim Haven, Fairhaven. Dismissed simultaneously under a single Collegium override, no standard review period. She points to the dismissal date, then to the commissioning date Thalen Sunweave identified. The dismissal came first — two weeks before the compound was officially commissioned. "The petitions were closed before the thing they were petitioning about was authorized." The sequence the official record suggests doesn't match the order things actually happened.`;
-        addJournal('investigation', 'Collegium override dismissed 7 glyph petitions before commission — inverts official timeline', `shir-sivren-${G.dayCount}`);
+        addJournal('Collegium override dismissed 7 glyph petitions before commission — inverts official timeline', 'evidence', `shir-sivren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The petition archive is sealed — Collegium ruling, cited on the cover page. Sivren explains this before you can frame the request fully: accessing sealed petition records without Collegium authorization is a compliance violation. A formal notice goes out before the hour is up. Whatever standing you have in this jurisdiction now carries a notation.`;
-        addJournal('complication', 'Petition records sealed — compliance violation notice issued', `shir-sivren-fail-${G.dayCount}`);
+        addJournal('Petition records sealed — compliance violation notice issued', 'complication', `shir-sivren-fail-${G.dayCount}`);
       } else {
         G.flags.met_sivren_coilspire = true;
         G.investigationProgress++;
         G.lastResult = `Sivren confirms the facts without elaborating on their implications. Seven petitions, one ruling, no standard review period. She pulls the ruling reference number and pauses on it. "This administrative category code — I've processed shrine records for six years. I've never seen this code applied to petitions." She writes it down and slides the paper across without further comment.`;
-        addJournal('investigation', 'Mass petition dismissal via unusual Collegium category — no standard review', `shir-sivren-partial-${G.dayCount}`);
+        addJournal('Mass petition dismissal via unusual Collegium category — no standard review', 'evidence', `shir-sivren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -173,12 +173,12 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
         G.lastResult = `You go directly to the Director's office with the full chain laid out in sequence: Tazren's suppressed file, Luneth's delivery gap, Khalis's override-cleared flags, Sivren's inverted timeline, Mirae's off-roster visitor schedule. The Director reads for eleven minutes without speaking. Then: "Priority review. Tazren's case is reinstated as of this morning." The suppression operation now has a formal Bureau record. What comes next begins with institutional backing behind it.`;
-        addJournal('investigation', 'Shirshal S2 finale: Bureau Director reinstates suppressed case', `shir-finale-inst-${G.dayCount}`);
+        addJournal('Shirshal S2 finale: Bureau Director reinstates suppressed case', 'evidence', `shir-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
         G.lastResult = `The Director meeting doesn't happen — the supervisors who buried Tazren's case are between you and the Director's door. Instead you copy the file tonight and hand the copies to the Verdant Row network before dawn. The compliance record inversion goes with it, addressed to every node on the investigative chain. By midday, the suppression operation no longer has cover. The pressure will increase. The operation is now exposed and moving.`;
-        addJournal('investigation', 'Shirshal S2 finale: case file distributed through Verdant Row', `shir-finale-uw-${G.dayCount}`);
+        addJournal('Shirshal S2 finale: case file distributed through Verdant Row', 'evidence', `shir-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

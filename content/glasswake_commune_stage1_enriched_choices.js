@@ -47,7 +47,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 13) {
         G.lastResult = `Sections 7 through 12 of the shard amplification study sit in the catalogue marked "preliminary — pending administrative review." The reclassification is dated fourteen months ago. No review entry exists anywhere in the subsequent record. You find this at a reading table near the archive window, water light broken across the surface of the estuary outside. Those sections describe the amplification mechanism — specifically how certain atmospheric processing compounds interact with shard-dense geology. Reclassifying them as preliminary prevents publication of the interaction model. The part that was suppressed is the part that explains what's happening to Aurora Crown's dome.`;
         G.flags.found_shard_reclassification = true;
-        addJournal('investigation', 'Shard study reclassification: sections 7-12 blocked — describe atmospheric interaction with shard-dense geology matching Aurora Crown', `glasswake-reclassification-${G.dayCount}`);
+        addJournal('Shard study reclassification: sections 7-12 blocked — describe atmospheric interaction with shard-dense geology matching Aurora Crown', 'evidence', `glasswake-reclassification-${G.dayCount}`);
       } else {
         G.lastResult = `The catalogue lists sections 7 through 12 clearly — they're not hidden, just walled off. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then stops herself. "Or any senior researcher," she adds. The correction is too quick. Toman is the name. You'll need to go through him.`;
       }
@@ -73,7 +73,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Toman produces the handwritten summary from a locked drawer in his private workspace, not the research annex. The data is dense but the conclusion is in plain language at the bottom of the third page: glasswake shards act as resonance multipliers for atmospheric compounds within a specific molecular weight range. Dome filtration additives fall exactly within that range. Any dome built over shard-dense geology is vulnerable to exponential compound amplification — introduce the wrong additive and the shards will intensify it beyond what the barrier can hold. He watches you read it. "This was suppressed before it could reach anyone operating a dome."`;
 
         G.flags.obtained_amplification_data = true;
-        addJournal('discovery', 'Shard amplification data obtained: dome filtration additives in resonance range — compound substitution creates exponential feedback loop', `glasswake-amplification-${G.dayCount}`);
+        addJournal('Shard amplification data obtained: dome filtration additives in resonance range — compound substitution creates exponential feedback loop', 'discovery', `glasswake-amplification-${G.dayCount}`);
       } else {
         G.lastResult = `The official channels for accessing unpublished research data require the author's cooperation or an administrative override that the committee controls. Without Toman's trust, neither route opens. He's visible in the research annex during formal hours, giving official statements. You need to earn the version of this conversation that happens after the committee leaves for the day.`;
       }
@@ -97,7 +97,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Five members on the committee. Two have served for years — their names appear in the commune's institutional documents going back a decade. The three appointed eighteen months ago — the same month the reclassification was filed — don't appear in any Glasswake institutional record before their appointment. Their shared professional affiliation is a northern materials research consortium. The appointment category used for them — "cooperative research partnership" — had never been invoked before. The committee's working majority was installed from outside, through a procedural category opened specifically to install them.`;
-        addJournal('investigation', 'Committee: three of five members appointed 18 months ago via unused "cooperative partnership" — external affiliation to northern consortium', `glasswake-committee-${G.dayCount}`);
+        addJournal('Committee: three of five members appointed 18 months ago via unused "cooperative partnership" — external affiliation to northern consortium', 'evidence', `glasswake-committee-${G.dayCount}`);
       } else {
         G.lastResult = `The committee roster is posted in the research hall, current and public. Five names, their areas of expertise, their committee roles. No appointment history on the posting. Tracing how each member arrived requires the archive appointment records, which are accessible during regular archive hours and require a researcher endorsement to pull. You know who's on the committee. How three of them got there is in a room you haven't opened yet.`;
       }
@@ -124,7 +124,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Two researchers are clearly not speaking. They pass within arm's reach without acknowledgment. But fifteen minutes later, a page appears on one's desk that wasn't there before. They've developed a non-verbal exchange system. Whatever divided them publicly, they're still communicating.`;
       }
-      addJournal('investigation', 'Research quarter evening: distributed material caching, simplified public display, unofficial building paths, covert communication', `glasswake-quarter-read-${G.dayCount}`);
+      addJournal('Research quarter evening: distributed material caching, simplified public display, unofficial building paths, covert communication', 'evidence', `glasswake-quarter-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -195,7 +195,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `A courier log at the commune's outgoing mail station shows three of the committee's new members receive weekly sealed correspondence from a northern address — marked "Northern Materials Consortium, Scientific Affairs." The timing of each correspondence batch correlates with subsequent committee decisions: reclassification orders, denial of research access, extension of review period. The consortium is directing the committee's decisions through weekly instruction cycles.`;
         if (!G.flags) G.flags = {};
         G.flags.found_committee_correspondence = true;
-        addJournal('discovery', 'Committee correspondence: weekly instructions from Northern Materials Consortium precede each suppression decision', `glasswake-correspondence-${G.dayCount}`);
+        addJournal('Committee correspondence: weekly instructions from Northern Materials Consortium precede each suppression decision', 'discovery', `glasswake-correspondence-${G.dayCount}`);
       } else if (result.total >= 11) {
         G.lastResult = `You find evidence of regular correspondence between two committee members and an external address. The correspondence is sealed and you can't read the content, but the frequency and timing is notable.`;
       } else {
@@ -239,7 +239,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The Regional Science Review acknowledges receiving the submission but records it as "declined pending further review by the submitting institution." The institution that requested the delay: the Northern Materials Consortium, who are listed as a "reviewing partner" for geological and atmospheric research. The consortium blocked publication by inserting themselves as a mandatory review step — through a journal agreement that was signed one month before Toman submitted. The agreement was timed.`;
         if (!G.flags) G.flags = {};
         G.flags.traced_publication_suppression = true;
-        addJournal('investigation', 'Publication suppressed via timed journal review agreement — Northern Materials Consortium inserted mandatory review one month before submission', `glasswake-publication-${G.dayCount}`);
+        addJournal('Publication suppressed via timed journal review agreement — Northern Materials Consortium inserted mandatory review one month before submission', 'evidence', `glasswake-publication-${G.dayCount}`);
       } else {
         G.lastResult = `The Science Review acknowledges the submission was received and deferred but cites institutional review requirements they're not able to detail without the reviewing institution's permission.`;
       }
@@ -257,7 +257,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'reading shard gallery curation');
 
       G.lastResult = `The gallery emphasizes glasswake shards as aesthetic objects — beautiful, decorative, spiritually significant. The resonance properties that make them scientifically important are described in one small panel using language that sounds like poetry and explains nothing. The gallery was recently updated: the older interpretation panels, which mentioned the amplification potential, have been replaced. The commune's own public educational material has been revised to make the shards less scientifically interesting. The gallery is curation as suppression.`;
-      addJournal('discovery', 'Shard gallery: amplification properties removed from public interpretation panels, replaced with aesthetic/spiritual framing', `glasswake-gallery-${G.dayCount}`);
+      addJournal('Shard gallery: amplification properties removed from public interpretation panels, replaced with aesthetic/spiritual framing', 'discovery', `glasswake-gallery-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -298,7 +298,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The two original commune researchers voted against reclassification. The three externally-appointed members voted for it. A three-to-two majority carried the motion. The original researchers formally registered their dissent in the minutes — their objection is part of the record, but the record is classified under the same order that classified the research. The dissent is buried with the evidence it objected to.`;
         if (!G.flags) G.flags = {};
         G.flags.obtained_vote_record = true;
-        addJournal('investigation', 'Vote record: 3-2 split on external/internal lines, dissent registered but buried with classified research', `glasswake-vote-${G.dayCount}`);
+        addJournal('Vote record: 3-2 split on external/internal lines, dissent registered but buried with classified research', 'evidence', `glasswake-vote-${G.dayCount}`);
       } else {
         G.lastResult = `Vote records are part of the classified administrative proceedings. Without a senior committee member sharing them informally, official access requires external authority.`;
       }
@@ -322,7 +322,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The Northern Materials Consortium holds licensing rights to the specific filtration additive class that the shard amplification data would implicate. If the data is published, their additives are identified as dangerous in shard-geology environments — which describes every dome settlement in the region. Their product category would require reformulation or withdrawal. The suppression isn't scientific conservatism — it's commercial liability protection. They're suppressing data that would destroy a revenue stream.`;
-        addJournal('investigation', 'Consortium benefit: holds licensing rights to implicated additive class — suppression protects commercial liability', `glasswake-benefit-${G.dayCount}`);
+        addJournal('Consortium benefit: holds licensing rights to implicated additive class — suppression protects commercial liability', 'evidence', `glasswake-benefit-${G.dayCount}`);
       } else {
         G.lastResult = `The consortium's commercial interests in the relevant compound categories are publicly registered but understanding the full liability exposure requires a specific understanding of the research implications.`;
       }
@@ -370,7 +370,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
       G.lastResult = `Community whisper: "${selected}." The commune is aware that something wrong is happening — they just don't have the full shape of it yet.`;
-      addJournal('investigation', `Glasswake commune rumor: "${selected}"`, `glasswake-rumor-${G.dayCount}`);
+      addJournal(`Glasswake commune rumor: "${selected}"`, 'evidence', `glasswake-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -385,7 +385,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(52, 'seeing active research space');
 
       G.lastResult = `After hours, Toman's lab is alive in a way it isn't during official time. Equipment running. Notes spread. He works the way someone works when they know they're right and can't stop. Three shard samples are positioned in a measuring frame he built himself — not standard equipment, a custom rig for precise resonance capture. "I've been refining the measurement protocol," he says without looking up. "When they finally release this research, it needs to be irrefutable." He's still building the evidence that's already been suppressed.`;
-      addJournal('discovery', 'Toman\'s lab: still actively refining suppressed research, building irrefutable measurement protocol', `glasswake-lab-night-${G.dayCount}`);
+      addJournal('Toman\'s lab: still actively refining suppressed research, building irrefutable measurement protocol', 'discovery', `glasswake-lab-night-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -402,7 +402,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `A study published thirty years ago by a Glasswake founder describes observing "unexpected atmospheric interaction with shard-adjacent processing compounds." The observation was listed as an anomaly requiring future study. No follow-up was funded for twenty years. When Toman finally followed up, the committee suppressed his findings. The anomaly has been known for three decades. It's been deliberately under-investigated, then suppressed when finally studied.`;
-        addJournal('investigation', 'Predecessor study: anomaly known for 30 years, deliberately under-investigated, suppressed when finally studied', `glasswake-predecessor-${G.dayCount}`);
+        addJournal('Predecessor study: anomaly known for 30 years, deliberately under-investigated, suppressed when finally studied', 'evidence', `glasswake-predecessor-${G.dayCount}`);
       } else {
         G.lastResult = `The predecessor studies exist but the relevant anomaly observation is in a supplementary appendix that was never referenced in subsequent research. Easy to miss unless you know what you're looking for.`;
       }
@@ -428,7 +428,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The consortium has a "sample acquisition office" registered at a northern-quarter address in Glasswake. Listed as a commercial mineral buying operation. Two staff members. But the building has more communication equipment than a sample buyer would need — and receives courier deliveries addressed to the committee members through the sample office's address. The office is the instruction relay. Committee members receive their directives through what looks like a commercial address.`;
         if (!G.flags) G.flags = {};
         G.flags.found_consortium_relay = true;
-        addJournal('investigation', 'Northern Materials Consortium relay office: commercial cover, instruction delivery channel for committee members', `glasswake-consortium-presence-${G.dayCount}`);
+        addJournal('Northern Materials Consortium relay office: commercial cover, instruction delivery channel for committee members', 'evidence', `glasswake-consortium-presence-${G.dayCount}`);
       } else {
         G.lastResult = `The consortium has a registered address but it presents as a routine commercial operation. Documenting its real function requires either surveillance or internal access.`;
       }
@@ -464,7 +464,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'observing glasswake shards at dawn');
 
       G.lastResult = `The shards catch first light differently from anything you've seen — not reflected, refracted into spectrum bands that shift as the sun angle changes. They don't glow. They translate. Light comes in white and leaves changed. Watching it, you understand why a community built its identity around studying these things. You also understand what would be lost if that study is permanently closed off. The shards are still doing what they always did. The suppression hasn't stopped that. It's only stopped people understanding it.`;
-      addJournal('discovery', 'Glasswake shards at dawn: light translation properties visible — the phenomena continues despite suppressed study', `glasswake-dawn-${G.dayCount}`);
+      addJournal('Glasswake shards at dawn: light translation properties visible — the phenomena continues despite suppressed study', 'discovery', `glasswake-dawn-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },

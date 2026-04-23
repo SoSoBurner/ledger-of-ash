@@ -9,7 +9,7 @@ var SHERESH_STAGE1 = (function() {
     G.flags.sheresh_memory_gap_found = true;
     G.recentOutcomeType = 'discovery';
     G.investigationProgress = Math.max(G.investigationProgress || 0, 2);
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     if (typeof addNarration === 'function') addNarration('Commune Registry', G.lastResult);
 
     setTimeout(function() {
@@ -35,7 +35,7 @@ var SHERESH_STAGE1 = (function() {
       G.lastResult = 'The elder you find looks at the blank line and suggests a transcription error — her voice flat and practiced, as if she has rehearsed exactly this answer. She does not meet your eyes when she says it. She changes the subject before you can ask a follow-up question and keeps her back to you until you leave the room.';
       G.flags.sheresh_elder_uncooperative = true;
     }
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     _closeWithHint();
   }
 
@@ -50,7 +50,7 @@ var SHERESH_STAGE1 = (function() {
     } else {
       G.lastResult = 'The secondary ledger has water damage along the bottom third of every page in the relevant year-range. You find one certification entry that could match — healer, river district, the right approximate period — but the name block is unreadable. You cannot confirm it. An afternoon in a damp room with nothing to show for it except a possible that stays possible.';
     }
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     _closeWithHint();
   }
 
@@ -61,7 +61,7 @@ var SHERESH_STAGE1 = (function() {
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.isolation = (G.worldClocks.isolation || 0) + 1;
     G.investigationProgress = Math.max(G.investigationProgress || 0, 3);
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     _closeWithHint();
   }
 

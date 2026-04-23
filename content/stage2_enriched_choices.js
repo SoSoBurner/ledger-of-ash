@@ -21,11 +21,11 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The maps look convincing — ink weight, road names, distance markers. You don't notice the divergence until you're two hours into terrain that ends at a flooded ravine. The figure in the cloak is long gone. The Ridgeway doesn't forgive poor judgment easily.`;
-        addJournal('complication', 'Misled by false information', `false-maps-${G.dayCount}`);
+        addJournal('Misled by false information', 'complication', `false-maps-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The trader answers questions with questions. What you get is real enough — two confirmed checkpoints, one road closure, and one stretch marked dangerous without explanation. What they're holding back is legible in the pauses. It's enough to move on.`;
-        addJournal('intelligence', 'Partial map data', `maps-partial-${G.dayCount}`);
+        addJournal('Partial map data', 'intelligence', `maps-partial-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'travel';
@@ -49,7 +49,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The unstable ground is looser than the merchants described, but you read it right — step weight, grip angle, the way water drains off the shelf rock. Halfway through, a depression in the hillside holds old supply crates, sealed with wax cloth, abandoned in good condition. Three days of provisions and a copy of a regional transit map.`;
-        addJournal('discovery', 'Supply cache found', `cache-${G.dayCount}`);
+        addJournal('Supply cache found', 'discovery', `cache-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The terrain is active. A slope that looked solid gives way under weight and you slide forty feet before catching a root cluster. Supplies scatter. One pack goes over the edge entirely. The ankle is wrenched, not broken, but every step for the next two days will cost something.`;
@@ -85,7 +85,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The captain's jaw tightens at the third counter-offer. He points at the far bank and tells you to find another way across. By the time you reach the next settlement, two ferrymen there have already heard a description of you. The river trade talks to itself.`;
-        addJournal('complication', 'Reputation damage', `rep-${G.dayCount}`);
+        addJournal('Reputation damage', 'complication', `rep-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `He adds a docking surcharge that wasn't mentioned at the start. You pay it. He doesn't apologize. The crossing is quiet, the water is cold, and you arrive on the far bank with lighter coin and no further complications.`;
@@ -181,7 +181,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The checkpoint warden separates the group for individual questioning — standard procedure that you didn't account for. The scholar's papers don't hold up to direct comparison. You spend two hours being questioned about how you met. The warden lets you go, but writes your description into the duty log before you leave.`;
-        addJournal('complication', 'Authority suspicion', `authority-${G.dayCount}`);
+        addJournal('Authority suspicion', 'complication', `authority-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You walk with him as far as the next waystation and point him toward a route that avoids the main checkpoints. He gives you a name in the next locality — someone who can be asked for help without explanation. No promises on either side. That's enough.`;
@@ -209,7 +209,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The pulse pattern is steady — not flame, not signal fire, but a slow blue-white throb spaced at equal intervals. Warden-stone markers, placed along maintained transit routes. Someone maintains this waypoint and expects people to recognize it. The shelter is stocked: water, a sealed candle, a district transit chart current to within two months.`;
-        addJournal('discovery', 'Safe waypoint found', `waypoint-${G.dayCount}`);
+        addJournal('Safe waypoint found', 'discovery', `waypoint-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The lights pulse in a pattern that looks like a rest signal, and you move toward them. The ground between you and the source is occupied. They had a rope across the path. The next few minutes are ugly. You get clear, but you're down coin and one piece of kit that was worth more than the coin.`;
@@ -305,11 +305,11 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You dress wounds and distribute what food you can spare while listening. The picture that emerges across a dozen conversations is specific: not a natural disaster but a supply collapse, water access cut without notice, the district authority absent during the worst three days. One woman describes the order to evacuate coming from someone she'd never seen before, wearing a guild mark she didn't recognize. You write down the mark's description.`;
-        addJournal('intelligence', 'Disaster intelligence gathered', `disaster-${G.dayCount}`);
+        addJournal('Disaster intelligence gathered', 'intelligence', `disaster-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The crowd draws a patrol within twenty minutes. The wardens want to know who organized the aid distribution and under what authorization. They take your name and the name of anyone you were visibly speaking with. The refugees scatter. The questioning takes the rest of the afternoon.`;
-        addJournal('complication', 'Official scrutiny', `scrutiny-${G.dayCount}`);
+        addJournal('Official scrutiny', 'complication', `scrutiny-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You hand out bread and water and keep your ears open. The story is consistent: three days of something, then a fast evacuation order, then the road. Nobody agrees on the cause. One man says flooding, another says a fire, a third won't say anything specific and keeps looking at the road behind him. The region is unstable. That much is clear.`;
@@ -375,7 +375,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `They talk to each other — faster than you expected, through a channel you didn't know they shared. By the time you reach your next meeting, both know you've been running parallel conversations. The first faction's representative doesn't raise her voice. She just slides your proposal back across the table and says she doesn't think this is a productive relationship.`;
-        addJournal('complication', 'Factional suspicion', `susp-${G.dayCount}`);
+        addJournal('Factional suspicion', 'complication', `susp-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The faction offering protection is more reliable than the one offering coin. You make that calculation and say so plainly. The chosen faction accepts without ceremony. The other will hear about it. That tension will show up later, probably at a bad time.`;
@@ -435,7 +435,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The door is unlatched — a rotation error, or someone was careless. Inside: a cot, a locked box, a transit schedule pinned above the window. You copy the schedule and leave without touching anything else. The transit dates match three known cargo movements you've been watching. This is where they coordinate the overlap.`;
-        addJournal('intelligence', 'Safehouse intelligence', `safe-${G.dayCount}`);
+        addJournal('Safehouse intelligence', 'intelligence', `safe-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `Someone is already inside when you push the door. The next few seconds are fast and loud. You get out, but not unseen. By evening, three people in the district have your description and instructions to pass it up the faction's chain. Staying in this area stops being a reasonable option.`;
@@ -443,7 +443,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You map the building from outside — entry points, window positions, the foot traffic pattern around the door at different hours. You don't go in, but you know the location and enough of the rhythm to work with later. The faction doesn't know you've been watching. That margin is worth keeping.`;
-        addJournal('intelligence', 'Safehouse mapped', `map-${G.dayCount}`);
+        addJournal('Safehouse mapped', 'intelligence', `map-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'faction';
@@ -475,7 +475,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `She gets clear, but not cleanly. Some of her documents had to be left behind. What she carries out is partial — enough to confirm the faction's structure and two key personnel, but not the operational calendar she promised. She's alive and out. That's the larger part of what mattered.`;
-        addJournal('intelligence', 'Partial defection info', `partial-${G.dayCount}`);
+        addJournal('Partial defection info', 'intelligence', `partial-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'faction';
@@ -503,7 +503,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You call one side's position unreasonable in front of the other. That's the moment it breaks. The insulted group walks out, taking two other members with them. The faction leadership thanks you for your time with the particular flatness of people who will not be repeating this experiment. The internal split is now an open fracture.`;
-        addJournal('complication', 'Mediation failure', `med-fail-${G.dayCount}`);
+        addJournal('Mediation failure', 'complication', `med-fail-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `Both sides agree to a cooling period — thirty days, no new grievances filed, no escalation. They accept it because they're tired, not because you convinced them. The faction leadership notes that you held the room together, which is more than the previous attempt managed. No one is happy. No one is leaving either.`;
@@ -531,7 +531,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The body is posed — positioned after death to look like a fall, which means someone moved it with specific intent. The operative's satchel is gone, but the lining of his boot holds a folded slip: a meeting location, a date, a single glyph mark you recognize from a rival faction's correspondence. He was killed before the meeting could happen. You arrive at the meeting point anyway and wait. Someone else shows up, and they're just as surprised to see you.`;
-        addJournal('intelligence', 'Operative assassination solved', `death-${G.dayCount}`);
+        addJournal('Operative assassination solved', 'intelligence', `death-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You're still crouched over the body when you hear movement behind you. Whoever left the operative there didn't go far. They see your face and make a calculation. You put distance between yourself and the location fast, but not before they've had enough time to decide what to do with what they saw.`;
@@ -539,7 +539,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The death is clean and recent — within the last six hours. No defensive wounds, no struggle marks on the ground nearby. The operative either trusted whoever did this or had no warning. His faction mark is removed but the spot where it sat is still visible on his jacket collar. This was deliberate and organized, not opportunistic.`;
-        addJournal('intelligence', 'Operative death noted', `noted-${G.dayCount}`);
+        addJournal('Operative death noted', 'intelligence', `noted-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'faction';
@@ -567,7 +567,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `One of the people you approached went directly to the regional authority. By morning, the authority has a description of your activities and a name that's connected to the faction that sent you. The region now holds something you can't take back — and they're deciding what to do with it.`;
-        addJournal('complication', 'Espionage discovered', `espy-${G.dayCount}`);
+        addJournal('Espionage discovered', 'complication', `espy-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You make three reliable connections — a market assessor, a road warden, a hostel keeper. Each has a legitimate reason to know what moves through the region. The information won't be comprehensive and it won't be fast, but it will be consistent. Careful work, done at the right pace.`;
@@ -633,7 +633,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You push harder than the moment warrants. They answer your questions in single sentences, then stop answering. By the evening meal they're physically present but unreachable — their posture closed, their eyes on the middle distance. You've put something between you that wasn't there before, and they're not going to be the one to move it.`;
-        addJournal('complication', 'Companion distance', `dist-${G.dayCount}`);
+        addJournal('Companion distance', 'complication', `dist-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You accept the explanation without pressing further. They can tell you're not fully satisfied with it, and they don't pretend otherwise. The relationship doesn't break but it recalibrates — less ease, more care on both sides. Whatever the full truth is, it stays where it is for now.`;
@@ -887,15 +887,15 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The scout names his price and you pay it without counter-offering. He notices and spreads the maps properly — not folded loose but weighted at the corners. He walks you through each checkpoint: who runs it, what they're actually checking for, which shift changes on which day. Current within the week. You leave with something genuinely useful.`;
-        addJournal('intelligence', 'Route maps acquired', `maps-${G.dayCount}`);
+        addJournal('Route maps acquired', 'intelligence', `maps-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You push down on the price twice. The scout smiles and takes what you offer. The maps he gives you are technically accurate — for a route that was closed four months ago. You don't discover this until you're standing at a checkpoint that's been decommissioned and replaced by something stricter, three hours in the wrong direction.`;
-        addJournal('complication', 'Misinformed', `misinf-${G.dayCount}`);
+        addJournal('Misinformed', 'complication', `misinf-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You pay mid-range and get mid-range. The information covers the main checkpoints and one alternate route without much detail on timing or personnel. Enough to move forward with some confidence but not enough to plan around complications. The scout was fair. So were you.`;
-        addJournal('intelligence', 'Route information obtained', `info-${G.dayCount}`);
+        addJournal('Route information obtained', 'intelligence', `info-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'intelligence';
@@ -919,7 +919,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The cipher is institutional — a format used across multiple administrative bodies rather than a personal code. Once you have the register key, the messages read clearly: a coordinated tightening of three transit routes, timed to a fiscal quarter. Not a response to any threat. Pre-planned. The restriction isn't reactive — it's a mechanism. The messages lay out the schedule across the next two months.`;
-        addJournal('intelligence', 'Institutional strategy decoded', `decode-${G.dayCount}`);
+        addJournal('Institutional strategy decoded', 'intelligence', `decode-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The cipher has a detection thread — a glyph sequence that activates on unauthorized access. You didn't see it in time. The message is now blank in your hands and whoever sent it has a notification that their communication was opened. Your position relative to the message's interception point is traceable.`;
@@ -927,7 +927,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You get through the first layer of the cipher but the second layer holds. What you can read confirms that the restrictions are coordinated and timed — not ad hoc — and that at least two administrative bodies are involved. The specific details of what they're restricting and why remain in the encoded sections.`;
-        addJournal('intelligence', 'Partial message decoded', `part-decode-${G.dayCount}`);
+        addJournal('Partial message decoded', 'intelligence', `part-decode-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'intelligence';
@@ -959,7 +959,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You keep contact brief and don't ask for everything at once. The spy gives you a structured summary — key personnel, two active operations, one upcoming audit that will expose gaps in the institution's own records. You don't push for the source documentation. The relationship stays intact and workable for future access.`;
-        addJournal('intelligence', 'Spy contact established', `spy-contact-${G.dayCount}`);
+        addJournal('Spy contact established', 'intelligence', `spy-contact-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'intelligence';
@@ -983,7 +983,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `They travel in a group of three with a deliberate walking pace — projecting routine, not urgency. You stay one street parallel and watch through the market stalls. They stop at a private building that has no public signage. One of them checks behind them twice before going in. You get close enough to the side passage to hear the first three words of the briefing before the door closes: "scheduled for removal." You note the building, the personnel count, and the direction they came from.`;
-        addJournal('intelligence', 'Institutional objective revealed', `obj-${G.dayCount}`);
+        addJournal('Institutional objective revealed', 'intelligence', `obj-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `One of the group doubles back through a side lane — a counter-surveillance maneuver that works exactly as intended. You're standing still when they come around the corner behind you. They look at you with the particular attention of someone who is paid to notice people following them. Nobody says anything. They continue on. But the official party now knows their route had a tail.`;
@@ -991,7 +991,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `They go into a building at the district's administrative edge. You note the address and the time. Two hours later they leave the same way they came in. You have a location, a duration, and the fact that three senior personnel considered whatever happened inside worth the walk. That's the start of something, not the end.`;
-        addJournal('intelligence', 'Institutional meeting site mapped', `site-${G.dayCount}`);
+        addJournal('Institutional meeting site mapped', 'intelligence', `site-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'intelligence';
@@ -1019,7 +1019,7 @@
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You agree to more than you can deliver — three safe houses when you have one, protection capacity beyond your actual reach. The lead scout nods and takes the agreement at face value. Two weeks later, when the first test of your commitment comes and you can't fulfill what you promised, the word travels through the circuit faster than you do. The network closes its doors.`;
-        addJournal('complication', 'Network broken trust', `break-${G.dayCount}`);
+        addJournal('Network broken trust', 'complication', `break-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You negotiate a trial period — sixty days, one safe house, and route updates on a best-effort basis. The lead scout accepts this without enthusiasm but without objection. The information that comes in is sporadic but generally reliable. The relationship is functional if not strong. It can grow from here, if you keep your side of it.`;
@@ -1047,7 +1047,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The cipher is standard Compact administrative encoding — familiar to you from the border documentation you've seen. Once broken, the documents read as a complete picture: three coordinated parties, two transit routes used for non-declared cargo, and a schedule of payments routed through a shell entity whose name appears in the Iron Ledger Ward records. The messenger was carrying confirmation of the arrangement, not orders. Someone killed a courier to stop confirmation, which means the arrangement is still live.`;
-        addJournal('intelligence', 'Conspiracy uncovered', `cons-${G.dayCount}`);
+        addJournal('Conspiracy uncovered', 'intelligence', `cons-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You spend an hour with the documents before you notice the location tag on the messenger's boot — a marking used by courier networks to note where a message was collected. Someone in the network tracks their people that way. By the time you've worked this out, you're back on the road, and by the next morning there's a second figure on your trail who wasn't there before. They don't approach. They just stay at range and watch.`;
@@ -1055,7 +1055,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The first layer decodes to a transit schedule with route codes you don't immediately recognize. You get through enough to map three delivery dates and two pickup locations before the second cipher layer stops you. The routing information is current and specific. It's half the picture — but the half that tells you where to look next.`;
-        addJournal('intelligence', 'Partial documents decrypted', `partial-doc-${G.dayCount}`);
+        addJournal('Partial documents decrypted', 'intelligence', `partial-doc-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'intelligence';
@@ -1079,7 +1079,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `The breach window is narrow — twelve minutes between the first alarm and the physical seal of the building's secondary stacks. You go straight to the row you've been tracking: freight authorization records, six months back. You pull twelve documents and copy three in full before the room begins to empty. You're outside and two streets away when the lockdown closes. What you have is specific, recent, and already useful.`;
-        addJournal('intelligence', 'Archives breached successfully', `breach-${G.dayCount}`);
+        addJournal('Archives breached successfully', 'intelligence', `breach-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The breach alert triggers faster than the external pattern suggested — someone was watching the reading room specifically. The lockdown seals before you reach the secondary exit. The warden personnel who find you in the stacks take your name before they allow you to leave. You're not detained. But your name and description are now in the incident log, and the institution's security review will include you.`;
@@ -1087,7 +1087,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You get four documents out before the lockdown closes the secondary stacks. Three are useful, one is administrative noise. The exit is rushed — you leave through the public reading room just as the wardens begin clearing it, and nobody looks twice at someone already walking toward the door. The partial access is real intelligence. It's just not complete.`;
-        addJournal('intelligence', 'Partial archive access', `part-arch-${G.dayCount}`);
+        addJournal('Partial archive access', 'intelligence', `part-arch-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'intelligence';

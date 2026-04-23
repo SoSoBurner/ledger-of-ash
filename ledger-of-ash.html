@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -142,19 +142,26 @@
   --modal-bg:      #1a0e08;
   --border-gold:   #4a3010;
 
+  /* ── Typography */
+  --font-display:  'Cinzel', serif;
+  --font-body:     system-ui, -apple-system, 'Segoe UI', sans-serif;
+
   /* ── Texture */
   --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 /* ═══ GLOBAL ══════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; overflow: hidden; }
 body {
   margin: 0; padding: 0;
+  height: 100%; overflow: hidden;
   font-family: 'Crimson Pro', Georgia, serif;
   background: var(--ash);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  zoom: 1.1;
 }
 input, button, select, textarea { font-family: inherit; }
 
@@ -242,7 +249,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 
 .title-eyebrow {
-  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 9px;
+  font-family: var(--font-display); font-size: 10px; letter-spacing: 9px;
   color: var(--ember-hi); text-transform: uppercase;
   margin-bottom: 32px; opacity: .75;
   animation: fadeUp .6s .08s ease both;
@@ -250,7 +257,7 @@ input, button, select, textarea { font-family: inherit; }
 
 /* The title — weathered stone with ember light from below */
 .title-main {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: clamp(56px, 10.5vw, 114px);
   font-weight: 700;
   color: var(--gold-pale);
@@ -297,11 +304,11 @@ input, button, select, textarea { font-family: inherit; }
   color: var(--ink-faint); margin-bottom: 20px; line-height: 1.6;
 }
 .title-pin-row { display: flex; gap: 10px; justify-content: center; margin-bottom: 10px; }
-.title-error { color: var(--blood-bright); font-size: 13px; margin-top: 6px; font-family: 'Cinzel', serif; letter-spacing: 1px; }
+.title-error { color: var(--blood-bright); font-size: 13px; margin-top: 6px; font-family: var(--font-display); letter-spacing: 1px; }
 .title-actions { display: flex; flex-direction: column; gap: 12px; animation: fadeUp .9s .50s ease both; }
 .title-version {
   position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
-  font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 3px;
+  font-family: var(--font-display); font-size: 8px; letter-spacing: 3px;
   color: var(--ink-faint); text-transform: uppercase; white-space: nowrap;
   opacity: .6;
 }
@@ -324,7 +331,7 @@ input, button, select, textarea { font-family: inherit; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   border: none; border-radius: 2px; cursor: pointer; font-weight: 600;
-  transition: all .18s ease; font-family: 'Cinzel', serif;
+  transition: all .18s ease; font-family: var(--font-display);
   text-transform: uppercase; letter-spacing: 1.5px;
 }
 .btn-primary {
@@ -369,8 +376,9 @@ input, button, select, textarea { font-family: inherit; }
   background:
     radial-gradient(ellipse 60% 40% at 50% 80%, rgba(90,30,4,.20) 0%, transparent 60%),
     linear-gradient(170deg, #0d0b16 0%, var(--ash) 100%);
-  height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+  height: 100vh; flex-direction: column; overflow: hidden;
 }
+#screen-create.active { display: flex; }
 .create-header-bar {
   display: flex; justify-content: space-between; align-items: center;
   padding: 20px 28px; border-bottom: 1px solid var(--border-warm);
@@ -379,7 +387,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 #begin-btn { padding: 14px 48px; font-size: 13px; letter-spacing: 2px; }
 .create-header-title {
-  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700;
+  font-family: var(--font-display); font-size: 13px; font-weight: 700;
   color: var(--gold-bright); letter-spacing: 3px; text-transform: uppercase;
   text-shadow: 0 0 30px rgba(200,80,16,.3);
 }
@@ -398,18 +406,19 @@ input, button, select, textarea { font-family: inherit; }
 .create-right-inner {
   width: 100%; max-width: 440px; padding: 48px 40px;
   display: flex; flex-direction: column; gap: 0;
+  font-size: 115%; font-family: var(--font-body);
 }
 .create-prompt {
-  font-family: 'Crimson Pro', serif; font-size: 17px; font-style: italic;
+  font-family: var(--font-body); font-size: 15px; font-weight: 400;
   color: var(--ink-faint); line-height: 1.9; text-align: center;
   opacity: 1; transition: opacity .4s ease;
 }
 .create-prompt.hidden { opacity: 0; pointer-events: none; height: 0; overflow: hidden; }
 .create-subtitle {
-  font-family: 'Crimson Pro', serif; font-size: 16px; font-style: italic;
+  font-family: var(--font-body); font-size: 14px; font-weight: 400;
   color: var(--ink-dim); margin-bottom: 30px; line-height: 1.68; text-align: center;
 }
-.create-hint { color: var(--ink-faint); font-size: 13px; margin-bottom: 12px; line-height: 1.5; font-style: italic; }
+.create-hint { color: var(--ink-faint); font-size: 13px; margin-bottom: 12px; line-height: 1.5; font-family: var(--font-body); }
 .create-step {
   margin-bottom: 22px; padding: 20px;
   background: linear-gradient(180deg, var(--char) 0%, rgba(12,10,20,.95) 100%);
@@ -419,7 +428,7 @@ input, button, select, textarea { font-family: inherit; }
   box-shadow: 0 4px 16px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.03);
 }
 .step-label {
-  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px;
+  font-family: var(--font-display); font-size: 9px; letter-spacing: 3px;
   color: var(--ember-hi); text-transform: uppercase; margin-bottom: 16px;
 }
 .name-input {
@@ -436,7 +445,7 @@ input, button, select, textarea { font-family: inherit; }
   width: 100%; background: transparent;
   border: none; border-top: 1px solid var(--border-warm);
   padding: 0; margin: 0;
-  font-family: 'Crimson Pro', serif; font-size: 15px; font-style: italic;
+  font-family: var(--font-body); font-size: 15px; font-style: normal;
   color: var(--ink-dim); line-height: 1.78;
   opacity: 0; max-height: 0; overflow: hidden;
   transition: opacity .4s ease, max-height .4s ease, padding .4s ease;
@@ -448,7 +457,7 @@ input, button, select, textarea { font-family: inherit; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 8px; }
 .archetype-group { margin-bottom: 22px; }
 .archetype-group-label, .group-header {
-  font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 3px;
+  font-family: var(--font-display); font-size: 8px; letter-spacing: 3px;
   color: var(--storm-hi); text-transform: uppercase;
   margin-bottom: 12px; padding: 10px 4px 8px;
   border-bottom: 1px solid var(--border);
@@ -479,11 +488,11 @@ input, button, select, textarea { font-family: inherit; }
   box-shadow: 0 0 20px rgba(200,80,16,.2), 0 4px 16px rgba(0,0,0,.4);
 }
 .card-name {
-  font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold-bright);
+  font-family: var(--font-display); font-size: 12px; color: var(--gold-bright);
   font-weight: 600; margin-bottom: 4px; letter-spacing: 1px;
 }
-.card-desc { font-size: 11px; color: var(--ink-dim); line-height: 1.45; font-family: 'Crimson Pro', serif; }
-.card-tag { font-size: 8px; color: var(--ember-hi); font-family: 'Cinzel', serif; letter-spacing: 1px; margin-top: 7px; text-transform: uppercase; }
+.card-desc { font-size: 11px; color: var(--ink-dim); line-height: 1.45; font-family: var(--font-body); }
+.card-tag { font-size: 8px; color: var(--ember-hi); font-family: var(--font-display); letter-spacing: 1px; margin-top: 7px; text-transform: uppercase; }
 
 
 /* ═══ GAME SCREEN STRUCTURE ══════════════════════════════════════ */
@@ -515,12 +524,12 @@ input, button, select, textarea { font-family: inherit; }
 }
 .topbar-brand { display: flex; align-items: center; gap: 12px; }
 .game-title {
-  font-family: 'Cinzel', serif; font-size: 14.3px; font-weight: 700;
+  font-family: var(--font-display); font-size: 14.3px; font-weight: 700;
   color: var(--gold-bright); letter-spacing: 3px; text-transform: uppercase;
   text-shadow: 0 0 24px rgba(200,80,16,.35);
 }
 .stage-pill {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px;
   text-transform: uppercase; padding: 2px 9px; border-radius: 2px;
   background: var(--storm-lo); border: 1px solid var(--storm);
   color: var(--storm-hi);
@@ -540,7 +549,7 @@ input, button, select, textarea { font-family: inherit; }
   width: 0%;
 }
 #hud-safe-streak {
-  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 9px; letter-spacing: 1px;
   color: var(--gold-dim); opacity: 0.8; margin: 1px auto 0;
   text-align: center; display: none;
 }
@@ -548,7 +557,7 @@ input, button, select, textarea { font-family: inherit; }
   display: none; margin: 3px auto 0; text-align: center;
 }
 #hud-case-file-label {
-  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 9px; letter-spacing: 1px;
   color: var(--ink-faint); text-transform: uppercase; display: block;
 }
 #hud-case-file-track {
@@ -562,13 +571,13 @@ input, button, select, textarea { font-family: inherit; }
   border-radius: 2px; transition: width .4s ease; width: 0%;
 }
 #hud-case-file-count {
-  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 9px; letter-spacing: 1px;
   color: var(--storm-hi); display: block; margin-top: 1px;
 }
 .topbar-nav { display: flex; align-items: center; gap: 1px; }
 .tnav-btn {
   background: transparent; border: none; cursor: pointer;
-  font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px;
   text-transform: uppercase; color: var(--ink-faint);
   padding: 6px 11px; border-radius: 2px; transition: color .15s, background .15s;
   position: relative;
@@ -626,22 +635,22 @@ input, button, select, textarea { font-family: inherit; }
   border-bottom: 1px solid var(--border-em);
 }
 .l-name {
-  font-family: 'Cinzel', serif; font-size: 16.5px; font-weight: 700;
+  font-family: var(--font-display); font-size: 16.5px; font-weight: 700;
   color: var(--gold-pale); letter-spacing: 1px; line-height: 1.1;
   margin-bottom: 5px; word-break: break-word;
   text-shadow: 0 0 20px rgba(200,80,16,.20);
 }
 .l-meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 4px; }
 .l-class {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px;
   color: var(--ember-hi); text-transform: uppercase;
 }
 .l-align {
-  font-family: 'Crimson Pro', serif; font-size: 12.1px; color: var(--storm-hi);
-  font-style: italic; text-align: right; flex-shrink: 0;
+  font-family: var(--font-display); font-size: 11px; letter-spacing: 1px; color: var(--storm-hi);
+  text-align: right; flex-shrink: 0;
 }
 /* Engine sets these class names on #hud-alignment */
-.align-label     { font-family: 'Crimson Pro', serif; font-size: 12.1px; color: var(--storm-hi); font-style: italic; }
+.align-label     { font-family: var(--font-display); font-size: 11px; letter-spacing: 1px; color: var(--storm-hi); }
 .align-label.good    { color: var(--jade-bright); }
 .align-label.evil    { color: var(--blood-bright); }
 .align-label.lawful  { color: var(--gold-bright); }
@@ -657,11 +666,11 @@ input, button, select, textarea { font-family: inherit; }
 .l-progress { padding: 11px 14px 10px; }
 .l-prog-row  { display: flex; justify-content: space-between; align-items: baseline; }
 .l-prog-key  {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px;
   text-transform: uppercase; color: var(--ink-faint);
 }
 .l-prog-val  {
-  font-family: 'Cinzel', serif; font-size: 26.4px; font-weight: 700;
+  font-family: var(--font-display); font-size: 26.4px; font-weight: 700;
   color: var(--gold-pale); line-height: 1;
   text-shadow:
     0 0 28px rgba(200,80,16,.40),
@@ -677,11 +686,11 @@ input, button, select, textarea { font-family: inherit; }
 .l-vitals { padding: 12px 14px 11px; }
 .l-hp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
 .l-vital-label {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px;
   text-transform: uppercase; color: var(--ink-faint);
 }
 .l-hp-val {
-  font-family: 'Cinzel', serif; font-size: 15.4px; font-weight: 700;
+  font-family: var(--font-display); font-size: 15.4px; font-weight: 700;
   color: var(--ink-bright); letter-spacing: 1px;
 }
 /* The HP bar — forge-fire gradient, the vital glow of life */
@@ -719,23 +728,23 @@ input, button, select, textarea { font-family: inherit; }
 }
 .l-vitals-footer { display: flex; justify-content: space-between; align-items: center; }
 /* Engine sets className on hud-status */
-.stat-val          { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; color: var(--ink); }
+.stat-val          { font-family: var(--font-display); font-size: 11px; font-weight: 600; color: var(--ink); }
 .stat-val.gold     { color: var(--gold-bright); }
 .stat-val.good     { color: var(--jade-bright); }
 .stat-val.bad,
 .stat-val.danger   { color: var(--blood-bright); }
-.l-gold { font-family: 'Cinzel', serif; font-size: 13.2px; color: var(--gold); display: flex; align-items: center; gap: 3px; }
+.l-gold { font-family: var(--font-display); font-size: 13.2px; color: var(--gold); display: flex; align-items: center; gap: 3px; }
 .l-gold-sym { color: var(--gold-lo); font-size: 12.1px; }
 
 /* ── AXIS INDICATOR ── */
 .l-axis { padding: 10px 14px 11px; }
 .l-axis-row  { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
 .l-axis-key  {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px;
   text-transform: uppercase; color: var(--ink-faint);
 }
 .l-axis-state {
-  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 11px; letter-spacing: 1px;
   color: var(--storm-hi); transition: color .3s;
 }
 .l-axis-state.inverted { color: var(--blood-bright); animation: axisPulse 2.5s ease-in-out infinite; }
@@ -752,18 +761,18 @@ input, button, select, textarea { font-family: inherit; }
   transition: width .5s ease;
   box-shadow: 0 0 6px rgba(60,88,136,.5);
 }
-.l-axis-sub { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px; color: var(--ink-faint); }
+.l-axis-sub { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px; color: var(--ink-faint); }
 
 /* ── SKILLS: tactical readiness at a glance ── */
 .l-skills { padding: 10px 14px 11px; flex: 1; }
 .l-section-cap {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px;
   text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px;
 }
 /* Engine: .skill-item > .skill-name + .skill-dots > .dot.filled */
 .skill-item { display: flex; align-items: center; gap: 9px; margin-bottom: 7px; }
 .skill-name {
-  font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px;
   text-transform: uppercase; color: var(--ink-dim);
   width: 48px; flex-shrink: 0;
 }
@@ -791,7 +800,7 @@ input, button, select, textarea { font-family: inherit; }
     linear-gradient(0deg, rgba(200,80,16,.05) 0%, transparent 100%);
 }
 .l-loc-name {
-  font-family: 'Cinzel', serif; font-size: 13.2px; font-weight: 600;
+  font-family: var(--font-display); font-size: 13.2px; font-weight: 600;
   color: var(--gold); letter-spacing: 1px; margin-bottom: 2px;
 }
 .l-loc-time {
@@ -817,7 +826,7 @@ input, button, select, textarea { font-family: inherit; }
 
 /* Action column — always shows current choices */
 #panel-action {
-  width: 400px; flex-shrink: 0;
+  width: 360px; flex-shrink: 0;
   overflow-y: auto; overflow-x: hidden;
   background: linear-gradient(180deg, #0d0b18 0%, #0b0916 60%, #090814 100%);
   display: flex; flex-direction: column;
@@ -856,23 +865,23 @@ input, button, select, textarea { font-family: inherit; }
     transparent);
 }
 .env-location {
-  font-family: 'Cinzel', serif; font-size: 15.4px; font-weight: 700;
+  font-family: var(--font-display); font-size: 15.4px; font-weight: 700;
   color: var(--gold-pale); letter-spacing: 4px; text-transform: uppercase;
   margin-bottom: 2px;
   text-shadow: 0 0 30px rgba(200,80,16,.25);
 }
 .env-region {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px;
   color: var(--ember-hi); text-transform: uppercase;
   margin-bottom: 8px; opacity: .65;
 }
 .env-desc {
-  font-family: 'Crimson Pro', serif; font-size: 15.4px; font-style: italic;
-  color: var(--ink-dim); line-height: 1.55; margin-bottom: 9px;
+  font-family: 'Crimson Pro', serif; font-size: 15px; font-weight: 300; font-style: normal;
+  color: var(--ink-dim); line-height: 1.85; margin-bottom: 9px;
 }
 .env-status { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
 .env-pill {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px;
   text-transform: uppercase; padding: 2px 9px; border-radius: 2px;
   background: rgba(255,255,255,.03); border: 1px solid var(--border-hi);
   color: var(--ink-dim);
@@ -883,7 +892,7 @@ input, button, select, textarea { font-family: inherit; }
 .env-pill.axis     { background: var(--storm-lo); border-color: var(--storm); color: var(--storm-hi); }
 .local-locs { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
 .loc-site-btn {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px;
   text-transform: uppercase; background: transparent;
   border: 1px solid var(--border); color: var(--ink-faint);
   padding: 3px 9px; border-radius: 2px; cursor: pointer; transition: all .15s;
@@ -893,7 +902,7 @@ input, button, select, textarea { font-family: inherit; }
 /* ─── NARRATIVE SCROLL: the stage ─────────────────────────────── */
 #narrative-scroll {
   flex: 1; overflow-y: auto; min-height: 0;
-  padding: 28px 34px 48px;
+  padding: 24px 22px 80px;
   scroll-behavior: smooth;
   background:
     radial-gradient(ellipse 80% 30% at 50% 100%,
@@ -916,15 +925,20 @@ input, button, select, textarea { font-family: inherit; }
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.scene-block:has(.result-block) { animation: none; }
+@keyframes resultIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 .scene-location {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 5px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 5px;
   text-transform: uppercase; color: var(--ember-hi);
   margin-bottom: 13px; opacity: .7;
 }
 
 /* ── NARRATIVE PROSE ── */
 .narrative-text {
-  font-family: 'Crimson Pro', serif; font-size: 18.2px; line-height: 1.80;
+  font-family: 'Crimson Pro', serif; font-size: 19px; font-weight: 300; font-style: normal; line-height: 1.85;
   color: var(--ink);
 }
 .narrative-text p { margin: 0 0 10px; }
@@ -932,7 +946,7 @@ input, button, select, textarea { font-family: inherit; }
 /* ── RESULT BLOCKS: consequence surfaces ── */
 .result-block {
   padding: 15px 18px; border-radius: 2px; margin: 6px 0;
-  font-family: 'Crimson Pro', serif; font-size: 17.6px; line-height: 1.70;
+  animation: resultIn .5s ease both;
 }
 .result-block.success {
   background:
@@ -952,7 +966,7 @@ input, button, select, textarea { font-family: inherit; }
   border-left: 3px solid var(--gold);
 }
 .result-tag {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px;
   text-transform: uppercase; margin-bottom: 10px;
 }
 .result-tag.success { color: var(--jade-bright); }
@@ -970,11 +984,13 @@ input, button, select, textarea { font-family: inherit; }
   border-left: 3px solid var(--blood-bright);
   box-shadow: 0 0 8px rgba(110,16,16,0.4), inset 0 1px 0 rgba(110,16,16,.15);
 }
-.result-text { font-family: 'Crimson Pro', serif; font-size: 17.6px; line-height: 1.70; color: var(--ink); }
+.result-text { font-family: 'Crimson Pro', serif; font-size: 17px; font-weight: 300; font-style: normal; line-height: 1.85; color: var(--ink); }
+.result-block .result-tag { animation: fadeUp .35s .08s ease both; }
+.result-block .result-text { animation: fadeUp .4s .18s ease both; }
 
 /* ── ROLL DISPLAY LINE ── */
 .roll-result, .roll-line {
-  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .5px;
+  font-family: var(--font-display); font-size: 11px; letter-spacing: .5px;
   color: var(--ink-faint); padding: 8px 14px; margin: 8px 0 4px;
   background: rgba(0,0,0,.35);
   border-left: 2px solid var(--storm);
@@ -988,7 +1004,7 @@ input, button, select, textarea { font-family: inherit; }
 ═══════════════════════════════════════════════════════════════ */
 .choice-block, .move-block { margin-top: 26px; }
 .choice-label {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 5px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 5px;
   text-transform: uppercase; color: var(--ink-faint);
   text-align: center; margin-bottom: 16px;
   position: relative;
@@ -1014,7 +1030,7 @@ input, button, select, textarea { font-family: inherit; }
   border-bottom-width: 0;
   color: var(--ink-dim); padding: 14px 20px 14px 22px;
   cursor: pointer;
-  font-family: 'Crimson Pro', serif; font-size: 16.5px; line-height: 1.48;
+  font-family: var(--font-display); font-size: 13px; letter-spacing: 0.5px; line-height: 1.55; font-style: normal;
   transition:
     background .14s ease,
     color .14s ease,
@@ -1063,7 +1079,7 @@ input, button, select, textarea { font-family: inherit; }
 .choice-text { display: block; }
 .choice-meta {
   display: block; margin-top: 5px;
-  font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: .5px;
+  font-family: var(--font-display); font-size: 9.9px; letter-spacing: .5px;
 }
 .choice-skill {
   display: inline-block; color: var(--storm-hi);
@@ -1074,19 +1090,20 @@ input, button, select, textarea { font-family: inherit; }
 .choice-tag.bold  { background: var(--ember-lo); color: var(--ember-hi); }
 .choice-tag.risky { background: rgba(110,16,16,.35); color: var(--blood-bright); }
 .choice-tag.safe  { background: var(--jade); color: var(--jade-bright); }
+.choice-tag.nav   { background: rgba(60,60,80,.4); color: var(--ink-mid); }
 .choice-align     { color: var(--ink-faint); font-size: 9.9px; letter-spacing: 1px; }
 .choice-dc        { font-size: 0.75em; opacity: 0.65; margin-left: 0.5em; color: var(--gold-dim); }
 
 /* Trait button */
 .trait-use-area { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
 .trait-use-btn {
-  font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1.5px;
+  font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1.5px;
   text-transform: uppercase; padding: 6px 14px; border-radius: 2px;
   background: var(--storm-lo); border: 1px solid var(--storm);
   color: var(--storm-hi); cursor: pointer; transition: all .15s;
 }
 .trait-use-btn:hover { border-color: var(--gold-lo); color: var(--gold-bright); }
-.trait-pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1px; background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); margin-right: 5px; }
+.trait-pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px; background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); margin-right: 5px; }
 .trait-pill.used { background: var(--border); border-color: var(--border-hi); color: var(--ink-faint); }
 
 /* Tutorial callout */
@@ -1096,7 +1113,7 @@ input, button, select, textarea { font-family: inherit; }
   border-radius: 3px; position: relative;
 }
 .tutorial-callout-close { position: absolute; top: 8px; right: 10px; background: none; border: none; color: var(--ink-faint); cursor: pointer; font-size: 15.4px; }
-.loading-block { text-align: center; padding: 20px; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: var(--ink-faint); text-transform: uppercase; }
+.loading-block { text-align: center; padding: 20px; font-family: var(--font-display); font-size: 11px; letter-spacing: 2px; color: var(--ink-faint); text-transform: uppercase; }
 
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -1124,12 +1141,12 @@ input, button, select, textarea { font-family: inherit; }
 .r-section { padding: 13px 14px; border-bottom: 1px solid var(--border); }
 .r-section:last-child { border-bottom: none; }
 .r-section-title {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px;
   text-transform: uppercase; color: var(--ink-faint);
   margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
 }
 .r-icon { color: var(--ember-lo); font-size: 11px; }
-.r-empty { font-family: 'Crimson Pro', serif; font-size: 13.2px; color: var(--ink-faint); }
+.r-empty { font-family: var(--font-body); font-size: 13px; color: var(--ink-faint); }
 .r-empty.italic { font-style: italic; }
 
 /* World clock bars */
@@ -1138,11 +1155,11 @@ input, button, select, textarea { font-family: inherit; }
 .clock-track { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
 .clock-fill { height:100%; background:var(--ember-lo,#8b4a1a); border-radius:2px; transition:width 0.3s; }
 .clock-val { color:var(--ink-faint); width:16px; text-align:right; flex-shrink:0; }
-.world-notice { font-size:0.78em; color:var(--ink-faint); font-style:italic; margin:4px 0 0; }
+.world-notice { font-size:0.78em; color:var(--ink-faint); font-family: var(--font-body); margin:4px 0 0; }
 
 /* Quest items */
 .quest-item {
-  font-family: 'Crimson Pro', serif; font-size: 14.3px; color: var(--gold-lo);
+  font-family: var(--font-body); font-size: 13px; color: var(--gold-lo);
   margin-bottom: 6px; padding-left: 12px;
   border-left: 2px solid var(--ember-lo); line-height: 1.45;
 }
@@ -1152,7 +1169,7 @@ input, button, select, textarea { font-family: inherit; }
    .faction-rep is the BAR CONTAINER, not a number label ── */
 .faction-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 9px; }
 .faction-name {
-  font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: .5px;
+  font-family: var(--font-display); font-size: 8.8px; letter-spacing: .5px;
   color: var(--ink-dim); text-transform: uppercase;
 }
 /* The bar container */
@@ -1173,20 +1190,20 @@ input, button, select, textarea { font-family: inherit; }
 .faction-fill.allied   { background: var(--jade-bright); }
 
 /* Party HUD */
-.party-label { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+.party-label { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
 .party-member {
   display: flex; align-items: center; gap: 8px; margin-bottom: 5px;
   padding: 5px 7px; background: rgba(255,255,255,.02);
   border-left: 2px solid var(--jade-bright); border-radius: 1px;
 }
 .party-member.injured { border-left-color: var(--blood-bright); background: rgba(110,16,16,.08); }
-.pm-name { flex: 1; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .5px; color: var(--ink); }
-.pm-role { font-size: 8.8px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 1px; font-family: 'Cinzel', serif; }
-.pm-status { font-size: 8.8px; color: var(--blood-bright); letter-spacing: 1px; font-family: 'Cinzel', serif; }
+.pm-name { flex: 1; font-family: var(--font-display); font-size: 11px; letter-spacing: .5px; color: var(--ink); }
+.pm-role { font-size: 8.8px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-display); }
+.pm-status { font-size: 8.8px; color: var(--blood-bright); letter-spacing: 1px; font-family: var(--font-display); }
 
 /* Journal */
 .journal-entry {
-  font-family: 'Crimson Pro', serif; font-size: 13.2px; font-style: italic;
+  font-family: var(--font-body); font-size: 13px; font-style: normal;
   color: var(--ink-dim); line-height: 1.52; margin-bottom: 5px;
   padding-bottom: 5px; border-bottom: 1px solid var(--border);
 }
@@ -1202,6 +1219,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 .overlay.active { display: flex; }
 .overlay-box {
+  display: flex; flex-direction: column; max-height: 90vh;
   background:
     linear-gradient(180deg, #181424 0%, #120f1e 100%);
   border: 1px solid var(--border-hi);
@@ -1229,7 +1247,7 @@ input, button, select, textarea { font-family: inherit; }
   background: linear-gradient(90deg, transparent, rgba(200,80,16,.2), transparent);
 }
 .overlay-title {
-  font-family: 'Cinzel', serif; font-size: 13.2px; font-weight: 700;
+  font-family: var(--font-display); font-size: 13.2px; font-weight: 700;
   color: var(--gold-bright); letter-spacing: 2.5px; text-transform: uppercase;
   text-shadow: 0 0 20px rgba(200,80,16,.2);
 }
@@ -1240,9 +1258,13 @@ input, button, select, textarea { font-family: inherit; }
   transition: all .15s;
 }
 .overlay-close:hover { border-color: var(--blood-mid); color: var(--blood-bright); background: rgba(110,16,16,.15); }
-.overlay-body { overflow-y: auto; padding: 18px; flex: 1; }
+.overlay-body { overflow-y: auto; padding: 22px 24px; flex: 1; min-height: 0; font-family: var(--font-body); font-size: 14px; line-height: 1.65; color: var(--ink-dim); }
+.save-slot-card { padding: 12px 14px; margin-bottom: 8px; border: 1px solid var(--border-hi); border-radius: 2px; background: var(--storm-mid); cursor: pointer; transition: border-color .15s, background .15s; }
+.save-slot-card:hover { border-color: var(--ember); background: rgba(200,80,16,.08); }
+.save-slot-empty { opacity: .7; }
+.save-slot-empty:hover { opacity: 1; }
 .sheet-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border-warm); margin-bottom: 16px; }
-.sheet-tab { background: none; border: none; border-bottom: 2px solid transparent; color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 2px; text-transform: uppercase; padding: 8px 14px; cursor: pointer; transition: all .15s; margin-bottom: -1px; }
+.sheet-tab { background: none; border: none; border-bottom: 2px solid transparent; color: var(--ink-faint); font-family: var(--font-display); font-size: 9.9px; letter-spacing: 2px; text-transform: uppercase; padding: 8px 14px; cursor: pointer; transition: all .15s; margin-bottom: -1px; }
 .sheet-tab:hover { color: var(--ink-dim); }
 .sheet-tab.active { color: var(--ember-hi); border-bottom-color: var(--ember); }
 .sheet-tab-pane { display: none; }
@@ -1264,20 +1286,20 @@ input, button, select, textarea { font-family: inherit; }
   transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 1px var(--ember-lo);
 }
 .ca-icon { font-size: 19.8px; margin-bottom: 9px; color: var(--gold-lo); }
-.ca-title { font-family: 'Cinzel', serif; font-size: 12.1px; font-weight: 700; color: var(--gold-bright); letter-spacing: 1px; margin-bottom: 5px; }
-.ca-desc  { font-size: 12.1px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; line-height: 1.4; }
+.ca-title { font-family: var(--font-display); font-size: 12.1px; font-weight: 700; color: var(--gold-bright); letter-spacing: 1px; margin-bottom: 5px; }
+.ca-desc  { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
 .camp-footer { margin-top: 18px; text-align: center; }
 
 .camp-talk-line { background: linear-gradient(135deg, var(--coal), var(--char)); border-left: 3px solid var(--gold-lo); padding: 11px 14px; margin-bottom: 10px; line-height: 1.6; border-radius: 1px; }
 .camp-talk-line.injured { border-left-color: var(--blood-mid); }
-.ct-name { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 6px; }
+.ct-name { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 6px; }
 .ct-text { font-size: 14.3px; color: var(--ink-dim); font-style: italic; font-family: 'Crimson Pro', serif; }
 
 .companion-card { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 14px; margin-bottom: 12px; border-radius: 2px; }
-.companion-name { font-family: 'Cinzel', serif; font-size: 15.4px; color: var(--gold-bright); margin-bottom: 3px; }
-.companion-role { font-size: 11px; color: var(--ember-hi); font-family: 'Cinzel', serif; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+.companion-name { font-family: var(--font-display); font-size: 15.4px; color: var(--gold-bright); margin-bottom: 3px; }
+.companion-role { font-size: 11px; color: var(--ember-hi); font-family: var(--font-display); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
 .companion-abilities { margin-top: 8px; }
-.comp-ability { font-size: 13.2px; color: var(--ink-faint); margin-bottom: 4px; font-style: italic; line-height: 1.4; font-family: 'Crimson Pro', serif; }
+.comp-ability { font-size: 13px; color: var(--ink-faint); margin-bottom: 4px; font-style: normal; line-height: 1.4; font-family: var(--font-body); }
 
 
 /* ═══ COMBAT ══════════════════════════════════════════════════════ */
@@ -1288,24 +1310,24 @@ input, button, select, textarea { font-family: inherit; }
   padding: 16px 18px; margin-bottom: 14px; border-radius: 2px;
   box-shadow: 0 4px 16px rgba(110,16,16,.2);
 }
-.combat-location { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
+.combat-location { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
 .combat-intent { font-family: 'Crimson Pro', serif; font-size: 16.5px; color: var(--ink); line-height: 1.65; font-style: italic; margin-bottom: 8px; }
-.combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: 'Cinzel', serif; letter-spacing: 1px; }
-.combat-actions-label { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+.combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: var(--font-display); letter-spacing: 1px; }
+.combat-actions-label { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
 .combat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-.combat-title { font-family: 'Cinzel', serif; font-size: 15.4px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; text-transform: uppercase; }
+.combat-title { font-family: var(--font-display); font-size: 15.4px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; text-transform: uppercase; }
 .combat-enemy { background: linear-gradient(180deg, rgba(110,16,16,.10), rgba(110,16,16,.05)); border: 1px solid rgba(110,16,16,.4); padding: 14px; border-radius: 2px; margin-bottom: 12px; }
-.enemy-name { font-family: 'Cinzel', serif; font-size: 14.3px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; margin-bottom: 6px; }
+.enemy-name { font-family: var(--font-display); font-size: 14.3px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; margin-bottom: 6px; }
 .enemy-desc { font-family: 'Crimson Pro', serif; font-size: 14.3px; font-style: italic; color: var(--ink-dim); margin-bottom: 8px; line-height: 1.5; }
 .enemy-hp-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 .enemy-hp-bar { flex: 1; height: 5px; background: rgba(0,0,0,.5); border-radius: 3px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.6); }
 .enemy-hp-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blood-mid), var(--blood-bright)); box-shadow: 0 0 5px rgba(190,40,40,.4); transition: width .3s; }
-.enemy-status { font-size: 11px; color: var(--blood-bright); font-family: 'Cinzel', serif; letter-spacing: 1px; }
+.enemy-status { font-size: 11px; color: var(--blood-bright); font-family: var(--font-display); letter-spacing: 1px; }
 .combat-btn {
   display: inline-block; margin: 4px 4px 0 0; padding: 8px 14px;
   background: linear-gradient(180deg, var(--char), var(--coal));
   border: 1px solid var(--border-hi);
-  color: var(--ink-dim); cursor: pointer; font-family: 'Cinzel', serif;
+  color: var(--ink-dim); cursor: pointer; font-family: var(--font-display);
   font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
   border-radius: 2px; transition: all .15s;
   box-shadow: 0 2px 6px rgba(0,0,0,.3);
@@ -1317,7 +1339,7 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ═══ LEVEL UP ════════════════════════════════════════════════════ */
 .lu-title {
-  font-family: 'Cinzel', serif; font-size: 19.8px; font-weight: 700;
+  font-family: var(--font-display); font-size: 19.8px; font-weight: 700;
   color: var(--gold-pale); letter-spacing: 3px; text-transform: uppercase;
   text-align: center; margin-bottom: 8px;
   text-shadow: 0 0 40px var(--ember-glow), 0 0 12px rgba(200,80,16,.3);
@@ -1335,38 +1357,38 @@ input, button, select, textarea { font-family: inherit; }
   background: linear-gradient(180deg, var(--cinder) 0%, var(--char) 100%);
   box-shadow: 0 4px 16px rgba(0,0,0,.4), 0 0 0 1px var(--gold-lo);
 }
-.lu-opt-tag { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.lu-opt-tag { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
 .lu-opt-tag.skill, .lu-tag-skill     { color: var(--storm-hi); }
 .lu-opt-tag.passive, .lu-tag-passive { color: var(--jade-bright); }
 .lu-opt-tag.active, .lu-tag-active   { color: var(--ember-hi); }
 .lu-opt-tag.combat, .lu-tag-combat   { color: var(--blood-bright); }
-.lu-opt-label { font-family: 'Cinzel', serif; font-size: 14.3px; color: var(--gold-bright); font-weight: 700; margin-bottom: 4px; letter-spacing: 1px; }
-.lu-opt-detail { font-size: 13.2px; color: var(--ink-dim); font-family: 'Crimson Pro', serif; line-height: 1.4; }
+.lu-opt-label { font-family: var(--font-display); font-size: 14.3px; color: var(--gold-bright); font-weight: 700; margin-bottom: 4px; letter-spacing: 1px; }
+.lu-opt-detail { font-size: 13px; color: var(--ink-dim); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
 .levelup-block { }
 .levelup-option { background: linear-gradient(180deg, var(--char), var(--coal)); border: 1px solid var(--border); padding: 14px; margin-bottom: 8px; cursor: pointer; border-radius: 2px; transition: all .15s; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
 .levelup-option:hover { border-color: var(--gold-lo); background: linear-gradient(180deg, var(--cinder), var(--char)); }
-.levelup-option-name { font-family: 'Cinzel', serif; font-size: 13.2px; color: var(--gold-bright); font-weight: 700; margin-bottom: 4px; letter-spacing: 1px; }
-.levelup-option-desc { font-size: 13.2px; color: var(--ink-dim); font-family: 'Crimson Pro', serif; line-height: 1.4; }
-.levelup-option-type { font-size: 8.8px; color: var(--ember); font-family: 'Cinzel', serif; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+.levelup-option-name { font-family: var(--font-display); font-size: 13.2px; color: var(--gold-bright); font-weight: 700; margin-bottom: 4px; letter-spacing: 1px; }
+.levelup-option-desc { font-size: 13px; color: var(--ink-dim); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
+.levelup-option-type { font-size: 8.8px; color: var(--ember); font-family: var(--font-display); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
 
 
 /* ═══ CHARACTER SHEET ════════════════════════════════════════════ */
 .char-sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.char-section-title { grid-column: 1/-1; font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; color: var(--ember-hi); text-transform: uppercase; padding-bottom: 7px; border-bottom: 1px solid var(--border-warm); margin-top: 8px; }
+.char-section-title { grid-column: 1/-1; font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--ember-hi); text-transform: uppercase; padding-bottom: 7px; border-bottom: 1px solid var(--border-warm); margin-top: 8px; }
 .char-stat-row { display: flex; justify-content: space-between; font-size: 13.2px; margin-bottom: 5px; }
-.char-stat-key { color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 11px; }
-.char-stat-val { color: var(--ink); font-family: 'Cinzel', serif; font-weight: 600; }
+.char-stat-key { color: var(--ink-faint); font-family: var(--font-display); font-size: 11px; }
+.char-stat-val { color: var(--ink); font-family: var(--font-display); font-weight: 600; }
 .char-skill-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
-.char-skill-name { color: var(--ink-dim); font-size: 12.1px; font-family: 'Cinzel', serif; letter-spacing: .5px; }
+.char-skill-name { color: var(--ink-dim); font-size: 12.1px; font-family: var(--font-display); letter-spacing: .5px; }
 .char-skill-dots { display: flex; gap: 4px; }
 .char-dot { width: 10px; height: 10px; border-radius: 2px; background: var(--border-hi); transform: rotate(45deg); }
 .char-dot.filled { background: var(--ember); box-shadow: 0 0 6px rgba(200,80,16,.5); }
 .ability-card { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 11px; border-radius: 2px; margin-bottom: 6px; }
-.ability-card-name { font-family: 'Cinzel', serif; font-size: 12.1px; font-weight: 700; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: .5px; }
-.ability-card-type { font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; font-family: 'Cinzel', serif; color: var(--ember-hi); margin-bottom: 4px; }
-.ability-card-effect { font-size: 12.1px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; line-height: 1.4; font-style: italic; }
+.ability-card-name { font-family: var(--font-display); font-size: 12.1px; font-weight: 700; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: .5px; }
+.ability-card-type { font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-display); color: var(--ember-hi); margin-bottom: 4px; }
+.ability-card-effect { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
 .card-trait { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--storm); padding: 10px; border-radius: 2px; margin-bottom: 6px; }
-.archetype-mechanic-note { font-size: .78rem; color: var(--gold-dim, #9a7a32); font-style: italic; margin-top: .4rem; line-height: 1.4; }
+.archetype-mechanic-note { font-size: .78rem; color: var(--gold-dim, #9a7a32); font-family: var(--font-body); margin-top: .4rem; line-height: 1.4; }
 .align-bar { height: 7px; background: rgba(0,0,0,.5); border-radius: 3px; margin: 4px 0; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.5); }
 .align-fill { height: 100%; border-radius: 3px; background: var(--ember); transition: width .3s; }
 .history-entry { font-size: 13.2px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; margin-bottom: 4px; padding-left: 10px; border-left: 2px solid var(--border-hi); line-height: 1.5; font-style: italic; }
@@ -1375,15 +1397,15 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ═══ JOURNAL / LEDGER ════════════════════════════════════════════ */
 .jov-section { margin-bottom: 16px; }
-.jov-title { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 9px; padding-bottom: 5px; border-bottom: 1px solid var(--border-warm); }
-.jov-entry { font-size: 14.3px; color: var(--ink-dim); line-height: 1.55; margin-bottom: 8px; padding: 7px 10px; background: rgba(0,0,0,.25); font-family: 'Crimson Pro', serif; border-radius: 1px; }
+.jov-title { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 9px; padding-bottom: 5px; border-bottom: 1px solid var(--border-warm); }
+.jov-entry { font-size: 14px; color: var(--ink-dim); line-height: 1.55; margin-bottom: 8px; padding: 7px 10px; background: rgba(0,0,0,.25); font-family: var(--font-body); font-style: normal; border-radius: 1px; }
 .jov-entry.updated { border-left: 2px solid var(--jade-bright); }
 .jov-quest  { color: var(--gold-bright); } .jov-wound { color: var(--blood-bright); } .jov-rival { color: var(--storm-hi); }
-.jov-item   { padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 14.3px; color: var(--ink-dim); font-family: 'Crimson Pro', serif; line-height: 1.5; }
+.jov-item   { padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--ink-dim); font-family: var(--font-body); font-style: normal; line-height: 1.5; }
 .jov-item:last-child { border-bottom: none; }
 .jov-faction { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); }
-.jov-fname { color: var(--ink-dim); font-size: 13.2px; font-family: 'Crimson Pro', serif; }
-.jov-frep  { color: var(--gold-bright); font-family: 'Cinzel', serif; font-size: 12.1px; font-weight: 700; }
+.jov-fname { color: var(--ink-dim); font-size: 13px; font-family: var(--font-body); }
+.jov-frep  { color: var(--gold-bright); font-family: var(--font-display); font-size: 12.1px; font-weight: 700; }
 
 
 /* ═══ MAP ════════════════════════════════════════════════════════ */
@@ -1392,31 +1414,31 @@ input, button, select, textarea { font-family: inherit; }
 .map-loc:hover { border-color: var(--ember-lo); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.45), 0 0 0 1px var(--ember-lo); }
 .map-loc.current { border-color: var(--gold); border-width: 2px; box-shadow: 0 0 20px rgba(184,124,24,.2); }
 .map-loc.locked { opacity: .30; cursor: default; transform: none !important; }
-.map-loc-name { font-family: 'Cinzel', serif; font-size: 12.1px; color: var(--gold-bright); letter-spacing: 1px; margin-bottom: 3px; }
-.map-loc-region { font-size: 11px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; font-style: italic; }
-.map-loc-desc { font-size: 11px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; font-style: italic; margin-top: 4px; line-height: 1.3; }
-.map-loc-status { font-size: 8.8px; color: var(--ember-hi); font-family: 'Cinzel', serif; margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
-.map-travel-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 0; background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); cursor: pointer; font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; text-align: center; }
+.map-loc-name { font-family: var(--font-display); font-size: 12.1px; color: var(--gold-bright); letter-spacing: 1px; margin-bottom: 3px; }
+.map-loc-region { font-size: 11px; color: var(--ink-faint); font-family: var(--font-body); }
+.map-loc-desc { font-size: 11px; color: var(--ink-faint); font-family: var(--font-body); margin-top: 4px; line-height: 1.3; }
+.map-loc-status { font-size: 8.8px; color: var(--ember-hi); font-family: var(--font-display); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
+.map-travel-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 0; background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); cursor: pointer; font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; text-align: center; }
 .map-travel-btn:hover { background: var(--ember); color: var(--white); }
 
 
 /* ═══ NOTICE BOARD ═══════════════════════════════════════════════ */
-.notice-section-label { font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 9px; padding-bottom: 5px; border-bottom: 1px solid var(--border-warm); }
+.notice-section-label { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-bottom: 9px; padding-bottom: 5px; border-bottom: 1px solid var(--border-warm); }
 .notice-card { background: var(--storm-mid); border: 1px solid var(--storm-hi); border-left: 3px solid var(--storm-hi); color: var(--ink); padding: 12px; margin-bottom: 8px; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
 .notice-card:not(.seen) { border-left: 3px solid var(--ember-hi); }
 .notice-text { font-family: 'Crimson Pro', serif; font-size: 14.3px; color: var(--ink-dim); line-height: 1.55; font-style: italic; }
-.notice-day { font-family: 'Cinzel', serif; font-size: 8.8px; color: var(--ink-faint); letter-spacing: 1px; margin-top: 7px; }
+.notice-day { font-family: var(--font-display); font-size: 8.8px; color: var(--ink-faint); letter-spacing: 1px; margin-top: 7px; }
 .unread { width: 6px; height: 6px; border-radius: 50%; background: var(--ember-hi); display: inline-block; margin-left: 4px; vertical-align: middle; box-shadow: 0 0 6px rgba(200,80,16,.6); }
 
 
 /* ═══ NPC CONTACTS ══════════════════════════════════════════════ */
 .npc-card { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 14px; margin-bottom: 10px; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
-.npc-name { font-family: 'Cinzel', serif; font-size: 14.3px; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: 1px; }
-.npc-role { font-size: 11px; color: var(--ember-hi); font-family: 'Cinzel', serif; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
-.npc-meta { font-size: 11px; color: var(--ink-faint); margin-top: 2px; font-family: 'Cinzel', serif; }
-.npc-note { font-size: 12.1px; color: var(--storm-hi); font-style: italic; margin-top: 4px; font-family: 'Crimson Pro', serif; }
+.npc-name { font-family: var(--font-display); font-size: 14.3px; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: 1px; }
+.npc-role { font-size: 11px; color: var(--ember-hi); font-family: var(--font-display); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+.npc-meta { font-size: 11px; color: var(--ink-faint); margin-top: 2px; font-family: var(--font-display); }
+.npc-note { font-size: 12px; color: var(--storm-hi); font-style: normal; margin-top: 4px; font-family: var(--font-body); }
 .npc-actions { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 8px; }
-.npc-approach-btn { background: linear-gradient(180deg, var(--char), var(--coal)); border: 1px solid var(--border-hi); padding: 5px 10px; cursor: pointer; font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; color: var(--ink-dim); transition: all .15s; }
+.npc-approach-btn { background: linear-gradient(180deg, var(--char), var(--coal)); border: 1px solid var(--border-hi); padding: 5px 10px; cursor: pointer; font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; color: var(--ink-dim); transition: all .15s; }
 .npc-approach-btn:hover { border-color: var(--ember-lo); color: var(--ember-hi); }
 .npc-hidden { display: none; }
 
@@ -1424,12 +1446,12 @@ input, button, select, textarea { font-family: inherit; }
 /* ═══ SHOP ═══════════════════════════════════════════════════════ */
 .shop-item { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 12px; margin-bottom: 8px; border-radius: 2px; display: flex; align-items: flex-start; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
 .shop-item-info { flex: 1; }
-.shop-item-name { font-family: 'Cinzel', serif; font-size: 13.2px; color: var(--gold-bright); font-weight: 700; margin-bottom: 3px; letter-spacing: 1px; }
-.shop-item-desc { font-size: 13.2px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; line-height: 1.4; font-style: italic; }
-.shop-item-cost { font-family: 'Cinzel', serif; font-size: 12.1px; color: var(--gold); font-weight: 700; white-space: nowrap; }
-.shop-buy-btn { background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); padding: 5px 10px; cursor: pointer; font-family: 'Cinzel', serif; font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
+.shop-item-name { font-family: var(--font-display); font-size: 13.2px; color: var(--gold-bright); font-weight: 700; margin-bottom: 3px; letter-spacing: 1px; }
+.shop-item-desc { font-size: 13px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
+.shop-item-cost { font-family: var(--font-display); font-size: 12.1px; color: var(--gold); font-weight: 700; white-space: nowrap; }
+.shop-buy-btn { background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); padding: 5px 10px; cursor: pointer; font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
 .shop-buy-btn:hover { background: var(--ember); color: var(--white); box-shadow: 0 2px 10px var(--ember-glow); }
-.train-btn { background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); padding: 6px 12px; cursor: pointer; font-family: 'Cinzel', serif; font-size: 9.9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
+.train-btn { background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); padding: 6px 12px; cursor: pointer; font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
 .train-btn:hover { border-color: var(--gold-lo); color: var(--gold-bright); }
 
 
@@ -1441,7 +1463,7 @@ input, button, select, textarea { font-family: inherit; }
   padding: 18px; margin-bottom: 14px; border-radius: 2px;
   box-shadow: 0 4px 16px rgba(0,0,0,.4);
 }
-.legend-name { font-family: 'Cinzel', serif; font-size: 18.7px; font-weight: 700; color: var(--gold-bright); letter-spacing: 2px; margin-bottom: 6px; text-shadow: 0 0 24px rgba(200,80,16,.2); }
+.legend-name { font-family: var(--font-display); font-size: 18.7px; font-weight: 700; color: var(--gold-bright); letter-spacing: 2px; margin-bottom: 6px; text-shadow: 0 0 24px rgba(200,80,16,.2); }
 .legend-meta { font-family: 'Crimson Pro', serif; font-size: 14.3px; color: var(--ink-dim); margin-bottom: 4px; font-style: italic; }
 .history-entry { font-size: 13.2px; color: var(--ink-faint); font-family: 'Crimson Pro', serif; margin-bottom: 4px; padding-left: 10px; border-left: 2px solid var(--border-hi); line-height: 1.5; font-style: italic; }
 
@@ -1452,7 +1474,7 @@ input, button, select, textarea { font-family: inherit; }
   background: linear-gradient(180deg, var(--char), var(--coal));
   border: 1px solid var(--ember-lo);
   color: var(--ink); padding: 10px 26px; border-radius: 2px;
-  font-family: 'Cinzel', serif; font-size: 12.1px; letter-spacing: 1.5px;
+  font-family: var(--font-display); font-size: 12.1px; letter-spacing: 1.5px;
   z-index: 300; opacity: 0; transition: opacity .22s;
   pointer-events: none; white-space: nowrap;
   box-shadow: 0 6px 24px rgba(0,0,0,.7), 0 0 0 1px rgba(200,80,16,.12);
@@ -1472,26 +1494,26 @@ input, button, select, textarea { font-family: inherit; }
 /* Large desktop: full 4-column feel with wide action panel */
 @media (min-width: 1440px) {
   .game-body { grid-template-columns: 220px 1fr 228px; }
-  #panel-action { width: 440px; }
+  #panel-action { width: 400px; }
 }
 
 /* Standard desktop */
 @media (max-width: 1439px) and (min-width: 1200px) {
   .game-body { grid-template-columns: 208px 1fr 218px; }
-  #panel-action { width: 400px; }
+  #panel-action { width: 360px; }
 }
 
 /* Compact desktop — shrink action panel */
 @media (max-width: 1199px) and (min-width: 1024px) {
   .game-body { grid-template-columns: 196px 1fr 210px; }
-  #panel-action { width: 340px; }
+  #panel-action { width: 310px; }
 }
 
 /* Tablet landscape — hide right panel, keep action panel */
 @media (max-width: 1023px) and (min-width: 768px) {
   .game-body { grid-template-columns: 190px 1fr; }
   #panel-right { display: none; }
-  #panel-action { width: 300px; padding: 16px 14px 22px; }
+  #panel-action { width: 270px; padding: 16px 14px 22px; }
 }
 
 /* Tablet portrait — stack narration over action */
@@ -1542,7 +1564,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 #splash-screen.fade-out { opacity: 0; pointer-events: none; }
 .splash-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: clamp(2.8rem, 9vw, 5.5rem);
   color: var(--ember-glow, #c84b10);
   letter-spacing: 0.12em;
@@ -1558,7 +1580,7 @@ input, button, select, textarea { font-family: inherit; }
   margin: 0.2em 0;
 }
 .splash-sub {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: clamp(0.6rem, 1.8vw, 0.9rem);
   color: var(--gold-dim, #9a7a32);
   letter-spacing: 0.35em;
@@ -1577,10 +1599,10 @@ input, button, select, textarea { font-family: inherit; }
   border-radius: 6px; padding: 2rem 2.5rem; max-width: 520px; width: 90%;
   color: var(--gold-bright, #e8b84b); font-family: 'Crimson Pro', serif;
 }
-#onboarding-box h2 { font-family: 'Cinzel', serif; color: var(--ember-glow, #c84b10); margin-bottom: .75rem; }
+#onboarding-box h2 { font-family: var(--font-display); color: var(--ember-glow, #c84b10); margin-bottom: .75rem; }
 #onboarding-box p { line-height: 1.6; margin-bottom: 1rem; }
 .onboarding-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
-.onboarding-nav button { background: transparent; border: 1px solid var(--ember-glow, #c84b10); color: var(--gold-bright, #e8b84b); padding: .4rem 1.2rem; border-radius: 3px; cursor: pointer; font-family: 'Cinzel', serif; font-size: .8rem; letter-spacing: .05em; }
+.onboarding-nav button { background: transparent; border: 1px solid var(--ember-glow, #c84b10); color: var(--gold-bright, #e8b84b); padding: .4rem 1.2rem; border-radius: 3px; cursor: pointer; font-family: var(--font-display); font-size: .8rem; letter-spacing: .05em; }
 .onboarding-skip { font-size: .75rem; color: var(--gold-dim, #9a7a32); cursor: pointer; background: none; border: none; margin-top: .5rem; display: block; text-align: right; }
 #howto-modal {
   display: none; position: fixed; inset: 0; z-index: 9000;
@@ -1593,11 +1615,11 @@ input, button, select, textarea { font-family: inherit; }
   border-radius: 6px; padding: 2rem 2.5rem; max-width: 560px; width: 90%;
   color: var(--gold-bright, #e8b84b); font-family: 'Crimson Pro', serif;
 }
-#howto-box h2 { font-family: 'Cinzel', serif; color: var(--ember-glow, #c84b10); margin-bottom: 1rem; }
-#howto-box h3 { font-family: 'Cinzel', serif; color: var(--gold-dim, #9a7a32); font-size: .85rem; letter-spacing: .08em; margin: 1.2rem 0 .4rem; }
+#howto-box h2 { font-family: var(--font-display); color: var(--ember-glow, #c84b10); margin-bottom: 1rem; }
+#howto-box h3 { font-family: var(--font-display); color: var(--gold-dim, #9a7a32); font-size: .85rem; letter-spacing: .08em; margin: 1.2rem 0 .4rem; }
 #howto-box p, #howto-box li { line-height: 1.65; font-size: .95rem; }
 #howto-box ul { padding-left: 1.2rem; margin-bottom: .5rem; }
-#howto-close { float: right; background: transparent; border: 1px solid var(--ember-glow,#c84b10); color: var(--gold-bright,#e8b84b); padding: .3rem .9rem; border-radius: 3px; cursor: pointer; font-family: 'Cinzel', serif; font-size: .75rem; }
+#howto-close { float: right; background: transparent; border: 1px solid var(--ember-glow,#c84b10); color: var(--gold-bright,#e8b84b); padding: .3rem .9rem; border-radius: 3px; cursor: pointer; font-family: var(--font-display); font-size: .75rem; }
 </style>
 </head>
 <body>
@@ -1655,7 +1677,6 @@ input, button, select, textarea { font-family: inherit; }
 <div class="screen" id="screen-create">
   <div class="create-header-bar">
     <button class="btn btn-ghost btn-xs" id="btn-back-title">&#x2190; Return</button>
-    <div class="create-header-title">Begin Your Ledger</div>
     <button class="btn btn-primary" id="begin-btn" style="display:none">Begin Your Legend &#x2192;</button>
   </div>
   <div class="create-split">
@@ -1841,11 +1862,13 @@ input, button, select, textarea { font-family: inherit; }
     <div class="overlay-body">
       <p class="camp-intro">The fire is low. The road can wait.</p>
       <div class="camp-grid">
-        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x263D;</div><div class="ca-title">Rest</div><div class="ca-desc">Restore HP. Axis ticks forward.</div></button>
-        <button class="camp-action" data-camp="talk"><div class="ca-icon">&#x25C8;</div><div class="ca-title">Companions</div><div class="ca-desc">Hear their minds. Unlocks at Level 3.</div></button>
-        <button class="camp-action" data-camp="train"><div class="ca-icon">&#x2694;</div><div class="ca-title">Train</div><div class="ca-desc">Improve a skill. Costs one tick.</div></button>
-        <button class="camp-action" data-camp="recover"><div class="ca-icon">&#x2726;</div><div class="ca-title">Seek Care</div><div class="ca-desc">Find a healer in the settlement.</div></button>
-        <button class="camp-action" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare equipment. Unlocks at Level 2.</div></button>
+        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x263D;</div><div class="ca-title">Rest</div><div class="ca-desc">Recover HP. Advances Watchfulness by 1. Limit 2 per day.</div></button>
+        <button class="camp-action" data-camp="talk"><div class="ca-icon">&#x25C8;</div><div class="ca-title">Companions</div><div class="ca-desc">Reveal companion opinions and unlock their choices. Requires Level 3.</div></button>
+        <button class="camp-action" data-camp="train"><div class="ca-icon">&#x2694;</div><div class="ca-title">Train</div><div class="ca-desc">Improve one skill. Costs 1 Watchfulness tick; repeated use causes fatigue.</div></button>
+        <button class="camp-action" data-camp="recover"><div class="ca-icon">&#x2726;</div><div class="ca-title">Seek Care</div><div class="ca-desc">Pay a healer to remove wound penalties. Costs gold.</div></button>
+        <button class="camp-action" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare rations, tools, and materials. Requires Level 2.</div></button>
+        <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion. More members improve success.</div></button>
+        <button class="camp-action" data-camp="sleep"><div class="ca-icon">&#x263D;</div><div class="ca-title">Sleep</div><div class="ca-desc">Find a place to rest for the night. Settlements offer inn lodging — cheap or comfortable.</div></button>
       </div>
       <div class="camp-footer"><button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button></div>
     </div>
@@ -2519,6 +2542,7 @@ function showNoticesOverlay() {
 
   const unseen = G.worldNotices.filter(n => !n.seen);
   const seen   = G.worldNotices.filter(n => n.seen);
+  unseen.forEach(n => { n.seen = true; });
 
   let html = '';
   if (!G.worldNotices.length) {
@@ -2536,7 +2560,7 @@ function showNoticesOverlay() {
     if (seen.length) {
       html += '<div class="notice-section-label" style="margin-top:14px">PREVIOUS</div>';
       html += seen.slice(0,8).map(n =>
-        '<div class="notice-card" data-nid="' + n.id + '">' +
+        '<div class="notice-card seen" data-nid="' + n.id + '">' +
         '<div class="notice-text">' + n.text + '</div>' +
         '<div class="notice-day">Day ' + (n.day||1) + '</div>' +
         '</div>'
@@ -2545,12 +2569,6 @@ function showNoticesOverlay() {
   }
 
   el.innerHTML = html;
-  el.querySelectorAll('.notice-card:not(.seen)').forEach(card => {
-    card.addEventListener('click', () => {
-      markNoticeSeen(card.dataset.nid);
-      card.classList.add('seen');
-    });
-  });
   showOverlay('overlay-notices');
 }
 
@@ -3290,7 +3308,7 @@ function endCombat(victory) {
     setTimeout(() => renderChoices([
       { text:'Make camp immediately.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover' },
       { text:'Find a healer in the settlement.', skill:'persuasion', tag:'safe', align:'neutral', cid:'shrine_service' },
-      { text:'Push forward despite the wounds.', skill:'combat', tag:'bold', align:'chaotic', cid:'passive_intel' }
+      { text:'Push forward despite the wounds.', skill:'survival', tag:'bold', align:'chaotic', cid:'passive_intel' }
     ]), 400);
   }
 }
@@ -3342,17 +3360,17 @@ const GROUP_BACKSTORIES = {
   combat: {
     hook: 'You know how much a contract is worth by what it does not say.',
     body: 'You have served in some capacity that required controlled violence — a garrison, a caravan guard rotation, a house retinue. The contracts were legal. The outcomes were not always clean. You have learned to distinguish between orders you follow and ones you question too late, and the difference matters more now than it did when you started.',
-    tension: 'The investigation will ask you to know when to draw. That has never been the hard part. The hard part is knowing when to put it away.'
+    tension: 'The work will ask you to know when to draw. That has never been the hard part. The hard part is knowing when to put it away.'
   },
   magic: {
     hook: 'The Collegium does not grant licenses — it grants permission to ask certain questions.',
     body: 'You came to your practice through study or through calling — the methods differ, the discipline is the same. You know how institutions preserve power through information control. The Magi Magistratus, the Principalities\' treaty registries, the Iron Accord\'s documentation systems — all of them hide something in plain sight. You are trained to read what is not written.',
-    tension: 'The investigation will ask you to find things that have been deliberately lost. That is a different problem than finding things that are merely hidden.'
+    tension: 'What you are walking into will ask you to find things that have been deliberately lost. That is a different problem than finding things that are merely hidden.'
   },
   stealth: {
     hook: 'Every city runs two economies. You work in the one that doesn\'t appear in ledgers.',
     body: 'You operate in the gap between what is official and what is actual. Maybe that gap was always professional — courier networks, factor intermediaries, information brokers. Maybe it was survival. Either way, you understand that the material plane runs on two economies: the one recorded in ledgers, and the one that makes the ledger-keeping possible.',
-    tension: 'Someone has been running a shadow economy through the official channels. You are the right instrument for this problem. Whether that is comfortable or not is beside the point.'
+    tension: 'This will take you into supply chains and institutional records. You are the right instrument for this problem. Whether that is comfortable or not is beside the point.'
   },
   support: {
     hook: 'You know what it costs to keep something running, and who pays when it doesn\'t.',
@@ -3361,73 +3379,73 @@ const GROUP_BACKSTORIES = {
   },
   neutral: {
     hook: 'The work found you.',
-    body: 'You came to this through circumstance rather than vocation. That is not a disadvantage. The investigation does not require a specialist — it requires someone willing to follow a question past the point where it becomes dangerous. The ledger of ash is a register of erased names. Someone maintains it. Someone else is hunting those names. You are here because something connected you to this before you understood what it was.',
+    body: 'You came to this through circumstance rather than vocation. That is not a disadvantage. The work does not require a specialist — it requires someone willing to follow a question past the point where it becomes dangerous. Names are missing from records they should appear in. Someone arranged those absences. Someone else is trying to recover them. You are here because something connected you to this before you understood what it was.',
     tension: 'The advantage of having no faction loyalty is that no faction can predict your moves. Use that.'
   }
 };
 
 const ARCHETYPES = [
-  {id:'warrior',name:'Warrior',group:'combat',tag:'Combat',desc:'Disciplined, versatile, and hardened. You have trained for war and survived it.',trait:'Battle-Tested',traitDesc:'Combat rolls gain +2. When below 30% HP you gain one free reroll per encounter.',archDesc:'You have served, fought, and bled. Steel and will are your constant companions.',mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',skills:{combat:3,survival:2,persuasion:1,lore:0,stealth:0,craft:0},hp:24,startGold:20},
-  {id:'knight',name:'Knight',group:'combat',tag:'Combat',desc:'Bound by oath, armored in duty. You serve a house or cause greater than yourself.',trait:'Oath of Service',traitDesc:'Persuasion with nobility gains +2. Breaking an oath inflicts -3 to all rolls until redeemed.',archDesc:'Your name is tied to a house. That comes with doors and debts in equal measure.',mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',skills:{combat:3,survival:1,persuasion:2,lore:1,stealth:0,craft:0},hp:22,startGold:15},
-  {id:'ranger',name:'Ranger',group:'combat',tag:'Survival',desc:'Trained to move through terrain that stops armies. You operate where maps end.',trait:'Wilderness Read',traitDesc:'Survival rolls gain +2. You are never ambushed in wilderness terrain.',archDesc:'You know the routes between settlements better than any road chart admits.',mechNote:'The wild taught you patience. Survival rolls carry advantage when tracking and reading the land.',skills:{combat:2,survival:3,persuasion:1,lore:1,stealth:2,craft:0},hp:18,startGold:20},
-  {id:'paladin',name:'Paladin',group:'combat',tag:'Combat',desc:'Faith and steel as one. You carry the will of your deity into the material world.',trait:'Divine Sanction',traitDesc:'Combat vs unjust targets gains +2. Shrine interactions always succeed on first attempt.',archDesc:'You act in the name of something larger. Which deity shapes everything.',mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',skills:{combat:3,survival:1,persuasion:1,lore:2,stealth:0,craft:0},hp:22,startGold:10},
-  {id:'archer',name:'Archer',group:'combat',tag:'Precision',desc:'Distance is your advantage. Patience is your discipline.',trait:'Patient Shot',traitDesc:'When you wait before acting, your next combat roll gains +3.',archDesc:'You do not win fights by standing in them. You win them before they reach you.',mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',skills:{combat:2,survival:2,persuasion:1,lore:1,stealth:2,craft:1},hp:16,startGold:20},
-  {id:'berserker',name:'Berserker',group:'combat',tag:'Combat',desc:'Controlled fury as a weapon. You hit harder when it costs you something.',trait:'Rage Economy',traitDesc:'Take 2 HP damage to add +3 to any combat roll. Cannot reduce below 1 HP.',archDesc:'Pain is not a problem you solve. It is a resource you spend.',mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',skills:{combat:4,survival:2,persuasion:1,lore:0,stealth:1,craft:0},hp:26,startGold:10},
-  {id:'wizard',name:'Wizard',group:'magic',tag:'Knowledge',desc:'Systematic and precise. Magic is a discipline, not a gift.',trait:'Arcane Index',traitDesc:'Lore rolls gain +2. You can identify any magical effect on sight.',archDesc:'The theory came first. The power came later. The cost is ongoing.',mechNote:'Your knowledge cuts through deception. Lore rolls carry advantage when uncovering hidden truths.',skills:{combat:1,survival:1,persuasion:1,lore:4,stealth:0,craft:2},hp:12,startGold:25},
-  {id:'cleric',name:'Cleric',group:'magic',tag:'Faith',desc:'Divine power expressed through dedicated service.',trait:'Channel Devotion',traitDesc:'At shrines and sacred sites all rolls gain +2. Healing restores +2 extra HP.',archDesc:'You represent something holy in a world that tests faith constantly.',mechNote:'Your words open doors that swords cannot. Persuasion rolls carry advantage in social encounters.',skills:{combat:1,survival:1,persuasion:2,lore:2,stealth:0,craft:1},hp:16,startGold:15},
-  {id:'priest',name:'Priest',group:'magic',tag:'Faith',desc:'Community and ritual as power. You serve a congregation, not a cause.',trait:'Communal Memory',traitDesc:'In any settlement you can access local gossip and faction movement through worshippers.',archDesc:'People confess to you. That is a sacred trust and a remarkable intelligence source.',mechNote:'Your words open doors that swords cannot. Persuasion rolls carry advantage in social encounters.',skills:{combat:1,survival:1,persuasion:3,lore:2,stealth:0,craft:1},hp:14,startGold:20},
-  {id:'necromancer',name:'Necromancer',group:'magic',tag:'Knowledge',desc:'The boundary between living and dead as a subject of serious study.',trait:'Panim Protocols',traitDesc:'Immune to fear from undead. Death and afterlife lore rolls always succeed on first attempt.',archDesc:'Panim treats death as commerce. You treat it as data.',mechNote:'Your knowledge cuts through deception. Lore rolls carry advantage when uncovering hidden truths.',skills:{combat:1,survival:1,persuasion:1,lore:4,stealth:1,craft:1},hp:12,startGold:20},
-  {id:'illusionist',name:'Illusionist',group:'magic',tag:'Stealth',desc:'What is real is only what people choose to perceive.',trait:'False Surface',traitDesc:'Deception-based persuasion and stealth gain +2. Can create one convincing false identity per session.',archDesc:'You construct realities. The question is whether they are useful ones.',mechNote:'Your silence earns you access where strength fails. Stealth rolls carry advantage in bold confrontations.',skills:{combat:1,survival:1,persuasion:3,lore:1,stealth:3,craft:0},hp:12,startGold:30},
-  {id:'inquisitor',name:'Inquisitor',group:'magic',tag:'Investigation',desc:'Truth as a weapon. You work for a power that defines what truth is.',trait:'Interrogation Method',traitDesc:'Lore and persuasion to extract information gain +2. You always know when a subject is actively lying.',archDesc:'You ask questions people do not want answered and find the answers.',mechNote:'Your knowledge cuts through deception. Lore rolls carry advantage when uncovering hidden truths.',skills:{combat:1,survival:1,persuasion:3,lore:3,stealth:0,craft:0},hp:14,startGold:20},
-  {id:'elementalist',name:'Elementalist',group:'magic',tag:'Knowledge',desc:'The axis inversion cycle as a study subject.',trait:'Axis Attunement',traitDesc:'Survival during axis events gains +3. Can predict inversion timing within 3 days.',archDesc:'When the axis turns, most people suffer. You take notes.',mechNote:'The wild taught you patience. Survival rolls carry advantage when tracking and reading the land.',skills:{combat:1,survival:2,persuasion:1,lore:3,stealth:0,craft:2},hp:14,startGold:20},
-  {id:'rogue',name:'Rogue',group:'stealth',tag:'Stealth',desc:'Flexible, opportunistic, and honest about it.',trait:'Urban Ghost',traitDesc:'Stealth in settlements gains +2. Never surprised in cities.',archDesc:'Work done in the dark. Favors traded in silence. The city is your maze.',mechNote:'Your silence earns you access where strength fails. Stealth rolls carry advantage in bold confrontations.',skills:{combat:1,survival:1,persuasion:2,lore:1,stealth:3,craft:0},hp:16,startGold:30},
-  {id:'assassin',name:'Assassin',group:'stealth',tag:'Stealth',desc:'Precise, professional, and expensive. You are a service.',trait:'Contract Discipline',traitDesc:'On a defined objective, combat and stealth both gain +1.',archDesc:'You take contracts. You complete them. The economy of violence is clean when everyone understands the terms.',mechNote:'Your silence earns you access where strength fails. Stealth rolls carry advantage in bold confrontations.',skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:4,craft:0},hp:16,startGold:35},
-  {id:'spellthief',name:'Spellthief',group:'stealth',tag:'Stealth',desc:'You steal what others have spent years earning.',trait:'Acquisition',traitDesc:'After observing a technique, lore and stealth rolls to copy it gain +2.',archDesc:'Why learn what you can take? The answer matters less than the result.',mechNote:'Your silence earns you access where strength fails. Stealth rolls carry advantage in bold confrontations.',skills:{combat:1,survival:1,persuasion:2,lore:1,stealth:3,craft:1},hp:14,startGold:30},
-  {id:'scout_c',name:'Scout',group:'stealth',tag:'Survival',desc:'Forward element. You move ahead, assess, and return with what matters.',trait:'Advance Read',traitDesc:'When entering a new location, automatically identify its dominant faction and one hidden danger.',archDesc:'You go first. That is the job.',mechNote:'The wild taught you patience. Survival rolls carry advantage when tracking and reading the land.',skills:{combat:1,survival:3,persuasion:1,lore:1,stealth:3,craft:0},hp:16,startGold:20},
-  {id:'thief',name:'Thief',group:'stealth',tag:'Stealth',desc:'Material redistribution specialist.',trait:'Valuation',traitDesc:'Assess the value and origin of any object instantly. Craft rolls on locks and security gain +2.',archDesc:'Everything has a price. Everything has an owner. The gap between those two facts is your livelihood.',mechNote:'Your hands make the world\'s necessities. Craft rolls carry advantage when working with mechanisms and materials.',skills:{combat:1,survival:1,persuasion:2,lore:2,stealth:3,craft:1},hp:14,startGold:40},
-  {id:'trickster',name:'Trickster',group:'stealth',tag:'Social',desc:'Performance, misdirection, and the exploitation of expectation.',trait:'Blessed by Twyll',traitDesc:'Deception persuasion gains +2. Once per session redirect a failed roll consequence to a nearby NPC.',archDesc:'Twyll desires that others feel foolish. You are a very faithful servant.',mechNote:'Your words open doors that swords cannot. Persuasion rolls carry advantage in social encounters.',skills:{combat:1,survival:1,persuasion:4,lore:1,stealth:2,craft:0},hp:12,startGold:35},
-  {id:'healer',name:'Healer',group:'support',tag:'Support',desc:'Clinical, compassionate, and practical. You fix what is broken.',trait:'Triage Mind',traitDesc:'Healing restores +4 extra HP. Can stabilize any dying character as a free action.',archDesc:'You are the reason people survive things they should not have.',mechNote:'Your knowledge cuts through deception. Lore rolls carry advantage when uncovering hidden truths.',skills:{combat:1,survival:2,persuasion:2,lore:3,stealth:0,craft:2},hp:14,startGold:20},
-  {id:'artificer',name:'Artificer',group:'support',tag:'Craft',desc:'You build. You fix. You understand the material world at a level most people never reach.',trait:'Makers Eye',traitDesc:'Craft gains +2. Can identify quality and origin of any crafted item.',archDesc:'Schematics, tools, heat and pressure. You solve problems with your hands.',mechNote:'Your hands make the world\'s necessities. Craft rolls carry advantage when working with mechanisms and materials.',skills:{combat:1,survival:1,persuasion:1,lore:2,stealth:0,craft:4},hp:16,startGold:40},
-  {id:'engineer',name:'Engineer',group:'support',tag:'Craft',desc:'Systems, structures, and infrastructure as strategy.',trait:'Load Analysis',traitDesc:'Craft on structures and fortifications gains +2. Identify structural weaknesses in any built environment.',archDesc:'The Soreheim Engineers Consortium built the continent. You trained on the same principles.',mechNote:'Your hands make the world\'s necessities. Craft rolls carry advantage when working with mechanisms and materials.',skills:{combat:1,survival:1,persuasion:1,lore:2,stealth:0,craft:4},hp:16,startGold:35},
-  {id:'tactician',name:'Tactician',group:'support',tag:'Leadership',desc:'Battles are won before they start.',trait:'Combat Geometry',traitDesc:'When you observe before acting, all party rolls gain +1. Your lore rolls gain +2.',archDesc:'You arrange circumstances so that fighting becomes unnecessary, or inevitable.',mechNote:'Your knowledge cuts through deception. Lore rolls carry advantage when uncovering hidden truths.',skills:{combat:1,survival:1,persuasion:2,lore:4,stealth:0,craft:0},hp:14,startGold:20},
-  {id:'alchemist',name:'Alchemist',group:'support',tag:'Craft',desc:'Transformation as discipline. You convert materials into effects the world did not expect.',trait:'Formula Memory',traitDesc:'Craft on substances and compounds gains +2. Can identify any substance by examination.',archDesc:'You make things that change other things.',mechNote:'Your hands make the world\'s necessities. Craft rolls carry advantage when working with mechanisms and materials.',skills:{combat:1,survival:1,persuasion:1,lore:3,stealth:1,craft:3},hp:14,startGold:30},
-  {id:'saint',name:'Saint',group:'support',tag:'Faith',desc:'Living embodiment of a deity domain.',trait:'Living Testimony',traitDesc:'Persuasion with common people gains +3. Presence suppresses hostile intent from non-fanatics.',archDesc:'You did not choose to be remarkable. The deity chose you.',mechNote:'Your words open doors that swords cannot. Persuasion rolls carry advantage in social encounters.',skills:{combat:1,survival:1,persuasion:4,lore:2,stealth:0,craft:0},hp:14,startGold:15}
+  {id:'warrior',name:'Warrior',group:'combat',tag:'Combat',desc:'Disciplined, versatile, and hardened. You have trained for war and survived it.',trait:'Battle-Tested',traitDesc:'Combat rolls gain +2. When below 30% HP you gain one free reroll per encounter.',archDesc:'You have served, fought, and bled. Steel and will are your constant companions.',mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',skills:{combat:3,survival:2,persuasion:1,lore:0,stealth:0,craft:0},hp:24,startGold:20},
+  {id:'knight',name:'Knight',group:'combat',tag:'Combat',desc:'Bound by oath, armored in duty. You serve a house or cause greater than yourself.',trait:'Oath of Service',traitDesc:'Persuasion with nobility gains +2. Breaking an oath inflicts -3 to all rolls until redeemed.',archDesc:'Your name is tied to a house. That comes with doors and debts in equal measure.',mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',skills:{combat:3,survival:1,persuasion:2,lore:1,stealth:0,craft:0},hp:22,startGold:15},
+  {id:'ranger',name:'Ranger',group:'combat',tag:'Survival',desc:'Trained to move through terrain that stops armies. You operate where maps end.',trait:'Wilderness Read',traitDesc:'Survival rolls gain +2. You are never ambushed in wilderness terrain.',archDesc:'You know the routes between settlements better than any road chart admits.',mechNote:'Survival rolls gain advantage when tracking routes and reading unfamiliar terrain.',skills:{combat:2,survival:3,persuasion:1,lore:1,stealth:2,craft:0},hp:18,startGold:20},
+  {id:'paladin',name:'Paladin',group:'combat',tag:'Combat',desc:'Faith and steel as one. You carry the will of your deity into the material world.',trait:'Divine Sanction',traitDesc:'Combat vs unjust targets gains +2. Shrine interactions always succeed on first attempt.',archDesc:'You act in the name of something larger. Which deity shapes everything.',mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',skills:{combat:3,survival:1,persuasion:1,lore:2,stealth:0,craft:0},hp:22,startGold:10},
+  {id:'archer',name:'Archer',group:'combat',tag:'Precision',desc:'Distance is your advantage. Patience is your discipline.',trait:'Patient Shot',traitDesc:'When you wait before acting, your next combat roll gains +3.',archDesc:'You do not win fights by standing in them. You win them before they reach you.',mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',skills:{combat:2,survival:2,persuasion:1,lore:1,stealth:2,craft:1},hp:16,startGold:20},
+  {id:'berserker',name:'Berserker',group:'combat',tag:'Combat',desc:'Controlled fury as a weapon. You hit harder when it costs you something.',trait:'Rage Economy',traitDesc:'Take 2 HP damage to add +3 to any combat roll. Cannot reduce below 1 HP.',archDesc:'Pain is not a problem you solve. It is a resource you spend.',mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',skills:{combat:4,survival:2,persuasion:1,lore:0,stealth:1,craft:0},hp:26,startGold:10},
+  {id:'wizard',name:'Wizard',group:'magic',tag:'Knowledge',desc:'Systematic and precise. Magic is a discipline, not a gift.',trait:'Arcane Index',traitDesc:'Lore rolls gain +2. You can identify any magical effect on sight.',archDesc:'The theory came first. The power came later. The cost is ongoing.',mechNote:'Lore rolls gain advantage when cutting through concealment or reading institutional patterns.',skills:{combat:1,survival:1,persuasion:1,lore:4,stealth:0,craft:2},hp:12,startGold:25},
+  {id:'cleric',name:'Cleric',group:'magic',tag:'Faith',desc:'Divine power expressed through dedicated service.',trait:'Channel Devotion',traitDesc:'At shrines and sacred sites all rolls gain +2. Healing restores +2 extra HP.',archDesc:'You represent something holy in a world that tests faith constantly.',mechNote:'Persuasion rolls gain advantage in social encounters and institutional negotiations.',skills:{combat:1,survival:1,persuasion:2,lore:2,stealth:0,craft:1},hp:16,startGold:15},
+  {id:'priest',name:'Priest',group:'magic',tag:'Faith',desc:'Community and ritual as power. You serve a congregation, not a cause.',trait:'Communal Memory',traitDesc:'In any settlement you can access local gossip and faction movement through worshippers.',archDesc:'People confess to you. That is a sacred trust and a remarkable intelligence source.',mechNote:'Persuasion rolls gain advantage in social encounters and institutional negotiations.',skills:{combat:1,survival:1,persuasion:3,lore:2,stealth:0,craft:1},hp:14,startGold:20},
+  {id:'necromancer',name:'Necromancer',group:'magic',tag:'Knowledge',desc:'The boundary between living and dead as a subject of serious study.',trait:'Panim Protocols',traitDesc:'Immune to fear from undead. Death and afterlife lore rolls always succeed on first attempt.',archDesc:'Panim treats death as commerce. You treat it as data.',mechNote:'Lore rolls gain advantage when cutting through concealment or reading institutional patterns.',skills:{combat:1,survival:1,persuasion:1,lore:4,stealth:1,craft:1},hp:12,startGold:20},
+  {id:'illusionist',name:'Illusionist',group:'magic',tag:'Stealth',desc:'What is real is only what people choose to perceive.',trait:'False Surface',traitDesc:'Deception-based persuasion and stealth gain +2. Can create one convincing false identity per session.',archDesc:'You construct realities. The question is whether they are useful ones.',mechNote:'Stealth rolls gain advantage when entering spaces that resist direct approach.',skills:{combat:1,survival:1,persuasion:3,lore:1,stealth:3,craft:0},hp:12,startGold:30},
+  {id:'inquisitor',name:'Inquisitor',group:'magic',tag:'Investigation',desc:'Truth as a weapon. You work for a power that defines what truth is.',trait:'Interrogation Method',traitDesc:'Lore and persuasion to extract information gain +2. You always know when a subject is actively lying.',archDesc:'You ask questions people do not want answered and find the answers.',mechNote:'Lore rolls gain advantage when cutting through concealment or reading institutional patterns.',skills:{combat:1,survival:1,persuasion:3,lore:3,stealth:0,craft:0},hp:14,startGold:20},
+  {id:'elementalist',name:'Elementalist',group:'magic',tag:'Knowledge',desc:'The axis inversion cycle as a study subject.',trait:'Axis Attunement',traitDesc:'Survival during axis events gains +3. Can predict inversion timing within 3 days.',archDesc:'When the axis turns, most people suffer. You take notes.',mechNote:'Survival rolls gain advantage when tracking routes and reading unfamiliar terrain.',skills:{combat:1,survival:2,persuasion:1,lore:3,stealth:0,craft:2},hp:14,startGold:20},
+  {id:'rogue',name:'Rogue',group:'stealth',tag:'Stealth',desc:'Flexible, opportunistic, and honest about it.',trait:'Urban Ghost',traitDesc:'Stealth in settlements gains +2. Never surprised in cities.',archDesc:'Work done in the dark. Favors traded in silence. The city is your maze.',mechNote:'Stealth rolls gain advantage when entering spaces that resist direct approach.',skills:{combat:1,survival:1,persuasion:2,lore:1,stealth:3,craft:0},hp:16,startGold:30},
+  {id:'assassin',name:'Assassin',group:'stealth',tag:'Stealth',desc:'Precise, professional, and expensive. You are a service.',trait:'Contract Discipline',traitDesc:'On a defined objective, combat and stealth both gain +1.',archDesc:'You take contracts. You complete them. The economy of violence is clean when everyone understands the terms.',mechNote:'Stealth rolls gain advantage when entering spaces that resist direct approach.',skills:{combat:2,survival:1,persuasion:1,lore:1,stealth:4,craft:0},hp:16,startGold:35},
+  {id:'spellthief',name:'Spellthief',group:'stealth',tag:'Stealth',desc:'You steal what others have spent years earning.',trait:'Acquisition',traitDesc:'After observing a technique, lore and stealth rolls to copy it gain +2.',archDesc:'Why learn what you can take? The answer matters less than the result.',mechNote:'Stealth rolls gain advantage when entering spaces that resist direct approach.',skills:{combat:1,survival:1,persuasion:2,lore:1,stealth:3,craft:1},hp:14,startGold:30},
+  {id:'scout_c',name:'Scout',group:'stealth',tag:'Survival',desc:'Forward element. You move ahead, assess, and return with what matters.',trait:'Advance Read',traitDesc:'When entering a new location, automatically identify its dominant faction and one hidden danger.',archDesc:'You go first. That is the job.',mechNote:'Survival rolls gain advantage when tracking routes and reading unfamiliar terrain.',skills:{combat:1,survival:3,persuasion:1,lore:1,stealth:3,craft:0},hp:16,startGold:20},
+  {id:'thief',name:'Thief',group:'stealth',tag:'Stealth',desc:'Material redistribution specialist.',trait:'Valuation',traitDesc:'Assess the value and origin of any object instantly. Craft rolls on locks and security gain +2.',archDesc:'Everything has a price. Everything has an owner. The gap between those two facts is your livelihood.',mechNote:'Craft rolls gain advantage when working with mechanisms, locks, and physical systems.',skills:{combat:1,survival:1,persuasion:2,lore:2,stealth:3,craft:1},hp:14,startGold:40},
+  {id:'trickster',name:'Trickster',group:'stealth',tag:'Social',desc:'Performance, misdirection, and the exploitation of expectation.',trait:'Blessed by Twyll',traitDesc:'Deception persuasion gains +2. Once per session redirect a failed roll consequence to a nearby NPC.',archDesc:'Twyll desires that others feel foolish. You are a very faithful servant.',mechNote:'Persuasion rolls gain advantage in social encounters and institutional negotiations.',skills:{combat:1,survival:1,persuasion:4,lore:1,stealth:2,craft:0},hp:12,startGold:35},
+  {id:'healer',name:'Healer',group:'support',tag:'Support',desc:'Clinical, compassionate, and practical. You fix what is broken.',trait:'Triage Mind',traitDesc:'Healing restores +4 extra HP. Can stabilize any dying character as a free action.',archDesc:'You are the reason people survive things they should not have.',mechNote:'Lore rolls gain advantage when cutting through concealment or reading institutional patterns.',skills:{combat:1,survival:2,persuasion:2,lore:3,stealth:0,craft:2},hp:14,startGold:20},
+  {id:'artificer',name:'Artificer',group:'support',tag:'Craft',desc:'You build. You fix. You understand the material world at a level most people never reach.',trait:'Makers Eye',traitDesc:'Craft gains +2. Can identify quality and origin of any crafted item.',archDesc:'Schematics, tools, heat and pressure. You solve problems with your hands.',mechNote:'Craft rolls gain advantage when working with mechanisms, locks, and physical systems.',skills:{combat:1,survival:1,persuasion:1,lore:2,stealth:0,craft:4},hp:16,startGold:40},
+  {id:'engineer',name:'Engineer',group:'support',tag:'Craft',desc:'Systems, structures, and infrastructure as strategy.',trait:'Load Analysis',traitDesc:'Craft on structures and fortifications gains +2. Identify structural weaknesses in any built environment.',archDesc:'The Soreheim Engineers Consortium built the continent. You trained on the same principles.',mechNote:'Craft rolls gain advantage when working with mechanisms, locks, and physical systems.',skills:{combat:1,survival:1,persuasion:1,lore:2,stealth:0,craft:4},hp:16,startGold:35},
+  {id:'tactician',name:'Tactician',group:'support',tag:'Leadership',desc:'Battles are won before they start.',trait:'Combat Geometry',traitDesc:'When you observe before acting, all party rolls gain +1. Your lore rolls gain +2.',archDesc:'You arrange circumstances so that fighting becomes unnecessary, or inevitable.',mechNote:'Lore rolls gain advantage when cutting through concealment or reading institutional patterns.',skills:{combat:1,survival:1,persuasion:2,lore:4,stealth:0,craft:0},hp:14,startGold:20},
+  {id:'alchemist',name:'Alchemist',group:'support',tag:'Craft',desc:'Transformation as discipline. You convert materials into effects the world did not expect.',trait:'Formula Memory',traitDesc:'Craft on substances and compounds gains +2. Can identify any substance by examination.',archDesc:'You make things that change other things.',mechNote:'Craft rolls gain advantage when working with mechanisms, locks, and physical systems.',skills:{combat:1,survival:1,persuasion:1,lore:3,stealth:1,craft:3},hp:14,startGold:30},
+  {id:'saint',name:'Saint',group:'support',tag:'Faith',desc:'Living embodiment of a deity domain.',trait:'Living Testimony',traitDesc:'Persuasion with common people gains +3. Presence suppresses hostile intent from non-fanatics.',archDesc:'You did not choose to be remarkable. The deity chose you.',mechNote:'Persuasion rolls gain advantage in social encounters and institutional negotiations.',skills:{combat:1,survival:1,persuasion:4,lore:2,stealth:0,craft:0},hp:14,startGold:15}
 ,
   {id:'bard',name:'Bard',group:'support', tag:'Performer & Chronicler',
    desc:'You trade in stories, music, and the truth underneath both. Information moves through you faster than through institutions.',
    trait:'Captive Audience', traitDesc:'Your performance draws a crowd. For one scene, all NPCs present give full attention and cannot be hostile without provocation.',
    archDesc:'a recorder of events the powerful would prefer unrecorded',
-   mechNote:'Your words open doors that swords cannot. Persuasion rolls carry advantage in social encounters.',
+   mechNote:'Persuasion rolls gain advantage in social encounters and institutional negotiations.',
    skills:{combat:1,survival:1,persuasion:4,lore:3,stealth:2,craft:2}, hp:16, startGold:22},
   {id:'oracle',name:'Oracle',group:'magic', tag:'Seer & Pattern Reader',
    desc:'You see patterns in what has happened and use them to anticipate what will.',
    trait:'The Shape of Things', traitDesc:'For one scene, you articulate the most likely outcome of the current situation accurately. NPCs who hear this are shaken and more cooperative.',
    archDesc:'a reader of the shapes events leave before they fully arrive',
-   mechNote:'Your knowledge cuts through deception. Lore rolls carry advantage when uncovering hidden truths.',
+   mechNote:'Lore rolls gain advantage when cutting through concealment or reading institutional patterns.',
    skills:{combat:1,survival:2,persuasion:2,lore:4,stealth:2,craft:2}, hp:15, startGold:18},
   {id:'warden',name:'Warden',group:'combat', tag:'Guardian & Protector',
    desc:'Your job is to be between the threat and whoever needs protecting.',
    trait:'Hold the Line', traitDesc:'Until your next rest, you cannot be forced to retreat and all protective actions succeed automatically once.',
    archDesc:'someone who stands between the people they have committed to and whatever comes',
-   mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',
+   mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',
    skills:{combat:3,survival:3,persuasion:2,lore:1,stealth:1,craft:2}, hp:22, startGold:18},
   {id:'warlord',name:'Warlord',group:'combat', tag:'Commander & Strategist',
    desc:'You lead from the front and from the back simultaneously.',
    trait:'Command Presence', traitDesc:'Your direction in a crisis gives everyone present +1 to their next action.',
    archDesc:'a person who organizes human capacity toward a specific outcome under pressure',
-   mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',
+   mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',
    skills:{combat:3,survival:2,persuasion:3,lore:2,stealth:1,craft:1}, hp:21, startGold:20},
   {id:'death_knight',name:'Death Knight',group:'combat', tag:'Fallen Champion',
    desc:'You served something that no longer exists. The skills remain. The purpose is what you are looking for.',
    trait:'Unbroken', traitDesc:'Once per run, when you would be forced to surrender or retreat, you do not. You take the consequence standing.',
    archDesc:'a person trained for a cause that has ended, still moving forward without being certain what toward',
-   mechNote:'Your bearing commands presence. Combat rolls carry advantage in bold faction confrontations.',
+   mechNote:'Combat rolls gain advantage in direct confrontations with faction authority.',
    skills:{combat:4,survival:2,persuasion:1,lore:2,stealth:1,craft:2}, hp:24, startGold:15},
   {id:'beastmaster',name:'Beastmaster',group:'stealth', tag:'Tracker & Wilderness Reader',
    desc:'You read terrain through what lives in it.',
    trait:'The Quiet Way', traitDesc:'You can move through any wilderness terrain without leaving trace evidence.',
    archDesc:'someone who understands inhabited space through its non-human inhabitants',
-   mechNote:'The wild taught you patience. Survival rolls carry advantage when tracking and reading the land.',
+   mechNote:'Survival rolls gain advantage when tracking routes and reading unfamiliar terrain.',
    skills:{combat:2,survival:4,persuasion:1,lore:2,stealth:3,craft:2}, hp:19, startGold:17}
 ];
 
@@ -3457,7 +3475,7 @@ const BACKGROUNDS = {
   archer:[
     {id:'a_roadwarden',name:'Roadwarden Marksman',region:'Shelkopolis',desc:'Roadwarden precision posting. You held elevated positions on the route network.',bonus:'Roadwarden Marksman Certificate. +1 to combat rolls at range.',opening:'Route work is patient work. You were good at it. Then the eastern route went wrong.',mechNote:'Begins with Combat advantage. The discipline of war shapes every confrontation.',factionMods:[{id:'roadwardens',n:15},{id:'house_shelk',n:5}]},
     {id:'a_frontier',name:'Frontier Ranging Company',region:'Sunspire Haven',desc:'Soreheim frontier units use archers to manage what construction crews cannot face in close.',bonus:'Frontier Combat Ration Pack. Know patrol patterns of one wilderness creature type.',opening:'Sunspire Haven marks the edge of managed territory. You operated past it.',mechNote:'Begins with Survival advantage. The land was your first teacher.',factionMods:[{id:'frontier_hammer_companies',n:15}]},
-    {id:'a_nomdara',name:'Nomdara Caravan Guard',region:'Guildheart Hub',desc:'The Nomdara Caravan needs guards who can work at range while the caravan moves.',bonus:'Nomdara Transit Papers. Know three cross-polity trade routes.',opening:'You guarded the caravan between Guildheart Hub and the Principalities border.',mechNote:'Begins with Combat advantage. The discipline of war shapes every confrontation.',factionMods:[{id:'the_union',n:10}]}
+    {id:'a_nomdara',name:'Nomdara Caravan Guard',region:'Guildheart Hub',desc:'The Nomdara Caravan needs guards who can work at range while the caravan moves.',bonus:'Nomdara Transit Papers. Know three cross-polity trade routes.',opening:'The Nomdara route passes through three customs checkpoints. You learned all of them from the outside of the wagon first.',mechNote:'Begins with Combat advantage. The discipline of war shapes every confrontation.',factionMods:[{id:'the_union',n:10}]}
   ],
   berserker:[
     
@@ -3526,7 +3544,7 @@ const BACKGROUNDS = {
     {id:'sc_cosmouth',name:'Cosmouth Maritime Scout',region:'Cosmoria',desc:'House Cosmouth maritime routes need people who can read the horizon for threats.',bonus:'Cosmouth Harbor Contact. Know approach and departure schedules of one major port.',opening:'Cosmoria taught you that the sea has its own surveillance. You learned to use it.',mechNote:'Begins with Survival advantage. The land was your first teacher.',factionMods:[{id:'house_cosmouth',n:15}]}
   ],
   thief:[
-    {id:'th_shelk',name:'Verdant Row Operator',region:'Shelkopolis',desc:'Shelkopolis textile and specialty markets create daily opportunities for someone attentive.',bonus:'Verdant Row Market Knowledge. Know current value and provenance of any Shelk-traded good.',opening:'Everything has a price. Everything has an owner. The gap between those two facts is your livelihood.',mechNote:'Begins with Craft advantage. Commerce taught you the value of every transaction.',factionMods:[{id:'shadowhands',n:5}]},
+    {id:'th_shelk',name:'Verdant Row Operator',region:'Shelkopolis',desc:'Shelkopolis textile and specialty markets create daily opportunities for someone attentive.',bonus:'Verdant Row Market Knowledge. Know current value and provenance of any Shelk-traded good.',opening:'Verdant Row moves a season\'s worth of dyed cloth between dawn and midday. You moved other things through the same crowd.',mechNote:'Begins with Craft advantage. Commerce taught you the value of every transaction.',factionMods:[{id:'shadowhands',n:5}]},
     {id:'th_cosmouth',name:'Cosmouth Cargo Handler',region:'Cosmoria',desc:'Cosmouth maritime cargo moves constantly. The gap between manifest and actual is your expertise.',bonus:'Cosmouth Dock Access. Unmanifested goods move at half the usual suspicion cost.',opening:'Salt, rope tar, and ledger ink. You learned all three in the same education.',mechNote:'Begins with Craft advantage. Commerce taught you the value of every transaction.',factionMods:[{id:'house_cosmouth',n:5},{id:'shadowhands',n:5}]},
     {id:'th_union',name:'Guild Exchange Floor Operator',region:'Guildheart Hub',desc:'The Union trade floor creates information asymmetries. You exploited them.',bonus:'Guild Exchange Access. Know market prices in all Union-chartered settlements.',opening:'The sealed contract vaults of Guildheart Hub keep the important things safe. You studied how the seals work.',mechNote:'Begins with Craft advantage. Commerce taught you the value of every transaction.',factionMods:[{id:'the_union',n:5}]}
   ],
@@ -7570,6 +7588,7 @@ let G = {
   trainingDisadvantage:0, // counts down — next N choices suffer -2
   dead:false,
   rivalAdventurers:[],
+  marenRenown:0, marenRevealed:false,
   schemaVersion:3
 };
 
@@ -7629,12 +7648,27 @@ function getRenownedTitle() {
 
 function advanceTime(ticks) {
   ticks = ticks || 1;
+  const prevIndex = G.timeIndex;
   G.timeIndex = (G.timeIndex + ticks) % 4;
   if (G.timeIndex === 0) G.dayCount = (G.dayCount || 0) + 1;
   // Drift Nomdara every 10 time units
   const drift = window.NOMDARA_OVERLAY && window.NOMDARA_OVERLAY.drift_interval_time_units || 10;
   if (((G.timeIndex + (G.dayCount||0)*4) % drift) === 0 && typeof driftNomdara === 'function') {
     driftNomdara();
+  }
+  // Nightwatch prompt: fires once per day when time crosses into index 3
+  if (G.timeIndex === 3 && prevIndex !== 3 && !(G.flags && G.flags['_nightwatch_prompted_day_' + (G.dayCount||0)])) {
+    if (G.flags) G.flags['_nightwatch_prompted_day_' + (G.dayCount||0)] = true;
+    setTimeout(function() {
+      if (typeof addWorldNotice === 'function') {
+        addWorldNotice('[NIGHTWATCH] It is late. Finding lodging before dawn is worth considering.');
+      }
+    }, 800);
+  }
+  // Weather severity decays slowly over time (1 unit per 2 days max)
+  if (G.worldClocks && G.worldClocks.weather > 0 && G.timeIndex === 0) {
+    const daysSinceFlip = G.axisFlipDay !== undefined ? (G.dayCount||0) - G.axisFlipDay : 999;
+    if (daysSinceFlip > 3) G.worldClocks.weather = Math.max(0, G.worldClocks.weather - 1);
   }
   updateHUD();
 }
@@ -7725,6 +7759,11 @@ function initCreate() {
         unlockedAbilities:[], unlockedCombatAbilities:[],
         companions:{}, tutorialFlags:{},
         dead:false, rivalAdventurers:[],
+        marenRenown:0, marenRevealed:false,
+        // Stage progress bars + world clocks
+        stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
+        telemetry:{turns:0, actions:0},
+        worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0},
         // Stage 2 investigation + faction tracking
         investigationProgress:0, flags:{}, rivalId:null,
         factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
@@ -7839,6 +7878,29 @@ function selectArchetype(id) {
     activeRow.querySelectorAll('.card').forEach(c => {
       c.classList.toggle('selected', c.dataset.id === id);
       c.style.display = c.dataset.id === id ? '' : 'none';
+    });
+  }
+
+  // Refresh stat-boost grid to show this archetype's base values
+  const sbg2 = document.getElementById('stat-boost-grid');
+  if (sbg2 && G.archetype && G.archetype.skills) {
+    const prevBoost = G._createStatBoost;
+    sbg2.innerHTML = '';
+    Object.keys(G.archetype.skills).forEach(sk => {
+      const base = G.archetype.skills[sk] || 0;
+      const btn = document.createElement('div');
+      btn.className = 'card' + (prevBoost === sk ? ' selected' : '');
+      btn.dataset.skill = sk;
+      btn.style.textAlign = 'center';
+      btn.innerHTML = '<div class="card-name">' + sk + '</div>' +
+        '<div class="card-tag">' + base + ' &rarr; ' + (base + 1) + '</div>';
+      btn.addEventListener('click', () => {
+        sbg2.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+        btn.classList.add('selected');
+        G._createStatBoost = sk;
+        checkBeginReady();
+      });
+      sbg2.appendChild(btn);
     });
   }
 
@@ -7992,6 +8054,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function beginLegend() {
+  try { _beginLegendCore(); } catch(e) { showToast('Something went wrong. Check the console.'); console.error('beginLegend:', e); }
+}
+function _beginLegendCore() {
   const name = document.getElementById('char-name').value.trim();
   if (!name) { showToast('Enter your name first.'); return; }
   if (!G.archetype || !G.background) { showToast('Choose class and background.'); return; }
@@ -8050,7 +8115,7 @@ function beginLegend() {
     window.G.flags.mystery_hook_shown = true;
     setTimeout(function() {
       if (typeof addJournal === 'function') {
-        addJournal('investigation', 'Among the Registry of Deaths, you find a name marked "expunged from record." No cause. No witness. Just: expunged. Shelkopolis keeps a ledger of ash — names burned from official memory. Someone maintains it. Someone else is hunting the names on it. This is what you\'ve been sent to find.');
+        addJournal('Among the Registry of Deaths, you find a name marked "expunged from record." No cause. No witness. Just: expunged. Names burned from official memory. Someone maintains the record of absences. Someone else is hunting those names. This is what you\'ve been sent to find.', 'evidence');
       }
       if (typeof addWorldNotice === 'function') {
         addWorldNotice('A lead emerges: the ledger of ash is a register of erased names. The investigation begins.');
@@ -8062,17 +8127,24 @@ function beginLegend() {
 // ── RIVAL ADVENTURERS ────────────────────────────────────
 const RIVAL_NAMES = ['Sena Ledgermere','Tavian Silkgate','Rhodra Boltmere','Corin Bloomcrest','Veyra Boltmere','Elandra Velvetmere','Jorva Helmrune','Nira Veilthorn'];
 const RIVAL_CLASSES = ['Rogue','Warrior','Wizard','Cleric','Scout','Inquisitor','Ranger','Assassin'];
-const RIVAL_HOOKS = ['pursuing the same eastern investigation','working for House Shelk','operating on behalf of the Guild Sanction Board','following a personal vendetta','seeking the same target'];
+const RIVAL_HOOKS = ['pursuing the same eastern source','working for House Shelk','operating on behalf of the Guild Sanction Board','following a personal vendetta','seeking the same target'];
 
 function generateRivals() {
-  return [0,1,2].map(i => ({
-    name: RIVAL_NAMES[i],
-    archetype: RIVAL_CLASSES[i],
-    hook: RIVAL_HOOKS[i % RIVAL_HOOKS.length],
-    renown: Math.floor(Math.random() * 3),
-    active: true,
-    lastSeen: 'Not encountered'
-  }));
+  return [0,1,2].map((i) => {
+    const r = {
+      name: RIVAL_NAMES[i],
+      archetype: RIVAL_CLASSES[i],
+      hook: RIVAL_HOOKS[i % RIVAL_HOOKS.length],
+      renown: Math.floor(Math.random() * 3),
+      active: true,
+      lastSeen: 'Not encountered'
+    };
+    // PLACEHOLDER: rivals[1] and [2] are simple tick-based destination signalers for v0.1.
+    // Remove/replace when the full rival system is expanded beyond Maren Oss.
+    if (i === 1) { r._bgRival = true; r._bgDest = 'fairhaven';    r._bgTick = 0; }
+    if (i === 2) { r._bgRival = true; r._bgDest = 'shelkopolis';  r._bgTick = 0; }
+    return r;
+  });
 }
 
 function advanceRivals() {
@@ -8091,9 +8163,9 @@ function advanceRivals() {
           addWorldNotice('[MISSING] ' + r.name + ', ' + r.archetype + ', was last seen in this area. No contact in three days.');
         }
       }
-      // If rival beat you to the investigation, add consequence
-      if (r.renown >= 5 && r.hook.includes('same eastern investigation')) {
-        addJournal('Rival ' + r.name + ' completed the eastern investigation before you. Their findings are now in Roadwarden hands.');
+      // If rival beat you to the source, add consequence
+      if (r.renown >= 5 && r.hook.includes('same eastern source')) {
+        addJournal('Rival ' + r.name + ' reached the eastern source before you. Their findings are now in Roadwarden hands.');
         modFaction('roadwardens', 5); // they got the credit
       }
     }
@@ -8110,6 +8182,104 @@ function advanceRivals() {
       r.lastSeen = 'Disappeared. Reason unknown.';
     }
   });
+}
+
+// ── BACKGROUND RIVAL TICK (v0.1 PLACEHOLDER) ────────────
+// Two rivals bounce between Fairhaven and Shelkopolis every 3 day-ticks,
+// posting world notices and journal clues to guide the player toward active plots.
+// REMOVE/REPLACE when the full rival system is expanded beyond Maren Oss.
+function advanceBackgroundRivals() {
+  if (!G || !G.rivalAdventurers) return;
+  const dayTick = (G.dayCount || 0) + (G.timeIndex || 0) * 0.25;
+
+  G.rivalAdventurers.forEach(r => {
+    if (!r._bgRival || !r.active) return;
+    if (dayTick - r._bgTick < 3) return; // not yet
+    r._bgTick = dayTick;
+
+    const prev = r._bgDest;
+    r._bgDest = prev === 'fairhaven' ? 'shelkopolis' : 'fairhaven';
+    const dest = r._bgDest;
+    const destName = dest === 'fairhaven' ? 'Fairhaven' : 'Shelkopolis';
+    const fromName = prev === 'fairhaven' ? 'Fairhaven' : 'Shelkopolis';
+
+    const clues = {
+      fairhaven: [
+        r.name + ' was seen on the Fairhaven road. They were asking about supply disruptions on the western routes — specifically which goods stopped moving and when.',
+        r.name + ' passed through a Roadwarden post heading toward Fairhaven. The warden noted they were carrying a cargo manifest with sections marked in red.'
+      ],
+      shelkopolis: [
+        r.name + ' left ' + fromName + ' for Shelkopolis. They had a name — someone in the Silk Quarter — they were checking against northern route charter records.',
+        r.name + ' was seen heading toward Shelkopolis. They left carrying something from the industrial quarter. The transaction was not logged.'
+      ]
+    };
+    const clueList = clues[dest];
+    const clueText = clueList[Math.floor(Math.random() * clueList.length)];
+
+    if (typeof addWorldNotice === 'function') {
+      addWorldNotice('[RIVAL] ' + r.name + ' (' + r.archetype + ') has moved on to ' + destName + '.');
+    }
+    addJournal(clueText, 'intelligence');
+    r.lastSeen = destName;
+  });
+}
+
+// ── MAREN OSS ADVANCEMENT CLOCK ─────────────────────────
+// Hybrid: advances on time ticks (every 2) + investigationProgress milestones
+// Consequences: renown 2 = DC+1, renown 3 = DC+2, renown 4 = choice lock hint,
+//               renown 5 = faction consequence + journal
+// Reveal: once profiled + Stage II, show name; otherwise "troublesome rival"
+function advanceMaren() {
+  if (!G || G.flags.maren_oss_resolved) return;
+
+  const prev = G.marenRenown || 0;
+  let next = prev;
+
+  // Time-based tick: every 2 day-ticks Maren advances once
+  const dayTick = (G.dayCount || 0) + (G.timeIndex || 0) * 0.25;
+  const timeGate = Math.floor(dayTick / 2);
+  const timeProgress = Math.min(timeGate, 2); // max 2 from time alone
+
+  // Milestone-based: investigationProgress thresholds
+  const ip = G.investigationProgress || 0;
+  const milestoneProgress = ip >= 7 ? 3 : ip >= 5 ? 2 : ip >= 3 ? 1 : 0;
+
+  next = Math.min(5, timeProgress + milestoneProgress);
+
+  if (next <= prev) return; // no change
+  G.marenRenown = next;
+
+  // Reveal trigger: profiled + in Stage II
+  if (!G.marenRevealed && G.flags.maren_oss_profiled && G.stage === 'Stage II') {
+    G.marenRevealed = true;
+    addJournal('The pattern of disruptions has a shape. A woman asking the same questions, moving slightly ahead. You have seen her work before — in the archive.', 'intelligence');
+    if (typeof addWorldNotice === 'function') {
+      addWorldNotice('[RIVAL] Someone is working the same trail. She has been ahead of you before.');
+    }
+  }
+
+  // Consequence tiers — each fires at most once via fired flags
+  if (next >= 3 && !G.flags.maren_tier3_fired) {
+    G.flags.maren_tier3_fired = true;
+    if (typeof addWorldNotice === 'function') {
+      addWorldNotice('[RIVAL] The troublesome rival\'s lead is costing you. Some approaches are harder now — sources are wary of answering the same questions twice.');
+    }
+  }
+  if (next >= 4 && !G.flags.maren_tier4_fired) {
+    G.flags.maren_tier4_fired = true;
+    if (typeof addWorldNotice === 'function') {
+      addWorldNotice('[RIVAL] ' + (G.marenRevealed ? 'Maren Oss' : 'Your rival') + ' has moved through this network. One of your usual channels is no longer available.');
+    }
+    G.flags.maren_channel_locked = true;
+  }
+  if (next >= 5 && !G.flags.maren_tier5_fired) {
+    G.flags.maren_tier5_fired = true;
+    addJournal((G.marenRevealed ? 'Maren Oss' : 'The rival') + ' reached a key contact before you. The Roadwardens have a second account of events now — one that complicates yours.', 'complication');
+    modFaction('roadwardens', -5);
+    if (typeof addWorldNotice === 'function') {
+      addWorldNotice('[RIVAL] ' + (G.marenRevealed ? 'Maren Oss' : 'Your rival') + ' has shared findings with the Roadwardens. Your position in this inquiry is no longer uncontested.');
+    }
+  }
 }
 
 // ── OPENING SCENE ───────────────────────────────────────
@@ -8172,17 +8342,43 @@ function getLocalityToneDescriptor(locId) {
   return options[Math.floor((G.dayCount||0) % options.length)];
 }
 
+function buildEnvReactiveLine() {
+  const ip = G.investigationProgress || 0;
+  const renown = G.renown || 0;
+  const fatigue = G.fatigue || 0;
+  const lines = [];
+  if (ip >= 7) lines.push('The shape of what is happening here is clear. Acting on it is the remaining question.');
+  else if (ip >= 4) lines.push('The pattern holds across what you have seen. Each piece confirms the others.');
+  else if (ip >= 2) lines.push('A few threads are visible. Not enough to pull without more.');
+  if (renown >= 4) lines.push('People here have heard of you. Some of them are deciding how to feel about that.');
+  else if (renown >= 2) lines.push('A few people here have been watching since you arrived.');
+  if (fatigue >= 4) lines.push('The fatigue is in your hands. Small motions feel slow.');
+  else if (fatigue >= 2) lines.push('The road has taken something. Nothing severe yet.');
+  if (!lines.length) return '';
+  return lines[Math.floor(Math.random() * Math.min(lines.length, 2))];
+}
+
 function buildEnvPanelText() {
-  const base = getLocalityToneDescriptor(G.location);
-  const pressure = getScenePressureDescriptor();
+  const authored = window.LOCALITY_NARRATIONS && window.LOCALITY_NARRATIONS[G.location];
+  let base;
+  if (authored) {
+    const rotating = getLocalityToneDescriptor(G.location);
+    base = authored + (rotating ? ' ' + rotating : '');
+  } else {
+    const nl = window.NARRATIVE_LOOKUP && window.NARRATIVE_LOOKUP[G.location];
+    const envFeel = nl && nl.terrain_material_feel ? nl.terrain_material_feel : '';
+    base = [getLocalityToneDescriptor(G.location), envFeel, getScenePressureDescriptor()].filter(Boolean).join(' ');
+  }
+  const reactive = buildEnvReactiveLine();
   const timeFlav = TIME_FLAVORS[G.timeIndex||0];
   const axis = G.axisInverted ? 'The axis is inverted. Seasonal logic does not apply.' : '';
   const wound = (G.wounds||[]).filter(w=>!w.healed).length > 0 ? 'You are carrying wounds. Every action costs more.' : '';
-  // Narrative lookup enrichment
-  const nl = window.NARRATIVE_LOOKUP && window.NARRATIVE_LOOKUP[G.location];
-  const envFeel = nl && nl.terrain_material_feel ? nl.terrain_material_feel : '';
-  const parts = [base, envFeel, timeFlav, pressure, axis, wound].filter(Boolean);
-  return parts.join(' ');
+  const weatherSev = getWeatherSeverity ? getWeatherSeverity() : 0;
+  const weatherDesc = weatherSev >= 4 ? 'Severe weather — all exposed routes are hazardous. Outdoor checks are harder.'
+    : weatherSev === 3 ? 'Rough weather. Survival and outdoor travel are harder until conditions ease.'
+    : weatherSev === 2 ? 'Unsettled conditions. Dress accordingly.'
+    : '';
+  return [base, reactive, timeFlav, axis, wound, weatherDesc].filter(Boolean).join(' ');
 }
 
 function updateEnvironmentPanel() {
@@ -8207,9 +8403,12 @@ function updateEnvironmentPanel() {
     locationLabel = parentName + ' <span style="color:var(--ink-faint);font-size:0.8em">\u203a</span> ' + (lmEntry.display_name_raw || lmEntry.name);
     regionLabel = (lmEntry.parent_polity && lmEntry.parent_polity.raw_value) || regionLabel;
   }
+  const weatherSev = getWeatherSeverity ? getWeatherSeverity() : 0;
+  const weatherLabel = weatherSev >= 4 ? 'Severe Weather' : weatherSev === 3 ? 'Rough Weather' : weatherSev === 2 ? 'Unsettled' : '';
+  const regionSecond = [timeStr, 'Day ' + (G.dayCount||1), weatherLabel].filter(Boolean).join(' &middot; ');
   el.innerHTML =
     '<div class="env-location">' + locationLabel + '</div>' +
-    '<div class="env-region">' + regionLabel + '</div>' +
+    '<div class="env-region">' + regionLabel + (regionSecond ? '<br><span style="font-size:11px;color:var(--ink-faint)">' + regionSecond + '</span>' : '') + '</div>' +
     '<div class="env-desc">' + buildEnvPanelText() + '</div>' +
     '<div class="env-status">' +
       '<span class="env-pill">' + timeStr + ' &middot; Day ' + (G.dayCount||1) + '</span>' +
@@ -8217,6 +8416,7 @@ function updateEnvironmentPanel() {
       (G.wounds && G.wounds.length ? '<span class="env-pill danger">Wounded</span>' : '') +
       (function(){ var aw = (G.wounds||[]).filter(function(w){return !w.healed;}).length; return (aw >= 3 || (G.fatigue||0) >= 5) ? '<span class="env-pill danger">\u22121 to all rolls</span>' : ''; })() +
       (G.trainingDisadvantage > 0 ? '<span class="env-pill warn">Training fatigue (' + G.trainingDisadvantage + ')</span>' : '') +
+      (weatherSev >= 3 ? '<span class="env-pill warn">' + (weatherSev >= 4 ? 'Severe' : 'Rough') + ' Weather</span>' : '') +
     '</div>';
 
   const locBtns = document.getElementById('local-locations');
@@ -8333,7 +8533,91 @@ function addNarration(label, html, resultType) {
   scrollNarrative();
 }
 
+// Stage-aware arrival choices after travel — replaces hardcoded generic three
+function adaptEnrichedChoice(c) {
+  return {
+    text: c.label,
+    tag: 'risky',
+    align: c.align || 'neutral',
+    action: function() {
+      try { c.fn(); } catch(e) { console.error('[enriched]', e); }
+      const txt = G.lastResult || '';
+      if (txt) addNarration('', txt, G.lastResultType || 'neutral');
+      G.lastResult = null;
+      G.lastResultType = null;
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+      setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
+    }
+  };
+}
+
+function loadStageChoices(locId) {
+  const loc = locId || G.location || '';
+  const stageNum = /II/.test(G.stage || '') ? '2' : '1';
+  const tableKey = loc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
+    + '_STAGE' + stageNum + '_ENRICHED_CHOICES';
+  const enriched = window[tableKey];
+
+  if (enriched && enriched.length) {
+    const seen = G.flags._seen_enriched = G.flags._seen_enriched || {};
+    let pool = enriched.filter(function(c) { return !seen[c.label]; });
+    if (pool.length < 2) { G.flags._seen_enriched = {}; pool = enriched.slice(); }
+    // Fisher-Yates shuffle
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
+    }
+    const picked = pool.slice(0, 4);
+    picked.forEach(function(c) { seen[c.label] = true; });
+    const adapted = picked.map(adaptEnrichedChoice);
+    if ((G.timeIndex || 0) >= 2) {
+      adapted.push({ text: 'Night is coming. I need somewhere to sleep.', tag: 'safe', align: 'neutral',
+        action: function() { document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();}); if (typeof doSleepScene === 'function') doSleepScene(); }
+      });
+    }
+    renderChoices(adapted);
+    return;
+  }
+
+  // Fallback when no enriched table exists for this location/stage
+  const base = [
+    { text: 'Find the local inn and read the room.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
+    { text: 'Walk the settlement and read what is there.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' }
+  ];
+  const stage = G.stage || '';
+  if (stage.includes('II') || stage.includes('III')) {
+    base.push({ text: 'Press for the next thread before the day ends.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'probe_order_origin' });
+  } else {
+    base.push({ text: 'Seek the local authority.', skill: 'persuasion', tag: 'bold', align: 'lawful', cid: 'garrison_contact' });
+  }
+  if ((G.timeIndex || 0) >= 2) {
+    base.push({ text: 'Night is coming. I need somewhere to sleep.', tag: 'safe', align: 'neutral',
+      action: function() { document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();}); if (typeof doSleepScene === 'function') doSleepScene(); }
+    });
+  }
+  if (typeof renderChoices === 'function') renderChoices(base);
+}
+
+function renderNavChoices() {
+  const lm = window.LOCALITY_MATRIX || {};
+  const entry = lm[G.location];
+  const children = (entry && entry.children) ? entry.children : [];
+  const navChoices = children.map(function(child) {
+    const childEntry = lm[child.id || child];
+    const childId = child.id || child;
+    const childName = childEntry ? (childEntry.display_name_raw || childEntry.name) : childId;
+    return { text: childName, tag: 'nav', action: function() {
+      if (window._travelCoreTravelTo) window._travelCoreTravelTo(childId);
+    }};
+  });
+  if (navChoices.length > 0) {
+    renderChoices(navChoices);
+  }
+}
+
 function renderChoices(choices) {
+  if (!choices || choices.length === 0) { renderNavChoices(); return; }
   _pendingChoices = choices;
   // Fumble backup notice (one-time)
   if (window.G && window.G._pendingBackupChoices && window.G._pendingBackupChoices.length > 0 && !window.G.flags._taught_backup) {
@@ -8534,7 +8818,11 @@ function useTrait() {
     saint:    { bonus:{skill:'persuasion',n:3}, choices:[
       {text:'Appeal to the settlement directly in the name of your deity.',skill:'persuasion',tag:'bold',align:'lawful',cid:'trace_missing_persons'},
       {text:'Stand between the injured workers and whoever threatens them.',skill:'combat',tag:'bold',align:'good',cid:'confront_coth'},
-      {text:'Make the operator understand what their choices have cost others.',skill:'persuasion',tag:'risky',align:'good',cid:'probe_order_origin'}]}
+      {text:'Make the operator understand what their choices have cost others.',skill:'persuasion',tag:'risky',align:'good',cid:'probe_order_origin'}]},
+    bard:     { bonus:{skill:'persuasion',n:3}, choices:[
+      {text:'Perform openly and let the audience tell you what the city is afraid of.',skill:'persuasion',tag:'bold',align:'neutral',cid:'find_broadsheet'},
+      {text:'Repeat the missing name in public and see who flinches.',skill:'persuasion',tag:'risky',align:'chaotic',cid:'trace_missing_persons'},
+      {text:'Record what you have found — the document is a form of pressure.',skill:'lore',tag:'safe',align:'neutral',cid:'study_packet'}]}
   };
 
   const entry = traitChoiceMap[arch] || { bonus:{skill:'lore',n:1}, choices:[{text:'Apply your expertise.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}] };
@@ -8542,6 +8830,24 @@ function useTrait() {
   addNarration('', '+' + entry.bonus.n + ' to ' + entry.bonus.skill + ' on your next action.');
   saveGame(); updateHUD();
   if (typeof showToast === 'function') showToast('Trait activated.');
+  setTimeout(function() { renderChoices(entry.choices); }, 300);
+}
+
+// ── ENRICHED CHOICE HELPERS ───────────────────────────────
+function rollD20(skill, bonus) {
+  var roll = Math.floor(Math.random() * 20) + 1;
+  var total = roll + (bonus || 0);
+  return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
+}
+
+function gainXp(amount) {
+  G.xp = (G.xp || 0) + amount;
+  checkLevelUp();
+}
+
+function maybeStageAdvance() {
+  checkStageAdvance();
+  updateHUD();
 }
 
 // ── CHOICE RESOLUTION ─────────────────────────────────────
@@ -8595,6 +8901,14 @@ function handleChoice(choice) {
     return;
   }
 
+  // Direct-execution path for enriched choices (fn handles own roll + result)
+  if (typeof choice.action === 'function') {
+    document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
+    choice.action();
+    return;
+  }
+
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
   addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
 
@@ -8614,7 +8928,21 @@ function handleChoice(choice) {
 
   const roll = Math.floor(Math.random() * 20) + 1;
   const total = roll + skillVal + traitBonus + oneTime + disadvantage + eqBonus + compBonus;
-  const diff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 12 : 15;
+  const baseDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 12 : 15;
+  // Stage DC scaling: +1 per stage to keep challenges meaningful as stats grow
+  const _stageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
+  // Axis flip DC modifier: +2 for days 0-3, +1 for days 4-6 after flip
+  let axisFlipMod = 0;
+  if (G.axisFlipDay !== undefined) {
+    const daysSinceFlip = (G.dayCount||0) - G.axisFlipDay;
+    if (daysSinceFlip >= 0 && daysSinceFlip < 3) axisFlipMod = 2;
+    else if (daysSinceFlip < 6) axisFlipMod = 1;
+  }
+  // Weather DC modifier: severity 3+ adds +1 to Survival/Ranger checks; severity 4 adds +1 to all
+  const weatherSev = getWeatherSeverity();
+  const isOutdoor = choice.skill === 'survival' || (G.archetype && G.archetype.id === 'ranger' && choice.skill === 'combat');
+  const weatherMod = weatherSev >= 4 ? 1 : (weatherSev >= 3 && isOutdoor ? 1 : 0);
+  const diff = baseDiff + _stageNum + axisFlipMod + weatherMod;
   const success = total >= diff;
   const partial = !success && total >= diff - 4;
 
@@ -8637,6 +8965,8 @@ function handleChoice(choice) {
 
   advanceTime(1);
   advanceRivals();
+  advanceBackgroundRivals();
+  advanceMaren();
   if (typeof advanceFactionClocks === 'function') advanceFactionClocks(1);
   if (typeof checkCompanionLeave === 'function') checkCompanionLeave();
 
@@ -8724,6 +9054,7 @@ function applyEffect(fx) {
     case 'additem':   addToInventory(fx.item); break;
     case 'history':   G.history.push(fx.msg); break;
     case 'stage2':    checkStage2Unlock(); break;
+    case 'travel':    G.location = fx.dest; if (typeof updateHUD === 'function') updateHUD(); if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel(); break;
   }
 }
 
@@ -8894,8 +9225,8 @@ function _renderEpilogueChoice2() {
       addNarration('Stage III', hookText);
       G.stage = 'Stage III';
       G.stageLabel = 'Local Inter-Polity (Deep)';
-      addJournal('Advanced to Stage III. The investigation enters a new phase.');
-      addWorldNotice('Stage II complete. The investigation enters a new phase.');
+      addJournal('Advanced to Stage III. The pattern deepens.');
+      addWorldNotice('Stage II complete. The pattern deepens.');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame(1);
       var code = G.caseCode || '';
@@ -9010,7 +9341,7 @@ function checkStageAdvance() {
   } else if (G.level === 19 && G.stage === 'Stage IV') {
     G.stage = 'Stage V'; G.stageLabel = 'International to Cosmic';
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE V &#x2014; The axis responds to what you do. The world is watching.</em>');
-    addJournal('Advanced to Stage V: International to Cosmic. The investigation has become something larger.');
+    addJournal('Advanced to Stage V: International to Cosmic. The work has become something larger.');
     G.history.push('Reached Stage V at Level 19. The axis itself is in motion.');
     addWorldNotice('[STAGE V] The axis anomaly has escalated to international consequence. Roadwarden Order formally requests all parties with evidence to come forward.');
     // Stage V quest spines
@@ -9064,7 +9395,7 @@ function checkNeutralArcScene() {
     if (typeof addNarration === 'function') {
       addNarration('Contact', 'A message reaches you through an intermediary — no name, no faction seal. <em>"We have been watching how you work. You have not aligned yourself with any of the parties who have an interest in this investigation. That is either very careful or very naive. Either way, it makes you useful. There is a meeting. If you want it, the invitation is in the transit post at Soreheim. Ask for the Unmarked Ledger."</em>');
     }
-    if (typeof addJournal === 'function') addJournal('investigation', 'An anonymous contact has noticed your neutrality. A meeting is offered at Soreheim transit post — ask for the Unmarked Ledger.');
+    if (typeof addJournal === 'function') addJournal('An anonymous contact has noticed your neutrality. A meeting is offered at Soreheim transit post — ask for the Unmarked Ledger.', 'intelligence');
     if (typeof addWorldNotice === 'function') addWorldNotice('An unknown faction has made contact. Your neutrality appears to be worth something.');
     G.worldClocks.omens = (G.worldClocks.omens || 0) + 1;
   }
@@ -9111,30 +9442,40 @@ function showLevelUpScreen() {
   addNarration('', '<em class="level-up-msg">&#x2014; LEVEL ' + G.level + ' REACHED &#x2014;</em><br><span style="color:var(--gold-dim);font-size:13px">' + getRenownedTitle() + ' &middot; ' + (G.stageLabel||G.stage) + '</span>');
 
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
+  const totalStatPicks = G.level <= 10 ? 1 : 3;
+  let remainingPicks = totalStatPicks;
+  const chosenStats = [];
 
   function renderStatStep() {
+    const pickNum = totalStatPicks - remainingPicks + 1;
     const block = document.createElement('div');
     block.className = 'scene-block levelup-block';
-    let html = '<div class="lu-title">Choose a stat to improve:</div><div class="lu-options lu-stat-grid">';
+    let html = '<div class="lu-title">Choose a stat to improve' + (totalStatPicks > 1 ? ' (' + pickNum + ' of ' + totalStatPicks + ')' : '') + ':</div><div class="lu-options lu-stat-grid">';
     STAT_DISPLAY.forEach(stat => {
       const cur = G.skills[stat.key] || 0;
-      const maxed = cur >= 5;
+      const maxed = cur >= 10;
       html += '<button class="lu-option-btn' + (maxed ? ' lu-maxed' : '') + '" data-lu-stat="' + stat.key + '"' + (maxed ? ' disabled' : '') + '>' +
         '<div class="lu-opt-label">' + stat.name + (maxed ? ' <span style="opacity:.5">(max)</span>' : '') + '</div>' +
         '<div class="lu-opt-detail">' + stat.hint + '</div>' +
-        '<div class="lu-opt-tag lu-tag-neutral">' + cur + ' / 5</div>' +
+        '<div class="lu-opt-tag lu-tag-neutral">' + cur + ' / 10</div>' +
         '</button>';
     });
-    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP 1 OF 2 \u2014 STAT POINT</div>';
+    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP ' + pickNum + ' OF ' + (totalStatPicks + 1) + ' \u2014 STAT POINT</div>';
     block.innerHTML = html;
     el.appendChild(block);
     scrollNarrative();
     block.querySelectorAll('.lu-option-btn:not([disabled])').forEach(btn => {
       btn.addEventListener('click', function() {
         const sk = this.dataset.luStat;
-        G.skills[sk] = Math.min(5, (G.skills[sk] || 0) + 1);
+        G.skills[sk] = Math.min(10, (G.skills[sk] || 0) + 1);
+        chosenStats.push(sk);
         block.remove();
-        renderTraitStep(sk);
+        remainingPicks--;
+        if (remainingPicks > 0) {
+          renderStatStep();
+        } else {
+          renderTraitStep(chosenStats[0]);
+        }
       });
     });
   }
@@ -9191,7 +9532,7 @@ function _finalizeLevelUp(statKey, trait) {
   _awaitingLevelUp = false;
   saveGame(); updateHUD();
   const STAT_NAMES = {combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit'};
-  let desc = (STAT_NAMES[statKey] || statKey) + ' improved to ' + (G.skills[statKey] || 0) + '/5.';
+  let desc = (STAT_NAMES[statKey] || statKey) + ' improved to ' + (G.skills[statKey] || 0) + '/10.';
   if (trait) desc += ' Trait gained: ' + trait.name + '.';
   addNarration('Level ' + G.level, desc, 'success');
   addJournal('Level ' + G.level + ': ' + desc);
@@ -9379,12 +9720,23 @@ function modFaction(id, n) {
   if (f) f.rep = Math.max(0, Math.min(100, f.rep + n));
   updateFactionHUD();
 }
+function getWeatherSeverity() {
+  return (G.worldClocks && G.worldClocks.weather) || 0;
+}
+
 function tickAxis(n) {
   n = n||1; G.axisTick = (G.axisTick||0)+n;
   if (G.axisTick >= 73) {
     G.axisTick -= 73; G.axisInverted = !G.axisInverted;
-    addNarration('', '<em style="color:var(--blood-bright)">The axis inverts. The sky tilts wrong. Seasons shift without warning.</em>');
-    showToast('Axis Inverted.'); updateEnvironmentPanel();
+    G.axisFlipDay = G.dayCount || 0;
+    // Push weather to severity 3 on flip
+    if (!G.worldClocks) G.worldClocks = {};
+    G.worldClocks.weather = Math.max(G.worldClocks.weather || 0, 3);
+    const flipNarration = G.axisInverted
+      ? 'The light changes before the temperature does. Then the temperature drops ten degrees in four minutes. Frost forms on the windward sides of stones that were warm an hour ago. Migrating birds reverse course mid-flight. The axis has inverted — the world\'s tilt has snapped to its opposite position. For the next three days, every system you understood about this place is operating backwards.'
+      : 'The freeze breaks without warning. Ice that has held for weeks goes soft in a single morning. Air pressure drops, then equalizes sharply enough to pop ears. The axis has returned to its standard position. The world does not apologize for the disruption.';
+    addNarration('Axis Shift', '<em style="color:var(--blood-bright)">' + flipNarration + '</em>');
+    showToast('Axis ' + (G.axisInverted ? 'Inverted' : 'Restored') + '.'); updateEnvironmentPanel();
   }
   updateHUD();
 }
@@ -9530,10 +9882,8 @@ function campAction(type) {
     G.hp = Math.min(G.maxHp, G.hp + healed);
     tickAxis(1); advanceTime(2);
     if (G.traits && G.traits[0]) G.traits[0].used = false;
-    // Reduce fatigue
-    G.fatigue = Math.max(0, (G.fatigue||0) - 1);
     updateRecoveryState();
-    addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed. Fatigue reduced.', 'success');
+    addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success');
     addJournal('Rested at camp. Recovered HP. Trait refreshed.');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([
@@ -9571,7 +9921,111 @@ function campAction(type) {
       saveGame(); updateHUD();
       setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
     }
+  } else if (type === 'post_watches') {
+    const activeComps = (typeof getActiveCompanions === 'function') ? getActiveCompanions() : [];
+    if (activeComps.length === 0) {
+      addNarration('Camp', 'Post Watches requires at least one companion. You stand watch alone — the night passes uneventfully.', 'failure');
+      setTimeout(() => renderChoices([{text:'Continue.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+    } else {
+      tickAxis(1); advanceTime(1);
+      // Success chance scales with companion count (1=60%, 2=75%, 3=90%)
+      const watchRoll = Math.floor(Math.random() * 20) + 1 + activeComps.length * 2;
+      if (watchRoll >= 14) {
+        G.fatigue = Math.max(0, (G.fatigue||0) - 1);
+        addNarration('Camp', 'The watches hold. Your companions rotate through the night without incident. You wake less tired than expected.', 'success');
+        addJournal('Watches posted. The night was quiet.', 'field_note');
+      } else {
+        addNarration('Camp', 'The watches hold but something moved at the perimeter. Nothing materialized, but you all slept lighter for it.', 'partial');
+      }
+      saveGame(); updateHUD();
+      setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+    }
+  } else if (type === 'sleep') {
+    doSleepScene();
   }
+}
+
+// ── SLEEP / INN SYSTEM ───────────────────────────────────
+const INN_NAMES = {
+  shelkopolis: { cheap: 'The Amber Fountain (common room)', comfortable: 'The Amber Fountain (private room)' },
+  fairhaven:   { cheap: 'The Waypost Arms (shared bunk)',   comfortable: 'The Waypost Arms (private room)' },
+  guildheart_hub: { cheap: 'The Charter Rest (bunk ward)', comfortable: 'The Charter Rest (factor\'s room)' },
+  soreheim_proper: { cheap: 'Allocation Hall billet',       comfortable: 'Allocation Hall officer quarter' },
+  aurora_crown:   { cheap: 'The Dome Shelter (common bunk)', comfortable: 'The Dome Shelter (sealed room)' },
+  ashforge_citadel: { cheap: 'The Forge Rest (floor roll)',  comfortable: 'The Forge Rest (private berth)' },
+  ithtananalor:   { cheap: 'The Yard Bunk (common ward)',    comfortable: 'The Marshal\'s Lodge (private)' },
+  lantern_docket: { cheap: 'The Paper House (cot)',          comfortable: 'The Paper House (private room)' }
+};
+
+const STAGE_DREAM_HINTS = {
+  'Stage I':  'Something in the financial ledgers does not add up. There is a pattern in the absences.',
+  'Stage II': 'The suppression runs deeper than one locality. The same hand appears in documents from three separate polities.',
+  'Stage III': 'Whoever built this system had institutional help. The paperwork has the look of official procedure applied to unofficial ends.',
+  'Stage IV': 'The ledger has a name. You have been circling it for weeks.'
+};
+
+function doSleepScene() {
+  const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
+  const innData = INN_NAMES[loc] || { cheap: 'a shared room at the local inn', comfortable: 'a private room at the local inn' };
+  const isSoreheim = loc === 'soreheim_proper' || loc === 'ashforge_quarry' || loc === 'sunspire_haven' || loc === 'harvest_circle' || loc === 'quarry_flats';
+
+  // Soreheim: high standing = free billet
+  const engStanding = ((G.factions||[]).find(f => f.id === 'engineers_consortium') || {}).value || 0;
+  const gcStanding = ((G.factions||[]).find(f => f.id === 'giant_council') || {}).value || 0;
+  const sorehimFree = isSoreheim && (engStanding >= 15 || gcStanding >= 15);
+
+  addNarration('Lodging', 'It is ' + TIME_NAMES[G.timeIndex||0] + '. You need somewhere to sleep.');
+
+  const choices = [];
+  if (sorehimFree) {
+    choices.push({ text: 'The allocation hall has a billet assigned to consortium members.', skill: 'survival', tag: 'safe', align: 'neutral',
+      action: function() { doSleep(0, innData.comfortable, true); } });
+  } else {
+    choices.push({ text: innData.cheap + ' — cheap, loud, and serviceable.', skill: 'survival', tag: 'safe', align: 'neutral',
+      action: function() { doSleep(1, innData.cheap, false); } });
+    choices.push({ text: innData.comfortable + ' — quiet, private, worth the cost.', skill: 'persuasion', tag: 'safe', align: 'neutral',
+      action: function() { doSleep(3, innData.comfortable, true); } });
+  }
+  choices.push({ text: 'Push through. Sleep is a luxury.', skill: 'survival', tag: 'risky', align: 'neutral',
+    action: function() { doPushThrough(); } });
+
+  setTimeout(() => (window._rawRenderChoices || renderChoices)(choices), 300);
+}
+
+function doSleep(cost, placeName, comfortable) {
+  if (cost > 0 && G.gold < cost) {
+    addNarration('Lodging', 'You do not have enough gold for ' + placeName + '. ' + (cost === 1 ? 'Even the cheapest room is out of reach.' : 'Try the cheaper option.'), 'failure');
+    setTimeout(() => doSleepScene(), 300);
+    return;
+  }
+  if (cost > 0) modGold(-cost);
+  const hpGain = comfortable ? Math.floor(G.maxHp * 0.35) : Math.floor(G.maxHp * 0.2);
+  G.hp = Math.min(G.maxHp, G.hp + hpGain);
+  G.fatigue = Math.max(0, (G.fatigue||0) - (comfortable ? 3 : 2));
+  advanceTime(1); tickAxis(1);
+
+  const dreamHint = STAGE_DREAM_HINTS[G.stage] || '';
+  const dreamLine = dreamHint ? ' In the hour before dawn your mind circles one thing: ' + dreamHint : '';
+  addNarration('Sleep', (comfortable
+    ? 'A proper bed. The noise of the settlement fades. You sleep without interruption.'
+    : 'The common room empties around midnight. You sleep in layers of other travelers\' noise.') +
+    ' +' + hpGain + ' HP. Fatigue reduced.' + dreamLine, 'success');
+  addJournal('Slept at ' + placeName + '.', 'field_note');
+  saveGame(); updateHUD();
+  setTimeout(() => renderChoices([
+    { text:'Morning. Back to work.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' }
+  ]), 400);
+}
+
+function doPushThrough() {
+  G.fatigue = Math.min(10, (G.fatigue||0) + 3);
+  advanceTime(1);
+  addNarration('Night', 'You do not sleep. You keep moving. By Dawnrise your eyes ache and small decisions feel larger than they are. +3 fatigue.', 'failure');
+  saveGame(); updateHUD();
+  setTimeout(() => renderChoices([
+    { text:'Keep going despite it.', skill:'survival', tag:'risky', align:'neutral', cid:'market_intel' },
+    { text:'Find somewhere to stop before the fatigue compounds.', skill:'lore', tag:'safe', align:'neutral', cid:'inn_arrival' }
+  ]), 300);
 }
 
 function showTrainingMenu() {
@@ -9713,8 +10167,8 @@ function showNPCMenu() {
   }
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_npc');
   const loc = WORLD_LOCATIONS[G.location];
-  if (!loc) return;
-  const loreSkill = G.skills.wits || 0;
+  if (!loc) { if (typeof showToast === 'function') showToast('No contacts available at this location.'); return; }
+  const loreSkill = G.skills.lore || 0;
   const npcs = loc.npcData || [];
   const visible = npcs.filter(n => loreSkill >= (n.skillReq || 0));
   const hidden  = npcs.filter(n => loreSkill < (n.skillReq || 0));
@@ -9881,10 +10335,27 @@ function showJournal() {
     '<div class="jov-wound">' + w.desc + ' (' + w.severity + ')</div>'
   ).join('') || '<div style="color:var(--ink-faint);font-size:13px">No active wounds.</div>';
 
-  const rivalRows = (G.rivalAdventurers||[]).map(r =>
+  const marenRow = (() => {
+    if (!G.flags || !G.flags.maren_oss_trail_found) return '';
+    const renown = G.marenRenown || 0;
+    const name = G.marenRevealed ? 'Maren Oss' : 'Troublesome Rival';
+    const hook = G.marenRevealed
+      ? 'Pursuing the same trail — arrived first in the archive.'
+      : 'Someone asking the same questions. Ahead of you.';
+    const status = G.flags.maren_oss_resolved ? 'Unresolved — still active'
+      : renown >= 5 ? 'Has shared findings with Roadwardens'
+      : renown >= 4 ? 'Has closed off one of your channels'
+      : renown >= 3 ? 'Making your sources wary'
+      : 'Active';
+    return '<div class="jov-rival"><strong>' + name + '</strong> &mdash; ' + hook + '<br>' +
+      '<span style="color:var(--gold-dim);font-size:11px">Pressure ' + renown + '/5 &middot; ' + status + '</span></div>';
+  })();
+
+  const genericRivalRows = (G.rivalAdventurers||[]).map(r =>
     '<div class="jov-rival"><strong>' + r.name + '</strong> (' + r.archetype + ') &mdash; ' + r.hook + '<br>' +
     '<span style="color:var(--gold-dim);font-size:11px">Renown ' + r.renown + ' &middot; ' + (r.active ? 'Active' : r.lastSeen) + '</span></div>'
-  ).join('') || '<div style="color:var(--ink-faint);font-size:13px">No known rivals yet.</div>';
+  ).join('');
+  const rivalRows = (marenRow + genericRivalRows) || '<div style="color:var(--ink-faint);font-size:13px">No known rivals yet.</div>';
 
   const invRows = (G.inventory||[]).map((item,i) =>
     '<div class="jov-item">' + item.name + ' <span style="color:var(--ink-faint);font-size:11px">(' + item.type + ')</span>' +
@@ -10200,6 +10671,9 @@ function migrateState(loaded) {
     loaded.inventory = loaded.inventory || [];
     loaded.equipped = loaded.equipped || {weapon:null,armor:null,tool:null};
     loaded.rivalAdventurers = loaded.rivalAdventurers || [];
+    loaded.marenRenown = loaded.marenRenown || 0;
+    loaded.marenRevealed = loaded.marenRevealed || false;
+    if (loaded.worldClocks) loaded.worldClocks.weather = loaded.worldClocks.weather || 0;
     loaded.dayCount = loaded.dayCount || 0;
     loaded.worldNotices = loaded.worldNotices || null;
   }
@@ -10555,7 +11029,12 @@ function setText(id,val) { const el=document.getElementById(id); if(el) el.inner
 // ── OVERLAYS ─────────────────────────────────────────────
 function showOverlay(id) { document.getElementById(id)?.classList.add('active'); }
 function closeOverlay(id) { document.getElementById(id)?.classList.remove('active'); }
-function showCamp() { showOverlay('overlay-camp'); }
+function showCamp() {
+  const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
+  const pw = document.getElementById('btn-post-watches');
+  if (pw) pw.style.display = (INN_NAMES && INN_NAMES[loc]) ? 'none' : '';
+  showOverlay('overlay-camp');
+}
 
 function confirmDeath() { showOverlay('overlay-death'); }
 function endLegend() {
@@ -10954,11 +11433,13 @@ document.getElementById('howto-close').addEventListener('click', function() {
 <script>
 var HOWTO_SECTIONS = [
   { heading: 'Risk Tiers', body: 'Every choice is tagged: <strong>Safe</strong> choices carry no roll — they always succeed at modest reward. <strong>Risky</strong> choices roll a d20 plus your relevant skill against a difficulty (DC). <strong>Bold</strong> choices are high-stakes — higher DC, higher reward on success, harder consequences on failure. A natural 20 is a critical success.' },
-  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — rises when you draw scrutiny. At high levels, faction agents begin to interfere.</li><li><strong>Pressure</strong> — rises with reckless investigation. Too much pressure fractures your leads.</li><li><strong>Reverence</strong> — rises with significant acts. At its peak, your legend draws powerful attention.</li></ul>' },
-  { heading: 'Stage Progression', body: 'Your investigation unfolds in stages. The progress bar beneath your stage name tracks advancement. Bold and risky successes move the investigation forward. The rival investigator also advances — rest too often and they may reach key contacts first.' },
-  { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The investigation always continues: a backup path appears for main investigation choices. Some side paths, once closed, are closed for good.' },
-  { heading: 'Rest', body: 'You may rest twice per in-game day to recover. Resting costs investigation momentum and gives the rival clock one tick. A third rest in the same day is too exhausting to attempt.' },
-  { heading: 'Saving', body: 'The game saves automatically after every choice. Your four-digit code is your legend\'s identity — enter it at the title screen to return to your investigation exactly where you left off. You can export your full save as a JSON file from the menu.' },
+  { heading: 'Difficulty (DC)', body: 'When you roll, your d20 result plus your skill bonus must meet or beat the DC. DCs range from <strong>10</strong> (average task) to <strong>15</strong> (harder), <strong>20</strong> (challenging), <strong>25</strong> (very difficult), and <strong>30</strong> (a long shot). Higher DCs only appear once your case has reached Stage 3 or later.' },
+  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — rises when you draw scrutiny. At high levels, faction agents begin to interfere.</li><li><strong>Pressure</strong> — rises with reckless action. Too much pressure fractures your leads.</li><li><strong>Reverence</strong> — rises with significant acts. At its peak, your legend draws powerful attention.</li></ul>' },
+  { heading: 'Stage Progression', body: 'Your case unfolds in stages. The progress bar beneath your stage name tracks advancement. Bold and risky successes push the stage forward. Your rival also advances — rest too often and they may reach key sources first.' },
+  { heading: 'Travel', body: 'From the travel panel, you can move between localities. Each route costs time units and sometimes gold. Some routes are locked by stage or season. Arriving at a new locality resets local encounter options — what you find depends on when you arrive.' },
+  { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The case always continues: a backup path appears for main-thread choices. Some side paths, once closed, are closed for good.' },
+  { heading: 'Rest', body: 'You may rest twice per in-game day to recover. Resting costs forward momentum and gives the rival clock one tick. A third rest in the same day is too exhausting to attempt.' },
+  { heading: 'Saving', body: 'The game saves automatically after every choice. Your four-digit code is your legend\'s identity — enter it at the title screen to return to your last position. You can export your full save as a JSON file from the menu.' },
 ];
 
 function showHowToPlay() {
@@ -10980,85 +11461,86 @@ function showHowToPlay() {
 <script src='data/nomdara_overlay.js'></script>
 
 <!-- ── ENRICHED CHOICES Stage 1: original 12 localities ── -->
-<script src='shelkopolis_stage1_enriched_choices.js'></script>
-<script src='soreheim_proper_stage1_enriched_choices.js'></script>
-<script src='guildheart_hub_stage1_enriched_choices.js'></script>
-<script src='sunspire_haven_stage1_enriched_choices.js'></script>
-<script src='aurora_crown_commune_stage1_enriched_choices.js'></script>
-<script src='ithtananalor_stage1_enriched_choices.js'></script>
-<script src='mimolot_academy_stage1_enriched_choices.js'></script>
-<script src='panim_haven_stage1_enriched_choices.js'></script>
-<script src='fairhaven_stage1_enriched_choices.js'></script>
-<script src='shirshal_stage1_enriched_choices.js'></script>
-<script src='cosmoria_stage1_enriched_choices.js'></script>
-<script src='harvest_circle_stage1_enriched_choices.js'></script>
+<script src='content/shelkopolis_stage1_enriched_choices.js'></script>
+<script src='content/soreheim_proper_stage1_enriched_choices.js'></script>
+<script src='content/guildheart_hub_stage1_enriched_choices.js'></script>
+<script src='content/sunspire_haven_stage1_enriched_choices.js'></script>
+<script src='content/aurora_crown_commune_stage1_enriched_choices.js'></script>
+<script src='content/ithtananalor_stage1_enriched_choices.js'></script>
+<script src='content/mimolot_academy_stage1_enriched_choices.js'></script>
+<script src='content/panim_haven_stage1_enriched_choices.js'></script>
+<script src='content/fairhaven_stage1_enriched_choices.js'></script>
+<script src='content/shirshal_stage1_enriched_choices.js'></script>
+<script src='content/cosmoria_stage1_enriched_choices.js'></script>
+<script src='content/harvest_circle_stage1_enriched_choices.js'></script>
 <!-- ── ENRICHED CHOICES Stage 1: 6 expansion localities ── -->
-<script src='glasswake_commune_stage1_enriched_choices.js'></script>
-<script src='whitebridge_commune_stage1_enriched_choices.js'></script>
-<script src='craftspire_stage1_enriched_choices.js'></script>
-<script src='unity_square_stage1_enriched_choices.js'></script>
-<script src='ironhold_quarry_stage1_enriched_choices.js'></script>
-<script src='plumes_end_outpost_stage1_enriched_choices.js'></script>
+<script src='content/glasswake_commune_stage1_enriched_choices.js'></script>
+<script src='content/whitebridge_commune_stage1_enriched_choices.js'></script>
+<script src='content/craftspire_stage1_enriched_choices.js'></script>
+<script src='content/unity_square_stage1_enriched_choices.js'></script>
+<script src='content/ironhold_quarry_stage1_enriched_choices.js'></script>
+<script src='content/plumes_end_outpost_stage1_enriched_choices.js'></script>
 <!-- ── DISTRICTS + NOMDARA Stage 1 ── -->
-<script src='districts_stage1_enriched_choices.js'></script>
-<script src='nomdara_stage1_choices.js'></script>
+<script src='content/districts_stage1_enriched_choices.js'></script>
+<script src='content/nomdara_stage1_choices.js'></script>
 <!-- ── CATCH-ALL + MIDSPINES ── -->
-<script src='stage1_additional_enriched_choices.js'></script>
-<script src='bard_midspine.js'></script>
-<script src='combat_midspine.js'></script>
-<script src='magic_midspine.js'></script>
-<script src='stealth_midspine.js'></script>
-<script src='support_midspine.js'></script>
+<script src='content/stage1_additional_enriched_choices.js'></script>
+<script src='content/bard_midspine.js'></script>
+<script src='content/combat_midspine.js'></script>
+<script src='content/magic_midspine.js'></script>
+<script src='content/stealth_midspine.js'></script>
+<script src='content/support_midspine.js'></script>
 <!-- ── TRAVEL ARCS (Stage 1→2 transition) ── -->
-<script src='aurora_crown_to_shelk_arc.js'></script>
-<script src='cosmoria_to_shelk_arc.js'></script>
-<script src='glasswake_to_shelk_arc.js'></script>
-<script src='guildheart_hub_to_shelk_arc.js'></script>
-<script src='harvest_circle_to_shelk_arc.js'></script>
-<script src='ithtananalor_to_shelk_arc.js'></script>
-<script src='mimolot_academy_to_shelk_arc.js'></script>
-<script src='panim_haven_to_shelk_arc.js'></script>
-<script src='shirshal_to_shelk_arc.js'></script>
-<script src='soreheim_proper_to_shelk_arc.js'></script>
-<script src='sunspire_haven_to_shelk_arc.js'></script>
-<script src='whitebridge_to_shelk_arc.js'></script>
+<script src='content/aurora_crown_to_shelk_arc.js'></script>
+<script src='content/cosmoria_to_shelk_arc.js'></script>
+<script src='content/glasswake_to_shelk_arc.js'></script>
+<script src='content/guildheart_hub_to_shelk_arc.js'></script>
+<script src='content/harvest_circle_to_shelk_arc.js'></script>
+<script src='content/ithtananalor_to_shelk_arc.js'></script>
+<script src='content/mimolot_academy_to_shelk_arc.js'></script>
+<script src='content/panim_haven_to_shelk_arc.js'></script>
+<script src='content/shirshal_to_shelk_arc.js'></script>
+<script src='content/soreheim_proper_to_shelk_arc.js'></script>
+<script src='content/sunspire_haven_to_shelk_arc.js'></script>
+<script src='content/whitebridge_to_shelk_arc.js'></script>
 <!-- ── ENRICHED CHOICES Stage 2: per-locality ── -->
-<script src='shelkopolis_stage2_enriched_choices.js'></script>
-<script src='soreheim_proper_stage2_enriched_choices.js'></script>
-<script src='guildheart_hub_stage2_enriched_choices.js'></script>
-<script src='sunspire_haven_stage2_enriched_choices.js'></script>
-<script src='aurora_crown_commune_stage2_enriched_choices.js'></script>
-<script src='ithtananalor_stage2_enriched_choices.js'></script>
-<script src='mimolot_academy_stage2_enriched_choices.js'></script>
-<script src='panim_haven_stage2_enriched_choices.js'></script>
-<script src='fairhaven_stage2_enriched_choices.js'></script>
-<script src='shirshal_stage2_enriched_choices.js'></script>
-<script src='cosmoria_stage2_enriched_choices.js'></script>
-<script src='harvest_circle_stage2_enriched_choices.js'></script>
-<script src='craftspire_stage2_enriched_choices.js'></script>
-<script src='unity_square_stage2_enriched_choices.js'></script>
-<script src='glasswake_commune_stage2_enriched_choices.js'></script>
-<script src='ironhold_quarry_stage2_enriched_choices.js'></script>
-<script src='plumes_end_outpost_stage2_enriched_choices.js'></script>
-<script src='whitebridge_commune_stage2_enriched_choices.js'></script>
+<script src='content/shelkopolis_stage2_enriched_choices.js'></script>
+<script src='content/soreheim_proper_stage2_enriched_choices.js'></script>
+<script src='content/guildheart_hub_stage2_enriched_choices.js'></script>
+<script src='content/sunspire_haven_stage2_enriched_choices.js'></script>
+<script src='content/aurora_crown_commune_stage2_enriched_choices.js'></script>
+<script src='content/ithtananalor_stage2_enriched_choices.js'></script>
+<script src='content/mimolot_academy_stage2_enriched_choices.js'></script>
+<script src='content/panim_haven_stage2_enriched_choices.js'></script>
+<script src='content/fairhaven_stage2_enriched_choices.js'></script>
+<script src='content/shirshal_stage2_enriched_choices.js'></script>
+<script src='content/cosmoria_stage2_enriched_choices.js'></script>
+<script src='content/harvest_circle_stage2_enriched_choices.js'></script>
+<script src='content/craftspire_stage2_enriched_choices.js'></script>
+<script src='content/unity_square_stage2_enriched_choices.js'></script>
+<script src='content/glasswake_commune_stage2_enriched_choices.js'></script>
+<script src='content/ironhold_quarry_stage2_enriched_choices.js'></script>
+<script src='content/plumes_end_outpost_stage2_enriched_choices.js'></script>
+<script src='content/whitebridge_commune_stage2_enriched_choices.js'></script>
 <!-- ── DISTRICTS + NOMDARA Stage 2 ── -->
-<script src='districts_stage2_enriched_choices.js'></script>
-<script src='nomdara_stage2_choices.js'></script>
+<script src='content/districts_stage2_enriched_choices.js'></script>
+<script src='content/nomdara_stage2_choices.js'></script>
 <!-- ── SCENE MODULES ── -->
-<script src='locality_narrations.js'></script>
-<script src='scope_reveal.js'></script>
-<script src='soreheim_stage1.js'></script>
-<script src='sheresh_stage1.js'></script>
-<script src='shadow_ledger_hints.js'></script>
+<script src='content/locality_narrations.js'></script>
+<script src='content/scope_reveal.js'></script>
+<script src='content/soreheim_stage1.js'></script>
+<script src='content/sheresh_stage1.js'></script>
+<script src='content/shadow_ledger_hints.js'></script>
 <!-- ── STAGE 2 CLIMAX ── -->
-<script src='maren_oss_encounter.js'></script>
-<script src='stage2_antechamber.js'></script>
-<script src='stage2_climax.js'></script>
+<script src='content/maren_oss_encounter.js'></script>
+<script src='content/travel_corridors.js'></script>
+<script src='content/stage2_antechamber.js'></script>
+<script src='content/stage2_climax.js'></script>
 <!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
-<script src='stage2_enriched_choices.js'></script>
-<script src='stage3_enriched_choices.js'></script>
-<script src='stage4_enriched_choices.js'></script>
-<script src='stage5_enriched_choices.js'></script>
+<script src='content/stage2_enriched_choices.js'></script>
+<script src='content/stage3_enriched_choices.js'></script>
+<script src='content/stage4_enriched_choices.js'></script>
+<script src='content/stage5_enriched_choices.js'></script>
 <!-- ── TRAVEL ENGINE ── -->
 <script src='js/travel.js'></script>
 <!-- ── ENRICHED CHOICE BRIDGE ── -->
@@ -11083,19 +11565,30 @@ function showHowToPlay() {
   };
 
   // Handles location change without double-counting time (travel.js already advanced time)
-  window._travelCoreTravelTo = function(locId) {
-    const loc = (typeof WORLD_LOCATIONS !== 'undefined') && WORLD_LOCATIONS[locId];
+  window._travelCoreTravelTo = function(locId, fromId) {
+    const wloc = (typeof WORLD_LOCATIONS !== 'undefined') && WORLD_LOCATIONS[locId];
+    const lmEntry = window.LOCALITY_MATRIX && window.LOCALITY_MATRIX[locId];
+    const loc = wloc || (lmEntry ? { name: lmEntry.display_name_raw || lmEntry.name, desc: '' } : null);
     const G = window.G;
     if (!G || !loc) return;
+    const prevLocation = fromId || G.location;
     G.location = locId;
     if (typeof tickAxis === 'function') tickAxis(Math.floor(Math.random() * 3) + 1);
     if (typeof addNarration === 'function') {
-      addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+      addNarration(loc.name, '<strong>' + loc.name + '</strong>.' + (loc.desc ? ' ' + loc.desc : ''));
     }
     G.history.push('Traveled to ' + loc.name + '.');
     if (typeof saveGame === 'function') saveGame();
+    // Trigger corridor encounters if available
+    if (window.TRAVEL_CORRIDOR && typeof TRAVEL_CORRIDOR.triggerEncounters === 'function') {
+      const tier = 'short'; // TODO: derive from route_matrix distance when data is available
+      TRAVEL_CORRIDOR.triggerEncounters(tier, prevLocation, locId);
+      return;
+    }
     setTimeout(function() {
-      if (typeof renderChoices === 'function') {
+      if (typeof loadStageChoices === 'function') {
+        loadStageChoices(locId);
+      } else if (typeof renderChoices === 'function') {
         renderChoices([
           { text: 'Find the local inn and ask what people know.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
           { text: 'Walk the settlement and read it.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' },

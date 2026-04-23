@@ -40,7 +40,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       G.flags.ashe_in_shelkopolis = true;
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-      addJournal('discovery', 'Brevard Ashe transferred to Shelkopolis central Academy — will monitor incoming research', `mimolot-arc-ashe-${G.dayCount}`);
+      addJournal('Brevard Ashe transferred to Shelkopolis central Academy — will monitor incoming research', 'discovery', `mimolot-arc-ashe-${G.dayCount}`);
       G.recentOutcomeType = 'complication';
     }
   },
@@ -85,7 +85,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
 
       G.lastResult = `340 kilograms combined mass for deployment-grade configuration. Craftspire extracted 340kg across three workshops over six months. The formula's activation threshold and the Craftspire accumulation are identical. The extraction wasn't arbitrary — it was calibrated to hit exactly the minimum required for atmospheric deployment. Whoever set the extraction target knew the Memory Hall formula. The academic research and the operational logistics are connected at the design level.`;
       G.flags.mimolot_arc_threshold_confirmed = true;
-      addJournal('discovery', 'Craftspire extraction = 340kg = Memory Hall deployment threshold — academic and operational connected at design', `mimolot-arc-threshold-${G.dayCount}`);
+      addJournal('Craftspire extraction = 340kg = Memory Hall deployment threshold — academic and operational connected at design', 'discovery', `mimolot-arc-threshold-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -104,7 +104,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       G.flags.doss_in_shelkopolis = true;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('discovery', 'Doss in Shelkopolis for 3 months — forced sabbatical after reclassification query, may have been found', `mimolot-arc-doss-location-${G.dayCount}`);
+      addJournal('Doss in Shelkopolis for 3 months — forced sabbatical after reclassification query, may have been found', 'discovery', `mimolot-arc-doss-location-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -124,7 +124,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
         G.lastResult = `In the secondary index — the one kept in a physical card system rather than the primary electronic record — you find a cross-reference: the formula's originating researcher filed an application to the Shelkopolis Institute fourteen months ago. The application was denied by a review board that included Brevard Ashe. The research was denied publication and simultaneously classified. Ashe has been managing the suppression of this formula from inside Mimolot for over a year.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Ashe denied publication then classified formula 14 months ago — suppression started before operation', `mimolot-arc-ashe-history-${G.dayCount}`);
+        addJournal('Ashe denied publication then classified formula 14 months ago — suppression started before operation', 'discovery', `mimolot-arc-ashe-history-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The secondary index yields nothing new. You leave Mimolot with what you already have.`;
@@ -149,7 +149,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
 
       G.lastResult = `The central Academy is three times Mimolot's size and operates on a completely open submission model — any researcher can file a study for review. But the review board that accepts or rejects submissions has a Warden Order liaison as a formal member. Ashe's predecessor held that seat for eleven years. Ashe will hold it now. Whatever the investigation network files through official channels will reach his desk.`;
       G.flags.mimolot_arc_central_academy_surveyed = true;
-      addJournal('discovery', 'Shelkopolis central Academy review board includes Warden Order liaison — Ashe now holds that seat', `mimolot-arc-academy-${G.dayCount}`);
+      addJournal('Shelkopolis central Academy review board includes Warden Order liaison — Ashe now holds that seat', 'discovery', `mimolot-arc-academy-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
     }
   },
@@ -171,7 +171,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 2;
-        addJournal('discovery', 'Doss: full synthesis model complete — lethal at 180+ hours sustained exposure', `mimolot-arc-doss-${G.dayCount}`);
+        addJournal('Doss: full synthesis model complete — lethal at 180+ hours sustained exposure', 'discovery', `mimolot-arc-doss-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Doss's last known address is empty. He moved. Someone in the network knows where but you haven't made that contact yet. You'll find him in Stage 2.`;

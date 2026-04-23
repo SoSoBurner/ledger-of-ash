@@ -1,9 +1,0 @@
-# Market Row Guildhall NPC roster card
-
-Total named NPCs: 3
-
-Collaborative artisan hall with design protection and economic-crime exposure.
-
-- **wildcard**: Nora Wren — Quiet-Room Mediator. Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as so...
-- **commerce**: Pela Wren — Apprentice Factor. Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Transpolity, that reads as someone boundary-c...
-- **wildcard**: Lady Elowen Shelk — Fashion icon and guild chairwoman. Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shelk, that reads as someone polis...

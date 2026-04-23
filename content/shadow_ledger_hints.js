@@ -13,7 +13,7 @@ var SHADOW_LEDGER_HINTS = (function() {
       if (!G.flags['hint_fired_' + hint.id] && (G.worldClocks[hint.clock] || 0) >= hint.threshold) {
         G.flags['hint_fired_' + hint.id] = true;
         if (typeof addNarration === 'function') addNarration('Rumor', hint.text);
-        window.addJournal('investigation', hint.text);
+        addJournal(hint.text, 'rumor');
         if (hint.id === 'hint_sel_stone') {
           G.flags.sel_stone_known = true;
           if (!G.discoveredNPCs) G.discoveredNPCs = {};

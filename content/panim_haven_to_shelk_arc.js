@@ -64,7 +64,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       G.flags.panim_arc_sera_in_shelk = true;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('discovery', 'Sera in Shelkopolis — Case 4-Reckoning record held by Sana in Verdant Row', `panim-arc-sera-${G.dayCount}`);
+      addJournal('Sera in Shelkopolis — Case 4-Reckoning record held by Sana in Verdant Row', 'discovery', `panim-arc-sera-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -86,7 +86,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
 
       G.lastResult = `The coastal passage irregularities started sixty days before Tazren's case was opened. He was responding to something that had already been in motion. The containers that moved through Panim Haven's harbor during that window are the same weight class as the ones in the Harvest Circle routing anomalies. Tazren saw the overlap. That's why his case was suppressed and not simply dismissed.`;
       G.flags.panim_arc_tazren_sequence = true;
-      addJournal('discovery', 'Tazren found the container timeline overlap — case suppressed because he was right', `panim-arc-sequence-${G.dayCount}`);
+      addJournal('Tazren found the container timeline overlap — case suppressed because he was right', 'discovery', `panim-arc-sequence-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -106,7 +106,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
         G.lastResult = `The case number prefix is the same series as Tazren's suppressed case — but the suffix is new. Someone has reopened the case under a different number. Bureau administrative procedure: when a case is suppressed by order, it can be reconstructed under a new case number by a different adjudicator if new evidence emerges. Someone inside the Bureau is continuing what Tazren started.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Bureau reopened Tazren\'s case under new number — inside contact still working', `panim-arc-reopen-${G.dayCount}`);
+        addJournal('Bureau reopened Tazren\'s case under new number — inside contact still working', 'discovery', `panim-arc-reopen-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The prefix looks familiar but you can't place it precisely — the courier is careful about not letting the labels be read. You file the observation.`;
@@ -153,7 +153,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
 
       G.lastResult = `Shelkopolis's administrative districts mirror Panim Haven's Reckoning Quarter but at a larger scale — case records, appeals, institutional oversight all flow through here. Whatever the Bureau suppressed in Panim Haven, the central administrative record is in Shelkopolis. The original document may still exist somewhere in this city's archive.`;
       G.flags.panim_arc_administrative_surveyed = true;
-      addJournal('discovery', 'Shelkopolis central administrative archive — Panim Bureau suppressed record may exist here', `panim-arc-admin-${G.dayCount}`);
+      addJournal('Shelkopolis central administrative archive — Panim Bureau suppressed record may exist here', 'discovery', `panim-arc-admin-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
     }
   },
@@ -175,7 +175,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('discovery', 'Sana: full Case 4-Reckoning record — 23 documents, Tazren\'s 6 final filings included', `panim-arc-sana-${G.dayCount}`);
+        addJournal('Sana: full Case 4-Reckoning record — 23 documents, Tazren\'s 6 final filings included', 'discovery', `panim-arc-sana-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Sana needs verification before she hands over case records to someone she hasn't met. She gives you a test — a document she says is incomplete and asks you what's missing. You'll need to come back with the right answer.`;

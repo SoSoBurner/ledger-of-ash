@@ -47,7 +47,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (G.flags.met_cadrin) {
         G.lastResult = `Cadrin's handwritten columns and the commune's registry sit side by side on the crossing station desk. New-moon nights: Cadrin logs two to four additional crossings each time. The registry shows none of them. Worse — the registry entries around those gaps show ink coverage slightly different from the surrounding pages. The deletions were filed after the original, then smoothed over. You'd miss it reading either document alone.`;
         G.flags.found_bridge_discrepancy = true;
-        addJournal('investigation', 'Bridge records: new-moon crossings systematically removed from official registry after filing — alteration professional', `whitebridge-discrepancy-${G.dayCount}`);
+        addJournal('Bridge records: new-moon crossings systematically removed from official registry after filing — alteration professional', 'evidence', `whitebridge-discrepancy-${G.dayCount}`);
       } else {
         G.lastResult = `The commune registry reads clean — neat columns, consistent hand, nothing struck through or corrected. Without Cadrin's personal log laid alongside it, the deletions leave no trace. The document answers only the questions it hasn't already erased.`;
       }
@@ -73,7 +73,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Cadrin draws the mark on the back of a tally slip — a horizontal bar, two upward points like the outer tines of a crown, nothing between them. The trade register lists it under a northern transport consortium: freight category "sensitive materials — administrative classification," land transit license only. River crossing requires a waterway permit. Their name does not appear in the Whitebridge permit ledger for the past two years.`;
         if (!G.flags) G.flags = {};
         G.flags.identified_charter_mark = true;
-        addJournal('investigation', 'Charter mark identified: northern transport consortium, land-only license, unauthorized river crossing implied', `whitebridge-charter-mark-${G.dayCount}`);
+        addJournal('Charter mark identified: northern transport consortium, land-only license, unauthorized river crossing implied', 'evidence', `whitebridge-charter-mark-${G.dayCount}`);
       } else {
         G.lastResult = `Cadrin's sketch is clear enough. The mark doesn't appear in the standard trade registers held at the commune archive — three volumes, none of them current past eighteen months. Wherever this consortium is registered, it's not in the public commercial tier. A specialized transport registry would carry it, but none is held locally.`;
       }
@@ -99,7 +99,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Cadrin's timings put the crossings between eleventh and twelfth bell — the last scheduled ferry goes at ninth. Walking the western approach road in morning light, you find wheel ruts branching off the main road three hundred meters short of the bridge. The branch track is packed earth, not mud — used enough to have hardened. It ends at a flat clearing with a low stone lip built for cart loading. No commune map marks it. The clearing was built, not found.`;
         if (!G.flags) G.flags = {};
         G.flags.found_staging_area = true;
-        addJournal('discovery', 'Midnight cargo staging area found: unmapped private access track with constructed loading area — significant prior investment', `whitebridge-staging-${G.dayCount}`);
+        addJournal('Midnight cargo staging area found: unmapped private access track with constructed loading area — significant prior investment', 'discovery', `whitebridge-staging-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The road conditions point west — the wheel ruts are consistent with loaded carts, the approach timed to miss the commune's watch rotation. The route threads the gaps between patrol coverage deliberately. Whoever laid it out walked the patrol schedule first.`;
       } else {
@@ -128,7 +128,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Two bridge workers arrive at the east abutment before their shift begins. One checks something low on the stone face — a crevice, or a mark — then steps back. The second worker does the same, independently, without speaking to the first. Both leave their shift notes untouched. Whatever they're reading in that stone isn't in any log. They check it every morning, the way you check a wound.`;
       }
-      addJournal('investigation', 'Bridge at night: modified cover points, anomalous stone stress, mapped blind spots, unofficial worker monitoring', `whitebridge-bridge-read-${G.dayCount}`);
+      addJournal('Bridge at night: modified cover points, anomalous stone stress, mapped blind spots, unofficial worker monitoring', 'evidence', `whitebridge-bridge-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -147,7 +147,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The commune archive keeps its own access log — a secondary record of who touches the registry and when. On each of the three new-moon nights, a single access entry appears: "district coordination deputy." The commune's organizational chart lists no such position. The access codes are valid, formatted correctly, and were issued through proper channels. Someone built a credential for a role that was never formally created, and has been using it monthly ever since.`;
         if (!G.flags) G.flags = {};
         G.flags.found_ghost_registry_account = true;
-        addJournal('investigation', 'Registry alteration: ghost account "district coordination deputy" — valid credentials, nonexistent role title', `whitebridge-ghost-account-${G.dayCount}`);
+        addJournal('Registry alteration: ghost account "district coordination deputy" — valid credentials, nonexistent role title', 'evidence', `whitebridge-ghost-account-${G.dayCount}`);
       } else {
         G.lastResult = `The access log entries are encoded — account identifiers run through the commune's administrative cipher before storage. You can read the timestamps, the document touched, the duration. The name behind the credential is a string of characters that requires the commune's administrative key to resolve. Access happened. Who performed it stays locked.`;
       }
@@ -238,7 +238,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The eastern span's flagstones show compression fractures along their edges — the kind that accumulate under repeated heavy loads, not the gradual wear of mixed traffic. The fracture pattern is consistent: three to five tonnes per crossing, concentrated in two parallel wheel tracks. New-moon nights, same weight, same track spacing, same point of entry from the western approach. Whatever crosses here is the same load, the same cart configuration, repeated on a schedule.`;
-        addJournal('investigation', 'Bridge stone stress: 3-5 tonne load per crossing, consistent weight distribution — regular industrial-scale shipment', `whitebridge-load-${G.dayCount}`);
+        addJournal('Bridge stone stress: 3-5 tonne load per crossing, consistent weight distribution — regular industrial-scale shipment', 'evidence', `whitebridge-load-${G.dayCount}`);
       } else {
         G.lastResult = `The stone carries visible wear on the eastern span — the edge fractures, the compressed mortar at the joints. Heavy loads have crossed here repeatedly. Translating wear pattern to specific weight requires a structural mason's training; without it, the estimates are a range too wide to be useful as evidence. The wear is real. The number attached to it isn't.`;
       }
@@ -256,7 +256,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing commune morning activity');
 
         G.lastResult = `Before the seventh bell, the bridge already carries a grain factor arguing with a carter, two children running messages between the banks, a woman repairing a shoe sitting against the east rail. By the time the market vendors set up mid-span, the crossing is too loud to hold a quiet conversation on. Traffic here isn't occasional — it's constant. In that density, two or four additional carts in darkness leave no impression on anyone awake for daylight business. The crossing's volume swallows its own anomalies.`;
-      addJournal('discovery', 'Whitebridge: public crossing culture provides natural cover for unauthorized transits — openness weaponized', `whitebridge-dawn-${G.dayCount}`);
+      addJournal('Whitebridge: public crossing culture provides natural cover for unauthorized transits — openness weaponized', 'discovery', `whitebridge-dawn-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -277,7 +277,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Three months ago, the bridge director filed an internal inquiry: "new-moon crossing irregularities — request for review." The inquiry sits in the administrative archive, stamped: "resolved — within operational parameters." The closing signature belongs to the district coordination deputy. The same ghost account that clears the registry alterations also closed the administration's own inquiry into those alterations. The commune's response mechanism has been turned back on itself.`;
-        addJournal('investigation', 'Administration captured: internal inquiry closed by ghost account "district coordination deputy" — administrative response weaponized', `whitebridge-admin-${G.dayCount}`);
+        addJournal('Administration captured: internal inquiry closed by ghost account "district coordination deputy" — administrative response weaponized', 'evidence', `whitebridge-admin-${G.dayCount}`);
       } else {
         G.lastResult = `Every public-facing statement from the commune administration describes crossing operations as routine. Whether anyone inside believes that, or whether there's a decision not to look, isn't visible from the outside. That distinction lives in the internal files — the inquiry logs, the memos, the closed review records — none of which are accessible without administrative authorization.`;
       }
@@ -325,7 +325,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
       G.lastResult = `A traveler at the bridge-side inn, third cup in, speaks without being asked: "${selected}." He's heading south in the morning and won't say how he knows. The inn near the bridge collects what the crossing moves through. Most of it dissolves into general complaint. Some of it doesn't.`;
-      addJournal('investigation', `Whitebridge traveler rumor: "${selected}"`, `whitebridge-rumor-${G.dayCount}`);
+      addJournal(`Whitebridge traveler rumor: "${selected}"`, 'evidence', `whitebridge-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -370,7 +370,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two carts come down the branch track at eleventh bell. No lanterns — the handlers know the path well enough to work by starlight. The containers are sealed, uniform, the same two-tined mark on each lid. What stops you is how the handlers carry them: deliberate, no rushing, no casual toss or stack. One container shifts slightly on its mount and the handler near it puts a hand out immediately and holds the side until it steadies. Two of them are wearing heavy leather gloves — summer, no rain. Whatever the containers hold, the outside of them is already a hazard worth managing.`;
         if (!G.flags) G.flags = {};
         G.flags.witnessed_midnight_crossing = true;
-        addJournal('discovery', 'Midnight crossing witnessed: two carts, sealed uniform containers, handled with care — reactive or fragile content, handlers in protective gloves', `whitebridge-witnessed-${G.dayCount}`);
+        addJournal('Midnight crossing witnessed: two carts, sealed uniform containers, handled with care — reactive or fragile content, handlers in protective gloves', 'discovery', `whitebridge-witnessed-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The carts come through at eleventh bell, two of them, moving with a speed that suggests a practiced route. From the cover point you've chosen, the crossing is visible but the detail isn't — the containers are sealed, the handlers are efficient, the whole operation is done and gone in under twenty minutes. The organization is clear. The contents and the handling specifics stay out of range.`;
       } else {
@@ -392,7 +392,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'observing bridge dawn transition');
 
         G.lastResult = `At first light, Cadrin takes a small handbell from the hook beside the station door and rings it once — not loud, not ceremonial. "Twenty-two years," he says, when you ask. "Every morning. Night log closes, morning log opens. What crossed in the dark is written; what crosses today starts clean." He sets the bell back on its hook and opens the new page. Six months of new-moon crossings are in the closed log behind him, written in the same careful columns he uses for everything else. He hasn't skipped a single entry.`;
-      addJournal('discovery', 'Cadrin\'s morning bell: night log closed at dawn, six months of preserved midnight crossing records', `whitebridge-dawn-bridge-${G.dayCount}`);
+      addJournal('Cadrin\'s morning bell: night log closed at dawn, six months of preserved midnight crossing records', 'discovery', `whitebridge-dawn-bridge-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -411,7 +411,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The credential chain traces to a body called the Regional Transit Oversight Coordination — a name that doesn't appear in any public registry for this administrative district, but whose credentials are formatted to the correct standard and carry valid authorization codes. Registered address: a northern commercial district, three settlements away. Nobody in Whitebridge's administration has any record of interacting with this body or confirming its authority. The credentials arrived, were accepted by the system because they were correctly formatted, and began operating. A parallel authority structure, inserted through the gap between format and verification.`;
         if (!G.flags) G.flags = {};
         G.flags.found_authorization_source = true;
-        addJournal('discovery', 'Ghost account origin: credentials issued by unverified "regional transit oversight body" with northern commercial address', `whitebridge-auth-source-${G.dayCount}`);
+        addJournal('Ghost account origin: credentials issued by unverified "regional transit oversight body" with northern commercial address', 'discovery', `whitebridge-auth-source-${G.dayCount}`);
       } else {
         G.lastResult = `The credential chain leads to a regional body with a name that doesn't appear in any register available at the commune archive. The authorization codes are valid — that much is clear — but who issued the issuing body its own authority, and where they're formally registered, requires access to institutional records beyond what Whitebridge holds locally.`;
       }
@@ -429,7 +429,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'understanding Cadrin\'s motivation');
 
         G.lastResult = `"My father worked the Soreheim crossing for thirty years. Kept his own log the whole time." Cadrin straightens the current log's spine against his palm, a habitual gesture. "He told me: official records get corrected. Personal records don't — they're yours alone. When the two start diverging, the personal one is the one that tells you something's wrong." He doesn't frame it as suspicion or vigilance. He frames it as maintenance. He's been maintaining his father's habit.`;
-      addJournal('discovery', 'Cadrin motivation: personal log practice inherited from father — institutional records can be corrected, personal ones remain', `whitebridge-cadrin-why-${G.dayCount}`);
+      addJournal('Cadrin motivation: personal log practice inherited from father — institutional records can be corrected, personal ones remain', 'discovery', `whitebridge-cadrin-why-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },

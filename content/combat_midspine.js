@@ -72,7 +72,7 @@ const COMBAT_MIDSPINE_CHOICES = [
         G.flags.combat_midspine_garrison_bypassed = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Combat midspine: garrison bypassed via structural pressure — document obtained', `combat-midspine-2-${G.dayCount}`);
+        addJournal('Combat midspine: garrison bypassed via structural pressure — document obtained', 'discovery', `combat-midspine-2-${G.dayCount}`);
       } else if (result.total >= target) {
         G.lastResult = `You cite the Principalities access code by number and section — the provision that prohibits garrison restriction on public-record documents outside active emergency ordinance. The commander's expression shifts: he either doesn't know the code or didn't expect you to. He steps back from the desk. You take the document. He writes the encounter in the garrison log and underlines your name twice, which is its own kind of record.`;
         G.flags.combat_midspine_garrison_bypassed = true;

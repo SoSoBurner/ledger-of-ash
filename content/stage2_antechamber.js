@@ -17,31 +17,27 @@ window.STAGE2_ANTECHAMBER = (function() {
 
     G.flags.stage2_antechamber_started = true;
 
-    window.addJournal('investigation',
-      'Someone has been watching you for three days. This morning, a Collegium courier left a note at your lodging: ' +
-      '"Whatever you think you know about the Ledger, the people who protect it are not your enemies. ' +
-      'Consider carefully what you do next. \u2014 O"'
-    );
+    window.addJournal('Someone has been watching you for three days. This morning, a Collegium courier left a note at your lodging: ', 'evidence');
 
     window.addWorldNotice(
-      'The warning is unsigned except for the initial. You\u2019ve heard Inquisitor Orveth described. The handwriting is precise.'
+      'One initial. Collegium ink \u2014 the specific blue-gray of institutional correspondence. Whoever wrote this has access to that supply.'
     );
 
     window.renderChoices([
       {
         id: 'antechamber_accelerate',
-        text: 'Press harder \u2014 if they\u2019re warning you, you\u2019re close. Use the pressure.',
+        text: 'You press harder \u2014 they\u2019re warning you because you\u2019re close.',
         tag: 'risky \u00b7 pressure \u00b7 DC 12',
         action: function() {
           var r = window.rollD20 ? window.rollD20('investigation') : { total: Math.floor(Math.random() * 20) + 1 };
           if (r.total >= 12) {
             G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
-            window.addJournal('investigation', 'You move faster and the pressure becomes a tool. Two threads you had set aside pull taut.');
+            window.addJournal('You change your route and the pace of it. The name you had been circling appears in a second source \u2014 unsolicited, mentioned in passing by a warehouse clerk who did not know it mattered. You write it down without looking up. The clerk keeps talking. You let him. Two threads, previously set aside, now point at the same thing.', 'evidence');
             if (typeof window.gainXp === 'function') window.gainXp(30);
           } else {
             G.worldClocks = G.worldClocks || {};
             G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-            window.addJournal('investigation', 'You push and someone notices the pushing. A contact goes quiet. A door that was open is now closed.');
+            window.addJournal('You push faster than the situation allows. The archivist who had been meeting you in the same corridor every third day is not there. Her desk, when you pass it, has been cleared to the surface \u2014 no papers, no open ledgers, nothing. The corridor clerk looks up. You keep walking. Whatever she knew, she has decided not to share it.', 'evidence');
             if (typeof window.gainXp === 'function') window.gainXp(15);
           }
           _resolve();
@@ -49,12 +45,10 @@ window.STAGE2_ANTECHAMBER = (function() {
       },
       {
         id: 'antechamber_acknowledge',
-        text: 'Acknowledge the warning and proceed carefully \u2014 knowing you\u2019re watched is its own advantage.',
+        text: 'You note the warning and keep moving \u2014 knowing you\u2019re watched is its own advantage.',
         tag: 'safe \u00b7 observation \u00b7 DC 0',
         action: function() {
-          window.addJournal('investigation',
-            'You adjust your movements — slower, more oblique. They are watching, but watching does not mean understanding. Not yet.'
-          );
+          window.addJournal('You adjust your movements — slower, more oblique. They are watching, but watching does not mean understanding. Not yet.', 'evidence');
           G.flags.stage2_antechamber_acknowledged = true;
           if (typeof window.gainXp === 'function') window.gainXp(20);
           _resolve();

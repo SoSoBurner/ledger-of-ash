@@ -42,7 +42,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
         G.flags.met_paerun_delst = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Paerun: jurisdictional loop between Collegium/guild/arbitration designed to swallow complaints', `guildheart-arc-paerun-${G.dayCount}`);
+        addJournal('Paerun: jurisdictional loop between Collegium/guild/arbitration designed to swallow complaints', 'discovery', `guildheart-arc-paerun-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Paerun looks at you the way people look at everything after three months of being redirected by institutions: with attention that stays behind glass. He does not open the folder. He says he is considering his options and walks to the other side of the waystation. You travel south separately.`;
@@ -65,7 +65,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       G.flags.calla_trent_in_shelkopolis = true;
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-      addJournal('discovery', 'Calla fast-tracked to Shelkopolis after your inquiry became visible — operation monitors and repositions', `guildheart-arc-calla-${G.dayCount}`);
+      addJournal('Calla fast-tracked to Shelkopolis after your inquiry became visible — operation monitors and repositions', 'discovery', `guildheart-arc-calla-${G.dayCount}`);
       G.recentOutcomeType = 'complication';
     }
   },
@@ -87,7 +87,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
 
       G.lastResult = `The pre-Union charter's "coordinating commercial association" status permits binding agreements between member entities without requiring those agreements to be filed under current guild registration law. The northern bloc used the off-channel arbiter to execute binding agreements with three Guildheart guild factions — agreements that are technically legal and technically unrecorded. Those factions are now committed to the operation's commercial interests through instruments they cannot disavow without admitting they exist. The charter does not just provide legal cover. It provides the mechanism for absorbing legitimate guild infrastructure from the inside.`;
       G.flags.guildheart_arc_charter_mechanism = true;
-      addJournal('discovery', 'Charter allows binding agreements bypassing guild registration — northern bloc co-opted Guildheart guild factions legally', `guildheart-arc-charter-${G.dayCount}`);
+      addJournal('Charter allows binding agreements bypassing guild registration — northern bloc co-opted Guildheart guild factions legally', 'discovery', `guildheart-arc-charter-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -107,7 +107,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
         G.lastResult = `Four deaths in six months among full-member charter holders — a rate that is five times the previous four-year average. The guild registry records the causes: two accidents, one illness, one entry marked "circumstances under review." The dates in the registry, set against the agreement timeline, produce a pattern: each death occurred within three weeks of that holder filing a formal objection to a northern bloc charter agreement. Co-option is the preferred mechanism. When that fails, the resolution is different.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Four charter holder deaths correlated with objections to northern bloc agreements — pattern is lethal', `guildheart-arc-deaths-${G.dayCount}`);
+        addJournal('Four charter holder deaths correlated with objections to northern bloc agreements — pattern is lethal', 'discovery', `guildheart-arc-deaths-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Four deaths is a number that should prompt a formal review, but without registry access and the agreement date records together, you cannot establish the correlation precisely enough to take forward. You file the observation and the rate and the cause categories. The connection will need the Shelkopolis central records to confirm.`;
@@ -131,7 +131,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
         G.lastResult = `Pre-Union charters renew on twenty-year cycles. This one was renewed nineteen months ago — an off-cycle renewal, which requires a filed justification. The renewing authority was a Collegium archive officer in Shelkopolis. The renewal application lists the charter's "coordinating member entities" as company names that appear in no current commercial register, trade registry, or guild index. The charter was renewed on behalf of entities that did not exist in any official record when the renewal was filed. The Collegium officer either did not check or chose not to.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Charter renewed 19 months ago off-cycle by Shelkopolis Collegium officer for non-existent entities', `guildheart-arc-renewal-${G.dayCount}`);
+        addJournal('Charter renewed 19 months ago off-cycle by Shelkopolis Collegium officer for non-existent entities', 'discovery', `guildheart-arc-renewal-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Charter renewal records are held centrally in Shelkopolis — they are not duplicated to the localities where the charter operates. What you have here is the fragment, not the renewal document. The Shelkopolis archive is the only place to confirm who filed it and who approved it.`;
@@ -156,7 +156,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
 
       G.lastResult = `The central registry building takes up a full block of the guild district, its entrance marked by four guild marks cut into the stone above the door. Records going back to the city's founding charter are inside. Somewhere in that archive is the renewal document: a Collegium officer's signature on a charter renewed for entities that did not exist. That signature is the link between institutional oversight and the operation's legal structure. It is provable and it is here.`;
       G.flags.guildheart_arc_registry_located = true;
-      addJournal('discovery', 'Central registry: charter renewal record links Collegium officer to northern bloc 19 months ago', `guildheart-arc-registry-${G.dayCount}`);
+      addJournal('Central registry: charter renewal record links Collegium officer to northern bloc 19 months ago', 'discovery', `guildheart-arc-registry-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
     }
   },
@@ -178,7 +178,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('discovery', 'Fen Torr: 12 unrecorded charter amendments — operation\'s full legal structure exists off-register', `guildheart-arc-torr-${G.dayCount}`);
+        addJournal('Fen Torr: 12 unrecorded charter amendments — operation\'s full legal structure exists off-register', 'discovery', `guildheart-arc-torr-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The network address leads to a factor's office that handles commodity disputes, not charter arbitration. The factor knows the network but does not know Fen Torr's work. You leave with a list of three other possible approaches to the registry records and no direct path to any of them.`;

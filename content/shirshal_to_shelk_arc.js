@@ -41,7 +41,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
         G.lastResult = `A formally closed case that was never disposed means the physical case file still exists somewhere — it wasn't destroyed. Normally closed cases are archived within sixty days. This one has been in limbo for twelve months, which means someone is keeping it accessible without putting it into the permanent archive. The maritime registry's limbo files are held at the Shelkopolis central bureau. That's where it went when Shirshal couldn't dispose of it without explaining why it was closed.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Undisposed case in Shelkopolis central bureau limbo files — someone keeping it accessible', `shirshal-arc-case-${G.dayCount}`);
+        addJournal('Undisposed case in Shelkopolis central bureau limbo files — someone keeping it accessible', 'discovery', `shirshal-arc-case-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The case number format tells you it's maritime registry but not much else. The details are in Shelkopolis.`;
@@ -66,7 +66,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
         G.flags.met_wend_shipowner = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Wend refused rerouting order — license suspended; corridor/window matches ghost vessel dates', `shirshal-arc-wend-${G.dayCount}`);
+        addJournal('Wend refused rerouting order — license suspended; corridor/window matches ghost vessel dates', 'discovery', `shirshal-arc-wend-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Wend is too angry to be specific. He gives you general grievances that are consistent with everything you know but don't add new information.`;
@@ -92,7 +92,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
 
       G.lastResult = `The ghost vessels were removing cargo from the Whitebridge-bound supply chain at the coastal transfer point. Whatever came across Whitebridge bridge at midnight was part of a larger maritime supply network. The coastal route and the inland route are parallel channels of the same supply chain. One is Wend's corridor. The other is Cadrin's bridge. Both pointed south. Both move charter mark containers. Both go to Shelkopolis.`;
       G.flags.shirshal_arc_maritime_link = true;
-      addJournal('discovery', 'Ghost vessels and charter mark containers are parallel channels of same supply chain — both to Shelkopolis', `shirshal-arc-maritime-${G.dayCount}`);
+      addJournal('Ghost vessels and charter mark containers are parallel channels of same supply chain — both to Shelkopolis', 'discovery', `shirshal-arc-maritime-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -112,7 +112,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
         G.lastResult = `Parro's check-ins are regular and his language is consistent: "maritime sector — no unusual activity." The ghost vessel dates and his clean-report dates overlap perfectly. He either didn't see the activity or he reported clean deliberately. His transfer to Shelkopolis happened one week after the last ghost vessel's maritime transit window closed. He's not a passive observer — he's a participant in the coverage operation.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Parro\'s clean reports match ghost vessel dates — deliberate non-reporting, transferred after last window', `shirshal-arc-parro-${G.dayCount}`);
+        addJournal('Parro\'s clean reports match ghost vessel dates — deliberate non-reporting, transferred after last window', 'discovery', `shirshal-arc-parro-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The log comparison is suggestive but not conclusive. Parro may simply have been incompetent rather than complicit. The distinction matters for evidence.`;
@@ -135,7 +135,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       if (result.total >= 10) {
         G.lastResult = `The mooring patterns have changed. Three berths that were in regular use during the ghost vessel period now show no wear patterns consistent with recent use. The supply chain through Shirshal's harbor is finished. Whatever it was building toward, the maritime delivery phase was completed seventeen days ago. You're behind the supply chain. Shelkopolis is where you catch up.`;
         G.flags.shirshal_arc_maritime_complete = true;
-        addJournal('discovery', 'Shirshal harbor maritime phase complete 17 days ago — supply chain delivered before investigation concluded', `shirshal-arc-harbor-${G.dayCount}`);
+        addJournal('Shirshal harbor maritime phase complete 17 days ago — supply chain delivered before investigation concluded', 'discovery', `shirshal-arc-harbor-${G.dayCount}`);
         G.recentOutcomeType = 'neutral';
       } else {
         G.lastResult = `The harbor is busy enough that changes in mooring patterns are hard to read. You note that it's quieter than it was during the ghost vessel period.`;
@@ -162,7 +162,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       if (result.total >= 10) {
         G.lastResult = `The Shelkopolis port district connects to the city's dome infrastructure via an underground freight channel — a legacy system from the city's founding, used for bulk material transit between port and manufacturing districts. The ghost vessels didn't dock at the main port. They used the secondary freight terminal, which feeds directly into that underground channel. Whatever they delivered bypassed port inspection entirely and went directly into the city's interior distribution system.`;
         G.flags.shirshal_arc_port_channel_mapped = true;
-        addJournal('discovery', 'Ghost vessels used secondary freight terminal to underground channel — bypassed port inspection into interior distribution', `shirshal-arc-port-${G.dayCount}`);
+        addJournal('Ghost vessels used secondary freight terminal to underground channel — bypassed port inspection into interior distribution', 'discovery', `shirshal-arc-port-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The port district is visible on approach but you can't read the freight infrastructure from this distance.`;
@@ -188,7 +188,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('discovery', 'Aldeth: 6 ghost vessels as \'maintenance transit\' — queries rerouted to non-existent bureau', `shirshal-arc-aldeth-${G.dayCount}`);
+        addJournal('Aldeth: 6 ghost vessels as \'maintenance transit\' — queries rerouted to non-existent bureau', 'discovery', `shirshal-arc-aldeth-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The secondary port registry office is closed for a quarterly audit. The network contact is inaccessible for two days.`;

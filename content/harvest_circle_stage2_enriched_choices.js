@@ -24,15 +24,15 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Farlan's cross-reference confirms the routing number theft. Memorial manifests are using harvest shipment tracking numbers that allow them to pass through Roadwarden supply checkpoints without inspection — because harvest shipments have standing agricultural exemption. The memorial manifests are hijacking agricultural legitimacy.`;
-        addJournal('investigation', 'Memorial manifests using harvest routing numbers — bypassing Roadwarden checkpoints via ag exemption', `har-farlan-${G.dayCount}`);
+        addJournal('Memorial manifests using harvest routing numbers — bypassing Roadwarden checkpoints via ag exemption', 'evidence', `har-farlan-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Farlan's records are scheduled for annual academic review this week. His cooperation would jeopardize the review's independence. He is unable to assist without compromising his institutional standing.`;
-        addJournal('complication', 'Quota records under annual academic review — access conflict', `har-farlan-fail-${G.dayCount}`);
+        addJournal('Quota records under annual academic review — access conflict', 'complication', `har-farlan-fail-${G.dayCount}`);
       } else {
         G.flags.met_farlan_inkshade = true;
         G.investigationProgress++;
         G.lastResult = `Farlan identifies the routing number overlap. "These manifest numbers belong to our grain shipments. We haven't shipped grain to those destinations. Someone is borrowing our exemption credentials."`;
-        addJournal('investigation', 'Harvest routing numbers borrowed by non-agricultural manifests', `har-farlan-partial-${G.dayCount}`);
+        addJournal('Harvest routing numbers borrowed by non-agricultural manifests', 'evidence', `har-farlan-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -52,16 +52,16 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_valen_crestmark = true;
         G.investigationProgress++;
         G.lastResult = `Valen's assessment logs show the shipment arriving with military transport credentials and departing south the same day. The weight and volume profiles match the second suppression compound cache Vorgul Oxtend revealed in Soreheim. The northern staging location is moving material through Harvest Circle as a quiet waypoint.`;
-        addJournal('investigation', 'Harvest Circle as staging waypoint — military-credentialed compound cache transit confirmed', `har-valen-${G.dayCount}`);
+        addJournal('Harvest Circle as staging waypoint — military-credentialed compound cache transit confirmed', 'evidence', `har-valen-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The shipment Valen logged was under military exemption. His attempt to retrieve those records now triggers an automatic military exemption protection notice. The records are sealed.`;
-        addJournal('complication', 'Military exemption shipment records sealed — protection notice triggered', `har-valen-fail-${G.dayCount}`);
+        addJournal('Military exemption shipment records sealed — protection notice triggered', 'complication', `har-valen-fail-${G.dayCount}`);
       } else {
         G.flags.met_valen_crestmark = true;
         G.investigationProgress++;
         G.lastResult = `Valen found the anomalous shipment troubling enough to note separately. "Arrived from the northwest, not from any harvest supplier I know. Heavy chemical smell on the containers. They were gone before I could request a proper manifest."`;
-        addJournal('investigation', 'Chemical-smell northern shipment — rapid departure before manifest review', `har-valen-partial-${G.dayCount}`);
+        addJournal('Chemical-smell northern shipment — rapid departure before manifest review', 'evidence', `har-valen-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -81,15 +81,15 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_jorva_helmrune = true;
         G.investigationProgress++;
         G.lastResult = `Jorva's grievance file includes a witness statement from a commune elder who saw the shipment loaded. The elder describes containers with the same sealed charter mark Sable Ledgermere identified in Guildheart Hub. The commune elder is willing to provide a formal statement. The grievance has standing.`;
-        addJournal('investigation', 'Harvest Circle elder witnessed sealed charter containers — willing to provide formal statement', `har-jorva-${G.dayCount}`);
+        addJournal('Harvest Circle elder witnessed sealed charter containers — willing to provide formal statement', 'evidence', `har-jorva-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The grievance process requires a communal council review period before external parties can access the file. Jorva cannot accelerate the timeline without violating communal governance protocols.`;
-        addJournal('complication', 'Commune grievance review period — external access blocked pending council', `har-jorva-fail-${G.dayCount}`);
+        addJournal('Commune grievance review period — external access blocked pending council', 'complication', `har-jorva-fail-${G.dayCount}`);
       } else {
         G.flags.met_jorva_helmrune = true;
         G.investigationProgress++;
         G.lastResult = `Jorva provides the grievance summary. The commune elder saw containers that were not agricultural materials. The violation of the restricted storage area is documented. The grievance is active but unresolved.`;
-        addJournal('investigation', 'Commune grievance documents restricted storage violation by non-agricultural cargo', `har-jorva-partial-${G.dayCount}`);
+        addJournal('Commune grievance documents restricted storage violation by non-agricultural cargo', 'evidence', `har-jorva-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -111,16 +111,16 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Elyra identifies the ghost supplier. A "Northern Provision Compact" appears on manifests as a supplier but has no registered trade agreement with Harvest Circle, no representative she has ever met, and no fixed address in any supplier registry. The name has been used on manifests for eight months. It is a fabricated entity.`;
-        addJournal('investigation', 'Northern Provision Compact is fabricated supplier entity — 8 months of manifest use', `har-elyra-${G.dayCount}`);
+        addJournal('Northern Provision Compact is fabricated supplier entity — 8 months of manifest use', 'evidence', `har-elyra-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Elyra's supplier relationships are protected commercial information. Your request to identify specific suppliers triggers a patron-family confidentiality protocol she cannot waive.`;
-        addJournal('complication', 'Patron-family supplier confidentiality — identification request refused', `har-elyra-fail-${G.dayCount}`);
+        addJournal('Patron-family supplier confidentiality — identification request refused', 'complication', `har-elyra-fail-${G.dayCount}`);
       } else {
         G.flags.met_elyra_mossbane = true;
         G.investigationProgress++;
         G.lastResult = `Elyra cannot locate a Northern Provision Compact in any trade registry she uses. "I've dealt with every northern supplier for twelve years. This name appeared on manifests I was copied on eight months ago. I don't know who it is."`;
-        addJournal('investigation', 'Northern Provision Compact unregistered — Elyra has no record', `har-elyra-partial-${G.dayCount}`);
+        addJournal('Northern Provision Compact unregistered — Elyra has no record', 'evidence', `har-elyra-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -140,15 +140,15 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_velrik_durnshade = true;
         G.investigationProgress++;
         G.lastResult = `The dispute involves a handling fee paid by one guild member to another for processing a sealed cargo batch — a fee that was not authorized by any guild contract. The payer was instructed to handle the cargo by a guild supervisor who has since left the commune. The cargo description matches suppression compound containers.`;
-        addJournal('investigation', 'Guild dispute reveals unauthorized fee for handling suppression compound containers', `har-velrik-${G.dayCount}`);
+        addJournal('Guild dispute reveals unauthorized fee for handling suppression compound containers', 'evidence', `har-velrik-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The dispute is under active mediation. You cannot access confidential mediation proceedings without both parties' consent.`;
-        addJournal('complication', 'Guild dispute under mediation confidentiality — access refused', `har-velrik-fail-${G.dayCount}`);
+        addJournal('Guild dispute under mediation confidentiality — access refused', 'complication', `har-velrik-fail-${G.dayCount}`);
       } else {
         G.flags.met_velrik_durnshade = true;
         G.investigationProgress++;
         G.lastResult = `Velrik summarizes the accounting irregularity. One member paid another for cargo handling outside the normal guild contract framework. "Someone wanted this kept off the standard books."`;
-        addJournal('investigation', 'Guild accounting irregularity — off-books cargo handling payment', `har-velrik-partial-${G.dayCount}`);
+        addJournal('Guild accounting irregularity — off-books cargo handling payment', 'evidence', `har-velrik-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -172,12 +172,12 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
         G.lastResult = `You present the routing number fraud and the commune elder's statement to the Harvest Circle Communal Council. The Council suspends all incoming manifests using the identified routing numbers and files a formal complaint with Roadwarden supply chain oversight. The agricultural exemption is closed. Stage III opens with communal council backing.`;
-        addJournal('investigation', 'Harvest Circle S2 finale: communal council suspends routing fraud — Roadwarden complaint filed', `har-finale-inst-${G.dayCount}`);
+        addJournal('Harvest Circle S2 finale: communal council suspends routing fraud — Roadwarden complaint filed', 'evidence', `har-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
         G.lastResult = `You share the next expected routing number with the Verdant Row network. The network positions contacts at every checkpoint along the route. The next shipment from the Northern Provision Compact is intercepted, documented, and dispersed before it reaches its destination.`;
-        addJournal('investigation', 'Harvest Circle S2 finale: network intercepts next ghost shipment via routing prediction', `har-finale-uw-${G.dayCount}`);
+        addJournal('Harvest Circle S2 finale: network intercepts next ghost shipment via routing prediction', 'evidence', `har-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

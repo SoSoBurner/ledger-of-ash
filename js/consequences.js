@@ -14,7 +14,7 @@ const C = {
       xp:5, effects:[{type:'journal',msg:'Arrived at the Amber Fountain. Heard about a locked supply depot east of Fairhaven.'},{type:'quest',msg:'Investigate the supply depot east of Fairhaven.'}],
       next:[
         {text:'Move closer to listen. The argument sounds like it matters.', skill:'stealth', tag:'risky', align:'neutral', cid:'overhear_travelers'},
-        {text:'Ask the innkeeper directly what has happened east of here.', skill:'persuasion', tag:'safe', align:'neutral', cid:'innkeeper_intel'},
+        {text:'The innkeeper has been watching this room for twelve years.', skill:'persuasion', tag:'safe', align:'neutral', cid:'innkeeper_intel'},
         {text:'Stay put. Eat and rest. Let the information come to you.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
@@ -22,9 +22,9 @@ const C = {
       text:'The inn is full. The innkeeper tells you the only available space is the stable loft — three silver a night. Someone has paid a premium to keep the front rooms locked.',
       xp:0, effects:[{type:'gold',n:-3},{type:'journal',msg:'Forced into stable loft. Someone bought out the Amber Fountain front rooms.'}],
       next:[
-        {text:'Who bought the rooms? That is either wealth or paranoia.', skill:'lore', tag:'risky', align:'neutral', cid:'investigate_rooms'},
-        {text:'Take the stable loft. Keep your head down.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
-        {text:'Find another place to sleep. Ironspool Ward will have something.', skill:'survival', tag:'safe', align:'neutral', cid:'ironspool_intel'}
+        {text:'Buying out a full inn is either wealth or paranoia.', skill:'lore', tag:'risky', align:'neutral', cid:'investigate_rooms'},
+        {text:'The stable loft is fine. A low profile costs nothing yet.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
+        {text:'Ironspool Ward runs later and asks fewer questions.', skill:'survival', tag:'safe', align:'neutral', cid:'ironspool_intel'}
       ]
     }
   },
@@ -34,8 +34,8 @@ const C = {
       text:'Verdant Row hums with restrained urgency. Between textile stalls and spice merchants you catch real news: the Roadwardens have doubled checkpoint frequency on the eastern routes this week, citing unspecified concerns. Caravan captains are eating the delay costs without public complaint, which means someone told them to.',
       xp:5, effects:[{type:'journal',msg:'Verdant Row: Roadwardens doubled eastern checkpoint frequency. Caravan captains silent under instruction.'},{type:'faction',id:'roadwardens',n:-5}],
       next:[
-        {text:'Checkpoint doubles without announcement means either a threat or a power demonstration. Find a Roadwarden off-duty.', skill:'persuasion', tag:'risky', align:'lawful', cid:'find_roadwarden'},
-        {text:'The caravan captains were told by someone with enough leverage. Find which house gave the order.', skill:'lore', tag:'bold', align:'neutral', cid:'trace_caravan_order'},
+        {text:'Checkpoint doubles without announcement means either a threat or a power demonstration.', skill:'persuasion', tag:'risky', align:'lawful', cid:'find_roadwarden'},
+        {text:'The caravan captains were told by someone with enough leverage to make silence profitable.', skill:'lore', tag:'bold', align:'neutral', cid:'trace_caravan_order'},
         {text:'Log it and move on. Information without context is noise.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
@@ -45,7 +45,7 @@ const C = {
       next:[
         {text:'The empty stalls. What was there and why did it leave?', skill:'lore', tag:'safe', align:'neutral', cid:'investigate_stalls'},
         {text:'Eastern gate. See the Roadwarden presence yourself.', skill:'stealth', tag:'risky', align:'neutral', cid:'gate_travelers'},
-        {text:'Find something more direct.', skill:'combat', tag:'safe', align:'neutral', cid:'find_work'}
+        {text:'Paid work opens doors that idle strangers cannot reach.', skill:'combat', tag:'safe', align:'neutral', cid:'find_work'}
       ]
     },
     failure:{
@@ -65,7 +65,7 @@ const C = {
       xp:8, effects:[{type:'journal',msg:'Roadwardens Central: three private work orders for route security. Classified origin.'},{type:'faction',id:'roadwardens',n:5},{type:'quest',msg:'Investigate private route security work orders at the Roadwardens.'}],
       next:[
         {text:'Private means House Shelk does not want its name on it. Take one of the work orders.', skill:'combat', tag:'bold', align:'neutral', cid:'take_private_contract'},
-        {text:'Ask who placed the orders without taking one.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},
+        {text:'The name behind private orders is more useful than the work itself.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},
         {text:'Log it and leave. Private contracts come back around.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
@@ -73,7 +73,7 @@ const C = {
       text:'The checkpoint clerk is new and unenthused. She checks your papers with the careful attention of someone recently warned against informal contact. You get nothing useful except confirmation that something official has changed — she is too careful to be operating normally.',
       xp:0, effects:[{type:'journal',msg:'Roadwardens front gate: new clerk, overcautious. Recent protocol change confirmed.'}],
       next:[
-        {text:'Find a Roadwarden off-duty. Official channels are closed.', skill:'stealth', tag:'risky', align:'lawful', cid:'find_roadwarden'},
+        {text:'The overcautious clerk is following a directive someone off-duty might not be bound by.', skill:'stealth', tag:'risky', align:'lawful', cid:'find_roadwarden'},
         {text:'The overcautious clerk is working from a recent directive. Try to find it.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
         {text:'Abandon this line. The market has less surveillance.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'}
       ]
@@ -86,7 +86,7 @@ const C = {
       xp:6, effects:[{type:'journal',msg:'Ironspool Ward: sealed cart offloaded two nights ago, no witnesses permitted.'},{type:'quest',msg:'Find out what was offloaded in Ironspool Ward two nights ago.'}],
       next:[
         {text:'Nobody allowed to see is either evidence protection or theft. The depot logs will know which.', skill:'lore', tag:'bold', align:'neutral', cid:'depot_logs'},
-        {text:'Find the cart driver. Sealed deliveries have paperwork even when the cargo does not.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
+        {text:'Sealed deliveries have paperwork even when the cargo does not.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
         {text:'Thank Dav and keep walking.', skill:'persuasion', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
@@ -94,7 +94,7 @@ const C = {
       text:'Ironspool Ward is working at capacity and has no interest in strangers. A foreman waves you out of the depot yard.',
       xp:0, effects:[{type:'journal',msg:'Ironspool Ward: heavy shift, no contact made.'}],
       next:[
-        {text:'Come back later. Morning crews are more guarded than evening ones.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
+        {text:'Evening crews say more than morning ones.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
         {text:'The market. Different labor, different information.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
         {text:'The inn. Tomorrow exists.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival'}
       ]
@@ -109,7 +109,7 @@ const C = {
       next:[
         {text:'Someone is watching you and chose to help. Go east.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
         {text:'An unsigned note could be a trap. Verify the depot before moving.', skill:'lore', tag:'safe', align:'neutral', cid:'depot_logs'},
-        {text:'Find who left the note first. The source matters more than the information.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_note_sender'}
+        {text:'The source matters more than the information.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_note_sender'}
       ]
     },
     failure:{
@@ -128,8 +128,8 @@ const C = {
       text:'You catch fragments. A name mentioned twice. A merchant who averted their eyes. Not enough to act on yet, but the city is not entirely closed.',
       xp:2, effects:[{type:'journal',msg:'Partial intel: recurring name overheard, one avoidant merchant noted. Needs follow-up.'}],
       next:[
-        {text:'Push the partial lead.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
-        {text:'Wait for more information to surface.', skill:'stealth', tag:'safe', align:'neutral', cid:'market_intel'}
+        {text:'The partial lead is enough to move on.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
+        {text:'More is coming if you stay patient.', skill:'stealth', tag:'safe', align:'neutral', cid:'market_intel'}
       ]
     },
     success:{
@@ -145,9 +145,9 @@ const C = {
       text:'The afternoon passes without giving you anything useful. You are still an unknown quantity in a city that runs on known quantities.',
       xp:0, effects:[{type:'tick',n:1},{type:'journal',msg:'Hours passed without intelligence gained.'}],
       next:[
-        {text:'Active approach. Find someone specific and ask something direct.', skill:'persuasion', tag:'risky', align:'lawful', cid:'garrison_contact'},
+        {text:'Passive time is over. Someone specific, something direct.', skill:'persuasion', tag:'risky', align:'lawful', cid:'garrison_contact'},
         {text:'Change location. Ironspool Ward has different people.', skill:'lore', tag:'safe', align:'neutral', cid:'ironspool_intel'},
-        {text:'Find work first. A hired hand has access an idle stranger does not.', skill:'combat', tag:'safe', align:'neutral', cid:'find_work'}
+        {text:'A hired hand has access an idle stranger does not.', skill:'combat', tag:'safe', align:'neutral', cid:'find_work'}
       ]
     }
   },
@@ -159,16 +159,16 @@ const C = {
       next:[
         {text:'The Roadwarden escort. High pay for a reason, but the reason is where the interest is.', skill:'combat', tag:'bold', align:'neutral', cid:'take_private_contract'},
         {text:'The warehouse inventory. Quieter, lower risk, but someone skipping official channels has a reason.', skill:'lore', tag:'risky', align:'neutral', cid:'warehouse_job'},
-        {text:'Neither. The eastern route keeps coming up too often to be coincidence. Move toward it directly.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
+        {text:'The eastern route keeps coming up too often to be coincidence. That is the direction.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
       ]
     },
     failure:{
       text:'No work is posted that fits your background today. The boards are picked clean or the postings are for standing contracts you cannot access as an unknown.',
       xp:0, effects:[{type:'journal',msg:'Assignment board: nothing available. City closed to unknowns.'}],
       next:[
-        {text:'The inn. Build your reputation before looking for work.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival'},
+        {text:'The inn first. Unknown faces do not get work here.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival'},
         {text:'Ironspool Ward takes day labor regardless of reputation.', skill:'combat', tag:'safe', align:'neutral', cid:'ironspool_intel'},
-        {text:'Make your own opening. Walk into the Roadwardens and offer specific capability.', skill:'persuasion', tag:'risky', align:'lawful', cid:'garrison_contact'}
+        {text:'The Roadwardens take capable people who walk in and say so.', skill:'persuasion', tag:'risky', align:'lawful', cid:'garrison_contact'}
       ]
     }
   },
@@ -178,18 +178,18 @@ const C = {
       text:'The Aurora Light Cathedral attendant, a measured woman named Sera, offers water and quiet without asking anything first. After a long moment she says the shrine has been receiving unusual numbers of private memorial requests this week — the kind families make when they expect not to find someone through official channels.',
       xp:6, effects:[{type:'journal',msg:'Aurora Light Cathedral: unusual volume of private memorial requests — families expecting someone gone.'},{type:'quest',msg:'Investigate why families are filing unofficial memorials this week in Shelkopolis.'}],
       next:[
-        {text:'Ask Sera who filed the most recent one.', skill:'persuasion', tag:'risky', align:'neutral', cid:'trace_missing_persons'},
+        {text:'Sera has seen the faces behind these requests and remembers them.', skill:'persuasion', tag:'risky', align:'neutral', cid:'trace_missing_persons'},
         {text:'A memorial week means something happened somewhere east. The route closures connect.', skill:'lore', tag:'safe', align:'neutral', cid:'east_road'},
-        {text:'Offer to help the shrine. They will talk more freely to someone who is useful.', skill:'craft', tag:'safe', align:'neutral', cid:'shrine_service'}
+        {text:'The shrine talks to useful people. Be one.', skill:'craft', tag:'safe', align:'neutral', cid:'shrine_service'}
       ]
     },
     failure:{
       text:'The cathedral is occupied with a formal service. The attendant tells you kindly that the shrine is unavailable for informal conversation today. Come back at Nightwatch.',
       xp:0, effects:[{type:'tick',n:1},{type:'journal',msg:'Aurora Light Cathedral: formal service, no contact until Nightwatch.'}],
       next:[
-        {text:'Return at Nightwatch.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'},
+        {text:'Nightwatch will be different.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'},
         {text:'The market is less picky about timing.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
-        {text:'Find something useful before then.', skill:'survival', tag:'safe', align:'neutral', cid:'find_work'}
+        {text:'Waiting until Nightwatch is time that could be spent elsewhere.', skill:'survival', tag:'safe', align:'neutral', cid:'find_work'}
       ]
     }
   },
@@ -197,20 +197,20 @@ const C = {
   east_road:{
     success:{
       text:'The eastern gate passes you through. One hour out, you find it: a supply depot with a Roadwarden seal broken from the outside. The tracks around it are from boots, not animals, and they lead further east.',
-      xp:8, effects:[{type:'journal',msg:'Eastern route: sealed depot with broken Roadwarden lock. Boot tracks heading further east.'},{type:'quest',msg:'Follow the tracks from the broken eastern depot.'},{type:'faction',id:'roadwardens',n:-5}],
+      xp:8, effects:[{type:'travel',dest:'fairhaven'},{type:'journal',msg:'Eastern route: sealed depot with broken Roadwarden lock. Boot tracks heading further east.'},{type:'quest',msg:'Follow the tracks from the broken eastern depot.'},{type:'faction',id:'roadwardens',n:-5}],
       next:[
-        {text:'Follow the tracks. They are fresh enough.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
-        {text:'Document the depot first. Evidence matters if this escalates.', skill:'lore', tag:'safe', align:'neutral', cid:'document_depot'},
-        {text:'Return to Shelkopolis. This is bigger than one morning.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'}
+        {text:'The tracks are fresh. That window closes.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
+        {text:'Physical evidence is the part that holds up.', skill:'lore', tag:'safe', align:'neutral', cid:'document_depot'},
+        {text:'This is bigger than one morning.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'}
       ]
     },
     failure:{
       text:'The eastern gate has a new restriction — no exit without Roadwarden clearance. The guard is apologetic but firm. The route is closed and they are not saying why.',
       xp:0, effects:[{type:'journal',msg:'Eastern gate: closed to non-Roadwardens. Restriction effective today.'},{type:'faction',id:'roadwardens',n:-3}],
       next:[
-        {text:'Find out who ordered the closure.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
-        {text:'There are other routes east. Find one.', skill:'survival', tag:'bold', align:'chaotic', cid:'alternate_route'},
-        {text:'Wait out the closure.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
+        {text:'A full gate closure requires a name on a signed order.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
+        {text:'There are other routes east. The Roadwardens cannot watch all of them.', skill:'survival', tag:'bold', align:'chaotic', cid:'alternate_route'},
+        {text:'The closure will not hold forever.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     }
   },
@@ -229,9 +229,9 @@ const C = {
       text:'You follow the tracks for two hours before they disperse in a rocky streambed. Whatever moved through here knew how to lose a follower. You return to the road empty-handed but certain that something organized happened here.',
       xp:0, effects:[{type:'damage',n:3},{type:'tick',n:2},{type:'journal',msg:'Lost the tracks in the streambed. Organized evasion, not random.'}],
       next:[
-        {text:'Return to the depot. Look again with fresh context.', skill:'lore', tag:'safe', align:'neutral', cid:'document_depot'},
-        {text:'Back to Shelkopolis. Report what you know.', skill:'survival', tag:'safe', align:'lawful', cid:'report_findings'},
-        {text:'Stay out overnight. They will move again.', skill:'survival', tag:'risky', align:'neutral', cid:'wilderness_wait'}
+        {text:'The depot reads differently with what you know now.', skill:'lore', tag:'safe', align:'neutral', cid:'document_depot'},
+        {text:'What you have is reportable. Use it.', skill:'survival', tag:'safe', align:'lawful', cid:'report_findings'},
+        {text:'They will move again. The area is the right place to be.', skill:'survival', tag:'risky', align:'neutral', cid:'wilderness_wait'}
       ]
     }
   },
@@ -251,8 +251,8 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'Union counting house closed for audit — same day as the depot evidence.'}],
       next:[
         {text:'The audit is defensive. Someone inside knows you are asking questions.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'},
-        {text:'Find Garrin through a back channel.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
-        {text:'Go to House Shelk instead.', skill:'persuasion', tag:'safe', align:'lawful', cid:'house_shelk_meeting'}
+        {text:'Garrin is in this city somewhere and an audit does not move him.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
+        {text:'House Shelk has more reason than anyone to want this answered.', skill:'persuasion', tag:'safe', align:'lawful', cid:'house_shelk_meeting'}
       ]
     }
   },
@@ -262,9 +262,9 @@ const C = {
       text:'The House Shelk receiving office clerk Pentha is excellent at appearing not to listen. After a careful framing of what you have found she excuses herself and returns with an offer: an informal meeting, tomorrow, Midlight, with a Shelk operations officer. No record. Your discretion expected.',
       xp:8, effects:[{type:'order',n:5},{type:'journal',msg:'House Shelk: informal meeting arranged with operations officer. Off-record.'},{type:'faction',id:'house_shelk',n:15},{type:'quest',msg:'Attend informal meeting with House Shelk operations officer.'}],
       next:[
-        {text:'Prepare for tomorrow. Review everything before the meeting.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
-        {text:'Find out who else knows about the depot breach before you walk into that meeting.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
-        {text:'Rest. An off-record meeting with Shelk operations requires a clear head.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'}
+        {text:'A Shelk meeting unprepared is worse than no meeting.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
+        {text:'Walking into a Shelk meeting uninformed is its own kind of liability.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
+        {text:'Off-record Shelk operations require a clear head.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'}
       ]
     },
     failure:{
@@ -272,7 +272,7 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'House Shelk receiving: redirected to official complaint process.'}],
       next:[
         {text:'The Roadwardens are more direct.', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'},
-        {text:'Build a reputation first. Shelk doors open for names.', skill:'persuasion', tag:'safe', align:'neutral', cid:'market_intel'},
+        {text:'Shelk doors open for names. You do not have one here yet.', skill:'persuasion', tag:'safe', align:'neutral', cid:'market_intel'},
         {text:'Official channels are closed. Unofficial channels exist for a reason.', skill:'stealth', tag:'risky', align:'chaotic', cid:'shadowhands_contact'}
       ]
     }
@@ -285,15 +285,15 @@ const C = {
       next:[
         {text:'You knew already. Make it a statement, not a question.', skill:'persuasion', tag:'bold', align:'neutral', cid:'probe_order_origin'},
         {text:'What are you going to do about it? See if the Roadwardens are positioned to move.', skill:'lore', tag:'safe', align:'neutral', cid:'take_private_contract'},
-        {text:'Let him talk first. Silence is the better play.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'}
+        {text:'Silence is the better play here.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'}
       ]
     },
     failure:{
       text:'Every Roadwarden you find off-duty is either unresponsive or actively avoiding the topic of eastern routes. Something was communicated to them — a clear instruction not to engage with outside inquiries.',
       xp:0, effects:[{type:'journal',msg:'Roadwardens off-duty: coordinated non-engagement on eastern route topics.'},{type:'faction',id:'roadwardens',n:-5}],
       next:[
-        {text:'Institutional silence means a directive from above Shelkopolis command. Find who issued it.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
-        {text:'The silence confirms something serious happened. Go back east.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
+        {text:'Institutional silence means a directive from above Shelkopolis command.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
+        {text:'The silence confirms something serious happened. The east is where it happened.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
         {text:'House Shelk directly — bypassing the corps.', skill:'persuasion', tag:'bold', align:'lawful', cid:'house_shelk_meeting'}
       ]
     }
@@ -304,9 +304,9 @@ const C = {
       text:'You have moved through Shelkopolis for a full cycle and gathered something real: a compromised depot, unauthorized Union manifests, institutional Roadwarden silence, and a House Shelk clerk who now knows your name. None of it is conclusive. All of it points at a single operation running through the eastern route.',
       xp:8, effects:[{type:'journal',msg:'End of first cycle: eastern route operation confirmed. Multiple powers implicated.'},{type:'renown',n:1},{type:'order',n:5},{type:'morality',n:5}],
       next:[
-        {text:'Follow the operation east. The answers are on the road.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
+        {text:'The answers are on the road, not in the city.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
         {text:'Build position in the city first. Information without leverage is noise.', skill:'persuasion', tag:'safe', align:'neutral', cid:'find_work'},
-        {text:'Find out who benefits if the operation succeeds. That is who is running it.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'}
+        {text:'Follow the money and you find who is running it.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'}
       ]
     },
     failure:{
@@ -314,8 +314,8 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'First cycle complete: fragments confirmed, no provable connection yet.'}],
       next:[
         {text:'One more day of evidence before moving.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'},
-        {text:'Act on what you have. Waiting has costs.', skill:'combat', tag:'risky', align:'neutral', cid:'east_road'},
-        {text:'Find an ally who can verify what you cannot.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'}
+        {text:'Waiting has costs. What you have is enough to move.', skill:'combat', tag:'risky', align:'neutral', cid:'east_road'},
+        {text:'Someone outside the current circle can confirm what you cannot.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'}
       ]
     }
   },
@@ -329,15 +329,15 @@ const C = {
       next:[
         {text:'The Magistratus audit and the eastern operation are probably connected.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
         {text:'The shrine will know if the Magistratus presence relates to magical practice concerns.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'},
-        {text:'Find an inspector to talk to off-duty.', skill:'persuasion', tag:'bold', align:'lawful', cid:'find_roadwarden'}
+        {text:'Magistratus inspectors off-duty say different things than their paperwork does.', skill:'persuasion', tag:'bold', align:'lawful', cid:'find_roadwarden'}
       ]
     },
     failure:{
       text:'The room purchase is anonymous. The innkeeper is not saying more.',
       xp:0, effects:[],
       next:[
-        {text:'The stable loft is fine. Move on.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
-        {text:'Find out another way.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
+        {text:'The stable loft is fine. There are bigger questions.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
+        {text:'The innkeeper is not the only one who saw who came through.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
       ]
     }
   },
@@ -347,16 +347,16 @@ const C = {
       text:'The travelers are arguing about a supply count discrepancy in the Fairhaven eastern depot. One insists the count was off before the Roadwardens locked it. The implication: the lock happened after something was removed, not to protect what was inside.',
       xp:8, effects:[{type:'journal',msg:'Overheard: Fairhaven eastern depot count was off before the Roadwarden lock — lock may be cover, not security.'}],
       next:[
-        {text:'Introduce yourself and ask them directly.', skill:'persuasion', tag:'bold', align:'lawful', cid:'find_roadwarden'},
-        {text:'Keep listening.', skill:'stealth', tag:'safe', align:'neutral', cid:'passive_intel'}
+        {text:'They already have the conversation half-started.', skill:'persuasion', tag:'bold', align:'lawful', cid:'find_roadwarden'},
+        {text:'There is more here if you are quiet.', skill:'stealth', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
     failure:{
       text:'You move too close and one traveler notices. The conversation ends.',
       xp:0, effects:[],
       next:[
-        {text:'Apologize and introduce yourself anyway.', skill:'persuasion', tag:'risky', align:'neutral', cid:'inn_arrival'},
-        {text:'Retreat.', skill:'stealth', tag:'safe', align:'neutral', cid:'rest_recover'}
+        {text:'The conversation is not over just because they noticed.', skill:'persuasion', tag:'risky', align:'neutral', cid:'inn_arrival'},
+        {text:'This was a mistake. Walk away.', skill:'stealth', tag:'safe', align:'neutral', cid:'rest_recover'}
       ]
     }
   },
@@ -367,13 +367,13 @@ const C = {
       xp:7, effects:[{type:'journal',msg:'Innkeeper Bereth: historical precedent — House Mal connected to previous eastern depot incident.'}],
       next:[
         {text:'House Mal is a fallen house. A Mal factor here is historical debt showing up.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
-        {text:'The Roadwardens came after the Mal factor last time. Are they coming after someone this time?', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'}
+        {text:'The Roadwardens came after the Mal factor last time. The pattern is not new.', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'}
       ]
     },
     failure:{
       text:'Bereth is polite and uninformative.',
       xp:0, effects:[],
-      next:[{text:'Find another source.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'}]
+      next:[{text:'Someone else in this room saw who came through.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'}]
     }
   },
 
@@ -384,7 +384,7 @@ const C = {
       next:[
         {text:'Bring it to the Roadwardens.', skill:'persuasion', tag:'bold', align:'lawful', cid:'find_roadwarden'},
         {text:'Bring it to House Shelk directly.', skill:'persuasion', tag:'risky', align:'lawful', cid:'house_shelk_meeting'},
-        {text:'Find the Union representative first.', skill:'stealth', tag:'safe', align:'neutral', cid:'union_contact'}
+        {text:'The Union has a stake in this — their seal was on that manifest.', skill:'stealth', tag:'safe', align:'neutral', cid:'union_contact'}
       ]
     },
     failure:{
@@ -411,8 +411,8 @@ const C = {
       text:'The contract is already taken. Whoever got it moved fast.',
       xp:0, effects:[{type:'journal',msg:'Private eastern contract taken before you could claim it.'}],
       next:[
-        {text:'Find out who took it.', skill:'lore', tag:'risky', align:'neutral', cid:'find_cart_driver'},
-        {text:'Look for related work.', skill:'combat', tag:'safe', align:'neutral', cid:'find_work'}
+        {text:'Whoever moved fast enough to take it is already in this operation.', skill:'lore', tag:'risky', align:'neutral', cid:'find_cart_driver'},
+        {text:'The board is picked clean but not every posting is on the board.', skill:'combat', tag:'safe', align:'neutral', cid:'find_work'}
       ]
     }
   },
@@ -422,8 +422,8 @@ const C = {
       text:'Careful pressure yields a name: Selwyn Coth, a mid-tier Shelk logistics administrator who has been authorizing route closures without citing a primary officer above him. That is irregular. Mid-tier administrators do not close routes alone.',
       xp:8, effects:[{type:'journal',msg:'Logistics administrator Selwyn Coth authorizing route closures alone — irregular. Possible cut-out.'},{type:'quest',msg:'Find Selwyn Coth and establish who is above him in this operation.'}],
       next:[
-        {text:'Find Coth. He is the operational link.', skill:'stealth', tag:'bold', align:'neutral', cid:'find_cart_driver'},
-        {text:'A cut-out administrator means someone senior is insulated. Find the senior.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
+        {text:'He is the operational link.', skill:'stealth', tag:'bold', align:'neutral', cid:'find_cart_driver'},
+        {text:'A cut-out administrator means someone senior is insulated.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
         {text:'Bring Coth name to House Shelk and see how they react.', skill:'persuasion', tag:'risky', align:'lawful', cid:'house_shelk_meeting'}
       ]
     },
@@ -431,8 +431,8 @@ const C = {
       text:'The trail goes cold at a specific level, which is itself an answer about where authority sits.',
       xp:0, effects:[{type:'journal',msg:'Order origin investigation: coordinated silence above mid-tier Shelk administration.'}],
       next:[
-        {text:'Work from physical evidence, not administrative trail.', skill:'lore', tag:'safe', align:'neutral', cid:'east_road'},
-        {text:'Find someone who is outside the structure.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
+        {text:'The physical evidence is more reliable than the paper trail.', skill:'lore', tag:'safe', align:'neutral', cid:'east_road'},
+        {text:'Someone outside the structure will not be running the same silence.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
       ]
     }
   },
@@ -442,8 +442,8 @@ const C = {
       text:'The directive restricting eastern gate access traces to a single signed order — Shelk Operations, stamped three days ago. The name on the stamp reads: Coth. The same name that came up at the route closures.',
       xp:8, effects:[{type:'journal',msg:'Gate restriction directive: signed Coth, three days ago. Consistent with route closure pattern.'}],
       next:[
-        {text:'Coth is now connected to both the eastern operations and the gate closure. Find him.', skill:'stealth', tag:'bold', align:'neutral', cid:'find_cart_driver'},
-        {text:'Bring the directive and the name to the Roadwarden captain.', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'},
+        {text:'Coth is now connected to both the eastern operations and the gate closure.', skill:'stealth', tag:'bold', align:'neutral', cid:'find_cart_driver'},
+        {text:'The Roadwarden captain wants this. He just does not know he has it.', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'},
         {text:'House Shelk would want to know an administrator is issuing orders above their station.', skill:'persuasion', tag:'bold', align:'lawful', cid:'house_shelk_meeting'}
       ]
     },
@@ -451,8 +451,8 @@ const C = {
       text:'The directive is above your current access level.',
       xp:0, effects:[{type:'journal',msg:'Gate directive: access level insufficient.'}],
       next:[
-        {text:'Build standing first.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
-        {text:'Find an inside contact.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
+        {text:'The Roadwardens respond to people who have already done something useful.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
+        {text:'Someone inside the administration already knows what you are looking at.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
       ]
     }
   },
@@ -464,7 +464,7 @@ const C = {
       next:[
         {text:'You delivered something and have not been paid. What did you deliver? — Direct.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},
         {text:'I can get you paid, but I need to understand the route. — Softer.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'},
-        {text:'Watch Wes without approaching. See if anyone else is watching him.', skill:'stealth', tag:'bold', align:'neutral', cid:'follow_tracks'}
+        {text:'Wes is not the only one watching Wes.', skill:'stealth', tag:'bold', align:'neutral', cid:'follow_tracks'}
       ]
     },
     failure:{
@@ -472,7 +472,7 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'Cart driver: departed. Window closed.'}],
       next:[
         {text:'The money trail still exists. Find Coth.', skill:'lore', tag:'safe', align:'neutral', cid:'trace_directive'},
-        {text:'Follow the route east.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
+        {text:'The route east is still open.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
       ]
     }
   },
@@ -482,7 +482,7 @@ const C = {
       text:'The freight access lane bypasses the main eastern gate entirely. You are through before the guards realize the lane is supposed to be closed.',
       xp:6, effects:[{type:'faction',id:'roadwardens',n:-5},{type:'journal',msg:'Used freight lane bypass to exit through closed eastern gate. Roadwarden gate protocols are porous.'}],
       next:[
-        {text:'Move fast. The bypass will not last.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
+        {text:'The bypass closes behind you if you are slow.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
         {text:'Careful pace. Do not give them reason to follow.', skill:'stealth', tag:'safe', align:'neutral', cid:'document_depot'}
       ]
     },
@@ -491,7 +491,7 @@ const C = {
       xp:0, effects:[{type:'faction',id:'roadwardens',n:-3},{type:'journal',msg:'Freight bypass also closed. Full eastern perimeter sealed.'}],
       next:[
         {text:'The closure itself is the story. Find who authorized a full perimeter.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'},
-        {text:'Wait it out.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'}
+        {text:'This lifts eventually.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'}
       ]
     }
   },
@@ -501,7 +501,7 @@ const C = {
       text:'A young woman in Roadwarden-adjacent clothing has been stationed near the inn since Dawnrise. She walks toward you first. Captain Holst says to ask you what you found before you ask anyone else.',
       xp:8, effects:[{type:'journal',msg:'Unsigned note traced to a Holst informant. The Roadwarden captain is managing this from a distance.'}],
       next:[
-        {text:'Meet Holst. Tonight.', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'},
+        {text:'Tonight. Holst set this meeting for a reason.', skill:'persuasion', tag:'safe', align:'lawful', cid:'find_roadwarden'},
         {text:'Tell Holst I will share what I have when he shares what he knows. Set terms.', skill:'persuasion', tag:'bold', align:'neutral', cid:'probe_order_origin'},
         {text:'Holst having informants this active means the Roadwardens are more involved than they are showing.', skill:'lore', tag:'risky', align:'neutral', cid:'trace_directive'}
       ]
@@ -521,8 +521,8 @@ const C = {
       text:'Around Nightwatch, movement. Two figures with a cart, no lantern, moving east through the scrub parallel to the road. You let them pass and follow at distance.',
       xp:8, effects:[{type:'damage',n:2},{type:'tick',n:3},{type:'journal',msg:'Wilderness wait: observed two figures with cart at Nightwatch, no lantern, east-bound. Following.'}],
       next:[
-        {text:'Close to visual range and count cargo.', skill:'stealth', tag:'risky', align:'neutral', cid:'follow_tracks'},
-        {text:'Mark the direction and return to Shelkopolis.', skill:'survival', tag:'safe', align:'lawful', cid:'report_findings'}
+        {text:'Cargo count matters more than identity right now.', skill:'stealth', tag:'risky', align:'neutral', cid:'follow_tracks'},
+        {text:'Direction is enough. The city is where this gets acted on.', skill:'survival', tag:'safe', align:'lawful', cid:'report_findings'}
       ]
     },
     failure:{
@@ -540,8 +540,8 @@ const C = {
       text:'The Shadowhands have a presence in Ironspool Ward. You find a contact point. Someone leaves a response within two hours: We know about the eastern depot. We are not involved. Yet.',
       xp:8, effects:[{type:'order',n:-5},{type:'faction',id:'shadowhands',n:10},{type:'journal',msg:'Shadowhands: aware of eastern depot, not involved — for now.'}],
       next:[
-        {text:'Meet whoever responded.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
-        {text:'Shadowhands non-involvement is information. File it.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
+        {text:'Someone responded. That is already more than expected.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
+        {text:'Shadowhands non-involvement is its own kind of information.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
     failure:{
@@ -549,7 +549,7 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'Shadowhands: no contact established.'}],
       next:[
         {text:'The legitimate channels have more to offer right now.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
-        {text:'Try again later.', skill:'stealth', tag:'safe', align:'neutral', cid:'rest_recover'}
+        {text:'The window is not fully closed.', skill:'stealth', tag:'safe', align:'neutral', cid:'rest_recover'}
       ]
     }
   },
@@ -559,7 +559,7 @@ const C = {
       text:'The depot logs show an irregular entry: cargo received under provisional manifest, no destination recorded, authorization by a mid-tier clerk whose name does not appear on any other log entry.',
       xp:8, effects:[{type:'journal',msg:'Depot logs: irregular provisional manifest, anonymous clerk authorization. Single use identity.'},{type:'quest',msg:'Identify the anonymous clerk who authorized the provisional depot manifest.'}],
       next:[
-        {text:'A single-use clerk identity is a cover. Trace it.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
+        {text:'A single-use clerk identity is a cover for something upstream.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
         {text:'The provisional manifest destination was left blank deliberately. It went east.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
       ]
     },
@@ -567,7 +567,7 @@ const C = {
       text:'The depot logs are locked behind Roadwarden administrative access.',
       xp:0, effects:[{type:'journal',msg:'Depot logs: Roadwarden access required.'}],
       next:[
-        {text:'Find a Roadwarden contact.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
+        {text:'The Roadwardens hold the access — they are the only way into those logs.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
         {text:'The physical evidence at the depot itself tells you more than the paperwork.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
       ]
     }
@@ -578,8 +578,8 @@ const C = {
       text:'The warehouse inventory job is legitimate — a merchant named Torbin needs an independent count to dispute a customs assessment. Two hours of honest work, and Torbin pays well and mentions, unprompted, that he has been using the eastern routes for three years and something changed eight days ago.',
       xp:8, effects:[{type:'gold',n:15},{type:'journal',msg:'Warehouse inventory for Torbin: eight days ago eastern routes changed. Independent confirmation.'}],
       next:[
-        {text:'Ask Torbin what changed.', skill:'persuasion', tag:'safe', align:'neutral', cid:'innkeeper_intel'},
-        {text:'Eight days ago is a specific time anchor. What else happened eight days ago?', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'}
+        {text:'Torbin has been running these routes for three years. He knows what changed.', skill:'persuasion', tag:'safe', align:'neutral', cid:'innkeeper_intel'},
+        {text:'Eight days ago is a specific anchor. Pull every thread from that date.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'}
       ]
     },
     failure:{
@@ -597,7 +597,7 @@ const C = {
       text:'The Gilded Archives buys documents. The tariff list from your packet gets you fourteen gold from an archivist who examines it for three minutes and tells you it corroborates something they have been tracking for a season.',
       xp:6, effects:[{type:'order',n:-3},{type:'gold',n:14},{type:'journal',msg:'Sold Mimolot tariff list to Gilded Archives. Archivists confirmed it corroborates ongoing tracking.'}],
       next:[
-        {text:'What are they tracking? Follow that thread.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
+        {text:'The Archives are tracking the same thing. That thread is worth following.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
         {text:'The money and the contact are enough for now.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}
       ]
     },
@@ -606,7 +606,7 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'Gilded Archives declined the tariff list — public record. Need the non-public materials.'}],
       next:[
         {text:'The schedule in the packet. That is the non-public part.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
-        {text:'Find a different buyer.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
+        {text:'The public part is worthless. The private part of this packet is what has value.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
       ]
     }
   },
@@ -625,7 +625,7 @@ const C = {
       text:'The schedule is encoded in a cataloging system you can only partially read.',
       xp:0, effects:[{type:'journal',msg:'Packet schedule: partially encoded in Mimolot catalog system. Need trained contact to decode.'}],
       next:[
-        {text:'Find someone who reads catalog code.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
+        {text:'The Gilded Archives will have someone who reads Mimolot catalog code.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
         {text:'The Mimolot representative will decode it if you frame the ask correctly.', skill:'persuasion', tag:'safe', align:'neutral', cid:'tariff_contact'}
       ]
     }
@@ -645,7 +645,7 @@ const C = {
       text:'The archives are closed to non-members for material research. Qael offers you tea and a reading room pamphlet.',
       xp:0, effects:[{type:'journal',msg:'Gilded Archives: non-member access refused.'}],
       next:[
-        {text:'Find a referral.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'},
+        {text:'The shrine knows everyone. A proper introduction opens more than credentials.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'},
         {text:'The material you need might be held elsewhere.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'}
       ]
     }

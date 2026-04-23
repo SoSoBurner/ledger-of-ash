@@ -1,9 +1,0 @@
-# Market Crossroads NPC roster card
-
-Total named NPCs: 3
-
-Traffic-heavy urban transshipment junction linking road caravans, river movement, and guild-monitored warehousing through dense freight staging and relay infrastructure.
-
-- **wildcard**: Calia Ledgermere — Night-Lantern Inspector. Asks more than they answer, preserving doubt until the evidence can bear weight. In The Union, that reads as someone deal-aware, balanced...
-- **commerce**: Renn Ledgermere — Market Broker. Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In The Union, that reads as someone deal-aware,...
-- **security**: Tess Brokerwell — Watch Sergeant. Treats routine contact like the first layer of incident response, never fully relaxing into casual talk. In The Union, that reads as some...

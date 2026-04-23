@@ -48,7 +48,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three private outcome documents, laid beside their public register equivalents. Two diverge: the public summaries carry terms favorable to institutional parties that the private outcomes don't include. Favorable language inserted after the fact, without the parties' knowledge. The third case has no public register entry at all — the case number pulls no record. The parties received a private outcome with a valid case number. Officially, no such case exists. All three alterations happened after private outcomes were filed, before the register was made accessible for public review.`;
         if (!G.flags) G.flags = {};
         G.flags.found_arbitration_alteration = true;
-        addJournal('investigation', 'Arbitration records: public register altered after private outcomes issued — institutional favoritism added, one case deleted entirely', `unity-records-${G.dayCount}`);
+        addJournal('Arbitration records: public register altered after private outcomes issued — institutional favoritism added, one case deleted entirely', 'evidence', `unity-records-${G.dayCount}`);
       } else {
         G.lastResult = `Three parties' private outcome documents would make the comparison possible. Without them, the public register reads clean — complete case numbers, consistent formatting, no gaps. Parties to recent arbitrations sit in the waiting hall outside with their advocates, and none of them are interested in speaking to someone without a registered complaint or a letter of standing. The comparison is possible in theory. Getting the documents to do it is today's problem.`;
       }
@@ -74,7 +74,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 14) {
         G.lastResult = `The private outcome names the parties and the matter: routing access rights, Unity Square hub versus a northern commercial bloc. The arbiter's decision ran seventeen pages. The hub won on geographic and historical grounds; the northern bloc was barred from those routes without paying the fee structure the arbitration imposed. That outcome has no public register entry. The northern bloc began using those routes three months after the deletion — operating on terrain the arbitration had restricted, with no public record of the restriction. The deletion didn't reverse the decision. It simply made the decision disappear.`;
         G.flags.investigated_deleted_case = true;
-        addJournal('discovery', 'Deleted case: routing rights decision against northern commercial bloc removed — deletion removes legal obstacle to bloc\'s route use', `unity-deleted-case-${G.dayCount}`);
+        addJournal('Deleted case: routing rights decision against northern commercial bloc removed — deletion removes legal obstacle to bloc\'s route use', 'discovery', `unity-deleted-case-${G.dayCount}`);
       } else if (result.total >= 11) {
         G.lastResult = `The case number pulls no public record. Two parties who were present for the proceedings won't discuss the outcome directly — their advocates have instructed them to say nothing while they pursue a parallel review. From the documentation around the case, it was significant: routing rights, multiple appellate filings, a seventeen-page interim decision summary. Whatever the outcome was, someone decided it shouldn't be publicly accessible. The specific terms and the reason for deletion stay out of reach.`;
       } else {
@@ -103,7 +103,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Small groups form at the plaza edges, exchange flat sealed documents, and separate. The motion looks like normal business. The documents don't: thicker stock, wax closures, formatted headers visible when the papers catch the light at an angle. Legal instruments, not trade notes — passing hand to hand without touching the registration desk. Whatever agreements those seals contain, they won't appear in Unity Square's record of the day's transactions.`;
       }
-      addJournal('investigation', 'Unity Square plaza: off-record coordination, advance leak of Brokerwell decisions, relationship mapping, unregistered legal instruments', `unity-plaza-read-${G.dayCount}`);
+      addJournal('Unity Square plaza: off-record coordination, advance leak of Brokerwell decisions, relationship mapping, unregistered legal instruments', 'evidence', `unity-plaza-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -126,7 +126,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The appointment file has three signature blocks, as required. Two are filled by current council members in standard form. The third reads: "expedited confirmation — emergency succession protocol." Emergency succession applies when an arbiter dies in post or becomes incapacitated mid-term. Brokerwell's predecessor submitted a voluntary retirement notice twelve days before the appointment. Retirement is not incapacitation. The protocol was misapplied to compress the confirmation timeline and bypass the third council member's standard review. The appointment was processed. The irregularity is in the paperwork, not the stamp.`;
         if (!G.flags) G.flags = {};
         G.flags.found_brokerwell_appointment_irregularity = true;
-        addJournal('investigation', 'Brokerwell appointment: emergency succession protocol improperly invoked — bypassed third confirmation, predecessor retired not incapacitated', `unity-appointment-${G.dayCount}`);
+        addJournal('Brokerwell appointment: emergency succession protocol improperly invoked — bypassed third confirmation, predecessor retired not incapacitated', 'evidence', `unity-appointment-${G.dayCount}`);
       } else {
         G.lastResult = `The public appointment record shows Brokerwell's name, the date, and the required three signature blocks. The review documentation — the deliberation notes, the confirmation correspondence, the council meeting record — is filed with the coordination council under sealed session protocol. Reading those documents requires council authorization. The appointment's paperwork exists; the reasoning behind it stays sealed.`;
       }
@@ -218,7 +218,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Cross-referencing the routing rights dispute party against commercial registers in adjacent localities: at Unity Square, the Northern Route Coordination Consortium. In Craftspire, the Regional Materials Coordination Body. In Cosmoria, a name that appears in the transit chain thread. Different names, but the registered principals overlap — three names appear across all three registrations, and all three share an address cluster in the same northern commercial district. The same principals, reorganized under different trade names in each jurisdiction, operating as if they were separate entities.`;
         if (!G.flags) G.flags = {};
         G.flags.identified_northern_bloc = true;
-        addJournal('discovery', 'Northern bloc identified: same principals operating as different entities across multiple localities — multi-alias distributed operation', `unity-northern-bloc-${G.dayCount}`);
+        addJournal('Northern bloc identified: same principals operating as different entities across multiple localities — multi-alias distributed operation', 'discovery', `unity-northern-bloc-${G.dayCount}`);
       } else {
         G.lastResult = `The Northern Route Coordination Consortium is legitimately registered at Unity Square — a valid trade entity with a current charter. Cross-referencing the principals' names against other jurisdictions requires access to commercial registration databases that aren't held locally. Each locality archives its own. Without pulling records from at least two additional jurisdictions, the connection between this consortium and its counterparts elsewhere stays theoretical.`;
       }
@@ -236,7 +236,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing coordination hub activity');
 
         G.lastResult = `The central marker stone is waist-high, white-grey granite, worn at the corners by fifty years of hands passing. The inscription runs around its four faces: "Equal Distance from All." The arbitration hall sits at the square's geometric center, equidistant from the residential quarter, the commercial arcade, the transit registry, and the public board. The positioning was deliberate — an architectural argument that no single interest owned the process. The cart-fee notice is posted over the gate inscription. The marker stone stands in the middle of the plaza, undisturbed.`;
-      addJournal('discovery', 'Unity Square central marker: "Equal Distance from All" — coordination architecture designed for neutrality, undermined by captured arbitration', `unity-marker-${G.dayCount}`);
+      addJournal('Unity Square central marker: "Equal Distance from All" — coordination architecture designed for neutrality, undermined by captured arbitration', 'discovery', `unity-marker-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -259,7 +259,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Brokerwell's filing drawer holds twelve months of correspondence, sorted by sender. The Northern Route Coordination Consortium appears every week — sometimes twice. The earliest letter is dated four months before Brokerwell's appointment as senior arbiter. The consortium was writing to him when he held a junior coordination role with no authority over routing decisions. The letters from that period use his name without his title. They were already in communication when the appointment was processed. He didn't gain a relationship when he gained the position. He had the relationship first.`;
         if (!G.flags) G.flags = {};
         G.flags.found_brokerwell_correspondence = true;
-        addJournal('discovery', 'Brokerwell correspondence: weekly contact with Northern Consortium predates his appointment by 4 months — installed to serve a party, not appointed independently', `unity-brokerwell-corr-${G.dayCount}`);
+        addJournal('Brokerwell correspondence: weekly contact with Northern Consortium predates his appointment by 4 months — installed to serve a party, not appointed independently', 'discovery', `unity-brokerwell-corr-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The outer portion of the filing drawer is accessible — the last four months of correspondence, sorted by sender. Northern parties write to Brokerwell regularly; the consortium name appears three times in the stack. The earlier letters, the ones that would establish when the relationship began relative to his appointment, are filed further back under a security tab you can't open without triggering the drawer's secondary lock. Four months of evidence. The timeline question stays unanswered.`;
       } else {
@@ -311,7 +311,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
       G.lastResult = `Three factors share a bench in the waiting hall, each with a different case number on their intake slip. One of them, while the other two aren't listening, says it directly: "${selected}." He doesn't lower his voice. Nobody at the desk reacts. The waiting hall has heard enough of these remarks that they've stopped registering as unusual.`;
-      addJournal('investigation', `Unity Square rumor: "${selected}"`, `unity-rumor-${G.dayCount}`);
+      addJournal(`Unity Square rumor: "${selected}"`, 'evidence', `unity-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -350,7 +350,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Seven major trade route agreements, three inter-settlement supply contracts, two regional resource allocation frameworks — all currently active, all with Unity Square arbitration clauses built in. Disputes under any of them come here first. Together they cover roughly forty percent of commercial flow between settlements in the operational zone. Every rate negotiation, every routing conflict, every supply shortfall that matters goes through this process. A captured arbitration record doesn't affect one case. It sets the terms every party in the zone operates within.`;
-        addJournal('investigation', 'Unity Square scope: 40% of regional commercial flow governed by arbitration it controls — a leverage point, not just a hub', `unity-scope-${G.dayCount}`);
+        addJournal('Unity Square scope: 40% of regional commercial flow governed by arbitration it controls — a leverage point, not just a hub', 'evidence', `unity-scope-${G.dayCount}`);
       } else {
         G.lastResult = `The publicly posted coordination mandate lists the agreements Unity Square administers, but the full list — including the supplemental agreements added in the last three years without a public announcement — is in the administrative filing system. The posted list is partial. How partial requires access to the administrative records, which are restricted to registered parties and authorized third-party reviewers.`;
       }
@@ -368,7 +368,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing arbitration session');
 
         G.lastResult = `Brokerwell runs the session from a raised seat at the room's center, equidistant from both parties. He reads the question, hears responses, takes notes in a small notebook rather than the official ledger. His questions are precise. He interrupts twice to correct procedural framing — not the substance of arguments, just the form. The decision he reads at the end is balanced, citing both parties' positions before naming the outcome. The parties leave without appealing. From the gallery, the process is impeccable. Whatever happens to the record in the archive afterward happens somewhere else, under different hands, in a room nobody watches.`;
-      addJournal('discovery', 'Arbitration session: publicly impeccable process, corruption operates entirely post-session in record alteration — appearance launders outcomes', `unity-session-${G.dayCount}`);
+      addJournal('Arbitration session: publicly impeccable process, corruption operates entirely post-session in record alteration — appearance launders outcomes', 'discovery', `unity-session-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -391,7 +391,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The deleted routing decision: three transit corridors, previously subject to a fee structure the consortium was required to pay. After the deletion, they use those corridors without the restriction appearing in any accessible record. The two altered cases: supply contract terms adjusted post-session to favor the consortium's positions — the parties on the other side of those contracts believe different terms were agreed than what the public record now shows. Three interventions, each invisible in isolation. Cumulative effect: the northern bloc moves freely through the zone's commercial infrastructure on terms no competitor can read or match.`;
         if (!G.flags) G.flags = {};
         G.flags.calculated_bloc_gains = true;
-        addJournal('investigation', 'Northern bloc total gains: unrestricted route access + favorable contract terms = structural commercial dominance via invisible capture', `unity-gains-${G.dayCount}`);
+        addJournal('Northern bloc total gains: unrestricted route access + favorable contract terms = structural commercial dominance via invisible capture', 'evidence', `unity-gains-${G.dayCount}`);
       } else {
         G.lastResult = `Calculating the cumulative value of the three interventions requires the parties' actual commercial data — cargo volumes, route fees, contract margins. Each party holds their own records, and none of them are interested in sharing trade figures with someone outside the process. The structural picture is visible. The numbers behind it stay closed.`;
       }
@@ -409,7 +409,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'observing Unity Square at dusk');
 
         G.lastResult = `A factor from a small settlement stops at the central marker on her way out, after a coordination session that didn't go her way. She puts her hand flat on the inscription and holds it there for a moment — "Equal Distance from All" — then lifts it and walks toward the gate without looking back. She came in expecting a fair process. She left accepting an outcome she disagrees with, because the process appeared to be what it claimed. The square's archive is corrupted. The session was clean. She has no way to know the difference between the two.`;
-      addJournal('discovery', 'Unity Square: trust in fairness is the actual asset being exploited — parties accept unfavorable outcomes because process appears legitimate', `unity-dusk-${G.dayCount}`);
+      addJournal('Unity Square: trust in fairness is the actual asset being exploited — parties accept unfavorable outcomes because process appears legitimate', 'discovery', `unity-dusk-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -432,7 +432,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Unity Square's mandate covers supply chain disputes that include Shelkopolis's outlying districts. Three of the active agreements include parties who also hold trade positions inside Shelkopolis's commercial registry. The routing rights the northern bloc gained here give them access to supply lines that feed directly into Shelkopolis's market. The contract advantages they obtained through the altered cases affect the pricing and availability of goods that flow through Shelkopolis factors. The capture of this hub translates into leverage inside the larger one. What's built here gets used there.`;
         if (!G.flags) G.flags = {};
         G.flags.found_shelkopolis_connection = true;
-        addJournal('investigation', 'Unity Square → Shelkopolis: arbitration advantages translate to commercial leverage inside Shelkopolis market — peripheral capture feeding central one', `unity-shelk-connection-${G.dayCount}`);
+        addJournal('Unity Square → Shelkopolis: arbitration advantages translate to commercial leverage inside Shelkopolis market — peripheral capture feeding central one', 'evidence', `unity-shelk-connection-${G.dayCount}`);
       } else {
         G.lastResult = `The connection between Unity Square's arbitration outcomes and Shelkopolis's commercial conditions is visible in outline — shared parties, overlapping routes, contracts that reference Shelkopolis district access. Mapping the downstream implications of specific decisions requires reading the contracts in detail and cross-referencing against Shelkopolis trade data. That work takes time and access that isn't available here.`;
       }

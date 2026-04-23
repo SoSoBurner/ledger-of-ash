@@ -33,7 +33,7 @@ const STEALTH_MIDSPINE_CHOICES = [
         G.flags.stealth_midspine_redirected = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Stealth midspine: information misdirection operation — broker\'s buyer receiving false picture', `stealth-midspine-1-${G.dayCount}`);
+        addJournal('Stealth midspine: information misdirection operation — broker\'s buyer receiving false picture', 'discovery', `stealth-midspine-1-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `You go to the broker directly. He doesn't apologize — he explains that the buyer offered more than standard rate and that his operation runs on margin. You terminate the arrangement. He doesn't argue. By the time you're out the door he's already considering who to sell to next. The buyer received at least two accurate transmissions before you shut the channel. What they know from those, they know permanently. The forward flow is stopped. The existing exposure is not.`;
@@ -72,7 +72,7 @@ const STEALTH_MIDSPINE_CHOICES = [
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Stealth midspine: controlled sell — buyer identified as northern bloc operative via payment trace', `stealth-midspine-2-${G.dayCount}`);
+        addJournal('Stealth midspine: controlled sell — buyer identified as northern bloc operative via payment trace', 'discovery', `stealth-midspine-2-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `You don't respond. No reply, no visible movement, no contact with any of your regular sources for three days — you give the buyer nothing to observe and nothing to purchase. The approach stops. Your sources are intact and your current findings are still yours. What you've lost is three days of forward momentum and the chance to learn who the buyer is from how they pay. They're still looking for what they tried to buy from you. They're now looking through other channels.`;
@@ -113,7 +113,7 @@ const STEALTH_MIDSPINE_CHOICES = [
         if (!G.rivalId) G.rivalId = 'shadow_broker';
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Stealth midspine: shadow monitoring network confirmed — 3 tiers, central function in Shelkopolis admin district', `stealth-midspine-3-${G.dayCount}`);
+        addJournal('Stealth midspine: shadow monitoring network confirmed — 3 tiers, central function in Shelkopolis admin district', 'discovery', `stealth-midspine-3-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `You can see the bottom of it — the broker, the buyer who approached you, the payment routing that doesn't quite resolve. The mid-tier coordination layer is compartmentalized in a way that requires financial records you don't have access to here. Every trace you pull dead-ends at a clearinghouse that serves forty other commercial operations. In Shelkopolis the clearinghouse has a public audit record. That's where the structure above the buyer becomes readable. Until then you know the shape of the bottom tier and nothing about what sits on top of it.`;

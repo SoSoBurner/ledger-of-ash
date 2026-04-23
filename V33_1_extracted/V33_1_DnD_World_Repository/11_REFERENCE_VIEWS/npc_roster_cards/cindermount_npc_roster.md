@@ -1,6 +1,0 @@
-# Cindermount NPC roster card
-
-Total named NPCs: 2
-
-- **wildcard**: Istran Emberlash — Milepost Keeper. Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Psanan, that reads as someone heat-forged, di...
-- **wildcard**: Vessa Cindermaw — Berserker. Projects readiness without theatricality, as if discipline matters more than spectacle. In Psanan, that reads as someone heat-forged, dir...

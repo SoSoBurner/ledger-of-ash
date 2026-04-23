@@ -10,7 +10,7 @@ var SCOPE_REVEAL = (function() {
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.omens = (G.worldClocks.omens || 0) + 1;
     G.recentOutcomeType = 'discovery';
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     if (typeof addNarration === 'function') addNarration('Found Document', G.lastResult);
     if (typeof updateHUD === 'function') updateHUD();
 

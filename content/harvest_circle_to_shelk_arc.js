@@ -66,7 +66,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
         G.flags.met_nann_harvest = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Nann: count records being \'reviewed\' — she saved copies before leaving', `harvest-arc-nann-${G.dayCount}`);
+        addJournal('Nann: count records being \'reviewed\' — she saved copies before leaving', 'discovery', `harvest-arc-nann-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Nann recognizes you and picks up her pace slightly, putting distance between you before giving a brief wave. Compact overseers work this road and know her face. She does not stop. She does not speak. You travel south in parallel on different sections of the road and she turns off at a different junction. Shelkopolis is where she said she was headed.`;
@@ -92,7 +92,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
 
       G.lastResult = `Each individual routing entry is fractionally underweight — three to five percent below the verified gate weight. Across hundreds of manifests over eight months, that offset accumulates to a substantial undeclared tonnage moving south without triggering a secondary manifest review. The calibration is too consistent to be drift error. Someone set this threshold deliberately, knowing the exact weight that triggers a second-level check, and set the offset just below it. This system was not built by Harvest Circle. It was inserted into Harvest Circle's logistics by someone with access to the manifesting software and knowledge of the review threshold.`;
       G.flags.harvest_arc_routing_decoded = true;
-      addJournal('discovery', 'Routing anomaly is engineered offset — external system inserted into Harvest Circle logistics', `harvest-arc-routing-${G.dayCount}`);
+      addJournal('Routing anomaly is engineered offset — external system inserted into Harvest Circle logistics', 'discovery', `harvest-arc-routing-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -112,7 +112,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
         G.lastResult = `The vendor has been receiving pre-marked crates for six months through a "coordinating wholesaler" that uses a different company name on every order form. He does not know the entity behind the name changes. "Pay on time, no disputes," he says. "I assumed it was one of the efficiency consortiums." When he empties the crates, a runner collects them and they go north. The crates return empty, charter mark still intact, to wherever they came from.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Charter mark crates returned north empty — containers in circulation, not disposable', `harvest-arc-charter-road-${G.dayCount}`);
+        addJournal('Charter mark crates returned north empty — containers in circulation, not disposable', 'discovery', `harvest-arc-charter-road-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The market is at full midday pace and the vendor does not pause to speak with someone who is not buying. You note the mark on three separate crates at his stall — the same capital C with horizontal strike, this far south of Harvest Circle, on what look like standard supply crates. You file it and keep moving.`;
@@ -136,7 +136,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
         G.lastResult = `Veth Karst authorized a blanket transit pass two months ago for "coordinated agricultural distribution" — a category that appears nowhere in standard transit law. He filed it as a special administrative provision under a section of the transit code that allows for expedited movement of perishable goods. The pass covers containers matching specific weight ranges and exempts them from checkpoint inspection at three stations between Harvest Circle and Shelkopolis. The containers do not need to be opened. They only need to be moving.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Veth Karst created non-existent transit category to exempt containers from inspection', `harvest-arc-karst-${G.dayCount}`);
+        addJournal('Veth Karst created non-existent transit category to exempt containers from inspection', 'discovery', `harvest-arc-karst-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Karst's name appears in the transit authority register under the authorization date. The full document is in a back file that requires a registered trader's credential to access. You copy the date, the category name, and his title from the public-facing entry. The detail you need — the specific weight range and the three checkpoint exemptions — is behind the credential gate.`;
@@ -163,7 +163,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       if (result.total >= 10) {
         G.lastResult = `The Granary Steps complex at dusk: grain dust and the mechanical rhythm of distribution machinery. The loading area feeds directly into Shelkopolis's pressure-equalized dome distribution network — the atmospheric system serving the outer districts. A charter-marked container moved through this complex's loading intake would introduce its contents into a delivery system that propagates to residential and industrial zones without discrimination. The Harvest Circle supply chain ends here. So does every other supply chain you have been following.`;
         G.flags.harvest_arc_granary_steps_surveyed = true;
-        addJournal('discovery', 'Granary Steps connects to dome atmospheric distribution — terminus for charter mark supply chain', `harvest-arc-granary-${G.dayCount}`);
+        addJournal('Granary Steps connects to dome atmospheric distribution — terminus for charter mark supply chain', 'discovery', `harvest-arc-granary-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The Granary Steps complex is large and busy and you can't see clearly how the logistics flow through it. You'll need more time to map it.`;
@@ -189,7 +189,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('discovery', 'Reth: four-piece investigation network assembling in Shelkopolis — charter mark links all', `harvest-arc-reth-${G.dayCount}`);
+        addJournal('Reth: four-piece investigation network assembling in Shelkopolis — charter mark links all', 'discovery', `harvest-arc-reth-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The factor's office is closed for two days — a district inspection cycle. You'll have to wait or find another contact.`;

@@ -49,7 +49,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         if (result.total >= 12) {
           G.lastResult = `Six months of readings, laid out in order: the gradient is directional, not diffuse, building consistently from the northeast quadrant — the direction that puts Aurora Crown Commune at its origin point. Low-level, slow-building, not matching any weather or seasonal pattern. Four months ago the rate of increase accelerated. Letha has the date circled. It corresponds to the period when Aurora Crown's dome filtration additive was substituted. Whatever the dome is releasing has been propagating outward from that point. Plumes End is reading the leading edge of it.`;
           G.flags.analyzed_pressure_reports = true;
-          addJournal('discovery', 'Pressure gradient: directional increase from Aurora Crown quadrant, accelerated 4 months ago — atmospheric event propagating from dome compound substitution', `plumes-pressure-${G.dayCount}`);
+          addJournal('Pressure gradient: directional increase from Aurora Crown quadrant, accelerated 4 months ago — atmospheric event propagating from dome compound substitution', 'discovery', `plumes-pressure-${G.dayCount}`);
         } else {
           G.lastResult = `The pressure records show a clear trend but interpreting its significance requires expertise in atmospheric dynamics. Letha knows the measurements; she doesn't have the framework to explain them.`;
         }
@@ -78,7 +78,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The suppression order came through a "regional environmental coordination office" — a body Letha has never received communications from before. The instruction was formatted correctly for a central coordination directive, but the issuing office doesn't appear in the standard directory of regional oversight bodies. Another ghost institution. Someone inserted a suppression order into the legitimate communication chain using a fabricated authority. Letha's reports were silenced by an entity that technically doesn't exist.`;
         if (!G.flags) G.flags = {};
         G.flags.found_suppression_source = true;
-        addJournal('investigation', 'Suppression order from ghost institution "regional environmental coordination office" — same pattern as Whitebridge ghost account, Unity Square ghost category', `plumes-suppression-${G.dayCount}`);
+        addJournal('Suppression order from ghost institution "regional environmental coordination office" — same pattern as Whitebridge ghost account, Unity Square ghost category', 'evidence', `plumes-suppression-${G.dayCount}`);
       } else {
         G.lastResult = `The suppression order came through official channels but the issuing body is unfamiliar. Without access to the regional authority directory, you can't confirm whether it's legitimate.`;
       }
@@ -104,7 +104,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Patrol rangers have documented movement pattern changes in birds and large mammals starting four months ago. Animals are shifting territory southward and away from the northeast quadrant. "We've seen this before during volcanic pressure events," one ranger says. "But there's no geological activity in that direction." What there is: an atmospheric pressure gradient that animals are sensitive to before human instruments detect it clearly. The fauna have been evacuating the affected zone. The gradient is real and it's been building long enough for wildlife to notice.`;
         if (!G.flags) G.flags = {};
         G.flags.found_wildlife_evidence = true;
-        addJournal('investigation', 'Wildlife territorial shift southward from NE quadrant for 4 months — fauna evacuating before instruments detect full gradient', `plumes-wildlife-${G.dayCount}`);
+        addJournal('Wildlife territorial shift southward from NE quadrant for 4 months — fauna evacuating before instruments detect full gradient', 'evidence', `plumes-wildlife-${G.dayCount}`);
       } else {
         G.lastResult = `Rangers have noticed changes but attribute them to seasonal variation. Without Letha's pressure data for context, the pattern isn't obvious.`;
       }
@@ -131,7 +131,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Three frontier families who maintained small holdings in the northeast quadrant have abandoned them in the past two months. Their abandoned plots still have late-season crops unharvested. People don't leave their harvest unless something made staying feel worse than losing the food. The human exit matches the animal exit. The zone is becoming uninhabitable and the people inside it feel it before they can explain it.`;
       }
-      addJournal('investigation', 'Frontier edge: defensive blind spot aligned with gradient origin, compound chemistry detected, wildlife corridors show advance direction, human exodus from NE', `plumes-perimeter-read-${G.dayCount}`);
+      addJournal('Frontier edge: defensive blind spot aligned with gradient origin, compound chemistry detected, wildlife corridors show advance direction, human exodus from NE', 'evidence', `plumes-perimeter-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -220,7 +220,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Using the outpost's environmental analysis equipment, you capture and analyze a sample from the northeast perimeter. The gradient contains trace levels of the same compound class that Jorin identified at Craftspire and that Glasswake's shard amplification data describes as dangerous in atmospheric applications. At Plumes End, the concentration is still low — the leading edge of whatever is propagating from Aurora Crown's zone. At source concentration, this compound class would be significantly more hazardous. Plumes End is in the far fallout zone. Aurora Crown is in the source zone.`;
         if (!G.flags) G.flags = {};
         G.flags.analyzed_gradient_chemistry = true;
-        addJournal('discovery', 'Atmospheric gradient chemistry: trace levels of same compound class as Craftspire extraction and Glasswake shard data — Plumes End in far fallout zone, Aurora Crown at source', `plumes-chemistry-${G.dayCount}`);
+        addJournal('Atmospheric gradient chemistry: trace levels of same compound class as Craftspire extraction and Glasswake shard data — Plumes End in far fallout zone, Aurora Crown at source', 'discovery', `plumes-chemistry-${G.dayCount}`);
       } else {
         G.lastResult = `The outpost's equipment is designed for patrol monitoring, not precise chemical analysis. You can confirm chemical presence but not compound class identification.`;
       }
@@ -238,7 +238,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing frontier at dawn');
 
       G.lastResult = `From the watchtower, the northeast horizon is slightly different from the other directions. Not visible to the eye — more like a quality of light that doesn't quite settle the same way. Letha comes up to check the morning instruments and stands next to you for a moment. "I've been watching it change for six months," she says. "Most people don't notice until I point it out. But once you've seen it, you can't stop seeing it." She goes back to her instruments. You keep watching. She's right.`;
-      addJournal('discovery', 'Plumes End watchtower: NE horizon atmospheric difference visible once noticed — Letha has been watching it change for 6 months', `plumes-dawn-${G.dayCount}`);
+      addJournal('Plumes End watchtower: NE horizon atmospheric difference visible once noticed — Letha has been watching it change for 6 months', 'discovery', `plumes-dawn-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -259,7 +259,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Historical records at Plumes End go back forty years. One comparable gradient event: recorded sixty-three years ago, before the outpost's current archive. A note references it in the archive's preface as a reason the outpost was established — "to provide early detection of atmospheric irregularities in the northeastern territories." The outpost was built because of a previous event from this direction. Whatever happened sixty-three years ago was significant enough to establish a permanent monitoring presence. Letha is detecting the early signs of a second occurrence of something that was judged severe enough to warrant permanent outpost installation.`;
-        addJournal('discovery', 'Historical comparison: outpost established after similar event 63 years ago — Plumes End exists specifically to detect early signs of NE atmospheric irregularity', `plumes-historical-${G.dayCount}`);
+        addJournal('Historical comparison: outpost established after similar event 63 years ago — Plumes End exists specifically to detect early signs of NE atmospheric irregularity', 'discovery', `plumes-historical-${G.dayCount}`);
       } else {
         G.lastResult = `The historical records go back forty years. Any older events predate the current archive's beginning.`;
       }
@@ -307,7 +307,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
       G.lastResult = `Frontier circuit trader rumor: "${selected}." Information is traveling through the frontier even when official channels are suppressed.`;
-      addJournal('investigation', `Plumes End frontier trader rumor: "${selected}"`, `plumes-rumor-${G.dayCount}`);
+      addJournal(`Plumes End frontier trader rumor: "${selected}"`, 'evidence', `plumes-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -353,7 +353,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         if (result.total >= 12) {
           G.lastResult = `Combining Letha's directional readings with the wildlife displacement corridors and the farmer abandonment pattern: the gradient's effective zone is approximately eighty kilometers across at Plumes End's distance. Scaling backward to the Aurora Crown source location and applying atmospheric diffusion models, the source zone would be experiencing concentrations approximately forty times what Plumes End is detecting. At that concentration, long-term residence becomes medically hazardous. Aurora Crown's dome has been releasing this compound at forty times safe exposure levels for potentially four months.`;
           G.flags.mapped_affected_zone = true;
-          addJournal('discovery', 'Affected zone: 80km across at Plumes End distance, source zone (Aurora Crown area) at ~40x safe concentration levels for 4 months', `plumes-zone-map-${G.dayCount}`);
+          addJournal('Affected zone: 80km across at Plumes End distance, source zone (Aurora Crown area) at ~40x safe concentration levels for 4 months', 'discovery', `plumes-zone-map-${G.dayCount}`);
         } else {
           G.lastResult = `The zone mapping requires Letha's directional reading data to anchor the calculation. Without her cooperation, the mapping is too imprecise to be useful.`;
         }
@@ -374,7 +374,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing frontier sky at night');
 
       G.lastResult = `After dark, the northeast horizon has a faint luminescence — not light from settlements, the wrong color for that. A diffuse glow that pulses very slowly. Letha has been documenting it for two months. "The glasswake shard amplification effect," she says quietly. "That's what it looks like when the compound interacts with a shard-dense area. I've never seen it in the open atmosphere before." She looks at it for a moment. "Someone has made Aurora Crown's dome into a source for this." She sounds like someone who has been hoping they were wrong.`;
-      addJournal('discovery', 'Plumes End night sky: NE atmospheric glow consistent with shard amplification effect — Aurora Crown dome converted to atmospheric release point', `plumes-night-sky-${G.dayCount}`);
+      addJournal('Plumes End night sky: NE atmospheric glow consistent with shard amplification effect — Aurora Crown dome converted to atmospheric release point', 'discovery', `plumes-night-sky-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -391,7 +391,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Standard central coordination protocol for a consistent atmospheric anomaly of Plumes End's reported scale: automatic environmental hazard assessment, mandatory field investigation, public notification if the assessment confirms hazard. The suppression prevented that protocol from triggering. If Letha's reports had arrived, the field investigation would have identified Aurora Crown's contamination zone four months ago — before the affected population had been exposed for the full duration. The suppression didn't just hide the data. It extended the exposure window by four months.`;
-        addJournal('investigation', 'Suppression consequence: prevented standard hazard protocol from triggering — exposure window extended by 4 months deliberately', `plumes-suppression-purpose-${G.dayCount}`);
+        addJournal('Suppression consequence: prevented standard hazard protocol from triggering — exposure window extended by 4 months deliberately', 'evidence', `plumes-suppression-purpose-${G.dayCount}`);
       } else {
         G.lastResult = `Understanding the suppression's full implication requires knowledge of the central coordination protocol's thresholds and response procedures.`;
       }
@@ -409,7 +409,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'learning Letha\'s research focus');
 
       G.lastResult = `Letha has three volumes of atmospheric chemistry texts she's been reading since the gradient appeared. "I'm an operations commander, not a chemist," she says. "But if my reports are going to be taken seriously, I need to understand what I'm measuring well enough to defend the data." She's been educating herself specifically so she can argue for her own observations. The suppression has turned a frontier commander into a self-taught atmospheric scientist. The work she's doing is beyond her job description and she knows it. "Someone needs to understand this," she says simply.`;
-      addJournal('discovery', 'Letha self-educating in atmospheric chemistry to defend suppressed data — command competence in response to institutional suppression', `plumes-letha-books-${G.dayCount}`);
+      addJournal('Letha self-educating in atmospheric chemistry to defend suppressed data — command competence in response to institutional suppression', 'discovery', `plumes-letha-books-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -430,7 +430,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `From Plumes End, the operation looks like this: the Glasswake shard amplification data was suppressed to prevent understanding of how dome filtration additives interact with shard geology. The Aurora Crown filtration additive was then substituted — using exactly the interaction mechanism that the suppressed data described. The substitution is releasing a compound into the atmosphere that's propagating outward from Aurora Crown. The Ironhold and Craftspire operations are accumulating additional material that will amplify this release. The multiple ghost institutions that have suppressed reports and planted false authorizations across different localities are all coordinating to prevent the operation from being identified until it completes. Plumes End is detecting the leading edge of something catastrophic in progress.`;
       if (!G.flags) G.flags = {};
       G.flags.synthesized_plumes_picture = true;
-      addJournal('discovery', 'Full synthesis: multi-locality operation to amplify Aurora Crown atmospheric release — suppression, shard data, additive substitution, compound accumulation all connected', `plumes-synthesis-${G.dayCount}`);
+      addJournal('Full synthesis: multi-locality operation to amplify Aurora Crown atmospheric release — suppression, shard data, additive substitution, compound accumulation all connected', 'discovery', `plumes-synthesis-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

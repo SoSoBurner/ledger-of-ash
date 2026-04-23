@@ -25,7 +25,7 @@ const NOMDARA_STAGE1_CHOICES = [
         const removed = G.wounds.shift();
         G.lastResult = `Sable doesn't ask what happened. She cleans her hands, selects a compress without hesitation, and gets to work. The wound — ${removed} — closes under clean binding. When she's done she steps back and wipes the blade of her tool on a grey cloth. "Don't test it tonight," she says. Not a question. She turns back to her fire before you answer.`;
         G.recentOutcomeType = 'success';
-        addJournal('discovery', 'Nomdara healing: Sable removed wound — Caravan is mobile, encountered at current location', `nomdara-s1-heal-${G.dayCount}`);
+        addJournal('Nomdara healing: Sable removed wound — Caravan is mobile, encountered at current location', 'discovery', `nomdara-s1-heal-${G.dayCount}`);
       } else if (fatiguePenalty) {
         G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
         G.lastResult = `Sable studies your posture before she speaks. "Nothing torn," she says. "You're running on less than you think." She presses a small sealed flask into your palm — the compound is tasteless and takes effect before you've capped it. The ground feels steadier. "Save the second half for the pass," she says. She does not explain which pass.`;

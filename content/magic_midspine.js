@@ -33,7 +33,7 @@ const MAGIC_MIDSPINE_CHOICES = [
         G.flags.magic_midspine_study_complete = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Magic midspine: unsanctioned Iceveil copy with annotations extending findings to Craftspire configuration', `magic-midspine-1-${G.dayCount}`);
+        addJournal('Magic midspine: unsanctioned Iceveil copy with annotations extending findings to Craftspire configuration', 'discovery', `magic-midspine-1-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The main text is accessible — standard licensed notation, Collegium-formatted. The marginal annotations are not. The shorthand is consistent but unfamiliar, somewhere between two academic traditions you know separately but haven't seen combined. You copy the passages you can parse and leave the document as you found it. The sections you've taken are valuable. The parts you couldn't read may be more so.`;
@@ -110,7 +110,7 @@ const MAGIC_MIDSPINE_CHOICES = [
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
         if (!G.rivalId) G.rivalId = 'archivist_veld';
-        addJournal('discovery', 'Magic midspine: annotator is Dr. Hael Woss — independent researcher in Shelkopolis 8 months, trained at Glasswake and Mimolot', `magic-midspine-3-${G.dayCount}`);
+        addJournal('Magic midspine: annotator is Dr. Hael Woss — independent researcher in Shelkopolis 8 months, trained at Glasswake and Mimolot', 'discovery', `magic-midspine-3-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The shorthand is consistent and specific, but tracing it requires alumni records from two institutions — and the access you have here doesn't extend that far. You identify the two academic traditions in the notation, narrow the field to a plausible timeframe, and hit the boundary of what's available. In Shelkopolis the Mimolot archive maintains a public-access index. That's where the cross-reference closes. The annotator is not going anywhere — whoever left the document planted it to be found, which means they're waiting on the next move.`;

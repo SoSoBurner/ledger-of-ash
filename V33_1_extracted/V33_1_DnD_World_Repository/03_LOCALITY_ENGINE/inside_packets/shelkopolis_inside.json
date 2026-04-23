@@ -1,9 +1,0 @@
-{
-  "name": "Shelkopolis",
-  "inside": "Curving smooth streets link elegant upper quarters, busy workshop districts, and purposeful lower wards. Textiles, tools, shrines, taverns, and scholars give the city constant motion.",
-  "sources": [
-    "psc_shelkopolis",
-    "locations_catalog",
-    "principality_shelk"
-  ]
-}

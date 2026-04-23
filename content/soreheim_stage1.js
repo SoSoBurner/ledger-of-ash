@@ -5,7 +5,7 @@ var SOREHEIM_STAGE1 = (function() {
     G.flags.sideplot_interim_seat_started = true;
 
     G.lastResult = 'The weigh-station smells of stone dust and coal smoke. A dockworker is at the clerk\'s counter, his hands flat on the ledger page as if holding it in place. "Two weeks. Forty-three verified loads. I have the gate stamps." The clerk keeps his pen moving across a different page and does not look up. At a bench near the door, a man in a coat with Vorrk clan markings — third-tier by the weave — makes a small note in a pocket book and watches without participating.';
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     if (typeof addNarration === 'function') addNarration('Weigh-Station', G.lastResult);
 
     (window._rawRenderChoices || window.renderChoices)([
@@ -29,7 +29,7 @@ var SOREHEIM_STAGE1 = (function() {
       G.lastResult = 'Gerrit watches the Vorrk agent\'s back until he is through the door, then turns to you and speaks quickly. An output code. A name — Ossa Vonn — and then he is done talking. He picks up his stamp sheets and leaves before you can ask anything else. It is not much. It is a name and a code, which is more than the ledger has.';
       G.flags.interim_seat_lead_found = true;
     }
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     setTimeout(showResolution, 400);
   }
 
@@ -37,7 +37,7 @@ var SOREHEIM_STAGE1 = (function() {
     var G = window.G;
     G.lastResult = 'The Vorrk agent does not speak to the clerk and does not approach the counter. He watches the exchange from his bench, writes three lines in his pocket book, and stands. He takes a route toward the side exit that does not pass the counter. The clerk\'s pen keeps moving the whole time. Whatever the agent needed to confirm, the argument itself was enough.';
     G.flags.interim_seat_clan_agent_observed = true;
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     setTimeout(showResolution, 400);
   }
 
@@ -98,7 +98,7 @@ var SOREHEIM_STAGE1 = (function() {
 
   function _close() {
     var G = window.G;
-    window.addJournal('investigation', G.lastResult);
+    addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }

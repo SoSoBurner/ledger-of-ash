@@ -42,7 +42,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
         G.flags.maret_voss_traveling_south = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Maret\'s authorization revoked after inquiry — carrying findings in her head, Shelkopolis contact ready', `ithtan-arc-maret-${G.dayCount}`);
+        addJournal('Maret\'s authorization revoked after inquiry — carrying findings in her head, Shelkopolis contact ready', 'discovery', `ithtan-arc-maret-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Maret travels separately by design. "Don't follow me," she says, not unkindly. "If we're seen together, we're connected. Connected investigators are easier to suppress than separate ones."`;
@@ -66,7 +66,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
         G.lastResult = `Lysel's garrison reduction corresponded with a Warden Order efficiency review — the review itself was requested by the same Iron Compact attaché who was accessing the ghost accounts. The financial operation and the physical security reduction were coordinated. Someone used the financial infrastructure to buy the security clearance to make the operation possible.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Ghost accounts funded the efficiency review that reduced Lysel\'s garrison — financial and physical operation coordinated', `ithtan-arc-lysel-${G.dayCount}`);
+        addJournal('Ghost accounts funded the efficiency review that reduced Lysel\'s garrison — financial and physical operation coordinated', 'discovery', `ithtan-arc-lysel-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The timing is suspicious but you can't establish causation from what you have. Note it and move on.`;
@@ -92,7 +92,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
 
       G.lastResult = `The ghost accounts didn't just fund the operation — they created leverage. Each official who processed a ghost account transaction became, technically, a participant in a fraudulent financial record. They couldn't report the accounts without implicating themselves. The operation built its own suppression mechanism into the financial infrastructure. Whoever designed this understood institutional psychology as well as financial mechanics.`;
       G.flags.ithtan_arc_leverage_mapped = true;
-      addJournal('discovery', 'Ghost accounts created complicity — officials who processed them couldn\'t report without self-implicating', `ithtan-arc-leverage-${G.dayCount}`);
+      addJournal('Ghost accounts created complicity — officials who processed them couldn\'t report without self-implicating', 'discovery', `ithtan-arc-leverage-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -112,7 +112,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
         G.lastResult = `The exchange house serves the road between Ithtananalor and Shelkopolis. Its public registry — required by Principalities commercial law — shows eighteen transactions in the past three months using the same below-threshold fragmentation technique as the Iron Ledger ghost accounts. The money is flowing south. It's already in Shelkopolis's financial system. Whatever it was paying for, it's been paid.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('discovery', 'Road exchange house: same ghost account pattern — capital already in Shelkopolis financial system', `ithtan-arc-exchange-${G.dayCount}`);
+        addJournal('Road exchange house: same ghost account pattern — capital already in Shelkopolis financial system', 'discovery', `ithtan-arc-exchange-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The public registry is dense and the pattern isn't obvious without careful comparison. You note the exchange house location for future reference.`;
@@ -137,7 +137,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
         G.flags.calver_in_shelkopolis = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addJournal('discovery', 'Calver: mobile asset posted before/after ghost account cycles — currently in Shelkopolis', `ithtan-arc-calver-${G.dayCount}`);
+        addJournal('Calver: mobile asset posted before/after ghost account cycles — currently in Shelkopolis', 'discovery', `ithtan-arc-calver-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Calver's posting history is partially accessible. You can see the Ithtananalor assignment and one prior. The full pattern requires the central Warden Order registry, which is in Shelkopolis.`;
@@ -162,7 +162,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
 
       G.lastResult = `The financial district's archive building is the largest structure in Shelkopolis's administrative quarter. Twenty years of transaction records, cross-locality — every exchange house in the Principalities is required to file quarterly reports here. The ghost account pattern that Maret Voss identified in Ithtananalor will appear in this archive, aggregated. If it's as systematic as you think, it will show up as an anomaly across dozens of registry entries. Maret's contact at the arbitrator's office will know how to find it.`;
       G.flags.ithtan_arc_archive_located = true;
-      addJournal('discovery', 'Central archive: cross-locality registry — ghost account pattern will be visible if systematic', `ithtan-arc-archive-${G.dayCount}`);
+      addJournal('Central archive: cross-locality registry — ghost account pattern will be visible if systematic', 'discovery', `ithtan-arc-archive-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
     }
   },
@@ -184,7 +184,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('discovery', 'Hess: independent archive access filed — suppression now creates its own record', `ithtan-arc-hess-${G.dayCount}`);
+        addJournal('Hess: independent archive access filed — suppression now creates its own record', 'discovery', `ithtan-arc-hess-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Hess hasn't received Maret's summary yet — she must have taken a different route. You explain the situation from scratch. He's interested but needs documentation before he'll act.`;

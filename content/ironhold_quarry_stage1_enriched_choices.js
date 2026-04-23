@@ -47,7 +47,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       if (G.flags.met_velka_ironspike) {
         G.lastResult = `Velka's log runs fourteen months in compressed technical notation. The eastern face reached a secondary mineral layer eight months ago. Official production sheets classify it as geological waste, marked for disposal. But Velka tracked the disposal schedule against the shipping calendar and the numbers don't match. The waste is being collected, separated, containerized — and moved out on days the official calendar shows no shipments. The disposal is the operation.`;
         G.flags.found_eastern_face_evidence = true;
-        addJournal('investigation', 'Eastern face: secondary mineral layer logged as "disposal" but actually collected separately on off-schedule — primary extraction disguised as waste', `ironhold-eastern-face-${G.dayCount}`);
+        addJournal('Eastern face: secondary mineral layer logged as "disposal" but actually collected separately on off-schedule — primary extraction disguised as waste', 'evidence', `ironhold-eastern-face-${G.dayCount}`);
       } else {
         G.lastResult = `The eastern face is visible from the main equipment road but the access path branches off behind the shed line. Without Velka's clearance or her log as a guide, the official reports tell you nothing. They show standard geological waste volumes — numbers that only look wrong if you know what to compare them against.`;
       }
@@ -73,7 +73,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Darian's working schedule, pinned to the board inside the management shed, shows eastern face crew assignments on three days the official calendar leaves blank. Each of those days falls within a known courier window — the same windows Velka noted in her log as off-schedule shipment days. The extraction runs when the quarry's own oversight rotation is inactive. Someone read the inspection timetable before building the extraction timetable around it.`;
         if (!G.flags) G.flags = {};
         G.flags.found_darian_schedule = true;
-        addJournal('investigation', 'Darian schedule: eastern face extraction on off-calendar days matching courier windows — timed to avoid quarry inspection', `ironhold-schedule-${G.dayCount}`);
+        addJournal('Darian schedule: eastern face extraction on off-calendar days matching courier windows — timed to avoid quarry inspection', 'evidence', `ironhold-schedule-${G.dayCount}`);
       } else {
         G.lastResult = `The management shed door stays closed during active shift hours. The window for accessing Darian's working documents is narrow — either a shift change when the supervisors are occupied at the equipment sheds, or an introduction that gets you inside. Neither option is open right now.`;
       }
@@ -99,7 +99,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `A fragment from the eastern face's discard pile — the material the official sheet calls geological waste. The color banding is distinctive: a reactive compound precursor, same material category Jorin flagged in Craftspire's supply chain. At Craftspire it was extracted from processed compounds. Here it comes out of the rock directly. Raw source, same destination. Both operations are moving toward the same accumulation point.`;
         if (!G.flags) G.flags = {};
         G.flags.identified_ironhold_mineral = true;
-        addJournal('discovery', 'Secondary mineral identified: reactive compound precursor — same category as Craftspire extraction, both feeding the same accumulation', `ironhold-mineral-${G.dayCount}`);
+        addJournal('Secondary mineral identified: reactive compound precursor — same category as Craftspire extraction, both feeding the same accumulation', 'discovery', `ironhold-mineral-${G.dayCount}`);
       } else {
         G.lastResult = `The fragment comes back from the face in your hand, streaked with a color that doesn't match the surrounding limestone. Something reactive — the faint smell when it heats in the sun is a property marker. But naming the compound precisely requires a testing kit or a specialist, neither of which is at the quarry. The sample is worth keeping.`;
       }
@@ -126,7 +126,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Three workers on the standard face carry hand scarring inconsistent with stonework — chemical burns, not abrasion. The kind of injury that comes from handling reactive material without the right gloves. They've been rotated through the eastern face and rotated back, and the injury pattern followed. Someone stripped the safety protocol from that extraction and absorbed the cost in workers rather than risk a paper record.`;
       }
-      addJournal('investigation', 'Quarry operations: dual security structure, limited extraction quantity on schedule, workforce segregation, reactive material injuries on workers', `ironhold-quarry-read-${G.dayCount}`);
+      addJournal('Quarry operations: dual security structure, limited extraction quantity on schedule, workforce segregation, reactive material injuries on workers', 'evidence', `ironhold-quarry-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -171,7 +171,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Darian's appointment at Ironhold is eighteen months old — the same period when the eastern face reached the secondary mineral layer. The appointment came through the quarry's external ownership structure, bypassing the internal promotion process that had been in use for twenty years. Before Ironhold he managed a processing facility in the northern commercial district. The facility's primary product line: reactive compound handling. He arrived at Ironhold already knowing what the eastern face would produce.`;
         if (!G.flags) G.flags = {};
         G.flags.researched_darian = true;
-        addJournal('investigation', 'Darian: appointed from external ownership 18 months ago, prior work in reactive compound processing — recruited specifically for secondary mineral management', `ironhold-darian-background-${G.dayCount}`);
+        addJournal('Darian: appointed from external ownership 18 months ago, prior work in reactive compound processing — recruited specifically for secondary mineral management', 'evidence', `ironhold-darian-background-${G.dayCount}`);
       } else {
         G.lastResult = `Darian's employment record is held in the quarry's administrative files inside the management building, not in the Compact's public registry. Without an internal referral or a formal audit request, it's a closed cabinet. His background at Ironhold is whatever he's put on the board himself.`;
       }
@@ -215,7 +215,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The container leaves the eastern face on a cart moving at walking pace, heading not toward the main gate but along a service track behind the drainage berm — a road that doesn't appear on the quarry's official site map. At the perimeter fence it transfers to a covered wagon. The charter mark stenciled low on the wagon's side panel is the same mark Whitebridge's Cadrin described on night-crossing wagons — the ones using the river bridge after dark on new-moon schedules. The extraction and the crossings are one operation. Ironhold to Whitebridge to wherever.`;
         if (!G.flags) G.flags = {};
         G.flags.linked_ironhold_whitebridge = true;
-        addJournal('discovery', 'Container tracked to same charter mark as Whitebridge midnight crossings — Ironhold extraction and Whitebridge river crossings are one supply chain', `ironhold-container-${G.dayCount}`);
+        addJournal('Container tracked to same charter mark as Whitebridge midnight crossings — Ironhold extraction and Whitebridge river crossings are one supply chain', 'discovery', `ironhold-container-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The container exits through a service track behind the drainage berm — not the main gate — and transfers to a covered wagon at the perimeter. You hold the sightline as far as the northern tree line, but the wagon moves faster than expected once it clears the quarry road. The track runs north. The charter mark on the wagon's panel is partially covered by a tarp edge. Partial mark, northbound road, no destination confirmed.`;
       } else {
@@ -237,7 +237,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'observing quarry dawn operations');
 
         G.lastResult = `First light at Ironhold arrives grey and dusty. Workers clock in at the gate board in the order they've arrived for twenty years — same hands, same sequence, the same slap of the tally peg. Equipment checks run in a fixed rotation without prompting. The quarry's rhythm is geological, settled into itself. The eastern face shift breaks from that. Workers assigned there arrive tighter, move faster. There's no settling-in. They run a quota check before the equipment check. The rest of the quarry is doing its day. The eastern face is running against a clock.`;
-      addJournal('discovery', 'Ironhold dawn: eastern face workers move with urgency unlike the rest of the quarry — operation is on a timeline', `ironhold-dawn-${G.dayCount}`);
+      addJournal('Ironhold dawn: eastern face workers move with urgency unlike the rest of the quarry — operation is on a timeline', 'discovery', `ironhold-dawn-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -260,7 +260,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Ironhold's operating license sits under the Compact's quarrying affiliate, registered with a controlling interest held by a northern investment consortium incorporated two years ago. The consortium's principal address in the Compact's registry is a Unity Square post office — the same address the Northern Route Coordination Consortium uses. Same entity behind two separate commercial instruments. Whatever northern bloc has appeared before has Ironhold's quarrying affiliate in the same portfolio.`;
         if (!G.flags) G.flags = {};
         G.flags.found_ironhold_ownership = true;
-        addJournal('investigation', 'Ironhold ownership: controlling interest held by same northern consortium as Unity Square entity — multi-locality control pattern confirmed', `ironhold-ownership-${G.dayCount}`);
+        addJournal('Ironhold ownership: controlling interest held by same northern consortium as Unity Square entity — multi-locality control pattern confirmed', 'evidence', `ironhold-ownership-${G.dayCount}`);
       } else {
         G.lastResult = `The Compact's registry is accessible at the assay station during business hours, but the affiliate structure for a site like Ironhold runs through multiple registration layers. Cross-referencing them requires a longer session than the station's daily access window permits. The chain exists — reaching the controlling interest at the end of it takes another pass.`;
       }
@@ -308,7 +308,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
         G.lastResult = `End-of-shift at the equipment shed line, when the noise from the face drops and voices carry again. The word moving through the crew: "${selected}." It circulates in the gaps between louder conversation, repeated to people who already know it. Workers at Ironhold don't need the full picture to know something at the eastern face has gone wrong.`;
-      addJournal('investigation', `Ironhold quarry worker rumor: "${selected}"`, `ironhold-rumor-${G.dayCount}`);
+      addJournal(`Ironhold quarry worker rumor: "${selected}"`, 'evidence', `ironhold-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -354,7 +354,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         if (result.total >= 12) {
           G.lastResult = `Velka's log combined with Worge's shift count gives a working estimate. The secondary mineral stratum has been mapped at full depth — Velka did it over fourteen months without telling anyone. At current extraction rates the operation is roughly seventy percent complete. Four to six weeks to the final container. After that, the eastern face goes back to standard production and the record of what passed through it closes. The window for catching the operation while it's still running is measured in weeks.`;
           G.flags.estimated_ironhold_completion = true;
-          addJournal('discovery', 'Eastern face extraction ~70% complete: operation concludes in 4-6 weeks — closing evidence window', `ironhold-completion-${G.dayCount}`);
+          addJournal('Eastern face extraction ~70% complete: operation concludes in 4-6 weeks — closing evidence window', 'discovery', `ironhold-completion-${G.dayCount}`);
         } else {
           G.lastResult = `The stratum depth is in Velka's personal notation — the measurement she made without the quarry's sanction. Without that map, the mineral layer could be ten meters deep or a hundred. The extraction rate means nothing without knowing the total volume. The estimate requires Velka's data.`;
         }
@@ -375,7 +375,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'understanding Velka\'s perspective');
 
         G.lastResult = `"First year, I'd have walked straight to the shift manager," Velka says. She's at the western terrace wall, looking out at the cut lines she approved a decade ago. "Didn't understand yet that the manager might be the problem." She runs a thumb along the edge of the stone in her hand. "Twenty years teaches you what a quarry is. It's not the stone — it's the record of the stone. Every cut logged, every output accounted for. Whoever built this operation used that record as their cover. If it comes out, they take the quarry's name down with them." She documents them because they're using the institution as a shield and she won't let that stand.`;
-      addJournal('discovery', 'Velka: 20 years of institutional knowledge — quarry\'s reputation used as cover, she\'s protecting it by documenting the exploitation', `ironhold-velka-perspective-${G.dayCount}`);
+      addJournal('Velka: 20 years of institutional knowledge — quarry\'s reputation used as cover, she\'s protecting it by documenting the exploitation', 'discovery', `ironhold-velka-perspective-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -398,7 +398,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The two supply streams map against each other: Ironhold's raw mineral precursor and Craftspire's extracted compound reach industrial-grade concentration only in combination. Neither is sufficient alone. Both are moving. The Whitebridge crossing sits on the route that connects both origin points to Shelkopolis's outer district. The combination occurs at a third location — not a quarry, not a processing facility. The scale of what the combined material enables points toward dome-level infrastructure. Something in Shelkopolis's outer district is the endpoint.`;
         if (!G.flags) G.flags = {};
         G.flags.mapped_ironhold_shelkopolis_connection = true;
-        addJournal('investigation', 'Ironhold + Craftspire materials converge toward Shelkopolis outer district — dome-level atmospheric application endpoint', `ironhold-connection-${G.dayCount}`);
+        addJournal('Ironhold + Craftspire materials converge toward Shelkopolis outer district — dome-level atmospheric application endpoint', 'evidence', `ironhold-connection-${G.dayCount}`);
       } else {
         G.lastResult = `The container route ends at Whitebridge and the trail goes cold from there. Mapping the next leg requires Shelkopolis's infrastructure routing data — port records, district manifests, or a freight registry that covers the outer district. That data isn't at Ironhold. The connection exists in the routing logic, but the documentation to prove it isn't in hand.`;
       }
@@ -416,7 +416,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       gainXp(48, 'observing active quarry extraction');
 
         G.lastResult = `The active quarry face is legible from fifty meters. Cut lines, drainage channels, terrace steps — each layer is a logged decision, recorded in the order it was made. Velka's twenty years of oversight are visible in the even spacing and the clean drainage gutters that keep the lower terraces dry. The eastern face uses the same stone and the same tools, but the cut pattern is different. Wider removal, irregular spacing, no drainage consideration. This face isn't being managed. It's being emptied.`;
-      addJournal('discovery', 'Quarry face observation: standard operations are transparent and ordered, eastern face breaks that transparency — wrong extraction visible in the contrast', `ironhold-face-${G.dayCount}`);
+      addJournal('Quarry face observation: standard operations are transparent and ordered, eastern face breaks that transparency — wrong extraction visible in the contrast', 'discovery', `ironhold-face-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -435,7 +435,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Compound stability data against the extraction timeline: the combined material from Ironhold and Craftspire degrades within days of final collection if not applied. There's no viable storage window. The extraction isn't leading to a preparation phase — the preparation is concurrent. When the last container clears Ironhold, the clock on deployment is already running. Six weeks to extraction completion means six weeks to application. This operation has been building toward a specific date, not a general readiness. The plan is in its final stage.`;
         if (!G.flags) G.flags = {};
         G.flags.assessed_timeline_urgency = true;
-        addJournal('discovery', 'Timeline assessment: material deployed immediately after extraction completes — plan is in final phase, deployment window is 6-8 weeks away', `ironhold-timeline-${G.dayCount}`);
+        addJournal('Timeline assessment: material deployed immediately after extraction completes — plan is in final phase, deployment window is 6-8 weeks away', 'discovery', `ironhold-timeline-${G.dayCount}`);
       } else {
         G.lastResult = `The deployment logic depends on the compound's stability window — how long from final collection before it degrades past use. That's specialist knowledge. Jorin worked with this material category at Craftspire. Without that data, the extraction timeline tells you when the operation ends but not when the application follows.`;
       }
