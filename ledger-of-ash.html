@@ -3094,8 +3094,8 @@ function renderCombatRound() {
 function resolveCombatAction(action, abilityId) {
   document.querySelectorAll('.combat-block').forEach(b => b.remove());
   const archId = G.archetype ? G.archetype.id : 'warrior';
-  const combatSkill = G.skills.might || 0;
-  const survSkill = G.skills.vigor || 0;
+  const combatSkill = G.skills.combat || 0;
+  const survSkill = G.skills.survival || 0;
   const traitCombatBonus = getTraitBonus('combat');
 
   let resultText = '';
@@ -3170,7 +3170,7 @@ function resolveCombatAction(action, abilityId) {
       if (success) {
         // Apply ability effects
         if (ab.id === 'lay_on_hands' || ab.id === 'communal_aid' || ab.id === 'field_triage' || ab.id === 'emergency_repair') {
-          const healed = Math.floor(Math.random() * 8) + (G.skills.charm || G.skills.spirit || 1);
+          const healed = Math.floor(Math.random() * 8) + (G.skills.persuasion || G.skills.craft || 1);
           G.hp = Math.min(G.maxHp, G.hp + healed);
           resultText += 'You restore ' + healed + ' HP. ' + ab.effect;
           updateHUD();
@@ -9901,7 +9901,7 @@ function applyPassiveAbility(ab) {
     }
   }
   if (effect.includes('Craft +2 permanently')) {
-    if ((G.skills.spirit||0) < 5) G.skills.spirit++;
+    if ((G.skills.craft||0) < 5) G.skills.craft++;
   }
   if (effect.includes('Lore gains +2')) {
     // Handled by getTraitBonus at roll time
@@ -10030,7 +10030,7 @@ function resolveEnforcementChoice(choice) {
     updateLocalityHeat(G.location, 8);
     shiftAlignment(-3, -2);
   } else {
-    const roll = Math.floor(Math.random()*20)+1 + (G.skills.finesse||0);
+    const roll = Math.floor(Math.random()*20)+1 + (G.skills.stealth||0);
     const dc = tier === 'hot' ? 14 : 10;
     if (roll >= dc) {
       updateLocalityHeat(G.location, 2);
@@ -10245,7 +10245,7 @@ function seekProfessionalCare() {
     choices.push({text:'Pay for treatment. (' + cost + ' gold)', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_service'});
   }
   choices.push({text:'Ask for partial treatment you can afford.', skill:'persuasion', tag:'risky', align:'neutral', cid:'shrine_contact'});
-  if ((G.skills.charm||0) >= 3) {
+  if ((G.skills.persuasion||0) >= 3) {
     choices.push({text:'Offer your skills in exchange for treatment.', skill:'persuasion', tag:'risky', align:'good', cid:'shrine_service'});
   }
   choices.push({text:'Decline and manage your own recovery.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'});
@@ -11969,7 +11969,7 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
   }
   if (mode === 'talk') {
     const roll = Math.floor(Math.random()*20)+1;
-    const persuasion = G.skills ? (G.skills.charm||0) : 0;
+    const persuasion = G.skills ? (G.skills.persuasion||0) : 0;
     const compBonus = typeof getCompanionRollBonus === 'function' ? getCompanionRollBonus('persuasion') : 0;
     const total = roll + persuasion + compBonus;
     const diff = enemyKey === 'hired_muscle' ? 10 : enemyKey === 'roadwarden_officer' ? 8 : 13;
