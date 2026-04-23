@@ -468,8 +468,8 @@ function getEquippedBonus(type) {
   const slot = type === 'atk' ? G.equipped.weapon : G.equipped.armor;
   if (!slot) return 0;
   const def = ITEM_DEFS[slot.id];
-  if (!def || !def.effect) return 0;
-  return type === 'atk' ? (def.effect.atk_bonus || 0) : (def.effect.def_bonus || 0);
+  if (type === 'atk') return def?.effect?.atk_bonus ?? slot.effect?.atk_bonus ?? slot.atk_bonus ?? 0;
+  return def?.effect?.def_bonus ?? slot.effect?.def_bonus ?? slot.def_bonus ?? 0;
 }
 
 window.MATERIAL_DEFS = MATERIAL_DEFS;

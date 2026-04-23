@@ -3011,10 +3011,8 @@ function renderCombatRound() {
   if (!CS) return;
   const archId = G.archetype ? G.archetype.id : 'warrior';
   const abilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
-  const _abilRemap = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm',craft:'spirit'};
   const usableAbilities = abilities.filter(a => {
-    const normKey = _abilRemap[a.skillReq] || a.skillReq;
-    const sk = G.skills[normKey] || 0;
+    const sk = G.skills[a.skillReq] || 0;
     return sk >= a.minSkill;
   });
 
@@ -3109,7 +3107,8 @@ function resolveCombatAction(action, abilityId) {
 
   if (action === 'attack') {
     const roll = d20();
-    const total = roll + combatSkill + traitCombatBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
+    const rangeBonus = getRangeModifier('melee');
+    const total = roll + combatSkill + traitCombatBonus + rangeBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
     if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
     const hit = total >= CS.enemy.defense + 5;
     const baseDmg = hit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
@@ -3120,7 +3119,7 @@ function resolveCombatAction(action, abilityId) {
     enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
     enemyDamage = Math.max(0, enemyDamage);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + combat ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + combat ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + ' = <strong>' + total + '</strong><br>';
 
     if (hit) {
       CS.enemy.hp = Math.max(0, CS.enemy.hp - baseDmg);
@@ -3272,6 +3271,7 @@ function applyWound(damage, source) {
 
 function endCombat(victory) {
   const enemy = CS.enemy;
+  const finalRound = CS.round;
   CS = null;
 
   if (victory) {
@@ -3294,7 +3294,7 @@ function endCombat(victory) {
       });
     }
     addNarration('Combat Over', victText, 'success');
-    addJournal('Defeated ' + enemy.name + ' in ' + (CS ? CS.round : 'unknown') + ' rounds. Renown +1.');
+    addJournal('Defeated ' + enemy.name + ' in ' + finalRound + ' rounds. Renown +1.', 'evidence');
     shiftAlignment(-5, 0); // violence costs morality slightly
     saveGame(); updateHUD();
 
@@ -9250,23 +9250,14 @@ function handleChoice(choice) {
 }
 
 function getTraitBonus(skill) {
-  if (!G.archetype) return 0;
-  const id = G.archetype.id;
-  if ((id==='warrior'||id==='knight'||id==='paladin'||id==='berserker') && skill==='combat') return 2;
-  if (id==='ranger' && skill==='survival') return 2;
-  if (id==='archer' && skill==='stealth') return 1;
-  if ((id==='wizard'||id==='necromancer') && skill==='lore') return 2;
-  if ((id==='cleric'||id==='priest'||id==='saint') && skill==='persuasion') return 2;
-  if (id==='illusionist' && skill==='stealth') return 2;
-  if (id==='inquisitor' && skill==='lore') return 1;
-  if (id==='elementalist' && skill==='survival') return 2;
-  if ((id==='rogue'||id==='scout_c') && skill==='stealth') return 2;
-  if ((id==='assassin'||id==='spellthief'||id==='thief') && skill==='stealth') return 2;
-  if (id==='trickster' && skill==='persuasion') return 2;
-  if ((id==='artificer'||id==='engineer'||id==='alchemist') && skill==='craft') return 2;
-  if (id==='tactician' && skill==='lore') return 2;
-  if (id==='healer' && skill==='lore') return 1;
-  return 0;
+  if (!G || !G.traits) return 0;
+  return G.traits
+    .filter(t => t.passive !== false && !t.used)
+    .reduce((sum, t) => {
+      if (t.skillBonus && t.skillBonus[skill]) return sum + t.skillBonus[skill];
+      if (t.bonus && t.skill === skill) return sum + t.bonus;
+      return sum;
+    }, 0);
 }
 
 function getEquipmentBonus(skill) {
@@ -9401,6 +9392,7 @@ function addToInventory(item) {
 
 function equipItem(idx) {
   if (!G.inventory || !G.inventory[idx]) return;
+  if (!G.equipped) G.equipped = {};
   const item = G.inventory[idx];
   const slot = item.type === 'weapon' ? 'weapon' : item.type === 'armor' ? 'armor' : 'tool';
   if (G.equipped[slot]) {
@@ -10264,7 +10256,7 @@ function campAction(type) {
     if (G.traits && G.traits[0]) G.traits[0].used = false;
     updateRecoveryState();
     addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success');
-    addJournal('Rested at camp. Recovered HP. Trait refreshed.');
+    addJournal('Rested at camp. Recovered HP. Trait refreshed.', 'discovery');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([
       { text:'The city still has threads worth pulling.', skill:'lore', tag:'risky', align:'neutral', cid:'market_intel' },
@@ -10594,7 +10586,7 @@ function showTrainingMenu() {
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
   // Training costs 1 tick and applies 5-choice disadvantage
   tickAxis(1);
-  const skills = Object.entries(G.skills||{}).filter(([,v]) => v < 5);
+  const skills = Object.entries(G.skills||{}).filter(([,v]) => v < 10);
   if (!skills.length) {
     addNarration('Training', 'All skills at maximum. Nothing left to train.');
     renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]);
@@ -10606,7 +10598,7 @@ function showTrainingMenu() {
   let html = '<div class="choice-label">Train which skill? (Costs 1 axis tick &middot; Next 5 choices: -2 disadvantage)</div><div class="choices">';
   skills.forEach(([sk, val]) => {
     html += '<button class="choice-btn train-btn" data-skill="' + sk + '">' +
-      '<span class="choice-text">Train <strong>' + (sk.charAt(0).toUpperCase()+sk.slice(1)) + '</strong> (' + val + '/5)</span>' +
+      '<span class="choice-text">Train <strong>' + (sk.charAt(0).toUpperCase()+sk.slice(1)) + '</strong> (' + val + '/10)</span>' +
       '<span class="choice-meta"><span class="choice-tag safe">train</span></span></button>';
   });
   html += '</div><div style="margin-top:8px"><button class="btn btn-ghost btn-sm" id="btn-cancel-train">Cancel</button></div>';
@@ -10614,10 +10606,10 @@ function showTrainingMenu() {
   block.querySelectorAll('.train-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const sk = btn.dataset.skill;
-      G.skills[sk]++;
+      if (G.skills[sk] < 10) G.skills[sk]++;
       G.trainingDisadvantage = 5;
       block.remove();
-      addNarration('Training', 'Trained <strong>' + sk + '</strong> to ' + G.skills[sk] + '/5. Next 5 choices suffer -2 (training fatigue).', 'success');
+      addNarration('Training', 'Trained <strong>' + sk + '</strong> to ' + G.skills[sk] + '/10. Next 5 choices suffer -2 (training fatigue).', 'success');
       addJournal('Trained ' + sk + ' to ' + G.skills[sk] + '. Training fatigue applied for 5 choices.');
       updateHUD(); saveGame();
       renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]);
