@@ -1,0 +1,60 @@
+{
+  "build_version": "V33_1",
+  "institution": "Aurora Meadows",
+  "record_count": 4,
+  "npc_ids": [
+    "corin_stone",
+    "sylvi_snowveil",
+    "vael_snowtrace",
+    "daska_veilrun"
+  ],
+  "records": [
+    {
+      "npc_id": "corin_stone",
+      "canonical_name": "Corin Stone",
+      "polity": "The Principalities",
+      "office_or_role": "Weather Caller",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as weather caller.",
+      "current_agenda": "Keep Aurora Meadows workable through the obligations of weather caller while managing the immediate pressure of house rivalry in The Principalities."
+    },
+    {
+      "npc_id": "sylvi_snowveil",
+      "canonical_name": "Sylvi Snowveil",
+      "polity": "Sheresh Communes",
+      "office_or_role": "River Pilot",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as river pilot.",
+      "current_agenda": "Keep Aurora Meadows Domeway workable through the obligations of river pilot while managing the immediate pressure of contamination strain in Sheresh Communes."
+    },
+    {
+      "npc_id": "vael_snowtrace",
+      "canonical_name": "Vael Snowtrace",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Rangers",
+      "tier": "legendary",
+      "public_reputation": "Route legend who mapped the first widely trusted flashmelt-safe sled paths.",
+      "current_agenda": "Keep Aurora Meadows Domeway, Sheresh workable through the obligations of rangers while managing the immediate pressure of contamination strain in Sheresh Communes."
+    },
+    {
+      "npc_id": "daska_veilrun",
+      "canonical_name": "Daska Veilrun",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Scouts",
+      "tier": "notable",
+      "public_reputation": "Exterior scout trusted to read flashmelt sheen before a convoy commits.",
+      "current_agenda": "Keep Aurora Meadows Domeway, Sheresh workable through the obligations of scouts while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Celestial meadow zone tied to moon proximity and gathering rituals.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

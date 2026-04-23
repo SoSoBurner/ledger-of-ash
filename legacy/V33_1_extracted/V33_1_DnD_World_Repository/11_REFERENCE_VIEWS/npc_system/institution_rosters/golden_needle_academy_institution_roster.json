@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Golden Needle Academy",
+  "record_count": 2,
+  "npc_ids": [
+    "arin_wren",
+    "mira_wren"
+  ],
+  "records": [
+    {
+      "npc_id": "arin_wren",
+      "canonical_name": "Arin Wren",
+      "polity": "Transpolity",
+      "office_or_role": "Inventory Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as inventory steward.",
+      "current_agenda": "Keep Golden Needle Academy workable through the obligations of inventory steward while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "mira_wren",
+      "canonical_name": "Mira Wren",
+      "polity": "Transpolity",
+      "office_or_role": "Quiet-Room Mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+      "current_agenda": "Keep Golden Needle Academy workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Tailoring and enchantment school feeding the guild system.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "npc_id": "kelm_starice",
+  "canonical_name": "Kelm Starice",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "arcane_officer",
+  "office_or_role": "Petition Reader",
+  "profession_discipline": "Petition Reader",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Sheresh Containment Research Concord",
+  "locality_scope": "Sheresh Containment Research Concord",
+  "institutional_ties": [
+    "Sheresh Containment Research Concord"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as petition reader.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Sheresh Containment Research Concord"
+    ],
+    "institutions": [
+      "Sheresh Containment Research Concord"
+    ],
+    "factions": []
+  },
+  "appearance": "Controlled ward-signs, sanctioned tools, and careful handling of magical materials make procedure part of their public bearing.",
+  "manner": "Speaks like someone who has seen wonder become hazard and now refuses loose handling. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a petition reader still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of petition reader in and around Sheresh Containment Research Concord, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Sheresh Containment Research Concord while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to mutational drift is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_0406",
+    "rel_0409",
+    "rel_0412",
+    "rel_0413"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "procedure_conflict",
+      "summary": "Kelm Starice can pull the party into conflict between arcane necessity and civic fear around Sheresh Containment Research Concord."
+    },
+    {
+      "hook_type": "controlled_access",
+      "summary": "Kelm Starice may grant controlled access to magical insight if the party can solve a containment or trust problem first."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "compatibility_interface_id": "kelm_starice",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Containment tools, ward-aware procedure, and careful handling of sanctioned magic mark Kelm Starice as an authorized arcane presence.",
+  "encounter_context": {
+    "usual_environment": "Sheresh Containment Research Concord: labs, warded rooms, contained sites, or sanctioned magical thresholds",
+    "who_seeks_them_out": [
+      "research staff",
+      "official petitioners",
+      "those facing magical fallout"
+    ],
+    "who_avoids_them": [
+      "unauthorized practitioners",
+      "the careless",
+      "those who mistake sanction for freedom"
+    ],
+    "interaction_anchor": "magical procedure and containment"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Kelm Starice presents as Speaks like someone who has seen wonder become hazard and now refuses loose handling. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a petition reader still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Petition Reader, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Kelm Starice refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Petition Reader too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kelm Starice can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kelm Starice adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kelm Starice is Known locally through day-to-day work as petition reader. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Petition Reader.",
+  "social_texture": "Kelm Starice speaks like someone who has spent too long translating private stakes into acceptable public language. Around Sheresh Containment Research Concord, people read them as spell-literate, aesthetically alert, and wary of magical contamination.",
+  "money_pressure": "Their material pressure is tied to reagents; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but mutational drift becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Kelm touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Kelm Starice when the party needs a socially grounded face for Sheresh Containment Research Concord: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

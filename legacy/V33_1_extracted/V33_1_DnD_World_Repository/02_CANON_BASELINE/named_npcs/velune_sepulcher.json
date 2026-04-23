@@ -1,0 +1,85 @@
+{
+  "npc_id": "velune_sepulcher",
+  "canonical_name": "Velune Sepulcher",
+  "aliases": [
+    "the attendant"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "faith_officer",
+  "office_or_role": "Shrine Attendant",
+  "profession_discipline": "Shrine Attendant",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Panim",
+  "settlement": "Panim Haven",
+  "locality_scope": "Panim Haven",
+  "institutional_ties": [
+    "Panim Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Panim Haven through day-to-day work as shrine attendant.",
+  "linked_systems": {
+    "polities": [
+      "House Panim"
+    ],
+    "localities": [
+      "Panim Haven"
+    ],
+    "institutions": [
+      "Panim Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Velune Sepulcher usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their shrine attendant status legible before introductions begin.",
+  "manner": "Protects small rituals with quiet firmness and notices subtle breaches long before they become public offense. In Panim Haven, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of shrine attendant in and around Panim Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Panim Haven workable through the obligations of shrine attendant while managing the immediate pressure of divine balance obligations.",
+  "hidden_pressure": "Must keep the role of shrine attendant credible while absorbing the strain created by divine balance obligations.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Velune Sepulcher can draw the party into a locality problem centered on shrine attendant duties in Panim Haven."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Velune Sepulcher becomes useful when the party needs grounded help with divine balance obligations around Panim Haven."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog",
+    "panim_haven"
+  ],
+  "compatibility_interface_id": "velune_sepulcher",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Velune Sepulcher is immediately readable as a shrine attendant tied to Panim Haven.",
+  "encounter_context": {
+    "usual_environment": "Panim Haven: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "shrine attendant"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Velune Sepulcher presents as someone shaped by the duties of a shrine attendant and the daily pressures of Panim Haven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a shrine attendant, and proof that strangers will not make Panim Haven harder to manage.",
+  "what_they_refuse": "Velune Sepulcher refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a shrine attendant too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can identify offerings, taboos, and recent signs of ritual irregularity.",
+  "escalation_if_crossed": "If crossed, Velune Sepulcher adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Velune Sepulcher always knows more about Panim Haven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a shrine attendant in Panim Haven."
+}

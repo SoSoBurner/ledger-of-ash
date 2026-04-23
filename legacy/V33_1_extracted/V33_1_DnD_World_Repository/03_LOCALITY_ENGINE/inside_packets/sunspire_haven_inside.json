@@ -1,0 +1,19 @@
+{
+  "name": "Sunspire Haven",
+  "inside": "Tool halls, textile rows, grain brokers, contract tables, and shared storehouses crowd the center while family compounds and worker yards ring the lanes.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "tools is visibly part of daily life.",
+    "harvest and unity rites sit beside practical oath-rituals for contracts, storage, and convoy departure",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

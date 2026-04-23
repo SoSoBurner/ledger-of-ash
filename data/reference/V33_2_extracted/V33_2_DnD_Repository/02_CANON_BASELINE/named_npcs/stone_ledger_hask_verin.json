@@ -1,0 +1,91 @@
+{
+  "npc_id": "stone_ledger_hask_verin",
+  "canonical_name": "Stone Ledger Hask Verin",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Stone Ledger",
+  "profession_discipline": "resource accountant",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Zootia",
+  "settlement": "Quarry's Edge",
+  "locality_scope": "Quarry's Edge",
+  "institutional_ties": [
+    "Quarry's Edge"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Record-keeper tracking extracted stone, quotas, and estate obligation against physical output.",
+  "linked_systems": {
+    "polities": [
+      "Zootia"
+    ],
+    "localities": [
+      "Quarry's Edge"
+    ],
+    "institutions": [
+      "Quarry's Edge"
+    ],
+    "factions": []
+  },
+  "appearance": "Stone Ledger Hask Verin carries the marks of stone ledger in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a stone ledger whose work is visible through daily procedure, gatekeeping, and the practical pressures of Quarry's Edge.",
+  "daily_function": "Performs the ongoing duties of stone ledger in and around Quarry's Edge, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Quarry's Edge while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Stone Ledger Hask Verin can draw the party into a practical problem centered on Quarry's Edge."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Stone Ledger Hask Verin becomes useful when the party needs access, explanation, or relief tied to the work of a stone ledger."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "stone_ledger_hask_verin",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Stone Ledger Hask Verin is readable as a stone ledger tied to Quarry's Edge.",
+  "encounter_context": {
+    "usual_environment": "Quarry's Edge: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "stone ledger"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Stone Ledger Hask Verin presents as someone shaped by the duties of a stone ledger and the daily pressures of Quarry's Edge.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a stone ledger, and proof that strangers will not make Quarry's Edge harder to manage.",
+  "what_they_refuse": "Stone Ledger Hask Verin refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a stone ledger too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Stone Ledger Hask Verin can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Stone Ledger Hask Verin adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Stone Ledger Hask Verin always knows more about Quarry's Edge than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to stone ledger duties in Quarry's Edge.",
+  "social_texture": "Stone Ledger Hask Verin speaks like someone who has spent too long translating private stakes into acceptable public language. Around Quarry's Edge, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Stone touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Stone Ledger Hask Verin when the party needs a socially grounded face for Quarry's Edge: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

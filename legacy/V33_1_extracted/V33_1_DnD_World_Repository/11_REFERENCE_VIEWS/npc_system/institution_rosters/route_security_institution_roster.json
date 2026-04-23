@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "route security",
+  "record_count": 1,
+  "npc_ids": [
+    "captain_thalion_windrider"
+  ],
+  "records": [
+    {
+      "npc_id": "captain_thalion_windrider",
+      "canonical_name": "Captain Thalion Windrider",
+      "polity": "Transpolity",
+      "office_or_role": "Leader of the Roadwardens",
+      "tier": "notable",
+      "public_reputation": "Recognized as a leader of the roadwardens of regional weight.",
+      "current_agenda": "Keep Roadwardens’ Central Command workable through the obligations of leader of the roadwardens while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "route security is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

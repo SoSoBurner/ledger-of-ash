@@ -1,0 +1,39 @@
+{
+  "name": "Forge Dedication Hall",
+  "parent_district": "Ashforge Citadel",
+  "type": "dedication hall",
+  "approach": "A heat-blasted hall fronted by engraved lintels and continuity banners.",
+  "inside": "New forge lines are named, witnessed, and bound to civic duty here before entering full use.",
+  "who_belongs": [
+    "forge masters",
+    "matrons",
+    "labor witnesses"
+  ],
+  "who_is_out_of_place": [
+    "unlicensed buyers",
+    "saboteurs"
+  ],
+  "expected_behavior": [
+    "observe dedication order",
+    "do not cross live dedication lines"
+  ],
+  "visible_power": [
+    "Forge Dedication Halls"
+  ],
+  "economy_or_function": "forge naming and dedication",
+  "law_context": [
+    "forge discipline"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet": "Forge Dedication Hall Scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Forge Dedication Hall Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

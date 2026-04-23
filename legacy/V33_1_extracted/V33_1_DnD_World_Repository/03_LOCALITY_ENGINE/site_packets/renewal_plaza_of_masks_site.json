@@ -1,0 +1,42 @@
+{
+  "name": "Renewal Plaza of Masks",
+  "parent_district": "Maskscar Plaza District",
+  "type": "civic ceremonial plaza",
+  "approach": "A broad square of dark stone and ash-wing banners built for procession, dance, and public remembrance.",
+  "inside": "Mask kiosks, civic braziers, rehearsal lines, and viewing terraces keep public renewal always visible.",
+  "who_belongs": [
+    "processional stewards",
+    "mask makers",
+    "dancers",
+    "citizens under observance duty"
+  ],
+  "who_is_out_of_place": [
+    "those treating the plaza like a private market",
+    "ceremonial thieves"
+  ],
+  "expected_behavior": [
+    "keep routes clear",
+    "observe public vow and dance order"
+  ],
+  "visible_power": [
+    "Great House Citadel Circle",
+    "Rebuilding Oath Courts"
+  ],
+  "economy_or_function": "civic ceremony and public identity",
+  "law_context": [
+    "public route law",
+    "ceremonial property protection"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet": "Renewal Plaza of Masks Scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Renewal Plaza of Masks Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

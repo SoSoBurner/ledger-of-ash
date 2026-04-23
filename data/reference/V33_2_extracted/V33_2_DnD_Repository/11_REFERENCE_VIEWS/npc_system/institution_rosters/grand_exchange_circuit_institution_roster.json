@@ -1,0 +1,29 @@
+{
+  "build_version": "V33_1",
+  "institution": "Grand Exchange Circuit",
+  "record_count": 1,
+  "npc_ids": [
+    "jalen_wheelwright"
+  ],
+  "records": [
+    {
+      "npc_id": "jalen_wheelwright",
+      "canonical_name": "Jalen Wheelwright",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Signal Reader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as signal reader.",
+      "current_agenda": "Keep Grand Exchange Circuit workable through the obligations of signal reader while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Grand Exchange Circuit is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

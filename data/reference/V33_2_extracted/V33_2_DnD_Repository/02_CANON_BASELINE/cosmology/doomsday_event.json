@@ -1,0 +1,23 @@
+{
+  "id": "cosmology.doomsday_event",
+  "name": "Doomsday / The First Sieve / Ruination / The Inculcation",
+  "truth_layer": "direct_canon",
+  "summary": "The catastrophic rupture caused when Mega-Terozash moved through the Material Planet, breaking barriers between realms and unleashing elemental and astral disaster across the world.",
+  "alternate_names": [
+    "Doomsday",
+    "Ruination",
+    "The Inculcation",
+    "The First Sieve"
+  ],
+  "main_phases": [
+    "astral storm distortions",
+    "world flooding and burning",
+    "barrier repair",
+    "elemental isolation into planetary bodies"
+  ],
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets",
+    "internal_canonical_record"
+  ]
+}

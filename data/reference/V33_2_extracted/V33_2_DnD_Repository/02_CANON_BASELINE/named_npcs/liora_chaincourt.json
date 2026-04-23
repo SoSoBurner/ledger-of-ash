@@ -1,0 +1,92 @@
+{
+  "npc_id": "liora_chaincourt",
+  "canonical_name": "Liora Chaincourt",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "labor_officer",
+  "office_or_role": "Labor Foreman",
+  "profession_discipline": "Labor Foreman",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Ashforge Citadel",
+  "locality_scope": "Ashforge Citadel",
+  "institutional_ties": [
+    "Ashforge Citadel"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Ashforge Citadel through day-to-day work as labor foreman.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Ashforge Citadel"
+    ],
+    "institutions": [
+      "Ashforge Citadel"
+    ],
+    "factions": []
+  },
+  "appearance": "Liora Chaincourt carries the marks of labor foreman in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Counts hands, strain, and failure points at a glance, then speaks like time is already too short. In Ashforge Citadel, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of labor foreman in and around Ashforge Citadel, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Ashforge Citadel while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Liora Chaincourt can draw the party into a locality problem centered on labor foreman duties in Ashforge Citadel."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Liora Chaincourt becomes useful when the party needs grounded help with house rivalry, forge accidents, ashfall damage around Ashforge Citadel."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "ashforge_citadel"
+  ],
+  "compatibility_interface_id": "liora_chaincourt",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Liora Chaincourt is immediately readable as a labor foreman tied to Ashforge Citadel.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Citadel: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "labor foreman"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Liora Chaincourt presents as someone shaped by the duties of a labor foreman and the daily pressures of Ashforge Citadel.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a labor foreman, and proof that strangers will not make Ashforge Citadel harder to manage.",
+  "what_they_refuse": "Liora Chaincourt refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a labor foreman too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can mobilize crews, tools, and practical labor access under pressure.",
+  "escalation_if_crossed": "If crossed, Liora Chaincourt adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Liora Chaincourt always knows more about Ashforge Citadel than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a labor foreman in Ashforge Citadel.",
+  "social_texture": "Liora Chaincourt speaks like someone who has spent too long translating private stakes into acceptable public language. Around Ashforge Citadel, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Liora touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Liora Chaincourt when the party needs a socially grounded face for Ashforge Citadel: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

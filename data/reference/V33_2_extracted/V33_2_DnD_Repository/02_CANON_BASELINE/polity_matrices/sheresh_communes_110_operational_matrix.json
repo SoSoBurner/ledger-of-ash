@@ -1,0 +1,151 @@
+{
+  "polity": "Sheresh Communes",
+  "truth_layer": "reconciled_canon",
+  "roles_total": 110,
+  "governing_logic": "Sheresh is infrastructure civilization first and settlement civilization second. Administrative thickening follows maintenance burden rather than noble multiplication.",
+  "canon_anchors": [
+    "domes",
+    "cold survival",
+    "contamination pressure",
+    "subterranean archives",
+    "aurora study",
+    "astral conduits",
+    "mutation-adapted life",
+    "ration order",
+    "energy systems",
+    "route hazard and rescue logic",
+    "export of magical/technical innovations"
+  ],
+  "role_bands": [
+    {
+      "band": "dome_and_ward_integrity",
+      "roles": 28,
+      "function": "Keeps settlement shells intact through crack patrols, seal maintenance, contamination baffles, vent watches, and emergency isolation protocols.",
+      "role_families": [
+        "dome skin inspectors",
+        "ward calibrators",
+        "ice pressure readers",
+        "seal repair crews",
+        "lockdown officers"
+      ]
+    },
+    {
+      "band": "reactor_and_energy_discipline",
+      "roles": 22,
+      "function": "Turns heat and power into civil survival through reactor tending, conduit balancing, rationed energy release, and blackout prevention.",
+      "role_families": [
+        "reactor wardens",
+        "conduit technicians",
+        "heat ration clerks",
+        "backup coil tenders",
+        "failure alarm relays"
+      ]
+    },
+    {
+      "band": "research_archive_apparatus",
+      "roles": 22,
+      "function": "Maintains subterranean archives, aurora study, astral conduit handling, controlled experiment access, and exportable innovation records.",
+      "role_families": [
+        "archive custodians",
+        "aurora loggers",
+        "conduit monitors",
+        "experimental permit clerks",
+        "copy and export registrars"
+      ]
+    },
+    {
+      "band": "civic_survival_administration",
+      "roles": 20,
+      "function": "Administers ration order, sleeping rotations, hazard dispatch, evacuation routing, corpse handling, and rescue logistics.",
+      "role_families": [
+        "ration magistrates",
+        "bunk assignment clerks",
+        "rescue dispatchers",
+        "survival drill officers",
+        "supply triage recorders"
+      ]
+    },
+    {
+      "band": "mutation_normalized_civil_life",
+      "roles": 18,
+      "function": "Integrates mutation-adapted life into ordinary law through accommodation offices, contamination screening, protected labor placement, and social-normalization protocols.",
+      "role_families": [
+        "adaptation registrars",
+        "protective work assigners",
+        "medical screening clerks",
+        "mutation rights stewards",
+        "family survival advocates"
+      ]
+    }
+  ],
+  "anchor_allocations": [
+    {
+      "anchor": "Crystalline Vault Commune",
+      "roles": 28,
+      "anchor_status": "baseline_anchor",
+      "anchor_kind": "archive_research_commune",
+      "functional_profile": "Primary archive commune where subterranean records, astral study, and seal-maintenance bureaucracy overlap."
+    },
+    {
+      "anchor": "Aurora Meadows Domeway",
+      "roles": 8,
+      "anchor_status": "baseline_anchor",
+      "anchor_kind": "protected_transit_domeway",
+      "functional_profile": "Transit shelter and study corridor where aurora observation, survival routing, and hazard checks meet."
+    },
+    {
+      "anchor": "Frostglass Commune",
+      "roles": 12,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "fabrication and repair commune",
+      "functional_profile": "A natural consequence of dome society needing a specialized repair-and-material node."
+    },
+    {
+      "anchor": "Whiteveil Domeway",
+      "roles": 10,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "storm-sheltered travel corridor",
+      "functional_profile": "A natural consequence of route hazard and rescue logic across the polar zone."
+    },
+    {
+      "anchor": "Northcoil Archive Commune",
+      "roles": 10,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "secondary archive and copy integrity node",
+      "functional_profile": "A natural consequence of subterranean archives and knowledge export needing redundancy."
+    },
+    {
+      "anchor": "Blueglass Gate",
+      "roles": 10,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "entry screening and decontamination gate",
+      "functional_profile": "A natural consequence of contamination pressure and controlled entry into dome systems."
+    },
+    {
+      "anchor": "Glasshush Reactor Ward",
+      "roles": 10,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "quiet power and heat-control district",
+      "functional_profile": "A natural consequence of energy systems being too important to remain generic background."
+    },
+    {
+      "anchor": "Hollow Aurora Commune",
+      "roles": 12,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "outer research and adaptation commune",
+      "functional_profile": "A natural consequence of aurora study, mutation adaptation, and edge settlement survivability."
+    },
+    {
+      "anchor": "Snowthread Basin",
+      "roles": 10,
+      "anchor_status": "canon_safe_extension",
+      "anchor_kind": "snow harvest and reserve-storage basin",
+      "functional_profile": "A natural consequence of ration order, water capture, and survival stockpiling."
+    }
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "operator_target_spec_v22_4"
+  ]
+}

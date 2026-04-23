@@ -1,0 +1,49 @@
+{
+  "name": "Ash Port Factors",
+  "type": "Psanan trade-broker faction",
+  "truth_layer": "conservative_inference",
+  "summary": "Harbor-facing brokers who move volcanic exports, ration incoming necessities, and negotiate ash-window shipping from Psanan.",
+  "motive": "Keep Psanan’s dangerous export economy functioning despite ashfall, heat, and route volatility.",
+  "methods": [
+    "shipping windows",
+    "cargo brokerage",
+    "warehouse control",
+    "heat-safe convoy contracting"
+  ],
+  "geography": [
+    "Ashwake Port",
+    "Scarlet Descent Gate",
+    "Psanan coastal routes"
+  ],
+  "power_relations": [
+    "Dependent on House authority and Queen’s Court sanction",
+    "Interacts with Shelk, Soreheim, and maritime buyers"
+  ],
+  "current_pressure": [
+    "storm risk",
+    "ashfall closures",
+    "weapon export demand",
+    "port crowding during navigable windows"
+  ],
+  "visible_membership_base": "Harbor clerks, dock crews, cargo negotiators, and bonded caravan coordinators.",
+  "civilian_contact_surface": [
+    "freight contracts",
+    "port fees",
+    "arrival manifests",
+    "warehouse disputes"
+  ],
+  "current_tension_or_vulnerability": "A short shipping season makes bribery, hoarding, and favoritism especially destabilizing.",
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "vessa_glassmelt"
+  ],
+  "npc_interfaces": [
+    "vessa_glassmelt"
+  ]
+}

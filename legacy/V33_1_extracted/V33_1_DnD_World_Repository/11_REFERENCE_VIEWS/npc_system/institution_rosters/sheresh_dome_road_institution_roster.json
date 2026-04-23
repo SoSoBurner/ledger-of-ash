@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sheresh Dome Road",
+  "record_count": 1,
+  "npc_ids": [
+    "sylvi_rimebridge"
+  ],
+  "records": [
+    {
+      "npc_id": "sylvi_rimebridge",
+      "canonical_name": "Sylvi Rimebridge",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Ferry Marshal",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as ferry marshal.",
+      "current_agenda": "Keep Sheresh Dome Road workable through the obligations of ferry marshal while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Sheresh Dome Road is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

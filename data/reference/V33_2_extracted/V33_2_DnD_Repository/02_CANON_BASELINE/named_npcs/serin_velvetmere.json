@@ -1,0 +1,92 @@
+{
+  "npc_id": "serin_velvetmere",
+  "canonical_name": "Serin Velvetmere",
+  "aliases": [
+    "the house voice"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Garden-Road Steward",
+  "profession_discipline": "district stewardship and estate access coordination",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Shelk",
+  "settlement": "Shelkopolis",
+  "locality_scope": "Verdant Row District",
+  "institutional_ties": [
+    "Verdant Row District"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Verdant Row District through steady work as a garden-road steward.",
+  "linked_systems": {
+    "polities": [
+      "Shelkopolis"
+    ],
+    "localities": [
+      "Verdant Row District"
+    ],
+    "institutions": [
+      "Verdant Row District"
+    ],
+    "factions": []
+  },
+  "appearance": "Serin Velvetmere carries the marks of lady elowen shelk in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries role-shaped habits that make local pressure visible in the way they speak and judge strangers. In Verdant Row District, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of a garden-road steward in and around Verdant Row District, keeping ordinary obligations from turning into public disorder.",
+  "current_agenda": "Keep Verdant Row District workable by absorbing local strain before it becomes a visible scandal, shutdown, or breach of order.",
+  "hidden_pressure": "Must keep the role of garden-road steward credible while managing pressure tied to status, access, logistics, and local reputation in Verdant Row District.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Serin Velvetmere can draw the party into a locality problem centered on lady elowen shelk duties in Verdant Row District."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Serin Velvetmere becomes useful when the party needs grounded help with economic fraud, design theft, route security around Verdant Row District."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "verdant_row_district"
+  ],
+  "compatibility_interface_id": "serin_velvetmere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Serin Velvetmere is immediately readable as a lady elowen shelk tied to Verdant Row District.",
+  "encounter_context": {
+    "usual_environment": "Verdant Row District: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "garden-road steward"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Serin Velvetmere presents as someone shaped by the duties of a garden-road steward and the daily pressures of Verdant Row District.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a garden-road steward, and proof that strangers will not make Verdant Row District harder to manage.",
+  "what_they_refuse": "Serin Velvetmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a lady elowen shelk too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Serin Velvetmere adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Serin Velvetmere always knows more about Verdant Row District than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a garden-road steward in Verdant Row District.",
+  "social_texture": "Serin Velvetmere speaks like someone who has spent too long translating private stakes into acceptable public language. Around Shelkopolis, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Serin touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Serin Velvetmere when the party needs a socially grounded face for Shelkopolis: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

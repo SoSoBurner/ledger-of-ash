@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 207",
+  "title": "Intellectual Property Theft",
+  "severity": "felony",
+  "description": "Theft, replication, or misuse of unique designs, sacred texts, or restricted scholarly works.",
+  "jurisdictions": [
+    "multiple Shelk sites"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

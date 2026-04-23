@@ -1,0 +1,24 @@
+{
+  "name": "Sheresh Dome Road",
+  "type": "inter-commune ice route",
+  "jurisdictions": [
+    "Sheresh Communes"
+  ],
+  "hazards": [
+    "whiteouts",
+    "surface cracking",
+    "contamination drifts"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "sylvi_rimebridge"
+  ],
+  "npc_interfaces": [
+    "sylvi_rimebridge"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

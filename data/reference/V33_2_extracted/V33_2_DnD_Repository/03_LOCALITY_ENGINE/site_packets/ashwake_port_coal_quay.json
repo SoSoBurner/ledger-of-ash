@@ -1,0 +1,25 @@
+{
+  "name": "Coal Quay",
+  "parent_settlement": "Ashwake Port",
+  "type": "freight quay",
+  "truth_layer": "conservative_inference",
+  "identity": "A freight quay in Ashwake Port that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "Coal Quay Porter",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Ashwake Port’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "local_interface_role": "porter",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "porter",
+    "display_name": "Coal Quay Porter",
+    "truth_layer": "conservative_inference"
+  }
+}

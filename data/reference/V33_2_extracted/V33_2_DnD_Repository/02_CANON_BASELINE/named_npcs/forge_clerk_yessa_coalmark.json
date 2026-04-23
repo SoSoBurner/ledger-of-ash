@@ -1,0 +1,82 @@
+{
+  "npc_id": "forge_clerk_yessa_coalmark",
+  "canonical_name": "Forge Clerk Yessa Coalmark",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Forge Clerk",
+  "profession_discipline": "industrial clerk",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Clerk who tracks shared allotments of metal, coal, and machine time within Soreheim's productive infrastructure.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a forge clerk whose work is visible through daily procedure, gatekeeping, and the practical pressures of Soreheim Proper.",
+  "daily_function": "Performs the ongoing duties of forge clerk in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of forge clerk while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of forge clerk credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Soreheim Proper.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Forge Clerk Yessa Coalmark can draw the party into a practical problem centered on Soreheim Proper."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Forge Clerk Yessa Coalmark becomes useful when the party needs access, explanation, or relief tied to the work of a forge clerk."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "forge_clerk_yessa_coalmark",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Forge Clerk Yessa Coalmark is readable as a forge clerk tied to Soreheim Proper.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "forge clerk"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Forge Clerk Yessa Coalmark presents as someone shaped by the duties of a forge clerk and the daily pressures of Soreheim Proper.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a forge clerk, and proof that strangers will not make Soreheim Proper harder to manage.",
+  "what_they_refuse": "Forge Clerk Yessa Coalmark refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a forge clerk too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Forge Clerk Yessa Coalmark can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Forge Clerk Yessa Coalmark adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Forge Clerk Yessa Coalmark always knows more about Soreheim Proper than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to forge clerk duties in Soreheim Proper."
+}

@@ -1,0 +1,254 @@
+{
+  "npc_id": "mother_eliane_threadmercy",
+  "canonical_name": "Mother Eliane Threadmercy",
+  "build_version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "source_truth_status": "source_backed_canon_baseline",
+  "evidence_tier": "source_backed_inference",
+  "dossier_layering": {
+    "canon_public": "Grounded directly in baseline NPC record plus linked polity/institution/locality support where available.",
+    "gm_hidden": "Conservative connective tissue derived from agenda, pressure, role logic, and relationship web; not promoted above asserted canon."
+  },
+  "core_identity": {
+    "full_name": "Mother Eliane Threadmercy",
+    "aliases_titles_epithets": [],
+    "pronouns": "Not explicitly stated in canon.",
+    "apparent_age": "Not explicitly stated in canon.",
+    "actual_age": "Not explicitly stated in canon.",
+    "species_ancestry_nature": "Not explicitly stated in canon.",
+    "public_identity": "Clerics",
+    "hidden_identity": "None explicitly asserted; hidden layer concerns pressure, leverage, and misread motive rather than a confirmed second identity.",
+    "moral_tier": "Principled / Severe",
+    "ethical_profile": "Role-shaped ethics anchored to place, obligation, and consequence rather than free-floating abstraction.",
+    "general_temperament": "Balances comfort with correction, sounding gentle until rite, taboo, or consequence is threatened. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a clerics still shape how they handle timing, silence, and attention.",
+    "short_npc_pitch": "Mother Eliane Threadmercy is a clerics anchored to Shelkopolis, Shelk, where daily institutional pressures make them useful, risky, or both in play.",
+    "public_role": "Mother Eliane Threadmercy is a clerics anchored to Shelkopolis, Shelk, where daily institutional pressures make them use"
+  },
+  "setting_placement": {
+    "region": "Shelk",
+    "polity_state_faction": "Shelk",
+    "settlement_site_base_of_operations": "Shelkopolis",
+    "location_setting": "On approach, Shelkopolis, Shelk reads as Pale stone walls rise from meadows with golden accents, indigo and emerald banners, and flower-lined roads watched by bright-plumed Roadwardens Inside, it tends toward Curving smooth streets link elegant upper quarters, busy workshop districts, and purposeful lower wards. Textiles, tools, shrines, taverns, and scholars give the city constant motion Its standing pressure comes from glyph corruption beyond the city, trade security obligations, noble rivalry, festival traffic.",
+    "public_role": "Clerics",
+    "institutional_ties": [
+      "Aurora Light Cathedral"
+    ],
+    "formal_rank_social_standing": "recognized_civic_professional",
+    "sphere_of_influence": "legendary",
+    "network_function": [
+      "ritual or social legitimacy"
+    ],
+    "who_they_answer_to": [
+      "the procedural demands of Aurora Light Cathedral"
+    ],
+    "who_answers_to_them": [
+      "Corin Vale, High Priestess Lyara Dawnlight"
+    ],
+    "who_rivals_them": [],
+    "who_depends_on_them": [
+      "Corin Vale (Both tied to Aurora Light Cathedral.)",
+      "High Priestess Lyara Dawnlight (Both tied to Aurora Light Cathedral.)",
+      "Maelin Dawnmantle (Both tied to Aurora Light Cathedral.)",
+      "Mira Vale (Both tied to Aurora Light Cathedral.)",
+      "Sel Vale (Both tied to Aurora Light Cathedral.)"
+    ],
+    "who_they_secretly_depend_on": [
+      "Nera Softfurrow (Clerics legacy influence carried into current practice.)",
+      "Registrar-Confessor Othan Mire (Clerics legacy influence carried into current practice.)"
+    ]
+  },
+  "public_vs_private": {
+    "public_face": "Turned cathedral kitchens and cloth houses into refuge networks when the roads failed. Ritual dress, offering marks, and devotional cadence make Mother Eliane Threadmercy immediately legible as a spiritual intermediary. In Shelkopolis, this lands inside a public field already shaped by House Shelk nobility, Roadwardens Order.",
+    "common_first_impression": "Mother Eliane Threadmercy presents as Balances comfort with correction, sounding gentle until rite, taboo, or consequence is threatened. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a clerics still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+    "visible_virtues": [
+      "competence under pressure",
+      "place literacy",
+      "readable usefulness"
+    ],
+    "visible_flaws": [
+      "protective of role",
+      "selective with trust",
+      "can widen small matters through procedure"
+    ],
+    "public_symbols": [
+      "Ritual dress, offering marks, and devotional cadence make Mother Eliane Threadmercy immediately legible as a spiritual intermediary. In Shelkopolis, this lands inside a public field already shaped by House Shelk nobility, Roadwardens Order."
+    ],
+    "private_truth": "Keep Shelkopolis workable through the obligations of clerics while managing the immediate pressure of glyph corruption beyond the city in Shelk. Must keep sacred procedure credible while grief, fear, or opportunism press for shortcuts. Around Shelkopolis, that usually means carrying glyph corruption beyond the city, trade security obligations, noble rivalry without letting the role of clerics visibly slip.",
+    "what_they_hide": "Must keep sacred procedure credible while grief, fear, or opportunism press for shortcuts. Around Shelkopolis, that usually means carrying glyph corruption beyond the city, trade security obligations, noble rivalry without letting the role of clerics visibly slip.",
+    "what_they_fear_being_known_for": "The degree to which their usefulness depends on strain staying barely manageable.",
+    "what_they_are_wrong_about": "They may overestimate how much control role and procedure can preserve once pressure crosses a threshold.",
+    "what_they_refuse_to_admit_to_themselves": "That some of their identity is now fused to crisis-management rather than to the clean ideal of the role."
+  },
+  "psychology": {
+    "what_they_want_most": "Useful clarity, respect for Clerics, and proof that strangers will not create avoidable noise in Principality of Shelk.",
+    "what_they_are_trying_to_protect_or_avoid": "Keep Shelkopolis workable through the obligations of clerics while managing the immediate pressure of glyph corruption beyond the city in Shelk.",
+    "emotional_drive": "Beneath the role sits a need for a rite or obligation that cannot proceed cleanly, legibility, and a world that does not collapse into preventable noise.",
+    "core_wound": "No singular foundational trauma is directly asserted in canon; the usable wound layer is role-shaped wear, exposure, and the cost of being the person who must notice first or answer last.",
+    "how_it_shaped_them": "It turned ordinary duty into a personality contour: they scan for failure early, trust slowly, and measure strangers by downstream cost.",
+    "guiding_belief": "If the system is kept legible, losses can still be bounded.",
+    "hidden_belief": "Someone always pays for confusion; better it be controlled sooner than wider later.",
+    "lie_they_tell_themselves": "That they are only doing the job and that the job has not already begun shaping what they are.",
+    "truth_they_are_avoiding": "Their daily choices influence culture, fear, and legitimacy far beyond the narrow wording of the role.",
+    "thresholds": {
+      "anger": "being forced to absorb avoidable disorder",
+      "fear": "cascading failure that makes role performance meaningless",
+      "power": "clear information, recognized standing, and procedural initiative",
+      "smallness": "being bypassed, misfiled, or rendered decorative",
+      "softens": "useful honesty and disciplined cooperation",
+      "hardens": "evasiveness, disrespect, and reputational risk"
+    }
+  },
+  "morality_in_practice": {
+    "how_they_justify_actions": "By reference to burden, continuity, and the need to keep the surrounding place from slipping into a harder consequence tier.",
+    "what_they_consider_unforgivable": "Willful sabotage of trust, records, access, or public safety tied to their role.",
+    "what_they_will_absolutely_do": "Delay, question, redirect, document, and escalate when place logic demands it.",
+    "what_they_will_only_do_under_pressure": "Leverage reputation, force, secrecy, or rigid procedure in ways that damage future trust.",
+    "what_they_will_never_do": "Act against corpus-confirmed identity or role logic without a visible pressure bridge.",
+    "relationship_to_good_evil": "Operational read: Principled / Severe. Their danger lies less in theatrical evil than in what happens when role logic outruns compassion, nuance, or proportionality."
+  },
+  "power_profile": {
+    "why_they_matter": "Mother Eliane Threadmercy can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+    "why_hard_to_ignore": "By enforcing Clerics too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+    "primary_source_of_power": "religious_officiant",
+    "secondary_source_of_power": "local familiarity, institutional memory, and other people needing something from them",
+    "why_difficult_to_confront_directly": "Confronting them usually means confronting place rules, witnesses, and downstream consequences rather than only the individual body in front of you.",
+    "capabilities": {
+      "magic": "Not explicitly stated unless separately asserted elsewhere in corpus.",
+      "combat": "Role-dependent; implied only to the degree their office already carries enforcement, survival, or defensive expectation.",
+      "social": "Balances comfort with correction, sounding gentle until rite, taboo, or consequence is threatened. In Shelk, that reads as someone polished, socially alert, and attentive to harmony, status, and cultural presentation, and the habits of a clerics still shape how they handle timing, silence, and attention.",
+      "strategic_administrative": "Performs the ongoing duties of clerics in and around Shelkopolis, where the role has practical consequences even when nothing dramatic is happening.",
+      "logistical_economic": "Keep Shelkopolis workable through the obligations of clerics while managing the immediate pressure of glyph corruption beyond the city in Shelk.",
+      "investigative_covert": "Must keep sacred procedure credible while grief, fear, or opportunism press for shortcuts. Around Shelkopolis, that usually means carrying glyph corruption beyond the city, trade security obligations, noble rivalry without letting the role of clerics visibly slip."
+    },
+    "signature_methods": {
+      "how_they_typically_win": "By controlling tempo, framing the problem first, and forcing others to deal with the local reality they represent.",
+      "favorite_tool": "position, knowledge, and place-specific leverage",
+      "how_they_escalate": "If crossed, Mother Eliane Threadmercy adds delay, scrutiny, and reputational drag before direct punishment.",
+      "when_cornered": "They narrow options, call on procedure or allies, and try to move the conflict onto terrain they understand better than the intruder."
+    }
+  },
+  "systems_impact": {
+    "direct_controls": [
+      "Aurora Light Cathedral"
+    ],
+    "indirect_effects": [
+      "Shelkopolis, Shelk",
+      "Shelk"
+    ],
+    "cultural_effect": "Ordinary people around Shelkopolis, Shelk learn to speak, wait, disclose, or hide differently depending on whether Mother Eliane Threadmercy or people like them are part of the scene."
+  },
+  "society_politics_geopolitics": {
+    "ordinary_people_experience": "Common folk experience Mother Eliane Threadmercy as a point where broader pressures become personal: papers checked, routes delayed, rites clarified, access granted, warnings issued, or burdens redirected.",
+    "cultural_wound_or_benefit": "They leave behind either increased legibility and trust or accumulated caution and narrowed speech.",
+    "secondary_behaviors": "People rehearse their story before approaching; they gather proof early; they watch who is seen speaking with this NPC.",
+    "factions_gain": [
+      "Aurora Light Cathedral"
+    ],
+    "factions_fear": [
+      "actors who benefit from vagueness, delay, leakage, or unmanaged pressure"
+    ],
+    "governance_shift": "At table scale, this NPC shifts how authority feels inside Shelkopolis, Shelk: more navigable if cooperative, more costly if crossed.",
+    "geopolitical_effect": "Small incidents around Mother Eliane Threadmercy can propagate upward through Shelk if they touch routes, records, trade, ritual legitimacy, or public order."
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_1014",
+      "other_npc_id": "corin_vale",
+      "other_name": "Corin Vale",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Aurora Light Cathedral."
+    },
+    {
+      "relationship_id": "rel_1018",
+      "other_npc_id": "high_priestess_lyara_dawnlight",
+      "other_name": "High Priestess Lyara Dawnlight",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Aurora Light Cathedral."
+    },
+    {
+      "relationship_id": "rel_1021",
+      "other_npc_id": "maelin_dawnmantle",
+      "other_name": "Maelin Dawnmantle",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Aurora Light Cathedral."
+    },
+    {
+      "relationship_id": "rel_1023",
+      "other_npc_id": "mira_vale",
+      "other_name": "Mira Vale",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Aurora Light Cathedral."
+    },
+    {
+      "relationship_id": "rel_1277",
+      "other_npc_id": "nera_softfurrow",
+      "other_name": "Nera Softfurrow",
+      "relation_type": "legacy_influence_same_discipline",
+      "strength": "medium",
+      "note": "Clerics legacy influence carried into current practice."
+    },
+    {
+      "relationship_id": "rel_1276",
+      "other_npc_id": "registrar_confessor_othan_mire",
+      "other_name": "Registrar-Confessor Othan Mire",
+      "relation_type": "legacy_influence_same_discipline",
+      "strength": "medium",
+      "note": "Clerics legacy influence carried into current practice."
+    },
+    {
+      "relationship_id": "rel_1025",
+      "other_npc_id": "sel_vale",
+      "other_name": "Sel Vale",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Aurora Light Cathedral."
+    }
+  ],
+  "hooks": [
+    {
+      "hook_type": "pastoral_request",
+      "summary": "Mother Eliane Threadmercy may ask the party to retrieve someone, something, or some truth before a rite can proceed safely."
+    },
+    {
+      "hook_type": "doctrinal_complication",
+      "summary": "Any alliance with Mother Eliane Threadmercy can expose the party to taboo, doctrine, or institutional expectation centered on Shelkopolis."
+    },
+    {
+      "hook_type": "ritual_disruption",
+      "summary": "Mother Eliane Threadmercy needs discreet aid to prevent a ritual lapse, desecration, or public crisis of trust around Shelkopolis."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Mother Eliane Threadmercy needs help with a problem in Shelkopolis that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "encounter_context": {
+    "usual_environment": "Shelkopolis: shrines, cathedrals, funerary halls, or ritual precincts",
+    "who_seeks_them_out": [
+      "mourners",
+      "petitioners",
+      "those seeking rite or absolution"
+    ],
+    "who_avoids_them": [
+      "the openly impious",
+      "ritual disturbers",
+      "those asking for sacred shortcuts"
+    ],
+    "interaction_anchor": "ritual mediation or doctrinal reassurance"
+  },
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Clerics.",
+  "rumor": "People say Mother Eliane Threadmercy is Turned cathedral kitchens and cloth houses into refuge networks when the roads failed. and rarely acts without a second motive.",
+  "provenance": {
+    "source_object_ids": [
+      "v28_5_npc_ledger_append"
+    ],
+    "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+    "transformation_note": "Dossier generated from existing named NPC architecture plus locally-linked support texts; unsupported hard biography intentionally withheld.",
+    "derivation_label": "source_backed_conservative_inference",
+    "derivation_tier": "repository_synthesis"
+  }
+}

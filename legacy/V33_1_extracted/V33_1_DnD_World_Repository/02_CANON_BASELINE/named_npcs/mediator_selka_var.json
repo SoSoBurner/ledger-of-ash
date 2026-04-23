@@ -1,0 +1,67 @@
+{
+  "npc_id": "mediator_selka_var",
+  "canonical_name": "Mediator Selka Var",
+  "tier": "regional",
+  "state": "active_current",
+  "role_family": "faith_officer",
+  "office_or_role": "Afterlife Contract Mediator",
+  "profession_discipline": "Divine mediation and funerary contracting",
+  "grouping": "v30_6_added_named_npc",
+  "polity": "Panim",
+  "settlement": "Panim Haven",
+  "locality_scope": "Reckoning Quarter",
+  "institutional_ties": [
+    "House Panim"
+  ],
+  "public_reputation": "Trusted to keep grief from collapsing into accusation when money and piety collide.",
+  "linked_systems": {
+    "polities": [
+      "Panim"
+    ],
+    "localities": [
+      "Panim Haven",
+      "Reckoning Quarter",
+      "Coffin Contract Cloister"
+    ],
+    "institutions": [
+      "House Panim"
+    ],
+    "factions": []
+  },
+  "appearance": "Layered mourning whites edged with soft gold account thread, hands always scented with cedar resin.",
+  "manner": "Balances solemnity with the pace of a practiced contract negotiator.",
+  "daily_function": "Guides families through ritual service tiers, witness requirements, and offering obligations.",
+  "current_agenda": "Stop a string of fraudulent promise claims before they damage Panim’s authority.",
+  "hidden_pressure": "If families lose faith in the fairness of the contracts, Panim loses more than revenue.",
+  "source_truth_status": "conservative_inference",
+  "support_density": "support_aware_record",
+  "source_object_ids": [
+    "principalities_doc"
+  ],
+  "compatibility_interface_id": "mediator_selka_var",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "She makes even a ledger feel ceremonial.",
+  "encounter_context": {
+    "usual_environment": "contract cloisters and offering halls",
+    "who_seeks_them_out": [
+      "families",
+      "pilgrims"
+    ],
+    "who_avoids_them": [
+      "fraudsters",
+      "the irreverent"
+    ],
+    "interaction_anchor": "what the dead are owed"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Mediator Selka Var presents as Balances solemnity with the pace of a practiced contract negotiator. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Afterlife Contract Mediator, and proof that strangers will not create avoidable noise in Principality of Panim.",
+  "what_they_refuse": "Mediator Selka Var refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Afterlife Contract Mediator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Mediator Selka Var can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Mediator Selka Var adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Mediator Selka Var is Trusted to keep grief from collapsing into accusation when money and piety collide. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Afterlife Contract Mediator."
+}

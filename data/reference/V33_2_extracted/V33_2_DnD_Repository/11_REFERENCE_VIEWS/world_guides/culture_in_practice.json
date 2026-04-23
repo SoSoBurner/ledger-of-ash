@@ -1,0 +1,51 @@
+{
+  "build_version": "V33_1",
+  "derived_status": "subordinate_to_structured_canon",
+  "cultures": {
+    "The Principalities": {
+      "greeting_norms": "Protocol, titles, and visible affiliation matter quickly, especially where noble or guild power is near.",
+      "dress_norms": "Dress reads as social information: house loyalty, role, and seriousness all become visible through presentation.",
+      "hospitality_expectations": "Hospitality exists, but rarely without classification. Guests are sorted by relevance, status, and risk.",
+      "taboo_behavior": "Open magical impropriety, noble disrespect, and casual violation of ritual or bureaucratic procedure.",
+      "law_encounter_texture": "Law is localized: Shelk corrects through decorum and road order, Roaz through disciplined enforcement, Panim through consequence-bearing rite, and The Union through mediated precedent.",
+      "outsider_interpretation": "Outsiders are read through paperwork, speech, gear, and whether they understand the room they entered.",
+      "fear_of_loss": "Political standing, route stability, institutional credibility, and divine balance."
+    },
+    "Soreheim Alliance": {
+      "greeting_norms": "Contribution and functional role matter more than charm. People notice whether you are useful, delayed, or obstructive.",
+      "dress_norms": "Practical gear, quota-readiness, and industrial or communal markings outweigh luxury display.",
+      "hospitality_expectations": "Hospitality is real but embedded in collective purpose. Visitors are tolerated best when they fit ongoing work.",
+      "taboo_behavior": "Waste, sabotage, illicit magic, refusal of communal obligation, and vanity that threatens throughput.",
+      "law_encounter_texture": "Hierarchical, quota-conscious, and visibly enforced where production, disloyalty, or sabotage are in question.",
+      "outsider_interpretation": "Outsiders are measured by whether they understand contribution, scale, and industrial seriousness.",
+      "fear_of_loss": "Quota stability, infrastructure continuity, and Giant Council legitimacy."
+    },
+    "Sheresh Communes": {
+      "greeting_norms": "Curiosity, containment, and seasonal awareness shape first contact.",
+      "dress_norms": "Layered practical enchantment, dome-safe materials, and seasonal identity all carry social meaning.",
+      "hospitality_expectations": "Generous inside trusted spaces, more careful where magical contamination or anomaly risk is possible.",
+      "taboo_behavior": "Careless magical handling, contamination spread, or destabilizing shared protective systems.",
+      "law_encounter_texture": "Protective, containment-minded, and legitimacy-conscious around shared magical infrastructure.",
+      "outsider_interpretation": "Outsiders are watched for curiosity without caution.",
+      "fear_of_loss": "Dome stability, communal safety, and trustworthy magical practice."
+    },
+    "Psanan": {
+      "greeting_norms": "Directness, honor, and house placement matter more than softness.",
+      "dress_norms": "Heat, ash, endurance, and house identity are worn openly.",
+      "hospitality_expectations": "Hospitality is conditional, meaningful, and often inseparable from strength-testing.",
+      "taboo_behavior": "Dragon sympathy, house disrespect, cowardice under environmental strain, and waste of guarded routes or resources.",
+      "law_encounter_texture": "Severe, survival-shaped, and tied to house authority, ritual weight, and practical danger.",
+      "outsider_interpretation": "Outsiders are judged by whether they can endure, respect the houses, and understand volcanic reality.",
+      "fear_of_loss": "House legitimacy, forge capacity, and survival under ash and descent pressure."
+    },
+    "Nomdara Caravan": {
+      "greeting_norms": "Warmth is often real, but timing and transactional clarity stay close behind it.",
+      "dress_norms": "Mobility, repairability, and route identity matter as much as beauty.",
+      "hospitality_expectations": "Hospitality is one of the Caravan’s great social tools, but never detached from logistics.",
+      "taboo_behavior": "Threatening route trust, wasting movement, or acting as if a camp’s flow can pause for vanity.",
+      "law_encounter_texture": "Pragmatic, negotiated, and deeply dependent on route context and who guarantees safe passage.",
+      "outsider_interpretation": "Outsiders are read by whether they cause delay, attract trouble, or honor changing terms.",
+      "fear_of_loss": "Mobility, route intelligence, and the trust that keeps neutral passage possible."
+    }
+  }
+}

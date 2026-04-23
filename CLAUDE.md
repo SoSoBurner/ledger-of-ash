@@ -34,6 +34,18 @@
 
 Any property read from G in enriched choices or game logic must be initialized in the G defaults object. Missing keys cause silent TypeErrors swallowed by `adaptEnrichedChoice`'s try/catch — stage progress silently stops advancing.
 
+## Known Bug: _beginLegendCore Skill Remap
+
+`_beginLegendCore` (~line 8065) remaps `G.skills` keys to display names (might/finesse/vigor/wits/charm/spirit) before game start. All live skill reads use internal keys → return 0. Do not build features on top of this pattern — fix it first.
+
+## Stage II Companion Gate
+
+`vorath_gelden` and `mira_calden` gate on `G.flags.maren_oss_resolved` (set in `_closeClimax()`, `content/stage2_climax.js`). If Stage II companions seem locked, check this flag is being set.
+
+## Skill Display: Two Render Paths
+
+Skills render in `updateHUD()` (~line 10862) and `renderCharacterSheet()` (~line 10418). Change both or the HUD and character sheet diverge.
+
 ## DC Reference
 
 Base DCs: safe=7, risky=12, bold=15. Stage modifier: +1 per stage (Stage I=+0 … Stage V=+4). Additional: axis flip +1–2, severe weather +1.
@@ -105,6 +117,7 @@ Rumors: notice board / town crier register. Always include source texture (who s
 Backgrounds: sensory opening line, personal history first, never tell the player what their character feels.
 
 Journal category strings (addJournal calls): use specific types only — 'evidence', 'intelligence', 'rumor', 'discovery', 'contact_made', 'complication'. Never 'investigation'.
+`addJournal(text, category)` — text first, category second. Reversing silently breaks journal logging.
 
 ## NPC Model
 

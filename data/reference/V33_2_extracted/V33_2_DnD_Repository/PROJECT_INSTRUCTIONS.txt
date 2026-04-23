@@ -1,0 +1,3 @@
+Active release: V33_2 (V33_2_DnD_Repository)
+
+V33_2 is the active standalone release. Treat `00_PACKAGE_MANIFEST/release_identity.json` as the sole release identity authority, `01_CANON_GOVERNANCE/locality_matrix_canon_contract.json` as the locality canon authority, `02_CANON_BASELINE/locality_matrix_backbone/` as the active locality hierarchy and route authority, `07_WORLD_GRAPH/` as the graph layer, `05_RUNTIME_ENGINE/*scope*` files as runtime boundaries, `PLAY/` plus `RUN_A_SESSION_NOW.md` as the primary operator surface, and `11_REFERENCE_VIEWS/current_release/` as the primary reference surface. The package must function standalone after unzip.

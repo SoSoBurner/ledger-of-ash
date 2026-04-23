@@ -1,0 +1,17 @@
+{
+  "name": "Frostline Crossing",
+  "parent": "Sheresh Routes",
+  "summary": "A hazardous frozen crossing where route wardens mark viable passage windows and many expeditions disappear.",
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "sylvi_aurorine"
+  ],
+  "npc_interfaces": [
+    "sylvi_aurorine"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

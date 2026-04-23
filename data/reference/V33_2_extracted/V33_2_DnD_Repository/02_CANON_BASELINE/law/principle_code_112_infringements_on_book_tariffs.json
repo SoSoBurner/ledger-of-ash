@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 112",
+  "title": "Infringements on Book Tariffs",
+  "severity": "misdemeanor",
+  "description": "Evasion of tariffs or fees on book access and distribution.",
+  "jurisdictions": [
+    "Shelkopolis Public Library"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

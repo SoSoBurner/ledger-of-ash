@@ -1,0 +1,18 @@
+{
+  "name": "Cosmoria",
+  "inside": "Archives, tax records, and shipwright activity mingle with cosmopolitan floating-city life.",
+  "truth_layer": "direct_canon",
+  "hierarchy": {
+    "polity": "House Cosmouth",
+    "territory": "The Principalities",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "shipwright industry is visibly part of daily life.",
+    "sea communion and noble retreat culture present nearby",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "principalities"
+  ]
+}

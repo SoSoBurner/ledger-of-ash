@@ -1,0 +1,19 @@
+{
+  "name": "Cindervow Quarter",
+  "approach": "Layered burn-stone walls, ash-wing banners, and engraved arches show repeated destruction and deliberate rebuilding.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "polity": "Psanan",
+    "territory": "Ashforge Citadel Environs",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Prestigious rebuilt quarter known for surviving destruction, swearing public vows, and turning fire damage into civic memory.",
+    "Rebuilding Oath Courts",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

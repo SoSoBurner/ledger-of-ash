@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Eternal safety jurisdiction",
+  "record_count": 1,
+  "npc_ids": [
+    "hildran_wyvernharn"
+  ],
+  "records": [
+    {
+      "npc_id": "hildran_wyvernharn",
+      "canonical_name": "Hildran Wyvernharn",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Public safety regional leader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as public safety regional leader.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of public safety regional leader while managing the immediate pressure of predators in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Eternal safety jurisdiction is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

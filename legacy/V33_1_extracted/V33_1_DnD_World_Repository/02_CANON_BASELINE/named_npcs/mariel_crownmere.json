@@ -1,0 +1,92 @@
+{
+  "npc_id": "mariel_crownmere",
+  "canonical_name": "Mariel Crownmere",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "labor_actor",
+  "office_or_role": "Porter",
+  "profession_discipline": "Porter",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Sunspire Haven",
+  "locality_scope": "Sunspire Haven",
+  "institutional_ties": [
+    "Sunspire Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Sunspire Haven through day-to-day work as porter.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Sunspire Haven"
+    ],
+    "institutions": [
+      "Sunspire Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Mariel Crownmere carries the marks of porter in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Judges the world by weight, delay, and whether moving one thing will jam five others behind it. In Sunspire Haven, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of porter in and around Sunspire Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Sunspire Haven while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Mariel Crownmere can draw the party into a locality problem centered on porter duties in Sunspire Haven."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Mariel Crownmere becomes useful when the party needs grounded help with predators, water system vulnerabilities, storage disputes around Sunspire Haven."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "sunspire_haven"
+  ],
+  "compatibility_interface_id": "mariel_crownmere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Mariel Crownmere is immediately readable as a porter tied to Sunspire Haven.",
+  "encounter_context": {
+    "usual_environment": "Sunspire Haven: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "porter"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Mariel Crownmere presents as someone shaped by the duties of a porter and the daily pressures of Sunspire Haven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a porter, and proof that strangers will not make Sunspire Haven harder to manage.",
+  "what_they_refuse": "Mariel Crownmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a porter too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can move people or goods quickly and knows which cargo draws the wrong attention.",
+  "escalation_if_crossed": "If crossed, Mariel Crownmere adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Mariel Crownmere always knows more about Sunspire Haven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a porter in Sunspire Haven.",
+  "social_texture": "Mariel Crownmere speaks like someone who has spent too long translating private stakes into acceptable public language. Around Sunspire Haven, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Mariel touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Mariel Crownmere when the party needs a socially grounded face for Sunspire Haven: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

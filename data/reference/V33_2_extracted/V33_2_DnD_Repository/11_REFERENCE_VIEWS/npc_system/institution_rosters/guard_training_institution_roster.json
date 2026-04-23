@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "guard training",
+  "record_count": 1,
+  "npc_ids": [
+    "sir_thaddeus_shelk"
+  ],
+  "records": [
+    {
+      "npc_id": "sir_thaddeus_shelk",
+      "canonical_name": "Sir Thaddeus Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Military commander",
+      "tier": "notable",
+      "public_reputation": "Recognized as a military commander of regional weight.",
+      "current_agenda": "Keep House of Shelk Estate workable through the obligations of military commander while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "guard training is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

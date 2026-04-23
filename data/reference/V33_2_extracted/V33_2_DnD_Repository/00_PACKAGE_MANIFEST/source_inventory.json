@@ -1,0 +1,33 @@
+{
+  "build_version": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "counts": {
+    "total_files": 5505,
+    "json_files": 3769,
+    "jsonl_files": 19,
+    "markdown_files": 1703,
+    "text_files": 5501,
+    "total_bytes": 66017788
+  },
+  "top_level_directories": [
+    "00_PACKAGE_MANIFEST",
+    "01_CANON_GOVERNANCE",
+    "02_CANON_BASELINE",
+    "03_LOCALITY_ENGINE",
+    "03_RECONCILIATION_LAYER",
+    "04_CONSERVATIVE_INFERENCE",
+    "05_PROVENANCE",
+    "05_RUNTIME_ENGINE",
+    "06_VALIDATION",
+    "07_WORLD_GRAPH",
+    "08_RELEASE_NOTES",
+    "09_SUPERSESSION",
+    "10_LINEAGE_HISTORY",
+    "11_REFERENCE_VIEWS",
+    "12_TABLE_KITS",
+    "AUDIT_AND_VALIDATION",
+    "PLAY",
+    "WORLD_REFERENCE"
+  ]
+}

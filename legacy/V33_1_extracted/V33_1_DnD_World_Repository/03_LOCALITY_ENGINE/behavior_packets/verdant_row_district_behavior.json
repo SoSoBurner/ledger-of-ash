@@ -1,0 +1,19 @@
+{
+  "name": "Verdant Row District",
+  "who_belongs": [
+    "artisans",
+    "merchants",
+    "apprentices",
+    "mid-tier travelers"
+  ],
+  "who_is_out_of_place": [
+    "idle aristocrats expecting deference without purpose"
+  ],
+  "expected_behavior": [
+    "value work, collaboration, and practical courtesy"
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

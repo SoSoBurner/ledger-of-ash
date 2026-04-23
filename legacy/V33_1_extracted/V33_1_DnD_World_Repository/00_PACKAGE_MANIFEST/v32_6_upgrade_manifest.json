@@ -1,0 +1,23 @@
+{
+  "release_version": "V32_6",
+  "package_name": "V32_7_DnD_World_Repository",
+  "generation_timestamp": "2026-04-18T19:00:00Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "summary": {
+    "new_wilderness_sites": 11,
+    "total_wilderness_sites": 50,
+    "enhanced_npc_records": 240,
+    "total_files": 5416,
+    "gm_path_legacy_token_files_remaining": 0
+  },
+  "major_changes": [
+    "world-first navigation strengthened",
+    "frontier layer expanded across canon-supported regions",
+    "thin NPC layer received additive lived-in depth pass",
+    "campaign-state dramatization expanded for House Shelk vs the Union",
+    "active release identity normalized on primary use surfaces"
+  ],
+  "notes": [
+    "Primary GM-facing navigation was normalized for V32_6. Historical, provenance, and archival surfaces intentionally retain prior-release references where they preserve lineage."
+  ]
+}

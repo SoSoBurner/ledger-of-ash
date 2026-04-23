@@ -1,0 +1,22 @@
+{
+  "name": "Sanctuary of Shadows",
+  "parent_district": "Ironspool Ward District",
+  "type": "hidden temple",
+  "summary": "Small temple to Felelem with charms and whispered superstitions.",
+  "npc_interfaces": [
+    "jalen_mere",
+    "vera_mere"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "jalen_mere",
+    "vera_mere"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

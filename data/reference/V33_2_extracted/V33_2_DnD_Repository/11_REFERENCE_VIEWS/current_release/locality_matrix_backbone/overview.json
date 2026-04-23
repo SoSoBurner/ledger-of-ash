@@ -1,0 +1,35 @@
+{
+  "release_identity": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "backbone_counts": {
+    "polities": 15,
+    "macroregions": 13,
+    "settlements": 44,
+    "districts": 18,
+    "sublocations": 40,
+    "operational_anchors": 44,
+    "wilderness_points": 66,
+    "mobile_nodes": 14,
+    "route_transition_packets": 52,
+    "locality_matrix_rows": 239,
+    "route_matrix_rows": 46
+  },
+  "authority_files": {
+    "locality_hierarchy": "02_CANON_BASELINE/locality_matrix_backbone/locality_matrix.json",
+    "route_hierarchy": "02_CANON_BASELINE/locality_matrix_backbone/route_matrix.json",
+    "environment_profiles": "02_CANON_BASELINE/locality_matrix_backbone/environment_profiles.json",
+    "label_crosswalk": "02_CANON_BASELINE/locality_matrix_backbone/label_crosswalk.json",
+    "retrieval_support": [
+      "02_CANON_BASELINE/locality_matrix_backbone/narrative_lookup.json",
+      "02_CANON_BASELINE/locality_matrix_backbone/culture_lookup.json",
+      "02_CANON_BASELINE/locality_matrix_backbone/bestiary_lookup.json"
+    ]
+  },
+  "validation_failures": {
+    "hierarchy": 46,
+    "routes": 6,
+    "labels": 0,
+    "nomdara": 3
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ore_officer",
+  "display_name": "ORE Officer",
+  "function": "Represents Roazian legal authority in inspections, detentions, and administrative enforcement.",
+  "default_social_read": "Tracks irregularities, contraband patterns, and who is already on a watch list.",
+  "truth_layer": "engine_canon",
+  "context_sites": [
+    "Ironhold Quarry"
+  ],
+  "context_polities": [
+    "Principality of Roaz"
+  ],
+  "sources": [
+    "principalities",
+    "principality_roaz",
+    "spatial_seasonal"
+  ],
+  "support_type": "reusable_runtime_surface",
+  "context_justification": "Derived from repeated locality packet usage within the active world engine; role remains reusable rather than tied to a single named individual."
+}

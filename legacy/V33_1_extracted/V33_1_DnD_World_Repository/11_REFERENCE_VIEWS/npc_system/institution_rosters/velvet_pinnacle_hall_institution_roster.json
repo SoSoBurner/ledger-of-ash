@@ -1,0 +1,68 @@
+{
+  "build_version": "V33_1",
+  "institution": "Velvet Pinnacle Hall",
+  "record_count": 5,
+  "npc_ids": [
+    "mira_march",
+    "nora_mere",
+    "tovin_laceglint",
+    "lady_isabella_shelk",
+    "magistrate_zethraxis_coilspire"
+  ],
+  "records": [
+    {
+      "npc_id": "mira_march",
+      "canonical_name": "Mira March",
+      "polity": "Transpolity",
+      "office_or_role": "Apprentice Factor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as apprentice factor.",
+      "current_agenda": "Keep Velvet Pinnacle Hall workable through the obligations of apprentice factor while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "nora_mere",
+      "canonical_name": "Nora Mere",
+      "polity": "Transpolity",
+      "office_or_role": "Quiet-Room Mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+      "current_agenda": "Keep Velvet Pinnacle Hall workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "tovin_laceglint",
+      "canonical_name": "Tovin Laceglint",
+      "polity": "Shelk",
+      "office_or_role": "Illusionist",
+      "tier": "grassroots",
+      "public_reputation": "Gala veilwright who sells prestige illusions to nobles and liars in equal measure.",
+      "current_agenda": "Keep Velvet Pinnacle Hall, Shelkopolis workable through the obligations of illusionist while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "lady_isabella_shelk",
+      "canonical_name": "Lady Isabella Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Matriarch of House Shelk",
+      "tier": "notable",
+      "public_reputation": "Recognized as a matriarch of house shelk of regional weight.",
+      "current_agenda": "Keep House of Shelk Estate workable through the obligations of matriarch of house shelk while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "magistrate_zethraxis_coilspire",
+      "canonical_name": "Magistrate Zethraxis Coilspire",
+      "polity": "Transpolity",
+      "office_or_role": "Chief magistrate",
+      "tier": "notable",
+      "public_reputation": "Recognized as a chief magistrate of regional weight.",
+      "current_agenda": "Keep Velvet Pinnacle Hall workable through the obligations of chief magistrate while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Approach and interior defined by alabaster, stained glass, seasonal painted ceilings, noble gatherings, and strong fashion/espionage law.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "build_version": "V33_1",
+  "institution": "Temple Authority",
+  "record_count": 2,
+  "npc_ids": [
+    "templar_esh_navarre",
+    "registrar_confessor_othan_mire"
+  ],
+  "records": [
+    {
+      "npc_id": "templar_esh_navarre",
+      "canonical_name": "Templar Esh Navarre",
+      "polity": "Panim",
+      "office_or_role": "Knights",
+      "tier": "grassroots",
+      "public_reputation": "Funeral-route knight who protects high-value body transfers and temple registrars.",
+      "current_agenda": "Keep Panim Haven workable through the obligations of knights while managing the immediate pressure of divine balance obligations in Panim."
+    },
+    {
+      "npc_id": "registrar_confessor_othan_mire",
+      "canonical_name": "Registrar-Confessor Othan Mire",
+      "polity": "Panim",
+      "office_or_role": "Clerics",
+      "tier": "notable",
+      "public_reputation": "Temple cleric who hears grief petitions before body-transfer contracts are sealed.",
+      "current_agenda": "Keep Panim Haven workable through the obligations of clerics while managing the immediate pressure of divine balance obligations in Panim."
+    }
+  ],
+  "roster_context": {
+    "identity": "Temple Authority is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

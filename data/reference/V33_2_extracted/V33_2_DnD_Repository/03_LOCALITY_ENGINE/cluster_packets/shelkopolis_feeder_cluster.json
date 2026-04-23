@@ -1,0 +1,34 @@
+{
+  "name": "Shelkopolis Feeder Cluster",
+  "object_id": "cluster.shelkopolis_feeder_cluster",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Principality of Shelk",
+    "cluster": "Shelkopolis Feeder Cluster"
+  },
+  "node_relationships": [
+    "Shelkopolis",
+    "Fairhaven",
+    "Plume's End Outpost"
+  ],
+  "daily_flows": [
+    "goods move toward the highest processing capacity available that day",
+    "routine people move faster than exceptional cases",
+    "rumor outruns freight whenever one node becomes visibly slow"
+  ],
+  "information_movement": "Informal certainty moves through workers, clerks, shrine regulars, and repeat carriers before formal notice catches up.",
+  "pressure_spillover": "When the central node tightens, peripheral nodes absorb delay, improvisation, and second-hand explanation.",
+  "feeder_logic": "Smaller nodes stabilize the larger node by absorbing overflow, staging movement, and translating local uncertainty into usable sequence.",
+  "nearby_fallback_scenes": [
+    "inn or lodging queue",
+    "checkpoint clarification",
+    "minor shrine consultation",
+    "loading court or records counter"
+  ],
+  "sources": [
+    "shelkopolis",
+    "fairhaven",
+    "plumes_end_outpost"
+  ]
+}

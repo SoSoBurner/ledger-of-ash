@@ -1,0 +1,20 @@
+{
+  "name": "Scarlet Descent Gate",
+  "who_belongs": [
+    "descent crews",
+    "hazard clerks",
+    "frontier hammer guards"
+  ],
+  "who_is_out_of_place": [
+    "the untrained",
+    "treasure-seekers without charter"
+  ],
+  "expected_behavior": [
+    "register descent intent",
+    "observe return protocols and contamination washdown"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

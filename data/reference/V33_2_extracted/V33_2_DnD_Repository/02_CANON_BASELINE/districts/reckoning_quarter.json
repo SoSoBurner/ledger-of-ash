@@ -1,0 +1,54 @@
+{
+  "name": "Reckoning Quarter",
+  "type": "district",
+  "parent_settlement": "Panim Haven",
+  "parent_polity": "House Panim",
+  "truth_layer": "conservative_inference",
+  "identity": "Public district of offerings, coffin contracts, and afterlife preparation where devotion and transaction remain visibly intertwined.",
+  "approach": "Funerary banners, offering tables, and carved account stones guide visitors into a district that smells of incense, cedar, and salt.",
+  "inside": "Contract halls, embalming courts, blessing stalls, and family waiting rooms make grief administrative without making it private.",
+  "who_belongs": [
+    "mourning families",
+    "contract clerks",
+    "ritual workers"
+  ],
+  "who_is_out_of_place": [
+    "mockers",
+    "coffin thieves"
+  ],
+  "expected_behavior": [
+    "speak with restraint",
+    "honor queue order around rites"
+  ],
+  "visible_power": [
+    "House Panim mediators",
+    "offering clerks"
+  ],
+  "economy": [
+    "afterlife preparation",
+    "ritual contracting",
+    "offering trade"
+  ],
+  "faith": [
+    "divine mediation is constant and public"
+  ],
+  "seasonal_change": "Festival and pilgrimage periods overload family lodging and contract halls.",
+  "pressure": [
+    "fraudulent afterlife promises",
+    "grief exploitation"
+  ],
+  "npc_interfaces": [
+    "mediator_selka_var",
+    "scribe_iren_palemark"
+  ],
+  "law_context": [
+    "funerary contract law",
+    "offering accountability"
+  ],
+  "sources": [
+    "principalities_doc"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

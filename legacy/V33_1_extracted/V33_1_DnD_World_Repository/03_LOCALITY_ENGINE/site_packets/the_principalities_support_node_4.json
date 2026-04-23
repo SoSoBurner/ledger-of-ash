@@ -1,0 +1,22 @@
+{
+  "name": "The Principalities support node 4",
+  "type": "support site",
+  "parent_polity": "The Principalities",
+  "truth_layer": "source_backed_inference",
+  "identity": "The Principalities support node 4 exists to make The Principalities stageable without guesswork.",
+  "common_errand_scenes": [
+    "ask for help",
+    "clear a delay",
+    "make a small purchase"
+  ],
+  "low_stakes_trouble": [
+    "queue strain",
+    "misheard title",
+    "minor fee dispute"
+  ],
+  "local_etiquette_error": "Assuming access before invitation.",
+  "quickest_way_to_draw_attention": "Being loud about a problem locals already recognize.",
+  "sources": [
+    "V33_1 parity hardening support node."
+  ]
+}

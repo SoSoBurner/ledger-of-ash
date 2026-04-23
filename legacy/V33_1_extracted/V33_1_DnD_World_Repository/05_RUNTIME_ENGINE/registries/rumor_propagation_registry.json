@@ -1,0 +1,10 @@
+{
+  "tracks": [
+    "guild rumor",
+    "prophecy rumor",
+    "pilgrim rumor",
+    "caravan rumor",
+    "archive leak rumor"
+  ],
+  "default_state": "baseline_pending_runtime_change"
+}

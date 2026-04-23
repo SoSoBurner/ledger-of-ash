@@ -1,0 +1,42 @@
+{
+  "name": "Unity Square",
+  "who_belongs": [
+    "traders",
+    "haulers",
+    "market stewards",
+    "auditors",
+    "food vendors"
+  ],
+  "who_is_out_of_place": [
+    "those who expect secrecy in public negotiation",
+    "violent extortionists",
+    "purely ceremonial dignitaries"
+  ],
+  "expected_behavior": [
+    "state terms clearly",
+    "observe inspection lines",
+    "treat posted rates and guild colors as operative facts"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ],
+  "v30_9_behavior_deepening": {
+    "truth_layer": "conservative_inference",
+    "public_behavior_priority": [
+      "state purpose early",
+      "accept correction without escalation",
+      "watch how locals queue before asserting entitlement"
+    ],
+    "common_outsider_errors": [
+      "treating visible procedure as the whole system",
+      "reading silence as neutrality"
+    ],
+    "informal_enforcement": [
+      "stalling through politeness",
+      "rerouting through quieter authorities",
+      "raising the social cost of ignorance"
+    ]
+  }
+}

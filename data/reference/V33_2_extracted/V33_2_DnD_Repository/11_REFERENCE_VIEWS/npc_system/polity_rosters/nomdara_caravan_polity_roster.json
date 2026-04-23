@@ -1,0 +1,33 @@
+{
+  "polity": "Nomdara Caravan",
+  "build_version": "V33_1",
+  "named_npc_count": 26,
+  "names": [
+    "Issa Waycord",
+    "Issa Wheelwright",
+    "Jalen Waycord",
+    "Jalen Wheelwright",
+    "Kelvi Reedstring",
+    "Koro Waycord",
+    "Leni Waycord",
+    "Mek Waycord",
+    "Mek Wheelwright",
+    "Nim Waycord",
+    "Nim Wheelwright",
+    "Odo Three-Cups",
+    "Orem Lantern-Step",
+    "Pashko Many-Routes",
+    "Pavel Waycord",
+    "Rema Three-Lantern",
+    "Sema Reedbasin",
+    "Sorra Waycord",
+    "Sorra Wheelwright",
+    "Torv Waycord",
+    "Torv Wheelwright",
+    "Varek Duststep",
+    "Varek Waycord",
+    "Varek Wheelwright",
+    "Vivan Duststep",
+    "Vivan Waycord"
+  ]
+}

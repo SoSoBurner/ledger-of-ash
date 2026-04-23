@@ -1,0 +1,12 @@
+{
+  "name": "Whispering Dunes",
+  "parent_polity": "The Principalities",
+  "summary": "Eerie dune region of shifting sounds, glass, and ancient-message lore.",
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

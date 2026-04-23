@@ -1,0 +1,5 @@
+# Redirect bare domain to index
+/ledger-of-ash /index.html 200
+
+# SPA fallback
+/* /index.html 200

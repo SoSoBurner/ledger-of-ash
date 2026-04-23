@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Iron Ward Workshop",
+  "record_count": 2,
+  "npc_ids": [
+    "jalen_wren",
+    "lysa_wren"
+  ],
+  "records": [
+    {
+      "npc_id": "jalen_wren",
+      "canonical_name": "Jalen Wren",
+      "polity": "Transpolity",
+      "office_or_role": "Assistant Curator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as assistant curator.",
+      "current_agenda": "Keep Iron Ward Workshop workable through the obligations of assistant curator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "lysa_wren",
+      "canonical_name": "Lysa Wren",
+      "polity": "Transpolity",
+      "office_or_role": "Door Warden",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as door warden.",
+      "current_agenda": "Keep Iron Ward Workshop workable through the obligations of door warden while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Roadwarden wagon and equipment repair shop.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

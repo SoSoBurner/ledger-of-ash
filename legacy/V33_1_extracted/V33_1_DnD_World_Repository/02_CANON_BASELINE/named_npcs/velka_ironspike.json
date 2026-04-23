@@ -1,0 +1,85 @@
+{
+  "npc_id": "velka_ironspike",
+  "canonical_name": "Velka Ironspike",
+  "aliases": [
+    "the overseer"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "resource_officer",
+  "office_or_role": "Quarry Overseer",
+  "profession_discipline": "Quarry Overseer",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Roaz",
+  "settlement": "Ironhold Quarry",
+  "locality_scope": "Ironhold Quarry",
+  "institutional_ties": [
+    "Ironhold Quarry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Ironhold Quarry through day-to-day work as quarry overseer.",
+  "linked_systems": {
+    "polities": [
+      "Principality of Roaz"
+    ],
+    "localities": [
+      "Ironhold Quarry"
+    ],
+    "institutions": [
+      "Ironhold Quarry"
+    ],
+    "factions": []
+  },
+  "appearance": "Velka Ironspike usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their quarry overseer status legible before introductions begin.",
+  "manner": "Sees people, tools, and terrain as one system that can fail all at once if discipline slips. In Ironhold Quarry, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of quarry overseer in and around Ironhold Quarry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ironhold Quarry workable through the obligations of quarry overseer while managing the immediate pressure of labor harshness, resource theft, border competition.",
+  "hidden_pressure": "Must keep the role of quarry overseer credible while absorbing the strain created by labor harshness, resource theft, border competition.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Velka Ironspike can draw the party into a locality problem centered on quarry overseer duties in Ironhold Quarry."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Velka Ironspike becomes useful when the party needs grounded help with labor harshness, resource theft, border competition around Ironhold Quarry."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog",
+    "ironhold_quarry"
+  ],
+  "compatibility_interface_id": "velka_ironspike",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Velka Ironspike is immediately readable as a quarry overseer tied to Ironhold Quarry.",
+  "encounter_context": {
+    "usual_environment": "Ironhold Quarry: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "quarry overseer"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Velka Ironspike presents as someone shaped by the duties of a quarry overseer and the daily pressures of Ironhold Quarry.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a quarry overseer, and proof that strangers will not make Ironhold Quarry harder to manage.",
+  "what_they_refuse": "Velka Ironspike refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a quarry overseer too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can explain site risk, labor tension, and where production discipline is starting to fail.",
+  "escalation_if_crossed": "If crossed, Velka Ironspike adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Velka Ironspike always knows more about Ironhold Quarry than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a quarry overseer in Ironhold Quarry."
+}

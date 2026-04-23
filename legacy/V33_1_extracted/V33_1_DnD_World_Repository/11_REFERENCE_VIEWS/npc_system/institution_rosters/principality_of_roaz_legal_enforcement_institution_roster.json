@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Principality of Roaz legal enforcement",
+  "record_count": 1,
+  "npc_ids": [
+    "captain_darian_roaz"
+  ],
+  "records": [
+    {
+      "npc_id": "captain_darian_roaz",
+      "canonical_name": "Captain Darian Roaz",
+      "polity": "Roaz",
+      "office_or_role": "Supreme Commander of ORE",
+      "tier": "notable",
+      "public_reputation": "Recognized as a supreme commander of ore of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of supreme commander of ore while managing the immediate pressure of institutional scrutiny in Roaz."
+    }
+  ],
+  "roster_context": {
+    "identity": "Principality of Roaz legal enforcement is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

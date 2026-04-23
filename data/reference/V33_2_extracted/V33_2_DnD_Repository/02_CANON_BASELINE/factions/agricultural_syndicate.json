@@ -1,0 +1,53 @@
+{
+  "name": "Agricultural Syndicate",
+  "type": "Soreheim agricultural coordination faction",
+  "truth_layer": "direct_canon",
+  "summary": "Alliance-wide coordinators of communal food production, irrigation discipline, and harvest distribution across the Eternal Lands.",
+  "motive": "Maintain food stability, preserve productive land, and keep communal supply obligations met.",
+  "methods": [
+    "field quotas",
+    "irrigation coordination",
+    "seed and labor allocation",
+    "harvest festivals tied to contribution recognition"
+  ],
+  "geography": [
+    "Eternal Lands",
+    "Golden Horizon Fields",
+    "Harvest Circle",
+    "Sunspire Haven"
+  ],
+  "power_relations": [
+    "Answers upward to the Giant Council and regional leaders",
+    "Works alongside the Engineers’ Consortium and allocation logistics",
+    "Can pressure local settlements through ration and labor priorities"
+  ],
+  "current_pressure": [
+    "seasonal flooding",
+    "predator intrusion",
+    "water-system fragility",
+    "need to keep food moving into industrial zones"
+  ],
+  "visible_membership_base": "Farm stewards, irrigation crews, grain counters, storehouse officers, and communal field laborers.",
+  "civilian_contact_surface": [
+    "harvest levies",
+    "seed issuance",
+    "irrigation schedules",
+    "market surplus handling",
+    "festival provisioning"
+  ],
+  "current_tension_or_vulnerability": "High output expectations can turn communal planning into coercive pressure when weather or transport fails.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal",
+    "principalities"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "garren_stonecarve"
+  ],
+  "npc_interfaces": [
+    "garren_stonecarve"
+  ]
+}

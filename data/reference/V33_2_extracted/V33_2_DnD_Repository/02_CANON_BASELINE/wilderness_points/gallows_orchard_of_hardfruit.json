@@ -1,0 +1,20 @@
+{
+  "name": "Gallows Orchard Of Hardfruit",
+  "parent": "Northern Harbor Coast",
+  "summary": "An inland orchard where wind-hardened fruit grows on trees bent into execution-shape by old storms. Families picnic nearby anyway during hardness festivals.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Phoenix Island",
+  "travel_tags": [
+    "festival site",
+    "local dare",
+    "hidden meetings"
+  ]
+}

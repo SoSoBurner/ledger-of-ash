@@ -1,0 +1,20 @@
+{
+  "name": "Ember Spine Cut",
+  "parent": "Ash Conveyor Reach",
+  "summary": "A heat-scarred trench where unfinished rail and old slag channels meet. Production guilds fight quietly over who gets to call it infrastructure and who gets blamed when it erupts.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Soreheim Alliance",
+  "travel_tags": [
+    "ore access",
+    "guild sabotage",
+    "magma vents"
+  ]
+}

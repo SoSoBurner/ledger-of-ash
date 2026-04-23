@@ -1,0 +1,2006 @@
+[
+  {
+    "record_kind": "route",
+    "route_id": "amber_tides_river",
+    "from_locality_id": "amber_fountain_inn",
+    "to_locality_id": "fairhaven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat"
+    ],
+    "travel_tags_raw": [
+      "Visible authority, travel expectations, and hazard posture change along this route.",
+      "Route use binds local law, economy, and observance timing rather than existing as neutral transit."
+    ],
+    "travel_tags_keys": [
+      "visible_authority_travel_expectations_hazard_posture_change_along_this_route",
+      "route_use_binds_local_law_economy_observance_timing_rather_than_existing_as_neutral_transit"
+    ],
+    "hazard_tags_raw": [
+      "monsoons",
+      "storm sea interfaces"
+    ],
+    "hazard_tags_keys": [
+      "monsoons",
+      "storm_sea_interfaces"
+    ],
+    "route_note_raw": "Travel along Amber Tides River is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Amber Tides River",
+    "route_type_key": "river",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/amber_tides_river.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ashforge_citadel_ashwake_harbor_lane",
+    "from_locality_id": "ashforge_citadel",
+    "to_locality_id": "ashwake_port",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Ashforge Citadel along Ashwake harbor lane makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_ashforge_citadel_along_ashwake_harbor_lane_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Ashforge Citadel - Ashwake harbor lane is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Ashwake harbor lane",
+    "route_type_key": "water_route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ashforge_citadel_ashwake_harbor_lane.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ashforge_citadel_scarlet_descent_road",
+    "from_locality_id": "ashforge_citadel",
+    "to_locality_id": "ashforge_quarry",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Ashforge Citadel along Scarlet Descent road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_ashforge_citadel_along_scarlet_descent_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Ashforge Citadel - Scarlet Descent road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Scarlet Descent road",
+    "route_type_key": "road",
+    "distance_units": 3,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 3,
+      "horse": 2,
+      "cart": 3
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ashforge_citadel_scarlet_descent_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ashwake_harbor_lane",
+    "from_locality_id": "ash_wing_mosaic_way",
+    "to_locality_id": "ashwake_port",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "The lane narrows and expands with cooling windows, soot visibility, and public-way clearances around export and repair cycles."
+    ],
+    "travel_tags_keys": [
+      "lane_narrows_expands_cooling_windows_soot_visibility_public_way_clearances_around_export_repair_cycles"
+    ],
+    "hazard_tags_raw": [
+      "ash storms",
+      "cooling-window bottlenecks",
+      "south sea storm risk"
+    ],
+    "hazard_tags_keys": [
+      "ash_storms",
+      "cooling_window_bottlenecks",
+      "south_sea_storm_risk"
+    ],
+    "route_note_raw": "Travel along Ashwake Harbor Lane is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "ash-port trade lane",
+    "route_type_key": "lane",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ashwake_harbor_lane.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ashwake_port_ashforge_citadel_harbor_road",
+    "from_locality_id": "ashwake_port",
+    "to_locality_id": "ashforge_citadel",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Ashwake Port along Ashforge Citadel harbor road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_ashwake_port_along_ashforge_citadel_harbor_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Ashwake Port - Ashforge Citadel harbor road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Ashforge Citadel harbor road",
+    "route_type_key": "water_route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ashwake_port_ashforge_citadel_harbor_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "aurora_crown_commune_aurora_meadows_patrol_route",
+    "from_locality_id": "aurora_crown_commune",
+    "to_locality_id": "aurora_meadows_domeway",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Aurora Crown Commune along Aurora Meadows patrol route makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_aurora_crown_commune_along_aurora_meadows_patrol_route_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Aurora Crown Commune - Aurora Meadows patrol route is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Aurora Meadows patrol route",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/aurora_crown_commune_aurora_meadows_patrol_route.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "aurora_crown_commune_whitebridge_domeway",
+    "from_locality_id": "aurora_crown_commune",
+    "to_locality_id": "whitebridge_commune",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Aurora Crown Commune along Whitebridge domeway makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_aurora_crown_commune_along_whitebridge_domeway_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Aurora Crown Commune - Whitebridge domeway is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Whitebridge domeway",
+    "route_type_key": "domeway",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/aurora_crown_commune_whitebridge_domeway.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "cosmoria_brineland_harbor_ring",
+    "from_locality_id": "cosmoria",
+    "to_locality_id": "brineland",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Cosmoria along Brineland harbor ring makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_cosmoria_along_brineland_harbor_ring_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Cosmoria - Brineland harbor ring is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Brineland harbor ring",
+    "route_type_key": "water_route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/cosmoria_brineland_harbor_ring.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "fairhaven_shelkopolis_road",
+    "from_locality_id": "fairhaven",
+    "to_locality_id": "shelkopolis",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Fairhaven along Shelkopolis road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_fairhaven_along_shelkopolis_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Fairhaven - Shelkopolis road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Shelkopolis road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/fairhaven_shelkopolis_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "guildheart_hub_craftspire_workshop_corridor",
+    "from_locality_id": "guildheart_hub",
+    "to_locality_id": "craftspire",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Guildheart Hub along Craftspire workshop corridor makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_guildheart_hub_along_craftspire_workshop_corridor_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Guildheart Hub - Craftspire workshop corridor is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Craftspire workshop corridor",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/guildheart_hub_craftspire_workshop_corridor.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "guildheart_hub_unity_square_bargaining_road",
+    "from_locality_id": "guildheart_hub",
+    "to_locality_id": "unity_square",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Guildheart Hub along Unity Square bargaining road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_guildheart_hub_along_unity_square_bargaining_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Guildheart Hub - Unity Square bargaining road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Unity Square bargaining road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/guildheart_hub_unity_square_bargaining_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ironroot_crossing",
+    "from_locality_id": "iron_ledger_ward",
+    "to_locality_id": "ironroot_crossing",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Visible authority, travel expectations, and hazard posture change along this route.",
+      "Route use binds local law, economy, and observance timing rather than existing as neutral transit."
+    ],
+    "travel_tags_keys": [
+      "visible_authority_travel_expectations_hazard_posture_change_along_this_route",
+      "route_use_binds_local_law_economy_observance_timing_rather_than_existing_as_neutral_transit"
+    ],
+    "hazard_tags_raw": [
+      "industrial bottleneck",
+      "production priority conflicts"
+    ],
+    "hazard_tags_keys": [
+      "industrial_bottleneck",
+      "production_priority_conflicts"
+    ],
+    "route_note_raw": "Travel along Ironroot Crossing is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Ironroot Crossing",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ironroot_crossing.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ithtananalor_ironhold_quarry_road",
+    "from_locality_id": "ithtananalor",
+    "to_locality_id": "iron_ledger_ward",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Ithtananalor along Ironhold Quarry road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_ithtananalor_along_ironhold_quarry_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Ithtananalor - Ironhold Quarry road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Ironhold Quarry road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ithtananalor_ironhold_quarry_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "ithtananalor_silent_haven_convoy_lane",
+    "from_locality_id": "ithtananalor",
+    "to_locality_id": "silent_haven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Ithtananalor along Silent Haven convoy lane makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_ithtananalor_along_silent_haven_convoy_lane_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Ithtananalor - Silent Haven convoy lane is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Silent Haven convoy lane",
+    "route_type_key": "lane",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/ithtananalor_silent_haven_convoy_lane.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "panim_haven_sanctum_sands_memorial_road",
+    "from_locality_id": "panim_haven",
+    "to_locality_id": "veilbridge_sepulcher",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Panim Haven along Sanctum Sands memorial road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_panim_haven_along_sanctum_sands_memorial_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Panim Haven - Sanctum Sands memorial road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Sanctum Sands memorial road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/panim_haven_sanctum_sands_memorial_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_cosmouth_route_corridor_1",
+    "from_locality_id": "tideglass_registry",
+    "to_locality_id": "hullwake_foundry",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Cosmouth legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_cosmouth_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Cosmouth route corridor 1",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_cosmouth_route_corridor_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_cosmouth_route_corridor_2",
+    "from_locality_id": "tideglass_registry",
+    "to_locality_id": "hullwake_foundry",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Cosmouth legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_cosmouth_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Cosmouth route corridor 2",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_cosmouth_route_corridor_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_cosmouth_route_corridor_3",
+    "from_locality_id": "tideglass_registry",
+    "to_locality_id": "hullwake_foundry",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Cosmouth legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_cosmouth_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Cosmouth route corridor 3",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_cosmouth_route_corridor_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_mimolot_route_corridor_1",
+    "from_locality_id": "tariff_lantern_court",
+    "to_locality_id": "mimolot_academy",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Mimolot legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_mimolot_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Mimolot route corridor 1",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_mimolot_route_corridor_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_mimolot_route_corridor_2",
+    "from_locality_id": "tariff_lantern_court",
+    "to_locality_id": "mimolot_academy",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Mimolot legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_mimolot_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Mimolot route corridor 2",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_mimolot_route_corridor_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_mimolot_route_corridor_3",
+    "from_locality_id": "tariff_lantern_court",
+    "to_locality_id": "mimolot_academy",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Mimolot legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_mimolot_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Mimolot route corridor 3",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_mimolot_route_corridor_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_panim_route_corridor_1",
+    "from_locality_id": "veilbridge_sepulcher",
+    "to_locality_id": "panim_haven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Panim legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_panim_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Panim route corridor 1",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_panim_route_corridor_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_panim_route_corridor_2",
+    "from_locality_id": "veilbridge_sepulcher",
+    "to_locality_id": "panim_haven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Panim legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_panim_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Panim route corridor 2",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_panim_route_corridor_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_panim_route_corridor_3",
+    "from_locality_id": "veilbridge_sepulcher",
+    "to_locality_id": "panim_haven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Panim legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_panim_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Panim route corridor 3",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_panim_route_corridor_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_roaz_route_hardening_3",
+    "from_locality_id": "ironhold_quarry",
+    "to_locality_id": "silent_haven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Principality of Roaz route hardening 3 reveals Principality of Roaz through patrol logic, trust rules, and movement friction.",
+      "Declare purpose, destination, and patronage before suspicion matures."
+    ],
+    "travel_tags_keys": [
+      "principality_roaz_route_hardening_3_reveals_principality_roaz_through_patrol_logic_trust_rules_movement_friction",
+      "declare_purpose_destination_patronage_before_suspicion_matures"
+    ],
+    "hazard_tags_raw": [
+      "weather delay",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delay",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Paper helps, but clear sponsorship and coherent cargo matter just as much.",
+    "route_type_raw": "Principality of Roaz route hardening 3",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_roaz_route_hardening_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_shirsh_route_corridor_1",
+    "from_locality_id": "witness_coil",
+    "to_locality_id": "witness_coil",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Shirsh legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_shirsh_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Shirsh route corridor 1",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_shirsh_route_corridor_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_shirsh_route_corridor_2",
+    "from_locality_id": "witness_coil",
+    "to_locality_id": "witness_coil",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Shirsh legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_shirsh_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Shirsh route corridor 2",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_shirsh_route_corridor_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_shirsh_route_corridor_3",
+    "from_locality_id": "witness_coil",
+    "to_locality_id": "witness_coil",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Shirsh legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_shirsh_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Shirsh route corridor 3",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_shirsh_route_corridor_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_zootia_route_corridor_1",
+    "from_locality_id": "canal_thorn_exchange",
+    "to_locality_id": "serpent_measure",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Zootia legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_zootia_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Zootia route corridor 1",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_zootia_route_corridor_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_zootia_route_corridor_2",
+    "from_locality_id": "canal_thorn_exchange",
+    "to_locality_id": "serpent_measure",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Zootia legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_zootia_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Zootia route corridor 2",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_zootia_route_corridor_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principality_zootia_route_corridor_3",
+    "from_locality_id": "canal_thorn_exchange",
+    "to_locality_id": "serpent_measure",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes House Zootia legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_house_zootia_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "Principality of Zootia route corridor 3",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/principality_of_zootia_route_corridor_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "scarlet_descent_road",
+    "from_locality_id": "scarlet_descent_gate",
+    "to_locality_id": "scarlet_depths",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Traffic becomes procedural the closer one gets to the descent gate: charters, washdowns, gear checks, and return accounting take precedence over speed."
+    ],
+    "travel_tags_keys": [
+      "traffic_becomes_procedural_closer_one_gets_descent_gate_charters_washdowns_gear_checks_return_accounting_take_precedence_over_speed"
+    ],
+    "hazard_tags_raw": [
+      "lava venting",
+      "rockfall",
+      "charter raids"
+    ],
+    "hazard_tags_keys": [
+      "lava_venting",
+      "rockfall",
+      "charter_raids"
+    ],
+    "route_note_raw": "Travel along Scarlet Descent Road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "underworld access road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/scarlet_descent_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "shelkopolis_fairhaven_road",
+    "from_locality_id": "shelkopolis",
+    "to_locality_id": "fairhaven",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Shelkopolis along Fairhaven road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_shelkopolis_along_fairhaven_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Shelkopolis - Fairhaven road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Fairhaven road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/shelkopolis_fairhaven_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "shelkopolis_plumes_end_northern_road",
+    "from_locality_id": "shelkopolis_public_library",
+    "to_locality_id": "plumes_end_outpost",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Visible authority, travel expectations, and hazard posture change along this route.",
+      "Route use binds local law, economy, and observance timing rather than existing as neutral transit."
+    ],
+    "travel_tags_keys": [
+      "visible_authority_travel_expectations_hazard_posture_change_along_this_route",
+      "route_use_binds_local_law_economy_observance_timing_rather_than_existing_as_neutral_transit"
+    ],
+    "hazard_tags_raw": [
+      "northern road security",
+      "caravan disruption"
+    ],
+    "hazard_tags_keys": [
+      "northern_road_security",
+      "caravan_disruption"
+    ],
+    "route_note_raw": "Travel along Shelkopolis–Plume’s End Northern Road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Shelkopolis–Plume’s End Northern Road",
+    "route_type_key": "road",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/shelkopolis_plume_s_end_northern_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "sheresh_communes_route_hardening_3",
+    "from_locality_id": "aurora_crown_commune",
+    "to_locality_id": "whitebridge_commune",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Sheresh Communes route hardening 3 reveals Sheresh Communes through patrol logic, trust rules, and movement friction.",
+      "Declare purpose, destination, and patronage before suspicion matures."
+    ],
+    "travel_tags_keys": [
+      "sheresh_communes_route_hardening_3_reveals_sheresh_communes_through_patrol_logic_trust_rules_movement_friction",
+      "declare_purpose_destination_patronage_before_suspicion_matures"
+    ],
+    "hazard_tags_raw": [
+      "weather delay",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delay",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Paper helps, but clear sponsorship and coherent cargo matter just as much.",
+    "route_type_raw": "Sheresh Communes route hardening 3",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/sheresh_communes_route_hardening_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "shirshal_crystal_grove_route",
+    "from_locality_id": "shirshal",
+    "to_locality_id": "crystal_loom_emporium",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Shirshal along Crystal Grove route makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_shirshal_along_crystal_grove_route_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Shirshal - Crystal Grove route is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Crystal Grove route",
+    "route_type_key": "route",
+    "distance_units": 2,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 2,
+      "horse": 1,
+      "cart": 2
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/shirshal_crystal_grove_route.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "soreheim_proper_eternal_lands_freight_route",
+    "from_locality_id": "soreheim_proper",
+    "to_locality_id": "eternal_lands",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Soreheim Proper along Eternal Lands freight route makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_soreheim_proper_along_eternal_lands_freight_route_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Soreheim Proper - Eternal Lands freight route is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Eternal Lands freight route",
+    "route_type_key": "route",
+    "distance_units": 2,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 2,
+      "horse": 1,
+      "cart": 2
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/soreheim_proper_eternal_lands_freight_route.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "soreheim_proper_ironroot_crossing",
+    "from_locality_id": "soreheim_proper",
+    "to_locality_id": "ironroot_crossing",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Soreheim Proper along Ironroot Crossing makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_soreheim_proper_along_ironroot_crossing_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Soreheim Proper - Ironroot Crossing is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Ironroot Crossing",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/soreheim_proper_ironroot_crossing.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "sunspire_haven_harvest_circle_road",
+    "from_locality_id": "sunspire_haven",
+    "to_locality_id": "harvest_keep",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Sunspire Haven along Harvest Circle road makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_sunspire_haven_along_harvest_circle_road_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Sunspire Haven - Harvest Circle road is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Harvest Circle road",
+    "route_type_key": "road",
+    "distance_units": 4,
+    "travel_time_by_mode": {
+      "boat": 2,
+      "foot": 4,
+      "horse": 2,
+      "cart": 4
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/sunspire_haven_harvest_circle_road.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "sunspire_haven_ironroot_crossing_freight_lane",
+    "from_locality_id": "sunspire_haven",
+    "to_locality_id": "ironroot_crossing",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "Travel out of Sunspire Haven along Ironroot Crossing freight lane makes local power, escort custom, and risk tolerance immediately legible.",
+      "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment."
+    ],
+    "travel_tags_keys": [
+      "travel_out_sunspire_haven_along_ironroot_crossing_freight_lane_makes_local_power_escort_custom_risk_tolerance_immediately_legible",
+      "travelers_feel_a_change_who_watches_who_records_who_expects_payment_proof_or_ritual_acknowledgment"
+    ],
+    "hazard_tags_raw": [
+      "weather delays",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delays",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Travel along Sunspire Haven - Ironroot Crossing freight lane is easiest when intentions, cargo, and patronage are legible before questions begin.",
+    "route_type_raw": "Ironroot Crossing freight lane",
+    "route_type_key": "lane",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/sunspire_haven_ironroot_crossing_freight_lane.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principalities_route_hardening_1",
+    "from_locality_id": "banner_anchorage",
+    "to_locality_id": "housechain_court",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "The Principalities route hardening 1 reveals The Principalities through patrol logic, trust rules, and movement friction.",
+      "Declare purpose, destination, and patronage before suspicion matures."
+    ],
+    "travel_tags_keys": [
+      "principalities_route_hardening_1_reveals_principalities_through_patrol_logic_trust_rules_movement_friction",
+      "declare_purpose_destination_patronage_before_suspicion_matures"
+    ],
+    "hazard_tags_raw": [
+      "weather delay",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delay",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Paper helps, but clear sponsorship and coherent cargo matter just as much.",
+    "route_type_raw": "The Principalities route hardening 1",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/the_principalities_route_hardening_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principalities_route_hardening_2",
+    "from_locality_id": "banner_anchorage",
+    "to_locality_id": "housechain_court",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "The Principalities route hardening 2 reveals The Principalities through patrol logic, trust rules, and movement friction.",
+      "Declare purpose, destination, and patronage before suspicion matures."
+    ],
+    "travel_tags_keys": [
+      "principalities_route_hardening_2_reveals_principalities_through_patrol_logic_trust_rules_movement_friction",
+      "declare_purpose_destination_patronage_before_suspicion_matures"
+    ],
+    "hazard_tags_raw": [
+      "weather delay",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delay",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Paper helps, but clear sponsorship and coherent cargo matter just as much.",
+    "route_type_raw": "The Principalities route hardening 2",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/the_principalities_route_hardening_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "principalities_route_hardening_3",
+    "from_locality_id": "banner_anchorage",
+    "to_locality_id": "housechain_court",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "The Principalities route hardening 3 reveals The Principalities through patrol logic, trust rules, and movement friction.",
+      "Declare purpose, destination, and patronage before suspicion matures."
+    ],
+    "travel_tags_keys": [
+      "principalities_route_hardening_3_reveals_principalities_through_patrol_logic_trust_rules_movement_friction",
+      "declare_purpose_destination_patronage_before_suspicion_matures"
+    ],
+    "hazard_tags_raw": [
+      "weather delay",
+      "supply interruption",
+      "inspection backlog"
+    ],
+    "hazard_tags_keys": [
+      "weather_delay",
+      "supply_interruption",
+      "inspection_backlog"
+    ],
+    "route_note_raw": "Paper helps, but clear sponsorship and coherent cargo matter just as much.",
+    "route_type_raw": "The Principalities route hardening 3",
+    "route_type_key": "route",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_adjacency",
+    "assignment_confidence": "conservative_inference",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/the_principalities_route_hardening_3.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "union_route_corridor_1",
+    "from_locality_id": "craftspire",
+    "to_locality_id": "union_successor_heartland",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes The Union legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_union_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "The Union route corridor 1",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/the_union_route_corridor_1.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "union_route_corridor_2",
+    "from_locality_id": "craftspire",
+    "to_locality_id": "union_successor_heartland",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes The Union legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_union_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "The Union route corridor 2",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/the_union_route_corridor_2.json"
+  },
+  {
+    "record_kind": "route",
+    "route_id": "union_route_corridor_3",
+    "from_locality_id": "craftspire",
+    "to_locality_id": "union_successor_heartland",
+    "directionality": "bidirectional",
+    "allowed_travel_modes": [
+      "boat",
+      "foot",
+      "horse",
+      "cart"
+    ],
+    "travel_tags_raw": [
+      "This route makes The Union legible through its movement controls, trust signals, and visible logistics.",
+      "Travelers are expected to declare destination, relation, and practical purpose before tension rises."
+    ],
+    "travel_tags_keys": [
+      "this_route_makes_union_legible_through_its_movement_controls_trust_signals_visible_logistics",
+      "travelers_are_expected_declare_destination_relation_practical_purpose_before_tension_rises"
+    ],
+    "hazard_tags_raw": [
+      "flooding or weather delay",
+      "inspection surge",
+      "supply bottleneck"
+    ],
+    "hazard_tags_keys": [
+      "flooding_or_weather_delay",
+      "inspection_surge",
+      "supply_bottleneck"
+    ],
+    "route_note_raw": "Documents help, but recognizable sponsorship or useful clarity matters just as much.",
+    "route_type_raw": "The Union route corridor 3",
+    "route_type_key": "corridor",
+    "distance_units": 1,
+    "travel_time_by_mode": {
+      "boat": 1,
+      "foot": 1,
+      "horse": 1,
+      "cart": 1
+    },
+    "assignment_method": "route_packet_plus_spatial_distance",
+    "assignment_confidence": "direct",
+    "source_path": "03_LOCALITY_ENGINE/route_transition_packets/the_union_route_corridor_3.json"
+  }
+]

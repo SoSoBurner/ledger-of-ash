@@ -1,0 +1,105 @@
+{
+  "npc_id": "risha_veilthorn",
+  "canonical_name": "Risha Veilthorn",
+  "aliases": [
+    "the watch hand"
+  ],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Field Captain",
+  "profession_discipline": "Field Captain",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Shirsh",
+  "settlement": "Magi Magistratus",
+  "locality_scope": "Magi Magistratus",
+  "institutional_ties": [
+    "Magi Magistratus"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a field captain of regional weight.",
+  "linked_systems": {
+    "polities": [
+      "Shirsh"
+    ],
+    "localities": [
+      "Magi Magistratus"
+    ],
+    "institutions": [
+      "Magi Magistratus"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Shirsh, that reads as someone investigative, magically literate, and discreet, balancing inquiry with regulation, and the habits of a field captain still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of field captain in and around Magi Magistratus, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Magi Magistratus while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_0589",
+    "rel_0591",
+    "rel_0592",
+    "rel_1214"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Risha Veilthorn can draw the party into contraband, false papers, or a suspicious cargo problem tied to Magi Magistratus."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Risha Veilthorn may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "incident_response",
+      "summary": "Risha Veilthorn needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Magi Magistratus."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Risha Veilthorn needs help with a problem in Magi Magistratus that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "principalities"
+  ],
+  "compatibility_interface_id": "risha_veilthorn",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Uniform, posture, and the way others make room mark Risha Veilthorn as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "Magi Magistratus: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Risha Veilthorn presents as Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Shirsh, that reads as someone investigative, magically literate, and discreet, balancing inquiry with regulation, and the habits of a field captain still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Field Captain, and proof that strangers will not create avoidable noise in Principality of Shirsh.",
+  "what_they_refuse": "Risha Veilthorn refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Field Captain too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Risha Veilthorn can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Risha Veilthorn adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Risha Veilthorn is Recognized as a field captain of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Field Captain.",
+  "social_texture": "Risha Veilthorn speaks like someone who has spent too long translating private stakes into acceptable public language. Around Magi Magistratus, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Risha touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Risha Veilthorn when the party needs a socially grounded face for Magi Magistratus: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

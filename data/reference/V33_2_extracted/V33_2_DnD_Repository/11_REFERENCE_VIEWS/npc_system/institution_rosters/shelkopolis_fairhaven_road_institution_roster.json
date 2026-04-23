@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Shelkopolis–Fairhaven Road",
+  "record_count": 1,
+  "npc_ids": [
+    "aelric_sunweave"
+  ],
+  "records": [
+    {
+      "npc_id": "aelric_sunweave",
+      "canonical_name": "Aelric Sunweave",
+      "polity": "Shelk",
+      "office_or_role": "Toll Witness",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as toll witness.",
+      "current_agenda": "Keep Shelkopolis–Fairhaven Road workable through the obligations of toll witness while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Shelkopolis–Fairhaven Road is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

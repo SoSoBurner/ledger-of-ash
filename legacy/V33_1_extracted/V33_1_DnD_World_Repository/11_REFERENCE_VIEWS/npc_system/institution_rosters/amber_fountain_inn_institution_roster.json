@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Amber Fountain Inn",
+  "record_count": 2,
+  "npc_ids": [
+    "arin_vale",
+    "pela_vale"
+  ],
+  "records": [
+    {
+      "npc_id": "arin_vale",
+      "canonical_name": "Arin Vale",
+      "polity": "Transpolity",
+      "office_or_role": "Assistant Curator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as assistant curator.",
+      "current_agenda": "Keep Amber Fountain Inn workable through the obligations of assistant curator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "pela_vale",
+      "canonical_name": "Pela Vale",
+      "polity": "Transpolity",
+      "office_or_role": "Door Warden",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as door warden.",
+      "current_agenda": "Keep Amber Fountain Inn workable through the obligations of door warden while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Warm inn for traders and scholars with practical welcome and local custom pressure.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

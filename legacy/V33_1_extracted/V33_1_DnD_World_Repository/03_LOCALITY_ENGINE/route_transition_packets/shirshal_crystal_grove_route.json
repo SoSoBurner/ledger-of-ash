@@ -1,0 +1,33 @@
+{
+  "name": "Shirshal - Crystal Grove route",
+  "from_locality": "Shirshal",
+  "route_name": "Crystal Grove route",
+  "truth_layer": "conservative_inference",
+  "transition_feel": "Travel out of Shirshal along Crystal Grove route makes local power, escort custom, and risk tolerance immediately legible.",
+  "handoff_custom": "Travelers feel a change in who watches, who records, and who expects payment, proof, or ritual acknowledgment.",
+  "sources": [
+    "spatial_seasonal",
+    "principalities",
+    "soreheim_review",
+    "internal_canonical_record"
+  ],
+  "paperwork_and_permission_model": "Travel along Shirshal - Crystal Grove route is easiest when intentions, cargo, and patronage are legible before questions begin.",
+  "patrol_rhythm": "Daylight oversight is visible and procedural; night oversight is thinner, more suspicious, and less forgiving.",
+  "seasonal_failure_modes": [
+    "weather delays",
+    "supply interruption",
+    "inspection backlog"
+  ],
+  "safe_stop_chain": [
+    "licensed waystop",
+    "watchful market halt",
+    "trusted household or shrine refuge"
+  ],
+  "inspection_triggers": [
+    "undeclared cargo",
+    "mismatched story",
+    "unfamiliar escort pattern",
+    "night movement without context"
+  ],
+  "after_dark_change": "After sunset, traffic thins, trust narrows, and informal power brokers matter more than posted rules."
+}

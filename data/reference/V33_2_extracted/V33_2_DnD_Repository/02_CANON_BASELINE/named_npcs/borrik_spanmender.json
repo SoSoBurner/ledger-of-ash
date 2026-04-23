@@ -1,0 +1,80 @@
+{
+  "npc_id": "borrik_spanmender",
+  "canonical_name": "Borrik Spanmender",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Artificers",
+  "profession_discipline": "Artificers",
+  "grouping": "Support & Leadership",
+  "polity": "Soreheim Alliance",
+  "settlement": "Sparkforge Depot",
+  "locality_scope": "Sparkforge Depot, Soreheim",
+  "institutional_ties": [],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Allocation-ranked tinkerer keeping lift chains, bellworks, and furnace braces alive past sane lifespan.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Sparkforge Depot, Soreheim"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a artificers still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of artificers in and around Sparkforge Depot, Soreheim, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Sparkforge Depot, Soreheim workable through the obligations of artificers while managing the immediate pressure of resource depletion in Soreheim Alliance.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Sparkforge Depot, Soreheim, that usually means carrying resource depletion, sabotage, predatory frontier ecology without letting the role of artificers visibly slip.",
+  "relationship_refs": [
+    "rel_1303"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "system_failure",
+      "summary": "Borrik Spanmender needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Sparkforge Depot, Soreheim."
+    },
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Borrik Spanmender can draw the party into crew discipline, resource shortage, or blame transfer around Sparkforge Depot, Soreheim."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Borrik Spanmender visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Sparkforge Depot, Soreheim: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Borrik Spanmender presents as Thinks in wear, strain, and bottlenecks, treating neglect as a slow-moving threat. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a artificers still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Artificers, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Borrik Spanmender refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Artificers too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Borrik Spanmender can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Borrik Spanmender adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Borrik Spanmender is Allocation-ranked tinkerer keeping lift chains, bellworks, and furnace braces alive past sane lifespan. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Artificers."
+}

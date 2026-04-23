@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "heatward safety circles",
+  "record_count": 1,
+  "npc_ids": [
+    "oryk_sarnok"
+  ],
+  "records": [
+    {
+      "npc_id": "oryk_sarnok",
+      "canonical_name": "Oryk Sarnok",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Public safety steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as public safety steward.",
+      "current_agenda": "Keep Duneshade Outpost workable through the obligations of public safety steward while managing the immediate pressure of water scarcity in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "heatward safety circles is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

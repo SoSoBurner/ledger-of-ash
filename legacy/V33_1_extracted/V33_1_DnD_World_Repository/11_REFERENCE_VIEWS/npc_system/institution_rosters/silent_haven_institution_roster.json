@@ -1,0 +1,44 @@
+{
+  "build_version": "V33_1",
+  "institution": "Silent Haven",
+  "record_count": 2,
+  "npc_ids": [
+    "helm_steelmarch",
+    "talia_stonewake"
+  ],
+  "records": [
+    {
+      "npc_id": "helm_steelmarch",
+      "canonical_name": "Helm Steelmarch",
+      "polity": "Roaz",
+      "office_or_role": "Market Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as market broker.",
+      "current_agenda": "Keep Silent Haven workable through the obligations of market broker while managing the immediate pressure of sea threat in Roaz."
+    },
+    {
+      "npc_id": "talia_stonewake",
+      "canonical_name": "Talia Stonewake",
+      "polity": "Roaz",
+      "office_or_role": "Night-Lantern Inspector",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as night-lantern inspector.",
+      "current_agenda": "Keep Silent Haven workable through the obligations of night-lantern inspector while managing the immediate pressure of sea threat in Roaz."
+    }
+  ],
+  "roster_context": {
+    "identity": "Remote Roazian coastal refuge and naval defense node where antimagic caution and quiet discipline are palpable.",
+    "visible_power": [
+      "Roazian enforcers"
+    ],
+    "pressure": [
+      "sea threat",
+      "northern route vulnerability"
+    ]
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "npc_id": "nestra_quillfire",
+  "canonical_name": "Nestra Quillfire",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Independent Operator",
+  "profession_discipline": "Independent Operator",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Mimolot",
+  "settlement": "Tariff Lantern Court",
+  "locality_scope": "Tariff Lantern Court",
+  "institutional_ties": [
+    "Tariff Lantern Court"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Tariff Lantern Court through day-to-day work as independent operator.",
+  "linked_systems": {
+    "polities": [
+      "House Mimolot"
+    ],
+    "localities": [
+      "Tariff Lantern Court"
+    ],
+    "institutions": [
+      "Tariff Lantern Court"
+    ],
+    "factions": []
+  },
+  "appearance": "Nestra Quillfire carries the marks of independent operator in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Keeps motives partly hidden and options open, presenting usefulness before allegiance. In Tariff Lantern Court, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of independent operator in and around Tariff Lantern Court, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Tariff Lantern Court while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Nestra Quillfire can draw the party into a locality problem centered on independent operator duties in Tariff Lantern Court."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Nestra Quillfire becomes useful when the party needs grounded help with tariff abuse, smuggling of notes around Tariff Lantern Court."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "tariff_lantern_court"
+  ],
+  "compatibility_interface_id": "nestra_quillfire",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Nestra Quillfire is immediately readable as a independent operator tied to Tariff Lantern Court.",
+  "encounter_context": {
+    "usual_environment": "Tariff Lantern Court: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "independent operator"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Nestra Quillfire presents as someone shaped by the duties of a independent operator and the daily pressures of Tariff Lantern Court.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a independent operator, and proof that strangers will not make Tariff Lantern Court harder to manage.",
+  "what_they_refuse": "Nestra Quillfire refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a independent operator too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can offer unconventional help, side routes, or deniable connections.",
+  "escalation_if_crossed": "If crossed, Nestra Quillfire adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Nestra Quillfire always knows more about Tariff Lantern Court than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a independent operator in Tariff Lantern Court.",
+  "social_texture": "Nestra Quillfire speaks like someone who has spent too long translating private stakes into acceptable public language. Around Tariff Lantern Court, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Nestra touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Nestra Quillfire when the party needs a socially grounded face for Tariff Lantern Court: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

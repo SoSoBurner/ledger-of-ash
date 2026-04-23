@@ -1,0 +1,247 @@
+{
+  "npc_id": "thora_starice",
+  "canonical_name": "Thora Starice",
+  "build_version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "source_truth_status": "conservative_inference",
+  "evidence_tier": "source_backed_inference",
+  "dossier_layering": {
+    "canon_public": "Grounded directly in baseline NPC record plus linked polity/institution/locality support where available.",
+    "gm_hidden": "Conservative connective tissue derived from agenda, pressure, role logic, and relationship web; not promoted above asserted canon."
+  },
+  "core_identity": {
+    "full_name": "Thora Starice",
+    "aliases_titles_epithets": [],
+    "pronouns": "Not explicitly stated in canon.",
+    "apparent_age": "Not explicitly stated in canon.",
+    "actual_age": "Not explicitly stated in canon.",
+    "species_ancestry_nature": "Not explicitly stated in canon.",
+    "public_identity": "Stable Factor",
+    "hidden_identity": "None explicitly asserted; hidden layer concerns pressure, leverage, and misread motive rather than a confirmed second identity.",
+    "moral_tier": "Complicated / Conflicted",
+    "ethical_profile": "Role-shaped ethics anchored to place, obligation, and consequence rather than free-floating abstraction.",
+    "general_temperament": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a stable factor still shape how they handle timing, silence, and attention.",
+    "short_npc_pitch": "Thora Starice is a stable factor anchored to Whitebridge Commune, where daily institutional pressures make them useful, risky, or both in play.",
+    "public_role": "Thora Starice is a stable factor anchored to Whitebridge Commune, where daily institutional pressures make them useful, "
+  },
+  "setting_placement": {
+    "region": "Sheresh Communes",
+    "polity_state_faction": "Sheresh Communes",
+    "settlement_site_base_of_operations": "Whitebridge Commune",
+    "location_setting": "On approach, Whitebridge Commune reads as Bridgeworks, signal braziers, and snow-buried storage ribs frame the settlement Inside, it tends toward Shelter halls, crossing registries, and dispute tables are more important than ornament Its standing pressure comes from bridge icing, refugee surges, missing expeditions.",
+    "public_role": "Stable Factor",
+    "institutional_ties": [
+      "Whitebridge Commune"
+    ],
+    "formal_rank_social_standing": "not_explicitly_stated",
+    "sphere_of_influence": "grassroots",
+    "network_function": [
+      "access or throughput control"
+    ],
+    "who_they_answer_to": [
+      "the procedural demands of Whitebridge Commune"
+    ],
+    "who_answers_to_them": [
+      "Arbiter Nyra Thawmark, Aster Starice"
+    ],
+    "who_rivals_them": [],
+    "who_depends_on_them": [
+      "Arbiter Nyra Thawmark (Both tied to Whitebridge Commune.)",
+      "Aster Starice (Both tied to Whitebridge Commune.)",
+      "Thora Snowveil (Both tied to Whitebridge Commune.)"
+    ],
+    "who_they_secretly_depend_on": [
+      "Aster Starice (Shared surname Starice.)",
+      "Kelm Starice (Shared surname Starice.)",
+      "Rime Starice (Shared surname Starice.)",
+      "Talin Starice (Shared surname Starice.)"
+    ]
+  },
+  "public_vs_private": {
+    "public_face": "Known locally through day-to-day work as stable factor. Textiles, tokens, tally habits, and practiced bargaining poise make Thora Starice read as someone who lives by exchange and reputation. In Whitebridge Commune, this lands inside a public field already shaped by Route Warden Compacts, Loss Ledger Circles.",
+    "common_first_impression": "Thora Starice presents as Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a stable factor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+    "visible_virtues": [
+      "competence under pressure",
+      "place literacy",
+      "readable usefulness"
+    ],
+    "visible_flaws": [
+      "protective of role",
+      "selective with trust",
+      "can widen small matters through procedure"
+    ],
+    "public_symbols": [
+      "Textiles, tokens, tally habits, and practiced bargaining poise make Thora Starice read as someone who lives by exchange and reputation. In Whitebridge Commune, this lands inside a public field already shaped by Route Warden Compacts, Loss Ledger Circles."
+    ],
+    "private_truth": "Keep Whitebridge Commune workable through the obligations of stable factor while managing the immediate pressure of bridge icing in Sheresh Communes. Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Whitebridge Commune, that usually means carrying bridge icing, refugee surges, missing expeditions without letting the role of stable factor visibly slip.",
+    "what_they_hide": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Whitebridge Commune, that usually means carrying bridge icing, refugee surges, missing expeditions without letting the role of stable factor visibly slip.",
+    "what_they_fear_being_known_for": "The degree to which their usefulness depends on strain staying barely manageable.",
+    "what_they_are_wrong_about": "They may overestimate how much control role and procedure can preserve once pressure crosses a threshold.",
+    "what_they_refuse_to_admit_to_themselves": "That some of their identity is now fused to crisis-management rather than to the clean ideal of the role."
+  },
+  "psychology": {
+    "what_they_want_most": "Useful clarity, respect for Stable Factor, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+    "what_they_are_trying_to_protect_or_avoid": "Keep Whitebridge Commune workable through the obligations of stable factor while managing the immediate pressure of bridge icing in Sheresh Communes.",
+    "emotional_drive": "Beneath the role sits a need for local leverage, legibility, and a world that does not collapse into preventable noise.",
+    "core_wound": "No singular foundational trauma is directly asserted in canon; the usable wound layer is role-shaped wear, exposure, and the cost of being the person who must notice first or answer last.",
+    "how_it_shaped_them": "It turned ordinary duty into a personality contour: they scan for failure early, trust slowly, and measure strangers by downstream cost.",
+    "guiding_belief": "If the system is kept legible, losses can still be bounded.",
+    "hidden_belief": "Someone always pays for confusion; better it be controlled sooner than wider later.",
+    "lie_they_tell_themselves": "That they are only doing the job and that the job has not already begun shaping what they are.",
+    "truth_they_are_avoiding": "Their daily choices influence culture, fear, and legitimacy far beyond the narrow wording of the role.",
+    "thresholds": {
+      "anger": "being forced to absorb avoidable disorder",
+      "fear": "cascading failure that makes role performance meaningless",
+      "power": "clear information, recognized standing, and procedural initiative",
+      "smallness": "being bypassed, misfiled, or rendered decorative",
+      "softens": "useful honesty and disciplined cooperation",
+      "hardens": "evasiveness, disrespect, and reputational risk"
+    }
+  },
+  "morality_in_practice": {
+    "how_they_justify_actions": "By reference to burden, continuity, and the need to keep the surrounding place from slipping into a harder consequence tier.",
+    "what_they_consider_unforgivable": "Willful sabotage of trust, records, access, or public safety tied to their role.",
+    "what_they_will_absolutely_do": "Delay, question, redirect, document, and escalate when place logic demands it.",
+    "what_they_will_only_do_under_pressure": "Leverage reputation, force, secrecy, or rigid procedure in ways that damage future trust.",
+    "what_they_will_never_do": "Act against corpus-confirmed identity or role logic without a visible pressure bridge.",
+    "relationship_to_good_evil": "Operational read: Complicated / Conflicted. Their danger lies less in theatrical evil than in what happens when role logic outruns compassion, nuance, or proportionality."
+  },
+  "power_profile": {
+    "why_they_matter": "Thora Starice can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+    "why_hard_to_ignore": "By enforcing Stable Factor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+    "primary_source_of_power": "trade_actor",
+    "secondary_source_of_power": "local familiarity, institutional memory, and other people needing something from them",
+    "why_difficult_to_confront_directly": "Confronting them usually means confronting place rules, witnesses, and downstream consequences rather than only the individual body in front of you.",
+    "capabilities": {
+      "magic": "Not explicitly stated unless separately asserted elsewhere in corpus.",
+      "combat": "Role-dependent; implied only to the degree their office already carries enforcement, survival, or defensive expectation.",
+      "social": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a stable factor still shape how they handle timing, silence, and attention.",
+      "strategic_administrative": "Performs the ongoing duties of stable factor in and around Whitebridge Commune, where the role has practical consequences even when nothing dramatic is happening.",
+      "logistical_economic": "Keep Whitebridge Commune workable through the obligations of stable factor while managing the immediate pressure of bridge icing in Sheresh Communes.",
+      "investigative_covert": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Whitebridge Commune, that usually means carrying bridge icing, refugee surges, missing expeditions without letting the role of stable factor visibly slip."
+    },
+    "signature_methods": {
+      "how_they_typically_win": "By controlling tempo, framing the problem first, and forcing others to deal with the local reality they represent.",
+      "favorite_tool": "position, knowledge, and place-specific leverage",
+      "how_they_escalate": "If crossed, Thora Starice adds delay, scrutiny, and reputational drag before direct punishment.",
+      "when_cornered": "They narrow options, call on procedure or allies, and try to move the conflict onto terrain they understand better than the intruder."
+    }
+  },
+  "systems_impact": {
+    "direct_controls": [
+      "Whitebridge Commune"
+    ],
+    "indirect_effects": [
+      "Whitebridge Commune",
+      "Sheresh Communes"
+    ],
+    "cultural_effect": "Ordinary people around Whitebridge Commune learn to speak, wait, disclose, or hide differently depending on whether Thora Starice or people like them are part of the scene."
+  },
+  "society_politics_geopolitics": {
+    "ordinary_people_experience": "Common folk experience Thora Starice as a point where broader pressures become personal: papers checked, routes delayed, rites clarified, access granted, warnings issued, or burdens redirected.",
+    "cultural_wound_or_benefit": "They leave behind either increased legibility and trust or accumulated caution and narrowed speech.",
+    "secondary_behaviors": "People rehearse their story before approaching; they gather proof early; they watch who is seen speaking with this NPC.",
+    "factions_gain": [
+      "Whitebridge Commune"
+    ],
+    "factions_fear": [
+      "actors who benefit from vagueness, delay, leakage, or unmanaged pressure"
+    ],
+    "governance_shift": "At table scale, this NPC shifts how authority feels inside Whitebridge Commune: more navigable if cooperative, more costly if crossed.",
+    "geopolitical_effect": "Small incidents around Thora Starice can propagate upward through Sheresh Communes if they touch routes, records, trade, ritual legitimacy, or public order."
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0894",
+      "other_npc_id": "arbiter_nyra_thawmark",
+      "other_name": "Arbiter Nyra Thawmark",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Whitebridge Commune."
+    },
+    {
+      "relationship_id": "rel_0405",
+      "other_npc_id": "aster_starice",
+      "other_name": "Aster Starice",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Starice."
+    },
+    {
+      "relationship_id": "rel_0896",
+      "other_npc_id": "aster_starice",
+      "other_name": "Aster Starice",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Whitebridge Commune."
+    },
+    {
+      "relationship_id": "rel_0406",
+      "other_npc_id": "kelm_starice",
+      "other_name": "Kelm Starice",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Starice."
+    },
+    {
+      "relationship_id": "rel_0408",
+      "other_npc_id": "rime_starice",
+      "other_name": "Rime Starice",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Starice."
+    },
+    {
+      "relationship_id": "rel_0407",
+      "other_npc_id": "talin_starice",
+      "other_name": "Talin Starice",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Starice."
+    },
+    {
+      "relationship_id": "rel_0897",
+      "other_npc_id": "thora_snowveil",
+      "other_name": "Thora Snowveil",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Whitebridge Commune."
+    }
+  ],
+  "hooks": [
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Thora Starice needs help protecting a shipment, recovering leverage, or stabilizing exchange around Whitebridge Commune before trust collapses."
+    },
+    {
+      "hook_type": "contract_complication",
+      "summary": "Thora Starice can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    }
+  ],
+  "encounter_context": {
+    "usual_environment": "Whitebridge Commune: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Stable Factor.",
+  "rumor": "People say Thora Starice is Known locally through day-to-day work as stable factor. and rarely acts without a second motive.",
+  "provenance": {
+    "source_object_ids": [
+      "calendars_world",
+      "spatial_seasonal"
+    ],
+    "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+    "transformation_note": "Dossier generated from existing named NPC architecture plus locally-linked support texts; unsupported hard biography intentionally withheld.",
+    "derivation_label": "source_backed_conservative_inference",
+    "derivation_tier": "repository_synthesis"
+  }
+}

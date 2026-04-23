@@ -1,0 +1,37 @@
+{
+  "build_version": "V33_1",
+  "institution": "Great House Citadel Circle",
+  "record_count": 2,
+  "npc_ids": [
+    "ashra_cindercrest",
+    "rhaz_ashvein"
+  ],
+  "records": [
+    {
+      "npc_id": "ashra_cindercrest",
+      "canonical_name": "Ashra Cindercrest",
+      "polity": "Psanan",
+      "office_or_role": "Operations Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as operations steward.",
+      "current_agenda": "Keep Great House Citadel Circle workable through the obligations of operations steward while managing the immediate pressure of eruption risk in Psanan."
+    },
+    {
+      "npc_id": "rhaz_ashvein",
+      "canonical_name": "Rhaz Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Recruiter",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as recruiter.",
+      "current_agenda": "Keep Great House Citadel Circle workable through the obligations of recruiter while managing the immediate pressure of eruption risk in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "The public institutional ring through which Psanan’s Great Houses negotiate precedence, obligation, and production.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

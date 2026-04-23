@@ -1,0 +1,14 @@
+{
+  "name": "Fairhaven",
+  "visible_power": [
+    "local clergy",
+    "market elders",
+    "crafters linked to Shelkopolis"
+  ],
+  "law_context": [
+    "standard Shelk road and market law; increased concern for dangerous magic and public safety near glyph anomalies"
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

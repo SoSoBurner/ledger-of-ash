@@ -1,0 +1,18 @@
+{
+  "name": "Emberforge Outpost",
+  "approach": "Functional depot architecture with military-resupply emphasis.",
+  "truth_layer": "direct_canon",
+  "hierarchy": {
+    "polity": "Principality of Shelk",
+    "territory": "House Shelk",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Roadwarden service outpost focused on repairs, barracks life, and patrol support.",
+    "Roadwarden patrol leaders",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

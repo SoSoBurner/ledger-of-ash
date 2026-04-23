@@ -1,0 +1,92 @@
+{
+  "npc_id": "tharim_coalforge",
+  "canonical_name": "Tharim Coalforge",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Regional production boss",
+  "profession_discipline": "Regional production boss",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Ashforge Quarry",
+  "locality_scope": "Ashforge Quarry",
+  "institutional_ties": [
+    "Ashforge Quarry",
+    "Eternal Lands armament lanes"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as regional production boss.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Ashforge Quarry"
+    ],
+    "institutions": [
+      "Ashforge Quarry",
+      "Eternal Lands armament lanes"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a regional production boss still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of regional production boss in and around Ashforge Quarry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ashforge Quarry workable through the obligations of regional production boss while managing the immediate pressure of predators in Soreheim Alliance.",
+  "hidden_pressure": "Must absorb delayed maintenance, thin staffing, and practical strain before failure becomes public. Around Ashforge Quarry, that usually means carrying predators, avalanches, geothermal bursts without letting the role of regional production boss visibly slip.",
+  "relationship_refs": [
+    "rel_0979",
+    "rel_0984",
+    "rel_0988",
+    "rel_0991",
+    "rel_0993",
+    "rel_0995"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Tharim Coalforge can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    },
+    {
+      "hook_type": "system_failure",
+      "summary": "Tharim Coalforge needs outside help before wear, sabotage, or bottleneck pressure turns into a public failure in Ashforge Quarry."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "tharim_coalforge",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Tharim Coalforge visibly responsible for keeping something larger from failing. In Ashforge Quarry, this lands inside a public field already shaped by Hill Giant foremen, industrial clans.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Quarry: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Tharim Coalforge presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a regional production boss still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Regional production boss, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Tharim Coalforge refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Regional production boss too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Tharim Coalforge can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Tharim Coalforge adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Tharim Coalforge is Known locally through day-to-day work as regional production boss. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Regional production boss.",
+  "build_version": "V33_1"
+}

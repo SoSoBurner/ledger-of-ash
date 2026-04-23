@@ -1,0 +1,93 @@
+{
+  "npc_id": "kest_field",
+  "canonical_name": "Kest Field",
+  "aliases": [
+    "the scout"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "pathing_actor",
+  "office_or_role": "Watch Scout",
+  "profession_discipline": "Watch Scout",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Frozen Sentinel Pillars",
+  "locality_scope": "Frozen Sentinel Pillars",
+  "institutional_ties": [
+    "Frozen Sentinel Pillars"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as watch scout.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Frozen Sentinel Pillars"
+    ],
+    "institutions": [
+      "Frozen Sentinel Pillars"
+    ],
+    "factions": []
+  },
+  "appearance": "Kest Field usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their watch scout status legible before introductions begin.",
+  "manner": "Keeps attention split between conversation and the next necessary movement. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a watch scout still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of watch scout in and around Frozen Sentinel Pillars, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Frozen Sentinel Pillars workable through the obligations of watch scout while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep timing, safety, and route credibility aligned when any disruption threatens all three. Around Frozen Sentinel Pillars, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of watch scout visibly slip.",
+  "relationship_refs": [
+    "rel_0855",
+    "rel_0863",
+    "rel_0864",
+    "rel_0865",
+    "rel_0866",
+    "rel_0867",
+    "rel_0868",
+    "rel_0869"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "route_problem",
+      "summary": "Kest Field needs help reading a blocked path, escorting traffic, or reopening safe movement through Frozen Sentinel Pillars."
+    },
+    {
+      "hook_type": "travel_complication",
+      "summary": "Kest Field can pull the party into chokepoints, timing failures, or rival claims over how movement should happen."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "kest_field",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Travel kit, route marks, and timing-focused movement signal that Kest Field lives by roads, passages, or convoy rhythm.",
+  "encounter_context": {
+    "usual_environment": "Frozen Sentinel Pillars: roads, caravan nodes, docks, ferries, route desks, or loading seams",
+    "who_seeks_them_out": [
+      "travelers",
+      "couriers",
+      "anyone trying to move safely"
+    ],
+    "who_avoids_them": [
+      "bandits",
+      "late payers",
+      "those who do not respect route discipline"
+    ],
+    "interaction_anchor": "movement, timing, and passage management"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Kest Field presents as Keeps attention split between conversation and the next necessary movement. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a watch scout still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Watch Scout, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Kest Field refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Watch Scout too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kest Field can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kest Field adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kest Field is Known locally through day-to-day work as watch scout. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Watch Scout."
+}

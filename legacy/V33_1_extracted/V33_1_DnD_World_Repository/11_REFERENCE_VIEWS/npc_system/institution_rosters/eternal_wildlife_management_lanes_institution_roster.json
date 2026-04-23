@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Eternal wildlife management lanes",
+  "record_count": 1,
+  "npc_ids": [
+    "malven_torsk"
+  ],
+  "records": [
+    {
+      "npc_id": "malven_torsk",
+      "canonical_name": "Malven Torsk",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Phosphorescent creature handling steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as phosphorescent creature handling steward.",
+      "current_agenda": "Keep Embervale Settlement workable through the obligations of phosphorescent creature handling steward while managing the immediate pressure of overcrowding in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Eternal wildlife management lanes is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

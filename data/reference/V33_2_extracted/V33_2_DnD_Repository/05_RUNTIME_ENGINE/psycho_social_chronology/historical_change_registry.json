@@ -1,0 +1,411 @@
+{
+  "release": "V33_1_DnD_World_Repository",
+  "entry_count": 15,
+  "entries": [
+    {
+      "change_id": "cosmouth_long_pressure_transition",
+      "polity": "Cosmouth",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Cosmouth emerges from repeated pressure transfer between 6 elite/dynastic actors, 2 institutional actors, and 6 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Cosmouth modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "mimolot_long_pressure_transition",
+      "polity": "Mimolot",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Mimolot emerges from repeated pressure transfer between 6 elite/dynastic actors, 3 institutional actors, and 2 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Mimolot modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "nomdara_caravan_long_pressure_transition",
+      "polity": "Nomdara Caravan",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Nomdara Caravan emerges from repeated pressure transfer between 1 elite/dynastic actors, 0 institutional actors, and 0 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Nomdara Caravan modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "panim_long_pressure_transition",
+      "polity": "Panim",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Panim emerges from repeated pressure transfer between 5 elite/dynastic actors, 1 institutional actors, and 3 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Panim modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "principalities_long_pressure_transition",
+      "polity": "Principalities",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Principalities emerges from repeated pressure transfer between 7 elite/dynastic actors, 2 institutional actors, and 0 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Principalities modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "psanan_long_pressure_transition",
+      "polity": "Psanan",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Psanan emerges from repeated pressure transfer between 1 elite/dynastic actors, 2 institutional actors, and 4 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Psanan modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "roaz_long_pressure_transition",
+      "polity": "Roaz",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Roaz emerges from repeated pressure transfer between 4 elite/dynastic actors, 9 institutional actors, and 6 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Roaz modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "shelk_long_pressure_transition",
+      "polity": "Shelk",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Shelk emerges from repeated pressure transfer between 15 elite/dynastic actors, 5 institutional actors, and 9 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Shelk modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "sheresh_communes_long_pressure_transition",
+      "polity": "Sheresh Communes",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Sheresh Communes emerges from repeated pressure transfer between 2 elite/dynastic actors, 5 institutional actors, and 1 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Sheresh Communes modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "shirsh_long_pressure_transition",
+      "polity": "Shirsh",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Shirsh emerges from repeated pressure transfer between 5 elite/dynastic actors, 3 institutional actors, and 9 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Shirsh modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "soreheim_alliance_long_pressure_transition",
+      "polity": "Soreheim Alliance",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Soreheim Alliance emerges from repeated pressure transfer between 7 elite/dynastic actors, 7 institutional actors, and 6 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Soreheim Alliance modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "the_principalities_long_pressure_transition",
+      "polity": "The Principalities",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of The Principalities emerges from repeated pressure transfer between 2 elite/dynastic actors, 1 institutional actors, and 10 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use The Principalities modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "the_union_long_pressure_transition",
+      "polity": "The Union",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of The Union emerges from repeated pressure transfer between 8 elite/dynastic actors, 4 institutional actors, and 6 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use The Union modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "transpolity_long_pressure_transition",
+      "polity": "Transpolity",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Transpolity emerges from repeated pressure transfer between 1 elite/dynastic actors, 11 institutional actors, and 0 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Transpolity modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    },
+    {
+      "change_id": "zootia_long_pressure_transition",
+      "polity": "Zootia",
+      "truth_layer": "additive_explanatory_support",
+      "promotion_status": "unpromoted_append_only",
+      "origin_scale": "person_to_institution",
+      "affected_scales": [
+        "relationship",
+        "community",
+        "institution",
+        "polity"
+      ],
+      "domains": [
+        "social",
+        "economic",
+        "political"
+      ],
+      "historical_thesis": "The modern state of Zootia emerges from repeated pressure transfer between 8 elite/dynastic actors, 2 institutional actors, and 0 working or local-service actors.",
+      "likely_repeating_mechanisms": [
+        "status converts private preference into durable procedure",
+        "wealth cushions some actors while exposing others to debt, delay, and coercive compromise",
+        "memory, rumor, and records preserve unequal versions of the same event",
+        "local routines harden into institutional expectations when repeated across generations"
+      ],
+      "modern_canon_result": "Use Zootia modern canon as the visible residue of accumulated choices, not a static given.",
+      "validation_note": "Do not treat as a replacement historical timeline. Use as explanatory scaffolding."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "build_version": "V33_1",
+  "institution": "Union Trade Arbitration Guild",
+  "record_count": 2,
+  "npc_ids": [
+    "porter_brokerwell",
+    "renn_tinmarch"
+  ],
+  "records": [
+    {
+      "npc_id": "porter_brokerwell",
+      "canonical_name": "Porter Brokerwell",
+      "polity": "The Union",
+      "office_or_role": "Quota Scribe",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quota scribe.",
+      "current_agenda": "Keep Union Trade Arbitration Guild workable through the obligations of quota scribe while managing the immediate pressure of institutional scrutiny in The Union."
+    },
+    {
+      "npc_id": "renn_tinmarch",
+      "canonical_name": "Renn Tinmarch",
+      "polity": "The Union",
+      "office_or_role": "Liaison",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as liaison.",
+      "current_agenda": "Keep Union Trade Arbitration Guild workable through the obligations of liaison while managing the immediate pressure of institutional scrutiny in The Union."
+    }
+  ],
+  "roster_context": {
+    "identity": "Institutional dispute-resolution body helping keep trade agreements moving across the Union network.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "npc_id": "clerk_magistrate_helvar_sorn",
+  "canonical_name": "Clerk-Magistrate Helvar Sorn",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Clerk-Magistrate",
+  "profession_discipline": "judicial clerk",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Roaz",
+  "settlement": "Ithtananalor",
+  "locality_scope": "Ithtananalor",
+  "institutional_ties": [
+    "Ithtananalor"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Judicial-administrative officer who manages filings, warrants, and court throughput inside Roazian authority spaces.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Ithtananalor"
+    ],
+    "institutions": [
+      "Ithtananalor"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a clerk-magistrate whose work is visible through daily procedure, gatekeeping, and the practical pressures of Ithtananalor.",
+  "daily_function": "Performs the ongoing duties of clerk-magistrate in and around Ithtananalor, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ithtananalor workable through the obligations of clerk-magistrate while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of clerk-magistrate credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Ithtananalor.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Clerk-Magistrate Helvar Sorn can draw the party into a practical problem centered on Ithtananalor."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Clerk-Magistrate Helvar Sorn becomes useful when the party needs access, explanation, or relief tied to the work of a clerk-magistrate."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "clerk_magistrate_helvar_sorn",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Clerk-Magistrate Helvar Sorn is readable as a clerk-magistrate tied to Ithtananalor.",
+  "encounter_context": {
+    "usual_environment": "Ithtananalor: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "clerk-magistrate"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Clerk-Magistrate Helvar Sorn presents as someone shaped by the duties of a clerk-magistrate and the daily pressures of Ithtananalor.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a clerk-magistrate, and proof that strangers will not make Ithtananalor harder to manage.",
+  "what_they_refuse": "Clerk-Magistrate Helvar Sorn refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a clerk-magistrate too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Clerk-Magistrate Helvar Sorn can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Clerk-Magistrate Helvar Sorn adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Clerk-Magistrate Helvar Sorn always knows more about Ithtananalor than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to clerk-magistrate duties in Ithtananalor."
+}

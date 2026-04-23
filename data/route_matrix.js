@@ -76,8 +76,7 @@ window.ROUTE_MATRIX = [
     "route_type_key": "road",
     "travel_narrative_raw": "This road is busy with grief. Travelers carry offerings and move with the particular silence of people who have recently lost someone.",
     "assignment_method": "adjacency_plus_travel_network",
-    "assignment_confidence": "direct",
-    "distance_miles_est": 2200.8
+    "assignment_confidence": "direct"
   },
   {
     "record_kind": "route",
@@ -155,8 +154,7 @@ window.ROUTE_MATRIX = [
     "route_type_key": "road",
     "travel_narrative_raw": "Rolling farm country with the occasional syndicate checkpoint where sealed papers are expected and verified without apology.",
     "assignment_method": "adjacency_plus_travel_network",
-    "assignment_confidence": "direct",
-    "distance_miles_est": 5869.0
+    "assignment_confidence": "direct"
   },
   {
     "record_kind": "route",
@@ -286,8 +284,7 @@ window.ROUTE_MATRIX = [
     "route_type_key": "road",
     "travel_narrative_raw": "The Verdant Road runs south from the city gates through farmland that turns to glyph-disturbed scrub near the Watchers Perch approach.",
     "assignment_method": "adjacency_plus_travel_network",
-    "assignment_confidence": "direct",
-    "distance_miles_est": 1252.8
+    "assignment_confidence": "direct"
   },
   {
     "record_kind": "route",
@@ -367,8 +364,7 @@ window.ROUTE_MATRIX = [
     "route_type_key": "road",
     "travel_narrative_raw": "The coastal airship lane between Shelkopolis and Cosmoria passes over volcanic sea cliffs. From the deck, you can see where the glyph interference distorts the water surface.",
     "assignment_method": "adjacency_plus_travel_network",
-    "assignment_confidence": "direct",
-    "distance_miles_est": 2375.5
+    "assignment_confidence": "direct"
   },
   {
     "record_kind": "route",
@@ -446,8 +442,7 @@ window.ROUTE_MATRIX = [
     "route_type_key": "road",
     "travel_narrative_raw": "The Scholar Pilgrimage Path is unmarked and narrow. It is maintained entirely by students who know no other road to the Academy.",
     "assignment_method": "adjacency_plus_travel_network",
-    "assignment_confidence": "direct",
-    "distance_miles_est": 1496.2
+    "assignment_confidence": "direct"
   },
   {
     "record_kind": "route",
@@ -629,8 +624,7 @@ window.ROUTE_MATRIX = [
     "route_type_key": "road",
     "travel_narrative_raw": "The Union road south to Shelk country. Cargo tariff notices are posted at every waystation. Reading them tells you what is in dispute this season.",
     "assignment_method": "adjacency_plus_travel_network",
-    "assignment_confidence": "direct",
-    "distance_miles_est": 1454.2
+    "assignment_confidence": "direct"
   },
   {
     "record_kind": "route",

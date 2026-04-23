@@ -1,0 +1,25 @@
+{
+  "release_identity": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "build_signature": "V33_2_LOCALITY_MATRIX_CANON_REPLACEMENT_REBUILD",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "status": "active",
+  "canon_authority": {
+    "locality_hierarchy": "02_CANON_BASELINE/locality_matrix_backbone/locality_matrix.json",
+    "route_hierarchy": "02_CANON_BASELINE/locality_matrix_backbone/route_matrix.json",
+    "environment_profiles": "02_CANON_BASELINE/locality_matrix_backbone/environment_profiles.json",
+    "label_crosswalk": "02_CANON_BASELINE/locality_matrix_backbone/label_crosswalk.json",
+    "retrieval_support": [
+      "02_CANON_BASELINE/locality_matrix_backbone/narrative_lookup.json",
+      "02_CANON_BASELINE/locality_matrix_backbone/culture_lookup.json",
+      "02_CANON_BASELINE/locality_matrix_backbone/bestiary_lookup.json"
+    ]
+  },
+  "supersedes": [
+    "07_WORLD_GRAPH/crosswalk_polity_settlement_locality.json",
+    "07_WORLD_GRAPH/crosswalk_locality_route_npc.json",
+    "03_LOCALITY_ENGINE/locality_packets/* as hierarchy truth only",
+    "03_LOCALITY_ENGINE/route_transition_packets/* as hierarchy truth only"
+  ],
+  "note": "Existing locality packets, route transition packets, and world inspection packets remain useful descriptive surfaces, but the V33_2 locality matrix backbone is now the canonical hierarchy and routing layer."
+}

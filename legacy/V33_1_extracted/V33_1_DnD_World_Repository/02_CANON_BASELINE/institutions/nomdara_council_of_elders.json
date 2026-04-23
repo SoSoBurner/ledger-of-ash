@@ -1,0 +1,31 @@
+{
+  "name": "Nomdara Council of Elders",
+  "type": "Nomdara governance institution",
+  "truth_layer": "conservative_inference",
+  "summary": "Elder council coordinating mobile Nomdara judgment, long-memory diplomacy, and caravan priorities.",
+  "day_to_day": "Hears disputes, assigns routes, preserves caravan memory, and mediates between nodes.",
+  "who_works_there": "Elders, memory keepers, caravan captains, negotiators.",
+  "who_uses_it": "Nomdara families, caravan crews, outside partners seeking sanctioned agreements.",
+  "authority": "Moral and practical authority over caravan legitimacy and memory-backed rulings.",
+  "public_manifestation": "Hearing wagons, traveling council camps, elder seals, and route advisories.",
+  "conflict_or_bottleneck": "Memory-rich judgment is powerful, but it can slow urgent decisions when the road demands speed.",
+  "party_actions": [
+    "petition for judgment",
+    "earn passage sanction",
+    "testify in a caravan dispute"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "jalen_waycord",
+    "sorra_waycord"
+  ],
+  "npc_interfaces": [
+    "jalen_waycord",
+    "sorra_waycord"
+  ]
+}

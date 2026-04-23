@@ -1,0 +1,13 @@
+{
+  "code": "Union Compact M4",
+  "title": "Market Arbitration Compact",
+  "severity": "commercial_law",
+  "description": "Trade disputes mediated through Union arbitration must preserve exchange continuity and prevent dominant factions from converting arbitration into naked capture.",
+  "jurisdictions": [
+    "The Union"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities"
+  ]
+}

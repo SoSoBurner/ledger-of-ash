@@ -1,0 +1,452 @@
+{"object_id": "cosmouth_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "cosmouth_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["cosmouth_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "mimolot_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "mimolot_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["mimolot_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "panim_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "panim_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["panim_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "principalities_umbrella_demography", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "principalities_umbrella_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["principalities_umbrella_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "psanan_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities", "spatial_seasonal"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "psanan_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["psanan_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "roaz_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principality_roaz", "principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "roaz_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["roaz_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "shelk_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principality_shelk", "principalities", "psc_shelkopolis"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "shelk_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["shelk_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "sheresh_communes_demography", "truth_layer": "corrected_canon", "source_object_ids": ["spatial_seasonal", "principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "sheresh_communes_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["sheresh_communes_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "shirsh_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "shirsh_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["shirsh_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "soreheim_alliance_demography", "truth_layer": "corrected_canon", "source_object_ids": ["soreheim_review"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "soreheim_alliance_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["soreheim_alliance_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "the_union_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "the_union_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["the_union_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "zootia_demography", "truth_layer": "corrected_canon", "source_object_ids": ["principalities"], "note": "Canon demography record backed by claim-level support."}
+{"object_id": "zootia_demography_runtime_packet", "truth_layer": "runtime_derivative", "source_object_ids": ["zootia_demography"], "note": "Derived directly from canonical demography record."}
+{"object_id": "aelric_sunweave", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "aelric_velvetmere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "arbiter_nyra_thawmark", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "archivist_luthen_valcrest", "truth_layer": "direct_canon", "source_object_ids": ["psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "archmagister_leth_quillfire", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_field", "truth_layer": "conservative_inference", "source_object_ids": ["pantheon_story"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_hart", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_march", "truth_layer": "conservative_inference", "source_object_ids": ["internal_canonical_record", "principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "arin_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "aser_sablewake", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "additional_legal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ashra_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "ashra_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ashra_emberlash", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ashra_glassmelt", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "aster_aurorine", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "aster_frostglass", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "aster_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "aster_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "aster_starice", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "aurek_tidereach", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "banner_master_liora_embermask", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "borrik_spanmender", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "brakka_stonewake", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "brala_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "brala_ironslope", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "brenn_fieldmere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "brine_caller_edda_silt", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "calia_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["topatch_v22_6_spec", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "calia_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "captain_darian_roaz", "truth_layer": "direct_canon", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "captain_thalion_windrider", "truth_layer": "direct_canon", "source_object_ids": ["principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "casvel_chainwell", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "casvel_redhinge", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "spatial_seasonal", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "celis_lanthorn", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "cevrin_dawnsilk", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "cevrin_silkgate", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "cindri_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "cindri_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "commander_halian_roaz", "truth_layer": "direct_canon", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "coral_jack_neris", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "coralyn_foamglass", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_bloomcrest", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_field", "truth_layer": "conservative_inference", "source_object_ids": ["pantheon_story", "doomsday_planets"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_hart", "truth_layer": "conservative_inference", "source_object_ids": ["pantheon_story", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_lightloom", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog", "principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_march", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_stone", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "corin_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "cron_udenine", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "dame_orsella_roaz", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "daska_veilrun", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "dean_arturon_valegear", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "decon_von_reckshem", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "decran_moltglass", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "dema_ashmason", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "dema_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "dema_forgebound", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "descent_captain_orrik_lavabound", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "draknor_leafward", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "dren_sootpalm", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "elandra_sunweave", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog", "principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "elandra_velvetmere", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "elyra_mossbane", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "ember_drillwake", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "ember_stonecarve", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "eron_wardflame", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "eryndor_bladewright", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "examiner_prelate_sira_doveshade", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "expedition_leader_vesh_hollow", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "faelar_bloomcrest", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "faelar_lightloom", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "farlan_inkshade", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "fenna_stockwhistle", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "ferrik_coalstep", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "forge_master_telan_pyrehand", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "forge_voice_malzara", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "garren_ashmason", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "garren_forgebound", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "garren_rimeclasp", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "garren_stonecarve", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "general_maer_rovik", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "gorath_myrn", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "gorath_steelclad", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "gryndal_vesskar", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "guild_auditor_bren_oss", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "guilden_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "hal_wenner", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "halv_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "harl_veymask", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "hel_brenn", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "helga_ashmason", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "helga_drillwake", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "helga_ironslope", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "helga_quotahelm", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "helm_steelmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "hest_rookbraid", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "high_priestess_lyara_dawnlight", "truth_layer": "direct_canon", "source_object_ids": ["psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "high_tide_priest_coren_mirthwake", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "hildran_wyvernharn", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "hrolf_ashsight", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "ilya_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ilya_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ilyra_aurorine", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "ilyra_foamveil", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "ilyra_moonthread", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "ina_cinderbrace", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "irena_steelmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "ishra_lumenveil", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "issa_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "issa_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "istran_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "istran_emberlash", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "ithra_quillmark", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "ithra_spellward", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_field", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_hart", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_march", "truth_layer": "conservative_inference", "source_object_ids": ["additional_legal"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "jalen_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "joric_fenbow", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "jorin_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "jorva_helmrune", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "kael_emberthrone", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "kairn_steelbrood", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "kaiva_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "kaiva_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "kelm_frostglass", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "kelm_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "kelm_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "kelm_starice", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "kelvi_reedstring", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_field", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_hart", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_march", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "kest_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "kordr_vulkhand", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "korin_ashmason", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "korin_drillwake", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "korin_stonecarve", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "koro_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "kraeda_tidalhart", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "lady_elowen_shelk", "truth_layer": "direct_canon", "source_object_ids": ["psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "lady_isabella_shelk", "truth_layer": "direct_canon", "source_object_ids": ["principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "lady_rosalind_shelk", "truth_layer": "direct_canon", "source_object_ids": ["psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "leni_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "letha_dawnsilk", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog", "principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "letha_silkgate", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "liora_bloomcrest", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "liora_lightloom", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "little_saint_pevra", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "lord_darius_shelk", "truth_layer": "direct_canon", "source_object_ids": ["psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "lucan_redhinge", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "lume_riteswell", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "lyria_firesoul", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "lysa_hart", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog", "spatial_seasonal", "soreheim_review", "principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "lysa_march", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "lysa_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "lysa_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "lysa_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "lysa_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "maelin_dawnmantle", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "maelis_starbloom", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog", "principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "maelis_threadmere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog", "principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "magister_selro_vann", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "magistrate_zethraxis_coilspire", "truth_layer": "direct_canon", "source_object_ids": ["psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "malven_torsk", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "maren_starbloom", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "maren_threadmere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "maris_coralwake", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "marren_toll", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "marrowen_mercycrypt", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "marshal_builder_korrin_wex", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "matriarch_ashvara_citadel", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "matron_heshka_emberreign", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "measurer_seln_archive", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "mek_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "mek_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "internal_canonical_record", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "mercy_examiner_talan_vey", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "meren_frostglass", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "meren_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "meren_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_field", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_gateburn", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_hart", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_march", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_steelmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "spatial_seasonal", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "mira_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "miraen_seabraid", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "miri_glimmerwrit", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "mordoth_valinheim", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "morra_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "morra_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "morra_glassmelt", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "mother_eliane_threadmercy", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "mother_saar_vulkrel", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "nella_fieldmere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "nera_softfurrow", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "neren_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "neren_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "nerissa_bluefin", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "nim_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["internal_canonical_record", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "nim_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "nira_veilthorn", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "niv_brinegrin", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_field", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_hart", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "internal_canonical_record", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_march", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_stone", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "nora_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "norr_forgebound", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "nyelle_starbloom", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "nyelle_threadmere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "nysa_quietbier", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "additional_legal"], "note": "Unified full-content named NPC record."}
+{"object_id": "oath_keeper_sava_ashwing", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "odo_three_cups", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "old_marrow_jex", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "orel_veilthorn", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "orem_lantern_step", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "orien_petalglass", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "psc_shelkopolis", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "orien_warderose", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "orin_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "orin_hearthmark", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "orin_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "internal_canonical_record", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "orren_pike", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "oruk_hailspine", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "orvak_strone", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "oryk_sarnok", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "ossarch_veyn_halcyon", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "ostra_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ostra_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "pashko_many_routes", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "pavel_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_field", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_hart", "truth_layer": "conservative_inference", "source_object_ids": ["pantheon_story", "doomsday_planets"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_march", "truth_layer": "conservative_inference", "source_object_ids": ["internal_canonical_record", "principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_stone", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "pela_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "pell_rookglass", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "pella_rimecoil", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "pelor_bookcrest", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "pelor_coffinmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "pera_needle", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "petra_lockmere", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "petra_stonewake", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "port_factor_nemra_sootwake", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "porter_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "porter_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "professor_cael_mirrortine", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "quartermaster_hale_rimevault", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "quen_larkstamp", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "quillan_quillmark", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "quillan_spellward", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "registrar_confessor_othan_mire", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "rema_three_lantern", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "renn_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["topatch_v22_6_spec", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "renn_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "renn_tinmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "researcher_toman_iceveil", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "rhaz_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "rhaz_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "rhodra_boltmere", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "rhodra_brassward", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "rhodra_ironspike", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "spatial_seasonal", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "rhodra_redhinge", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "rime_frostglass", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "rime_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "rime_starice", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "risha_veilthorn", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "roswen_sunweave", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "roswen_velvetmere", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "roth_udenine", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "rothen_drillwake", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "rothen_stonecarve", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "saint_edris_of_the_unblinking_record", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "saint_physician_orel_vaunt", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sel_hart", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "sel_march", "truth_layer": "conservative_inference", "source_object_ids": ["pantheon_story", "doomsday_planets"], "note": "Unified full-content named NPC record."}
+{"object_id": "sel_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "sel_stone", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "sel_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "sel_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "selda_chainwell", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "sema_reedbasin", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sena_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "sena_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "ser_caldrin_vey", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sera_aurorine", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog", "principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "sera_moonthread", "truth_layer": "conservative_inference", "source_object_ids": ["additional_legal", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "seraphine_of_the_quiet_pyre", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sevrin_shellmark", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "sevrin_tidereach", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "silt_knife_bero", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sir_edrin_valecrest", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sir_thaddeus_shelk", "truth_layer": "direct_canon", "source_object_ids": ["principality_shelk"], "note": "Unified full-content named NPC record."}
+{"object_id": "sir_velden_ironspike", "truth_layer": "direct_canon", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "sister_lune_carrow", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "sorra_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "sorra_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "soryn_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "soryn_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "soryn_glassmelt", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "strategos_nima_glass_law", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "svala_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "svala_ironslope", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "sylva_aurorine", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "sylva_moonthread", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "sylvi_aurorine", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "sylvi_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "sylvi_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "talar_icepulse", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "taldan_veyst", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "talia_stonewake", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "talin_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "talin_starice", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "talvek_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "taren_field", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "taren_march", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "internal_canonical_record", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "taren_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "taren_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "taren_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "taren_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "tavian_dawnsilk", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "tavian_dawnsilkmead", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "tavian_silkgate", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "templar_esh_navarre", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "tess_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "tess_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "tessa_grainmark", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "thalen_petalglass", "truth_layer": "conservative_inference", "source_object_ids": ["locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "thalen_warderose", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "thane_quietbier", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "tharim_coalforge", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "the_ash_red_widow", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "thessa_mistglass", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "thora_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "thora_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "thora_starice", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "tideon_anchorlight", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "tideon_seabraid", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "toriel_palevow", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "torma_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "torma_forgebound", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "torma_ironslope", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "spatial_seasonal", "soreheim_review", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "torren_stonewake", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "spatial_seasonal", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "torv_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["internal_canonical_record", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "torv_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "tovek_ashmason", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "tovek_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "tovek_gearmark", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "tovek_stonecarve", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "tovin_laceglint", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "vael_snowtrace", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "vale_brokerwell", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "vale_ledgermere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "vale_tinmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principalities", "topatch_v22_6_spec"], "note": "Unified full-content named NPC record."}
+{"object_id": "vara_chitslip", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "varek_duststep", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "varek_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "varek_wheelwright", "truth_layer": "conservative_inference", "source_object_ids": ["internal_canonical_record", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "varik_drillwake", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "varik_ironslope", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "varik_stonecarve", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "varric_icevein", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "vassa_rimebridge", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vassa_snowveil", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "vatra_sul", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "vaud_serrik", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "vekka_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "vekka_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vekka_glassmelt", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "velis_petalglass", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "velis_warderose", "truth_layer": "conservative_inference", "source_object_ids": ["principality_shelk", "locations_catalog", "psc_shelkopolis"], "note": "Unified full-content named NPC record."}
+{"object_id": "velka_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "velka_glassmelt", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal", "internal_canonical_record"], "note": "Unified full-content named NPC record."}
+{"object_id": "velrik_durnshade", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_field", "truth_layer": "conservative_inference", "source_object_ids": ["pantheon_story", "doomsday_planets"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_hart", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_march", "truth_layer": "conservative_inference", "source_object_ids": ["additional_legal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_mere", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_stone", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_vale", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "vera_wren", "truth_layer": "conservative_inference", "source_object_ids": ["psc_shelkopolis", "locations_catalog"], "note": "Unified full-content named NPC record."}
+{"object_id": "vessa_ashvein", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vessa_cindercrest", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vessa_cindermaw", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "vessa_glassmelt", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal", "calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "vessa_scriptmere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "veyla_inkhand", "truth_layer": "source_backed_canon_baseline", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Unified full-content named NPC record."}
+{"object_id": "veyn_mistglass", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "veyn_veilthorn", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "veyra_boltmere", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz", "spatial_seasonal", "principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "veyra_steelmarch", "truth_layer": "conservative_inference", "source_object_ids": ["principality_roaz"], "note": "Unified full-content named NPC record."}
+{"object_id": "vivan_duststep", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vivan_waycord", "truth_layer": "conservative_inference", "source_object_ids": ["operator_target_spec_v22_4", "principalities", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vorga_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "vorga_ironslope", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "vorga_quotahelm", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "vorgul_oxtend", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "warden_sera_whiteglass", "truth_layer": "conservative_inference", "source_object_ids": ["calendars_world"], "note": "Unified full-content named NPC record."}
+{"object_id": "watcher_elid_frostline", "truth_layer": "conservative_inference", "source_object_ids": ["spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "yorin_fieldmere", "truth_layer": "conservative_inference", "source_object_ids": ["principalities"], "note": "Unified full-content named NPC record."}
+{"object_id": "ysmir_ashmason", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review", "spatial_seasonal"], "note": "Unified full-content named NPC record."}
+{"object_id": "ysmir_coalward", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "ysmir_rimeclasp", "truth_layer": "conservative_inference", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "zoreth_kaeling", "truth_layer": "direct_canon", "source_object_ids": ["soreheim_review"], "note": "Unified full-content named NPC record."}
+{"object_id": "master_named_npc_ledger", "truth_layer": "administrative_release", "source_object_ids": ["v28_5_npc_ledger_append"], "note": "Named-NPC support system release object."}
+{"object_id": "named_npc_relationship_edges", "truth_layer": "administrative_release", "source_object_ids": ["existing_canon_repository", "v28_5_npc_ledger_append"], "note": "Named-NPC support system release object."}
+{"object_id": "shared_named_npc_hook_bank", "truth_layer": "administrative_release", "source_object_ids": ["existing_canon_repository", "v28_5_npc_ledger_append"], "note": "Named-NPC support system release object."}

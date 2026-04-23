@@ -1,0 +1,19 @@
+{
+  "name": "Principality of Mimolot pressure 3",
+  "parent_polity": "House Mimolot",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "local authorities",
+    "interested factions"
+  ],
+  "public_symptom": "increasing reputational caution",
+  "hidden_cause": "leadership wants stability without public explanation",
+  "if_ignored": {
+    "1_day": "minor confusion compounds",
+    "1_week": "factions begin leveraging it",
+    "1_month": "it becomes the normal way things break"
+  },
+  "sources": [
+    "V33_1 pressure completion synthesis."
+  ]
+}

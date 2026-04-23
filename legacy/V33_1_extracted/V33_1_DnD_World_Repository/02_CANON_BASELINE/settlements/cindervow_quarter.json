@@ -1,0 +1,78 @@
+{
+  "name": "Cindervow Quarter",
+  "type": "rebuilding district settlement",
+  "parent_polity": "Psanan",
+  "territory": "Ashforge Citadel Environs",
+  "truth_layer": "conservative_inference",
+  "identity": "Prestigious rebuilt quarter known for surviving destruction, swearing public vows, and turning fire damage into civic memory.",
+  "approach": "Layered burn-stone walls, ash-wing banners, and engraved arches show repeated destruction and deliberate rebuilding.",
+  "inside": "Vow courts, banner houses, rebuilt compounds, and active forge annexes keep memory visible in daily life.",
+  "who_belongs": [
+    "rebuilders",
+    "banner makers",
+    "vow recorders",
+    "house-linked smiths"
+  ],
+  "who_is_out_of_place": [
+    "those treating memorial surfaces casually",
+    "vandals"
+  ],
+  "expected_behavior": [
+    "speak plainly in oath spaces",
+    "do not interrupt dedication work or memorial processions"
+  ],
+  "visible_power": [
+    "Rebuilding Oath Courts",
+    "Forge Dedication Halls"
+  ],
+  "economy": [
+    "stone rebuilding",
+    "banner craft",
+    "ritual metalwork"
+  ],
+  "faith": [
+    "renewal symbolism is civic, dynastic, and seasonal rather than temple-based"
+  ],
+  "seasonal_change": "Damage repair and observance build toward the year midpoint.",
+  "pressure": [
+    "rebuilding backlog",
+    "house competition over visibility",
+    "structural heat stress"
+  ],
+  "npc_interfaces": [
+    "forge_master_telan_pyrehand",
+    "kaiva_ashvein",
+    "vessa_ashvein",
+    "vekka_cindercrest"
+  ],
+  "law_context": [
+    "oath enforcement",
+    "rebuilding labor claims"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "forge_master_telan_pyrehand",
+    "kaiva_ashvein",
+    "vessa_ashvein",
+    "vekka_cindercrest"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_behavior_texture": "People who belong here are usually rebuilders, banner makers, vow recorders, and public conduct is read through expectations such as speak plainly in oath spaces, do not interrupt dedication work or memorial processions.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Rebuilding Oath Courts, Forge Dedication Halls.",
+  "local_tension_surface": "The place feels stable only until pressures such as rebuilding backlog, house competition over visibility, structural heat stress begin showing through daily routines.",
+  "differentiator": "Cindervow Quarter stands apart because its economy leans on stone rebuilding, banner craft; public faith remains visible through renewal symbolism is civic, dynastic, and seasonal rather than temple-based; outsiders are noticed fastest when they resemble those treating memorial surfaces casually, vandals.",
+  "encounter_rhythm": "Most first scenes in Cindervow Quarter begin through rebuilding district settlement rhythms: arrival, observation, minor correction, and only then deeper access."
+}

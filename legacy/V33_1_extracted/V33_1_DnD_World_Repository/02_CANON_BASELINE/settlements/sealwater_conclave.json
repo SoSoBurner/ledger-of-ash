@@ -1,0 +1,21 @@
+{
+  "name": "Sealwater Conclave",
+  "type": "settlement",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "source_backed_inference",
+  "summary": "Deliberative meeting quarter where confederation decisions are translated into practical obligations.",
+  "sources": [
+    "V33_1 confederation completion synthesis."
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [
+    "authority",
+    "commerce",
+    "faith or culture",
+    "fixer",
+    "wildcard"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

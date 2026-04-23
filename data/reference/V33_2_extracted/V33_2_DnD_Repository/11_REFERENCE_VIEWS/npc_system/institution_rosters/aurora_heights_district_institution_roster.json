@@ -1,0 +1,176 @@
+{
+  "build_version": "V33_1",
+  "institution": "Aurora Heights District",
+  "record_count": 15,
+  "npc_ids": [
+    "aelric_velvetmere",
+    "corin_lightloom",
+    "elandra_sunweave",
+    "liora_bloomcrest",
+    "maelin_dawnmantle",
+    "maelis_starbloom",
+    "maelis_threadmere",
+    "maren_starbloom",
+    "sera_aurorine",
+    "mother_eliane_threadmercy",
+    "ser_caldrin_vey",
+    "high_priestess_lyara_dawnlight",
+    "lady_isabella_shelk",
+    "lord_darius_shelk",
+    "sir_edrin_valecrest"
+  ],
+  "records": [
+    {
+      "npc_id": "aelric_velvetmere",
+      "canonical_name": "Aelric Velvetmere",
+      "polity": "Shelk",
+      "office_or_role": "District Fixer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as district fixer.",
+      "current_agenda": "Keep Aurora Heights District workable through the obligations of district fixer while managing the immediate pressure of alliances in Shelk."
+    },
+    {
+      "npc_id": "corin_lightloom",
+      "canonical_name": "Corin Lightloom",
+      "polity": "Shelk",
+      "office_or_role": "Ward Mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as ward mediator.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of ward mediator while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "elandra_sunweave",
+      "canonical_name": "Elandra Sunweave",
+      "polity": "Shelk",
+      "office_or_role": "Clerk of Arrivals",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as clerk of arrivals.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of clerk of arrivals while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "liora_bloomcrest",
+      "canonical_name": "Liora Bloomcrest",
+      "polity": "Shelk",
+      "office_or_role": "Permit Clerk",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as permit clerk.",
+      "current_agenda": "Keep Aurora Heights District workable through the obligations of permit clerk while managing the immediate pressure of alliances in Shelk."
+    },
+    {
+      "npc_id": "maelin_dawnmantle",
+      "canonical_name": "Maelin Dawnmantle",
+      "polity": "Shelk",
+      "office_or_role": "Paladins",
+      "tier": "grassroots",
+      "public_reputation": "Shrine-lance volunteer attached to Aurora Light Cathedral relief columns and Roadwarden aid trains.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of paladins while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "maelis_starbloom",
+      "canonical_name": "Maelis Starbloom",
+      "polity": "Shelk",
+      "office_or_role": "Grain Measurer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as grain measurer.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of grain measurer while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "maelis_threadmere",
+      "canonical_name": "Maelis Threadmere",
+      "polity": "Shelk",
+      "office_or_role": "Stable Factor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as stable factor.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of stable factor while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "maren_starbloom",
+      "canonical_name": "Maren Starbloom",
+      "polity": "Shelk",
+      "office_or_role": "Fashion Runner",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as fashion runner.",
+      "current_agenda": "Keep Aurora Heights District workable through the obligations of fashion runner while managing the immediate pressure of alliances in Shelk."
+    },
+    {
+      "npc_id": "sera_aurorine",
+      "canonical_name": "Sera Aurorine",
+      "polity": "Shelk",
+      "office_or_role": "Street Physician",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as street physician.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of street physician while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "mother_eliane_threadmercy",
+      "canonical_name": "Mother Eliane Threadmercy",
+      "polity": "Shelk",
+      "office_or_role": "Clerics",
+      "tier": "legendary",
+      "public_reputation": "Turned cathedral kitchens and cloth houses into refuge networks when the roads failed.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of clerics while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "ser_caldrin_vey",
+      "canonical_name": "Ser Caldrin Vey",
+      "polity": "Shelk",
+      "office_or_role": "Warrior",
+      "tier": "legendary",
+      "public_reputation": "First famed road-shield of the present age, remembered for holding the Northroad through a glyph-beast winter.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of warrior while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    },
+    {
+      "npc_id": "high_priestess_lyara_dawnlight",
+      "canonical_name": "High Priestess Lyara Dawnlight",
+      "polity": "Shelk",
+      "office_or_role": "Lead cleric of Aurora Light Cathedral",
+      "tier": "notable",
+      "public_reputation": "Recognized as a lead cleric of aurora light cathedral of regional weight.",
+      "current_agenda": "Keep Aurora Light Cathedral workable through the obligations of lead cleric of aurora light cathedral while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "lady_isabella_shelk",
+      "canonical_name": "Lady Isabella Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Matriarch of House Shelk",
+      "tier": "notable",
+      "public_reputation": "Recognized as a matriarch of house shelk of regional weight.",
+      "current_agenda": "Keep House of Shelk Estate workable through the obligations of matriarch of house shelk while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "lord_darius_shelk",
+      "canonical_name": "Lord Darius Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Co-ruler and political tactician",
+      "tier": "notable",
+      "public_reputation": "Recognized as a co-ruler and political tactician of regional weight.",
+      "current_agenda": "Keep House of Shelk Estate workable through the obligations of co-ruler and political tactician while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "sir_edrin_valecrest",
+      "canonical_name": "Sir Edrin Valecrest",
+      "polity": "Shelk",
+      "office_or_role": "Knights",
+      "tier": "notable",
+      "public_reputation": "Court-favored lance captain used for noble escort, contract display, and visible deterrence.",
+      "current_agenda": "Keep Shelkopolis workable through the obligations of knights while managing the immediate pressure of glyph corruption beyond the city in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Refined terraced noble district of mansions, fountains, and elite culture.",
+    "visible_power": [
+      "House Shelk nobility",
+      "elite magistrates",
+      "high clergy"
+    ],
+    "pressure": [
+      "alliances",
+      "espionage",
+      "elite reputation"
+    ]
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

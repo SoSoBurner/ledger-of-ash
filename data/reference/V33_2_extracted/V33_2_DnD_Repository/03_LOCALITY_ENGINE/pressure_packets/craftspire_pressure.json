@@ -1,0 +1,34 @@
+{
+  "name": "Craftspire",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "local authorities",
+    "institutional intermediaries"
+  ],
+  "pressure_vectors": [
+    "authority strain",
+    "resource balance",
+    "reputation management"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must keep their piece of the world working while larger systems push stress downward. Around Craftspire, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of grain measurer visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "jorin_ledgermere",
+    "tess_ledgermere",
+    "union_burdened_clerk_4",
+    "union_dockside_or_street_fixer_5",
+    "union_factor_2",
+    "union_gate_marshal_1",
+    "union_licensed_appraiser_8",
+    "union_ritual_custodian_3"
+  ],
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

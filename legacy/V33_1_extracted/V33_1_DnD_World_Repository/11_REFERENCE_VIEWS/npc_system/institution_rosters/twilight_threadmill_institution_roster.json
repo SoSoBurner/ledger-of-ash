@@ -1,0 +1,28 @@
+{
+  "build_version": "V33_1",
+  "institution": "Twilight Threadmill",
+  "record_count": 1,
+  "npc_ids": [
+    "kest_mere"
+  ],
+  "records": [
+    {
+      "npc_id": "kest_mere",
+      "canonical_name": "Kest Mere",
+      "polity": "Transpolity",
+      "office_or_role": "Inventory Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as inventory steward.",
+      "current_agenda": "Keep Twilight Threadmill workable through the obligations of inventory steward while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Affordable garment production for laborers and soldiers.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

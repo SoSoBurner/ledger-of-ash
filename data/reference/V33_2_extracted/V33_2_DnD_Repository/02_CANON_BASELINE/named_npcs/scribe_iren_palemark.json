@@ -1,0 +1,66 @@
+{
+  "npc_id": "scribe_iren_palemark",
+  "canonical_name": "Scribe Iren Palemark",
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Witness Scribe",
+  "profession_discipline": "Funerary recordkeeping",
+  "grouping": "v30_6_added_named_npc",
+  "polity": "Panim",
+  "settlement": "Panim Haven",
+  "locality_scope": "Coffin Contract Cloister",
+  "institutional_ties": [
+    "Coffin Contract Cloister"
+  ],
+  "public_reputation": "Quietly feared because he remembers who promised what.",
+  "linked_systems": {
+    "polities": [
+      "Panim"
+    ],
+    "localities": [
+      "Panim Haven",
+      "Coffin Contract Cloister"
+    ],
+    "institutions": [
+      "Coffin Contract Cloister"
+    ],
+    "factions": []
+  },
+  "appearance": "Pale ash sleeves, neat witness cords, and ink-dark nails from constant copying.",
+  "manner": "Writes before answering.",
+  "daily_function": "Records witness statements, contract tiers, and special rites for the dead.",
+  "current_agenda": "Recover one missing witness folio before a disputed burial turns public.",
+  "hidden_pressure": "A missing folio threatens the assumption that Panim records are final.",
+  "source_truth_status": "conservative_inference",
+  "support_density": "support_aware_record",
+  "source_object_ids": [
+    "principalities_doc"
+  ],
+  "compatibility_interface_id": "scribe_iren_palemark",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "His inked fingers make grief look archived.",
+  "encounter_context": {
+    "usual_environment": "witness desks and contract alcoves",
+    "who_seeks_them_out": [
+      "families",
+      "mediators"
+    ],
+    "who_avoids_them": [
+      "liars",
+      "embarrassed heirs"
+    ],
+    "interaction_anchor": "what has been witnessed"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Scribe Iren Palemark presents as Writes before answering. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Witness Scribe, and proof that strangers will not create avoidable noise in Principality of Panim.",
+  "what_they_refuse": "Scribe Iren Palemark refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Witness Scribe too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Scribe Iren Palemark can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Scribe Iren Palemark adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Scribe Iren Palemark is Quietly feared because he remembers who promised what. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Witness Scribe."
+}

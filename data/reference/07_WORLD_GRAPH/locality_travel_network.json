@@ -1,0 +1,141 @@
+{
+  "name": "Locality Travel Time Network",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T19:08:23.812518Z",
+  "description": "Estimated travel distances and times between key localities and stage hubs based on world graph coordinates and travel model.",
+  "edges": [
+    {
+      "origin": "Aurora Crown Commune",
+      "destination": "Shelkopolis",
+      "distance_miles_est": 1474.7,
+      "travel_times_days_est": {
+        "foot_days": 61.45,
+        "horse_days": 36.87,
+        "cart_days": 81.93,
+        "fantasy_aircraft_days": 4.92
+      }
+    },
+    {
+      "origin": "Shelkopolis",
+      "destination": "Fairhaven",
+      "distance_miles_est": 1252.9,
+      "travel_times_days_est": {
+        "foot_days": 52.2,
+        "horse_days": 31.32,
+        "cart_days": 69.6,
+        "fantasy_aircraft_days": 4.18
+      }
+    },
+    {
+      "origin": "Glasswake Commune",
+      "destination": "Shelkopolis",
+      "distance_miles_est": 1517.2,
+      "travel_times_days_est": {
+        "foot_days": 63.22,
+        "horse_days": 37.93,
+        "cart_days": 84.29,
+        "fantasy_aircraft_days": 5.06
+      }
+    },
+    {
+      "origin": "Cosmoria",
+      "destination": "Shelkopolis",
+      "distance_miles_est": 2375.6,
+      "travel_times_days_est": {
+        "foot_days": 98.98,
+        "horse_days": 59.39,
+        "cart_days": 131.98,
+        "fantasy_aircraft_days": 7.92,
+        "ship_days": 19.8
+      }
+    },
+    {
+      "origin": "Guildheart Hub",
+      "destination": "Fairhaven",
+      "distance_miles_est": 1454.2,
+      "travel_times_days_est": {
+        "foot_days": 60.59,
+        "horse_days": 36.36,
+        "cart_days": 80.79,
+        "fantasy_aircraft_days": 4.85
+      }
+    },
+    {
+      "origin": "Ithtananalor",
+      "destination": "Fairhaven",
+      "distance_miles_est": 1122.9,
+      "travel_times_days_est": {
+        "foot_days": 46.79,
+        "horse_days": 28.07,
+        "cart_days": 62.38,
+        "fantasy_aircraft_days": 3.74
+      }
+    },
+    {
+      "origin": "Mimolot Academy",
+      "destination": "Fairhaven",
+      "distance_miles_est": 1496.1,
+      "travel_times_days_est": {
+        "foot_days": 62.34,
+        "horse_days": 37.4,
+        "cart_days": 83.12,
+        "fantasy_aircraft_days": 4.99
+      }
+    },
+    {
+      "origin": "Panim Haven",
+      "destination": "Fairhaven",
+      "distance_miles_est": 2200.7,
+      "travel_times_days_est": {
+        "foot_days": 91.7,
+        "horse_days": 55.02,
+        "cart_days": 122.26,
+        "fantasy_aircraft_days": 7.34
+      }
+    },
+    {
+      "origin": "Shirshal",
+      "destination": "Fairhaven",
+      "distance_miles_est": 1229.3,
+      "travel_times_days_est": {
+        "foot_days": 51.22,
+        "horse_days": 30.73,
+        "cart_days": 68.29,
+        "fantasy_aircraft_days": 4.1
+      }
+    },
+    {
+      "origin": "Soreheim Proper",
+      "destination": "Fairhaven",
+      "distance_miles_est": 6844.7,
+      "travel_times_days_est": {
+        "foot_days": 285.2,
+        "horse_days": 171.12,
+        "cart_days": 380.26,
+        "fantasy_aircraft_days": 22.82
+      }
+    },
+    {
+      "origin": "Sunspire Haven",
+      "destination": "Fairhaven",
+      "distance_miles_est": 5869.0,
+      "travel_times_days_est": {
+        "foot_days": 244.54,
+        "horse_days": 146.73,
+        "cart_days": 326.06,
+        "fantasy_aircraft_days": 19.56
+      }
+    },
+    {
+      "origin": "Aurora Crown Commune",
+      "destination": "Fairhaven",
+      "distance_miles_est": 2596.5,
+      "travel_times_days_est": {
+        "foot_days": 108.19,
+        "horse_days": 64.91,
+        "cart_days": 144.25,
+        "fantasy_aircraft_days": 8.65
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "npc_id": "salt_archive_clerk_joss_pell",
+  "canonical_name": "Salt Archive Clerk Joss Pell",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "information_actor",
+  "office_or_role": "Salt Archive Clerk",
+  "profession_discipline": "maritime archivist",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Cosmouth",
+  "settlement": "Cosmoria",
+  "locality_scope": "Cosmoria",
+  "institutional_ties": [
+    "Cosmoria"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Archivist preserving shipping ledgers and naval correspondence against salt and moisture damage.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Cosmoria"
+    ],
+    "institutions": [
+      "Cosmoria"
+    ],
+    "factions": []
+  },
+  "appearance": "Salt Archive Clerk Joss Pell carries the marks of salt archive clerk in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a salt archive clerk whose work is visible through daily procedure, gatekeeping, and the practical pressures of Cosmoria.",
+  "daily_function": "Performs the ongoing duties of salt archive clerk in and around Cosmoria, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Cosmoria while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Salt Archive Clerk Joss Pell can draw the party into a practical problem centered on Cosmoria."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Salt Archive Clerk Joss Pell becomes useful when the party needs access, explanation, or relief tied to the work of a salt archive clerk."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "salt_archive_clerk_joss_pell",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Salt Archive Clerk Joss Pell is readable as a salt archive clerk tied to Cosmoria.",
+  "encounter_context": {
+    "usual_environment": "Cosmoria: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "salt archive clerk"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Salt Archive Clerk Joss Pell presents as someone shaped by the duties of a salt archive clerk and the daily pressures of Cosmoria.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a salt archive clerk, and proof that strangers will not make Cosmoria harder to manage.",
+  "what_they_refuse": "Salt Archive Clerk Joss Pell refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a salt archive clerk too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Salt Archive Clerk Joss Pell can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Salt Archive Clerk Joss Pell adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Salt Archive Clerk Joss Pell always knows more about Cosmoria than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to salt archive clerk duties in Cosmoria.",
+  "social_texture": "Salt Archive Clerk Joss Pell speaks like someone who has spent too long translating private stakes into acceptable public language. Around Cosmoria, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Salt touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Salt Archive Clerk Joss Pell when the party needs a socially grounded face for Cosmoria: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

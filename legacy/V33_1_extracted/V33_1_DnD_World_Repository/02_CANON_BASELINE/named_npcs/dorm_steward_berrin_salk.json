@@ -1,0 +1,82 @@
+{
+  "npc_id": "dorm_steward_berrin_salk",
+  "canonical_name": "Dorm Steward Berrin Salk",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Dorm Steward",
+  "profession_discipline": "residential academic steward",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Mimolot",
+  "settlement": "Mimolot Academy",
+  "locality_scope": "Mimolot Academy",
+  "institutional_ties": [
+    "Mimolot Academy"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Steward who handles student lodging order, supplies, and low-level conflict inside academy housing.",
+  "linked_systems": {
+    "polities": [
+      "Mimolot"
+    ],
+    "localities": [
+      "Mimolot Academy"
+    ],
+    "institutions": [
+      "Mimolot Academy"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a dorm steward whose work is visible through daily procedure, gatekeeping, and the practical pressures of Mimolot Academy.",
+  "daily_function": "Performs the ongoing duties of dorm steward in and around Mimolot Academy, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Mimolot Academy workable through the obligations of dorm steward while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of dorm steward credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Mimolot Academy.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Dorm Steward Berrin Salk can draw the party into a practical problem centered on Mimolot Academy."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Dorm Steward Berrin Salk becomes useful when the party needs access, explanation, or relief tied to the work of a dorm steward."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "dorm_steward_berrin_salk",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Dorm Steward Berrin Salk is readable as a dorm steward tied to Mimolot Academy.",
+  "encounter_context": {
+    "usual_environment": "Mimolot Academy: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "dorm steward"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Dorm Steward Berrin Salk presents as someone shaped by the duties of a dorm steward and the daily pressures of Mimolot Academy.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a dorm steward, and proof that strangers will not make Mimolot Academy harder to manage.",
+  "what_they_refuse": "Dorm Steward Berrin Salk refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a dorm steward too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Dorm Steward Berrin Salk can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Dorm Steward Berrin Salk adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Dorm Steward Berrin Salk always knows more about Mimolot Academy than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to dorm steward duties in Mimolot Academy."
+}

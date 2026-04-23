@@ -1,0 +1,93 @@
+{
+  "npc_id": "lyria_firesoul",
+  "canonical_name": "Lyria Firesoul",
+  "aliases": [
+    "the floor boss"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Soreheim export operations master",
+  "profession_discipline": "Soreheim export operations master",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper",
+    "tower export yards"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as soreheim export operations master.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper",
+      "tower export yards"
+    ],
+    "factions": []
+  },
+  "appearance": "Lyria Firesoul carries the marks of soreheim export operations master in industrial grit: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a soreheim export operations master still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of soreheim export operations master in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Soreheim Proper while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to work shortfalls is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Lyria Firesoul can draw the party into crew discipline, resource shortage, or blame transfer around Soreheim Proper."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Lyria Firesoul can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "soreheim_review"
+  ],
+  "compatibility_interface_id": "lyria_firesoul",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Lyria Firesoul visibly responsible for keeping something larger from failing. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Lyria Firesoul presents as Speaks bluntly about systems because the cost of polite delay is usually paid elsewhere. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a soreheim export operations master still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Soreheim export operations master, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Lyria Firesoul refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Soreheim export operations master too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Lyria Firesoul can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Lyria Firesoul adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Lyria Firesoul is Known locally through day-to-day work as soreheim export operations master. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Soreheim export operations master.",
+  "social_texture": "Lyria Firesoul speaks like someone who has spent too long translating private stakes into acceptable public language. Around Soreheim Proper, people read them as quota-aware, contribution-minded, and never fully off the clock.",
+  "money_pressure": "Their material pressure is tied to production; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but work shortfalls becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Lyria touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Lyria Firesoul when the party needs a socially grounded face for Soreheim Proper: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

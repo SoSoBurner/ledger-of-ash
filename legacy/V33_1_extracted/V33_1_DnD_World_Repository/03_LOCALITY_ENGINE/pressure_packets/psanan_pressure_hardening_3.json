@@ -1,0 +1,19 @@
+{
+  "name": "Psanan pressure hardening 3",
+  "parent_polity": "Psanan",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "visible authority",
+    "quiet intermediaries"
+  ],
+  "public_symptom": "procedural strain shows in ordinary interactions",
+  "hidden_cause": "capacity, reputation, or supply balance is tighter than leadership admits",
+  "if_ignored": {
+    "1_day": "delays compound",
+    "1_week": "blame starts moving",
+    "1_month": "the pressure becomes institutional habit"
+  },
+  "sources": [
+    "V33_1 parity hardening pressure packet."
+  ]
+}

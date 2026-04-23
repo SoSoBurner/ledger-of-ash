@@ -1,0 +1,198 @@
+{
+  "name": "Scarlet Descent Gate",
+  "type": "descent outpost",
+  "parent_polity": "Psanan",
+  "territory": "Scarlet Depths Margin",
+  "truth_layer": "conservative_inference",
+  "identity": "Underworld-edge outpost where descent crews, extraction teams, and House-backed hazard discipline meet.",
+  "approach": "Winch towers, red-lit vent shafts, and hardened gatehouses signal a place built to go downward and return altered.",
+  "inside": "Descent rosters, gear halls, emergency braziers, and wound-tally walls dominate over comfort.",
+  "who_belongs": [
+    "descent crews",
+    "hazard clerks",
+    "frontier hammer guards"
+  ],
+  "who_is_out_of_place": [
+    "the untrained",
+    "treasure-seekers without charter"
+  ],
+  "expected_behavior": [
+    "register descent intent",
+    "observe return protocols and contamination washdown"
+  ],
+  "visible_power": [
+    "Descent Charter Compacts",
+    "Frontier Hammer Companies"
+  ],
+  "economy": [
+    "rare mineral extraction",
+    "relic recovery",
+    "hazard equipment"
+  ],
+  "faith": [
+    "survival oaths are treated as house and civic tradition rather than temple doctrine"
+  ],
+  "seasonal_change": "Heat vents and collapse risk alter depth access by cycle.",
+  "pressure": [
+    "shaft collapse",
+    "lava surge",
+    "crew loss"
+  ],
+  "npc_interfaces": [
+    "descent_captain_orrik_lavabound"
+  ],
+  "law_context": [
+    "descent charter law",
+    "return quarantine and spoil registration"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Psanan",
+    "territory": "Scarlet Depths Margin",
+    "settlement": "Scarlet Descent Gate",
+    "district": null
+  },
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "Underworld-edge outpost where descent crews, extraction teams, and House-backed hazard discipline meet.",
+    "approach": "Winch towers, red-lit vent shafts, and hardened gatehouses signal a place built to go downward and return altered.",
+    "inside": "Descent rosters, gear halls, emergency braziers, and wound-tally walls dominate over comfort.",
+    "who_belongs": [
+      "descent crews",
+      "hazard clerks",
+      "frontier hammer guards"
+    ],
+    "who_is_out_of_place": [
+      "the untrained",
+      "treasure-seekers without charter"
+    ],
+    "expected_behavior": [
+      "register descent intent",
+      "observe return protocols and contamination washdown"
+    ],
+    "visible_power": [
+      "Descent Charter Compacts",
+      "Frontier Hammer Companies"
+    ],
+    "economy": [
+      "rare mineral extraction",
+      "relic recovery",
+      "hazard equipment"
+    ],
+    "faith": [
+      "survival oaths are treated as house and civic tradition rather than temple doctrine"
+    ],
+    "seasonal_change": "Heat vents and collapse risk alter depth access by cycle.",
+    "pressure": [
+      "shaft collapse",
+      "lava surge",
+      "crew loss"
+    ],
+    "law_context": [
+      "descent charter law",
+      "return quarantine and spoil registration"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Winch towers, red-lit vent shafts, and hardened gatehouses signal a place built to go downward and return altered.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Descent rosters, gear halls, emergency braziers, and wound-tally walls dominate over comfort.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "shaft collapse",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "lava surge",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "crew loss",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "register descent intent",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "observe return protocols and contamination washdown",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "descent_captain_orrik_lavabound",
+    "lenna_crestmark"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually descent crews, hazard clerks, frontier hammer guards, and public conduct is read through expectations such as register descent intent, observe return protocols and contamination washdown.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Descent Charter Compacts, Frontier Hammer Companies.",
+  "local_tension_surface": "The place feels stable only until pressures such as shaft collapse, lava surge, crew loss begin showing through daily routines.",
+  "differentiator": "Scarlet Descent Gate stands apart because its economy leans on rare mineral extraction, relic recovery; public faith remains visible through survival oaths are treated as house and civic tradition rather than temple doctrine; outsiders are noticed fastest when they resemble the untrained, treasure-seekers without charter.",
+  "encounter_rhythm": "Most first scenes in Scarlet Descent Gate begin through descent outpost rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Scarlet Descent Gate immediately highlights underworld-edge outpost where descent crews, extraction teams, and house-backed hazard discipline meet",
+    "The quickest social read of Scarlet Descent Gate comes from how locals react to register descent intent / observe return protocols and contamination washdown."
+  ],
+  "social_misstep_examples": [
+    "Treating Scarlet Descent Gate like a casual stop rather than a governed space.",
+    "Ignoring local expectation to register descent intent; observe return protocols and contamination washdown."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to rare mineral extraction.",
+    "A local intermediary resents outsider assumptions about Scarlet Descent Gate."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Scarlet Descent Gate",
+    "Formal notice by Descent Charter Compacts",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Scarlet Descent Gate before residents admit them.",
+  "outsider_liability": "Outsiders in Scarlet Descent Gate are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around shaft collapse.",
+    "Someone mistakes the party for agents tied to Descent Charter Compacts.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind rare mineral extraction surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Scarlet Descent Gate feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Scarlet Descent Gate is busiest and least forgiving of confusion.",
+    "night": "At night, Scarlet Descent Gate reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Scarlet Descent Gate mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

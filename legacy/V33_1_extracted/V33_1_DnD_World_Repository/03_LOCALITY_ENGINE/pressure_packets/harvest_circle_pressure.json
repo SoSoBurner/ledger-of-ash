@@ -1,0 +1,36 @@
+{
+  "name": "Harvest Circle",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "harvest stewards",
+    "quota clerks",
+    "patron-families",
+    "regional arbiters"
+  ],
+  "pressure_vectors": [
+    "spoilage",
+    "price pressure",
+    "favor feuds",
+    "route congestion"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Harvest Circle, that usually means carrying spoilage, price pressure, favor feuds without letting the role of protector of magical forests and plains visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "elyra_mossbane",
+    "farlan_inkshade",
+    "garren_ashmason",
+    "jorva_helmrune",
+    "svala_coalward",
+    "varik_stonecarve",
+    "velrik_durnshade"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

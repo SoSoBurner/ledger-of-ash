@@ -1,0 +1,18 @@
+{
+  "name": "Ironspool Ward District",
+  "inside": "Labor garments, rough taverns, hidden fear shrines, and second-hand trade define the ward.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "parent": "Shelkopolis",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "affordable garments is visibly part of daily life.",
+    "Felelem’s protection charms surface more openly here.",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

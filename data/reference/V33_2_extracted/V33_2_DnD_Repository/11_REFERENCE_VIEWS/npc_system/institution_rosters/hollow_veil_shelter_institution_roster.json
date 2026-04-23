@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Hollow Veil Shelter",
+  "record_count": 1,
+  "npc_ids": [
+    "neren_snowveil"
+  ],
+  "records": [
+    {
+      "npc_id": "neren_snowveil",
+      "canonical_name": "Neren Snowveil",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Glyph Observer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as glyph observer.",
+      "current_agenda": "Keep Hollow Veil Shelter workable through the obligations of glyph observer while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Partially failed emergency shelter on an intermittent route, still used in desperation.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

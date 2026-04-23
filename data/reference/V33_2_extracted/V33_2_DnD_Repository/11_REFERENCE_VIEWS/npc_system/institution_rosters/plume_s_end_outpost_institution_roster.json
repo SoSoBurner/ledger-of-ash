@@ -1,0 +1,42 @@
+{
+  "build_version": "V33_1",
+  "institution": "Plume’s End Outpost",
+  "record_count": 2,
+  "npc_ids": [
+    "faelar_lightloom",
+    "roswen_sunweave"
+  ],
+  "records": [
+    {
+      "npc_id": "faelar_lightloom",
+      "canonical_name": "Faelar Lightloom",
+      "polity": "Shelk",
+      "office_or_role": "Watch Sergeant",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as watch sergeant.",
+      "current_agenda": "Keep Plume’s End Outpost workable through the obligations of watch sergeant while managing the immediate pressure of caravan disruption rumors in Shelk."
+    },
+    {
+      "npc_id": "roswen_sunweave",
+      "canonical_name": "Roswen Sunweave",
+      "polity": "Shelk",
+      "office_or_role": "Market Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as market broker.",
+      "current_agenda": "Keep Plume’s End Outpost workable through the obligations of market broker while managing the immediate pressure of caravan disruption rumors in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Northern road outpost guarding and servicing caravans between Shelkopolis and Fairhaven.",
+    "visible_power": [
+      "Roadwardens and caravan authorities"
+    ],
+    "pressure": [
+      "caravan disruption rumors",
+      "celestial enforcer sightings"
+    ]
+  },
+  "sources": [
+    "locations_catalog"
+  ]
+}

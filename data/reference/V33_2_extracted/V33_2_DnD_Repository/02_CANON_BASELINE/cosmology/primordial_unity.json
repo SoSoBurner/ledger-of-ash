@@ -1,0 +1,15 @@
+{
+  "id": "cosmology.primordial_unity",
+  "name": "Primordial Unity",
+  "truth_layer": "direct_canon",
+  "summary": "The all-powerful but imperfect primordial being whose self-division created the Material Planet and the divine shards that became the pantheon.",
+  "functions": [
+    "lord of the astral sky",
+    "source of the divine shards",
+    "created the material world by bisecting the astral sky"
+  ],
+  "sources": [
+    "pantheon_story",
+    "internal_canonical_record"
+  ]
+}

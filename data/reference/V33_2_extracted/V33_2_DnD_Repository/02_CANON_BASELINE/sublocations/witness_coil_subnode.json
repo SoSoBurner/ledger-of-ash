@@ -1,0 +1,10 @@
+{
+  "name": "Witness Coil Subnode",
+  "parent_locality": "Witness Coil",
+  "type": "support node",
+  "truth_layer": "source_backed_inference",
+  "summary": "Support node tied to Witness Coil for V33_1 parity completion.",
+  "sources": [
+    "V33_1 parity completion synthesis."
+  ]
+}

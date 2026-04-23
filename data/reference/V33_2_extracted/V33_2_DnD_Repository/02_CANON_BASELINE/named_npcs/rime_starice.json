@@ -1,0 +1,90 @@
+{
+  "npc_id": "rime_starice",
+  "canonical_name": "Rime Starice",
+  "aliases": [
+    "the surveyor"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Surveyor",
+  "profession_discipline": "Surveyor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Edict Ocean",
+  "locality_scope": "Edict Ocean",
+  "institutional_ties": [
+    "Edict Ocean"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as surveyor.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Edict Ocean"
+    ],
+    "institutions": [
+      "Edict Ocean"
+    ],
+    "factions": []
+  },
+  "appearance": "Rime Starice usually presents in frost-touched garments dusted with harmless arcane residue, with details that make their surveyor status legible before introductions begin.",
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a surveyor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of surveyor in and around Edict Ocean, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Edict Ocean workable through the obligations of surveyor while managing the immediate pressure of contamination strain in Sheresh Communes.",
+  "hidden_pressure": "Must stay useful at the seam where policy becomes ordinary consequence. Around Edict Ocean, that usually means carrying contamination strain, calendar contradiction, tundra hazard without letting the role of surveyor visibly slip.",
+  "relationship_refs": [
+    "rel_0408",
+    "rel_0411",
+    "rel_0413",
+    "rel_0414"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "assistance_request",
+      "summary": "Rime Starice needs help with a problem in Edict Ocean that larger systems have pushed down onto ordinary hands."
+    },
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Rime Starice can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "rime_starice",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Rime Starice carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Edict Ocean: the part of Edict Ocean where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Rime Starice presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a surveyor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Surveyor, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Rime Starice refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Surveyor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Rime Starice can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Rime Starice adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Rime Starice is Known locally through day-to-day work as surveyor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Surveyor."
+}

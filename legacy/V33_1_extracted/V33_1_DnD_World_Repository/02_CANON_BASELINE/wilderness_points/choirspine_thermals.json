@@ -1,0 +1,20 @@
+{
+  "name": "Choirspine Thermals",
+  "parent": "Northern Dome March",
+  "summary": "Steam fissures cut through blue ice and turn every spoken word into layered echoes. Pilgrims come to test omens here, but smugglers use the noise to hide movement between communes.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_8_constrained_frontier_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Sheresh Communes",
+  "travel_tags": [
+    "omen site",
+    "echo cover",
+    "thermal hazard"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Behir Scratch Ridge",
+  "parent": "Outer Livestock Bands",
+  "summary": "A ridge of fused stone scored by repeated territorial clashes between trained behirs and anything too proud to detour. Prospectors read the grooves like weather.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Soreheim Alliance",
+  "travel_tags": [
+    "monster territory",
+    "prospecting marker",
+    "military route"
+  ]
+}

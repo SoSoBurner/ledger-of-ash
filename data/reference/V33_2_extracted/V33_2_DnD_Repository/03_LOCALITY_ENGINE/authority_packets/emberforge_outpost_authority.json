@@ -1,0 +1,17 @@
+{
+  "name": "Emberforge Outpost",
+  "visible_power": [
+    "Roadwarden patrol leaders"
+  ],
+  "law_context": [
+    "route safety and public-order sabotage law are strongly felt."
+  ],
+  "truth_layer": "direct_canon",
+  "authority_notes": [
+    "Visitors are read first by purpose, presentation, and whether they understand local procedure.",
+    "Practical authority may sit partly outside formal office, especially where guilds, clergy, nobles, or route enforcers overlap."
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

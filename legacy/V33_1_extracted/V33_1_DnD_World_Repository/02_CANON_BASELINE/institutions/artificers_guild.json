@@ -1,0 +1,32 @@
+{
+  "name": "Artificers’ Guild",
+  "type": "Soreheim artificing institution",
+  "truth_layer": "direct_canon",
+  "summary": "Restricted institution for magical-industrial prototyping and relic integration.",
+  "day_to_day": "Tests devices, repairs controlled magical systems, and refines practical enchantments for Alliance use.",
+  "who_works_there": "Artificers, relic analysts, forge technicians, supervised enchanters, archive scribes.",
+  "who_uses_it": "Regional planners, engineers, military overseers, and specialized workers needing approved magical tools.",
+  "authority": "Can approve, deny, or quarantine certain classes of magical-industrial work.",
+  "public_manifestation": "Visible through prototype demos, upgraded tools, secure workshops, and rumor about restricted rooms.",
+  "conflict_or_bottleneck": "High-value knowledge concentration attracts spies and fuels fear of dangerous experimentation.",
+  "party_actions": [
+    "commission a device",
+    "retrieve a missing component",
+    "test a prototype",
+    "trace a relic theft"
+  ],
+  "sources": [
+    "soreheim_review"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "vorga_ironslope",
+    "vorga_coalward"
+  ],
+  "npc_interfaces": [
+    "vorga_ironslope",
+    "vorga_coalward"
+  ]
+}

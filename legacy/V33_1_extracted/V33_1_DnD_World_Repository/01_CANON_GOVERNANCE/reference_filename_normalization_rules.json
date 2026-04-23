@@ -1,0 +1,29 @@
+{
+  "version": "V33_1",
+  "rules": [
+    {
+      "rule": "apostrophes",
+      "policy": "normalize smart and straight apostrophes into canonical display titles while filenames use underscore-safe ascii slugs"
+    },
+    {
+      "rule": "hyphenation",
+      "policy": "use single canonical display hyphenation; filenames remain lowercase snake_case"
+    },
+    {
+      "rule": "plural_vs_singular",
+      "policy": "retain only one canonical filename per object; aliases belong in alias_registry only"
+    },
+    {
+      "rule": "district_suffixes",
+      "policy": "district, row, harbor, exchange, and outpost suffixes must reflect the object type explicitly"
+    },
+    {
+      "rule": "road_lane_corridor",
+      "policy": "road, lane, and corridor terms must match the route object type and not drift between duplicate browse files"
+    },
+    {
+      "rule": "settlement_vs_route_distinction",
+      "policy": "settlement objects and route objects may share stems but must not share identical normalized names"
+    }
+  ]
+}

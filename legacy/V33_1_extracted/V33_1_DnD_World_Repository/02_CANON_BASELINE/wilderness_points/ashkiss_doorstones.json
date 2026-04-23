@@ -1,0 +1,20 @@
+{
+  "name": "Ashkiss Doorstones",
+  "parent": "Western Desert Margin",
+  "summary": "A ceremonial ring of basalt doorframes leading nowhere visible. Husbands returning with gifts sometimes stop here first to decide which truths can survive the threshold.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Phoenix Island",
+  "travel_tags": [
+    "vow testing",
+    "duel site",
+    "omen stones"
+  ]
+}

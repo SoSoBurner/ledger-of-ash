@@ -1,0 +1,29 @@
+{
+  "name": "Market Crossroads",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "local authorities",
+    "institutional intermediaries"
+  ],
+  "pressure_vectors": [
+    "authority strain",
+    "resource balance",
+    "reputation management"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must keep suspicion disciplined so that inquiry does not collapse into factional theater. Around Market Crossroads, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of night-lantern inspector visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "calia_ledgermere",
+    "renn_ledgermere",
+    "tess_brokerwell"
+  ],
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

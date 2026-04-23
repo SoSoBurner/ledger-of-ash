@@ -1,0 +1,19 @@
+{
+  "id": "planet.planet_of_rock",
+  "name": "Planet of Rock",
+  "truth_layer": "direct_canon",
+  "function": "Stabilizes orbital and tectonic structure and sealed fissures left by Doomsday.",
+  "sources": [
+    "pantheon_story",
+    "doomsday_planets"
+  ],
+  "named_npc_refs": [
+    "corin_field"
+  ],
+  "npc_interfaces": [
+    "corin_field"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Eternal Lands high law",
+  "record_count": 1,
+  "npc_ids": [
+    "cron_udenine"
+  ],
+  "records": [
+    {
+      "npc_id": "cron_udenine",
+      "canonical_name": "Cron Udenine",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Storm Giant councillor and arbiter of justice",
+      "tier": "notable",
+      "public_reputation": "Recognized as a storm giant councillor and arbiter of justice of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of storm giant councillor and arbiter of justice while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Eternal Lands high law is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

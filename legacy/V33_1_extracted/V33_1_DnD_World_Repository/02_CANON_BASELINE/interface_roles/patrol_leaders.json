@@ -1,0 +1,18 @@
+{
+  "id": "patrol_leaders",
+  "display_name": "Patrol Leader",
+  "function": "Generic locality-facing interface retained from baseline canonical content.",
+  "default_social_read": "Carries useful local knowledge appropriate to the role surface.",
+  "truth_layer": "engine_canon",
+  "context_sites": [
+    "Plume’s End Outpost"
+  ],
+  "context_polities": [
+    "Principality of Shelk"
+  ],
+  "sources": [
+    "locations_catalog"
+  ],
+  "support_type": "reusable_runtime_surface",
+  "context_justification": "Derived from repeated locality packet usage within the active world engine; role remains reusable rather than tied to a single named individual."
+}

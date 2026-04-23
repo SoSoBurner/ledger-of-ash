@@ -1,0 +1,104 @@
+{
+  "npc_id": "kest_wren",
+  "canonical_name": "Kest Wren",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Assistant Curator",
+  "profession_discipline": "Assistant Curator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "The Rusted Loom Tavern",
+  "locality_scope": "The Rusted Loom Tavern",
+  "institutional_ties": [
+    "The Rusted Loom Tavern"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as assistant curator.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "The Rusted Loom Tavern"
+    ],
+    "institutions": [
+      "The Rusted Loom Tavern"
+    ],
+    "factions": []
+  },
+  "appearance": "Kest Wren carries the marks of assistant curator in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a assistant curator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of assistant curator in and around The Rusted Loom Tavern, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in The Rusted Loom Tavern while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_0482",
+    "rel_0491",
+    "rel_0499",
+    "rel_0506",
+    "rel_0512",
+    "rel_0517",
+    "rel_0521",
+    "rel_0524",
+    "rel_0526",
+    "rel_0527",
+    "rel_1193"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Kest Wren can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Kest Wren needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to The Rusted Loom Tavern."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "kest_wren",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Kest Wren communicates in public.",
+  "encounter_context": {
+    "usual_environment": "The Rusted Loom Tavern: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Kest Wren presents as Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a assistant curator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Assistant Curator, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Kest Wren refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Assistant Curator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kest Wren can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kest Wren adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kest Wren is Known locally through day-to-day work as assistant curator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Assistant Curator.",
+  "social_texture": "Kest Wren speaks like someone who has spent too long translating private stakes into acceptable public language. Around The Rusted Loom Tavern, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Kest touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Kest Wren when the party needs a socially grounded face for The Rusted Loom Tavern: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

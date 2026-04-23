@@ -1,0 +1,30 @@
+{
+  "build_version": "V33_1",
+  "institution": "Union Successor Heartland",
+  "record_count": 1,
+  "npc_ids": [
+    "taren_march"
+  ],
+  "records": [
+    {
+      "npc_id": "taren_march",
+      "canonical_name": "Taren March",
+      "polity": "The Union",
+      "office_or_role": "Tax Witness",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as tax witness.",
+      "current_agenda": "Keep Union Successor Heartland workable through the obligations of tax witness while managing the immediate pressure of institutional scrutiny in The Union."
+    }
+  ],
+  "roster_context": {
+    "identity": "Warm trade-and-port belt built across the former Mal sphere, whose main population areas are highly industrialized and urban, where guild governance, warehousing, arbitration halls, and converted finance districts structure daily life.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "internal_canonical_record",
+    "topatch_v22_6_spec"
+  ]
+}

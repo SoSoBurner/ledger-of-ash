@@ -1,0 +1,83 @@
+{
+  "npc_id": "aelra_velvetmere",
+  "canonical_name": "Aelra Velvetmere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "hospitality_actor",
+  "office_or_role": "Innkeeper",
+  "profession_discipline": "Innkeeper",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Shelk",
+  "settlement": "Shelkopolis",
+  "locality_scope": "Shelkopolis",
+  "institutional_ties": [
+    "Shelkopolis"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Shelkopolis through day-to-day work as innkeeper.",
+  "linked_systems": {
+    "polities": [
+      "Principality of Shelk"
+    ],
+    "localities": [
+      "Shelkopolis"
+    ],
+    "institutions": [
+      "Shelkopolis"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads people fast, keeps hospitality practical, and measures danger by what it does to ordinary routine. In Shelkopolis, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of innkeeper in and around Shelkopolis, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Shelkopolis workable through the obligations of innkeeper while managing the immediate pressure of glyph corruption beyond the city, trade security obligations, noble rivalry.",
+  "hidden_pressure": "Must keep the role of innkeeper credible while absorbing the strain created by glyph corruption beyond the city, trade security obligations, noble rivalry.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Aelra Velvetmere can draw the party into a locality problem centered on innkeeper duties in Shelkopolis."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Aelra Velvetmere becomes useful when the party needs grounded help with glyph corruption beyond the city, trade security obligations, noble rivalry around Shelkopolis."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "shelkopolis"
+  ],
+  "compatibility_interface_id": "aelra_velvetmere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Aelra Velvetmere is immediately readable as a innkeeper tied to Shelkopolis.",
+  "encounter_context": {
+    "usual_environment": "Shelkopolis: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "innkeeper"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Aelra Velvetmere presents as someone shaped by the duties of a innkeeper and the daily pressures of Shelkopolis.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a innkeeper, and proof that strangers will not make Shelkopolis harder to manage.",
+  "what_they_refuse": "Aelra Velvetmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a innkeeper too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can surface gossip, shelter, and the social temperature of a place without formal inquiry.",
+  "escalation_if_crossed": "If crossed, Aelra Velvetmere adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Aelra Velvetmere always knows more about Shelkopolis than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a innkeeper in Shelkopolis."
+}

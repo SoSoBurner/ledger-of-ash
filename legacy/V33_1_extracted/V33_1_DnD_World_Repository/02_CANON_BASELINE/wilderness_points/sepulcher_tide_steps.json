@@ -1,0 +1,20 @@
+{
+  "name": "Sepulcher Tide Steps",
+  "parent": "Panim Mortuary Coast",
+  "summary": "Black steps descending into a tide cave where afterlife purchases, memorial processions, and coffin-barges converge under priests who never forget a debt.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_8_constrained_frontier_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "House Panim",
+  "travel_tags": [
+    "funerary traffic",
+    "debt rites",
+    "undertow danger"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Silent Haven",
+  "seasonal_change": "Harsh northern sea conditions govern activity.",
+  "truth_layer": "reconciled_canon",
+  "seasonal_effects": [
+    "Harsh northern sea conditions govern activity.",
+    "Public schedules, prices, crowding, and enforcement intensity all change before locals bother explaining why.",
+    "Ceremony, supply pressure, and route reliability do not all peak at the same time, forcing local adaptation."
+  ],
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

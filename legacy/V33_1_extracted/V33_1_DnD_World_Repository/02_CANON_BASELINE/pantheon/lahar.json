@@ -1,0 +1,11 @@
+{
+  "id": "deity.lahar",
+  "name": "Lahar",
+  "domain": "Sloth",
+  "desire": "Apathy and inaction",
+  "current_state": "Lost his shard to Desperation.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

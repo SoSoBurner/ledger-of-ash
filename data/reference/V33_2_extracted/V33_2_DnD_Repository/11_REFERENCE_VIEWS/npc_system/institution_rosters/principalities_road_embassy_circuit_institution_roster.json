@@ -1,0 +1,29 @@
+{
+  "build_version": "V33_1",
+  "institution": "Principalities Road Embassy Circuit",
+  "record_count": 1,
+  "npc_ids": [
+    "koro_waycord"
+  ],
+  "records": [
+    {
+      "npc_id": "koro_waycord",
+      "canonical_name": "Koro Waycord",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Repair Hand",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as repair hand.",
+      "current_agenda": "Keep Principalities Road Embassy Circuit workable through the obligations of repair hand while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Principalities Road Embassy Circuit is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "House Mimolot",
+  "type": "house-territory",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "reconciled_canon",
+  "summary": "Mimolot is explicitly reconciled as a mixed polity in which Elves, Humans, and Gnomes all hold stable demographic presence under differentiated functions.",
+  "sources": [
+    "principalities"
+  ],
+  "named_npc_refs": [
+    "quillan_spellward"
+  ],
+  "npc_interfaces": [
+    "quillan_spellward"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "population_status": {
+    "nation_level_enumeration_status": "explicit",
+    "explicit_population_roster": {
+      "dominant_populations": [
+        "Elves",
+        "Humans"
+      ],
+      "secondary_populations": [
+        "Gnomes"
+      ],
+      "canonical_roster": [
+        "Elves",
+        "Humans",
+        "Gnomes"
+      ]
+    },
+    "bounded_population_signals": [
+      "field-level support classification preserved in demography layer",
+      "runtime packets must not contradict canonical roster"
+    ],
+    "notes": "Mimolot is explicitly reconciled as a mixed polity in which Elves, Humans, and Gnomes all hold stable demographic presence under differentiated functions.",
+    "truth_layer": "corrected_canon"
+  },
+  "resolution_status": "resolved world-standard roster",
+  "canon_note": "See corresponding demography record for support classification and contradiction-safe reconciliation trail."
+}

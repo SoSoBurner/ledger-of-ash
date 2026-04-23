@@ -1,0 +1,94 @@
+{
+  "npc_id": "vessa_cindercrest",
+  "canonical_name": "Vessa Cindercrest",
+  "aliases": [
+    "the quartermaster"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Quartermaster",
+  "profession_discipline": "Quartermaster",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Psanan",
+  "settlement": "Maskscar Plaza District",
+  "locality_scope": "Maskscar Plaza District",
+  "institutional_ties": [
+    "Maskscar Plaza District"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as quartermaster.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Maskscar Plaza District"
+    ],
+    "institutions": [
+      "Maskscar Plaza District"
+    ],
+    "factions": []
+  },
+  "appearance": "Vessa Cindercrest usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their quartermaster status legible before introductions begin.",
+  "manner": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a quartermaster still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of quartermaster in and around Maskscar Plaza District, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Maskscar Plaza District workable through the obligations of quartermaster while managing the immediate pressure of house rivalry over symbolism in Psanan.",
+  "hidden_pressure": "Must read timing, trust, and supply pressure early enough that a market problem does not become a civic one. Around Maskscar Plaza District, that usually means carrying house rivalry over symbolism, crowd control, heat damage to stored materials without letting the role of quartermaster visibly slip.",
+  "relationship_refs": [
+    "rel_0163",
+    "rel_0169",
+    "rel_0175",
+    "rel_0176",
+    "rel_0177",
+    "rel_0178",
+    "rel_0179",
+    "rel_1142"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contract_complication",
+      "summary": "Vessa Cindercrest can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    },
+    {
+      "hook_type": "market_information",
+      "summary": "Vessa Cindercrest will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "vessa_cindercrest",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Vessa Cindercrest read as someone who lives by exchange and reputation. In Maskscar Plaza District, this lands inside a public field already shaped by Rebuilding Oath Courts, Great House Citadel Circle.",
+  "encounter_context": {
+    "usual_environment": "Maskscar Plaza District: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Vessa Cindercrest presents as Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a quartermaster still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Quartermaster, and proof that strangers will not create avoidable noise in Psanan.",
+  "what_they_refuse": "Vessa Cindercrest refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Quartermaster too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Vessa Cindercrest can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Vessa Cindercrest adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Vessa Cindercrest is Known locally through day-to-day work as quartermaster. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Quartermaster."
+}

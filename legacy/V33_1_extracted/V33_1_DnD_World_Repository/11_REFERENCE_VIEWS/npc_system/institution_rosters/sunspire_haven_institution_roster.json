@@ -1,0 +1,108 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sunspire Haven",
+  "record_count": 8,
+  "npc_ids": [
+    "elyra_mossbane",
+    "garren_forgebound",
+    "jorva_helmrune",
+    "kael_emberthrone",
+    "orvak_strone",
+    "taldan_veyst",
+    "torma_coalward",
+    "varik_drillwake"
+  ],
+  "records": [
+    {
+      "npc_id": "elyra_mossbane",
+      "canonical_name": "Elyra Mossbane",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Protector of magical forests and plains",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as protector of magical forests and plains.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of protector of magical forests and plains while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "garren_forgebound",
+      "canonical_name": "Garren Forgebound",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Watch Sergeant",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as watch sergeant.",
+      "current_agenda": "Keep Sunspire Haven workable through the obligations of watch sergeant while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "jorva_helmrune",
+      "canonical_name": "Jorva Helmrune",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Communal responsibility enforcer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as communal responsibility enforcer.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of communal responsibility enforcer while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "kael_emberthrone",
+      "canonical_name": "Kael Emberthrone",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Unternal machinery and war-tool overseer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as unternal machinery and war-tool overseer.",
+      "current_agenda": "Keep Sunspire Haven workable through the obligations of unternal machinery and war-tool overseer while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "orvak_strone",
+      "canonical_name": "Orvak Strone",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Unauthorized trade adjudicator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as unauthorized trade adjudicator.",
+      "current_agenda": "Keep Sunspire Haven workable through the obligations of unauthorized trade adjudicator while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "taldan_veyst",
+      "canonical_name": "Taldan Veyst",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Magical knowledge overseer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as magical knowledge overseer.",
+      "current_agenda": "Keep Sunspire Haven workable through the obligations of magical knowledge overseer while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "torma_coalward",
+      "canonical_name": "Torma Coalward",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Quartermaster",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quartermaster.",
+      "current_agenda": "Keep Sunspire Haven workable through the obligations of quartermaster while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "varik_drillwake",
+      "canonical_name": "Varik Drillwake",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Shrine Caretaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+      "current_agenda": "Keep Sunspire Haven workable through the obligations of shrine caretaker while managing the immediate pressure of predators in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Rural crossroads market town where tools, textiles, grain contracts, and labor obligations move through workshop syndicates and patron-families.",
+    "visible_power": [
+      "regional leaders",
+      "market stewards",
+      "workshop syndicates",
+      "patron-families under alliance quota law"
+    ],
+    "pressure": [
+      "predators",
+      "water system vulnerabilities",
+      "storage disputes",
+      "family favor feuds"
+    ]
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

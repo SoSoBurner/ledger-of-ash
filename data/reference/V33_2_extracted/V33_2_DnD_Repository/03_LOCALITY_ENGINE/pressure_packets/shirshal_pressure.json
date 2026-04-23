@@ -1,0 +1,30 @@
+{
+  "name": "Shirshal",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "Magi Magistratus"
+  ],
+  "pressure_vectors": [
+    "magical law violations"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Shirshal, that usually means carrying magical law violations, magical compliance, institutional scrutiny without letting the role of assistant curator visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "nira_veilthorn",
+    "veyn_veilthorn",
+    "examiner_prelate_sira_doveshade",
+    "hel_brenn",
+    "measurer_seln_archive",
+    "mercy_examiner_talan_vey",
+    "pell_rookglass",
+    "strategos_nima_glass_law"
+  ],
+  "sources": [
+    "principalities"
+  ]
+}

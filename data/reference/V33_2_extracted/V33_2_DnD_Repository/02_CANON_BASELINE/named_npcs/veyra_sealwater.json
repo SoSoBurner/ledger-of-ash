@@ -1,0 +1,85 @@
+{
+  "npc_id": "veyra_sealwater",
+  "canonical_name": "Veyra Sealwater",
+  "aliases": [
+    "the Middle Voice"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "authority_actor",
+  "office_or_role": "Authority Broker",
+  "profession_discipline": "Authority Broker",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Banner Anchorage",
+  "locality_scope": "Banner Anchorage",
+  "institutional_ties": [
+    "Banner Anchorage"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Banner Anchorage through day-to-day work as authority broker.",
+  "linked_systems": {
+    "polities": [
+      "The Principalities"
+    ],
+    "localities": [
+      "Banner Anchorage"
+    ],
+    "institutions": [
+      "Banner Anchorage"
+    ],
+    "factions": []
+  },
+  "appearance": "Veyra Sealwater usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their authority broker status legible before introductions begin.",
+  "manner": "Handles access, protocol, and consequence as negotiable surfaces without ever seeming to break the rules outright. In Banner Anchorage, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of authority broker in and around Banner Anchorage, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Banner Anchorage workable through the obligations of authority broker while managing the immediate pressure of berth competition, escort favoritism.",
+  "hidden_pressure": "Must keep the role of authority broker credible while absorbing the strain created by berth competition, escort favoritism.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Veyra Sealwater can draw the party into a locality problem centered on authority broker duties in Banner Anchorage."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Veyra Sealwater becomes useful when the party needs grounded help with berth competition, escort favoritism around Banner Anchorage."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog",
+    "banner_anchorage"
+  ],
+  "compatibility_interface_id": "veyra_sealwater",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Veyra Sealwater is immediately readable as a authority broker tied to Banner Anchorage.",
+  "encounter_context": {
+    "usual_environment": "Banner Anchorage: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "authority broker"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Veyra Sealwater presents as someone shaped by the duties of a authority broker and the daily pressures of Banner Anchorage.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a authority broker, and proof that strangers will not make Banner Anchorage harder to manage.",
+  "what_they_refuse": "Veyra Sealwater refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a authority broker too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open procedural doors or make them costly to ignore.",
+  "escalation_if_crossed": "If crossed, Veyra Sealwater adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Veyra Sealwater always knows more about Banner Anchorage than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a authority broker in Banner Anchorage."
+}

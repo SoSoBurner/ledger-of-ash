@@ -1,0 +1,51 @@
+{
+  "name": "House Shelk",
+  "type": "noble house faction",
+  "truth_layer": "direct_canon",
+  "summary": "Road-policing, fashion-patronage, and harmony-centered noble house governing Shelk’s cultural power.",
+  "motive": "Keep trade secure, fashion prestigious, and Shelk visibly harmonious without surrendering political leverage.",
+  "methods": [
+    "patronage",
+    "route order",
+    "noble diplomacy",
+    "cultural sponsorship"
+  ],
+  "geography": [
+    "Shelkopolis",
+    "Fairhaven",
+    "Plume’s End Outpost",
+    "Emberforge Outpost"
+  ],
+  "power_relations": [
+    "Relies on the Roadwardens and Fashion Artisans Collective while balancing neighboring houses"
+  ],
+  "current_pressure": [
+    "route safety",
+    "counterfeits",
+    "glyph anxieties",
+    "noble intrigue"
+  ],
+  "visible_membership_base": "Nobles, attendants, Roadwardens, artisans, estate staff, merchants.",
+  "civilian_contact_surface": [
+    "markets",
+    "patrols",
+    "festivals",
+    "estate diplomacy",
+    "guild patronage"
+  ],
+  "current_tension_or_vulnerability": "Harmony is part of statecraft, so embarrassment and public disorder hit House Shelk harder than blunt scarcity alone.",
+  "sources": [
+    "principality_shelk",
+    "psc_shelkopolis",
+    "principalities"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "orien_petalglass"
+  ],
+  "npc_interfaces": [
+    "orien_petalglass"
+  ]
+}

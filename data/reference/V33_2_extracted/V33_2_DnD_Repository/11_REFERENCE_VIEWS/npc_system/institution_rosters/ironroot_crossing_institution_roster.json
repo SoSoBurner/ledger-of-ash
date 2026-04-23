@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ironroot Crossing",
+  "record_count": 1,
+  "npc_ids": [
+    "garren_rimeclasp"
+  ],
+  "records": [
+    {
+      "npc_id": "garren_rimeclasp",
+      "canonical_name": "Garren Rimeclasp",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Toll Witness",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as toll witness.",
+      "current_agenda": "Keep Ironroot Crossing workable through the obligations of toll witness while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Ironroot Crossing is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "soreheim_review"
+  ]
+}

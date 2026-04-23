@@ -1,0 +1,33 @@
+{
+  "version": "V33_1",
+  "purpose": "Defines the required top-level polity identity interface so all major polities expose the same class of answers even when certain categories are explicitly absent at nation level.",
+  "applies_to": [
+    "top-government polity",
+    "umbrella polity",
+    "mobile connective polity"
+  ],
+  "required_fields": [
+    "identity",
+    "governance_model",
+    "population_status",
+    "cultural_posture",
+    "legal_posture",
+    "magic_posture",
+    "religious_posture",
+    "economic_posture",
+    "military_security_posture",
+    "mobility_settlement_posture",
+    "major_settlements_or_operating_nodes",
+    "external_tensions",
+    "truth_status",
+    "source_scope_notes",
+    "unresolved_identity_gaps"
+  ],
+  "rule": "Missing explicit canon is allowed only when represented explicitly as a bounded absence, never by omission.",
+  "allowed_population_enumeration_states": [
+    "explicit",
+    "partial_signal_only",
+    "not_explicitly_enumerated"
+  ],
+  "validator_expectation": "A top-level polity fails parity validation if any required field is absent, if population status is omitted, or if unsupported population rosters are inferred from local signals."
+}

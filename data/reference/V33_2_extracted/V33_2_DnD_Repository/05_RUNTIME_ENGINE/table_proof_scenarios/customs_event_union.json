@@ -1,0 +1,27 @@
+{
+  "scenario_id": "customs_event_union",
+  "title": "Inspection spiral near Ledger Canal",
+  "scope": "table_proof",
+  "source_record_ids": [
+    "ledger_canal"
+  ],
+  "locality_packets": [
+    "ledger_canal.json"
+  ],
+  "route_packets": [
+    "the_union_route_corridor_1.json"
+  ],
+  "npc_ids": [
+    "arin_march",
+    "calia_brokerwell",
+    "calia_ledgermere",
+    "guild_auditor_bren_oss"
+  ],
+  "player_safe_summary": "The party enters Ledger Canal and discovers that a routine request is entangled with local pressure, reputation, and a decision that cannot be solved by force alone.",
+  "gm_deep_summary": "Run the opening using the Ledger Canal quickstart card, then escalate through one authority, one pressured intermediary, and one consequence if the players ignore procedure.",
+  "continuity_deltas": [
+    "local trust shift",
+    "faction notice",
+    "future route scrutiny"
+  ]
+}

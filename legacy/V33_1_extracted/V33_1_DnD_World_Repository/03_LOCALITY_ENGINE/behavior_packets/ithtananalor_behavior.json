@@ -1,0 +1,25 @@
+{
+  "name": "Ithtananalor",
+  "who_belongs": [
+    "enforcers",
+    "engineers",
+    "clerks",
+    "laborers",
+    "magistrates"
+  ],
+  "who_is_out_of_place": [
+    "unlicensed mages",
+    "undisciplined opportunists",
+    "those expecting informal noble leniency"
+  ],
+  "expected_behavior": [
+    "comply promptly",
+    "accept inspection",
+    "treat law as public culture rather than negotiable custom"
+  ],
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ]
+}

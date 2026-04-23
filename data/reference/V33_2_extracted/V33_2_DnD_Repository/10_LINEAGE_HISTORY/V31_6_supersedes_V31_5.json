@@ -1,0 +1,6 @@
+{
+  "build_version": "V33_1",
+  "supersedes": "V33_1",
+  "reason": "integrates the world magic system into the standalone repository as an operational setting layer",
+  "status": "pass"
+}

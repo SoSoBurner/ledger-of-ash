@@ -1,0 +1,154 @@
+{
+  "name": "Magic Countermeasure and Legality Matrix",
+  "truth_layer": "engine_canon",
+  "support_type": "operational_synthesis",
+  "countermeasure_tools": [
+    "countercasting",
+    "dispel operations",
+    "anti-magic fields or zones",
+    "ward stripping",
+    "seal denial",
+    "focus disruption",
+    "trace capture",
+    "artifact detectors",
+    "suppression chambers",
+    "licensed archive or witness review"
+  ],
+  "law_and_enforcement_rule": "Legal response depends on whether a polity treats a magical act as sacred duty, scholastic work, guild craft, estate privilege, tolerated necessity, or criminal misuse.",
+  "region_matrix": [
+    {
+      "polity": "Roaz",
+      "stance": "strictly regulated and suppression-heavy",
+      "recognized_magic": [
+        "state-cleared antimagic work",
+        "supervised arcane engineering",
+        "evidence and detection procedures"
+      ],
+      "criminal_focus": [
+        "unsanctioned private practice",
+        "smuggled relic use",
+        "hidden cabals",
+        "unauthorized enchantment"
+      ],
+      "primary_enforcers": [
+        "Office of Roazian Enforcement",
+        "Shadowhands",
+        "Iron Accord support structures"
+      ]
+    },
+    {
+      "polity": "Shelk",
+      "stance": "socially visible but culturally bounded",
+      "recognized_magic": [
+        "enchanted textiles",
+        "ceremonial design work",
+        "house wards",
+        "temple rites",
+        "road and trade safety supports"
+      ],
+      "criminal_focus": [
+        "minor and serious magic misuse",
+        "intellectual property theft",
+        "political espionage through magical means"
+      ],
+      "primary_enforcers": [
+        "Roadwardens",
+        "house security",
+        "civic magistrates"
+      ]
+    },
+    {
+      "polity": "Mimolot",
+      "stance": "scholastic and archive-mediated",
+      "recognized_magic": [
+        "academy research",
+        "licensed enchantment",
+        "artifact handling",
+        "ward maintenance"
+      ],
+      "criminal_focus": [
+        "educational fraud",
+        "tariff evasion tied to magical texts",
+        "unsafe relic experimentation"
+      ],
+      "primary_enforcers": [
+        "academy authorities",
+        "archive curators",
+        "specialized guards"
+      ]
+    },
+    {
+      "polity": "Panim",
+      "stance": "ritual, funerary, and sanctity-governed",
+      "recognized_magic": [
+        "afterlife mediation",
+        "blessing and funerary rites",
+        "temple-sanctioned transition work"
+      ],
+      "criminal_focus": [
+        "blasphemy",
+        "sacrilege",
+        "ritual theft",
+        "improper custody of sacred or funerary materials"
+      ],
+      "primary_enforcers": [
+        "temple authorities",
+        "ritual marshals",
+        "sacred custodians"
+      ]
+    },
+    {
+      "polity": "Sheresh Communes",
+      "stance": "daily-life essential and containment-disciplined",
+      "recognized_magic": [
+        "dome wards",
+        "reactor or survival systems",
+        "containment",
+        "catalogued experimentation",
+        "seasonal and civic magical artistry"
+      ],
+      "criminal_focus": [
+        "loss reporting failures",
+        "containment breaches",
+        "unsafe or hidden contamination work"
+      ],
+      "primary_enforcers": [
+        "dome authorities",
+        "ward operators",
+        "containment specialists"
+      ]
+    },
+    {
+      "polity": "Soreheim Alliance",
+      "stance": "rare, strategic, and tightly controlled",
+      "recognized_magic": [
+        "relic strategy",
+        "industrial or agricultural integration under oversight",
+        "wizard-advisor work"
+      ],
+      "criminal_focus": [
+        "illicit relic use",
+        "unsanctioned experimentation",
+        "magic that threatens communal order or production"
+      ],
+      "primary_enforcers": [
+        "regional leadership",
+        "giant authority",
+        "specialized compliance structures"
+      ]
+    }
+  ],
+  "sources": [
+    "magical_system_specification",
+    "pantheon_story",
+    "doomsday_planets",
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_alliance",
+    "spatial_seasonal",
+    "universal_geographic_relationships"
+  ],
+  "version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

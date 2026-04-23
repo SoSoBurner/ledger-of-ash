@@ -1,0 +1,19 @@
+{
+  "name": "Maskscar Plaza District",
+  "inside": "Mask workshops, banner halls, and rehearsal terraces make ceremony a labor system as well as a public identity.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "polity": "Psanan",
+    "territory": "Ashforge Citadel Environs",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "ceremonial production is visibly part of daily life.",
+    "explicitly civic, seasonal, dynastic, and ceremonial rather than temple-centered",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "npc_id": "nerissa_foamglass",
+  "canonical_name": "Nerissa Foamglass",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "faith_officer",
+  "office_or_role": "Faith-Culture Liaison",
+  "profession_discipline": "Faith-Culture Liaison",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Cosmouth",
+  "settlement": "Tideglass Registry",
+  "locality_scope": "Tideglass Registry",
+  "institutional_ties": [
+    "Tideglass Registry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Tideglass Registry through day-to-day work as faith-culture liaison.",
+  "linked_systems": {
+    "polities": [
+      "House Cosmouth"
+    ],
+    "localities": [
+      "Tideglass Registry"
+    ],
+    "institutions": [
+      "Tideglass Registry"
+    ],
+    "factions": []
+  },
+  "appearance": "Nerissa Foamglass carries the marks of faith-culture liaison in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Treats custom as live infrastructure and corrects social missteps before they harden into offense. In Tideglass Registry, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of faith-culture liaison in and around Tideglass Registry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Tideglass Registry while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Nerissa Foamglass can draw the party into a locality problem centered on faith-culture liaison duties in Tideglass Registry."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Nerissa Foamglass becomes useful when the party needs grounded help with storm disruptions, fraudulent registry claims around Tideglass Registry."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "tideglass_registry"
+  ],
+  "compatibility_interface_id": "nerissa_foamglass",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Nerissa Foamglass is immediately readable as a faith-culture liaison tied to Tideglass Registry.",
+  "encounter_context": {
+    "usual_environment": "Tideglass Registry: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "faith-culture liaison"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Nerissa Foamglass presents as someone shaped by the duties of a faith-culture liaison and the daily pressures of Tideglass Registry.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a faith-culture liaison, and proof that strangers will not make Tideglass Registry harder to manage.",
+  "what_they_refuse": "Nerissa Foamglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a faith-culture liaison too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can explain expected conduct and turn cultural knowledge into safe passage or trust.",
+  "escalation_if_crossed": "If crossed, Nerissa Foamglass adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Nerissa Foamglass always knows more about Tideglass Registry than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a faith-culture liaison in Tideglass Registry.",
+  "social_texture": "Nerissa Foamglass speaks like someone who has spent too long translating private stakes into acceptable public language. Around Tideglass Registry, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Nerissa touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Nerissa Foamglass when the party needs a socially grounded face for Tideglass Registry: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

@@ -1,0 +1,35 @@
+{
+  "release_identity": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "package_counts": {
+    "total_files": 5505,
+    "json_files": 3769,
+    "jsonl_files": 19,
+    "markdown_files": 1703,
+    "text_files": 5501,
+    "total_bytes": 66017788
+  },
+  "entrypoints": [
+    "START_HERE_GM.md",
+    "RUN_A_SESSION_NOW.md",
+    "PLAY/",
+    "WORLD_REFERENCE/",
+    "11_REFERENCE_VIEWS/current_release/",
+    "11_REFERENCE_VIEWS/current_release/locality_matrix_backbone/"
+  ],
+  "systems_present": [
+    "canon_baseline",
+    "locality_engine",
+    "locality_matrix_backbone",
+    "reconciliation_layer",
+    "runtime_engine",
+    "world_graph",
+    "reference_views"
+  ],
+  "deployed_support_files": [
+    "01_CANON_GOVERNANCE/locality_matrix_canon_contract.json",
+    "02_CANON_BASELINE/locality_matrix_backbone/build_spec.md",
+    "02_CANON_BASELINE/locality_matrix_backbone/validation_report.json"
+  ]
+}

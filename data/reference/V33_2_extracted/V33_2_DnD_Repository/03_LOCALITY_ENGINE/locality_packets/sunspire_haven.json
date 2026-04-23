@@ -1,0 +1,279 @@
+{
+  "name": "Sunspire Haven",
+  "type": "market town",
+  "parent_polity": "Soreheim Alliance",
+  "truth_layer": "reconciled_canon",
+  "identity": "Rural crossroads market town where tools, textiles, grain contracts, and labor obligations move through workshop syndicates and patron-families.",
+  "approach": "Broad roads, cart yards, workshops, and counting sheds gather around a busy market heart in productive country.",
+  "inside": "Tool halls, textile rows, grain brokers, contract tables, and shared storehouses crowd the center while family compounds and worker yards ring the lanes.",
+  "who_belongs": [
+    "farmers",
+    "artisans",
+    "traders",
+    "haul crews",
+    "syndicate clerks",
+    "patron-family retainers"
+  ],
+  "who_is_out_of_place": [
+    "hoarders",
+    "saboteurs",
+    "people who ignore local contract chains"
+  ],
+  "expected_behavior": [
+    "contribute and trade fairly",
+    "show respect to the family or syndicate controlling the yard you stand in",
+    "carry sealed papers when moving labor or grain"
+  ],
+  "visible_power": [
+    "regional leaders",
+    "market stewards",
+    "workshop syndicates",
+    "patron-families under alliance quota law"
+  ],
+  "economy": [
+    "tools",
+    "textiles",
+    "market exchange",
+    "grain routing",
+    "labor brokerage"
+  ],
+  "faith": [
+    "harvest and unity rites sit beside practical oath-rituals for contracts, storage, and convoy departure"
+  ],
+  "seasonal_change": "harvest windows, drought pressure, and convoy timing shape local rhythm more than abstract festival calendars.",
+  "pressure": [
+    "predators",
+    "water system vulnerabilities",
+    "storage disputes",
+    "family favor feuds"
+  ],
+  "npc_interfaces": [
+    "elyra_mossbane",
+    "kael_emberthrone",
+    "orvak_strone",
+    "jorva_helmrune",
+    "taldan_veyst",
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter"
+  ],
+  "law_context": [
+    "communal ownership norms enforced through regional decrees, syndicate records, and family obligation"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "settlement": "Sunspire Haven",
+    "district": null
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "canonical_identity": {
+    "truth_layer": "reconciled_canon",
+    "identity": "Rural crossroads market town where tools, textiles, grain contracts, and labor obligations move through workshop syndicates and patron-families.",
+    "approach": "Broad roads, cart yards, workshops, and counting sheds gather around a busy market heart in productive country.",
+    "inside": "Tool halls, textile rows, grain brokers, contract tables, and shared storehouses crowd the center while family compounds and worker yards ring the lanes.",
+    "who_belongs": [
+      "farmers",
+      "artisans",
+      "traders",
+      "haul crews",
+      "syndicate clerks",
+      "patron-family retainers"
+    ],
+    "who_is_out_of_place": [
+      "hoarders",
+      "saboteurs",
+      "people who ignore local contract chains"
+    ],
+    "expected_behavior": [
+      "contribute and trade fairly",
+      "show respect to the family or syndicate controlling the yard you stand in",
+      "carry sealed papers when moving labor or grain"
+    ],
+    "visible_power": [
+      "regional leaders",
+      "market stewards",
+      "workshop syndicates",
+      "patron-families under alliance quota law"
+    ],
+    "economy": [
+      "tools",
+      "textiles",
+      "market exchange",
+      "grain routing",
+      "labor brokerage"
+    ],
+    "faith": [
+      "harvest and unity rites sit beside practical oath-rituals for contracts, storage, and convoy departure"
+    ],
+    "seasonal_change": "harvest windows, drought pressure, and convoy timing shape local rhythm more than abstract festival calendars.",
+    "pressure": [
+      "predators",
+      "water system vulnerabilities",
+      "storage disputes",
+      "family favor feuds"
+    ],
+    "law_context": [
+      "communal ownership norms enforced through regional decrees, syndicate records, and family obligation"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Broad roads, cart yards, workshops, and counting sheds gather around a busy market heart in productive country.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Tool halls, textile rows, grain brokers, contract tables, and shared storehouses crowd the center while family compounds and worker yards ring the lanes.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "predators",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "water system vulnerabilities",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "storage disputes",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "family favor feuds",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "contribute and trade fairly",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "show respect to the family or syndicate controlling the yard you stand in",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "carry sealed papers when moving labor or grain",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "elyra_mossbane",
+    "kael_emberthrone",
+    "orvak_strone",
+    "jorva_helmrune",
+    "taldan_veyst",
+    "valen_crownmere",
+    "rosal_crownmere",
+    "edrin_crownmere",
+    "mariel_crownmere"
+  ],
+  "local_interface_roles": [
+    "innkeeper",
+    "market_clerk",
+    "shrine_attendant",
+    "porter"
+  ],
+  "local_role_expression": {
+    "innkeeper": {
+      "demeanor": "practical, hospitable, observant",
+      "visible_concerns": [
+        "lodging pressure",
+        "traveler gossip",
+        "unusual arrivals"
+      ],
+      "institutional_tie": "Sunspire Haven"
+    },
+    "market_clerk": {
+      "demeanor": "order-minded, queue-aware, attentive",
+      "visible_concerns": [
+        "stall flow",
+        "forms and seals",
+        "disrupted trade rhythm"
+      ],
+      "institutional_tie": "Sunspire Haven"
+    },
+    "shrine_attendant": {
+      "demeanor": "quiet, observant, correction-minded",
+      "visible_concerns": [
+        "offering order",
+        "purification lapses",
+        "ritual irregularity"
+      ],
+      "institutional_tie": "Sunspire Haven"
+    },
+    "porter": {
+      "demeanor": "hurried, grounded, load-aware",
+      "visible_concerns": [
+        "freight strain",
+        "delayed movement",
+        "suspicious cargo"
+      ],
+      "institutional_tie": "Sunspire Haven"
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually farmers, artisans, traders, and public conduct is read through expectations such as contribute and trade fairly, show respect to the family or syndicate controlling the yard you stand in.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by regional leaders, market stewards, workshop syndicates.",
+  "local_tension_surface": "The place feels stable only until pressures such as predators, water system vulnerabilities, storage disputes begin showing through daily routines.",
+  "differentiator": "Sunspire Haven stands apart because its economy leans on tools, textiles; public faith remains visible through harvest and unity rites sit beside practical oath-rituals for contracts, storage, and convoy departure; outsiders are noticed fastest when they resemble hoarders, saboteurs.",
+  "encounter_rhythm": "Most first scenes in Sunspire Haven begin through market town rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Sunspire Haven immediately highlights rural crossroads market town where tools, textiles, grain contracts, and labor obligations move through workshop syndicates and patron-families",
+    "The quickest social read of Sunspire Haven comes from how locals react to contribute and trade fairly / show respect to the family or syndicate controlling the yard you stand in."
+  ],
+  "social_misstep_examples": [
+    "Treating Sunspire Haven like a casual stop rather than a governed space.",
+    "Ignoring local expectation to contribute and trade fairly; show respect to the family or syndicate controlling the yard you stand in."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to tools.",
+    "A local intermediary resents outsider assumptions about Sunspire Haven."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Sunspire Haven",
+    "Formal notice by regional leaders",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Sunspire Haven before residents admit them.",
+  "outsider_liability": "Outsiders in Sunspire Haven are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around predators.",
+    "Someone mistakes the party for agents tied to regional leaders.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind tools surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Sunspire Haven feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Sunspire Haven is busiest and least forgiving of confusion.",
+    "night": "At night, Sunspire Haven reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Sunspire Haven mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

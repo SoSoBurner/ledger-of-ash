@@ -1,0 +1,51 @@
+{
+  "build_version": "V33_1",
+  "metrics": [
+    {
+      "metric_id": "npc.appearance.direct_only.non_null",
+      "description": "Named NPC records whose direct appearance field is non-null.",
+      "scope_class": "active_direct",
+      "inclusion_paths": [
+        "02_CANON_BASELINE/named_npcs"
+      ],
+      "exclusion_paths": [],
+      "counting_rule": "appearance field present and non-null",
+      "null_policy": "null excluded"
+    },
+    {
+      "metric_id": "npc.appearance.support_aware.non_null",
+      "description": "Named NPC records with direct or support-aware appearance material.",
+      "scope_class": "active_support_aware",
+      "inclusion_paths": [
+        "02_CANON_BASELINE/named_npcs",
+        "04_CONSERVATIVE_INFERENCE"
+      ],
+      "exclusion_paths": [],
+      "counting_rule": "appearance or appearance_support present and non-null",
+      "null_policy": "null excluded"
+    },
+    {
+      "metric_id": "roster.institution.count.active",
+      "description": "Institution roster count across active canon baseline.",
+      "scope_class": "active_direct",
+      "inclusion_paths": [
+        "02_CANON_BASELINE/institutions"
+      ],
+      "exclusion_paths": [],
+      "counting_rule": "count institution records",
+      "null_policy": "n/a"
+    },
+    {
+      "metric_id": "polity.parity.node_count.major",
+      "description": "Integrated node count used for major polity parity tiering.",
+      "scope_class": "reference_view",
+      "inclusion_paths": [
+        "02_CANON_BASELINE",
+        "03_LOCALITY_ENGINE"
+      ],
+      "exclusion_paths": [],
+      "counting_rule": "settlement + site + district + wilderness + macroregion + sublocation nodes by polity",
+      "null_policy": "n/a"
+    }
+  ]
+}

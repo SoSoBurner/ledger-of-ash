@@ -1,0 +1,34 @@
+{
+  "build_version": "V33_1",
+  "institution": "The Principalities",
+  "record_count": 1,
+  "npc_ids": [
+    "sel_hart"
+  ],
+  "records": [
+    {
+      "npc_id": "sel_hart",
+      "canonical_name": "Sel Hart",
+      "polity": "The Principalities",
+      "office_or_role": "Minor Envoy",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as minor envoy.",
+      "current_agenda": "Keep The Principalities workable through the obligations of minor envoy while managing the immediate pressure of house rivalry in The Principalities."
+    }
+  ],
+  "roster_context": {
+    "identity": [
+      "imperial umbrella polity",
+      "noble house territorial order",
+      "guild-mediated successor economy",
+      "mixed legal and magical posture by territory",
+      "house-structured social identity stronger than a single unified civic demographic identity"
+    ],
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

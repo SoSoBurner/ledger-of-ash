@@ -1,0 +1,51 @@
+{
+  "build_version": "V33_1",
+  "institution": "House Panim",
+  "record_count": 3,
+  "npc_ids": [
+    "lume_riteswell",
+    "nysa_quietbier",
+    "mediator_selka_var"
+  ],
+  "records": [
+    {
+      "npc_id": "lume_riteswell",
+      "canonical_name": "Lume Riteswell",
+      "polity": "Panim",
+      "office_or_role": "Border Assessor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as border assessor.",
+      "current_agenda": "Keep House Panim workable through the obligations of border assessor while managing the immediate pressure of institutional scrutiny in Panim."
+    },
+    {
+      "npc_id": "nysa_quietbier",
+      "canonical_name": "Nysa Quietbier",
+      "polity": "Panim",
+      "office_or_role": "Cell Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as cell broker.",
+      "current_agenda": "Keep House Panim workable through the obligations of cell broker while managing the immediate pressure of institutional scrutiny in Panim."
+    },
+    {
+      "npc_id": "mediator_selka_var",
+      "canonical_name": "Mediator Selka Var",
+      "polity": "Panim",
+      "office_or_role": "Afterlife Contract Mediator",
+      "tier": "regional",
+      "public_reputation": "Trusted to keep grief from collapsing into accusation when money and piety collide.",
+      "current_agenda": "Stop a string of fraudulent promise claims before they damage Panim’s authority."
+    }
+  ],
+  "roster_context": {
+    "identity": "Divine mediation and afterlife-preparation house whose services bind religion, status, and commerce together.",
+    "visible_power": [],
+    "pressure": [
+      "ethical suspicion around monetized afterlife preparation",
+      "ritual demand surges during crisis"
+    ]
+  },
+  "sources": [
+    "principalities",
+    "additional_legal"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "npc_id": "lady_celestine",
+  "canonical_name": "Lady Celestine",
+  "aliases": [
+    "the house voice"
+  ],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "governance_actor",
+  "office_or_role": "Lady",
+  "profession_discipline": "noble patron",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Shelk",
+  "settlement": "Fairhaven",
+  "locality_scope": "Fairhaven",
+  "institutional_ties": [
+    "Fairhaven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Shelk noble associated with graceful hosting and place-based prestige in Fairhaven.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "Fairhaven"
+    ],
+    "institutions": [
+      "Fairhaven"
+    ],
+    "factions": []
+  },
+  "appearance": "Lady Celestine carries the marks of lady in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a lady whose work is visible through daily procedure, gatekeeping, and the practical pressures of Fairhaven.",
+  "daily_function": "Performs the ongoing duties of lady in and around Fairhaven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Fairhaven while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Lady Celestine can draw the party into a practical problem centered on Fairhaven."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Lady Celestine becomes useful when the party needs access, explanation, or relief tied to the work of a lady."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "lady_celestine",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Lady Celestine is readable as a lady tied to Fairhaven.",
+  "encounter_context": {
+    "usual_environment": "Fairhaven: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "lady"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Lady Celestine presents as someone shaped by the duties of a lady and the daily pressures of Fairhaven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a lady, and proof that strangers will not make Fairhaven harder to manage.",
+  "what_they_refuse": "Lady Celestine refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a lady too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Lady Celestine can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Lady Celestine adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Lady Celestine always knows more about Fairhaven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to lady duties in Fairhaven.",
+  "social_texture": "Lady Celestine speaks like someone who has spent too long translating private stakes into acceptable public language. Around Fairhaven, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Lady touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Lady Celestine when the party needs a socially grounded face for Fairhaven: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

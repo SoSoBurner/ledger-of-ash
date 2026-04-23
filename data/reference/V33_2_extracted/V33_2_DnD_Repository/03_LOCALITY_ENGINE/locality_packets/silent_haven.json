@@ -1,0 +1,188 @@
+{
+  "name": "Silent Haven",
+  "type": "coastal outpost",
+  "parent_polity": "Principality of Roaz",
+  "identity": "Remote Roazian coastal refuge and naval defense node where antimagic caution and quiet discipline are palpable.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Principality of Roaz",
+    "territory": "House Roaz",
+    "settlement": "Silent Haven",
+    "district": null
+  },
+  "approach": "Fortified coastal settlement shaped by watchfulness and maritime necessity.",
+  "inside": "Refuge logic, dock vigilance, and law-heavy calm define it.",
+  "who_belongs": [
+    "naval defenders",
+    "refuge seekers under Roazian rules",
+    "coastal logisticians"
+  ],
+  "who_is_out_of_place": [
+    "casual mages",
+    "those who mistake refuge for legal laxity"
+  ],
+  "expected_behavior": [
+    "keep quiet order and comply with security"
+  ],
+  "visible_power": [
+    "Roazian enforcers"
+  ],
+  "economy": [
+    "naval defense",
+    "route security"
+  ],
+  "faith": [
+    "subdued"
+  ],
+  "seasonal_change": "Harsh northern sea conditions govern activity.",
+  "pressure": [
+    "sea threat",
+    "northern route vulnerability"
+  ],
+  "npc_interfaces": [
+    "harbor_officers"
+  ],
+  "law_context": [
+    "strict Roazian order"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ],
+  "canonical_identity": {
+    "truth_layer": "reconciled_canon",
+    "identity": "Remote Roazian coastal refuge and naval defense node where antimagic caution and quiet discipline are palpable.",
+    "approach": "Fortified coastal settlement shaped by watchfulness and maritime necessity.",
+    "inside": "Refuge logic, dock vigilance, and law-heavy calm define it.",
+    "who_belongs": [
+      "naval defenders",
+      "refuge seekers under Roazian rules",
+      "coastal logisticians"
+    ],
+    "who_is_out_of_place": [
+      "casual mages",
+      "those who mistake refuge for legal laxity"
+    ],
+    "expected_behavior": [
+      "keep quiet order and comply with security"
+    ],
+    "visible_power": [
+      "Roazian enforcers"
+    ],
+    "economy": [
+      "naval defense",
+      "route security"
+    ],
+    "faith": [
+      "subdued"
+    ],
+    "seasonal_change": "Harsh northern sea conditions govern activity.",
+    "pressure": [
+      "sea threat",
+      "northern route vulnerability"
+    ],
+    "law_context": [
+      "strict Roazian order"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Fortified coastal settlement shaped by watchfulness and maritime necessity.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Refuge logic, dock vigilance, and law-heavy calm define it.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "sea threat",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "northern route vulnerability",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "keep quiet order and comply with security",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "orin_ironspike"
+  ],
+  "local_interface_roles": [
+    "harbor_officers"
+  ],
+  "local_role_expression": {
+    "harbor_officers": {
+      "demeanor": "local, practical, role-bound",
+      "institutional_tie": "Silent Haven",
+      "visible_concerns": [
+        "ordinary locality pressure"
+      ]
+    }
+  },
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually naval defenders, refuge seekers under Roazian rules, coastal logisticians, and public conduct is read through expectations such as keep quiet order and comply with security.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Roazian enforcers.",
+  "local_tension_surface": "The place feels stable only until pressures such as sea threat, northern route vulnerability begin showing through daily routines.",
+  "differentiator": "Silent Haven stands apart because its economy leans on naval defense, route security; public faith remains visible through subdued; outsiders are noticed fastest when they resemble casual mages, those who mistake refuge for legal laxity.",
+  "encounter_rhythm": "Most first scenes in Silent Haven begin through coastal outpost rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Silent Haven immediately highlights remote roazian coastal refuge and naval defense node where antimagic caution and quiet discipline are palpable",
+    "The quickest social read of Silent Haven comes from how locals react to keep quiet order and comply with security."
+  ],
+  "social_misstep_examples": [
+    "Treating Silent Haven like a casual stop rather than a governed space.",
+    "Ignoring local expectation to keep quiet order and comply with security."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to naval defense.",
+    "A local intermediary resents outsider assumptions about Silent Haven."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Silent Haven",
+    "Formal notice by Roazian enforcers",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Silent Haven before residents admit them.",
+  "outsider_liability": "Outsiders in Silent Haven are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around sea threat.",
+    "Someone mistakes the party for agents tied to Roazian enforcers.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind naval defense surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Silent Haven feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Silent Haven is busiest and least forgiving of confusion.",
+    "night": "At night, Silent Haven reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Silent Haven mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

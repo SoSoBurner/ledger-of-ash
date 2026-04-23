@@ -1,0 +1,16 @@
+{
+  "locality_rule": "No named dense place may collapse to a single thin summary if source supports district, site, law, NPC, or sensory detail.",
+  "institution_rule": "Archetype and local implementation must be emitted separately where source supports both shared doctrine and local expression.",
+  "calendar_rule": "Calendars must be emitted as operational time systems with downstream ritual, labor, travel, and legal bindings.",
+  "provenance_rule": "Meaningful claims require claim-level source traceability.",
+  "runtime_rule": "Runtime state remains subordinate to baseline canon and is stored in a distinct top-level plane.",
+  "legacy_alias_rule": "Polity or place aliases inherited from older corpus strata must be emitted as deprecated aliases unless independently supported by current locality-specific records.",
+  "contradiction_expression_rule": "Where deception, memory loss, or false belief is explicit in canon, public belief, corrected truth, and engine retrieval behavior must be emitted separately rather than flattened.",
+  "cosmology_decompression_rule": "When a compressed cosmology record contains multiple independently stable canon structures, those structures should be emitted as first-class objects rather than left embedded in one summary blob.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "identity_rule": "All canonical objects must resolve through one canonical ID with alias handling rather than duplicated peer identities.",
+  "v23_4_identity_interface_fix": "enabled",
+  "synthetic_locality_person_placeholders_forbidden": true
+}

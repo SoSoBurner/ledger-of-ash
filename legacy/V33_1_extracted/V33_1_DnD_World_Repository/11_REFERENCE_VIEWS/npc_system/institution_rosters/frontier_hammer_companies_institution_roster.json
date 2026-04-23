@@ -1,0 +1,33 @@
+{
+  "build_version": "V33_1",
+  "institution": "Frontier Hammer Companies",
+  "record_count": 1,
+  "npc_ids": [
+    "helga_quotahelm"
+  ],
+  "records": [
+    {
+      "npc_id": "helga_quotahelm",
+      "canonical_name": "Helga Quotahelm",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Supply Marshal",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as supply marshal.",
+      "current_agenda": "Keep Frontier Hammer Companies workable through the obligations of supply marshal while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Mixed crews that defend, repair, and push dangerous industrial frontiers in the Eternal Lands.",
+    "visible_power": [],
+    "pressure": [
+      "predator attacks",
+      "storm damage",
+      "resource depletion",
+      "crew burnout"
+    ]
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

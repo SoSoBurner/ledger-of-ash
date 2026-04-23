@@ -1,0 +1,90 @@
+{
+  "npc_id": "tovek_stonecarve",
+  "canonical_name": "Tovek Stonecarve",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "martial_actor",
+  "office_or_role": "Ward Mediator",
+  "profession_discipline": "Ward Mediator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper",
+  "institutional_ties": [
+    "Soreheim Proper"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as ward mediator.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper"
+    ],
+    "institutions": [
+      "Soreheim Proper"
+    ],
+    "factions": []
+  },
+  "appearance": "Quota-practical armor, work-hardened layers, and visibly maintained equipment mark function before ceremony.",
+  "manner": "Moves like someone trained to decide quickly once the threshold for action has been crossed. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a ward mediator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of ward mediator in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of ward mediator while managing the immediate pressure of quota demands in Soreheim Alliance.",
+  "hidden_pressure": "Must keep readiness, command cohesion, and physical security aligned even when politics or scarcity push against discipline. Around Soreheim Proper, that usually means carrying quota demands, political rivalry, foreign pressure without letting the role of ward mediator visibly slip.",
+  "relationship_refs": [
+    "rel_0277",
+    "rel_0282",
+    "rel_0283",
+    "rel_0284",
+    "rel_0285"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "defense_request",
+      "summary": "Tovek Stonecarve needs help hardening a position, drilling unreliable auxiliaries, or reading an approaching threat around Soreheim Proper."
+    },
+    {
+      "hook_type": "rival_command_tension",
+      "summary": "Tovek Stonecarve can pull the party into a dispute over readiness, chain of command, or blamed failure near Soreheim Proper."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "tovek_stonecarve",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Weapon discipline, drilled stillness, and practiced readiness mark Tovek Stonecarve as someone tied to organized force rather than casual violence. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: drill yards, fortifications, command posts, or exposed routes",
+    "who_seeks_them_out": [
+      "subordinates",
+      "messengers",
+      "worried local leaders"
+    ],
+    "who_avoids_them": [
+      "the undisciplined",
+      "the unprepared",
+      "rivals probing weakness"
+    ],
+    "interaction_anchor": "defensive planning or force-readiness"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Tovek Stonecarve presents as Moves like someone trained to decide quickly once the threshold for action has been crossed. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a ward mediator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Ward Mediator, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Tovek Stonecarve refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Ward Mediator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Tovek Stonecarve can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Tovek Stonecarve adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Tovek Stonecarve is Known locally through day-to-day work as ward mediator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Ward Mediator."
+}

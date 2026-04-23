@@ -1,0 +1,157 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ithtananalor",
+  "record_count": 13,
+  "npc_ids": [
+    "casvel_redhinge",
+    "clerk_oth_brenn",
+    "mira_steelmarch",
+    "orren_pike",
+    "rhodra_ironspike",
+    "torren_stonewake",
+    "veyra_boltmere",
+    "dame_orsella_roaz",
+    "marshal_builder_korrin_wex",
+    "vaud_serrik",
+    "captain_darian_roaz",
+    "sir_velden_ironspike",
+    "marshal_sera_ironveil"
+  ],
+  "records": [
+    {
+      "npc_id": "casvel_redhinge",
+      "canonical_name": "Casvel Redhinge",
+      "polity": "Roaz",
+      "office_or_role": "Stable Factor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as stable factor.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of stable factor while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "clerk_oth_brenn",
+      "canonical_name": "Clerk Oth Brenn",
+      "polity": "Roaz",
+      "office_or_role": "Ledger Reconciliation Clerk",
+      "tier": "grassroots",
+      "public_reputation": "A minor clerk whose memory for altered sums is better than most officers care to admit.",
+      "current_agenda": "Prove a sequence of bonded shipments was altered before blame falls on the wrong queue."
+    },
+    {
+      "npc_id": "mira_steelmarch",
+      "canonical_name": "Mira Steelmarch",
+      "polity": "Roaz",
+      "office_or_role": "Ward Mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as ward mediator.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of ward mediator while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "orren_pike",
+      "canonical_name": "Orren Pike",
+      "polity": "Roaz",
+      "office_or_role": "Alchemists",
+      "tier": "grassroots",
+      "public_reputation": "Back-alley legal alchemist selling prison soap, burn kits, lamp oils, and occasionally something far less permitted.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of alchemists while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "rhodra_ironspike",
+      "canonical_name": "Rhodra Ironspike",
+      "polity": "Roaz",
+      "office_or_role": "Grain Measurer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as grain measurer.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of grain measurer while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "torren_stonewake",
+      "canonical_name": "Torren Stonewake",
+      "polity": "Roaz",
+      "office_or_role": "Clerk of Arrivals",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as clerk of arrivals.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of clerk of arrivals while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "veyra_boltmere",
+      "canonical_name": "Veyra Boltmere",
+      "polity": "Roaz",
+      "office_or_role": "Street Physician",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as street physician.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of street physician while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "dame_orsella_roaz",
+      "canonical_name": "Dame Orsella Roaz",
+      "polity": "Roaz",
+      "office_or_role": "Knights",
+      "tier": "legendary",
+      "public_reputation": "Iron-masked oath-rider whose methods became the model for lawful shock cavalry in Roaz.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of knights while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "marshal_builder_korrin_wex",
+      "canonical_name": "Marshal-Builder Korrin Wex",
+      "polity": "Roaz",
+      "office_or_role": "Engineers",
+      "tier": "legendary",
+      "public_reputation": "Designed the quarry-to-city rail and ventwork chain that turned Roaz law into geography.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of engineers while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "vaud_serrik",
+      "canonical_name": "Vaud Serrik",
+      "polity": "Roaz",
+      "office_or_role": "Inquisitor",
+      "tier": "legendary",
+      "public_reputation": "Inquisitor-marshal credited with early warrant standards for illicit public magic.",
+      "current_agenda": "Keep Ithtananalor workable through the obligations of inquisitor while managing the immediate pressure of illicit magic in Roaz."
+    },
+    {
+      "npc_id": "captain_darian_roaz",
+      "canonical_name": "Captain Darian Roaz",
+      "polity": "Roaz",
+      "office_or_role": "Supreme Commander of ORE",
+      "tier": "notable",
+      "public_reputation": "Recognized as a supreme commander of ore of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of supreme commander of ore while managing the immediate pressure of institutional scrutiny in Roaz."
+    },
+    {
+      "npc_id": "sir_velden_ironspike",
+      "canonical_name": "Sir Velden Ironspike",
+      "polity": "Roaz",
+      "office_or_role": "Commander of Shadowhands",
+      "tier": "notable",
+      "public_reputation": "Recognized as a commander of shadowhands of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of commander of shadowhands while managing the immediate pressure of institutional scrutiny in Roaz."
+    },
+    {
+      "npc_id": "marshal_sera_ironveil",
+      "canonical_name": "Marshal Sera Ironveil",
+      "polity": "Roaz",
+      "office_or_role": "ORE Intake Marshal",
+      "tier": "notable",
+      "public_reputation": "Known for refusing rushed filings and catching magical concealment tricks.",
+      "current_agenda": "Reduce forged permit traffic without publicly stalling ore throughput."
+    }
+  ],
+  "roster_context": {
+    "identity": "Fortified administrative heart of Roaz, where legal identity, industry, and enforcement culture visibly merge.",
+    "visible_power": [
+      "Lord Aric Roaz",
+      "Office of Roazian Enforcement",
+      "Iron Accord"
+    ],
+    "pressure": [
+      "illicit magic",
+      "smuggling",
+      "public accountability for harsh enforcement"
+    ]
+  },
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ]
+}

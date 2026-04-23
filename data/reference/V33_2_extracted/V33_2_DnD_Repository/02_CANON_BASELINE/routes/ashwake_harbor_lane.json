@@ -1,0 +1,24 @@
+{
+  "name": "Ashwake Harbor Lane",
+  "type": "ash-port trade lane",
+  "jurisdictions": [
+    "Psanan"
+  ],
+  "hazards": [
+    "ash storms",
+    "cooling-window bottlenecks",
+    "south sea storm risk"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "morra_glassmelt"
+  ],
+  "npc_interfaces": [
+    "morra_glassmelt"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

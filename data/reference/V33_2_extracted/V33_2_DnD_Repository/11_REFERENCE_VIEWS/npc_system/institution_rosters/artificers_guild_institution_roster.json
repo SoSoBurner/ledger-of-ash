@@ -1,0 +1,47 @@
+{
+  "build_version": "V33_1",
+  "institution": "Artificers’ Guild",
+  "record_count": 3,
+  "npc_ids": [
+    "varik_ironslope",
+    "vorga_coalward",
+    "vorga_ironslope"
+  ],
+  "records": [
+    {
+      "npc_id": "varik_ironslope",
+      "canonical_name": "Varik Ironslope",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Supply Marshal",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as supply marshal.",
+      "current_agenda": "Keep Artificers’ Guild workable through the obligations of supply marshal while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "vorga_coalward",
+      "canonical_name": "Vorga Coalward",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Petition Reader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as petition reader.",
+      "current_agenda": "Keep Artificers’ Guild workable through the obligations of petition reader while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "vorga_ironslope",
+      "canonical_name": "Vorga Ironslope",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Discipline Clerk",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as discipline clerk.",
+      "current_agenda": "Keep Artificers’ Guild workable through the obligations of discipline clerk while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Restricted institution for magical-industrial prototyping and relic integration.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "soreheim_review"
+  ]
+}

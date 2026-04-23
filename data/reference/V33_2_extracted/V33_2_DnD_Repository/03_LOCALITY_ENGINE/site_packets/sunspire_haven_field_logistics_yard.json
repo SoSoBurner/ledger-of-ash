@@ -1,0 +1,25 @@
+{
+  "name": "Field Logistics Yard",
+  "parent_settlement": "Sunspire Haven",
+  "type": "supply yard",
+  "truth_layer": "conservative_inference",
+  "identity": "A supply yard in Sunspire Haven that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "Field Logistics Yard Porter",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Sunspire Haven’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "local_interface_role": "porter",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "porter",
+    "display_name": "Field Logistics Yard Porter",
+    "truth_layer": "conservative_inference"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Ledgermire Crossing",
+  "parent": "The Principalities / Mimolot-Mal trade edge",
+  "summary": "A blackwater causeway where tariffs, copies, and debts seem to cling to travelers longer than mud.",
+  "sources": [
+    "internal_canonical_record",
+    "spatial_seasonal",
+    "conservative_inference"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

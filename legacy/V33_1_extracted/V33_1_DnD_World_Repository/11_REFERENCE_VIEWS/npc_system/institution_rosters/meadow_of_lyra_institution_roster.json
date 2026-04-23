@@ -1,0 +1,30 @@
+{
+  "build_version": "V33_1",
+  "institution": "Meadow of Lyra",
+  "record_count": 1,
+  "npc_ids": [
+    "tavian_dawnsilkmead"
+  ],
+  "records": [
+    {
+      "npc_id": "tavian_dawnsilkmead",
+      "canonical_name": "Tavian DawnsilkMead",
+      "polity": "Shelk",
+      "office_or_role": "Weather Caller",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as weather caller.",
+      "current_agenda": "Keep Meadow of Lyra workable through the obligations of weather caller while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "Corrupted meadow of elven observation ruins and celestial manifestations.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

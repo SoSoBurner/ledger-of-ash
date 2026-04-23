@@ -1,0 +1,9 @@
+{
+  "build_version": "V33_1",
+  "edge_count": 1311,
+  "relation_types": [
+    "co_service_same_institution",
+    "legacy_influence_same_discipline",
+    "shared_lineage_or_house"
+  ]
+}

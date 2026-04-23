@@ -1,0 +1,14 @@
+{
+  "release": "V32_7_DnD_World_Repository",
+  "corrected_from": "V32_3_DnD_World_Repository.zip",
+  "counts": {
+    "file_count": 5384,
+    "markdown_count": 1643,
+    "json_count": 3712
+  },
+  "npc_records_enriched": 220,
+  "new_wilderness_points": 24,
+  "starter_packets_total": 53,
+  "world_reference_root_files": 36,
+  "active_legacy_release_token_files_remaining": 1779
+}

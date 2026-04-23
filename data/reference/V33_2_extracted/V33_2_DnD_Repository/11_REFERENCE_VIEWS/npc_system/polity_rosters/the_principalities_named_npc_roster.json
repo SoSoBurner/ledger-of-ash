@@ -1,0 +1,21 @@
+{
+  "build_version": "V33_1",
+  "polity": "The Principalities",
+  "record_count": 5,
+  "npc_ids": [
+    "corin_stone",
+    "jalen_field",
+    "jalen_hart",
+    "pela_field",
+    "sel_hart"
+  ],
+  "tiers": {
+    "grassroots": [
+      "corin_stone",
+      "jalen_field",
+      "jalen_hart",
+      "pela_field",
+      "sel_hart"
+    ]
+  }
+}

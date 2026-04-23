@@ -1,0 +1,85 @@
+{
+  "npc_id": "aser_sablewake",
+  "canonical_name": "Aser Sablewake",
+  "aliases": [
+    "the steward"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Operations Steward",
+  "profession_discipline": "Operations Steward",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Panim",
+  "settlement": "Panim Afterlife Registry",
+  "locality_scope": "Panim Afterlife Registry",
+  "institutional_ties": [
+    "Panim Afterlife Registry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as operations steward.",
+  "linked_systems": {
+    "polities": [
+      "Panim"
+    ],
+    "localities": [
+      "Panim Afterlife Registry"
+    ],
+    "institutions": [
+      "Panim Afterlife Registry"
+    ],
+    "factions": []
+  },
+  "appearance": "Aser Sablewake usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their operations steward status legible before introductions begin.",
+  "manner": "Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Panim, that reads as someone grave, measured, and ritual-aware, with constant awareness of consequence, grief, and divine mediation, and the habits of a operations steward still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of operations steward in and around Panim Afterlife Registry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Panim Afterlife Registry workable through the obligations of operations steward while managing the immediate pressure of institutional scrutiny in Panim.",
+  "hidden_pressure": "Must keep throughput credible under conditions that reward deferral more than repair. Around Panim Afterlife Registry, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of operations steward visibly slip.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "labor_strain",
+      "summary": "Working with Aser Sablewake can draw the party into crew discipline, resource shortage, or blame transfer around Panim Afterlife Registry."
+    },
+    {
+      "hook_type": "maintenance_access",
+      "summary": "Aser Sablewake can open restricted paths or practical knowledge if the party helps keep the underlying system alive."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "principalities",
+    "additional_legal"
+  ],
+  "compatibility_interface_id": "aser_sablewake",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Tool wear, work scars, or system-focused habits make Aser Sablewake visibly responsible for keeping something larger from failing.",
+  "encounter_context": {
+    "usual_environment": "Panim Afterlife Registry: worksites, depots, spans, loading points, maintenance corridors, or workshops",
+    "who_seeks_them_out": [
+      "crew leads",
+      "suppliers",
+      "people desperate for a fix"
+    ],
+    "who_avoids_them": [
+      "blame-shifters",
+      "saboteurs",
+      "those who ignore physical limits"
+    ],
+    "interaction_anchor": "keeping systems running"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Aser Sablewake presents as Views problems as maintenance loads, throughput failures, or structural weaknesses before anything else. In Panim, that reads as someone grave, measured, and ritual-aware, with constant awareness of consequence, grief, and divine mediation, and the habits of a operations steward still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Operations Steward, and proof that strangers will not create avoidable noise in Principality of Panim.",
+  "what_they_refuse": "Aser Sablewake refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Operations Steward too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Aser Sablewake can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Aser Sablewake adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Aser Sablewake is Known locally through day-to-day work as operations steward. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Operations Steward."
+}

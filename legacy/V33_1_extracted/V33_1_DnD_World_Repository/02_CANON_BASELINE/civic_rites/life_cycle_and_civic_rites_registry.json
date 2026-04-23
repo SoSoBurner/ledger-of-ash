@@ -1,0 +1,44 @@
+{
+  "name": "Life-Cycle and Civic Rites Registry",
+  "truth_layer": "conservative_inference",
+  "domains": {
+    "birth_and_childhood": [
+      "house birth status",
+      "communal record-keeping",
+      "education assignment"
+    ],
+    "schooling_and_apprenticeship": [
+      "Mimolot noble education",
+      "craft apprenticeship",
+      "Soreheim contribution training"
+    ],
+    "courtship_and_marriage": [
+      "Psanan gift acceptance and return custom",
+      "blood vow ritual",
+      "mobile-node marriage handling in Nomdara"
+    ],
+    "punishment_and_exile": [
+      "Sheresh exile into polluted tundra",
+      "Roaz correctional labor",
+      "Union sanction and contract suspension"
+    ],
+    "inheritance_and_claim": [
+      "noble lineage claims",
+      "converted Mal debt and property records",
+      "guild standing"
+    ],
+    "death_and_mourning": [
+      "Panim coffins and afterlife economy",
+      "religious preparation",
+      "public mourning practice"
+    ],
+    "undeath_and_state_use": [
+      "imperial necromantic military layer remains a constitutional-world pressure point"
+    ]
+  },
+  "sources": [
+    "principalities",
+    "internal_canonical_record",
+    "topatch_v22_6_spec"
+  ]
+}

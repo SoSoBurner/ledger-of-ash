@@ -1,0 +1,92 @@
+{
+  "npc_id": "selven_witnessmere",
+  "canonical_name": "Selven Witnessmere",
+  "aliases": [
+    "the quiet price"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "commerce_officer",
+  "office_or_role": "Commerce Broker",
+  "profession_discipline": "Commerce Broker",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Shirsh",
+  "settlement": "Witness Coil",
+  "locality_scope": "Witness Coil",
+  "institutional_ties": [
+    "Witness Coil"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Witness Coil through day-to-day work as commerce broker.",
+  "linked_systems": {
+    "polities": [
+      "House Shirsh"
+    ],
+    "localities": [
+      "Witness Coil"
+    ],
+    "institutions": [
+      "Witness Coil"
+    ],
+    "factions": []
+  },
+  "appearance": "Selven Witnessmere carries the marks of commerce broker in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Evaluates every conversation for margin, dependency, and what can be made to move next. In Witness Coil, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of commerce broker in and around Witness Coil, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Witness Coil while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Selven Witnessmere can draw the party into a locality problem centered on commerce broker duties in Witness Coil."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Selven Witnessmere becomes useful when the party needs grounded help with false testimony, arcane contamination around Witness Coil."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "witness_coil"
+  ],
+  "compatibility_interface_id": "selven_witnessmere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Selven Witnessmere is immediately readable as a commerce broker tied to Witness Coil.",
+  "encounter_context": {
+    "usual_environment": "Witness Coil: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "commerce broker"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Selven Witnessmere presents as someone shaped by the duties of a commerce broker and the daily pressures of Witness Coil.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a commerce broker, and proof that strangers will not make Witness Coil harder to manage.",
+  "what_they_refuse": "Selven Witnessmere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a commerce broker too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can redirect supply, access networks, and read market pressure clearly.",
+  "escalation_if_crossed": "If crossed, Selven Witnessmere adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Selven Witnessmere always knows more about Witness Coil than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a commerce broker in Witness Coil.",
+  "social_texture": "Selven Witnessmere speaks like someone who has spent too long translating private stakes into acceptable public language. Around Witness Coil, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Selven touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Selven Witnessmere when the party needs a socially grounded face for Witness Coil: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

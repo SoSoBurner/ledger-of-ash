@@ -1,0 +1,84 @@
+{
+  "npc_id": "watcher_speaker_ceth_vann",
+  "canonical_name": "Watcher-Speaker Ceth Vann",
+  "aliases": [
+    "the watcher-speaker"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_actor",
+  "office_or_role": "Watcher-Speaker",
+  "profession_discipline": "confidential intake officer",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Shirsh",
+  "settlement": "Mystique Haven",
+  "locality_scope": "Mystique Haven",
+  "institutional_ties": [
+    "Mystique Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Officer who handles coded arrivals, witness transfer, and investigator rotation where secrecy must remain intact.",
+  "linked_systems": {
+    "polities": [
+      "Shirsh"
+    ],
+    "localities": [
+      "Mystique Haven"
+    ],
+    "institutions": [
+      "Mystique Haven"
+    ],
+    "factions": []
+  },
+  "appearance": "Watcher-Speaker Ceth Vann usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their watcher-speaker status legible before introductions begin.",
+  "manner": "Carries the habits of a watcher-speaker whose work is visible through daily procedure, gatekeeping, and the practical pressures of Mystique Haven.",
+  "daily_function": "Performs the ongoing duties of watcher-speaker in and around Mystique Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Mystique Haven workable through the obligations of watcher-speaker while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of watcher-speaker credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Mystique Haven.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Watcher-Speaker Ceth Vann can draw the party into a practical problem centered on Mystique Haven."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Watcher-Speaker Ceth Vann becomes useful when the party needs access, explanation, or relief tied to the work of a watcher-speaker."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "watcher_speaker_ceth_vann",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Watcher-Speaker Ceth Vann is readable as a watcher-speaker tied to Mystique Haven.",
+  "encounter_context": {
+    "usual_environment": "Mystique Haven: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "watcher-speaker"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Watcher-Speaker Ceth Vann presents as someone shaped by the duties of a watcher-speaker and the daily pressures of Mystique Haven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a watcher-speaker, and proof that strangers will not make Mystique Haven harder to manage.",
+  "what_they_refuse": "Watcher-Speaker Ceth Vann refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a watcher-speaker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Watcher-Speaker Ceth Vann can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Watcher-Speaker Ceth Vann adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Watcher-Speaker Ceth Vann always knows more about Mystique Haven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to watcher-speaker duties in Mystique Haven."
+}

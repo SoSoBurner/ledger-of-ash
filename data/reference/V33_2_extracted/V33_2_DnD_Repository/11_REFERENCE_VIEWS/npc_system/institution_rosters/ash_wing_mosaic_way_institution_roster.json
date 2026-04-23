@@ -1,0 +1,109 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ash-Wing Mosaic Way",
+  "record_count": 9,
+  "npc_ids": [
+    "ashra_ashvein",
+    "ina_cinderbrace",
+    "taren_field",
+    "vekka_ashvein",
+    "forge_voice_malzara",
+    "matron_heshka_emberreign",
+    "vatra_sul",
+    "matriarch_ashvara_citadel",
+    "mother_saar_vulkrel"
+  ],
+  "records": [
+    {
+      "npc_id": "ashra_ashvein",
+      "canonical_name": "Ashra Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Market Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as market broker.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of market broker while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "ina_cinderbrace",
+      "canonical_name": "Ina Cinderbrace",
+      "polity": "Psanan",
+      "office_or_role": "Engineers",
+      "tier": "grassroots",
+      "public_reputation": "Foundry engineer trusted with vent-prison seals and heatproof granary checks.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of engineers while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "taren_field",
+      "canonical_name": "Taren Field",
+      "polity": "Transpolity",
+      "office_or_role": "Field Naturalist",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as field naturalist.",
+      "current_agenda": "Keep Ash-Wing Mosaic Way workable through the obligations of field naturalist while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "vekka_ashvein",
+      "canonical_name": "Vekka Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Watch Sergeant",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as watch sergeant.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of watch sergeant while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "forge_voice_malzara",
+      "canonical_name": "Forge-Voice Malzara",
+      "polity": "Psanan",
+      "office_or_role": "Priests",
+      "tier": "legendary",
+      "public_reputation": "Priest-smith who fused domination, heat, and duty into an enduring civic liturgy.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of priests while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "matron_heshka_emberreign",
+      "canonical_name": "Matron Heshka Emberreign",
+      "polity": "Psanan",
+      "office_or_role": "Elementalist",
+      "tier": "legendary",
+      "public_reputation": "Bound lava-flow practice into civic defense during a major vent crisis.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of elementalist while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "vatra_sul",
+      "canonical_name": "Vatra Sul",
+      "polity": "Psanan",
+      "office_or_role": "Alchemists",
+      "tier": "legendary",
+      "public_reputation": "Distilled volcanic reagents into the first stable fire-salve trusted outside ritual combat.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of alchemists while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "matriarch_ashvara_citadel",
+      "canonical_name": "Matriarch Ashvara of the Citadel Circle",
+      "polity": "Psanan",
+      "office_or_role": "Citadel Matron",
+      "tier": "notable",
+      "public_reputation": "Recognized as a citadel matron of regional weight.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of citadel matron while managing the immediate pressure of house rivalry in Psanan."
+    },
+    {
+      "npc_id": "mother_saar_vulkrel",
+      "canonical_name": "Mother Saar Vulkrel",
+      "polity": "Psanan",
+      "office_or_role": "Saint",
+      "tier": "notable",
+      "public_reputation": "Living ash-saint to some forge crews, feared by others for preaching endurance as sacred obedience.",
+      "current_agenda": "Keep Ashforge Citadel workable through the obligations of saint while managing the immediate pressure of house rivalry in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "A processional route of ash-patterned mosaics linking plazas, dedication halls, and memorial courts.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ]
+}

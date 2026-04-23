@@ -1,0 +1,58 @@
+{
+  "build_version": "V33_1",
+  "institution": "Renewal Plaza of Masks",
+  "record_count": 4,
+  "npc_ids": [
+    "ashra_emberlash",
+    "banner_master_liora_embermask",
+    "istran_ashvein",
+    "vessa_cindercrest"
+  ],
+  "records": [
+    {
+      "npc_id": "ashra_emberlash",
+      "canonical_name": "Ashra Emberlash",
+      "polity": "Psanan",
+      "office_or_role": "Watch Scout",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as watch scout.",
+      "current_agenda": "Keep Renewal Plaza of Masks workable through the obligations of watch scout while managing the immediate pressure of eruption risk in Psanan."
+    },
+    {
+      "npc_id": "banner_master_liora_embermask",
+      "canonical_name": "Banner-Master Liora Embermask",
+      "polity": "Transpolity",
+      "office_or_role": "Renewal Processional Director",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as renewal processional director.",
+      "current_agenda": "Keep Renewal Plaza of Masks workable through the obligations of renewal processional director while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "istran_ashvein",
+      "canonical_name": "Istran Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Shrine Caretaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+      "current_agenda": "Keep Maskscar Plaza District workable through the obligations of shrine caretaker while managing the immediate pressure of house rivalry over symbolism in Psanan."
+    },
+    {
+      "npc_id": "vessa_cindercrest",
+      "canonical_name": "Vessa Cindercrest",
+      "polity": "Psanan",
+      "office_or_role": "Quartermaster",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quartermaster.",
+      "current_agenda": "Keep Maskscar Plaza District workable through the obligations of quartermaster while managing the immediate pressure of house rivalry over symbolism in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Major Psanan civic square for ember dances, masked processionals, and public renewal observance.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

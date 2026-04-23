@@ -1,0 +1,93 @@
+{
+  "npc_id": "taren_field",
+  "canonical_name": "Taren Field",
+  "aliases": [
+    "the naturalist"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Field Naturalist",
+  "profession_discipline": "Field Naturalist",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Ash-Wing Mosaic Way",
+  "locality_scope": "Ash-Wing Mosaic Way",
+  "institutional_ties": [
+    "Ash-Wing Mosaic Way"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as field naturalist.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Ash-Wing Mosaic Way"
+    ],
+    "institutions": [
+      "Ash-Wing Mosaic Way"
+    ],
+    "factions": []
+  },
+  "appearance": "Taren Field usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their field naturalist status legible before introductions begin.",
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a field naturalist still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of field naturalist in and around Ash-Wing Mosaic Way, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ash-Wing Mosaic Way workable through the obligations of field naturalist while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Ash-Wing Mosaic Way, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of field naturalist visibly slip.",
+  "relationship_refs": [
+    "rel_0855",
+    "rel_0856",
+    "rel_0857",
+    "rel_0858",
+    "rel_0859",
+    "rel_0860",
+    "rel_0861",
+    "rel_0862"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Taren Field can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Taren Field needs help with a problem in Ash-Wing Mosaic Way that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "calendars_world",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "compatibility_interface_id": "taren_field",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Taren Field carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Ash-Wing Mosaic Way: the part of Ash-Wing Mosaic Way where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Taren Field presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a field naturalist still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Field Naturalist, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Taren Field refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Field Naturalist too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Taren Field can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Taren Field adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Taren Field is Known locally through day-to-day work as field naturalist. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Field Naturalist."
+}

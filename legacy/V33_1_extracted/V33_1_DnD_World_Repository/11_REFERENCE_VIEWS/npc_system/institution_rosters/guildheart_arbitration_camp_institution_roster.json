@@ -1,0 +1,29 @@
+{
+  "build_version": "V33_1",
+  "institution": "Guildheart Arbitration Camp",
+  "record_count": 1,
+  "npc_ids": [
+    "sorra_wheelwright"
+  ],
+  "records": [
+    {
+      "npc_id": "sorra_wheelwright",
+      "canonical_name": "Sorra Wheelwright",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Wagon Surgeon",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as wagon surgeon.",
+      "current_agenda": "Keep Guildheart Arbitration Camp workable through the obligations of wagon surgeon while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Guildheart Arbitration Camp is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

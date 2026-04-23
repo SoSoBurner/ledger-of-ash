@@ -1,0 +1,47 @@
+{
+  "build_version": "V33_1",
+  "institution": "Civic Harmony Hall",
+  "record_count": 3,
+  "npc_ids": [
+    "jalen_march",
+    "sera_moonthread",
+    "vera_march"
+  ],
+  "records": [
+    {
+      "npc_id": "jalen_march",
+      "canonical_name": "Jalen March",
+      "polity": "Transpolity",
+      "office_or_role": "Operations Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as operations steward.",
+      "current_agenda": "Keep Civic Harmony Hall workable through the obligations of operations steward while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "sera_moonthread",
+      "canonical_name": "Sera Moonthread",
+      "polity": "Shelk",
+      "office_or_role": "Discipline Clerk",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as discipline clerk.",
+      "current_agenda": "Keep Shelkopolis Civic Harmony Hall Variant workable through the obligations of discipline clerk while managing the immediate pressure of institutional scrutiny in Shelk."
+    },
+    {
+      "npc_id": "vera_march",
+      "canonical_name": "Vera March",
+      "polity": "Transpolity",
+      "office_or_role": "Archive Auditor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as archive auditor.",
+      "current_agenda": "Keep Civic Harmony Hall Archetype workable through the obligations of archive auditor while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Shared administrative and short-term detention hall for fines, bounties, inquiries, and mediation across the Principalities.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "additional_legal"
+  ]
+}

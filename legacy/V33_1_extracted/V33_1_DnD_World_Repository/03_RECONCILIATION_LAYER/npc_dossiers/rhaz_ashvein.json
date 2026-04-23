@@ -1,0 +1,254 @@
+{
+  "npc_id": "rhaz_ashvein",
+  "canonical_name": "Rhaz Ashvein",
+  "build_version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "source_truth_status": "conservative_inference",
+  "evidence_tier": "source_backed_inference",
+  "dossier_layering": {
+    "canon_public": "Grounded directly in baseline NPC record plus linked polity/institution/locality support where available.",
+    "gm_hidden": "Conservative connective tissue derived from agenda, pressure, role logic, and relationship web; not promoted above asserted canon."
+  },
+  "core_identity": {
+    "full_name": "Rhaz Ashvein",
+    "aliases_titles_epithets": [],
+    "pronouns": "Not explicitly stated in canon.",
+    "apparent_age": "Not explicitly stated in canon.",
+    "actual_age": "Not explicitly stated in canon.",
+    "species_ancestry_nature": "Not explicitly stated in canon.",
+    "public_identity": "Recruiter",
+    "hidden_identity": "None explicitly asserted; hidden layer concerns pressure, leverage, and misread motive rather than a confirmed second identity.",
+    "moral_tier": "Complicated / Conflicted",
+    "ethical_profile": "Role-shaped ethics anchored to place, obligation, and consequence rather than free-floating abstraction.",
+    "general_temperament": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a recruiter still shape how they handle timing, silence, and attention.",
+    "short_npc_pitch": "Rhaz Ashvein is a recruiter anchored to Great House Citadel Circle, where daily institutional pressures make them useful, risky, or both in play.",
+    "public_role": "Rhaz Ashvein is a recruiter anchored to Great House Citadel Circle, where daily institutional pressures make them useful"
+  },
+  "setting_placement": {
+    "region": "Psanan",
+    "polity_state_faction": "Psanan",
+    "settlement_site_base_of_operations": "Great House Citadel Circle",
+    "location_setting": "The public ring of matriarchal Great Houses whose citadels define status, rivalries, and production power on Psanan.",
+    "public_role": "Recruiter",
+    "institutional_ties": [
+      "Great House Citadel Circle"
+    ],
+    "formal_rank_social_standing": "not_explicitly_stated",
+    "sphere_of_influence": "grassroots",
+    "network_function": [
+      "localized practical leverage"
+    ],
+    "who_they_answer_to": [
+      "the procedural demands of Great House Citadel Circle"
+    ],
+    "who_answers_to_them": [
+      "Ashra Ashvein, Ashra Cindercrest"
+    ],
+    "who_rivals_them": [],
+    "who_depends_on_them": [
+      "Ashra Cindercrest (Both tied to Great House Citadel Circle.)"
+    ],
+    "who_they_secretly_depend_on": [
+      "Ashra Ashvein (Shared surname Ashvein.)",
+      "Cindri Ashvein (Shared surname Ashvein.)",
+      "Istran Ashvein (Shared surname Ashvein.)",
+      "Kaiva Ashvein (Shared surname Ashvein.)",
+      "Morra Ashvein (Shared surname Ashvein.)",
+      "Soryn Ashvein (Shared surname Ashvein.)",
+      "Talvek Ashvein (Shared surname Ashvein.)"
+    ]
+  },
+  "public_vs_private": {
+    "public_face": "Known locally through day-to-day work as recruiter. Rhaz Ashvein carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+    "common_first_impression": "Rhaz Ashvein presents as Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a recruiter still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+    "visible_virtues": [
+      "competence under pressure",
+      "place literacy",
+      "readable usefulness"
+    ],
+    "visible_flaws": [
+      "protective of role",
+      "selective with trust",
+      "can widen small matters through procedure"
+    ],
+    "public_symbols": [
+      "Rhaz Ashvein carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia."
+    ],
+    "private_truth": "Keep Great House Citadel Circle workable through the obligations of recruiter while managing the immediate pressure of eruption risk in Psanan. Must keep their piece of the world working while larger systems push stress downward. Around Great House Citadel Circle, that usually means carrying eruption risk, resource access, underworld danger without letting the role of recruiter visibly slip.",
+    "what_they_hide": "Must keep their piece of the world working while larger systems push stress downward. Around Great House Citadel Circle, that usually means carrying eruption risk, resource access, underworld danger without letting the role of recruiter visibly slip.",
+    "what_they_fear_being_known_for": "The degree to which their usefulness depends on strain staying barely manageable.",
+    "what_they_are_wrong_about": "They may overestimate how much control role and procedure can preserve once pressure crosses a threshold.",
+    "what_they_refuse_to_admit_to_themselves": "That some of their identity is now fused to crisis-management rather than to the clean ideal of the role."
+  },
+  "psychology": {
+    "what_they_want_most": "Useful clarity, respect for Recruiter, and proof that strangers will not create avoidable noise in Psanan.",
+    "what_they_are_trying_to_protect_or_avoid": "Keep Great House Citadel Circle workable through the obligations of recruiter while managing the immediate pressure of eruption risk in Psanan.",
+    "emotional_drive": "Beneath the role sits a need for ordinary life under institutional pressure, legibility, and a world that does not collapse into preventable noise.",
+    "core_wound": "No singular foundational trauma is directly asserted in canon; the usable wound layer is role-shaped wear, exposure, and the cost of being the person who must notice first or answer last.",
+    "how_it_shaped_them": "It turned ordinary duty into a personality contour: they scan for failure early, trust slowly, and measure strangers by downstream cost.",
+    "guiding_belief": "If the system is kept legible, losses can still be bounded.",
+    "hidden_belief": "Someone always pays for confusion; better it be controlled sooner than wider later.",
+    "lie_they_tell_themselves": "That they are only doing the job and that the job has not already begun shaping what they are.",
+    "truth_they_are_avoiding": "Their daily choices influence culture, fear, and legitimacy far beyond the narrow wording of the role.",
+    "thresholds": {
+      "anger": "being forced to absorb avoidable disorder",
+      "fear": "cascading failure that makes role performance meaningless",
+      "power": "clear information, recognized standing, and procedural initiative",
+      "smallness": "being bypassed, misfiled, or rendered decorative",
+      "softens": "useful honesty and disciplined cooperation",
+      "hardens": "evasiveness, disrespect, and reputational risk"
+    }
+  },
+  "morality_in_practice": {
+    "how_they_justify_actions": "By reference to burden, continuity, and the need to keep the surrounding place from slipping into a harder consequence tier.",
+    "what_they_consider_unforgivable": "Willful sabotage of trust, records, access, or public safety tied to their role.",
+    "what_they_will_absolutely_do": "Delay, question, redirect, document, and escalate when place logic demands it.",
+    "what_they_will_only_do_under_pressure": "Leverage reputation, force, secrecy, or rigid procedure in ways that damage future trust.",
+    "what_they_will_never_do": "Act against corpus-confirmed identity or role logic without a visible pressure bridge.",
+    "relationship_to_good_evil": "Operational read: Complicated / Conflicted. Their danger lies less in theatrical evil than in what happens when role logic outruns compassion, nuance, or proportionality."
+  },
+  "power_profile": {
+    "why_they_matter": "Rhaz Ashvein can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+    "why_hard_to_ignore": "By enforcing Recruiter too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+    "primary_source_of_power": "general_actor",
+    "secondary_source_of_power": "local familiarity, institutional memory, and other people needing something from them",
+    "why_difficult_to_confront_directly": "Confronting them usually means confronting place rules, witnesses, and downstream consequences rather than only the individual body in front of you.",
+    "capabilities": {
+      "magic": "Not explicitly stated unless separately asserted elsewhere in corpus.",
+      "combat": "Role-dependent; implied only to the degree their office already carries enforcement, survival, or defensive expectation.",
+      "social": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Psanan, that reads as someone heat-forged, direct, and honor-conscious, shaped by household authority and volcanic endurance, and the habits of a recruiter still shape how they handle timing, silence, and attention.",
+      "strategic_administrative": "Performs the ongoing duties of recruiter in and around Great House Citadel Circle, where the role has practical consequences even when nothing dramatic is happening.",
+      "logistical_economic": "Keep Great House Citadel Circle workable through the obligations of recruiter while managing the immediate pressure of eruption risk in Psanan.",
+      "investigative_covert": "Must keep their piece of the world working while larger systems push stress downward. Around Great House Citadel Circle, that usually means carrying eruption risk, resource access, underworld danger without letting the role of recruiter visibly slip."
+    },
+    "signature_methods": {
+      "how_they_typically_win": "By controlling tempo, framing the problem first, and forcing others to deal with the local reality they represent.",
+      "favorite_tool": "position, knowledge, and place-specific leverage",
+      "how_they_escalate": "If crossed, Rhaz Ashvein adds delay, scrutiny, and reputational drag before direct punishment.",
+      "when_cornered": "They narrow options, call on procedure or allies, and try to move the conflict onto terrain they understand better than the intruder."
+    }
+  },
+  "systems_impact": {
+    "direct_controls": [
+      "Great House Citadel Circle"
+    ],
+    "indirect_effects": [
+      "Great House Citadel Circle",
+      "Psanan"
+    ],
+    "cultural_effect": "Ordinary people around Great House Citadel Circle learn to speak, wait, disclose, or hide differently depending on whether Rhaz Ashvein or people like them are part of the scene."
+  },
+  "society_politics_geopolitics": {
+    "ordinary_people_experience": "Common folk experience Rhaz Ashvein as a point where broader pressures become personal: papers checked, routes delayed, rites clarified, access granted, warnings issued, or burdens redirected.",
+    "cultural_wound_or_benefit": "They leave behind either increased legibility and trust or accumulated caution and narrowed speech.",
+    "secondary_behaviors": "People rehearse their story before approaching; they gather proof early; they watch who is seen speaking with this NPC.",
+    "factions_gain": [
+      "Great House Citadel Circle"
+    ],
+    "factions_fear": [
+      "actors who benefit from vagueness, delay, leakage, or unmanaged pressure"
+    ],
+    "governance_shift": "At table scale, this NPC shifts how authority feels inside Great House Citadel Circle: more navigable if cooperative, more costly if crossed.",
+    "geopolitical_effect": "Small incidents around Rhaz Ashvein can propagate upward through Psanan if they touch routes, records, trade, ritual legitimacy, or public order."
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0025",
+      "other_npc_id": "ashra_ashvein",
+      "other_name": "Ashra Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    },
+    {
+      "relationship_id": "rel_1212",
+      "other_npc_id": "ashra_cindercrest",
+      "other_name": "Ashra Cindercrest",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Great House Citadel Circle."
+    },
+    {
+      "relationship_id": "rel_0042",
+      "other_npc_id": "cindri_ashvein",
+      "other_name": "Cindri Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    },
+    {
+      "relationship_id": "rel_0069",
+      "other_npc_id": "istran_ashvein",
+      "other_name": "Istran Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    },
+    {
+      "relationship_id": "rel_0055",
+      "other_npc_id": "kaiva_ashvein",
+      "other_name": "Kaiva Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    },
+    {
+      "relationship_id": "rel_0049",
+      "other_npc_id": "morra_ashvein",
+      "other_name": "Morra Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    },
+    {
+      "relationship_id": "rel_0064",
+      "other_npc_id": "soryn_ashvein",
+      "other_name": "Soryn Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    },
+    {
+      "relationship_id": "rel_0067",
+      "other_npc_id": "talvek_ashvein",
+      "other_name": "Talvek Ashvein",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Ashvein."
+    }
+  ],
+  "hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Rhaz Ashvein can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Rhaz Ashvein can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "encounter_context": {
+    "usual_environment": "Great House Citadel Circle: the part of Great House Citadel Circle where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Recruiter.",
+  "rumor": "People say Rhaz Ashvein is Known locally through day-to-day work as recruiter. and rarely acts without a second motive.",
+  "provenance": {
+    "source_object_ids": [
+      "spatial_seasonal",
+      "calendars_world"
+    ],
+    "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+    "transformation_note": "Dossier generated from existing named NPC architecture plus locally-linked support texts; unsupported hard biography intentionally withheld.",
+    "derivation_label": "source_backed_conservative_inference",
+    "derivation_tier": "repository_synthesis"
+  }
+}

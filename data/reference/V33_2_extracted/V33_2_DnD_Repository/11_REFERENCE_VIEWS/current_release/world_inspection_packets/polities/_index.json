@@ -1,0 +1,95 @@
+{
+  "count": 15,
+  "entries": [
+    {
+      "name": "House Cosmouth",
+      "slug": "house_cosmouth",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/house_cosmouth.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/house_cosmouth.md"
+    },
+    {
+      "name": "House Mal",
+      "slug": "house_mal_legacy",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/house_mal_legacy.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/house_mal_legacy.md"
+    },
+    {
+      "name": "House Mimolot",
+      "slug": "house_mimolot",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/house_mimolot.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/house_mimolot.md"
+    },
+    {
+      "name": "House Panim",
+      "slug": "house_panim",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/house_panim.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/house_panim.md"
+    },
+    {
+      "name": "House Shirsh",
+      "slug": "house_shirsh",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/house_shirsh.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/house_shirsh.md"
+    },
+    {
+      "name": "House Zootia",
+      "slug": "house_zootia",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/house_zootia.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/house_zootia.md"
+    },
+    {
+      "name": "Nomdara Caravan",
+      "slug": "nomdara_caravan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/nomdara_caravan.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/nomdara_caravan.md"
+    },
+    {
+      "name": "Principality of Roaz",
+      "slug": "principality_of_roaz",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/principality_of_roaz.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/principality_of_roaz.md"
+    },
+    {
+      "name": "Principality of Shelk",
+      "slug": "principality_of_shelk",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/principality_of_shelk.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/principality_of_shelk.md"
+    },
+    {
+      "name": "Psanan",
+      "slug": "psanan",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/psanan.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/psanan.md"
+    },
+    {
+      "name": "Sheresh Communes",
+      "slug": "sheresh_communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/sheresh_communes.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/sheresh_communes.md"
+    },
+    {
+      "name": "Soreheim Alliance",
+      "slug": "soreheim_alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/soreheim_alliance.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/soreheim_alliance.md"
+    },
+    {
+      "name": "The Principalities",
+      "slug": "the_principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/the_principalities.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/the_principalities.md"
+    },
+    {
+      "name": "The Union",
+      "slug": "the_union",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/the_union.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/the_union.md"
+    },
+    {
+      "name": "Union Successor Heartland",
+      "slug": "union_successor_heartland",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/polities/union_successor_heartland.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/polities/union_successor_heartland.md"
+    }
+  ]
+}

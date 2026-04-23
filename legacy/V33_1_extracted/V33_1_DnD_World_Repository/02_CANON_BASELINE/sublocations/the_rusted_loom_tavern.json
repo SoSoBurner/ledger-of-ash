@@ -1,0 +1,22 @@
+{
+  "name": "The Rusted Loom Tavern",
+  "parent_district": "Ironspool Ward District",
+  "type": "tavern",
+  "summary": "Rough clientele and dangerous-contract meeting spot.",
+  "npc_interfaces": [
+    "vera_wren",
+    "kest_wren"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "vera_wren",
+    "kest_wren"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

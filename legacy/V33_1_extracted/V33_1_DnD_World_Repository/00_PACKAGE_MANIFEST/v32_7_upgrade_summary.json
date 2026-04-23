@@ -1,0 +1,10 @@
+{
+  "release": "V32_7",
+  "upgrades": {
+    "campaign_packet_additions": 2,
+    "new_wilderness_points": 8,
+    "root_navigation_files_added": 1,
+    "identity_cleanup": "applied to active current-use surfaces"
+  },
+  "standalone_package_intent": true
+}

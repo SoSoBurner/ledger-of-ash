@@ -1,0 +1,17 @@
+{
+  "name": "Ashforge Citadel",
+  "visible_power": [
+    "Great House Citadel Circle",
+    "Forge Dedication Halls",
+    "Rebuilding Oath Courts"
+  ],
+  "law_context": [
+    "forge discipline",
+    "rebuilding vow enforcement",
+    "House precedence law"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

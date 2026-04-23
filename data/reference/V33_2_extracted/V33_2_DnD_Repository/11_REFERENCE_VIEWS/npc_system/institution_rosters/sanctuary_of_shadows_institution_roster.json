@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sanctuary of Shadows",
+  "record_count": 2,
+  "npc_ids": [
+    "jalen_mere",
+    "vera_mere"
+  ],
+  "records": [
+    {
+      "npc_id": "jalen_mere",
+      "canonical_name": "Jalen Mere",
+      "polity": "Transpolity",
+      "office_or_role": "Inventory Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as inventory steward.",
+      "current_agenda": "Keep Sanctuary of Shadows workable through the obligations of inventory steward while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "vera_mere",
+      "canonical_name": "Vera Mere",
+      "polity": "Transpolity",
+      "office_or_role": "Quiet-Room Mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quiet-room mediator.",
+      "current_agenda": "Keep Sanctuary of Shadows workable through the obligations of quiet-room mediator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Small temple to Felelem with charms and whispered superstitions.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

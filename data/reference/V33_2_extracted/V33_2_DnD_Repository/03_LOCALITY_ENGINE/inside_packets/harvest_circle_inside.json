@@ -1,0 +1,19 @@
+{
+  "name": "Harvest Circle",
+  "inside": "Granaries, counting courts, communal tables, festival grounds, and family compounds share one busy civic center.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "grain redistribution is visibly part of daily life.",
+    "unity and harvest rites are public, crowded, and used to reset debts, favors, and work pledges",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

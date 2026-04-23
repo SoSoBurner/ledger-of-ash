@@ -34,7 +34,9 @@ window.LOCALITY_MATRIX = {
       "environment_assignment_confidence": "direct"
     },
     "children": [
-      "panim_haven_reckoning_quarter"
+      "panim_haven_high_quarter",
+      "panim_haven_common_quarter",
+      "panim_haven_low_ward"
     ],
     "name": "Panim Haven",
     "polity": "House Panim",
@@ -223,9 +225,9 @@ window.LOCALITY_MATRIX = {
       "environment_assignment_confidence": "direct"
     },
     "children": [
-      "shelkopolis_aurora_heights_district",
-      "shelkopolis_ironspool_ward_district",
-      "shelkopolis_verdant_row_district"
+      "shelkopolis_high_quarter",
+      "shelkopolis_common_quarter",
+      "shelkopolis_low_ward"
     ],
     "name": "Shelkopolis",
     "polity": "Principality of Shelk",
@@ -474,7 +476,9 @@ window.LOCALITY_MATRIX = {
       "environment_assignment_confidence": "direct"
     },
     "children": [
-      "mimolot_academy_scriptorium_steps"
+      "mimolot_academy_high_quarter",
+      "mimolot_academy_common_quarter",
+      "mimolot_academy_low_ward"
     ],
     "name": "Mimolot Academy",
     "polity": "House Mimolot",
@@ -670,7 +674,9 @@ window.LOCALITY_MATRIX = {
       "environment_assignment_confidence": "direct"
     },
     "children": [
-      "ithtananalor_iron_ledger_ward"
+      "ithtananalor_high_quarter",
+      "ithtananalor_common_quarter",
+      "ithtananalor_low_ward"
     ],
     "name": "Ithtananalor",
     "polity": "Principality of Roaz",
@@ -1178,7 +1184,9 @@ window.LOCALITY_MATRIX = {
       "environment_assignment_confidence": "direct"
     },
     "children": [
-      "harvest_keep_granary_steps"
+      "harvest_keep_high_quarter",
+      "harvest_keep_common_quarter",
+      "harvest_keep_low_ward"
     ],
     "name": "Harvest Keep",
     "polity": "Principality of Zootia",
@@ -1208,348 +1216,42 @@ window.LOCALITY_MATRIX = {
     "assignment_method": "v33_1_district_parent_inference",
     "assignment_confidence": "conservative_inference"
   },
-  "shelkopolis_aurora_heights_district": {
+  "panim_haven_high_quarter": {
     "record_kind": "locality",
-    "locality_id": "shelkopolis_aurora_heights_district",
-    "display_name_raw": "Aurora Heights District",
-    "display_name_key": "shelkopolis_aurora_heights_district",
+    "locality_id": "panim_haven_high_quarter",
+    "display_name_raw": "Panim Haven — High Quarter",
+    "display_name_key": "panim_haven_high_quarter",
     "locality_class": "district",
-    "district_type_raw": "upper-class district",
-    "district_type_key": "upper_class_district",
-    "parent_settlement_id": "shelkopolis",
-    "is_synthetic": false,
-    "parent_polity": {
-      "raw_value": "Principality of Shelk",
-      "normalized_key": "principality_of_shelk",
-      "source_field": "polity",
-      "source_file_class": "localities"
-    },
-    "umbrella_polity": {
-      "raw_value": "The Principalities",
-      "normalized_key": "the_principalities",
-      "source_field": "umbrella_polity",
-      "source_file_class": "derived"
-    },
-    "macroregion_environment_profile": {
-      "primary_environment_label_raw": "Aurora Meadows / Volcanic Coast",
-      "primary_environment_label_key": "aurora_meadows_volcanic_coast",
-      "environment_components": [
-        "aurora_meadows",
-        "volcanic_coast"
-      ],
-      "surface_role_raw": "Volcanic coastal lowland with glyph interference",
-      "surface_role_key": "volcanic_coast",
-      "environment_assignment_method": "region_group",
-      "environment_assignment_confidence": "direct"
-    },
-    "name": "Aurora Heights District",
-    "identity": "Refined terraced noble district of mansions, fountains, and elite culture.",
-    "approach": "Terraced hill, gilded mansions, jasmine and citrus, noble crests, and quiet fountains.",
-    "inside": "Wide boulevards, wrought-iron gates, bespoke shops, noble strolls, and culture-centered public life.",
-    "who_belongs": [
-      "nobles",
-      "elite artisans",
-      "diplomats",
-      "high clergy"
-    ],
-    "who_is_out_of_place": [
-      "rough caravan crews",
-      "underdressed opportunists"
-    ],
-    "expected_behavior": [
-      "measured conduct",
-      "fine attire",
-      "political and artistic decorum"
-    ],
-    "visible_power": [
-      "House Shelk nobility",
-      "elite magistrates",
-      "high clergy"
-    ],
-    "economy": [
-      "luxury trade",
-      "ceremonial fashion",
-      "diplomatic hosting"
-    ],
-    "faith": [
-      "cathedral-centered contemplation and compassion"
-    ],
-    "seasonal_change": "Seasonal gala coloration shifts through high-status social calendars.",
-    "pressure": [
-      "alliances",
-      "espionage",
-      "elite reputation"
-    ],
-    "npc_interfaces": [
-      "lady_isabella_shelk",
-      "lord_darius_shelk",
-      "high_priestess_lyara_dawnlight",
-      "aelric_velvetmere",
-      "liora_bloomcrest",
-      "maren_starbloom"
-    ],
-    "law_context": [
-      "fashion, espionage, noble trespass, and sacred decorum are all heavily enforced."
-    ],
-    "differentiator": "Aurora Heights District stands apart because its economy leans on luxury trade, ceremonial fashion; public faith remains visible through cathedral-centered contemplation and compassion; outsiders are noticed fastest when they resemble rough caravan crews, underdressed opportunists.",
-    "encounter_rhythm": "Most first scenes in Aurora Heights District begin through upper-class district rhythms: arrival, observation, minor correction, and only then deeper access."
-  },
-  "harvest_keep_granary_steps": {
-    "record_kind": "locality",
-    "locality_id": "harvest_keep_granary_steps",
-    "display_name_raw": "Granary Steps",
-    "display_name_key": "harvest_keep_granary_steps",
-    "locality_class": "district",
-    "district_type_raw": "district",
-    "district_type_key": "district",
-    "parent_settlement_id": "harvest_keep",
-    "is_synthetic": false,
-    "parent_polity": {
-      "raw_value": "Principality of Zootia",
-      "normalized_key": "principality_of_zootia",
-      "source_field": "polity",
-      "source_file_class": "localities"
-    },
-    "umbrella_polity": {
-      "raw_value": "The Principalities",
-      "normalized_key": "the_principalities",
-      "source_field": "umbrella_polity",
-      "source_file_class": "derived"
-    },
-    "macroregion_environment_profile": {
-      "primary_environment_label_raw": "Soreheim Plains / Frontier",
-      "primary_environment_label_key": "soreheim_plains_frontier",
-      "environment_components": [
-        "plains",
-        "frontier_zone",
-        "industrial_core"
-      ],
-      "surface_role_raw": "Alliance plains and frontier production zone",
-      "surface_role_key": "plains_frontier",
-      "environment_assignment_method": "region_group",
-      "environment_assignment_confidence": "direct"
-    },
-    "name": "Granary Steps",
-    "identity": "Storehouse district where the politics of plenty become queues, weights, and storage rights.",
-    "approach": "Stepped grain towers and hoistways rise above wagon ruts and canal runoff.",
-    "inside": "Measure boards, storage ladders, sealed bins, and ration benches define the district.",
-    "who_belongs": [
-      "granary laborers",
-      "measure clerks",
-      "brokers"
-    ],
-    "who_is_out_of_place": [
-      "bag cutters",
-      "queue jumpers"
-    ],
-    "expected_behavior": [
-      "wait for weighing",
-      "do not break seal marks"
-    ],
-    "visible_power": [
-      "granary wardens",
-      "House Zootia factors"
-    ],
-    "economy": [
-      "storage",
-      "weighing",
-      "reserve allocation"
-    ],
-    "faith": [
-      "blessing marks on bins read as stewardship, not spectacle"
-    ],
-    "seasonal_change": "Peak harvest turns every platform into a pressure point.",
-    "pressure": [
-      "mold panic",
-      "reserve disputes"
-    ],
-    "npc_interfaces": [
-      "warden_pellor_grainhand",
-      "broker_lysa_tarrow"
-    ],
-    "law_context": [
-      "reserve seal law",
-      "measure disputes"
-    ],
-    "differentiator": "",
-    "encounter_rhythm": ""
-  },
-  "ithtananalor_iron_ledger_ward": {
-    "record_kind": "locality",
-    "locality_id": "ithtananalor_iron_ledger_ward",
-    "display_name_raw": "Iron Ledger Ward",
-    "display_name_key": "ithtananalor_iron_ledger_ward",
-    "locality_class": "district",
-    "district_type_raw": "district",
-    "district_type_key": "district",
-    "parent_settlement_id": "ithtananalor",
-    "is_synthetic": false,
-    "parent_polity": {
-      "raw_value": "Principality of Roaz",
-      "normalized_key": "principality_of_roaz",
-      "source_field": "polity",
-      "source_file_class": "localities"
-    },
-    "umbrella_polity": {
-      "raw_value": "The Principalities",
-      "normalized_key": "the_principalities",
-      "source_field": "umbrella_polity",
-      "source_file_class": "derived"
-    },
-    "macroregion_environment_profile": {
-      "primary_environment_label_raw": "Roazian Highland",
-      "primary_environment_label_key": "roazian_highland",
-      "environment_components": [
-        "highland",
-        "industrial_zone",
-        "enforcement_corridor"
-      ],
-      "surface_role_raw": "Highland extraction and enforcement zone",
-      "surface_role_key": "industrial_highland",
-      "environment_assignment_method": "region_group",
-      "environment_assignment_confidence": "direct"
-    },
-    "name": "Iron Ledger Ward",
-    "identity": "Administrative-industrial ward where Roazian law, permits, prisoner labor accounting, and anti-magic inspection visibly meet.",
-    "approach": "Black iron rails, permit pylons, and inspection lamps frame the ward before its clerk lines and fortified counting houses become fully visible.",
-    "inside": "Record halls, bonded storage, magistrate offices, and labor-transfer yards operate under an atmosphere of procedural precision.",
-    "who_belongs": [
-      "clerks",
-      "ORE officers",
-      "licensed haulers",
-      "magistrate runners"
-    ],
-    "who_is_out_of_place": [
-      "unlicensed spell carriers",
-      "paperless contractors"
-    ],
-    "expected_behavior": [
-      "show permits promptly",
-      "do not obstruct inspection lanes"
-    ],
-    "visible_power": [
-      "Office of Roazian Enforcement",
-      "magistrate clerks",
-      "bond officers"
-    ],
-    "economy": [
-      "permits",
-      "ore accounting",
-      "labor assignment"
-    ],
-    "faith": [
-      "law, discipline, and caution are civic before devotional here"
-    ],
-    "seasonal_change": "Winter bottlenecks increase queue pressure and inspections.",
-    "pressure": [
-      "contraband concealment",
-      "ledger fraud",
-      "inspection backlog"
-    ],
-    "npc_interfaces": [
-      "marshal_sera_ironveil",
-      "clerk_oth_brenn"
-    ],
-    "law_context": [
-      "anti-magic enforcement",
-      "permit law",
-      "labor transfer law"
-    ],
-    "differentiator": "",
-    "encounter_rhythm": ""
-  },
-  "shelkopolis_ironspool_ward_district": {
-    "record_kind": "locality",
-    "locality_id": "shelkopolis_ironspool_ward_district",
-    "display_name_raw": "Ironspool Ward District",
-    "display_name_key": "shelkopolis_ironspool_ward_district",
-    "locality_class": "district",
-    "district_type_raw": "lower ward",
-    "district_type_key": "lower_ward",
-    "parent_settlement_id": "shelkopolis",
-    "is_synthetic": false,
-    "parent_polity": {
-      "raw_value": "Principality of Shelk",
-      "normalized_key": "principality_of_shelk",
-      "source_field": "polity",
-      "source_file_class": "localities"
-    },
-    "umbrella_polity": {
-      "raw_value": "The Principalities",
-      "normalized_key": "the_principalities",
-      "source_field": "umbrella_polity",
-      "source_file_class": "derived"
-    },
-    "macroregion_environment_profile": {
-      "primary_environment_label_raw": "Aurora Meadows / Volcanic Coast",
-      "primary_environment_label_key": "aurora_meadows_volcanic_coast",
-      "environment_components": [
-        "aurora_meadows",
-        "volcanic_coast"
-      ],
-      "surface_role_raw": "Volcanic coastal lowland with glyph interference",
-      "surface_role_key": "volcanic_coast",
-      "environment_assignment_method": "region_group",
-      "environment_assignment_confidence": "direct"
-    },
-    "name": "Ironspool Ward District",
-    "identity": "Rougher labor and sellsword quarter of affordable goods, repair shops, and low-end taverns.",
-    "approach": "Harsher edges, cheaper stalls, and visible repair culture replace elite polish.",
-    "inside": "Labor garments, rough taverns, hidden fear shrines, and second-hand trade define the ward.",
-    "who_belongs": [
-      "laborers",
-      "sellswords",
-      "wagon hands",
-      "budget traders"
-    ],
-    "who_is_out_of_place": [
-      "fragile nobles expecting insulated calm"
-    ],
-    "expected_behavior": [
-      "mind your business, pay your tab, and do not mistake poverty for disorder"
-    ],
-    "visible_power": [
-      "local warders",
-      "repair guilds",
-      "tavern rumor-brokers"
-    ],
-    "economy": [
-      "affordable garments",
-      "basic repairs",
-      "flea trade"
-    ],
-    "faith": [
-      "Felelem’s protection charms surface more openly here."
-    ],
-    "seasonal_change": "Bad weather and route disruptions hit this district fast through prices and tempers.",
-    "pressure": [
-      "desperation contracts",
-      "petty crime",
-      "omens and superstition"
-    ],
-    "npc_interfaces": [
-      "ward smiths",
-      "tavern fixers",
-      "thalen_petalglass",
-      "cevrin_silkgate",
-      "roswen_velvetmere"
-    ],
-    "law_context": [
-      "public order and vandalism matter more than elite decorum."
-    ],
-    "differentiator": "Ironspool Ward District stands apart because its economy leans on affordable garments, basic repairs; public faith remains visible through Felelem’s protection charms surface more openly here.; outsiders are noticed fastest when they resemble fragile nobles expecting insulated calm.",
-    "encounter_rhythm": "Most first scenes in Ironspool Ward District begin through lower ward rhythms: arrival, observation, minor correction, and only then deeper access."
-  },
-  "panim_haven_reckoning_quarter": {
-    "record_kind": "locality",
-    "locality_id": "panim_haven_reckoning_quarter",
-    "display_name_raw": "Reckoning Quarter",
-    "display_name_key": "panim_haven_reckoning_quarter",
-    "locality_class": "district",
-    "district_type_raw": "district",
-    "district_type_key": "district",
+    "district_type_raw": "upper district",
+    "district_type_key": "upper_district",
     "parent_settlement_id": "panim_haven",
-    "is_synthetic": false,
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Panim Haven — High Quarter",
+    "identity": "Panim Haven High Quarter — formal institutions, administrative offices, and upper-class services.",
+    "approach": "Formal facades and maintained approaches mark the administrative heart of Panim Haven.",
+    "inside": "Orderly and watched. Rank is visible and movement is read.",
+    "who_belongs": [
+      "officials",
+      "ranking citizens",
+      "institutional workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local authority",
+      "senior administrators"
+    ],
+    "economy": [
+      "administrative services",
+      "formal institutions"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
     "parent_polity": {
       "raw_value": "House Panim",
       "normalized_key": "house_panim",
@@ -1574,62 +1276,357 @@ window.LOCALITY_MATRIX = {
       "surface_role_key": "memorial_lowlands",
       "environment_assignment_method": "region_group",
       "environment_assignment_confidence": "direct"
-    },
-    "name": "Reckoning Quarter",
-    "identity": "Public district of offerings, coffin contracts, and afterlife preparation where devotion and transaction remain visibly intertwined.",
-    "approach": "Funerary banners, offering tables, and carved account stones guide visitors into a district that smells of incense, cedar, and salt.",
-    "inside": "Contract halls, embalming courts, blessing stalls, and family waiting rooms make grief administrative without making it private.",
+    }
+  },
+  "panim_haven_common_quarter": {
+    "record_kind": "locality",
+    "locality_id": "panim_haven_common_quarter",
+    "display_name_raw": "Panim Haven — Common Quarter",
+    "display_name_key": "panim_haven_common_quarter",
+    "locality_class": "district",
+    "district_type_raw": "common district",
+    "district_type_key": "common_district",
+    "parent_settlement_id": "panim_haven",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Panim Haven — Common Quarter",
+    "identity": "Panim Haven Common Quarter — markets, inns, workshops, and everyday traffic.",
+    "approach": "Market noise and workshop smoke mark the living center of Panim Haven.",
+    "inside": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
     "who_belongs": [
-      "mourning families",
-      "contract clerks",
-      "ritual workers"
+      "traders",
+      "artisans",
+      "travelers",
+      "workers"
     ],
-    "who_is_out_of_place": [
-      "mockers",
-      "coffin thieves"
-    ],
-    "expected_behavior": [
-      "speak with restraint",
-      "honor queue order around rites"
-    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
     "visible_power": [
-      "House Panim mediators",
-      "offering clerks"
+      "market wardens",
+      "guild representatives"
     ],
     "economy": [
-      "afterlife preparation",
-      "ritual contracting",
-      "offering trade"
+      "trade",
+      "craft services",
+      "hospitality"
     ],
-    "faith": [
-      "divine mediation is constant and public"
-    ],
-    "seasonal_change": "Festival and pilgrimage periods overload family lodging and contract halls.",
-    "pressure": [
-      "fraudulent afterlife promises",
-      "grief exploitation"
-    ],
-    "npc_interfaces": [
-      "mediator_selka_var",
-      "scribe_iren_palemark"
-    ],
-    "law_context": [
-      "funerary contract law",
-      "offering accountability"
-    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
     "differentiator": "",
-    "encounter_rhythm": ""
+    "parent_polity": {
+      "raw_value": "House Panim",
+      "normalized_key": "house_panim",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Memorial Lowlands",
+      "primary_environment_label_key": "memorial_lowlands",
+      "environment_components": [
+        "lowland",
+        "shrine_district",
+        "processional_routes"
+      ],
+      "surface_role_raw": "Lowland memorial and shrine district",
+      "surface_role_key": "memorial_lowlands",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
   },
-  "mimolot_academy_scriptorium_steps": {
+  "panim_haven_low_ward": {
     "record_kind": "locality",
-    "locality_id": "mimolot_academy_scriptorium_steps",
-    "display_name_raw": "Scriptorium Steps",
-    "display_name_key": "mimolot_academy_scriptorium_steps",
+    "locality_id": "panim_haven_low_ward",
+    "display_name_raw": "Panim Haven — Low Ward",
+    "display_name_key": "panim_haven_low_ward",
     "locality_class": "district",
-    "district_type_raw": "district",
-    "district_type_key": "district",
+    "district_type_raw": "lower ward",
+    "district_type_key": "lower_ward",
+    "parent_settlement_id": "panim_haven",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Panim Haven — Low Ward",
+    "identity": "Panim Haven Low Ward — labor quarters, repair yards, and off-record services.",
+    "approach": "Rougher edges and utilitarian infrastructure define the working base of Panim Haven.",
+    "inside": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "who_belongs": [
+      "laborers",
+      "repair workers",
+      "low-cost traders"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local fixers",
+      "ward wardens"
+    ],
+    "economy": [
+      "repair services",
+      "labor",
+      "low-cost goods"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "House Panim",
+      "normalized_key": "house_panim",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Memorial Lowlands",
+      "primary_environment_label_key": "memorial_lowlands",
+      "environment_components": [
+        "lowland",
+        "shrine_district",
+        "processional_routes"
+      ],
+      "surface_role_raw": "Lowland memorial and shrine district",
+      "surface_role_key": "memorial_lowlands",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "shelkopolis_high_quarter": {
+    "record_kind": "locality",
+    "locality_id": "shelkopolis_high_quarter",
+    "display_name_raw": "Shelkopolis — High Quarter",
+    "display_name_key": "shelkopolis_high_quarter",
+    "locality_class": "district",
+    "district_type_raw": "upper district",
+    "district_type_key": "upper_district",
+    "parent_settlement_id": "shelkopolis",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Shelkopolis — High Quarter",
+    "identity": "Shelkopolis High Quarter — formal institutions, administrative offices, and upper-class services.",
+    "approach": "Formal facades and maintained approaches mark the administrative heart of Shelkopolis.",
+    "inside": "Orderly and watched. Rank is visible and movement is read.",
+    "who_belongs": [
+      "officials",
+      "ranking citizens",
+      "institutional workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local authority",
+      "senior administrators"
+    ],
+    "economy": [
+      "administrative services",
+      "formal institutions"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Shelk",
+      "normalized_key": "principality_of_shelk",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Aurora Meadows / Volcanic Coast",
+      "primary_environment_label_key": "aurora_meadows_volcanic_coast",
+      "environment_components": [
+        "aurora_meadows",
+        "volcanic_coast"
+      ],
+      "surface_role_raw": "Volcanic coastal lowland with glyph interference",
+      "surface_role_key": "volcanic_coast",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "shelkopolis_common_quarter": {
+    "record_kind": "locality",
+    "locality_id": "shelkopolis_common_quarter",
+    "display_name_raw": "Shelkopolis — Common Quarter",
+    "display_name_key": "shelkopolis_common_quarter",
+    "locality_class": "district",
+    "district_type_raw": "common district",
+    "district_type_key": "common_district",
+    "parent_settlement_id": "shelkopolis",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Shelkopolis — Common Quarter",
+    "identity": "Shelkopolis Common Quarter — markets, inns, workshops, and everyday traffic.",
+    "approach": "Market noise and workshop smoke mark the living center of Shelkopolis.",
+    "inside": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "who_belongs": [
+      "traders",
+      "artisans",
+      "travelers",
+      "workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "market wardens",
+      "guild representatives"
+    ],
+    "economy": [
+      "trade",
+      "craft services",
+      "hospitality"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Shelk",
+      "normalized_key": "principality_of_shelk",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Aurora Meadows / Volcanic Coast",
+      "primary_environment_label_key": "aurora_meadows_volcanic_coast",
+      "environment_components": [
+        "aurora_meadows",
+        "volcanic_coast"
+      ],
+      "surface_role_raw": "Volcanic coastal lowland with glyph interference",
+      "surface_role_key": "volcanic_coast",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "shelkopolis_low_ward": {
+    "record_kind": "locality",
+    "locality_id": "shelkopolis_low_ward",
+    "display_name_raw": "Shelkopolis — Low Ward",
+    "display_name_key": "shelkopolis_low_ward",
+    "locality_class": "district",
+    "district_type_raw": "lower ward",
+    "district_type_key": "lower_ward",
+    "parent_settlement_id": "shelkopolis",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Shelkopolis — Low Ward",
+    "identity": "Shelkopolis Low Ward — labor quarters, repair yards, and off-record services.",
+    "approach": "Rougher edges and utilitarian infrastructure define the working base of Shelkopolis.",
+    "inside": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "who_belongs": [
+      "laborers",
+      "repair workers",
+      "low-cost traders"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local fixers",
+      "ward wardens"
+    ],
+    "economy": [
+      "repair services",
+      "labor",
+      "low-cost goods"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Shelk",
+      "normalized_key": "principality_of_shelk",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Aurora Meadows / Volcanic Coast",
+      "primary_environment_label_key": "aurora_meadows_volcanic_coast",
+      "environment_components": [
+        "aurora_meadows",
+        "volcanic_coast"
+      ],
+      "surface_role_raw": "Volcanic coastal lowland with glyph interference",
+      "surface_role_key": "volcanic_coast",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "mimolot_academy_high_quarter": {
+    "record_kind": "locality",
+    "locality_id": "mimolot_academy_high_quarter",
+    "display_name_raw": "Mimolot Academy — High Quarter",
+    "display_name_key": "mimolot_academy_high_quarter",
+    "locality_class": "district",
+    "district_type_raw": "upper district",
+    "district_type_key": "upper_district",
     "parent_settlement_id": "mimolot_academy",
-    "is_synthetic": false,
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Mimolot Academy — High Quarter",
+    "identity": "Mimolot Academy High Quarter — formal institutions, administrative offices, and upper-class services.",
+    "approach": "Formal facades and maintained approaches mark the administrative heart of Mimolot Academy.",
+    "inside": "Orderly and watched. Rank is visible and movement is read.",
+    "who_belongs": [
+      "officials",
+      "ranking citizens",
+      "institutional workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local authority",
+      "senior administrators"
+    ],
+    "economy": [
+      "administrative services",
+      "formal institutions"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
     "parent_polity": {
       "raw_value": "House Mimolot",
       "normalized_key": "house_mimolot",
@@ -1654,66 +1651,49 @@ window.LOCALITY_MATRIX = {
       "surface_role_key": "highland",
       "environment_assignment_method": "region_group",
       "environment_assignment_confidence": "direct"
-    },
-    "name": "Scriptorium Steps",
-    "identity": "Scholarly district where book tariffs, copying labor, and licensed magical study become visibly commercial.",
-    "approach": "Stacked libraries, copying balconies, and tariff posts crowd a stepped academic quarter.",
-    "inside": "Scriptoria, licensed lecture courts, tariff counters, and guarded text vaults structure movement.",
+    }
+  },
+  "mimolot_academy_common_quarter": {
+    "record_kind": "locality",
+    "locality_id": "mimolot_academy_common_quarter",
+    "display_name_raw": "Mimolot Academy — Common Quarter",
+    "display_name_key": "mimolot_academy_common_quarter",
+    "locality_class": "district",
+    "district_type_raw": "common district",
+    "district_type_key": "common_district",
+    "parent_settlement_id": "mimolot_academy",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Mimolot Academy — Common Quarter",
+    "identity": "Mimolot Academy Common Quarter — markets, inns, workshops, and everyday traffic.",
+    "approach": "Market noise and workshop smoke mark the living center of Mimolot Academy.",
+    "inside": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
     "who_belongs": [
-      "copyists",
-      "students",
-      "tariff clerks",
-      "licensed mages"
+      "traders",
+      "artisans",
+      "travelers",
+      "workers"
     ],
-    "who_is_out_of_place": [
-      "book thieves",
-      "untutored meddlers"
-    ],
-    "expected_behavior": [
-      "respect text handling rules",
-      "declare copied volumes"
-    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
     "visible_power": [
-      "academy archivists",
-      "tariff clerks"
+      "market wardens",
+      "guild representatives"
     ],
     "economy": [
-      "book production",
-      "licensed study",
-      "tariff collection"
+      "trade",
+      "craft services",
+      "hospitality"
     ],
-    "faith": [
-      "knowledge and contemplation are visible through disciplined study ritual"
-    ],
-    "seasonal_change": "Term openings create crowding and stricter text control.",
-    "pressure": [
-      "text smuggling",
-      "tuition strain"
-    ],
-    "npc_interfaces": [
-      "archivist_temeris_quillward",
-      "copy_broker_halin_vesk"
-    ],
-    "law_context": [
-      "book tariff law",
-      "licensed magical instruction"
-    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
     "differentiator": "",
-    "encounter_rhythm": ""
-  },
-  "shelkopolis_verdant_row_district": {
-    "record_kind": "locality",
-    "locality_id": "shelkopolis_verdant_row_district",
-    "display_name_raw": "Verdant Row District",
-    "display_name_key": "shelkopolis_verdant_row_district",
-    "locality_class": "district",
-    "district_type_raw": "middle-class district",
-    "district_type_key": "middle_class_district",
-    "parent_settlement_id": "shelkopolis",
-    "is_synthetic": false,
     "parent_polity": {
-      "raw_value": "Principality of Shelk",
-      "normalized_key": "principality_of_shelk",
+      "raw_value": "House Mimolot",
+      "normalized_key": "house_mimolot",
       "source_field": "polity",
       "source_file_class": "localities"
     },
@@ -1724,65 +1704,81 @@ window.LOCALITY_MATRIX = {
       "source_file_class": "derived"
     },
     "macroregion_environment_profile": {
-      "primary_environment_label_raw": "Aurora Meadows / Volcanic Coast",
-      "primary_environment_label_key": "aurora_meadows_volcanic_coast",
+      "primary_environment_label_raw": "Principality Highland",
+      "primary_environment_label_key": "principality_highland",
       "environment_components": [
-        "aurora_meadows",
-        "volcanic_coast"
+        "highland",
+        "academic",
+        "principality_territory"
       ],
-      "surface_role_raw": "Volcanic coastal lowland with glyph interference",
-      "surface_role_key": "volcanic_coast",
+      "surface_role_raw": "Highland principality academic territory",
+      "surface_role_key": "highland",
       "environment_assignment_method": "region_group",
       "environment_assignment_confidence": "direct"
-    },
-    "name": "Verdant Row District",
-    "identity": "The industrious artisan and guild district of Shelkopolis.",
-    "approach": "Colorful awnings, looms, hammers, flower boxes, baked bread, spiced tea, and merchant traffic.",
-    "inside": "Workshops, guildhalls, inns, shrines, and children weaving through market life create a welcoming but hardworking district.",
+    }
+  },
+  "mimolot_academy_low_ward": {
+    "record_kind": "locality",
+    "locality_id": "mimolot_academy_low_ward",
+    "display_name_raw": "Mimolot Academy — Low Ward",
+    "display_name_key": "mimolot_academy_low_ward",
+    "locality_class": "district",
+    "district_type_raw": "lower ward",
+    "district_type_key": "lower_ward",
+    "parent_settlement_id": "mimolot_academy",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Mimolot Academy — Low Ward",
+    "identity": "Mimolot Academy Low Ward — labor quarters, repair yards, and off-record services.",
+    "approach": "Rougher edges and utilitarian infrastructure define the working base of Mimolot Academy.",
+    "inside": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
     "who_belongs": [
-      "artisans",
-      "merchants",
-      "apprentices",
-      "mid-tier travelers"
+      "laborers",
+      "repair workers",
+      "low-cost traders"
     ],
-    "who_is_out_of_place": [
-      "idle aristocrats expecting deference without purpose"
-    ],
-    "expected_behavior": [
-      "value work, collaboration, and practical courtesy"
-    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
     "visible_power": [
-      "Fashion Artisans Collective",
-      "Roadwarden command staff",
-      "academy instructors"
+      "local fixers",
+      "ward wardens"
     ],
     "economy": [
-      "workshops",
-      "guild coordination",
-      "alchemy",
-      "forge output",
-      "education"
+      "repair services",
+      "labor",
+      "low-cost goods"
     ],
-    "faith": [
-      "Felujitas and Cyfoes receive small artisan offerings."
-    ],
-    "seasonal_change": "Market energy adjusts with contract flow and festival workshops.",
-    "pressure": [
-      "economic fraud",
-      "design theft",
-      "route security"
-    ],
-    "npc_interfaces": [
-      "lady_elowen_shelk",
-      "captain_thalion_windrider",
-      "faelar_bloomcrest",
-      "nyelle_starbloom"
-    ],
-    "law_context": [
-      "intellectual property, economic crimes, and route order matter greatly."
-    ],
-    "differentiator": "Verdant Row District stands apart because its economy leans on workshops, guild coordination; public faith remains visible through Felujitas and Cyfoes receive small artisan offerings.; outsiders are noticed fastest when they resemble idle aristocrats expecting deference without purpose.",
-    "encounter_rhythm": "Most first scenes in Verdant Row District begin through middle-class district rhythms: arrival, observation, minor correction, and only then deeper access."
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "House Mimolot",
+      "normalized_key": "house_mimolot",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Principality Highland",
+      "primary_environment_label_key": "principality_highland",
+      "environment_components": [
+        "highland",
+        "academic",
+        "principality_territory"
+      ],
+      "surface_role_raw": "Highland principality academic territory",
+      "surface_role_key": "highland",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
   },
   "soreheim_proper_high_quarter": {
     "record_kind": "locality",
@@ -2155,6 +2151,195 @@ window.LOCALITY_MATRIX = {
       ],
       "surface_role_raw": "Volcanic coastal lowland with glyph interference",
       "surface_role_key": "volcanic_coast",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "ithtananalor_high_quarter": {
+    "record_kind": "locality",
+    "locality_id": "ithtananalor_high_quarter",
+    "display_name_raw": "Ithtananalor — High Quarter",
+    "display_name_key": "ithtananalor_high_quarter",
+    "locality_class": "district",
+    "district_type_raw": "upper district",
+    "district_type_key": "upper_district",
+    "parent_settlement_id": "ithtananalor",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Ithtananalor — High Quarter",
+    "identity": "Ithtananalor High Quarter — formal institutions, administrative offices, and upper-class services.",
+    "approach": "Formal facades and maintained approaches mark the administrative heart of Ithtananalor.",
+    "inside": "Orderly and watched. Rank is visible and movement is read.",
+    "who_belongs": [
+      "officials",
+      "ranking citizens",
+      "institutional workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local authority",
+      "senior administrators"
+    ],
+    "economy": [
+      "administrative services",
+      "formal institutions"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Roaz",
+      "normalized_key": "principality_of_roaz",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Roazian Highland",
+      "primary_environment_label_key": "roazian_highland",
+      "environment_components": [
+        "highland",
+        "industrial_zone",
+        "enforcement_corridor"
+      ],
+      "surface_role_raw": "Highland extraction and enforcement zone",
+      "surface_role_key": "industrial_highland",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "ithtananalor_common_quarter": {
+    "record_kind": "locality",
+    "locality_id": "ithtananalor_common_quarter",
+    "display_name_raw": "Ithtananalor — Common Quarter",
+    "display_name_key": "ithtananalor_common_quarter",
+    "locality_class": "district",
+    "district_type_raw": "common district",
+    "district_type_key": "common_district",
+    "parent_settlement_id": "ithtananalor",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Ithtananalor — Common Quarter",
+    "identity": "Ithtananalor Common Quarter — markets, inns, workshops, and everyday traffic.",
+    "approach": "Market noise and workshop smoke mark the living center of Ithtananalor.",
+    "inside": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "who_belongs": [
+      "traders",
+      "artisans",
+      "travelers",
+      "workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "market wardens",
+      "guild representatives"
+    ],
+    "economy": [
+      "trade",
+      "craft services",
+      "hospitality"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Roaz",
+      "normalized_key": "principality_of_roaz",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Roazian Highland",
+      "primary_environment_label_key": "roazian_highland",
+      "environment_components": [
+        "highland",
+        "industrial_zone",
+        "enforcement_corridor"
+      ],
+      "surface_role_raw": "Highland extraction and enforcement zone",
+      "surface_role_key": "industrial_highland",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "ithtananalor_low_ward": {
+    "record_kind": "locality",
+    "locality_id": "ithtananalor_low_ward",
+    "display_name_raw": "Ithtananalor — Low Ward",
+    "display_name_key": "ithtananalor_low_ward",
+    "locality_class": "district",
+    "district_type_raw": "lower ward",
+    "district_type_key": "lower_ward",
+    "parent_settlement_id": "ithtananalor",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Ithtananalor — Low Ward",
+    "identity": "Ithtananalor Low Ward — labor quarters, repair yards, and off-record services.",
+    "approach": "Rougher edges and utilitarian infrastructure define the working base of Ithtananalor.",
+    "inside": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "who_belongs": [
+      "laborers",
+      "repair workers",
+      "low-cost traders"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local fixers",
+      "ward wardens"
+    ],
+    "economy": [
+      "repair services",
+      "labor",
+      "low-cost goods"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Roaz",
+      "normalized_key": "principality_of_roaz",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Roazian Highland",
+      "primary_environment_label_key": "roazian_highland",
+      "environment_components": [
+        "highland",
+        "industrial_zone",
+        "enforcement_corridor"
+      ],
+      "surface_role_raw": "Highland extraction and enforcement zone",
+      "surface_role_key": "industrial_highland",
       "environment_assignment_method": "region_group",
       "environment_assignment_confidence": "direct"
     }
@@ -2911,6 +3096,195 @@ window.LOCALITY_MATRIX = {
       ],
       "surface_role_raw": "Coastal guild-industrial network",
       "surface_role_key": "industrial_coast",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "harvest_keep_high_quarter": {
+    "record_kind": "locality",
+    "locality_id": "harvest_keep_high_quarter",
+    "display_name_raw": "Harvest Keep — High Quarter",
+    "display_name_key": "harvest_keep_high_quarter",
+    "locality_class": "district",
+    "district_type_raw": "upper district",
+    "district_type_key": "upper_district",
+    "parent_settlement_id": "harvest_keep",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Harvest Keep — High Quarter",
+    "identity": "Harvest Keep High Quarter — formal institutions, administrative offices, and upper-class services.",
+    "approach": "Formal facades and maintained approaches mark the administrative heart of Harvest Keep.",
+    "inside": "Orderly and watched. Rank is visible and movement is read.",
+    "who_belongs": [
+      "officials",
+      "ranking citizens",
+      "institutional workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local authority",
+      "senior administrators"
+    ],
+    "economy": [
+      "administrative services",
+      "formal institutions"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Zootia",
+      "normalized_key": "principality_of_zootia",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Soreheim Plains / Frontier",
+      "primary_environment_label_key": "soreheim_plains_frontier",
+      "environment_components": [
+        "plains",
+        "frontier_zone",
+        "industrial_core"
+      ],
+      "surface_role_raw": "Alliance plains and frontier production zone",
+      "surface_role_key": "plains_frontier",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "harvest_keep_common_quarter": {
+    "record_kind": "locality",
+    "locality_id": "harvest_keep_common_quarter",
+    "display_name_raw": "Harvest Keep — Common Quarter",
+    "display_name_key": "harvest_keep_common_quarter",
+    "locality_class": "district",
+    "district_type_raw": "common district",
+    "district_type_key": "common_district",
+    "parent_settlement_id": "harvest_keep",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Harvest Keep — Common Quarter",
+    "identity": "Harvest Keep Common Quarter — markets, inns, workshops, and everyday traffic.",
+    "approach": "Market noise and workshop smoke mark the living center of Harvest Keep.",
+    "inside": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "who_belongs": [
+      "traders",
+      "artisans",
+      "travelers",
+      "workers"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "market wardens",
+      "guild representatives"
+    ],
+    "economy": [
+      "trade",
+      "craft services",
+      "hospitality"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Zootia",
+      "normalized_key": "principality_of_zootia",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Soreheim Plains / Frontier",
+      "primary_environment_label_key": "soreheim_plains_frontier",
+      "environment_components": [
+        "plains",
+        "frontier_zone",
+        "industrial_core"
+      ],
+      "surface_role_raw": "Alliance plains and frontier production zone",
+      "surface_role_key": "plains_frontier",
+      "environment_assignment_method": "region_group",
+      "environment_assignment_confidence": "direct"
+    }
+  },
+  "harvest_keep_low_ward": {
+    "record_kind": "locality",
+    "locality_id": "harvest_keep_low_ward",
+    "display_name_raw": "Harvest Keep — Low Ward",
+    "display_name_key": "harvest_keep_low_ward",
+    "locality_class": "district",
+    "district_type_raw": "lower ward",
+    "district_type_key": "lower_ward",
+    "parent_settlement_id": "harvest_keep",
+    "is_synthetic": true,
+    "synthetic_generation_rule": "class_based_city_partition",
+    "synthetic_basis": "settlement_type",
+    "name": "Harvest Keep — Low Ward",
+    "identity": "Harvest Keep Low Ward — labor quarters, repair yards, and off-record services.",
+    "approach": "Rougher edges and utilitarian infrastructure define the working base of Harvest Keep.",
+    "inside": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "who_belongs": [
+      "laborers",
+      "repair workers",
+      "low-cost traders"
+    ],
+    "who_is_out_of_place": [],
+    "expected_behavior": [],
+    "visible_power": [
+      "local fixers",
+      "ward wardens"
+    ],
+    "economy": [
+      "repair services",
+      "labor",
+      "low-cost goods"
+    ],
+    "faith": "",
+    "pressure": [],
+    "npc_interfaces": [],
+    "law_context": [],
+    "differentiator": "",
+    "parent_polity": {
+      "raw_value": "Principality of Zootia",
+      "normalized_key": "principality_of_zootia",
+      "source_field": "polity",
+      "source_file_class": "localities"
+    },
+    "umbrella_polity": {
+      "raw_value": "The Principalities",
+      "normalized_key": "the_principalities",
+      "source_field": "umbrella_polity",
+      "source_file_class": "derived"
+    },
+    "macroregion_environment_profile": {
+      "primary_environment_label_raw": "Soreheim Plains / Frontier",
+      "primary_environment_label_key": "soreheim_plains_frontier",
+      "environment_components": [
+        "plains",
+        "frontier_zone",
+        "industrial_core"
+      ],
+      "surface_role_raw": "Alliance plains and frontier production zone",
+      "surface_role_key": "plains_frontier",
       "environment_assignment_method": "region_group",
       "environment_assignment_confidence": "direct"
     }

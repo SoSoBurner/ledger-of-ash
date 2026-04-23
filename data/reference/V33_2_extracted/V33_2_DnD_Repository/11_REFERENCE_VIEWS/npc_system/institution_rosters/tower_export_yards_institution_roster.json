@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "tower export yards",
+  "record_count": 1,
+  "npc_ids": [
+    "lyria_firesoul"
+  ],
+  "records": [
+    {
+      "npc_id": "lyria_firesoul",
+      "canonical_name": "Lyria Firesoul",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Soreheim export operations master",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as soreheim export operations master.",
+      "current_agenda": "Keep Soreheim Proper workable through the obligations of soreheim export operations master while managing the immediate pressure of quota demands in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "tower export yards is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "build_version": "V33_1",
+  "resolution_summary": {
+    "arrival": 33,
+    "inside": 33,
+    "seasonal": 35,
+    "pressure": 35,
+    "authority": 23,
+    "behavior": 2,
+    "institution_rosters": 212,
+    "npc_roster_cards": 75
+  },
+  "method": "repository-backed expansion using locality packets, baseline records, and named NPC files",
+  "guardrails": [
+    "No external source dependency added",
+    "No unsupported major canon inventions added",
+    "All expansions remain inside the standalone repository"
+  ]
+}

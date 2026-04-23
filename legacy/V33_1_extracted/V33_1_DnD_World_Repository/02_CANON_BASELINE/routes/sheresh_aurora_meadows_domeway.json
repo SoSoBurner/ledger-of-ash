@@ -1,0 +1,25 @@
+{
+  "name": "Aurora Meadows Domeway",
+  "type": "protected domeway corridor",
+  "jurisdictions": [
+    "Sheresh Communes"
+  ],
+  "hazards": [
+    "exposure windows",
+    "aurora distraction",
+    "shield maintenance outages"
+  ],
+  "sources": [
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "named_npc_refs": [
+    "sylvi_snowveil"
+  ],
+  "npc_interfaces": [
+    "sylvi_snowveil"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

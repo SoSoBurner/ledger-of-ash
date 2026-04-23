@@ -1,0 +1,19 @@
+{
+  "id": "world_temporal.axial_flip_cycle",
+  "name": "73-Day Axial Flip Cycle",
+  "truth_layer": "direct_canon",
+  "period_days": 73,
+  "flips_per_year": 5,
+  "summary": "Because of asymmetrical doom scars, the Material Planet flips its axis every 73 days, driving civilization-wide climatic and calendrical adaptations.",
+  "downstream_effects": [
+    "seasonal realignment",
+    "festival timing shifts",
+    "travel window disruption",
+    "dome strain and cooling-window behavior"
+  ],
+  "sources": [
+    "pantheon_story",
+    "spatial_seasonal",
+    "calendars_world"
+  ]
+}

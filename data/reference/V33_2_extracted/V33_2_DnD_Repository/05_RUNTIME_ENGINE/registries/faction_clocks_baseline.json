@@ -1,0 +1,10 @@
+{
+  "tracks": [
+    "House rivalry",
+    "Union sanction escalation",
+    "Mal remnant agitation",
+    "Soreheim sabotage risk",
+    "Sheresh containment strain"
+  ],
+  "default_state": "baseline_pending_runtime_change"
+}

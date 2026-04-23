@@ -1,0 +1,24 @@
+{
+  "name": "Elder Consensus Hearing Wagon",
+  "parent_polity": "Nomdara Caravan",
+  "type": "mobile_node",
+  "node_class": "hearing_wagon",
+  "truth_layer": "reconciled_canon",
+  "roles_allocated": 5,
+  "mobility": "portable_governance",
+  "operational_profile": "A traveling deliberation wagon where elder consensus, witness balancing, and cross-profession hearings become materially portable.",
+  "why_mobile_not_settled": "Nomdara authority travels with the caravan rather than waiting on a fixed courthouse.",
+  "sources": [
+    "internal_canonical_record",
+    "internal_canonical_record"
+  ],
+  "named_npc_refs": [
+    "varek_wheelwright"
+  ],
+  "npc_interfaces": [
+    "varek_wheelwright"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

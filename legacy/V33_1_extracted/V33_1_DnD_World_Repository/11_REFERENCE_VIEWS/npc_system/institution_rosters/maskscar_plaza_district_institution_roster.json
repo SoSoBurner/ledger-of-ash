@@ -1,0 +1,55 @@
+{
+  "build_version": "V33_1",
+  "institution": "Maskscar Plaza District",
+  "record_count": 3,
+  "npc_ids": [
+    "banner_master_liora_embermask",
+    "istran_ashvein",
+    "vessa_cindercrest"
+  ],
+  "records": [
+    {
+      "npc_id": "banner_master_liora_embermask",
+      "canonical_name": "Banner-Master Liora Embermask",
+      "polity": "Transpolity",
+      "office_or_role": "Renewal Processional Director",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as renewal processional director.",
+      "current_agenda": "Keep Renewal Plaza of Masks workable through the obligations of renewal processional director while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "istran_ashvein",
+      "canonical_name": "Istran Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Shrine Caretaker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as shrine caretaker.",
+      "current_agenda": "Keep Maskscar Plaza District workable through the obligations of shrine caretaker while managing the immediate pressure of house rivalry over symbolism in Psanan."
+    },
+    {
+      "npc_id": "vessa_cindercrest",
+      "canonical_name": "Vessa Cindercrest",
+      "polity": "Psanan",
+      "office_or_role": "Quartermaster",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quartermaster.",
+      "current_agenda": "Keep Maskscar Plaza District workable through the obligations of quartermaster while managing the immediate pressure of house rivalry over symbolism in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Public ceremonial district where masks, banners, dance terraces, and civic braziers keep renewal visible in urban life.",
+    "visible_power": [
+      "Rebuilding Oath Courts",
+      "Great House Citadel Circle"
+    ],
+    "pressure": [
+      "house rivalry over symbolism",
+      "crowd control",
+      "heat damage to stored materials"
+    ]
+  },
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

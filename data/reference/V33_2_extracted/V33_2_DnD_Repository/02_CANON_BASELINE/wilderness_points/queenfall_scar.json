@@ -1,0 +1,20 @@
+{
+  "name": "Queenfall Scar",
+  "parent": "SE Prosperity",
+  "summary": "A ravine lined with old war banners turned to mineral husks. When war-law stories rise again, the ravine fills with listeners pretending they just came for shade.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Phoenix Island",
+  "travel_tags": [
+    "martial memory",
+    "treasure rumors",
+    "household politics"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "build_version": "V33_1",
+  "packet_type": "spatial_polity_packet",
+  "polity": "South sea system",
+  "node_count": 3,
+  "category_counts": {
+    "macroregion": 1,
+    "wilderness": 1,
+    "site": 1
+  },
+  "water_valid_count": 3,
+  "uninhabitable_exclusion_count": 0,
+  "named_npc_hook_count": 0,
+  "generic_npc_role_count": 0,
+  "locality_names": [
+    "Hurricane’s Eye",
+    "Seamaster’s Refuge",
+    "South Swirling Sea"
+  ],
+  "status": "integrated"
+}

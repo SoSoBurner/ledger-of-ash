@@ -1,0 +1,37 @@
+{
+  "build_version": "V33_1",
+  "institution": "Amber Tides River",
+  "record_count": 2,
+  "npc_ids": [
+    "lysa_march",
+    "vera_hart"
+  ],
+  "records": [
+    {
+      "npc_id": "lysa_march",
+      "canonical_name": "Lysa March",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Toll Witness",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as toll witness.",
+      "current_agenda": "Keep Amber Tides River workable through the obligations of toll witness while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "vera_hart",
+      "canonical_name": "Vera Hart",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Hazard Reader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as hazard reader.",
+      "current_agenda": "Keep Amber Tides River workable through the obligations of hazard reader while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Amber Tides River is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

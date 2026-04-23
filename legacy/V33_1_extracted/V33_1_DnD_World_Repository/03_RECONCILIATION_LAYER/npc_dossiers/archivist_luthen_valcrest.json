@@ -1,0 +1,85 @@
+{
+  "npc_id": "archivist_luthen_valcrest",
+  "canonical_name": "Archivist Luthen Valcrest",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Head Archivist",
+  "profession_discipline": "Head Archivist",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Gilded Archives of Lore",
+  "locality_scope": "Gilded Archives of Lore",
+  "institutional_ties": [
+    "Gilded Archives of Lore"
+  ],
+  "legal_standing": "recognized_civic_professional",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as head archivist.",
+  "linked_systems": {
+    "polities": [],
+    "localities": [
+      "Gilded Archives of Lore"
+    ],
+    "institutions": [
+      "Gilded Archives of Lore"
+    ],
+    "factions": []
+  },
+  "appearance": "Ink stains, seal cases, or carefully ordered writing tools make documentation part of their visible silhouette.",
+  "manner": "Keeps language exact, as if wording itself is part of the custody chain. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a head archivist still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of head archivist in and around Gilded Archives of Lore, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Gilded Archives of Lore workable through the obligations of head archivist while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must preserve sequence and custody even when powerful parties would prefer ambiguity. Around Gilded Archives of Lore, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of head archivist visibly slip.",
+  "relationship_refs": [
+    "rel_0898",
+    "rel_0899"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Archivist Luthen Valcrest can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Archivist Luthen Valcrest needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Gilded Archives of Lore."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "psc_shelkopolis"
+  ],
+  "compatibility_interface_id": "archivist_luthen_valcrest",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Archivist Luthen Valcrest communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Gilded Archives of Lore: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "direct_canon",
+  "first_impression": "Archivist Luthen Valcrest presents as Keeps language exact, as if wording itself is part of the custody chain. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a head archivist still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Head Archivist, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Archivist Luthen Valcrest refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Head Archivist too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Archivist Luthen Valcrest can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Archivist Luthen Valcrest adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Archivist Luthen Valcrest is Known locally through day-to-day work as head archivist. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Head Archivist.",
+  "build_version": "V33_1"
+}

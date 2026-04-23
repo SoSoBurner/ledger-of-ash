@@ -1,0 +1,91 @@
+{
+  "npc_id": "rail_marshal_kord_vex",
+  "canonical_name": "Rail Marshal Kord Vex",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_actor",
+  "office_or_role": "Rail Marshal",
+  "profession_discipline": "industrial transport marshal",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Soreheim Alliance",
+  "settlement": "Ashforge Quarry",
+  "locality_scope": "Ashforge Quarry",
+  "institutional_ties": [
+    "Ashforge Quarry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Marshal of ore lifts, convoy timing, and emergency track clearance at Ashforge Quarry.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Ashforge Quarry"
+    ],
+    "institutions": [
+      "Ashforge Quarry"
+    ],
+    "factions": []
+  },
+  "appearance": "Rail Marshal Kord Vex carries the marks of rail marshal in industrial grit: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a rail marshal whose work is visible through daily procedure, gatekeeping, and the practical pressures of Ashforge Quarry.",
+  "daily_function": "Performs the ongoing duties of rail marshal in and around Ashforge Quarry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Ashforge Quarry while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to work shortfalls is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Rail Marshal Kord Vex can draw the party into a practical problem centered on Ashforge Quarry."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Rail Marshal Kord Vex becomes useful when the party needs access, explanation, or relief tied to the work of a rail marshal."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "rail_marshal_kord_vex",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Rail Marshal Kord Vex is readable as a rail marshal tied to Ashforge Quarry.",
+  "encounter_context": {
+    "usual_environment": "Ashforge Quarry: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "rail marshal"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Rail Marshal Kord Vex presents as someone shaped by the duties of a rail marshal and the daily pressures of Ashforge Quarry.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a rail marshal, and proof that strangers will not make Ashforge Quarry harder to manage.",
+  "what_they_refuse": "Rail Marshal Kord Vex refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a rail marshal too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Rail Marshal Kord Vex can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Rail Marshal Kord Vex adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Rail Marshal Kord Vex always knows more about Ashforge Quarry than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to rail marshal duties in Ashforge Quarry.",
+  "social_texture": "Rail Marshal Kord Vex speaks like someone who has spent too long translating private stakes into acceptable public language. Around Ashforge Quarry, people read them as quota-aware, contribution-minded, and never fully off the clock.",
+  "money_pressure": "Their material pressure is tied to production; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but work shortfalls becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Rail touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Rail Marshal Kord Vex when the party needs a socially grounded face for Ashforge Quarry: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

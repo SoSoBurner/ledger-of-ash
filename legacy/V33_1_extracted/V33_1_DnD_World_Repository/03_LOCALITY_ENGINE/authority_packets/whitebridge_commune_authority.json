@@ -1,0 +1,20 @@
+{
+  "name": "Whitebridge Commune",
+  "visible_power": [
+    "Route Warden Compacts",
+    "Loss Ledger Circles"
+  ],
+  "law_context": [
+    "crossing declaration law",
+    "shared emergency supply rules"
+  ],
+  "truth_layer": "conservative_inference",
+  "authority_notes": [
+    "Visitors are read first by purpose, presentation, and whether they understand local procedure.",
+    "Practical authority may sit partly outside formal office, especially where guilds, clergy, nobles, or route enforcers overlap."
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Silent Haven",
+  "approach": "Fortified coastal settlement shaped by watchfulness and maritime necessity.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Principality of Roaz",
+    "territory": "House Roaz",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Remote Roazian coastal refuge and naval defense node where antimagic caution and quiet discipline are palpable.",
+    "Roazian enforcers",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "principality_roaz"
+  ]
+}

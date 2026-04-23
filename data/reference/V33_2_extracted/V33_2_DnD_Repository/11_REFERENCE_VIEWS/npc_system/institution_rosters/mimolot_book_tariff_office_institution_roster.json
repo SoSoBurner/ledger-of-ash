@@ -1,0 +1,37 @@
+{
+  "build_version": "V33_1",
+  "institution": "Mimolot Book Tariff Office",
+  "record_count": 2,
+  "npc_ids": [
+    "ithra_spellward",
+    "pelor_bookcrest"
+  ],
+  "records": [
+    {
+      "npc_id": "ithra_spellward",
+      "canonical_name": "Ithra Spellward",
+      "polity": "Mimolot",
+      "office_or_role": "Operations Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as operations steward.",
+      "current_agenda": "Keep Mimolot Book Tariff Office workable through the obligations of operations steward while managing the immediate pressure of institutional scrutiny in Mimolot."
+    },
+    {
+      "npc_id": "pelor_bookcrest",
+      "canonical_name": "Pelor Bookcrest",
+      "polity": "Mimolot",
+      "office_or_role": "Petition Reader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as petition reader.",
+      "current_agenda": "Keep Mimolot Book Tariff Office workable through the obligations of petition reader while managing the immediate pressure of institutional scrutiny in Mimolot."
+    }
+  ],
+  "roster_context": {
+    "identity": "Office managing book tariffs used to fund education and regulate knowledge access.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "release_identity": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "build_signature": "V33_2_LOCALITY_MATRIX_CANON_REPLACEMENT_REBUILD",
+  "release_intent": "Standalone rebuild promoting the uploaded locality matrix spec to active locality canon and emitting matrix-driven lookup products.",
+  "package_counts": {
+    "total_files": 5505,
+    "json_files": 3769,
+    "jsonl_files": 19,
+    "markdown_files": 1703,
+    "text_files": 5501,
+    "total_bytes": 66017788
+  },
+  "entrypoints": [
+    "START_HERE_GM.md",
+    "RUN_A_SESSION_NOW.md",
+    "PLAY/",
+    "WORLD_REFERENCE/",
+    "02_CANON_BASELINE/locality_matrix_backbone/",
+    "11_REFERENCE_VIEWS/current_release/locality_matrix_backbone/"
+  ],
+  "systems_present": [
+    "canon_baseline",
+    "locality_engine",
+    "locality_matrix_backbone",
+    "reconciliation_layer",
+    "runtime_engine",
+    "world_graph",
+    "reference_views"
+  ],
+  "validation_summary": {
+    "invalid_json_files": 0,
+    "invalid_jsonl_files": 0,
+    "broken_markdown_links": 0
+  }
+}

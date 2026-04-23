@@ -1,0 +1,50 @@
+{
+  "name": "Sheresh Dome Stewards",
+  "type": "Sheresh civic survival faction",
+  "truth_layer": "conservative_inference",
+  "summary": "Steward-administrators who keep dome life functioning through maintenance law, heat discipline, and communal survival procedure.",
+  "motive": "Keep domes alive first, comfortable second, and politically stable throughout crisis.",
+  "methods": [
+    "maintenance rotations",
+    "containment enforcement",
+    "resource triage",
+    "commune administration"
+  ],
+  "geography": [
+    "Aurora Crown Commune",
+    "Glasswake Commune",
+    "Hearthcoil Commune",
+    "Whitebridge Commune",
+    "Starbreak Commune"
+  ],
+  "power_relations": [
+    "Primary visible civic authority in Sheresh, but constantly negotiating with researchers and route wardens"
+  ],
+  "current_pressure": [
+    "dome strain",
+    "mutation anxiety",
+    "repair fatigue",
+    "public panic after losses"
+  ],
+  "visible_membership_base": "Stewards, repair marshals, screening officers, communal administrators.",
+  "civilian_contact_surface": [
+    "maintenance duty lists",
+    "screening lines",
+    "ration halls",
+    "incident reporting"
+  ],
+  "current_tension_or_vulnerability": "Their authority is strongest in emergencies, but repeated emergencies make every order feel personal.",
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "rime_rimebridge"
+  ],
+  "npc_interfaces": [
+    "rime_rimebridge"
+  ]
+}

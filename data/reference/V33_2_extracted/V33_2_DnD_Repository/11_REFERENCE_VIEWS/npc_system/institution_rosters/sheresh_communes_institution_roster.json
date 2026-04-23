@@ -1,0 +1,33 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sheresh Communes",
+  "record_count": 1,
+  "npc_ids": [
+    "talin_starice"
+  ],
+  "records": [
+    {
+      "npc_id": "talin_starice",
+      "canonical_name": "Talin Starice",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Relief Coordinator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as relief coordinator.",
+      "current_agenda": "Keep Sheresh Communes workable through the obligations of relief coordinator while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": [
+      "dome-protected northern communes",
+      "survival-and-research civic order",
+      "contamination management society",
+      "aurora and celestial research culture"
+    ],
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Verdant Row District",
+  "visible_power": [
+    "Fashion Artisans Collective",
+    "Roadwarden command staff",
+    "academy instructors"
+  ],
+  "law_context": [
+    "intellectual property, economic crimes, and route order matter greatly."
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

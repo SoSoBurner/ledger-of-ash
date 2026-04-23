@@ -214,86 +214,110 @@ window.BESTIARY_LOOKUP = {
     ],
     "environment_key": "soreheim_plains_frontier"
   },
-  "shelkopolis_aurora_heights_district": {
-    "creatures": [
-      "quay_thief",
-      "watch_hound"
-    ],
-    "encounter_table": [
-      "patrol_guard",
-      "private_security",
-      "red_hood_operative"
-    ],
-    "environment_key": "aurora_meadows_volcanic_coast"
-  },
-  "harvest_keep_granary_steps": {
-    "creatures": [
-      "granary_ratking",
-      "field_maw"
-    ],
-    "encounter_table": [
-      "frontier_militia",
-      "hostile_debtor"
-    ],
-    "environment_key": "soreheim_plains_frontier"
-  },
-  "ithtananalor_iron_ledger_ward": {
-    "creatures": [
-      "ore_hound",
-      "guard_construct"
-    ],
-    "encounter_table": [
-      "iron_accord_enforcer",
-      "patrol_guard"
-    ],
-    "environment_key": "roazian_highland"
-  },
-  "shelkopolis_ironspool_ward_district": {
-    "creatures": [
-      "quay_thief",
-      "watch_hound"
-    ],
-    "encounter_table": [
-      "patrol_guard",
-      "private_security",
-      "red_hood_operative"
-    ],
-    "environment_key": "aurora_meadows_volcanic_coast"
-  },
-  "panim_haven_reckoning_quarter": {
+  "panim_haven_high_quarter": {
     "creatures": [
       "veil_moth",
       "gravewater_hound"
     ],
     "encounter_table": [
       "patrol_guard",
-      "hostile_debtor"
+      "private_security"
     ],
     "environment_key": "memorial_lowlands"
   },
-  "mimolot_academy_scriptorium_steps": {
+  "panim_haven_common_quarter": {
     "creatures": [
-      "ink_wisp",
-      "catalog_biter"
+      "veil_moth",
+      "gravewater_hound"
     ],
     "encounter_table": [
       "patrol_guard",
-      "private_security",
-      "shadowhands_watcher"
+      "hostile_debtor",
+      "private_security"
     ],
-    "environment_key": "principality_highland"
+    "environment_key": "memorial_lowlands"
   },
-  "shelkopolis_verdant_row_district": {
+  "panim_haven_low_ward": {
+    "creatures": [
+      "veil_moth",
+      "gravewater_hound"
+    ],
+    "encounter_table": [
+      "frontier_militia",
+      "hostile_debtor",
+      "red_hood_operative"
+    ],
+    "environment_key": "memorial_lowlands"
+  },
+  "shelkopolis_high_quarter": {
     "creatures": [
       "quay_thief",
       "watch_hound"
     ],
     "encounter_table": [
       "patrol_guard",
-      "private_security",
+      "private_security"
+    ],
+    "environment_key": "aurora_meadows_volcanic_coast"
+  },
+  "shelkopolis_common_quarter": {
+    "creatures": [
+      "quay_thief",
+      "watch_hound"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "hostile_debtor",
+      "private_security"
+    ],
+    "environment_key": "aurora_meadows_volcanic_coast"
+  },
+  "shelkopolis_low_ward": {
+    "creatures": [
+      "quay_thief",
+      "watch_hound"
+    ],
+    "encounter_table": [
+      "frontier_militia",
+      "hostile_debtor",
       "red_hood_operative"
     ],
     "environment_key": "aurora_meadows_volcanic_coast"
+  },
+  "mimolot_academy_high_quarter": {
+    "creatures": [
+      "ink_wisp",
+      "catalog_biter"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "private_security"
+    ],
+    "environment_key": "principality_highland"
+  },
+  "mimolot_academy_common_quarter": {
+    "creatures": [
+      "ink_wisp",
+      "catalog_biter"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "hostile_debtor",
+      "private_security"
+    ],
+    "environment_key": "principality_highland"
+  },
+  "mimolot_academy_low_ward": {
+    "creatures": [
+      "ink_wisp",
+      "catalog_biter"
+    ],
+    "encounter_table": [
+      "frontier_militia",
+      "hostile_debtor",
+      "red_hood_operative"
+    ],
+    "environment_key": "principality_highland"
   },
   "soreheim_proper_high_quarter": {
     "creatures": [
@@ -364,6 +388,41 @@ window.BESTIARY_LOOKUP = {
       "red_hood_operative"
     ],
     "environment_key": "aurora_meadows_volcanic_coast"
+  },
+  "ithtananalor_high_quarter": {
+    "creatures": [
+      "ore_hound",
+      "guard_construct"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "private_security"
+    ],
+    "environment_key": "roazian_highland"
+  },
+  "ithtananalor_common_quarter": {
+    "creatures": [
+      "ore_hound",
+      "guard_construct"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "hostile_debtor",
+      "private_security"
+    ],
+    "environment_key": "roazian_highland"
+  },
+  "ithtananalor_low_ward": {
+    "creatures": [
+      "ore_hound",
+      "guard_construct"
+    ],
+    "encounter_table": [
+      "frontier_militia",
+      "hostile_debtor",
+      "red_hood_operative"
+    ],
+    "environment_key": "roazian_highland"
   },
   "guildheart_hub_high_quarter": {
     "creatures": [
@@ -504,5 +563,40 @@ window.BESTIARY_LOOKUP = {
       "red_hood_operative"
     ],
     "environment_key": "union_industrial_coast"
+  },
+  "harvest_keep_high_quarter": {
+    "creatures": [
+      "granary_ratking",
+      "field_maw"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "private_security"
+    ],
+    "environment_key": "soreheim_plains_frontier"
+  },
+  "harvest_keep_common_quarter": {
+    "creatures": [
+      "granary_ratking",
+      "field_maw"
+    ],
+    "encounter_table": [
+      "patrol_guard",
+      "hostile_debtor",
+      "private_security"
+    ],
+    "environment_key": "soreheim_plains_frontier"
+  },
+  "harvest_keep_low_ward": {
+    "creatures": [
+      "granary_ratking",
+      "field_maw"
+    ],
+    "encounter_table": [
+      "frontier_militia",
+      "hostile_debtor",
+      "red_hood_operative"
+    ],
+    "environment_key": "soreheim_plains_frontier"
   }
 };

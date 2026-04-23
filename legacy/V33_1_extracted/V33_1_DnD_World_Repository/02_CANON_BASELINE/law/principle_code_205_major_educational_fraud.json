@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 205",
+  "title": "Major Educational Fraud",
+  "severity": "felony",
+  "description": "Large-scale falsification, credential fraud, or embezzlement in educational contexts.",
+  "jurisdictions": [
+    "Golden Needle Academy"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

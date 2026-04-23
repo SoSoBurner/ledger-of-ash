@@ -1,0 +1,14 @@
+{
+  "release_identity": "V33_2",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "note": "Refreshed after V33_2 locality matrix canon replacement rebuild.",
+  "counts": {
+    "total_files": 5505,
+    "json_files": 3769,
+    "jsonl_files": 19,
+    "markdown_files": 1703,
+    "text_files": 5501,
+    "total_bytes": 66017788
+  },
+  "active_locality_authority": "02_CANON_BASELINE/locality_matrix_backbone/"
+}

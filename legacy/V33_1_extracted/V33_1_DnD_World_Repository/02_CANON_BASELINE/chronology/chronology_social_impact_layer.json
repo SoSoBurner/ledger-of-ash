@@ -1,0 +1,83 @@
+{
+  "id": "chronology.chronology_social_impact_layer",
+  "name": "Chronology Social Impact Layer",
+  "truth_layer": "derived_canon_support",
+  "summary": "Historical-to-social translation layer showing how large-scale events alter class behavior, institutions, professions, mobility, faith practice, and present-day NPC psychology across regions.",
+  "major_transitions": [
+    {
+      "transition": "Doomsday and elemental isolation",
+      "social_effects": [
+        "families treat continuity as fragile and invest more heavily in memory-keeping, oaths, and estate control",
+        "storm windows, dangerous seas, and magical instability reward institutions that can promise continuity",
+        "folk religion becomes materially protective, not merely devotional"
+      ],
+      "profession_effects": [
+        "wardens, archivists, navigators, priests, engineers, and ritual specialists gain social weight",
+        "sailors and caravan brokers become interpreters of risk, not just transport workers"
+      ]
+    },
+    {
+      "transition": "Rise of the Union over Mal-mediated trade",
+      "social_effects": [
+        "merchant legitimacy shifts from hereditary house trust toward enforceable network leverage",
+        "old landed elites become more image-sensitive and procedurally defensive",
+        "urban witnesses grow cautious because commercial retaliation can arrive before formal justice"
+      ],
+      "profession_effects": [
+        "brokers, sanctions clerks, contract readers, and warehouse captains gain influence",
+        "road houses and market towns become narrative battlegrounds over legitimacy"
+      ]
+    },
+    {
+      "transition": "Sheresh containment expansion",
+      "social_effects": [
+        "beauty and civic refinement become evidence of successful risk management",
+        "mutation fear drives soft exclusion, paperwork screening, and exile policy rationalized as communal protection"
+      ],
+      "profession_effects": [
+        "dome stewards, mutation screeners, cantrip educators, and containment researchers acquire prestige and quiet coercive authority"
+      ]
+    },
+    {
+      "transition": "Soreheim vertical industrial consolidation",
+      "social_effects": [
+        "duty language replaces sentiment in public justification of hardship",
+        "class and species roles are narrated as structural necessity rather than naked hierarchy"
+      ],
+      "profession_effects": [
+        "bridge crews, descent captains, furnace schedulers, food allocators, and maintenance leaders become civic keystones"
+      ]
+    }
+  ],
+  "cohort_logic": {
+    "young_adults": {
+      "principalities": "Learned that paperwork, sponsorship, and visible affiliation determine safety as much as personal virtue.",
+      "sheresh": "Normalize magical convenience but also inherit contamination anxiety and beauty-as-discipline norms.",
+      "soreheim": "Experience duty through production metrics, ration access, and tower role assignment.",
+      "psanan": "Measure worth through daring, gifts, and what one can survive or bring home.",
+      "nomdara": "See trust as portable and negotiable, tied to repeated exchange rather than fixed soil."
+    },
+    "midlife_power_holders": {
+      "principalities": "Remember Mal's displacement and therefore read trade autonomy as political threat.",
+      "sheresh": "Balance pride in magical culture with fear that one failed containment decision becomes communal shame.",
+      "soreheim": "Treat system continuity as morally superior to personal discomfort.",
+      "psanan": "Carry vow logic seriously and see domestic authority as strategic civilization, not sentiment.",
+      "nomdara": "Price peace through supply security and reputation memory."
+    },
+    "elder_memory_bearers": {
+      "principalities": "Preserve house grievance maps, route memories, and quiet knowledge of how law is selectively enforced.",
+      "sheresh": "Remember harsher mutation eras and can become either containment hardliners or mercy advocates.",
+      "soreheim": "Remember tower failures and therefore tolerate coercion in the name of continuity.",
+      "psanan": "Carry blood-vow precedent, wartime marriage memory, and ancestral door custom without apology.",
+      "nomdara": "Maintain route compacts and remember which polities break promises only when frightened."
+    }
+  },
+  "campaign_use": [
+    "When generating an NPC reaction, locate their cohort before selecting demeanor.",
+    "When adjudicating rumors, ask which cohort would remember older house or route arrangements.",
+    "When presenting reform or alliance offers, model age-specific risk tolerance and shame sensitivity."
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

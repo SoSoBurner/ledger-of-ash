@@ -1,0 +1,20 @@
+{
+  "name": "Dreadwake Shoals",
+  "parent": "Cosmouth Approaches",
+  "summary": "A reef shelf where wreckage drifts back against the tide days after storms. Cosmouth factors quietly pay for anything bearing intact seals or ledgers.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "The Principalities",
+  "travel_tags": [
+    "salvage law",
+    "ghost stories",
+    "courier losses"
+  ]
+}

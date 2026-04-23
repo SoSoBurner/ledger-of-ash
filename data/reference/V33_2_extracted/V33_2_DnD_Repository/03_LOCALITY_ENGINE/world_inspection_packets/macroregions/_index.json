@@ -1,0 +1,103 @@
+{
+  "count": 14,
+  "entries": [
+    {
+      "name": "Aurora Meadows",
+      "slug": "aurora_meadows",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/aurora_meadows.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/aurora_meadows.md"
+    },
+    {
+      "name": "Brineland",
+      "slug": "brineland",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/brineland.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/brineland.md"
+    },
+    {
+      "name": "Deep Forest",
+      "slug": "deep_forest",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/deep_forest.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/deep_forest.md"
+    },
+    {
+      "name": "Edict Ocean",
+      "slug": "edict_ocean",
+      "parent_polity": "Sheresh Communes",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/edict_ocean.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/edict_ocean.md"
+    },
+    {
+      "name": "Eternal Lands",
+      "slug": "eternal_lands",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/eternal_lands.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/eternal_lands.md"
+    },
+    {
+      "name": "Frozen Quagmires",
+      "slug": "frozen_quagmires",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/frozen_quagmires.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/frozen_quagmires.md"
+    },
+    {
+      "name": "Meadow of Lyra",
+      "slug": "meadow_of_lyra",
+      "parent_polity": "Principality of Shelk",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/meadow_of_lyra.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/meadow_of_lyra.md"
+    },
+    {
+      "name": "North Swirling Sea",
+      "slug": "north_swirling_sea",
+      "parent_polity": "Between Roaz and Sheresh",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/north_swirling_sea.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/north_swirling_sea.md"
+    },
+    {
+      "name": "Soreheim Proper",
+      "slug": "soreheim_proper",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/soreheim_proper.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/soreheim_proper.md"
+    },
+    {
+      "name": "South Swirling Sea",
+      "slug": "south_swirling_sea",
+      "parent_polity": "South sea system",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/south_swirling_sea.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/south_swirling_sea.md"
+    },
+    {
+      "name": "Union Successor Heartland",
+      "slug": "union_successor_heartland",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/union_successor_heartland.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/union_successor_heartland.md"
+    },
+    {
+      "name": "Eternal Lands",
+      "slug": "eternal_lands",
+      "parent_polity": "Soreheim Alliance",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/eternal_lands.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/eternal_lands.md"
+    },
+    {
+      "name": "Verdant Caves",
+      "slug": "verdant_caves",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/verdant_caves.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/verdant_caves.md"
+    },
+    {
+      "name": "Whispering Dunes",
+      "slug": "whispering_dunes",
+      "parent_polity": "The Principalities",
+      "path_json": "03_LOCALITY_ENGINE/world_inspection_packets/macroregions/whispering_dunes.json",
+      "path_md": "11_REFERENCE_VIEWS/current_release/world_inspection_packets/macroregions/whispering_dunes.md"
+    }
+  ]
+}

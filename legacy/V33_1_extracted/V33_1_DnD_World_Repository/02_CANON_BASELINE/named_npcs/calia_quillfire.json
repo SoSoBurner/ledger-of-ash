@@ -1,0 +1,83 @@
+{
+  "npc_id": "calia_quillfire",
+  "canonical_name": "Calia Quillfire",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "labor_officer",
+  "office_or_role": "Labor Foreman",
+  "profession_discipline": "Labor Foreman",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Mimolot",
+  "settlement": "Mimolot Academy",
+  "locality_scope": "Mimolot Academy",
+  "institutional_ties": [
+    "Mimolot Academy"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Mimolot Academy through day-to-day work as labor foreman.",
+  "linked_systems": {
+    "polities": [
+      "House Mimolot"
+    ],
+    "localities": [
+      "Mimolot Academy"
+    ],
+    "institutions": [
+      "Mimolot Academy"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Counts hands, strain, and failure points at a glance, then speaks like time is already too short. In Mimolot Academy, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of labor foreman in and around Mimolot Academy, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Mimolot Academy workable through the obligations of labor foreman while managing the immediate pressure of tariff tensions.",
+  "hidden_pressure": "Must keep the role of labor foreman credible while absorbing the strain created by tariff tensions.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Calia Quillfire can draw the party into a locality problem centered on labor foreman duties in Mimolot Academy."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Calia Quillfire becomes useful when the party needs grounded help with tariff tensions around Mimolot Academy."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "mimolot_academy"
+  ],
+  "compatibility_interface_id": "calia_quillfire",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Calia Quillfire is immediately readable as a labor foreman tied to Mimolot Academy.",
+  "encounter_context": {
+    "usual_environment": "Mimolot Academy: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "labor foreman"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Calia Quillfire presents as someone shaped by the duties of a labor foreman and the daily pressures of Mimolot Academy.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a labor foreman, and proof that strangers will not make Mimolot Academy harder to manage.",
+  "what_they_refuse": "Calia Quillfire refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a labor foreman too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can mobilize crews, tools, and practical labor access under pressure.",
+  "escalation_if_crossed": "If crossed, Calia Quillfire adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Calia Quillfire always knows more about Mimolot Academy than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a labor foreman in Mimolot Academy."
+}

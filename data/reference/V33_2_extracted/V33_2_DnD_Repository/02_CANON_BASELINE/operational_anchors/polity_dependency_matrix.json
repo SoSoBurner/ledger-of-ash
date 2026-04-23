@@ -1,0 +1,546 @@
+{
+  "Principality Of Shelk": {
+    "food": "Sunspire Haven, Harvest Circle, river and road inflow",
+    "water": "canal maintenance, fairhaven intake, district cisterns",
+    "routes": "shelkopolis_fairhaven_road, plume_s_end_northern_road, tariff corridors",
+    "labor": "loom households, porters, record clerks, house retainers",
+    "archives": "tideglass_registry, house ledgers, tariff counters",
+    "magic": "licensed civic and household craft magic",
+    "religious_legitimacy": "chapels, oath practices, sanctioned mourning and household rites",
+    "enforcement": "house officers, ward patrols, tariff lantern courts",
+    "hazards": "hoarding, canal failure, rumor cascades, elite legitimacy shocks",
+    "primary_vulnerabilities": [
+      "registry compromise",
+      "grain delay",
+      "house succession stress",
+      "public rumor escalation"
+    ],
+    "dependent_localities": [
+      "Shelkopolis",
+      "Fairhaven",
+      "Tideglass Registry",
+      "Tariff Lantern Court",
+      "Plume’s End Outpost"
+    ]
+  },
+  "Principality Of Zootia": {
+    "food": "granaries, canal-linked fields, licensed convoy intake",
+    "water": "embanked canals and ration discipline",
+    "routes": "principality_of_zootia_route_corridor_1/2/3",
+    "labor": "canal workers, burdened clerks, convoy crews, storehouse hands",
+    "archives": "trade records, permits, escort declarations",
+    "magic": "licensed throughput magic, controlled inspection support",
+    "religious_legitimacy": "oath-bound stewardship and practical ritual order",
+    "enforcement": "canal inspection, gate procedure, convoy scrutiny",
+    "hazards": "sabotage, flooding, inspection surges, bottlenecks",
+    "primary_vulnerabilities": [
+      "canal sabotage",
+      "false paperwork",
+      "night cargo diversion",
+      "supply bottlenecks"
+    ],
+    "dependent_localities": [
+      "Canal Thorn Exchange",
+      "Ledger Canal",
+      "Serpent Measure"
+    ]
+  },
+  "Principality Of Mimolot": {
+    "food": "bookhaven inflow, protected academic stores, tariffed imports",
+    "water": "academy reserves and urban channels",
+    "routes": "mimolot_academy_bookhaven_road and principality_of_mimolot corridors",
+    "labor": "copyists, tariff archivists, licensed students, ward staff",
+    "archives": "Scriptorium Steps, academy vaults, restricted diagrams",
+    "magic": "formalized instruction, licensing, circulation control",
+    "religious_legitimacy": "sanctioned knowledge rites and oath practice",
+    "enforcement": "tariff counters, archive access regimes, academy watch",
+    "hazards": "knowledge leaks, black copying, prestige rivalries",
+    "primary_vulnerabilities": [
+      "restricted diagram leakage",
+      "archive theater exposure",
+      "forged seals",
+      "scholar unrest"
+    ],
+    "dependent_localities": [
+      "Mimolot Academy",
+      "Scriptorium Steps",
+      "Bookhaven"
+    ]
+  },
+  "Principality Of Panim": {
+    "food": "oasis and memorial road convoys",
+    "water": "haven intake, protected wells, caravan rationing",
+    "routes": "principality_of_panim corridors and sanctum sands memorial road",
+    "labor": "caravaners, memorial stewards, shrine keepers",
+    "archives": "memorial logs, way records, debt tallies",
+    "magic": "protective travel and memorial craft practices",
+    "religious_legitimacy": "mourning rites, desert sanctity, guardian obligations",
+    "enforcement": "road stewards, memorial guards, permit readers",
+    "hazards": "scarcity, sand burial, ritual offense, convoy loss",
+    "primary_vulnerabilities": [
+      "water theft",
+      "route burial",
+      "memorial desecration",
+      "caravan panic"
+    ],
+    "dependent_localities": [
+      "Panim Haven",
+      "Sanctum Sands"
+    ]
+  },
+  "Principality Of Roaz": {
+    "food": "northern trade intake and hardened routes",
+    "water": "staged cistern points and defended wells",
+    "routes": "roaz_northern_trade_route and route_hardening_3",
+    "labor": "quarry, freight, hardening crews, watch labor",
+    "archives": "route audits, toll logs, hardening reports",
+    "magic": "defensive infrastructure and survival applications",
+    "religious_legitimacy": "fortitude rites and civic endurance narratives",
+    "enforcement": "route hardeners, escorts, checkpoint authority",
+    "hazards": "breakage, freight delay, brittle law escalation",
+    "primary_vulnerabilities": [
+      "bridge failure",
+      "escort corruption",
+      "cold-weather scarcity",
+      "trade reprisal"
+    ],
+    "dependent_localities": [
+      "Ironroot Crossing",
+      "Northern Trade route nodes"
+    ]
+  },
+  "Principality Of Shirsh": {
+    "food": "grove-linked intake and district market imports",
+    "water": "crystal and cultivated sources",
+    "routes": "principality_of_shirsh_route corridors and crystal grove route",
+    "labor": "garden keepers, charm workers, court staff",
+    "archives": "lineage records, cultivated rights, route permissions",
+    "magic": "decorative and status-bearing refinement magic",
+    "religious_legitimacy": "beauty-bound sanctity and lineage theater",
+    "enforcement": "courtly inspection, garden wardens, record authorities",
+    "hazards": "status offense, lineage dispute, cultivated blight",
+    "primary_vulnerabilities": [
+      "registry embarrassment",
+      "garden sabotage",
+      "inheritance dispute",
+      "court rumor cascades"
+    ],
+    "dependent_localities": [
+      "Shirshal",
+      "Crystal Grove"
+    ]
+  },
+  "Principality Of Cosmouth": {
+    "food": "harbor ring intake, sea freight, coastal stores",
+    "water": "port cistern and maritime exchange",
+    "routes": "cosmouth harbor ring and corridor lanes",
+    "labor": "dock crews, tally clerks, shipwright support",
+    "archives": "harbor manifests and bonded cargo lists",
+    "magic": "navigation, sealing, cargo protection",
+    "religious_legitimacy": "coastal rites, safe-passage observances",
+    "enforcement": "port authority, bonded inspectors, patrol boats",
+    "hazards": "smuggling, storm delays, bonded fraud",
+    "primary_vulnerabilities": [
+      "manifest fraud",
+      "storm isolation",
+      "dock strikes",
+      "contraband movement"
+    ],
+    "dependent_localities": [
+      "Cosmoria",
+      "Harbor ring nodes"
+    ]
+  },
+  "Soreheim Alliance": {
+    "food": "allied freight, hardy field production, cold stores",
+    "water": "shared civic maintenance and freight lanes",
+    "routes": "soreheim_proper_eternal_lands_freight_route and ironroot crossing",
+    "labor": "allied workshops, freight crews, disciplined civic labor",
+    "archives": "treaty logs, freight tallies, alliance records",
+    "magic": "cooperative industrial and defensive use",
+    "religious_legitimacy": "public oath culture and alliance ceremony",
+    "enforcement": "allied patrols and freight regulators",
+    "hazards": "alliance fracture, freight backlog, public embarrassment",
+    "primary_vulnerabilities": [
+      "freight delay",
+      "alliance mistrust",
+      "labor slowdown",
+      "route reprisal"
+    ],
+    "dependent_localities": [
+      "Soreheim Proper",
+      "Ironroot Crossing"
+    ]
+  },
+  "Sheresh Communes": {
+    "food": "greenhouse rationing, managed cold stores, commune exchange",
+    "water": "ice melt timing and controlled communal allocation",
+    "routes": "domeways, frostline crossings, sheresh dome road",
+    "labor": "communal maintenance, heat discipline, survey crews",
+    "archives": "aurora schedules, commune records, environmental logs",
+    "magic": "light, cold, dome, and survival disciplines",
+    "religious_legitimacy": "communal rites and austere stewardship",
+    "enforcement": "dome stewards, route monitors, commune councils",
+    "hazards": "seal failure, cold shock, timing breakdown, communal distrust",
+    "primary_vulnerabilities": [
+      "dome breach",
+      "heat scarcity",
+      "route whiteout",
+      "survey data loss"
+    ],
+    "dependent_localities": [
+      "Aurora Crown Commune",
+      "Whitebridge Commune",
+      "Glasswake Commune",
+      "Hearthcoil Commune"
+    ]
+  },
+  "Psanan": {
+    "food": "coastal and circuit exchange",
+    "water": "managed safe-passage points and harbor reserves",
+    "routes": "whirlpool safe passage lane and northern tundra circuit",
+    "labor": "boat crews, signal readers, circuit scouts",
+    "archives": "passage records and warning ledgers",
+    "magic": "navigational omen-reading and hazard sensing",
+    "religious_legitimacy": "sea warning rites and route memory",
+    "enforcement": "passage watchers and lane wardens",
+    "hazards": "whirlpool loss, false signals, isolation",
+    "primary_vulnerabilities": [
+      "marker sabotage",
+      "storm misinformation",
+      "escort loss"
+    ],
+    "dependent_localities": [
+      "Safe passage and circuit nodes"
+    ]
+  },
+  "The Union": {
+    "food": "industrial intake, surrounding farm dependency, guild bargaining",
+    "water": "canal, foundry, and ward distribution",
+    "routes": "guildheart_hub_craftspire_workshop_corridor, union route corridors",
+    "labor": "workshops, foundries, copy rooms, bargaining crews",
+    "archives": "contracts, union ledgers, dispute records",
+    "magic": "licensed workshop application and constrained industrial use",
+    "religious_legitimacy": "practical oath and labor solidarity ritual",
+    "enforcement": "ward inspectors, bargaining courts, depot oversight",
+    "hazards": "strike cascades, foundry accidents, bargaining collapse",
+    "primary_vulnerabilities": [
+      "guild rupture",
+      "route slowdown",
+      "industrial accident",
+      "contract leak"
+    ],
+    "dependent_localities": [
+      "Craftspire",
+      "Guildheart Hub",
+      "Unity Square",
+      "Hullwake Foundry",
+      "Market Crossroads"
+    ]
+  },
+  "The Principalities": {
+    "food": "inter-polity movement, tariffed grain, elite household stores",
+    "water": "decentralized polity systems tied by corridor movement",
+    "routes": "route hardening 1/2/3 and corridor chains",
+    "labor": "house servants, escorts, clerks, bonded carriers",
+    "archives": "inter-polity record culture and tariff regimes",
+    "magic": "licensed, status-bearing, negotiated across houses",
+    "religious_legitimacy": "house cults, oaths, lineage sanctity",
+    "enforcement": "house guards, courts, bonded route authority",
+    "hazards": "house rivalry, succession uncertainty, corridor fragility",
+    "primary_vulnerabilities": [
+      "inter-polity scandal",
+      "route retaliation",
+      "registry loss",
+      "elite fragmentation"
+    ],
+    "dependent_localities": [
+      "Tariff Lantern Court",
+      "Lantern Docket",
+      "cross-principality corridor nodes"
+    ]
+  },
+  "House Shelk": {
+    "food": "Sunspire Haven, Harvest Circle, river and road inflow",
+    "water": "canal maintenance, fairhaven intake, district cisterns",
+    "routes": "shelkopolis_fairhaven_road, plume_s_end_northern_road, tariff corridors",
+    "labor": "loom households, porters, record clerks, house retainers",
+    "archives": "tideglass_registry, house ledgers, tariff counters",
+    "magic": "licensed civic and household craft magic",
+    "religious_legitimacy": "chapels, oath practices, sanctioned mourning and household rites",
+    "enforcement": "house officers, ward patrols, tariff lantern courts",
+    "hazards": "hoarding, canal failure, rumor cascades, elite legitimacy shocks",
+    "primary_vulnerabilities": [
+      "registry compromise",
+      "grain delay",
+      "house succession stress",
+      "public rumor escalation"
+    ],
+    "dependent_localities": [
+      "Shelkopolis",
+      "Fairhaven",
+      "Tideglass Registry",
+      "Tariff Lantern Court",
+      "Plume’s End Outpost"
+    ]
+  },
+  "House Zootia": {
+    "food": "granaries, canal-linked fields, licensed convoy intake",
+    "water": "embanked canals and ration discipline",
+    "routes": "principality_of_zootia_route_corridor_1/2/3",
+    "labor": "canal workers, burdened clerks, convoy crews, storehouse hands",
+    "archives": "trade records, permits, escort declarations",
+    "magic": "licensed throughput magic, controlled inspection support",
+    "religious_legitimacy": "oath-bound stewardship and practical ritual order",
+    "enforcement": "canal inspection, gate procedure, convoy scrutiny",
+    "hazards": "sabotage, flooding, inspection surges, bottlenecks",
+    "primary_vulnerabilities": [
+      "canal sabotage",
+      "false paperwork",
+      "night cargo diversion",
+      "supply bottlenecks"
+    ],
+    "dependent_localities": [
+      "Canal Thorn Exchange",
+      "Ledger Canal",
+      "Serpent Measure"
+    ]
+  },
+  "House Mimolot": {
+    "food": "bookhaven inflow, protected academic stores, tariffed imports",
+    "water": "academy reserves and urban channels",
+    "routes": "mimolot_academy_bookhaven_road and principality_of_mimolot corridors",
+    "labor": "copyists, tariff archivists, licensed students, ward staff",
+    "archives": "Scriptorium Steps, academy vaults, restricted diagrams",
+    "magic": "formalized instruction, licensing, circulation control",
+    "religious_legitimacy": "sanctioned knowledge rites and oath practice",
+    "enforcement": "tariff counters, archive access regimes, academy watch",
+    "hazards": "knowledge leaks, black copying, prestige rivalries",
+    "primary_vulnerabilities": [
+      "restricted diagram leakage",
+      "archive theater exposure",
+      "forged seals",
+      "scholar unrest"
+    ],
+    "dependent_localities": [
+      "Mimolot Academy",
+      "Scriptorium Steps",
+      "Bookhaven"
+    ]
+  },
+  "House Panim": {
+    "food": "oasis and memorial road convoys",
+    "water": "haven intake, protected wells, caravan rationing",
+    "routes": "principality_of_panim corridors and sanctum sands memorial road",
+    "labor": "caravaners, memorial stewards, shrine keepers",
+    "archives": "memorial logs, way records, debt tallies",
+    "magic": "protective travel and memorial craft practices",
+    "religious_legitimacy": "mourning rites, desert sanctity, guardian obligations",
+    "enforcement": "road stewards, memorial guards, permit readers",
+    "hazards": "scarcity, sand burial, ritual offense, convoy loss",
+    "primary_vulnerabilities": [
+      "water theft",
+      "route burial",
+      "memorial desecration",
+      "caravan panic"
+    ],
+    "dependent_localities": [
+      "Panim Haven",
+      "Sanctum Sands"
+    ]
+  },
+  "House Shirsh": {
+    "food": "grove-linked intake and district market imports",
+    "water": "crystal and cultivated sources",
+    "routes": "principality_of_shirsh_route corridors and crystal grove route",
+    "labor": "garden keepers, charm workers, court staff",
+    "archives": "lineage records, cultivated rights, route permissions",
+    "magic": "decorative and status-bearing refinement magic",
+    "religious_legitimacy": "beauty-bound sanctity and lineage theater",
+    "enforcement": "courtly inspection, garden wardens, record authorities",
+    "hazards": "status offense, lineage dispute, cultivated blight",
+    "primary_vulnerabilities": [
+      "registry embarrassment",
+      "garden sabotage",
+      "inheritance dispute",
+      "court rumor cascades"
+    ],
+    "dependent_localities": [
+      "Shirshal",
+      "Crystal Grove"
+    ]
+  },
+  "House Cosmouth": {
+    "food": "harbor ring intake, sea freight, coastal stores",
+    "water": "port cistern and maritime exchange",
+    "routes": "cosmouth harbor ring and corridor lanes",
+    "labor": "dock crews, tally clerks, shipwright support",
+    "archives": "harbor manifests and bonded cargo lists",
+    "magic": "navigation, sealing, cargo protection",
+    "religious_legitimacy": "coastal rites, safe-passage observances",
+    "enforcement": "port authority, bonded inspectors, patrol boats",
+    "hazards": "smuggling, storm delays, bonded fraud",
+    "primary_vulnerabilities": [
+      "manifest fraud",
+      "storm isolation",
+      "dock strikes",
+      "contraband movement"
+    ],
+    "dependent_localities": [
+      "Cosmoria",
+      "Harbor ring nodes"
+    ]
+  },
+  "Roaz": {
+    "food": "northern trade intake and hardened routes",
+    "water": "staged cistern points and defended wells",
+    "routes": "roaz_northern_trade_route and route_hardening_3",
+    "labor": "quarry, freight, hardening crews, watch labor",
+    "archives": "route audits, toll logs, hardening reports",
+    "magic": "defensive infrastructure and survival applications",
+    "religious_legitimacy": "fortitude rites and civic endurance narratives",
+    "enforcement": "route hardeners, escorts, checkpoint authority",
+    "hazards": "breakage, freight delay, brittle law escalation",
+    "primary_vulnerabilities": [
+      "bridge failure",
+      "escort corruption",
+      "cold-weather scarcity",
+      "trade reprisal"
+    ],
+    "dependent_localities": [
+      "Ironroot Crossing",
+      "Northern Trade route nodes"
+    ]
+  },
+  "Mimolot": {
+    "food": "bookhaven inflow, protected academic stores, tariffed imports",
+    "water": "academy reserves and urban channels",
+    "routes": "mimolot_academy_bookhaven_road and principality_of_mimolot corridors",
+    "labor": "copyists, tariff archivists, licensed students, ward staff",
+    "archives": "Scriptorium Steps, academy vaults, restricted diagrams",
+    "magic": "formalized instruction, licensing, circulation control",
+    "religious_legitimacy": "sanctioned knowledge rites and oath practice",
+    "enforcement": "tariff counters, archive access regimes, academy watch",
+    "hazards": "knowledge leaks, black copying, prestige rivalries",
+    "primary_vulnerabilities": [
+      "restricted diagram leakage",
+      "archive theater exposure",
+      "forged seals",
+      "scholar unrest"
+    ],
+    "dependent_localities": [
+      "Mimolot Academy",
+      "Scriptorium Steps",
+      "Bookhaven"
+    ]
+  },
+  "Shelk": {
+    "food": "Sunspire Haven, Harvest Circle, river and road inflow",
+    "water": "canal maintenance, fairhaven intake, district cisterns",
+    "routes": "shelkopolis_fairhaven_road, plume_s_end_northern_road, tariff corridors",
+    "labor": "loom households, porters, record clerks, house retainers",
+    "archives": "tideglass_registry, house ledgers, tariff counters",
+    "magic": "licensed civic and household craft magic",
+    "religious_legitimacy": "chapels, oath practices, sanctioned mourning and household rites",
+    "enforcement": "house officers, ward patrols, tariff lantern courts",
+    "hazards": "hoarding, canal failure, rumor cascades, elite legitimacy shocks",
+    "primary_vulnerabilities": [
+      "registry compromise",
+      "grain delay",
+      "house succession stress",
+      "public rumor escalation"
+    ],
+    "dependent_localities": [
+      "Shelkopolis",
+      "Fairhaven",
+      "Tideglass Registry",
+      "Tariff Lantern Court",
+      "Plume’s End Outpost"
+    ]
+  },
+  "Zootia": {
+    "food": "granaries, canal-linked fields, licensed convoy intake",
+    "water": "embanked canals and ration discipline",
+    "routes": "principality_of_zootia_route_corridor_1/2/3",
+    "labor": "canal workers, burdened clerks, convoy crews, storehouse hands",
+    "archives": "trade records, permits, escort declarations",
+    "magic": "licensed throughput magic, controlled inspection support",
+    "religious_legitimacy": "oath-bound stewardship and practical ritual order",
+    "enforcement": "canal inspection, gate procedure, convoy scrutiny",
+    "hazards": "sabotage, flooding, inspection surges, bottlenecks",
+    "primary_vulnerabilities": [
+      "canal sabotage",
+      "false paperwork",
+      "night cargo diversion",
+      "supply bottlenecks"
+    ],
+    "dependent_localities": [
+      "Canal Thorn Exchange",
+      "Ledger Canal",
+      "Serpent Measure"
+    ]
+  },
+  "Shirsh": {
+    "food": "grove-linked intake and district market imports",
+    "water": "crystal and cultivated sources",
+    "routes": "principality_of_shirsh_route corridors and crystal grove route",
+    "labor": "garden keepers, charm workers, court staff",
+    "archives": "lineage records, cultivated rights, route permissions",
+    "magic": "decorative and status-bearing refinement magic",
+    "religious_legitimacy": "beauty-bound sanctity and lineage theater",
+    "enforcement": "courtly inspection, garden wardens, record authorities",
+    "hazards": "status offense, lineage dispute, cultivated blight",
+    "primary_vulnerabilities": [
+      "registry embarrassment",
+      "garden sabotage",
+      "inheritance dispute",
+      "court rumor cascades"
+    ],
+    "dependent_localities": [
+      "Shirshal",
+      "Crystal Grove"
+    ]
+  },
+  "Panim": {
+    "food": "oasis and memorial road convoys",
+    "water": "haven intake, protected wells, caravan rationing",
+    "routes": "principality_of_panim corridors and sanctum sands memorial road",
+    "labor": "caravaners, memorial stewards, shrine keepers",
+    "archives": "memorial logs, way records, debt tallies",
+    "magic": "protective travel and memorial craft practices",
+    "religious_legitimacy": "mourning rites, desert sanctity, guardian obligations",
+    "enforcement": "road stewards, memorial guards, permit readers",
+    "hazards": "scarcity, sand burial, ritual offense, convoy loss",
+    "primary_vulnerabilities": [
+      "water theft",
+      "route burial",
+      "memorial desecration",
+      "caravan panic"
+    ],
+    "dependent_localities": [
+      "Panim Haven",
+      "Sanctum Sands"
+    ]
+  },
+  "Cosmouth": {
+    "food": "harbor ring intake, sea freight, coastal stores",
+    "water": "port cistern and maritime exchange",
+    "routes": "cosmouth harbor ring and corridor lanes",
+    "labor": "dock crews, tally clerks, shipwright support",
+    "archives": "harbor manifests and bonded cargo lists",
+    "magic": "navigation, sealing, cargo protection",
+    "religious_legitimacy": "coastal rites, safe-passage observances",
+    "enforcement": "port authority, bonded inspectors, patrol boats",
+    "hazards": "smuggling, storm delays, bonded fraud",
+    "primary_vulnerabilities": [
+      "manifest fraud",
+      "storm isolation",
+      "dock strikes",
+      "contraband movement"
+    ],
+    "dependent_localities": [
+      "Cosmoria",
+      "Harbor ring nodes"
+    ]
+  }
+}

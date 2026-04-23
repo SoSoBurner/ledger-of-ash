@@ -1,0 +1,46 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ironhold Quarry",
+  "record_count": 2,
+  "npc_ids": [
+    "petra_stonewake",
+    "rhodra_boltmere"
+  ],
+  "records": [
+    {
+      "npc_id": "petra_stonewake",
+      "canonical_name": "Petra Stonewake",
+      "polity": "Roaz",
+      "office_or_role": "Inventory Steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as inventory steward.",
+      "current_agenda": "Keep Ironhold Quarry workable through the obligations of inventory steward while managing the immediate pressure of labor harshness in Roaz."
+    },
+    {
+      "npc_id": "rhodra_boltmere",
+      "canonical_name": "Rhodra Boltmere",
+      "polity": "Roaz",
+      "office_or_role": "Ritual Attendant",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as ritual attendant.",
+      "current_agenda": "Keep Ironhold Quarry workable through the obligations of ritual attendant while managing the immediate pressure of labor harshness in Roaz."
+    }
+  ],
+  "roster_context": {
+    "identity": "Major Roazian extraction site linked to law, labor, and strategic infrastructure.",
+    "visible_power": [
+      "ORE",
+      "Iron Accord"
+    ],
+    "pressure": [
+      "labor harshness",
+      "resource theft",
+      "border competition"
+    ]
+  },
+  "sources": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

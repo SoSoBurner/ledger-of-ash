@@ -1,0 +1,33 @@
+{
+  "build_version": "V33_1",
+  "institution": "House Roaz",
+  "record_count": 1,
+  "npc_ids": [
+    "selda_chainwell"
+  ],
+  "records": [
+    {
+      "npc_id": "selda_chainwell",
+      "canonical_name": "Selda Chainwell",
+      "polity": "Roaz",
+      "office_or_role": "Supply Marshal",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as supply marshal.",
+      "current_agenda": "Keep House Roaz workable through the obligations of supply marshal while managing the immediate pressure of institutional scrutiny in Roaz."
+    }
+  ],
+  "roster_context": {
+    "identity": "Legal-industrial noble house anchoring strict enforcement, quarry extraction, and strategic antimagic development.",
+    "visible_power": [],
+    "pressure": [
+      "border strain",
+      "contraband",
+      "public fear of overreach",
+      "resource dependence"
+    ]
+  },
+  "sources": [
+    "principality_roaz",
+    "principalities"
+  ]
+}

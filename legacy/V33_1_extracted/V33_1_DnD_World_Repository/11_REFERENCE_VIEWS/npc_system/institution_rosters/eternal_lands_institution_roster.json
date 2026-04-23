@@ -1,0 +1,60 @@
+{
+  "build_version": "V33_1",
+  "institution": "Eternal Lands",
+  "record_count": 4,
+  "npc_ids": [
+    "svala_ironslope",
+    "tharim_coalforge",
+    "cron_udenine",
+    "roth_udenine"
+  ],
+  "records": [
+    {
+      "npc_id": "svala_ironslope",
+      "canonical_name": "Svala Ironslope",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Marsh Guide",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as marsh guide.",
+      "current_agenda": "Keep Eternal Lands workable through the obligations of marsh guide while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "tharim_coalforge",
+      "canonical_name": "Tharim Coalforge",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Regional production boss",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as regional production boss.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of regional production boss while managing the immediate pressure of predators in Soreheim Alliance."
+    },
+    {
+      "npc_id": "cron_udenine",
+      "canonical_name": "Cron Udenine",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Storm Giant councillor and arbiter of justice",
+      "tier": "notable",
+      "public_reputation": "Recognized as a storm giant councillor and arbiter of justice of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of storm giant councillor and arbiter of justice while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    },
+    {
+      "npc_id": "roth_udenine",
+      "canonical_name": "Roth Udenine",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Storm Giant councillor and northern ambition lord",
+      "tier": "notable",
+      "public_reputation": "Recognized as a storm giant councillor and northern ambition lord of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of storm giant councillor and northern ambition lord while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Rough northern expansion frontier of mountains, magma wells, industrial clearing, predator-haunted extraction, and outward tower growth governed domestically through regional bosses, industrial clans, and hard patron-families beneath Soreheim Proper’s rule.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

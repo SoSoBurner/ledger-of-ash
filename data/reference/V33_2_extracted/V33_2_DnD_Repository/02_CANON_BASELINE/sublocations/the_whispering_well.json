@@ -1,0 +1,20 @@
+{
+  "name": "The Whispering Well",
+  "parent_district": "Ironspool Ward District",
+  "type": "well/shrine",
+  "summary": "Communal well linked to need-based visions.",
+  "npc_interfaces": [
+    "jalen_stone"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "jalen_stone"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

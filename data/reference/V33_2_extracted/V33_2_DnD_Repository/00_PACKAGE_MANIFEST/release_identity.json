@@ -1,0 +1,9 @@
+{
+  "release_identity": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "build_signature": "V33_2_LOCALITY_MATRIX_CANON_REPLACEMENT_REBUILD",
+  "release_intent": "Replace active locality canon with the uploaded locality matrix backbone and keep the repository standalone.",
+  "historical_legacy_retained_in_archives": true,
+  "status": "pass"
+}

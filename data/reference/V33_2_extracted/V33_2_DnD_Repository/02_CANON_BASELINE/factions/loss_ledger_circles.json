@@ -1,0 +1,46 @@
+{
+  "name": "Loss Ledger Circles",
+  "type": "Sheresh mourning-accountability faction",
+  "truth_layer": "conservative_inference",
+  "summary": "Sheresh circles that record deaths, disappearances, and irrecoverable losses so survival decisions remain socially remembered.",
+  "motive": "Prevent the harsh arithmetic of survival from erasing grief, accountability, or cautionary memory.",
+  "methods": [
+    "loss recording",
+    "public remembrance",
+    "incident testimony",
+    "route memorialization"
+  ],
+  "geography": [
+    "Aurora Crown Commune",
+    "Whitebridge Commune",
+    "route shelters"
+  ],
+  "power_relations": [
+    "Morally influential but not supreme; often intersect with Dome Stewards and route wardens after tragedy"
+  ],
+  "current_pressure": [
+    "repeated route losses",
+    "experimental deaths",
+    "fatigue around mourning protocols"
+  ],
+  "visible_membership_base": "Record keepers, kin witnesses, elder mediators, memorial attendants.",
+  "civilian_contact_surface": [
+    "death reports",
+    "memorial observances",
+    "family testimony"
+  ],
+  "current_tension_or_vulnerability": "They are strongest when the community still wants to remember; prolonged crisis tempts people to reduce names to numbers.",
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "vassa_snowveil"
+  ],
+  "npc_interfaces": [
+    "vassa_snowveil"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Scripwind Crossing",
+  "parent": "Nomdara Caravan Route",
+  "summary": "A high plain market-stop where trade promises are sung into lacquered ribbon tallies before the caravan moves on. Break the ribbon and three regions hear about it by dusk.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_6_frontier_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Nomdara",
+  "travel_tags": [
+    "contract crossing",
+    "mobile market",
+    "reputation relay"
+  ]
+}

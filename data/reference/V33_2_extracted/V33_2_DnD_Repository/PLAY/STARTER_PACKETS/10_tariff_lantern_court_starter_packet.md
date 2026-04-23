@@ -1,0 +1,49 @@
+# Starter Packet 10: Tariff Lantern Court
+
+**Scenario ID:** social_misstep_mimolot
+
+**Where the party enters:** Tariff Lantern Court in House Mimolot.
+
+**First visual:** Visitors first see tariff lamps, indexed stalls, and instructors quietly watching who touches what.
+
+**First pressure:** tariff abuse, smuggling of notes
+
+**First NPC:** Mimolot Burdened Clerk 4
+
+**What can go wrong in 10 minutes:** A routine request collides with tariff abuse, smuggling of notes.
+
+**What faction notices:** Someone tied to House Mimolot records whether the party is useful, disruptive, or expensive.
+
+**One escalation:** Move immediately to step 2 of ../../12_TABLE_KITS/escalation_ladders/tariff_lantern_court_escalation_ladder.md if the party resists process or picks a side in public.
+
+**One travel hook:** Push next toward Principality of Mimolot route corridor 1.
+
+**One rumor that points to the next locality:** The obvious problem is linked to a second location reachable through Principality of Mimolot route corridor 1.
+
+**Player-safe frame:** The party enters Tariff Lantern Court and discovers that a routine request is entangled with local pressure, reputation, and a decision that cannot be solved by force alone.
+
+**GM deep frame:** Run the opening using the Tariff Lantern Court quickstart card, then escalate through one authority, one pressured intermediary, and one consequence if the players ignore procedure.
+
+**Run this with:**
+- ../../PLAY/TABLE_READY_LOCALITY_CARDS/tariff_lantern_court_table_ready.md
+- ../../12_TABLE_KITS/arrival_kits/tariff_lantern_court_arrival_kit.md
+- ../../12_TABLE_KITS/escalation_ladders/tariff_lantern_court_escalation_ladder.md
+- ../../11_REFERENCE_VIEWS/current_release/session_walkthroughs/social_misstep_mimolot.md
+
+## Interconnection Overlay
+
+**Primary polity dependency:** Use `../../11_REFERENCE_VIEWS/current_release/polity_dependency_matrix.json` and read the `House Mimolot` entry before expanding consequences.
+
+**Faction pressure surface:** ../../12_TABLE_KITS/faction_primers/house_mimolot_faction_primer.md
+
+**Institutional pressure surface:** ../../11_REFERENCE_VIEWS/current_release/institution_crosslink_ledger.json
+
+**Rumor truth surface:** ../../11_REFERENCE_VIEWS/current_release/truth_layer_rumor_ladders.json
+
+**Campaign continuity update:** After this starter scenario, update:
+- ../../PLAY/CURRENT_CAMPAIGN_PACKETS/CURRENT_CAMPAIGN_STATE.md
+- ../../PLAY/CURRENT_CAMPAIGN_PACKETS/CHANGED_LOCALITIES.md
+- ../../PLAY/CURRENT_CAMPAIGN_PACKETS/ACTIVE_FACTIONS.md
+- ../../PLAY/CURRENT_CAMPAIGN_PACKETS/NPCS_THE_PARTY_DISTURBED.md
+
+**Finished-world GM note:** Do not resolve this opening as an isolated street problem. Trace it outward through one office, one route, one rumor layer, and one faction that benefits if the visible fix fails.

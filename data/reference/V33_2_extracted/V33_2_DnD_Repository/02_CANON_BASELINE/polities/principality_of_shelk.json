@@ -1,0 +1,57 @@
+{
+  "name": "Principality of Shelk",
+  "type": "sub-polity / house-territory",
+  "hierarchy_parent": "The Principalities",
+  "truth_layer": "direct_canon",
+  "summary": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+  "ruling_structure": [
+    "Lady Isabella Shelk",
+    "Lord Darius Shelk",
+    "Roadwardens Order",
+    "Fashion Artisans Collective"
+  ],
+  "magic_policy": "Fashion enchantment and glyph anxiety exist under broader Principalities law.",
+  "sources": [
+    "principality_shelk",
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "sylva_aurorine"
+  ],
+  "npc_interfaces": [
+    "sylva_aurorine"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "population_status": {
+    "nation_level_enumeration_status": "explicit",
+    "explicit_population_roster": {
+      "dominant_populations": [
+        "Elves"
+      ],
+      "secondary_populations": [
+        "Half-Elves",
+        "Humans",
+        "Gnomes",
+        "Firbolgs"
+      ],
+      "canonical_roster": [
+        "Elves",
+        "Half-Elves",
+        "Humans",
+        "Gnomes",
+        "Firbolgs"
+      ]
+    },
+    "bounded_population_signals": [
+      "field-level support classification preserved in demography layer",
+      "runtime packets must not contradict canonical roster"
+    ],
+    "notes": "Elves remain primary, with Half-Elves, Humans, Gnomes, and Firbolgs retained as the best-supported extension of Shelk’s urban, artistic, and nature-linked identity.",
+    "truth_layer": "corrected_canon"
+  },
+  "resolution_status": "resolved world-standard roster",
+  "canon_note": "See corresponding demography record for support classification and contradiction-safe reconciliation trail."
+}

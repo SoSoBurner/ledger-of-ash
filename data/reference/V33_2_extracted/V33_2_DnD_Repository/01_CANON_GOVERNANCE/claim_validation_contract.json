@@ -1,0 +1,17 @@
+{
+  "build_version": "V33_1",
+  "contract_purpose": "Claims in README and active validation outputs must be mechanically supportable from package state.",
+  "claim_sources": [
+    "README.md",
+    "06_VALIDATION/final_closure_report.json",
+    "06_VALIDATION/stale_version_token_report.json",
+    "06_VALIDATION/version_consistency_report.json"
+  ],
+  "claim_types": [
+    "version_purity",
+    "stale_token_zero",
+    "standalone_status",
+    "validation_closure"
+  ],
+  "failure_rule": "Any active claim contradicted by filesystem scan or report cross-check is a major validation failure."
+}

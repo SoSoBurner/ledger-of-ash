@@ -1,0 +1,29 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sheresh Relief Caravan",
+  "record_count": 1,
+  "npc_ids": [
+    "issa_wheelwright"
+  ],
+  "records": [
+    {
+      "npc_id": "issa_wheelwright",
+      "canonical_name": "Issa Wheelwright",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Wagon Surgeon",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as wagon surgeon.",
+      "current_agenda": "Keep Sheresh Relief Caravan workable through the obligations of wagon surgeon while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Sheresh Relief Caravan is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "operator_target_spec_v22_4",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

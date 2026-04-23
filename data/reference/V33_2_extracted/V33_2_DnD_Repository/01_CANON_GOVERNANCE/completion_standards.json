@@ -1,0 +1,112 @@
+{
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "locality_family_required_fields": [
+    "identity",
+    "hierarchy",
+    "approach",
+    "inside",
+    "who_belongs",
+    "who_is_out_of_place",
+    "expected_behavior",
+    "visible_power",
+    "economy",
+    "faith",
+    "seasonal_change",
+    "pressure",
+    "npc_interfaces",
+    "law_context"
+  ],
+  "institution_variant_required_fields": [
+    "archetype_reference",
+    "local_expression",
+    "staffing_expression",
+    "enforcement_expression",
+    "architectural_expression",
+    "law_emphasis",
+    "faith_integration"
+  ],
+  "calendar_required_fields": [
+    "day_divisions",
+    "week_cycle",
+    "month_cycle",
+    "annual_cycle",
+    "festival_logic",
+    "labor_bindings",
+    "ritual_bindings",
+    "travel_bindings",
+    "legal_bindings"
+  ],
+  "runtime_required_files": [
+    "campaigns",
+    "parties",
+    "sessions",
+    "branches",
+    "session_log",
+    "candidate_events",
+    "validated_world_effects",
+    "world_deltas",
+    "projection_views"
+  ],
+  "critical_object_contracts": {
+    "faction": [
+      "identity",
+      "sphere_of_influence",
+      "goals",
+      "methods",
+      "allies",
+      "enemies",
+      "public_reputation",
+      "relationship_to_law_governance",
+      "relationship_to_religion",
+      "current_tensions",
+      "operational_presence_by_region",
+      "source_truth_status"
+    ],
+    "polity": [
+      "identity",
+      "ruling_structure",
+      "internal_power_centers",
+      "legal_character",
+      "economic_posture",
+      "cultural_tone",
+      "military_security_posture",
+      "religious_landscape",
+      "external_tensions",
+      "major_settlements",
+      "travel_trade_significance",
+      "truth_status"
+    ],
+    "institution": [
+      "purpose",
+      "jurisdiction",
+      "who_controls_it",
+      "how_common_people_experience_it",
+      "where_it_appears",
+      "conflict_or_corruption_pressure",
+      "relationship_to_factions_law_faith"
+    ],
+    "city_packet": [
+      "authority",
+      "culture",
+      "religion_visibility",
+      "trade_economy",
+      "tension",
+      "local_behavior",
+      "points_of_interest_minimum_2"
+    ]
+  },
+  "saturation_gate_fields": [
+    "required_fields",
+    "recommended_fields",
+    "minimum_narrative_usability_score",
+    "minimum_crosslink_count",
+    "maximum_unsupported_inference_ratio"
+  ],
+  "v23_4_identity_interface_fix": "enabled",
+  "synthetic_locality_person_placeholders_forbidden": true,
+  "required_components": [
+    "interface_roles"
+  ]
+}

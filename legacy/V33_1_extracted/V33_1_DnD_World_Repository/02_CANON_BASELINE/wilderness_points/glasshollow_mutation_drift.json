@@ -1,0 +1,20 @@
+{
+  "name": "Glasshollow Mutation Drift",
+  "parent": "Sheresh Polluted Tundra",
+  "summary": "A low basin where failed protective fields left the snow glittering with translucent organo-crystalline dust. Hunters wear mirrored scarves and do not stay after sunset.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_6_frontier_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Sheresh Empire",
+  "travel_tags": [
+    "magic pollution",
+    "mutation hazard",
+    "forbidden salvage"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Sunspire Haven",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "regional leaders",
+    "market stewards",
+    "workshop syndicates",
+    "patron-families under alliance quota law"
+  ],
+  "pressure_vectors": [
+    "predators",
+    "water system vulnerabilities",
+    "storage disputes",
+    "family favor feuds"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Harvest Circle, that usually means carrying spoilage, price pressure, favor feuds without letting the role of protector of magical forests and plains visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "elyra_mossbane",
+    "garren_forgebound",
+    "jorva_helmrune",
+    "kael_emberthrone",
+    "orvak_strone",
+    "taldan_veyst",
+    "torma_coalward",
+    "varik_drillwake"
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "npc_id": "kordr_vulkhand",
+  "canonical_name": "Kordr Vulkhand",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "martial_actor",
+  "office_or_role": "Berserker",
+  "profession_discipline": "Berserker",
+  "grouping": "Classic Combat",
+  "polity": "Soreheim Alliance",
+  "settlement": "Soreheim Proper",
+  "locality_scope": "Soreheim Proper, Soreheim",
+  "institutional_ties": [
+    "Forge Authority"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Forge-trance breaker whose rage-state made him the pattern for siege-smashers in early tower consolidation.",
+  "linked_systems": {
+    "polities": [
+      "Soreheim Alliance"
+    ],
+    "localities": [
+      "Soreheim Proper, Soreheim"
+    ],
+    "institutions": [
+      "Forge Authority"
+    ],
+    "factions": []
+  },
+  "appearance": "Quota-practical armor, work-hardened layers, and visibly maintained equipment mark function before ceremony.",
+  "manner": "Treats planning, posture, and timing as parts of the same problem rather than separate concerns. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a berserker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of berserker in and around Soreheim Proper, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Soreheim Proper workable through the obligations of berserker while managing the immediate pressure of quota demands in Soreheim Alliance.",
+  "hidden_pressure": "Must keep readiness, command cohesion, and physical security aligned even when politics or scarcity push against discipline. Around Soreheim Proper, that usually means carrying quota demands, political rivalry, foreign pressure without letting the role of berserker visibly slip.",
+  "relationship_refs": [
+    "rel_1259",
+    "rel_1261",
+    "rel_1272",
+    "rel_1273"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "defense_request",
+      "summary": "Kordr Vulkhand needs help hardening a position, drilling unreliable auxiliaries, or reading an approaching threat around Soreheim Proper."
+    },
+    {
+      "hook_type": "rival_command_tension",
+      "summary": "Kordr Vulkhand can pull the party into a dispute over readiness, chain of command, or blamed failure near Soreheim Proper."
+    },
+    {
+      "hook_type": "battlefield_intelligence",
+      "summary": "Kordr Vulkhand will trade useful tactical knowledge if the party solves a security problem too sensitive for ordinary channels."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Kordr Vulkhand needs help with a problem in Soreheim Proper that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Weapon discipline, drilled stillness, and practiced readiness mark Kordr Vulkhand as someone tied to organized force rather than casual violence. In Soreheim Proper, this lands inside a public field already shaped by Giant Council, Cloud Giant governance cadres.",
+  "encounter_context": {
+    "usual_environment": "Soreheim Proper: drill yards, fortifications, command posts, or exposed routes",
+    "who_seeks_them_out": [
+      "subordinates",
+      "messengers",
+      "worried local leaders"
+    ],
+    "who_avoids_them": [
+      "the undisciplined",
+      "the unprepared",
+      "rivals probing weakness"
+    ],
+    "interaction_anchor": "defensive planning or force-readiness"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Kordr Vulkhand presents as Treats planning, posture, and timing as parts of the same problem rather than separate concerns. In Soreheim Alliance, that reads as someone quota-aware, contribution-minded, and structurally pragmatic, filtering choices through communal ambition, and the habits of a berserker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Berserker, and proof that strangers will not create avoidable noise in Soreheim Alliance.",
+  "what_they_refuse": "Kordr Vulkhand refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Berserker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kordr Vulkhand can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kordr Vulkhand adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kordr Vulkhand is Forge-trance breaker whose rage-state made him the pattern for siege-smashers in early tower consolidation. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Berserker."
+}

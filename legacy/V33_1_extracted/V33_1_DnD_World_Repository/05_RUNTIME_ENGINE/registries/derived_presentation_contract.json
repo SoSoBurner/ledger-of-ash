@@ -1,0 +1,17 @@
+{
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "required_tracking": [
+    "direct_canon_percentage",
+    "reconciled_canon_percentage",
+    "conservative_inference_percentage",
+    "unresolved_ambiguity_flag"
+  ],
+  "threshold_examples": {
+    "core_identity_objects": "very_low_inference_allowed",
+    "scene_rendering_packets": "higher_inference_allowed",
+    "law_governance_answers": "low_inference_allowed",
+    "rumor_public_belief_packets": "inference_allowed_but_labeled"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Panim Haven",
+  "who_belongs": [
+    "clerics",
+    "funerary workers",
+    "pilgrims"
+  ],
+  "who_is_out_of_place": [
+    "those mocking afterlife commerce or divine mediation"
+  ],
+  "expected_behavior": [
+    "ritual seriousness and respectful petition"
+  ],
+  "sources": [
+    "principalities"
+  ],
+  "v30_9_behavior_deepening": {
+    "truth_layer": "conservative_inference",
+    "public_behavior_priority": [
+      "state purpose early",
+      "accept correction without escalation",
+      "watch how locals queue before asserting entitlement"
+    ],
+    "common_outsider_errors": [
+      "treating visible procedure as the whole system",
+      "reading silence as neutrality"
+    ],
+    "informal_enforcement": [
+      "stalling through politeness",
+      "rerouting through quieter authorities",
+      "raising the social cost of ignorance"
+    ]
+  }
+}

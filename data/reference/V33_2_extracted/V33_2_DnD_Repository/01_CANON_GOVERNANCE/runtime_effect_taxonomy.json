@@ -1,0 +1,35 @@
+{
+  "build_version": "V33_1",
+  "effect_classes": [
+    "reputation_shift",
+    "faction_attention_shift",
+    "legal_exposure_shift",
+    "access_restriction_change",
+    "route_danger_change",
+    "district_alertness_change",
+    "rumor_propagation",
+    "shrine_reception_shift",
+    "merchant_price_variance",
+    "resource_scarcity_signal",
+    "institutional_posture_change"
+  ],
+  "scope_levels": [
+    "site",
+    "settlement",
+    "route",
+    "polity",
+    "cross_world"
+  ],
+  "visibility_levels": [
+    "public",
+    "rumored",
+    "secret",
+    "institution_only"
+  ],
+  "temporal_classes": [
+    "temporary",
+    "branch_only",
+    "mainline_eligible",
+    "mainline_confirmed"
+  ]
+}

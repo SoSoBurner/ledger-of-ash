@@ -1,0 +1,199 @@
+{
+  "name": "Maskscar Plaza District",
+  "type": "ritual plaza district",
+  "parent_polity": "Psanan",
+  "territory": "Ashforge Citadel Environs",
+  "truth_layer": "conservative_inference",
+  "identity": "Public ceremonial district where masks, banners, dance terraces, and civic braziers keep renewal visible in urban life.",
+  "approach": "Wide plazas, mosaic routes, and workshop facades show a settlement designed for processional movement.",
+  "inside": "Mask workshops, banner halls, and rehearsal terraces make ceremony a labor system as well as a public identity.",
+  "who_belongs": [
+    "mask makers",
+    "banner dyers",
+    "dancers",
+    "processional stewards"
+  ],
+  "who_is_out_of_place": [
+    "those seeking private control of public observance",
+    "thieves of ceremonial goods"
+  ],
+  "expected_behavior": [
+    "leave procession routes clear",
+    "treat banners and masks as dynastic civic property"
+  ],
+  "visible_power": [
+    "Rebuilding Oath Courts",
+    "Great House Citadel Circle"
+  ],
+  "economy": [
+    "ceremonial production",
+    "public event logistics",
+    "ash dye"
+  ],
+  "faith": [
+    "explicitly civic, seasonal, dynastic, and ceremonial rather than temple-centered"
+  ],
+  "seasonal_change": "Midyear observance turns the district into the loudest civic space in Psanan.",
+  "pressure": [
+    "house rivalry over symbolism",
+    "crowd control",
+    "heat damage to stored materials"
+  ],
+  "npc_interfaces": [
+    "banner_master_liora_embermask"
+  ],
+  "law_context": [
+    "public route law",
+    "ceremonial property protection"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Psanan",
+    "territory": "Ashforge Citadel Environs",
+    "settlement": "Maskscar Plaza District",
+    "district": null
+  },
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "Public ceremonial district where masks, banners, dance terraces, and civic braziers keep renewal visible in urban life.",
+    "approach": "Wide plazas, mosaic routes, and workshop facades show a settlement designed for processional movement.",
+    "inside": "Mask workshops, banner halls, and rehearsal terraces make ceremony a labor system as well as a public identity.",
+    "who_belongs": [
+      "mask makers",
+      "banner dyers",
+      "dancers",
+      "processional stewards"
+    ],
+    "who_is_out_of_place": [
+      "those seeking private control of public observance",
+      "thieves of ceremonial goods"
+    ],
+    "expected_behavior": [
+      "leave procession routes clear",
+      "treat banners and masks as dynastic civic property"
+    ],
+    "visible_power": [
+      "Rebuilding Oath Courts",
+      "Great House Citadel Circle"
+    ],
+    "economy": [
+      "ceremonial production",
+      "public event logistics",
+      "ash dye"
+    ],
+    "faith": [
+      "explicitly civic, seasonal, dynastic, and ceremonial rather than temple-centered"
+    ],
+    "seasonal_change": "Midyear observance turns the district into the loudest civic space in Psanan.",
+    "pressure": [
+      "house rivalry over symbolism",
+      "crowd control",
+      "heat damage to stored materials"
+    ],
+    "law_context": [
+      "public route law",
+      "ceremonial property protection"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Wide plazas, mosaic routes, and workshop facades show a settlement designed for processional movement.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Mask workshops, banner halls, and rehearsal terraces make ceremony a labor system as well as a public identity.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "house rivalry over symbolism",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "crowd control",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "heat damage to stored materials",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "leave procession routes clear",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "treat banners and masks as dynastic civic property",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "banner_master_liora_embermask",
+    "cyran_crestmark"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually mask makers, banner dyers, dancers, and public conduct is read through expectations such as leave procession routes clear, treat banners and masks as dynastic civic property.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Rebuilding Oath Courts, Great House Citadel Circle.",
+  "local_tension_surface": "The place feels stable only until pressures such as house rivalry over symbolism, crowd control, heat damage to stored materials begin showing through daily routines.",
+  "differentiator": "Maskscar Plaza District stands apart because its economy leans on ceremonial production, public event logistics; public faith remains visible through explicitly civic, seasonal, dynastic, and ceremonial rather than temple-centered; outsiders are noticed fastest when they resemble those seeking private control of public observance, thieves of ceremonial goods.",
+  "encounter_rhythm": "Most first scenes in Maskscar Plaza District begin through ritual plaza district rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Maskscar Plaza District immediately highlights public ceremonial district where masks, banners, dance terraces, and civic braziers keep renewal visible in urban life",
+    "The quickest social read of Maskscar Plaza District comes from how locals react to leave procession routes clear / treat banners and masks as dynastic civic property."
+  ],
+  "social_misstep_examples": [
+    "Treating Maskscar Plaza District like a casual stop rather than a governed space.",
+    "Ignoring local expectation to leave procession routes clear; treat banners and masks as dynastic civic property."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to ceremonial production.",
+    "A local intermediary resents outsider assumptions about Maskscar Plaza District."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Maskscar Plaza District",
+    "Formal notice by Rebuilding Oath Courts",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Maskscar Plaza District before residents admit them.",
+  "outsider_liability": "Outsiders in Maskscar Plaza District are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around house rivalry over symbolism.",
+    "Someone mistakes the party for agents tied to Rebuilding Oath Courts.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind ceremonial production surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Maskscar Plaza District feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Maskscar Plaza District is busiest and least forgiving of confusion.",
+    "night": "At night, Maskscar Plaza District reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Maskscar Plaza District mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

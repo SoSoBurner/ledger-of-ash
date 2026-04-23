@@ -1,0 +1,104 @@
+{
+  "npc_id": "kest_march",
+  "canonical_name": "Kest March",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "archive_officer",
+  "office_or_role": "Assistant Curator",
+  "profession_discipline": "Assistant Curator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Threads of Twilight Market",
+  "locality_scope": "Threads of Twilight Market",
+  "institutional_ties": [
+    "Threads of Twilight Market"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as assistant curator.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Threads of Twilight Market"
+    ],
+    "institutions": [
+      "Threads of Twilight Market"
+    ],
+    "factions": []
+  },
+  "appearance": "Kest March carries the marks of assistant curator in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Keeps language exact, as if wording itself is part of the custody chain. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a assistant curator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of assistant curator in and around Threads of Twilight Market, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Threads of Twilight Market while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_0648",
+    "rel_0649",
+    "rel_0650",
+    "rel_0651",
+    "rel_0652",
+    "rel_0653",
+    "rel_0654",
+    "rel_0655",
+    "rel_0656",
+    "rel_0657",
+    "rel_1197"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Kest March can trade precise, actionable information once the party secures or clarifies the record they protect."
+    },
+    {
+      "hook_type": "record_dispute",
+      "summary": "Kest March needs help resolving a missing ledger, inconsistent testimony, or tampered record tied to Threads of Twilight Market."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "kest_march",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Seals, ledgers, or carefully bundled papers make record authority the first thing Kest March communicates in public.",
+  "encounter_context": {
+    "usual_environment": "Threads of Twilight Market: offices, toll points, ledgers, archives, or testimony desks",
+    "who_seeks_them_out": [
+      "those needing proof",
+      "clerks",
+      "people fixing earlier mistakes"
+    ],
+    "who_avoids_them": [
+      "forgers",
+      "the evasive",
+      "those hoping wording can stay vague"
+    ],
+    "interaction_anchor": "record integrity and document custody"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Kest March presents as Keeps language exact, as if wording itself is part of the custody chain. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a assistant curator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Assistant Curator, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Kest March refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Assistant Curator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Kest March can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Kest March adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Kest March is Known locally through day-to-day work as assistant curator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Assistant Curator.",
+  "social_texture": "Kest March speaks like someone who has spent too long translating private stakes into acceptable public language. Around Threads of Twilight Market, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Kest touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Kest March when the party needs a socially grounded face for Threads of Twilight Market: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Nomdara Bond Registry Ring",
+  "record_count": 1,
+  "npc_ids": [
+    "varek_waycord"
+  ],
+  "records": [
+    {
+      "npc_id": "varek_waycord",
+      "canonical_name": "Varek Waycord",
+      "polity": "Nomdara Caravan",
+      "office_or_role": "Liaison",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as liaison.",
+      "current_agenda": "Keep Nomdara Bond Registry Ring workable through the obligations of liaison while managing the immediate pressure of route danger in Nomdara Caravan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Registry mechanism preserving caravan obligations, bonded passage, and reciprocal trust across traveling routes.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sheresh Dome Stewards",
+  "record_count": 1,
+  "npc_ids": [
+    "rime_rimebridge"
+  ],
+  "records": [
+    {
+      "npc_id": "rime_rimebridge",
+      "canonical_name": "Rime Rimebridge",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Field Captain",
+      "tier": "notable",
+      "public_reputation": "Recognized as a field captain of regional weight.",
+      "current_agenda": "Keep Sheresh Dome Stewards workable through the obligations of field captain while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Steward-administrators who keep dome life functioning through maintenance law, heat discipline, and communal survival procedure.",
+    "visible_power": [],
+    "pressure": [
+      "dome strain",
+      "mutation anxiety",
+      "repair fatigue",
+      "public panic after losses"
+    ]
+  },
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ]
+}

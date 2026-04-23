@@ -1,0 +1,12 @@
+{
+  "name": "Eternal Lands",
+  "parent_polity": "Soreheim Alliance",
+  "summary": "Rural labor and supply belt of plains, workshops, and market towns where regional leaders, syndicate stewards, and patron-families manage domestic order beneath Soreheim Proper’s quotas and alliance law.",
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "principalities",
+    "spatial_seasonal",
+    "soreheim_review",
+    "locations_catalog"
+  ]
+}

@@ -171,75 +171,95 @@ window.NARRATIVE_LOOKUP = {
     "local_threat_pressure": "mold panic, reserve disputes",
     "beast_ecology_pressure": "granary_ratking, field_maw"
   },
-  "shelkopolis_aurora_heights_district": {
-    "opening_image": "Terraced hill, gilded mansions, jasmine and citrus, noble crests, and quiet fountains.",
-    "terrain_material_feel": "Wide boulevards, wrought-iron gates, bespoke shops, noble strolls, and culture-centered public life.",
-    "ambient_activity": "nobles, elite artisans, diplomats, high clergy",
-    "visible_power_structure": "House Shelk nobility, elite magistrates, high clergy",
-    "outsider_friction": "rough caravan crews, underdressed opportunists",
-    "local_threat_pressure": "alliances, espionage, elite reputation",
-    "district_poi_differentiator": "Aurora Heights District stands apart because its economy leans on luxury trade, ceremonial fashion; public faith remains visible through cathedral-centered contemplation and compassion; outsiders are noticed fastest when they resemble rough caravan crews, underdressed opportunists.",
-    "encounter_rhythm": "Most first scenes in Aurora Heights District begin through upper-class district rhythms: arrival, observation, minor correction, and only then deeper access."
-  },
-  "harvest_keep_granary_steps": {
-    "opening_image": "Stepped grain towers and hoistways rise above wagon ruts and canal runoff.",
-    "terrain_material_feel": "Measure boards, storage ladders, sealed bins, and ration benches define the district.",
-    "ambient_activity": "granary laborers, measure clerks, brokers",
-    "visible_power_structure": "granary wardens, House Zootia factors",
-    "outsider_friction": "bag cutters, queue jumpers",
-    "local_threat_pressure": "mold panic, reserve disputes",
+  "panim_haven_high_quarter": {
+    "opening_image": "Formal facades and maintained approaches mark the administrative heart of Panim Haven.",
+    "terrain_material_feel": "Orderly and watched. Rank is visible and movement is read.",
+    "ambient_activity": "officials, ranking citizens, institutional workers",
+    "visible_power_structure": "local authority, senior administrators",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
     "district_poi_differentiator": "",
     "encounter_rhythm": ""
   },
-  "ithtananalor_iron_ledger_ward": {
-    "opening_image": "Black iron rails, permit pylons, and inspection lamps frame the ward before its clerk lines and fortified counting houses become fully visible.",
-    "terrain_material_feel": "Record halls, bonded storage, magistrate offices, and labor-transfer yards operate under an atmosphere of procedural precision.",
-    "ambient_activity": "clerks, ORE officers, licensed haulers, magistrate runners",
-    "visible_power_structure": "Office of Roazian Enforcement, magistrate clerks, bond officers",
-    "outsider_friction": "unlicensed spell carriers, paperless contractors",
-    "local_threat_pressure": "contraband concealment, ledger fraud, inspection backlog",
+  "panim_haven_common_quarter": {
+    "opening_image": "Market noise and workshop smoke mark the living center of Panim Haven.",
+    "terrain_material_feel": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "ambient_activity": "traders, artisans, travelers, workers",
+    "visible_power_structure": "market wardens, guild representatives",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
     "district_poi_differentiator": "",
     "encounter_rhythm": ""
   },
-  "shelkopolis_ironspool_ward_district": {
-    "opening_image": "Harsher edges, cheaper stalls, and visible repair culture replace elite polish.",
-    "terrain_material_feel": "Labor garments, rough taverns, hidden fear shrines, and second-hand trade define the ward.",
-    "ambient_activity": "laborers, sellswords, wagon hands, budget traders",
-    "visible_power_structure": "local warders, repair guilds, tavern rumor-brokers",
-    "outsider_friction": "fragile nobles expecting insulated calm",
-    "local_threat_pressure": "desperation contracts, petty crime, omens and superstition",
-    "district_poi_differentiator": "Ironspool Ward District stands apart because its economy leans on affordable garments, basic repairs; public faith remains visible through Felelem’s protection charms surface more openly here.; outsiders are noticed fastest when they resemble fragile nobles expecting insulated calm.",
-    "encounter_rhythm": "Most first scenes in Ironspool Ward District begin through lower ward rhythms: arrival, observation, minor correction, and only then deeper access."
-  },
-  "panim_haven_reckoning_quarter": {
-    "opening_image": "Funerary banners, offering tables, and carved account stones guide visitors into a district that smells of incense, cedar, and salt.",
-    "terrain_material_feel": "Contract halls, embalming courts, blessing stalls, and family waiting rooms make grief administrative without making it private.",
-    "ambient_activity": "mourning families, contract clerks, ritual workers",
-    "visible_power_structure": "House Panim mediators, offering clerks",
-    "outsider_friction": "mockers, coffin thieves",
-    "local_threat_pressure": "fraudulent afterlife promises, grief exploitation",
+  "panim_haven_low_ward": {
+    "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Panim Haven.",
+    "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "ambient_activity": "laborers, repair workers, low-cost traders",
+    "visible_power_structure": "local fixers, ward wardens",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
     "district_poi_differentiator": "",
     "encounter_rhythm": ""
   },
-  "mimolot_academy_scriptorium_steps": {
-    "opening_image": "Stacked libraries, copying balconies, and tariff posts crowd a stepped academic quarter.",
-    "terrain_material_feel": "Scriptoria, licensed lecture courts, tariff counters, and guarded text vaults structure movement.",
-    "ambient_activity": "copyists, students, tariff clerks, licensed mages",
-    "visible_power_structure": "academy archivists, tariff clerks",
-    "outsider_friction": "book thieves, untutored meddlers",
-    "local_threat_pressure": "text smuggling, tuition strain",
+  "shelkopolis_high_quarter": {
+    "opening_image": "Formal facades and maintained approaches mark the administrative heart of Shelkopolis.",
+    "terrain_material_feel": "Orderly and watched. Rank is visible and movement is read.",
+    "ambient_activity": "officials, ranking citizens, institutional workers",
+    "visible_power_structure": "local authority, senior administrators",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
     "district_poi_differentiator": "",
     "encounter_rhythm": ""
   },
-  "shelkopolis_verdant_row_district": {
-    "opening_image": "Colorful awnings, looms, hammers, flower boxes, baked bread, spiced tea, and merchant traffic.",
-    "terrain_material_feel": "Workshops, guildhalls, inns, shrines, and children weaving through market life create a welcoming but hardworking district.",
-    "ambient_activity": "artisans, merchants, apprentices, mid-tier travelers",
-    "visible_power_structure": "Fashion Artisans Collective, Roadwarden command staff, academy instructors",
-    "outsider_friction": "idle aristocrats expecting deference without purpose",
-    "local_threat_pressure": "economic fraud, design theft, route security",
-    "district_poi_differentiator": "Verdant Row District stands apart because its economy leans on workshops, guild coordination; public faith remains visible through Felujitas and Cyfoes receive small artisan offerings.; outsiders are noticed fastest when they resemble idle aristocrats expecting deference without purpose.",
-    "encounter_rhythm": "Most first scenes in Verdant Row District begin through middle-class district rhythms: arrival, observation, minor correction, and only then deeper access."
+  "shelkopolis_common_quarter": {
+    "opening_image": "Market noise and workshop smoke mark the living center of Shelkopolis.",
+    "terrain_material_feel": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "ambient_activity": "traders, artisans, travelers, workers",
+    "visible_power_structure": "market wardens, guild representatives",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "shelkopolis_low_ward": {
+    "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Shelkopolis.",
+    "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "ambient_activity": "laborers, repair workers, low-cost traders",
+    "visible_power_structure": "local fixers, ward wardens",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "mimolot_academy_high_quarter": {
+    "opening_image": "Formal facades and maintained approaches mark the administrative heart of Mimolot Academy.",
+    "terrain_material_feel": "Orderly and watched. Rank is visible and movement is read.",
+    "ambient_activity": "officials, ranking citizens, institutional workers",
+    "visible_power_structure": "local authority, senior administrators",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "mimolot_academy_common_quarter": {
+    "opening_image": "Market noise and workshop smoke mark the living center of Mimolot Academy.",
+    "terrain_material_feel": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "ambient_activity": "traders, artisans, travelers, workers",
+    "visible_power_structure": "market wardens, guild representatives",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "mimolot_academy_low_ward": {
+    "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Mimolot Academy.",
+    "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "ambient_activity": "laborers, repair workers, low-cost traders",
+    "visible_power_structure": "local fixers, ward wardens",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
   },
   "soreheim_proper_high_quarter": {
     "opening_image": "Formal facades and maintained approaches mark the administrative heart of Soreheim Proper.",
@@ -293,6 +313,36 @@ window.NARRATIVE_LOOKUP = {
   },
   "shirshal_low_ward": {
     "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Shirshal.",
+    "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "ambient_activity": "laborers, repair workers, low-cost traders",
+    "visible_power_structure": "local fixers, ward wardens",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "ithtananalor_high_quarter": {
+    "opening_image": "Formal facades and maintained approaches mark the administrative heart of Ithtananalor.",
+    "terrain_material_feel": "Orderly and watched. Rank is visible and movement is read.",
+    "ambient_activity": "officials, ranking citizens, institutional workers",
+    "visible_power_structure": "local authority, senior administrators",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "ithtananalor_common_quarter": {
+    "opening_image": "Market noise and workshop smoke mark the living center of Ithtananalor.",
+    "terrain_material_feel": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "ambient_activity": "traders, artisans, travelers, workers",
+    "visible_power_structure": "market wardens, guild representatives",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "ithtananalor_low_ward": {
+    "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Ithtananalor.",
     "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
     "ambient_activity": "laborers, repair workers, low-cost traders",
     "visible_power_structure": "local fixers, ward wardens",
@@ -413,6 +463,36 @@ window.NARRATIVE_LOOKUP = {
   },
   "unity_square_low_ward": {
     "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Unity Square.",
+    "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
+    "ambient_activity": "laborers, repair workers, low-cost traders",
+    "visible_power_structure": "local fixers, ward wardens",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "harvest_keep_high_quarter": {
+    "opening_image": "Formal facades and maintained approaches mark the administrative heart of Harvest Keep.",
+    "terrain_material_feel": "Orderly and watched. Rank is visible and movement is read.",
+    "ambient_activity": "officials, ranking citizens, institutional workers",
+    "visible_power_structure": "local authority, senior administrators",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "harvest_keep_common_quarter": {
+    "opening_image": "Market noise and workshop smoke mark the living center of Harvest Keep.",
+    "terrain_material_feel": "Busy and pragmatic. Business conducted openly; relationships tracked by reputation.",
+    "ambient_activity": "traders, artisans, travelers, workers",
+    "visible_power_structure": "market wardens, guild representatives",
+    "outsider_friction": "",
+    "local_threat_pressure": "",
+    "district_poi_differentiator": "",
+    "encounter_rhythm": ""
+  },
+  "harvest_keep_low_ward": {
+    "opening_image": "Rougher edges and utilitarian infrastructure define the working base of Harvest Keep.",
     "terrain_material_feel": "Labor-heavy, watchful, and self-managing. Strangers are noted quickly.",
     "ambient_activity": "laborers, repair workers, low-cost traders",
     "visible_power_structure": "local fixers, ward wardens",

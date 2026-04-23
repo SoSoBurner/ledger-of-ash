@@ -1,0 +1,16 @@
+{
+  "name": "Ithtananalor",
+  "visible_power": [
+    "Lord Aric Roaz",
+    "Office of Roazian Enforcement",
+    "Iron Accord"
+  ],
+  "law_context": [
+    "Roazian antimagic and order law saturate public life."
+  ],
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ]
+}

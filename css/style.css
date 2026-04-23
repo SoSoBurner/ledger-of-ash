@@ -84,6 +84,7 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  zoom: 1.1;
 }
 input, button, select, textarea { font-family: inherit; }
 
@@ -315,6 +316,7 @@ input, button, select, textarea { font-family: inherit; }
 .create-right-inner {
   width: 100%; max-width: 440px; padding: 48px 40px;
   display: flex; flex-direction: column; gap: 0;
+  font-size: 115%;
 }
 .create-prompt {
   font-family: 'Crimson Pro', serif; font-size: 17px; font-style: italic;

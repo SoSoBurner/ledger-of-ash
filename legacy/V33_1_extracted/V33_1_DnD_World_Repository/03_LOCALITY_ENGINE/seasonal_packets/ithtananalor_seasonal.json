@@ -1,0 +1,15 @@
+{
+  "name": "Ithtananalor",
+  "seasonal_change": "Winter constrains transport and mining; productive rhythm intensifies in spring and summer.",
+  "truth_layer": "direct_canon",
+  "seasonal_effects": [
+    "Winter constrains transport and mining; productive rhythm intensifies in spring and summer.",
+    "Public schedules, prices, crowding, and enforcement intensity all change before locals bother explaining why.",
+    "Ceremony, supply pressure, and route reliability do not all peak at the same time, forcing local adaptation."
+  ],
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ]
+}

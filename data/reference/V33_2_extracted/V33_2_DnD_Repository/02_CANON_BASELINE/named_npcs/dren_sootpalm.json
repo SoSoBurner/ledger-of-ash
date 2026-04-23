@@ -1,0 +1,80 @@
+{
+  "npc_id": "dren_sootpalm",
+  "canonical_name": "Dren Sootpalm",
+  "aliases": [
+    "the thieves"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Thieves",
+  "profession_discipline": "Thieves",
+  "grouping": "Stealth & Precision",
+  "polity": "Zootia",
+  "settlement": "Zootia loading yards",
+  "locality_scope": "Zootia loading yards",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Grain-bag cutter who lives off market crush and wagon confusion.",
+  "linked_systems": {
+    "polities": [
+      "Zootia"
+    ],
+    "localities": [
+      "Zootia loading yards"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Dren Sootpalm usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their thieves status legible before introductions begin.",
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Zootia, that reads as someone practical, supply-aware, and season-conscious, attentive to material reliability over display, and the habits of a thieves still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of thieves in and around Zootia loading yards, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Zootia loading yards workable through the obligations of thieves while managing the immediate pressure of institutional scrutiny in Zootia.",
+  "hidden_pressure": "Must keep their piece of the world working while larger systems push stress downward. Around Zootia loading yards, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of thieves visibly slip.",
+  "relationship_refs": [
+    "rel_1297"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Dren Sootpalm can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Dren Sootpalm can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Dren Sootpalm carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia.",
+  "encounter_context": {
+    "usual_environment": "Zootia loading yards: the part of Zootia loading yards where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Dren Sootpalm presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Zootia, that reads as someone practical, supply-aware, and season-conscious, attentive to material reliability over display, and the habits of a thieves still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Thieves, and proof that strangers will not create avoidable noise in Principality of Zootia.",
+  "what_they_refuse": "Dren Sootpalm refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Thieves too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Dren Sootpalm can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Dren Sootpalm adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Dren Sootpalm is Grain-bag cutter who lives off market crush and wagon confusion. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Thieves."
+}

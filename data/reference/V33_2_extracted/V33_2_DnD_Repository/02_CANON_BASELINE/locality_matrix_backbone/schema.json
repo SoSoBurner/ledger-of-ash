@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "V33_2 Locality Matrix Backbone Schema",
+  "type": "object",
+  "properties": {
+    "locality_matrix": {
+      "type": "array"
+    },
+    "route_matrix": {
+      "type": "array"
+    },
+    "label_crosswalk": {
+      "type": "array"
+    },
+    "environment_profiles": {
+      "type": "object"
+    },
+    "narrative_lookup": {
+      "type": "object"
+    },
+    "culture_lookup": {
+      "type": "object"
+    },
+    "bestiary_lookup": {
+      "type": "object"
+    },
+    "validation_report": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "locality_matrix",
+    "route_matrix",
+    "label_crosswalk",
+    "environment_profiles",
+    "narrative_lookup",
+    "culture_lookup",
+    "bestiary_lookup",
+    "validation_report"
+  ]
+}

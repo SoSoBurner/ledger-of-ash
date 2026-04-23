@@ -1,0 +1,31 @@
+{
+  "name": "Panim Afterlife Registry",
+  "type": "afterlife-preparation institution",
+  "truth_layer": "direct_canon",
+  "summary": "Registry overseeing offerings, coffin quality, and the administrative side of Panim’s afterlife economy.",
+  "day_to_day": "Records funerary contracts, categorizes offerings, and manages status-linked burial preparation.",
+  "who_works_there": "Registry clerks, ritual advisors, coffin assessors, shrine staff.",
+  "who_uses_it": "Families of the dead, nobles, merchants, pilgrims, mediators.",
+  "authority": "Can certify afterlife preparations and shape access to Panim-sanctioned rites.",
+  "public_manifestation": "Coffin ledgers, offering counters, ritual appointments, ranked funerary goods.",
+  "conflict_or_bottleneck": "Grief, status, and money create a constant risk of exploitation or scandal.",
+  "party_actions": [
+    "arrange a burial",
+    "challenge a registry ruling",
+    "trace a missing coffin",
+    "uncover ritual fraud"
+  ],
+  "sources": [
+    "principalities",
+    "additional_legal"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "aser_sablewake"
+  ],
+  "npc_interfaces": [
+    "aser_sablewake"
+  ]
+}

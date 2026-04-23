@@ -1,0 +1,82 @@
+{
+  "npc_id": "chartmaster_ilvara_quen",
+  "canonical_name": "Chartmaster Ilvara Quen",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Chartmaster",
+  "profession_discipline": "maritime navigator-scholar",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Cosmouth",
+  "settlement": "Cosmoria",
+  "locality_scope": "Cosmoria",
+  "institutional_ties": [
+    "Cosmoria"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Maintainer of sea maps, pilot revisions, and storm notices for Cosmouth's maritime command culture.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Cosmoria"
+    ],
+    "institutions": [
+      "Cosmoria"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a chartmaster whose work is visible through daily procedure, gatekeeping, and the practical pressures of Cosmoria.",
+  "daily_function": "Performs the ongoing duties of chartmaster in and around Cosmoria, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Cosmoria workable through the obligations of chartmaster while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of chartmaster credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Cosmoria.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Chartmaster Ilvara Quen can draw the party into a practical problem centered on Cosmoria."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Chartmaster Ilvara Quen becomes useful when the party needs access, explanation, or relief tied to the work of a chartmaster."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "chartmaster_ilvara_quen",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Chartmaster Ilvara Quen is readable as a chartmaster tied to Cosmoria.",
+  "encounter_context": {
+    "usual_environment": "Cosmoria: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "chartmaster"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Chartmaster Ilvara Quen presents as someone shaped by the duties of a chartmaster and the daily pressures of Cosmoria.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a chartmaster, and proof that strangers will not make Cosmoria harder to manage.",
+  "what_they_refuse": "Chartmaster Ilvara Quen refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a chartmaster too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Chartmaster Ilvara Quen can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Chartmaster Ilvara Quen adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Chartmaster Ilvara Quen always knows more about Cosmoria than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to chartmaster duties in Cosmoria."
+}

@@ -1,0 +1,83 @@
+{
+  "npc_id": "cyran_crestmark",
+  "canonical_name": "Cyran Crestmark",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Banner Master Liora Embermask",
+  "profession_discipline": "Banner Master Liora Embermask",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Maskscar Plaza District",
+  "locality_scope": "Maskscar Plaza District",
+  "institutional_ties": [
+    "Maskscar Plaza District"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Maskscar Plaza District through day-to-day work as banner master liora embermask.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Maskscar Plaza District"
+    ],
+    "institutions": [
+      "Maskscar Plaza District"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries role-shaped habits that make local pressure visible in the way they speak and judge strangers. In Maskscar Plaza District, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of banner master liora embermask in and around Maskscar Plaza District, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Maskscar Plaza District workable through the obligations of banner master liora embermask while managing the immediate pressure of house rivalry over symbolism, crowd control, heat damage to stored materials.",
+  "hidden_pressure": "Must keep the role of banner master liora embermask credible while absorbing the strain created by house rivalry over symbolism, crowd control, heat damage to stored materials.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Cyran Crestmark can draw the party into a locality problem centered on banner master liora embermask duties in Maskscar Plaza District."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Cyran Crestmark becomes useful when the party needs grounded help with house rivalry over symbolism, crowd control, heat damage to stored materials around Maskscar Plaza District."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "maskscar_plaza_district"
+  ],
+  "compatibility_interface_id": "cyran_crestmark",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Cyran Crestmark is immediately readable as a banner master liora embermask tied to Maskscar Plaza District.",
+  "encounter_context": {
+    "usual_environment": "Maskscar Plaza District: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "banner master liora embermask"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Cyran Crestmark presents as someone shaped by the duties of a banner master liora embermask and the daily pressures of Maskscar Plaza District.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a banner master liora embermask, and proof that strangers will not make Maskscar Plaza District harder to manage.",
+  "what_they_refuse": "Cyran Crestmark refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a banner master liora embermask too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Cyran Crestmark adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Cyran Crestmark always knows more about Maskscar Plaza District than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a banner master liora embermask in Maskscar Plaza District."
+}

@@ -1,0 +1,42 @@
+{
+  "build_version": "V33_1",
+  "package_root": "V33_1_DnD_World_Repository",
+  "generated_at": "2026-04-19T05:15:00Z",
+  "source_file_count": 19,
+  "source_files": [
+    "05_PROVENANCE/SOURCE_DOCS/D&D Campaign Manager Database.pdf",
+    "05_PROVENANCE/SOURCE_DOCS/DnD World Original.pdf",
+    "05_PROVENANCE/SOURCE_DOCS/V3 DnD Repository Crosswalk.md",
+    "05_PROVENANCE/SOURCE_DOCS/estate_infrastructure_with_functional_npcs.md",
+    "05_PROVENANCE/SOURCE_DOCS/historical_pressure_matrix_prompt.md",
+    "05_PROVENANCE/SOURCE_DOCS/magical_item_specification_source.md",
+    "05_PROVENANCE/SOURCE_DOCS/magical_system_specification.md",
+    "05_PROVENANCE/SOURCE_DOCS/non_ip_bestiary_system_specification.md",
+    "05_PROVENANCE/SOURCE_DOCS/npc_template.md",
+    "05_PROVENANCE/V30_8_Antagonist_Dossier_Packet_Combined.md",
+    "05_PROVENANCE/estate_infrastructure_with_functional_npcs.md",
+    "05_PROVENANCE/historical_pressure_matrix_prompt.md",
+    "05_PROVENANCE/magical_item_specification_source.md",
+    "05_PROVENANCE/magical_system_specification.md",
+    "05_PROVENANCE/non_ip_bestiary_system_specification.md",
+    "05_PROVENANCE/npc_template.md",
+    "05_PROVENANCE/v32_1_psycho_social_chronology_build_method.md",
+    "05_PROVENANCE/SOURCE_DOCS/world_question_answering_resolution_contract.json",
+    "05_PROVENANCE/SOURCE_DOCS/canon_safe_intro_build_instructions.md"
+  ],
+  "source_labels": {
+    "D&D Campaign Manager Database.pdf": "campaign_state_runtime_support",
+    "DnD World Original.pdf": "direct_source_canon",
+    "V3 DnD Repository Crosswalk.md": "crosswalk_support_input",
+    "estate_infrastructure_with_functional_npcs.md": "direct_source_operational_locality_rules",
+    "historical_pressure_matrix_prompt.md": "source_backed_pressure_framework",
+    "magical_item_specification_source.md": "source_backed_item_framework",
+    "magical_system_specification.md": "direct_source_system_rules",
+    "non_ip_bestiary_system_specification.md": "direct_source_ecology_rules",
+    "npc_template.md": "source_backed_character_schema",
+    "V30_8_Antagonist_Dossier_Packet_Combined.md": "source_backed_antagonist_support",
+    "v32_1_psycho_social_chronology_build_method.md": "release_build_method_note",
+    "world_question_answering_resolution_contract.json": "source_backed_retrieval_answering_contract",
+    "canon_safe_intro_build_instructions.md": "source_backed_build_instruction_note"
+  }
+}

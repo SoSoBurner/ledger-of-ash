@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Eternal arcane compliance",
+  "record_count": 1,
+  "npc_ids": [
+    "gorath_myrn"
+  ],
+  "records": [
+    {
+      "npc_id": "gorath_myrn",
+      "canonical_name": "Gorath Myrn",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Magical knowledge overseer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as magical knowledge overseer.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of magical knowledge overseer while managing the immediate pressure of predators in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Eternal arcane compliance is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

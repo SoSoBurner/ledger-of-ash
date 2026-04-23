@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Roaz fortification and antimagic engineering",
+  "record_count": 1,
+  "npc_ids": [
+    "commander_halian_roaz"
+  ],
+  "records": [
+    {
+      "npc_id": "commander_halian_roaz",
+      "canonical_name": "Commander Halian Roaz",
+      "polity": "Roaz",
+      "office_or_role": "Overseer of the Iron Accord",
+      "tier": "notable",
+      "public_reputation": "Recognized as a overseer of the iron accord of regional weight.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of overseer of the iron accord while managing the immediate pressure of institutional scrutiny in Roaz."
+    }
+  ],
+  "roster_context": {
+    "identity": "Roaz fortification and antimagic engineering is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

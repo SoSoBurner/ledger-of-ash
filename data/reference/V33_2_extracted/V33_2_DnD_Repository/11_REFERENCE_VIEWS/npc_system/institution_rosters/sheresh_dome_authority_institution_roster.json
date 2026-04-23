@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Sheresh Dome Authority",
+  "record_count": 1,
+  "npc_ids": [
+    "eron_wardflame"
+  ],
+  "records": [
+    {
+      "npc_id": "eron_wardflame",
+      "canonical_name": "Eron Wardflame",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Paladins",
+      "tier": "notable",
+      "public_reputation": "Dome-oath champion who guards evacuation corridors with almost liturgical severity.",
+      "current_agenda": "Keep Crystalline Vault Commune, Sheresh workable through the obligations of paladins while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Sheresh Dome Authority is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

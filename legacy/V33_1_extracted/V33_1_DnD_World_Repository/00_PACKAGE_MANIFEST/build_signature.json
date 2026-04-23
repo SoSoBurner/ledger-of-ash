@@ -1,0 +1,7 @@
+{
+  "release_identity": "V33_1",
+  "package_root": "V33_1_DnD_World_Repository",
+  "generated_at": "2026-04-19T05:15:00Z",
+  "signature_method": "sha256_per_file",
+  "signature_note": "rebuilt after V33_1 world-QA and canon-safe intro patch"
+}

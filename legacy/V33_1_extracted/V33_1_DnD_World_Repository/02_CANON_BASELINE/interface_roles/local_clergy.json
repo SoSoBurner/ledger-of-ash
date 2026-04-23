@@ -1,0 +1,18 @@
+{
+  "id": "local_clergy",
+  "display_name": "Local Clergy",
+  "function": "Interprets daily ritual expectations, spiritual warnings, and acceptable public devotional conduct.",
+  "default_social_read": "Tracks moral pressure, purification breaches, and who needs ritual guidance.",
+  "truth_layer": "engine_canon",
+  "context_sites": [
+    "Fairhaven"
+  ],
+  "context_polities": [
+    "Principality of Shelk"
+  ],
+  "sources": [
+    "locations_catalog"
+  ],
+  "support_type": "reusable_runtime_surface",
+  "context_justification": "Derived from repeated locality packet usage within the active world engine; role remains reusable rather than tied to a single named individual."
+}

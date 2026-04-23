@@ -1,0 +1,55 @@
+# Route Network Overview
+
+- **Amber Tides River**: regional approach -> Amber Tides River
+- **Ashforge Citadel - Ashwake harbor lane**: Ashforge Citadel -> Ashwake harbor lane
+- **Ashforge Citadel - Scarlet Descent road**: Ashforge Citadel -> Scarlet Descent road
+- **Ashwake Harbor Lane**: regional approach -> Ashwake harbor lane
+- **Ashwake Port - Ashforge Citadel harbor road**: Ashwake Port -> Ashforge Citadel
+- **Aurora Crown Commune - Aurora Meadows patrol route**: Aurora Crown Commune -> Aurora Meadows patrol route
+- **Aurora Crown Commune - Whitebridge domeway**: Aurora Crown Commune -> Whitebridge domeway
+- **Cosmoria - Brineland harbor ring**: Cosmoria -> Brineland harbor ring
+- **Fairhaven - Shelkopolis road**: Fairhaven -> Shelkopolis
+- **Frostline Crossing Route**: regional approach -> Frostline Crossing Route
+- **Guildheart Hub - Craftspire workshop corridor**: Guildheart Hub -> Craftspire
+- **Guildheart Hub - Unity Square bargaining road**: Guildheart Hub -> Unity Square
+- **Ironroot Crossing**: regional approach -> Ironroot Crossing
+- **Ithtananalor - Ironhold Quarry road**: Ithtananalor -> Ironhold Quarry
+- **Ithtananalor - Silent Haven convoy lane**: Ithtananalor -> Silent Haven
+- **Mimolot Academy - Bookhaven road**: Mimolot Academy -> Bookhaven road
+- **Nomdara Northern Tundra Circuit**: regional approach -> Nomdara Northern Tundra Circuit
+- **Nomdara Whirlpool Safe-Passage Lane**: regional approach -> Nomdara Whirlpool Safe-Passage Lane
+- **Panim Haven - Sanctum Sands memorial road**: Panim Haven -> Sanctum Sands memorial road
+- **Principality of Cosmouth route corridor 1**: Tideglass Registry -> Principality of Cosmouth route corridor 1
+- **Principality of Cosmouth route corridor 2**: Tideglass Registry -> Principality of Cosmouth route corridor 2
+- **Principality of Cosmouth route corridor 3**: Tideglass Registry -> Principality of Cosmouth route corridor 3
+- **Principality of Mimolot route corridor 1**: Tariff Lantern Court -> Principality of Mimolot route corridor 1
+- **Principality of Mimolot route corridor 2**: Tariff Lantern Court -> Principality of Mimolot route corridor 2
+- **Principality of Mimolot route corridor 3**: Tariff Lantern Court -> Principality of Mimolot route corridor 3
+- **Principality of Panim route corridor 1**: Veilbridge Sepulcher -> Principality of Panim route corridor 1
+- **Principality of Panim route corridor 2**: Veilbridge Sepulcher -> Principality of Panim route corridor 2
+- **Principality of Panim route corridor 3**: Veilbridge Sepulcher -> Principality of Panim route corridor 3
+- **Principality of Roaz route hardening 3**: Ironhold Quarry -> Principality of Roaz route hardening 3
+- **Principality of Shirsh route corridor 1**: Witness Coil -> Principality of Shirsh route corridor 1
+- **Principality of Shirsh route corridor 2**: Witness Coil -> Principality of Shirsh route corridor 2
+- **Principality of Shirsh route corridor 3**: Witness Coil -> Principality of Shirsh route corridor 3
+- **Principality of Zootia route corridor 1**: Canal Thorn Exchange -> Principality of Zootia route corridor 1
+- **Principality of Zootia route corridor 2**: Canal Thorn Exchange -> Principality of Zootia route corridor 2
+- **Principality of Zootia route corridor 3**: Canal Thorn Exchange -> Principality of Zootia route corridor 3
+- **Roaz Northern Trade Route**: regional approach -> Roaz Northern Trade Route
+- **Scarlet Descent Road**: regional approach -> Scarlet Descent road
+- **Shelkopolis - Fairhaven road**: Shelkopolis -> Fairhaven
+- **Shelkopolis–Plume’s End Northern Road**: regional approach -> Shelkopolis
+- **Shelkopolis - Plume’s End northern road**: Shelkopolis -> Plume’s End northern road
+- **Sheresh Communes route hardening 3**: Aurora Crown Commune -> Sheresh Communes route hardening 3
+- **Sheresh Dome Road**: regional approach -> Sheresh Dome Road
+- **Shirshal - Crystal Grove route**: Shirshal -> Crystal Grove route
+- **Soreheim Proper - Eternal Lands freight route**: Soreheim Proper -> Eternal Lands freight route
+- **Soreheim Proper - Ironroot Crossing**: Soreheim Proper -> Ironroot Crossing
+- **Sunspire Haven - Harvest Circle road**: Sunspire Haven -> Harvest Circle
+- **Sunspire Haven - Ironroot Crossing freight lane**: Sunspire Haven -> Ironroot Crossing freight lane
+- **The Principalities route hardening 1**: The Principalities -> The Principalities route hardening 1
+- **The Principalities route hardening 2**: The Principalities -> The Principalities route hardening 2
+- **The Principalities route hardening 3**: The Principalities -> The Principalities route hardening 3
+- **The Union route corridor 1**: Craftspire -> The Union route corridor 1
+- **The Union route corridor 2**: Craftspire -> The Union route corridor 2
+- **The Union route corridor 3**: Craftspire -> The Union route corridor 3

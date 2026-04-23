@@ -1,0 +1,24 @@
+{
+  "report_name": "npc_encounter_readiness_report",
+  "release_identity": "V33_1",
+  "package_root": "V33_1_DnD_World_Repository",
+  "generated_at": "2026-04-19T02:36:22Z",
+  "package_metrics": {
+    "total_files": 5291,
+    "json_files": 3685,
+    "jsonl_files": 19,
+    "markdown_files": 1577,
+    "invalid_json_files": 0,
+    "invalid_jsonl_files": 0,
+    "legacy_release_token_files": 1249,
+    "npc_public_identity_collisions": 0,
+    "packaged_source_files": 17
+  },
+  "status": "pass",
+  "report_specific_findings": [
+    {
+      "npc_dossiers_scanned": 0,
+      "cross_canonical_public_identity_collisions": 0
+    }
+  ]
+}

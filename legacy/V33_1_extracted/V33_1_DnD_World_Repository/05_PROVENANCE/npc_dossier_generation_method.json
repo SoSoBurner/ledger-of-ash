@@ -1,0 +1,9 @@
+{
+  "build_version": "V33_1",
+  "method": "Deterministic transformation from named NPC baseline records plus linked polity / institution / locality / relationship support.",
+  "hard_limits": [
+    "Unsupported hard biography is not invented.",
+    "Species / age / pronouns remain unstated unless text support exists.",
+    "Hidden layers are conservative operational inference only."
+  ]
+}

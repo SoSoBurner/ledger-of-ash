@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "tower war logistics",
+  "record_count": 1,
+  "npc_ids": [
+    "eryndor_bladewright"
+  ],
+  "records": [
+    {
+      "npc_id": "eryndor_bladewright",
+      "canonical_name": "Eryndor Bladewright",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Military logistics coordinator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as military logistics coordinator.",
+      "current_agenda": "Keep Soreheim Proper workable through the obligations of military logistics coordinator while managing the immediate pressure of quota demands in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "tower war logistics is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

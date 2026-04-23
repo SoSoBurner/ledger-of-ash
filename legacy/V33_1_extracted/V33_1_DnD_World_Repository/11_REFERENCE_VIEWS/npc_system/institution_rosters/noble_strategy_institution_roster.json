@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "noble strategy",
+  "record_count": 1,
+  "npc_ids": [
+    "lord_darius_shelk"
+  ],
+  "records": [
+    {
+      "npc_id": "lord_darius_shelk",
+      "canonical_name": "Lord Darius Shelk",
+      "polity": "Shelk",
+      "office_or_role": "Co-ruler and political tactician",
+      "tier": "notable",
+      "public_reputation": "Recognized as a co-ruler and political tactician of regional weight.",
+      "current_agenda": "Keep House of Shelk Estate workable through the obligations of co-ruler and political tactician while managing the immediate pressure of institutional scrutiny in Shelk."
+    }
+  ],
+  "roster_context": {
+    "identity": "noble strategy is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

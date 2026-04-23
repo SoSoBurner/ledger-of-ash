@@ -1,0 +1,40 @@
+{
+  "name": "The Silver Stag Tavern",
+  "parent_district": "Verdant Row District",
+  "type": "tavern",
+  "approach": "Popular stories-and-news tavern for adventurers and traders..",
+  "inside": "Popular stories-and-news tavern for adventurers and traders.",
+  "who_belongs": [
+    "staff",
+    "petitioners",
+    "customers",
+    "clergy",
+    "guild members"
+  ],
+  "who_is_out_of_place": [
+    "saboteurs",
+    "intellectual thieves",
+    "disrespectful visitors"
+  ],
+  "expected_behavior": [
+    "respect the function of the site",
+    "follow local decorum"
+  ],
+  "visible_power": [
+    "site stewards"
+  ],
+  "economy_or_function": "tavern",
+  "law_context": [],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "local_interface_role": "innkeeper",
+  "who_you_meet": "Locality Innkeeper",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "innkeeper",
+    "display_name": "Locality Innkeeper",
+    "truth_layer": "conservative_inference"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "npc_id": "dame_orsella_roaz",
+  "canonical_name": "Dame Orsella Roaz",
+  "aliases": [],
+  "tier": "legendary",
+  "state": "historical_legacy",
+  "role_family": "oathbound_defender",
+  "office_or_role": "Knights",
+  "profession_discipline": "Knights",
+  "grouping": "Classic Combat",
+  "polity": "Roaz",
+  "settlement": "Ithtananalor",
+  "locality_scope": "Ithtananalor, Roaz",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Iron-masked oath-rider whose methods became the model for lawful shock cavalry in Roaz.",
+  "linked_systems": {
+    "polities": [
+      "Roaz"
+    ],
+    "localities": [
+      "Ithtananalor, Roaz"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Black leather or dark structured armor, controlled insignia, and enforcement-ready kit make legality feel physically present.",
+  "manner": "Carries ritual seriousness into ordinary interaction, making obligation feel present even in small talk. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a knights still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of knights in and around Ithtananalor, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Ithtananalor workable through the obligations of knights while managing the immediate pressure of illicit magic in Roaz.",
+  "hidden_pressure": "Must protect symbolic order and physical safety at the same time, even when those demands diverge. Around Ithtananalor, that usually means carrying illicit magic, smuggling, public accountability for harsh enforcement without letting the role of knights visibly slip.",
+  "relationship_refs": [
+    "rel_0002",
+    "rel_0003",
+    "rel_1264",
+    "rel_1265"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "moral_test",
+      "summary": "Working with Dame Orsella Roaz can force the party to choose between expediency and the stricter obligations that govern Ithtananalor."
+    },
+    {
+      "hook_type": "rite_guard",
+      "summary": "Dame Orsella Roaz can offer access or protection if the party preserves a rite, vow, or defended passage under pressure."
+    },
+    {
+      "hook_type": "sanctuary_or_threshold",
+      "summary": "Dame Orsella Roaz needs help holding a threshold, escorting the vulnerable, or investigating a breach of sworn protection near Ithtananalor."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Dame Orsella Roaz needs help with a problem in Ithtananalor that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Oath-signs, defensive bearing, and ritualized readiness make Dame Orsella Roaz read as a sworn protector rather than a mere combatant. In Ithtananalor, this lands inside a public field already shaped by Lord Aric Roaz, Office of Roazian Enforcement.",
+  "encounter_context": {
+    "usual_environment": "Ithtananalor: gates, sacred thresholds, escorts, or defended chambers",
+    "who_seeks_them_out": [
+      "petitioners needing protection",
+      "ritual authorities",
+      "those seeking safe passage"
+    ],
+    "who_avoids_them": [
+      "oath-breakers",
+      "opportunists",
+      "casual violators of protected space"
+    ],
+    "interaction_anchor": "protection under rule or vow"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Dame Orsella Roaz presents as Carries ritual seriousness into ordinary interaction, making obligation feel present even in small talk. In Roaz, that reads as someone precise, disciplined, and legality-first, with little patience for disorder, and the habits of a knights still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Knights, and proof that strangers will not create avoidable noise in Principality of Roaz.",
+  "what_they_refuse": "Dame Orsella Roaz refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Knights too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Dame Orsella Roaz can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Dame Orsella Roaz adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Dame Orsella Roaz is Iron-masked oath-rider whose methods became the model for lawful shock cavalry in Roaz. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Knights."
+}

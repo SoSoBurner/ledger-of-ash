@@ -1,0 +1,10 @@
+{
+  "tracks": [
+    "regional observances",
+    "market festivals",
+    "Panim rites",
+    "Soreheim ceremonies",
+    "Psanan ritual cycles"
+  ],
+  "default_state": "baseline_pending_runtime_change"
+}

@@ -1,10 +1,12 @@
 {
   "status": "PASS",
   "settlements": 19,
-  "districts_total": 25,
-  "districts_canon": 7,
-  "districts_synthetic": 18,
+  "districts_total": 33,
+  "districts_canon": 0,
+  "districts_synthetic": 33,
   "routes": 32,
   "errors": [],
-  "warnings": []
+  "warnings": [
+    "Districts directory not found"
+  ]
 }

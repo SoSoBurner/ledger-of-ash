@@ -1,0 +1,38 @@
+{
+  "build_version": "V33_1",
+  "institution": "Blooming Brazier Workshop",
+  "record_count": 2,
+  "npc_ids": [
+    "lysa_vale",
+    "taren_vale"
+  ],
+  "records": [
+    {
+      "npc_id": "lysa_vale",
+      "canonical_name": "Lysa Vale",
+      "polity": "Transpolity",
+      "office_or_role": "Hostler",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as hostler.",
+      "current_agenda": "Keep Blooming Brazier Workshop workable through the obligations of hostler while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "taren_vale",
+      "canonical_name": "Taren Vale",
+      "polity": "Transpolity",
+      "office_or_role": "Apprentice Factor",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as apprentice factor.",
+      "current_agenda": "Keep Blooming Brazier Workshop workable through the obligations of apprentice factor while managing the immediate pressure of institutional scrutiny in Transpolity."
+    }
+  ],
+  "roster_context": {
+    "identity": "Fashion prototype crafting space tied to regional trade.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}

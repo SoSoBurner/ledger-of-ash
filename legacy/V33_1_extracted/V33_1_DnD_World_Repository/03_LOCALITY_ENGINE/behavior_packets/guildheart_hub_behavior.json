@@ -1,0 +1,26 @@
+{
+  "name": "Guildheart Hub",
+  "who_belongs": [
+    "guild officers",
+    "licensed merchants",
+    "arbiters",
+    "copyists",
+    "tariff clerks"
+  ],
+  "who_is_out_of_place": [
+    "idle aristocrats demanding inherited deference",
+    "unregistered traders",
+    "romantic loyalists who refuse contract order"
+  ],
+  "expected_behavior": [
+    "declare business plainly",
+    "observe queue and hearing order",
+    "produce records when challenged",
+    "respect sanction notices"
+  ],
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "build_version": "V33_1",
+  "institution": "Plume’s End Outpost",
+  "record_count": 2,
+  "npc_ids": [
+    "faelar_lightloom",
+    "roswen_sunweave"
+  ],
+  "records": [
+    {
+      "npc_id": "faelar_lightloom",
+      "canonical_name": "Faelar Lightloom",
+      "polity": "Shelk",
+      "office_or_role": "Watch Sergeant",
+      "tier": "grassroots"
+    },
+    {
+      "npc_id": "roswen_sunweave",
+      "canonical_name": "Roswen Sunweave",
+      "polity": "Shelk",
+      "office_or_role": "Market Broker",
+      "tier": "grassroots"
+    }
+  ]
+}

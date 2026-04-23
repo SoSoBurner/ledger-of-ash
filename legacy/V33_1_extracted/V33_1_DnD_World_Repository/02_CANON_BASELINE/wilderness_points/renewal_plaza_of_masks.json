@@ -1,0 +1,18 @@
+{
+  "name": "Renewal Plaza of Masks",
+  "parent": "Maskscar Plaza District",
+  "summary": "Major Psanan civic square for ember dances, masked processionals, and public renewal observance.",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "ashra_emberlash"
+  ],
+  "npc_interfaces": [
+    "ashra_emberlash"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

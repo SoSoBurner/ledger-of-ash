@@ -1,0 +1,197 @@
+{
+  "name": "Starbreak Commune",
+  "type": "observation commune",
+  "parent_polity": "Sheresh Communes",
+  "territory": "Frigid Polar Zone",
+  "truth_layer": "conservative_inference",
+  "identity": "A high-risk Sheresh commune built around sky observation, long-range signaling, and expedition launch cycles.",
+  "approach": "Tall ice-sheathed towers and mirrored sighting plates rise above the dome rim.",
+  "inside": "Observation decks, route boards, and memorial walls mark a life of outward attention.",
+  "who_belongs": [
+    "observers",
+    "signalers",
+    "expedition crews"
+  ],
+  "who_is_out_of_place": [
+    "the reckless",
+    "those who treat losses as ordinary"
+  ],
+  "expected_behavior": [
+    "honor launch windows",
+    "record returns and non-returns accurately"
+  ],
+  "visible_power": [
+    "Route Warden Compacts",
+    "Containment Research Concord"
+  ],
+  "economy": [
+    "signal service",
+    "route intelligence",
+    "expedition outfitting"
+  ],
+  "faith": [
+    "aurora vigils and names of the lost matter more than triumphal ceremony"
+  ],
+  "seasonal_change": "Visibility windows define the commune more than temperature alone.",
+  "pressure": [
+    "crew attrition",
+    "signal blackout",
+    "observation exposure"
+  ],
+  "npc_interfaces": [
+    "expedition_leader_vesh_hollow"
+  ],
+  "law_context": [
+    "launch registry rules",
+    "loss reporting obligations"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ],
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "Sheresh Communes",
+    "territory": "Frigid Polar Zone",
+    "settlement": "Starbreak Commune",
+    "district": null
+  },
+  "canonical_identity": {
+    "truth_layer": "conservative_inference",
+    "identity": "A high-risk Sheresh commune built around sky observation, long-range signaling, and expedition launch cycles.",
+    "approach": "Tall ice-sheathed towers and mirrored sighting plates rise above the dome rim.",
+    "inside": "Observation decks, route boards, and memorial walls mark a life of outward attention.",
+    "who_belongs": [
+      "observers",
+      "signalers",
+      "expedition crews"
+    ],
+    "who_is_out_of_place": [
+      "the reckless",
+      "those who treat losses as ordinary"
+    ],
+    "expected_behavior": [
+      "honor launch windows",
+      "record returns and non-returns accurately"
+    ],
+    "visible_power": [
+      "Route Warden Compacts",
+      "Containment Research Concord"
+    ],
+    "economy": [
+      "signal service",
+      "route intelligence",
+      "expedition outfitting"
+    ],
+    "faith": [
+      "aurora vigils and names of the lost matter more than triumphal ceremony"
+    ],
+    "seasonal_change": "Visibility windows define the commune more than temperature alone.",
+    "pressure": [
+      "crew attrition",
+      "signal blackout",
+      "observation exposure"
+    ],
+    "law_context": [
+      "launch registry rules",
+      "loss reporting obligations"
+    ]
+  },
+  "expressive_runtime_surface": {
+    "sensory_surface": [
+      {
+        "detail": "Tall ice-sheathed towers and mirrored sighting plates rise above the dome rim.",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "Observation decks, route boards, and memorial walls mark a life of outward attention.",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "street_pressure_hooks": [
+      {
+        "detail": "crew attrition",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "signal blackout",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "observation exposure",
+        "truth_layer": "conservative_inference"
+      }
+    ],
+    "social_expectation_surface": [
+      {
+        "detail": "honor launch windows",
+        "truth_layer": "conservative_inference"
+      },
+      {
+        "detail": "record returns and non-returns accurately",
+        "truth_layer": "conservative_inference"
+      }
+    ]
+  },
+  "named_npc_refs": [
+    "expedition_leader_vesh_hollow",
+    "lenna_hearthwrit"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually observers, signalers, expedition crews, and public conduct is read through expectations such as honor launch windows, record returns and non-returns accurately.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Route Warden Compacts, Containment Research Concord.",
+  "local_tension_surface": "The place feels stable only until pressures such as crew attrition, signal blackout, observation exposure begin showing through daily routines.",
+  "differentiator": "Starbreak Commune stands apart because its economy leans on signal service, route intelligence; public faith remains visible through aurora vigils and names of the lost matter more than triumphal ceremony; outsiders are noticed fastest when they resemble the reckless, those who treat losses as ordinary.",
+  "encounter_rhythm": "Most first scenes in Starbreak Commune begin through observation commune rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "scene_openers": [
+    "A first arrival at Starbreak Commune immediately highlights a high-risk sheresh commune built around sky observation, long-range signaling, and expedition launch cycles",
+    "The quickest social read of Starbreak Commune comes from how locals react to honor launch windows / record returns and non-returns accurately."
+  ],
+  "social_misstep_examples": [
+    "Treating Starbreak Commune like a casual stop rather than a governed space.",
+    "Ignoring local expectation to honor launch windows; record returns and non-returns accurately."
+  ],
+  "low_grade_conflict_triggers": [
+    "A queue, toll, or inspection dispute tied to signal service.",
+    "A local intermediary resents outsider assumptions about Starbreak Commune."
+  ],
+  "institutional_escalation_path": [
+    "Workshop or neighborhood correction in Starbreak Commune",
+    "Formal notice by Route Warden Compacts",
+    "Escalation into law, tariff, or faction attention if ignored"
+  ],
+  "outsider_advantage": "Outsiders can sometimes notice pressure fractures in Starbreak Commune before residents admit them.",
+  "outsider_liability": "Outsiders in Starbreak Commune are judged quickly by whether they understand its governing rhythms.",
+  "public_complication_table": [
+    "A minor official wants paperwork clarified.",
+    "A public argument exposes pressure around crew attrition.",
+    "Someone mistakes the party for agents tied to Route Warden Compacts.",
+    "A delay at a gate, quay, shrine, or market creates heat.",
+    "A rumor spreads too quickly.",
+    "A small errand reveals a larger local imbalance."
+  ],
+  "private_pressure_table": [
+    "A household or guild contact is quietly overextended.",
+    "A local fixer asks for help with a contained problem.",
+    "A hidden cost behind signal service surfaces.",
+    "A trusted intermediary is being watched.",
+    "A faith, law, or trade obligation has slipped.",
+    "A personal favor could become a faction debt."
+  ],
+  "arrival_variants_by_time": {
+    "dawn": "At dawn, Starbreak Commune feels procedural and watchful as daily rhythms set.",
+    "midday": "By midday, Starbreak Commune is busiest and least forgiving of confusion.",
+    "night": "At night, Starbreak Commune reveals who really moves after formal structures thin out."
+  },
+  "recent_local_change_signal": "Locals in Starbreak Commune mention that something small but important has changed in the last few weeks, even if they refuse to name it directly."
+}

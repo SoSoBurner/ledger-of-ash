@@ -1,0 +1,43 @@
+{
+  "build_version": "V33_1",
+  "institution": "Containment Research Concord",
+  "record_count": 2,
+  "npc_ids": [
+    "kelm_frostglass",
+    "kelm_starice"
+  ],
+  "records": [
+    {
+      "npc_id": "kelm_frostglass",
+      "canonical_name": "Kelm Frostglass",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Quiet Operative",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as quiet operative.",
+      "current_agenda": "Keep Containment Research Concord workable through the obligations of quiet operative while managing the immediate pressure of contamination strain in Sheresh Communes."
+    },
+    {
+      "npc_id": "kelm_starice",
+      "canonical_name": "Kelm Starice",
+      "polity": "Sheresh Communes",
+      "office_or_role": "Petition Reader",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as petition reader.",
+      "current_agenda": "Keep Sheresh Containment Research Concord workable through the obligations of petition reader while managing the immediate pressure of contamination strain in Sheresh Communes."
+    }
+  ],
+  "roster_context": {
+    "identity": "Sheresh research bloc coordinating contamination measurement, shield experimentation, and controlled study of dangerous outer conditions.",
+    "visible_power": [],
+    "pressure": [
+      "experimental risk",
+      "containment fatigue",
+      "aurora-linked anomalies",
+      "need for practical survival results"
+    ]
+  },
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ]
+}

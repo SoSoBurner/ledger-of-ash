@@ -1,0 +1,31 @@
+{
+  "name": "Shelkopolis Civic Harmony Hall Variant",
+  "type": "localized civic hall institution",
+  "truth_layer": "direct_canon",
+  "summary": "Shelkopolis-specific harmony hall tuned to Shelk legal culture, bounty processing, and mixed civic-aesthetic expectations.",
+  "day_to_day": "Processes fines, bounties, mediation, and custody with Shelk-specific decorum and fashion-law interplay.",
+  "who_works_there": "Shelk clerks, arbiters, guards, bounty processors, shrine attendants.",
+  "who_uses_it": "Residents, Roadwardens, merchants, bounty hunters, accused citizens.",
+  "authority": "Local administrative and holding authority within the broader harmony hall system.",
+  "public_manifestation": "Elegant but busy intake halls, posted fines, fashion and decorum disputes, guarded cells.",
+  "conflict_or_bottleneck": "The hall must balance elegance and fairness while handling real coercive power.",
+  "party_actions": [
+    "pay or dispute a bounty matter",
+    "visit a detainee",
+    "seek legal records",
+    "report a capture"
+  ],
+  "sources": [
+    "additional_legal",
+    "psc_shelkopolis"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "sera_moonthread"
+  ],
+  "npc_interfaces": [
+    "sera_moonthread"
+  ]
+}

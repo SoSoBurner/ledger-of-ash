@@ -1,0 +1,20 @@
+{
+  "name": "Hearthcoil Commune",
+  "who_belongs": [
+    "repair crews",
+    "ration clerks",
+    "families under heat quotas"
+  ],
+  "who_is_out_of_place": [
+    "luxury-minded visitors",
+    "unauthorized scavengers"
+  ],
+  "expected_behavior": [
+    "waste nothing",
+    "do not obstruct heat distribution teams"
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

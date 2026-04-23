@@ -1,0 +1,98 @@
+{
+  "build_version": "V33_1",
+  "institution": "Harvest Circle",
+  "record_count": 7,
+  "npc_ids": [
+    "elyra_mossbane",
+    "farlan_inkshade",
+    "garren_ashmason",
+    "jorva_helmrune",
+    "svala_coalward",
+    "varik_stonecarve",
+    "velrik_durnshade"
+  ],
+  "records": [
+    {
+      "npc_id": "elyra_mossbane",
+      "canonical_name": "Elyra Mossbane",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Protector of magical forests and plains",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as protector of magical forests and plains.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of protector of magical forests and plains while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "farlan_inkshade",
+      "canonical_name": "Farlan Inkshade",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Academic and recordkeeping steward",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as academic and recordkeeping steward.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of academic and recordkeeping steward while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "garren_ashmason",
+      "canonical_name": "Garren Ashmason",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Night-Lantern Inspector",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as night-lantern inspector.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of night-lantern inspector while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "jorva_helmrune",
+      "canonical_name": "Jorva Helmrune",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Communal responsibility enforcer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as communal responsibility enforcer.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of communal responsibility enforcer while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "svala_coalward",
+      "canonical_name": "Svala Coalward",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Grain Measurer",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as grain measurer.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of grain measurer while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "varik_stonecarve",
+      "canonical_name": "Varik Stonecarve",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Market Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as market broker.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of market broker while managing the immediate pressure of spoilage in Soreheim Alliance."
+    },
+    {
+      "npc_id": "velrik_durnshade",
+      "canonical_name": "Velrik Durnshade",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Guild dispute mediator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as guild dispute mediator.",
+      "current_agenda": "Keep Harvest Circle workable through the obligations of guild dispute mediator while managing the immediate pressure of spoilage in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Cultural and market town where harvest patron-families, quota clerks, and festival brokers turn field output into alliance redistribution.",
+    "visible_power": [
+      "harvest stewards",
+      "quota clerks",
+      "patron-families",
+      "regional arbiters"
+    ],
+    "pressure": [
+      "spoilage",
+      "price pressure",
+      "favor feuds",
+      "route congestion"
+    ]
+  },
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

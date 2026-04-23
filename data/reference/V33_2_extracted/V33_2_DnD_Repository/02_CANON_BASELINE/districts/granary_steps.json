@@ -1,0 +1,54 @@
+{
+  "name": "Granary Steps",
+  "type": "district",
+  "parent_settlement": "Harvest Keep",
+  "parent_polity": "Principality of Zootia",
+  "truth_layer": "conservative_inference",
+  "identity": "Storehouse district where the politics of plenty become queues, weights, and storage rights.",
+  "approach": "Stepped grain towers and hoistways rise above wagon ruts and canal runoff.",
+  "inside": "Measure boards, storage ladders, sealed bins, and ration benches define the district.",
+  "who_belongs": [
+    "granary laborers",
+    "measure clerks",
+    "brokers"
+  ],
+  "who_is_out_of_place": [
+    "bag cutters",
+    "queue jumpers"
+  ],
+  "expected_behavior": [
+    "wait for weighing",
+    "do not break seal marks"
+  ],
+  "visible_power": [
+    "granary wardens",
+    "House Zootia factors"
+  ],
+  "economy": [
+    "storage",
+    "weighing",
+    "reserve allocation"
+  ],
+  "faith": [
+    "blessing marks on bins read as stewardship, not spectacle"
+  ],
+  "seasonal_change": "Peak harvest turns every platform into a pressure point.",
+  "pressure": [
+    "mold panic",
+    "reserve disputes"
+  ],
+  "npc_interfaces": [
+    "warden_pellor_grainhand",
+    "broker_lysa_tarrow"
+  ],
+  "law_context": [
+    "reserve seal law",
+    "measure disputes"
+  ],
+  "sources": [
+    "principalities_doc"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

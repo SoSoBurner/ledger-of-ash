@@ -1,0 +1,85 @@
+{
+  "npc_id": "tethys_tideglass",
+  "canonical_name": "Tethys Tideglass",
+  "aliases": [
+    "the liaison"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "faith_officer",
+  "office_or_role": "Faith-Culture Liaison",
+  "profession_discipline": "Faith-Culture Liaison",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Cosmouth",
+  "settlement": "Hullwake Foundry",
+  "locality_scope": "Hullwake Foundry",
+  "institutional_ties": [
+    "Hullwake Foundry"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Hullwake Foundry through day-to-day work as faith-culture liaison.",
+  "linked_systems": {
+    "polities": [
+      "House Cosmouth"
+    ],
+    "localities": [
+      "Hullwake Foundry"
+    ],
+    "institutions": [
+      "Hullwake Foundry"
+    ],
+    "factions": []
+  },
+  "appearance": "Tethys Tideglass usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their faith-culture liaison status legible before introductions begin.",
+  "manner": "Treats custom as live infrastructure and corrects social missteps before they harden into offense. In Hullwake Foundry, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of faith-culture liaison in and around Hullwake Foundry, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Hullwake Foundry workable through the obligations of faith-culture liaison while managing the immediate pressure of supply bottlenecks, labor fatigue.",
+  "hidden_pressure": "Must keep the role of faith-culture liaison credible while absorbing the strain created by supply bottlenecks, labor fatigue.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Tethys Tideglass can draw the party into a locality problem centered on faith-culture liaison duties in Hullwake Foundry."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Tethys Tideglass becomes useful when the party needs grounded help with supply bottlenecks, labor fatigue around Hullwake Foundry."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog",
+    "hullwake_foundry"
+  ],
+  "compatibility_interface_id": "tethys_tideglass",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Tethys Tideglass is immediately readable as a faith-culture liaison tied to Hullwake Foundry.",
+  "encounter_context": {
+    "usual_environment": "Hullwake Foundry: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "faith-culture liaison"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Tethys Tideglass presents as someone shaped by the duties of a faith-culture liaison and the daily pressures of Hullwake Foundry.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a faith-culture liaison, and proof that strangers will not make Hullwake Foundry harder to manage.",
+  "what_they_refuse": "Tethys Tideglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a faith-culture liaison too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can explain expected conduct and turn cultural knowledge into safe passage or trust.",
+  "escalation_if_crossed": "If crossed, Tethys Tideglass adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Tethys Tideglass always knows more about Hullwake Foundry than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a faith-culture liaison in Hullwake Foundry."
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Sunspire Haven",
+  "approach": "Broad roads, cart yards, workshops, and counting sheds gather around a busy market heart in productive country.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Rural crossroads market town where tools, textiles, grain contracts, and labor obligations move through workshop syndicates and patron-families.",
+    "regional leaders",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

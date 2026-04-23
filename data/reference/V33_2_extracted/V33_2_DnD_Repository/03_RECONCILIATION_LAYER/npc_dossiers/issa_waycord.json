@@ -1,0 +1,258 @@
+{
+  "npc_id": "issa_waycord",
+  "canonical_name": "Issa Waycord",
+  "build_version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "source_truth_status": "conservative_inference",
+  "evidence_tier": "source_backed_inference",
+  "dossier_layering": {
+    "canon_public": "Grounded directly in baseline NPC record plus linked polity/institution/locality support where available.",
+    "gm_hidden": "Conservative connective tissue derived from agenda, pressure, role logic, and relationship web; not promoted above asserted canon."
+  },
+  "core_identity": {
+    "full_name": "Issa Waycord",
+    "aliases_titles_epithets": [],
+    "pronouns": "Not explicitly stated in canon.",
+    "apparent_age": "Not explicitly stated in canon.",
+    "actual_age": "Not explicitly stated in canon.",
+    "species_ancestry_nature": "Not explicitly stated in canon.",
+    "public_identity": "Deck Broker",
+    "hidden_identity": "None explicitly asserted; hidden layer concerns pressure, leverage, and misread motive rather than a confirmed second identity.",
+    "moral_tier": "Complicated / Conflicted",
+    "ethical_profile": "Role-shaped ethics anchored to place, obligation, and consequence rather than free-floating abstraction.",
+    "general_temperament": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a deck broker still shape how they handle timing, silence, and attention.",
+    "short_npc_pitch": "Issa Waycord is a deck broker anchored to Council Convoy, where daily institutional pressures make them useful, risky, or both in play.",
+    "public_role": "Issa Waycord is a deck broker anchored to Council Convoy, where daily institutional pressures make them useful, risky, o"
+  },
+  "setting_placement": {
+    "region": "Nomdara Caravan",
+    "polity_state_faction": "Nomdara Caravan",
+    "settlement_site_base_of_operations": "Council Convoy",
+    "location_setting": "A mobile connective polity organized as a colossal caravan-city on wheels, with trade expeditions, council-of-elders governance, consensus procedure, portable hearings, and negotiated exchange across hard routes.",
+    "public_role": "Deck Broker",
+    "institutional_ties": [
+      "Council Convoy"
+    ],
+    "formal_rank_social_standing": "not_explicitly_stated",
+    "sphere_of_influence": "grassroots",
+    "network_function": [
+      "access or throughput control"
+    ],
+    "who_they_answer_to": [
+      "the procedural demands of Council Convoy"
+    ],
+    "who_answers_to_them": [
+      "Jalen Waycord, Koro Waycord"
+    ],
+    "who_rivals_them": [],
+    "who_depends_on_them": [
+      "the continued function of Council Convoy"
+    ],
+    "who_they_secretly_depend_on": [
+      "Jalen Waycord (Shared surname Waycord.)",
+      "Koro Waycord (Shared surname Waycord.)",
+      "Leni Waycord (Shared surname Waycord.)",
+      "Mek Waycord (Shared surname Waycord.)",
+      "Nim Waycord (Shared surname Waycord.)",
+      "Pavel Waycord (Shared surname Waycord.)",
+      "Sorra Waycord (Shared surname Waycord.)",
+      "Torv Waycord (Shared surname Waycord.)"
+    ]
+  },
+  "public_vs_private": {
+    "public_face": "Known locally through day-to-day work as deck broker. Textiles, tokens, tally habits, and practiced bargaining poise make Issa Waycord read as someone who lives by exchange and reputation.",
+    "common_first_impression": "Issa Waycord presents as Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a deck broker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+    "visible_virtues": [
+      "competence under pressure",
+      "place literacy",
+      "readable usefulness"
+    ],
+    "visible_flaws": [
+      "protective of role",
+      "selective with trust",
+      "can widen small matters through procedure"
+    ],
+    "public_symbols": [
+      "Textiles, tokens, tally habits, and practiced bargaining poise make Issa Waycord read as someone who lives by exchange and reputation."
+    ],
+    "private_truth": "Keep Council Convoy workable through the obligations of deck broker while managing the immediate pressure of route danger in Nomdara Caravan. Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Council Convoy, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of deck broker visibly slip.",
+    "what_they_hide": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Council Convoy, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of deck broker visibly slip.",
+    "what_they_fear_being_known_for": "The degree to which their usefulness depends on strain staying barely manageable.",
+    "what_they_are_wrong_about": "They may overestimate how much control role and procedure can preserve once pressure crosses a threshold.",
+    "what_they_refuse_to_admit_to_themselves": "That some of their identity is now fused to crisis-management rather than to the clean ideal of the role."
+  },
+  "psychology": {
+    "what_they_want_most": "Useful clarity, respect for Deck Broker, and proof that strangers will not create avoidable noise in Nomdara Caravan.",
+    "what_they_are_trying_to_protect_or_avoid": "Keep Council Convoy workable through the obligations of deck broker while managing the immediate pressure of route danger in Nomdara Caravan.",
+    "emotional_drive": "Beneath the role sits a need for local leverage, legibility, and a world that does not collapse into preventable noise.",
+    "core_wound": "No singular foundational trauma is directly asserted in canon; the usable wound layer is role-shaped wear, exposure, and the cost of being the person who must notice first or answer last.",
+    "how_it_shaped_them": "It turned ordinary duty into a personality contour: they scan for failure early, trust slowly, and measure strangers by downstream cost.",
+    "guiding_belief": "If the system is kept legible, losses can still be bounded.",
+    "hidden_belief": "Someone always pays for confusion; better it be controlled sooner than wider later.",
+    "lie_they_tell_themselves": "That they are only doing the job and that the job has not already begun shaping what they are.",
+    "truth_they_are_avoiding": "Their daily choices influence culture, fear, and legitimacy far beyond the narrow wording of the role.",
+    "thresholds": {
+      "anger": "being forced to absorb avoidable disorder",
+      "fear": "cascading failure that makes role performance meaningless",
+      "power": "clear information, recognized standing, and procedural initiative",
+      "smallness": "being bypassed, misfiled, or rendered decorative",
+      "softens": "useful honesty and disciplined cooperation",
+      "hardens": "evasiveness, disrespect, and reputational risk"
+    }
+  },
+  "morality_in_practice": {
+    "how_they_justify_actions": "By reference to burden, continuity, and the need to keep the surrounding place from slipping into a harder consequence tier.",
+    "what_they_consider_unforgivable": "Willful sabotage of trust, records, access, or public safety tied to their role.",
+    "what_they_will_absolutely_do": "Delay, question, redirect, document, and escalate when place logic demands it.",
+    "what_they_will_only_do_under_pressure": "Leverage reputation, force, secrecy, or rigid procedure in ways that damage future trust.",
+    "what_they_will_never_do": "Act against corpus-confirmed identity or role logic without a visible pressure bridge.",
+    "relationship_to_good_evil": "Operational read: Complicated / Conflicted. Their danger lies less in theatrical evil than in what happens when role logic outruns compassion, nuance, or proportionality."
+  },
+  "power_profile": {
+    "why_they_matter": "Issa Waycord can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+    "why_hard_to_ignore": "By enforcing Deck Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+    "primary_source_of_power": "trade_actor",
+    "secondary_source_of_power": "local familiarity, institutional memory, and other people needing something from them",
+    "why_difficult_to_confront_directly": "Confronting them usually means confronting place rules, witnesses, and downstream consequences rather than only the individual body in front of you.",
+    "capabilities": {
+      "magic": "Not explicitly stated unless separately asserted elsewhere in corpus.",
+      "combat": "Role-dependent; implied only to the degree their office already carries enforcement, survival, or defensive expectation.",
+      "social": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a deck broker still shape how they handle timing, silence, and attention.",
+      "strategic_administrative": "Performs the ongoing duties of deck broker in and around Council Convoy, where the role has practical consequences even when nothing dramatic is happening.",
+      "logistical_economic": "Keep Council Convoy workable through the obligations of deck broker while managing the immediate pressure of route danger in Nomdara Caravan.",
+      "investigative_covert": "Must keep exchange moving despite scarcity, theft risk, tariffs, and reputational damage. Around Council Convoy, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of deck broker visibly slip."
+    },
+    "signature_methods": {
+      "how_they_typically_win": "By controlling tempo, framing the problem first, and forcing others to deal with the local reality they represent.",
+      "favorite_tool": "position, knowledge, and place-specific leverage",
+      "how_they_escalate": "If crossed, Issa Waycord adds delay, scrutiny, and reputational drag before direct punishment.",
+      "when_cornered": "They narrow options, call on procedure or allies, and try to move the conflict onto terrain they understand better than the intruder."
+    }
+  },
+  "systems_impact": {
+    "direct_controls": [
+      "Council Convoy"
+    ],
+    "indirect_effects": [
+      "Council Convoy",
+      "Nomdara Caravan"
+    ],
+    "cultural_effect": "Ordinary people around Council Convoy learn to speak, wait, disclose, or hide differently depending on whether Issa Waycord or people like them are part of the scene."
+  },
+  "society_politics_geopolitics": {
+    "ordinary_people_experience": "Common folk experience Issa Waycord as a point where broader pressures become personal: papers checked, routes delayed, rites clarified, access granted, warnings issued, or burdens redirected.",
+    "cultural_wound_or_benefit": "They leave behind either increased legibility and trust or accumulated caution and narrowed speech.",
+    "secondary_behaviors": "People rehearse their story before approaching; they gather proof early; they watch who is seen speaking with this NPC.",
+    "factions_gain": [
+      "Council Convoy"
+    ],
+    "factions_fear": [
+      "actors who benefit from vagueness, delay, leakage, or unmanaged pressure"
+    ],
+    "governance_shift": "At table scale, this NPC shifts how authority feels inside Council Convoy: more navigable if cooperative, more costly if crossed.",
+    "geopolitical_effect": "Small incidents around Issa Waycord can propagate upward through Nomdara Caravan if they touch routes, records, trade, ritual legitimacy, or public order."
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0720",
+      "other_npc_id": "jalen_waycord",
+      "other_name": "Jalen Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0753",
+      "other_npc_id": "koro_waycord",
+      "other_name": "Koro Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0754",
+      "other_npc_id": "leni_waycord",
+      "other_name": "Leni Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0751",
+      "other_npc_id": "mek_waycord",
+      "other_name": "Mek Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0741",
+      "other_npc_id": "nim_waycord",
+      "other_name": "Nim Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0746",
+      "other_npc_id": "pavel_waycord",
+      "other_name": "Pavel Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0728",
+      "other_npc_id": "sorra_waycord",
+      "other_name": "Sorra Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    },
+    {
+      "relationship_id": "rel_0735",
+      "other_npc_id": "torv_waycord",
+      "other_name": "Torv Waycord",
+      "relation_type": "shared_lineage_or_house",
+      "strength": "medium",
+      "note": "Shared surname Waycord."
+    }
+  ],
+  "hooks": [
+    {
+      "hook_type": "market_information",
+      "summary": "Issa Waycord will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    },
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Issa Waycord needs help protecting a shipment, recovering leverage, or stabilizing exchange around Council Convoy before trust collapses."
+    }
+  ],
+  "encounter_context": {
+    "usual_environment": "Council Convoy: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Deck Broker.",
+  "rumor": "People say Issa Waycord is Known locally through day-to-day work as deck broker. and rarely acts without a second motive.",
+  "provenance": {
+    "source_object_ids": [
+      "operator_target_spec_v22_4",
+      "principalities",
+      "spatial_seasonal"
+    ],
+    "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+    "transformation_note": "Dossier generated from existing named NPC architecture plus locally-linked support texts; unsupported hard biography intentionally withheld.",
+    "derivation_label": "source_backed_conservative_inference",
+    "derivation_tier": "repository_synthesis"
+  }
+}

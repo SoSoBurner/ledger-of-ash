@@ -1,0 +1,15 @@
+{
+  "name": "Ironhold Quarry",
+  "seasonal_change": "Winter slows extraction and movement.",
+  "truth_layer": "direct_canon",
+  "seasonal_effects": [
+    "Winter slows extraction and movement.",
+    "Public schedules, prices, crowding, and enforcement intensity all change before locals bother explaining why.",
+    "Ceremony, supply pressure, and route reliability do not all peak at the same time, forcing local adaptation."
+  ],
+  "sources": [
+    "principality_roaz",
+    "principalities",
+    "spatial_seasonal"
+  ]
+}

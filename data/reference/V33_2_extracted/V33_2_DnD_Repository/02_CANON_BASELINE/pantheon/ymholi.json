@@ -1,0 +1,11 @@
+{
+  "id": "deity.ymholi",
+  "name": "Ymholi",
+  "domain": "Intrigue",
+  "desire": "Know how everything works",
+  "current_state": "Drives curiosity and unraveling.",
+  "truth_layer": "direct_canon",
+  "sources": [
+    "pantheon_story"
+  ]
+}

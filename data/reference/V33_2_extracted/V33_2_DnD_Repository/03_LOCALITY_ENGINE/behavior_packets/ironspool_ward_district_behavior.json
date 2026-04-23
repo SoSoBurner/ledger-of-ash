@@ -1,0 +1,19 @@
+{
+  "name": "Ironspool Ward District",
+  "who_belongs": [
+    "laborers",
+    "sellswords",
+    "wagon hands",
+    "budget traders"
+  ],
+  "who_is_out_of_place": [
+    "fragile nobles expecting insulated calm"
+  ],
+  "expected_behavior": [
+    "mind your business, pay your tab, and do not mistake poverty for disorder"
+  ],
+  "sources": [
+    "locations_catalog",
+    "psc_shelkopolis"
+  ]
+}

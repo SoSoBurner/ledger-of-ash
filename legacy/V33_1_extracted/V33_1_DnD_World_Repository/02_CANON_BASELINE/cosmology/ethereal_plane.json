@@ -1,0 +1,10 @@
+{
+  "id": "cosmology.ethereal_plane",
+  "name": "Ethereal Plane",
+  "truth_layer": "direct_canon",
+  "summary": "A fog-bound parallel echo of the Material Plane that mirrors structure and geography without ordinary interference, marked by low visibility and unstable orientation.",
+  "sources": [
+    "pantheon_story",
+    "internal_canonical_record"
+  ]
+}

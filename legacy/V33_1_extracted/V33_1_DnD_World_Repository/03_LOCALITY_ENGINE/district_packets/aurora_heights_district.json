@@ -1,0 +1,83 @@
+{
+  "name": "Aurora Heights District",
+  "type": "upper-class district",
+  "parent_polity": "Shelkopolis",
+  "identity": "Refined terraced noble district of mansions, fountains, and elite culture.",
+  "hierarchy": {
+    "world": "Material Planet",
+    "polity": "The Principalities",
+    "territory": "Shelkopolis",
+    "settlement": "Shelkopolis",
+    "district": "Aurora Heights District"
+  },
+  "approach": "Terraced hill, gilded mansions, jasmine and citrus, noble crests, and quiet fountains.",
+  "inside": "Wide boulevards, wrought-iron gates, bespoke shops, noble strolls, and culture-centered public life.",
+  "who_belongs": [
+    "nobles",
+    "elite artisans",
+    "diplomats",
+    "high clergy"
+  ],
+  "who_is_out_of_place": [
+    "rough caravan crews",
+    "underdressed opportunists"
+  ],
+  "expected_behavior": [
+    "measured conduct",
+    "fine attire",
+    "political and artistic decorum"
+  ],
+  "visible_power": [
+    "House Shelk nobility",
+    "elite magistrates",
+    "high clergy"
+  ],
+  "economy": [
+    "luxury trade",
+    "ceremonial fashion",
+    "diplomatic hosting"
+  ],
+  "faith": [
+    "cathedral-centered contemplation and compassion"
+  ],
+  "seasonal_change": "Seasonal gala coloration shifts through high-status social calendars.",
+  "pressure": [
+    "alliances",
+    "espionage",
+    "elite reputation"
+  ],
+  "npc_interfaces": [
+    "lady_isabella_shelk",
+    "lord_darius_shelk",
+    "high_priestess_lyara_dawnlight"
+  ],
+  "law_context": [
+    "fashion, espionage, noble trespass, and sacred decorum are all heavily enforced."
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "lady_isabella_shelk",
+    "lord_darius_shelk",
+    "high_priestess_lyara_dawnlight"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "public_behavior_texture": "People who belong here are usually nobles, elite artisans, diplomats, and public conduct is read through expectations such as measured conduct, fine attire.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by House Shelk nobility, elite magistrates, high clergy.",
+  "local_tension_surface": "The place feels stable only until pressures such as alliances, espionage, elite reputation begin showing through daily routines.",
+  "differentiator": "Aurora Heights District stands apart because its economy leans on luxury trade, ceremonial fashion; public faith remains visible through cathedral-centered contemplation and compassion; outsiders are noticed fastest when they resemble rough caravan crews, underdressed opportunists.",
+  "encounter_rhythm": "Most first scenes in Aurora Heights District begin through upper-class district rhythms: arrival, observation, minor correction, and only then deeper access.",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

@@ -1,0 +1,15 @@
+{
+  "code": "Sheresh Protocol E1",
+  "title": "Containment Entry Protocol",
+  "severity": "survival_law",
+  "description": "Entry into Sheresh dome environments requires contamination screening, compliance with sealed-route procedure, and immediate reporting of breach signs or structural stress.",
+  "jurisdictions": [
+    "Sheresh Communes"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ]
+}

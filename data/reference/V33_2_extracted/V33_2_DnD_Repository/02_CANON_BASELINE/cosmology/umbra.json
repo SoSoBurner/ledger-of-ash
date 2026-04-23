@@ -1,0 +1,16 @@
+{
+  "id": "cosmology.umbra",
+  "name": "Umbra",
+  "truth_layer": "direct_canon",
+  "summary": "A giant black west-polar continent of super-dense dark glass and crystalline material, rimmed by mountains and split by huge cracks feeding water toward its central opening.",
+  "world_effects": [
+    "shadowed terrain",
+    "ooze habitation",
+    "chaotic chasm systems"
+  ],
+  "sources": [
+    "pantheon_story",
+    "internal_canonical_record",
+    "spatial_seasonal"
+  ]
+}

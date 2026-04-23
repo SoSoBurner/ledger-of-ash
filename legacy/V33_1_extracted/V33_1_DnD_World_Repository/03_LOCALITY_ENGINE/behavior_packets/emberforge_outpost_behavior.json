@@ -1,0 +1,20 @@
+{
+  "name": "Emberforge Outpost",
+  "who_belongs": [
+    "Roadwardens",
+    "smiths",
+    "merchants",
+    "adventurers seeking assignments"
+  ],
+  "who_is_out_of_place": [
+    "saboteurs",
+    "those prying into patrol weakness"
+  ],
+  "expected_behavior": [
+    "heed chain of command",
+    "respect repair facilities and patrol maps"
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

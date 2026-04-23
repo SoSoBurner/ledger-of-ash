@@ -1,0 +1,25 @@
+{
+  "name": "The Gilded Plough Inn",
+  "parent_settlement": "Fairhaven",
+  "type": "inn",
+  "truth_layer": "conservative_inference",
+  "identity": "A inn in Fairhaven that makes the settlement’s public order and local priorities tangible in scene play.",
+  "who_you_meet": "The Gilded Plough Innkeeper",
+  "what_happens_here": "People gather here to resolve, negotiate, pray, record, unload, study, or complain depending on the site’s civic role.",
+  "visible_tension": "The site currently carries visible pressure from one of Fairhaven’s standing social or institutional conflicts.",
+  "sources": [
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_review",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "local_interface_role": "innkeeper",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "innkeeper",
+    "display_name": "The Gilded Plough Innkeeper",
+    "truth_layer": "conservative_inference"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ashwake Port",
+  "record_count": 3,
+  "npc_ids": [
+    "cindri_ashvein",
+    "morra_ashvein",
+    "port_factor_nemra_sootwake"
+  ],
+  "records": [
+    {
+      "npc_id": "cindri_ashvein",
+      "canonical_name": "Cindri Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Street Physician",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as street physician.",
+      "current_agenda": "Keep Ashwake Port workable through the obligations of street physician while managing the immediate pressure of harbor ash clogging in Psanan."
+    },
+    {
+      "npc_id": "morra_ashvein",
+      "canonical_name": "Morra Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Clerk of Arrivals",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as clerk of arrivals.",
+      "current_agenda": "Keep Ashwake Port workable through the obligations of clerk of arrivals while managing the immediate pressure of harbor ash clogging in Psanan."
+    },
+    {
+      "npc_id": "port_factor_nemra_sootwake",
+      "canonical_name": "Port Factor Nemra Sootwake",
+      "polity": "Psanan",
+      "office_or_role": "Ash Port Trade Marshal",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as ash port trade marshal.",
+      "current_agenda": "Keep Ashwake Port workable through the obligations of ash port trade marshal while managing the immediate pressure of harbor ash clogging in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Psanan ash-port where trade survives between cooling windows, soot tides, and public renewal display.",
+    "visible_power": [
+      "Ash Port Factors",
+      "Great House Citadel Circle"
+    ],
+    "pressure": [
+      "harbor ash clogging",
+      "storm-whirlpool risk",
+      "port rivalry"
+    ]
+  },
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ]
+}

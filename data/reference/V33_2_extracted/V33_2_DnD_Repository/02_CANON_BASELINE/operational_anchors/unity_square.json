@@ -1,0 +1,10 @@
+{
+  "name": "Unity Square",
+  "type": "union operational anchor",
+  "summary": "Dense urban market-quarter and negotiated exchange ground where guild representatives settle trade and visibility disputes amid stacked commerce, inspection lanes, and constant freight turnover.",
+  "truth_layer": "conservative_inference",
+  "sources": [
+    "principalities",
+    "topatch_v22_6_spec"
+  ]
+}

@@ -1,0 +1,512 @@
+[
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "parent_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "umbrella_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "parent_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "umbrella_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "parent_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Principality of Shelk",
+    "normalized_key": "principality_shelk",
+    "source_field": "parent_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Between Roaz and Sheresh",
+    "normalized_key": "between_roaz_sheresh",
+    "source_field": "umbrella_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "Between Roaz and Sheresh",
+    "normalized_key": "between_roaz_sheresh",
+    "source_field": "parent_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "South sea system",
+    "normalized_key": "south_sea_system",
+    "source_field": "umbrella_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "South sea system",
+    "normalized_key": "south_sea_system",
+    "source_field": "parent_polity",
+    "source_file_class": "macroregions"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "The Union",
+    "normalized_key": "union",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Psanan",
+    "normalized_key": "psanan",
+    "source_field": "umbrella_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Psanan",
+    "normalized_key": "psanan",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "umbrella_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "umbrella_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "House Zootia",
+    "normalized_key": "house_zootia",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "House Cosmouth",
+    "normalized_key": "house_cosmouth",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Principality of Shelk",
+    "normalized_key": "principality_shelk",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Principality of Zootia",
+    "normalized_key": "principality_zootia",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "Principality of Roaz",
+    "normalized_key": "principality_roaz",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "House Shirsh",
+    "normalized_key": "house_shirsh",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "House Panim",
+    "normalized_key": "house_panim",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "House Mimolot",
+    "normalized_key": "house_mimolot",
+    "source_field": "parent_polity",
+    "source_file_class": "settlements"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "districts"
+  },
+  {
+    "raw_value": "Principality of Shelk",
+    "normalized_key": "principality_shelk",
+    "source_field": "parent_polity",
+    "source_file_class": "districts"
+  },
+  {
+    "raw_value": "Principality of Zootia",
+    "normalized_key": "principality_zootia",
+    "source_field": "parent_polity",
+    "source_file_class": "districts"
+  },
+  {
+    "raw_value": "Principality of Roaz",
+    "normalized_key": "principality_roaz",
+    "source_field": "parent_polity",
+    "source_file_class": "districts"
+  },
+  {
+    "raw_value": "House Panim",
+    "normalized_key": "house_panim",
+    "source_field": "parent_polity",
+    "source_file_class": "districts"
+  },
+  {
+    "raw_value": "House Mimolot",
+    "normalized_key": "house_mimolot",
+    "source_field": "parent_polity",
+    "source_file_class": "districts"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "district_packets"
+  },
+  {
+    "raw_value": "House Zootia",
+    "normalized_key": "house_zootia",
+    "source_field": "parent_polity",
+    "source_file_class": "district_packets"
+  },
+  {
+    "raw_value": "House Cosmouth",
+    "normalized_key": "house_cosmouth",
+    "source_field": "parent_polity",
+    "source_file_class": "district_packets"
+  },
+  {
+    "raw_value": "House Shirsh",
+    "normalized_key": "house_shirsh",
+    "source_field": "parent_polity",
+    "source_file_class": "district_packets"
+  },
+  {
+    "raw_value": "House Mimolot",
+    "normalized_key": "house_mimolot",
+    "source_field": "parent_polity",
+    "source_file_class": "district_packets"
+  },
+  {
+    "raw_value": "House Panim",
+    "normalized_key": "house_panim",
+    "source_field": "parent_polity",
+    "source_file_class": "district_packets"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "Principality of Shelk",
+    "normalized_key": "principality_shelk",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "Material Planet",
+    "normalized_key": "material_planet",
+    "source_field": "umbrella_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "Material Planet",
+    "normalized_key": "material_planet",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "House Panim",
+    "normalized_key": "house_panim",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "Principality of Roaz",
+    "normalized_key": "principality_roaz",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "Principality of Zootia",
+    "normalized_key": "principality_zootia",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "House Mimolot",
+    "normalized_key": "house_mimolot",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "House Shirsh",
+    "normalized_key": "house_shirsh",
+    "source_field": "parent_polity",
+    "source_file_class": "sublocations"
+  },
+  {
+    "raw_value": "Psanan",
+    "normalized_key": "psanan",
+    "source_field": "umbrella_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "Psanan",
+    "normalized_key": "psanan",
+    "source_field": "parent_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "umbrella_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "parent_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "umbrella_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "parent_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "The Union",
+    "normalized_key": "union",
+    "source_field": "parent_polity",
+    "source_file_class": "operational_anchors"
+  },
+  {
+    "raw_value": "Psanan",
+    "normalized_key": "psanan",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Psanan",
+    "normalized_key": "psanan",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Phoenix Island",
+    "normalized_key": "phoenix_island",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Phoenix Island",
+    "normalized_key": "phoenix_island",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Sheresh Communes",
+    "normalized_key": "sheresh_communes",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Material Planet",
+    "normalized_key": "material_planet",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Material Planet",
+    "normalized_key": "material_planet",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Soreheim Alliance",
+    "normalized_key": "soreheim_alliance",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "The Principalities",
+    "normalized_key": "principalities",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara Circuits",
+    "normalized_key": "nomdara_circuits",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara Circuits",
+    "normalized_key": "nomdara_circuits",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Sheresh Empire",
+    "normalized_key": "sheresh_empire",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Sheresh Empire",
+    "normalized_key": "sheresh_empire",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Principality of Zootia",
+    "normalized_key": "principality_zootia",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Shelk",
+    "normalized_key": "shelk",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Shelk",
+    "normalized_key": "shelk",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara",
+    "normalized_key": "nomdara",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara",
+    "normalized_key": "nomdara",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "House Panim",
+    "normalized_key": "house_panim",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Principality of Shelk",
+    "normalized_key": "principality_shelk",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara Sea Lanes",
+    "normalized_key": "nomdara_sea_lanes",
+    "source_field": "umbrella_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara Sea Lanes",
+    "normalized_key": "nomdara_sea_lanes",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "The Union",
+    "normalized_key": "union",
+    "source_field": "parent_polity",
+    "source_file_class": "wilderness_points"
+  },
+  {
+    "raw_value": "Nomdara Caravan",
+    "normalized_key": "nomdara_caravan",
+    "source_field": "umbrella_polity",
+    "source_file_class": "mobile_nodes"
+  },
+  {
+    "raw_value": "Nomdara Caravan",
+    "normalized_key": "nomdara_caravan",
+    "source_field": "parent_polity",
+    "source_file_class": "mobile_nodes"
+  }
+]

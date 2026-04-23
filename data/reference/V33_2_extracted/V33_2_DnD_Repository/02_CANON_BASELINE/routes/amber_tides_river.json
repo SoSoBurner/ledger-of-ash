@@ -1,0 +1,26 @@
+{
+  "name": "Amber Tides River",
+  "type": "southern trade river",
+  "jurisdictions": [
+    "Southernmost Eternal Lands",
+    "Psanan-linked south routes"
+  ],
+  "hazards": [
+    "monsoons",
+    "storm sea interfaces"
+  ],
+  "sources": [
+    "spatial_seasonal"
+  ],
+  "named_npc_refs": [
+    "lysa_march",
+    "vera_hart"
+  ],
+  "npc_interfaces": [
+    "lysa_march",
+    "vera_hart"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

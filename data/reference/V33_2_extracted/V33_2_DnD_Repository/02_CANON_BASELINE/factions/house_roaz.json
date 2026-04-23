@@ -1,0 +1,49 @@
+{
+  "name": "House Roaz",
+  "type": "noble house faction",
+  "truth_layer": "direct_canon",
+  "summary": "Legal-industrial noble house anchoring strict enforcement, quarry extraction, and strategic antimagic development.",
+  "motive": "Preserve order, expand strategic strength, and ensure magic never outruns state control.",
+  "methods": [
+    "enforcement",
+    "quarry and prison labor",
+    "fortification",
+    "covert suppression"
+  ],
+  "geography": [
+    "Ithtananalor",
+    "Ironhold Quarry",
+    "Silent Haven",
+    "Veilforged Bastion"
+  ],
+  "power_relations": [
+    "Commands ORE and the Iron Accord while coordinating with allied magical specialists when useful"
+  ],
+  "current_pressure": [
+    "border strain",
+    "contraband",
+    "public fear of overreach",
+    "resource dependence"
+  ],
+  "visible_membership_base": "Enforcers, engineers, clerks, miners, covert operatives.",
+  "civilian_contact_surface": [
+    "checkpoints",
+    "legal rulings",
+    "labor systems",
+    "fortification works"
+  ],
+  "current_tension_or_vulnerability": "The same systems that make Roaz reliable also make it feared, watched, and prone to legitimacy strain.",
+  "sources": [
+    "principality_roaz",
+    "principalities"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "selda_chainwell"
+  ],
+  "npc_interfaces": [
+    "selda_chainwell"
+  ]
+}

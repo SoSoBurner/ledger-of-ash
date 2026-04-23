@@ -7807,7 +7807,7 @@ function initCreate() {
         document.getElementById('begin-btn').style.display = 'none';
       }
       // Collapse all groups
-      ag.querySelectorAll('.group-header').forEach(h => h.classList.remove('active'));
+      ag.querySelectorAll('.group-header').forEach(h => { h.classList.remove('active'); h.style.display = ''; });
       ag.querySelectorAll('.card-grid').forEach(r => { r.style.display = 'none'; });
       _activeGroupId = null;
       if (!isOpen) {
@@ -7857,12 +7857,15 @@ function selectArchetype(id) {
     ? document.querySelector('#archetype-grid .card-grid[data-group-id="' + _activeGroupId + '"]')
     : null;
 
+  const _ag = document.getElementById('archetype-grid');
+
   // Toggle off — clicking already-selected archetype goes back to archetype list
   if (G.archetype && G.archetype.id === id) {
     G.archetype = null; G.background = null;
     if (activeRow) activeRow.querySelectorAll('.card').forEach(c => { c.classList.remove('selected'); c.style.display = ''; });
     document.getElementById('bg-step').style.display = 'none';
     document.getElementById('begin-btn').style.display = 'none';
+    if (_ag) _ag.querySelectorAll('.group-header').forEach(h => h.style.display = '');
     updateCreateNarrative();
     return;
   }
@@ -7876,6 +7879,10 @@ function selectArchetype(id) {
       c.style.display = c.dataset.id === id ? '' : 'none';
     });
   }
+  // Hide non-active group headers so the step box shows only the selected archetype
+  if (_ag) _ag.querySelectorAll('.group-header').forEach(h => {
+    h.style.display = (h.dataset.groupId === _activeGroupId) ? '' : 'none';
+  });
 
   // Refresh stat-boost grid to show this archetype's base values
   const sbg2 = document.getElementById('stat-boost-grid');

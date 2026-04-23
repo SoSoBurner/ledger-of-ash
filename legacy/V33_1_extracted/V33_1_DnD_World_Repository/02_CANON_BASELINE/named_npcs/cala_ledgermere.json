@@ -1,0 +1,83 @@
+{
+  "npc_id": "cala_ledgermere",
+  "canonical_name": "Cala Ledgermere",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "hospitality_actor",
+  "office_or_role": "Innkeeper",
+  "profession_discipline": "Innkeeper",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Union",
+  "settlement": "Guildheart Hub",
+  "locality_scope": "Guildheart Hub",
+  "institutional_ties": [
+    "Guildheart Hub"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Guildheart Hub through day-to-day work as innkeeper.",
+  "linked_systems": {
+    "polities": [
+      "The Union"
+    ],
+    "localities": [
+      "Guildheart Hub"
+    ],
+    "institutions": [
+      "Guildheart Hub"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Reads people fast, keeps hospitality practical, and measures danger by what it does to ordinary routine. In Guildheart Hub, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of innkeeper in and around Guildheart Hub, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Guildheart Hub workable through the obligations of innkeeper while managing the immediate pressure of legacy Mal claims, smuggling, Red Hood rumor presence.",
+  "hidden_pressure": "Must keep the role of innkeeper credible while absorbing the strain created by legacy Mal claims, smuggling, Red Hood rumor presence.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Cala Ledgermere can draw the party into a locality problem centered on innkeeper duties in Guildheart Hub."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Cala Ledgermere becomes useful when the party needs grounded help with legacy Mal claims, smuggling, Red Hood rumor presence around Guildheart Hub."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "guildheart_hub"
+  ],
+  "compatibility_interface_id": "cala_ledgermere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Cala Ledgermere is immediately readable as a innkeeper tied to Guildheart Hub.",
+  "encounter_context": {
+    "usual_environment": "Guildheart Hub: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "innkeeper"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Cala Ledgermere presents as someone shaped by the duties of a innkeeper and the daily pressures of Guildheart Hub.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a innkeeper, and proof that strangers will not make Guildheart Hub harder to manage.",
+  "what_they_refuse": "Cala Ledgermere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a innkeeper too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can surface gossip, shelter, and the social temperature of a place without formal inquiry.",
+  "escalation_if_crossed": "If crossed, Cala Ledgermere adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Cala Ledgermere always knows more about Guildheart Hub than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a innkeeper in Guildheart Hub."
+}

@@ -1,0 +1,517 @@
+{
+  "packet_type": "world_inspection_packet",
+  "scope": "locality",
+  "name": "Mediators Court",
+  "slug": "mediators_court",
+  "parent_polity": "The Union",
+  "place_type": "major locality",
+  "truth_layer": "source_backed_inference",
+  "sources": [
+    "V33_1 parity completion synthesis from active polity summary and locality pattern matching.",
+    "V33_1 parity completion synthesis.",
+    "the_union"
+  ],
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "The Union",
+    "locality": "Mediators Court"
+  },
+  "about_place": {
+    "where_is_this_place_exactly": {
+      "answer": "Mediators Court sits within The Union; strongest hierarchy support resolves it as {\"world\":\"Material Planet\",\"polity\":\"The Union\",\"locality\":\"Mediators Court\"}.",
+      "status": "direct_canon"
+    },
+    "what_does_this_place_look_like": {
+      "answer": "Approach: Approach through mediators court makes bargaining feel supervised and public.. Interior or lived feel: Inside, negotiated order matters more than raw force..",
+      "status": "direct_canon"
+    },
+    "what_is_this_area_known_for": {
+      "answer": "Union locality centered on mediators court governance and exchange.",
+      "status": "conservative_inference"
+    },
+    "how_old_is_this_place": {
+      "answer": "The current corpus does not give an exact founding date for this place; it should be treated as historically older than the present day but not date-fixed.",
+      "status": "unresolved"
+    },
+    "who_built_it": {
+      "answer": "The safest current reading is that Mediators Court was built or expanded under the authority culture of The Union; the exact founding builder is not fully specified.",
+      "status": "conservative_inference"
+    },
+    "who_lives_here_now": {
+      "answer": "residents and specialists aligned with The Union",
+      "status": "reconciled_canon"
+    },
+    "current_condition": {
+      "answer": "active and inhabited; current pressure includes broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "common_architecture": {
+      "answer": "trade halls, contract boards, market arbitration spaces, warehouses, canals, and public negotiation grounds",
+      "status": "conservative_inference"
+    },
+    "common_build_materials": {
+      "answer": "contracts, mediation, brokered flows, and all traded goods",
+      "status": "conservative_inference"
+    },
+    "climate": {
+      "answer": "not exhaustively specified",
+      "status": "unresolved"
+    },
+    "surrounding_land": {
+      "answer": "administrative and mercantile heart-surface inside the Principalities network",
+      "status": "conservative_inference"
+    },
+    "important_natural_resources": {
+      "answer": "exchange mediation, licensed contracts",
+      "status": "conservative_inference"
+    },
+    "common_dangers": {
+      "answer": "broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "known_landmarks": {
+      "answer": "all major eastern trade lanes",
+      "status": "conservative_inference"
+    },
+    "nearby_places_that_matter": {
+      "answer": "all major eastern trade lanes",
+      "status": "conservative_inference"
+    },
+    "regional_role": {
+      "answer": "settlement or operating node within The Union",
+      "status": "conservative_inference"
+    }
+  },
+  "about_people": {
+    "who_are_the_people_here": {
+      "answer": "residents and specialists aligned with The Union",
+      "status": "conservative_inference"
+    },
+    "what_cultures_are_present": {
+      "answer": "merchant pragmatism and contract culture",
+      "status": "conservative_inference"
+    },
+    "what_languages_are_commonly_spoken": {
+      "answer": "The current corpus does not exhaustively enumerate everyday spoken languages here.",
+      "status": "unresolved"
+    },
+    "what_do_people_wear_here": {
+      "answer": "functional prestige with guild markers",
+      "status": "conservative_inference"
+    },
+    "what_do_people_eat_here": {
+      "answer": "trade-city varied fare",
+      "status": "conservative_inference"
+    },
+    "how_do_people_make_a_living": {
+      "answer": "exchange mediation, licensed contracts",
+      "status": "conservative_inference"
+    },
+    "what_social_classes_exist": {
+      "answer": "nobles or leadership strata, institutional officers, specialists, laborers, and visitors appear as the safest class reading for this setting surface",
+      "status": "conservative_inference"
+    },
+    "who_has_power_here": {
+      "answer": "The Union, licensed arbiters",
+      "status": "conservative_inference"
+    },
+    "who_is_respected_here": {
+      "answer": "reliable factors and arbitrators",
+      "status": "conservative_inference"
+    },
+    "who_is_feared_here": {
+      "answer": "sanction boards and market exclusion",
+      "status": "conservative_inference"
+    },
+    "who_is_considered_an_outsider": {
+      "answer": "loud opportunists, undeclared inspectors, outsiders who treat the locality as generic",
+      "status": "conservative_inference"
+    },
+    "how_are_strangers_treated": {
+      "answer": "welcomed if profitable and documented",
+      "status": "conservative_inference"
+    },
+    "important_customs_or_manners": {
+      "answer": "respect queue order, state terms clearly",
+      "status": "conservative_inference"
+    },
+    "rude_honorable_shameful_or_dangerous_behavior": {
+      "answer": "Common values here are exchange, leverage, enforceable agreement, and network control. Outsider mistakes or suspicious acts include loud opportunists, undeclared inspectors, outsiders who treat the locality as generic.",
+      "status": "conservative_inference"
+    },
+    "common_values": {
+      "answer": "exchange, leverage, enforceable agreement, and network control",
+      "status": "conservative_inference"
+    },
+    "tensions_between_groups": {
+      "answer": "commerce versus fairness and guild dominance versus noble pride",
+      "status": "conservative_inference"
+    }
+  },
+  "government_and_power": {
+    "who_rules_this_place": {
+      "answer": "The Union, licensed arbiters",
+      "status": "conservative_inference"
+    },
+    "how_is_it_governed": {
+      "answer": "merchant-institutional",
+      "status": "conservative_inference"
+    },
+    "is_the_ruler_loved_feared_weak_corrupt_absent_or_respected": {
+      "answer": "powerful through systems, not pageantry",
+      "status": "conservative_inference"
+    },
+    "how_stable_is_the_government": {
+      "answer": "stable so long as trade trust holds",
+      "status": "conservative_inference"
+    },
+    "who_holds_power_behind_the_scenes": {
+      "answer": "informal broker networks and sanction politics",
+      "status": "conservative_inference"
+    },
+    "are_there_rival_factions": {
+      "answer": "merchant guilds, arbitration bodies, sanction boards, and house emissaries",
+      "status": "conservative_inference"
+    },
+    "influential_houses_councils_guilds_churches_or_militias": {
+      "answer": "The Union, licensed arbiters",
+      "status": "conservative_inference"
+    },
+    "what_laws_matter_most": {
+      "answer": "not specified in current corpus",
+      "status": "conservative_inference"
+    },
+    "what_crimes_are_taken_especially_seriously": {
+      "answer": "major economic crimes and sabotage of market order",
+      "status": "conservative_inference"
+    },
+    "how_is_justice_handled": {
+      "answer": "paper-heavy and sanction-driven",
+      "status": "conservative_inference"
+    },
+    "control_level": {
+      "answer": "loosely social and tightly contractual",
+      "status": "conservative_inference"
+    },
+    "active_rebellions_movements_or_succession_struggles": {
+      "answer": "market blocs and rival merchant camps",
+      "status": "conservative_inference"
+    }
+  },
+  "history": {
+    "what_happened_here_in_the_past": {
+      "answer": "rose sharply after House Mal’s downgrade",
+      "status": "conservative_inference"
+    },
+    "major_events_that_shaped_this_place": {
+      "answer": "economic succession and trade re-centering",
+      "status": "conservative_inference"
+    },
+    "remembered_wars_disasters_miracles_betrayals_or_discoveries": {
+      "answer": "economic succession and trade re-centering",
+      "status": "conservative_inference"
+    },
+    "ruins_or_remnants_of_the_past": {
+      "answer": "not a ruin-focused identity",
+      "status": "conservative_inference"
+    },
+    "old_powers_that_once_ruled_here": {
+      "answer": "House Mal’s former place shadows its rise",
+      "status": "conservative_inference"
+    },
+    "what_everyone_knows_about_local_history": {
+      "answer": "everyone knows The Union replaced older trade authority",
+      "status": "conservative_inference"
+    },
+    "what_history_is_disputed_hidden_or_rewritten": {
+      "answer": "how cleanly or fairly that succession happened remains a live suspicion",
+      "status": "conservative_inference"
+    },
+    "historical_enemies_or_old_alliances": {
+      "answer": "allied to all who must trade and resented by many who dislike dependence",
+      "status": "conservative_inference"
+    },
+    "legends_tied_to_this_place": {
+      "answer": "less mythic than systemic",
+      "status": "conservative_inference"
+    },
+    "tragedies_or_victories_defining_identity": {
+      "answer": "it turned trade mediation into sovereignty by another name",
+      "status": "conservative_inference"
+    }
+  },
+  "religion_and_belief": {
+    "what_do_people_worship_here": {
+      "answer": "practical civic rites",
+      "status": "conservative_inference"
+    },
+    "which_gods_spirits_ancestors_or_cosmic_forces_matter_most": {
+      "answer": "practical civic rites",
+      "status": "conservative_inference"
+    },
+    "how_important_is_religion_in_daily_life": {
+      "answer": "secondary to mercantile power",
+      "status": "conservative_inference"
+    },
+    "temples_shrines_sacred_sites_or_pilgrimages": {
+      "answer": "market and oath rituals matter",
+      "status": "conservative_inference"
+    },
+    "holidays_or_rituals_observed": {
+      "answer": "market and oath rituals matter",
+      "status": "conservative_inference"
+    },
+    "forbidden_or_outlawed_beliefs": {
+      "answer": "thinly surfaced",
+      "status": "unresolved"
+    },
+    "do_religious_authorities_have_political_power": {
+      "answer": "secondary to mercantile power",
+      "status": "conservative_inference"
+    },
+    "are_miracles_normal_rare_feared_or_doubted": {
+      "answer": "not central to reputation",
+      "status": "conservative_inference"
+    },
+    "common_superstitions": {
+      "answer": "market omens and sanction fear",
+      "status": "conservative_inference"
+    },
+    "omens_taboos_blessings_or_curses": {
+      "answer": "market omens and sanction fear",
+      "status": "conservative_inference"
+    }
+  },
+  "magic_and_unknown": {
+    "how_common_is_magic_here": {
+      "answer": "practical and regulated by context",
+      "status": "conservative_inference"
+    },
+    "who_is_allowed_to_use_it": {
+      "answer": "where market or polity law permits",
+      "status": "conservative_inference"
+    },
+    "who_fears_it": {
+      "answer": "market disruption and fraud",
+      "status": "conservative_inference"
+    },
+    "who_regulates_it": {
+      "answer": "contract and local law interplay",
+      "status": "conservative_inference"
+    },
+    "is_magic_respected_outlawed_commercialized_secretive_or_sacred": {
+      "answer": "practical and regulated by context. Regulation posture: contract and local law interplay",
+      "status": "conservative_inference"
+    },
+    "known_supernatural_events": {
+      "answer": "less central than institutional power",
+      "status": "conservative_inference"
+    },
+    "local_monsters_spirits_hauntings_or_anomalies": {
+      "answer": "less central than institutional power",
+      "status": "conservative_inference"
+    },
+    "what_is_considered_unnatural": {
+      "answer": "market manipulation beyond accepted rules",
+      "status": "conservative_inference"
+    },
+    "ancient_powers_or_mysterious_forces": {
+      "answer": "real hidden broker alignments",
+      "status": "conservative_inference"
+    },
+    "places_people_avoid_for_supernatural_reasons": {
+      "answer": "broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "what_parts_remain_unexplained": {
+      "answer": "real hidden broker alignments",
+      "status": "conservative_inference"
+    }
+  },
+  "economy_and_daily_life": {
+    "what_drives_the_local_economy": {
+      "answer": "exchange mediation, licensed contracts",
+      "status": "conservative_inference"
+    },
+    "what_goods_is_this_place_known_for": {
+      "answer": "contracts, mediation, brokered flows, and all traded goods",
+      "status": "conservative_inference"
+    },
+    "what_does_it_import_or_depend_on": {
+      "answer": "everything",
+      "status": "conservative_inference"
+    },
+    "is_it_wealthy_or_struggling": {
+      "answer": "very wealthy in institutional leverage",
+      "status": "conservative_inference"
+    },
+    "who_benefits_from_local_trade": {
+      "answer": "guild elites and effective brokers",
+      "status": "conservative_inference"
+    },
+    "who_suffers_under_current_system": {
+      "answer": "debt-bound and sanction-hit populations",
+      "status": "conservative_inference"
+    },
+    "what_is_ordinary_life_like": {
+      "answer": "deals, clerical work, cargo movement, and dispute resolution",
+      "status": "conservative_inference"
+    },
+    "what_does_a_normal_day_look_like": {
+      "answer": "deals, clerical work, cargo movement, and dispute resolution",
+      "status": "conservative_inference"
+    },
+    "common_professions": {
+      "answer": "exchange mediation, licensed contracts",
+      "status": "conservative_inference"
+    },
+    "rare_luxuries": {
+      "answer": "Rare luxuries are whatever exceeds the locality’s working identity; exact luxury lists are not exhaustively enumerated in current corpus.",
+      "status": "unresolved"
+    },
+    "shortages_or_needs": {
+      "answer": "broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "travel_trade_communication_and_survival": {
+      "answer": "road, canal, and port-linked trade movement",
+      "status": "conservative_inference"
+    }
+  },
+  "conflict_and_instability": {
+    "what_conflicts_are_happening_now": {
+      "answer": "broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "who_is_fighting_whom": {
+      "answer": "tariffs, favor, sanctions, and succession resentment",
+      "status": "conservative_inference"
+    },
+    "longstanding_grudges_or_rivalries": {
+      "answer": "commerce versus fairness and guild dominance versus noble pride",
+      "status": "conservative_inference"
+    },
+    "what_threats_worry_people_most": {
+      "answer": "broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "what_fears_keep_people_obedient_divided_or_armed": {
+      "answer": "loss of trust or loss of monopoly",
+      "status": "conservative_inference"
+    },
+    "raids_invasions_banditry_monsters_famine_plague_unrest_or_crackdowns": {
+      "answer": "broker manipulation, paperwork fatigue",
+      "status": "conservative_inference"
+    },
+    "what_is_likely_to_get_worse_soon": {
+      "answer": "economic fracture would destabilize the wider east fast",
+      "status": "conservative_inference"
+    },
+    "what_could_destabilize_it_further": {
+      "answer": "economic fracture would destabilize the wider east fast",
+      "status": "conservative_inference"
+    },
+    "who_stands_to_gain_from_chaos": {
+      "answer": "smugglers, black markets, and political spoilers",
+      "status": "conservative_inference"
+    }
+  },
+  "identity_and_reputation": {
+    "what_is_this_place_famous_for": {
+      "answer": "trade mediation",
+      "status": "conservative_inference"
+    },
+    "what_is_it_infamous_for": {
+      "answer": "favoritism suspicions",
+      "status": "conservative_inference"
+    },
+    "how_outsiders_see_this_place": {
+      "answer": "profitable and slippery",
+      "status": "conservative_inference"
+    },
+    "how_locals_see_themselves": {
+      "answer": "the mechanism keeping civilization supplied",
+      "status": "conservative_inference"
+    },
+    "common_stereotypes": {
+      "answer": "profitable and slippery",
+      "status": "conservative_inference"
+    },
+    "symbols_banners_songs_sayings_or_stories": {
+      "answer": "guild marks, ledgers, seals, and scales",
+      "status": "conservative_inference"
+    },
+    "what_makes_it_culturally_distinct": {
+      "answer": "power travels through contracts instead of crowns",
+      "status": "conservative_inference"
+    },
+    "what_someone_immediately_notices": {
+      "answer": "Approach through mediators court makes bargaining feel supervised and public.",
+      "status": "direct_canon"
+    }
+  },
+  "wider_world_relationships": {
+    "allies_and_enemies": {
+      "answer": "allied to all who must trade and resented by many who dislike dependence",
+      "status": "conservative_inference"
+    },
+    "neighboring_powers_that_matter": {
+      "answer": "allied to all who must trade and resented by many who dislike dependence",
+      "status": "conservative_inference"
+    },
+    "isolation_or_connection": {
+      "answer": "maximally connected",
+      "status": "conservative_inference"
+    },
+    "trade_routes_roads_ports_or_passes": {
+      "answer": "all major eastern trade lanes",
+      "status": "conservative_inference"
+    },
+    "larger_empires_kingdoms_religions_or_movements_affecting_it": {
+      "answer": "The Union",
+      "status": "conservative_inference"
+    },
+    "outside_threats_influencing_local_decisions": {
+      "answer": "war, piracy, route failure, or imperial sanctions",
+      "status": "conservative_inference"
+    },
+    "how_it_fits_the_broader_world": {
+      "answer": "commercial nerve center",
+      "status": "conservative_inference"
+    }
+  },
+  "secrets_and_deeper_truths": {
+    "what_is_not_said_openly_here": {
+      "answer": "official neutrality likely masks selective leverage and buried obligations",
+      "status": "conservative_inference"
+    },
+    "what_locals_avoid_talking_about": {
+      "answer": "official neutrality likely masks selective leverage and buried obligations",
+      "status": "conservative_inference"
+    },
+    "what_secrets_lie_under_the_surface": {
+      "answer": "official neutrality likely masks selective leverage and buried obligations",
+      "status": "conservative_inference"
+    },
+    "official_story_vs_reality_contradictions": {
+      "answer": "official neutrality likely masks selective leverage and buried obligations",
+      "status": "conservative_inference"
+    },
+    "ancient_or_hidden_truth_explaining_current_events": {
+      "answer": "real hidden broker alignments",
+      "status": "conservative_inference"
+    },
+    "what_everyone_lives_with_but_pretends_not_to_see": {
+      "answer": "official neutrality likely masks selective leverage and buried obligations",
+      "status": "conservative_inference"
+    },
+    "invisible_power_structures": {
+      "answer": "informal broker networks and sanction politics",
+      "status": "conservative_inference"
+    },
+    "buried_history_influencing_the_present": {
+      "answer": "how cleanly or fairly that succession happened remains a live suspicion",
+      "status": "conservative_inference"
+    }
+  }
+}

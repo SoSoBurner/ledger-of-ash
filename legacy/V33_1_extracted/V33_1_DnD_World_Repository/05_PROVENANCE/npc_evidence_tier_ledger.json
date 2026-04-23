@@ -1,0 +1,5 @@
+{
+  "build_version": "V33_1",
+  "rule": "NPC evidence tiers derive from truth-layer labels plus encounter-readiness promotion.",
+  "status": "pass"
+}

@@ -1,0 +1,25 @@
+{
+  "scenario_id": "npc_request_escalation_soreheim",
+  "title": "A clerk favor becomes polity friction",
+  "scope": "table_proof",
+  "source_record_ids": [
+    "soreheim_proper"
+  ],
+  "locality_packets": [
+    "soreheim_proper.json"
+  ],
+  "route_packets": [],
+  "npc_ids": [
+    "brala_coalward",
+    "dema_forgebound",
+    "eryndor_bladewright",
+    "helga_ironslope"
+  ],
+  "player_safe_summary": "The party enters Soreheim Proper and discovers that a routine request is entangled with local pressure, reputation, and a decision that cannot be solved by force alone.",
+  "gm_deep_summary": "Run the opening using the Soreheim Proper quickstart card, then escalate through one authority, one pressured intermediary, and one consequence if the players ignore procedure.",
+  "continuity_deltas": [
+    "local trust shift",
+    "faction notice",
+    "future locality suspicion"
+  ]
+}

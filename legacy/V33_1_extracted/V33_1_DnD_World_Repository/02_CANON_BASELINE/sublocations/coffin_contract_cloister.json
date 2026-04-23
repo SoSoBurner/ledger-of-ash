@@ -1,0 +1,51 @@
+{
+  "name": "Coffin Contract Cloister",
+  "type": "faith-economy node",
+  "parent_settlement": "Panim Haven",
+  "parent_polity": "House Panim",
+  "truth_layer": "conservative_inference",
+  "identity": "A public contracting cloister where family means, ritual promise, and afterlife status are translated into binding service.",
+  "approach": "Polished stone counters and carved niche-coffins frame the entry.",
+  "inside": "Quiet bargaining benches stand beside shrines, witness tables, and ledger alcoves.",
+  "who_belongs": [
+    "families",
+    "contract clerks",
+    "ritual witnesses"
+  ],
+  "who_is_out_of_place": [
+    "loud hagglers"
+  ],
+  "expected_behavior": [
+    "treat the dead and the ledger seriously"
+  ],
+  "visible_power": [
+    "witness scribes",
+    "House Panim mediators"
+  ],
+  "economy": [
+    "contract fees",
+    "ritual scheduling"
+  ],
+  "faith": [
+    "faith and transaction are inseparable here"
+  ],
+  "seasonal_change": "Pilgrimage weeks turn solemnity into managed congestion.",
+  "pressure": [
+    "forged death-status claims",
+    "family dispute"
+  ],
+  "npc_interfaces": [
+    "mediator_selka_var",
+    "scribe_iren_palemark"
+  ],
+  "law_context": [
+    "witness law",
+    "contract validity"
+  ],
+  "sources": [
+    "principalities_doc"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

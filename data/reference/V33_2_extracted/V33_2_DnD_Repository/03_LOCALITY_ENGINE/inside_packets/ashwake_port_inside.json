@@ -1,0 +1,20 @@
+{
+  "name": "Ashwake Port",
+  "inside": "Port ledgers, storage vaults, ash-dye houses, and processional squares give the harbor both commerce and ceremony.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "polity": "Psanan",
+    "territory": "Southern Volcanic Coast",
+    "world": "Material Planet"
+  },
+  "interior_patterns": [
+    "trade is visibly part of daily life.",
+    "renewal-marked banners serve civic identity and public recovery rather than worship",
+    "The difference between who belongs, who is tolerated, and who draws scrutiny becomes legible quickly once inside."
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ]
+}

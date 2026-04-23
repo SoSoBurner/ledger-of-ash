@@ -1,0 +1,17 @@
+{
+  "name": "Ashforge Quarry",
+  "parent_polity": "Soreheim Alliance",
+  "type": "operational_anchor",
+  "anchor_kind": "mining_settlement",
+  "truth_layer": "reconciled_canon",
+  "anchor_status": "baseline_anchor",
+  "roles_allocated": 16,
+  "territory": "Eternal Lands",
+  "operational_profile": "Fortified extraction settlement where ore discipline, predator defense, partial refinement, and hard clan-family patronage fuse under Hill Giant and regional oversight.",
+  "role_density_note": "Emitted as matrix-stage administrative thickening rather than full office ledger.",
+  "supporting_logic": "Built from existing polity logic as downward-and-outward operational fill.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

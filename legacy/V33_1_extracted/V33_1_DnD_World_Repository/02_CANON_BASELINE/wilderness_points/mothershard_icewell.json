@@ -1,0 +1,20 @@
+{
+  "name": "Mothershard Icewell",
+  "parent": "Far Northern Tundra",
+  "summary": "A vertical well of black-blue ice said to descend toward older contamination seams and older truths about the skies. Scholars debate it; smugglers map it.",
+  "sources": [
+    "internal_canonical_record",
+    "v32_4_additive_wilderness_expansion"
+  ],
+  "named_npc_refs": [],
+  "npc_interfaces": [],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "polity": "Sheresh Communes",
+  "travel_tags": [
+    "forbidden research",
+    "descent hazard",
+    "rare reagents"
+  ]
+}

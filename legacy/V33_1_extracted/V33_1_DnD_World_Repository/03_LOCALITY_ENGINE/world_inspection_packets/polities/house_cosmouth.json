@@ -1,0 +1,511 @@
+{
+  "packet_type": "world_inspection_packet",
+  "scope": "polity",
+  "name": "House Cosmouth",
+  "slug": "house_cosmouth",
+  "parent_polity": "House Cosmouth",
+  "place_type": "polity",
+  "truth_layer": "direct_canon",
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "House Cosmouth"
+  },
+  "about_place": {
+    "where_is_this_place_exactly": {
+      "answer": "maritime house-domain inside The Principalities centered on Cosmouth, Cosmoria, and related ports and forest-sea interfaces",
+      "status": "conservative_inference"
+    },
+    "what_does_this_place_look_like": {
+      "answer": "coastal cities, floating urban layers, archives, docks, libraries, and shipwright infrastructure",
+      "status": "direct_canon"
+    },
+    "what_is_this_area_known_for": {
+      "answer": "shipwright skill, archives, maritime trade, and coastal urban sophistication",
+      "status": "conservative_inference"
+    },
+    "how_old_is_this_place": {
+      "answer": "The current corpus does not give an exact founding date for this polity; it should be treated as historically established but not date-fixed.",
+      "status": "unresolved"
+    },
+    "who_built_it": {
+      "answer": "The safest current reading is that House Cosmouth emerged through house, communal, or institutional development over time; the corpus does not assign a single fully explicit founder.",
+      "status": "conservative_inference"
+    },
+    "who_lives_here_now": {
+      "answer": "sailors, shipwrights, archivists, merchants, coastal laborers, and noble administrators",
+      "status": "conservative_inference"
+    },
+    "current_condition": {
+      "answer": "active in the current age",
+      "status": "conservative_inference"
+    },
+    "common_architecture": {
+      "answer": "coastal cities, floating urban layers, archives, docks, libraries, and shipwright infrastructure",
+      "status": "conservative_inference"
+    },
+    "common_build_materials": {
+      "answer": "ships, lumber-linked products, maritime goods, records, and imported luxuries",
+      "status": "conservative_inference"
+    },
+    "climate": {
+      "answer": "At polity scale the climate varies across its territory unless a single climatic identity is explicitly dominant.",
+      "status": "unresolved"
+    },
+    "surrounding_land": {
+      "answer": "maritime house-domain inside The Principalities centered on Cosmouth, Cosmoria, and related ports and forest-sea interfaces",
+      "status": "conservative_inference"
+    },
+    "important_natural_resources": {
+      "answer": "shipping, shipbuilding, fishing, archival administration, and maritime trade",
+      "status": "conservative_inference"
+    },
+    "common_dangers": {
+      "answer": "harbor disruption, storm devastation, and loss of shipping control",
+      "status": "conservative_inference"
+    },
+    "known_landmarks": {
+      "answer": "Brineland and broader eastern maritime lanes",
+      "status": "conservative_inference"
+    },
+    "nearby_places_that_matter": {
+      "answer": "Brineland and broader eastern maritime lanes",
+      "status": "conservative_inference"
+    },
+    "regional_role": {
+      "answer": "the maritime and archival arm of the eastern polity complex",
+      "status": "conservative_inference"
+    }
+  },
+  "about_people": {
+    "who_are_the_people_here": {
+      "answer": "sailors, shipwrights, archivists, merchants, coastal laborers, and noble administrators",
+      "status": "conservative_inference"
+    },
+    "what_cultures_are_present": {
+      "answer": "maritime house culture, archival culture, and seaward merchant pragmatism",
+      "status": "conservative_inference"
+    },
+    "what_languages_are_commonly_spoken": {
+      "answer": "The current corpus does not exhaustively enumerate everyday spoken languages at this polity scale.",
+      "status": "unresolved"
+    },
+    "what_do_people_wear_here": {
+      "answer": "practical coastal attire mixed with refined mercantile and noble display",
+      "status": "conservative_inference"
+    },
+    "what_do_people_eat_here": {
+      "answer": "fish, preserved coastal staples, and port-city trade cuisine",
+      "status": "conservative_inference"
+    },
+    "how_do_people_make_a_living": {
+      "answer": "shipping, shipbuilding, fishing, archive work, trade, and port administration",
+      "status": "conservative_inference"
+    },
+    "what_social_classes_exist": {
+      "answer": "nobles or leadership strata, institutional officers, specialists, laborers, and dependent populations are the safest polity-scale reading.",
+      "status": "conservative_inference"
+    },
+    "who_has_power_here": {
+      "answer": "House Cosmouth nobles, archival authorities, and maritime trade leadership",
+      "status": "conservative_inference"
+    },
+    "who_is_respected_here": {
+      "answer": "shipwright masters, navigators, archivists, and successful merchants",
+      "status": "conservative_inference"
+    },
+    "who_is_feared_here": {
+      "answer": "those who control records, taxes, and strategic maritime access",
+      "status": "conservative_inference"
+    },
+    "who_is_considered_an_outsider": {
+      "answer": "landbound meddlers, smugglers, or anyone who disrupts harbor trust",
+      "status": "conservative_inference"
+    },
+    "how_are_strangers_treated": {
+      "answer": "welcomed through trade but watched through port authority and mercantile logic",
+      "status": "conservative_inference"
+    },
+    "important_customs_or_manners": {
+      "answer": "maritime competence, record-keeping, trade continuity, and coastal resilience",
+      "status": "conservative_inference"
+    },
+    "rude_honorable_shameful_or_dangerous_behavior": {
+      "answer": "Common values here are maritime competence, record-keeping, trade continuity, and coastal resilience. Outsider mistakes or suspicious acts include landbound meddlers, smugglers, or anyone who disrupts harbor trust.",
+      "status": "conservative_inference"
+    },
+    "common_values": {
+      "answer": "maritime competence, record-keeping, trade continuity, and coastal resilience",
+      "status": "conservative_inference"
+    },
+    "tensions_between_groups": {
+      "answer": "merchant opportunity versus archival control and maritime profit versus storm risk",
+      "status": "conservative_inference"
+    }
+  },
+  "government_and_power": {
+    "who_rules_this_place": {
+      "answer": "House Cosmouth nobles, archival authorities, and maritime trade leadership",
+      "status": "conservative_inference"
+    },
+    "how_is_it_governed": {
+      "answer": "house rule through maritime administration, archive authority, and port management",
+      "status": "conservative_inference"
+    },
+    "is_the_ruler_loved_feared_weak_corrupt_absent_or_respected": {
+      "answer": "respected for practical necessity and sea-linked leverage",
+      "status": "conservative_inference"
+    },
+    "how_stable_is_the_government": {
+      "answer": "stable while trade lanes and harbors hold",
+      "status": "conservative_inference"
+    },
+    "who_holds_power_behind_the_scenes": {
+      "answer": "record control, tax knowledge, and merchant favor networks",
+      "status": "conservative_inference"
+    },
+    "are_there_rival_factions": {
+      "answer": "House Cosmouth, shipwright interests, archive keepers, and port merchants",
+      "status": "conservative_inference"
+    },
+    "influential_houses_councils_guilds_churches_or_militias": {
+      "answer": "House Cosmouth, shipwright interests, archive keepers, and port merchants",
+      "status": "conservative_inference"
+    },
+    "what_laws_matter_most": {
+      "answer": "harbor order, tax administration, property protections, and maritime trade discipline",
+      "status": "conservative_inference"
+    },
+    "what_crimes_are_taken_especially_seriously": {
+      "answer": "smuggling, tax evasion, sabotage of ports or ships, and theft of records",
+      "status": "conservative_inference"
+    },
+    "how_is_justice_handled": {
+      "answer": "house and port authority with mercantile stakes shaping outcomes",
+      "status": "conservative_inference"
+    },
+    "control_level": {
+      "answer": "firm in archives and harbors, lighter in broader coastal life",
+      "status": "conservative_inference"
+    },
+    "active_rebellions_movements_or_succession_struggles": {
+      "answer": "trade disputes and seaborne competition shape politics more than public rebellion",
+      "status": "conservative_inference"
+    }
+  },
+  "history": {
+    "what_happened_here_in_the_past": {
+      "answer": "Cosmouth rose through sea power, archives, and shipwright importance within the imperial east",
+      "status": "conservative_inference"
+    },
+    "major_events_that_shaped_this_place": {
+      "answer": "Doomsday weather legacies, maritime trade growth, and floating-city development shape the polity",
+      "status": "conservative_inference"
+    },
+    "remembered_wars_disasters_miracles_betrayals_or_discoveries": {
+      "answer": "Doomsday weather legacies, maritime trade growth, and floating-city development shape the polity",
+      "status": "conservative_inference"
+    },
+    "ruins_or_remnants_of_the_past": {
+      "answer": "sea ruins, deep-water mysteries, and older coastal remains matter more than inland ruins",
+      "status": "conservative_inference"
+    },
+    "old_powers_that_once_ruled_here": {
+      "answer": "earlier maritime powers and deep-sea remnants remain partly obscured",
+      "status": "conservative_inference"
+    },
+    "what_everyone_knows_about_local_history": {
+      "answer": "everyone knows Cosmouth as a maritime and archival house-domain",
+      "status": "conservative_inference"
+    },
+    "what_history_is_disputed_hidden_or_rewritten": {
+      "answer": "what lies beneath floating-city prosperity and archive secrecy remains only partly open",
+      "status": "conservative_inference"
+    },
+    "historical_enemies_or_old_alliances": {
+      "answer": "linked heavily to Shelk, The Union, and broader eastern trade; storms and sea predators matter as much as rival states",
+      "status": "conservative_inference"
+    },
+    "legends_tied_to_this_place": {
+      "answer": "floating-city stories, leviathans, storms, and hidden archives",
+      "status": "conservative_inference"
+    },
+    "tragedies_or_victories_defining_identity": {
+      "answer": "Cosmouth turns unstable waters into wealth and continuity",
+      "status": "conservative_inference"
+    }
+  },
+  "religion_and_belief": {
+    "what_do_people_worship_here": {
+      "answer": "The Principalities support active worship of Cysur, Cyfoes, Felelem, Felujitas, and house-specific devotional traditions, with Panim carrying special religious authority.",
+      "status": "conservative_inference"
+    },
+    "which_gods_spirits_ancestors_or_cosmic_forces_matter_most": {
+      "answer": "The Principalities support active worship of Cysur, Cyfoes, Felelem, Felujitas, and house-specific devotional traditions, with Panim carrying special religious authority.",
+      "status": "conservative_inference"
+    },
+    "how_important_is_religion_in_daily_life": {
+      "answer": "present but secondary to maritime and archival administration",
+      "status": "conservative_inference"
+    },
+    "temples_shrines_sacred_sites_or_pilgrimages": {
+      "answer": "sea offerings, harbor blessings, and broader Principality devotions",
+      "status": "conservative_inference"
+    },
+    "holidays_or_rituals_observed": {
+      "answer": "sea offerings, harbor blessings, and broader Principality devotions",
+      "status": "conservative_inference"
+    },
+    "forbidden_or_outlawed_beliefs": {
+      "answer": "varies by local law and port practice",
+      "status": "unresolved"
+    },
+    "do_religious_authorities_have_political_power": {
+      "answer": "present but secondary to maritime and archival administration",
+      "status": "conservative_inference"
+    },
+    "are_miracles_normal_rare_feared_or_doubted": {
+      "answer": "religiously meaningful and politically consequential rather than mundane daily spectacle",
+      "status": "conservative_inference"
+    },
+    "common_superstitions": {
+      "answer": "storm signs, bad currents, and omen-laden harbor rites",
+      "status": "conservative_inference"
+    },
+    "omens_taboos_blessings_or_curses": {
+      "answer": "storm signs, bad currents, and omen-laden harbor rites",
+      "status": "conservative_inference"
+    }
+  },
+  "magic_and_unknown": {
+    "how_common_is_magic_here": {
+      "answer": "present through trade and shipwright enhancement but not socially free of regulation",
+      "status": "conservative_inference"
+    },
+    "who_is_allowed_to_use_it": {
+      "answer": "sanctioned arcane support in maritime, scholarly, and practical domains",
+      "status": "conservative_inference"
+    },
+    "who_fears_it": {
+      "answer": "uncontrolled sea magic, cursed cargo, and destabilizing occult influence",
+      "status": "conservative_inference"
+    },
+    "who_regulates_it": {
+      "answer": "house and imperial law with port-specific enforcement",
+      "status": "conservative_inference"
+    },
+    "is_magic_respected_outlawed_commercialized_secretive_or_sacred": {
+      "answer": "present through trade and shipwright enhancement but not socially free of regulation. Regulation posture: house and imperial law with port-specific enforcement",
+      "status": "conservative_inference"
+    },
+    "known_supernatural_events": {
+      "answer": "storm phenomena, deep-water mysteries, and enchanted seafaring knowledge",
+      "status": "conservative_inference"
+    },
+    "local_monsters_spirits_hauntings_or_anomalies": {
+      "answer": "storm phenomena, deep-water mysteries, and enchanted seafaring knowledge",
+      "status": "conservative_inference"
+    },
+    "what_is_considered_unnatural": {
+      "answer": "cursed cargoes, false records, and destabilizing magical interference",
+      "status": "conservative_inference"
+    },
+    "ancient_powers_or_mysterious_forces": {
+      "answer": "the full depth of sea ruins, archive secrecy, and what the waters still conceal",
+      "status": "conservative_inference"
+    },
+    "places_people_avoid_for_supernatural_reasons": {
+      "answer": "storm phenomena, deep-water mysteries, and enchanted seafaring knowledge",
+      "status": "conservative_inference"
+    },
+    "what_parts_remain_unexplained": {
+      "answer": "the full depth of sea ruins, archive secrecy, and what the waters still conceal",
+      "status": "conservative_inference"
+    }
+  },
+  "economy_and_daily_life": {
+    "what_drives_the_local_economy": {
+      "answer": "shipping, shipbuilding, fishing, archival administration, and maritime trade",
+      "status": "conservative_inference"
+    },
+    "what_goods_is_this_place_known_for": {
+      "answer": "ships, lumber-linked products, maritime goods, records, and imported luxuries",
+      "status": "conservative_inference"
+    },
+    "what_does_it_import_or_depend_on": {
+      "answer": "grain, inland resources, and inter-house supplies",
+      "status": "conservative_inference"
+    },
+    "is_it_wealthy_or_struggling": {
+      "answer": "wealthy through maritime connectivity and information control",
+      "status": "conservative_inference"
+    },
+    "who_benefits_from_local_trade": {
+      "answer": "house elites, merchants, shipwrights, and archive-linked authorities",
+      "status": "conservative_inference"
+    },
+    "who_suffers_under_the_current_system": {
+      "answer": "dock laborers, storm-hit sailors, and those dependent on unstable sea conditions",
+      "status": "conservative_inference"
+    },
+    "what_is_ordinary_life_like": {
+      "answer": "harbor work, record keeping, ship repair, market exchange, and sea watching",
+      "status": "conservative_inference"
+    },
+    "what_does_a_normal_day_look_like": {
+      "answer": "harbor work, record keeping, ship repair, market exchange, and sea watching",
+      "status": "conservative_inference"
+    },
+    "common_professions": {
+      "answer": "shipping, shipbuilding, fishing, archive work, trade, and port administration",
+      "status": "conservative_inference"
+    },
+    "rare_luxuries": {
+      "answer": "Luxury exists, but exact polity-wide luxury lists are not exhaustively enumerated in the current corpus.",
+      "status": "unresolved"
+    },
+    "shortages_or_needs": {
+      "answer": "harbor disruption, storm devastation, and loss of shipping control",
+      "status": "conservative_inference"
+    },
+    "travel_trade_communication_and_survival": {
+      "answer": "ports, floating-city routes, and sea lanes define movement",
+      "status": "conservative_inference"
+    }
+  },
+  "conflict_and_instability": {
+    "what_conflicts_are_happening_now": {
+      "answer": "smuggling, storms, trade rivalry, and archival leverage disputes",
+      "status": "conservative_inference"
+    },
+    "who_is_fighting_whom": {
+      "answer": "smuggling, storms, trade rivalry, and archival leverage disputes",
+      "status": "conservative_inference"
+    },
+    "longstanding_grudges_or_rivalries": {
+      "answer": "merchant opportunity versus archival control and maritime profit versus storm risk",
+      "status": "conservative_inference"
+    },
+    "what_threats_worry_people_most": {
+      "answer": "harbor disruption, storm devastation, and loss of shipping control",
+      "status": "conservative_inference"
+    },
+    "what_fears_keep_people_obedient_divided_or_armed": {
+      "answer": "harbor disruption, storm devastation, and loss of shipping control",
+      "status": "conservative_inference"
+    },
+    "raids_invasions_banditry_monsters_famine_plague_unrest_or_crackdowns": {
+      "answer": "smuggling, storms, trade rivalry, and archival leverage disputes",
+      "status": "conservative_inference"
+    },
+    "what_is_likely_to_get_worse_soon": {
+      "answer": "maritime disruption could quickly weaken Cosmouth’s position",
+      "status": "conservative_inference"
+    },
+    "what_could_destabilize_it_further": {
+      "answer": "maritime disruption could quickly weaken Cosmouth’s position",
+      "status": "conservative_inference"
+    },
+    "who_stands_to_gain_from_chaos": {
+      "answer": "pirates, smugglers, rival merchant blocs, and anyone profiting from lost records",
+      "status": "conservative_inference"
+    }
+  },
+  "identity_and_reputation": {
+    "what_is_this_place_famous_for": {
+      "answer": "shipwright excellence, floating-city life, and maritime trade",
+      "status": "conservative_inference"
+    },
+    "what_is_it_infamous_for": {
+      "answer": "hard-to-read archive politics and sea-borne intrigue",
+      "status": "conservative_inference"
+    },
+    "how_outsiders_see_this_place": {
+      "answer": "wealthy, clever, and ocean-bound",
+      "status": "conservative_inference"
+    },
+    "how_locals_see_themselves": {
+      "answer": "the seaward memory and movement of the east",
+      "status": "conservative_inference"
+    },
+    "common_stereotypes": {
+      "answer": "wealthy, clever, and ocean-bound",
+      "status": "conservative_inference"
+    },
+    "symbols_banners_songs_sayings_or_stories": {
+      "answer": "ships, archive seals, harbor towers, and floating urban imagery",
+      "status": "conservative_inference"
+    },
+    "what_makes_it_culturally_distinct": {
+      "answer": "records and sea power reinforce each other as one political system",
+      "status": "conservative_inference"
+    },
+    "what_someone_immediately_notices": {
+      "answer": "coastal cities, floating urban layers, archives, docks, libraries, and shipwright infrastructure",
+      "status": "direct_canon"
+    }
+  },
+  "wider_world_relationships": {
+    "allies_and_enemies": {
+      "answer": "linked heavily to Shelk, The Union, and broader eastern trade; storms and sea predators matter as much as rival states",
+      "status": "conservative_inference"
+    },
+    "neighboring_powers_that_matter": {
+      "answer": "linked heavily to Shelk, The Union, and broader eastern trade; storms and sea predators matter as much as rival states",
+      "status": "conservative_inference"
+    },
+    "isolation_or_connection": {
+      "answer": "connected through the wider world system",
+      "status": "conservative_inference"
+    },
+    "trade_routes_roads_ports_or_passes": {
+      "answer": "Brineland and broader eastern maritime lanes",
+      "status": "conservative_inference"
+    },
+    "larger_empires_kingdoms_religions_or_movements_affecting_it": {
+      "answer": "the maritime and archival arm of the eastern polity complex",
+      "status": "conservative_inference"
+    },
+    "outside_threats_influencing_local_decisions": {
+      "answer": "storms, whirlpools, pirates, and wider sea instability",
+      "status": "conservative_inference"
+    },
+    "how_it_fits_the_broader_world": {
+      "answer": "the maritime and archival arm of the eastern polity complex",
+      "status": "conservative_inference"
+    }
+  },
+  "secrets_and_deeper_truths": {
+    "what_is_not_said_openly_here": {
+      "answer": "record control and deep-water truths create the strongest hidden layers",
+      "status": "conservative_inference"
+    },
+    "what_locals_avoid_talking_about": {
+      "answer": "record control and deep-water truths create the strongest hidden layers",
+      "status": "conservative_inference"
+    },
+    "what_secrets_lie_under_the_surface": {
+      "answer": "record control and deep-water truths create the strongest hidden layers",
+      "status": "conservative_inference"
+    },
+    "official_story_vs_reality_contradictions": {
+      "answer": "record control and deep-water truths create the strongest hidden layers",
+      "status": "conservative_inference"
+    },
+    "ancient_or_hidden_truth_explaining_current_events": {
+      "answer": "the full depth of sea ruins, archive secrecy, and what the waters still conceal",
+      "status": "conservative_inference"
+    },
+    "what_everyone_lives_with_but_pretends_not_to_see": {
+      "answer": "record control and deep-water truths create the strongest hidden layers",
+      "status": "conservative_inference"
+    },
+    "invisible_power_structures": {
+      "answer": "record control, tax knowledge, and merchant favor networks",
+      "status": "conservative_inference"
+    },
+    "buried_history_influencing_the_present": {
+      "answer": "what lies beneath floating-city prosperity and archive secrecy remains only partly open",
+      "status": "conservative_inference"
+    }
+  }
+}

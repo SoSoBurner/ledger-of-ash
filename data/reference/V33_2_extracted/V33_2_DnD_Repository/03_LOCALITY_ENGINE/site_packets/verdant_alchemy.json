@@ -1,0 +1,40 @@
+{
+  "name": "Verdant Alchemy",
+  "parent_district": "Verdant Row District",
+  "type": "alchemy shop",
+  "approach": "Potion and crafting supply nexus for merchants and adventurers..",
+  "inside": "Potion and crafting supply nexus for merchants and adventurers.",
+  "who_belongs": [
+    "staff",
+    "petitioners",
+    "customers",
+    "clergy",
+    "guild members"
+  ],
+  "who_is_out_of_place": [
+    "saboteurs",
+    "intellectual thieves",
+    "disrespectful visitors"
+  ],
+  "expected_behavior": [
+    "respect the function of the site",
+    "follow local decorum"
+  ],
+  "visible_power": [
+    "site stewards"
+  ],
+  "economy_or_function": "alchemy shop",
+  "law_context": [],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "local_interface_role": "scribe",
+  "who_you_meet": "Verdant Alchemy Scribe",
+  "who_you_meet_surface": {
+    "interface_type": "local_role",
+    "ref": "scribe",
+    "display_name": "Verdant Alchemy Scribe",
+    "truth_layer": "conservative_inference"
+  }
+}

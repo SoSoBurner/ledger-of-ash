@@ -1,0 +1,19 @@
+{
+  "name": "Aurora Crown Commune",
+  "approach": "Blue-white dome glow, layered ice walls, and guarded thermal inlets announce a commune built to keep life possible.",
+  "truth_layer": "conservative_inference",
+  "hierarchy": {
+    "polity": "Sheresh Communes",
+    "territory": "Frigid Polar Zone",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Largest Sheresh dome commune, where survival administration, celestial study, and public endurance ritual converge.",
+    "Sheresh Dome Stewards",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

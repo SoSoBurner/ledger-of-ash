@@ -1,0 +1,95 @@
+{
+  "npc_id": "mek_waycord",
+  "canonical_name": "Mek Waycord",
+  "aliases": [
+    "the Middle Voice"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Deck Broker",
+  "profession_discipline": "Deck Broker",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Nomdara Caravan",
+  "settlement": "Necessities Buffer Train",
+  "locality_scope": "Necessities Buffer Train",
+  "institutional_ties": [
+    "Necessities Buffer Train"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as deck broker.",
+  "linked_systems": {
+    "polities": [
+      "Nomdara Caravan"
+    ],
+    "localities": [
+      "Necessities Buffer Train"
+    ],
+    "institutions": [
+      "Necessities Buffer Train"
+    ],
+    "factions": []
+  },
+  "appearance": "Mek Waycord usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their deck broker status legible before introductions begin.",
+  "manner": "Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a deck broker still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of deck broker in and around Necessities Buffer Train, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Necessities Buffer Train workable through the obligations of deck broker while managing the immediate pressure of route danger in Nomdara Caravan.",
+  "hidden_pressure": "Must read timing, trust, and supply pressure early enough that a market problem does not become a civic one. Around Necessities Buffer Train, that usually means carrying route danger, whirlpool and weather risk, dependency on negotiated access without letting the role of deck broker visibly slip.",
+  "relationship_refs": [
+    "rel_0712",
+    "rel_0721",
+    "rel_0729",
+    "rel_0736",
+    "rel_0742",
+    "rel_0747",
+    "rel_0751",
+    "rel_0755",
+    "rel_0756",
+    "rel_0757"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Mek Waycord needs help protecting a shipment, recovering leverage, or stabilizing exchange around Necessities Buffer Train before trust collapses."
+    },
+    {
+      "hook_type": "contract_complication",
+      "summary": "Mek Waycord can entangle the party in price, debt, or delivery terms that become more dangerous than they first appear."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "internal_canonical_record"
+  ],
+  "compatibility_interface_id": "mek_waycord",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Mek Waycord read as someone who lives by exchange and reputation.",
+  "encounter_context": {
+    "usual_environment": "Necessities Buffer Train: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Mek Waycord presents as Treats exchange as a social instrument as much as an economic one, reading appetite and hesitation alike. In Nomdara Caravan, that reads as someone adaptable, mobile, and transactionally warm, always reading routes, people, and changing terms, and the habits of a deck broker still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Deck Broker, and proof that strangers will not create avoidable noise in Nomdara Caravan.",
+  "what_they_refuse": "Mek Waycord refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Deck Broker too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Mek Waycord can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Mek Waycord adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Mek Waycord is Known locally through day-to-day work as deck broker. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Deck Broker."
+}

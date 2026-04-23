@@ -1,0 +1,82 @@
+{
+  "npc_id": "garden_tender_osric_pellor",
+  "canonical_name": "Garden Tender Osric Pellor",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Garden Tender",
+  "profession_discipline": "sacred gardener",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Panim",
+  "settlement": "Elysian Grove",
+  "locality_scope": "Elysian Grove",
+  "institutional_ties": [
+    "Elysian Grove"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Custodian of devotional gardens whose labor supports mourning, contemplation, and ceremonial calm.",
+  "linked_systems": {
+    "polities": [
+      "Panim"
+    ],
+    "localities": [
+      "Elysian Grove"
+    ],
+    "institutions": [
+      "Elysian Grove"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a garden tender whose work is visible through daily procedure, gatekeeping, and the practical pressures of Elysian Grove.",
+  "daily_function": "Performs the ongoing duties of garden tender in and around Elysian Grove, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Elysian Grove workable through the obligations of garden tender while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of garden tender credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Elysian Grove.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Garden Tender Osric Pellor can draw the party into a practical problem centered on Elysian Grove."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Garden Tender Osric Pellor becomes useful when the party needs access, explanation, or relief tied to the work of a garden tender."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "garden_tender_osric_pellor",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Garden Tender Osric Pellor is readable as a garden tender tied to Elysian Grove.",
+  "encounter_context": {
+    "usual_environment": "Elysian Grove: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "garden tender"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Garden Tender Osric Pellor presents as someone shaped by the duties of a garden tender and the daily pressures of Elysian Grove.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a garden tender, and proof that strangers will not make Elysian Grove harder to manage.",
+  "what_they_refuse": "Garden Tender Osric Pellor refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a garden tender too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Garden Tender Osric Pellor can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Garden Tender Osric Pellor adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Garden Tender Osric Pellor always knows more about Elysian Grove than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to garden tender duties in Elysian Grove."
+}

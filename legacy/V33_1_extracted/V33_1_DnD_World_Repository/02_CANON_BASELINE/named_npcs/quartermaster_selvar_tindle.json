@@ -1,0 +1,91 @@
+{
+  "npc_id": "quartermaster_selvar_tindle",
+  "canonical_name": "Quartermaster Selvar Tindle",
+  "aliases": [
+    "the floor boss"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "infrastructure_actor",
+  "office_or_role": "Estate Quartermaster",
+  "profession_discipline": "estate logistician",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Shelk",
+  "settlement": "House of Shelk Estate",
+  "locality_scope": "House of Shelk Estate",
+  "institutional_ties": [
+    "House of Shelk Estate"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Quartermaster of House of Shelk Estate responsible for stores, rotations, deliveries, and service readiness.",
+  "linked_systems": {
+    "polities": [
+      "Shelk"
+    ],
+    "localities": [
+      "House of Shelk Estate"
+    ],
+    "institutions": [
+      "House of Shelk Estate"
+    ],
+    "factions": []
+  },
+  "appearance": "Quartermaster Selvar Tindle carries the marks of estate quartermaster in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a estate quartermaster whose work is visible through daily procedure, gatekeeping, and the practical pressures of House of Shelk Estate.",
+  "daily_function": "Performs the ongoing duties of estate quartermaster in and around House of Shelk Estate, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in House of Shelk Estate while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Quartermaster Selvar Tindle can draw the party into a practical problem centered on House of Shelk Estate."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Quartermaster Selvar Tindle becomes useful when the party needs access, explanation, or relief tied to the work of a estate quartermaster."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "quartermaster_selvar_tindle",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Quartermaster Selvar Tindle is readable as a estate quartermaster tied to House of Shelk Estate.",
+  "encounter_context": {
+    "usual_environment": "House of Shelk Estate: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "estate quartermaster"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Quartermaster Selvar Tindle presents as someone shaped by the duties of a estate quartermaster and the daily pressures of House of Shelk Estate.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a estate quartermaster, and proof that strangers will not make House of Shelk Estate harder to manage.",
+  "what_they_refuse": "Quartermaster Selvar Tindle refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a estate quartermaster too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Quartermaster Selvar Tindle can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Quartermaster Selvar Tindle adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Quartermaster Selvar Tindle always knows more about House of Shelk Estate than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to estate quartermaster duties in House of Shelk Estate.",
+  "social_texture": "Quartermaster Selvar Tindle speaks like someone who has spent too long translating private stakes into acceptable public language. Around House of Shelk Estate, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Quartermaster touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Quartermaster Selvar Tindle when the party needs a socially grounded face for House of Shelk Estate: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

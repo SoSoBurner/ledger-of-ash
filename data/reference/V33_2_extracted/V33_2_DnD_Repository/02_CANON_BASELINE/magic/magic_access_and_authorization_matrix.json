@@ -1,0 +1,142 @@
+{
+  "name": "Magic Access and Authorization Matrix",
+  "truth_layer": "engine_canon",
+  "support_type": "operational_synthesis",
+  "summary": "Magical capability and magical legitimacy are separate questions. A person may be able to work magic without being socially, legally, or doctrinally permitted to do so.",
+  "access_requirements": [
+    "valid magical source",
+    "enough control to shape an effect",
+    "execution-channel compatibility",
+    "available cost media",
+    "symbolic literacy",
+    "bodily compatibility",
+    "tolerable ritual environment",
+    "legitimacy or willingness to absorb illegitimacy consequences",
+    "some safeguard against backlash, contamination, or trace exposure"
+  ],
+  "ineligibility_markers": [
+    "lack of metaphysical compatibility",
+    "ritual illiteracy",
+    "unstable will or memory",
+    "broken channel integrity",
+    "insufficient materials",
+    "absence of required sanction",
+    "insufficient survival threshold for contamination or backlash"
+  ],
+  "authorization_bands": [
+    {
+      "band": "sacred_and_liturgical",
+      "recognized_by": [
+        "temples",
+        "shrines",
+        "doctrinal offices"
+      ],
+      "common_uses": [
+        "blessing",
+        "sanctification",
+        "healing",
+        "vow work",
+        "funerary transition",
+        "ceremonial legitimacy"
+      ]
+    },
+    {
+      "band": "scholastic_and_guild",
+      "recognized_by": [
+        "academies",
+        "archives",
+        "licensed workshops",
+        "registered artificers"
+      ],
+      "common_uses": [
+        "inscription",
+        "enchantment",
+        "research",
+        "ward upkeep",
+        "device operation"
+      ]
+    },
+    {
+      "band": "state_and_security",
+      "recognized_by": [
+        "courts",
+        "enforcement bodies",
+        "bastions",
+        "command offices"
+      ],
+      "common_uses": [
+        "detection",
+        "suppression",
+        "evidence handling",
+        "containment",
+        "fortification support"
+      ]
+    },
+    {
+      "band": "house_and_office",
+      "recognized_by": [
+        "noble houses",
+        "sealed estates",
+        "chartered offices"
+      ],
+      "common_uses": [
+        "lineage rites",
+        "access control",
+        "ceremonial hosting",
+        "heirloom custody",
+        "private archive protection"
+      ]
+    },
+    {
+      "band": "illicit_or_contested",
+      "recognized_by": [
+        "nobody publicly",
+        "hidden cells",
+        "survivor traditions",
+        "smugglers",
+        "forbidden cults"
+      ],
+      "common_uses": [
+        "concealment",
+        "illegal healing",
+        "smuggled relic use",
+        "unregistered bloodline practice",
+        "forbidden contact work"
+      ]
+    }
+  ],
+  "legibility_consequences": {
+    "legible_magic": [
+      "can be named and archived",
+      "can be repeated with less procedural drift",
+      "can be sanctioned, taxed, or prosecuted",
+      "can be countered by known procedures"
+    ],
+    "illegible_magic": [
+      "produces fear disproportionate to immediate power",
+      "attracts harsher enforcement",
+      "spreads rumor faster than doctrine",
+      "is more likely to be treated as contamination, heresy, or espionage"
+    ]
+  },
+  "conditional_eligibility_examples": [
+    "inside a chapel, academy, dome, archive, or sanctioned chamber",
+    "while carrying office seals or registered implements",
+    "during a valid observance, cycle, or witness-certified proceeding",
+    "when supported by a collective rite or site reserve",
+    "under the authority of a house, guild, or state clearance structure"
+  ],
+  "sources": [
+    "magical_system_specification",
+    "pantheon_story",
+    "doomsday_planets",
+    "principalities",
+    "principality_shelk",
+    "principality_roaz",
+    "soreheim_alliance",
+    "spatial_seasonal",
+    "universal_geographic_relationships"
+  ],
+  "version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

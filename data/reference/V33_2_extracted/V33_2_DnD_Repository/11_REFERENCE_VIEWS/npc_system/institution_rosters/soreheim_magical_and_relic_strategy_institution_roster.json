@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Soreheim magical and relic strategy",
+  "record_count": 1,
+  "npc_ids": [
+    "decon_von_reckshem"
+  ],
+  "records": [
+    {
+      "npc_id": "decon_von_reckshem",
+      "canonical_name": "Decon Von Reckshem",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Stone Giant wizard advisor and relic strategist",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as stone giant wizard advisor and relic strategist.",
+      "current_agenda": "Keep the surrounding locality workable through the obligations of stone giant wizard advisor and relic strategist while managing the immediate pressure of resource depletion in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Soreheim magical and relic strategy is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

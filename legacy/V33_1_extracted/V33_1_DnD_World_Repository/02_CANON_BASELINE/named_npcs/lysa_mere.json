@@ -1,0 +1,104 @@
+{
+  "npc_id": "lysa_mere",
+  "canonical_name": "Lysa Mere",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "trade_actor",
+  "office_or_role": "Apprentice Factor",
+  "profession_discipline": "Apprentice Factor",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Stoneforge Depot",
+  "locality_scope": "Stoneforge Depot",
+  "institutional_ties": [
+    "Stoneforge Depot"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as apprentice factor.",
+  "linked_systems": {
+    "polities": [
+      "Transpolity"
+    ],
+    "localities": [
+      "Stoneforge Depot"
+    ],
+    "institutions": [
+      "Stoneforge Depot"
+    ],
+    "factions": []
+  },
+  "appearance": "Lysa Mere carries the marks of apprentice factor in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a apprentice factor still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of apprentice factor in and around Stoneforge Depot, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Stoneforge Depot while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_0537",
+    "rel_0546",
+    "rel_0554",
+    "rel_0561",
+    "rel_0567",
+    "rel_0572",
+    "rel_0577",
+    "rel_0578",
+    "rel_0579",
+    "rel_0580",
+    "rel_1192"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "market_information",
+      "summary": "Lysa Mere will trade route, scarcity, or faction insight once the party resolves a commercial problem others cannot touch openly."
+    },
+    {
+      "hook_type": "supply_pressure",
+      "summary": "Lysa Mere needs help protecting a shipment, recovering leverage, or stabilizing exchange around Stoneforge Depot before trust collapses."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "compatibility_interface_id": "lysa_mere",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Textiles, tokens, tally habits, and practiced bargaining poise make Lysa Mere read as someone who lives by exchange and reputation.",
+  "encounter_context": {
+    "usual_environment": "Stoneforge Depot: markets, counting tables, depots, ports, inns, or contract rooms",
+    "who_seeks_them_out": [
+      "buyers",
+      "suppliers",
+      "travelers needing terms"
+    ],
+    "who_avoids_them": [
+      "thieves",
+      "debt-dodgers",
+      "those who waste time without value"
+    ],
+    "interaction_anchor": "exchange, supply, or bargaining pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Lysa Mere presents as Negotiates in practical terms, weighing people, timing, shortage, and leverage together. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a apprentice factor still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Apprentice Factor, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Lysa Mere refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Apprentice Factor too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Lysa Mere can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Lysa Mere adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Lysa Mere is Known locally through day-to-day work as apprentice factor. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Apprentice Factor.",
+  "social_texture": "Lysa Mere speaks like someone who has spent too long translating private stakes into acceptable public language. Around Stoneforge Depot, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Lysa touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Lysa Mere when the party needs a socially grounded face for Stoneforge Depot: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

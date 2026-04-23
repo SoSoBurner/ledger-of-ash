@@ -1,0 +1,10 @@
+{
+  "tracks": [
+    "axial flip effects",
+    "storm season",
+    "harvest season",
+    "ash season",
+    "thaw windows"
+  ],
+  "default_state": "baseline_pending_runtime_change"
+}

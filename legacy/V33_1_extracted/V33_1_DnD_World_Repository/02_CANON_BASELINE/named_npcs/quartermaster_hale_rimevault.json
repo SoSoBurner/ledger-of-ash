@@ -1,0 +1,93 @@
+{
+  "npc_id": "quartermaster_hale_rimevault",
+  "canonical_name": "Quartermaster Hale Rimevault",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Resource Allocator",
+  "profession_discipline": "Resource Allocator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Hearthcoil Commune",
+  "locality_scope": "Hearthcoil Commune",
+  "institutional_ties": [
+    "Hearthcoil Commune"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as resource allocator.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Hearthcoil Commune"
+    ],
+    "institutions": [
+      "Hearthcoil Commune"
+    ],
+    "factions": []
+  },
+  "appearance": "Quartermaster Hale Rimevault carries the marks of resource allocator in crystalline chill: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a resource allocator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of resource allocator in and around Hearthcoil Commune, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Hearthcoil Commune while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to mutational drift is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_1079",
+    "rel_1081",
+    "rel_1082"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "information_offer",
+      "summary": "Quartermaster Hale Rimevault can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Quartermaster Hale Rimevault needs help with a problem in Hearthcoil Commune that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "quartermaster_hale_rimevault",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Quartermaster Hale Rimevault carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Hearthcoil Commune, this lands inside a public field already shaped by Communal Ration Allocators.",
+  "encounter_context": {
+    "usual_environment": "Hearthcoil Commune: the part of Hearthcoil Commune where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Quartermaster Hale Rimevault presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a resource allocator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Resource Allocator, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Quartermaster Hale Rimevault refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Resource Allocator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Quartermaster Hale Rimevault can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Quartermaster Hale Rimevault adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Quartermaster Hale Rimevault is Known locally through day-to-day work as resource allocator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Resource Allocator.",
+  "social_texture": "Quartermaster Hale Rimevault speaks like someone who has spent too long translating private stakes into acceptable public language. Around Hearthcoil Commune, people read them as spell-literate, aesthetically alert, and wary of magical contamination.",
+  "money_pressure": "Their material pressure is tied to reagents; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but mutational drift becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Quartermaster touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Quartermaster Hale Rimevault when the party needs a socially grounded face for Hearthcoil Commune: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

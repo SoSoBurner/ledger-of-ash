@@ -1,0 +1,82 @@
+{
+  "npc_id": "dock_warden_thes_marrow",
+  "canonical_name": "Dock Warden Thes Marrow",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_actor",
+  "office_or_role": "Dock Warden",
+  "profession_discipline": "dock officer",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Cosmouth",
+  "settlement": "Seaward Haven",
+  "locality_scope": "Seaward Haven",
+  "institutional_ties": [
+    "Seaward Haven"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Operational warden of quay crews, rope stores, and tide-window departures in Seaward Haven.",
+  "linked_systems": {
+    "polities": [
+      "Cosmouth"
+    ],
+    "localities": [
+      "Seaward Haven"
+    ],
+    "institutions": [
+      "Seaward Haven"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a dock warden whose work is visible through daily procedure, gatekeeping, and the practical pressures of Seaward Haven.",
+  "daily_function": "Performs the ongoing duties of dock warden in and around Seaward Haven, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Seaward Haven workable through the obligations of dock warden while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of dock warden credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Seaward Haven.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Dock Warden Thes Marrow can draw the party into a practical problem centered on Seaward Haven."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Dock Warden Thes Marrow becomes useful when the party needs access, explanation, or relief tied to the work of a dock warden."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "dock_warden_thes_marrow",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Dock Warden Thes Marrow is readable as a dock warden tied to Seaward Haven.",
+  "encounter_context": {
+    "usual_environment": "Seaward Haven: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "dock warden"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Dock Warden Thes Marrow presents as someone shaped by the duties of a dock warden and the daily pressures of Seaward Haven.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a dock warden, and proof that strangers will not make Seaward Haven harder to manage.",
+  "what_they_refuse": "Dock Warden Thes Marrow refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a dock warden too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Dock Warden Thes Marrow can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Dock Warden Thes Marrow adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Dock Warden Thes Marrow always knows more about Seaward Haven than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to dock warden duties in Seaward Haven."
+}

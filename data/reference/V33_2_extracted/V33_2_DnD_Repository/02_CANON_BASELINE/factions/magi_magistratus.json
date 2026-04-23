@@ -1,0 +1,45 @@
+{
+  "name": "Magi Magistratus",
+  "type": "Shirsh magic-law faction",
+  "truth_layer": "direct_canon",
+  "summary": "Magical law investigators and enforcers operating across houses to pursue misconduct and arcane irregularity.",
+  "motive": "Keep dangerous or illicit magic within legible boundaries and preserve Shirsh authority over magical investigations.",
+  "methods": [
+    "inquiry",
+    "licensed detection",
+    "case review",
+    "field investigation"
+  ],
+  "geography": [
+    "Shirshal",
+    "cross-house investigation zones",
+    "observatories"
+  ],
+  "power_relations": [
+    "Linked to House Shirsh; may clash with Roaz, Mimolot, or private magical actors over jurisdiction"
+  ],
+  "current_pressure": [
+    "hidden practitioners",
+    "house politics",
+    "information control"
+  ],
+  "visible_membership_base": "Magical magistrates, investigators, evidence scribes, celestial specialists.",
+  "civilian_contact_surface": [
+    "complaint intake",
+    "licensed hearings",
+    "artifact checks"
+  ],
+  "current_tension_or_vulnerability": "The deeper the investigation goes, the more the faction risks becoming a political weapon instead of a neutral safeguard.",
+  "sources": [
+    "principalities"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "risha_veilthorn"
+  ],
+  "npc_interfaces": [
+    "risha_veilthorn"
+  ]
+}

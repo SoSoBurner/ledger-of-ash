@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Eternal trade oversight",
+  "record_count": 1,
+  "npc_ids": [
+    "gryndal_vesskar"
+  ],
+  "records": [
+    {
+      "npc_id": "gryndal_vesskar",
+      "canonical_name": "Gryndal Vesskar",
+      "polity": "Soreheim Alliance",
+      "office_or_role": "Unauthorized trade adjudicator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as unauthorized trade adjudicator.",
+      "current_agenda": "Keep Ashforge Quarry workable through the obligations of unauthorized trade adjudicator while managing the immediate pressure of predators in Soreheim Alliance."
+    }
+  ],
+  "roster_context": {
+    "identity": "Eternal trade oversight is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "repository_internal_reconciliation"
+  ]
+}

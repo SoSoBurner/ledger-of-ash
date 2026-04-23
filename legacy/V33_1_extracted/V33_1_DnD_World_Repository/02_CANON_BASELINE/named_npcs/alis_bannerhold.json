@@ -1,0 +1,83 @@
+{
+  "npc_id": "alis_bannerhold",
+  "canonical_name": "Alis Bannerhold",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Foundry Clerk",
+  "profession_discipline": "foundry administration and shipment records",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Emberhollow Forge Town",
+  "locality_scope": "Emberhollow Forge Town",
+  "institutional_ties": [
+    "Emberhollow Forge Town"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Emberhollow Forge Town through steady work as a foundry clerk.",
+  "linked_systems": {
+    "polities": [
+      "Psanan"
+    ],
+    "localities": [
+      "Emberhollow Forge Town"
+    ],
+    "institutions": [
+      "Emberhollow Forge Town"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries role-shaped habits that make local pressure visible in the way they speak and judge strangers. In Emberhollow Forge Town, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of a foundry clerk in and around Emberhollow Forge Town, keeping ordinary obligations from turning into public disorder.",
+  "current_agenda": "Keep Emberhollow Forge Town workable by absorbing local strain before it becomes a visible scandal, shutdown, or breach of order.",
+  "hidden_pressure": "Must keep the role of foundry clerk credible while managing pressure tied to status, access, logistics, and local reputation in Emberhollow Forge Town.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Alis Bannerhold can draw the party into a locality problem centered on forge master telan pyrehand duties in Emberhollow Forge Town."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Alis Bannerhold becomes useful when the party needs grounded help with furnace failure, labor disputes, ash burial around Emberhollow Forge Town."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "emberhollow_forge_town"
+  ],
+  "compatibility_interface_id": "alis_bannerhold",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Alis Bannerhold is immediately readable as a forge master telan pyrehand tied to Emberhollow Forge Town.",
+  "encounter_context": {
+    "usual_environment": "Emberhollow Forge Town: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "foundry clerk"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Alis Bannerhold presents as someone shaped by the duties of a foundry clerk and the daily pressures of Emberhollow Forge Town.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a foundry clerk, and proof that strangers will not make Emberhollow Forge Town harder to manage.",
+  "what_they_refuse": "Alis Bannerhold refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a forge master telan pyrehand too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Alis Bannerhold adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Alis Bannerhold always knows more about Emberhollow Forge Town than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a foundry clerk in Emberhollow Forge Town."
+}

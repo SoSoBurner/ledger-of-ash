@@ -1,0 +1,14 @@
+{
+  "code": "Principle Code § 202",
+  "title": "Trespassing in Noble Domains",
+  "severity": "felony",
+  "description": "Unauthorized entry into protected noble spaces.",
+  "jurisdictions": [
+    "House of Shelk Estate"
+  ],
+  "truth_layer": "direct_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "additional_legal"
+  ]
+}

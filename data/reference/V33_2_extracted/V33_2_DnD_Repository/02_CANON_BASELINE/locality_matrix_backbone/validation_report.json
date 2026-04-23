@@ -1,0 +1,1373 @@
+{
+  "release_identity": "V33_2",
+  "package_root": "V33_2_DnD_Repository",
+  "build_signature": "V33_2_LOCALITY_MATRIX_CANON_REPLACEMENT_REBUILD",
+  "generated_at": "2026-04-20T22:34:37Z",
+  "hierarchy_validation": {
+    "passed": [
+      {
+        "locality_id": "aurora_meadows"
+      },
+      {
+        "locality_id": "brineland"
+      },
+      {
+        "locality_id": "deep_forest"
+      },
+      {
+        "locality_id": "edict_ocean"
+      },
+      {
+        "locality_id": "eternal_lands"
+      },
+      {
+        "locality_id": "frozen_quagmires"
+      },
+      {
+        "locality_id": "meadow_lyra"
+      },
+      {
+        "locality_id": "north_swirling_sea"
+      },
+      {
+        "locality_id": "soreheim_proper"
+      },
+      {
+        "locality_id": "south_swirling_sea"
+      },
+      {
+        "locality_id": "union_successor_heartland"
+      },
+      {
+        "locality_id": "verdant_caves"
+      },
+      {
+        "locality_id": "whispering_dunes"
+      },
+      {
+        "locality_id": "ashforge_quarry"
+      },
+      {
+        "locality_id": "ashwake_port"
+      },
+      {
+        "locality_id": "cosmoria"
+      },
+      {
+        "locality_id": "emberhollow_forge_town"
+      },
+      {
+        "locality_id": "embervale_settlement"
+      },
+      {
+        "locality_id": "fairhaven"
+      },
+      {
+        "locality_id": "glasswake_commune"
+      },
+      {
+        "locality_id": "harvest_keep"
+      },
+      {
+        "locality_id": "hearthcoil_commune"
+      },
+      {
+        "locality_id": "ithtananalor"
+      },
+      {
+        "locality_id": "ledger_canal"
+      },
+      {
+        "locality_id": "panim_haven"
+      },
+      {
+        "locality_id": "plumes_end_outpost"
+      },
+      {
+        "locality_id": "shelkopolis"
+      },
+      {
+        "locality_id": "silent_haven"
+      },
+      {
+        "locality_id": "soreheim_proper"
+      },
+      {
+        "locality_id": "starbreak_commune"
+      },
+      {
+        "locality_id": "whitebridge_commune"
+      },
+      {
+        "locality_id": "aurora_heights_district"
+      },
+      {
+        "locality_id": "granary_steps"
+      },
+      {
+        "locality_id": "iron_ledger_ward"
+      },
+      {
+        "locality_id": "ironspool_ward_district"
+      },
+      {
+        "locality_id": "reckoning_quarter"
+      },
+      {
+        "locality_id": "verdant_row_district"
+      },
+      {
+        "locality_id": "amber_fountain_inn"
+      },
+      {
+        "locality_id": "aurora_light_cathedral"
+      },
+      {
+        "locality_id": "blooming_brazier_workshop"
+      },
+      {
+        "locality_id": "coffin_contract_cloister"
+      },
+      {
+        "locality_id": "crystal_loom_emporium"
+      },
+      {
+        "locality_id": "gilded_archives_lore"
+      },
+      {
+        "locality_id": "golden_needle_academy"
+      },
+      {
+        "locality_id": "house_shelk_estate"
+      },
+      {
+        "locality_id": "iron_ward_workshop"
+      },
+      {
+        "locality_id": "market_row_guildhall"
+      },
+      {
+        "locality_id": "measure_house_harvest_keep"
+      },
+      {
+        "locality_id": "ore_petition_hall"
+      },
+      {
+        "locality_id": "roadwardens_central_command"
+      },
+      {
+        "locality_id": "sanctuary_shadows"
+      },
+      {
+        "locality_id": "shelkopolis_public_library"
+      },
+      {
+        "locality_id": "shifting_needle_market"
+      },
+      {
+        "locality_id": "silkweavers_chapel"
+      },
+      {
+        "locality_id": "stoneforge_depot"
+      },
+      {
+        "locality_id": "sunlit_plaza"
+      },
+      {
+        "locality_id": "tariff_lectorium"
+      },
+      {
+        "locality_id": "rusted_loom_tavern"
+      },
+      {
+        "locality_id": "silver_stag_tavern"
+      },
+      {
+        "locality_id": "starlit_forge"
+      },
+      {
+        "locality_id": "tattered_banner"
+      },
+      {
+        "locality_id": "whispering_well"
+      },
+      {
+        "locality_id": "threads_twilight_market"
+      },
+      {
+        "locality_id": "twilight_threadmill"
+      },
+      {
+        "locality_id": "velvet_pinnacle_hall"
+      },
+      {
+        "locality_id": "verdant_alchemy"
+      },
+      {
+        "locality_id": "ashforge_citadel"
+      },
+      {
+        "locality_id": "ashforge_quarry"
+      },
+      {
+        "locality_id": "ashveil_quay"
+      },
+      {
+        "locality_id": "aurora_meadows_domeway"
+      },
+      {
+        "locality_id": "blackglass_hold"
+      },
+      {
+        "locality_id": "blueglass_gate"
+      },
+      {
+        "locality_id": "cindergrain_basin"
+      },
+      {
+        "locality_id": "cindermount"
+      },
+      {
+        "locality_id": "cinderwake_watch"
+      },
+      {
+        "locality_id": "craftspire"
+      },
+      {
+        "locality_id": "crimson_watchtower"
+      },
+      {
+        "locality_id": "crystalline_vault_commune"
+      },
+      {
+        "locality_id": "duneshade_outpost"
+      },
+      {
+        "locality_id": "embervale_settlement"
+      },
+      {
+        "locality_id": "emberwake_port"
+      },
+      {
+        "locality_id": "frostglass_commune"
+      },
+      {
+        "locality_id": "frostmantle_works"
+      },
+      {
+        "locality_id": "furnace_spine"
+      },
+      {
+        "locality_id": "glasshush_reactor_ward"
+      },
+      {
+        "locality_id": "golden_horizon_fields"
+      },
+      {
+        "locality_id": "guildheart_hub"
+      },
+      {
+        "locality_id": "harvest_circle"
+      },
+      {
+        "locality_id": "hearth_unity"
+      },
+      {
+        "locality_id": "hollow_aurora_commune"
+      },
+      {
+        "locality_id": "ironroot_crossing"
+      },
+      {
+        "locality_id": "market_crossroads"
+      },
+      {
+        "locality_id": "molten_span"
+      },
+      {
+        "locality_id": "northcoil_archive_commune"
+      },
+      {
+        "locality_id": "oathforge_gate"
+      },
+      {
+        "locality_id": "quarrylight_span"
+      },
+      {
+        "locality_id": "redglass_stairs"
+      },
+      {
+        "locality_id": "sanctuary_wisdom"
+      },
+      {
+        "locality_id": "scarlet_depths"
+      },
+      {
+        "locality_id": "shrine_ascension"
+      },
+      {
+        "locality_id": "slagmere_steps"
+      },
+      {
+        "locality_id": "snowthread_basin"
+      },
+      {
+        "locality_id": "soreheim_proper"
+      },
+      {
+        "locality_id": "sparkforge_depot"
+      },
+      {
+        "locality_id": "stoneplow_reach"
+      },
+      {
+        "locality_id": "sunspire_haven"
+      },
+      {
+        "locality_id": "titan_towers"
+      },
+      {
+        "locality_id": "titans_relay"
+      },
+      {
+        "locality_id": "unity_square"
+      },
+      {
+        "locality_id": "whiteveil_domeway"
+      },
+      {
+        "locality_id": "ash_wing_mosaic_way"
+      },
+      {
+        "locality_id": "ashkiss_doorstones"
+      },
+      {
+        "locality_id": "aurora_bone_span"
+      },
+      {
+        "locality_id": "aurora_glass_bloom_fields"
+      },
+      {
+        "locality_id": "aurora_tithe_fields"
+      },
+      {
+        "locality_id": "basalt_prayer_sumps"
+      },
+      {
+        "locality_id": "behir_scratch_ridge"
+      },
+      {
+        "locality_id": "blacksalt_mirror_flats"
+      },
+      {
+        "locality_id": "blueglass_exposure_field"
+      },
+      {
+        "locality_id": "booktar_bog"
+      },
+      {
+        "locality_id": "bridgegrave_narrows"
+      },
+      {
+        "locality_id": "chainlight_trestles"
+      },
+      {
+        "locality_id": "choir_ice_breach"
+      },
+      {
+        "locality_id": "choirspine_thermals"
+      },
+      {
+        "locality_id": "cinder_wind_sinks"
+      },
+      {
+        "locality_id": "copper_jackal_steppe"
+      },
+      {
+        "locality_id": "crystalline_vault"
+      },
+      {
+        "locality_id": "dreadwake_shoals"
+      },
+      {
+        "locality_id": "ember_spine_cut"
+      },
+      {
+        "locality_id": "embermast_hinge"
+      },
+      {
+        "locality_id": "frostline_crossing"
+      },
+      {
+        "locality_id": "frostprayer_causeway"
+      },
+      {
+        "locality_id": "frozen_sentinel_pillars"
+      },
+      {
+        "locality_id": "gallows_orchard_hardfruit"
+      },
+      {
+        "locality_id": "glacial_fissures"
+      },
+      {
+        "locality_id": "glasshollow_mutation_drift"
+      },
+      {
+        "locality_id": "glasswake_penance_beach"
+      },
+      {
+        "locality_id": "glyph_engraved_monoliths"
+      },
+      {
+        "locality_id": "grainveil_meadows"
+      },
+      {
+        "locality_id": "gravewake_chainyard"
+      },
+      {
+        "locality_id": "hardcoin_spar_fields"
+      },
+      {
+        "locality_id": "hardfruit_wifegrove"
+      },
+      {
+        "locality_id": "hollow_veil_shelter"
+      },
+      {
+        "locality_id": "hushfen_reed_maze"
+      },
+      {
+        "locality_id": "ledgermire_crossing"
+      },
+      {
+        "locality_id": "merchant_trail_junction"
+      },
+      {
+        "locality_id": "moonstamp_rest"
+      },
+      {
+        "locality_id": "mothershard_icewell"
+      },
+      {
+        "locality_id": "mystical_flora_grove"
+      },
+      {
+        "locality_id": "needleprayer_ford"
+      },
+      {
+        "locality_id": "oxblood_quarry_steps"
+      },
+      {
+        "locality_id": "plumehouse_shut_gates"
+      },
+      {
+        "locality_id": "queenfall_scar"
+      },
+      {
+        "locality_id": "queenstep_red_dunes"
+      },
+      {
+        "locality_id": "red_milk_cisterns"
+      },
+      {
+        "locality_id": "redfeather_misroad"
+      },
+      {
+        "locality_id": "renewal_plaza_masks"
+      },
+      {
+        "locality_id": "saint_chain_breakwater"
+      },
+      {
+        "locality_id": "saints_hinge_falls"
+      },
+      {
+        "locality_id": "saintsmoke_switchbacks"
+      },
+      {
+        "locality_id": "scarlet_depths"
+      },
+      {
+        "locality_id": "scripwind_crossing"
+      },
+      {
+        "locality_id": "sepulcher_tide_steps"
+      },
+      {
+        "locality_id": "silent_tax_roadside"
+      },
+      {
+        "locality_id": "stargazing_ruins"
+      },
+      {
+        "locality_id": "stone_dais_lyra"
+      },
+      {
+        "locality_id": "stormglass_causeway"
+      },
+      {
+        "locality_id": "sunken_bell_garden"
+      },
+      {
+        "locality_id": "undertower_marrow_wells"
+      },
+      {
+        "locality_id": "votive_silt_reach"
+      },
+      {
+        "locality_id": "vow_court_terrace"
+      },
+      {
+        "locality_id": "whirlpool_prayer_chain"
+      },
+      {
+        "locality_id": "white_veil_lantern_field"
+      },
+      {
+        "locality_id": "widow_reed_fens"
+      },
+      {
+        "locality_id": "widowsalt_causeway"
+      },
+      {
+        "locality_id": "widowspoke_switchyard"
+      },
+      {
+        "locality_id": "cosmoria_high_quarter"
+      },
+      {
+        "locality_id": "cosmoria_common_quarter"
+      },
+      {
+        "locality_id": "cosmoria_low_ward"
+      },
+      {
+        "locality_id": "soreheim_proper_high_quarter"
+      },
+      {
+        "locality_id": "soreheim_proper_common_quarter"
+      },
+      {
+        "locality_id": "soreheim_proper_low_ward"
+      },
+      {
+        "locality_id": "cosmoria_archive_exchange_barge"
+      },
+      {
+        "locality_id": "edict_ocean_flotilla"
+      },
+      {
+        "locality_id": "elder_consensus_hearing_wagon"
+      },
+      {
+        "locality_id": "grand_exchange_circuit"
+      },
+      {
+        "locality_id": "guildheart_arbitration_camp"
+      },
+      {
+        "locality_id": "mimolot_lecture_caravan"
+      },
+      {
+        "locality_id": "necessities_buffer_train"
+      },
+      {
+        "locality_id": "panim_pilgrim_escort_lane"
+      },
+      {
+        "locality_id": "psanan_ash_route_mediation_fleet"
+      },
+      {
+        "locality_id": "soreheim_allocation_exchange_train"
+      },
+      {
+        "locality_id": "south_swirling_fleet"
+      }
+    ],
+    "failed": [
+      {
+        "locality_id": "arbiters_row",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "ashforge_citadel",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "aurora_crown_commune",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "banner_anchorage",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "canal_thorn_exchange",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "cindervow_quarter",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "craftspire",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "duneshade_outpost",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "emberforge_outpost",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "guildheart_hub",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "harvest_circle",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "housechain_court",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "hullwake_foundry",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "lantern_docket",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "market_crossroads",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "maskscar_plaza_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "mediators_court",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "scarlet_descent_gate",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "sealwater_conclave",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "serpent_measure",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "sunspire_haven",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "tariff_lantern_court",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "tideglass_registry",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "unity_square",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "veilbridge_sepulcher",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "witness_coil",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "scriptorium_steps",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "canal_thorn_exchange_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "hullwake_foundry_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "lantern_docket_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "serpent_measure_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "tariff_lantern_court_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "tideglass_registry_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "veilbridge_sepulcher_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "witness_coil_district",
+        "problems": [
+          "district_missing_parent_settlement"
+        ]
+      },
+      {
+        "locality_id": "canal_thorn_exchange_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "hullwake_foundry_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "ironhold_quarry",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "lantern_docket_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "mimolot_academy",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "serpent_measure_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "shirshal",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "tariff_lantern_court_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "tideglass_registry_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "veilbridge_sepulcher_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      },
+      {
+        "locality_id": "witness_coil_subnode",
+        "problems": [
+          "sublocation_missing_parent"
+        ]
+      }
+    ]
+  },
+  "route_validation": {
+    "passed": [
+      {
+        "route_id": "amber_tides_river",
+        "from": "Amber Fountain Inn",
+        "to": "Fairhaven"
+      },
+      {
+        "route_id": "ashforge_citadel_ashwake_harbor_lane",
+        "from": "Ashforge Citadel",
+        "to": "Ashwake Port"
+      },
+      {
+        "route_id": "ashforge_citadel_scarlet_descent_road",
+        "from": "Ashforge Citadel",
+        "to": "Ashforge Quarry"
+      },
+      {
+        "route_id": "ashwake_harbor_lane",
+        "from": "Ash-Wing Mosaic Way",
+        "to": "Ashwake Port"
+      },
+      {
+        "route_id": "ashwake_port_ashforge_citadel_harbor_road",
+        "from": "Ashwake Port",
+        "to": "Ashforge Citadel"
+      },
+      {
+        "route_id": "aurora_crown_commune_aurora_meadows_patrol_route",
+        "from": "Aurora Crown Commune",
+        "to": "Aurora Meadows Domeway"
+      },
+      {
+        "route_id": "aurora_crown_commune_whitebridge_domeway",
+        "from": "Aurora Crown Commune",
+        "to": "Whitebridge Commune"
+      },
+      {
+        "route_id": "cosmoria_brineland_harbor_ring",
+        "from": "Cosmoria",
+        "to": "Brineland"
+      },
+      {
+        "route_id": "fairhaven_shelkopolis_road",
+        "from": "Fairhaven",
+        "to": "Shelkopolis"
+      },
+      {
+        "route_id": "guildheart_hub_craftspire_workshop_corridor",
+        "from": "Guildheart Hub",
+        "to": "Craftspire"
+      },
+      {
+        "route_id": "guildheart_hub_unity_square_bargaining_road",
+        "from": "Guildheart Hub",
+        "to": "Unity Square"
+      },
+      {
+        "route_id": "ironroot_crossing",
+        "from": "Iron Ledger Ward",
+        "to": "Ironroot Crossing"
+      },
+      {
+        "route_id": "ithtananalor_ironhold_quarry_road",
+        "from": "Ithtananalor",
+        "to": "Iron Ledger Ward"
+      },
+      {
+        "route_id": "ithtananalor_silent_haven_convoy_lane",
+        "from": "Ithtananalor",
+        "to": "Silent Haven"
+      },
+      {
+        "route_id": "panim_haven_sanctum_sands_memorial_road",
+        "from": "Panim Haven",
+        "to": "Veilbridge Sepulcher"
+      },
+      {
+        "route_id": "principality_cosmouth_route_corridor_1",
+        "from": "Tideglass Registry",
+        "to": "Hullwake Foundry"
+      },
+      {
+        "route_id": "principality_cosmouth_route_corridor_2",
+        "from": "Tideglass Registry",
+        "to": "Hullwake Foundry"
+      },
+      {
+        "route_id": "principality_cosmouth_route_corridor_3",
+        "from": "Tideglass Registry",
+        "to": "Hullwake Foundry"
+      },
+      {
+        "route_id": "principality_mimolot_route_corridor_1",
+        "from": "Tariff Lantern Court",
+        "to": "Mimolot Academy"
+      },
+      {
+        "route_id": "principality_mimolot_route_corridor_2",
+        "from": "Tariff Lantern Court",
+        "to": "Mimolot Academy"
+      },
+      {
+        "route_id": "principality_mimolot_route_corridor_3",
+        "from": "Tariff Lantern Court",
+        "to": "Mimolot Academy"
+      },
+      {
+        "route_id": "principality_panim_route_corridor_1",
+        "from": "Veilbridge Sepulcher",
+        "to": "Panim Haven"
+      },
+      {
+        "route_id": "principality_panim_route_corridor_2",
+        "from": "Veilbridge Sepulcher",
+        "to": "Panim Haven"
+      },
+      {
+        "route_id": "principality_panim_route_corridor_3",
+        "from": "Veilbridge Sepulcher",
+        "to": "Panim Haven"
+      },
+      {
+        "route_id": "principality_roaz_route_hardening_3",
+        "from": "Ironhold Quarry",
+        "to": "Silent Haven"
+      },
+      {
+        "route_id": "principality_shirsh_route_corridor_1",
+        "from": "Witness Coil",
+        "to": "Witness Coil"
+      },
+      {
+        "route_id": "principality_shirsh_route_corridor_2",
+        "from": "Witness Coil",
+        "to": "Witness Coil"
+      },
+      {
+        "route_id": "principality_shirsh_route_corridor_3",
+        "from": "Witness Coil",
+        "to": "Witness Coil"
+      },
+      {
+        "route_id": "principality_zootia_route_corridor_1",
+        "from": "Canal Thorn Exchange",
+        "to": "Serpent Measure"
+      },
+      {
+        "route_id": "principality_zootia_route_corridor_2",
+        "from": "Canal Thorn Exchange",
+        "to": "Serpent Measure"
+      },
+      {
+        "route_id": "principality_zootia_route_corridor_3",
+        "from": "Canal Thorn Exchange",
+        "to": "Serpent Measure"
+      },
+      {
+        "route_id": "scarlet_descent_road",
+        "from": "Scarlet Descent Gate",
+        "to": "Scarlet Depths"
+      },
+      {
+        "route_id": "shelkopolis_fairhaven_road",
+        "from": "Shelkopolis",
+        "to": "Fairhaven"
+      },
+      {
+        "route_id": "shelkopolis_plumes_end_northern_road",
+        "from": "Shelkopolis Public Library",
+        "to": "Plume’s End Outpost"
+      },
+      {
+        "route_id": "sheresh_communes_route_hardening_3",
+        "from": "Aurora Crown Commune",
+        "to": "Whitebridge Commune"
+      },
+      {
+        "route_id": "shirshal_crystal_grove_route",
+        "from": "Shirshal",
+        "to": "Crystal Loom Emporium"
+      },
+      {
+        "route_id": "soreheim_proper_eternal_lands_freight_route",
+        "from": "Soreheim Proper",
+        "to": "Eternal Lands"
+      },
+      {
+        "route_id": "soreheim_proper_ironroot_crossing",
+        "from": "Soreheim Proper",
+        "to": "Ironroot Crossing"
+      },
+      {
+        "route_id": "sunspire_haven_harvest_circle_road",
+        "from": "Sunspire Haven",
+        "to": "Harvest Keep"
+      },
+      {
+        "route_id": "sunspire_haven_ironroot_crossing_freight_lane",
+        "from": "Sunspire Haven",
+        "to": "Ironroot Crossing"
+      },
+      {
+        "route_id": "principalities_route_hardening_1",
+        "from": "Banner Anchorage",
+        "to": "Housechain Court"
+      },
+      {
+        "route_id": "principalities_route_hardening_2",
+        "from": "Banner Anchorage",
+        "to": "Housechain Court"
+      },
+      {
+        "route_id": "principalities_route_hardening_3",
+        "from": "Banner Anchorage",
+        "to": "Housechain Court"
+      },
+      {
+        "route_id": "union_route_corridor_1",
+        "from": "Craftspire",
+        "to": "Union Successor Heartland"
+      },
+      {
+        "route_id": "union_route_corridor_2",
+        "from": "Craftspire",
+        "to": "Union Successor Heartland"
+      },
+      {
+        "route_id": "union_route_corridor_3",
+        "from": "Craftspire",
+        "to": "Union Successor Heartland"
+      }
+    ],
+    "failed": [
+      {
+        "route": "Frostline Crossing Route",
+        "reason": "could_not_resolve_endpoints",
+        "from_locality": "Frostline Crossing",
+        "to_locality": null,
+        "source": "03_LOCALITY_ENGINE/route_transition_packets/frostline_crossing_route.json"
+      },
+      {
+        "route": "Mimolot Academy - Bookhaven road",
+        "reason": "could_not_resolve_endpoints",
+        "from_locality": "Mimolot Academy",
+        "to_locality": null,
+        "source": "03_LOCALITY_ENGINE/route_transition_packets/mimolot_academy_bookhaven_road.json"
+      },
+      {
+        "route": "Nomdara Northern Tundra Circuit",
+        "reason": "could_not_resolve_endpoints",
+        "from_locality": "North Swirling Sea",
+        "to_locality": null,
+        "source": "03_LOCALITY_ENGINE/route_transition_packets/nomdara_northern_tundra_circuit.json"
+      },
+      {
+        "route": "Nomdara Whirlpool Safe-Passage Lane",
+        "reason": "could_not_resolve_endpoints",
+        "from_locality": "Whirlpool Prayer Chain",
+        "to_locality": null,
+        "source": "03_LOCALITY_ENGINE/route_transition_packets/nomdara_whirlpool_safe_passage_lane.json"
+      },
+      {
+        "route": "Roaz Northern Trade Route",
+        "reason": "could_not_resolve_endpoints",
+        "from_locality": "North Swirling Sea",
+        "to_locality": null,
+        "source": "03_LOCALITY_ENGINE/route_transition_packets/roaz_northern_trade_route.json"
+      },
+      {
+        "route": "Sheresh Dome Road",
+        "reason": "could_not_resolve_endpoints",
+        "from_locality": null,
+        "to_locality": null,
+        "source": "03_LOCALITY_ENGINE/route_transition_packets/sheresh_dome_road.json"
+      }
+    ]
+  },
+  "label_validation": {
+    "passed": [
+      {
+        "normalized_key": "principalities",
+        "raw_value": "The Principalities"
+      },
+      {
+        "normalized_key": "sheresh_communes",
+        "raw_value": "Sheresh Communes"
+      },
+      {
+        "normalized_key": "soreheim_alliance",
+        "raw_value": "Soreheim Alliance"
+      },
+      {
+        "normalized_key": "principality_shelk",
+        "raw_value": "Principality of Shelk"
+      },
+      {
+        "normalized_key": "between_roaz_sheresh",
+        "raw_value": "Between Roaz and Sheresh"
+      },
+      {
+        "normalized_key": "south_sea_system",
+        "raw_value": "South sea system"
+      },
+      {
+        "normalized_key": "union",
+        "raw_value": "The Union"
+      },
+      {
+        "normalized_key": "psanan",
+        "raw_value": "Psanan"
+      },
+      {
+        "normalized_key": "house_zootia",
+        "raw_value": "House Zootia"
+      },
+      {
+        "normalized_key": "house_cosmouth",
+        "raw_value": "House Cosmouth"
+      },
+      {
+        "normalized_key": "principality_zootia",
+        "raw_value": "Principality of Zootia"
+      },
+      {
+        "normalized_key": "principality_roaz",
+        "raw_value": "Principality of Roaz"
+      },
+      {
+        "normalized_key": "house_shirsh",
+        "raw_value": "House Shirsh"
+      },
+      {
+        "normalized_key": "house_panim",
+        "raw_value": "House Panim"
+      },
+      {
+        "normalized_key": "house_mimolot",
+        "raw_value": "House Mimolot"
+      },
+      {
+        "normalized_key": "material_planet",
+        "raw_value": "Material Planet"
+      },
+      {
+        "normalized_key": "phoenix_island",
+        "raw_value": "Phoenix Island"
+      },
+      {
+        "normalized_key": "nomdara_circuits",
+        "raw_value": "Nomdara Circuits"
+      },
+      {
+        "normalized_key": "sheresh_empire",
+        "raw_value": "Sheresh Empire"
+      },
+      {
+        "normalized_key": "shelk",
+        "raw_value": "Shelk"
+      },
+      {
+        "normalized_key": "nomdara",
+        "raw_value": "Nomdara"
+      },
+      {
+        "normalized_key": "nomdara_sea_lanes",
+        "raw_value": "Nomdara Sea Lanes"
+      },
+      {
+        "normalized_key": "nomdara_caravan",
+        "raw_value": "Nomdara Caravan"
+      }
+    ],
+    "failed": []
+  },
+  "synthetic_validation": {
+    "generated": [
+      {
+        "settlement_id": "cosmoria",
+        "synthetic_district_id": "cosmoria_high_quarter"
+      },
+      {
+        "settlement_id": "cosmoria",
+        "synthetic_district_id": "cosmoria_common_quarter"
+      },
+      {
+        "settlement_id": "cosmoria",
+        "synthetic_district_id": "cosmoria_low_ward"
+      },
+      {
+        "settlement_id": "soreheim_proper",
+        "synthetic_district_id": "soreheim_proper_high_quarter"
+      },
+      {
+        "settlement_id": "soreheim_proper",
+        "synthetic_district_id": "soreheim_proper_common_quarter"
+      },
+      {
+        "settlement_id": "soreheim_proper",
+        "synthetic_district_id": "soreheim_proper_low_ward"
+      }
+    ],
+    "suppressed_by_canon": [
+      {
+        "settlement_id": "ithtananalor",
+        "existing_districts": [
+          "iron_ledger_ward"
+        ]
+      },
+      {
+        "settlement_id": "panim_haven",
+        "existing_districts": [
+          "reckoning_quarter"
+        ]
+      },
+      {
+        "settlement_id": "shelkopolis",
+        "existing_districts": [
+          "aurora_heights_district",
+          "ironspool_ward_district",
+          "verdant_row_district"
+        ]
+      }
+    ],
+    "failed": []
+  },
+  "nomdara_validation": {
+    "attached": [
+      {
+        "overlay": "Cosmoria Archive Exchange Barge",
+        "attached_locality_id": "cosmoria"
+      },
+      {
+        "overlay": "Edict Ocean Flotilla",
+        "attached_locality_id": "frozen_sentinel_pillars"
+      },
+      {
+        "overlay": "Elder Consensus Hearing Wagon",
+        "attached_locality_id": "witness_coil"
+      },
+      {
+        "overlay": "Grand Exchange Circuit",
+        "attached_locality_id": "market_crossroads"
+      },
+      {
+        "overlay": "Guildheart Arbitration Camp",
+        "attached_locality_id": "guildheart_hub"
+      },
+      {
+        "overlay": "Mimolot Lecture Caravan",
+        "attached_locality_id": "mimolot_academy"
+      },
+      {
+        "overlay": "Necessities Buffer Train",
+        "attached_locality_id": "house_shelk_estate"
+      },
+      {
+        "overlay": "Panim Pilgrim Escort Lane",
+        "attached_locality_id": "panim_haven"
+      },
+      {
+        "overlay": "Psanan Ash-Route Mediation Fleet",
+        "attached_locality_id": "ash_wing_mosaic_way"
+      },
+      {
+        "overlay": "Soreheim Allocation Exchange Train",
+        "attached_locality_id": "soreheim_proper"
+      },
+      {
+        "overlay": "South Swirling Fleet",
+        "attached_locality_id": "red_milk_cisterns"
+      }
+    ],
+    "failed": [
+      {
+        "overlay": "Council Convoy",
+        "reason": "no_attachment_target"
+      },
+      {
+        "overlay": "Principalities Road Embassy Circuit",
+        "reason": "no_attachment_target"
+      },
+      {
+        "overlay": "Sheresh Relief Caravan",
+        "reason": "no_attachment_target"
+      }
+    ]
+  },
+  "source_counts": {
+    "polities": 15,
+    "macroregions": 13,
+    "settlements": 44,
+    "districts": 18,
+    "sublocations": 40,
+    "operational_anchors": 44,
+    "wilderness_points": 66,
+    "mobile_nodes": 14,
+    "route_transition_packets": 52,
+    "locality_matrix_rows": 239,
+    "route_matrix_rows": 46
+  },
+  "notes": [
+    "Parent polity raw strings are preserved, while label_crosswalk captures normalized joins and alias families.",
+    "Synthetic districts were generated only for large settlements lacking canon district rows, per uploaded locality matrix spec.",
+    "Nomdara mobile nodes were attached conservatively to the nearest text-resolvable locality, preferring settlements over anchors, wilderness points, and districts."
+  ]
+}

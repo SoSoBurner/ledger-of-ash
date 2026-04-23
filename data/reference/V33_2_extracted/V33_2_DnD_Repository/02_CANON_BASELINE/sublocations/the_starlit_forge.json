@@ -1,0 +1,22 @@
+{
+  "name": "The Starlit Forge",
+  "parent_district": "Verdant Row District",
+  "type": "forge",
+  "summary": "Elegant but durable Roadwarden weapon forge with protection shrine.",
+  "npc_interfaces": [
+    "mira_mere",
+    "corin_mere"
+  ],
+  "truth_layer": "reconciled_canon",
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ],
+  "named_npc_refs": [
+    "mira_mere",
+    "corin_mere"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD"
+}

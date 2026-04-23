@@ -1,0 +1,16 @@
+polity,parent_umbrella,ruling_house,total_nodes,water_valid_nodes,uninhabitable_nodes,categories_json,settlement_count,biome_count,poi_infrastructure_count
+The Principalities,The Principalities,,18,1,7,"{""macroregion"": 9, ""wilderness"": 9}",0,9,0
+Principality of Cosmouth,The Principalities,House Cosmouth,10,4,0,"{""settlement"": 5, ""site"": 4, ""macroregion"": 1}",5,1,4
+Principality of Shelk,The Principalities,House Shelk,81,0,1,"{""settlement"": 18, ""site"": 22, ""macroregion"": 7, ""wilderness"": 3, ""district"": 3, ""sublocation"": 28}",18,7,53
+Soreheim Alliance,Soreheim Alliance,,50,0,0,"{""macroregion"": 13, ""settlement"": 11, ""site"": 25, ""wilderness"": 1}",11,13,25
+Principality of Mimolot,The Principalities,House Mimolot,8,0,0,"{""sublocation"": 1, ""site"": 3, ""settlement"": 4}",4,0,4
+Principality of Panim,The Principalities,House Panim,8,0,0,"{""settlement"": 5, ""site"": 3}",5,0,3
+Psanan,Psanan,,31,0,3,"{""settlement"": 12, ""site"": 12, ""wilderness"": 5, ""macroregion"": 2}",12,2,12
+Principality of Roaz,The Principalities,House Roaz,21,0,0,"{""settlement"": 14, ""sublocation"": 1, ""site"": 5, ""macroregion"": 1}",14,1,6
+Sheresh Communes,Sheresh Communes,,24,3,0,"{""macroregion"": 4, ""settlement"": 11, ""site"": 7, ""wilderness"": 2}",11,4,7
+Between Roaz and Sheresh,Between Roaz and Sheresh,,2,2,0,"{""macroregion"": 1, ""wilderness"": 1}",0,1,0
+South sea system,South sea system,,3,3,0,"{""macroregion"": 1, ""wilderness"": 1, ""site"": 1}",0,1,1
+Principality of Shirsh,The Principalities,House Shirsh,10,0,0,"{""sublocation"": 1, ""site"": 3, ""settlement"": 6}",6,0,4
+The Union,The Principalities,,11,0,0,"{""settlement"": 5, ""site"": 5, ""macroregion"": 1}",5,1,5
+Principality of Zootia,The Principalities,House Zootia,9,0,0,"{""macroregion"": 2, ""settlement"": 6, ""site"": 1}",6,2,1
+Shelk–Sheresh frontier,Shelk–Sheresh frontier,,1,0,1,"{""macroregion"": 1}",0,1,0

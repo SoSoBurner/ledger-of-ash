@@ -1,0 +1,90 @@
+{
+  "npc_id": "oath_keeper_sava_ashwing",
+  "canonical_name": "Oath-Keeper Sava Ashwing",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "oathbound_defender",
+  "office_or_role": "Rebuilding Vow Adjudicator",
+  "profession_discipline": "Rebuilding Vow Adjudicator",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Vow Court Terrace",
+  "locality_scope": "Vow Court Terrace",
+  "institutional_ties": [
+    "Vow Court Terrace"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as rebuilding vow adjudicator.",
+  "linked_systems": {
+    "polities": [],
+    "localities": [
+      "Vow Court Terrace"
+    ],
+    "institutions": [
+      "Vow Court Terrace"
+    ],
+    "factions": []
+  },
+  "appearance": "Bright-plumed road gear, polished fittings, and visible attention to presentation mark the role before the voice does.",
+  "manner": "Projects duty first, placing sworn role ahead of comfort, convenience, or easy compromise. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a rebuilding vow adjudicator still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of rebuilding vow adjudicator in and around Vow Court Terrace, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Vow Court Terrace while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "moral_test",
+      "summary": "Working with Oath-Keeper Sava Ashwing can force the party to choose between expediency and the stricter obligations that govern Vow Court Terrace."
+    },
+    {
+      "hook_type": "rite_guard",
+      "summary": "Oath-Keeper Sava Ashwing can offer access or protection if the party preserves a rite, vow, or defended passage under pressure."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "spatial_seasonal"
+  ],
+  "compatibility_interface_id": "oath_keeper_sava_ashwing",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Oath-signs, defensive bearing, and ritualized readiness make Oath-Keeper Sava Ashwing read as a sworn protector rather than a mere combatant.",
+  "encounter_context": {
+    "usual_environment": "Vow Court Terrace: gates, sacred thresholds, escorts, or defended chambers",
+    "who_seeks_them_out": [
+      "petitioners needing protection",
+      "ritual authorities",
+      "those seeking safe passage"
+    ],
+    "who_avoids_them": [
+      "oath-breakers",
+      "opportunists",
+      "casual violators of protected space"
+    ],
+    "interaction_anchor": "protection under rule or vow"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Oath-Keeper Sava Ashwing presents as Projects duty first, placing sworn role ahead of comfort, convenience, or easy compromise. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a rebuilding vow adjudicator still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Rebuilding Vow Adjudicator, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Oath-Keeper Sava Ashwing refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Rebuilding Vow Adjudicator too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Oath-Keeper Sava Ashwing can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Oath-Keeper Sava Ashwing adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Oath-Keeper Sava Ashwing is Known locally through day-to-day work as rebuilding vow adjudicator. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Rebuilding Vow Adjudicator.",
+  "social_texture": "Oath-Keeper Sava Ashwing speaks like someone who has spent too long translating private stakes into acceptable public language. Around Vow Court Terrace, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Oath-Keeper touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Oath-Keeper Sava Ashwing when the party needs a socially grounded face for Vow Court Terrace: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Engineers’ Consortium",
+  "type": "Soreheim infrastructure faction",
+  "truth_layer": "direct_canon",
+  "summary": "Primary infrastructure planners and maintainers for Titan Towers, spans, depots, and industrial systems.",
+  "motive": "Keep the Alliance physically functional and expansion-capable through disciplined engineering.",
+  "methods": [
+    "surveying",
+    "tower maintenance",
+    "span construction",
+    "machine design",
+    "repair scheduling"
+  ],
+  "geography": [
+    "Soreheim Proper",
+    "Titan Towers",
+    "Ironroot Crossing",
+    "Molten Span"
+  ],
+  "power_relations": [
+    "Serves the Giant Council and regional managers",
+    "Relies on miners, artificers, and transport clans"
+  ],
+  "current_pressure": [
+    "resource strain",
+    "sabotage risk",
+    "weather damage",
+    "need to maintain expansion without catastrophic failure"
+  ],
+  "visible_membership_base": "Engineers, surveyors, draft clerks, maintenance crews, giant overseers.",
+  "civilian_contact_surface": [
+    "infrastructure assignments",
+    "repair notices",
+    "construction disruptions",
+    "bridge and tower access regulation"
+  ],
+  "current_tension_or_vulnerability": "Public trust depends on their competence, so visible failure quickly becomes political and spiritual embarrassment.",
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ],
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "named_npc_refs": [
+    "brala_ironslope"
+  ],
+  "npc_interfaces": [
+    "brala_ironslope"
+  ]
+}

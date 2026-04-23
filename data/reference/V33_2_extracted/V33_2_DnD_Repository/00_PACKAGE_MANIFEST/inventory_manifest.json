@@ -1,0 +1,25 @@
+{
+  "release_identity": "V33_1",
+  "package_root": "V33_1_DnD_World_Repository",
+  "generated_at": "2026-04-19T05:15:00Z",
+  "counts": {
+    "total_files": 5479,
+    "json_files": 3756,
+    "jsonl_files": 19,
+    "markdown_files": 1694
+  },
+  "entrypoints": [
+    "README.md",
+    "START_HERE_GM.md",
+    "RUN_A_SESSION_NOW.md",
+    "CURRENT_CAMPAIGN_STATE.md",
+    "WORLD_REFERENCE/README.md",
+    "PLAY/README.md",
+    "11_REFERENCE_VIEWS/current_release/current_release_manifest.json",
+    "11_REFERENCE_VIEWS/current_release/WORLD_QUESTION_ANSWERING_GUIDE.md"
+  ],
+  "notable_additions": [
+    "01_CANON_GOVERNANCE/world_question_answering_resolution_contract.json",
+    "05_PROVENANCE/SOURCE_DOCS/canon_safe_intro_build_instructions.md"
+  ]
+}

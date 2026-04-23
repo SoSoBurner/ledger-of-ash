@@ -105,7 +105,7 @@ def build():
 
     enriched_parts = []
     for filename in enriched_files:
-        filepath = os.path.join('.', filename)
+        filepath = os.path.join('content', filename)
         if os.path.exists(filepath):
             with open(filepath, encoding='utf-8-sig') as f:
                 enriched_parts.append(f.read())

@@ -1,0 +1,19 @@
+{
+  "name": "Harvest Circle",
+  "approach": "Open market rings, wagon circles, drying racks, and shrine lawns announce a town built for exchange as much as storage.",
+  "truth_layer": "reconciled_canon",
+  "hierarchy": {
+    "polity": "Soreheim Alliance",
+    "territory": "Eternal Lands",
+    "world": "Material Planet"
+  },
+  "arrival_signals": [
+    "Cultural and market town where harvest patron-families, quota clerks, and festival brokers turn field output into alliance redistribution.",
+    "harvest stewards",
+    "Travel rhythm changes as one crosses into the locality’s own rules, pace, and expectations."
+  ],
+  "sources": [
+    "soreheim_review",
+    "spatial_seasonal"
+  ]
+}

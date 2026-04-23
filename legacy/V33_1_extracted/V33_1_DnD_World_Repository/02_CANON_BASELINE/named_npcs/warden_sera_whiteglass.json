@@ -1,0 +1,87 @@
+{
+  "npc_id": "warden_sera_whiteglass",
+  "canonical_name": "Warden Sera Whiteglass",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Dome Stabilizer Marshal",
+  "profession_discipline": "Dome Stabilizer Marshal",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Sheresh Communes",
+  "settlement": "Aurora Crown Commune",
+  "locality_scope": "Aurora Crown Commune",
+  "institutional_ties": [
+    "Aurora Crown Commune"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known locally through day-to-day work as dome stabilizer marshal.",
+  "linked_systems": {
+    "polities": [
+      "Sheresh Communes"
+    ],
+    "localities": [
+      "Aurora Crown Commune"
+    ],
+    "institutions": [
+      "Aurora Crown Commune"
+    ],
+    "factions": []
+  },
+  "appearance": "Cold-ready layered gear, ward-conscious fastening, and containment-minded kit signal disciplined caution.",
+  "manner": "Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a dome stabilizer marshal still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of dome stabilizer marshal in and around Aurora Crown Commune, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Aurora Crown Commune workable through the obligations of dome stabilizer marshal while managing the immediate pressure of dome stress in Sheresh Communes.",
+  "hidden_pressure": "Must hold procedure, public trust, and immediate response together when any one of them would be easier to sacrifice. Around Aurora Crown Commune, that usually means carrying dome stress, contamination seepage, ration balancing without letting the role of dome stabilizer marshal visibly slip.",
+  "relationship_refs": [
+    "rel_1091",
+    "rel_1093",
+    "rel_1094"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Warden Sera Whiteglass can draw the party into contraband, false papers, or a suspicious cargo problem tied to Aurora Crown Commune."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Warden Sera Whiteglass may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance extended under V33_1 from role/locality/public-signal derivation rather than decorative fabrication.",
+  "source_object_ids": [
+    "calendars_world"
+  ],
+  "compatibility_interface_id": "warden_sera_whiteglass",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Uniform, posture, and the way others make room mark Warden Sera Whiteglass as visible enforcement before rank ever needs to be named. In Aurora Crown Commune, this lands inside a public field already shaped by Sheresh Dome Stewards, Containment Research Concord.",
+  "encounter_context": {
+    "usual_environment": "Aurora Crown Commune: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "appearance_support_status": "conservative_inference_from_role_locality_and_institutional_signal",
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Warden Sera Whiteglass presents as Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a dome stabilizer marshal still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Dome Stabilizer Marshal, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+  "what_they_refuse": "Warden Sera Whiteglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Dome Stabilizer Marshal too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Warden Sera Whiteglass can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Warden Sera Whiteglass adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Warden Sera Whiteglass is Known locally through day-to-day work as dome stabilizer marshal. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Dome Stabilizer Marshal."
+}

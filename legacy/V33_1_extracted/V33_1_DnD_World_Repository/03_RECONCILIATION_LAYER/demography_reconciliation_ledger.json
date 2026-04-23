@@ -1,0 +1,43 @@
+{
+  "build_version": "V33_1",
+  "entries": [
+    {
+      "object_id": "mimolot_demography",
+      "status": "reconciled",
+      "summary": {
+        "status": "reconciled",
+        "conflicting_positions": [
+          "academy-elf primacy signal",
+          "broader human administrative-production signal",
+          "gnome technical-magical support normalization signal"
+        ],
+        "winning_rationale": "Mixed-polity resolution preserves all strong corpus signals while avoiding false singularity.",
+        "remaining_inferential_parts": [
+          "relative internal weighting below polity-defining tier"
+        ],
+        "superseded_assumptions": [
+          "single-race or single-bloc Mimolot interpretation"
+        ]
+      }
+    },
+    {
+      "object_id": "psanan_demography",
+      "status": "corrected",
+      "summary": {
+        "status": "corrected",
+        "conflicting_positions": [
+          "surface-imperial default population expectations",
+          "underdark-dominant polity correction"
+        ],
+        "winning_rationale": "Underdark base and anti-dragon hostility override surface-default assumptions.",
+        "remaining_inferential_parts": [
+          "surface-facing permanence of some secondary blocs"
+        ],
+        "superseded_assumptions": [
+          "Dragonborn ordinary inclusion in Psanan"
+        ]
+      }
+    }
+  ],
+  "truth_layer": "reconciliation_layer"
+}

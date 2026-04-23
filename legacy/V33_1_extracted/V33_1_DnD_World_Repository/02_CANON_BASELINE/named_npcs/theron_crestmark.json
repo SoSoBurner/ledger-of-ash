@@ -1,0 +1,85 @@
+{
+  "npc_id": "theron_crestmark",
+  "canonical_name": "Theron Crestmark",
+  "aliases": [
+    "the Middle Voice"
+  ],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "commerce_officer",
+  "office_or_role": "Commerce Broker",
+  "profession_discipline": "Commerce Broker",
+  "grouping": "v31_named_completion_patch",
+  "polity": "The Principalities",
+  "settlement": "Housechain Court",
+  "locality_scope": "Housechain Court",
+  "institutional_ties": [
+    "Housechain Court"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Housechain Court through day-to-day work as commerce broker.",
+  "linked_systems": {
+    "polities": [
+      "The Principalities"
+    ],
+    "localities": [
+      "Housechain Court"
+    ],
+    "institutions": [
+      "Housechain Court"
+    ],
+    "factions": []
+  },
+  "appearance": "Theron Crestmark usually presents in layered civic fabric cut to show rank without inviting touch, with details that make their commerce broker status legible before introductions begin.",
+  "manner": "Evaluates every conversation for margin, dependency, and what can be made to move next. In Housechain Court, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of commerce broker in and around Housechain Court, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Housechain Court workable through the obligations of commerce broker while managing the immediate pressure of claim inflation, selective memory.",
+  "hidden_pressure": "Must keep the role of commerce broker credible while absorbing the strain created by claim inflation, selective memory.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Theron Crestmark can draw the party into a locality problem centered on commerce broker duties in Housechain Court."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Theron Crestmark becomes useful when the party needs grounded help with claim inflation, selective memory around Housechain Court."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe. V33_1 additive depth pass preserved canon while strengthening at-table identity, appearance, and social motive.",
+  "source_object_ids": [
+    "locations_catalog",
+    "housechain_court"
+  ],
+  "compatibility_interface_id": "theron_crestmark",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Theron Crestmark is immediately readable as a commerce broker tied to Housechain Court.",
+  "encounter_context": {
+    "usual_environment": "Housechain Court: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "commerce broker"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Theron Crestmark presents as someone shaped by the duties of a commerce broker and the daily pressures of Housechain Court.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a commerce broker, and proof that strangers will not make Housechain Court harder to manage.",
+  "what_they_refuse": "Theron Crestmark refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a commerce broker too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can redirect supply, access networks, and read market pressure clearly.",
+  "escalation_if_crossed": "If crossed, Theron Crestmark adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Theron Crestmark always knows more about Housechain Court than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a commerce broker in Housechain Court."
+}

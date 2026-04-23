@@ -1,0 +1,84 @@
+{
+  "total_roles": 800,
+  "categories": [
+    {
+      "category": "political_and_legal",
+      "percent": 27,
+      "role_count": 216,
+      "world_function": "Produces the visible decision chain of the world: councils, magistracies, quota adjudicators, registry keepers, tribunal clerks, sentence allocators, seal officers, permit writers, compliance auditors, and local subordinate officials who make rulership tangible below named leaders.",
+      "role_families": [
+        "council seats and chamber aides",
+        "tribunal officers and hearing clerks",
+        "permit and seal registrars",
+        "quota assessors and compliance auditors",
+        "route law wardens and checkpoint recorders",
+        "punishment, restitution, and labor assignment officials"
+      ]
+    },
+    {
+      "category": "economic_and_trade",
+      "percent": 21,
+      "role_count": 168,
+      "world_function": "Produces regulated throughput: depot stewards, weigh clerks, harbor factors, convoy quartermasters, tool allocators, stock ledgers, ration issuers, export certifiers, market inspectors, and processing supervisors who convert raw production into trackable exchange.",
+      "role_families": [
+        "warehouse and depot administration",
+        "weights measures and tally offices",
+        "harbor, bridge, and market throughput control",
+        "allocation clerks and provisioning bureaus",
+        "craft and export certification",
+        "supply-chain dispute mediation"
+      ]
+    },
+    {
+      "category": "inter_polity_liaison_treaty_and_mediation",
+      "percent": 11,
+      "role_count": 88,
+      "world_function": "Produces connective tissue between blocs: envoys, corridor mediators, treaty carriers, bonded escorts, convoy interpreters, archive-copy couriers, neutral hearing officers, and route-specific diplomacy staff who prevent distance and difference from collapsing trade or law.",
+      "role_families": [
+        "embassy and envoy staffs",
+        "traveling hearing officers",
+        "corridor mediators and convoy interpreters",
+        "treaty copyists and seal witnesses",
+        "pilgrim and technical escort coordinators",
+        "inter-polity liaison registries"
+      ]
+    },
+    {
+      "category": "criminal_and_gray_market",
+      "percent": 13,
+      "role_count": 104,
+      "world_function": "Produces the shadow mirror of every legal system: smugglers, falsifiers, illicit brokers, sabotage coordinators, contraband handlers, side-route guides, permit forgers, bribe intermediaries, and black-ledger keepers who parasitize the lawful state rather than replacing it.",
+      "role_families": [
+        "permit and seal falsification",
+        "cargo diversion and hidden-route brokerage",
+        "sabotage and theft coordination",
+        "labor skimming and ration leakage",
+        "restricted knowledge transfer",
+        "black-market mediation"
+      ]
+    },
+    {
+      "category": "grassroots_labor_and_infrastructure",
+      "percent": 28,
+      "role_count": 224,
+      "world_function": "Produces the inhabited machine-state underneath elite names: switch crews, dome patchers, quarry lantern gangs, reactor tenders, bridge riggers, watch relays, shrine staff, sanitation crews, salvage teams, burial handlers, ration runners, and line-maintenance teams.",
+      "role_families": [
+        "repair crews and maintenance gangs",
+        "route tower and watch relays",
+        "sanitation, salvage, and hazard response",
+        "warehouse, loading, and haulage crews",
+        "food, fuel, and ration distribution labor",
+        "shrine, archive, and civic support workers"
+      ]
+    }
+  ],
+  "sources": [
+    "principalities",
+    "soreheim_review",
+    "spatial_seasonal",
+    "internal_canonical_record"
+  ],
+  "support_type": "engine_synthesis",
+  "truth_layer": "engine_canon",
+  "justification": "Repository synthesis layer built to make strongly supported canon operational without overriding source truth."
+}

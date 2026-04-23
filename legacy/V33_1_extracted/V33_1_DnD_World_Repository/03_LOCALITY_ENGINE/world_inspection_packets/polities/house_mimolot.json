@@ -1,0 +1,511 @@
+{
+  "packet_type": "world_inspection_packet",
+  "scope": "polity",
+  "name": "House Mimolot",
+  "slug": "house_mimolot",
+  "parent_polity": "House Mimolot",
+  "place_type": "polity",
+  "truth_layer": "reconciled_canon",
+  "place_hierarchy": {
+    "world": "Material Planet",
+    "polity": "House Mimolot"
+  },
+  "about_place": {
+    "where_is_this_place_exactly": {
+      "answer": "southern and southeastern scholarly-magical house-domain inside The Principalities",
+      "status": "conservative_inference"
+    },
+    "what_does_this_place_look_like": {
+      "answer": "academies, libraries, magical fortresses, book towns, and scholarly-mystical infrastructure",
+      "status": "direct_canon"
+    },
+    "what_is_this_area_known_for": {
+      "answer": "education, magical research, books, and crafted magical goods",
+      "status": "conservative_inference"
+    },
+    "how_old_is_this_place": {
+      "answer": "The current corpus does not give an exact founding date for this polity; it should be treated as historically established but not date-fixed.",
+      "status": "unresolved"
+    },
+    "who_built_it": {
+      "answer": "The safest current reading is that House Mimolot emerged through house, communal, or institutional development over time; the corpus does not assign a single fully explicit founder.",
+      "status": "conservative_inference"
+    },
+    "who_lives_here_now": {
+      "answer": "scholars, students, nobles in training, mages, scribes, and magical artisans",
+      "status": "conservative_inference"
+    },
+    "current_condition": {
+      "answer": "active in the current age",
+      "status": "conservative_inference"
+    },
+    "common_architecture": {
+      "answer": "academies, libraries, magical fortresses, book towns, and scholarly-mystical infrastructure",
+      "status": "conservative_inference"
+    },
+    "common_build_materials": {
+      "answer": "books, magical items, enchanted tools, educational services, and scholarly prestige",
+      "status": "conservative_inference"
+    },
+    "climate": {
+      "answer": "At polity scale the climate varies across its territory unless a single climatic identity is explicitly dominant.",
+      "status": "unresolved"
+    },
+    "surrounding_land": {
+      "answer": "southern and southeastern scholarly-magical house-domain inside The Principalities",
+      "status": "conservative_inference"
+    },
+    "important_natural_resources": {
+      "answer": "education, books, magic items, tuition, research output, and arcane goods",
+      "status": "conservative_inference"
+    },
+    "common_dangers": {
+      "answer": "loss of control over dangerous magic or over the institutions that legitimize it",
+      "status": "conservative_inference"
+    },
+    "known_landmarks": {
+      "answer": "school-city routes, archive supply lines, and artifact corridors",
+      "status": "conservative_inference"
+    },
+    "nearby_places_that_matter": {
+      "answer": "school-city routes, archive supply lines, and artifact corridors",
+      "status": "conservative_inference"
+    },
+    "regional_role": {
+      "answer": "the scholarly and magical engine of the eastern imperial network",
+      "status": "conservative_inference"
+    }
+  },
+  "about_people": {
+    "who_are_the_people_here": {
+      "answer": "scholars, students, nobles in training, mages, scribes, and magical artisans",
+      "status": "conservative_inference"
+    },
+    "what_cultures_are_present": {
+      "answer": "scholarly culture, academy hierarchy, and controlled arcane experimentation",
+      "status": "conservative_inference"
+    },
+    "what_languages_are_commonly_spoken": {
+      "answer": "The current corpus does not exhaustively enumerate everyday spoken languages at this polity scale.",
+      "status": "unresolved"
+    },
+    "what_do_people_wear_here": {
+      "answer": "scholarly and noble attire marked by station, institution, and arcane affiliation",
+      "status": "conservative_inference"
+    },
+    "what_do_people_eat_here": {
+      "answer": "institutional fare and urban academic cuisine",
+      "status": "conservative_inference"
+    },
+    "how_do_people_make_a_living": {
+      "answer": "teaching, research, book production, enchantment, magical craft, and noble education",
+      "status": "conservative_inference"
+    },
+    "what_social_classes_exist": {
+      "answer": "nobles or leadership strata, institutional officers, specialists, laborers, and dependent populations are the safest polity-scale reading.",
+      "status": "conservative_inference"
+    },
+    "who_has_power_here": {
+      "answer": "House Mimolot leadership, academies, magical administrators, and educational authorities",
+      "status": "conservative_inference"
+    },
+    "who_is_respected_here": {
+      "answer": "master scholars, archmages, teachers, and artificers",
+      "status": "conservative_inference"
+    },
+    "who_is_feared_here": {
+      "answer": "those who control magical access, tuition structures, and research privilege",
+      "status": "conservative_inference"
+    },
+    "who_is_considered_an_outsider": {
+      "answer": "unlicensed practitioners, thieves of knowledge, and those contemptuous of academic order",
+      "status": "conservative_inference"
+    },
+    "how_are_strangers_treated": {
+      "answer": "received through institutions, credentials, sponsorship, and observable competence",
+      "status": "conservative_inference"
+    },
+    "important_customs_or_manners": {
+      "answer": "knowledge, disciplined inquiry, educational status, and magical utility",
+      "status": "conservative_inference"
+    },
+    "rude_honorable_shameful_or_dangerous_behavior": {
+      "answer": "Common values here are knowledge, disciplined inquiry, educational status, and magical utility. Outsider mistakes or suspicious acts include unlicensed practitioners, thieves of knowledge, and those contemptuous of academic order.",
+      "status": "conservative_inference"
+    },
+    "common_values": {
+      "answer": "knowledge, disciplined inquiry, educational status, and magical utility",
+      "status": "conservative_inference"
+    },
+    "tensions_between_groups": {
+      "answer": "scholarship versus access, regulation versus discovery, and noble privilege versus broader learning",
+      "status": "conservative_inference"
+    }
+  },
+  "government_and_power": {
+    "who_rules_this_place": {
+      "answer": "House Mimolot leadership, academies, magical administrators, and educational authorities",
+      "status": "conservative_inference"
+    },
+    "how_is_it_governed": {
+      "answer": "house rule through academic institutions, magical schools, and controlled research structures",
+      "status": "conservative_inference"
+    },
+    "is_the_ruler_loved_feared_weak_corrupt_absent_or_respected": {
+      "answer": "respected for knowledge power rather than martial spectacle",
+      "status": "conservative_inference"
+    },
+    "how_stable_is_the_government": {
+      "answer": "stable in established institutions but vulnerable to knowledge restriction disputes and arcane risk",
+      "status": "conservative_inference"
+    },
+    "who_holds_power_behind_the_scenes": {
+      "answer": "access control, tariffs, hidden research priorities, and patronage networks",
+      "status": "conservative_inference"
+    },
+    "are_there_rival_factions": {
+      "answer": "House Mimolot, academies, book producers, magical researchers, and student-patron blocs",
+      "status": "conservative_inference"
+    },
+    "influential_houses_councils_guilds_churches_or_militias": {
+      "answer": "House Mimolot, academies, book producers, magical researchers, and student-patron blocs",
+      "status": "conservative_inference"
+    },
+    "what_laws_matter_most": {
+      "answer": "book tariffs, magical regulations, research protections, and educational authority",
+      "status": "conservative_inference"
+    },
+    "what_crimes_are_taken_especially_seriously": {
+      "answer": "theft of magical texts, illicit research, dangerous experimentation, and intellectual property violations",
+      "status": "conservative_inference"
+    },
+    "how_is_justice_handled": {
+      "answer": "house and school-based authority with serious weight placed on knowledge crimes",
+      "status": "conservative_inference"
+    },
+    "control_level": {
+      "answer": "moderate to high inside institutions and research sites",
+      "status": "conservative_inference"
+    },
+    "active_rebellions_movements_or_succession_struggles": {
+      "answer": "secret societies and resistance to knowledge restriction form the clearest pressure current",
+      "status": "conservative_inference"
+    }
+  },
+  "history": {
+    "what_happened_here_in_the_past": {
+      "answer": "Mimolot became indispensable by turning magical learning into house power and infrastructure",
+      "status": "conservative_inference"
+    },
+    "major_events_that_shaped_this_place": {
+      "answer": "Doomsday arcane change, school growth, and book-tariff regimes shape the polity",
+      "status": "conservative_inference"
+    },
+    "remembered_wars_disasters_miracles_betrayals_or_discoveries": {
+      "answer": "Doomsday arcane change, school growth, and book-tariff regimes shape the polity",
+      "status": "conservative_inference"
+    },
+    "ruins_or_remnants_of_the_past": {
+      "answer": "artifact sites and magical remnants feed its research identity",
+      "status": "conservative_inference"
+    },
+    "old_powers_that_once_ruled_here": {
+      "answer": "older magical traditions and pre-house arcane remains influence the present but are incompletely surfaced",
+      "status": "unresolved"
+    },
+    "what_everyone_knows_about_local_history": {
+      "answer": "everyone knows Mimolot for schools, books, and magic",
+      "status": "conservative_inference"
+    },
+    "what_history_is_disputed_hidden_or_rewritten": {
+      "answer": "what knowledge is withheld, priced, or politically redirected remains a major hidden tension",
+      "status": "conservative_inference"
+    },
+    "historical_enemies_or_old_alliances": {
+      "answer": "interdependent with many eastern houses, but friction appears wherever tariffs or magical access produce resentment",
+      "status": "conservative_inference"
+    },
+    "legends_tied_to_this_place": {
+      "answer": "hidden libraries, dangerous artifacts, and vanished research",
+      "status": "conservative_inference"
+    },
+    "tragedies_or_victories_defining_identity": {
+      "answer": "Mimolot turned learning into structural power",
+      "status": "conservative_inference"
+    }
+  },
+  "religion_and_belief": {
+    "what_do_people_worship_here": {
+      "answer": "The Principalities support active worship of Cysur, Cyfoes, Felelem, Felujitas, and house-specific devotional traditions, with Panim carrying special religious authority.",
+      "status": "conservative_inference"
+    },
+    "which_gods_spirits_ancestors_or_cosmic_forces_matter_most": {
+      "answer": "The Principalities support active worship of Cysur, Cyfoes, Felelem, Felujitas, and house-specific devotional traditions, with Panim carrying special religious authority.",
+      "status": "conservative_inference"
+    },
+    "how_important_is_religion_in_daily_life": {
+      "answer": "secondary to magical and educational institutions",
+      "status": "conservative_inference"
+    },
+    "temples_shrines_sacred_sites_or_pilgrimages": {
+      "answer": "scholarly devotions, archive observances, and broader eastern rites",
+      "status": "conservative_inference"
+    },
+    "holidays_or_rituals_observed": {
+      "answer": "scholarly devotions, archive observances, and broader eastern rites",
+      "status": "conservative_inference"
+    },
+    "forbidden_or_outlawed_beliefs": {
+      "answer": "thinly surfaced beyond illegal arcane practice",
+      "status": "unresolved"
+    },
+    "do_religious_authorities_have_political_power": {
+      "answer": "secondary to magical and educational institutions",
+      "status": "conservative_inference"
+    },
+    "are_miracles_normal_rare_feared_or_doubted": {
+      "answer": "religiously meaningful and politically consequential rather than mundane daily spectacle",
+      "status": "conservative_inference"
+    },
+    "common_superstitions": {
+      "answer": "bad luck around damaged texts, cursed libraries, and mishandled relics",
+      "status": "conservative_inference"
+    },
+    "omens_taboos_blessings_or_curses": {
+      "answer": "bad luck around damaged texts, cursed libraries, and mishandled relics",
+      "status": "conservative_inference"
+    }
+  },
+  "magic_and_unknown": {
+    "how_common_is_magic_here": {
+      "answer": "high and institutionally central",
+      "status": "conservative_inference"
+    },
+    "who_is_allowed_to_use_it": {
+      "answer": "broad inside sanctioned institutions and under approved supervision",
+      "status": "conservative_inference"
+    },
+    "who_fears_it": {
+      "answer": "unlicensed, destabilizing, or politically uncontrolled arcane work",
+      "status": "conservative_inference"
+    },
+    "who_regulates_it": {
+      "answer": "house magical law, school authority, and inter-house legal boundaries",
+      "status": "conservative_inference"
+    },
+    "is_magic_respected_outlawed_commercialized_secretive_or_sacred": {
+      "answer": "high and institutionally central. Regulation posture: house magical law, school authority, and inter-house legal boundaries",
+      "status": "conservative_inference"
+    },
+    "known_supernatural_events": {
+      "answer": "artifacts, magical investigations, research anomalies, and academy-linked arcana",
+      "status": "conservative_inference"
+    },
+    "local_monsters_spirits_hauntings_or_anomalies": {
+      "answer": "artifacts, magical investigations, research anomalies, and academy-linked arcana",
+      "status": "conservative_inference"
+    },
+    "what_is_considered_unnatural": {
+      "answer": "uncontrolled experiments, forbidden rituals, and weaponized knowledge beyond sanctioned bounds",
+      "status": "conservative_inference"
+    },
+    "ancient_powers_or_mysterious_forces": {
+      "answer": "hidden research, closed archives, and artifact truths not made public",
+      "status": "conservative_inference"
+    },
+    "places_people_avoid_for_supernatural_reasons": {
+      "answer": "artifacts, magical investigations, research anomalies, and academy-linked arcana",
+      "status": "conservative_inference"
+    },
+    "what_parts_remain_unexplained": {
+      "answer": "hidden research, closed archives, and artifact truths not made public",
+      "status": "conservative_inference"
+    }
+  },
+  "economy_and_daily_life": {
+    "what_drives_the_local_economy": {
+      "answer": "education, books, magic items, tuition, research output, and arcane goods",
+      "status": "conservative_inference"
+    },
+    "what_goods_is_this_place_known_for": {
+      "answer": "books, magical items, enchanted tools, educational services, and scholarly prestige",
+      "status": "conservative_inference"
+    },
+    "what_does_it_import_or_depend_on": {
+      "answer": "raw materials, food, and supplies supporting academic urban centers",
+      "status": "conservative_inference"
+    },
+    "is_it_wealthy_or_struggling": {
+      "answer": "wealthy in knowledge capital and magical production",
+      "status": "conservative_inference"
+    },
+    "who_benefits_from_local_trade": {
+      "answer": "house leaders, senior scholars, successful artisans, and institution-linked elites",
+      "status": "conservative_inference"
+    },
+    "who_suffers_under_the_current_system": {
+      "answer": "students without access, lower staff, and those priced out by tariff or privilege systems",
+      "status": "conservative_inference"
+    },
+    "what_is_ordinary_life_like": {
+      "answer": "study, copying, ritualized research, lectures, and controlled experimentation",
+      "status": "conservative_inference"
+    },
+    "what_does_a_normal_day_look_like": {
+      "answer": "study, copying, ritualized research, lectures, and controlled experimentation",
+      "status": "conservative_inference"
+    },
+    "common_professions": {
+      "answer": "teaching, research, book production, enchantment, magical craft, and noble education",
+      "status": "conservative_inference"
+    },
+    "rare_luxuries": {
+      "answer": "Luxury exists, but exact polity-wide luxury lists are not exhaustively enumerated in the current corpus.",
+      "status": "unresolved"
+    },
+    "shortages_or_needs": {
+      "answer": "loss of control over dangerous magic or over the institutions that legitimize it",
+      "status": "conservative_inference"
+    },
+    "travel_trade_communication_and_survival": {
+      "answer": "scholarly roads, messenger routes, and artifact movements",
+      "status": "conservative_inference"
+    }
+  },
+  "conflict_and_instability": {
+    "what_conflicts_are_happening_now": {
+      "answer": "knowledge restriction, secret study, artifact handling, and tariff resentment",
+      "status": "conservative_inference"
+    },
+    "who_is_fighting_whom": {
+      "answer": "knowledge restriction, secret study, artifact handling, and tariff resentment",
+      "status": "conservative_inference"
+    },
+    "longstanding_grudges_or_rivalries": {
+      "answer": "scholarship versus access, regulation versus discovery, and noble privilege versus broader learning",
+      "status": "conservative_inference"
+    },
+    "what_threats_worry_people_most": {
+      "answer": "loss of control over dangerous magic or over the institutions that legitimize it",
+      "status": "conservative_inference"
+    },
+    "what_fears_keep_people_obedient_divided_or_armed": {
+      "answer": "loss of control over dangerous magic or over the institutions that legitimize it",
+      "status": "conservative_inference"
+    },
+    "raids_invasions_banditry_monsters_famine_plague_unrest_or_crackdowns": {
+      "answer": "knowledge restriction, secret study, artifact handling, and tariff resentment",
+      "status": "conservative_inference"
+    },
+    "what_is_likely_to_get_worse_soon": {
+      "answer": "artifact or tariff conflict could sharpen quickly",
+      "status": "conservative_inference"
+    },
+    "what_could_destabilize_it_further": {
+      "answer": "artifact or tariff conflict could sharpen quickly",
+      "status": "conservative_inference"
+    },
+    "who_stands_to_gain_from_chaos": {
+      "answer": "rogue mages, contraband knowledge brokers, and political actors exploiting magical scarcity",
+      "status": "conservative_inference"
+    }
+  },
+  "identity_and_reputation": {
+    "what_is_this_place_famous_for": {
+      "answer": "academies and magical scholarship",
+      "status": "conservative_inference"
+    },
+    "what_is_it_infamous_for": {
+      "answer": "book tariffs and restricted access",
+      "status": "conservative_inference"
+    },
+    "how_outsiders_see_this_place": {
+      "answer": "brilliant, expensive, and politically guarded",
+      "status": "conservative_inference"
+    },
+    "how_locals_see_themselves": {
+      "answer": "custodians of learning and magical refinement",
+      "status": "conservative_inference"
+    },
+    "common_stereotypes": {
+      "answer": "brilliant, expensive, and politically guarded",
+      "status": "conservative_inference"
+    },
+    "symbols_banners_songs_sayings_or_stories": {
+      "answer": "books, quills, sigils, towers, and academy seals",
+      "status": "conservative_inference"
+    },
+    "what_makes_it_culturally_distinct": {
+      "answer": "knowledge is both public mission and controlled asset",
+      "status": "conservative_inference"
+    },
+    "what_someone_immediately_notices": {
+      "answer": "academies, libraries, magical fortresses, book towns, and scholarly-mystical infrastructure",
+      "status": "direct_canon"
+    }
+  },
+  "wider_world_relationships": {
+    "allies_and_enemies": {
+      "answer": "interdependent with many eastern houses, but friction appears wherever tariffs or magical access produce resentment",
+      "status": "conservative_inference"
+    },
+    "neighboring_powers_that_matter": {
+      "answer": "interdependent with many eastern houses, but friction appears wherever tariffs or magical access produce resentment",
+      "status": "conservative_inference"
+    },
+    "isolation_or_connection": {
+      "answer": "connected through the wider world system",
+      "status": "conservative_inference"
+    },
+    "trade_routes_roads_ports_or_passes": {
+      "answer": "school-city routes, archive supply lines, and artifact corridors",
+      "status": "conservative_inference"
+    },
+    "larger_empires_kingdoms_religions_or_movements_affecting_it": {
+      "answer": "the scholarly and magical engine of the eastern imperial network",
+      "status": "conservative_inference"
+    },
+    "outside_threats_influencing_local_decisions": {
+      "answer": "artifact destabilization, knowledge theft, and hostile legal interference",
+      "status": "conservative_inference"
+    },
+    "how_it_fits_the_broader_world": {
+      "answer": "the scholarly and magical engine of the eastern imperial network",
+      "status": "conservative_inference"
+    }
+  },
+  "secrets_and_deeper_truths": {
+    "what_is_not_said_openly_here": {
+      "answer": "its greatest hidden layer is what knowledge is deliberately withheld or redirected",
+      "status": "conservative_inference"
+    },
+    "what_locals_avoid_talking_about": {
+      "answer": "its greatest hidden layer is what knowledge is deliberately withheld or redirected",
+      "status": "conservative_inference"
+    },
+    "what_secrets_lie_under_the_surface": {
+      "answer": "its greatest hidden layer is what knowledge is deliberately withheld or redirected",
+      "status": "conservative_inference"
+    },
+    "official_story_vs_reality_contradictions": {
+      "answer": "its greatest hidden layer is what knowledge is deliberately withheld or redirected",
+      "status": "conservative_inference"
+    },
+    "ancient_or_hidden_truth_explaining_current_events": {
+      "answer": "hidden research, closed archives, and artifact truths not made public",
+      "status": "conservative_inference"
+    },
+    "what_everyone_lives_with_but_pretends_not_to_see": {
+      "answer": "its greatest hidden layer is what knowledge is deliberately withheld or redirected",
+      "status": "conservative_inference"
+    },
+    "invisible_power_structures": {
+      "answer": "access control, tariffs, hidden research priorities, and patronage networks",
+      "status": "conservative_inference"
+    },
+    "buried_history_influencing_the_present": {
+      "answer": "what knowledge is withheld, priced, or politically redirected remains a major hidden tension",
+      "status": "conservative_inference"
+    }
+  }
+}

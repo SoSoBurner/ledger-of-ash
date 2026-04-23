@@ -1,0 +1,25 @@
+{
+  "name": "Plume’s End Outpost",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "Roadwardens and caravan authorities"
+  ],
+  "pressure_vectors": [
+    "caravan disruption rumors",
+    "celestial enforcer sightings"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must notice trouble early enough that force remains legitimate rather than merely reactive. Around Plume’s End Outpost, that usually means carrying caravan disruption rumors, celestial enforcer sightings, route law and storage discipline dominate. without letting the role of watch sergeant visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "faelar_lightloom",
+    "roswen_sunweave"
+  ],
+  "sources": [
+    "locations_catalog"
+  ]
+}

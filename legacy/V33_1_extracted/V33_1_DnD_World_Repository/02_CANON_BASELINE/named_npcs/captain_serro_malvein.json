@@ -1,0 +1,82 @@
+{
+  "npc_id": "captain_serro_malvein",
+  "canonical_name": "Captain Serro Malvein",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "security_actor",
+  "office_or_role": "Castle Watch Captain",
+  "profession_discipline": "security commander",
+  "grouping": "v31_5_md_execution_patch",
+  "polity": "Principalities",
+  "settlement": "Emperor's Castle",
+  "locality_scope": "Emperor's Castle",
+  "institutional_ties": [
+    "Emperor's Castle"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Commander of castle watches, gate rosters, and inner-court access at Emperor's Castle.",
+  "linked_systems": {
+    "polities": [
+      "Principalities"
+    ],
+    "localities": [
+      "Emperor's Castle"
+    ],
+    "institutions": [
+      "Emperor's Castle"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Carries the habits of a castle watch captain whose work is visible through daily procedure, gatekeeping, and the practical pressures of Emperor's Castle.",
+  "daily_function": "Performs the ongoing duties of castle watch captain in and around Emperor's Castle, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Emperor's Castle workable through the obligations of castle watch captain while managing immediate local pressure without public breakdown.",
+  "hidden_pressure": "Must keep the role of castle watch captain credible while absorbing strain, delay, scarcity, access pressure, or political friction tied to Emperor's Castle.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Captain Serro Malvein can draw the party into a practical problem centered on Emperor's Castle."
+    },
+    {
+      "hook_type": "institutional_help",
+      "summary": "Captain Serro Malvein becomes useful when the party needs access, explanation, or relief tied to the work of a castle watch captain."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created from the estate and daily-life infrastructure execution patch to make polity-native estate operations usable at table scale.",
+  "source_object_ids": [
+    "estate_infrastructure_with_functional_npcs"
+  ],
+  "compatibility_interface_id": "captain_serro_malvein",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Captain Serro Malvein is readable as a castle watch captain tied to Emperor's Castle.",
+  "encounter_context": {
+    "usual_environment": "Emperor's Castle: role-relevant halls, counters, corridors, docks, archives, shrines, workshops, gates, or administrative rooms",
+    "who_seeks_them_out": [
+      "petitioners",
+      "travelers needing help",
+      "locals under pressure"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "castle watch captain"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Captain Serro Malvein presents as someone shaped by the duties of a castle watch captain and the daily pressures of Emperor's Castle.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a castle watch captain, and proof that strangers will not make Emperor's Castle harder to manage.",
+  "what_they_refuse": "Captain Serro Malvein refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a castle watch captain too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Captain Serro Malvein can open local doors, explain expectations, and redirect pressure before it hardens.",
+  "escalation_if_crossed": "If crossed, Captain Serro Malvein adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Captain Serro Malvein always knows more about Emperor's Castle than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to castle watch captain duties in Emperor's Castle."
+}

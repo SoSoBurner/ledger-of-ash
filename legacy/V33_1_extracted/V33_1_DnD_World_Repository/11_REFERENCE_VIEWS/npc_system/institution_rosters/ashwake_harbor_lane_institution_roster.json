@@ -1,0 +1,27 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ashwake Harbor Lane",
+  "record_count": 1,
+  "npc_ids": [
+    "morra_glassmelt"
+  ],
+  "records": [
+    {
+      "npc_id": "morra_glassmelt",
+      "canonical_name": "Morra Glassmelt",
+      "polity": "Psanan",
+      "office_or_role": "River Pilot",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as river pilot.",
+      "current_agenda": "Keep Ashwake Harbor Lane workable through the obligations of river pilot while managing the immediate pressure of eruption risk in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Ashwake Harbor Lane is now linked to the strongest matching named NPC records available in-repository.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "spatial_seasonal"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "npc_id": "captain_thalion_windrider",
+  "canonical_name": "Captain Thalion Windrider",
+  "aliases": [],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "security_officer",
+  "office_or_role": "Leader of the Roadwardens",
+  "profession_discipline": "Leader of the Roadwardens",
+  "grouping": "preexisting_canon_named_npc",
+  "polity": "Transpolity",
+  "settlement": "Roadwardens’ Central Command",
+  "locality_scope": "Roadwardens’ Central Command",
+  "institutional_ties": [
+    "Roadwardens’ Central Command",
+    "route security"
+  ],
+  "legal_standing": "recognized_authority",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Recognized as a leader of the roadwardens of regional weight.",
+  "linked_systems": {
+    "polities": [],
+    "localities": [
+      "Roadwardens’ Central Command"
+    ],
+    "institutions": [
+      "Roadwardens’ Central Command",
+      "route security"
+    ],
+    "factions": []
+  },
+  "appearance": "Typically appears in the bright colors and tall plumes associated with Shelk’s Roadwardens.",
+  "manner": "Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a leader of the roadwardens still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of leader of the roadwardens in and around Roadwardens’ Central Command, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Roadwardens’ Central Command workable through the obligations of leader of the roadwardens while managing the immediate pressure of institutional scrutiny in Transpolity.",
+  "hidden_pressure": "Must keep visible order credible while absorbing the first shock of disorder, contraband, sabotage, or violence. Around Roadwardens’ Central Command, that usually means carrying institutional scrutiny, reputation risk, daily strain without letting the role of leader of the roadwardens visibly slip.",
+  "relationship_refs": [
+    "rel_0902",
+    "rel_0903",
+    "rel_0904"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "contraband_or_smuggling",
+      "summary": "Captain Thalion Windrider can draw the party into contraband, false papers, or a suspicious cargo problem tied to Roadwardens’ Central Command."
+    },
+    {
+      "hook_type": "escort_or_route_problem",
+      "summary": "Any task accepted from Captain Thalion Windrider may turn into an escort, checkpoint, or route-control problem before the destination is reached."
+    },
+    {
+      "hook_type": "incident_response",
+      "summary": "Captain Thalion Windrider needs outside hands to handle a breach, seizure, or violent disturbance before it spreads through Roadwardens’ Central Command."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Captain Thalion Windrider needs help with a problem in Roadwardens’ Central Command that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "direct_canon",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained. Appearance conservatively derived from explicit office, organizational attire, or species/station cues already present in corpus support.",
+  "source_object_ids": [
+    "principality_shelk"
+  ],
+  "compatibility_interface_id": "captain_thalion_windrider",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Uniform, posture, and the way others make room mark Captain Thalion Windrider as visible enforcement before rank ever needs to be named.",
+  "encounter_context": {
+    "usual_environment": "Roadwardens’ Central Command: checkpoints, barracks, patrol seams, or visible trouble-spots",
+    "who_seeks_them_out": [
+      "travelers with problems",
+      "local authorities",
+      "people seeking immediate order"
+    ],
+    "who_avoids_them": [
+      "smugglers",
+      "saboteurs",
+      "those carrying weak papers"
+    ],
+    "interaction_anchor": "threshold control or rapid incident response"
+  },
+  "evidence_tier": "direct_canon",
+  "first_impression": "Captain Thalion Windrider presents as Balances command voice with practiced observation, sounding like someone who expects trouble to hide inside normality. In Transpolity, that reads as someone boundary-crossing and adaptive, speaking to whichever audience or protocol is presently in front of them, and the habits of a leader of the roadwardens still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Leader of the Roadwardens, and proof that strangers will not create avoidable noise in Transpolity.",
+  "what_they_refuse": "Captain Thalion Windrider refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Leader of the Roadwardens too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Captain Thalion Windrider can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Captain Thalion Windrider adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Captain Thalion Windrider is Recognized as a leader of the roadwardens of regional weight. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Leader of the Roadwardens."
+}

@@ -1,0 +1,9 @@
+{
+  "tracks": [
+    "aurora intensification",
+    "axial flips",
+    "moon visibility shifts",
+    "elemental cycle pressure"
+  ],
+  "default_state": "baseline_pending_runtime_change"
+}

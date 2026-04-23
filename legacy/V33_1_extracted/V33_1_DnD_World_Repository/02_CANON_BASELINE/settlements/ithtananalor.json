@@ -1,0 +1,89 @@
+{
+  "name": "Ithtananalor",
+  "type": "city",
+  "parent_polity": "Principality of Roaz",
+  "territory": "House Roaz",
+  "truth_layer": "direct_canon",
+  "identity": "Fortified administrative heart of Roaz, where legal identity, industry, and enforcement culture visibly merge.",
+  "approach": "Austere walls, disciplined checkpoints, and industrial silhouettes announce a city built for law and production.",
+  "inside": "Fortresses, foundries, tribunal logic, prison labor systems, and administrative command centers set the civic rhythm.",
+  "who_belongs": [
+    "enforcers",
+    "engineers",
+    "clerks",
+    "laborers",
+    "magistrates"
+  ],
+  "who_is_out_of_place": [
+    "unlicensed mages",
+    "undisciplined opportunists",
+    "those expecting informal noble leniency"
+  ],
+  "expected_behavior": [
+    "comply promptly",
+    "accept inspection",
+    "treat law as public culture rather than negotiable custom"
+  ],
+  "visible_power": [
+    "Lord Aric Roaz",
+    "Office of Roazian Enforcement",
+    "Iron Accord"
+  ],
+  "economy": [
+    "ore control",
+    "legal infrastructure",
+    "technology",
+    "prison labor logistics"
+  ],
+  "faith": [
+    "Justice-aligned civic order dominates public symbolism more than overt softness."
+  ],
+  "seasonal_change": "Winter constrains transport and mining; productive rhythm intensifies in spring and summer.",
+  "pressure": [
+    "illicit magic",
+    "smuggling",
+    "public accountability for harsh enforcement"
+  ],
+  "npc_interfaces": [
+    "captain_darian_roaz",
+    "sir_velden_ironspike",
+    "veyra_boltmere",
+    "torren_stonewake",
+    "mira_steelmarch",
+    "casvel_redhinge",
+    "rhodra_ironspike"
+  ],
+  "law_context": [
+    "Roazian antimagic and order law saturate public life."
+  ],
+  "sources": [
+    "principality_roaz",
+    "spatial_seasonal",
+    "principalities"
+  ],
+  "named_npc_refs": [
+    "captain_darian_roaz",
+    "sir_velden_ironspike",
+    "veyra_boltmere",
+    "torren_stonewake",
+    "mira_steelmarch",
+    "casvel_redhinge",
+    "rhodra_ironspike"
+  ],
+  "local_interface_roles": [],
+  "local_role_expression": {},
+  "identity_interface_rule": {
+    "role": "playable access point",
+    "title_label": "locality-facing surface",
+    "named_npc": "canon person with source support",
+    "truth_layer": "engine_canon"
+  },
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_behavior_texture": "People who belong here are usually enforcers, engineers, clerks, and public conduct is read through expectations such as comply promptly, accept inspection.",
+  "visible_power_signals": "Ordinary decisions are visibly shaped by Lord Aric Roaz, Office of Roazian Enforcement, Iron Accord.",
+  "local_tension_surface": "The place feels stable only until pressures such as illicit magic, smuggling, public accountability for harsh enforcement begin showing through daily routines.",
+  "differentiator": "Ithtananalor stands apart because its economy leans on ore control, legal infrastructure; public faith remains visible through Justice-aligned civic order dominates public symbolism more than overt softness.; outsiders are noticed fastest when they resemble unlicensed mages, undisciplined opportunists.",
+  "encounter_rhythm": "Most first scenes in Ithtananalor begin through city rhythms: arrival, observation, minor correction, and only then deeper access."
+}

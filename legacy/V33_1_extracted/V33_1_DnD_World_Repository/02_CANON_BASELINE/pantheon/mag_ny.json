@@ -1,0 +1,12 @@
+{
+  "id": "deity.mag_ny",
+  "name": "Magány",
+  "domain": "Solitude",
+  "desire": "Quiet reflection and self-discovery",
+  "current_state": "Assimilated by Vonalzo as a seed.",
+  "truth_layer": "corrected_canon",
+  "sources": [
+    "pantheon_story",
+    "gwybodaeth_missing"
+  ]
+}

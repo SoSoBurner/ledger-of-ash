@@ -1,0 +1,68 @@
+{
+  "build_version": "V33_1",
+  "institution": "Vow Court Terrace",
+  "record_count": 5,
+  "npc_ids": [
+    "forge_master_telan_pyrehand",
+    "kaiva_ashvein",
+    "oath_keeper_sava_ashwing",
+    "vekka_cindercrest",
+    "vessa_ashvein"
+  ],
+  "records": [
+    {
+      "npc_id": "forge_master_telan_pyrehand",
+      "canonical_name": "Forge Master Telan Pyrehand",
+      "polity": "Psanan",
+      "office_or_role": "Forge Dedication Master",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as forge dedication master.",
+      "current_agenda": "Keep Cindervow Quarter workable through the obligations of forge dedication master while managing the immediate pressure of rebuilding backlog in Psanan."
+    },
+    {
+      "npc_id": "kaiva_ashvein",
+      "canonical_name": "Kaiva Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Night-Lantern Inspector",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as night-lantern inspector.",
+      "current_agenda": "Keep Cindervow Quarter workable through the obligations of night-lantern inspector while managing the immediate pressure of rebuilding backlog in Psanan."
+    },
+    {
+      "npc_id": "oath_keeper_sava_ashwing",
+      "canonical_name": "Oath-Keeper Sava Ashwing",
+      "polity": "Transpolity",
+      "office_or_role": "Rebuilding Vow Adjudicator",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as rebuilding vow adjudicator.",
+      "current_agenda": "Keep Vow Court Terrace workable through the obligations of rebuilding vow adjudicator while managing the immediate pressure of institutional scrutiny in Transpolity."
+    },
+    {
+      "npc_id": "vekka_cindercrest",
+      "canonical_name": "Vekka Cindercrest",
+      "polity": "Psanan",
+      "office_or_role": "Watch Sergeant",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as watch sergeant.",
+      "current_agenda": "Keep Cindervow Quarter workable through the obligations of watch sergeant while managing the immediate pressure of rebuilding backlog in Psanan."
+    },
+    {
+      "npc_id": "vessa_ashvein",
+      "canonical_name": "Vessa Ashvein",
+      "polity": "Psanan",
+      "office_or_role": "Market Broker",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as market broker.",
+      "current_agenda": "Keep Cindervow Quarter workable through the obligations of market broker while managing the immediate pressure of rebuilding backlog in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "An oath court complex where rebuilding vows are sworn before civic witnesses and recorded in stone.",
+    "visible_power": [],
+    "pressure": []
+  },
+  "sources": [
+    "calendars_world",
+    "spatial_seasonal"
+  ]
+}

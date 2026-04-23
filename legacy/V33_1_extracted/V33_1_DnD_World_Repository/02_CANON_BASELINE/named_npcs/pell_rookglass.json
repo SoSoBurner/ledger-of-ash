@@ -1,0 +1,91 @@
+{
+  "npc_id": "pell_rookglass",
+  "canonical_name": "Pell Rookglass",
+  "aliases": [
+    "known in local circles"
+  ],
+  "tier": "notable",
+  "state": "active_current",
+  "role_family": "covert_actor",
+  "office_or_role": "Spellthief",
+  "profession_discipline": "Spellthief",
+  "grouping": "Stealth & Precision",
+  "polity": "Shirsh",
+  "settlement": "Shirshal",
+  "locality_scope": "Shirshal, Shirsh",
+  "institutional_ties": [],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Evidence-snatcher who specializes in removing contraband spells before suspects can burn them.",
+  "linked_systems": {
+    "polities": [
+      "Shirsh"
+    ],
+    "localities": [
+      "Shirshal, Shirsh"
+    ],
+    "institutions": [],
+    "factions": []
+  },
+  "appearance": "Pell Rookglass carries the marks of spellthief in ink, rain, and polished cloth: practical wear, maintained details, and a look that suggests they expect to be read before they are trusted.",
+  "manner": "Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shirsh, that reads as someone investigative, magically literate, and discreet, balancing inquiry with regulation, and the habits of a spellthief still shape how they handle timing, silence, and attention.",
+  "daily_function": "Performs the ongoing duties of spellthief in and around Shirshal, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Protect their footing in Shirshal while steering current strain away from a public rupture they may not survive politically or materially.",
+  "hidden_pressure": "A private obligation, debt, promise, or fear tied to reputational exposure is narrowing their options faster than they admit.",
+  "relationship_refs": [
+    "rel_1292"
+  ],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Pell Rookglass can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Pell Rookglass can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    },
+    {
+      "hook_type": "assistance_request",
+      "summary": "Pell Rookglass needs help with a problem in Shirshal that larger systems have pushed down onto ordinary hands."
+    }
+  ],
+  "source_truth_status": "source_backed_canon_baseline",
+  "support_density": "v28_5_append_record",
+  "support_scope_notes": "Integrated from the prior_release canon-ready named-NPC ledger append. Unsupported fields remain restrained.",
+  "source_object_ids": [
+    "v28_5_npc_ledger_append"
+  ],
+  "compatibility_interface_id": null,
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "Pell Rookglass carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Shirshal, this lands inside a public field already shaped by Magi Magistratus.",
+  "encounter_context": {
+    "usual_environment": "Shirshal: the part of Shirshal where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Pell Rookglass presents as Carries the habits of a place-bound worker whose judgment comes from repetition rather than theory. In Shirsh, that reads as someone investigative, magically literate, and discreet, balancing inquiry with regulation, and the habits of a spellthief still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+  "what_they_want_from_strangers": "Useful clarity, respect for Spellthief, and proof that strangers will not create avoidable noise in Principality of Shirsh.",
+  "what_they_refuse": "Pell Rookglass refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing Spellthief too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Pell Rookglass can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+  "escalation_if_crossed": "If crossed, Pell Rookglass adds delay, scrutiny, and reputational drag before direct punishment.",
+  "rumor_about_them": "People say Pell Rookglass is Evidence-snatcher who specializes in removing contraband spells before suspects can burn them. and rarely acts without a second motive.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Spellthief.",
+  "social_texture": "Pell Rookglass speaks like someone who has spent too long translating private stakes into acceptable public language. Around Shirshal, people read them as socially alert, procedural, and sensitive to status.",
+  "money_pressure": "Their material pressure is tied to favors and tariffs; even when wealthy, they think in terms of loss, leverage, and what one bad week would expose.",
+  "status_anxiety": "What they fear most is not simple failure but reputational exposure becoming socially visible before they can contain it.",
+  "long_memory": "They remember who made their work harder, who preserved dignity under strain, and who tried to force speed without bearing consequence.",
+  "obvious_tell": "When pressure rises, Pell touches clothing, tools, or insignia before answering, as if checking that their role is still intact.",
+  "best_use_case": "Use Pell Rookglass when the party needs a socially grounded face for Shirshal: access, warning, delay, price, or reluctant help.",
+  "private_contradiction": "They want to appear consistent, but their real choices are split between duty, self-protection, and preserving one relationship they cannot afford to lose."
+}

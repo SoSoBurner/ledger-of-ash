@@ -1,0 +1,10 @@
+{
+  "id": "world_temporal.limbo_reset_relation",
+  "name": "Limbo Reset Relation",
+  "truth_layer": "direct_canon",
+  "summary": "Limbo’s holographic world resets on a daily cycle and remains tied to doom-scar temporal distortion rather than ordinary local chronology.",
+  "sources": [
+    "pantheon_story",
+    "internal_canonical_record"
+  ]
+}

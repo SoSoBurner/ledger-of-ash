@@ -1,0 +1,209 @@
+{
+  "npc_id": "expedition_leader_vesh_hollow",
+  "canonical_name": "Vesh Hollow",
+  "build_version": "V33_1",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "source_truth_status": "conservative_inference",
+  "evidence_tier": "source_backed_inference",
+  "dossier_layering": {
+    "canon_public": "Grounded directly in baseline NPC record plus linked polity/institution/locality support where available.",
+    "gm_hidden": "Conservative connective tissue derived from agenda, pressure, role logic, and relationship web; not promoted above asserted canon."
+  },
+  "core_identity": {
+    "full_name": "Vesh Hollow",
+    "aliases_titles_epithets": [],
+    "pronouns": "Not explicitly stated in canon.",
+    "apparent_age": "Not explicitly stated in canon.",
+    "actual_age": "Not explicitly stated in canon.",
+    "species_ancestry_nature": "Not explicitly stated in canon.",
+    "public_identity": "Loss-Marked Expedition Leader",
+    "hidden_identity": "None explicitly asserted; hidden layer concerns pressure, leverage, and misread motive rather than a confirmed second identity.",
+    "moral_tier": "Complicated / Conflicted",
+    "ethical_profile": "Role-shaped ethics anchored to place, obligation, and consequence rather than free-floating abstraction.",
+    "general_temperament": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a loss-marked expedition leader still shape how they handle timing, silence, and attention.",
+    "short_npc_pitch": "Vesh Hollow is a loss-marked expedition leader anchored to Starbreak Commune, where daily institutional pressures make them useful, risky, or both in play.",
+    "public_role": "Vesh Hollow is a loss-marked expedition leader anchored to Starbreak Commune, where daily institutional pressures make t"
+  },
+  "setting_placement": {
+    "region": "Sheresh Communes",
+    "polity_state_faction": "Sheresh Communes",
+    "settlement_site_base_of_operations": "Starbreak Commune",
+    "location_setting": "On approach, Starbreak Commune reads as Tall ice-sheathed towers and mirrored sighting plates rise above the dome rim Inside, it tends toward Observation decks, route boards, and memorial walls mark a life of outward attention Its standing pressure comes from crew attrition, signal blackout, observation exposure.",
+    "public_role": "Loss-Marked Expedition Leader",
+    "institutional_ties": [
+      "Starbreak Commune"
+    ],
+    "formal_rank_social_standing": "not_explicitly_stated",
+    "sphere_of_influence": "grassroots",
+    "network_function": [
+      "localized practical leverage"
+    ],
+    "who_they_answer_to": [
+      "the procedural demands of Starbreak Commune"
+    ],
+    "who_answers_to_them": [
+      "Aster Rimebridge, Kelm Rimebridge"
+    ],
+    "who_rivals_them": [],
+    "who_depends_on_them": [
+      "Aster Rimebridge (Both tied to Starbreak Commune.)",
+      "Kelm Rimebridge (Both tied to Starbreak Commune.)",
+      "Kelm Snowveil (Both tied to Starbreak Commune.)"
+    ],
+    "who_they_secretly_depend_on": [
+      "quiet cooperation, stable records, and other people doing their narrow part correctly"
+    ]
+  },
+  "public_vs_private": {
+    "public_face": "Known locally through day-to-day work as loss-marked expedition leader. Vesh Hollow carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Starbreak Commune, this lands inside a public field already shaped by Route Warden Compacts, Containment Research Concord.",
+    "common_first_impression": "Vesh Hollow presents as Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a loss-marked expedition leader still shape how they handle timing, silence, and attention. and immediately reads for leverage, obligation, and risk.",
+    "visible_virtues": [
+      "competence under pressure",
+      "place literacy",
+      "readable usefulness"
+    ],
+    "visible_flaws": [
+      "protective of role",
+      "selective with trust",
+      "can widen small matters through procedure"
+    ],
+    "public_symbols": [
+      "Vesh Hollow carries the look of a practiced local operator whose authority is read through place, familiarity, and the reactions of others more than formal insignia. In Starbreak Commune, this lands inside a public field already shaped by Route Warden Compacts, Containment Research Concord."
+    ],
+    "private_truth": "Keep Starbreak Commune workable through the obligations of loss-marked expedition leader while managing the immediate pressure of crew attrition in Sheresh Communes. Must hold local credibility together even when the causes of strain sit elsewhere. Around Starbreak Commune, that usually means carrying crew attrition, signal blackout, observation exposure without letting the role of loss-marked expedition leader visibly slip.",
+    "what_they_hide": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Starbreak Commune, that usually means carrying crew attrition, signal blackout, observation exposure without letting the role of loss-marked expedition leader visibly slip.",
+    "what_they_fear_being_known_for": "The degree to which their usefulness depends on strain staying barely manageable.",
+    "what_they_are_wrong_about": "They may overestimate how much control role and procedure can preserve once pressure crosses a threshold.",
+    "what_they_refuse_to_admit_to_themselves": "That some of their identity is now fused to crisis-management rather than to the clean ideal of the role."
+  },
+  "psychology": {
+    "what_they_want_most": "Useful clarity, respect for Loss-Marked Expedition Leader, and proof that strangers will not create avoidable noise in Sheresh Communes.",
+    "what_they_are_trying_to_protect_or_avoid": "Keep Starbreak Commune workable through the obligations of loss-marked expedition leader while managing the immediate pressure of crew attrition in Sheresh Communes.",
+    "emotional_drive": "Beneath the role sits a need for ordinary life under institutional pressure, legibility, and a world that does not collapse into preventable noise.",
+    "core_wound": "No singular foundational trauma is directly asserted in canon; the usable wound layer is role-shaped wear, exposure, and the cost of being the person who must notice first or answer last.",
+    "how_it_shaped_them": "It turned ordinary duty into a personality contour: they scan for failure early, trust slowly, and measure strangers by downstream cost.",
+    "guiding_belief": "If the system is kept legible, losses can still be bounded.",
+    "hidden_belief": "Someone always pays for confusion; better it be controlled sooner than wider later.",
+    "lie_they_tell_themselves": "That they are only doing the job and that the job has not already begun shaping what they are.",
+    "truth_they_are_avoiding": "Their daily choices influence culture, fear, and legitimacy far beyond the narrow wording of the role.",
+    "thresholds": {
+      "anger": "being forced to absorb avoidable disorder",
+      "fear": "cascading failure that makes role performance meaningless",
+      "power": "clear information, recognized standing, and procedural initiative",
+      "smallness": "being bypassed, misfiled, or rendered decorative",
+      "softens": "useful honesty and disciplined cooperation",
+      "hardens": "evasiveness, disrespect, and reputational risk"
+    }
+  },
+  "morality_in_practice": {
+    "how_they_justify_actions": "By reference to burden, continuity, and the need to keep the surrounding place from slipping into a harder consequence tier.",
+    "what_they_consider_unforgivable": "Willful sabotage of trust, records, access, or public safety tied to their role.",
+    "what_they_will_absolutely_do": "Delay, question, redirect, document, and escalate when place logic demands it.",
+    "what_they_will_only_do_under_pressure": "Leverage reputation, force, secrecy, or rigid procedure in ways that damage future trust.",
+    "what_they_will_never_do": "Act against corpus-confirmed identity or role logic without a visible pressure bridge.",
+    "relationship_to_good_evil": "Operational read: Complicated / Conflicted. Their danger lies less in theatrical evil than in what happens when role logic outruns compassion, nuance, or proportionality."
+  },
+  "power_profile": {
+    "why_they_matter": "Vesh Hollow can open doors, explain local expectations, or redirect trouble before it reaches a harder authority layer.",
+    "why_hard_to_ignore": "By enforcing Loss-Marked Expedition Leader too rigidly, protecting reputation, or turning a small request into a larger obligation.",
+    "primary_source_of_power": "general_actor",
+    "secondary_source_of_power": "local familiarity, institutional memory, and other people needing something from them",
+    "why_difficult_to_confront_directly": "Confronting them usually means confronting place rules, witnesses, and downstream consequences rather than only the individual body in front of you.",
+    "capabilities": {
+      "magic": "Not explicitly stated unless separately asserted elsewhere in corpus.",
+      "combat": "Role-dependent; implied only to the degree their office already carries enforcement, survival, or defensive expectation.",
+      "social": "Moves through conversation like someone who solves visible problems first and interprets meaning second. In Sheresh Communes, that reads as someone curious, controlled, and alert to magical contamination, speaking like someone used to careful containment, and the habits of a loss-marked expedition leader still shape how they handle timing, silence, and attention.",
+      "strategic_administrative": "Performs the ongoing duties of loss-marked expedition leader in and around Starbreak Commune, where the role has practical consequences even when nothing dramatic is happening.",
+      "logistical_economic": "Keep Starbreak Commune workable through the obligations of loss-marked expedition leader while managing the immediate pressure of crew attrition in Sheresh Communes.",
+      "investigative_covert": "Must hold local credibility together even when the causes of strain sit elsewhere. Around Starbreak Commune, that usually means carrying crew attrition, signal blackout, observation exposure without letting the role of loss-marked expedition leader visibly slip."
+    },
+    "signature_methods": {
+      "how_they_typically_win": "By controlling tempo, framing the problem first, and forcing others to deal with the local reality they represent.",
+      "favorite_tool": "position, knowledge, and place-specific leverage",
+      "how_they_escalate": "If crossed, Vesh Hollow adds delay, scrutiny, and reputational drag before direct punishment.",
+      "when_cornered": "They narrow options, call on procedure or allies, and try to move the conflict onto terrain they understand better than the intruder."
+    }
+  },
+  "systems_impact": {
+    "direct_controls": [
+      "Starbreak Commune"
+    ],
+    "indirect_effects": [
+      "Starbreak Commune",
+      "Sheresh Communes"
+    ],
+    "cultural_effect": "Ordinary people around Starbreak Commune learn to speak, wait, disclose, or hide differently depending on whether Vesh Hollow or people like them are part of the scene."
+  },
+  "society_politics_geopolitics": {
+    "ordinary_people_experience": "Common folk experience Vesh Hollow as a point where broader pressures become personal: papers checked, routes delayed, rites clarified, access granted, warnings issued, or burdens redirected.",
+    "cultural_wound_or_benefit": "They leave behind either increased legibility and trust or accumulated caution and narrowed speech.",
+    "secondary_behaviors": "People rehearse their story before approaching; they gather proof early; they watch who is seen speaking with this NPC.",
+    "factions_gain": [
+      "Starbreak Commune"
+    ],
+    "factions_fear": [
+      "actors who benefit from vagueness, delay, leakage, or unmanaged pressure"
+    ],
+    "governance_shift": "At table scale, this NPC shifts how authority feels inside Starbreak Commune: more navigable if cooperative, more costly if crossed.",
+    "geopolitical_effect": "Small incidents around Vesh Hollow can propagate upward through Sheresh Communes if they touch routes, records, trade, ritual legitimacy, or public order."
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0963",
+      "other_npc_id": "aster_rimebridge",
+      "other_name": "Aster Rimebridge",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Starbreak Commune."
+    },
+    {
+      "relationship_id": "rel_0966",
+      "other_npc_id": "kelm_rimebridge",
+      "other_name": "Kelm Rimebridge",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Starbreak Commune."
+    },
+    {
+      "relationship_id": "rel_0967",
+      "other_npc_id": "kelm_snowveil",
+      "other_name": "Kelm Snowveil",
+      "relation_type": "co_service_same_institution",
+      "strength": "medium",
+      "note": "Both tied to Starbreak Commune."
+    }
+  ],
+  "hooks": [
+    {
+      "hook_type": "local_complication",
+      "summary": "Getting involved with Vesh Hollow can expose the party to the everyday consequences of pressure that others only discuss in the abstract."
+    },
+    {
+      "hook_type": "information_offer",
+      "summary": "Vesh Hollow can offer grounded local knowledge once the party proves it is useful rather than merely curious."
+    }
+  ],
+  "encounter_context": {
+    "usual_environment": "Starbreak Commune: the part of Starbreak Commune where their work actually matters day to day",
+    "who_seeks_them_out": [
+      "locals with immediate needs",
+      "outsiders seeking a practical answer"
+    ],
+    "who_avoids_them": [
+      "those making problems abstract",
+      "those who only appear when things break"
+    ],
+    "interaction_anchor": "local continuity under pressure"
+  },
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or mercy from a Loss-Marked Expedition Leader.",
+  "rumor": "People say Vesh Hollow is Known locally through day-to-day work as loss-marked expedition leader. and rarely acts without a second motive.",
+  "provenance": {
+    "source_object_ids": [
+      "spatial_seasonal"
+    ],
+    "support_scope_notes": "Promoted from a preexisting named interface into the unified full-content NPC architecture. Sparse unsupported fields remain intentionally restrained.",
+    "transformation_note": "Dossier generated from existing named NPC architecture plus locally-linked support texts; unsupported hard biography intentionally withheld.",
+    "derivation_label": "source_backed_conservative_inference",
+    "derivation_tier": "repository_synthesis"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "npc_id": "dovan_sepulcher",
+  "canonical_name": "Dovan Sepulcher",
+  "aliases": [],
+  "tier": "grassroots",
+  "state": "active_current",
+  "role_family": "general_actor",
+  "office_or_role": "Independent Operator",
+  "profession_discipline": "Independent Operator",
+  "grouping": "v31_named_completion_patch",
+  "polity": "Panim",
+  "settlement": "Veilbridge Sepulcher",
+  "locality_scope": "Veilbridge Sepulcher",
+  "institutional_ties": [
+    "Veilbridge Sepulcher"
+  ],
+  "legal_standing": "not_explicitly_stated",
+  "religious_standing": "not_explicitly_stated",
+  "public_reputation": "Known around Veilbridge Sepulcher through day-to-day work as independent operator.",
+  "linked_systems": {
+    "polities": [
+      "House Panim"
+    ],
+    "localities": [
+      "Veilbridge Sepulcher"
+    ],
+    "institutions": [
+      "Veilbridge Sepulcher"
+    ],
+    "factions": []
+  },
+  "appearance": null,
+  "manner": "Keeps motives partly hidden and options open, presenting usefulness before allegiance. In Veilbridge Sepulcher, that habit reads through the public pressures of the place rather than decorative flourish.",
+  "daily_function": "Performs the ongoing duties of independent operator in and around Veilbridge Sepulcher, where the role has practical consequences even when nothing dramatic is happening.",
+  "current_agenda": "Keep Veilbridge Sepulcher workable through the obligations of independent operator while managing the immediate pressure of overflow of rites, class tension in burial access.",
+  "hidden_pressure": "Must keep the role of independent operator credible while absorbing the strain created by overflow of rites, class tension in burial access.",
+  "relationship_refs": [],
+  "adventure_hooks": [
+    {
+      "hook_type": "local_access",
+      "summary": "Dovan Sepulcher can draw the party into a locality problem centered on independent operator duties in Veilbridge Sepulcher."
+    },
+    {
+      "hook_type": "practical_help",
+      "summary": "Dovan Sepulcher becomes useful when the party needs grounded help with overflow of rites, class tension in burial access around Veilbridge Sepulcher."
+    }
+  ],
+  "source_truth_status": "conservative_inference",
+  "support_density": "promoted_interface_record",
+  "support_scope_notes": "Created in V33_1 to ensure every locality-facing NPC access role resolves to a proper named person while remaining sparse and canon-safe.",
+  "source_object_ids": [
+    "locations_catalog",
+    "veilbridge_sepulcher"
+  ],
+  "compatibility_interface_id": "dovan_sepulcher",
+  "version": "V33_1",
+  "generation_timestamp": "2026-04-19T02:36:22Z",
+  "build_signature": "V33_1_WORLD_QA_CANON_SAFE_INTRO_AND_RUNTIME_SUPPORT_REBUILD",
+  "public_signal": "In public, Dovan Sepulcher is immediately readable as a independent operator tied to Veilbridge Sepulcher.",
+  "encounter_context": {
+    "usual_environment": "Veilbridge Sepulcher: ordinary workspaces, public counters, roads, docks, shrines, workshops, or other role-relevant spaces",
+    "who_seeks_them_out": [
+      "travelers needing help",
+      "locals under pressure",
+      "people who need access or clarity"
+    ],
+    "who_avoids_them": [
+      "those hiding details",
+      "those causing avoidable disruption",
+      "those hoping responsibility stays vague"
+    ],
+    "interaction_anchor": "independent operator"
+  },
+  "evidence_tier": "source_backed_inference",
+  "first_impression": "Dovan Sepulcher presents as someone shaped by the duties of a independent operator and the daily pressures of Veilbridge Sepulcher.",
+  "what_they_want_from_strangers": "Useful clarity, respect for the work of a independent operator, and proof that strangers will not make Veilbridge Sepulcher harder to manage.",
+  "what_they_refuse": "Dovan Sepulcher refuses careless disrespect, vague promises, and demands that threaten standing or workload.",
+  "how_they_create_problems": "By enforcing the expectations of a independent operator too rigidly, protecting local reputation, or turning a small request into a larger obligation.",
+  "how_they_can_help": "Can offer unconventional help, side routes, or deniable connections.",
+  "escalation_if_crossed": "If crossed, Dovan Sepulcher adds scrutiny, delay, and locality-specific friction before direct punishment.",
+  "rumor_about_them": "People say Dovan Sepulcher always knows more about Veilbridge Sepulcher than is immediately visible.",
+  "best_first_scene": "A first encounter works best when the party needs guidance, access, or relief tied to a independent operator in Veilbridge Sepulcher."
+}

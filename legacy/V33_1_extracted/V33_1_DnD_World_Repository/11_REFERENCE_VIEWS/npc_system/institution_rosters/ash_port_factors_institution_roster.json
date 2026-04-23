@@ -1,0 +1,33 @@
+{
+  "build_version": "V33_1",
+  "institution": "Ash Port Factors",
+  "record_count": 1,
+  "npc_ids": [
+    "vessa_glassmelt"
+  ],
+  "records": [
+    {
+      "npc_id": "vessa_glassmelt",
+      "canonical_name": "Vessa Glassmelt",
+      "polity": "Psanan",
+      "office_or_role": "Oath Witness",
+      "tier": "grassroots",
+      "public_reputation": "Known locally through day-to-day work as oath witness.",
+      "current_agenda": "Keep Ash Port Factors workable through the obligations of oath witness while managing the immediate pressure of eruption risk in Psanan."
+    }
+  ],
+  "roster_context": {
+    "identity": "Harbor-facing brokers who move volcanic exports, ration incoming necessities, and negotiate ash-window shipping from Psanan.",
+    "visible_power": [],
+    "pressure": [
+      "storm risk",
+      "ashfall closures",
+      "weapon export demand",
+      "port crowding during navigable windows"
+    ]
+  },
+  "sources": [
+    "spatial_seasonal",
+    "calendars_world"
+  ]
+}

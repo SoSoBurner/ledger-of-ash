@@ -1,0 +1,35 @@
+{
+  "name": "Verdant Row District",
+  "truth_layer": "source_backed_inference",
+  "active_pressure_owners": [
+    "Fashion Artisans Collective",
+    "Roadwarden command staff",
+    "academy instructors"
+  ],
+  "pressure_vectors": [
+    "economic fraud",
+    "design theft",
+    "route security"
+  ],
+  "public_symptom": "Visible routines run on time, but people with actual responsibility are shorter, more procedural, and quicker to redirect outsiders.",
+  "hidden_cause": "Must balance deterrence, morale, and actual capability while others often judge only the visible surface. Around Shelkopolis, that usually means carrying glyph corruption beyond the city, trade security obligations, noble rivalry without letting the role of ward mediator visibly slip.",
+  "if_ignored": {
+    "1_day": "Queues, tempers, and procedural shortcuts become more obvious.",
+    "1_week": "Blame starts traveling between offices, crews, or patrons instead of being resolved at the source.",
+    "1_month": "The locality begins treating strain as normal and bakes it into daily custom, enforcement, or supply rhythm."
+  },
+  "supporting_npc_ids": [
+    "corin_lightloom",
+    "elandra_sunweave",
+    "faelar_bloomcrest",
+    "maelin_dawnmantle",
+    "maelis_starbloom",
+    "maelis_threadmere",
+    "nyelle_starbloom",
+    "sera_aurorine"
+  ],
+  "sources": [
+    "psc_shelkopolis",
+    "locations_catalog"
+  ]
+}
