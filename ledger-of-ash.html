@@ -2657,7 +2657,7 @@ const ENEMY_TEMPLATES = {
     name:'Roadwarden Patrol Guard', hp:18, maxHp:18,
     attack:4, defense:6, morale:10,
     desc:'Armored and disciplined. Follows procedure until procedure fails.',
-    loot:{gold:8, item:'Patrol Report (evidence)'},
+    loot:{gold:8, item:'Patrol Report (evidence)', materials:[{id:'patrol_insignia',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.7}]},
     fleeThreshold:0.3,
     abilities:[{name:'Formation Block', effect:'defense+2 if allies present'}]
   },
@@ -2665,7 +2665,7 @@ const ENEMY_TEMPLATES = {
     name:'Private Security Agent', hp:14, maxHp:14,
     attack:5, defense:5, morale:8,
     desc:'Well paid and poorly motivated. Fights until it is no longer worth it.',
-    loot:{gold:12, item:'Sealed House Crest (evidence)'},
+    loot:{gold:12, item:'Sealed House Crest (evidence)', materials:[{id:'house_crest_brass',qty:1,chance:0.4},{id:'stamped_paper',qty:1,chance:0.6}]},
     fleeThreshold:0.4,
     abilities:[{name:'Paid Aggression', effect:'first attack+2'}]
   },
@@ -2673,7 +2673,7 @@ const ENEMY_TEMPLATES = {
     name:'Iron Accord Enforcer', hp:20, maxHp:20,
     attack:6, defense:7, morale:14,
     desc:'Roazian law and stone. Does not negotiate. Does not retreat easily.',
-    loot:{gold:6, item:'Iron Accord Papers (access)'},
+    loot:{gold:6, item:'Iron Accord Papers (access)', materials:[{id:'enforcement_resin',qty:1,chance:0.5},{id:'iron_shard',qty:1,chance:0.6}]},
     fleeThreshold:0.2,
     abilities:[{name:'Iron Stance', effect:'cannot be pushed back'}]
   },
@@ -2681,7 +2681,7 @@ const ENEMY_TEMPLATES = {
     name:'Red Hood Guild Operative', hp:12, maxHp:12,
     attack:7, defense:4, morale:7,
     desc:'Fast, experienced, professionally pragmatic.',
-    loot:{gold:20, item:'Contract Fragment (intel)'},
+    loot:{gold:20, item:'Contract Fragment (intel)', materials:[{id:'shadow_residue',qty:1,chance:0.6},{id:'contract_fragment',qty:1,chance:0.4}]},
     fleeThreshold:0.5,
     abilities:[{name:'Dirty Strike', effect:'on hit 50% chance target loses next action'}]
   },
@@ -2689,7 +2689,7 @@ const ENEMY_TEMPLATES = {
     name:'Frontier Hammer Militia', hp:22, maxHp:22,
     attack:5, defense:5, morale:12,
     desc:'Built for brutal terrain work. Hits harder when cornered.',
-    loot:{gold:5, item:'Frontier Survey Map'},
+    loot:{gold:5, item:'Frontier Survey Map', materials:[{id:'iron_shard',qty:1,chance:0.7},{id:'frontier_fiber',qty:1,chance:0.5}]},
     fleeThreshold:0.25,
     abilities:[{name:'Hammer Down', effect:'attack+3 when below half HP'}]
   },
@@ -2697,7 +2697,7 @@ const ENEMY_TEMPLATES = {
     name:'Shadowhands Watcher', hp:10, maxHp:10,
     attack:6, defense:6, morale:6,
     desc:'Prefers not to be seen at all. Fights only when exposure is inevitable.',
-    loot:{gold:15, item:'Shadowhands Drop Key'},
+    loot:{gold:15, item:'Shadowhands Drop Key', materials:[{id:'shadow_residue',qty:2,chance:0.5},{id:'carved_seal',qty:1,chance:0.3}]},
     fleeThreshold:0.6,
     abilities:[{name:'Vanish', effect:'may disengage without attack of opportunity'}]
   },
@@ -2705,7 +2705,7 @@ const ENEMY_TEMPLATES = {
     name:'Desperate Debtor', hp:8, maxHp:8,
     attack:3, defense:2, morale:4,
     desc:'Nothing to lose. Dangerous for exactly that reason.',
-    loot:{gold:2, item:null},
+    loot:{gold:2, item:null, materials:[{id:'debt_ledger_scraps',qty:1,chance:0.8},{id:'ash_compound',qty:1,chance:0.3}]},
     fleeThreshold:0.1,
     abilities:[]
   }
@@ -3287,6 +3287,11 @@ function endCombat(victory) {
       if (!G.inventory) G.inventory = [];
       G.inventory.push({ name: enemy.loot.item, type: 'evidence', equipped: false });
       victText += ' Found: ' + enemy.loot.item + '.';
+    }
+    if (enemy.loot && enemy.loot.materials && typeof addMaterial === 'function') {
+      enemy.loot.materials.forEach(function(drop) {
+        if (Math.random() < drop.chance) addMaterial(drop.id, drop.qty);
+      });
     }
     addNarration('Combat Over', victText, 'success');
     addJournal('Defeated ' + enemy.name + ' in ' + (CS ? CS.round : 'unknown') + ' rounds. Renown +1.');
@@ -7700,12 +7705,17 @@ let G = {
   benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
   factions:[], quests:[], journal:[], journalRecords:[], history:[],
   inventory:[], equipped:{weapon:null, armor:null, tool:null},
+  materials:{},
   wounds:[], fatigue:0, recoveryState:'stable',
   npcMemory:{}, // { npcId: { trust, seen, lastNote } }
   trainingDisadvantage:0, // counts down — next N choices suffer -2
   dead:false,
   rivalAdventurers:[],
   marenRenown:0, marenRevealed:false,
+  travelMode: 'foot',
+  pace: 'normal',
+  supplyTier: 'light',
+  journeyFatigue: 0,
   schemaVersion:3
 };
 
@@ -8756,6 +8766,10 @@ function loadStageChoices(locId) {
         action: function() { document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();}); if (typeof doSleepScene === 'function') doSleepScene(); }
       });
     }
+    if (typeof shouldShowArrivalScene === 'function' && shouldShowArrivalScene(G.location)) {
+      var arrivalChoice = buildArrivalChoice(G.location);
+      if (arrivalChoice) adapted.unshift(adaptEnrichedChoice(arrivalChoice));
+    }
     renderChoices(adapted);
     return;
   }
@@ -8775,6 +8789,10 @@ function loadStageChoices(locId) {
     base.push({ text: 'Night is coming. I need somewhere to sleep.', tag: 'safe', align: 'neutral',
       action: function() { document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();}); if (typeof doSleepScene === 'function') doSleepScene(); }
     });
+  }
+  if (typeof shouldShowArrivalScene === 'function' && shouldShowArrivalScene(G.location)) {
+    var arrivalChoiceFallback = buildArrivalChoice(G.location);
+    if (arrivalChoiceFallback) base.unshift(arrivalChoiceFallback);
   }
   if (typeof renderChoices === 'function') renderChoices(base);
 }
@@ -9423,6 +9441,18 @@ function gainXP(n) {
 }
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
+
+// Encounter rate modifier per stage (rateModifier applied as extra-encounter probability).
+// S1-2 tuned and active. S3-5: infrastructure only — bestiary tiers not yet authored.
+const COMBAT_SCALING_TABLE = {
+  'Stage I':   { rateModifier: 1.00, bestiaryTier: 1 },
+  'Stage II':  { rateModifier: 1.12, bestiaryTier: 1 },
+  // FUTURE: Stage 3-5 combat scaling — see memory/COMBAT_SCALING.md
+  'Stage III': { rateModifier: 1.22, bestiaryTier: 2 },
+  'Stage IV':  { rateModifier: 1.40, bestiaryTier: 3 },
+  'Stage V':   { rateModifier: 1.60, bestiaryTier: 4 }
+};
+window.COMBAT_SCALING_TABLE = COMBAT_SCALING_TABLE;
 
 function checkLevelUp() {
   const stageCap = STAGE_LEVEL_CAP[G.stage] || 20;
@@ -10239,24 +10269,63 @@ function campAction(type) {
     closeOverlay('overlay-camp');
     seekProfessionalCare();
   } else if (type === 'craft') {
-    if (G.level < 2) {
-      addNarration('Camp', 'Crafting unlocks at Level 2.');
+    if (typeof getAllRecipes !== 'function') {
+      addNarration('Camp', 'No crafting materials available.');
       setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
-    } else if (G.gold < 5) {
-      addNarration('Camp', 'You need at least 5 gold in materials to craft.');
-      setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
-    } else {
-      tickAxis(1); modGold(-5);
-      const craftRoll = Math.floor(Math.random() * 20) + 1 + (G.skills.spirit||0);
-      if (craftRoll >= 10) {
-        addToInventory({ name:'Crafted Supplies', type:'tool', skillBonus:'craft', bonus:1, equipped:false });
-        addNarration('Camp', 'You craft useful supplies. A tool that gives +1 craft added to inventory.', 'success');
-      } else {
-        addNarration('Camp', 'The materials are used up but the result is not quite right. Nothing gained.', 'failure');
-      }
-      saveGame(); updateHUD();
-      setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+      return;
     }
+    var _doCraft = function(recipe) {
+      var roll = rollD20('craft', (G.skills.craft || 0) + Math.floor((G.level || 1) / 3));
+      var itemDef = ITEM_DEFS[recipe.output] || {};
+      var itemName = itemDef.name || recipe.name;
+      if (roll.isFumble) {
+        consumeMaterials(recipe);
+        addNarration('Camp', 'The work collapses at the first step. All materials lost.', 'failure');
+      } else if (roll.total >= recipe.dc) {
+        consumeMaterials(recipe);
+        addToInventory(Object.assign({}, itemDef, {id: recipe.output, equipped: false}));
+        if (roll.isCrit) {
+          var ref = recipe.materials[Math.floor(Math.random() * recipe.materials.length)];
+          addMaterial(ref.id, 1);
+          addNarration('Camp', 'Exceptional work. ' + itemName + ' crafted and one material recovered.', 'success');
+        } else {
+          addNarration('Camp', itemName + ' crafted.', 'success');
+        }
+      } else {
+        consumeHalfMaterials(recipe);
+        addNarration('Camp', 'The attempt falls short. Half your materials are spent.', 'failure');
+      }
+      tickAxis(1);
+      saveGame(); updateHUD();
+      setTimeout(() => renderChoices([{text:'Continue.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+    };
+    var _craftMenu = function() {
+      return getAllRecipes().map(function(recipe) {
+        var canCraft = hasMaterials(recipe) && (G.level || 1) >= recipe.levelReq;
+        var matLines = recipe.materials.map(function(m) {
+          var have = (G.materials && G.materials[m.id]) || 0;
+          var matName = (MATERIAL_DEFS[m.id] || {name: m.id}).name;
+          return matName + ' \xd7' + m.qty + ' (have ' + have + ')';
+        }).join(', ');
+        var tierLabel = recipe.tier.charAt(0).toUpperCase() + recipe.tier.slice(1);
+        var levelNote = (G.level || 1) < recipe.levelReq ? ' [Level ' + recipe.levelReq + '+]' : '';
+        return {
+          text: recipe.name + ' \u2014 ' + tierLabel + levelNote + ': ' + matLines,
+          skill: canCraft ? 'craft' : 'lore',
+          tag: canCraft ? 'risky' : 'safe',
+          align: 'neutral',
+          cid: 'craft_' + recipe.id,
+          fn: canCraft
+            ? (function(r) { return function() { _doCraft(r); }; })(recipe)
+            : (function(ml) { return function() {
+                addNarration('Camp', 'Materials needed: ' + ml, 'failure');
+                setTimeout(() => renderChoices(_craftMenu()), 300);
+              }; })(matLines)
+        };
+      }).concat([{text:'Leave the workshop.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]);
+    };
+    addNarration('Camp', 'You assess your materials and consider what you can make.');
+    setTimeout(() => renderChoices(_craftMenu()), 300);
   } else if (type === 'post_watches') {
     const activeComps = (typeof getActiveCompanions === 'function') ? getActiveCompanions() : [];
     if (activeComps.length === 0) {
@@ -10268,6 +10337,7 @@ function campAction(type) {
       const watchRoll = Math.floor(Math.random() * 20) + 1 + activeComps.length * 2;
       if (watchRoll >= 14) {
         G.fatigue = Math.max(0, (G.fatigue||0) - 1);
+        G.flags['_watch_posted_day_' + (G.dayCount || 0)] = true;
         addNarration('Camp', 'The watches hold. Your companions rotate through the night without incident. You wake less tired than expected.', 'success');
         addJournal('Watches posted. The night was quiet.', 'field_note');
       } else {
@@ -10362,6 +10432,147 @@ function doPushThrough() {
     { text:'Keep going despite it.', skill:'survival', tag:'risky', align:'neutral', cid:'market_intel' },
     { text:'Find somewhere to stop before the fatigue compounds.', skill:'lore', tag:'safe', align:'neutral', cid:'inn_arrival' }
   ]), 300);
+}
+
+// ── DUSKCALL GATE ────────────────────────────────────────
+function checkDuskcall() {
+  if ((G.timeIndex || 0) >= 2) {
+    doSleepScene();
+  } else {
+    addNarration('Travel', 'It is too early to rest. Push on until duskcall before making camp.', 'neutral');
+    setTimeout(() => renderChoices([
+      { text:'Keep going.', skill:'survival', tag:'safe', align:'neutral', cid:'market_intel' }
+    ]), 300);
+  }
+}
+
+// ── JOURNEY START / TRAVEL CORE ──────────────────────────
+function doJourneyStart(destId) {
+  var routeKey = G.location + '|' + destId;
+  var route = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[routeKey];
+  if (!route) {
+    addNarration('Travel', 'No known route from here to that destination.', 'failure');
+    return;
+  }
+
+  var isSupport = (typeof getArchetypeFamily === 'function') && getArchetypeFamily() === 'support';
+  var inSoreheim = (G.location || '').includes('soreheim');
+  var sorehStanding = false;
+  if (inSoreheim) {
+    var facs = G.factions || [];
+    sorehStanding = facs.some(function(f) {
+      return (f.id === 'engineers_consortium' || f.id === 'giant_council') && (f.rep || 0) >= 15;
+    });
+  }
+
+  function supplyGold(base) {
+    if (sorehStanding) return 0;
+    return isSupport ? Math.max(0, base - 3) : base;
+  }
+
+  var costs = { light: supplyGold(0), medium: supplyGold(3), plentiful: supplyGold(6) };
+
+  var choices = [
+    {
+      text: 'Light supplies — travel lean. (' + (costs.light > 0 ? costs.light + 'g' : 'free') + ')',
+      skill: 'survival', tag: 'risky', align: 'neutral', cid: 'supply_light_' + destId,
+      fn: function() { if (G.gold < costs.light) { addNarration('Travel','Not enough gold.','failure'); return; }
+        G.gold -= costs.light; G.supplyTier = 'light'; doTravelJourney(destId); }
+    },
+    {
+      text: 'Medium supplies — reasonable load. (' + (costs.medium > 0 ? costs.medium + 'g' : 'free') + ')',
+      skill: 'survival', tag: 'safe', align: 'neutral', cid: 'supply_medium_' + destId,
+      fn: function() { if (G.gold < costs.medium) { addNarration('Travel','Not enough gold.','failure'); return; }
+        G.gold -= costs.medium; G.supplyTier = 'medium'; doTravelJourney(destId); }
+    },
+    {
+      text: 'Plentiful supplies — prepared for anything. (' + (costs.plentiful > 0 ? costs.plentiful + 'g' : 'free') + ')',
+      skill: 'lore', tag: 'safe', align: 'order', cid: 'supply_plentiful_' + destId,
+      fn: function() { if (G.gold < costs.plentiful) { addNarration('Travel','Not enough gold.','failure'); return; }
+        G.gold -= costs.plentiful; G.supplyTier = 'plentiful'; doTravelJourney(destId); }
+    }
+  ];
+
+  var modeChoices = [
+    {
+      text: 'Foot \u2014 free',
+      skill: 'survival', tag: 'risky', align: 'neutral', cid: 'mode_foot_' + destId,
+      fn: function() { G.travelMode = 'foot'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300); }
+    },
+    {
+      text: 'Horse \u2014 8g',
+      skill: 'survival', tag: 'safe', align: 'neutral', cid: 'mode_horse_' + destId,
+      fn: function() {
+        if ((G.gold || 0) < 8) { addNarration('Depart', 'Not enough gold for a horse.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
+        G.gold -= 8; G.travelMode = 'horse'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300);
+      }
+    },
+    {
+      text: 'Cart \u2014 12g',
+      skill: 'lore', tag: 'safe', align: 'order', cid: 'mode_cart_' + destId,
+      fn: function() {
+        if ((G.gold || 0) < 12) { addNarration('Depart', 'Not enough gold for a cart.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
+        G.gold -= 12; G.travelMode = 'cart'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300);
+      }
+    }
+  ];
+  if (route.boat) {
+    modeChoices.splice(3, 0, {
+      text: 'Boat \u2014 15g',
+      skill: 'lore', tag: 'safe', align: 'order', cid: 'mode_boat_' + destId,
+      fn: function() {
+        if ((G.gold || 0) < 15) { addNarration('Depart', 'Not enough gold for boat passage.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
+        G.gold -= 15; G.travelMode = 'boat'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300);
+      }
+    });
+  }
+  addNarration('Depart', 'How will you travel from ' + (G.location || 'here') + '?', 'neutral');
+  setTimeout(function() { renderChoices(modeChoices); }, 300);
+}
+
+function doTravelJourney(destId) {
+  var routeKey = G.location + '|' + destId;
+  var route = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[routeKey];
+  if (!route) return;
+
+  var mode = G.travelMode || 'foot';
+  var days = route[mode] || route.foot || 1;
+  var pace = G.pace || 'normal';
+  var paceMod = (window.PACE_MODIFIERS && window.PACE_MODIFIERS[pace]) || { tickMultiplier: 1, encounterRateBonus: 1, fatiguePerDay: 1 };
+
+  var adjustedDays = Math.max(1, Math.round(days * paceMod.tickMultiplier));
+  var ticks = adjustedDays * 4;
+
+  // Mounted Discipline: Knight on horseback at fast pace reduces encounter rate
+  var encounterBonus = paceMod.encounterRateBonus;
+  if (mode === 'horse' && G.archetype === 'knight' && pace === 'fast') {
+    G.flags._mounted_discipline_active = true;
+    encounterBonus = encounterBonus * 0.75;
+  } else {
+    G.flags._mounted_discipline_active = false;
+  }
+
+  // Accumulate journey fatigue
+  var fatigueDelta = Math.floor(adjustedDays) * paceMod.fatiguePerDay;
+  G.journeyFatigue = (G.journeyFatigue || 0) + fatigueDelta;
+  if (G.journeyFatigue >= 3) {
+    G.fatigue = Math.min(10, (G.fatigue || 0) + Math.floor(G.journeyFatigue / 3));
+    G.journeyFatigue = G.journeyFatigue % 3;
+  }
+
+  advanceTime(ticks);
+
+  var origin = G.location;
+  G.location = destId;
+
+  // Fire corridor encounters
+  if (typeof window._travelStartEncounter === 'function') {
+    window._travelStartEncounter(route.tier, origin, destId);
+  } else {
+    addNarration('Arrival', 'You arrive at your destination after ' + adjustedDays + ' days on the road.', 'neutral');
+    saveGame(); updateHUD();
+    if (typeof loadStageChoices === 'function') loadStageChoices();
+  }
 }
 
 function showTrainingMenu() {
@@ -10712,12 +10923,20 @@ function showJournal() {
     '</div>'
   ).join('') || '<div style="color:var(--ink-faint);font-size:13px">Nothing in inventory.</div>';
 
+  const matRows = Object.entries(G.materials||{}).filter(function(e){ return e[1] > 0; }).map(function(e) {
+    var id = e[0], qty = e[1];
+    var def = (typeof MATERIAL_DEFS !== 'undefined' && MATERIAL_DEFS[id]) ? MATERIAL_DEFS[id] : null;
+    var label = def ? def.name : id;
+    return '<div class="jov-item">' + label + ' <span style="color:var(--ink-faint);font-size:11px">\xd7' + qty + '</span></div>';
+  }).join('') || '<div style="color:var(--ink-faint);font-size:13px">No materials collected yet.</div>';
+
   jb.innerHTML =
     '<div class="jov-section"><div class="jov-title">&#x25A0; Quests</div>' + questRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Wounds &amp; Recovery</div>' +
     '<div class="jov-entry">State: <strong>' + (G.recoveryState||'stable') + '</strong> &middot; Fatigue: ' + (G.fatigue||0) + '/10</div>' +
     woundRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Inventory</div>' + invRows + '</div>' +
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Materials</div>' + matRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Faction Relations</div>' + factionRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Rival Adventurers</div>' + rivalRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Journal Entries</div>' + loreRows + '</div>';
@@ -11876,6 +12095,8 @@ function showHowToPlay() {
 <script src='content/nomdara_stage2_choices.js'></script>
 <!-- ── SCENE MODULES ── -->
 <script src='content/locality_narrations.js'></script>
+<script src='content/locality_arrival_narrations.js'></script>
+<script src='content/npc_lookup.js'></script>
 <script src='content/scope_reveal.js'></script>
 <script src='content/soreheim_stage1.js'></script>
 <script src='content/sheresh_stage1.js'></script>
@@ -11883,11 +12104,13 @@ function showHowToPlay() {
 <!-- ── STAGE 2 CLIMAX ── -->
 <script src='content/maren_oss_encounter.js'></script>
 <script src='content/travel_corridors.js'></script>
+<script src="content/item_system.js"></script>
 <script src='content/stage2_antechamber.js'></script>
 <script src='content/stage2_climax.js'></script>
 <!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
 <script src='content/stage2_enriched_choices.js'></script>
 <script src='content/stage3_enriched_choices.js'></script>
+<script src='content/stage3_climax.js'></script>
 <script src='content/stage4_enriched_choices.js'></script>
 <script src='content/stage5_enriched_choices.js'></script>
 <!-- ── TRAVEL ENGINE ── -->
@@ -11930,7 +12153,9 @@ function showHowToPlay() {
     if (typeof saveGame === 'function') saveGame();
     // Trigger corridor encounters if available
     if (window.TRAVEL_CORRIDOR && typeof TRAVEL_CORRIDOR.triggerEncounters === 'function') {
-      const tier = 'short'; // TODO: derive from route_matrix distance when data is available
+      var _rk = prevLocation + '|' + locId;
+      var _rd = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[_rk];
+      const tier = (_rd && _rd.tier) || 'short';
       TRAVEL_CORRIDOR.triggerEncounters(tier, prevLocation, locId);
       return;
     }
