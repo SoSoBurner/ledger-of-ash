@@ -2156,6 +2156,49 @@ const COMPANION_DEFS = {
   }
 };
 
+// ── COMPANION PASSIVES & ABILITIES ──────────────────────
+const COMPANION_PASSIVES = {
+  vorath_gelden:   { atk_bonus: 1, skill: 'combat',    desc: "Vorath's discipline steadies your strikes." },
+  mira_calden:     { hp_regen: 1,  skill: 'survival',  desc: "Mira's field medicine keeps you moving." },
+  sera_vale:       { atk_bonus: 1, skill: 'stealth',   desc: "Sera's precision adds to your approach." },
+  toriel_palevow:  { atk_bonus: 1, skill: 'lore',      desc: "Toriel's analysis sharpens your timing." },
+  neren_rimebridge:{ hp_regen: 1,  skill: 'survival',  desc: "Neren's knowledge of the terrain steadies your endurance." },
+  elyra_mossbane:  { atk_bonus: 1, skill: 'stealth',   desc: "Elyra's silence extends to your movements." },
+  vera_wren:       { atk_bonus: 0, skill: 'persuasion', desc: "Vera's presence opens unexpected doors." }
+};
+
+const COMPANION_ABILITIES = {
+  vorath_gelden:   { name: 'Cover Attack',  desc: 'Vorath strikes — deals 1d6 damage. No action cost.',        type: 'damage',  value: 6  },
+  mira_calden:     { name: 'Stabilize',     desc: 'Mira prevents death once and restores 4 HP.',               type: 'heal',    value: 4  },
+  sera_vale:       { name: 'Shadow Step',   desc: '+3 to your next attack roll this fight.',                   type: 'buff',    value: 3  },
+  toriel_palevow:  { name: 'Tactical Read', desc: 'Reduce enemy effective defense by 2 this round.',           type: 'debuff',  value: 2  },
+  neren_rimebridge:{ name: 'Flank',         desc: '+2 to attack, enemy cannot counter this round.',            type: 'buff',    value: 2  },
+  elyra_mossbane:  { name: 'Vanish Cover',  desc: '+2 stealth, next attack gains advantage (+2 roll).',        type: 'buff',    value: 2  },
+  vera_wren:       { name: 'Talk Down',     desc: 'Attempt to end combat through persuasion (DC 12).',         type: 'special', value: 12 }
+};
+
+// Returns total atk_bonus from active companions whose passive matches the given skill
+function getCompanionPassiveBonus(skill) {
+  var total = 0;
+  var active = getActiveCompanions ? getActiveCompanions() : [];
+  active.forEach(function(c) {
+    var p = COMPANION_PASSIVES[c.id];
+    if (p && p.atk_bonus && p.skill === skill) total += p.atk_bonus;
+  });
+  return total;
+}
+
+// Returns total hp_regen from active companions
+function getCompanionHpRegen() {
+  var total = 0;
+  var active = getActiveCompanions ? getActiveCompanions() : [];
+  active.forEach(function(c) {
+    var p = COMPANION_PASSIVES[c.id];
+    if (p && p.hp_regen) total += p.hp_regen;
+  });
+  return total;
+}
+
 // ── COMPANION STATE MANAGEMENT ──────────────────────────
 function initCompanions() {
   if (!G.companions) G.companions = {};
@@ -2957,7 +3000,11 @@ function startCombat(enemyTemplateId, context) {
     log: [],
     rangeTier: _startRangeTier,
     isBossFight: !!(tpl && tpl.boss),
-    strategyActive: null
+    strategyActive: null,
+    companionAbilitiesUsed: [],
+    nextAttackBonus: 0,
+    enemyDefMod: 0,
+    deathPrevented: false
   };
   CS.enemy.maxHp = CS.enemy.maxHp || CS.enemy.hp;
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
@@ -3080,6 +3127,18 @@ function renderCombatRound() {
       '</button>';
   }
 
+  // Companion abilities (one per companion per fight)
+  var _activeComps = typeof getActiveCompanions === 'function' ? getActiveCompanions() : [];
+  var _availComps = _activeComps.filter(function(c) {
+    return COMPANION_ABILITIES[c.id] && !(CS.companionAbilitiesUsed && CS.companionAbilitiesUsed.indexOf(c.id) !== -1);
+  });
+  if (_availComps.length > 0) {
+    html += '<button class="choice-btn combat-btn" data-action="companion_ability">' +
+      '<span class="choice-text">Companions — call on a party member (' + _availComps.length + ' available)</span>' +
+      '<span class="choice-meta"><span class="choice-skill">party</span><span class="choice-tag safe">support</span></span>' +
+      '</button>';
+  }
+
   // Attempt to flee
   html += '<button class="choice-btn combat-btn" data-action="flee">' +
     '<span class="choice-text">Flee — break from combat</span>' +
@@ -3115,12 +3174,105 @@ function resolveCombatAction(action, abilityId) {
 
   const d20 = () => Math.floor(Math.random() * 20) + 1;
 
-  if (action === 'attack') {
+  if (action === 'companion_ability') {
+    // Show companion picker — rebuild the combat block as a picker overlay
+    var _activeComps2 = typeof getActiveCompanions === 'function' ? getActiveCompanions() : [];
+    var _availComps2 = _activeComps2.filter(function(c) {
+      return COMPANION_ABILITIES[c.id] && !(CS.companionAbilitiesUsed && CS.companionAbilitiesUsed.indexOf(c.id) !== -1);
+    });
+    if (_availComps2.length === 0) {
+      addNarration('Companions', 'No companion abilities are available this fight.', 'neutral');
+      renderCombatRound();
+      return;
+    }
+    var pickHtml = '<div class="combat-header"><div class="combat-title">&#x2694; COMPANION ABILITIES</div></div>';
+    pickHtml += '<div class="combat-actions"><div class="choice-label">Choose a companion:</div><div class="choices">';
+    _availComps2.forEach(function(c) {
+      var ab = COMPANION_ABILITIES[c.id];
+      pickHtml += '<button class="choice-btn combat-btn" data-action="use_companion" data-companion="' + c.id + '">' +
+        '<span class="choice-text">' + c.name + ': ' + ab.name + ' — ' + ab.desc + '</span>' +
+        '<span class="choice-meta"><span class="choice-skill">party</span><span class="choice-tag safe">' + ab.type + '</span></span>' +
+        '</button>';
+    });
+    pickHtml += '<button class="choice-btn combat-btn" data-action="back_to_combat">' +
+      '<span class="choice-text">Back — return to combat actions</span>' +
+      '<span class="choice-meta"><span class="choice-skill">—</span><span class="choice-tag safe">cancel</span></span>' +
+      '</button>';
+    pickHtml += '</div></div>';
+    var el2 = document.getElementById('action-content') || document.getElementById('narrative-content');
+    var block2 = document.createElement('div');
+    block2.className = 'scene-block combat-block';
+    block2.innerHTML = pickHtml;
+    block2.querySelectorAll('.combat-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() { resolveCombatAction(btn.dataset.action, btn.dataset.companion); });
+    });
+    el2.appendChild(block2);
+    scrollNarrative();
+    return;
+
+  } else if (action === 'back_to_combat') {
+    renderCombatRound();
+    return;
+
+  } else if (action === 'use_companion') {
+    var _compId = abilityId; // companion id passed via data-companion
+    var _compAb = COMPANION_ABILITIES[_compId];
+    var _compObj = G.companions && G.companions[_compId];
+    if (!_compAb || !_compObj) { renderCombatRound(); return; }
+    if (!CS.companionAbilitiesUsed) CS.companionAbilitiesUsed = [];
+    CS.companionAbilitiesUsed.push(_compId);
+    var _abResultText = '<strong>' + _compObj.name + ': ' + _compAb.name + '</strong><br>';
+
+    if (_compAb.type === 'damage') {
+      var _dmg = Math.floor(Math.random() * _compAb.value) + 1;
+      CS.enemy.hp = Math.max(0, CS.enemy.hp - _dmg);
+      _abResultText += _compAb.desc + ' Deals ' + _dmg + ' damage.';
+      addNarration('Companion', _abResultText, 'success');
+      if (CS.enemy.hp <= 0) { endCombat(true); return; }
+    } else if (_compAb.type === 'heal') {
+      CS.deathPrevented = true;
+      G.hp = Math.min(G.maxHp, G.hp + _compAb.value);
+      _abResultText += _compAb.desc;
+      addNarration('Companion', _abResultText, 'success');
+      updateHUD();
+    } else if (_compAb.type === 'buff') {
+      CS.nextAttackBonus = (CS.nextAttackBonus || 0) + _compAb.value;
+      _abResultText += _compAb.desc;
+      addNarration('Companion', _abResultText, 'success');
+    } else if (_compAb.type === 'debuff') {
+      CS.enemyDefMod = (CS.enemyDefMod || 0) - _compAb.value;
+      _abResultText += _compAb.desc;
+      addNarration('Companion', _abResultText, 'success');
+    } else if (_compAb.type === 'special') {
+      // Vera: persuasion check vs DC
+      var _persuasion = G.skills.persuasion || 0;
+      var _vRoll = Math.floor(Math.random() * 20) + 1;
+      var _vTotal = _vRoll + _persuasion;
+      _abResultText += 'd20 roll: ' + _vRoll + ' + persuasion ' + _persuasion + ' = ' + _vTotal + '<br>';
+      if (_vTotal >= _compAb.value) {
+        _abResultText += 'Vera finds the right words. The fight dissolves.';
+        addNarration('Companion', _abResultText, 'success');
+        endCombat(true);
+        return;
+      } else {
+        _abResultText += 'The attempt falls short. The fight continues.';
+        addNarration('Companion', _abResultText, 'failure');
+      }
+    }
+    renderCombatRound();
+    return;
+
+  } else if (action === 'attack') {
     const roll = d20();
     const rangeBonus = getRangeModifier('melee');
-    const total = roll + combatSkill + traitCombatBonus + rangeBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
+    const compAtkBonus = getCompanionPassiveBonus('combat');
+    const nextAtkBonus = CS.nextAttackBonus || 0;
+    const enemyDefAdj = CS.enemyDefMod || 0;
+    CS.nextAttackBonus = 0;
+    CS.enemyDefMod = 0;
+    const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
     if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
-    const hit = total >= CS.enemy.defense + 5;
+    const hit = total >= (CS.enemy.defense + enemyDefAdj) + 5;
     const baseDmg = hit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
 
     // Enemy counter-attack
@@ -3129,7 +3281,7 @@ function resolveCombatAction(action, abilityId) {
     enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
     enemyDamage = Math.max(0, enemyDamage);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + combat ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + combat ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
 
     if (hit) {
       CS.enemy.hp = Math.max(0, CS.enemy.hp - baseDmg);
@@ -3147,6 +3299,7 @@ function resolveCombatAction(action, abilityId) {
     }
 
   } else if (action === 'defend') {
+    CS.enemyDefMod = 0; // debuffs expire at action resolution
     const roll = d20();
     const total = roll + survSkill;
     const defended = total >= 10;
@@ -3253,6 +3406,13 @@ function resolveCombatAction(action, abilityId) {
   if (isFled) {
     endCombat(false);
     return;
+  }
+
+  // F1: Companion hp_regen passive — apply at end of each round
+  var _regenAmt = typeof getCompanionHpRegen === 'function' ? getCompanionHpRegen() : 0;
+  if (_regenAmt > 0 && G.hp < G.maxHp) {
+    G.hp = Math.min(G.maxHp, G.hp + _regenAmt);
+    updateHUD();
   }
 
   CS.round++;
