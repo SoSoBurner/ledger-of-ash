@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.11.0 — 2026-04-23
+
+### Added
+- **Stage 3 climax** (`content/stage3_climax.js`): 3-phase encounter — Ander Voss (Collegium Keeper, 11-year shadow record) surfaces as the D10 letter-writer; Phase 1 approach paths (open/guarded/early); Phase 2 reveals cross-reference of all Stage 3 threads mapped to unnamed suppression mechanism; Phase 3 carry/expose/mediate resolutions (mediate uses Orveth if prior contact). Fires at `stageProgress[3] >= 15`, gates Stage IV advance on `stage3_climax_complete`.
+- **Stage II mini-boss** (`content/stage2_boss.js`): Institutional confrontation with Customs Senior Auditor Dravn Pell — 3-phase (summons/meeting/resolution), no combat; triggers at `stageProgress[2] >= 8`. Resolutions: expose (lore DC 15), negotiate (persuasion DC 14), disappear (survival DC 13). Wired into `checkStageAdvance()`.
+- **240 Stage II items** (`content/item_system.js`): Levels 6-10, all 4 families × 3 slots × 4 chains; chain-name continuity from Stage I endpoints; rarity uncommon at L6-7, rare at L8-10; stat scaling atk/def 3→5, skill bonus +2→+3; Psanan vocabulary on chain D L8-10.
+- **Public complication hook** (`_maybePublicComplication`): Fires on locality arrival and district transition in Stage II+; probability 20% base at watchfulness 3, +5% per additional watchfulness point; calls `triggerPublicComplication(locId)` from `PUBLIC_COMPLICATION_POOL`.
+
 ## v0.10.0 — 2026-04-23
 
 ### Added

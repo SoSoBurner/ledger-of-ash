@@ -10668,6 +10668,15 @@ function beginJourney(fromId, toId) {
   ]), 300);
 }
 
+function _maybePublicComplication(locId) {
+  if (!G || G.stage === 'Stage I') return;
+  var watch = (G.worldClocks && G.worldClocks.watchfulness) || 0;
+  if (watch < 3) return;
+  var chance = 0.20 + (watch - 3) * 0.05;
+  if (Math.random() > chance) return;
+  if (typeof triggerPublicComplication === 'function') triggerPublicComplication(locId);
+}
+
 function resolveArrival(locId) {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
@@ -10685,6 +10694,7 @@ function resolveArrival(locId) {
   if (typeof _checkSideplots === 'function') _checkSideplots();
   updateHUD(); updateEnvironmentPanel(); saveGame();
   addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+  _maybePublicComplication(locId);
   setTimeout(() => {
     if (typeof loadStageChoices === 'function') {
       loadStageChoices(locId, G.stage);
@@ -10711,6 +10721,7 @@ function enterDistrict(distId) {
   const parentId = dist.parent_settlement_id;
   const parentName = (lm[parentId] && (lm[parentId].display_name_raw || lm[parentId].name)) || parentId || '';
   addNarration(dist.display_name_raw || dist.name, '<strong>' + (dist.display_name_raw || dist.name) + '</strong>. ' + sceneText);
+  _maybePublicComplication(distId);
   updateHUD(); updateEnvironmentPanel(); saveGame();
   setTimeout(() => renderChoices([
     { text: 'Observe the district and read its rhythms.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
