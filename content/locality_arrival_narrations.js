@@ -112,6 +112,24 @@ window.LOCALITY_ARRIVAL_SCENES = {
     narration: 'The transit post sits at the administrative midpoint between two quota districts, its position on the manifest network more significant than its size suggests. Manifest clerks work in parallel at long counters without pausing between entries. The verification office has a queue that extends to the door. The compliance office across the hall has no queue, its door closed. A factor in Alliance colors argues with a clerk about a load classification entry — the argument is specific, technical, and not new. A Roadwarden stands in the corner with the expression of someone who has watched this argument happen in this building before.',
     anchor: 'a compliance officer',
     pressure: ['load classification dispute between Alliance factor and registry', 'verification backlog at the main counter', 'quota district boundary conflict']
+  },
+  aurora_heights: {
+    choiceLabel: 'That crest on the gate has been repainted recently. Someone needed it visible.',
+    narration: 'The terraced hill rises above the city proper on dressed stone courses, each tier screened by jasmine trellises and wrought-iron gates with house crests worked into the ironwork. Fountain basins mark the lane intersections — the water in them is moving. Gilded mansion facades face the boulevard in careful alignment. A gate warden in House Shelk livery checks a guest register with unhurried attention; the column of names is short. Liora Bloomcrest descends the outer stair with a sealed envelope tucked under one arm, reading a second letter as she walks.',
+    anchor: 'Liora Bloomcrest',
+    pressure: ['noble alliance pressure', 'espionage risk among household staff', 'elite reputation under social scrutiny']
+  },
+  sunspire_haven: {
+    choiceLabel: 'That storehouse is padlocked from the outside. Someone is keeping others out, not keeping things in.',
+    narration: 'Cart yards open off both sides of the approach road before the market heart comes into view — counting sheds, tool stacks sorted by grade, haul crews moving between workshop rows with sealed transit papers. The smell is sawdust and grain dust and the particular dryness of a storehouse district in working season. A market clerk at the entry post checks syndicate seals without pausing between wagons. Three storehouses along the northern yard are padlocked from the outside. Garren Forgebound stands at the central well speaking to a patron-family retainer, both of them watching a fourth storehouse without pointing at it.',
+    anchor: 'Garren Forgebound',
+    pressure: ['storage dispute between patron-families', 'water system strain near the northern yards', 'predator pressure on the outer convoy routes']
+  },
+  shirshal: {
+    choiceLabel: 'The ward marks at the gate were updated this morning. Someone knew something was coming.',
+    narration: 'Ward marks line the gate threshold in fresh chalk — House Shirsh glyphs, recently redrawn, the older lines visible beneath them. The Magi Magistratus checkpoint runs two lanes: a standard arrivals queue and a sealed document lane with no queue at all. Compliance notices are posted at eye level beside each entry column, dated to the current fortnight. The settlement beyond the gate is built for recordkeeping — scribe halls, case registries, sealed chambers with numbered doors. A Magistratus marshal watches the arrivals lane without writing anything down. Examiner Prelate Sira Doveshade stands beside the document lane reading a docket, her stylus uncapped but still.',
+    anchor: 'Examiner Prelate Sira Doveshade',
+    pressure: ['magical law compliance under active Magi Magistratus review', 'recent ward renewal suggesting an unannounced case', 'sealed case lane drawing unusual traffic']
   }
 };
 
