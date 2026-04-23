@@ -8190,13 +8190,9 @@ function _beginLegendCore() {
   G.caseCode = _makeCaseCode(G.runId);
   G.lastUsedSlot = 'loa_slot_1';
   G.choiceCount = G.choiceCount || 0;
-  const _SKILL_REMAP = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm',craft:'spirit'};
-  const _rawSkills = G.archetype.skills || {};
-  G.skills = {};
-  Object.keys(_rawSkills).forEach(k => { G.skills[_SKILL_REMAP[k] || k] = _rawSkills[k]; });
+  G.skills = Object.assign({}, G.archetype.skills || {});
   if (G._createStatBoost) {
-    const _boostedKey = _SKILL_REMAP[G._createStatBoost] || G._createStatBoost;
-    G.skills[_boostedKey] = (G.skills[_boostedKey] || 0) + 1;
+    G.skills[G._createStatBoost] = (G.skills[G._createStatBoost] || 0) + 1;
   }
   G.maxHp = G.archetype.hp; G.hp = G.maxHp;
   G.gold = G.archetype.startGold;
@@ -8294,7 +8290,7 @@ function advanceRivals() {
       }
     }
   });
-  G.rivalAdventurers.forEach(r => {
+  G.rivalAdventurers.forEach((r, i) => {
     if (r._resolved || !r.active) return;
     // Each major choice advances rivals
     const roll = Math.floor(Math.random() * 10);
@@ -8305,7 +8301,67 @@ function advanceRivals() {
       r.active = false;
       r.lastSeen = 'Disappeared. Reason unknown.';
     }
+    // Trigger one-shot encounter when rival is at player's location with enough renown
+    if (!G.flags['rival_met_' + i] && (r.renown || 0) >= 2) {
+      const atSameLocation = r._bgDest === G.location ||
+        (!r._bgRival && r.lastSeen === (WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].name));
+      if (atSameLocation && Math.random() < 0.30) {
+        setTimeout(() => triggerRivalEncounter(i), 800);
+      }
+    }
   });
+}
+
+function triggerRivalEncounter(idx) {
+  const r = G.rivalAdventurers[idx];
+  if (!r) return;
+  G.flags['rival_met_' + idx] = true;
+  document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+  const scenes = [
+    { title: 'Sena Ledgermere',
+      text: 'She is already at the table when you walk into the registry annex — papers spread, a half-eaten roll off to one side, a cup of cold tea she has not touched. She glances up without surprise. She has your face memorized from somewhere. "You\'re working the same trail," she says. Not a question. She folds the nearest sheet before you can read it.' },
+    { title: 'Tavian Silkgate',
+      text: 'He is waiting outside the guild hall, back to the wall, arms crossed — the posture of someone who was told to stand there and who has been standing there a while. When you approach he straightens without urgency. He has a House Shelk seal on his belt buckle, worn down from use. "I have been asked to deliver a message," he says. "You are getting in the way of something that will resolve itself without you."' },
+    { title: 'Rhodra Boltmere',
+      text: 'She is annotating something in the corridor outside the records room — standing, not sitting, a board propped against the wall. She speaks without looking up. "The Sanction Board has a formal interest in the same dossier you have been pulling." She marks a line. "I am not here to compete. I am here to tell you the Board\'s version of events will be the official one. What you do with that is your concern."' }
+  ];
+  const scene = scenes[idx] || scenes[0];
+  addNarration(scene.title, scene.text);
+  setTimeout(() => renderChoices([
+    { text: 'What you know, I probably need. What I know, you might.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: '__rival__' + idx + '__exchange' },
+    { text: 'I nod and keep walking. Let them think I didn\'t notice.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__rival__' + idx + '__standoff' },
+    { text: 'I want to know exactly what they have.', skill: 'lore', tag: 'bold', align: 'neutral', cid: '__rival__' + idx + '__probe' }
+  ]), 400);
+}
+
+function resolveRivalOutcome(idx, outcome, success) {
+  const r = G.rivalAdventurers[idx];
+  const name = r ? r.name : 'the rival';
+  if (outcome === 'exchange') {
+    if (success) {
+      addNarration('', name + ' pauses, weighs something, then offers a single lead — a name heard at the Waymark post, a manifest entry she cannot explain. You give her the warehouse timing in return. It is an uneasy balance. You are both aware it will not hold.', 'success');
+      if (typeof addJournal === 'function') addJournal('Intel exchange with ' + name + '. Unverified lead acquired.', 'intelligence');
+      G.stageProgress = (G.stageProgress || 0) + 5;
+      if (r) r.renown = Math.max(r.renown || 0, 3);
+    } else {
+      addNarration('', name + ' listens, gives nothing back. Better at this than you expected. You walk away with a general sense that you have just been read.', 'failure');
+    }
+  } else if (outcome === 'standoff') {
+    addNarration('', 'You pass without incident. ' + name + ' lets you go. You do not know if that was a concession or a calculation.', 'success');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Brief contact with ' + name + '. No exchange. Status: watching.');
+  } else if (outcome === 'probe') {
+    if (success) {
+      addNarration('', 'You pull enough from the reaction to understand the shape of what they have. Not the detail — the shape. They know you did it and look briefly annoyed before recovering.', 'success');
+      if (typeof addJournal === 'function') addJournal(name + ': has a dossier. Contents unknown — scope suggests pre-existing surveillance.', 'intelligence');
+      G.stageProgress = (G.stageProgress || 0) + 8;
+    } else {
+      addNarration('', 'You get nothing you did not already have, and leave knowing they know that.', 'failure');
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+    }
+  }
+  saveGame(); updateHUD();
+  setTimeout(() => loadStageChoices(G.location, G.stage), 600);
 }
 
 // ── BACKGROUND RIVAL TICK (v0.1 PLACEHOLDER) ────────────
@@ -9009,6 +9065,22 @@ function handleChoice(choice) {
     if (typeof showCampTalk === 'function') showCampTalk();
     return;
   }
+  // Rival encounter choice routing
+  if (choice.cid && choice.cid.startsWith('__rival__')) {
+    const _rParts = choice.cid.split('__');
+    // cid format: __rival__{idx}__{outcome}  → split gives ['','rival',idx,outcome]
+    const _rIdx = parseInt(_rParts[2], 10);
+    const _rOutcome = _rParts[3];
+    document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
+    const _rSkill = G.skills[choice.skill] || 0;
+    const _rRoll = Math.floor(Math.random() * 20) + 1;
+    const _rDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 12 : 15;
+    const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
+    addNarration('', '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs ' + _rDiff + '</span>');
+    resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
+    return;
+  }
   // Journey: pack choice -> encounter
   if (choice.cid && choice.cid.startsWith('__journey__')) {
     const raw = choice.cid.slice(11);
@@ -9190,6 +9262,7 @@ function resolveConsequence(cid, success, partial) {
   (res.effects || []).forEach(fx => applyEffect(fx));
   if (res.xp) gainXP(res.xp);
   saveGame(); updateHUD();
+  checkWorldClockThresholds();
   if (!_awaitingLevelUp && res.next) setTimeout(() => renderChoices(res.next), 400);
 }
 
@@ -9211,6 +9284,64 @@ function applyEffect(fx) {
     case 'history':   G.history.push(fx.msg); break;
     case 'stage2':    checkStage2Unlock(); break;
     case 'travel':    G.location = fx.dest; if (typeof updateHUD === 'function') updateHUD(); if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel(); break;
+  }
+}
+
+function checkWorldClockThresholds() {
+  if (!G.worldClocks) return;
+  if (!G.flags) G.flags = {};
+  const W = G.worldClocks;
+
+  // Watchfulness thresholds
+  if ((W.watchfulness||0) >= 3 && !G.flags.clock_w3) {
+    G.flags.clock_w3 = true;
+    addNarration('', 'The roadwardens change shift twice in a single afternoon. More eyes on the street corners — and on you.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Watchfulness rising: patrol rotations have increased.');
+  }
+  if ((W.watchfulness||0) >= 5 && !G.flags.clock_w5) {
+    G.flags.clock_w5 = true;
+    addNarration('', 'A warden stops you outside the registry office, checks your papers without a word, hands them back. No accusation. No apology.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Watchfulness: you are being tracked. Scrutiny at checkpoints.');
+    if (typeof addJournal === 'function') addJournal('Papers checked without cause at the registry. Someone filed a watch-flag.', 'evidence');
+  }
+  if ((W.watchfulness||0) >= 7 && !G.flags.clock_w7) {
+    G.flags.clock_w7 = true;
+    addNarration('', 'Two wardens are waiting at your last known address. You hear about it secondhand, from a neighbor who did not want to be seen talking to you.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Watchfulness critical: a warrant notice is on file. Avoid checkpoints.');
+    modHP(-2);
+  }
+
+  // Pressure thresholds
+  if ((W.pressure||0) >= 3 && !G.flags.clock_p3) {
+    G.flags.clock_p3 = true;
+    addNarration('', 'The contacts you relied on last week are suddenly busy. Word travels faster than you do.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Pressure rising: fewer people willing to talk openly.');
+  }
+  if ((W.pressure||0) >= 5 && !G.flags.clock_p5) {
+    G.flags.clock_p5 = true;
+    addNarration('', 'A door that was open yesterday is locked today. The person who locked it left town this morning.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Pressure high: sources are going quiet. Act before more disappear.');
+    if (typeof addJournal === 'function') addJournal('Third contact unreachable this week. Pattern, not coincidence.', 'intelligence');
+  }
+  if ((W.pressure||0) >= 7 && !G.flags.clock_p7) {
+    G.flags.clock_p7 = true;
+    addNarration('', 'Everything you have built is beginning to come apart. Leads are cold. Allies are scarce. You need to move — or accept that you are too late.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Pressure critical: the trail is going cold. Stage advance required to recover.');
+    G.stageProgress = Math.max(0, (G.stageProgress||0) - 10);
+  }
+
+  // Rival thresholds
+  if ((W.rival||0) >= 3 && !G.flags.clock_r3) {
+    G.flags.clock_r3 = true;
+    addNarration('', 'Someone else has been asking the same questions. The innkeeper mentions it without thinking — "the other one" — and then stops herself.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Rival active: another investigator is working the same leads.');
+  }
+  if ((W.rival||0) >= 5 && !G.flags.clock_r5) {
+    G.flags.clock_r5 = true;
+    addNarration('', 'You arrive at the warehouse an hour behind schedule. The manifest you came for is gone. The clerk says a researcher collected it this morning — no name on the receipt.', 'complication');
+    if (typeof addWorldNotice === 'function') addWorldNotice('Rival ahead: key evidence retrieved before you. Check remaining leads.');
+    if (typeof addJournal === 'function') addJournal('Warehouse manifest collected by unknown researcher before your arrival.', 'intelligence');
+    G.stageProgress = Math.max(0, (G.stageProgress||0) - 5);
   }
 }
 
@@ -9456,12 +9587,12 @@ function _showStage3BlockerLegacy() {
 }
 
 function checkStageAdvance() {
-  if (G.level === 6 && G.stage === 'Stage I') {
+  if (G.level >= 5 && G.stage === 'Stage I') {
     G.stage = 'Stage II'; G.stageLabel = 'Local Inter-Polity';
     G.flags.principalities_route_unlocked = true;
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE II UNLOCKED &#x2014; The world widens. You may now travel beyond your origin polity where routes support it.</em>');
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
-    G.history.push('Completed Stage I. Entered the wider world at Level 6.');
+    G.history.push('Completed Stage I. Entered the wider world at Level 5.');
     updateHUD();
   } else if (G.level >= 11 && G.stage === 'Stage II') {
     checkNeutralArcScene();
@@ -10429,24 +10560,36 @@ function approachNPC(npcName, site) {
   advanceTime(1);
   updateNPCMemory(npcName, {trust:0, note:'approached in ' + (loc ? loc.name : G.location)});
 
-  const intro = seen > 0 ? npcName + ' recognizes you.' : 'You approach ' + npcName + ' at ' + site + '.';
-  const trustNote = trust >= 10 ? ' They speak freely.' : trust < -3 ? ' They are cold.' : '';
-  addNarration(npcName, intro + trustNote + ' ' + npc.note);
+  // Archetype-aware opening reaction for authority and named NPCs
+  const archGroup = G.archetype ? (G.archetype.group || 'neutral') : 'neutral';
+  const isAuthority = /commander|captain|sergeant|marshal|warden|guard/i.test(npc.role);
+  const renown = G.renown || 0;
+  let archetypeNote = '';
+  if (isAuthority && archGroup === 'combat' && renown >= 2) {
+    archetypeNote = ' ' + npcName + ' clocks your bearing before you speak.';
+  } else if (isAuthority && archGroup === 'stealth') {
+    archetypeNote = ' ' + npcName + '\'s attention sharpens slightly — something in how you entered.';
+  } else if (isAuthority && archGroup === 'magic' && renown >= 2) {
+    archetypeNote = ' A flicker of professional wariness crosses their face.';
+  }
 
-  // Generate context-appropriate NPC choices
-  const persuasion = G.skills.charm || 0;
+  const intro = seen > 0 ? npcName + ' recognizes you.' : 'You approach ' + npcName + ' at ' + site + '.';
+  const trustNote = trust >= 10 ? ' They speak without reservation.' : trust < -3 ? ' The warmth is gone from how they look at you.' : '';
+  addNarration(npcName, intro + trustNote + archetypeNote + ' ' + npc.note);
+
+  const persuasion = G.skills.persuasion || 0;
   const choices = [];
 
-  // Always available: ask about the local situation
+  // Always available: read the local situation
   choices.push({
-    text:'Ask what they know about the current situation in ' + (loc ? loc.name : 'the area') + '.',
+    text: 'Something is off in ' + (loc ? loc.name : 'this place') + '. They would know what.',
     skill:'persuasion', tag:'safe', align:'neutral', cid:'passive_intel'
   });
 
-  // Trust-gated: ask directly about the investigation
+  // Trust-gated: press on the eastern route
   if (trust >= 3 || persuasion >= 3) {
     choices.push({
-      text:'Ask them directly about the eastern route operation.',
+      text: 'The eastern route is the thread. They have touched it somehow.',
       skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'
     });
   }
@@ -10454,22 +10597,22 @@ function approachNPC(npcName, site) {
   // Role-specific choices
   if (/physician|medic|healer/i.test(npc.role)) {
     choices.push({
-      text:'Ask for medical treatment. (-5 gold)',
+      text: 'The wound is getting worse. I need proper care, not field dressing.',
       skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_service'
     });
   } else if (/archivist|curator|keeper|clerk/i.test(npc.role)) {
     choices.push({
-      text:'Request access to their records.',
+      text: 'They catalog things nobody asked them to catalog. That\'s the point.',
       skill:'lore', tag:'risky', align:'lawful', cid:'gilded_archives'
     });
   } else if (/tavern|innkeeper/i.test(npc.role)) {
     choices.push({
-      text:'Buy information along with a drink.',
+      text: 'The drink is an excuse. What I want is to hear who else has been asking around.',
       skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival'
     });
   } else if (/commander|captain|sergeant|marshal/i.test(npc.role)) {
     choices.push({
-      text:'State your purpose and request cooperation.',
+      text: 'If I give them something useful, they might give me access I can\'t get otherwise.',
       skill:'persuasion', tag:'bold', align:'lawful', cid:'garrison_contact'
     });
   }
@@ -10477,13 +10620,13 @@ function approachNPC(npcName, site) {
   // High trust: recruit or deepened cooperation
   if (trust >= 15 && typeof canRecruit === 'function' && canRecruit(npcName)) {
     choices.push({
-      text: 'Ask them to join you directly. You need someone like this.',
+      text: 'This is someone I need beside me. The right moment to ask.',
       skill: 'persuasion', tag: 'bold', align: 'good',
       cid: '__recruit__' + (Object.values(COMPANION_DEFS||{}).find(d=>d.npcId===npcName)||{id:'unknown'}).id + '__join'
     });
   } else if (trust >= 15) {
     choices.push({
-      text: 'Propose they assist your investigation directly.',
+      text: 'There is more I could accomplish here with their direct help.',
       skill: 'persuasion', tag: 'risky', align: 'lawful', cid: 'report_findings'
     });
   }
