@@ -98,10 +98,6 @@ All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
 
 Any property read from G in enriched choices or game logic must be initialized in the G defaults object. Missing keys cause silent TypeErrors swallowed by `adaptEnrichedChoice`'s try/catch — stage progress silently stops advancing.
 
-## Known Bug: _beginLegendCore Skill Remap
-
-`_beginLegendCore` (~line 8065) remaps `G.skills` keys to display names (might/finesse/vigor/wits/charm/spirit) before game start. All live skill reads use internal keys → return 0. Do not build features on top of this pattern — fix it first.
-
 ## Stage II Companion Gate
 
 `vorath_gelden` and `mira_calden` gate on `G.flags.maren_oss_resolved` (set in `_closeClimax()`, `content/stage2_climax.js`). If Stage II companions seem locked, check this flag is being set.
