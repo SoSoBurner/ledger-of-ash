@@ -1683,7 +1683,7 @@ input, button, select, textarea { font-family: inherit; }
       </div>
       <div class="create-step" id="stat-boost-step" style="display:none">
         <div class="step-label">II &#x2014; Starting Advantage</div>
-        <p class="create-hint">Choose one skill to sharpen before play begins.</p>
+        <p class="create-hint">Choose one stat to focus before play begins.</p>
         <div class="card-grid" id="stat-boost-grid" style="grid-template-columns:repeat(3,1fr)"></div>
       </div>
       <div class="create-step">
@@ -1779,7 +1779,7 @@ input, button, select, textarea { font-family: inherit; }
       </div>
       <div class="l-divider"></div>
       <div class="l-skills">
-        <div class="l-section-cap">Skills</div>
+        <div class="l-section-cap">Stats</div>
         <div id="hud-skills"></div>
       </div>
       <div class="l-divider"></div>
@@ -3621,6 +3621,133 @@ const BACKGROUNDS = {
     {id:'bm_soreheim', name:'Soreheim Wilderness Scout', region:'Soreheim Proper', desc:'You survey the territories beyond the established frontier. You found something in the eastern territory that should not exist.', bonus:'Wilderness Intelligence. Know complete non-official movement patterns in any surveyed region. Travel never generates evidence.', opening:'The structure you found in the eastern territory has an official purpose that does not match its location, construction, or traffic. You came to find who authorized it.', mechNote:'Begins with Survival advantage. The land was your first teacher.', factionMods:[{id:'engineers_consortium',n:5},{id:'giant_council',n:5}]},
     {id:'bm_sheresh', name:'Sheresh Dome Environmental Monitor', region:'Aurora Crown Commune', desc:'You monitor the dome by tracking how its internal fauna respond to axis changes. The current response pattern has no precedent in the monitoring record.', bonus:'Dome Environmental Authority. Your monitoring data on axis anomaly is recognized as technical evidence by the Containment Research Concord.', opening:'The fauna response is consistent with an artificial forcing event — not natural variation. You came to find the force.', mechNote:'Begins with Survival advantage. The land was your first teacher.', factionMods:[{id:'containment_research_concord',n:10},{id:'sheresh_dome_stewards',n:5}]}
   ]
+};
+
+const BG_TRAITS = {
+  // warrior
+  w_garrison:{bgTrait:'Checkpoint Discipline',bgTraitDesc:'Roadwarden training applies. Survival checks on maintained roads gain +1.',bgTraitBonus:{survival:1}},
+  w_roaz:{bgTrait:'Enforcement Edge',bgTraitDesc:'Iron Accord service hardened your reactions. Combat rolls vs fortified opponents gain +1.',bgTraitBonus:{combat:1}},
+  w_frontier:{bgTrait:'Frontier Endurance',bgTraitDesc:'Giant Council conditions built a specific resilience. Survival checks in wilderness gain +1.',bgTraitBonus:{survival:1}},
+  // knight
+  k_shelk:{bgTrait:'Court Presence',bgTraitDesc:'House Shelk court experience. Persuasion in formal contexts gains +1.',bgTraitBonus:{persuasion:1}},
+  k_roaz:{bgTrait:'Iron Accord Authority',bgTraitDesc:'Roazian knight discipline. Combat rolls in fortified or structured environments gain +1.',bgTraitBonus:{combat:1}},
+  k_order:{bgTrait:'Registry Fluency',bgTraitDesc:'Panim order training. Lore checks involving records and documentation gain +1.',bgTraitBonus:{lore:1}},
+  // ranger
+  r_shelk:{bgTrait:'Route Knowledge',bgTraitDesc:'Three seasons on the Shelk network. Survival checks along trade routes gain +1.',bgTraitBonus:{survival:1}},
+  r_soreheim:{bgTrait:'Survey Eye',bgTraitDesc:'Soreheim survey work. Lore checks to identify terrain features or unknown areas gain +1.',bgTraitBonus:{lore:1}},
+  r_sheresh:{bgTrait:'Perimeter Instinct',bgTraitDesc:'Dome perimeter training. Stealth checks in transitional or boundary terrain gain +1.',bgTraitBonus:{stealth:1}},
+  // paladin
+  p_cysur:{bgTrait:'Communal Grace',bgTraitDesc:'Cysur ministry. Persuasion with common people and shrines gains +1.',bgTraitBonus:{persuasion:1}},
+  p_eloljaro:{bgTrait:'Mandate Focus',bgTraitDesc:'Eloljaro correction mandate. Combat rolls when acting against injustice gain +1.',bgTraitBonus:{combat:1}},
+  p_gwybodaeth:{bgTrait:'Chronicle Habit',bgTraitDesc:'Gwybodaeth devotion to record. Lore checks in archives and libraries gain +1.',bgTraitBonus:{lore:1}},
+  // archer
+  a_roadwarden:{bgTrait:'Elevated Position',bgTraitDesc:'Marksman posting experience. Combat rolls at range gain +1.',bgTraitBonus:{combat:1}},
+  a_frontier:{bgTrait:'Patrol Pattern',bgTraitDesc:'Frontier ranging work. Stealth checks in wilderness gain +1.',bgTraitBonus:{stealth:1}},
+  a_nomdara:{bgTrait:'Caravan Routes',bgTraitDesc:'Nomdara travel experience. Survival checks during travel gain +1.',bgTraitBonus:{survival:1}},
+  // berserker
+  b_soreheim:{bgTrait:'Quota Threshold',bgTraitDesc:'Giant Council conditions. Combat rolls when below 50% HP gain +1.',bgTraitBonus:{combat:1}},
+  b_frontier:{bgTrait:'Breach Experience',bgTraitDesc:'Frontier Hammer Company training. Combat rolls on the first round of an encounter gain +1.',bgTraitBonus:{combat:1}},
+  b_cosmouth:{bgTrait:'Storm Legs',bgTraitDesc:'Cosmouth maritime seasons. Survival checks in maritime and severe weather conditions gain +1.',bgTraitBonus:{survival:1}},
+  // wizard
+  wz_mimolot:{bgTrait:'Archive Access',bgTraitDesc:'Mimolot scholar training. Lore rolls for records and documents gain +1.',bgTraitBonus:{lore:1}},
+  wz_shelk:{bgTrait:'Court Discretion',bgTraitDesc:'House Shelk court service. Persuasion checks requiring tact or indirection gain +1.',bgTraitBonus:{persuasion:1}},
+  wz_field:{bgTrait:'Field Notes',bgTraitDesc:'Unaffiliated field research. Lore checks involving natural or magical phenomena gain +1.',bgTraitBonus:{lore:1}},
+  // cleric
+  cl_cysur:{bgTrait:'Temple Network',bgTraitDesc:'Cysur ministry in Shelkopolis. Persuasion with city residents and shrine communities gains +1.',bgTraitBonus:{persuasion:1}},
+  cl_eloljaro:{bgTrait:'Retributive Authority',bgTraitDesc:'Eloljaro assignment in Ithtananalor. Combat rolls when correcting a wrong gain +1.',bgTraitBonus:{combat:1}},
+  cl_remeny:{bgTrait:'Dockside Trust',bgTraitDesc:'Remeny shrine work at Guildheart. Persuasion with travelers and the displaced gains +1.',bgTraitBonus:{persuasion:1}},
+  // priest
+  pr_panim:{bgTrait:'Death Registry Fluency',bgTraitDesc:'Panim funerary service. Lore checks involving records, death, or institutional history gain +1.',bgTraitBonus:{lore:1}},
+  pr_community:{bgTrait:'Seasonal Memory',bgTraitDesc:'Fairhaven congregation service. Survival checks in rural and farming terrain gain +1.',bgTraitBonus:{survival:1}},
+  pr_soreheim:{bgTrait:'Allocation Knowledge',bgTraitDesc:'Soreheim shrine duties. Craft checks involving materials and resource accounting gain +1.',bgTraitBonus:{craft:1}},
+  // necromancer
+  nc_panim:{bgTrait:'Registry Pattern',bgTraitDesc:'Panim death records study. Lore checks to identify institutional patterns gain +1.',bgTraitBonus:{lore:1}},
+  nc_mimolot:{bgTrait:'Restricted Familiarity',bgTraitDesc:'Restricted archive access. Lore checks for suppressed or sealed knowledge gain +1.',bgTraitBonus:{lore:1}},
+  nc_sheresh:{bgTrait:'Containment Protocols',bgTraitDesc:'Sheresh containment research. Lore checks about axis effects and containment structures gain +1.',bgTraitBonus:{lore:1}},
+  // illusionist
+  il_shelk:{bgTrait:'Court Performance',bgTraitDesc:'Noble entertainment experience. Stealth checks in social settings gain +1.',bgTraitBonus:{stealth:1}},
+  il_union:{bgTrait:'Audience Reading',bgTraitDesc:'Trade fair performance circuit. Persuasion checks to identify what someone wants to believe gain +1.',bgTraitBonus:{persuasion:1}},
+  il_twyll:{bgTrait:'Deceptive Baseline',bgTraitDesc:'Twyll devotion. Stealth checks to conceal intent or misdirect gain +1.',bgTraitBonus:{stealth:1}},
+  // inquisitor
+  iq_shirsh:{bgTrait:'Institutional Eye',bgTraitDesc:'House Shirsh investigator training. Lore checks to identify procedural anomalies gain +1.',bgTraitBonus:{lore:1}},
+  iq_mimolot:{bgTrait:'Tariff Audit Method',bgTraitDesc:'Book Tariff Office experience. Lore checks involving access controls and records gain +1.',bgTraitBonus:{lore:1}},
+  iq_union:{bgTrait:'Contract Reading',bgTraitDesc:'Guild Sanction Board auditor training. Lore checks involving commercial disputes gain +1.',bgTraitBonus:{lore:1}},
+  // elementalist
+  el_axis:{bgTrait:'Inversion Readiness',bgTraitDesc:'Axis transit specialization. Survival checks during axis events or environmental extremes gain +1.',bgTraitBonus:{survival:1}},
+  el_sheresh:{bgTrait:'Climate Data',bgTraitDesc:'Dome climate research. Lore checks to identify environmental or elemental patterns gain +1.',bgTraitBonus:{lore:1}},
+  el_mimolot:{bgTrait:'Theory Application',bgTraitDesc:'Mimolot axis research. Lore checks for magical mechanics gain +1.',bgTraitBonus:{lore:1}},
+  // rogue
+  ro_shelk:{bgTrait:'Street Knowledge',bgTraitDesc:'Shelkopolis informal economy. Stealth checks in urban environments gain +1.',bgTraitBonus:{stealth:1}},
+  ro_union:{bgTrait:'Dock Channels',bgTraitDesc:'Guildheart dock operations. Stealth checks involving cargo and manifests gain +1.',bgTraitBonus:{stealth:1}},
+  ro_nomdara:{bgTrait:'Road-Wise',bgTraitDesc:'Nomdara caravan work across polities. Survival checks during cross-territory travel gain +1.',bgTraitBonus:{survival:1}},
+  // assassin
+  as_shadowhands:{bgTrait:'Drop Network',bgTraitDesc:'Shadowhands operative training. Stealth checks to pass messages or move untraced gain +1.',bgTraitBonus:{stealth:1}},
+  as_redhoodguild:{bgTrait:'Guild Recognition',bgTraitDesc:'Red Hood Guild membership. Stealth checks in criminal or informal contexts gain +1.',bgTraitBonus:{stealth:1}},
+  as_shirsh:{bgTrait:'Deniability Protocol',bgTraitDesc:'Shirsh intelligence asset training. Stealth checks to avoid institutional notice gain +1.',bgTraitBonus:{stealth:1}},
+  // spellthief
+  st_mimolot:{bgTrait:'Archive Breach',bgTraitDesc:'Restricted archive access experience. Stealth checks in institutional buildings gain +1.',bgTraitBonus:{stealth:1}},
+  st_court:{bgTrait:'Court Observation',bgTraitDesc:'Noble court proximity training. Stealth checks while observing or gathering at social events gain +1.',bgTraitBonus:{stealth:1}},
+  st_shirsh:{bgTrait:'Evidence Handling',bgTraitDesc:'Magi Magistratus work. Lore checks involving magical incident records gain +1.',bgTraitBonus:{lore:1}},
+  // scout_c
+  sc_shelk:{bgTrait:'Advance Mapping',bgTraitDesc:'Roadwarden advance work. Survival checks to navigate route-mapped terrain gain +1.',bgTraitBonus:{survival:1}},
+  sc_soreheim:{bgTrait:'Forward Element',bgTraitDesc:'Giant Council forward scouting. Stealth checks in unmapped or frontier terrain gain +1.',bgTraitBonus:{stealth:1}},
+  sc_cosmouth:{bgTrait:'Horizon Read',bgTraitDesc:'Cosmouth maritime scouting. Survival checks in coastal and maritime terrain gain +1.',bgTraitBonus:{survival:1}},
+  // thief
+  th_shelk:{bgTrait:'Market Eye',bgTraitDesc:'Verdant Row operator experience. Craft checks involving goods valuation and provenance gain +1.',bgTraitBonus:{craft:1}},
+  th_cosmouth:{bgTrait:'Manifest Gap',bgTraitDesc:'Cosmouth cargo handling. Craft checks involving trade goods and logistics gain +1.',bgTraitBonus:{craft:1}},
+  th_union:{bgTrait:'Exchange Floor',bgTraitDesc:'Union trade floor experience. Craft checks involving market pricing and valuation gain +1.',bgTraitBonus:{craft:1}},
+  // trickster
+  tr_shelk:{bgTrait:'Social Circuit',bgTraitDesc:'House Shelk fashion circuit experience. Persuasion checks in noble social contexts gain +1.',bgTraitBonus:{persuasion:1}},
+  tr_union:{bgTrait:'Fair Hustle',bgTraitDesc:'Union trade fair operator training. Persuasion checks involving belief exploitation gain +1.',bgTraitBonus:{persuasion:1}},
+  tr_nomdara:{bgTrait:'Polity Knowledge',bgTraitDesc:'Nomdara performance circuit. Persuasion checks referencing local culture or belief gain +1.',bgTraitBonus:{persuasion:1}},
+  // healer
+  hl_shelk:{bgTrait:'Route Medicine',bgTraitDesc:'Roadwarden field medic training. Survival checks to stabilize wounds or manage injuries gain +1.',bgTraitBonus:{survival:1}},
+  hl_soreheim:{bgTrait:'Quota Triage',bgTraitDesc:'Allocation hall medical work. Craft checks involving medical supplies and remedies gain +1.',bgTraitBonus:{craft:1}},
+  hl_panim:{bgTrait:'Recovery Records',bgTraitDesc:'Panim recovery specialist work. Lore checks involving medical and death records gain +1.',bgTraitBonus:{lore:1}},
+  // artificer
+  af_guild:{bgTrait:'Guild Certification',bgTraitDesc:'Artificers Guild workshop training. Craft checks involving relic technology gain +1.',bgTraitBonus:{craft:1}},
+  af_tinker:{bgTrait:'Repair Circuit',bgTraitDesc:'Settlement tinker experience. Craft checks for field repairs and improvised tools gain +1.',bgTraitBonus:{craft:1}},
+  af_roaz:{bgTrait:'Technical Clearance',bgTraitDesc:'Iron Accord engineering work. Craft checks for fortification and structural assessment gain +1.',bgTraitBonus:{craft:1}},
+  // engineer
+  eg_soreheim:{bgTrait:'Corps Method',bgTraitDesc:'Engineers Consortium training. Craft checks for construction and structural analysis gain +1.',bgTraitBonus:{craft:1}},
+  eg_shelk:{bgTrait:'Route Infrastructure',bgTraitDesc:'Roadwarden infrastructure crew experience. Craft checks for road and bridge maintenance gain +1.',bgTraitBonus:{craft:1}},
+  eg_roaz:{bgTrait:'Fortification Memory',bgTraitDesc:'Roazian engineer experience. Craft checks for fortification assessment and modification gain +1.',bgTraitBonus:{craft:1}},
+  // tactician
+  tc_shelk:{bgTrait:'Operational Analysis',bgTraitDesc:'Shelk operations work. Lore checks to assess tactical dispositions gain +1.',bgTraitBonus:{lore:1}},
+  tc_soreheim:{bgTrait:'Strategic Scale',bgTraitDesc:'Giant Council planning experience. Lore checks involving large-scale logistics gain +1.',bgTraitBonus:{lore:1}},
+  tc_union:{bgTrait:'Conflict Intelligence',bgTraitDesc:'Guild Sanction Board analysis. Lore checks involving competing interests and disputes gain +1.',bgTraitBonus:{lore:1}},
+  // alchemist
+  al_mimolot:{bgTrait:'Formula Knowledge',bgTraitDesc:'Mimolot experimental research. Craft checks for compounds and substances gain +1.',bgTraitBonus:{craft:1}},
+  al_sheresh:{bgTrait:'Purification Method',bgTraitDesc:'Dome purification technician experience. Craft checks for chemical identification and preparation gain +1.',bgTraitBonus:{craft:1}},
+  al_union:{bgTrait:'Black-Market Formula',bgTraitDesc:'Guild Exchange formulator experience. Craft checks for unlisted compounds gain +1.',bgTraitBonus:{craft:1}},
+  // saint
+  sn_cysur:{bgTrait:'Visible Grace',bgTraitDesc:'Chosen of Cysur. Persuasion with common people in communal contexts gains +1.',bgTraitBonus:{persuasion:1}},
+  sn_remeny:{bgTrait:'Hope Register',bgTraitDesc:'Voice of Remeny at Guildheart. Persuasion in public spaces gains +1.',bgTraitBonus:{persuasion:1}},
+  sn_eloljaro:{bgTrait:'Corrective Mandate',bgTraitDesc:'Instrument of Eloljaro. Persuasion when acting against injustice gains +1.',bgTraitBonus:{persuasion:1}},
+  // bard
+  ba_shelk:{bgTrait:'Chronicle Method',bgTraitDesc:'Street chronicle work in Shelkopolis. Lore checks to identify suppressed or inconvenient information gain +1.',bgTraitBonus:{lore:1}},
+  ba_union:{bgTrait:'Informal Circuit',bgTraitDesc:'Guildheart trade fair performer network. Persuasion to gather intelligence through social channels gains +1.',bgTraitBonus:{persuasion:1}},
+  ba_panim:{bgTrait:'Memorial Trust',bgTraitDesc:'Panim memorial singer experience. Persuasion in grief or loss contexts gains +1.',bgTraitBonus:{persuasion:1}},
+  // oracle
+  or_mimolot:{bgTrait:'Pattern Archive',bgTraitDesc:'Mimolot pattern analysis training. Lore checks to identify repeating historical sequences gain +1.',bgTraitBonus:{lore:1}},
+  or_sheresh:{bgTrait:'Temporal Method',bgTraitDesc:'Sheresh dome temporal analysis. Lore checks for environmental and axis pattern prediction gain +1.',bgTraitBonus:{lore:1}},
+  or_ithtananalor:{bgTrait:'Suppression Read',bgTraitDesc:'Roazian enforcement pattern reading. Lore checks to identify institutional concealment gain +1.',bgTraitBonus:{lore:1}},
+  // warden
+  wa2_aurora:{bgTrait:'Protective Positioning',bgTraitDesc:'Dome stabilizer experience. Combat rolls when defending an ally or location gain +1.',bgTraitBonus:{combat:1}},
+  wa2_shelk:{bgTrait:'Estate Intelligence',bgTraitDesc:'House Shelk estate warden experience. Stealth checks within Shelk-affiliated buildings gain +1.',bgTraitBonus:{stealth:1}},
+  wa2_soreheim:{bgTrait:'Council Standing',bgTraitDesc:'Giant Council hall guard work. Persuasion in official Soreheim contexts gains +1.',bgTraitBonus:{persuasion:1}},
+  // warlord
+  wl_frontier:{bgTrait:'Command Network',bgTraitDesc:'Frontier Hammer Company command. Combat rolls when leading or coordinating gain +1.',bgTraitBonus:{combat:1}},
+  wl_roaz:{bgTrait:'Fortification Intelligence',bgTraitDesc:'Iron Accord field command. Lore checks for military and enforcement positioning gain +1.',bgTraitBonus:{lore:1}},
+  wl_soreheim:{bgTrait:'Extraction Command',bgTraitDesc:'Soreheim extraction operations command. Survival checks during organized resource operations gain +1.',bgTraitBonus:{survival:1}},
+  // death_knight
+  dk_shelk:{bgTrait:'Champion Protocol',bgTraitDesc:'Shelk champion training. Combat rolls in formal or ceremonial confrontations gain +1.',bgTraitBonus:{combat:1}},
+  dk_roaz:{bgTrait:'Enforcement Memory',bgTraitDesc:'Dissolved ORE unit experience. Lore checks for eastern route and enforcement data gain +1.',bgTraitBonus:{lore:1}},
+  dk_panim:{bgTrait:'Death-Honor Standing',bgTraitDesc:'Panim death-honor guard training. Lore checks involving death records and registry gain +1.',bgTraitBonus:{lore:1}},
+  // beastmaster
+  bm_frontier:{bgTrait:'Environmental Read',bgTraitDesc:'Eastern frontier tracking. Survival checks to identify recent human or creature activity gain +1.',bgTraitBonus:{survival:1}},
+  bm_soreheim:{bgTrait:'Wilderness Intelligence',bgTraitDesc:'Soreheim wilderness scouting. Stealth checks in unsurveyed terrain gain +1.',bgTraitBonus:{stealth:1}},
+  bm_sheresh:{bgTrait:'Fauna Authority',bgTraitDesc:'Sheresh dome environmental monitoring. Lore checks for axis anomaly and contained creature behavior gain +1.',bgTraitBonus:{lore:1}}
 };
 
 const BG_LOCATION_MAP = {
@@ -7899,6 +8026,9 @@ function initCreate() {
         nomdara_last_visit_locality:null,
         seenChoices:{},
         startingLocality:'shelkopolis',
+        trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
+        archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
+        shopCreditBoost:0, statCap:10,
         schemaVersion:6 };
   _awaitingLevelUp = false;
   _activeGroupId = null;
@@ -8207,7 +8337,12 @@ function _beginLegendCore() {
   }
   G.maxHp = G.archetype.hp; G.hp = G.maxHp;
   G.gold = G.archetype.startGold;
-  G.traits = [{ name:G.archetype.trait, desc:G.archetype.traitDesc, used:false }];
+  G.traits = [{ name:G.archetype.trait, desc:G.archetype.traitDesc, used:false, passive:false, source:'archetype' }];
+  G.archetypeBaseStats = Object.assign({}, G.skills);
+  const _bgTraitDef = BG_TRAITS[G.background.id];
+  if (_bgTraitDef) {
+    G.traits.push({ name:_bgTraitDef.bgTrait, desc:_bgTraitDef.bgTraitDesc, passive:true, source:'background', skillBonus:_bgTraitDef.bgTraitBonus || {}, used:false });
+  }
   G.location = BG_LOCATION_MAP[G.background.region] || 'shelkopolis';
   G.startingLocality = G.location;
   G.backstoryGroup = G.archetype.group || 'neutral';
@@ -9202,7 +9337,8 @@ function handleChoice(choice) {
   const weatherSev = getWeatherSeverity();
   const isOutdoor = choice.skill === 'survival' || (G.archetype && G.archetype.id === 'ranger' && choice.skill === 'combat');
   const weatherMod = weatherSev >= 4 ? 1 : (weatherSev >= 3 && isOutdoor ? 1 : 0);
-  const diff = baseDiff + _stageNum + axisFlipMod + weatherMod;
+  const levelMod = Math.floor(((G.level || 1) - 1) / 2);
+  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod;
   const success = total >= diff;
   const partial = !success && total >= diff - 4;
 
@@ -9214,7 +9350,7 @@ function handleChoice(choice) {
   if (disadvantage) rollDisplay += ' ' + disadvantage + ' (training fatigue)';
   if (eqBonus) rollDisplay += ' + gear ' + eqBonus;
   if (compBonus) rollDisplay += ' + companion ' + compBonus;
-  rollDisplay += ' = <strong>' + total + '</strong> vs ' + diff;
+  rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '');
 
   addNarration('', '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">' + rollDisplay + '</span>');
 
