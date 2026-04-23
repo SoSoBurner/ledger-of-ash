@@ -2,6 +2,7 @@
 node_modules/
 .env
 *.log
+__pycache__/
 
 V28_8_extracted/
 claude.exe
