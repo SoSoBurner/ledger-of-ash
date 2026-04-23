@@ -10202,6 +10202,7 @@ function checkStageAdvance() {
     addQuest('Stage V: Determine what the cargo was — and whether it can be recovered or must be destroyed.');
     addQuest('Stage V: Prevent the next inversion window from being used again.');
   }
+  if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
 }
 
 function getNPCTone() {
@@ -12504,7 +12505,7 @@ function showToast(msg) {
 function checkSave() { /* deprecated */ }// ── COMBAT ENTRY — FIRST-CLASS ENCOUNTER SETUP ────────
 function enterCombat(enemyKey, context) {
   context = context || {};
-  const enemy = ENEMY_TEMPLATES[enemyKey];
+  const enemy = (context && context.customEnemy) ? context.customEnemy : (ENEMY_TEMPLATES[enemyKey] || null);
   if (!enemy) { startCombat(enemyKey, context); return; }
 
   const intentPool = {
@@ -12709,6 +12710,7 @@ function showHowToPlay() {
 <script src="content/item_system.js"></script>
 <script src="content/social_misstep_pool.js"></script>
 <script src="content/public_complication_pool.js"></script>
+<script src='content/stage1_boss.js'></script>
 <script src='content/stage2_antechamber.js'></script>
 <script src='content/stage2_climax.js'></script>
 <!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
