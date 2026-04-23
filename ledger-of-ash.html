@@ -8227,18 +8227,18 @@ function _beginLegendCore() {
   showScreen('screen-game');
   updateHUD(); updateEnvironmentPanel();
   startOpeningScene();
-  if (window.G && !window.G.flags.onboarding_complete) {
+  if (G && !G.flags.onboarding_complete) {
     setTimeout(showOnboarding, 400);
   }
   // Plant the mystery hook on first session
-  if (window.G && !window.G.flags.mystery_hook_shown) {
-    window.G.flags.mystery_hook_shown = true;
+  if (G && !G.flags.mystery_hook_shown) {
+    G.flags.mystery_hook_shown = true;
     setTimeout(function() {
       if (typeof addJournal === 'function') {
-        addJournal('Among the Registry of Deaths, you find a name marked "expunged from record." No cause. No witness. Just: expunged. Names burned from official memory. Someone maintains the record of absences. Someone else is hunting those names. This is what you\'ve been sent to find.', 'evidence');
+        addJournal('Among the Registry of Deaths, you find a name marked "expunged from record." No cause. No witness. Just: expunged. Names burned from official memory. Someone maintains the record of absences. Someone else is hunting those names.', 'evidence');
       }
       if (typeof addWorldNotice === 'function') {
-        addWorldNotice('A lead emerges: the ledger of ash is a register of erased names. The investigation begins.');
+        addWorldNotice('A lead emerges: names are being erased from official record. Something is being buried.');
       }
     }, 800);
   }
