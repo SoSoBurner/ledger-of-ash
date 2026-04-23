@@ -2751,6 +2751,94 @@ const ENEMY_TEMPLATES = {
     loot:{gold:2, item:null, materials:[{id:'debt_ledger_scraps',qty:1,chance:0.8},{id:'ash_compound',qty:1,chance:0.3}]},
     fleeThreshold:0.1,
     abilities:[]
+  },
+  road_bandit:{
+    name:'Road Bandit', hp:12, maxHp:12,
+    attack:4, defense:3, morale:6,
+    desc:'Opportunist. Works the gaps between checkpoints.',
+    loot:{gold:10, item:null, materials:[{id:'iron_shard',qty:1,chance:0.6},{id:'frontier_fiber',qty:1,chance:0.4}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Ambush', effect:'first attack+3 if player has not yet acted'}]
+  },
+  hired_muscle:{
+    name:'Hired Muscle', hp:14, maxHp:14,
+    attack:5, defense:4, morale:7,
+    desc:'Contracted for the job. Leaves when the pay stops making sense.',
+    loot:{gold:14, item:null, materials:[{id:'house_crest_brass',qty:1,chance:0.3},{id:'stamped_paper',qty:1,chance:0.5}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Controlled Aggression', effect:'attack+2 when enemy HP above 50%'}]
+  },
+  house_shelk_operative:{
+    name:'House Shelk Operative', hp:16, maxHp:16,
+    attack:5, defense:4, morale:9,
+    desc:'Direct agent of House Shelk. Operates with noble authority.',
+    loot:{gold:18, item:'Shelk Authorization Token (evidence)', materials:[{id:'carved_seal',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.6}]},
+    fleeThreshold:0.3,
+    abilities:[{name:'Noble Authority', effect:'morale check on player at round start'}]
+  },
+  border_enforcer:{
+    name:'Border Enforcer', hp:14, maxHp:14,
+    attack:4, defense:4, morale:9,
+    desc:'Roaz border checkpoint security. Documents first, weapons second.',
+    loot:{gold:7, item:'Border Transit Papers (access)', materials:[{id:'enforcement_resin',qty:1,chance:0.4},{id:'stamped_paper',qty:1,chance:0.7}]},
+    fleeThreshold:0.25,
+    abilities:[{name:'Checkpoint Protocol', effect:'defense+2 when holding position'}]
+  },
+  village_thug:{
+    name:'Village Thug', hp:10, maxHp:10,
+    attack:4, defense:2, morale:5,
+    desc:'Local muscle. Knows the terrain and the people who look the other way.',
+    loot:{gold:4, item:null, materials:[{id:'debt_ledger_scraps',qty:1,chance:0.5},{id:'ash_compound',qty:1,chance:0.2}]},
+    fleeThreshold:0.3,
+    abilities:[]
+  },
+  guild_enforcer:{
+    name:'Guild Enforcer', hp:18, maxHp:18,
+    attack:5, defense:5, morale:10,
+    desc:'Union guild enforcement. Carries documentation as a weapon.',
+    loot:{gold:16, item:'Guild Sanction Notice (evidence)', materials:[{id:'enforcement_resin',qty:1,chance:0.5},{id:'stamped_paper',qty:2,chance:0.7}]},
+    fleeThreshold:0.3,
+    abilities:[{name:'Documented Authority', effect:'+2 morale check vs persuasion attempts'}]
+  },
+  veteran_mercenary:{
+    name:'Veteran Mercenary', hp:20, maxHp:20,
+    attack:6, defense:4, morale:11,
+    desc:'Experienced hired sword. Reads opponents before engaging.',
+    loot:{gold:22, item:null, materials:[{id:'iron_shard',qty:2,chance:0.6},{id:'frontier_fiber',qty:1,chance:0.4}]},
+    fleeThreshold:0.35,
+    abilities:[{name:'Combat Read', effect:'reduces player attack bonus by 1 each round'}]
+  },
+  iron_accord_soldier:{
+    name:'Iron Accord Soldier', hp:22, maxHp:22,
+    attack:5, defense:6, morale:13,
+    desc:'Roazian military. Disciplined, defensive posture.',
+    loot:{gold:8, item:'Iron Accord Dispatch (intelligence)', materials:[{id:'enforcement_resin',qty:1,chance:0.6},{id:'iron_shard',qty:1,chance:0.5}]},
+    fleeThreshold:0.2,
+    abilities:[{name:'Defensive Drill', effect:'defense+1 each round until broken'}]
+  },
+  shadowhands_operative:{
+    name:'Shadowhands Operative', hp:14, maxHp:14,
+    attack:7, defense:3, morale:7,
+    desc:'Shadow network field agent. Fast, precise, retreats if outnumbered.',
+    loot:{gold:25, item:'Shadowhands Cipher Token (intel)', materials:[{id:'shadow_residue',qty:2,chance:0.6},{id:'carved_seal',qty:1,chance:0.4}]},
+    fleeThreshold:0.55,
+    abilities:[{name:'Vanish Strike', effect:'on hit, may disengage without opportunity attack'}]
+  },
+  warden_lieutenant:{
+    name:'Warden Lieutenant', hp:24, maxHp:24,
+    attack:6, defense:5, morale:13,
+    desc:'Senior Warden Order officer. Commands the scene.',
+    loot:{gold:14, item:'Warden Order Commission (evidence)', materials:[{id:'enforcement_resin',qty:2,chance:0.5},{id:'stamped_paper',qty:1,chance:0.6}]},
+    fleeThreshold:0.2,
+    abilities:[{name:'Command Presence', effect:'enemy morale check at round 3 if player has not landed a hit'}]
+  },
+  faction_agent:{
+    name:'Faction Agent', hp:16, maxHp:16,
+    attack:5, defense:4, morale:8,
+    desc:'Unnamed operative. Allegiance unclear until they move.',
+    loot:{gold:12, item:'Unmarked Dispatch (intelligence)', materials:[{id:'shadow_residue',qty:1,chance:0.4},{id:'stamped_paper',qty:1,chance:0.5}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Concealed Intent', effect:'+2 first attack (opponent unaware of fighting style)'}]
   }
 };
 
@@ -2978,12 +3066,52 @@ const ARCHETYPE_TRAIT_POOLS = {
   ],
 };
 
+// ── ENEMY TIER SCALING ───────────────────────────────────
+const ENEMY_TIER_MODIFIERS = {
+  t1: { hp:0,  atk:0,  def:0 },   // levels 1-3
+  t2: { hp:6,  atk:2,  def:1 },   // levels 4-7
+  t3: { hp:14, atk:4,  def:3 }    // levels 8-10
+};
+
+function getEnemyTier(playerLevel) {
+  if (playerLevel >= 8) return 't3';
+  if (playerLevel >= 4) return 't2';
+  return 't1';
+}
+
+function getEnemyStats(baseKey, playerLevel) {
+  const base = ENEMY_TEMPLATES[baseKey];
+  if (!base) return null;
+  const tierKey = getEnemyTier(playerLevel || 1);
+  const tier = ENEMY_TIER_MODIFIERS[tierKey];
+  return Object.assign({}, base, {
+    hp:      (base.hp  || 10) + tier.hp,
+    maxHp:   (base.hp  || 10) + tier.hp,
+    attack:  (base.attack || 3)  + tier.atk,
+    defense: (base.defense || 3) + tier.def,
+    _tier: tierKey
+  });
+}
+
+// ── STAGE ENEMY POOLS ────────────────────────────────────
+const STAGE_ENEMY_POOL = {
+  1: ['patrol_guard','road_bandit','hired_muscle','hostile_debtor','house_shelk_operative','border_enforcer','village_thug'],
+  2: ['patrol_guard','road_bandit','hired_muscle','hostile_debtor','house_shelk_operative','border_enforcer','village_thug',
+      'guild_enforcer','veteran_mercenary','iron_accord_soldier','shadowhands_operative','warden_lieutenant','faction_agent']
+};
+
+function getStagePool() {
+  var stage = G && G.stage === 'Stage II' ? 2 : 1;
+  return STAGE_ENEMY_POOL[stage] || STAGE_ENEMY_POOL[1];
+}
+
 // ── COMBAT STATE ─────────────────────────────────────────
 let CS = null; // active combat session
 
 function startCombat(enemyTemplateId, context) {
-  const tpl = ENEMY_TEMPLATES[enemyTemplateId];
-  if (!tpl) return;
+  // D1: Use tiered stats based on player level
+  const scaledTpl = getEnemyStats(enemyTemplateId, G ? (G.level || 1) : 1);
+  if (!scaledTpl) return;
   const entryBonus = (context && context.entryBonus) ? context.entryBonus : 0;
   // G3: Initial range based on archetype family
   var _startRangeTier = 'close';
@@ -2991,20 +3119,30 @@ function startCombat(enemyTemplateId, context) {
     var _startFam = getArchetypeFamily(G.archetype.id);
     if (_startFam === 'magic' || _startFam === 'support') _startRangeTier = 'medium';
   }
+
+  // D3: Group combat — Stage II 35% chance of a second weaker enemy
+  var _groupCount = 1;
+  var _groupDefeated = 0;
+  if (G && G.stage === 'Stage II' && Math.random() < 0.35) {
+    _groupCount = 2;
+  }
+
   CS = {
-    enemy: Object.assign({}, tpl, { id: enemyTemplateId }),
+    enemy: Object.assign({}, scaledTpl, { id: enemyTemplateId }),
     round: 1,
     entryBonus: entryBonus,
     playerActed: false,
     context: context || {},
     log: [],
     rangeTier: _startRangeTier,
-    isBossFight: !!(tpl && tpl.boss),
+    isBossFight: !!(scaledTpl && scaledTpl.boss),
     strategyActive: null,
     companionAbilitiesUsed: [],
     nextAttackBonus: 0,
     enemyDefMod: 0,
-    deathPrevented: false
+    deathPrevented: false,
+    enemyGroupCount: _groupCount,
+    enemyGroupDefeated: _groupDefeated
   };
   CS.enemy.maxHp = CS.enemy.maxHp || CS.enemy.hp;
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
@@ -3118,6 +3256,18 @@ function renderCombatRound() {
     '<span class="choice-text">Move — change range (now: ' + rangeTierLabel + ')</span>' +
     '<span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag safe">move</span></span>' +
     '</button>';
+
+  // D3: Group combat — show group count and Switch Target when 2 enemies
+  if (CS.enemyGroupCount > 1) {
+    var _remaining = CS.enemyGroupCount - CS.enemyGroupDefeated;
+    html += '<div style="text-align:center;font-size:12px;color:var(--ink-dim);margin-bottom:6px;font-family:var(--font-display);letter-spacing:1px">ENEMIES: ' + _remaining + ' remain</div>';
+    if (_remaining > 1) {
+      html += '<button class="choice-btn combat-btn" data-action="switch_target">' +
+        '<span class="choice-text">Switch Target — engage the second enemy</span>' +
+        '<span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag safe">reposition</span></span>' +
+        '</button>';
+    }
+  }
 
   // Strategy Call (boss fights only)
   if (CS.isBossFight) {
@@ -3360,6 +3510,22 @@ function resolveCombatAction(action, abilityId) {
       }
     }
 
+  } else if (action === 'switch_target') {
+    // D3: Switch Target — costs player action, moves to second enemy (already at t1 stats)
+    resultText = 'You shift focus to the second enemy.';
+    resultType = 'partial';
+    // Take an opportunity attack from current enemy while repositioning
+    var _switchDmg = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
+    if (_switchDmg > 0) {
+      applyWound(_switchDmg, 'attack of opportunity from ' + CS.enemy.name + ' while repositioning');
+      resultText += ' You take ' + _switchDmg + ' damage repositioning.';
+    }
+    CS.log.push({ round: CS.round, action: 'switch_target', result: resultType });
+    addNarration('Round ' + CS.round, resultText, resultType);
+    CS.round++;
+    setTimeout(function() { renderCombatRound(); }, 500);
+    return;
+
   } else if (action === 'flee') {
     const roll = d20();
     const total = roll + survSkill;
@@ -3390,6 +3556,20 @@ function resolveCombatAction(action, abilityId) {
   // Check enemy flee
   const eFleePct = CS.enemy.hp / CS.enemy.maxHp;
   if (!isFled && CS.enemy.hp <= 0) {
+    // D3: Group combat — first enemy down, spawn second at t1 stats
+    if (CS.enemyGroupCount > 1 && CS.enemyGroupDefeated < CS.enemyGroupCount - 1) {
+      CS.enemyGroupDefeated++;
+      var _weakKey = 'hostile_debtor';
+      var _weakStats = getEnemyStats(_weakKey, 1);
+      if (_weakStats) {
+        CS.enemy = Object.assign({}, _weakStats, { id: _weakKey });
+        CS.enemy.maxHp = CS.enemy.hp;
+        addNarration('', '<em>The first enemy falls. A second moves in.</em>', 'success');
+        CS.round++;
+        setTimeout(function() { renderCombatRound(); }, 500);
+        return;
+      }
+    }
     isVictory = true;
     endCombat(true);
     return;
