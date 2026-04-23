@@ -1,5 +1,28 @@
 # Changelog
 
+## v0.9.0 — 2026-04-23
+
+### Added
+- Stage 2 deepening pass: 57 new choices across 19 localities (3 per locality — NPC escalation, physical evidence, social misstep beats); all DC 13
+- Stage 2 global faction contact choices (4): Seld/Collegium, Shadowhands, Wardens, Red Hood — set `stage2_faction_contact_made` gate flag
+- Social misstep pool (`content/social_misstep_pool.js`): 19 localities + Districts sub-keys from V33_2 packet data; `drawSocialMisstep(localityId)` helper
+- Public complication pool (`content/public_complication_pool.js`): 19 localities + Districts; `triggerPublicComplication(localityId)` adds narration + watchfulness+1
+- Stage 3 enriched choices (`content/stage3_enriched_choices.js`): 40 choices in 4 groups — faction pressure (A), deep evidence (B), world pressure escalation (C), alliance/jeopardy (D); DC 14
+- Stage 3 climax stub (`content/stage3_climax.js`)
+- Stage 1 arrival narrations: 3 missing localities added (aurora_heights, sunspire_haven, shirshal)
+- Combat encounter rate modifier: Stage II applies 12% extra encounter chance via `COMBAT_SCALING_TABLE` read at `__arrive__`
+- G defaults: `worldClocks.omens`, `discoveries`, `contacts`
+- Craft system (`content/item_system.js`): 16 materials, 18 recipes, DC-tiered rolls (Common/Uncommon/Rare), enemy material drops, travel scavenge encounters, inventory materials section
+- NPC lookup (`content/npc_lookup.js`): 16 NPCs, 3-path Tier 1 access, `buildNPCChoices()` helper
+- Travel node routing: route tier derived from `LOCALITY_TRAVEL_NETWORK` edge data (replaces hardcoded 'short')
+- Pre-journey screen: travel mode selection (foot/horse/cart/boat) + supply tier
+
+### Fixed
+- `rollD20` object comparison bug: 83 occurrences of `if (roll >= N)` → `if (roll.total >= N)` across all new Stage 2/3 content files (success branches were silently never firing)
+- 7 display-name skill reads in HTML (`G.skills.might/vigor/charm/finesse/spirit`) → internal keys (`combat/survival/persuasion/stealth/craft`)
+- `_beginLegendCore` skill remap removed — G.skills now stays on internal keys throughout
+- Duplicate `window.STAGE2_ENRICHED_CHOICES` assignment removed
+
 ## v0.2.0 — 2026-04-22
 
 ### Added
