@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.10.0 — 2026-04-23
+
+### Added
+- **240 Stage I items** (`content/item_system.js`): 4 archetype families × 3 slots × 4 chains × 5 levels; IDs follow `{family}_{slot}_{chain}_{level}` pattern; rarity tiers common/uncommon/rare
+- **Stage I boss system** (`content/stage1_boss.js`): mini-boss (Roadwarden Lt. Perrin Gleam, triggers at stageProgress[1]≥8) + main boss (Marshal Sera Ironveil, triggers at stageProgress[1]≥15); 2 seed choices, 3-branch confrontation, HP-threshold phase change, 3-way resolution
+- **80+ macroregion bestiary entries** (`data/bestiary_lookup.js`): 10 enemies per region × 8 regions; all world-consistent faction flavor
+- **Tiered enemy scaling**: `getEnemyStats(key, level)` applies `ENEMY_TIER_MODIFIERS` (t1/t2/t3) at combat start; enemies now scale with player level
+- **Stage enemy pools** (`STAGE_ENEMY_POOL`): Stage I and Stage II pools with distinct enemy sets
+- **Group combat** (Stage II+): 35% chance of 2-enemy group; Switch Target action; victory requires defeating all group members
+- **Companion passive bonuses** (`COMPANION_PASSIVES`): always-on per active companion; `getCompanionPassiveBonus(skill)` feeds into roll formula
+- **Companion combat abilities** (`COMPANION_ABILITIES`): 1 use per fight per companion; damage/heal/buff/debuff/special types; "Companions" button in combat action row
+- **Combat escalation path**: `threatLevel` 1/2/3 renders yellow/orange/red choice borders; instant-attack injection at threatLevel 1 for combat archetypes and cruel alignment
+- **Range display in combat**: persistent "RANGE: [tier]" HUD element in `renderCombatRound()`; magic/support archetypes start at medium range
+- **Training system redesign**: gold cost `(stat+1)*15`, 30-day cooldown, 3-session progression per +1 point, same-stat repetition lock, training ceiling `min(archetypeBaseStats[stat]+3, 10)`, session progress shown in UI
+- **Background passive traits** (`BG_TRAITS` lookup + `startGame()` injection): 93 backgrounds each grant 1 always-active passive trait with matching `skillBonus`
+- **DC per-level scaling**: `levelMod = Math.floor((level-1)/2)` added to `diff` in choice resolution; roll display shows adjusted DC with level annotation
+- **Economy pricing**: all shop items repriced to `1g ≈ $8 USD` baseline; 11 settlements expanded to 5-9 items each
+- **Soreheim plot currency**: `G.sorePlotCredits` accumulates from Soreheim locality choices (cap 30); `trySorehimCreditBoost()` social roll unlocks temporary purchasing power at Soreheim/Sunspire shops
+- **G defaults**: `trainingCooldowns`, `trainingSessionsUsed`, `lastTrainedStat`, `archetypeBaseStats`, `sorePlotCredits`, `soreCreditUsed`, `shopCreditBoost`, `statCap:10`
+- **Stats terminology**: all player-facing UI labels changed from "skill/skills" to "stat/stats"; internal `G.skills` keys unchanged
+
+### Fixed
+- `_abilRemap` inversion — all archetype ability gating was silently failing; removed remap, ability `skillReq` now reads `G.skills` directly
+- `getEquippedBonus()` fallback — was always returning 0 for shop/starting gear; now reads `slot.effect` directly when ITEM_DEFS lookup misses
+- Training stat cap — `G.skills[sk]++` was uncapped; now guarded at `statCap: 10`
+- `equipItem()` null guard — crash on null `G.equipped` fixed
+- `getRangeModifier()` never applied in attack resolution — now called and included in damage total
+- `getTraitBonus()` rewritten — was hardcoded archetype ID lookup; now iterates `G.traits` with `skillBonus` fields
+- `addJournal` missing category in camp rest — added `'discovery'` as second argument
+- `endCombat()` round count logged after `CS = null` — captured `finalRound` before null
+
 ## v0.9.0 — 2026-04-23
 
 ### Added
