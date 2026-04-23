@@ -1966,7 +1966,7 @@ const COMPANION_DEFS = {
       choices: [
         { text: "Tell him you're exactly that, and you need his access to the registry.", outcome: 'join' },
         { text: "Ask what he's seen specifically.", outcome: 'negotiate' },
-        { text: "Tell him this investigation doesn't require medical expertise.", outcome: 'refuse' }
+        { text: "What he saw in the registry is not what I need right now.", outcome: 'refuse' }
       ]
     },
     refusalScene: "Toriel shrugs without offense. 'The offer was practical, not personal. Good luck.'",
@@ -1999,7 +1999,7 @@ const COMPANION_DEFS = {
       choices: [
         { text: "Ask him to come with you. His technical knowledge is essential.", outcome: 'join' },
         { text: "Ask for the data he's collected instead.", outcome: 'negotiate' },
-        { text: "Tell him the investigation is already moving and doesn't need another voice.", outcome: 'refuse' }
+        { text: "The lead is already moving. Another voice makes it slower, not stronger.", outcome: 'refuse' }
       ]
     },
     refusalScene: "Neren nods. 'The data is yours regardless. Come back if that changes.' He pins the readings back to the board.",
@@ -2130,11 +2130,11 @@ const COMPANION_DEFS = {
     stageMin: 'Stage II',
     stageMinFlag: 'maren_oss_resolved',
     joinScene: {
-      text: "The woman with the Assembly seal in her lapel has been building a file for two years. She slides a portion of it across the table without preamble. 'The Collegium has been suppressing commercial records that would expose three years of route manipulation. The Assembly doesn't care — they're making money on the manipulation. I care because someone on the Assembly approved it, and when this breaks open — and it will — I need to be on the right side of it.' She looks at you. 'You're already investigating the rest of it. Work with me and we both get what we need.'",
+      text: "The woman with the Assembly seal in her lapel has been building a file for two years. She slides a portion of it across the table without preamble. 'The Collegium has been suppressing commercial records that would expose three years of route manipulation. The Assembly doesn't care — they're making money on the manipulation. I care because someone on the Assembly approved it, and when this breaks open — and it will — I need to be on the right side of it.' She looks at you. 'You're already pulling the same thread. Work with me and we both get what we need.'",
       choices: [
         { text: "Accept. Her Assembly access opens doors nothing else can.", outcome: 'join' },
         { text: "Ask what her file actually contains before committing.", outcome: 'negotiate' },
-        { text: "Tell her the investigation doesn't need political entanglement.", outcome: 'refuse' }
+        { text: "Assembly politics will slow everything down.", outcome: 'refuse' }
       ]
     },
     refusalScene: "Mira closes the file and picks up her drink. 'Understood. The Assembly's interests and yours are going to intersect eventually whether you want them to or not. I'll be available when they do.'",
@@ -2237,13 +2237,13 @@ function resolveRecruitChoice(defId, outcome) {
     addNarration('', joinText, 'success');
     addJournal('Companion joined: ' + def.name + ' (' + def.role + ').');
     G.history.push('Recruited ' + def.name + ' at ' + (G.dayCount||0) + '.');
-    addWorldNotice('[PARTY] ' + def.name + ' has joined your investigation.');
+    addWorldNotice('[PARTY] ' + def.name + ' has joined you.');
 
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof saveGame === 'function') saveGame();
 
     setTimeout(() => renderChoices([
-      { text: 'Continue the investigation together.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
+      { text: 'There is more ground to cover. Time to move.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
       { text: 'Camp and hear what they know before moving.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__camp_talk__' }
     ]), 400);
 
@@ -2292,7 +2292,7 @@ function checkCompanionLeave() {
       comp.departedDay = G.dayCount || 0;
       addNarration(comp.name || def.name, def.leaveScene);
       addJournal((comp.name || def.name) + ' has left the party.');
-      addWorldNotice('[PARTY] ' + (comp.name || def.name) + ' has left your investigation.');
+      addWorldNotice('[PARTY] ' + (comp.name || def.name) + ' has left the party.');
       if (typeof updateHUD === 'function') updateHUD();
     } else if (comp.strikes >= 3 && !comp._confrontFired) {
       comp._confrontFired = true;
@@ -2326,7 +2326,7 @@ function startRerecruitQuest(id) {
   var intro = attempt === 1
     ? 'You hear word of where ' + def.name + ' has gone. The door isn\'t closed — but it isn\'t open either. You\'ll need to find them and show them something has changed.'
     : def.name + ' is harder to find this time. They remember the last reconciliation. Whatever you show them will need to be more convincing than before.';
-  addNarration('Investigation', intro);
+  addNarration('Lost Contact', intro);
   addJournal('Re-recruitment quest started: ' + def.name + ' (attempt ' + attempt + ').');
 }
 
@@ -2364,7 +2364,7 @@ function showCampTalk() {
   // After talk: skills can improve
   const choices = [
     { text: 'Press on. The fire has told you enough.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' },
-    { text: 'Ask them directly about the investigation.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'probe_order_origin' }
+    { text: 'There is something here we haven\'t surfaced yet. Push deeper.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'probe_order_origin' }
   ];
 
   // Add companion ability choices
