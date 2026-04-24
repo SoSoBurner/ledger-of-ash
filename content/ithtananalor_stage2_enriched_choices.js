@@ -280,6 +280,84 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The archive's binding-law index bleeds into the enforcement catalogue at one seam",
+    tags: ['stage2', 'ithtananalor', 'Archive', 'Meaningful'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'working the archive classification seam');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure++;
+        G.lastResult = `The seam is real. Four case numbers cross-reference between oath-binding precedent and enforcement disposition — soldiers declared oath-breakers in the same month the ghost accounts first cleared. The disposition entries are redacted to a single line each. The redaction pattern is identical across all four. One hand did this work under institutional pressure, one shift, one authorization code. The index preserves the shape of what was removed.`;
+        addJournal('Archive seam: four oath-breaker dispositions redacted under one authorization', 'evidence', `ith-archive-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The cross-reference request triggers the archive's internal flag. A senior registrar arrives at the reading carrel without being summoned, which tells you the flag reaches further than the reading room. Your query slip is retained and noticed. The entries you were pulling are not, and you leave under new watchful attention.`;
+        addJournal('Archive cross-reference flagged — registrar intervention', 'complication', `ith-archive-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The indexes intersect, but the access tier you have grants headers only. Four case numbers appear in both catalogues. The headers are benign. The bodies require a clearance you cannot invent from a public seal. Enough to know the seam is real. Not enough to open it.`;
+        addJournal('Archive seam located — four cross-referenced cases behind higher access', 'evidence', `ith-archive-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A second perimeter circles the Ledger Ward — unmarked, paired, started after my query",
+    tags: ['stage2', 'ithtananalor', 'Stealth', 'Meaningful'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'reading the second perimeter');
+      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ith_second_perimeter_read = true;
+        G.investigationProgress++;
+        G.lastResult = `From a balcony above the ward's eastern approach, the rotation resolves. Six officers working in pairs, forty-minute swaps, hand-off at the fountain where no clerk can see them. One officer in every pair wears gloves indoors — Shadowhands courier tell, a grip-safety habit from handling sealed pouches. They are not watching the ward. They are watching who approaches the terminals where your queries land.`;
+        addJournal('Second perimeter is query-reactive, not ward-reactive — surveillance targets you', 'intelligence', `ith-perimeter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The balcony is covered from an angle you did not check. An officer below lifts a gloved hand and taps twice against his thigh — signal to a partner you cannot see. You leave before the partner closes. Whatever pattern existed has now been redrawn around the knowledge that you saw it.`;
+        addJournal('Perimeter observation burned — rotation reconfigured', 'complication', `ith-perimeter-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The rotation is there. Forty-minute intervals, pair-based, unmarked. You confirm the pattern exists before leaving the balcony. What you cannot confirm from this vantage is whether the pairs are watching the ward or watching a specific class of visitor. The distinction matters. Both need different responses.`;
+        addJournal('Second perimeter confirmed — targeting unclear', 'intelligence', `ith-perimeter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The same officer has stood at Brenn's shrine threshold three mornings running",
+    tags: ['stage2', 'ithtananalor', 'NPC', 'Persuasion', 'Meaningful'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'checking on Brenn under pressure');
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.brenn_under_pressure = true;
+        G.investigationProgress++;
+        G.lastResult = `Brenn meets you at the side altar where the attendance log cannot reach. They speak without looking at you, arranging the votive stones in the order they were arranged the morning before. "He stands where petitioners usually stand. He does not petition. Yesterday he asked me the hours the shrine keeps a witness present. That is not a scheduling question." The third stone goes down harder than the first two. "He is telling me the shrine is not a shelter anymore."`;
+        addJournal('Brenn under standing-surveillance — shrine sanctuary being revoked by presence', 'evidence', `ith-brenn-pressure-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Brenn sees you approach and turns to face the inner altar, which is the shrine's signal that a keeper is in private devotion and cannot be disturbed. The officer at the threshold watches the exchange. Brenn's withdrawal protects them for today and closes the door to you for longer than that.`;
+        addJournal('Brenn withdrew into ritual cover — shrine channel cold', 'complication', `ith-brenn-pressure-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `Brenn offers a ceremonial blessing, which is their cover for a brief exchange at the altar rail. The officer has been there three mornings. Brenn will not say what the officer said, only that the phrasing was constructed to be remembered and repeated. Whatever the sentence was, it was meant to travel. Brenn is choosing not to carry it.`;
+        addJournal('Brenn confirms officer is seeding a message — refusing to transmit', 'evidence', `ith-brenn-pressure-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Ithtananalor finale — act on the ghost account evidence through Roaz command or through independent disclosure.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
