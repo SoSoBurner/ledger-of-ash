@@ -10,7 +10,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // ── INVESTIGATION ARC ──────────────────────────────────────────────────
 
   {
-    label: "The Silkweaver's Chapel intermediary knows the name behind the northern route. She hasn't said it yet.",
+    label: "The chapel intermediary knows the name behind the northern route. She hasn't said it yet.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -41,7 +41,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Every glyph surge in the south market broke within thirty-six hours of a sealed letter arrival. Eleven times.",
+    label: "Every south market glyph surge broke within thirty-six hours of a sealed letter. Eleven times.",
     tags: ['Investigation', 'Stage2', 'Lore', 'Meaningful'],
     xpReward: 75,
     fn: function() {
@@ -68,7 +68,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The shortages are too surgical for a family dispute. Someone mapped the rivalry and used it as scaffolding.",
+    label: "The shortages are too surgical for a family dispute. The rivalry is scaffolding.",
     tags: ['Investigation', 'Stage2', 'Faction', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -188,7 +188,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Lyara Dawnlight filed three formal objections about the chapel's letter routes. All stamped received and unanswered.",
+    label: "Lyara Dawnlight filed three formal objections. All stamped received. None answered.",
     tags: ['NPC', 'Lore', 'Religion', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -219,7 +219,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // ── WORLD PRESSURE ARC ─────────────────────────────────────────────────
 
   {
-    label: "A Warden Order representative is waiting at the Noble District Inn. The assessment has already begun.",
+    label: "A Warden Order representative is waiting at the inn. The assessment has already begun.",
     tags: ['Faction', 'Antagonist', 'Stage2', 'Meaningful'],
     xpReward: 85,
     fn: function() {
@@ -344,7 +344,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Verdant Row's information network runs on three handshake protocols. Getting the sequence wrong has a cost.",
+    label: "Verdant Row runs on three handshake protocols. Getting the sequence wrong has a cost.",
     tags: ['Personal', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -374,7 +374,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elowen Shelk's audit needs a facilitator. The revenue gaps in three contracts point the same direction.",
+    label: "Elowen's audit needs a facilitator. The revenue gaps point the same direction.",
     tags: ['Personal', 'Support', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -407,7 +407,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // ── ENVIRONMENTAL / TRADE CHOICES ─────────────────────────────────────────
 
   {
-    label: "Aelra Velvetmere has kept a private log in the margin of her room ledger. Two months. Her own cipher.",
+    label: "Aelra kept a private log in her room ledger margin. Two months. Her own cipher.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -459,7 +459,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A patrol leader with sealed records access has a property dispute. The exchange has a cost on both sides.",
+    label: "The patrol leader has sealed records access. The property dispute is leverage on both sides.",
     tags: ['Survival', 'Faction', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -486,7 +486,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // ── ADVANCED CHOICES (gated by investigationProgress >= 6) ───────────────
 
   {
-    label: "The shape of the operation is clear. The name at the authorization point is one more link away.",
+    label: "The operation's shape is clear. The name at the top is one link away.",
     tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 95,
     fn: function() {
@@ -544,7 +544,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Great Registry seal archive runs three floors below street level. The dates on those seals don't match what was filed above.",
+    label: "The sub-level seal archive dates don't match what was filed above.",
     tags: ['stage2', 'shelkopolis'],
     xpReward: 30,
     fn: function() {
@@ -568,7 +568,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Wearing a House Shelk guild token in the wrong quarter reads as a provocation here. It already has.",
+    label: "The House Shelk token marks the wrong quarter. The room has already clocked it.",
     tags: ['stage2', 'shelkopolis'],
     xpReward: 30,
     fn: function() {
@@ -680,6 +680,64 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       }
       G.lastResult = 'Kess reads the page twice before she speaks. Her palm stays flat. "The night-shift ledger was forged before your copy was made. Three different hands logged the same three containers under three different freight codes across three shifts — same crate weight, same seal number, three paperwork lives. The Shadowhands have been tracking the third-code variant across six ports. It is not a shipping scheme. It is a paper screen built to hide where one specific cargo actually goes. Your page is the first one we have that names the origin officer. Not the receiver. The origin." She gives you a folded strip of rice paper with a single Roazian cipher on it. "If you are in a room and you need out, set this down where it can be seen. Someone will move."' + tension;
       addJournal('Shadowhands intel: ledger forgery revealed three-code freight screen across six ports — cargo origin officer named for the first time', 'evidence', `shelk-shadow-payoff-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── STAGE 2 DEEPENING: INSTITUTIONAL COORDINATION + NAMED NPC UNDER PRESSURE ──
+
+  {
+    label: "The cross-polity drawer holds three seals on one order.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    xpReward: 88,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(88, 'cross-polity suppression order');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.flags.shelk_cross_polity_order_confirmed = true;
+        G.lastResult = `The drawer is a long brass cabinet the Registry keeps behind the audit chair's station — manifests that cross polity lines file here before the city registers them. The suppression order is two sheets deep: wax seals from House Shelk, the Panim mediation oversight tier, and a Sunspire civic underwriter stamped in the same week. The language is identical across all three. The same scribe drafted them — you can tell from the way the flourish on the freight-class number breaks to the left. Three polities closing the same doorway. The coordination is not local.`;
+        addJournal('Cross-polity suppression order — Shelk/Panim/Sunspire co-signed, single drafting hand', 'evidence', `shelk-xpolity-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The drawer is closed when you reach it. A junior clerk at the station glances at your permit and calls the audit chair over without raising his voice. The chair listens to your stated purpose with careful neutrality and then asks which charter authorized your inquiry. You do not have one. She writes your name in a small bound register and returns your permit without comment. The Registry now has a record of who came looking.`;
+        addJournal('Registry drawer access refused — name logged by audit chair', 'complication', `shelk-xpolity-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `You read the drawer's index sheet over the shoulder of a clerk filing late returns. The cross-polity manifest references are listed by number only — no seal descriptions, no drafting notation. The index confirms the order exists and touches more than one polity's seal. It does not let you count how many, and it does not tell you whose hand drafted it.`;
+        addJournal('Cross-polity manifest index confirmed — scope and authorship withheld', 'evidence', `shelk-xpolity-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Lady Elowen's hand is steady on the cup. The other is not.",
+    tags: ['NPC', 'Persuasion', 'Stage2'],
+    xpReward: 84,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(84, 'Elowen pressure reveal');
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.met_elowen_shelk = true;
+        G.flags.elowen_under_pressure = true;
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `Elowen receives you on the loggia above the rose court with tea already poured — a gesture that fixes the duration of the audience. Her right hand works a signet ring around her little finger, a slow quarter-turn and back, a quarter-turn and back. She speaks about fabric tariffs for six minutes. When you name the northern route she sets the cup down without the ring-turn breaking rhythm. "My cousin's son was married to the Panim mediator's niece eleven days ago. I was not told until after. I am being shown a shape, not asked for a vote." She names four families paying the same quiet courtesy call this month. The naming is itself a courtesy. She will not say it twice.`;
+        addJournal('Elowen Shelk — forced marriage alliance tying Shelk to Panim; four families named', 'evidence', `shelk-elowen-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Elowen receives you standing, which sets the audience at under a minute. Her signet ring stays still on her finger. She hears your first framing and corrects it mildly, the way a tutor corrects a student who has read the wrong chapter. "You have come to the wrong branch of the house. My cousin handles matters of that kind." The dismissal is gracious. It is also complete. The rose court gate closes behind you before you reach the street.`;
+        addJournal('Elowen declined audience — misdirected to cousin branch', 'complication', `shelk-elowen-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_elowen_shelk = true;
+        G.investigationProgress++;
+        G.lastResult = `Elowen lets the tea cool. She does not drink. Her signet ring turns once, stops, and does not start again. "There are conversations I cannot have until a matter concludes. I am told it will conclude soon. I am told this by people who do not usually tell me things." She does not name them. The admission that she is being told at all is the substance of what she will give today.`;
+        addJournal('Elowen confirms institutional pressure — speakers unnamed', 'evidence', `shelk-elowen-partial-${G.dayCount}`);
+      }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

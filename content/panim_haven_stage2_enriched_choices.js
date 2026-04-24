@@ -8,7 +8,7 @@
 const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Examine the afterlife ledger discrepancies Elior Sepulcher mentioned — irregular entries appearing in the mediation records.",
+    label: "The afterlife ledger has irregular entries. The clustering is not administrative error.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -40,7 +40,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elior Sepulcher, Mediator Cleric at the Mediation Hall, is the only person with access to the sealed mediation backlog — approach them.",
+    label: "Elior Sepulcher holds the sealed backlog. He's been waiting for someone with outside standing.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -70,7 +70,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Follow the processional route disruption pattern — someone has been rerouting official processions away from specific streets for three months.",
+    label: "Processions keep missing the same streets. Three months of the same gap.",
     tags: ['Investigation', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -98,7 +98,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Saryna Sepulcher at the Offering Market Stall has been flagging the same coin flow irregularities for six months — get the full report.",
+    label: "Saryna's flags have been suppressed six months. She kept her own copies.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -126,7 +126,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Shrine of Divine Balance has witnessed unusual activity after hours — Velune Sepulcher will only confirm this to someone they trust.",
+    label: "Something arrives at the third hour. Velune won't name it to a stranger.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -155,7 +155,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ithren Sepulcher, the Porter at the Processional Gate, moves everything that enters and leaves the district — ask about unusual cargo.",
+    label: "Ithren Sepulcher has a porter's memory. He noticed which cargo didn't weigh right.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -183,7 +183,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Oversight Collegium has an observer posted in Panim Haven — they are the faction antagonist to your investigation. First contact.",
+    label: "The Collegium observer is running a parallel inquiry. They don't know I've noticed yet.",
     tags: ['Faction', 'Antagonist', 'Stage2', 'Meaningful'],
     xpReward: 86,
     fn: function() {
@@ -214,7 +214,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Access the Reckoning Quarter records at night — the suppressed inquest files are stored in the district registry.",
+    label: "The suppressed inquest files are in the district registry. Night is the only window.",
     tags: ['Stealth', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -243,7 +243,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Innkeeper Merev Sepulcher at the Memorial Inn hears every conversation in the building — ask what they have noted in the past month.",
+    label: "Merev Sepulcher hears every conversation in the Memorial Inn. The past month has been unusual.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -271,7 +271,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The divine balance obligations pressure creates systemic overload in the mediation hall — map the pressure to find who benefits from the backlog.",
+    label: "The backlog is managed, not accidental. Someone benefits from a saturated mediation hall.",
     tags: ['Lore', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -298,7 +298,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elior knows whose name is on the suppression order — he has been protecting it for two years.",
+    label: "Elior knows the name on the suppression order. Two years of protecting it.",
     tags: ['stage2', 'panim_haven'],
     xpReward: 30,
     fn: function() {
@@ -321,7 +321,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The unregistered building at the processional gap has marks on its threshold that do not belong to any current rite.",
+    label: "The threshold marks on that building don't belong to any current rite.",
     tags: ['stage2', 'panim_haven'],
     xpReward: 30,
     fn: function() {
@@ -341,7 +341,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The offering market queue has its own protocol — the wrong step here gets noted by everyone within earshot.",
+    label: "The offering queue has protocol. The wrong step gets noted by everyone within earshot.",
     tags: ['stage2', 'panim_haven'],
     xpReward: 30,
     fn: function() {
@@ -363,7 +363,78 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Panim finale — present the phantom memorial evidence and decide whether to proceed through official or informal channels.",
+    label: "Sanctuary-claim rolls list names no family has visited.",
+    tags: ['stage2', 'panim_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress++;
+        addNarration('Sanctuary Without Mourners', 'The rolls are posted on the outer wall of the mediation hall — a courtesy so families can find their registered dead. You read them from the bottom row, where the oldest untouched entries gather. Twenty-seven names across the last half year show no visitation mark, no amendment, no claim. A sanctuary entry protects a body from civil seizure while a family arranges rites. Twenty-seven active protections on bodies no one has come to mourn. The names themselves read wrong — too many from trade rosters, too few from the congregant rolls. Someone is using the sanctuary frame as a holding pattern.');
+        addJournal('Sanctuary protections holding 27 unclaimed entries — frame repurposed as custody', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('A Wall of Names', 'You read the rolls twice before the shrine attendant near the entrance begins to watch you openly. The names remain only names. Without the mediation-hall cross-index you cannot tell protected sanctuary entries from ordinary delayed-claim cases. You step away before the attention becomes a correction.');
+      }
+    }
+  },
+
+  {
+    label: "Nemeia Sepulcher works the coffin benches — the unsealed shipments passed her.",
+    tags: ['NPC', 'Persuasion', 'Stage2'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'Nemeia crew records');
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_nemeia_sepulcher = true;
+        G.investigationProgress++;
+        G.lastResult = `Nemeia wipes pitch from her thumb on a square of sackcloth before she answers — the same square she uses for the crew tally, the marks layered on top of each other. Four shipments in three months left the benches without her foreman's seal. Standard protocol requires it. She filed the omission each time. Each filing came back marked resolved at the oversight tier without a reply to her. "When my paper keeps coming home clean, the dirt is above me. I know where it ends up. I don't know whose hand puts it there."`;
+        addJournal('Nemeia — four unsealed shipments cleared above foreman tier', 'evidence', `panim-nemeia-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Nemeia hears you out standing, arms crossed, and does not sit. "If I talk to every outsider who noticed something, I stop being a foreman and start being a witness. I already filed what I saw. The rest is not mine to give away." She turns back to the benches. The crew's rhythm does not break.`;
+        addJournal('Nemeia declined — filings already on record, access closed', 'complication', `panim-nemeia-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_nemeia_sepulcher = true;
+        G.investigationProgress++;
+        G.lastResult = `Nemeia confirms the unsealed shipments without naming count. "More than one. Less than ten. All in the last season. All cleared above my head." She taps the bench with two knuckles and returns to her crew. The confirmation is all she will give today.`;
+        addJournal('Nemeia confirms unsealed shipment pattern — count withheld', 'evidence', `panim-nemeia-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The third-hour visitor leaves by the porter's gate, not the pilgrim arch.",
+    tags: ['Stealth', 'Stage2'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'tailing shrine visitor egress');
+      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `You hold at the cistern arch with the hood of your travel cloak drawn in the memorial style and wait out the third hour. The figure emerges exactly when Velune described and crosses the courtyard on a line that avoids the pilgrim arch entirely. The porter's gate opens from the inside — no hail, no exchange, no tally mark. The figure passes through to the freight lane and steps into a covered cart already waiting, driver's face turned away. The cart carries a House Panim seal on the axle plate. It is the wrong seal — oversight-tier, not funerary service.`;
+        addJournal('Third-hour visitor egress via porter gate — oversight-tier seal on cart', 'evidence', `panim-egress-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `You misread the courtyard sight lines. A shrine-keeper on the upper walk notices your position and the duration of your wait. The figure crosses and leaves without once turning toward you, which means the figure was warned the moment you were spotted. By dawn the porter's gate has a new watch posted.`;
+        addJournal('Egress watch reinforced — observation position compromised', 'complication', `panim-egress-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The figure emerges, crosses, and exits through the porter's gate as Velune said. You catch the shape of a covered cart beyond the arch but cannot reach a position to read the axle plate before it rolls. The route is confirmed. The seal is not.`;
+        addJournal('Egress route confirmed — cart seal unread', 'evidence', `panim-egress-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
     fn: function() {
