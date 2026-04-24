@@ -169,7 +169,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium liaison Orsel: external committee appointment provides standing to intervene — wants consortium connection documented', `glasswake-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `The Collegium liaison is present but inaccessible through informal channels. Formal petition required.`;
+        G.lastResult = `The Collegium's liaison table stands near the administrative hall entrance, unmanned. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk explains the procedure without looking up: written request, registered party affiliation, supporting documentation attached. She slides a blank form across the counter and goes back to her ledger. The room smells of old paper and floor wax. Nothing here moves without a form number.`;
         if (!G.flags) G.flags = {};
         G.flags.located_oversight_collegium_glasswake = true;
       }
@@ -197,9 +197,9 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_committee_correspondence = true;
         addJournal('Committee correspondence: weekly instructions from Northern Materials Consortium precede each suppression decision', 'discovery', `glasswake-correspondence-${G.dayCount}`);
       } else if (result.total >= 11) {
-        G.lastResult = `You find evidence of regular correspondence between two committee members and an external address. The correspondence is sealed and you can't read the content, but the frequency and timing is notable.`;
+        G.lastResult = `The outer section of the mail log shows two committee members receiving sealed correspondence from an external northern address — weekly intervals, consistent sender formatting. The letters are sealed and the content stays inside them. What's legible is the frequency: every seven days without interruption for eight months. Whatever those letters contain, the schedule never slipped. The correspondence predates every major committee decision in the same period. The timing is its own kind of evidence.`;
       } else {
-        G.lastResult = `The correspondence record requires access to the administrative mail log, which is locked outside business hours and guarded during them.`;
+        G.lastResult = `The administrative mail station sits at the far end of the research hall, behind a counter with a locked hinged panel. During business hours a mail clerk is at the station; after hours the panel closes and the lock engages. The external correspondence log hangs on a nail inside the panel — visible through the gap at the hinge, unavailable to hands that can't reach it. The route to it goes through a clerk who does not share records with visitors.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
@@ -241,7 +241,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.traced_publication_suppression = true;
         addJournal('Publication suppressed via timed journal review agreement — Northern Materials Consortium inserted mandatory review one month before submission', 'evidence', `glasswake-publication-${G.dayCount}`);
       } else {
-        G.lastResult = `The Science Review acknowledges the submission was received and deferred but cites institutional review requirements they're not able to detail without the reviewing institution's permission.`;
+        G.lastResult = `The Regional Science Review's public response log shows a single entry for Toman's submission: "received — deferred pending institutional review, per current review protocol." The entry is dated two days after submission. The review protocol it references is real — the Review publishes it. But invoking that protocol requires a registered reviewing institution to formally request it. Who requested the deferral, and why, is between the Review and that institution. The correspondence isn't public, and the Review cites that relationship to close the inquiry.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -300,7 +300,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.obtained_vote_record = true;
         addJournal('Vote record: 3-2 split on external/internal lines, dissent registered but buried with classified research', 'evidence', `glasswake-vote-${G.dayCount}`);
       } else {
-        G.lastResult = `Vote records are part of the classified administrative proceedings. Without a senior committee member sharing them informally, official access requires external authority.`;
+        G.lastResult = `The committee's vote record sits inside a classified proceedings file — the same classification order that covers the reclassified research. The archivist on duty locates the file number without difficulty; the file itself requires committee authorization to open. One committee member could share the record informally. Both of the dissenting members know what the vote was. Neither of them is willing to put the vote count in front of a visitor until they know what it's being used for.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -324,7 +324,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The Northern Materials Consortium holds licensing rights to the specific filtration additive class that the shard amplification data would implicate. If the data is published, their additives are identified as dangerous in shard-geology environments — which describes every dome settlement in the region. Their product category would require reformulation or withdrawal. The suppression isn't scientific conservatism — it's commercial liability protection. They're suppressing data that would destroy a revenue stream.`;
         addJournal('Consortium benefit: holds licensing rights to implicated additive class — suppression protects commercial liability', 'evidence', `glasswake-benefit-${G.dayCount}`);
       } else {
-        G.lastResult = `The consortium's commercial interests in the relevant compound categories are publicly registered but understanding the full liability exposure requires a specific understanding of the research implications.`;
+        G.lastResult = `The Northern Materials Consortium's trade charter lists its registered product categories — atmospheric processing compounds, dome-grade filtration additives, specialty mineral derivatives. The listing is public, accurate as far as it goes. Whether any of those categories carry liability exposure under the research Toman's study describes requires cross-referencing the compound classifications against his interaction model. That work takes the research itself, which is still reclassified. The liability picture is there in outline. The specifics stay locked with the study.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -346,7 +346,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_winn_dissenter = true;
         addJournal('contact', 'Committee dissenter Winn: staying to prevent fourth external appointment, has written record of every suppression decision', `glasswake-winn-${G.dayCount}`);
       } else {
-        G.lastResult = `The researcher is carefully professional. She's aware the committee situation is being monitored and won't discuss internal votes with someone she doesn't know.`;
+        G.lastResult = `Researcher Winn is at her desk when you introduce yourself. She listens to the first sentence, then sets her pen down and straightens the papers in front of her into an already-straight stack. "I'm not in a position to speak informally about committee proceedings." Her register is careful, each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. She already knows what kind of question is coming, and she has an answer ready that closes it without lying.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -404,7 +404,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `A study published thirty years ago by a Glasswake founder describes observing "unexpected atmospheric interaction with shard-adjacent processing compounds." The observation was listed as an anomaly requiring future study. No follow-up was funded for twenty years. When Toman finally followed up, the committee suppressed his findings. The anomaly has been known for three decades. It's been deliberately under-investigated, then suppressed when finally studied.`;
         addJournal('Predecessor study: anomaly known for 30 years, deliberately under-investigated, suppressed when finally studied', 'evidence', `glasswake-predecessor-${G.dayCount}`);
       } else {
-        G.lastResult = `The predecessor studies exist but the relevant anomaly observation is in a supplementary appendix that was never referenced in subsequent research. Easy to miss unless you know what you're looking for.`;
+        G.lastResult = `The founder's study is in the archive under standard classification — not restricted, not reclassified. You find the volume at a reading table near the estuary window, pages smelling of old binding and mineral dust. The anomaly observation is in a supplementary appendix, footnoted in a smaller hand than the rest of the document, never referenced in the main body. Thirty years of subsequent research passed over it. The observation was always there. No one was looking for it until Toman's work made it relevant.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -430,7 +430,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_consortium_relay = true;
         addJournal('Northern Materials Consortium relay office: commercial cover, instruction delivery channel for committee members', 'evidence', `glasswake-consortium-presence-${G.dayCount}`);
       } else {
-        G.lastResult = `The consortium has a registered address but it presents as a routine commercial operation. Documenting its real function requires either surveillance or internal access.`;
+        G.lastResult = `The address on the consortium's registry entry is in Glasswake's northern quarter — a two-room commercial office with a sample buyer's placard in the window. Through the glass: a desk, a cabinet, a single staff member writing. Standard commercial premises for a mineral trading operation. Whatever the office does beyond buying samples isn't visible from the street, and the door stays closed to walk-in visitors. Documenting whether it serves as an instruction relay requires seeing the correspondence it handles, which means getting inside.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

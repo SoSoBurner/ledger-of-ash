@@ -332,7 +332,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_polt_predecessor = true;
         addJournal('contact', 'Former arbiter Polt: given ultimatum to retire, successor already chosen before he left — appointment process was theater', `unity-polt-${G.dayCount}`);
       } else {
-        G.lastResult = `Polt isn't at the forwarding address on the retirement record. A neighbor says he moved shortly after arriving and didn't leave a new address. The second settlement he's known to have stayed in says the same. Two moves in eight months, no forwarding arrangements either time. Either someone has been following his location, or he's been operating as though they might.`;
+        G.lastResult = `The forwarding address on Polt's retirement record leads to a rented room that's been vacated. The neighbor says he left without notice a few weeks after arriving — no forwarding, no explanation. The second settlement he's known to have passed through has a similar account. Two moves in eight months, nothing left behind at either address to follow. The rooms were emptied cleanly. Whether someone was tracking him or he simply expected them to, the result is the same: he's somewhere the retirement record can't reach.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -352,7 +352,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Seven major trade route agreements, three inter-settlement supply contracts, two regional resource allocation frameworks — all currently active, all with Unity Square arbitration clauses built in. Disputes under any of them come here first. Together they cover roughly forty percent of commercial flow between settlements in the operational zone. Every rate negotiation, every routing conflict, every supply shortfall that matters goes through this process. A captured arbitration record doesn't affect one case. It sets the terms every party in the zone operates within.`;
         addJournal('Unity Square scope: 40% of regional commercial flow governed by arbitration it controls — a leverage point, not just a hub', 'evidence', `unity-scope-${G.dayCount}`);
       } else {
-        G.lastResult = `The publicly posted coordination mandate lists the agreements Unity Square administers, but the full list — including the supplemental agreements added in the last three years without a public announcement — is in the administrative filing system. The posted list is partial. How partial requires access to the administrative records, which are restricted to registered parties and authorized third-party reviewers.`;
+        G.lastResult = `The public mandate board near the arbitration hall entrance lists seven agreements by name and scope. The board looks complete — formal headers, current dates, updated signatory blocks. But the filing index in the coordination office shows seventeen active agreement files, not seven. The supplemental agreements — added in the last three years without a public announcement — don't appear on the board. The posted list is what Unity Square chose to publish. The full scope of what it controls stays in a room that requires registered party standing to enter.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -393,7 +393,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.calculated_bloc_gains = true;
         addJournal('Northern bloc total gains: unrestricted route access + favorable contract terms = structural commercial dominance via invisible capture', 'evidence', `unity-gains-${G.dayCount}`);
       } else {
-        G.lastResult = `Calculating the cumulative value of the three interventions requires the parties' actual commercial data — cargo volumes, route fees, contract margins. Each party holds their own records, and none of them are interested in sharing trade figures with someone outside the process. The structural picture is visible. The numbers behind it stay closed.`;
+        G.lastResult = `The three interventions are documented. What they're worth in commercial terms requires the actual figures: cargo volumes, route fees per transit, contract margin differentials. Each affected party holds their own records, and none of them are interested in opening trade accounts to someone with no registered standing in their proceedings. One factor in the waiting hall closes the conversation with two words when asked. The structural benefit is visible from the outside. The numbers that quantify it stay inside parties who have reason to keep them there.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

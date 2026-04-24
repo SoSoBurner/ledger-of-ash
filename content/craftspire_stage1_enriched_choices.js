@@ -50,10 +50,10 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
           G.flags.found_chemical_discrepancy = true;
           addJournal('Chemical inputs: deliberate 30-40% extraction from specific compound class — supply chain used as material extraction mechanism', 'evidence', `craftspire-chemical-${G.dayCount}`);
         } else {
-          G.lastResult = `The incoming analysis sheets are readable — columns of numbers, compound codes, concentration readings — but interpreting whether the gap between declared and measured concentration is significant, deliberate, or within acceptable variance requires Jorin's expertise. You can see the numbers. You can't yet say what they mean without him.`;
+          G.lastResult = `Jorin's analysis sheets are spread across the bench in order — six months of entries, columns of compound codes and concentration figures marked in his careful hand. The numbers are legible. The gap between declared and measured concentration is visible on almost every page. Whether that gap represents standard transit loss, instrument error, or something deliberate requires the kind of trained judgment that comes from years at a fabrication bench. The data is in front of you. The interpretation isn't yours to make.`;
         }
       } else {
-        G.lastResult = `The incoming material analysis is held in the guild's records office, restricted to registered guild members and credentialed inspectors. Without Jorin's cooperation — he's the member on record for the precision workshop — you can't get the sheets. The guild registry clerk tells you this with the practiced patience of someone who says it regularly.`;
+        G.lastResult = `The guild records office window has a clerk behind it and a printed access policy tacked to the counter face. Incoming material analysis is held for registered members and credentialed inspectors. The precision workshop's records are filed under Jorin's member number. The clerk confirms this without looking up from her work. She's answered this question before. The analysis sheets exist, their location is no secret, and the route to them runs entirely through a workshop master who hasn't vouched for you yet.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -78,7 +78,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.identified_compound_purpose = true;
         addJournal('Extracted compound: accumulation volume consistent with dome filtration use OR reactive compound synthesis — industrial-scale implication', 'evidence', `craftspire-compound-purpose-${G.dayCount}`);
       } else {
-        G.lastResult = `The compound code from Jorin's analysis sheets is a technical reference — meaningful to a trained fabrication chemist, opaque without that training. You can read the code. You can't interpret whether its extracted volume implies atmospheric processing, reactive synthesis, or something else. Jorin has that expertise. He doesn't have a reason to share it with you yet.`;
+        G.lastResult = `The compound code from Jorin's analysis sheets sits at the top of each entry page — a four-character designation that maps to a specific substance class in the guild's reference system. The reference volumes are on the shelf behind Jorin's bench, thick with notation and margin marks from years of use. Reading the code takes a moment. Understanding what its extracted volume implies — atmospheric processing, reactive synthesis, something else entirely — takes training that takes years. Jorin has it. He hasn't decided yet what he owes a visitor he met this morning.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -104,7 +104,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_modification_point = true;
         addJournal('Supply chain: modification happens at transit waystation between intake and output — extraction infrastructure in place there', 'evidence', `craftspire-supply-chain-${G.dayCount}`);
       } else {
-        G.lastResult = `The production facility's output records are accessible. The final delivery analysis is in Jorin's logs. The middle stage — waystation intake versus output — requires the waystation's own processing records, which are under the supply contractor's internal administration and not available to guild parties. You can identify that the modification happens in transit. Pinpointing the waystation as the specific extraction point requires access you don't have yet.`;
+        G.lastResult = `The production facility's output records come back clean — full concentration at source, documented and dated. Jorin's delivery logs show the gap at the Craftspire end. The middle stage is the problem: waystation intake versus output. Those records are under the supply contractor's internal administration — not available to guild parties, not publicly filed. You can establish where the modification isn't happening. The waystation sits in the gap between two clean data points, its own records out of reach, the extraction point obvious by elimination.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -220,7 +220,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.traced_variance_log_origin = true;
         addJournal('Transit variance log: created one month before extraction began, authorized by unregistered "regional materials coordination body"', 'evidence', `craftspire-variance-origin-${G.dayCount}`);
       } else {
-        G.lastResult = `The log format history exists but the authorization documentation for category additions is in the waystation's internal administrative records — not accessible through guild channels.`;
+        G.lastResult = `The waystation log format has a version date printed in the footer of each page — a reference number that changes when the form is revised. Pell's oldest log sheets use a different version than the current forms. The category addition happened between those two versions, seven months ago by the date sequence. Who authorized the revision is in the waystation's internal administrative records, filed under the supply contractor's management. Guild channels don't reach those files. The authorization trail stops at the contractor's wall.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -261,9 +261,9 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_accumulation_yard = true;
         addJournal('Uninspected exit destination: staging yard accumulating unmarked crates for 8 months — accumulation ongoing, no outgoing manifests', 'discovery', `craftspire-exit-route-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The exit route leads to commercial storage, but you can't get close enough to identify the specific yard or its contents without risk of detection.`;
+        G.lastResult = `The uninspected exit runs two streets east before the cart turns into a block of commercial storage buildings — windowless single-story structures, each with a padlock and a lease placard. The block has six units. From the street, there's no way to identify which unit the cart uses without getting close to the buildings, and the loading area has clear sightlines in both directions. The destination is in that block. Getting to it without someone on the cart noticing you requires a different approach than following from behind.`;
       } else {
-        G.lastResult = `You're spotted following the route and the cart detours. Your surveillance was noticed. The route monitoring is active.`;
+        G.lastResult = `Halfway down the second street, the cart slows. The driver doesn't turn around — just pauses at the junction longer than a route decision requires, then takes a different turn than expected. By the time you reach the corner the cart is gone, and the block of storage buildings is two streets in the wrong direction. Someone on that cart knew to look for a tail. The route is monitored, and now they know someone is watching it.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
       }
@@ -287,7 +287,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.jorin_records_secured = true;
         addJournal('consequence', 'Jorin\'s six-month chemical analysis secured offsite — compound discrepancy data preserved outside guild administration', `craftspire-records-secure-${G.dayCount}`);
       } else {
-        G.lastResult = `The guild's outgoing paperwork goes through a review process that would flag non-standard documentation. Getting Jorin's records out requires either a trusted personal carrier or a document format that doesn't look like what it is.`;
+        G.lastResult = `The guild's outgoing review desk sits at the main exit — a table with a stamps tray and a clerk who checks outgoing documentation against a manifest checklist. Jorin's analysis sheets are the right format for guild records; the problem is that anyone who reads them will recognize what they are. Getting them past that desk means either a carrier the desk knows and doesn't inspect closely, or a document format that passes a visual check without inviting a second look. Neither option is available right now.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -332,7 +332,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_multi_workshop_extraction = true;
         addJournal('Multi-workshop extraction: three workshops affected simultaneously — accumulation volume dramatically larger than single-source estimate', 'evidence', `craftspire-multi-workshop-${G.dayCount}`);
       } else {
-        G.lastResult = `Other workshop masters are cautious about sharing internal production data with someone outside their specific guild registration. Jorin's endorsement would help.`;
+        G.lastResult = `Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data — inputs, concentrations, batch records — is registered guild information. Sharing it with someone outside their specific registration requires either a formal authorization or a personal reason to trust. One master points at Jorin's workshop across the district and says nothing else. Jorin's name opens this door. Without his endorsement, both masters go back to their benches and the conversation ends.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -354,7 +354,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_lev_assistant = true;
         addJournal('contact', 'Assistant Lev: parallel delivery cart identified — different vehicle, same supplier name, only runs on extraction days', `craftspire-lev-${G.dayCount}`);
       } else {
-        G.lastResult = `The assistant is loyal to Jorin and won't discuss workshop business with someone Jorin hasn't explicitly vouched for.`;
+        G.lastResult = `Lev is at the far end of the workshop sorting incoming sample containers when you approach. He listens to the first question, then looks toward the main bench where Jorin works. "I don't talk about what goes on in here without Jorin knowing about it." He turns back to the containers. The workshop smells of flux and ground mineral, and the hiss of the cooling rack fills the silence. He's not hostile. He's careful. That caution was probably taught to him here.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -396,10 +396,10 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
           G.flags.calculated_accumulation = true;
           addJournal('340kg extracted over 6 months: enough for 15-20 dome atmospheres or large-scale reactive synthesis — Jorin confirms this needs Shelkopolis', 'discovery', `craftspire-volume-${G.dayCount}`);
         } else {
-          G.lastResult = `The calculation is complex and Jorin needs more time with the data. Come back after he's worked through the numbers.`;
+          G.lastResult = `Jorin spreads the data across the bench and starts working through it — adding columns, adjusting for the other workshops' batch schedules, rechecking the compound class rates. The forge outside runs steady, and the workshop fills with the quiet sounds of someone working a problem that has no shortcuts. He shakes his head once without explaining. This calculation takes what it takes. Come back when he's had time with the numbers.`;
         }
       } else {
-        G.lastResult = `This calculation requires Jorin's expertise. Without him, the volume estimate is too rough to be meaningful.`;
+        G.lastResult = `The compound extraction rates, batch volumes, and concentration differentials are in the analysis sheets. Running them to a total accumulation estimate requires knowing the specific compound class's density ratios and extraction efficiency at this process temperature — figures that live in the reference volumes on Jorin's shelf, not in anything available from the outside. The data to do this calculation exists. The expertise to run it correctly is his. Without Jorin, any number produced here is a guess dressed as a figure.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
