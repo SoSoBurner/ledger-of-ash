@@ -62,8 +62,10 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Mordoth doesn't ask how you got the documents. He reads through them, sets them face-down, and leans back. "The Progress bloc was promised exclusive distribution rights. That arrangement no longer appears viable." He opens a drawer. "Equivalent access through legitimate trade channels would satisfy the bloc's requirements." He puts the distribution contract records on the table without being asked. The deal is what it is. The records are real.`;
         addJournal('Mordoth negotiated — distribution contracts exchanged for trade access promise', 'evidence', `sor-mordoth-${G.dayCount}`);
       } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 2;
         G.lastResult = `Mordoth stands before you finish. "You're attempting to leverage Alliance council members with unauthorized documentation." He crosses to the door and opens it. "The Council Security committee will receive a full account of this meeting." He holds the door. The meeting is over. The committee convenes the same afternoon.`;
+        drawSocialMisstep(G.location);
         addJournal('Alliance Council Security committee — investigation designated infrastructure threat', 'complication', `sor-mordoth-fail-${G.dayCount}`);
       } else {
         G.flags.met_mordoth_valinheim = true;
@@ -126,7 +128,9 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Cron spreads his own notes across the table — three months of compiled observations, none of it sufficient without source documents. He looks at your documentation for a long time without touching it. "I have authority. You have evidence. Neither is enough alone." He takes the Arbiter seal from his desk drawer and stamps the cover document. "Legally admissible in any Soreheim Alliance jurisdiction. Don't waste it." He doesn't ask for anything in return.`;
         addJournal('Arbiter Cron provides council seal for evidence — legally admissible in Alliance jurisdictions', 'evidence', `sor-cron-${G.dayCount}`);
       } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Cron listens, then folds his hands. "Without corroborating testimony from a council-recognized source, I can't act on this directly." He pulls a petition form from the stack beside him. "I'll file this under Arbiter review. Follow-up in three weeks." He begins writing. The petition process is real and it will take exactly as long as he says.`;
+        drawSocialMisstep(G.location);
         addJournal('Arbiter formal petition process — 3-week review delay', 'complication', `sor-cron-fail-${G.dayCount}`);
       } else {
         G.flags.met_cron_udenine = true;
@@ -257,6 +261,63 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Soreheim S2 finale: expansion budget publicly released — creditors move', 'evidence', `sor-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── ROAD WARDENS FACTION CONTACT PLOT (3-beat sequence) ───────────
+
+  // BEAT 1 — Hook
+  {
+    label: "One north-gate banner hangs lower than the others.",
+    tags: ['Wardens', 'Stage2', 'Faction'],
+    xpReward: 60,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(60, 'reading the altered north-gate banner');
+      G.flags.stage2_faction_wardens_aware = true;
+      G.lastResult = 'The four Roadwarden banners along the north gate arcade are matched cloth and matched height. One hangs a finger-width lower than its neighbors. The brass grommet below it has been polished where the others carry road grit, which is what a Banner-Master does when she is marking a drop point without writing anything down. The patrol rotation passing under it does not look up. The rotation changes on the half-hour and the banner hangs lowered only during one of those windows. The lowered banner is an invitation from someone senior enough in the Order to move brass on the main gate without a work order.';
+      addJournal('Soreheim north gate — Roadwarden banner hung low at one rotation window, brass worked clean as a silent drop mark', 'intelligence', `sor-warden-aware-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 2 — Commitment
+  {
+    label: "Stand under the low banner at the rotation change. Meet whoever is doing the inviting.",
+    tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      if (!G.flags.stage2_faction_wardens_aware) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'making the Wardens command contact');
+      G.flags.met_banner_master_ruven_halse = true;
+      G.flags.stage2_faction_wardens_contacted = true;
+      G.lastResult = 'Banner-Master Ruven Halse walks past you at the rotation change, does not stop, and says to meet him at the third bay of the mustering yard in twenty minutes. When you get there he is alone, stripping a patrol saber for cleaning. His register is formal Roadwarden — verbs first, no pleasantries, station numbers as shorthand for places. His tell is that he lines the saber parts on the cloth in the exact order of disassembly and will not speak at all when a piece is out of sequence. He wants the patrol incident log from Station Forty-Two for a specific seven-day window — pulled from the archive room without the duty sergeant signing it out. Official channels have been instructed not to produce it. He needs it to hold a hearing that the Order has been quietly refused.';
+      addJournal('Met Banner-Master Ruven Halse (Roadwardens Order) — wants Station 42 incident log for a 7-day window pulled unofficially; Order hearing has been refused through channels', 'contact_made', `sor-warden-contacted-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 3 — Payoff
+  {
+    label: "Pull the Station 42 log and put it in Ruven's hands before the muster bell.",
+    tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
+    xpReward: 90,
+    fn: function() {
+      if (!G.flags.stage2_faction_wardens_contacted) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(90, 'delivering the Station 42 incident log');
+      G.flags.stage2_faction_wardens = true;
+      G.flags.stage2_faction_contact_made = true;
+      G.investigationProgress = (G.investigationProgress||0) + 2;
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      var tension = '';
+      if (G.flags.stage2_faction_red_hood) {
+        tension = ' Ruven closes the log with his thumb still in the page. "There is Red Hood grease on this cover. A hair of it. You are carrying things I would rather you not carry into my bay. I will keep the log. You will not be in the yard when the hearing convenes, and you will not tell me why you smell like a Kerroun broker."';
+      }
+      G.lastResult = 'Ruven reads the log in order and stops at a four-day gap where the Station 42 duty sergeant entered the same weather phrase on every line — fair, light wind from the north — across forty hours of what should have been active patrol entries. "That phrase is a place-holder we train new cadets to leave in when they cannot reach the logging post. A station sergeant does not leave it four days in a row. The sergeant was pulled off rotation on the first day and ordered to write it anyway, by a name above mine that is not supposed to have that reach." He does not name the superior. He marks the gap with a saber-cleaning pin and closes the book. "The Order keeps track of what the Order cannot say out loud. Your page just made three years of that tracking admissible."' + tension;
+      addJournal('Roadwardens intel: Station 42 logs show 40-hour placeholder gap ordered by a superior officer whose authority exceeds published rank — tracking admissible', 'evidence', `sor-warden-payoff-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

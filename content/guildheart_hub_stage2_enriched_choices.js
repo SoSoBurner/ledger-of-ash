@@ -111,7 +111,9 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Cala gives the physical description without hesitation — she's observant in the way innkeepers become when guests repeat. The profile matches Iron Compact field arbitration. "Always the same table. Always the same other guest — not registered with the Union, I checked once. Provisional registration, renewed monthly." She straightens a cup that doesn't need straightening. "They meet the evening before the freight loads. Every time."`;
         addJournal('Guildheart inn: Iron Compact arbiter meets monthly-registered broker night before charter loads', 'evidence', `guild-cala-${G.dayCount}`);
       } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Cala stops wiping the counter. "My guests' business isn't something I discuss." Her voice is even — this isn't the first time someone has asked. She doesn't tell you to leave. She doesn't need to. By the time you reach the door, she's already speaking to the nearest table. Your own table acquires a different character after that.`;
+        drawSocialMisstep(G.location);
         addJournal('Innkeeper protective response — table flagged for watching', 'complication', `guild-cala-fail-${G.dayCount}`);
       } else {
         G.flags.met_cala_ledgermere = true;
@@ -142,6 +144,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shrine meeting: non-Windrider Roadwarden signed Collegium document — insignia confirmed', 'evidence', `guild-nyra-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Nyra listens to the full question before answering. "Shrine confidentiality covers what is witnessed in the alcove. I can't provide testimony about meetings that occurred here." She doesn't apologize. The principle isn't regret — it's structure. "The alcove is neutral because that protection is absolute. If you need another way to reach this information, I'll help you find it. I can't be the path."`;
         addJournal('Shrine confidentiality invoked — alcove testimony refused, alternative paths offered', 'complication', `guild-nyra-fail-${G.dayCount}`);
       } else {
@@ -321,6 +324,63 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress = (G.investigationProgress||0) + 1;
       }
       G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // ── COLLEGIUM FACTION CONTACT PLOT (3-beat sequence) ──────────────
+
+  // BEAT 1 — Hook: awareness
+  {
+    label: "The Arbiter alcove has a third chair today.",
+    tags: ['Collegium', 'Stage2', 'Faction'],
+    xpReward: 60,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(60, 'noticing the moved Arbiter alcove chair');
+      G.flags.stage2_faction_collegium_aware = true;
+      G.lastResult = 'The alcove off the charter hall seats two Arbiters by bench design — a reading chair and a writing chair, fixed. A third chair has been carried in from the clerks row and set at an angle that puts its back to the doorway. The runner on the floor is indented in two places where a heavier chair used to stand. Sable passes the alcove without looking in. Her thumb adjusts the edge of her reference index as she goes, which is what she does when she wants to be seen being busy. Someone from outside the registry is sitting audit in that alcove, and no one on the floor is being told.';
+      addJournal('Guildheart Arbiter alcove — third chair placed against protocol, registry staff avoiding the sightline', 'intelligence', `guild-collegium-aware-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 2 — Commitment: contact made
+  {
+    label: "Whoever sits that chair wants something filed.",
+    tags: ['Collegium', 'Stage2', 'Faction', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      if (!G.flags.stage2_faction_collegium_aware) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'approaching the Collegium auditor in the alcove');
+      G.flags.met_auditor_peregrin_vas = true;
+      G.flags.stage2_faction_collegium_contacted = true;
+      G.lastResult = 'The auditor is an older man in a plain grey coat with no guild mark and a single Collegium cipher stitched at the cuff. He does not rise. He turns the third chair so it faces you and taps the arm twice — an invitation that is also a timing cue. "Peregrin Vas. Oversight." He does not offer a title. His tell is that he keeps a folded Union registry slip between his first and second fingers like a cigarette he is not going to light. He wants the Shelk contract rider — the one Sable flagged. A certified copy, filed to Collegium intake before the next audit rotation closes in four days. Not taken. Filed. By someone whose name is not already on the registry watch.';
+      addJournal('Met Auditor Peregrin Vas (Oversight Collegium) — wants certified copy of Shelk contract rider filed to Collegium intake within 4 days', 'contact_made', `guild-collegium-contacted-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 3 — Payoff: intel revealed
+  {
+    label: "File the certified copy with the auditor before the rotation closes.",
+    tags: ['Collegium', 'Stage2', 'Faction', 'Payoff'],
+    xpReward: 90,
+    fn: function() {
+      if (!G.flags.stage2_faction_collegium_contacted) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(90, 'filing the certified contract rider with Oversight');
+      G.flags.stage2_faction_collegium = true;
+      G.flags.stage2_faction_contact_made = true;
+      G.investigationProgress = (G.investigationProgress||0) + 2;
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      var tension = '';
+      if (G.flags.stage2_faction_shadowhands) {
+        tension = ' Peregrin pauses before sealing the intake envelope. "Your coat carries the dust from a Roazian hand-press. I know the grain. Be aware the Collegium reads who a filer keeps company with before it reads what they file." He seals the envelope anyway.';
+      }
+      G.lastResult = 'Peregrin takes the certified copy without turning it over. He reads only the intake stamp. "Good. The rider was renewed through an administrative back-channel the Collegium has been unable to subpoena — every formal request for the source authority has been met with a missing signatory line and a date gap we cannot reconcile. Your filing creates standing. With standing, the Collegium can compel the renewal office to produce the authorizing name." He writes a single clerk code on the back of your carbon and slides it across. "When you see that code on a Guildheart notice, the compel has landed. Do not be in the building that day."' + tension;
+      addJournal('Oversight Collegium intel: contract rider renewed via administrative back-channel — missing signatory line and unreconciled date gap in every prior subpoena', 'evidence', `guild-collegium-payoff-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
 

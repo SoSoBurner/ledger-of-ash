@@ -115,6 +115,63 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+
+  // ── RED HOOD FACTION CONTACT PLOT (3-beat sequence) ───────────────
+
+  // BEAT 1 — Hook
+  {
+    label: "The pawn window tag has been rewritten four days running.",
+    tags: ['RedHood', 'Stage2', 'Faction'],
+    xpReward: 60,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(60, 'reading the pawn-window tag pattern');
+      G.flags.stage2_faction_red_hood_aware = true;
+      G.lastResult = 'The cracked lamp in the pawn window has a handwritten tag that is too large for the item. Eleven days the lamp has sat there, and the tag has been rewritten on four of those days — always by the same hand, always with a different numeral string and never with a currency mark. The tag today ends in a short Kerroun syllable that is not a price. It is a broker listing code. The pawn shop is a Red Hood Guild dead-drop window, and the tag is live this morning. A woman in a dark red shawl crosses the lane while you are reading, adjusts the shawl over one shoulder instead of the other, and does not glance back.';
+      addJournal('Ironspool Ward pawn window — Red Hood broker listing code live today, dead-drop tag pattern confirmed', 'intelligence', `iron-redhood-aware-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 2 — Commitment
+  {
+    label: "Quote the listing code back at the counter and ask what the lamp actually costs.",
+    tags: ['RedHood', 'Stage2', 'Faction', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      if (!G.flags.stage2_faction_red_hood_aware) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'making Red Hood broker contact');
+      G.flags.met_broker_anneth_torv = true;
+      G.flags.stage2_faction_red_hood_contacted = true;
+      G.lastResult = 'The counter clerk disappears into the back and a different woman comes forward — the one in the red shawl, closer now. She introduces herself as Broker Anneth Torv, says it like a credential rather than a name. Her register is Kerroun market — short sentences, a small laugh before any refusal, numbers always spoken in multiples of three. Her tell is that she wears a thin iron ring on her smallest finger and turns it inward before she quotes a price, so the ring-face reads only to her. She wants a specific courier satchel recovered from a Reckoning Quarter confiscation shelf — a satchel that the Red Hood lost when a courier was picked up last week. The satchel itself, not the contents. The Guild needs to know what was read from it and what was not.';
+      addJournal('Met Broker Anneth Torv (Red Hood Guild) — wants courier satchel recovered from Reckoning Quarter confiscation; Guild needs to audit what was read', 'contact_made', `iron-redhood-contacted-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 3 — Payoff
+  {
+    label: "Retrieve the satchel from the confiscation shelf and bring it to Anneth.",
+    tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
+    xpReward: 90,
+    fn: function() {
+      if (!G.flags.stage2_faction_red_hood_contacted) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(90, 'delivering the recovered Red Hood satchel');
+      G.flags.stage2_faction_red_hood = true;
+      G.flags.stage2_faction_contact_made = true;
+      G.investigationProgress = (G.investigationProgress||0) + 2;
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      var tension = '';
+      if (G.flags.stage2_faction_wardens) {
+        tension = ' Anneth turns the iron ring inward and laughs the small laugh. "You have Warden saber-oil on the satchel strap. That is a scent I recognize. I am going to tell you less than I meant to, and you are going to act as though I told you more. We both leave cleaner that way."';
+      }
+      G.lastResult = 'Anneth takes the satchel and opens it on the counter in the specific order a courier would — outer pocket, inner flap, false base. The false base has been opened and re-closed by someone who knew it was there. "They read it. They did not copy it. There is a difference. Copying leaves press marks on the lining. Reading leaves this." She shows you a thumb-smudge of grey dust along one seam. "Collegium ink residue. The satchel was opened by an auditor with a subpoena record, and the subpoena was then withdrawn. That means someone above the Collegium pulled the audit back after the item was already seen. The Red Hood has not had a case to trace that authority signature — until today." She slides a wooden token to you. "Show this at any Kerroun-marked door. It will open once."' + tension;
+      addJournal('Red Hood intel: Collegium auditor read the courier satchel under subpoena, then the subpoena was withdrawn from above — authority signature now traceable', 'evidence', `iron-redhood-payoff-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
   }
 ];
 

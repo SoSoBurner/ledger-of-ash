@@ -58,7 +58,9 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The dates line up exactly. Every major glyph surge in the south market broke within thirty-six hours of a sealed letter arriving at the chapel — without exception, across eleven incidents. The letters are either triggering the surges or confirming them after the fact. Either reading puts the chapel at the center of both. You have a physical timeline now, and the timeline holds.`;
         addJournal('Glyph-letter pattern correlation confirmed', 'evidence', `shelk-glyph-corr-${G.dayCount}`);
       } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The archive clerk who logged the surge incidents was reassigned three days ago. No reason on file, no forwarding desk. The surge records are sealed under a Roadwarden review notation — a review with no assigned officer and no scheduled completion date. Someone moved the clerk and locked the door in the same week.`;
+        drawSocialMisstep(G.location);
         addJournal('Glyph records sealed during investigation', 'complication', `shelk-glyph-sealed-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -448,7 +450,9 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Aelra's log is written in the margin of her room ledger in a private cipher she doesn't explain. She translates it herself, reading aloud without looking at you. Twelve guests over two months. Three of them arrived within twenty-four hours of each other on three separate occasions — different names, same rooms, same exit sequence, same departure hour. The coordination is visible in the repetition. Whoever planned it was careful enough to use different names and not careful enough to change the rooms.`;
         addJournal('Innkeeper log — coordinated guest pattern confirmed', 'evidence', `shelk-inn-log-${G.dayCount}`);
       } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Aelra asks why you need the guest log before she shows it. Your answer is too direct — it reads as a demand rather than a request, or names something she hasn't said aloud yet. Her expression closes. She covers the ledger with her forearm and says she doesn't keep records of that kind. The smell of coal smoke and old wood fills the silence. Her cooperation is done.`;
+        drawSocialMisstep(G.location);
         addJournal('Innkeeper log refused — relationship burned', 'complication', `shelk-inn-log-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -473,6 +477,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The scorch patterns don't radiate from a center — they lean. The damage is heavier on the northwest-facing surfaces of every stall that burned. The surge was channeled in from outside the market, not generated within it. Northwest means the archival quarter. Channeling a surge requires working knowledge of the city's underground glyph grid — the kind of knowledge that's held by fewer than a dozen people with active registry credentials.`;
         addJournal('Glyph surge directed — northwest origin confirmed', 'evidence', `shelk-glyph-read-${G.dayCount}`);
       } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The analysis goes wrong at the geometry step — you read the lean of the scorch marks from the wrong reference point and arrive at a southeast origin, not northwest. When you cross-reference with the Roadwarden damage report that's already posted at the district board, the contradiction is visible to anyone who looks at both. Your read is on the record. So is theirs. So is the gap between them.`;
         addJournal('Glyph analysis error — credibility at risk', 'complication', `shelk-glyph-fail-${G.dayCount}`);
       } else {
@@ -650,6 +655,63 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Stage 2 finale: underworld path chosen — Stage III opens', 'evidence', `shelk-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── SHADOWHANDS FACTION CONTACT PLOT (3-beat sequence) ────────────
+
+  // BEAT 1 — Hook
+  {
+    label: "The ward mark on the bathhouse door is Roazian.",
+    tags: ['Shadowhands', 'Stage2', 'Faction'],
+    xpReward: 60,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(60, 'reading the altered Ironspool ward mark');
+      G.flags.stage2_faction_shadowhands_aware = true;
+      G.lastResult = 'The ward mark at the bathhouse side door is chalked fresh. The standard Shelkopolis ward uses a closed triangle at the base. This one leaves the base open and continues the line into a small second curl that returns across itself. The curl is Roazian. Nobody working a legitimate Shelk route would use that variant where a Roadwarden could walk past it. The chalk has the wet look of a mark laid within the last hour. A boy with a tea-stained apron is sitting on the step across the lane. He is not drinking tea. He is watching who stops to read the door.';
+      addJournal('Ironspool bathhouse door — Roazian-variant ward mark laid fresh, watcher stationed across the lane', 'intelligence', `shelk-shadow-aware-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 2 — Commitment
+  {
+    label: "Return after the curl dries. Whoever wrote it wants a reader, not a passerby.",
+    tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      if (!G.flags.stage2_faction_shadowhands_aware) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'making the Shadowhands intake contact');
+      G.flags.met_kess_the_crossing = true;
+      G.flags.stage2_faction_shadowhands_contacted = true;
+      G.lastResult = 'The boy leads you two lanes over to a back room behind a dye works. The woman waiting is short, middle years, with a working hand bandaged at the knuckle and the other hand bare. She introduces herself only as Kess the Crossing. Her register is Roazian border-trader — clipped consonants, no honorifics, a habit of naming the weather as a greeting. Her tell is that she keeps her bare hand flat on the tabletop the whole conversation, palm down, fingers spread. She does not trust her hand out of sight. She needs a manifest page — the Ironspool south-dock night-shift ledger from a specific day two weeks ago. Not copied. Removed. The Shadowhands will replace it with a forgery good enough to pass a Roadwarden count.';
+      addJournal('Met Kess the Crossing (Shadowhands intake) — wants Ironspool south-dock night-shift ledger page removed; Shadowhands will substitute forgery', 'contact_made', `shelk-shadow-contacted-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // BEAT 3 — Payoff
+  {
+    label: "Lift the ledger page on the night-shift turnover and hand it to Kess.",
+    tags: ['Shadowhands', 'Stage2', 'Faction', 'Payoff'],
+    xpReward: 90,
+    fn: function() {
+      if (!G.flags.stage2_faction_shadowhands_contacted) return;
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(90, 'delivering the lifted ledger page');
+      G.flags.stage2_faction_shadowhands = true;
+      G.flags.stage2_faction_contact_made = true;
+      G.investigationProgress = (G.investigationProgress||0) + 2;
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      var tension = '';
+      if (G.flags.stage2_faction_collegium) {
+        tension = ' Kess closes the folio halfway through and looks up. "Your boots carry chalk dust from the Arbiter alcove runner. That alcove has had an outside audit chair since last rotation. I will still give you what I said I would. But what I give will be what a Collegium filer can hear without it costing us a cell."';
+      }
+      G.lastResult = 'Kess reads the page twice before she speaks. Her palm stays flat. "The night-shift ledger was forged before your copy was made. Three different hands logged the same three containers under three different freight codes across three shifts — same crate weight, same seal number, three paperwork lives. The Shadowhands have been tracking the third-code variant across six ports. It is not a shipping scheme. It is a paper screen built to hide where one specific cargo actually goes. Your page is the first one we have that names the origin officer. Not the receiver. The origin." She gives you a folded strip of rice paper with a single Roazian cipher on it. "If you are in a room and you need out, set this down where it can be seen. Someone will move."' + tension;
+      addJournal('Shadowhands intel: ledger forgery revealed three-code freight screen across six ports — cargo origin officer named for the first time', 'evidence', `shelk-shadow-payoff-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
