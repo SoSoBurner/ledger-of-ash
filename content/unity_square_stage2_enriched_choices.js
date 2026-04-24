@@ -202,7 +202,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_tally_clerk_fera = true;
         G.investigationProgress++;
-        G.lastResult = `Fera describes the pattern without producing documentation. Three charter marks, always together, always the northern laneway, never using the main exchange entry. She taps the door frame twice — once for the northern side, once for the southern. "They don't go south. Ever." She returns to her board before the shift supervisor reaches the end of his round.`;
+        G.lastResult = `Fera describes the pattern without producing documentation. Three charter marks, always together, always the northern laneway, never using the main exchange entry. She taps the door frame twice — once for the northern side, once for the southern. "They don't go south. Ever." Her chalk hand hovers over the tally board without marking anything. She waits for the shift supervisor to pass the end of his round before she speaks again, then doesn't. The information is already given.`;
         addJournal('Sealed-charter parties use northern laneway exclusively — pattern confirmed by tally clerk', 'intelligence', `unity-fera-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -245,7 +245,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(102, 'Unity Square Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The shadow register, the mediation cross-identification, the exposure cluster — not all three are in hand yet. Presenting a partial picture to Ward Administration oversight produces a partial response. The evidence isn't complete enough to move.`;
+        G.lastResult = `The shadow register, the mediation cross-identification, the exposure cluster — not all three threads are in hand yet. Presenting a partial picture to Ward Administration oversight produces a partial response: an inquiry logged, a committee convened, nothing decided. The arbitration process is deliberate by design. More evidence is needed before the committee has grounds to act, and the parties who know how to read an incomplete submission will use the gap.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

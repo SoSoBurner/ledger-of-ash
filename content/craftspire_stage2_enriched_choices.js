@@ -24,12 +24,12 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Craftspire ledger laundering chemical supply chain — craft origin paper trail created', 'evidence', `craft-jorin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Jorin's ledger review access is limited to materials with purchase orders. Items without purchase orders are classified under a separate oversight category. Your inquiry is referred to that oversight category — which does not have public access.`;
+        G.lastResult = `The ledger access desk has a dividing line built into the intake form: materials with purchase orders on the left, materials without on the right. Jorin's access covers the left column only. Items without purchase orders sit in a separate oversight category with a different authorization chain — one that routes above the Material Ledger Office entirely. The inquiry is logged and referred upward. The referral goes nowhere visible from here.`;
         addJournal('No-PO ledger items referred to inaccessible oversight category', 'complication', `craft-jorin-fail-${G.dayCount}`);
       } else {
         G.flags.met_jorin_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `Jorin confirms the purchase-order gap. "I've been trying to reconcile these for four months. The inputs appear, they get used, but there's no upstream source I can trace." His reconciliation attempts have been filed without response.`;
+        G.lastResult = `Jorin opens the ledger to a tabbed section near the back — the tabs are worn down to paper, worked and reworked. "Four months. The inputs appear in the intake log, they get allocated, they get used. But there's no purchase order upstream. No vendor, no delivery note, no charter authorization." He sets his pen down. His reconciliation attempts are stacked in a tray to the left of the desk: filed, dated, unanswered.`;
         addJournal('Chemical inputs with no PO trail — 4 months of unanswered reconciliation attempts', 'evidence', `craft-jorin-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -52,12 +52,12 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Tess has logged six after-hours operations over four months. The workshops involved are all registered to a single craft entity that she cannot find in any active trade registration — another ghost entity using the same operational pattern as the Northern Provision Compact. Craftspire hosts a ghost workshop front for the final production stage of the suppression compounds.`;
         addJournal('Ghost workshop entity in Craftspire — final production stage for suppression compounds', 'evidence', `craft-tess-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Tess filed a report on the after-hours activity three months ago. The report was reclassified as a routine workshop overtime variance. She is not willing to escalate further without someone with more authority.`;
+        G.lastResult = `A lamp bracket near the Night-Lantern station has been bent outward at an angle that blocks the lantern's reach down the service corridor — Tess points to it without comment. Three months ago she filed a report on the after-hours activity. The report came back stamped as a routine workshop overtime variance. The reclassification was signed by an inspector she doesn't recognize. Without someone carrying formal authority, the flag stays buried under the administrative ruling.`;
         addJournal('After-hours report reclassified as routine — Tess unwilling to escalate alone', 'complication', `craft-tess-fail-${G.dayCount}`);
       } else {
         G.flags.met_tess_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `Tess confirms after-hours operations in specific workshops. The materials involved had an unusual chemical profile she noted but could not identify. The registered workshop entity's name does not appear in her standard trade registry.`;
+        G.lastResult = `Tess spreads her circuit log on the inspection table, a narrow ledger with columns for time, lantern position, and observed activity. Six entries are marked with a double tick — her notation for anything requiring follow-up. The materials involved carried an unusual chemical profile: sharp base notes she wrote down but could not cross-reference against anything in the standard craft register. The registered workshop entity listed in her notes does not appear in the trade registry at all.`;
         addJournal('After-hours chemical operations in unregistered workshop entity', 'evidence', `craft-tess-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -83,12 +83,12 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Formula copies via falsified Mimolot citation — 7 production-scale copies, restricted citation spoofed', 'evidence', `craft-warden-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The Copy Bureau's academic exemption records are protected under scholarly copy legitimacy doctrine. Your request requires a formal academic standing credential.`;
+        G.lastResult = `The intake shelf for academic exemption records sits behind a partition marked with the scholarly copy legitimacy doctrine notice — a dense paragraph of procedural text that ends with the credential requirement in the final line. The clerk behind the partition does not look up. The records are accessible only to parties with formal academic standing, verified through the Collegium registry. The partition stays closed. The records stay behind it.`;
         addJournal('Copy Bureau academic exemption records — academic credential required', 'complication', `craft-warden-fail-${G.dayCount}`);
       } else {
         G.flags.met_copy_warden = true;
         G.investigationProgress++;
-        G.lastResult = `The Copy Warden confirms academic exemption copies of formula documents. The Mimolot citation reference is unusual — classified works are rarely cited for open copy reproduction. "I flagged it. The flag was cleared by a Collegium academic affairs code."`;
+        G.lastResult = `The Copy Warden pulls the request log from the current filing shelf — requests are kept in sequence, not archived until month's end. Three entries marked with the Mimolot classification format stand out against the rest. "Classified works don't come through academic exemption. I flagged every one of them." He turns the log to show the notation. Beside each flag is a clearance stamp in a different ink: a Collegium academic affairs code, applied after the fact, overriding the hold.`;
         addJournal('Formula copies via suspicious Mimolot citation — Collegium academic code cleared flag', 'evidence', `craft-warden-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -114,7 +114,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Dead Collegium charter recycling credit authorizations — 2+ years, no audit flags triggered', 'evidence', `craft-jorin2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Jorin pulls the second ledger page just before you can read the charter code. Someone has already flagged his reconciliation file as under active audit review. He folds the page back into the binder. "If I'm being watched, I can't help you further."`;
+        G.lastResult = `The second ledger page is already halfway out of the binder when Jorin stops. His thumb is on the charter code column and then it isn't — he folds the page back before the number is visible. A notice on his desk, date-stamped this morning, flags his reconciliation file as under active audit review. He closes the binder and sets it spine-down on the far edge of the desk. "If my files are being watched, I can't be the one handing you what's in them."`;
         addJournal('Jorin placed under audit review — second ledger access lost', 'complication', `craft-jorin2-fail-${G.dayCount}`);
       } else {
         G.flags.met_jorin_ledgermere = true;
@@ -250,7 +250,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(102, 'Craftspire Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Craftspire investigation needs more evidence to confirm the production facility.`;
+        G.lastResult = `The ledger laundering, the ghost workshop registration, the falsified formula copies — not all three threads are confirmed yet. Bringing a partial case to the Guild Council produces a partial hearing: a clerk takes notes, a sub-committee is tasked to review, and the workshop operation continues behind its panel-frame door. The Council requires a complete evidentiary record before it authorizes enforcement action.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -259,12 +259,12 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You present the ledger laundering evidence, the ghost workshop registration, and the falsified formula copies to the Union Guild Council. The Council orders an immediate workshop raid under trade enforcement authority. The production facility is shut down. Stage III opens with Union trade enforcement backing.`;
+        G.lastResult = `The Guild Council chamber is low-ceilinged and smells of old ink and linseed oil from the floor boards. The evidence is laid out in sequence: the no-PO chemical inputs, the ghost entity registration, the falsified Mimolot citations, the dead charter account. The Council's trade enforcement chair reads every page before speaking. Two hours later, the workshop raid order carries all nine signatures. The production facility is shuttered before the evening bell. Stage III opens with full Guild Council enforcement authority behind it.`;
         addJournal('Craftspire S2 finale: Guild Council workshop raid — production facility shut down', 'evidence', `craft-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You route the ghost entity registration and the ledger discrepancy records to competing craft guilds who have a direct interest in eliminating unlicensed competition. They move on the ghost workshop through trade enforcement mechanisms that do not require formal oversight.`;
+        G.lastResult = `Three competing craft guilds have outstanding grievances against unlicensed workshop operations undercutting their registered members. The ghost entity registration and the ledger discrepancy records land on their respective trade deputies' desks before the close of business. No formal Guild Council authorization is needed — the guilds have standing to pursue trade enforcement through their own mechanisms. The panel-frame door comes off its hinges before the week ends, and no oversight committee is asked to approve it.`;
         addJournal('Craftspire S2 finale: ghost workshop exposed to competing guilds — trade enforcement dismantles it', 'evidence', `craft-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
