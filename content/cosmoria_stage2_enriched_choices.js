@@ -22,16 +22,16 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_coralyn_tideglass = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Coralyn has a secondary ledger she keeps locked. She opens it now — the entries are in her hand, a parallel record running alongside the official one. "Seventeen cargo declarations in eight months, all referencing the Pallmark Reach." She turns to the historical registry. The Pallmark Reach was decommissioned twelve years ago. The decommissioning entry has a status line that should say "complete" and instead says "pending final registry confirmation." Pending since twelve years ago. Someone left that line unresolved and someone else found it and used it.`;
+        G.lastResult = `Coralyn has a secondary ledger she keeps locked. She opens it now — the entries are in her hand, a parallel record running alongside the official one. "Seventeen cargo declarations in eight months, all referencing the Pallmark Reach." She turns to the historical registry, covers the decommissioning status line with her thumb, then lifts it so you can read it yourself. "Pending final registry confirmation." Pending since twelve years ago. Someone left that line unresolved and someone else found it and used it.`;
         addJournal('Cosmoria: ghost vessel via incomplete decommission record — intentional archive gap', 'evidence', `cos-coralyn-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The Maritime Archive Hall requires a registered researcher credential. Coralyn processes your access request at the front desk — fills out the form, notes your name, stamps the inquiry log. She doesn't look up when she tells you the log is routed to the Harbor Captain's administrative office as standard procedure. The form goes into a tray. You leave without the record. Your name is now in a document that Marrow Tideglass will receive by end of day.`;
+        G.lastResult = `The Maritime Archive Hall requires a registered researcher credential. Coralyn processes your access request at the front desk — fills out the form, notes your name, stamps the inquiry log. She covers the routing line with her thumb while she reads it, then sets the form in the tray. The log goes to the Harbor Captain's administrative office as standard procedure. You leave without the record. Your name is now in a document that Marrow Tideglass will receive by end of day.`;
         addJournal('Maritime archive access logged — Harbor Captain oversight notified', 'complication', `cos-coralyn-fail-${G.dayCount}`);
       } else {
         G.flags.met_coralyn_tideglass = true;
         G.investigationProgress++;
-        G.lastResult = `Coralyn pulls the file without being asked twice — she's had it ready. Seventeen declarations, one vessel name, eight months. "The Pallmark Reach decommissioning was never closed out. I flagged it four months ago. The flag was reviewed and left open." She sets the file on the counter and keeps her hand on it. "I can't refuse a valid declaration. Until that decommissioning is finalized in the registry, the paperwork is technically acceptable." She says it like she's practicing for a hearing.`;
+        G.lastResult = `Coralyn pulls the file without being asked twice — she's had it ready. Seventeen declarations, one vessel name, eight months. "The Pallmark Reach decommissioning was never closed out. I flagged it four months ago." She covers the status line with her thumb, then lifts it. "The flag was reviewed and left open." She keeps her hand on the page. "Until that decommissioning is finalized in the registry, the paperwork is technically acceptable." She says it like she's practicing for a hearing.`;
         addJournal('Ghost vessel declarations — decommissioning legally incomplete, 17 uses', 'evidence', `cos-coralyn-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -55,7 +55,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Cosmoria: sealed cargo waived onto night airship to Shelkopolis — House Cosmouth admin override', 'evidence', `cos-marrow-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Marrow listens to the question and then asks for your name and purpose in writing. He produces a form before you've finished speaking — pre-positioned, like he keeps them out. He fills in the date and time himself. "Cargo inspection policy and waiver records are Harbor Authority administrative materials." He stamps the form. The inquiry report goes into the same tray Coralyn's access log uses. Marrow knows your name now. So does everyone who reads the Harbor Authority daily intake.`;
+        G.lastResult = `Marrow listens to the question and then asks for your name and purpose in writing. He produces a form before you've finished speaking — pre-positioned, like he keeps them out. He fills in the date and time himself. "Cargo inspection policy and waiver records are Harbor Authority administrative materials." He stamps the form, sets it between you on the desk, and takes one step back from it. He doesn't push it toward you. He waits for you to pick it up yourself. The inquiry report goes into the same tray Coralyn's access log uses.`;
         addJournal('Harbor Captain reported inquiry to Harbor Authority — identification requested', 'complication', `cos-marrow-fail-${G.dayCount}`);
       } else {
         G.flags.met_marrow_tideglass = true;

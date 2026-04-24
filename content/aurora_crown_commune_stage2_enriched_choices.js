@@ -29,7 +29,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 1;
-        G.lastResult = `Sera's security protocol classifies any external inquiry into dome sensor calibration as a potential sabotage investigation — a distinction you learn only after she's already flagged it. She detains you in the administration anteroom for forty minutes. Identification documentation. Written statement of purpose. Two of her staff present. She releases you without apology and without explanation. Your name is now in the dome security log with a protocol flag next to it.`;
+        G.lastResult = `Sera's security protocol classifies any external inquiry into dome sensor calibration as a potential sabotage probe — a distinction you learn only after she's already flagged it. She detains you in the administration anteroom for forty minutes. Identification documentation. Written statement of purpose. Two of her staff present. She sets your written statement on the desk in front of her, smooths it flat with one hand, and does not look at it again while she speaks. She releases you without apology. Your name is now in the dome security log with a protocol flag next to it.`;
         addJournal('Dome security protocol triggered — brief detention, identification required', 'complication', `aur-sera-fail-${G.dayCount}`);
       } else {
         G.flags.met_warden_sera_whiteglass = true;
@@ -240,7 +240,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You lay the full evidence chain on Sera Whiteglass's desk: sensor recalibration logs, intake quarantine bypasses, budget line items, health petition correlations, the seal drawing from Mariel. Sera reads through it without speaking. When she finishes she picks up the duty phone and issues a suspension of all filtration maintenance deliveries under emergency dome security authority. Then she initiates a formal Oversight Collegium complaint in writing, dated and signed before she hands it to the duty clerk. "The liaison's access to Aurora Crown administrative systems is revoked as of this moment," she says. She means it the way she means everything.`;
+        G.lastResult = `You lay the full evidence chain on Sera Whiteglass's desk: sensor recalibration logs, intake quarantine bypasses, budget line items, health petition correlations, the seal drawing from Mariel. Sera reads through it without speaking. When she finishes she places the last document face-down on top of the stack and sets her pen across it — deliberate, done. She picks up the duty phone and issues a suspension of all filtration maintenance deliveries under emergency dome security authority. Then she initiates a formal Oversight Collegium complaint in writing, dated and signed before she hands it to the duty clerk. "The liaison's access to Aurora Crown administrative systems is revoked as of this moment," she says.`;
         addJournal('Aurora Crown S2 finale: Whiteglass emergency suspension, Collegium liaison removed', 'evidence', `aur-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
