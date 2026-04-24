@@ -69,7 +69,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Kellen concedes that shipments have been arriving on odd schedules. "Some come late. Some not at all, then double the next week." He calls it market adjustment and doesn't push further. His pen keeps moving across the ledger as he talks, like he's decided not to be in this conversation officially.`;
         addJournal('Broker confirmed unusual supply pattern disruption', 'evidence', `fairhaven-broker-pattern-${G.dayCount}`);
       } else {
-        G.lastResult = `Kellen closes the ledger without looking up. "Supply chain specifics are between the parties to the transaction." He says it the way people say things they've rehearsed. The stall is suddenly very busy with tasks that don't require speaking to you.`;
+        G.lastResult = `Kellen closes the ledger without looking up. "Supply chain specifics are between the parties to the transaction." He says it the way people say things they've rehearsed. A stack of receipts gets squared against the table edge. A rope of dried herbs gets retied. The stall fills with small motions that have nothing to do with you and everything to do with not having to meet your eyes. By the time he's finished the third unnecessary task, the window has closed, and he's made sure it doesn't reopen.`;
         addJournal('Broker blocked supply chain inquiry', 'evidence', `fairhaven-broker-blocked-${G.dayCount}`);
       }
 
@@ -102,7 +102,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Alchemical supplier blocked access and warned community', 'complication', `fairhaven-alchemical-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The storage shelves hold more variation than they should — two jars labeled the same compound have different sediment lines. Thren watches you notice it and says nothing at first. "Sourcing has been difficult lately," he offers. He doesn't elaborate. He doesn't need to.`;
+        G.lastResult = `The storage shelves hold more variation than they should — two jars labeled the same compound have different sediment lines, one pale, one amber-brown. Thren watches you notice it and says nothing at first. The pestle turns once in his hand, a slow rotation he doesn't seem aware of. "Sourcing has been difficult lately," he offers. He doesn't elaborate, doesn't gesture toward the jars, doesn't move to close the gap in the shelving where the discrepancy is plainest. He doesn't need to explain it. He just needs you to have moved past it.`;
         addJournal('Craft analysis noted potential ingredient substitution', 'evidence', `fairhaven-alchemical-substitution-${G.dayCount}`);
       } else {
         G.lastResult = `The workshop looks orderly — shelves stacked, containers labeled, surfaces wiped. Without reference samples for side-by-side comparison, any degradation doesn't announce itself. The labels match the contents, the handwriting is consistent, the storage conditions are correct. Whatever has changed in the sourcing chain, this room has been organized to show nothing changed at all.`;
@@ -200,11 +200,11 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Guard captain revealed garrison force reduction', 'evidence', `fairhaven-guard-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Captain Vren's voice drops a register. "Garrison operations don't fall under civilian review. Raise this again and I'll restrict your movement within Watchers' Perch." He means it. The two soldiers at the door have already straightened.`;
+        G.lastResult = `Captain Vren's voice drops a register. The room contracts around it. "Garrison operations don't fall under civilian review. Raise this again and I'll restrict your movement within Watchers' Perch." He means it — the phrasing is too specific and too immediate for a bluff. The two soldiers at the door have already straightened without being told to. Their eyes move to you, then back to the middle distance: the posture of men waiting for an order that may or may not come, ready either way.`;
         G.worldClocks.pressure++;
         addJournal('Guard captain formally prohibits military inquiry', 'complication', `fairhaven-guard-warning-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Vren confirms the headcount is down. "Resource reallocation," he says. The phrase sits in the air without conviction. He crosses his arms and doesn't add to it. The duty roster on the wall behind him shows three patrol slots empty.`;
+        G.lastResult = `Vren confirms the headcount is down. "Resource reallocation," he says. The phrase sits in the air without conviction — the language of a man repeating what he was told rather than what he believes. He crosses his arms, the posture closing off before the echo of the words has finished. The duty roster on the wall behind him shows three patrol slots empty, the chalk marks half-erased as though someone tried to make the absence look provisional. Nobody has filled the slots back in.`;
         addJournal('Guard captain confirmed garrison force reduction', 'evidence', `fairhaven-guard-reduction-${G.dayCount}`);
       } else {
         G.lastResult = `Vren gives you a professional nod and nothing useful. "Strategic considerations shape deployment. That's all I can offer." His eyes have already moved to the duty roster on the wall — three slots empty where names used to be chalked. He doesn't gesture toward it or comment on it. He's decided this conversation is over by his accounting, not yours.`;
@@ -240,10 +240,10 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine keeper formally bans you from chapel', 'complication', `fairhaven-shrine-keeper-ban-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Ilsa acknowledges the changes came through sanctioned channels. "Regional shrine authority." She won't name the specific directive or its author. But she confirms the changes were deliberate — not her interpretation of doctrine, but explicit written instruction.`;
+        G.lastResult = `The offering cloth on the altar is folded and refolded while Ilsa speaks — corners aligned, then re-aligned, a gesture that fills the pause before she answers. The changes came through sanctioned channels, she says. "Regional shrine authority." She won't name the directive or its author. She confirms they were explicit written instructions, not her interpretation of doctrine. She doesn't look up from the altar cloth until the sentence is fully finished.`;
         addJournal('Shrine keeper confirmed deliberate change implementation', 'evidence', `fairhaven-shrine-keeper-deliberate-${G.dayCount}`);
       } else {
-        G.lastResult = `"Shrine operations follow doctrine. Changes are made in accordance with guidance received." Ilsa folds her hands and waits for you to leave. The conversation has the texture of a door that closed before you opened it.`;
+        G.lastResult = `"Shrine operations follow doctrine. Changes are made in accordance with guidance received." Ilsa folds her hands and waits for you to leave. Incense ash on the altar rail has been swept to one side — not cleared, repositioned. The chapel behind her is still and unhurried, everything in its place. The conversation has the texture of a door that closed before you opened it. The words were spoken. Nothing passed between you.`;
         addJournal('Shrine keeper blocked further inquiry', 'evidence', `fairhaven-shrine-keeper-blocked-${G.dayCount}`);
       }
 
@@ -276,7 +276,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your supply questions', 'complication', `fairhaven-innkeeper-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Merrel says shipments have been taking longer lately. "More waypoints," she offers. She doesn't elaborate. She's noticed without wanting to have noticed — the kind of awareness that stops short of opinion.`;
+        G.lastResult = `Salt-damp on the bar top, a cup turned upside down at the far end. Merrel runs the cloth across both without breaking stride. Shipments have been taking longer lately, she says. "More waypoints." She keeps moving. She doesn't elaborate, doesn't slow down, doesn't look up from the wood. She's noticed the change in the same way she notices the weather — without wanting an explanation for it. The kind of awareness that stops short of opinion.`;
         addJournal('Innkeeper confirmed routing changes', 'evidence', `fairhaven-innkeeper-routing-${G.dayCount}`);
       }
 
@@ -311,10 +311,10 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('You are escorted away from glyph cave perimeter', 'complication', `fairhaven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Boot tracks in the clay, a repositioned marker, a stretch of ground that's been walked recently and often. The cave perimeter is being used by someone — not wandered past, used. The danger warnings don't account for that pattern.`;
+        G.lastResult = `Boot tracks in the clay — multiple tread patterns, more than one person, all converging on the same line of approach. A waystation marker has been repositioned; the disturbed soil around its base is still soft. The stretch of ground between the posted warning and the cave mouth has been walked recently and walked often, the grass worn flat in a path that wasn't there last season. The danger warnings don't account for that pattern. They account for everyone else staying away while someone else moves freely through.`;
         addJournal('Survival analysis noted cave access patterns', 'evidence', `fairhaven-survival-pattern-${G.dayCount}`);
       } else {
-        G.lastResult = `The glyph formations near the mouth are active — a low hum in the stone, hair standing at the wrist. Whatever activity happens here doesn't leave traces that survive the ambient disturbance. Nothing readable at this distance.`;
+        G.lastResult = `Salt air from the coast gives way to something drier and charged as the cave mouth comes into view. The glyph formations near the entrance are active — a low hum in the stone that runs up through boot soles, hair lifting at the wrist. The ambient disturbance saturates the ground around the perimeter, blurring whatever recent foot traffic might otherwise be readable. Whatever activity happens here leaves traces, but the glyph field consumes them before a single pass can collect them. Coming back with more time and a different approach would change that.`;
         addJournal('Glyph cave remains a genuine threat', 'evidence', `fairhaven-survival-danger-${G.dayCount}`);
       }
 
@@ -379,14 +379,14 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Craft analysis revealed formula sabotage', 'evidence', `fairhaven-craft-formula-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A Shrine Keeper comes through the archive door before you've finished the first comparison. "These documents are not for outside examination." She doesn't wait for a response — she closes the folder and holds the door. You're out of the archives, and the latch clicks behind you. The keeper's face says the conversation will go higher than she is.`;
+        G.lastResult = `Incense dust floats in the slant of light from the archive's high window. A Shrine Keeper comes through the door before the first comparison is finished — not the duty archivist, a different one, moving too directly to have arrived by accident. "These documents are not for outside examination." She doesn't raise her voice. She closes the folder with two fingers and holds the door open with the other hand, the gesture of someone who has done this before and expects compliance without escalation. The latch clicks behind you. The keeper's expression carries the specific flatness of a person who will report upward before the afternoon bell.`;
         G.worldClocks.reverence++;
         addJournal('You are removed from shrine archives for formula inquiry', 'complication', `fairhaven-craft-expelled-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The current formula is not the same document as the one filed three seasons ago. The differences are small — a substituted component here, an altered rune notation there. Whether that's revision or corruption requires a more complete comparison than the time here allows.`;
+        G.lastResult = `The current formula is not the same document as the one filed three seasons ago. Set side by side on the archive reading table, the differences surface — a substituted component in the third binding sequence, an altered rune notation near the activation clause, a revised ratio in the secondary compound. Each change is small enough to survive a casual check. Whether the total represents standard revision or something more deliberate requires a complete comparative pass against reference materials that aren't held in this room. The thread is here; following it requires another visit with the right documents in hand.`;
         addJournal('Craft analysis noted formula modification patterns', 'evidence', `fairhaven-craft-modification-${G.dayCount}`);
       } else {
-        G.lastResult = `The formula notation is dense and the reference archive is disorganized. Without a known-good version to hold beside it, the changes — if any — don't surface on a single reading.`;
+        G.lastResult = `The archive shelves hold a season's worth of formula documentation — rolled, stacked, some filed in labeled tubes that haven't been opened in years. The notation is dense. Cross-references point to volumes not shelved nearby. Without a known-good version to hold beside the current document, any alteration in the binding sequences or component ratios doesn't surface on a single reading. The thread is in here somewhere. The time isn't.`;
         addJournal('Formula analysis inconclusive', 'evidence', `fairhaven-craft-unclear-${G.dayCount}`);
       }
 
@@ -422,7 +422,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two documents with the same seal — one pressed slightly deeper than the other. The signatures match in style but not in pressure. Either the same person signed on different days under different circumstances, or two people practiced the same signature. Both explanations are worth following.`;
         addJournal('Craft analysis found evidence of document alteration', 'evidence', `fairhaven-craft-alteration-${G.dayCount}`);
       } else {
-        G.lastResult = `The documents hold up to a surface read. Without a reference set of confirmed authentic materials, the forgery — if present — is too controlled to catch at a glance.`;
+        G.lastResult = `The documents hold up to a surface read — seals pressed cleanly, signatures consistent in style, dates in the expected sequence. Ink color matches across pages. The clerk's hand is steady throughout. Without a reference set of confirmed authentic materials to lay beside these, the forgery — if present — is too controlled to catch at a glance. What looks like order may be the result of effort. There's no way to know from here.`;
         addJournal('Document authenticity assessment inconclusive', 'evidence', `fairhaven-craft-unclear-${G.dayCount}`);
       }
 
@@ -455,10 +455,10 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine restricts your access to doctrine records', 'complication', `fairhaven-lore-restricted-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The old teaching texts and the current pamphlets don't describe the same cave. The older sources mention managed danger. The newer ones mandate avoidance without qualification. The shift is documented; the cause behind it isn't recorded anywhere accessible here.`;
+        G.lastResult = `The old teaching texts and the current pamphlets don't describe the same cave. Older sources — pre-dating the current shrine administration by two generations — frame the glyph formations as a threshold, dangerous but passable by those trained to read the markers. The newer pamphlets, distributed to households over the past fourteen months, mandate full avoidance without qualification or recourse. The shift is documented and consistent. What's absent is any recorded event that would explain it: no survey, no incident report, no doctrinal council. The cause behind the change isn't recorded anywhere accessible here.`;
         addJournal('Lore analysis noted doctrine intensification', 'evidence', `fairhaven-lore-intensified-${G.dayCount}`);
       } else {
-        G.lastResult = `The doctrinal record on the glyph cave spans three centuries and three different scribal traditions. Tracing a deliberate change versus natural theological drift requires cross-referencing that's not possible from this archive alone.`;
+        G.lastResult = `Three centuries of doctrinal record, three different scribal hands, the oldest documents stored in a wooden case with a warped lid that requires lifting at an angle. The glyph cave appears in every era — described differently, framed differently, the danger calibrated to whoever was writing. Tracing a deliberate revision against natural theological drift requires a full comparative timeline across all three traditions. This archive holds pieces of two of them. The third is elsewhere.`;
         addJournal('Glyph doctrine history analysis inconclusive', 'evidence', `fairhaven-lore-unclear-${G.dayCount}`);
       }
 
@@ -491,10 +491,10 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine restricts your philosophical research as heretical', 'complication', `fairhaven-lore-heresy-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The older texts and the newer supplements don't agree on the relationship between faith and provision. The supplements are more recent and more emphatic. Whether that's theological development or rewriting is a distinction the archive doesn't resolve on its own.`;
+        G.lastResult = `The older texts and the newer supplements don't agree on the relationship between faith and provision. Founding doctrine holds both as the same obligation — prayer and better technique in equal measure. The supplements, circulated over the past eighteen months, subordinate provision to devotion: a shortage recast as spiritual testing, not logistical failure. The supplements are more recent and significantly more emphatic. Whether that represents genuine theological development or something more coordinated is a distinction the archive alone cannot resolve. The change in emphasis is consistent enough across eight separate documents to merit a clearer answer.`;
         addJournal('Lore research confirmed philosophical shift', 'evidence', `fairhaven-lore-shift-${G.dayCount}`);
       } else {
-        G.lastResult = `Theological evolution in a living community is hard to distinguish from deliberate rewriting — both look like change. Without a full comparative timeline, this reading doesn't settle the question.`;
+        G.lastResult = `Reading table, three candles, a stack of supplements issued in the last eighteen months alongside founding texts that predate the shrine's current administration. The older documents carry the smell of linen storage. The newer ones smell of fresh pressing. Both describe the same community, same obligations, different weight given to hardship. Theological evolution in a living tradition is hard to distinguish from deliberate rewriting — both look like change. Without a full comparative timeline, the distinction stays open.`;
         addJournal('Philosophical analysis inconclusive', 'evidence', `fairhaven-lore-unclear-${G.dayCount}`);
       }
 
@@ -559,7 +559,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Your investigation of tool failure reported as suspicious', 'complication', `fairhaven-failure-suspicious-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The break is too clean for impact fracture — no radiating cracks, no compression deformation. The rune seam separated. Whether the enchantment was incomplete from production or degraded since, the fragments don't say. The failure is documented; the cause needs another angle.`;
+        G.lastResult = `The break is too clean for impact fracture — no radiating cracks, no compression deformation at the stress point, no lateral spread through the metal. The rune seam separated along its own line, as if the binding between the enchantment and the tool face simply stopped holding. Whether the enchantment was incomplete from production or degraded since installation, the fragments don't carry enough of the original anchor sequence to say. The failure is documented, the pattern is specific, and the cause needs a comparison against the production formula to close the gap.`;
         addJournal('Tool failure analysis suggests intentional defect', 'evidence', `fairhaven-failure-intentional-${G.dayCount}`);
       } else {
         G.lastResult = `The tool snapped under load. Without a reference comparison to the production formula, the break pattern is consistent with both age and manufacturing variance. Nothing here distinguishes deliberate from accidental.`;
@@ -734,7 +734,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium correspondent Avel Prenn: monitoring Fairhaven, needs hard evidence to trigger investigation', `fairhaven-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `The civic registry lists a Collegium address on the east lane. The building is a cooperage — the owner hasn't heard of anyone by that description. Either the listing is out of date, or the person keeping it doesn't want to be found through official channels.`;
+        G.lastResult = `The civic registry lists a Collegium address on the east lane — handwritten addition, the ink slightly different from the surrounding entries, added some time after the original filing. The building is a cooperage. Barrel staves stacked along the front wall, the smell of new-cut oak. The owner hasn't heard of anyone by that description and doesn't look like he's being careful when he says so. Either the listing is out of date, or the person it points to doesn't want to be found through that route.`;
         if (!G.flags) G.flags = {};
         G.flags.sought_oversight_collegium_fairhaven = true;
       }
@@ -770,7 +770,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.flags.met_elder_cassian = true;
-        G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." She wraps her hands around her cup. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
+        G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." She wraps both hands around her cup and holds it without drinking — waiting for you to catch up with what she already decided. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
         addJournal('contact', 'Elder Cassian: recognized compound substitution by smell, has original sample, knows the community is being managed', `fairhaven-cassian-${G.dayCount}`);
       } else {
         G.lastResult = `Cassian is willing enough, but the conversation stalls at anything specific. She refills her cup without being asked and doesn't rush the silence. She watches you with the patience of someone who has waited out other people's urgency before and found it usually resolves on its own. The jar she mentioned is somewhere in that cabinet behind her. She'll speak plainly when she decides you're the person to speak plainly to. That decision hasn't landed yet.`;

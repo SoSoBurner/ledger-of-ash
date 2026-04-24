@@ -22,7 +22,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_coralyn_tideglass = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Coralyn has a secondary ledger she keeps locked. She opens it now — the entries are in her hand, a parallel record running alongside the official one. "Seventeen cargo declarations in eight months, all referencing the Pallmark Reach." She turns to the historical registry, covers the decommissioning status line with her thumb, then lifts it so you can read it yourself. "Pending final registry confirmation." Pending since twelve years ago. Someone left that line unresolved and someone else found it and used it.`;
+        G.lastResult = `Coralyn has a secondary ledger she keeps locked. She opens it now — the entries are in her hand, a parallel record running alongside the official one. "Seventeen cargo declarations in eight months, all referencing the Pallmark Reach." She squares the historical registry page against the desk edge before turning it toward you, then covers the decommissioning status line with her thumb, then lifts it. "Pending final registry confirmation." Pending since twelve years ago. Someone left that line unresolved and someone else found it and used it.`;
         addJournal('Cosmoria: ghost vessel via incomplete decommission record — intentional archive gap', 'evidence', `cos-coralyn-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -31,7 +31,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_coralyn_tideglass = true;
         G.investigationProgress++;
-        G.lastResult = `Coralyn pulls the file without being asked twice — she's had it ready. Seventeen declarations, one vessel name, eight months. "The Pallmark Reach decommissioning was never closed out. I flagged it four months ago." She covers the status line with her thumb, then lifts it. "The flag was reviewed and left open." She keeps her hand on the page. "Until that decommissioning is finalized in the registry, the paperwork is technically acceptable." She says it like she's practicing for a hearing.`;
+        G.lastResult = `Coralyn pulls the file without being asked twice — she's had it ready. Seventeen declarations, one vessel name, eight months. "The Pallmark Reach decommissioning was never closed out. I flagged it four months ago." She squares the page against the desk edge, covers the status line with her thumb, then lifts it. "The flag was reviewed and left open." She keeps her hand on the page. "Until that decommissioning is finalized in the registry, the paperwork is technically acceptable." She says it like she's practicing for a hearing.`;
         addJournal('Ghost vessel declarations — decommissioning legally incomplete, 17 uses', 'evidence', `cos-coralyn-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -169,11 +169,11 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.coralyn_reviewer_log_seen = true;
         G.investigationProgress++;
-        addNarration('The Third Column', 'Coralyn doesn\'t open the ledger again immediately. She sets both hands flat on the counter and looks at the wall behind you for a moment before she moves. The third column is narrow — initials and a date stamp, one entry per reviewed row. Six of the Pallmark Reach declarations carry the same two letters. She covers them with her thumb, then lifts it. "That office was restructured fourteen months ago. The person these initials belong to is no longer in Cosmoria." She closes the ledger carefully, both latches.');
+        addNarration('The Third Column', 'Coralyn doesn\'t open the ledger again immediately. She squares it against the counter edge first — both hands, a precise alignment — before she lifts the cover. The third column is narrow: initials and a date stamp, one entry per reviewed row. Six of the Pallmark Reach declarations carry the same two letters. She covers them with her thumb, then lifts it. "That office was restructured fourteen months ago. The person these initials belong to is no longer in Cosmoria." She closes the ledger carefully, both latches.');
         addJournal('Archive reviewer initials on ghost vessel declarations — linked to restructured Cosmouth office', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('The Record Stands Closed', 'Coralyn listens to the question and doesn\'t move to open anything. "Reviewer attribution is an internal archive administration record. It\'s not part of the public access filing." She says it without apology and without particular warmth. The ledger stays under the counter. The access log for this conversation is already filling in behind her, ink still wet on the date line.');
+        addNarration('The Record Stands Closed', 'Coralyn listens to the question and doesn\'t move to open anything. She squares the top form on the counter against the edge — a small, precise alignment — before she answers. "Reviewer attribution is an internal archive administration record. It\'s not part of the public access filing." She says it without apology and without particular warmth. The ledger stays under the counter. The access log for this conversation is already filling in behind her, ink still wet on the date line.');
       }
     }
   },
