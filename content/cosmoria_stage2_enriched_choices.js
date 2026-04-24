@@ -301,10 +301,10 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.collegium_contact = true;
         G.flags.stage2_faction_contact_made = true;
       } else if (result.isFumble) {
-        G.lastResult = 'Peldan checks the date stamp on the correspondence bundle before handing it across. "Collegium correspondence processes through the standard queue. Authorization timelines are set by the issuing office." He says this carefully, which is different from saying it defensively. He checks the date stamp on the denial form too, before filing it.';
+        G.lastResult = 'The correspondence bundle lands on the counter with its date stamp face-up — a reflex, not a gesture. "Collegium correspondence processes through the standard queue. Authorization timelines are set by the issuing office." The words are careful and correct and give nothing away. The denial form gets a date stamp before it goes into the tray. Every document that passes through this desk gets a date stamp. Peldan keeps records the way other people breathe.';
       } else {
         G.flags.met_archivist_peldan = true;
-        G.lastResult = 'Peldan checks the date stamp on each document before passing it across — a consistent habit, not a nervous one. He notes that Collegium authorization requests in a specific category process faster than the queue allows. "I have the log if someone needs it." He says this to the middle distance, not quite to you. The offer is real. He is waiting to see if you follow it.';
+        G.lastResult = 'Each document gets a date-stamp check before it crosses the desk — a habit so ingrained it doesn\'t look like caution. One authorization category has been processing faster than the standard queue allows for over a year. "I have the log if someone needs it," Peldan says, and addresses the remark to the middle distance rather than to you directly. The offer sits in the air between you. His hand has not moved from the correspondence bundle. He is waiting to see whether the log gets picked up or passed.';
         addJournal('Cosmoria archivist Peldan: Collegium authorization requests in one category consistently processed faster than queue allows — log available.', 'intelligence');
         G.investigationProgress = (G.investigationProgress||0) + 1;
       }

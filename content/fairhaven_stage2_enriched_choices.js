@@ -322,7 +322,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Fairhaven Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The staging location sits at the edge of what can be confirmed. The threads are close but not yet tight enough to act on without risk of the whole operation shifting before anyone can respond.`;
+        G.lastResult = `The northwest coordinates sit in Thalen's margin note and the glyph cave tool marks point the same direction, but the connection between them isn't documented yet. A Roadwarden post won't act on a circled map coordinate and a cleric's sighting log. The courier pattern from the inn, the dock clearance procedure — one of those needs to close before the staging location holds as a formal claim.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

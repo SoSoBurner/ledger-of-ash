@@ -142,12 +142,12 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The dispute involves a handling fee paid by one guild member to another for processing a sealed cargo batch — a fee that was not authorized by any guild contract. The payer was instructed to handle the cargo by a guild supervisor who has since left the commune. The cargo description matches suppression compound containers.`;
         addJournal('Guild dispute reveals unauthorized fee for handling suppression compound containers', 'evidence', `har-velrik-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The dispute is under active mediation. You cannot access confidential mediation proceedings without both parties' consent.`;
+        G.lastResult = `The mediation chamber door is closed and the clerk at the outer desk does not look up until the third knock. Active proceedings, both parties still in session. No observer access, no summary disclosure, no record pull until the mediation concludes and a settlement is filed. The clerk sets a form on the counter for a formal access request. The processing queue runs three weeks.`;
         addJournal('Guild dispute under mediation confidentiality — access refused', 'complication', `har-velrik-fail-${G.dayCount}`);
       } else {
         G.flags.met_velrik_durnshade = true;
         G.investigationProgress++;
-        G.lastResult = `Velrik summarizes the accounting irregularity. One member paid another for cargo handling outside the normal guild contract framework. "Someone wanted this kept off the standard books."`;
+        G.lastResult = `The dispute file sits in a grey folder between two volumes on Velrik's shelf — not filed, not discarded. He sets it flat on the desk without opening it first. One member paid another for cargo handling using a payment method that bypasses the guild contract framework entirely. The payer's account log shows a notation in the margin: "per supervisor's instruction." The supervisor named left the commune four months ago. Velrik's finger stays on the margin note. "Someone wanted this kept off the standard books," he says.`;
         addJournal('Guild accounting irregularity — off-books cargo handling payment', 'evidence', `har-velrik-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -232,7 +232,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         addNarration(
           'Marked as Out of Order',
-          'Jorva\'s enforcer is already moving by the time you realize your mistake. The stall holder says nothing — she does not need to. The enforcer stops beside you and requests your load declaration in the flat tone reserved for people who have just broken a rule in a governed space. You have no load. He writes something in a small bound register, closes it, and nods you out of the line. The queue watches without comment, which is its own kind of correction.'
+          'Jorva\'s enforcer is already moving by the time the stall holder\'s expression shifts. She says nothing — she doesn\'t need to. The enforcer stops beside you and requests your load declaration in the flat tone reserved for people who have just broken a rule in a governed space. No load. He writes something in a small bound register, closes it, and nods you out of the line. The queue watches without comment, which is its own kind of correction.'
         );
       }
     }
@@ -297,7 +297,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Harvest Circle Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Harvest Circle investigation needs more evidence to act on.`;
+        G.lastResult = `The routing number fraud and the supplier irregularities are visible but the threads aren't closed. The communal council will not act on partial documentation, and a premature approach risks sealing the archive access that's still open. Three or four more solid confirmations, and the case holds.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
