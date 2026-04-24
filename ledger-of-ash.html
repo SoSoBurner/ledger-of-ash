@@ -13210,6 +13210,7 @@ function showHowToPlay() {
 <script src="content/item_system.js"></script>
 <script src="content/social_misstep_pool.js"></script>
 <script src="content/public_complication_pool.js"></script>
+<script src="content/npc_lookup.js"></script>
 <script src='content/stage1_boss.js'></script>
 <script src='content/stage2_antechamber.js'></script>
 <script src='content/stage2_boss.js'></script>
@@ -13263,7 +13264,7 @@ function showHowToPlay() {
     // Mounted Discipline: Knight on horseback halves the extra-encounter chance.
     if (G.pace === 'fast') {
       var _encounterChance = 0.2;
-      if (G.travelMode === 'horse' && G.archetype === 'Knight') _encounterChance = 0.1;
+      if (G.travelMode === 'horse' && G.archetype === 'knight') _encounterChance = 0.1;
       if (Math.random() < _encounterChance) {
         var _biome = (typeof window.getBiomeForRoute === 'function') ? window.getBiomeForRoute(locId, prevLocation) : null;
         if (_biome) {
