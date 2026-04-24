@@ -500,6 +500,20 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       addJournal('warning', 'Rival-adjacent operative visited Toman Iceveil 2 months ago — reconnaissance, expert knowledge, or acquisition attempt', `glasswake-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
   }
+}
 ];
 window.GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES;

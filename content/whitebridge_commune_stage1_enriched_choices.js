@@ -462,6 +462,20 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       addJournal('warning', 'Rival-adjacent operative asked Terris specific crossing questions last week — ahead on Whitebridge thread', `whitebridge-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
   }
+}
 ];
 window.WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES;

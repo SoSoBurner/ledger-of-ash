@@ -832,6 +832,20 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       addJournal('warning', 'Rival-adjacent operative departed Fairhaven with supply sample before your arrival', `fairhaven-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
   }
+}
 ];
 window.FAIRHAVEN_STAGE1_ENRICHED_CHOICES = FAIRHAVEN_STAGE1_ENRICHED_CHOICES;

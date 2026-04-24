@@ -9312,6 +9312,17 @@ function addNarration(label, html, resultType) {
   scrollNarrative();
 }
 
+// Draws a source-attributed rumor string for the given locality, logs to journal as 'rumor'.
+function drawLocalityRumor(localityId) {
+  var pool = (window.LOCALITY_RUMORS && window.LOCALITY_RUMORS[localityId]) || [
+    'A merchant at the transit post: "Manifests have been running three days late from the eastern route. No explanation posted."',
+    'Overheard at the registry queue: "Two names removed from the labor roll last week. No one filed the transfer."'
+  ];
+  var text = pool[Math.floor(Math.random() * pool.length)];
+  G.lastResult = text;
+  addJournal(text, 'rumor');
+}
+
 // Cross-faction tension modifier — appends reactive NPC subtext when faction flags are set
 function applyTensionModifier(npcRole) {
   var tensions = {
@@ -13286,6 +13297,7 @@ function showHowToPlay() {
 <script src="content/item_system.js"></script>
 <script src="content/social_misstep_pool.js"></script>
 <script src="content/public_complication_pool.js"></script>
+<script src="content/locality_rumors.js"></script>
 <script src="content/npc_lookup.js"></script>
 <script src='content/stage1_boss.js'></script>
 <script src='content/stage2_antechamber.js'></script>

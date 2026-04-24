@@ -906,6 +906,20 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       addJournal('warning', 'Rival-adjacent operative visited Maret Voss one day before you — investigating same financial anomalies', `ithtananalor-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
   }
+}
 ];
 window.ITHTANANALOR_STAGE1_ENRICHED_CHOICES = ITHTANANALOR_STAGE1_ENRICHED_CHOICES;

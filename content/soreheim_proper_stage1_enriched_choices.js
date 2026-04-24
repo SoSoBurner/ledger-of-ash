@@ -935,6 +935,20 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       addJournal('Factor authorization log request refused at registry level — clerk showed no hesitation', 'intelligence', `soreheim-refusal-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
   }
+}
 ];
 window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;

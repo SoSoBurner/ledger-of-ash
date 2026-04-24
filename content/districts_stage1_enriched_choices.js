@@ -787,9 +787,22 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
       }
     }
   }
-
+,
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
+  }
+}
 ];
-
 window.AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES;
 window.IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES;
 window.VERDANT_ROW_STAGE1_ENRICHED_CHOICES = VERDANT_ROW_STAGE1_ENRICHED_CHOICES;

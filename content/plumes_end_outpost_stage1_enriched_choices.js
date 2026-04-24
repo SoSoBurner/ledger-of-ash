@@ -466,6 +466,20 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       addJournal('warning', 'Rival-adjacent operative moving from northeast zone toward Shelkopolis ahead of you — field intelligence collected, same destination', `plumes-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 5,
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
   }
+}
 ];
 window.PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES;
