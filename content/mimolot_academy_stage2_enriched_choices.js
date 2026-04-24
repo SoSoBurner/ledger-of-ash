@@ -329,6 +329,68 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The thesis defense schedule has a recurring deferral on one research track.",
+    tags: ['stage2', 'mimolot_academy'],
+    xpReward: 36,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(36, 'reviewing academy thesis defense deferrals');
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.mim_defense_deferrals_traced = true;
+        G.investigationProgress++;
+        addNarration('Indefinitely Deferred', 'The defense schedule is pinned to a cork board in the rotunda, each term on a colored card. Four candidates on the glyph resonance track have been marked DEFERRED PENDING ADVISOR REVIEW across three consecutive terms — the same notation, the same advisor signature, a different handwriting on each card. Standard deferral is one term. Three is procedurally unprecedented. One candidate was on the rolls at the same time as the Fairhaven delivery shipments. She has since withdrawn without a filed reason. The empty card slot was replaced with a blank.');
+        addJournal('Academy defense schedule: 4 glyph resonance candidates deferred three terms — one withdrew during Fairhaven shipment window', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Rotunda Monitor', 'A proctor passes through the rotunda while the schedule cards are being read and slows without stopping. The cards are student-facing notices; close review by non-faculty requires an advisor sponsorship letter on file. He does not ask for one. He notes the time on his duty sheet instead, which is worse — the notation is indefinite and travels with him into the weekly briefing. The cards themselves stay pinned. The reader, now, is logged. The glyph resonance track disappears behind the brass compass study under the next pinup rotation.');
+      }
+    }
+  },
+
+  {
+    label: "The library's late-return register has the same reader's initials on every restricted-stack withdrawal.",
+    tags: ['stage2', 'mimolot_academy'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'tracing Academy restricted-stack withdrawals');
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 14) {
+        G.flags.mim_restricted_withdrawal_tracked = true;
+        G.investigationProgress++;
+        addNarration('Same Initials', 'The late-return register is kept at the circulation desk in a weatherworn cloth binder — three years of returns logged in alternating ink colors by shift. Restricted-stack withdrawals are supposed to rotate through multiple authorized readers as an internal check against single-point access. The register shows the same two initials on every restricted return for the past eleven months. The initials match a senior faculty name that does not appear on the faculty roster. He holds emeritus status. Emeritus holders retain check-out privileges but are not supposed to hold them exclusively.');
+        addJournal('Academy restricted stacks: emeritus faculty holds exclusive withdrawal access for 11 months — rotation protocol bypassed', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Circulation Protocol', 'The circulation librarian closes the register cover with a small movement that does not hurry itself. Withdrawal records are library administrative files; access requires a librarian referral and a filed purpose statement. She does not produce either form — she simply waits. Two students at the return counter have started reshelving slips that do not require reshelving. The register goes back under the desk. The cloth binder carries a small ink smudge on the spine from a thumb that rests there when someone is deciding what to do next.');
+      }
+    }
+  },
+
+  {
+    label: "The lecturer crossed out a name in his own margin before speaking.",
+    tags: ['stage2', 'mimolot_academy'],
+    xpReward: 40,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(40, 'observing a lecturer self-censoring margin notes');
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 14) {
+        G.flags.mim_lecturer_self_censor_seen = true;
+        G.investigationProgress++;
+        addNarration('Crossed Through', 'The lecturer arrives early and sets his notes on the lectern, reviewing them while the hall fills. Before the session opens he draws a line through a name in his own margin — a single horizontal stroke, pen pressed hard enough to leave an indent through two pages. The lecture proceeds without reference to the crossed-out name. Afterward, when the hall empties, the notes remain on the lectern for the sweeper. The indent is readable against the lamp. The name corresponds to a co-author on a glyph damping paper whose abstract was pulled from the Academy catalog three months ago.');
+        addJournal('Academy lecture notes: lecturer self-censored co-author name — abstract also pulled from catalog', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Sweeper Intervention', 'The hall sweeper reaches the lectern before the lamp angle is right for reading the indent. He is a tidy older man with a cart, and he carries the pages to the faculty pigeonholes without looking at them — long habit, deliberate incuriosity. The lecturer has already left through the side corridor. The lectern is wiped down with a cloth that leaves no streak. Whatever was crossed out is now in a pigeonhole, which is a locked-key corridor the Academy does not extend to visiting readers. The reading path closes cleanly.');
+      }
+    }
+  },
+
 ];
 
 window.MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES;
