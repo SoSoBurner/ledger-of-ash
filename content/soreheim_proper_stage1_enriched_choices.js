@@ -932,7 +932,6 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(55, 'reading institutional refusal pattern');
 
       G.lastResult = `The registry anteroom smells of pressed fiber and warm wax. Stamp sounds move through the partition wall at a steady rhythm — someone working through a backlog. The clerk behind the counter finds the entry without being asked to search for it. "That filing is not available at this registry level." No pause. No look-up. She sets her pen back to the column she was working and resumes writing. The transaction is complete. There is nothing left to stand there for.`;
-      if (!G.flags) G.flags = {};
       addJournal('Factor authorization log request refused at registry level — clerk showed no hesitation', 'intelligence', `soreheim-refusal-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
