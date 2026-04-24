@@ -1,5 +1,18 @@
 {
+  "name": "ledger-of-ash",
+  "version": "0.11.0",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:content": "node tests/content/validate-content.js && node tests/content/validate-flags.js && node tests/content/validate-structure.js",
+    "test:e2e": "playwright test",
+    "review:content": "node tests/content/review-content.js",
+    "test:all": "npm test && npm run test:content && npm run test:e2e"
+  },
   "devDependencies": {
+    "jest": "^29",
+    "jest-environment-node": "^29",
+    "@playwright/test": "^1.44",
     "puppeteer": "^24.41.0"
   }
 }

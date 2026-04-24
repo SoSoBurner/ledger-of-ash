@@ -326,4 +326,4 @@ function checkWorldClockTransparency(fnSrc) {
 
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency, loadChoicesFromFile };
