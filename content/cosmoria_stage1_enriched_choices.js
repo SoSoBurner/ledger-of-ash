@@ -62,7 +62,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quartermaster revealed supply chain diversion conspiracy', 'evidence', `cosmoria-supplies-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Coralyn's expression closes like a hatch. "Supply records are under Cosmouth administrative hold pending seasonal audit. Access requires a charter warrant." She closes the ledger she was holding and places both hands flat on the desk. In the stack behind her, visible for a moment before she shifts to block it, a document bears a red ADMINISTRATIVE HOLD stamp in the narrow block lettering of Collegium procedural form — she does not acknowledge it. Someone told her to say exactly that — the phrase is too composed for an improvised refusal. By evening the docks are quieter around you than they were this morning.`;
+        G.lastResult = `Coralyn's expression closes like a hatch. "Supply records are under Cosmouth administrative hold pending seasonal audit. Access requires a charter warrant." She closes the ledger she was holding and places both hands flat on the desk. In the stack behind her, visible for a moment before she shifts to block it, a document bears a red ADMINISTRATIVE HOLD stamp in the narrow block lettering of Collegium procedural form — she does not acknowledge it. By evening the docks are quieter around you than they were this morning.`;
         G.worldClocks.watchfulness++;
         addJournal('Quartermaster spreading suspicion about supply chain investigation', 'complication', `cosmoria-supplies-alert-${G.dayCount}`);
       } else if (result.total >= 13) {

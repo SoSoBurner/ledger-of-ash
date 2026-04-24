@@ -198,7 +198,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Selain steps between two loaded carts and speaks toward the wall. "Standard hold is three days before transit. Bay Seven has had the same four crates for—" She stops. Her eyes move to the covered walkway above, where a tariff clerk crosses without pausing. She resumes with a different sentence. "The morning routing sheet doesn't show everything that moves." She names Bay Seven without looking at it. "Diversion orders arrive already signed. I don't add my name." She moves back into the main flow of the yard before the next cart passes.`;
+        G.lastResult = `Selain steps between two loaded carts and speaks toward the wall. "Standard hold is three days before transit. Bay Seven has had the same four crates for—" She stops. Her eyes move to the covered walkway above, where a tariff clerk crosses without pausing. She resumes. "The morning routing sheet doesn't show everything that moves." She names Bay Seven without looking at it. "Diversion orders arrive already signed. I don't add my name." She moves back into the main flow of the yard before the next cart passes.`;
         G.stageProgress[1]++;
         addJournal('Broker revealed warehouse diversion coordination', 'evidence', `guildheart-broker-diversion-${G.dayCount}`);
       } else if (result.isFumble) {
