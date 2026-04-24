@@ -25,7 +25,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal("Letha's hazard map pinpoints pressure source within half-day radius northwest — staging location identified", 'evidence', `plumes-letha-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `You disturb Letha's calibrated instruments during the conversation. The disruption creates a false reading event in her log. She is professionally frustrated and closes the consultation.`;
+        G.lastResult = `A gesture toward the instrument array catches one of the calibration weights — the scale tips, the needle swings, and Letha's hand shoots out to stabilize it before she even looks up. The false reading is already in her log by the time the needle settles. She marks it with a red pencil and writes the time. "Six months of clean data." She doesn't raise her voice. She closes the instrument housing with both hands and turns back to her desk. The consultation is over.`;
         addJournal('Hazard instrument disrupted — false reading logged, consultation closed', 'complication', `plumes-letha-fail-${G.dayCount}`);
       } else {
         G.flags.met_letha_dawnsilk = true;
@@ -54,12 +54,12 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Staging structure confirmed: Soreheim military + Warden Order joint control — Patrol Leader warned off', 'evidence', `plumes-patrol-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The Patrol Leader filed an official incident report about the structure. Your questions about the same structure mark you as connected to the original incident. He detains you briefly for questioning by his superior.`;
+        G.lastResult = `The Patrol Leader's expression shifts the moment the structure's location comes up. He filed a formal incident report three weeks ago — unauthorized facility, northern road, overriding local patrol access. Your questions track the same geography. He has you wait at the patrol desk while he sends a runner to his superior. Twenty minutes in a side room with no windows. The superior asks the same questions twice and releases you with a notation in the patrol incident file. Your name is now attached to the original report.`;
         addJournal('Patrol incident connection — detained for questioning by patrol superior', 'complication', `plumes-patrol-fail-${G.dayCount}`);
       } else {
         G.flags.met_patrol_leader = true;
         G.investigationProgress++;
-        G.lastResult = `The Patrol Leader describes the unmapped structure. Fortified, guarded, operating under authority that overrides local patrol access. "I've patrolled that road for eight years. That building wasn't there two years ago."`;
+        G.lastResult = `The Patrol Leader keeps his voice level and his eyes on the road map pinned to the wall behind you. The structure: fortified perimeter, active guard rotation, authorization papers that override local patrol access when he tried to log it. "I've patrolled that road for eight years. That building wasn't there two years ago." He taps the map without touching the location. "Whatever it is, it outranks me, and nobody above me has told me what it's for."`;
         addJournal('Unmapped fortified structure on northern road — built within 2 years, overrides local patrol', 'evidence', `plumes-patrol-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

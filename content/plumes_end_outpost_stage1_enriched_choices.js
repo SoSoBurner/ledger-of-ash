@@ -51,10 +51,10 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
           G.flags.analyzed_pressure_reports = true;
           addJournal('Pressure gradient: directional increase from Aurora Crown quadrant, accelerated 4 months ago — atmospheric event propagating from dome compound substitution', 'discovery', `plumes-pressure-${G.dayCount}`);
         } else {
-          G.lastResult = `The pressure records show a clear trend but interpreting its significance requires expertise in atmospheric dynamics. Letha knows the measurements; she doesn't have the framework to explain them.`;
+          G.lastResult = `The pressure records show a clear trend in the columns, but the numbers resist easy interpretation — units specific to atmospheric dynamics, reference ranges Letha has to look up in a technical manual she ordered three months ago. "I know what I measured," she says. "I can't tell you what it means at a systems level." The data exists. The framework to defend it in formal review is still being assembled.`;
         }
       } else {
-        G.lastResult = `Without Letha's cooperation, accessing the suppressed pressure reports isn't possible. They exist only in her personal records at this point.`;
+        G.lastResult = `Letha's desk holds six months of pressure records, but access to them runs through her alone. The suppression order pulled the reports from the official distribution chain — no copies at central coordination, no duplicate filed with the patrol station's intake register. What exists is in this room, on those shelves, behind a commander who hasn't decided yet whether you're someone she can trust with them.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -80,7 +80,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_suppression_source = true;
         addJournal('Suppression order from ghost institution "regional environmental coordination office" — same pattern as Whitebridge ghost account, Unity Square ghost category', 'evidence', `plumes-suppression-${G.dayCount}`);
       } else {
-        G.lastResult = `The suppression order came through official channels but the issuing body is unfamiliar. Without access to the regional authority directory, you can't confirm whether it's legitimate.`;
+        G.lastResult = `The suppression order arrived in standard formatting — header, reference number, issuing body name — and passed the intake clerk's verification. The issuing body is unfamiliar, but the regional authority directory is a bound volume behind Letha's desk, not a document you can access independently. Without it, the name could be legitimate and obscure, or fabricated to read as legitimate. The difference requires a directory you don't have.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -106,7 +106,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_wildlife_evidence = true;
         addJournal('Wildlife territorial shift southward from NE quadrant for 4 months — fauna evacuating before instruments detect full gradient', 'evidence', `plumes-wildlife-${G.dayCount}`);
       } else {
-        G.lastResult = `Rangers have noticed changes but attribute them to seasonal variation. Without Letha's pressure data for context, the pattern isn't obvious.`;
+        G.lastResult = `The rangers have documented movement changes in their patrol logs — fewer animals along the northeast corridors, grazing pressure shifting south — but the patrol debrief notes call it seasonal variation. One ranger mentions it's been running long for a season shift, then stops himself. Without Letha's directional pressure data to set beside the patrol observations, the pattern stays inconclusive; the rangers have no framework to measure what they've been watching.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -154,7 +154,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.warden_order += 1;
         addJournal('faction', 'Warden Order coordinator Sera Vance: ghost authority suppressed reports at multiple outposts — systematic regional information blackout confirmed', `plumes-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `The Warden Order's regional coordinator requires documentation submitted through standard channels before opening an inquiry. Letha's reports need to be formally re-filed despite the suppression.`;
+        G.lastResult = `The Warden Order's regional coordinator is courteous and unhelpful in equal measure. An inquiry requires documentation submitted through the standard regional channel — the same channel the suppression order closed. Letha's reports would need to be formally re-filed as new submissions, which requires a patrol dispatch authorization she'd have to request from the same coordination body that suppressed the originals. The process folds back on itself.`;
         if (!G.flags) G.flags = {};
         G.flags.located_warden_order_plumes = true;
       }
@@ -178,7 +178,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_coss_ranger = true;
         addJournal('contact', 'Veteran ranger Coss: wearing protective equipment on NE routes voluntarily for 3 months — body-level detection of atmospheric change preceding formal orders', `plumes-coss-${G.dayCount}`);
       } else {
-        G.lastResult = `The ranger is cautious about discussing environmental observations since the suppression order came through. They've been told the measurements are under review and shouldn't be discussed informally.`;
+        G.lastResult = `The ranger keeps his eyes on the patrol board when you ask about the northeast routes. The suppression order circulated to all outpost personnel — measurements under review, not for informal discussion. He straightens a posting on the board that doesn't need straightening. "I don't have anything to add to the official record." He says it carefully, the way someone says something they've been told to say and have been practicing.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -261,7 +261,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Historical records at Plumes End go back forty years. One comparable gradient event: recorded sixty-three years ago, before the outpost's current archive. A note references it in the archive's preface as a reason the outpost was established — "to provide early detection of atmospheric irregularities in the northeastern territories." The outpost was built because of a previous event from this direction. Whatever happened sixty-three years ago was significant enough to establish a permanent monitoring presence. Letha is detecting the early signs of a second occurrence of something that was judged severe enough to warrant permanent outpost installation.`;
         addJournal('Historical comparison: outpost established after similar event 63 years ago — Plumes End exists specifically to detect early signs of NE atmospheric irregularity', 'discovery', `plumes-historical-${G.dayCount}`);
       } else {
-        G.lastResult = `The historical records go back forty years. Any older events predate the current archive's beginning.`;
+        G.lastResult = `The archive room holds forty years of outpost records in bound seasonal volumes, organized by quarter on open shelving. Forty years is as far as the current archive goes — the preface notes a prior records system that wasn't transferred when the outpost was rebuilt. Whatever gradient events predated the current archive's opening are referenced only in the aggregate, not documented. The earlier period is a gap in the record, not a gap in the history.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -306,7 +306,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-      G.lastResult = `Frontier circuit trader rumor: "${selected}." Information is traveling through the frontier even when official channels are suppressed.`;
+      G.lastResult = `The supply traders work the frontier circuit in long loops — Plumes End is one of six stops, and they talk to everyone at each one. Over a cup at the outpost's supply desk, the account surfaces: ${selected}. The traders don't know what to make of it. They're not paid to make sense of what they hear. But they remember it, because this stretch of the frontier has been producing more things worth remembering lately.`;
       addJournal(`Plumes End frontier trader rumor: "${selected}"`, 'evidence', `plumes-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -355,10 +355,10 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
           G.flags.mapped_affected_zone = true;
           addJournal('Affected zone: 80km across at Plumes End distance, source zone (Aurora Crown area) at ~40x safe concentration levels for 4 months', 'discovery', `plumes-zone-map-${G.dayCount}`);
         } else {
-          G.lastResult = `The zone mapping requires Letha's directional reading data to anchor the calculation. Without her cooperation, the mapping is too imprecise to be useful.`;
+          G.lastResult = `A zone map needs a directional anchor — a point of origin confirmed by sequential readings from a fixed station. Letha's six months of directional data is exactly that anchor. Without her records, the wildlife displacement corridors and farmer abandonment pattern can suggest a direction but not a radius, and atmospheric diffusion calculations without a known source location produce margins too wide to be actionable. The math requires her measurements.`;
         }
       } else {
-        G.lastResult = `Zone mapping requires Letha's six months of directional data. Building the relationship with her comes first.`;
+        G.lastResult = `The zone mapping can't be built without Letha's six months of directional readings. Everything else — the wildlife displacement, the farmer accounts, the patrol observations — points toward a general direction. Precise radius calculation requires a station log from a fixed point, with consistent measurement intervals and a dated baseline. That log is Letha's. The work at this desk starts with the work at hers.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -393,7 +393,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Standard central coordination protocol for a consistent atmospheric anomaly of Plumes End's reported scale: automatic environmental hazard assessment, mandatory field investigation, public notification if the assessment confirms hazard. The suppression prevented that protocol from triggering. If Letha's reports had arrived, the field investigation would have identified Aurora Crown's contamination zone four months ago — before the affected population had been exposed for the full duration. The suppression didn't just hide the data. It extended the exposure window by four months.`;
         addJournal('Suppression consequence: prevented standard hazard protocol from triggering — exposure window extended by 4 months deliberately', 'evidence', `plumes-suppression-purpose-${G.dayCount}`);
       } else {
-        G.lastResult = `Understanding the suppression's full implication requires knowledge of the central coordination protocol's thresholds and response procedures.`;
+        G.lastResult = `The suppression order blocked the reports, but what that blocking actually prevented requires knowledge of central coordination's response thresholds — the specific anomaly scale that triggers an automatic environmental hazard assessment, and how quickly that process moves. The outpost's protocol manual doesn't include coordination-level procedures. Whatever the suppression bought in time, the calculation sits behind a document you don't have access to here.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
