@@ -8239,6 +8239,7 @@ let G = {
   supplyTier: 'light',
   journeyFatigue: 0,
   recentOutcomeType: null,
+  district: null,
   schemaVersion:3
 };
 
@@ -10826,6 +10827,32 @@ function beginJourney(fromId, toId) {
     { text: 'Standard kit. Everything I need, nothing extra.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__journey__standard__' + toId },
     { text: 'Full pack. The weight is a problem I can manage.', skill: 'craft', tag: 'risky', align: 'neutral', cid: '__journey__heavy__' + toId }
   ]), 300);
+}
+
+function drawSocialMisstep(locality) {
+  var pool = window.SOCIAL_MISSTEP_POOL && (window.SOCIAL_MISSTEP_POOL[locality] || window.SOCIAL_MISSTEP_POOL['generic']);
+  if (!pool || !pool.length) return;
+  var text = pool[Math.floor(Math.random() * pool.length)];
+  G.lastResult = text;
+  G.recentOutcomeType = 'complication';
+}
+
+function districtTransition(fromDistrict, toDistrict) {
+  var dayKey = 'district_complication_' + G.location + '_' + G.dayCount;
+  if (G.flags[dayKey]) return; // day-gated: one complication per location per day
+  var locPackets = window.LOCALITY_PACKETS;
+  // Fall back to checking the locality of the destination district if no parent packet
+  var packetKey = G.location || toDistrict;
+  var packet = locPackets && locPackets[packetKey];
+  var pool = packet && packet.public_complication_table;
+  if (!pool || !pool.length) return;
+  var entry = pool[Math.floor(Math.random() * pool.length)];
+  var text = typeof entry === 'string' ? entry : (entry.text || entry.description || JSON.stringify(entry));
+  G.lastResult = text;
+  G.lastResultType = 'complication';
+  G.recentOutcomeType = 'complication';
+  G.flags[dayKey] = true;
+  // Call via: districtTransition(G.district, newDistrict); G.district = newDistrict;
 }
 
 function _maybePublicComplication(locId) {
