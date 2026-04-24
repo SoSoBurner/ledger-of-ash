@@ -131,7 +131,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Learned real evidence — but Thom marked exactly what you found', 'complication', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not.`;
+        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. Behind him on the lower shelf, a drawer with a brass pull bears a wax seal pressed over the lock plate — the seal belongs to no registry office listed on the room's posted charter.`;
         addJournal('Clerk confirmed deliberate ledger removal pattern', 'evidence', `shelkopolis-ledger-removed-${G.dayCount}`);
       } else {
         G.lastResult = `Thom straightens a stack of already-straight papers and explains that registry access requires a stamped request from the Iron Accord, countersigned by a house advocate. He says it pleasantly. There's a lamplight smell of tallow and old ink in the room, and none of it belongs to you without the paperwork.`;
@@ -922,6 +922,22 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // SUPPRESSION: AUTHORIZATION COLUMN WITH NO SIGNATORY
+  {
+    label: "The authorization column is blank — not struck through, not initialed. Blank.",
+    tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
+    xpReward: 45,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(45, 'reading institutional gap in signatory column');
+
+      G.lastResult = `The civic hall processing room carries the flat smell of dried ink and pressed hemp fiber. A row of transit authorizations sits in the outbox tray, each stamped with the day's date in the upper right corner. The fourth form carries a reference code in the authorization column — six digits, cleanly printed — but the signatory line beside it is empty. Not crossed out. Not marked pending. The form has been stamped complete. The clerk at the long table lifts another sheet from the stack and sets to work on it. The empty column stays empty.`;
+      addJournal('Shelkopolis civic hall transit authorizations: one form carries a valid authorization code with no signatory name — column blank, form marked complete and filed', 'intelligence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
