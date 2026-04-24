@@ -204,7 +204,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Driver Osset Halvarn log: structure construction 14 months ago, chemical delivery described by smell — Warden Order outriders', 'evidence', `plumes-osset-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Halvarn's expression closes before you finish the first sentence about the northern road. "I don't keep written notes about other people's cargo. That's how drivers stay employed." He straightens the tarp on his load and checks the rear harness. The oilskin pouch pressed against the bench frame is visible for a moment as he shifts position, but he does not acknowledge it. The conversation is over before it started.`;
+        G.lastResult = `Halvarn's expression closes before you finish the first sentence about the northern road. "I don't keep written notes about other people's cargo. That's how drivers stay employed." He turns to check the rear harness without looking back. When he settles into his seat again, his knuckle taps the bench compartment lid once — muscle memory — but his hand stays flat on top. The conversation is over before it started.`;
         addJournal('Caravan driver declined — stated no written cargo notes, oilskin log not mentioned', 'complication', `plumes-osset-fail-${G.dayCount}`);
       } else {
         G.flags.met_caravan_driver_osset = true;
