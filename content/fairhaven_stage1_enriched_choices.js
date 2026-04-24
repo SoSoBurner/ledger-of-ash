@@ -451,7 +451,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Lore analysis revealed exaggerated glyph doctrine', 'evidence', `fairhaven-lore-glyph-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The Shrine Keeper intercepts the request at the records desk. "Doctrinal interpretation belongs to approved spiritual guides. External review is not permitted." A notation goes into the register beside your name. The records room stays locked for the rest of the day.`;
+        G.lastResult = `Incense from the main hall drifts into the records corridor — cedar and something sharper beneath it. The Shrine Keeper intercepts the request at the records desk before the archivist can respond. "Doctrinal interpretation belongs to approved spiritual guides. External review is not permitted." The words arrive without heat, which is worse than anger. A notation goes into the register beside your name — pen moving steadily, no hesitation in the hand. The records room stays locked for the rest of the day. Two keepers remain visible in the corridor on the way out.`;
         G.worldClocks.reverence++;
         addJournal('Shrine restricts your access to doctrine records', 'complication', `fairhaven-lore-restricted-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -562,7 +562,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The break is too clean for impact fracture — no radiating cracks, no compression deformation at the stress point, no lateral spread through the metal. The rune seam separated along its own line, as if the binding between the enchantment and the tool face simply stopped holding. Whether the enchantment was incomplete from production or degraded since installation, the fragments don't carry enough of the original anchor sequence to say. The failure is documented, the pattern is specific, and the cause needs a comparison against the production formula to close the gap.`;
         addJournal('Tool failure analysis suggests intentional defect', 'evidence', `fairhaven-failure-intentional-${G.dayCount}`);
       } else {
-        G.lastResult = `The tool snapped under load. Without a reference comparison to the production formula, the break pattern is consistent with both age and manufacturing variance. Nothing here distinguishes deliberate from accidental.`;
+        G.lastResult = `The tool snapped under load — a clean break, the kind that comes at the seam rather than through the material. Dock planking nearby carries the brine smell of the morning tide. The break pattern is consistent with both age and manufacturing variance; without a reference copy of the production formula to lay beside the rune seam, there's no way to determine whether the anchor sequence was complete when the tool left the workshop. Nothing in the fragment alone distinguishes deliberate from accidental. A comparison to the enchantment formula would settle it.`;
         addJournal('Tool failure cause unclear', 'evidence', `fairhaven-failure-unclear-${G.dayCount}`);
       }
 
@@ -598,7 +598,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Several households admit things are tighter than expected this season — tools wearing out, supplies arriving late or short. They describe it as weather, as bad luck, as normal variation. Each household is carrying its own version of a problem that is the same problem.`;
         addJournal('Community scarcity concerns documented', 'evidence', `fairhaven-crisis-concern-${G.dayCount}`);
       } else {
-        G.lastResult = `Doors stay mostly closed. The ones that open offer polite deflections — everything is fine, the shrine provides guidance, this is not the season for complaints. Whatever the community knows, it's not being shared with someone they don't recognize yet.`;
+        G.lastResult = `Salt air off the dock planking, a rope coil hanging by a factor's door, the usual texture of a port morning. Doors stay mostly closed. The ones that open offer polite deflections — everything is fine, the shrine provides guidance, this is not the season for complaints. The phrasing is too consistent for coincidence, the same note struck in three different households in the same two-hour span. Whatever the community knows, it isn't being shared with someone they don't recognize yet. They've had practice not sharing it.`;
         addJournal('Community scarcity concerns remain unspoken', 'evidence', `fairhaven-crisis-silent-${G.dayCount}`);
       }
 
@@ -631,10 +631,10 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Conspiracy operators directly threaten your investigation', 'complication', `fairhaven-conspiracy-threat-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The evidence points consistently in one direction. The timing of each institutional change, the doctrine revisions that preceded them, the supply rerouting that followed — there is a sequence here. The final link, what ties the coordination to a specific source, is still missing.`;
+        G.lastResult = `The evidence points consistently in one direction. Laid against each other on the manifest table, the institutional changes take on a shape: doctrine revision first, supply rerouting a week later, garrison reduction following the doctrine's circulation in households. The timing is too precise for drift. There is a sequence here, and the sequence was authored. The final link — what ties the coordination to a specific originating source — is still missing. Everything else is present and pointing at the gap where that answer should be.`;
         addJournal('Substantial weaponization evidence compiled', 'evidence', `fairhaven-conspiracy-substantial-${G.dayCount}`);
       } else {
-        G.lastResult = `The pieces are present but not yet speaking to each other clearly. Supply failure, formula change, doctrine revision — each one explicable alone. Connecting them into a coordinated design requires one more thread.`;
+        G.lastResult = `The pieces are present but not yet speaking to each other clearly. Supply failure at the provisioner, formula change at the workshop, doctrine revision from the shrine — each one has an explanation available in isolation. A bad season, a sourcing adjustment, a theological refinement. Rope and brine from the dock road, the ordinary smell of a port town carrying on. The pattern that connects them into something coordinated requires one more thread, one link that makes the coincidence stop being possible. That thread is close. It isn't in hand yet.`;
         addJournal('Conspiracy pattern visible but evidence incomplete', 'evidence', `fairhaven-conspiracy-partial-${G.dayCount}`);
       }
 
@@ -705,7 +705,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `The community arranges itself by household without being instructed to. Old defense instinct — clusters of known-trust around a central point. They haven't formed a line or spread out. They've formed a defensive pattern. Their bodies remember something their doctrine is telling them to forget.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The shrine's compound smoke patterns differently than the doctrinal text describes. The community breathes it and becomes calm — not peaceful calm, sedated calm. The formula substitution is behaviorally active. This community isn't choosing acceptance of hardship. They're being pharmacologically conditioned toward it.`;
+        G.lastResult = `The compound smoke from the shrine burner moves differently than the doctrinal text describes — flatter, slower to disperse, heavier on the back of the throat than incense has any reason to be. The community breathes it and settles. Not the quiet of people at rest, but the quiet of weight bearing down from the outside. Shoulders lower. Arguments that were forming don't complete. The formula substitution isn't just adulterated supply — it's behaviorally active in the ritual context. This community isn't choosing acceptance of hardship. The choice is being made for them, burnt off a grate every morning.`;
       } else if (arch === 'stealth') {
         G.lastResult = `Three people at the gathering are watching the crowd, not participating. They're positioned at different angles to cover the full gathering. When someone in the crowd shows agitation — a whispered argument, a child crying — one of the watchers moves toward the situation before the shrine keeper does. Pre-emptive social management. The gathering has embedded monitors.`;
       } else {
