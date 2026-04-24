@@ -343,7 +343,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Management restricted access to quota system information', 'complication', `soreheim-quota-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why.`;
+        G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why. In the older set, entries run unbroken through the full season except for a twelve-day gap in the middle of the third quarter — no annotation, no closing mark, no resumption note. The log simply stops, then continues as though it had not.`;
         addJournal('Quota system modifications confirmed', 'evidence', `soreheim-quota-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The quota board outside the administration building shows this week's targets in fresh paint. The numbers are large. The methodology behind them lives inside the building, behind a desk with a stamp on it. The stamp belongs to someone who isn't available to speak with you today.`;
@@ -918,6 +918,22 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       addJournal('warning', 'Rival-adjacent figure confirmed following investigation trail in Soreheim', `soreheim-rival-shadow-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 30. SUPPRESSION: PROCEDURAL REFUSAL AT THE FACTOR AUTHORIZATION REGISTRY
+  {
+    label: "The clerk's answer came too fast — that refusal has been given before.",
+    tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'reading institutional refusal pattern');
+
+      G.lastResult = `The registry anteroom smells of pressed fiber and warm wax. Stamp sounds move through the partition wall at a steady rhythm — someone working through a backlog. The clerk behind the counter finds the entry without being asked to search for it. "That filing is not available at this registry level." No pause. No look-up. She sets her pen back to the column she was working and resumes writing. The transaction is complete. There is nothing left to stand there for.`;
+      if (!G.flags) G.flags = {};
+      addJournal('Factor authorization log request refused at registry level — clerk showed no hesitation', 'intelligence', `soreheim-refusal-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   }
