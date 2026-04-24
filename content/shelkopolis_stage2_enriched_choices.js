@@ -172,7 +172,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = arch === 'combat'
           ? `Windrider listens without notes, which means he's memorizing it. When you finish, he taps the table once and names your evidence as sufficient for a parallel inquiry. The conditions arrive next: everything you find comes to him, before it goes anywhere else. He extends his hand. It's an alliance built to serve two agendas simultaneously, and both parties know it.`
           : `Windrider receives the briefing without expression and confirms the Roadwardens have noticed the same pattern through different means. He asks you to keep reporting. He offers nothing in return — no resources, no cover, no reciprocal intelligence. The risk stays yours. The contact is established regardless.`;
-        addJournal('faction', 'Roadwarden command contact established', `shelk-windrider-${G.dayCount}`);
+        addJournal('Roadwarden command contact established', 'contact_made', `shelk-windrider-${G.dayCount}`);
       } else if (result.isFumble) {
         if (arch === 'combat') G.rivalId = 'warden_captain';
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -235,7 +235,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = arch === 'stealth'
           ? `The representative's questions have a sequence — they're probing for what you have, not sharing what they know. You give them a partial truth and watch it move. Within an hour it's been passed to a superior without editing. The chain of command has a visible shape now, and you're somewhere on its map.`
           : `You give the representative enough to establish that you're operating with purpose, and hold enough back that the purpose stays yours. They leave without pressing further. The rival clock advances regardless. That was always going to happen.`;
-        addJournal('faction', 'Warden Order contact — productive first meeting', `shelk-warden-contact-${G.dayCount}`);
+        addJournal('Warden Order contact — productive first meeting', 'contact_made', `shelk-warden-contact-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
@@ -244,7 +244,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.lastResult = `The meeting ends without commitment from either side. The representative thanks you for your time in the register tone of someone completing an administrative task. You've been assessed. What the assessment produced stays on their side of the table.`;
-        addJournal('faction', 'Warden Order assessment — neutral', `shelk-warden-neutral-${G.dayCount}`);
+        addJournal('Warden Order assessment — neutral', 'contact_made', `shelk-warden-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
     }
@@ -304,11 +304,11 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.warden_invitation_seen = true;
         G.flags.warden_interest_declared = true;
         G.lastResult = `You accept provisional enrollment. The recruiter produces a Roadwarden duty band and a records access chit in the same motion — this was prepared in advance. The archive is three floors below. Inside: two sealed letters logged as evidence in an ongoing inquiry, both stalled under the same review notation for six months. The uniform opens the door. The stall tells you who wants it closed.`;
-        addJournal('faction', 'Warden enrollment accepted — archive access gained', `shelk-warden-join-${G.dayCount}`);
+        addJournal('Warden enrollment accepted — archive access gained', 'contact_made', `shelk-warden-join-${G.dayCount}`);
       } else {
         G.flags.warden_invitation_seen = true;
         G.lastResult = `You decline for now. The recruiter writes "pending consideration" in the intake log, which is a Roadwarden courtesy phrase that means the offer expires when their patience does. The door stays open. That's a resource you've chosen to hold rather than spend.`;
-        addJournal('faction', 'Warden invitation deferred', `shelk-warden-defer-${G.dayCount}`);
+        addJournal('Warden invitation deferred', 'contact_made', `shelk-warden-defer-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
     }
@@ -644,7 +644,10 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_shadowhands_aware) return;
+      if (!G.flags.stage2_faction_shadowhands_aware) {
+        G.lastResult = 'Nothing to act on with the contact yet.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making the Shadowhands intake contact');
       G.flags.met_kess_the_crossing = true;
@@ -657,11 +660,14 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   // BEAT 3 — Payoff
   {
-    label: "Lift the ledger page on the night-shift turnover and hand it to Kess.",
+    label: "The night-shift turnover is the only window where the ledger sits unattended.",
     tags: ['Shadowhands', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_shadowhands_contacted) return;
+      if (!G.flags.stage2_faction_shadowhands_contacted) {
+        G.lastResult = 'Kess hasn\'t indicated the next step.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(90, 'delivering the lifted ledger page');
       G.flags.stage2_faction_shadowhands = true;

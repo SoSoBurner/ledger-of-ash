@@ -263,7 +263,10 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_wardens_aware) return;
+      if (!G.flags.stage2_faction_wardens_aware) {
+        G.lastResult = 'Nothing to act on with the Wardens yet.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making the Wardens command contact');
       G.flags.met_banner_master_ruven_halse = true;
@@ -280,7 +283,10 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_wardens_contacted) return;
+      if (!G.flags.stage2_faction_wardens_contacted) {
+        G.lastResult = 'Halse hasn\'t indicated the next step.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(90, 'delivering the Station 42 incident log');
       G.flags.stage2_faction_wardens = true;

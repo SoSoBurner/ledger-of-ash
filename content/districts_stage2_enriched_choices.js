@@ -130,7 +130,10 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     tags: ['RedHood', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_red_hood_aware) return;
+      if (!G.flags.stage2_faction_red_hood_aware) {
+        G.lastResult = 'Nothing to act on with the broker yet.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making Red Hood broker contact');
       G.flags.met_broker_anneth_torv = true;
@@ -147,7 +150,10 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_red_hood_contacted) return;
+      if (!G.flags.stage2_faction_red_hood_contacted) {
+        G.lastResult = 'Anneth hasn\'t indicated the next step.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(90, 'delivering the recovered Red Hood satchel');
       G.flags.stage2_faction_red_hood = true;

@@ -324,7 +324,10 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_collegium_aware) return;
+      if (!G.flags.stage2_faction_collegium_aware) {
+        G.lastResult = 'Nothing to act on with the Collegium yet.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'approaching the Collegium auditor in the alcove');
       G.flags.met_auditor_peregrin_vas = true;
@@ -341,7 +344,10 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_collegium_contacted) return;
+      if (!G.flags.stage2_faction_collegium_contacted) {
+        G.lastResult = 'The Collegium contact isn\'t ready for the next step.';
+        G.recentOutcomeType = 'locked'; return;
+      }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(90, 'filing the certified contract rider with Oversight');
       G.flags.stage2_faction_collegium = true;
