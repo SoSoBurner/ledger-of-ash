@@ -251,7 +251,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Mimolot Academy Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence chain isn't complete. The Regent Council won't open a formal inquiry on fragments — each piece needs a link to the next, and there are gaps in the chain still. More work before this becomes actionable.`;
+        G.lastResult = `The reading room map on the rotunda wall shows nine points of evidence, but three connections between them are still broken lines. The Regent Council requires a complete chain before it will convene on an institutional complaint — a single unlinked fragment gives them room to dissolve the whole inquiry. The gaps need closing before this can move forward.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -289,7 +289,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         addJournal('Mimolot archive: faculty correspondence — external Collegium classification directive applied to theoretical research, no charter precedent, counter-seal used to enforce.', 'evidence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The research archive requires a faculty credential or an approved external researcher registration. The archive attendant notes the request and explains the registration process: three-day review, faculty sponsor required. "The correspondence files are internal administrative record. External access is reviewed by the Dean\'s office." The request is logged.';
+        G.lastResult = 'The research archive requires a faculty credential or an approved external researcher registration. The archive attendant notes the request and explains the process without hurrying it: three-day review, faculty sponsor required, Dean\'s office sign-off for correspondence files. She writes the inquiry reference number on a form slip and slides it across. The request is logged. Whatever the letters say, they are now behind a process that takes longer than the window available.';
         addJournal('Mimolot archive: external researcher registration required for correspondence files — access request logged with Dean\'s office.', 'complication');
       } else {
         G.investigationProgress = (G.investigationProgress||0) + 1;

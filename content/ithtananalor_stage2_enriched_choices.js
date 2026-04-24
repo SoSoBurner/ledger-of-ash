@@ -23,16 +23,16 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = arch === 'stealth'
-          ? `The ghost accounts are cleaner than real accounts. That is the tell. Real accounts accumulate errors. These three are too precise — entered by someone who knows the ledger system better than a casual operator. Shadowhands training includes exactly this kind of financial tradecraft.`
-          : `Three accounts with no registered owner, no ore delivery records, and consistent quarterly receipts. The pattern is unmistakable: the accounts are being used to launder ore revenue outside the official quota system. Someone with enforcement access authorized the original registrations.`;
+          ? `The ghost accounts are cleaner than real accounts. That is the tell. Real accounts accumulate errors — a wrong entry corrected, a date transposed, a margin notation from a different clerk. These three carry no such residue. Every figure is precise, every interval consistent. Someone who knows the ledger system built them, and that level of financial tradecraft runs through Shadowhands operational training.`
+          : `Three accounts with no registered owner, no ore delivery records, and consistent quarterly receipts arriving on a schedule no legitimate operator maintains. The accounts are being used to move ore revenue outside the quota system entirely. The original registrations required enforcement-level authorization — this did not happen without a signature from inside the apparatus.`;
         addJournal('Ghost ore accounts confirmed — enforcement authorization', 'evidence', `ith-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Your access to the Iron Ledger Ward triggers an automatic inspection protocol. Your credentials are logged and a Shadowhands duty officer is notified. You exit with nothing and a new entry in the enforcement record.`;
+        G.lastResult = `At the Iron Ledger Ward's intake desk, the clerk runs credentials through the standard log and pauses at the third step. The terminal flags something — an inspection protocol that engages on uncleared third-party access. A Shadowhands duty officer is notified automatically before the clerk even looks up. The exit is quiet, but the enforcement record now carries the query, the timestamp, and the credential line that triggered it.`;
         addJournal('Ledger access logged — Shadowhands notified', 'complication', `ith-ledger-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Two of the three accounts are clearly ghost entries. The third has enough legitimate transaction noise to be unclear. Two confirmed ghosts are enough to establish the pattern.`;
+        G.lastResult = `Two of the three accounts are clearly ghost entries — no owner, no delivery receipts, no correspondence, just clean recurring figures moving through a registered slot. The third has enough layered transaction noise to be ambiguous without deeper access. Two confirmed ghosts are enough to establish the pattern and give the chain a starting point. The third can be resolved later.`;
         addJournal('Two ghost accounts confirmed — third ambiguous', 'evidence', `ith-ledger-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -56,12 +56,12 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ivena documents — calibrated threshold evasion confirmed', 'evidence', `ith-ivena-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Ivena asks who authorized your access to goods counter records. Your answer is insufficient. The question is logged in the counter security record.`;
+        G.lastResult = `At the Licensed Goods Counter, the first question back is procedural: who authorized access to the transaction records? The counter keeps its own security log for exactly this kind of external query. The answer given is not sufficient — the log entry goes in regardless, attached to the time, the credential presented, and the subject of the question. The counter is now aware that someone was asking.`;
         addJournal('Goods counter access questioned — logged', 'complication', `ith-ivena-fail-${G.dayCount}`);
       } else {
         G.flags.met_ivena_ironspike = true;
         G.investigationProgress++;
-        G.lastResult = `Ivena confirms irregular transactions but speaks carefully. "I process what comes to me. What is above me is not my function." She says it with enough repetition to tell you this statement was practiced.`;
+        G.lastResult = `The transaction log stays on the counter between you and Ivena as she speaks. She confirms irregular entries without naming them precisely, voice held steady and even. "I process what comes to me. What is above me is not my function." The phrasing arrives too cleanly — the rhythm of a sentence that has been rehearsed until its edges are smooth. She is confirming what she knows and drawing a careful line at what she will not carry.`;
         addJournal('Ivena confirms irregularities — careful deflection', 'evidence', `ith-ivena-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -89,12 +89,12 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
-        G.lastResult = `Velden has you removed from the Shadowhands Wing before the meeting begins. A formal security note is filed. The Roazian enforcement apparatus now treats your investigation as a hostile operation.`;
+        G.lastResult = `Two steps inside the Shadowhands Wing, a pair of unit officers bracket the approach and redirect without touching anything. The meeting request was received; no meeting will occur. At the security desk, a formal note is written and signed — not a refusal on paper but a flag, routed upward within the hour. The Roazian enforcement apparatus has now classified the inquiry as a hostile operation, which changes every access point downstream.`;
         addJournal('Shadowhands — investigation classified as hostile', 'complication', `ith-velden-fail-${G.dayCount}`);
       } else {
         G.flags.met_velden_ironspike = true;
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `Velden grants you three minutes. He says nothing directly about the accounts but his reactions confirm the Shadowhands have operational knowledge of them. The question is whether the involvement is authorized or rogue.`;
+        G.lastResult = `Three minutes, standing — no chair offered, no document produced. The accounts are not named directly. But there are pauses where there should not be pauses, and a stillness in the jaw when specific routing numbers are mentioned that only happens when the name is recognized. The Shadowhands have operational knowledge of these accounts. What the three-minute meeting cannot resolve is whether what they know is authorized from above or something running below the command line.`;
         addJournal('Velden meeting — Shadowhands knowledge confirmed, intent unclear', 'evidence', `ith-velden-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -117,12 +117,12 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Brenn speaks at the shrine threshold where conversations are protected by civic ritual. Three times in the past two months, enforcement officers conducted unscheduled processing procedures at the quarter after the civic compliance cycle ended. The procedures were logged as "containment review" — a classification that bypasses normal oversight.`;
         addJournal('Brenn confirms after-hours containment reviews — oversight bypass', 'evidence', `ith-brenn-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The shrine context does not insulate Brenn from enforcement authority. A Shadowhands officer passing the shrine hears enough of the exchange to intervene. The conversation ends abruptly.`;
+        G.lastResult = `The shrine threshold carries ritual protection under Ithtananalor's civic code, but that protection only holds while the conversation stays inside it. A Shadowhands officer pauses at the outer edge of the grounds, and whatever he hears is enough — he steps forward with the particular deliberateness of someone who has the authority to interrupt a civil proceeding and knows it. Brenn falls silent mid-sentence. The exchange closes before it opens.`;
         addJournal('Shrine conversation interrupted by Shadowhands', 'complication', `ith-brenn-fail-${G.dayCount}`);
       } else {
         G.flags.met_brenn_ironspike = true;
         G.investigationProgress++;
-        G.lastResult = `Brenn confirms unusual evening activity and describes the participants as enforcement officers without visible unit identification — which in Ithtananalor means Shadowhands.`;
+        G.lastResult = `At the side altar, Brenn arranges the votive stones in a slow, deliberate order before speaking. The evening activity was real — multiple enforcement officers in the quarter after the compliance cycle closed, no unit identification marks visible on their gear. In Ithtananalor, enforcement officers without unit identification means Shadowhands operating outside standard logged duty. The absence of markings is itself the identifier. Brenn offers nothing further beyond confirming what was seen.`;
         addJournal('Brenn confirms unidentified enforcement evening activity', 'evidence', `ith-brenn-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -146,12 +146,12 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Inn observation — extraction timeline overheard', 'evidence', `ith-harlan-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Your observation position is identified by a trained officer. You leave under escort and are formally noted as a surveillance risk in the enforcement quarter log.`;
+        G.lastResult = `The edge table position reads differently to a trained eye than it does to a civilian one — the sightline, the held posture, the way attention distributes around the room rather than settling on the drink. An officer at the corner of the bar identifies the posture before the first hour is done. The exit is not rough, but it is escorted, and at the door a formal notation goes into the enforcement quarter log: surveillance risk, time and description appended.`;
         addJournal('Inn surveillance detected — enforcement risk log', 'complication', `ith-harlan-fail-${G.dayCount}`);
       } else {
         G.flags.met_harlan_ironspike = true;
         G.investigationProgress++;
-        G.lastResult = `Nothing explicitly incriminating overheard. But the conversational patterns between specific officer pairs suggest a shared operational knowledge that goes beyond standard unit communication.`;
+        G.lastResult = `Four hours of ordinary enforcement quarter conversation — complaint about a shift assignment, a card game that ends poorly, a long argument about supply quality. Nothing explicitly incriminating. But the way two particular officer pairs communicate has a specific quality: gaps where names should appear, glances that carry shared meaning, a precision about what is not said that ordinary unit conversation does not produce. The operational knowledge is there. It's just distributed across the silences.`;
         addJournal('Inn observation — officer group cohesion suggests operational knowledge', 'evidence', `ith-harlan-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -175,11 +175,11 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ghost accounts purchasing contraband through enforcement bypass', 'evidence', `ith-shadow-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 2;
-        G.lastResult = `You are identified as an outsider in the shadow market immediately. The consequence is a Shadowhands unit following your movements for 48 hours. You lose the surveillance window entirely.`;
+        G.lastResult = `The shadow market reads unfamiliar faces the way enforcement apparatus reads unauthorized credentials — quickly, and without announcing the conclusion. Within minutes of entry a Shadowhands unit has been signaled. The tail begins at the outer gate and does not lift for forty-eight hours. Every approach to every evidence point during that window is watched. The surveillance window closes entirely, replaced by the problem of being observed.`;
         addJournal('Shadow market identification — 48hr Shadowhands surveillance', 'complication', `ith-shadow-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `You find the shadow market but can only observe peripherally. Enough to confirm arcane contraband is moving through channels that require enforcement authorization. The specific accounts are not visible at this access level.`;
+        G.lastResult = `The shadow market's outer tier is accessible — enough to observe the shape of what moves through it without being able to touch the interior channels. The cargo being traded requires enforcement authorization to handle without triggering the anti-magic statute: the classification alone confirms the accounts are moving contraband through the apparatus itself. The specific account numbers and routing codes sit deeper, behind access that the current position does not reach. The shape of it is there. The details are not.`;
         addJournal('Shadow market confirmed — arcane contraband through enforcement channels', 'evidence', `ith-shadow-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -202,14 +202,14 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_faction_contact_made = true;
         G.lastResult = arch === 'combat'
           ? `Your assessment of Roaz's public record and command decisions reveals a consistent pattern of internal accountability — cases where he sanctioned officers above his direct command. The ghost accounts contradict his documented command culture. He is either being bypassed or his record is cover. A direct meeting is now worth the risk.`
-          : `The assessment reveals that Roaz's authority has been systematically narrowed over the past six months by administrative reassignments that removed his oversight over the exact departments where the ghost accounts operate. Someone prepared for an internal investigation.`;
+          : `The public record maps a slow erosion. Roaz's command authority over the past six months has been trimmed by a series of administrative reassignments — each one individually unremarkable, each one removing oversight from a specific department. The departments stripped from his remit are exactly the ones where the ghost accounts operate. The reassignments are not random. Someone anticipated an internal investigation and cleared the field before it could begin.`;
         addJournal('Roaz assessment — either bypassed or cover exists', 'evidence', `ith-roaz-assess-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your assessment methodology is visible enough that Roaz's staff notices the pattern of records access. You have been noticed assessing command leadership without authorization.`;
+        G.lastResult = `The pattern of records access — command history, administrative reassignment logs, duty rosters pulled in sequence — reads clearly to anyone watching the archive terminal queue. Roaz's staff has a monitoring function for exactly this kind of lateral review. The methodology was visible before the third request was entered. Command leadership assessment without authorization is now attached to the credential file, and Roaz's office is aware a review was attempted.`;
         addJournal('Command assessment detected — unauthorized review noted', 'complication', `ith-roaz-fail-${G.dayCount}`);
       } else {
         G.flags.captain_roaz_assessed = true;
-        G.lastResult = `Roaz's record is clean and consistent. The evidence against his unit's accounts is real. Either he doesn't know or the corruption is operating below his visibility threshold. Assessment inconclusive — direct contact needed.`;
+        G.lastResult = `The public record is clean and internally consistent — no disciplinary gaps, no command decisions that contradict the accountability pattern, no reassignments in either direction that suggest prior knowledge of the accounts. The evidence against the accounts is also real. Both things cannot be true at once unless the corruption is running below the threshold of his operational visibility, which is possible in a system this layered. The assessment cannot resolve it. A direct meeting is the only path left.`;
         addJournal('Roaz assessment — inconclusive, direct contact warranted', 'evidence', `ith-roaz-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -365,7 +365,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(115, 'Ithtananalor Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Ithtananalor investigation is not complete. The ghost account chain needs full documentation before any decisive action.`;
+        G.lastResult = `The evidence map on the table has empty columns where the critical links should be. The ghost account chain requires full documentation across every step — origin authorization, routing, endpoint activity, and the chain of oversight that permitted it — before any formal action will hold. A presentation now gives the apparatus room to discredit each piece individually. The chain needs closing first.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -379,7 +379,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You route the evidence to the Ivena network and the guild enforcement contacts rather than through Roaz command. The disclosure creates pressure outside formal channels before the Shadowhands can prepare a response. Stage III opens with the ghost accounts public knowledge.`;
+        G.lastResult = `The evidence packet moves through Ivena's network and the guild enforcement channels simultaneously — not through Roaz command, not through any route the Shadowhands monitor. By the time the apparatus recognizes that the disclosure is in motion, the information is already across three separate distribution points. The ghost accounts become public knowledge before any containment procedure can be organized. The cost is that the formal chain of authority carries none of it. Stage III opens with the accounts exposed but the institutional apparatus hostile.`;
         addJournal('Ithtananalor S2 finale: independent disclosure path', 'evidence', `ith-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
