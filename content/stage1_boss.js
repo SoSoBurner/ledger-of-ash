@@ -123,7 +123,7 @@ function _stage1MiniBossFight() {
 function triggerStage1MainBoss() {
   if (!G || G.flags.stage1_mainboss_complete) return;
 
-  addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
+  addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She sets her pen parallel to the desk edge before she speaks. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
 
   var setupChoices = [
     {

@@ -55,7 +55,7 @@ function _pell_phase1() {
       tag: 'safe',
       skill: 'lore',
       action: function() {
-        addNarration('', 'The room is a third-floor transit office, clean and unremarkable. Pell is already seated when you arrive. He does not stand. The inquiry form you were sent sits face-down on the desk in front of him — he received his copy before you got yours. He waits for you to sit, then turns it over and reads it, as though he has not already read it twice. "Thank you for coming in a timely manner," he says. "Pursuant to the Division\'s current audit scope, I have a few procedural questions." His hands are folded on the desk. Nothing about him is rushed.');
+        addNarration('', 'The room is a third-floor transit office, clean and unremarkable. Pell is already seated when you arrive. He does not stand. The inquiry form you were sent sits face-down on the desk in front of him — he received his copy before you got yours. He waits for you to sit, then turns it over and reads it, as though he has not already read it twice. "Thank you for coming in a timely manner," he says. "Pursuant to the Division\'s current audit scope, I have a few procedural questions." He lays his pen flat — nib toward him — before he says anything further. Nothing about him is rushed.');
         G.flags.stage2_miniboss_p1_complied = true;
         setTimeout(_pell_phase2, 900);
       }
@@ -71,7 +71,7 @@ function _pell_phase1() {
           addNarration('', 'You arrive with a thinned version of your materials — routes you have already closed, manifests with nothing live in them, notes stripped to the administrative. Pell receives the stack without expression and lays it face-down on his desk before looking at it. He spends four minutes with the documents. Then he squares them and sets them aside. "I appreciate your cooperation. In accordance with standard procedure, I will note that the materials provided were reviewed and found consistent with declared transit activity." He says it the way a person says something they will not believe later.');
           G.flags.stage2_miniboss_p1_deflected = true;
         } else {
-          addNarration('', 'Pell takes the stack and lays it face-down before reading. He works through it slowly. On the third document he pauses — only for a moment, but the pause is deliberate. "This route notation," he says, turning the page over and setting it square on the desk between you. "The date here and the manifest date I have on file are not consistent with each other." He looks at you without urgency. He had this discrepancy before you walked in.');
+          addNarration('', 'Pell takes the stack and lays it face-down before reading. He works through it slowly. On the third document he pauses — only for a moment, but the pause is deliberate. He lays his pen flat, nib toward him. "This route notation," he says, turning the page over and setting it square on the desk between you. "The date here and the manifest date I have on file are not consistent with each other." He looks at you without urgency. He had this discrepancy before you walked in.');
           G.worldClocks = G.worldClocks || {};
           G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
           G.flags.stage2_miniboss_p1_caught = true;
@@ -147,7 +147,7 @@ function _pell_resolve_expose() {
   var roll = rollD20('lore');
   var dc = 15;
   if (roll.total >= dc) {
-    addNarration('A Procedural Irregularity', 'You lay it out for him without raising your voice, which is the only register he respects. His assignment was filed three days before the formal complaint that would have justified it. You name the date discrepancy. You name the division log that would show it. His hands stop moving on the folder. For the first time in the meeting he looks at the desk surface rather than at you — not the inquiry form, just the wood. He says nothing for a long moment. Then: "Pursuant to the division\'s review calendar, this inquiry will be closed as inconclusive." He means it. He stands, which is your signal to leave. He does not offer his hand.');
+    addNarration('A Procedural Irregularity', 'You lay it out for him without raising your voice, which is the only register he respects. His assignment was filed three days before the formal complaint that would have justified it. You name the date discrepancy. You name the division log that would show it. His hands stop moving on the folder. For the first time in the meeting he looks at the desk surface rather than at you — not the inquiry form, just the wood. He says nothing for a long moment. He lays his pen flat — nib toward him — before he speaks. Then: "Pursuant to the division\'s review calendar, this inquiry will be closed as inconclusive." He means it. He stands, which is your signal to leave. He does not offer his hand.');
     addJournal('Pell\'s assignment predated the formal complaint by three days — confirmed and named to his face. He closed the inquiry on the spot. His exposure as an irregular appointment means he cannot escalate without surfacing his own irregularity.', 'evidence');
     G.flags.stage2_miniboss_resolution = 'expose';
     G.worldClocks = G.worldClocks || {};
@@ -167,11 +167,11 @@ function _pell_resolve_negotiate() {
   var roll = rollD20('persuasion');
   var dc = 14;
   if (roll.total >= dc) {
-    addNarration('A Filed Understanding', 'You give him the shape of a deal without calling it one. You will not enter the Division\'s restricted records sections. You will not file anything that names the Division as a party to the pattern you have been tracing. In return he will close the inquiry as inconclusive and remove the watchfulness notation from your transit file. He listens to all of it. He lays his pen down parallel to the desk edge before he answers. "Pursuant to the terms you have outlined, I can confirm the inquiry will be filed as resolved." He will hold to it. He is a proceduralist — the agreement is now a procedure, and procedures are what he maintains.');
+    addNarration('A Filed Understanding', 'You give him the shape of a deal without calling it one. You will not enter the Division\'s restricted records sections. You will not file anything that names the Division as a party to the pattern you have been tracing. In return he will close the inquiry as inconclusive and remove the watchfulness notation from your transit file. He listens to all of it. He lays his pen flat before he answers — nib toward him — a small reset before every sentence that matters. "Pursuant to the terms you have outlined, I can confirm the inquiry will be filed as resolved." He will hold to it. He is a proceduralist — the agreement is now a procedure, and procedures are what he maintains.');
     addJournal('Negotiated a quiet closure with Pell: I stay out of Division records sections; he closes the inquiry and clears the notation. He will hold to it — it is filed and procedures are what he maintains.', 'intelligence');
     G.flags.stage2_miniboss_resolution = 'negotiate';
   } else {
-    addNarration('', 'He listens to the offer and says nothing for a beat. Then he opens the inquiry form and makes a notation in the margin — a small one, in his careful hand. "I appreciate the clarity of your position. In accordance with current procedures, the inquiry will remain active for the standard review period." He does not look up from the notation. He was not interested in a deal. He was taking notes on the offer.');
+    addNarration('', 'He listens to the offer and says nothing for a beat. Then he lays his pen flat — nib toward him — and opens the inquiry form and makes a notation in the margin — a small one, in his careful hand. "I appreciate the clarity of your position. In accordance with current procedures, the inquiry will remain active for the standard review period." He does not look up from the notation. He was not interested in a deal. He was taking notes on the offer.');
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
     G.flags.stage2_miniboss_resolution = 'negotiate_failed';
