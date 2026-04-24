@@ -251,6 +251,85 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The shelter hall's evening story circle named an expedition that never returned",
+    tags: ['stage2', 'whitebridge_commune', 'NPC', 'Persuasion', 'Meaningful'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing the missing expedition through story circle');
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_missing_expedition_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The elder keeping the bench passes you a clay cup before she answers — that is the shelter-hall rhythm, a cup for anyone who sits past the opening story. Nine haulers left on a northern run eight weeks ago. Their declared route runs through the grain convoy exemption corridor. No loss claim was filed. No Route Warden report was opened. She taps the log bar under the bench. "If the Compacts had a body, the Compacts would have a form. They have neither." Someone made the declaration disappear from the ledger rather than file the loss.`;
+        addJournal('Nine-hauler expedition vanished — declaration erased rather than logged as loss', 'evidence', `wb-expedition-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The elder does not pass you a cup, which is the shelter-hall signal that the bench is closed. Two haulers at the far end of the hall stand when you press the question a second time. Their movement is not threat — it is the commune's first correction, the one that precedes a formal notice. You withdraw. The story you were asking after stays inside the circle, and your asking of it has been marked on the attention of the hall.`;
+        addJournal('Shelter hall closed the bench — expedition inquiry marked', 'complication', `wb-expedition-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The elder confirms the expedition, the count, the departure date. She will not confirm the declared route. "The shelter hall carries what the Compacts will not. That is the rule." She does not say why the Compacts refused to carry it. Her refusal to say is itself the second answer. Nine haulers do not disappear into a storm without a loss claim unless someone had reason to prefer the erasure.`;
+        addJournal('Missing expedition confirmed — route details withheld by shelter hall', 'evidence', `wb-expedition-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The arbitration docket skipped a seat — an arbiter chair sits empty undeclared",
+    tags: ['stage2', 'whitebridge_commune', 'Lore', 'Meaningful'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'reading the skipped arbiter seat');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_arbiter_seat_skipped = true;
+        G.investigationProgress++;
+        if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The docket is posted every cycle on the crossing station's interior pillar, under a glass panel clouded by ice breath. Five seats, five names — except this cycle, four names and one blank slot with the line "pending reassignment" set in fresh ink. No vacancy notice was posted at the cycle's opening. No arbiter retired. The clerk's marginal notation, visible only when the light from the signal brazier catches the glass at angle, reads: "stepped aside, no record filed." Someone vacated the seat under watchful pressure without the paperwork that the Compacts require.`;
+        addJournal('Arbiter seat vacated off-record — scrutinized transition without formal notice', 'evidence', `wb-arbiter-seat-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The clerk closes the panel cover before you finish reading and slides the ceremonial crossing key into its socket above the frame — the commune's signal that the docket is closed for public view until next cycle. She does not ask what you were reading. She writes a line in her bench book. Your presence at the docket has been noticed and logged.`;
+        addJournal('Docket closed against review — presence logged by clerk', 'complication', `wb-arbiter-seat-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `Four names, one blank. The clerk confirms the seat is pending but gives no reason. The Compacts permit vacancy without notice only under Loss Ledger bereavement clauses — which require a corresponding entry in the Loss Ledger. No such entry exists for this cycle. The blank is a procedural impossibility that has been allowed to stand.`;
+        addJournal('Arbiter seat vacancy without Loss Ledger entry — procedural breach tolerated', 'evidence', `wb-arbiter-seat-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A refugee carries papers stamped at a dome sealed four days ago",
+    tags: ['stage2', 'whitebridge_commune', 'Survival', 'Meaningful'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'reading the anomalous refugee paperwork');
+      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_refugee_anomaly = true;
+        G.investigationProgress++;
+        G.lastResult = `The refugee is a seamstress from the southern dome quarter, wrapped in a wool blanket that carries the shelter hall's grey stripe — she has already been through intake. Her papers are correct in every visible way. The seal's date stamp falls four days after the dome's crossing-window closure was posted on the Warden board. She traces the stamp without being asked. "I did not stop at the gate. I was walked through it." She names the escort in a whisper — an Overseer-Liaison title the published registries do not carry. Refugees are not supposed to know that title exists.`;
+        addJournal('Refugee papers stamped post-closure by unpublished Liaison title — escorted through sealed gate', 'evidence', `wb-refugee-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `A shelter keeper steps between you and the refugee before the second question forms. Commune protocol gives new arrivals a three-day silence window during which external parties may not press for detail. Your approach has been flagged as panic-spreader behavior — the second thing Whitebridge notices an outsider for. The shelter keeper gives you the formal language of correction, quietly, so the refugee does not hear it. The correction is sufficient to close the channel for the day.`;
+        addJournal('Shelter keeper invoked silence window — flagged as panic-spreader', 'complication', `wb-refugee-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `Her papers are visible on the intake bench for a long moment before the keeper folds them away. The date stamp is post-closure, which a seamstress does not carry unless the sealed gate opened for her. She does not meet your eye when she gathers the blanket around her shoulders. She knows what she is carrying. She does not know she knows.`;
+        addJournal('Refugee intake paperwork post-dates dome closure — carrier unaware', 'evidence', `wb-refugee-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Whitebridge Commune finale — the bridge is both a transit point and evidence source. Use Nyra's samples and Aster's log to formally close the crossing or quietly document the next transfer.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
