@@ -35,3 +35,40 @@ The blocked phrases open with a verdict. The game already resolved the dice; the
 **Pass:** "A stevedore at the south wharf said the cargo was moved before the manifest was logged — he saw it himself but didn't ask why."
 
 A rumor without a source is a briefing. Rumors should feel overheard — they need a mouth and a room. Acceptable source markers: a named NPC (two capitalized words), a social role (merchant, factor, clerk, warden, innkeeper, stevedore, scribe, captain, etc.), or a location word (market, hall, inn, gate, dock, harbor, etc.).
+
+## A5 — NPC First-Encounter Flag Timing
+
+**Rule:** `G.flags.met_<name> = true` must be set *before* any `addNarration()` call that names the NPC, not after it.
+
+**Fail:**
+```js
+addNarration('', 'Elior sets the ledger down without looking at you.');
+G.flags.met_elior = true; // too late — flag must precede narration
+```
+
+**Pass:**
+```js
+G.flags.met_elior = true;
+addNarration('', 'Elior sets the ledger down without looking at you.');
+```
+
+If the met flag is set during the outcome block (after narration), any check gating on that flag sees the wrong state on the same turn. Set the flag before narration that assumes familiarity.
+
+## A6 — World Clock Transparency
+
+**Rule:** If `G.worldClocks.<key>++` or `+= N` appears in a choice `fn()`, the result text must contain at least one consequence-signal word: `attention`, `pressure`, `harder`, `watchful`, `noticed`, `tracked`, or `scrutin`. Violation is a **warning**, not a failure.
+
+**Fail (WARN):**
+```js
+G.worldClocks.pressure++;
+addNarration('Gate', 'The gate clerk marks your name in the log.');
+// silent — player cannot know why future DCs will be harder
+```
+
+**Pass:**
+```js
+G.worldClocks.pressure++;
+addNarration('Gate', 'The gate clerk marks your name in the log. The next time through this checkpoint will be harder — he has your face now.');
+```
+
+If the clock ticks, the player must feel it. Silent increments are invisible tax.

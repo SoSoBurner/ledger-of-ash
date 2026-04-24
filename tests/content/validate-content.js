@@ -102,6 +102,9 @@ function validateChoice(file, choice) {
     // A5: NPC flag timing
     const a5 = checkNpcFlagTiming(choice.fn.toString());
     for (const r5 of a5) fail(file, label, r5.msg);
+    // A6: world clock transparency
+    const r6 = checkWorldClockTransparency(choice.fn.toString());
+    if (r6) warn(file, label, r6.msg);
   }
 
   checked++;
@@ -305,6 +308,22 @@ function checkNpcFlagTiming(fnSrc) {
   return violations;
 }
 
+// ─── A6 — World Clock Transparency ───────────────────────────────────────────
+
+const CONSEQUENCE_WORDS = ['attention', 'pressure', 'harder', 'watchful', 'noticed', 'tracked', 'scrutin'];
+
+function checkWorldClockTransparency(fnSrc) {
+  const src = fnSrc.replace(/\/\/[^\n]*/g, '');
+  if (!/G\.worldClocks\.\w+\s*(?:\+\+|\+=)/.test(src)) return null;
+  // Check signal words only in narration result strings, not in code (avoids false pass on clock key names like "pressure")
+  const resultTexts = extractResultStrings(src);
+  const combinedText = resultTexts.join(' ').toLowerCase();
+  for (const word of CONSEQUENCE_WORDS) {
+    if (combinedText.includes(word)) return null;
+  }
+  return { level: 'warn', msg: 'worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)' };
+}
+
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency };

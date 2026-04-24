@@ -1,5 +1,5 @@
 'use strict';
-const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource, checkNpcFlagTiming } = require('./validate-content');
+const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency } = require('./validate-content');
 
 describe('extractResultStrings', () => {
   test('extracts single-quote result from addNarration call', () => {
@@ -145,5 +145,38 @@ describe('checkNpcFlagTiming (A5)', () => {
       G.flags.met_elior = true;
     }`;
     expect(checkNpcFlagTiming(src)).toHaveLength(0);
+  });
+});
+
+describe('checkWorldClockTransparency (A6)', () => {
+  test('WARN: worldClock incremented with ++ and no signal word', () => {
+    const src = `function fn() {
+      G.worldClocks.pressure++;
+      addNarration('Gate', 'The gate clerk marks your name in the log.');
+    }`;
+    expect(checkWorldClockTransparency(src)).toMatchObject({ level: 'warn' });
+  });
+
+  test('WARN: worldClock incremented with += and no signal word', () => {
+    const src = `function fn() { G.worldClocks.watchfulness += 2; addNarration('', 'You leave quickly.'); }`;
+    expect(checkWorldClockTransparency(src)).toMatchObject({ level: 'warn' });
+  });
+
+  test('PASS: worldClock incremented and "harder" present', () => {
+    const src = `function fn() {
+      G.worldClocks.pressure++;
+      addNarration('Gate', 'The next time through this checkpoint will be harder — he has your face now.');
+    }`;
+    expect(checkWorldClockTransparency(src)).toBeNull();
+  });
+
+  test('PASS: worldClock incremented and "noticed" present', () => {
+    const src = `function fn() { G.worldClocks.watchfulness++; addNarration('', 'You were noticed leaving.'); }`;
+    expect(checkWorldClockTransparency(src)).toBeNull();
+  });
+
+  test('PASS: no worldClock increment at all', () => {
+    const src = `function fn() { addNarration('', 'The clerk nods and steps aside.'); }`;
+    expect(checkWorldClockTransparency(src)).toBeNull();
   });
 });
