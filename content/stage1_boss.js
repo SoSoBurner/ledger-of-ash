@@ -157,7 +157,7 @@ function triggerStage1MainBoss() {
 }
 
 function _stage1MainBossPhase2() {
-  addNarration('', 'She sets the pen down parallel to the desk edge. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a notation in red ink beside the entry for the Iron Ledger Ward: Tier 1 review pending. "This escalates today," she says. "Unless you give me a reason to hold the flag."');
+  addNarration('', 'She sets the pen down parallel to the desk edge — a reset she does before every sentence that carries weight. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you without looking at your reaction. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a notation in red ink beside the entry for the Iron Ledger Ward: Tier 1 review pending. "This escalates today," she says. "Unless you give me a reason to hold the flag." The lamp angle has not changed. She does not need you to be guilty — she needs the file to close.');
   setTimeout(function() { _stage1MainBossCombat(false); }, 1000);
 }
 
@@ -193,7 +193,7 @@ function _stage1MainBossCombat(aggressive) {
 }
 
 function _stage1MainBossResolution() {
-  addNarration('After the Hall', 'The lamp is still burning. The intake desk is undisturbed except for the file, which is still open to your name. Three other files are visible beneath it in the pulled stack — different names, same red notation. Tier 1 review pending, in the same hand, dated weeks apart. The detainment notice on the floor has no signature. The ward lock will hold for another few minutes before the automatic release cycles. The room smells of hot lamp oil and wax.');
+  addNarration('After the Hall', 'The lamp is still burning — still angled at the chair across from the desk, not at the work surface. She positioned it for an interview that is now over. The intake desk is undisturbed except for the file, which is still open to your name. Three other files are visible beneath it in the pulled stack — different names, same red notation. Tier 1 review pending, in the same hand, dated weeks apart. The detainment notice on the floor has no signature. She never intended to sign it. The ward lock will hold for another few minutes before the automatic release cycles. The room smells of hot lamp oil and wax.');
 
   var resChoices = [
     {
