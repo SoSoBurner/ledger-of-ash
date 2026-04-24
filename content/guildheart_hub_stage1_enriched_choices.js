@@ -923,7 +923,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       addJournal('warning', 'Rival-adjacent operative confirmed actively surveilling your Guildheart investigation', `guildheart-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
-  }
+  },
   // 29. SUPPRESSION SIGNAL: OVERHEARD FRAGMENT
   {
     label: "Two clerks in the registry corridor stopped the moment they saw me",
