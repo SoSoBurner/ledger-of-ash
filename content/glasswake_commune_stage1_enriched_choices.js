@@ -278,7 +278,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.glasswake_data_secured = true;
         addJournal('consequence', 'Shard amplification data secured via mineral trader — offsite copy en route to Shelkopolis', `glasswake-data-secure-${G.dayCount}`);
       } else {
-        G.lastResult = `Every trader who regularly leaves Glasswake has been informally vetted by the administrative committee. Finding a channel that isn't monitored requires either someone new to the route or someone who doesn't know they're being watched.`;
+        G.lastResult = `Every trader who moves goods out of Glasswake has been informally assessed by the administrative committee — most of them don't know it happened. The canal gate logs, the sluice authority's cargo records, the timing notes kept by the water allocation clerk: together they form a complete picture of who leaves and when. Finding a channel that isn't covered requires someone new to the route entirely, or someone who carries things without knowing what they carry.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -485,7 +485,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'magic') {
         G.lastResult = `"They understood the amplification mechanism immediately," Toman says. "Before I'd fully explained it. They completed my sentences. That's not someone who came to learn — that's someone who came to verify what they already know." Someone already has the data independently. They came to confirm Toman's version matches theirs — or differs from it.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"They left nothing," Toman says. "No name, no affiliation, no contact information. I have nothing to trace them with. The visit happened and left no record I could give anyone." A deliberate clean exit. This person operates without leaving investigable presence.`;
+        G.lastResult = `"They left nothing," Toman says. "No name, no institutional mark, no record of arrival I could point to. I couldn't tell you what they looked like well enough to describe them to someone else." He turns a stylus in his fingers, staring at the desk. "They came in, they listened, they left. The algae-smell from the sluice tanks was stronger that morning — I remember that more clearly than I remember them." Whoever visited understood how to move through a place without accumulating a presence. The absence of trace is itself the trace.`;
       } else {
         G.lastResult = `"They offered institutional backing," Toman says. "A research fellowship, publication support, legal protection. Everything I've needed for fourteen months. I almost took it." He pauses. "The terms required transferring data ownership to an unnamed oversight body before the fellowship would be finalized. I read the fine print." Someone tried to acquire the suppressed data through a fabricated rescue operation.`;
       }

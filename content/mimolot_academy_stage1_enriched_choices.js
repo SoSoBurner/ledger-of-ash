@@ -33,7 +33,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Archive staff now aware of your inquiry', 'complication', `mimolot-librarian-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Theron acknowledges the access changes. Administrative efficiency, he says — some reorganization of priority materials. He describes the mechanism without describing its purpose. Two of his answers don't align with each other. He notices you noticing, and moves to close the conversation.`;
+        G.lastResult = `Theron acknowledges the access changes with a measured nod. Administrative efficiency, he says — some reorganization of how priority materials are catalogued. The archive hush settles around the words as he speaks them. He describes the mechanism in detail and the purpose not at all. Two of his answers sit at different distances from the same fact, and the gap between them is where the real answer lives. He notices the pause that follows, and begins straightening papers on his desk with the deliberate attention of someone ending an interview.`;
         addJournal('Librarian confirmed research access changes but details incomplete', 'evidence', `mimolot-librarian-modified-${G.dayCount}`);
       } else {
         G.lastResult = `Theron gives back the standard account: research priorities are managed centrally, access is tiered by standing, everything is as it should be. He answers every question asked and none of the answers contain anything. The chalk dust on his sleeve catches the lamp light as he adjusts the ledger. He's given this account before, to other visitors, and he'll give it again. He's practiced every word of it.`;

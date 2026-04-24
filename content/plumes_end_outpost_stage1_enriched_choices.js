@@ -222,7 +222,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.analyzed_gradient_chemistry = true;
         addJournal('Atmospheric gradient chemistry: trace levels of same compound class as Craftspire extraction and Glasswake shard data — Plumes End in far fallout zone, Aurora Crown at source', 'discovery', `plumes-chemistry-${G.dayCount}`);
       } else {
-        G.lastResult = `The outpost's equipment is designed for patrol monitoring, not precise chemical analysis. You can confirm chemical presence but not compound class identification.`;
+        G.lastResult = `The outpost's field equipment is calibrated for patrol conditions — wide-area presence detection, not compound-class isolation. The sample registers something: a reading above baseline, a minor variance in the ambient trace signature. But the instruments can't narrow it further than that. Whether this matches the class Jorin described at Craftspire, the data won't say. Presence confirmed. Identity of what's present: unresolved. The frontier station was never equipped to answer the harder question.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -283,7 +283,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.letha_reports_secured = true;
         addJournal('consequence', 'Letha\'s 6-month pressure reports secured via patrol dispatch channel — gap in suppression order exploited', `plumes-reports-secure-${G.dayCount}`);
       } else {
-        G.lastResult = `The suppression order, while it came through the official reporting channel, has been interpreted broadly by Plumes End's communications handler — all outgoing reports are being held for review. Finding an exempt channel requires identifying which categories weren't explicitly covered by the suppression order.`;
+        G.lastResult = `The suppression order arrived through the standard reporting channel and the outpost's communications handler took it as covering everything that goes out. Every category of outgoing report is now staged for review before transmission. The language of the order is broad enough that challenging its scope would require someone willing to put their name to the challenge — and Letha's people can't afford that visibility. Finding an exempt path means identifying which categories the order didn't name, and whether any of them fit what Letha documented.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -328,7 +328,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_edne_farmer = true;
         addJournal('contact', 'Farmer Edne: abandoned 3-generation holding due to headaches, animal behavioral changes, sleep disruption, water taste — symptom profile matches low-level compound exposure', `plumes-edne-${G.dayCount}`);
       } else {
-        G.lastResult = `The displaced farmers from the northeast have largely dispersed to different settlements. Finding them requires the kind of local knowledge only Letha's outpost network has.`;
+        G.lastResult = `The frontier supply traders know there were farmers moving south from the northeast holdings last season — they carried some of them on cart beds — but where those people settled afterward, none of the traders tracked. Displaced families don't announce a destination. They move until they find a place willing to take them, then go quiet. Finding specific individuals among that scatter requires someone with outpost-level network reach across all the way stations between here and the interior.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }

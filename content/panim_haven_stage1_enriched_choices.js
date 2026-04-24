@@ -70,7 +70,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Partial access: Thenim supervises and selects which volumes you can handle. Pages have been removed and replaced — the binding thread is new at the spine on several sections, the fiber texture different from surrounding pages. Recent entries carry a handwriting pattern that diverges from the historical hand in the same volume. Someone with regular archive access has been editing the record from inside.`;
         addJournal('Ledger records show evidence of careful alteration', 'evidence', `panim_haven-ledger-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Thenim recites the authorization requirement without inflection. Written permission, ritual authority signature, forty-eight hour processing window. He's said this before. The cabinet stays locked. Nothing about his posture suggests it could go any other way.`;
+        G.lastResult = `Thenim recites the authorization requirement without inflection — written permission, ritual authority signature, forty-eight hour processing window. The salt-air coming through the high louvers shifts the candle flame on his desk; he doesn't glance at it. He's given this answer so many times that nothing about it costs him anything. The cabinet stays locked. The rope-and-peg latch hasn't moved since you sat down, and it won't. Nothing about his posture suggests the conversation is still open.`;
         addJournal('Ledger records blocked without formal authorization', 'evidence', `panim_haven-ledger-blocked-${G.dayCount}`);
       }
 
