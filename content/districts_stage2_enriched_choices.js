@@ -55,6 +55,30 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+  {
+    label: "The registrar's counter-mark is on a low ward eviction — wrong jurisdiction, same hand.",
+    tags: ['Investigation', 'Lore', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'tracing Aurora Heights registrar signature into low ward filings');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.lastResult = `The registrar's counter-mark is a small down-stroke she adds only when she signs from her own bench — a personal flourish the clerks in Aurora Heights know by sight. It sits on the bottom corner of a housing review filed six weeks ago against a low ward tenant who had filed a noise complaint about the dome terminal deliveries. The review shifted the tenant out of the building. The registrar has no administrative reach into the low ward. Somebody walked the document across jurisdictions and she signed it without logging the transit.`;
+        addJournal('Aurora Heights registrar counter-signed low ward housing review targeting a dome terminal complainant — no jurisdictional transit log', 'evidence', `ah-crossjuris-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The registrar's clerk catches the angle of your question and closes the filing book. A note goes up the chain before you reach the street.`;
+        addJournal('Aurora Heights registrar inquiry flagged — note routed upward', 'complication', `ah-crossjuris-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The filing carries the registrar's mark on a document that should never have reached her desk. The clerk who stamped it in cannot recall who delivered it. The transit log for that afternoon is missing its first two pages.`;
+        addJournal('Aurora Heights: low ward filing bears registrar signature, transit log pages missing', 'evidence', `ah-crossjuris-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
   }
 ];
 
@@ -217,6 +241,30 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
         G.flags.verdant_row_contact = true;
         G.lastResult = `The contact acknowledges your investigation and provides a contact signal for future communication. The network relationship is established at a basic level.`;
         addJournal('Verdant Row contact established — basic network access', 'evidence', `vr-contact-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+  {
+    label: "A Reckoning Quarter magistrate has been taking depositions inside the healer's collective without local notice.",
+    tags: ['Investigation', 'Persuasion', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracking Reckoning Quarter magistrate into Verdant Row');
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.lastResult = `The senior healer confirms the magistrate has come three times in the past month — always mid-afternoon, always with the same adjudicator's clerk, always to take depositions from patients being treated for compound exposure. The depositions are filed in Reckoning Quarter records, not Verdant Row's civic hall. The magistrate brings his own seal block and carries it out in a cloth bag afterward. The healer kept a list of which patients were called. She gives it to you.`;
+        addJournal('Verdant Row: Reckoning Quarter magistrate taking depositions from exposure patients — off-district filing, patient list secured', 'evidence', `vr-magistrate-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The healer has been warned about outside questions and reads yours as a test. The conversation ends with a polite dismissal and a second warning logged.`;
+        addJournal('Verdant Row healer: magistrate inquiry refused, second warning logged against the collective', 'complication', `vr-magistrate-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The healer confirms the magistrate's visits but cannot share patient names. She does confirm the depositions were filed outside the district, which breaks the local notice ordinance on its face.`;
+        addJournal('Verdant Row: off-district deposition filings confirmed — local notice ordinance breached', 'evidence', `vr-magistrate-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -383,6 +431,30 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_evidence_shared = true;
         G.lastResult = `The documentation reaches its targets through the back-channel. Confirmation comes back that the findings align with each researcher's independent work.`;
         addJournal('Scriptorium back-channel: findings distributed, researcher alignment confirmed', 'evidence', `ss-channel-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+  {
+    label: "Scriptorium correspondence to Glasswake scholars is being routed through the Iron Ledger Ward franking office.",
+    tags: ['Investigation', 'Lore', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'examining misrouted Scriptorium correspondence through Iron Ledger franking');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.lastResult = `The franking clerk logs every outgoing bundle by originating district. Scholarly correspondence from Scriptorium Steps should go through the Academy's own mail office. Seven bundles this quarter routed through Iron Ledger instead, each stamped with a financial-class franking seal that triples the permissible inspection window. Under financial franking, the letters can be opened for a solvency audit. Under academic franking they cannot. The misrouting wasn't administrative — it rewrote the legal status of the mail in transit.`;
+        addJournal('Iron Ledger franking: 7 Scriptorium bundles rerouted under financial-class seal — inspection window widened, legal status rewritten', 'evidence', `ss-franking-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The franking clerk files a query upward about your interest before you've finished the question. The office closes its window on you.`;
+        addJournal('Iron Ledger franking office query escalated upward', 'complication', `ss-franking-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The franking log confirms academic correspondence passing through the financial office. The reason given in the log column is "transit optimization," a category the clerk says she has never used before this quarter.`;
+        addJournal('Iron Ledger franking: academic mail logged as transit optimization — novel category this quarter', 'evidence', `ss-franking-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
