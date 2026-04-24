@@ -786,10 +786,10 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.flags.met_warden_order_contact = true;
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `The Warden Order officer plants himself in your path on Verdant Row and states his business without preamble. Same evidence trail, same chapel correspondence pattern. He doesn't offer cooperation — he announces overlap. "We're working the same ground." His posture says he's already decided how much to share and it isn't much. He logs your existence and moves on. The coal-smoke smell of the street stays behind him.`;
+        G.lastResult = `The Warden Order officer steps into your path on Verdant Row and thumbs open the clasp of his case-book without looking down — the same half-second motion each time a name goes into it. "We're working the same ground." Same evidence trail, same chapel correspondence pattern. He doesn't offer cooperation; he announces overlap. The book closes with his thumb still on the clasp. Your name is in it now. The coal-smoke smell of the street stays behind him.`;
         G.factionHostility.warden_order = Math.max(0, G.factionHostility.warden_order - 1);
       } else {
-        G.lastResult = `A Warden Order officer stops beside you at the chapel steps and speaks without turning to face you. "The same anomalies. We noticed." She walks on before you can answer. The Principalities' enforcement arm has been here longer than you have, and they chose to let you know it.`;
+        G.lastResult = `A Warden Order officer stops beside you at the chapel steps and speaks without turning — her left hand keeps a folded slip of paper pinched between two knuckles, a margin note she wrote before she saw you. "The same anomalies. We noticed." The slip goes back into her cuff as she walks on. The Principalities' enforcement arm has been here longer than you have, and they chose to let you know it.`;
       }
       addJournal('faction', 'Warden Order acknowledged overlap — same evidence trail', `shelk-warden-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -870,10 +870,10 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.flags.met_night_watch_commander = true;
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11 || result.isCrit) {
-        G.lastResult = `The night-watch commander chooses her words the way someone does when they've already decided which ones to leave out. "I file reports. Some come back amended. I stopped asking why." Ironspool district, after midnight: unmarked carts, no manifest, no escort. "Authorized transports," she was told. She sets her cup down. "I stopped following up." She hasn't stopped noticing. That's why she's telling you.`;
+        G.lastResult = `The night-watch commander turns her signet ring halfway around her finger, stone-side-in, before she speaks — a habit from reporting to superiors, reversed now to address you. "I file reports. Some come back amended. I stopped asking why." Ironspool district, after midnight: unmarked carts, no manifest, no escort. "Authorized transports," she was told. She turns the ring back the other way. "I stopped following up." She hasn't stopped noticing. That's why she's telling you.`;
         addJournal('Night-watch confirms unauthorized Ironspool midnight transports', 'evidence', `shelk-nightwatch-${G.dayCount}`);
       } else {
-        G.lastResult = `The night-watch commander says nothing to report and means it as a complete sentence. She holds eye contact just long enough for it to be a message, then looks at the wall behind you.`;
+        G.lastResult = `The night-watch commander's signet ring stays stone-side-out the whole conversation — formal register, the one she uses for amended reports. "Nothing to report." She means it as a complete sentence. She holds eye contact just long enough for it to be a message, then looks at the wall behind you.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

@@ -728,7 +728,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Collegium correspondent Avel Prenn runs a small goods trade from a market stall as cover. She's been gathering information on Fairhaven's institutional changes for five months. "The doctrine revisions are being reported to us as voluntary community spiritual development," she says. "The Collegium hasn't categorized them as a compliance concern yet. I've been waiting for hard evidence of coordination." The formula substitution data would move the Collegium's assessment from "monitoring" to "investigating."`;
+        G.lastResult = `Collegium correspondent Avel Prenn runs a small goods trade as cover — soap, tied twine, dried lemon peel. She talks to you while rewrapping an already-wrapped bar of soap, seam aligned on the underside each time. "The doctrine revisions are being reported to us as voluntary community spiritual development. The Collegium hasn't categorized them as a compliance concern yet." The soap goes into the display stack, seam down. "I've been waiting for hard evidence of coordination." Formula substitution data would move the assessment from monitoring to investigating.`;
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_fairhaven = true;
         G.factionHostility.oversight_collegium += 1;
