@@ -99,6 +99,9 @@ function validateChoice(file, choice) {
       const r4 = checkRumorSource(text);
       if (r4) fail(file, label, r4.msg);
     }
+    // A5: NPC flag timing
+    const a5 = checkNpcFlagTiming(choice.fn.toString());
+    for (const r5 of a5) fail(file, label, r5.msg);
   }
 
   checked++;
@@ -283,6 +286,25 @@ function checkRumorSource(text) {
   return { level: 'fail', msg: 'rumor has no source attribution (no proper noun, social role, or location reference)' };
 }
 
+// ─── A5 — NPC First-Encounter Flag Timing ────────────────────────────────────
+
+function checkNpcFlagTiming(fnSrc) {
+  const src = fnSrc.replace(/\/\/[^\n]*/g, '');
+  const flagRe = /G\.flags\.met_([a-z_]+)\s*=\s*true/g;
+  const violations = [];
+  let m;
+  while ((m = flagRe.exec(src)) !== null) {
+    const fullName = m[1];
+    const firstName = fullName.split('_')[0];
+    const flagPos = m.index;
+    const before = src.slice(0, flagPos);
+    if (/addNarration\s*\(/.test(before) && before.toLowerCase().includes(firstName)) {
+      violations.push({ level: 'fail', msg: `G.flags.met_${fullName} set after addNarration that names "${firstName}" — set the flag before narration` });
+    }
+  }
+  return violations;
+}
+
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming };

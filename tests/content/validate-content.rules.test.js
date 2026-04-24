@@ -1,5 +1,5 @@
 'use strict';
-const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource } = require('./validate-content');
+const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource, checkNpcFlagTiming } = require('./validate-content');
 
 describe('extractResultStrings', () => {
   test('extracts single-quote result from addNarration call', () => {
@@ -112,5 +112,38 @@ describe('checkRumorSource (A4)', () => {
 
   test('FAIL: rumor has no source, role, or location', () => {
     expect(checkRumorSource('Word is the shipment was rerouted.')).toMatchObject({ level: 'fail' });
+  });
+});
+
+describe('checkNpcFlagTiming (A5)', () => {
+  test('FAIL: met flag set after addNarration that names the NPC', () => {
+    const src = `function fn() {
+      addNarration('Meeting', 'Elior sets the ledger down without looking at you.');
+      G.flags.met_elior = true;
+    }`;
+    const results = checkNpcFlagTiming(src);
+    expect(results).toHaveLength(1);
+    expect(results[0]).toMatchObject({ level: 'fail' });
+  });
+
+  test('PASS: met flag set before addNarration', () => {
+    const src = `function fn() {
+      G.flags.met_elior = true;
+      addNarration('Meeting', 'Elior sets the ledger down without looking at you.');
+    }`;
+    expect(checkNpcFlagTiming(src)).toHaveLength(0);
+  });
+
+  test('PASS: no met flags at all', () => {
+    const src = `function fn() { addNarration('Title', 'The clerk looks up briefly.'); }`;
+    expect(checkNpcFlagTiming(src)).toHaveLength(0);
+  });
+
+  test('PASS: met flag with name not present in narration', () => {
+    const src = `function fn() {
+      addNarration('Scene', 'The clerk looks up briefly.');
+      G.flags.met_elior = true;
+    }`;
+    expect(checkNpcFlagTiming(src)).toHaveLength(0);
   });
 });
