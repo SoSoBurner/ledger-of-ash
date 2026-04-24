@@ -17,11 +17,17 @@ const FORBIDDEN_RE = /\b(a|my|their|your|his|her|our)\s+contact\b/i;
 const LABEL_VERB_RE = /^(To |Ask |Check |Go |Find |Look |Talk |Tell |Take |Give |Buy |Sell |Use )/;
 
 let errors = 0;
+let warns = 0;
 let checked = 0;
 
 function fail(file, label, msg) {
   console.error(`  FAIL [${path.basename(file)}] "${label}": ${msg}`);
   errors++;
+}
+
+function warn(file, label, msg) {
+  console.warn(`  WARN [${path.basename(file)}] "${label}": ${msg}`);
+  warns++;
 }
 
 function countWords(str) {
@@ -77,12 +83,13 @@ function validateChoice(file, choice) {
   // forbidden words in label
   checkForbidden(file, label, choice.label);
 
-  // A1: result text ≥ 30 words
+  // A1/A2: result word count
   if (typeof choice.fn === 'function') {
     const results = extractResultStrings(choice.fn.toString());
     for (const text of results) {
       const r = checkResultWordCount(text);
-      if (r) fail(file, label, r.msg);
+      if (r && r.level === 'fail') fail(file, label, r.msg);
+      if (r && r.level === 'warn') warn(file, label, r.msg);
     }
   }
 
@@ -192,6 +199,7 @@ function run() {
   }
 
   console.log(`\nChecked ${checked} choices across ${files.length} files.`);
+  if (warns > 0) console.warn(`${warns} warning(s).`);
   if (errors > 0) {
     console.error(`\n${errors} violation(s) found.`);
     process.exit(1);
@@ -220,6 +228,8 @@ function extractResultStrings(fnSrc) {
 function checkResultWordCount(text) {
   const words = countWords(text);
   if (words < 30) return { level: 'fail', msg: `result text too short: ${words} words (min 30)` };
+  if (words > 120) return { level: 'fail', msg: `result text too long: ${words} words (max 120)` };
+  if (words < 60) return { level: 'warn', msg: `result text short: ${words} words (target 60–90, expand if possible)` };
   return null;
 }
 

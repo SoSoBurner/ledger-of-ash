@@ -18,15 +18,32 @@ describe('extractResultStrings', () => {
   });
 });
 
+describe('checkResultWordCount (A2 — warn/fail range)', () => {
+  test('WARN: result 30-59 words', () => {
+    const text = Array(45).fill('word').join(' ');
+    expect(checkResultWordCount(text)).toMatchObject({ level: 'warn' });
+  });
+
+  test('FAIL: result over 120 words', () => {
+    const text = Array(125).fill('word').join(' ');
+    expect(checkResultWordCount(text)).toMatchObject({ level: 'fail' });
+  });
+
+  test('PASS: result at exactly 60 words', () => {
+    const text = Array(60).fill('word').join(' ');
+    expect(checkResultWordCount(text)).toBeNull();
+  });
+});
+
 describe('checkResultWordCount (A1)', () => {
   test('FAIL: result under 30 words', () => {
     const result = checkResultWordCount('Short result with only a few words here now.');
     expect(result).toMatchObject({ level: 'fail' });
   });
 
-  test('PASS: result at exactly 30 words', () => {
+  test('WARN: result at exactly 30 words (passes A1, triggers A2)', () => {
     const text = Array(30).fill('word').join(' ');
-    expect(checkResultWordCount(text)).toBeNull();
+    expect(checkResultWordCount(text)).toMatchObject({ level: 'warn' });
   });
 
   test('PASS: result in the 60-90 word target range', () => {
