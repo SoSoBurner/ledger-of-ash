@@ -110,16 +110,16 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_elyra_mossbane_sun = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Elyra's ecological records show wildlife migration corridors shifting northwest across all species in the region. The shift began four months ago and aligns precisely with the modification of the Watchers Perch cave. The glyph pressure gradient is physically displacing the natural world around it — and driving creatures toward the northwest, toward the staging location.`;
+        G.lastResult = `Elyra's thumb presses the migration logbook flat while she turns pages. She exhales through her nose — small, controlled — and stops on four months back. Wildlife corridors shifted northwest across every indicator species. The shift began precisely when the Watchers Perch cave modification completed. Her thumb does not lift from the cover. "The pressure gradient is displacing the creatures. Toward the staging location." She has known the alignment longer than she has said it aloud.`;
         addJournal('Wildlife migration shifted northwest — glyph gradient displaces ecosystems toward staging location', 'evidence', `sun-elyra-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `Elyra is protective of her ecological records. She interprets your interest in the wildlife data as potential exploitation of migration patterns. She declines to share the data without a patron-family endorsement.`;
+        G.lastResult = `Elyra's thumb closes over the logbook cover and stays there. She exhales through her nose — small, controlled. "Ecological records are patron-family materials. Endorsement required." The book does not move under her hand. She has taken the exact same breath when other strangers asked the same thing, and she has not yet shown any of them the shifted corridor charts she keeps logged four months back.`;
         addJournal('Patron ecological records — endorsement required for access', 'complication', `sun-elyra-fail-${G.dayCount}`);
       } else {
         G.flags.met_elyra_mossbane_sun = true;
         G.investigationProgress++;
-        G.lastResult = `Elyra confirms abnormal migration patterns. "Every indicator species has shifted northwest in the past four months. Something in the pressure gradient is wrong." She has been filing reports. No response.`;
+        G.lastResult = `Elyra's thumb flattens against the logbook cover while she speaks. She exhales through her nose — small, controlled. "Every indicator species has shifted northwest in the past four months. Something in the pressure gradient is wrong." Her thumb does not lift. She gestures with her other hand at a stack of copied reports on the counter. "I have filed these. No response has come back." The stack is taller than a week's worth.`;
         addJournal('Abnormal northwest migration — pressure gradient anomaly, unreported', 'evidence', `sun-elyra-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -139,15 +139,15 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_jorva_helmrune_sun = true;
         G.investigationProgress++;
-        G.lastResult = `The payment report identifies three convoy handlers who received gold payments from a representative presenting sealed charter documentation. The payments were made immediately after the container modification work was completed. The charter documentation description matches across every thread of the investigation.`;
+        G.lastResult = `Jorva squares the payment report against her desk edge before she opens it — corner to corner, a motion that does not read as deliberate unless you are watching for it. Three convoy handlers received gold payments from a representative carrying sealed charter documentation. The payments cleared immediately after the container modification work completed. "The charter description matches every other thread in this file," she says. She does not say how many other threads she has already squared against the same desk edge.`;
         addJournal('Convoy handler payments from charter-documented party — post-modification completion timing', 'evidence', `sun-jorva-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The responsibility report is under communal council review and cannot be accessed by external parties before the review is completed.`;
+        G.lastResult = `Jorva squares the closed responsibility file against her desk edge — corner to corner, without looking. "Communal council review. External access follows conclusion." The file stays squared under her palm. She does not indicate the reviewing councilor by name, and her thumb does not leave the corner she has set it on. The file has been lined up on that edge for more days than the dust on her desk suggests it should.`;
         addJournal('Communal responsibility report under council review — external access blocked', 'complication', `sun-jorva-fail-${G.dayCount}`);
       } else {
         G.flags.met_jorva_helmrune_sun = true;
         G.investigationProgress++;
-        G.lastResult = `Jorva confirms external payments to convoy handlers. The documentation used by the payer was described as "sealed official charter." The handlers have not been forthcoming about what the work entailed.`;
+        G.lastResult = `Jorva squares the handler statements against her desk edge before she reads them out — corner to corner, a gesture she does not announce. External payments to three convoy handlers are confirmed. The documentation used by the payer was described as "sealed official charter." The handlers have not been forthcoming about what the work entailed. Her thumb rests on the corner of the squared stack while she waits for the next question.`;
         addJournal('External charter payments to convoy handlers — work nature undisclosed', 'evidence', `sun-jorva-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

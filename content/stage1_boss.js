@@ -157,7 +157,7 @@ function triggerStage1MainBoss() {
 }
 
 function _stage1MainBossPhase2() {
-  addNarration('', 'She sets the pen down parallel to the desk edge — a reset she does before every sentence that carries weight. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you without looking at your reaction. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a notation in red ink beside the entry for the Iron Ledger Ward: Tier 1 review pending. "This escalates today," she says. "Unless you give me a reason to hold the flag." The lamp angle has not changed. She does not need you to be guilty — she needs the file to close.');
+  addNarration('', 'She sets the pen down parallel to the desk edge — a reset she does before every sentence that carries weight. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you without looking at your reaction. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a red notation beside the Iron Ledger Ward entry: Tier 1 review pending. "This escalates today. Unless you give me a reason to hold the flag." Her index finger has come to rest on the red notation — not pointing at it, covering it, as if she does not want to read the word again. The lamp angle has not changed. She does not need you to be guilty — she needs the file to close.');
   setTimeout(function() { _stage1MainBossCombat(false); }, 1000);
 }
 

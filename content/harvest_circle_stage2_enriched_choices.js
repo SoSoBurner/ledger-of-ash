@@ -80,15 +80,15 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_jorva_helmrune = true;
         G.investigationProgress++;
-        G.lastResult = `Jorva's grievance file includes a witness statement from a commune elder who saw the shipment loaded. The elder describes containers with the same sealed charter mark Sable Ledgermere identified in Guildheart Hub. The commune elder is willing to provide a formal statement. The grievance has standing.`;
+        G.lastResult = `Jorva squares the grievance file against the desk edge before she opens it — corner to corner, the motion practiced enough that it looks accidental. Inside: a witness statement from a commune elder who saw the shipment loaded. Containers with the same sealed charter mark Sable Ledgermere identified in Guildheart Hub. The elder will sign a formal statement. "The grievance has standing," Jorva says. She does not say how long the file has been squared on her desk, waiting.`;
         addJournal('Harvest Circle elder witnessed sealed charter containers — willing to provide formal statement', 'evidence', `har-jorva-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The grievance process requires a communal council review period before external parties can access the file. Jorva cannot accelerate the timeline without violating communal governance protocols.`;
+        G.lastResult = `Jorva squares the closed grievance file against her desk edge — corner to corner, a motion she makes without looking. "Communal council review period. Thirty days minimum." Her hand stays on the file cover. "External parties access after review concludes." The file is within reach. She does not slide it toward you. She does not say which councilor holds the signing stamp, and her thumb does not leave the corner she has pressed into place.`;
         addJournal('Commune grievance review period — external access blocked pending council', 'complication', `har-jorva-fail-${G.dayCount}`);
       } else {
         G.flags.met_jorva_helmrune = true;
         G.investigationProgress++;
-        G.lastResult = `Jorva provides the grievance summary. The commune elder saw containers that were not agricultural materials. The violation of the restricted storage area is documented. The grievance is active but unresolved.`;
+        G.lastResult = `Jorva squares the summary page against the desk edge before she slides it across — a small, corner-first gesture that lines the paper up exactly. The commune elder saw containers that were not agricultural materials. The restricted-storage violation is documented. "Active. Unresolved." She taps the corner once before her hand withdraws, and the file stays squared in front of you, waiting to be read.`;
         addJournal('Commune grievance documents restricted storage violation by non-agricultural cargo', 'evidence', `har-jorva-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -110,16 +110,16 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_elyra_mossbane = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Elyra identifies the ghost supplier. A "Northern Provision Compact" appears on manifests as a supplier but has no registered trade agreement with Harvest Circle, no representative she has ever met, and no fixed address in any supplier registry. The name has been used on manifests for eight months. It is a fabricated entity.`;
+        G.lastResult = `Elyra's thumb presses the supplier ledger flat against the counting table while she reads. She exhales through her nose — a small, controlled sound — and names the entry. "Northern Provision Compact." No registered trade agreement with Harvest Circle, no representative she has ever met, no fixed address in any supplier registry. Eight months of manifest entries. A fabricated entity. Her thumb does not lift from the cover while she says it.`;
         addJournal('Northern Provision Compact is fabricated supplier entity — 8 months of manifest use', 'evidence', `har-elyra-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Elyra's supplier relationships are protected commercial information. Your request to identify specific suppliers triggers a patron-family confidentiality protocol she cannot waive.`;
+        G.lastResult = `Elyra's thumb flattens against the supplier ledger cover. She exhales through her nose — small, controlled — and does not lift her hand. "Patron-family confidentiality. I cannot waive it." The ledger stays closed under her palm. Her expression does not shift. The next customer in line has already stepped to the counter beside you, and Elyra's other hand is reaching for their tally sheet before yours has finished.`;
         addJournal('Patron-family supplier confidentiality — identification request refused', 'complication', `har-elyra-fail-${G.dayCount}`);
       } else {
         G.flags.met_elyra_mossbane = true;
         G.investigationProgress++;
-        G.lastResult = `Elyra cannot locate a Northern Provision Compact in any trade registry she uses. "I've dealt with every northern supplier for twelve years. This name appeared on manifests I was copied on eight months ago. I don't know who it is."`;
+        G.lastResult = `Elyra's thumb presses the supplier registry cover flat while she turns pages with her other hand. She exhales through her nose — small, controlled. "I've dealt with every northern supplier for twelve years. This name appeared on manifests I was copied on eight months ago. I don't know who it is." Her thumb does not lift. She has already looked for it before, and found the same absence.`;
         addJournal('Northern Provision Compact unregistered — Elyra has no record', 'evidence', `har-elyra-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
