@@ -29,11 +29,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Grain Measurer revealed corrupted quota system', 'evidence', `harvest-quotas-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Svala steps back from the conversation. "Quota procedures are internal business." The words come out rehearsed. Within the hour, a harvest authority representative has stopped by the weighing station for a conversation that wasn't scheduled. They glance your direction once.`;
+        G.lastResult = `Svala steps back from the scale and squares her shoulders. "Quota procedures are internal business." The words come out rehearsed — the same cadence a second time wouldn't surprise. Within the hour, a harvest authority representative arrives at the weighing station for a conversation that wasn't on anyone's schedule. They set one hand on the scale beam and glance your direction once, briefly, as though confirming a description.`;
         G.worldClocks.pressure++;
         addJournal('Grain Measurer now protective of quota procedures', 'complication', `harvest-quotas-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Svala says measurement has been complicated lately. "Family expectations vary." They leave it there. The answer sits between them and the scale — close enough to the truth to confirm the question, too guarded to confirm anything else.`;
+        G.lastResult = `Svala says measurement has been complicated lately. "Family expectations vary." They leave it there and return attention to the scale mechanism, making a small adjustment that didn't need making. The answer sits between them and the scale — close enough to the truth to confirm the question, too guarded to name anything specific. Their hands stay busy. Whatever they know, they've decided this morning isn't when they say it.`;
         addJournal('Grain Measurer confirmed inconsistent quota measurements', 'evidence', `harvest-quotas-pressure-${G.dayCount}`);
       }
 
@@ -66,10 +66,10 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Market Broker spreading suspicion about price investigation', 'complication', `harvest-prices-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Varik calls it a complicated season. "Pricing reflects a lot of variables." He doesn't enumerate the variables. The price sheets stay in the drawer. His answers are technically responsive and practically empty.`;
+        G.lastResult = `Varik calls it a complicated season. "Pricing reflects a lot of variables." He doesn't enumerate the variables. The price sheets stay in the drawer — he pats its edge once, a habit, then catches himself doing it. His answers are technically responsive and practically empty, built to close the subject without appearing to. The pen goes back in his hand. The conversation is over by his reckoning.`;
         addJournal('Market Broker confirmed non-standard pricing practices', 'evidence', `harvest-prices-evasive-${G.dayCount}`);
       } else {
-        G.lastResult = `Varik shakes his head before you finish the question. "Market rates are internal to the Harvest Circle brokerage. Not for external discussion." He turns back to his ledger. The conversation is over by his accounting, not yours.`;
+        G.lastResult = `Varik shakes his head before you finish the question. "Market rates are internal to the Harvest Circle brokerage. Not for external discussion." He turns back to his ledger, and the pen moves before you've stepped away from the counter — not writing anything that matters, but demonstrating that the transaction of this conversation is complete. The conversation ends by his accounting. The ledger occupies his hands for longer than the entry requires.`;
         addJournal('Pricing records blocked without broker authorization', 'evidence', `harvest-prices-blocked-${G.dayCount}`);
       }
 
@@ -98,11 +98,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Land Protector revealed corrupted land stewardship system', 'evidence', `harvest-land-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Elyra's expression closes off completely. "Stewardship decisions are not explained to outsiders. This is sacred land work." They walk away across the field without looking back. Three other protectors in earshot have noted the exchange.`;
+        G.lastResult = `Elyra's expression closes off completely. "Stewardship decisions are not explained to outsiders. This is sacred land work." The words land with the weight of a door being drawn shut. They walk away across the field at an unhurried pace, boots moving through cut chaff without a backward glance. Three other protectors within earshot have noted the exchange — the stillness in their shoulders says so. None of them resume moving until you do.`;
         G.worldClocks.isolation++;
         addJournal('Land Protector forbade further stewardship questions', 'complication', `harvest-land-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Elyra says coverage has been uneven this season. "Resources are allocated based on current priorities." The phrase comes out like something written for her to say. She keeps walking as she talks and doesn't slow down to elaborate.`;
+        G.lastResult = `Elyra says coverage has been uneven this season. "Resources are allocated based on current priorities." The phrase comes out like something written for her to say — the cadence slightly too even, the pause before "priorities" slightly too considered. She keeps walking as she talks, maintenance log under her arm, and doesn't slow down to elaborate. The field ahead of her holds her attention more securely than the question.`;
         addJournal('Land Protector confirmed uneven protection allocation', 'evidence', `harvest-land-biased-${G.dayCount}`);
       } else {
         G.lastResult = `Elyra answers in environmental terms — soil conditions, weather variance, seasonal barrier load. The words are accurate and the sentences are complete. Nothing in them touches what was asked. She keeps walking at the same pace throughout. The conversation moves around the subject with a deliberateness that reads less like deflection and more like practice.`;
@@ -138,10 +138,10 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Storage authorities warned about grain inventory investigation', 'complication', `harvest-storage-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The keeper allows that allocation has been complicated this cycle. "Inventory prioritization shifts with need." They don't specify whose need. The ledger stays closed. The answer is accurate enough to be technically true and empty enough to say nothing.`;
+        G.lastResult = `The keeper allows that allocation has been complicated this cycle. "Inventory prioritization shifts with need." They don't specify whose need or by whose determination. The ledger stays closed under both hands, spine toward you. The answer is accurate enough to be technically true and empty enough to say nothing useful — the grain store's smell of dried husks and timber fills the silence where elaboration would have gone.`;
         addJournal('Storage Keeper confirmed non-standard inventory practices', 'evidence', `harvest-storage-evasive-${G.dayCount}`);
       } else {
-        G.lastResult = `The keeper meets every question with credentials. "Storage management is keeper authority only." The door to the records room stays shut. Access requires authorization that doesn't come from asking.`;
+        G.lastResult = `The keeper meets every question with credentials. "Storage management is keeper authority only." The door to the records room stays shut — thick planks, iron latch, no window. The keeper doesn't lean against it or block it with their body; they simply hold position between you and it the way an object fills a space. Access requires authorization that doesn't come from asking, and asking is all that's available to you here.`;
         addJournal('Grain records blocked without storage authorization', 'evidence', `harvest-storage-blocked-${G.dayCount}`);
       }
 
@@ -170,11 +170,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Festival Coordinator revealed corrupted festival distribution system', 'evidence', `harvest-festival-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The Coordinator's hands stop moving at the question. "Festival planning is a community matter." They step back from the table. By the end of the morning, the festival committee chair has been informed that questions were raised about distribution procedures from outside the commune.`;
+        G.lastResult = `The Coordinator's hands stop moving at the question — mid-fold, paper held between fingers. "Festival planning is a community matter." They step back from the table without setting the paper down first, which they notice and correct. By the end of the morning, the festival committee chair has been informed that questions about distribution procedures came from outside the commune. The Coordinator does not return to the table while you're still in the room.`;
         G.worldClocks.pressure++;
         addJournal('Festival Coordinator now protective of festival procedures', 'complication', `harvest-festival-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The Coordinator says this season's distribution has been more layered than usual. "There are different tiers now." They don't elaborate on who set the tiers or why. The draft distribution sheet is face-down on the table between you both.`;
+        G.lastResult = `The Coordinator says this season's distribution has been more layered than usual. "There are different tiers now." They don't elaborate on who set the tiers, by what authority, or what the tiers mean in practice for households at the bottom of them. The draft distribution sheet sits face-down on the table between you both. They glance at it once during the conversation and don't touch it. Whatever is on the other side, they've decided you won't see it today.`;
         addJournal('Festival Coordinator confirmed inconsistent festival allocations', 'evidence', `harvest-festival-biased-${G.dayCount}`);
       } else {
         G.lastResult = `The Coordinator says festival planning is handled internally. "The commune manages its own celebration." The distribution sheet stays face-down on the table between you. The answer is short, complete, and closes the subject. Outside questions about inside matters produce a particular kind of silence — not hostile, just sealed.`;
@@ -206,11 +206,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Record Keeper revealed document falsification system', 'evidence', `harvest-records-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Farlan straightens in his chair. "Harvest documentation is internal academic material. External review is not appropriate." He closes the folder in front of him. The conversation has ended on grounds he finds professionally sufficient.`;
+        G.lastResult = `Farlan straightens in his chair, spine finding the seat back. "Harvest documentation is internal academic material. External review is not appropriate." He closes the folder in front of him with both hands, a deliberate gesture. Dust rises from the cover. The conversation has ended on grounds he finds professionally sufficient — he doesn't reach for the next file until you've taken a step toward the door, as if confirming the direction before returning to work.`;
         G.worldClocks.watchfulness++;
         addJournal('Record Keeper forbade economic documentation inquiry', 'complication', `harvest-records-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Farlan acknowledges the documentation format changed seven months ago. "Updated procedures." He doesn't specify who updated them or why. He sets one document beside an older one without comment, as though the comparison explains itself — which it almost does.`;
+        G.lastResult = `Farlan acknowledges the documentation format changed seven months ago. "Updated procedures." He doesn't specify who updated them, through what process, or whether the elder council was consulted. He sets one document beside an older one without comment, as though the visual comparison explains itself — which it almost does. The ink shade differs between the two columns. He straightens the stack when he's done and tucks it back under his hand.`;
         addJournal('Record Keeper confirmed recent documentation procedure changes', 'evidence', `harvest-records-changed-${G.dayCount}`);
       } else {
         G.lastResult = `Farlan answers in procedural terms. Documentation requires training and authorization to interpret correctly — that much is genuine. The folder stays on the table between his hands, closed. He isn't wrong. He's also performing a competence barrier the same way a door performs a lock: technically neutral, functionally final.`;
@@ -242,11 +242,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Inspector revealed corrupted quality system', 'evidence', `harvest-quality-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Garren's hands go still. "Quality inspection is internal process." He steps back from the exchange. By midday the inspection supervisor has been notified that a stranger came asking about grain assessment procedures. Garren won't meet your eyes when you pass him in the afternoon.`;
+        G.lastResult = `Garren's hands go still over the inspection log — a particular stillness, deliberate. "Quality inspection is internal process." He steps back from the exchange. The lantern at his station throws the same light it always does; the grain bins smell of chaff and dried straw. By midday the inspection supervisor has been notified that a stranger came asking about assessment procedures. When you pass Garren in the afternoon, he holds his log against his chest and looks somewhere past your shoulder.`;
         G.worldClocks.pressure++;
         addJournal('Inspector now protective of grain quality procedures', 'complication', `harvest-quality-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Garren admits the outcomes have been inconsistent. "Grain condition is complex." He presses the inspection log closed before you can read it straight. There's a gap between what he's saying and what he knows — visible in the way he handles the log.`;
+        G.lastResult = `Garren admits the outcomes have been inconsistent. "Grain condition is complex." He presses the inspection log closed before you can read it straight, thumb flat on the cover. The lantern above them casts its steady circle on the grain scales. There's a gap between what he's saying and what he knows — visible in the way he handles the log, in the fraction of a second he holds it before setting it down, as though deciding again to let it close.`;
         addJournal('Inspector confirmed inconsistent quality assessment', 'evidence', `harvest-quality-evasive-${G.dayCount}`);
       } else {
         G.lastResult = `Garren keeps the inspection terminology precise and the conversation technical. Moisture variance, batch cycling, storage grade — every answer is accurate and none of it addresses what matters. The log stays under his hand, palm flat. He isn't protecting himself from you. He's protecting himself from whoever reads the log after you've gone.`;
@@ -278,11 +278,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Mediator revealed corrupted conflict resolution system', 'evidence', `harvest-mediation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Velrik's expression doesn't change. "Mediation is confidential process." He reports the inquiry to the mediation committee before you've left the building. The door to mediation records closes permanently by that evening.`;
+        G.lastResult = `Velrik's expression doesn't change. "Mediation is confidential process." He writes a note before you've reached the corridor — not a long one. A runner takes it by the time you're at the outer stair. The door to mediation records closes by that evening with a notation attached: external inquiry received, committee informed. Whatever access existed before today no longer does. The records were always closed; now they're sealed.`;
         G.worldClocks.pressure++;
         addJournal('Mediator prohibited further conflict resolution questions', 'complication', `harvest-mediation-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Velrik confirms disputes have been running in consistent directions lately. "Complex family dynamics." He doesn't say which direction. But his expression makes the shape of the answer without committing it to words.`;
+        G.lastResult = `Velrik confirms disputes have been running in consistent directions lately. "Complex family dynamics." He doesn't say which direction, which families, or what consistent means when one side wins every time. His expression makes the shape of the answer without committing it to words — a careful absence where agreement would normally sit. The mediation register is on the desk to his left. Neither of you acknowledges it.`;
         addJournal('Mediator confirmed biased conflict resolution patterns', 'evidence', `harvest-mediation-biased-${G.dayCount}`);
       } else {
         G.lastResult = `Velrik cites confidentiality as both the opening and closing of the conversation. The families involved have not consented to external review. He sets his hands on the desk and leaves them there. The mediation register sits to his left, closed. Without consent nothing opens — and he says this with the patience of someone who has waited longer than you have.`;
@@ -316,11 +316,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Structure analysis revealed centralized power consolidation', 'evidence', `harvest-structure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A patron-family representative stops you in the corridor before you've finished reviewing the second document. "What is the nature of your interest in administrative structure?" The question is polite. Your name goes into a notation that afternoon.`;
+        G.lastResult = `A patron-family representative stops you in the corridor before you've finished reviewing the second document. The footstep stops two paces away — deliberate distance. "What is the nature of your interest in administrative structure?" The question is polite, phrased like a form. Your name goes into a notation that afternoon, written into a ledger that probably predates today by more than your presence in Harvest Circle does.`;
         G.worldClocks.watchfulness++;
         addJournal('Patron families alerted to hierarchy analysis inquiry', 'complication', `harvest-structure-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The position titles look the same. The reporting lines have changed. Three roles that previously answered to the elder council now route through the patron-family coordination office. Whether that matters depends on what the coordination office does with that routing.`;
+        G.lastResult = `The position titles look the same on the charter page. The reporting lines have changed. Three roles that previously answered to the elder council now route through the patron-family coordination office — same ink, same ledger, different column. Whether that matters depends on what the coordination office does with that routing, and nothing in the public record says. The elder council's name still appears. Its column has fewer entries than it did two seasons ago.`;
         addJournal('Grain hierarchy modifications confirmed', 'evidence', `harvest-structure-modified-${G.dayCount}`);
       }
 
@@ -349,14 +349,14 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Network analysis revealed deliberate family displacement', 'evidence', `harvest-network-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A family liaison intercepts the inquiry at the records desk. "Family roster information is not available for external research." Your name is logged. By the following morning, three farming family elders have been notified that someone was mapping their network.`;
+        G.lastResult = `A family liaison intercepts the inquiry at the records desk, arriving before the archivist has finished pulling the second volume. "Family roster information is not available for external research." Your name is logged in a column you didn't see until the pen was already moving. By the following morning, three farming family elders have been notified that someone came asking about the composition of their network. The records go back on the shelf. The archivist doesn't meet your eyes.`;
         G.worldClocks.watchfulness++;
         addJournal('Family authorities alerted to network analysis', 'complication', `harvest-network-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The roster shows movement — names gone, names added. The exits are documented under administrative categories that don't invite follow-up questions. The entries are recent and all share a similar profile. The composition has shifted, but whether deliberately requires checking what those categories actually mean in practice.`;
         addJournal('Farming family composition changes confirmed', 'evidence', `harvest-network-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `The roster alone doesn't carry enough context. Who left and why requires speaking to the families themselves — and the families who are gone aren't easy to locate through the commune's current records.`;
+        G.lastResult = `The roster alone doesn't carry enough context. Names crossed out and names added — the record shows exits and entries without explaining either. Who left and why requires speaking to the families themselves, and the families who are gone aren't easy to locate through the commune's current records. The addresses column for departed members reads "removed from registry" in the same hand. The trail ends where someone decided it should.`;
         addJournal('Family displacement analysis incomplete', 'evidence', `harvest-network-partial-${G.dayCount}`);
       }
 
@@ -418,14 +418,14 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Family power analysis revealed orchestrated authority installation', 'evidence', `harvest-power-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A patron-family representative approaches you before you've finished the second record review. "What is the purpose of this research?" The question is calm and specific. Your name is in three logs by the following morning.`;
+        G.lastResult = `A patron-family representative approaches before you've finished the second record review — not hurrying, arriving at the pace of someone who knows exactly how long the walk from their office takes. "What is the purpose of this research?" The question is calm and specific, the kind that assumes the answer is already written down somewhere. Your name is in three logs by the following morning, each entry brief, none of them hostile in phrasing.`;
         G.worldClocks.pressure++;
         addJournal('Patron families alerted to power analysis', 'complication', `harvest-power-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Two families have moved from the roster margins to governance positions in under two years. Their ascent shows up in the appointment records as a sequence of ratified nominations. What the record doesn't show is who proposed them — that would be in the closed session minutes, which aren't accessible here.`;
         addJournal('Family authority advancement changes confirmed', 'evidence', `harvest-power-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `The governance record shows the current power arrangement but not how it got there. Internal patron-family politics don't surface in the official appointment logs — those decisions happen before they're written down.`;
+        G.lastResult = `The governance record shows the current power arrangement but not how it got there. Internal patron-family politics don't surface in the official appointment logs — those decisions happen in rooms before they're committed to paper, and what's recorded is the outcome, not the process that produced it. The appointments look unanimous. The record of who proposed them isn't here. That would be in closed session minutes, and closed session minutes require authorization to open.`;
         addJournal('Family power tracking incomplete', 'evidence', `harvest-power-partial-${G.dayCount}`);
       }
 
@@ -454,11 +454,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quota analysis revealed systematic dependency weaponization', 'evidence', `harvest-dependency-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A patron-family representative stops you mid-interview with a farmer household. "This conversation looks like a compliance audit." He addresses the farmer, not you. The farmer goes quiet. Outside, the representative tells you plainly that quota operations are internal commune matters.`;
+        G.lastResult = `A patron-family representative stops you mid-interview with a farmer household. "This conversation looks like a compliance audit." He addresses the farmer, not you — the farmer's jaw tightens and both hands go flat on the table. The interview ends there without further instruction; none is needed. Outside, in the lane between the threshing floor and the grain store, the representative tells you plainly that quota operations are internal commune matters and not for external parties to document.`;
         G.worldClocks.pressure++;
         addJournal('Authorities warned about quota vulnerability analysis', 'complication', `harvest-dependency-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Several farmers speak carefully about what quota changes would mean for their households. None uses the word pressure. All of them describe a situation where the margin between compliance and loss is very thin and has gotten thinner this season.`;
+        G.lastResult = `Several farmers speak carefully, hands wrapped around cups of midday water, voices low between field rows. None uses the word pressure. All of them describe a situation where the margin between compliance and loss is very thin and has gotten thinner — one describes it in the language of weather, another in the language of soil conditions. The numbers they give are different. The shape of the problem is the same. Quota exposure is real, and these families know exactly how exposed they are.`;
         addJournal('Quota dependency and fear patterns confirmed', 'evidence', `harvest-dependency-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `The conversations stay surface-level. Yes, quotas are tight. Yes, the margins have changed. But the specifics — the numbers, the names, the particular decisions that made things worse — stay back. Quota exposure is real, and these families know exactly how exposed they are. They're not describing it to someone they don't yet trust with what that exposure actually looks like.`;
@@ -490,11 +490,11 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Festival analysis revealed cultural division system', 'evidence', `harvest-unity-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The festival committee chair appears at the archive desk while you're comparing ceremony scripts. "These documents are for authorized committee members." You're removed from the reading room. The committee is notified that external interest has been shown in ceremony planning materials.`;
+        G.lastResult = `The festival committee chair appears at the archive desk while you're comparing ceremony scripts — third page set beside second page, the language changes visible between them. "These documents are for authorized committee members." The scripts are gathered without ceremony, stacked, and placed in a box below the desk. You're walked from the reading room without argument. The committee is notified by the end of the morning that external interest has been shown in planning materials, and the archive note specifies which scripts were open when you were removed.`;
         G.worldClocks.watchfulness++;
         addJournal('Festival authorities alerted to celebration analysis', 'complication', `harvest-unity-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The current ceremony script differs from last season's in language that wasn't changed by accident. The references to collective harvest have been replaced by language that distinguishes between families. The revision is recent and specific.`;
+        G.lastResult = `The current ceremony script differs from last season's in language that wasn't changed by accident. The references to collective harvest — the commune's harvest, belonging to all — have been replaced by language that distinguishes between families, that ranks them, that names some before others in the ceremonial address. The revision is recent and specific, the kind that someone had to sit down and draft deliberately. It didn't drift into this phrasing.`;
         addJournal('Festival modification patterns confirmed', 'evidence', `harvest-unity-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `Festival scripts change season to season for mundane reasons — weather, logistics, which elder is officiating, what the harvest permits. The current draft reads differently than last season's, but distinguishing deliberate ideological revision from ordinary ceremony management requires the full run of scripts set side by side. One current draft isn't enough. The archive holds four seasons of ceremony scripts. It takes longer to get access than the morning permits.`;
@@ -583,7 +583,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The individual pieces each make sense. Together they suggest coordination — the timing too consistent, the direction too consistent, the institutions too varied for this to be one family acting opportunistically. The final link between the pieces and a single coordinating source is the gap remaining.`;
         addJournal('Harvest system corruption strongly suggested by evidence', 'evidence', `harvest-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The pieces are present. The connection between them requires one more piece — something that places the same external hand across multiple institutions at the same time. Without it, the evidence is suggestive but not structural.`;
+        G.lastResult = `The pieces are present, laid out across the work table in the order they were gathered: quota irregularities, spoilage disparity, falsified records, festival language. The connection between them requires one more piece — something that places the same external hand across multiple institutions at the same time. Without it, the evidence describes a pattern but not a mechanism. Suggestive but not structural. The gap is clear. Filling it requires access that isn't available from this side of the commune's walls.`;
         addJournal('Corruption proof incomplete without comprehensive records', 'evidence', `harvest-proof-incomplete-${G.dayCount}`);
       }
 
@@ -650,10 +650,10 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Investigation intercepted by external coordination operators', 'complication', `harvest-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The evidence points beyond Harvest Circle. Courier routes reference "northern family authorities." Resource orders show external authorization. The conspiracy is larger than Harvest Circle itself. You don't know exact source yet, but you know corruption is being directed from outside Harvest Circle's borders.`;
+        G.lastResult = `The evidence points beyond Harvest Circle. Courier route manifests reference "northern family authorities." Resource orders carry external authorization marks that don't correspond to any Harvest Circle charter body. The scale of what's here is larger than a local family dispute. The exact source isn't confirmed — too many nodes still obscured — but the direction is legible: the coordination is coming from outside Harvest Circle's borders, and it has been for some time.`;
         addJournal('External coordination of Harvest Circle confirmed', 'discovery', `harvest-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `You find pieces suggesting external involvement, but the origin source remains obscured. Whoever's orchestrating this has hidden their coordination carefully.`;
+        G.lastResult = `The pieces suggest external involvement — manifests that reference outside parties, authorization marks without local provenance, courier patterns that don't match Harvest Circle's own routes. But the origin source remains obscured behind the layers built to obscure it. Whoever is orchestrating this has had time to build careful distance between their instructions and their names. The shape of the hand is visible in its work. The hand itself isn't.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `harvest-origin-unclear-${G.dayCount}`);
       }
 
@@ -686,10 +686,10 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 3;
         addJournal('Direct threat issued: Full conspiracy knowledge has made you dangerous to external operators', 'complication', `harvest-conspiracy-caught-${G.dayCount}`);
       } else if (result.total >= 15) {
-        G.lastResult = `The conspiracy scope becomes clear: External interests are systematically extracting Harvest Circle resources through corrupted grain systems. The scale is larger than you initially understood. This is coordinated regional resource harvesting.`;
+        G.lastResult = `The conspiracy scope becomes clear through the accumulated record: external interests are systematically extracting Harvest Circle resources through corrupted grain systems — quotas inflated, storage diverted, festival channels suppressed, families elevated or removed by outside instruction. The scale is larger than the initial pieces suggested. This is coordinated regional resource extraction, running through Harvest Circle's own institutions and using them as a mechanism. The commune's grain moves north. What comes back is control.`;
         addJournal('Harvest Circle resource extraction conspiracy partially confirmed', 'discovery', `harvest-conspiracy-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `You understand significant corruption exists, but the full scope of external coordination remains partially obscured. The conspiracy extends further than local Harvest Circle corruption.`;
+        G.lastResult = `The corruption is substantial and documented — quota manipulation, storage diversion, falsified records, festival hierarchy installed by outside instruction. But the full scope of external coordination remains partially obscured. The pieces point outward beyond Harvest Circle, toward interests that are larger and more organized than any local family dispute would require. How far beyond, and through what exact channels, isn't yet visible from this position. The conspiracy extends further than what's in front of you.`;
         addJournal('External conspiracy scope not fully understood', 'evidence', `harvest-conspiracy-incomplete-${G.dayCount}`);
       }
 
@@ -789,7 +789,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.iron_compact += 1;
         addJournal('faction', 'Iron Compact liaison Veth Karst: routing anomaly visible in Iron Compact logistics, willing to exchange cargo data', `harvest-iron-${G.dayCount}`);
       } else {
-        G.lastResult = `The Iron Compact liaison is occupied with official Provision Compact business. Informal inquiry requires either a formal introduction or documented evidence of a compliance issue affecting Iron Compact interests.`;
+        G.lastResult = `The Iron Compact liaison is occupied with official Provision Compact business — ledgers spread across the distribution hall's back table, a runner waiting in the corridor. Informal inquiry without a formal introduction lands on polite but solid ground. Documented evidence of a compliance issue affecting Iron Compact interests would open a different conversation. For now the door is present and visible. What's needed to open it is also clear.`;
         if (!G.flags) G.flags = {};
         G.flags.located_iron_compact_harvest = true;
       }
@@ -828,7 +828,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.flags.independent_count_completed = true;
         addJournal('consequence', 'Independent count: 13% discrepancy between actual yield and official log — production understatement at collection confirmed', `harvest-count-${G.dayCount}`);
       } else {
-        G.lastResult = `Your count is complicated by the segmented field layout — you can't get a complete section view without being inside the official measurement area, which requires authorization you don't have.`;
+        G.lastResult = `The segmented field layout defeats the count before it gets started. Workers move in sections with specific handoff points, and a complete section view requires standing inside the official measurement area — marked at the corners with painted stakes and treated as keeper authority. Without authorization to stand inside those stakes, the count is always partial, always one section short of a comparison. The boundary isn't fenced. It's maintained by the workers themselves, who step back when you step toward it.`;
       }
       G.recentOutcomeType = 'craft'; maybeStageAdvance();
     }
@@ -850,7 +850,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_nann_fieldworker = true;
         addJournal('contact', 'Fieldworker Nann: measurement system changed 18 months ago, has personal tallies matching central scale vs official reports', `harvest-nann-${G.dayCount}`);
       } else {
-        G.lastResult = `The long-tenure workers have learned that comparison to previous seasons leads to arguments with supervisors. They've stopped making comparisons — at least to strangers.`;
+        G.lastResult = `The long-tenure workers have learned that comparison to previous seasons leads to arguments with supervisors — arguments where only one side has a ledger and the authority to close it. Cut chaff smell hangs over the field rows; the midday break has most crews eating apart from each other rather than at the communal fire. They've stopped making comparisons, at least to strangers. The memory is still there. It shows in the way they answer a question about this season without volunteering anything about what last season was.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
