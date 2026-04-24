@@ -828,7 +828,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.flags.obtained_administrator_log = true;
         addJournal('consequence', 'Administrator appointment log secured: seven ghost vessel clearances documented as unauthorized 15-minute compliance reviews', `cosmoria-admin-log-${G.dayCount}`);
       } else {
-        G.lastResult = `The appointment log stays on the administrator's desk, not on the public-access shelving. Getting to it requires either the administrator's absence or a reason to be in the office that the administrator accepts. Right now you have neither. The office window faces the harbor. The administrator is at their desk. They can see the berths from where they're sitting.`;
+        G.lastResult = `The appointment log stays on the administrator's desk, not on the public-access shelving. Getting to it requires either the administrator's absence or a reason to be in the office that the administrator accepts. Right now you have neither. The office window faces the harbor and the administrator is at their desk, positioned where they can watch the berths while they work. The log is in plain sight from the corridor. So is everyone who approaches it.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -851,7 +851,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_kavan_sailor = true;
         addJournal('contact', 'Sailor Kavan: Shelf Islands delivery, sealed uniform cases, private mooring, no official presence — triple rate', `cosmoria-kavan-${G.dayCount}`);
       } else {
-        G.lastResult = `The harbor is quieter than yesterday in certain pockets — the areas where the ghost vessel crews tend to drink, eat, and wait between runs. A net-mender on the lower dock says the crews from berths four and six haven't been around since midmorning. Word moves fast in a harbor. Someone on those crews knows questions are circulating, and they've decided today isn't a good day to be findable.`;
+        G.lastResult = `The harbor is quieter than yesterday in certain pockets — the tavern by berth three, the rope-mender's bench near the lower gate, the usual spots. A net-mender says the crews from berths four and six haven't been around since midmorning. Word moves fast in a working harbor. Someone on those crews knows questions are circulating and has decided today isn't a good day to be findable. The empty stools do the answering for them.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }

@@ -36,7 +36,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Theron acknowledges the access changes. Administrative efficiency, he says — some reorganization of priority materials. He describes the mechanism without describing its purpose. Two of his answers don't align with each other. He notices you noticing, and moves to close the conversation.`;
         addJournal('Librarian confirmed research access changes but details incomplete', 'evidence', `mimolot-librarian-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `Theron gives you the standard account: research priorities are managed centrally, access is tiered by standing, everything is as it should be. He answers every question. None of the answers tell you anything. He's practiced this.`;
+        G.lastResult = `Theron gives back the standard account: research priorities are managed centrally, access is tiered by standing, everything is as it should be. He answers every question asked and none of the answers contain anything. The chalk dust on his sleeve catches the lamp light as he adjusts the ledger. He's given this account before, to other visitors, and he'll give it again. He's practiced every word of it.`;
         addJournal('Research restriction inquiry inconclusive', 'evidence', `mimolot-librarian-blocked-${G.dayCount}`);
       }
 
@@ -72,7 +72,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three scholars confirm that certain directions are being discouraged — one calls it "a narrowing of institutional focus." None will name which topics. The conversation stays in that register: general enough to be defensible, specific enough to confirm there's a shape to what's missing. You leave with the outline of something but not its dimensions.`;
         addJournal('Scholars confirmed research discouragement patterns', 'evidence', `mimolot-scholar-discouraged-${G.dayCount}`);
       } else {
-        G.lastResult = `The scholars you approach are polite and brief. Every conversation ends before it goes anywhere. They're not hostile — they're careful, and there's a difference. You spend an hour in the upper reading room and leave with nothing but the particular quality of their silence.`;
+        G.lastResult = `The scholars in the upper reading room are polite and brief. Each conversation ends before it arrives anywhere. They're not hostile — they're careful, and there's a real difference between the two. One keeps a finger in his place in a bound volume the whole time you're speaking, as if the conversation is an interruption he intends to outlast. An hour spent here yields nothing but the particular quality of their silence — present, specific, practiced.`;
         addJournal('Research suppression inquiry inconclusive', 'evidence', `mimolot-scholar-blocked-${G.dayCount}`);
       }
 
@@ -107,7 +107,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Sevik confirms the expansion. Document preservation, he says — humidity control, fragile materials requiring restricted handling conditions. It's a reasonable explanation stated without hesitation, which is the problem. He had the answer ready before the question finished. You note which sections expanded most recently. He watches you note it.`;
         addJournal('Guardian confirmed archive expansion but explanation questionable', 'evidence', `mimolot-guardian-expanding-${G.dayCount}`);
       } else {
-        G.lastResult = `Sevik describes archival security protocols at length — access tiers, material handling procedures, the physical constraints of the building. He's thorough and technically accurate. None of it touches the question you actually asked. You leave the archive understanding every procedure but nothing about who changed them or when.`;
+        G.lastResult = `Sevik describes archival security protocols at length — access tiers, material handling procedures, the physical constraints of the building, humidity requirements for the eastern stack. He's thorough and technically accurate on every point he raises. None of it touches the question you asked. The lamp on his desk illuminates a shelf gap where materials used to be. He doesn't glance at it once. You leave understanding every procedure and nothing about who changed them or when.`;
         addJournal('Archive expansion inquiry inconclusive', 'evidence', `mimolot-guardian-blocked-${G.dayCount}`);
       }
 
@@ -143,7 +143,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Kensa grants access to the current-edition records. Working through the administrative history, you find three passages that read awkwardly — phrasing that doesn't match the period's conventions, transitions that skip steps that should be documented. Something has been adjusted, but confirming it requires a manuscript copy for direct comparison. Those are in the restricted section.`;
         addJournal('Historical records show signs of revision patterns', 'evidence', `mimolot-archivist-revised-${G.dayCount}`);
       } else {
-        G.lastResult = `The historical records are well-organized and extensive. Kensa points you to the relevant administrative period and leaves you to work. You spend two hours with the documents. They appear complete. Whether they are complete requires something to compare them against, and the manuscript originals are housed three floors up behind a lock you don't have.`;
+        G.lastResult = `The historical records are well-organized and extensive. Kensa points you to the relevant administrative period and leaves you to work. Two hours in, the documents appear complete — clean entries, consistent dates, proper notation. Whether they are complete is a different question entirely. Completeness requires something to compare them against, and the manuscript originals are three floors up behind a lock that requires separate authorization. The records look right. That's all you can determine from here.`;
         addJournal('Historical record verification inconclusive', 'evidence', `mimolot-archivist-unclear-${G.dayCount}`);
       }
 
@@ -179,7 +179,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Maris allows access to aggregate enrollment figures. The patterns are there — concentration of certain student profiles in service tracks, gaps in advanced research placement by background. Whether this represents steering or student preference can't be established from summary data. The individual guidance records that would answer it are behind a separate authorization tier you don't have.`;
         addJournal('Enrollment patterns show potential steering', 'evidence', `mimolot-admin-steered-${G.dayCount}`);
       } else {
-        G.lastResult = `The enrollment figures are available in the public-facing summary registers. Students choose different tracks for many reasons. The summary data shows distribution across disciplines but not the guidance process that produced those choices. You've confirmed that a pattern exists, not what produced it.`;
+        G.lastResult = `The enrollment figures are available in the public-facing summary registers — clean columns, discipline totals by year, track distribution broken out by entry cohort. Students choose different tracks for many reasons: aptitude, preference, circumstance, recommendation. The summary data shows distribution across disciplines but nothing about the guidance sessions that produced it. A pattern exists in the numbers. What generated the pattern is not in the registers. That answer is in a separate record tier.`;
         addJournal('Student enrollment inquiry inconclusive', 'evidence', `mimolot-admin-unclear-${G.dayCount}`);
       }
 
@@ -215,7 +215,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Vorin confirms the classifications exist and acknowledges the category labels. The criteria used to assign them, he says, are determined at the senior administrative level and not within his purview to explain. He can tell you what something has been labeled. He won't tell you who did the labeling or by what standard.`;
         addJournal('Keeper confirmed materials classified as dangerous knowledge', 'evidence', `mimolot-keeper-classified-${G.dayCount}`);
       } else {
-        G.lastResult = `Vorin explains the classification system as it's written: materials deemed potentially harmful to public order or institutional function are reviewed by senior staff and assigned restricted status. It's the procedural account, accurate and empty. You've learned what the system is supposed to do. What it's actually been used for stays behind the closed door.`;
+        G.lastResult = `Vorin explains the classification system as it's written: materials deemed potentially harmful to public order or institutional function are reviewed by senior staff and assigned restricted status. He recites it the way a man reads from a notice he's posted so many times he no longer looks at the paper. The account is accurate and contains nothing. What the system has actually been used to accomplish in the past eighteen months stays behind the same closed door his explanation was designed to keep you from reaching.`;
         addJournal('Knowledge classification inquiry inconclusive', 'evidence', `mimolot-keeper-blocked-${G.dayCount}`);
       }
 
@@ -251,7 +251,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Aldis allows access to the public-facing acquisition summaries. Working through the recent entries, the gaps are visible: whole subject areas where the ledger goes quiet in the past eighteen months. He watches you read without commenting. Whether the gaps reflect budget constraints or curation decisions, the summary data doesn't distinguish between them.`;
         addJournal('Collection development shows pattern gaps in critical perspectives', 'evidence', `mimolot-curator-gaps-${G.dayCount}`);
       } else {
-        G.lastResult = `The acquisition registers are available at the reference desk. The collection is large and spans many decades. Gaps exist in every collection — budget cycles, publication delays, specialist focus. Without the acquisition criteria documents that explain the current selection policy, you can't establish whether the recent pattern is intentional. Those criteria documents are held by the faculty council.`;
+        G.lastResult = `The acquisition registers are available at the reference desk — decades of entries, subject areas organized by faculty designation, each purchase annotated with donor or budget line. Gaps exist in every collection: publication delays, budget cycles, specialist focus. The recent gaps might be any of those things. Without the acquisition criteria documents that explain the current selection policy, the pattern stays ambiguous. Those criteria documents are held by the faculty council, which is itself the body that would need to authorize your access to them.`;
         addJournal('Collection bias analysis inconclusive', 'evidence', `mimolot-curator-unclear-${G.dayCount}`);
       }
 
@@ -287,7 +287,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two scribes acknowledge that standards have shifted — one describes it as "increased administrative input into documentation decisions." Neither will name a specific document or a specific approval they had concerns about. They're describing the general shape of a problem without locating it anywhere particular, which is the safest way to describe it.`;
         addJournal('Scribes confirmed pressure on verification standards', 'evidence', `mimolot-scribe-pressure-${G.dayCount}`);
       } else {
-        G.lastResult = `The scribes on the floor keep working as you move through the hall. The ones you approach answer briefly and return to their work. Their caution is practiced — not rude, just closed. Whatever is happening in this room stays in this room. You leave with nothing concrete, only the observation that no one here will hold eye contact when the word "verification" comes up.`;
+        G.lastResult = `The scribes on the floor keep working as you move through the hall. Quills against parchment, the smell of fresh ink and chalk dust from the tally boards along the wall. The ones you approach answer briefly and return to their work. Their caution is practiced — not rude, just closed in a specific, consistent way. Whatever happens in this room stays in this room. Nobody holds eye contact when the word "verification" comes up. That response is too uniform to be coincidence.`;
         addJournal('Verification integrity inquiry inconclusive', 'evidence', `mimolot-scribe-unclear-${G.dayCount}`);
       }
 
@@ -325,7 +325,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Working through the precedent documents, you find the framework revisions — they're documented clearly enough. Whether the changes represent scholarly evolution or deliberate manipulation requires something to compare them against: the evidence they're now being used to evaluate, and what results they produce. The framework is a tool. You haven't yet seen what it's been used to do.`;
         addJournal('Precedent shows interpretive framework shifts', 'evidence', `mimolot-precedent-shifted-${G.dayCount}`);
       } else {
-        G.lastResult = `The interpretive framework documents are available in the methodology section of the main library. They're dense and technically specific — the kind of reading that requires time and a particular fluency to evaluate. You confirm that revisions exist. Determining what the revisions changed and who authorized them requires cross-referencing across multiple period editions, which is a different day's work.`;
+        G.lastResult = `The interpretive framework documents are available in the methodology section — dense, technically specific, the kind of reading that requires time and a fluency in academic legal convention to evaluate properly. The pages smell faintly of the binding glue used when the revised edition was reissued. Revisions exist: that much is confirmed. What the revisions changed, and who authorized them, requires cross-referencing across three prior period editions. That's a different day's work, and it will need to be a careful one.`;
         addJournal('Academic precedent analysis inconclusive', 'evidence', `mimolot-precedent-unclear-${G.dayCount}`);
       }
 
@@ -397,7 +397,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Working through the access records available at the general desk, correlations appear: document requests in certain subject areas are followed by additional log entries that standard library access doesn't explain. The pattern is visible. What it links to at the administrative end — who receives those secondary notations, what they do with them — that part isn't in the public-facing records.`;
         addJournal('Monitoring patterns show topic-based scrutiny correlation', 'evidence', `mimolot-investigation-monitored-${G.dayCount}`);
       } else {
-        G.lastResult = `Administrative access records are maintained by the registrar's office, not the library. The desk clerk explains that access log data requires a faculty standing request to review. Without that standing, the records that would show which scholars are being flagged and for what are simply unavailable. You've identified the right door but don't have the key.`;
+        G.lastResult = `Administrative access records are maintained by the registrar's office, not the library — a detail the desk clerk explains with the practiced patience of someone who redirects this question regularly. Access log data requires a faculty standing request to review. Without that standing, the records showing which scholars are flagged and for what subject areas are simply unavailable. The right door has been located. The key requires a faculty endorsement, which requires a faculty relationship, which requires time that the investigation hasn't yet produced.`;
         addJournal('Scholar monitoring analysis inconclusive', 'evidence', `mimolot-investigation-unclear-${G.dayCount}`);
       }
 
@@ -433,7 +433,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Moving through the reading halls and attending a public methodology session, the constraint is visible in behavior: papers cited only from approved commentators, questions that stay within the lecture's own terms, a particular kind of lateral movement through ideas that never quite pushes past the established boundary. It's not absence of intelligence. It's intelligence that has learned where to stop.`;
         addJournal('Intellectual autonomy observed as constrained', 'evidence', `mimolot-autonomy-constrained-${G.dayCount}`);
       } else {
-        G.lastResult = `Spending a day among the scholars without a particular thread to follow doesn't yield much. They're working. Their work looks like scholarship. Whether it's constrained or freely chosen can't be determined by watching someone read and write — the constraint, if it exists, is in what they're choosing not to pursue, and that absence is invisible from outside.`;
+        G.lastResult = `A day among the scholars without a particular thread to follow. They're working — papers spread, lamps lit against the afternoon grey, the scrape of chalk on slates in the adjoining seminar room. Their work looks like scholarship: citation, annotation, cross-reference. Whether it's constrained or freely chosen can't be determined by watching someone read and write. The constraint, if it exists, lives in what they're choosing not to pursue. Absence is invisible from outside.`;
         addJournal('Intellectual autonomy assessment inconclusive', 'evidence', `mimolot-autonomy-unclear-${G.dayCount}`);
       }
 
@@ -469,7 +469,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The administrative decision records are partially accessible through the general registry. Several recent decisions — access restrictions, personnel changes, classification updates — carry procedural signatures that don't match the scholarly council positions listed in the charter. Someone is using the administrative machinery without coming through the faculty. How they got that authority isn't in the documents available here.`;
         addJournal('Administrative hierarchy shows parallel power structure patterns', 'evidence', `mimolot-hierarchy-parallel-${G.dayCount}`);
       } else {
-        G.lastResult = `The Academy's governance structure is documented in its founding charter and annual faculty council minutes, both available at the reference desk. The documents describe a clear scholarly hierarchy. Whether the current administration is operating within that hierarchy or outside it would require comparing those documents against actual recent decisions — and the recent decision records are held in the administrative registry, not the library.`;
+        G.lastResult = `The founding charter and annual faculty council minutes are available at the reference desk — bound volumes, organized by year, the most recent sitting beside a card listing the current council's membership. The documents describe a clear scholarly hierarchy: council at the top, faculty below, administration in a supporting role. Whether the current administration is operating within that hierarchy or outside it requires comparing the charter against actual recent decisions. Those recent decision records are held in the administrative registry, not the library, and require separate authorization to access.`;
         addJournal('Administrative hierarchy analysis inconclusive', 'evidence', `mimolot-hierarchy-unclear-${G.dayCount}`);
       }
 
@@ -768,9 +768,9 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_memory_hall_documents = true;
         addJournal('Memory Hall: council-ordered suppression of 23 papers by three faculty now on leave', 'discovery', `mimolot-memoryhall-${G.dayCount}`);
       } else if (result.total >= 11) {
-        G.lastResult = `The reading room opens, but the relevant bundles are behind a second access tier — a locked alcove with a different key mechanism than the main room. The filing structure visible through the glass shows correspondence bundles organized by date and sender category. The most recent section is thick. You can read the category labels. To read the contents, you need the senior faculty endorsement you haven't secured.`;
+        G.lastResult = `The reading room opens, but the relevant bundles sit behind a second tier — a locked alcove with a different key mechanism than the main room. Through the glass, correspondence bundles are organized by date and sender category, labels facing out in the Academy's standard archival hand. The most recent section is thick, noticeably thicker than earlier years. The category labels are readable. The contents are not. Getting past the alcove requires the senior faculty endorsement that hasn't been secured yet.`;
       } else {
-        G.lastResult = `A faculty member steps out of an alcove before you reach the reading room. They don't ask what you're looking for — they explain that this corridor requires senior endorsement and offer to escort you back to the main library floor. The offer is not a choice. You know where the off-catalogue section is now. Getting into it requires different preparation.`;
+        G.lastResult = `A faculty member steps out of an alcove before you reach the reading room. They don't ask what you're looking for — they explain that this corridor requires senior endorsement and offer to escort you back to the main library floor. The offer carries the tone of a door being held open from one side. The corridor is noted: the off-catalogue section is two left turns from the main hall. Getting into it requires a different approach and the right name attached to the request.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
@@ -820,7 +820,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.warden_order += 1;
         addJournal('faction', 'Warden Order liaison Brevard Ashe: institutional interest in suppression, provided secondary scholar contact', `mimolot-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that any substantive engagement with the Warden Order's liaison function requires a formal appointment submitted through the Academy's administrative registry. He's not unfriendly. He's also not going to say anything without paperwork in place. His presence here is established. Getting past the procedure requires a different approach.`;
+        G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that substantive engagement with the Warden Order's liaison function requires a formal appointment submitted through the Academy's administrative registry. He keeps one finger between the pages while he speaks, intending to return. He's not unfriendly — he's procedural, which is more durable. Nothing will be said without paperwork in place first. His presence here is established. Getting past the procedure requires a different approach and probably a known name as introduction.`;
         if (!G.flags) G.flags = {};
         G.flags.located_warden_order_mimolot = true;
       }
@@ -859,7 +859,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_doss_suppressed_scholar = true;
         addJournal('contact', 'Archivist Doss: suppressed scholar on leave, has copies of restricted papers, ready to share conditionally', `mimolot-doss-${G.dayCount}`);
       } else {
-        G.lastResult = `A neighbor at the old address says Doss moved, no forwarding. But her bookshelves are still visible through the window, packed and untouched. Her materials are here; she's not. Someone who can't go far has made herself harder to reach than her circumstances require. She's nearby, cautious, and needs a different introduction than the one you've made.`;
+        G.lastResult = `A neighbor at the old address says Doss moved without leaving a forwarding. But the bookshelves are visible through the window — packed tight, no gaps, untouched. The kettle on the shelf beside them has a faint ring of sediment on the base, recently used. Her materials are here. She is not, or chooses not to be. Someone who can't travel far has made herself harder to reach than her circumstances require. She's nearby and cautious. A different introduction — a name she trusts — would open the door.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -881,7 +881,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_tavin_student = true;
         addJournal('contact', 'Student Tavin: has pre-revision edition with original chapter 12, unaware he is under surveillance', `mimolot-tavin-${G.dayCount}`);
       } else {
-        G.lastResult = `Tavin watches you approach and shortens his stride before you reach him. A stranger, after a lecture, wanting to talk — this is exactly the kind of interaction the current academic climate has taught students to end quickly. He answers in single sentences and keeps moving. The culture here has done the work of keeping him at a distance without anyone having to tell him to be careful.`;
+        G.lastResult = `Tavin watches you approach and shortens his stride before you reach him. His lecture notes are tucked under one arm, chalk dust still on his left sleeve. A stranger, after a lecture, wanting to talk — this is precisely the kind of interaction the current academic climate has taught students to close down quickly. He answers in single sentences and keeps walking. The culture here has done the work of maintaining distance without anyone needing to issue instructions. He never stopped moving from the moment he saw you.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
