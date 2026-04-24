@@ -10847,7 +10847,7 @@ function showStage2BridgeScene() {
 function maybeFireArrivalScene(localityId) {
   if (!window.LOCALITY_ARRIVAL_NARRATIONS) return;
   var entry = window.LOCALITY_ARRIVAL_NARRATIONS[localityId];
-  if (!entry) return;
+  if (!entry || !entry.narration) return;
   var firstVisit = !G.flags['visited_' + localityId];
   var stageReturn = G.flags['stage_at_visit_' + localityId] !== G.stage;
   if (!firstVisit && !stageReturn) return;
@@ -13125,7 +13125,6 @@ function showHowToPlay() {
     const wloc = (typeof WORLD_LOCATIONS !== 'undefined') && WORLD_LOCATIONS[locId];
     const lmEntry = window.LOCALITY_MATRIX && window.LOCALITY_MATRIX[locId];
     const loc = wloc || (lmEntry ? { name: lmEntry.display_name_raw || lmEntry.name, desc: '' } : null);
-    const G = window.G;
     if (!G || !loc) return;
     const prevLocation = fromId || G.location;
     G.location = locId;
