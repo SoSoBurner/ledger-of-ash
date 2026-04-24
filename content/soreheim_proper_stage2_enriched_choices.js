@@ -213,6 +213,82 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The tower scribe's permit ledger logs two transit seals for the same night.",
+    tags: ['stage2', 'soreheim_proper', 'paperwork'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.tower_scribe_cooperative = true;
+        G.investigationProgress++;
+        addNarration('The Duplicate Seal Entry', 'The scribe turns the permit ledger toward you with the edge of a ruler, not her fingers — she slides the ruler flush to the margin every time she presents a page, and the ruler does not leave her hand while outsiders are reading. Two transit seals are entered for the third hour of the same night. Same convoy number. Different signing authorities. One is a Giant Council quota seal. The other is a Relic Strategy Wing operational seal. Both are valid. Both authorize the same cargo. The ledger does not reconcile duplicates — it simply lists them.');
+        addJournal('Permit ledger records duplicate transit seals on same convoy — Giant Council and Relic Strategy Wing both authorizing', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Ruler Across the Page', 'The scribe slides the ruler flush to the permit ledger margin and closes the cover before you finish reading. "Permit-class entries require a tower-rank identifier for cross-reference inquiry." She sets the ruler parallel to the ledger spine. The ledger stays closed. A second scribe at the adjacent desk logs the inquiry attempt in a smaller register without looking up.');
+      }
+    }
+  },
+
+  {
+    label: "Three consecutive buyer permits voided without cause via override.",
+    tags: ['stage2', 'soreheim_proper', 'trade_records'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.trade_permit_archive_checked = true;
+        G.investigationProgress++;
+        addNarration('Trade Permit Archive — Voided Licenses', 'The permit archive clerk files by issuance date, not buyer name, and does not notice the pattern until you lay three consecutive pages side by side on the counter. Three trade licenses, all issued to the same sealed-charter buyer reference — same code Thalen\'s ledger carried — voided within forty-eight hours of each issue. Not revoked for cause. Voided with a Relic Strategy Wing administrative override code entered in the revocation field. The override code is designed for internal logistical holds, not commercial permit suspension. Someone used institutional authority to erase a buyer\'s paper trail one document at a time.');
+        addJournal('Trade permit archive: three consecutive licenses voided via Relic Strategy Wing override — same sealed-charter buyer reference', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Trade Permit Archive — Access Queued', 'The archive request goes into the permit clerk\'s queue behind eleven other inquiries. She hands you a numbered slip. Cross-reference requests require a tower-rank identifier verified at the main registry — a step that takes a full working day and produces a second numbered slip for a second queue. The process is not obstructive. It is simply very thorough.');
+      }
+    }
+  },
+
+  {
+    label: "Two guild authority stamps on the same export manifest.",
+    tags: ['stage2', 'soreheim_proper', 'guild_authority'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('craft', G.skills.craft);
+      if (roll.total >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Export Manifest — Dual Stamp Anomaly', 'The export manifest sits in the surface pile at the guild registry counter — recent enough to be unfiled. Two stamps on the lower third of the page: the Giant Council export authority mark in blue ink, and a Relic Strategy Wing operational clearance in black. Both are genuine. Both authorize the same outbound shipment. The guild registry clerk\'s copy, filed in the bound ledger beside the counter, carries only the Giant Council stamp. The black stamp on the manifest copy does not appear anywhere in the clerk\'s records. The operational clearance was added after the clerk\'s copy was taken. The shipment already left.');
+        addJournal('Export manifest dual-stamped — Relic Strategy Wing clearance added post-filing, absent from registry record', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Export Manifest Counter — Nothing Surface', 'The export manifest counter is current with its filings — the clerk keeps a tidy ledger and has no outstanding discrepancies she is aware of. Everything processed this week is reconciled. You would need a specific manifest number or date range to go further, and you don\'t have either.');
+      }
+    }
+  },
+
+  {
+    label: "A labor foreman at the forge dock is arguing with a quota clerk about a reassigned crew.",
+    tags: ['stage2', 'soreheim_proper', 'public_complication'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13) {
+        G.flags.foreman_quota_dispute_overheard = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Crew Reassigned Off the Books', 'The foreman has his hands on his belt — thumbs hooked under the buckle, elbows wide, the posture of someone who will not move until he is answered. His crew of six was pulled off forge rotation for four nights last week under a quota override he never saw signed. The work they did during those nights does not appear on his tower output tally. He names the override reference number loudly enough that the clerk flinches — a number that carries a Relic Strategy Wing prefix, not a war-production prefix. The clerk writes nothing down. The foreman notes this and stops talking.');
+        addJournal('Forge dock foreman crew reassigned four nights under Relic Strategy Wing override — work absent from tower output tally', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Quieted at the Counter', 'Two tower enforcers cross the dock at an unhurried pace. The foreman sees them before they reach him and drops the complaint mid-sentence. He touches the buckle of his belt and turns back toward his crew. The clerk closes the tally book. By the time you reach the counter the dispute has been disassembled into nothing on record. An enforcer asks your tower-rank identifier and is not satisfied with your answer.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Soreheim Proper finale — the operation's command structure is confirmed. Use Cron's Arbiter seal for formal prosecution or expose the expansion budget publicly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
