@@ -342,9 +342,8 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Ashe lives on the far side of the crossing now, in a two-room dwelling with a window that faces away from the bridge. She pours water for both of you. When you ask about the inquiry, she talks about the crossing schedule — how the commune sets tidal windows for heavy cargo, how the eastern span requires a seasonal mortar review, how the warden rotation was restructured two years ago to distribute the overnight hours more fairly. She is thorough and patient and answers follow-up questions before you ask them. None of it touches the inquiry, or the closures, or the new-moon nights. She refills your cup when it's still half full and tells you the spring crossing season is the most interesting to observe, if you're here long enough.`;
-        if (!G.flags) G.flags = {};
         G.flags.met_ashe_director = true;
-        addJournal('contact', 'Former bridge director Ashe: excluded from own jurisdiction by mystery authorization, resigned in protest', `whitebridge-ashe-${G.dayCount}`);
+        addJournal('Former bridge director Ashe: excluded from own jurisdiction by mystery authorization, resigned in protest', 'contact_made', `whitebridge-ashe-${G.dayCount}`);
       } else {
         G.lastResult = `Ashe left Whitebridge two months after handing in her post. A neighboring settlement, across the crossing — close enough that she'd see the bridge lanterns on a clear night if she faced that direction. Nobody at the commune office will say why she left, only that the departure was her choice. She isn't here. Getting to her means crossing the bridge she no longer manages.`;
       }

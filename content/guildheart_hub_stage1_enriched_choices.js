@@ -935,7 +935,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(55, 'overhearing registry corridor exchange');
 
-      const corridorDetail = `The registry tower's ground corridor smells of ink and damp stone. Two tariff clerks stand near the posted arbitration schedule — one holding a folded routing sheet, the other with a ledger open against his forearm. The first clerk says: "Directive 7-Cassia runs through the fourteenth, same as the Eastgate hold." The second glances toward the doorway where you've stopped. The folded sheet drops to his side. Neither clerk speaks again. The one with the ledger closes it without marking his page. They separate — one toward the north annexe, one toward the stairs — at a pace that is deliberate and unhurried and completely without acknowledgment of your presence.`;
+      const corridorDetail = `The registry tower's ground corridor smells of ink and damp stone. Two tariff clerks stand near the posted arbitration schedule — one holding a folded routing sheet, the other with a ledger open against his forearm. The first clerk says: "Directive 7-Cassia runs through the fourteenth, same as the Eastgate hold." The second glances toward the doorway where you've stopped. The folded sheet drops to his side. Neither clerk speaks again. They separate — one toward the north annexe, one toward the stairs — without acknowledging your presence.`;
 
       G.lastResult = corridorDetail;
       addJournal('Overheard in the Guildheart registry tower ground corridor: two tariff clerks cut short — "Directive 7-Cassia runs through the fourteenth, same as the Eastgate hold." Conversation ended when a third party entered. Source: registry-level administrative staff.', 'intelligence');
