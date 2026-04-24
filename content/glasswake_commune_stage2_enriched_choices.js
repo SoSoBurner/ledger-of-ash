@@ -23,12 +23,12 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glasswake shards are surge amplification network — Iceveil has unpublished conclusion', 'evidence', `glass-toman-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Toman's research is under active suppression request from the "Northern Glyph Oversight Commission" — the same fabricated authority Taldan Veyst identified in Sunspire. Engaging with you puts him at formal risk. He closes the conversation.`;
+        G.lastResult = `Toman's hands are flat on the observation gallery table when he speaks. "There's a suppression request on my research from the Northern Glyph Oversight Commission. Filed six weeks ago." He says the name the way you say a thing you know is false but cannot yet prove. Every interaction that goes into a log creates a paper record that could be used against him. He ends the meeting politely, without explanation, and does not look up from the table when he does it.`;
         addJournal('Iceveil research under fake-authority suppression request — cooperation too risky', 'complication', `glass-toman-fail-${G.dayCount}`);
       } else {
         G.flags.met_toman_iceveil = true;
         G.investigationProgress++;
-        G.lastResult = `Toman confirms the correlation. "The surge pattern has characteristics of an external modulated signal. Natural variance doesn't produce this regularity." He hasn't published. "The suppression requests started immediately after I submitted for peer review."`;
+        G.lastResult = `Toman confirms the correlation without looking at his notes — he has run this argument enough times that it sits in recall. "The surge pattern has characteristics of an external modulated signal. Natural variance doesn't produce this regularity." He says it flatly, the way someone states a finding they know will be contested. He submitted the correlation for peer review six months ago. The suppression requests started within the week. He hasn't published since and doesn't say whether he intends to.`;
         addJournal('Surge pattern has external modulated signal characteristics — publication suppressed', 'evidence', `glass-toman-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -52,12 +52,12 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Four suppressed conclusions form complete operation manual — suppression order was evidence concealment', 'evidence', `glass-lenna-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The suppression order's existence is itself a classified document. Your request for its contents is treated as a compliance violation. Lenna is obligated to report the inquiry.`;
+        G.lastResult = `Lenna's expression stays neutral through the request, but her hand moves immediately to the compliance log on her desk. The suppression order is classified at the document level — its existence is known, but its contents are restricted. Asking for the contents is a compliance violation under the Concord's access protocol, and she is obligated to log it regardless of intent. She writes the entry with the same pen she uses for everything else. The log goes to the Concord at the end of the week.`;
         addJournal('Suppression order classified — inquiry reported as compliance violation', 'complication', `glass-lenna-fail-${G.dayCount}`);
       } else {
         G.flags.met_lenna_bannerhold = true;
         G.investigationProgress++;
-        G.lastResult = `Lenna can describe the suppression order's structure but cannot read the classified conclusions. The four topics covered are: shard mechanics, timing analysis, compound delivery, and population exposure. The pairing is not coincidental.`;
+        G.lastResult = `Lenna sets her clerk's index on the desk and opens it to the suppression order entry. She can describe the document's structure without reading its classified sections aloud. Four research conclusions are named in the order's scope: shard amplification mechanics, timing window analysis, compound delivery methodology, and population exposure modeling. She reads each topic heading once, then closes the index. The four topics are not from four separate fields. They describe the same operation from four different angles.`;
         addJournal('Four suppression topics identified — shard, timing, compounds, population dosing', 'evidence', `glass-lenna-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -75,7 +75,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.met_toman_iceveil && !G.flags.met_lenna_bannerhold) {
-        G.lastResult = `You need to establish contact with both Toman and Lenna before attempting to route the research.`;
+        G.lastResult = `The routing channel requires both researchers' cooperation — Toman's data and Lenna's access to the suppression order's structure. Without both threads confirmed, the package that reaches the archive will be incomplete, and an incomplete submission won't carry the weight needed to protect it. The groundwork here isn't done yet.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
@@ -87,12 +87,12 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glasswake research preserved in shrine archive — legally suppression-proof via Mimolot', 'evidence', `glass-route-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Your routing attempt is intercepted. The suppression authority receives notification that the research was nearly published. Toman faces immediate increased scrutiny. The window is closed for now.`;
+        G.lastResult = `The routing channel closes mid-transit — a packet rejection code that wasn't there two days ago. Somewhere between this commune and the Mimolot archive, the route is being watched. The suppression authority received notification before the research reached its destination. Toman's name is now attached to a near-publication attempt; the scrutiny at his workspace doubles within the day. The window is closed, and closing it taught whoever is watching that someone tried to use it.`;
         addJournal('Research routing intercepted — Toman under increased scrutiny', 'complication', `glass-route-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
         G.flags.stage2_evidence_shared = true;
-        G.lastResult = `The research reaches a secure channel with partial protection. It is preserved but not yet publicly accessible. The operation's architects know the research exists outside their control.`;
+        G.lastResult = `The research reaches the secure channel intact, but the archive's protective seal is conditional — shrine doctrine protects the document from commercial suppression orders, not from direct institutional authority. It is preserved and inaccessible to the suppression mechanism for now. The operation's architects will know within a day that the research is held somewhere they cannot easily reach. That knowledge alone will change how they move next.`;
         addJournal('Research in secure channel — preserved but not public, architects alerted', 'evidence', `glass-route-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -118,7 +118,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shard resonance spikes on 43-day interval — external schedule confirmed by Iceveil', 'evidence', `glass-toman2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Toman arrives at the gallery but stops short when he notices a containment warden logging instrument readings nearby. He rolls the charts back without unfolding them. "Not here." He leaves. The warden watches the door for a long moment before returning to the log.`;
+        G.lastResult = `Toman arrives at the gallery entrance with a scroll tube under one arm, sees the warden at the far instrument rack logging readings, and stops. He doesn't enter the room. He rolls the scroll tube back under his arm without unfolding anything and says "not here" at a volume meant only for you. Then he's gone. The warden finishes the reading, sets down her pen, and watches the doorway for a long moment before returning to the log. She noticed him stop. She may have noticed why.`;
         addJournal('Iceveil second data set blocked — warden present, meeting aborted', 'complication', `glass-toman2-fail-${G.dayCount}`);
       } else {
         G.flags.toman_second_meeting = true;
@@ -256,7 +256,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(106, 'Glasswake Commune Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Glasswake investigation requires more evidence before final action.`;
+        G.lastResult = `The research package exists in pieces but not yet as a whole. Toman's correlation data, Lenna's suppression order structure, the shard site readings — together they form an argument. Separately they're notes. Acting now means presenting an incomplete case to institutions that will need a reason to move against their own interests. The commune's threads aren't assembled into something that holds yet.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -265,12 +265,12 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You submit the complete research package to the Mimolot Academy Regent Council under Quenra Quillfire's authority. The Council opens a formal academic investigation. The suppression order is declared void under Academy academic freedom doctrine. Stage III opens with academic institution backing.`;
+        G.lastResult = `The research package reaches the Mimolot Academy Regent Council under Quenra Quillfire's authority — hand-delivered to the Council secretary's intake desk, signed and logged. The Council convenes a formal academic investigation within two days. The Northern Glyph Oversight Commission suppression order is declared procedurally void under Academy academic freedom doctrine: the body that issued it has no standing in the Academy's jurisdiction. Stage III begins with institutional backing already in place.`;
         addJournal('Glasswake S2 finale: Academy formal investigation, suppression order voided', 'evidence', `glass-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You publish the full research package simultaneously across every scholarly network and trade circuit in the region. The mechanism is public knowledge. The operation can no longer rely on technical opacity.`;
+        G.lastResult = `The full research package goes out through the Verdant Row distribution circuit and the Scriptorium Steps back-channel at the same moment — no single point to suppress, no single address to intercept. Within forty-eight hours the correlation between glasswake shard amplification and the suppression compound mechanism is in every scholarly network and trade circuit that matters across the region. The operation's architects can no longer count on technical opacity. The mechanism is named and distributed.`;
         addJournal('Glasswake S2 finale: operation mechanism published across all networks', 'evidence', `glass-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

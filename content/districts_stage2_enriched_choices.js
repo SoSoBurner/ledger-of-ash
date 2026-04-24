@@ -19,15 +19,15 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `The sealed correspondence includes a letter from a House Shelk subordinate to the Northern Provision Compact confirming delivery terms. The noble registry preserved it without understanding what it was.`;
+        G.lastResult = `Deep in the sealed correspondence, a single letter sits apart from the routine charter filings — a House Shelk subordinate writing to the Northern Provision Compact with delivery terms laid out in blunt commercial language. The noble registry bound it in with the quarterly administrative packets without marking it. Whatever it confirmed passed through this archive unnoticed for years, preserved by accident inside the wrong folder.`;
         addJournal('Aurora Heights archive: House Shelk letter confirms Northern Provision Compact delivery terms', 'evidence', `ah-archive-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Your archive access request is referred upward. House Shelk estate receives notification of your inquiry.`;
+        G.lastResult = `The clerk at the records counter sets down her stamp and steps back without processing the request. A handwritten routing slip goes into the senior ledger. Somewhere above this counter, House Shelk estate will receive word that someone asked about charter correspondence from this period. The inquiry is already traveling faster than you are.`;
         addJournal('Aurora Heights archive inquiry escalated to House Shelk estate', 'complication', `ah-archive-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The archive contains charter-period correspondence showing the sealed subsidiary reference in several business letters. The trail is faint but present.`;
+        G.lastResult = `The correspondence from that period fills two shelf boxes, most of it routine estate administration. Buried in the third bundle, the sealed subsidiary appears — not as a party to any agreement, but as a reference point in three separate business letters, each written as though the reader already knew what it was. The name recurs without explanation. The trail is thin but consistent across the bundles.`;
         addJournal('Aurora Heights archive: charter subsidiary reference in business correspondence', 'evidence', `ah-archive-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -46,11 +46,11 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `A court contact identifies the sealed charter holder by family name — a minor noble house that was dissolved three years ago but whose legal entity was never formally struck from the registry. It is a legal ghost operating under the protection of expired legitimacy.`;
         addJournal('Aurora Heights court: charter holder identified as dissolved noble legal ghost', 'evidence', `ah-court-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your questions about sealed charter parties are interpreted as a business prospecting inquiry. You are redirected to the House Shelk solicitor.`;
+        G.lastResult = `The phrasing lands wrong — too direct for this circuit. The man across the tea table sets down his cup and reclassifies the conversation in real time: a prospecting call, someone scouting charter availability. He produces the House Shelk solicitor's card with practiced efficiency and slides it across the tablecloth. The social door closes before it was ever properly open.`;
         addJournal('Aurora Heights court: charter inquiry redirected to House Shelk solicitor', 'complication', `ah-court-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `A contact recognizes the charter pattern as pre-consolidation House Shelk administrative style. "Old charter form. Nobody uses that anymore unless they want it to look legitimate from a distance."`;
+        G.lastResult = `The woman in pale grey — a former estate solicitor who now advises two houses independently — tilts her wine glass and studies the charter description without touching the document. "That's the old form. Pre-consolidation. Nobody drafts in that register anymore unless they want something to read as legitimate from a distance without surviving close review." She hands back the paper without looking at it again. The observation has cost her nothing to share.`;
         addJournal('Aurora Heights court: charter recognized as pre-consolidation House Shelk administrative style', 'evidence', `ah-court-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -70,11 +70,11 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Aurora Heights registrar counter-signed low ward housing review targeting a dome terminal complainant — no jurisdictional transit log', 'evidence', `ah-crossjuris-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The registrar's clerk catches the angle of your question and closes the filing book. A note goes up the chain before you reach the street.`;
+        G.lastResult = `The clerk's hand stills on the open filing book. She doesn't answer immediately. She turns the book closed — spine toward you, title page down — and slides it beneath the counter in one practiced motion. By the time you've framed a second question, she's already writing on a routing slip. Whatever the note says, it won't wait for the afternoon post. It is going up the chain now, while you are still in the building.`;
         addJournal('Aurora Heights registrar inquiry flagged — note routed upward', 'complication', `ah-crossjuris-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The filing carries the registrar's mark on a document that should never have reached her desk. The clerk who stamped it in cannot recall who delivered it. The transit log for that afternoon is missing its first two pages.`;
+        G.lastResult = `The filing carries the registrar's mark stamped in the lower corner — the kind of signature that belongs on Aurora Heights documents, not low ward housing reviews. The intake clerk squints at the delivery record and shakes her head: no name, no courier house, just a time stamp from mid-afternoon. The transit log for that day has been taken out for annotation and not returned. The first two pages are absent. The mark is real. The path it traveled here is not.`;
         addJournal('Aurora Heights: low ward filing bears registrar signature, transit log pages missing', 'evidence', `ah-crossjuris-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -97,11 +97,11 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ironspool Ward: worker describes container modification specs — signal damping, grain convoy weight config', 'evidence', `iron-ward-worker-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The worker community is tight. Word that someone is asking about the modification work reaches the wrong ear quickly.`;
+        G.lastResult = `The first tavern: nobody who worked that job is drinking here tonight. The second: two men at the back corner go quiet when the question is asked, and one of them leaves through the side passage. By the time the third shift-end crowd fills the benches, the question has already traveled ahead. Ironspool's labor circuit is close-knit in the specific way that protects its own — and news of outside interest moves faster than the person carrying it.`;
         addJournal('Ironspool Ward: modification inquiry reached hostile party', 'complication', `iron-ward-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `A shift hand confirms modification work on unusual containers. "We were told it was specialty freight equipment. The pay was too good to ask questions."`;
+        G.lastResult = `A shift hand nursing his third drink sets it down and spreads his hands on the table as though measuring something. The containers were unusual — heavier than listed, the joints reinforced before delivery. "They called it specialty freight equipment." His thumb traces an arc on the wood. "Double pay, cash, nothing in writing. That's not what you pay somebody to carry a standard load." He doesn't ask why you're asking. The money answered that question for him months ago.`;
         addJournal('Ironspool Ward: specialty freight modifications confirmed — high pay, no questions', 'evidence', `iron-ward-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -117,14 +117,14 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `The fence has a sample. The compound is being sold as a "calming agent" in the street market — which it technically is at low concentration. The street-level product is diluted from the bulk compound, confirming production excess beyond the staged operation's needs.`;
+        G.lastResult = `The fence produces a small vial from a cloth-lined case beneath the counter — a pale suspension, almost colorless. "Calming agent." He taps the stopper with one finger. "Three parts cut. Still works." The street-level product is diluted from bulk stock; no street distributor is running primary production. The volume in circulation implies a supply surplus far above what a targeted operation would require. Someone is moving more of this than the plan accounts for.`;
         addJournal('Ironspool street market: suppression compound sold as calming agent — production excess confirmed', 'evidence', `iron-ward-fence-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The fence reads your interest as either law enforcement or competition. Either way, you get nothing and he becomes harder to find.`;
+        G.lastResult = `The fence's expression doesn't change, but his posture does — weight shifting back from the counter, one hand dropping below the surface. He's read the situation into one of two categories: enforcement or rival, and neither gets a price. The back room door is open; it isn't for long. By the time you're in the street, the display window has been cleared and the front door bolted. Finding him again will require a different approach entirely.`;
         addJournal('Ironspool Ward fence: hostile response, no information', 'complication', `iron-ward-fence-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The fence confirms a "calming compound" supply that arrived three months ago. He doesn't know the source. The volume is larger than street demand would explain.`;
+        G.lastResult = `The fence answers without much ceremony — the supply arrived three months ago, came in volume, nobody he knew was the source. He spreads his hands. "More than I could move in a season, honestly." The vials are priced high enough to limit the street pool, which means the bulk of whatever arrived isn't going through him. The volume entered the ward from somewhere that can afford surplus. He shrugs at the gap between supply and street demand as though it's someone else's problem.`;
         addJournal('Ironspool Ward: calming compound in street market — volume exceeds street demand', 'evidence', `iron-ward-fence-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -211,11 +211,11 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
         addJournal('Verdant Row healers: 47 exposure cases documented, suppressed by fake authority, records shared', 'evidence', `vr-healers-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `The healers are protective of their patient relationships. Your request to access their documentation is interpreted as a threat to patient confidentiality.`;
+        G.lastResult = `The senior healer listens to the end without interrupting, then clasps her hands on the desk. The documentation exists. The answer is still no. Her patients came to her in distress and trusted the collective's seal on their records; she isn't breaking that for any inquiry, however stated. The framing — evidence, public record, broader harm — doesn't move her. Patient confidentiality is the floor of what the collective offers, and she holds it here without apology.`;
         addJournal('Verdant Row healers: patient confidentiality protection, documentation access refused', 'complication', `vr-healers-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The healers confirm they have been tracking an unusual symptom cluster. They describe the compound exposure presentation accurately. "We've seen forty-something cases. Someone is causing this."`;
+        G.lastResult = `The younger healer pulls a tally sheet from a stack on the shelf without checking the label — she knows where it is. The symptom cluster: cognitive fog, appetite disruption, irregular glyph sensitivity in six cases. "Forty-something by now." She keeps her voice flat, but her thumb presses hard against the tally line. The presentation is consistent across every case. Someone outside this room knows what the pattern looks like, because they made it.`;
         addJournal('Verdant Row healers tracking 40+ exposure cases — confirmed suppression compound presentation', 'evidence', `vr-healers-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -231,15 +231,15 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.verdant_row_contact = true;
-        G.lastResult = `The network contact is satisfied with your evidence depth. They commit the Verdant Row distribution circuit to your investigation — meaning any findings you route through them will reach every allied investigative and healer network in the region simultaneously.`;
+        G.lastResult = `The man across the table — grey-haired, ink on his left sleeve from a morning of copying — lays down the evidence summary and holds it flat with two fingers. He doesn't speak immediately. When he does, it's to a point on the wall above your shoulder. "The circuit moves on confirmation, not promise." He slides the summary back. The Verdant Row distribution network is committed: any findings routed through this channel reach every allied investigative and healer network in the region at once, with no single point of interception.`;
         addJournal('Verdant Row distribution circuit committed — regional simultaneous distribution available', 'evidence', `vr-contact-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The contact is not convinced of your reliability. They end the meeting and flag your profile for review.`;
+        G.lastResult = `The meeting ends before the second cup is poured. No raised voices, no explanation — just a hand gesture that says the conversation is closed, and the same grey-haired man gathering his papers in an order that means he won't be carrying anything else out of this room. Somewhere in the network, a profile note is being written. The words won't be hostile. They'll be worse: uncertain. The circuit protects itself by not moving on uncertain things.`;
         addJournal('Verdant Row contact: reliability concern, profile flagged for review', 'complication', `vr-contact-fail-${G.dayCount}`);
       } else {
         G.flags.verdant_row_contact = true;
-        G.lastResult = `The contact acknowledges your investigation and provides a contact signal for future communication. The network relationship is established at a basic level.`;
+        G.lastResult = `The grey-haired man studies the evidence summary for a long moment, then folds it along a crease that wasn't there before. He slides a small printed card across the table — a botanical illustration on one side, a sequence of three symbols on the other. "That's the signal for this circuit. Use it when you have something worth moving." The relationship is thin at this stage. The circuit will carry what's sent through it, but trust here is built incrementally, not granted.`;
         addJournal('Verdant Row contact established — basic network access', 'evidence', `vr-contact-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -259,11 +259,11 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
         addJournal('Verdant Row: Reckoning Quarter magistrate taking depositions from exposure patients — off-district filing, patient list secured', 'evidence', `vr-magistrate-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The healer has been warned about outside questions and reads yours as a test. The conversation ends with a polite dismissal and a second warning logged.`;
+        G.lastResult = `The healer's hands stay folded on her desk through the entire exchange. The answer is courteous and total: no patients will be identified, no visit details discussed, no confirmation given that the collective holds any particular records. The phrasing is rehearsed — this isn't the first outside question she's deflected. Somewhere in the collective's log, a second notation is written next to the first. The dismissal is warm. The door is closed.`;
         addJournal('Verdant Row healer: magistrate inquiry refused, second warning logged against the collective', 'complication', `vr-magistrate-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The healer confirms the magistrate's visits but cannot share patient names. She does confirm the depositions were filed outside the district, which breaks the local notice ordinance on its face.`;
+        G.lastResult = `The healer confirms three visits without supplying a single patient name — the list stays face down on her desk throughout the conversation. What she will say: the depositions left in the magistrate's own folder, sealed with Reckoning Quarter wax. Not the civic hall's seal. Not Verdant Row's. The local notice ordinance requires all third-party depositions taken within the district to be filed locally first. None of these were. That part, she says plainly, is a matter of public procedural record if anyone cares to check.`;
         addJournal('Verdant Row: off-district deposition filings confirmed — local notice ordinance breached', 'evidence', `vr-magistrate-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -285,11 +285,11 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You catch the manifest as it is being processed. The grain routing number on a non-agricultural manifest was entered four minutes ago. The submitting agent is still at the counter. You obtain a physical description and the exact charter subsidiary code they used. Live evidence.`;
         addJournal('Granary Steps: live manifest fraud caught — agent described, charter code captured', 'evidence', `hk-granary-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The agent at the counter recognizes your interest and voids the manifest before it clears. The fraud evaporates and they are gone before you can act.`;
+        G.lastResult = `The agent at the counter glances up once, reads the angle of attention across the room, and moves. The manifest is voided before the ink has dried on the routing stamp — a single ruled line, initialed in a hand that will be impossible to trace. By the time a supervisor could be summoned, the counter is empty and the side exit closed. The fraud evaporated cleanly. The only thing left is a voided manifest with a grain routing number that no longer points at anything.`;
         addJournal('Granary Steps: agent voided manifest before capture — fled', 'complication', `hk-granary-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `You identify the fraudulent manifest after it clears but before it departs. The routing number pattern matches across five recent manifests in the batch file.`;
+        G.lastResult = `The manifest has already cleared the counter by the time the routing number flags — processed and bundled into the batch file while the queue backed up. It's still in the outgoing tray, not yet collected. Spread beside the batch log, the same routing number pattern appears in four earlier entries from the past six weeks. Five manifests carrying identical construction: non-agricultural loads, agricultural routing codes, all submitted through the same counter window on different days.`;
         addJournal('Granary Steps: routing number fraud in 5 batch manifests confirmed', 'evidence', `hk-granary-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -332,11 +332,11 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
         addJournal('Iron Ledger Ward: NPC escrow account with Soreheim + Guildheart + Shelk disbursements confirmed', 'evidence', `ilw-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The financial records office is under ORE Shadowhands audit this week. Your access attempt is flagged by the audit team.`;
+        G.lastResult = `Two audit clerks in plain grey occupy the records counter, working through box files with a pace that suggests they've been here for days. The access request stalls immediately — the regular records staff have been stood aside for the week. One of the auditors looks up, writes something on a separate sheet, and slides it into an already-thick folder. The access attempt is logged not by the office but by whoever commissioned the Shadowhands review. That's a different audience entirely.`;
         addJournal('Iron Ledger Ward under Shadowhands audit — access attempt flagged', 'complication', `ilw-ledger-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The records confirm compound-adjacent asset transfers to a single escrow account. The account name matches the fabricated supplier entity. The payers span multiple institutions.`;
+        G.lastResult = `The transfers sit in the asset records as routine — each one individually unremarkable, labeled with supplier codes and service classifications that look clean at a glance. Set side by side, they resolve into a single pattern: every disbursement routes to the same escrow account, and the account name matches the fabricated supplier entity that appeared in the Aurora Heights charter filings. The payers are from at least three separate institutions. Whatever this account was built to receive, it was built to receive it from multiple directions at once.`;
         addJournal('Iron Ledger Ward: compound payment escrow confirmed, multi-institution payers', 'evidence', `ilw-ledger-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -378,11 +378,11 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Reckoning Quarter: memorial fraud complainant located — witness statement secured', 'evidence', `rq-complaint-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The complainant has been legally warned against discussing the case. Your approach triggers a formal notification to their legal representative.`;
+        G.lastResult = `A woman at the doorstep of a narrow building on the Reckoning Quarter's outer lane — she listens for ten seconds, then holds up one hand. "I have a standing legal notice. Any approach about that matter activates it." She isn't hostile, just precise. Her representative will receive a notification before the end of the working day. The legal structure around this withdrawal was built to detect exactly this kind of follow-up. Whoever arranged her silence anticipated someone coming back.`;
         addJournal('Reckoning Quarter: complainant legal warning triggered — notification sent to their representative', 'complication', `rq-complaint-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The complainant confirms the original complaint was genuine. They cannot make a new statement but confirm "the thing I described is still happening."`;
+        G.lastResult = `The man who filed the original complaint keeps his coat on through the conversation, as if he might need to leave quickly. He won't sign anything and won't be quoted. What he will say, twice, in the same measured tone: "What I described in that complaint is still happening." He looks at the table between you rather than at your face. The legal warning that silenced him didn't require him to disbelieve his own evidence — just not to repeat it formally. He draws a clear line between those two things.`;
         addJournal('Reckoning Quarter: memorial fraud still active, complainant unwilling to restate formally', 'evidence', `rq-complaint-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -421,15 +421,15 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.stage2_evidence_shared = true;
-        G.lastResult = `The back-channel routes your documentation to Quenra Quillfire, Toman Iceveil, and Serin Sunweave simultaneously. All three researchers can now cross-reference their independent findings. The scholarly confirmation loop is closed.`;
+        G.lastResult = `The copying clerk at the back of the Scriptorium Steps distributes the documentation bundle across three separate scholarly corridors without entering it in the standard outgoing log — the back-channel runs clean through the Academy's own infrastructure, invisible to anyone monitoring external mail. Within the day, Quenra Quillfire, Toman Iceveil, and Serin Sunweave each hold copies of findings the others generated independently. They can now cross-reference. The confirmation loop closes without a single documented handoff.`;
         addJournal('Scriptorium back-channel: findings cross-distributed to 3 key researchers — scholarly loop closed', 'evidence', `ss-channel-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The back-channel has been compromised. Your routing triggers a notification to whoever is monitoring it.`;
+        G.lastResult = `The copying clerk pauses mid-sort, tilts the bundle toward the lamp, and sets it down without handling it further. "Someone's been watching this channel." He doesn't elaborate — just pushes the bundle back across the counter and turns to the regular outgoing stack. Somewhere outside this room, a monitor received word that the back-channel was just accessed. The documentation didn't move. Whoever is watching the route now knows someone tried to use it.`;
         addJournal('Scriptorium back-channel compromised — routing notification to unknown monitor', 'complication', `ss-channel-fail-${G.dayCount}`);
       } else {
         G.flags.stage2_evidence_shared = true;
-        G.lastResult = `The documentation reaches its targets through the back-channel. Confirmation comes back that the findings align with each researcher's independent work.`;
+        G.lastResult = `The copying clerk handles the bundle without logging it, routes it through the Academy's internal correspondence chain, and returns a receipt slip the next morning: three deliveries confirmed, no returns. Acknowledgment comes back the following day through the same channel — each researcher received what was sent and confirmed the findings match their independent work. The cross-reference is closed. The channel held, this time.`;
         addJournal('Scriptorium back-channel: findings distributed, researcher alignment confirmed', 'evidence', `ss-channel-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -449,11 +449,11 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Iron Ledger franking: 7 Scriptorium bundles rerouted under financial-class seal — inspection window widened, legal status rewritten', 'evidence', `ss-franking-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The franking clerk files a query upward about your interest before you've finished the question. The office closes its window on you.`;
+        G.lastResult = `The clerk at the Iron Ledger franking counter listens until the question is half-formed, then picks up his internal routing slip pad without answering. The query goes up before you finish speaking — a handwritten note slid into the wall slot behind his left shoulder with the efficiency of someone who has done this before. The window shutter drops. No explanation, no timetable for reopening. The question traveled up faster than any answer could travel back down.`;
         addJournal('Iron Ledger franking office query escalated upward', 'complication', `ss-franking-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The franking log confirms academic correspondence passing through the financial office. The reason given in the log column is "transit optimization," a category the clerk says she has never used before this quarter.`;
+        G.lastResult = `The clerk runs her finger down the outgoing log to the relevant entries and reads the category column. "Transit optimization." She says it the way someone says a word they've looked at too many times. Seven bundles from Scriptorium Steps, all academic correspondence, all routed through the financial franking office rather than the Academy's own mail. The category appears nowhere else in the log. She flips back three quarters to confirm: it didn't exist before this year. Someone created it for these seven bundles.`;
         addJournal('Iron Ledger franking: academic mail logged as transit optimization — novel category this quarter', 'evidence', `ss-franking-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -474,15 +474,15 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `The records hall contains a reference to the sealed charter subsidiary in a commercial dispute filing from eight months ago. The filing party withdrew the dispute. The reference remains in the index.`;
+        G.lastResult = `The records hall clerk pulls the index for commercial disputes filed in the last year and runs a finger down the entry column. Eight months ago, a local merchant firm cited the sealed charter subsidiary in a freight contract dispute — then withdrew the filing three weeks later without explanation. The dispute is closed; the index entry is not. The name sits in the register's margin, unreferenced and unresolved, because no one thought to scrub the index when the filing was pulled.`;
         addJournal('High quarter records: sealed charter subsidiary in withdrawn dispute filing', 'evidence', `hq-records-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Your records access request is escalated to local administration. Your name is logged.`;
+        G.lastResult = `The clerk at the hall counter writes the name and access request in two separate registers — the standard daily log and a second, smaller book kept beneath the counter. The second book is new; there is a pen crease on its cover where someone pressed too hard filling it for the first time. The access request will be reviewed by local administration before approval is granted. The name is already in both places.`;
         addJournal('High quarter records access escalated — name logged', 'complication', `hq-records-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The records hall provides partial access. The charter pattern appears in several administrative filings without explanation of the originating entity.`;
+        G.lastResult = `The clerk approves partial access: routine filings only, nothing sealed. In three separate administrative documents from the past two years the charter subsidiary appears — once in a freight classification dispute, once in a property lease amendment, once in a permit application that was later withdrawn. Each mention treats the entity as established. None of them explains what it is or who holds it. The pattern is consistent across documents that have no reason to share an author.`;
         addJournal('High quarter records: charter pattern in administrative filings', 'evidence', `hq-records-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -498,14 +498,14 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `A well-connected contact knows the sealed charter subsidiary by reputation — "old money that's been very busy lately." They provide a name that matches the dissolved noble entity identified in Aurora Heights.`;
+        G.lastResult = `The man in the embroidered grey coat sets down his drink and turns his head slightly — the angle of someone retrieving something from memory rather than improvising. "Old money. Been very busy lately." He names a family. The name matches the dissolved noble entity that surfaced in the Aurora Heights filings: a house formally struck from the living registry three years ago, legal entity never deregistered. He doesn't know that. To him it's just gossip about money moving in old channels.`;
         addJournal('High quarter social: dissolved noble entity name confirmed by elite contact', 'evidence', `hq-social-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your inquiry is too direct. The social contact closes off and your reputation in the high quarter declines.`;
+        G.lastResult = `The question lands in the middle of a salon conversation and the room's temperature drops by a degree. The woman in pearls who hosted the introduction doesn't look at either of you while she moves the conversation elsewhere, but she's noticed. The inquiry was too direct for this circuit — the high quarter trades in implication, not named concerns. The contact won't be available for follow-up introductions. The reputation cost is quiet and durable.`;
         addJournal('High quarter social: inquiry too direct — reputation decline', 'complication', `hq-social-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The contact acknowledges awareness of unusual charter activity but provides only vague confirmation. "Something has been moving money through old channels. Nobody's looking too closely at it."`;
+        G.lastResult = `The older man in the corner chair gives a half-nod — a gesture that does just enough to confirm the premise without committing to specifics. "Something has been moving money through old channels. Nobody in the quarter is looking too closely at it." He lifts his glass and studies it. The admission is vague by design: enough to confirm the question was worth asking, not enough to be held to later. In this circuit, vague confirmation from this man is worth more than most people's documents.`;
         addJournal('High quarter social: unusual charter activity acknowledged, no specifics', 'evidence', `hq-social-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -524,14 +524,14 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `A market trader who handles incoming freight describes a sealed container delivery from three weeks ago. The containers were heavier than listed, bore an unusual chemical smell, and were collected by a party who paid in advance with sealed documentation.`;
+        G.lastResult = `A freight handler at the far end of the market stalls leans on her cart and narrows her eyes at the question. Three weeks ago: four sealed containers, arrived on a standard merchant wagon but listed underweight. She lifted one end of the first container herself and set it back down fast. "Way too heavy for what the manifest said." Chemical smell on the seals — sharp and faintly sweet. Collected same day, paid in advance with documentation she wasn't allowed to copy. The party wore no guild mark.`;
         addJournal('Common quarter market: unusual sealed container delivery — heavy, chemical smell, advance payment', 'evidence', `cq-market-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The market traders are wary of investigators. They give you nothing and watch you closely for the rest of your visit.`;
+        G.lastResult = `The first two stalls go quiet the moment the question is asked — not hostile, just sealed. A woman arranging spice bundles at the third stall keeps her back turned for longer than necessary. The traders here know what outside inquiry looks like and how it ends: nothing changes, someone gets named, and the rest of the market bears the aftermath. No one speaks. They watch the rest of the visit from the corners of their eyes, tracking when the departure finally happens.`;
         addJournal('Common quarter market: trader wariness, no information', 'complication', `cq-market-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `A trader confirms unusual shipments passing through. "They don't buy anything at market. Just transit. And they always pay the transit handlers double." The double-pay pattern is consistent.`;
+        G.lastResult = `A cloth merchant who runs the transit storage alcove at the market's rear entrance leans both forearms on the counter and speaks at medium volume — no whisper. "They don't buy anything here. Transit only. Always pre-arranged, always the same: handlers get double pay, no questions, no guild receipt." He shrugs one shoulder. "When it's double pay and no questions, you don't ask." The pattern is the same across at least three separate transits he can recall by detail.`;
         addJournal('Common quarter market: transit-only shipments with double handler pay', 'evidence', `cq-market-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -547,14 +547,14 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `A labor contact identifies a specific employer who has been hiring casual non-guild workers for overnight loading operations. The employer pays well above rate and uses sealed charter authorization in lieu of standard guild contracts.`;
+        G.lastResult = `A man with quarry-scarred hands and a guild pin worn upside-down — the common quarter signal for currently unaffiliated — nods at the description and names a specific employer: a freight consolidator operating out of a bonded yard near the eastern transit road. Overnight loading, casual hire, above-rate cash. "They don't use guild contracts. They use sealed charter authorization instead." He says it like it's a curiosity, not a crime. The charter substitutes for documentation that would leave a labor trail.`;
         addJournal('Common quarter labor: off-guild overnight loader employer identified — charter authorization used', 'evidence', `cq-labor-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The labor community has been warned not to discuss certain employers. Your questions create visible unease and the conversation ends quickly.`;
+        G.lastResult = `The first worker looks away before answering and doesn't answer. The second asks who's asking and doesn't wait for the answer. The third — a woman who was about to sit down — stays standing. The community has heard something about certain employers that made the topic worth avoiding, and whatever they heard, it was persuasive. The conversation ends before it starts. The silence is more informative than anything anyone would have said.`;
         addJournal('Common quarter labor: community warned against discussing certain employers', 'complication', `cq-labor-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `A worker confirms overnight non-guild loading work at above-rate pay. "You don't ask questions when someone pays that well." The work involved sealed containers.`;
+        G.lastResult = `A young man with chalk dust on his forearms confirms the overnight work without much reluctance — he's past the point of worrying about it. "Sealed containers, above rate, no guild form. You don't ask questions when someone pays that well at two in the morning." The containers were heavy and cold to the touch. He worked three of those loads over six weeks, always the same yard, never the same team twice. The employer never gave a name he could verify.`;
         addJournal('Common quarter labor: overnight non-guild sealed container loading confirmed', 'evidence', `cq-labor-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -573,15 +573,15 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `An informant knows the street distribution contact for the diluted compound. They provide a name and location. The street distributor is a direct link to the compound supply chain's overflow management.`;
+        G.lastResult = `The informant — a thin woman who leans against the low ward's crumbling gatehouse wall and speaks without looking at you — names a distributor and gives a street corner and a time of day. The diluted compound moves through this distributor's hands as a sideline, not a primary business. That's what makes the link useful: the distributor is close enough to the supply chain's overflow to know where volume comes from, but disposable enough to talk. A direct thread back to whoever is managing the surplus.`;
         addJournal('Low ward informant: street distributor named and located — direct compound supply chain link', 'evidence', `lw-informant-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The low ward reads your presence as threat-related. An information chain activates that you are not aware of. You've been marked.`;
+        G.lastResult = `By the second question, something changes in the alley's atmosphere — a second-floor window closes that wasn't open a moment ago, a woman near the standpipe shifts her weight and looks toward the end of the lane rather than at the water. The low ward has its own awareness systems, built over years of watching who comes in asking what. An information chain moves in parallel to this conversation, and it moves faster. Whatever the ward decides to do with the fact of this visit, it won't require a formal record.`;
         addJournal('Low ward: marked by hostile information chain', 'complication', `lw-informant-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `An informant confirms compound presence in the street market. "It's been around for about four months. Calming stuff. Expensive calming stuff." The timeline aligns.`;
+        G.lastResult = `An older man who buys and resells small goods from a doorway near the low ward's main water pump confirms the compound without much hesitation — it's been circulating long enough that it's stopped being a novelty. "Four months, give or take. Calming stuff. Priced high enough that it's not for the ward." He tilts his head at the question of origin. "Came in already cut. Nobody here is making it." The four-month window matches the timeline from Ironspool.`;
         addJournal('Low ward: compound in street market 4 months — timeline aligned', 'evidence', `lw-informant-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -597,15 +597,15 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `A worker who loaded the containers describes the internal configuration he glimpsed when one container's seal failed briefly — rows of sealed vials in padded racks, each vial labeled with a dosage notation and a Soreheim military classification stamp.`;
+        G.lastResult = `A worker with a crooked jaw and hands that haven't quite healed right leans back in his chair and stares at the ceiling while he talks. One container seal blew during transit — a dry failure, not a chemical one, but it pulled the lid up for a few seconds. "Racks inside. Padded. Rows of vials, each one labeled." He taps his forearm where the label would have been. The notation was a dosage figure. Below it, a Soreheim military classification stamp in standard command red. He closed the lid and said nothing to anyone for four months.`;
         addJournal('Low ward worker: container interior glimpsed — vials with dosage notations, Soreheim military stamp', 'evidence', `lw-labor-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Your pressure approach is misread as intimidation. The worker files a street-level complaint that draws local attention.`;
+        G.lastResult = `The approach reads wrong from the first word — too insistent, too close in a space where the low ward's norms require more distance. The worker's posture closes off immediately and he looks past you rather than at you. By the time the conversation ends, a street-level complaint is already moving through the informal network that handles such things here: someone asking questions aggressively, pushing for answers people aren't giving freely. Local attention arrives before you've crossed two streets.`;
         addJournal('Low ward: intimidation complaint filed, local attention drawn', 'complication', `lw-labor-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The worker confirms the containers were unusual — heavy for their size, cold to the touch, and required special handling instructions that nobody explained properly.`;
+        G.lastResult = `The worker nods slowly, arms crossed, choosing each word. Heavy for the size — not tools, not grain, not the right kind of heavy. Cold to the touch in a way that wasn't weather. A handling sheet came with the load, handwritten rather than printed, and the instructions were specific about angles and storage orientation. Nobody explained why. He followed them because the pay was good and the explanation wasn't required. The sheet wasn't collected afterward; he lost it somewhere in the ward.`;
         addJournal('Low ward: unusual container confirmed — cold, heavy, unexplained handling requirements', 'evidence', `lw-labor-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
