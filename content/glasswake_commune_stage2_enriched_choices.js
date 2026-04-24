@@ -197,6 +197,62 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The containment warden's field book has two readings that don't appear in the official log.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'comparing containment warden field book against redacted official pylon logs');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_containment_warden_pita = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The warden — Pita Sormund, who writes each entry with her left hand braced against the pylon post, the ink sometimes smeared at the entry's end — sets the field book open to the two redacted dates without being told which to find. The readings she logged show a pressure spike on both occasions that exceeded the formation's documented maximum by forty percent. The official published log from the same dates shows the reading as "nominal." Someone downstream of her field note had the authority to alter the published record. She places her thumb on the field book entry and does not move it.`;
+        addJournal('Warden Pita Sormund field book: two 40%-overspike readings redacted from official log — published as nominal', 'evidence', `glass-pita-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Sormund arrives at the pylon sweep while Lenna's citation is still on the processing desk. She reads the situation in two seconds flat and keeps the field book at her side, spine facing away. "Pylon log is containment property. Access requests go through the Containment Research Concord." She marks the sweep and moves on without pausing. The field book does not come out of her coat.`;
+        addJournal('Warden declined field book access — Concord process required, timing unfavorable', 'complication', `glass-pita-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_containment_warden_pita = true;
+        G.investigationProgress++;
+        G.lastResult = `Sormund confirms two dates where her field readings differed from the published official log. She will not say by how much. "The field note is mine. The published record is the Concord's." She closes the field book and pockets it. She does not deny the discrepancy. "If someone else asked me the same question with a Concord authorization form, I would show them the numbers."`;
+        addJournal('Containment warden confirms two field-log discrepancies — official log differs, Concord authorization needed to see numbers', 'intelligence', `glass-pita-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The suppression authority's courier left a receipt. The return address isn't in any public registry.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'tracing suppression authority courier transit receipt return address');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.suppression_authority_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The transit receipt is still in the incoming parcel desk tray — it arrived yesterday and hasn't been collected. The return address: "Northern Glyph Oversight Commission, Shelkopolis Civic Administration Bureau, Post Line 7." Lenna confirms Post Line 7 is a Shelkopolis administrative routing code — not a public-facing address, used only by established government offices. The NGOC doesn't appear in any Shelkopolis civic directory. A non-existent office using a legitimate government routing code. The suppression authority has formal postal access through a real administrative channel.`;
+        addJournal('Suppression authority (NGOC) uses legitimate Shelkopolis Post Line 7 — real routing code, no civic directory listing', 'evidence', `glass-ngoc-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The receipt is gone by the time you reach the parcel desk — collected within the hour by a courier who arrived at the desk while Lenna was handling the citation paperwork. The desk clerk logged the collection but not the collector's credentials. "He had the right receipt number." The return address, whatever it said, moved out with the paper.`;
+        addJournal('Courier receipt collected before retrieval — collector not credentialed, address unknown', 'complication', `glass-ngoc-fail-${G.dayCount}`);
+      } else {
+        G.flags.suppression_authority_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The receipt names "Northern Glyph Oversight Commission" as the sender. Lenna reads the return postal code carefully: "That's a Shelkopolis government routing designation. They don't assign those to private or commercial addresses." She looks it up in the commune's postal reference binder. The NGOC does not appear. "A government routing code without a civic registration. That's not supposed to be possible."`;
+        addJournal('NGOC uses government routing code without civic registration — impossible under standard postal rules', 'intelligence', `glass-ngoc-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Glasswake Commune finale — the shard amplification proof and suppressed conclusions confirm the full operation mechanism. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 106,

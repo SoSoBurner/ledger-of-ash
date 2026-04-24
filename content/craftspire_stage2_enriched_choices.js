@@ -189,6 +189,62 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "A dismissed copyist left a note in the Copy Warden's inbox that was never collected.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'speaking with the dismissed copyist outside the ghost workshop corridor');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_dismissed_copyist_sovi = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Her name is Sovi Maretch, and she folds her work apron with the inside-out method that senior copyists use to protect inked cuffs. She confirms the uncollected note — she put it in the Copy Warden's box six weeks ago after she noticed the panel-frame door in the corridor change its lock hardware overnight. "The lock was standard Copy Bureau issue. In the morning it was ORE-grade friction bar." She wrote it down. Nobody came for it. Her dismissal followed three weeks later on a procedural citation she still cannot identify.`;
+        addJournal('Copyist Sovi Maretch: ghost corridor lock upgraded to ORE-grade overnight — dismissal followed report', 'evidence', `craft-sovi-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Sovi looks at you the way people look at approaches they've already survived twice. "Whatever's back there, my name is already in the wrong places." She closes the strap on her materials case and doesn't look up again. The workbench is empty before the hallway clears. She was the last one here who might have talked.`;
+        addJournal('Dismissed copyist declined — already implicated, left before further contact', 'complication', `craft-sovi-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_dismissed_copyist_sovi = true;
+        G.investigationProgress++;
+        G.lastResult = `Sovi confirms she filed a note about the corridor but won't describe its contents in detail. "I don't know who reads those boxes anymore." She does say the panel-frame door is real, that the lock changed, and that she saw a crate moved through the corridor in broad daylight three months ago by people who wore no workshop insignia. She picks up her case and moves toward the exit without waiting for questions.`;
+        addJournal('Dismissed copyist confirms panel-frame door, lock change, uninsiged crate movement', 'intelligence', `craft-sovi-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dead charter number draws from a Guild Council account someone is keeping alive.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'tracing the dormant guild account sustaining the dead charter reference');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dead_charter_account_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The administrative account number at the base of the charter reference traces to a Guild Council administrative line opened under a dissolved Craftspire ward committee — dissolved nine years ago, but the account closure was never filed. An active account requires at minimum one authorized signatory. The last recorded signatory action on that account was seven weeks ago. The authorization mark is a Council standing-committee seal, used only by the permanent Guild administration. Someone on the standing committee is maintaining the financial lifeline for the ghost entity.`;
+        addJournal('Dead charter account: active Guild Council standing-committee signatory — inside permanent administration', 'evidence', `craft-charter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The account inquiry requires a formal audit request filed through the Guild Council trade registry — a process that sends notification to the account's registered signatory. Jorin points to the clause before you file. Your inquiry would reach the signatory before any response reaches you. The account stays unexamined.`;
+        addJournal('Account audit triggers signatory notification — inquiry paused before alerting target', 'complication', `craft-charter-fail-${G.dayCount}`);
+      } else {
+        G.flags.dead_charter_account_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The account is technically active — not closed, not suspended. Jorin traces the authorization path: the last credit draw was co-signed under a Council standing-committee delegation code. He writes the code on a slip and sets it on the desk without looking at it. "Delegation codes at that level are standing-committee members only. That's twelve people." He slides the slip across.`;
+        addJournal('Dead charter account authorized by Council standing-committee delegation — 12-person pool of signatories', 'intelligence', `craft-charter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Craftspire finale — the ghost workshop and ledger laundering confirm Craftspire as the production facility. Raid through guild authority or dismantle the supply chain from below.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,

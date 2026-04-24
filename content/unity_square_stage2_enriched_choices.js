@@ -186,6 +186,62 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "One tally clerk keeps her own count of the sealed-charter arrivals. Nobody asked her to.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'cross-referencing tally tower clerk observations with shadow register entries');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_tally_clerk_fera = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The clerk — her name is Fera, and she uses her thumbnail to mark the door frame when she starts a shift — pulls a folded slip from inside her left cuff. Seventeen tallies in her own notation, spread across four months: the same three sealed-charter marks appearing together, always within a ninety-minute window of each other, always entering the exchange court from the northern laneway. "Nobody else counted them," she says, and presses the slip flat on the ledge between you.`;
+        addJournal('Tally clerk Fera: sealed-charter parties arrive together on 90-minute window, northern laneway entry', 'evidence', `unity-fera-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Fera hears the question and her thumbnail stops moving. She looks past you toward the arbitration runner stationed at the court entrance, then back at the tally board. "I count what's on the board." She turns the board face-down and begins erasing today's chalk lines from the frame. The slip, if she has one, stays in her cuff.`;
+        addJournal('Tally clerk approach failed — arbitration runner proximity, clerk closed off', 'complication', `unity-fera-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_tally_clerk_fera = true;
+        G.investigationProgress++;
+        G.lastResult = `Fera describes the pattern without producing documentation. Three charter marks, always together, always the northern laneway, never using the main exchange entry. She taps the door frame twice — once for the northern side, once for the southern. "They don't go south. Ever." She returns to her board before the shift supervisor reaches the end of his round.`;
+        addJournal('Sealed-charter parties use northern laneway exclusively — pattern confirmed by tally clerk', 'intelligence', `unity-fera-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The counting house has lamplit windows well before the district's second bell.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'observing the unindexed counting house during off-hours');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.counting_house_interior_seen = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `A ground-floor shutter sits unlatched from the inside. Through the gap: two desks, both occupied, both ledgers open to columns that run in a hand you recognize from the second shadow register — the older one, the one predating Brokerwell. The ledger at the near desk is open to a transit log page. The charter series running down the left margin is the unindexed one. The counting house isn't ancillary to the coordination. It is where the records are reconciled.`;
+        addJournal('Counting house confirmed as reconciliation point — older shadow register hand active, unindexed charter series visible', 'evidence', `unity-countinghouse-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `A second-floor window opens while you are positioned below. A figure leans out, looks directly at the laneway below, and holds there for twelve seconds. You do not move. The shutter on the ground floor closes from the inside before the figure withdraws. The counting house light goes out. The building is now dark and aware.`;
+        addJournal('Counting house occupants alerted — shutter closed, lights out', 'complication', `unity-countinghouse-fail-${G.dayCount}`);
+      } else {
+        G.flags.counting_house_interior_seen = true;
+        G.investigationProgress++;
+        G.lastResult = `The shutter gap shows one occupied desk, one open ledger, and a stack of transit receipts held under a paperweight shaped like a Unity Square tally marker. The hand on the open ledger matches neither the main registry nor Brokerwell's sub-register. A third keeper. The charter marks in the receipt stack are printed, not handwritten — the operation has a formal print run for its documentation.`;
+        addJournal('Third ledger hand at counting house — printed charter marks confirm formal documentation production', 'intelligence', `unity-countinghouse-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Unity Square finale — the coordination hub is confirmed. Expose the shadow register publicly or use it to map and intercept the final operation meeting.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,

@@ -189,6 +189,62 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "A northern road driver keeps a private log. He was there during the structure's construction.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'reviewing caravan driver traffic log for construction and supply entries');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_caravan_driver_osset = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The driver — Osset Halvarn, who keeps his private log in a worn oilskin pouch stitched to the underside of his cart bench — opens to a section flagged with a strip of red leather. The first entry describing the structure is fourteen months old: a construction crew of twenty-two, moving in on a road that hadn't existed the previous season. Four entries across the following three months document supply wagons arriving under Soreheim military tarp with Warden Order outriders. The first chemical delivery is described by smell — "sharp, like copper left in rain." The entry is underlined twice.`;
+        addJournal('Driver Osset Halvarn log: structure construction 14 months ago, chemical delivery described by smell — Warden Order outriders', 'evidence', `plumes-osset-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Halvarn's expression closes before you finish the first sentence about the northern road. "I don't keep written notes about other people's cargo. That's how drivers stay employed." He straightens the tarp on his load and checks the rear harness. The oilskin pouch pressed against the bench frame is visible for a moment as he shifts position, but he does not acknowledge it. The conversation is over before it started.`;
+        addJournal('Caravan driver declined — stated no written cargo notes, oilskin log not mentioned', 'complication', `plumes-osset-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_caravan_driver_osset = true;
+        G.investigationProgress++;
+        G.lastResult = `Halvarn confirms he drove the northern road during the structure's construction phase. He won't open the log here, but he describes from memory: a crew of over twenty, unauthorized road cut through a surveyed timber tract, supply deliveries that smelled wrong for standard construction materials. "Copper and something underneath it. You know the smell is wrong when the horses start moving to the far side of the road." He closes the bench lid without showing what's under it.`;
+        addJournal('Driver confirms construction crew, unauthorized road cut, and chemical cargo smell on northern route', 'intelligence', `plumes-osset-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The outpost manifest has a requisition category that feeds the northern route, not the outpost.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'tracing phantom supply requisition category feeding the northern route');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.phantom_requisition_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The manifest category is labelled "remote station support" — a Roadwarden administrative designation that exists but is normally used for auxiliary supply caches, not active facilities. Eighteen months of entries. Every delivery routed under that category moves out of the outpost within forty-eight hours on a northern heading, under the same transport authorization: a Warden Order standing requisition countersigned by a Shelkopolis command line. The outpost is a pass-through point, not the destination. It has been functioning as a logistics node for the staging structure since before the structure was finished.`;
+        addJournal('Outpost remote-station requisitions: Warden Order standing auth, Shelkopolis countersign, 18-month northern routing', 'evidence', `plumes-manifest-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The manifest is a Roadwarden operational document — access requires a Roadwarden administrative credential or formal audit request through Fairhaven post command. The duty officer at the intake desk is polite about it: "That's not a public register." Your name goes into the inquiry log as standard procedure. The manifest stays behind the desk.`;
+        addJournal('Outpost manifest access denied — Roadwarden credential required, inquiry logged', 'complication', `plumes-manifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.phantom_requisition_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The duty officer finds the category in question without prompting — she has been trying to reconcile it herself. "Remote station support is supposed to attach to a registered auxiliary cache. I have no registration for whatever this is feeding." She closes the manifest before you can read the authorization countersignature. "I'm not supposed to share authorization details. But the category exists and it moves goods north."`;
+        addJournal('Outpost duty officer confirms phantom requisition category — feeds unregistered northern point', 'intelligence', `plumes-manifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Plume's End Outpost finale — the staging location is physically located. Scout it formally with Patrol Leader backup or use Letha's map to infiltrate quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,

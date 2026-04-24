@@ -187,6 +187,62 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The dock crew eat alone and pay in script nobody at Ironhold recognizes.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'observing the off-manifest transport crew at the quarry canteen');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transport_crew_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The canteen cook keeps a cup of the foreign script behind the counter — he collects it as a novelty. He sets it on the table between you without being asked. The script is Shelkopolis ORE Supreme Command issue: treasury-backed, not trade scrip, used only by authorized capital personnel. The crew eating alone at the far table carry it as their only currency. They are not contractors. They are ORE command staff running the transport chain in plain work clothes.`;
+        addJournal('Transport crew carry ORE Supreme Command treasury script — capital command staff in plain clothes', 'evidence', `iron-crew-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `One of the crew clocks your attention from across the canteen before you reach the counter. He says something to the others without looking away from you. The three of them stand and take their food to go. The cook watches them leave, then watches you, then turns back to his range without comment. The crew does not return during your time at Ironhold.`;
+        addJournal('Transport crew spooked at canteen — group departed, returned no further', 'complication', `iron-crew-fail-${G.dayCount}`);
+      } else {
+        G.flags.transport_crew_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The script they pay with isn't local quarry scrip and isn't standard Soreheim trade tender. The cook accepts it with the practiced indifference of someone who's been doing so for months. You catch the denomination mark on one coin: a column-and-chain seal, Shelkopolis administrative issue. Whatever their stated affiliation, their pay comes from a capital account.`;
+        addJournal('Transport crew pay from Shelkopolis administrative account — not local contractors', 'intelligence', `iron-crew-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The night tally supervisor eats alone at the secondary slope. He watches the dock.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'approaching the night tally supervisor at the secondary slope rest point');
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_night_tally_supervisor = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The supervisor — Kael Drovish, a broad-shouldered man who rubs the back of his left hand against his thigh when he's deciding something — sits with his back to the slope. He has been watching the special assessment dock at the end of each break for two months. "That dock doesn't appear in my tally." He keeps his voice below the wind. "Nothing I log ever reaches it. Whatever moves out of there, it's not in my count and I can't make it be." He keeps rubbing his hand. He doesn't ask what you'll do with it.`;
+        addJournal('Night tally supervisor Kael Drovish: special assessment dock excluded from all tally records', 'evidence', `iron-kael-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Drovish is on his break but not alone — a second supervisor has joined him at the slope base tonight, which doesn't happen on schedule. Both men look up when you approach. Drovish's jaw sets. "Break's closed." The second supervisor doesn't speak, just watches until you move off. Whatever the engineer at the weighing station told you about this spot, it's already been noted.`;
+        addJournal('Night tally break interrupted — second supervisor present, approach flagged', 'complication', `iron-kael-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_night_tally_supervisor = true;
+        G.investigationProgress++;
+        G.lastResult = `Drovish keeps his eyes on the secondary slope while you sit next to him. He confirms the dock at the far end of the special assessment bay runs its own manifest, separate from his count. "I asked about reconciling it once. Darian told me that section doesn't feed my ledger." He pauses. "I stopped asking. But I still look at the dock at every break."`;
+        addJournal('Special assessment dock manifest separate from quarry tally — Drovish excluded by Darian order', 'evidence', `iron-kael-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Ironhold Quarry finale — the raw material source is confirmed. Report through ORE command chain or route the evidence to the Roadwarden Ithtananalor post.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
