@@ -136,11 +136,11 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_arbiter_nyra_thawmark = true;
         G.investigationProgress++;
-        addNarration('Loss Ledger — Thawmark', 'Nyra opens the Loss Ledger binder to a tab marked three seasons back. The page describes a wagon axle failure mid-crossing — cargo declared as preserved goods, settlement paid, case closed. She points to the claimant\'s mark in the margin: the same geometric cipher from the seized vials. Her thumbnail stays on it. "Identical mark. Different crossing, different claim type, same party." She does not say what that means. She doesn\'t need to.');
+        addNarration('Loss Ledger — Thawmark', 'Nyra opens the Loss Ledger binder to a tab marked three seasons back. The page describes a wagon axle failure mid-crossing — cargo declared as preserved goods, settlement paid, case closed. She points to the claimant\'s mark in the margin: the same geometric cipher from the seized vials. Her thumbnail stays on it. "Identical mark. Different crossing, different claim type, same party." The same sealed party filed two claims across two seasons under two different cargo descriptions and walked away clean both times. She does not say what that means. She doesn\'t need to — the pattern has already said it.');
         addJournal('Loss Ledger links cipher mark to prior cargo claim — same party across multiple incidents', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Loss Ledger — Thawmark', 'Nyra locates the binder but sets it on the shelf behind her. The Loss Ledger is a formal arbitration record — sharing it outside a proceeding requires a written request to the Compacts council. She writes the request reference number on a slip and passes it across the desk. "Three to four days. If the Compacts approve it, I\'ll have the relevant pages ready." She is not obstructing. The process simply does not bend.');
+        addNarration('Loss Ledger — Thawmark', 'Nyra locates the binder and sets it on the shelf behind her rather than on the desk. The Loss Ledger is a formal arbitration record — sharing it outside a proceeding requires a written request to the Compacts council. She writes the request reference number on a slip and passes it across. "Three to four days. If the Compacts approve it, I\'ll have the relevant pages ready." You ask directly whether the cipher mark appears in prior claims. She answers by describing the request process in more detail. The question was not difficult. She chose a different question to answer.');
       }
     }
   },
@@ -182,7 +182,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        addNarration('Shelter Hall — Hauler\'s Complaint', 'The wardens reach the hauler before you do. By the time you are close enough to hear clearly, they have moved him to a side bench and the conversation has dropped to a murmur. One warden catches you standing nearby and steps between you and the bench without a word. The shelter hall goes back to its ordinary noise. Whatever the hauler was describing is now a private matter between him and the Compacts.');
+        addNarration('Shelter Hall — Hauler\'s Complaint', 'The wardens reach the hauler before you do. By the time you are close enough to hear clearly, they have moved him to a side bench and the conversation has dropped to a murmur. One warden catches you standing nearby and steps between you and the bench without a word. His posture says nothing threatening — it says the hall has a boundary and you are on the wrong side of it. The shelter hall goes back to its ordinary noise. The hauler\'s specific complaint, whatever it was about the gate log and the unlisted crossing, is now a private matter between him and the Compacts, which is precisely how the Compacts prefers it to remain.');
       }
     }
   },
@@ -203,7 +203,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Override clearances signed by Overseer-Liaison Peleth Vorn — title absent from published Compacts registry', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Override Signature — Crownmere', 'Cadrin pulls the override file and reads the signature block himself. His expression does not change. "I know the name. I\'m not going to be the one to put it in front of you in writing." He closes the file and slides it back into the binder. He is not protecting the name. He is protecting the distance between himself and whatever comes next.');
+        addNarration('Override Signature — Crownmere', 'Cadrin pulls the override file and reads the signature block himself. His expression does not change. You ask whether the override signature belongs to a Collegium-registered title. He answers by explaining the administrative override process: what a clearance looks like, what level of authority is required, how the form is verified. The procedure is correct. The name in the block is never mentioned. He closes the file and slides it back into the binder. He answered a different question than the one you asked, in enough detail that the conversation is now over. He is not protecting the name. He is protecting the distance between himself and whatever comes next.');
       }
     }
   },
