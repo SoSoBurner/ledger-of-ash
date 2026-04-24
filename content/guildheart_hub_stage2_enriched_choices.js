@@ -268,6 +268,62 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "Toven at the routing desk has seen Collegium manifests — the numbering is wrong.",
+    tags: ['Collegium', 'Stage2', 'Intelligence'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'Guildheart Collegium factor');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      if (result.isCrit || result.total >= 13) {
+        G.flags.met_factor_toven = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.flags.collegium_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.lastResult = 'The factor — a compact man named Toven with a habit of pressing his thumbnail against the edge of every document he handles before he reads it — sets the routing order on the counter without being asked. Three manifest numbers in the Collegium block are sequential. Standard orders never run sequential; the numbering system is designed to prevent batch routing. Someone filed these together deliberately, bypassing the separation requirement. Toven does not say what that means. He presses his thumbnail against the corner of the page and slides it back across the counter to you.';
+        addJournal('Guildheart factor Toven: Collegium routing block with sequential manifest numbers — batch bypass of standard separation protocol.', 'intelligence');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Toven listens to the question, then straightens the stack of manifests on his counter into a precise alignment. "Collegium orders process the same as any other order at this desk. Routing number queries go through the transit clerk upstairs." He does not look up. The stack is already aligned. He aligned it again anyway.';
+      } else {
+        G.flags.met_factor_toven = true;
+        G.lastResult = 'Toven pulls the routing ledger, finds the Collegium block, and opens it to the right page without hesitation — he has looked at this page before. "Manifest numbers are assigned at filing. I process what comes through." He closes the ledger. His thumbnail runs the full length of the binding edge before he sets it back on the shelf. He is not going to say more than that, not here.';
+        addJournal('Guildheart factor Toven: Collegium routing block located in transit ledger — he has checked this page before.', 'intelligence');
+      }
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  {
+    label: "A Collegium order sits in the transit records with no freight category assigned.",
+    tags: ['Collegium', 'Stage2', 'Evidence'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'Guildheart Collegium sealed order');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/2));
+      if (result.isCrit || result.total >= 12) {
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'The document is heavier than standard transit paper — linen content, the kind used for long-archive filings. The seal is iron-grey wax with a quill impression, pressed at a slight angle as if stamped in haste. The routing stamp below it reads GUILDHEART TRANSIT HUB — RECEIVING, but the freight category line is blank. Not redacted. Blank, as if whoever typed the order did not know what category applied, or did not want one to. The order number is not sequential with the surrounding block.';
+        addJournal('Guildheart transit records: Collegium sealed order — linen-weight paper, iron-grey quill seal, blank freight category, non-sequential order number.', 'evidence');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The transit records cabinet requires a routing clerk credential. The duty clerk at the desk takes your inquiry form, stamps it, and sets it in a tray marked PENDING SUPERVISOR REVIEW. "Three-day turnaround on non-standard access requests." The inquiry is now in a tray that someone from the Collegium routing block will eventually see.';
+        addJournal('Guildheart transit records: access request logged — pending supervisor review, Collegium routing notification possible.', 'complication');
+      } else {
+        G.lastResult = 'The Collegium order is filed between two standard freight manifests, which is not where Collegium orders are supposed to go — they have a separate administrative block. It was misfiled, or placed here deliberately where it would be overlooked. The seal is intact. The freight category field is blank. The order date is three weeks ago.';
+        addJournal('Guildheart transit records: Collegium order misfiled in standard freight block — sealed, blank category, dated three weeks prior.', 'evidence');
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+      }
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
 ];
 
 window.GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES;

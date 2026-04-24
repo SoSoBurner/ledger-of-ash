@@ -273,6 +273,62 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "Faculty correspondence in the archive hints at outside interference — no name attached.",
+    tags: ['Collegium', 'Stage2', 'Evidence'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'Mimolot Collegium academic correspondence');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      if (result.isCrit || result.total >= 12) {
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'The correspondence is between two faculty members — formal register, tight margins, no salutation beyond initials. The first letter asks whether the external classification directive applies to the theoretical work as well as the applied findings. The second answers: classification directives from outside the faculty are not standard procedure and have no precedent in the Academy charter, but the directive arrived with a Collegium counter-seal, which means it carries force regardless of charter. The correspondent adds, in a postscript so compressed it is nearly illegible: "We are being told to not write down what we already know."';
+        addJournal('Mimolot archive: faculty correspondence — external Collegium classification directive applied to theoretical research, no charter precedent, counter-seal used to enforce.', 'evidence');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The research archive requires a faculty credential or an approved external researcher registration. The archive attendant notes the request and explains the registration process: three-day review, faculty sponsor required. "The correspondence files are internal administrative record. External access is reviewed by the Dean\'s office." The request is logged.';
+        addJournal('Mimolot archive: external researcher registration required for correspondence files — access request logged with Dean\'s office.', 'complication');
+      } else {
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'The archive holds faculty correspondence by term and subject. The administrative anomalies file — a designation someone added to an otherwise unnamed folder — contains letters between two scholars discussing a classification directive that arrived from outside the faculty. The language is precise and deliberately plain: they were told certain findings could not be documented. The letters do not name who told them this. They note the date.';
+        addJournal('Mimolot archive: faculty correspondence on external classification directive — findings suppressed by unnamed authority, date recorded.', 'evidence');
+      }
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  {
+    label: "Ruveth knows the suppression history cold — until the conversation reaches the Academy itself.",
+    tags: ['Collegium', 'Stage2', 'Intelligence'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'Mimolot Collegium scholar evasion');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      if (result.isCrit || result.total >= 14) {
+        G.flags.met_scholar_ruveth = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'Ruveth speaks fluently about the suppression period — dates, mechanisms, procedural logic. Then the question touches the Academy\'s own Collegium relationship. He finishes his coffee, sets the cup in the exact center of the saucer ring, and says: "The Academy accepted a funding arrangement that required certain research to remain within the institution\'s administrative domain. That is not uncommon." He does not say what the arrangement required in exchange. Technically true. The conversation ends without the thread closing.';
+        addJournal('Mimolot scholar Ruveth: Academy accepted Collegium-linked funding arrangement requiring research to remain in administrative domain — terms not stated.', 'intelligence');
+        G.flags.stage2_faction_contact_made = true;
+      } else if (result.isFumble) {
+        G.flags.met_scholar_ruveth = true;
+        G.lastResult = 'Ruveth discusses administrative history with precision and apparent openness, right up to the moment the question turns toward the Academy\'s current institutional relationships. He finishes his coffee, sets the cup down in the center of the saucer ring, and says the relevant records are internal to the faculty governance process. He smiles. "I would check the public charter filings — those are accurate as far as they go." The qualification is doing a great deal of work.';
+      } else {
+        G.flags.met_scholar_ruveth = true;
+        G.lastResult = 'Ruveth is precise and helpful until the conversation approaches the Academy\'s own institutional position. He finishes his coffee, sets the cup down in the exact center of the saucer ring, and notes that the administrative relationship between academic institutions and external bodies is a matter of public charter record. He is not refusing to answer. He is redirecting toward a record that, if you have already looked, you know has a gap in it.';
+        addJournal('Mimolot scholar Ruveth: redirected to public charter record when questioned about Academy-Collegium relationship — charter gap already documented.', 'intelligence');
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+      }
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
 ];
 
 window.MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES;

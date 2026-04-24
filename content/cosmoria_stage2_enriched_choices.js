@@ -254,6 +254,64 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "A sealed Collegium filing sits in the public index — clerk glances at the cabinet.",
+    tags: ['Collegium', 'Stage2', 'Evidence'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'Cosmoria Collegium sealed filing');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      if (result.isCrit || result.total >= 12) {
+        G.flags.met_clerk_mevra = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'The clerk — Mevra — processes the records request correctly: logs it, stamps it, retrieves the index. The filing exists. She reads the access restriction line and says it cannot be released without Collegium authorization. Standard procedure. Then she glances at the cabinet behind her — the grey-tab dividers — and back to you. Half a second. She slides the denial form across with both hands. The filing number is visible on the index before she closes it: COL-7-RESTRICTED-COSM-14.';
+        addJournal('Cosmoria records office: Collegium sealed filing COL-7-RESTRICTED-COSM-14 — clerk Mevra processed denial correctly but marked the grey-tab cabinet.', 'evidence');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Mevra stamps the request, notes the Collegium restriction, and adds a second notation: INQUIRY LOGGED PER COLLEGIUM PROTOCOL 14. The protocol requires that any access attempt on a sealed Collegium filing be reported to the issuing office within one business day. She is sorry. This is the procedure.';
+        addJournal('Cosmoria records office: sealed filing access attempt — Collegium Protocol 14 notification triggered.', 'complication');
+      } else {
+        G.flags.met_clerk_mevra = true;
+        G.lastResult = 'Mevra finds the filing in the index without difficulty — it is not hidden, just restricted. She reads the access line, explains the Collegium authorization requirement in clear procedural language, and slides the denial form across. The grey-tab cabinet behind her contains the restricted block. She does not look at it. The filing number is in the index, briefly visible: COL-7-RESTRICTED-COSM-14.';
+        addJournal('Cosmoria records office: Collegium sealed filing COL-7-RESTRICTED-COSM-14 confirmed in public index — requires Collegium authorization to access.', 'evidence');
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+      }
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  {
+    label: "Peldan tracks Collegium authorization cadence — forty-one same-day approvals, never the same signature twice.",
+    tags: ['Collegium', 'Stage2', 'Intelligence'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'Cosmoria Collegium archivist cadence');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      var result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      if (result.isCrit || result.total >= 13) {
+        G.flags.met_archivist_peldan = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'Peldan checks the date stamp on the correspondence bundle before handing it across — a reflex, done before he finishes his sentence. Collegium authorization requests normally queue four to seven days. These bypass with senior sign-offs, processing same-day in hours. "I have logged forty-one of them over fourteen months," he says. "All the same request category. The authorization signatures are never the same name twice." He wants this noticed. He has been waiting for someone who would understand what it means.';
+        addJournal('Cosmoria archivist Peldan: 41 Collegium same-day authorizations over 14 months — rotating senior signatures, single request category, consistent bypass of standard queue.', 'intelligence');
+        G.flags.collegium_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+      } else if (result.isFumble) {
+        G.lastResult = 'Peldan checks the date stamp on the correspondence bundle before handing it across. "Collegium correspondence processes through the standard queue. Authorization timelines are set by the issuing office." He says this carefully, which is different from saying it defensively. He checks the date stamp on the denial form too, before filing it.';
+      } else {
+        G.flags.met_archivist_peldan = true;
+        G.lastResult = 'Peldan checks the date stamp on each document before passing it across — a consistent habit, not a nervous one. He notes that Collegium authorization requests in a specific category process faster than the queue allows. "I have the log if someone needs it." He says this to the middle distance, not quite to you. The offer is real. He is waiting to see if you follow it.';
+        addJournal('Cosmoria archivist Peldan: Collegium authorization requests in one category consistently processed faster than queue allows — log available.', 'intelligence');
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+      }
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
 ];
 
 window.COSMORIA_STAGE2_ENRICHED_CHOICES = COSMORIA_STAGE2_ENRICHED_CHOICES;
