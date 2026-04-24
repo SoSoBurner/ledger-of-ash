@@ -23,16 +23,16 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Taldan has kept every suppression request on file precisely because the cited regulatory authority — "Northern Glyph Oversight Commission" — does not exist. Fourteen requests over six months. Each request targeted documentation that would help someone understand how to counter glyph pressure engineering. The pattern is censorship of countermeasures.`;
+        G.lastResult = `Taldan opens the suppression file on the first request and keeps going — fourteen in a row, six months of them, fanned across the desk. The cited authority, "Northern Glyph Oversight Commission," appears nowhere in the legal register or the regional charter index, and he has checked both twice. Every request targeted documentation that would allow someone to identify and counter glyph pressure engineering. Not general glyph knowledge. Specifically the countermeasures. "Censorship is most useful when it is targeted," he says. He has been waiting for someone to ask why.`;
         addJournal('Sunspire: 14 suppression requests from fake authority — targeting glyph countermeasure documentation', 'evidence', `sun-taldan-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Taldan treats your inquiry as a potential additional suppression attempt. He records your visit and forwards a summary to his supervisory chain before engaging further.`;
+        G.lastResult = `Taldan records the visit before he responds — name, time, description, and nature of inquiry, in a neat hand. The summary goes to his supervisory chain by messenger before your second sentence is out. He explains this without apology: an outside party asking about a specific suppression file pattern looks, procedurally, indistinguishable from a new suppression attempt. He is not hostile. He is thorough. The visit is now part of the registry's own record, attached to the files you were asking about.`;
         addJournal('Knowledge Registry visit logged as potential suppression inquiry', 'complication', `sun-taldan-fail-${G.dayCount}`);
       } else {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
-        G.lastResult = `Taldan confirms multiple suppression requests from an unverified authority. He has not complied with any of them. "An authority I cannot verify in three major legal registers is not an authority."`;
+        G.lastResult = `Taldan confirms the requests without prompting — he's been expecting someone to ask. "An authority I cannot verify in three major legal registers is not an authority." He taps the file. Multiple requests, same fake citation, same pattern of targeted documentation. He has not complied with any of them. The refusals are logged carefully, each one cross-referenced to the register checks he ran. He has been building a record on the assumption that the record would eventually matter.`;
         addJournal('Suppression requests from unverified authority — Taldan declined compliance', 'evidence', `sun-taldan-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -55,12 +55,12 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Kael's requisition records show custom-built container insulation equipment — specifically designed to mask chemical compound signatures during standard cargo inspection. The work was commissioned by a party using the same sealed charter reference that appears throughout the investigation. Sunspire's convoy infrastructure was used as a modification workshop for the transport containers.`;
         addJournal('Sunspire convoy workshop used to build inspection-masking container insulation — same charter ref', 'evidence', `sun-kael-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kael's machinery logs are protected under convoy commercial confidentiality. His legal standing requires him to decline without a formal override order.`;
+        G.lastResult = `Kael wipes his hands on a rag and sets it down before he turns. The logs are syndicate property under convoy commercial confidentiality — he says this before you finish the question, the phrasing ready-made, a sentence he has delivered before. Without a formal override order from the Adjudicator's office, he cannot open them to an outside party. He is not apologetic about it. He goes back to the bench. The caliper is already in his hand before he reaches the worktop.`;
         addJournal('Convoy machinery logs — commercial confidentiality block', 'complication', `sun-kael-fail-${G.dayCount}`);
       } else {
         G.flags.met_kael_emberthrone = true;
         G.investigationProgress++;
-        G.lastResult = `Kael confirms unusual container modification work. "Insulation spec was unusual — not temperature, more like signal damping. Not standard convoy equipment."`;
+        G.lastResult = `Kael pulls the requisition from the bench shelf without ceremony and reads the spec line aloud before you can ask: insulation, not for temperature regulation. "More like signal damping," he says, turning the page to show the material notations. "Not standard convoy equipment — not anything I've built for a standard customer." He's already done the comparison in his head. He sets the sheet on the bench between you and picks up a caliper, waiting for the next question.`;
         addJournal('Signal-damping container insulation produced at Sunspire — not standard equipment', 'evidence', `sun-kael-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -83,12 +83,12 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The dispute documentation includes the original commissioning party's contact reference — a specific charter subsidiary code that matches the sealed charter buyer identified by Thalen Sunweave in Fairhaven. The commissioning party is now in default on the final payment. Orvak provides the full documentation to support the adjudication.`;
         addJournal('Container commission dispute reveals charter subsidiary code — matches Fairhaven suppression buyer', 'evidence', `sun-orvak-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Orvak's adjudication is confidential until formally concluded. Your interest in the proceedings is logged and forwarded to both disputing parties.`;
+        G.lastResult = `Orvak sets his quill down and folds his hands over the adjudication docket. Active proceedings are confidential by charter — both parties receive notice of any external inquiry into the dispute, a rule he explains without inflection, because it is simply the rule. He logs your name and the nature of your interest in the margin register before the conversation is over. Both parties will know someone asked before the day is out. He picks the quill back up and waits for you to leave.`;
         addJournal('Trade adjudication confidential — interest logged, parties notified', 'complication', `sun-orvak-fail-${G.dayCount}`);
       } else {
         G.flags.met_orvak_strone = true;
         G.investigationProgress++;
-        G.lastResult = `Orvak confirms the commissioning party reference is a subsidiary charter entity. He can confirm it was used to commission the work but cannot identify the ultimate principal without a compliance investigation order.`;
+        G.lastResult = `Orvak sets the docket on the edge of the desk where you can both read it. The commissioning party is a subsidiary charter entity — he can confirm that, and confirm the reference code was used for the work order. The ultimate principal sits behind the subsidiary structure, and identifying them requires a compliance review order from the Adjudicator's board. "The subsidiary is real. What is behind it is not recorded here." He closes the docket with both hands and squares its edge with the desk corner.`;
         addJournal('Charter subsidiary confirmed as commissioning party — principal identification requires formal order', 'evidence', `sun-orvak-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -283,7 +283,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Sunspire Haven Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Sunspire Haven investigation needs more evidence before acting.`;
+        G.lastResult = `The documentation is incomplete. The subsidiary charter, the container modification records, the suppression requests — they point in the same direction, but the chain between them has gaps. Presenting this to the Patron-Family council or releasing it publicly without a closed chain gives the other side room to discredit the pieces rather than answer the whole. More threads need to be followed before the next move.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -292,12 +292,12 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You file the knowledge suppression evidence and the convoy modification records with the Sunspire Patron-Family council. The council suspends the charter subsidiary's operational access and refers the matter to Roadwarden oversight. Stage III opens with Patron-Family institutional backing.`;
+        G.lastResult = `The full dossier goes to the Patron-Family council in sequence: suppression requests from a non-existent authority, container modification specs, convoy handler payments, the calibration marks in the storehouse. Two council members read it through twice without speaking. The charter subsidiary's operational access is suspended before the session closes, and the matter is formally referred to Roadwarden oversight. What began as an internal irregularity is now a Patron-Family record with teeth.`;
         addJournal('Sunspire S2 finale: Patron-Family council suspends charter subsidiary access', 'evidence', `sun-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You release the suppression request list and the container modification specs to Taldan Veyst for open publication. The Knowledge Registry publishes the suppressed countermeasure documentation immediately. Every affected locality receives the technical information they were denied.`;
+        G.lastResult = `The suppression list goes to Taldan Veyst before the Patron-Family route closes — fourteen requests, fake regulatory authority, targeted countermeasure documentation, all of it. Taldan reads it standing at his desk and begins the publication process before you have left the building. By evening, every document the fake authority tried to suppress is in the Knowledge Registry's open stack. Every locality in the northern circuit receives copies by courier within forty-eight hours. The suppression campaign has now produced the opposite of its intended effect.`;
         addJournal('Sunspire S2 finale: suppressed countermeasure docs published via Knowledge Registry', 'evidence', `sun-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
