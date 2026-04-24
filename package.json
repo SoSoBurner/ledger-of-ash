@@ -8,7 +8,7 @@
     "test:e2e": "playwright test",
     "review:content": "node tests/content/review-content.js",
     "test:continuity": "node tests/continuity/validate-continuity.js",
-    "test:all": "npm test && npm run test:content && npm run test:e2e"
+    "test:all": "npm test && npm run test:content && npm run test:continuity && npm run test:e2e"
   },
   "devDependencies": {
     "jest": "^29",
