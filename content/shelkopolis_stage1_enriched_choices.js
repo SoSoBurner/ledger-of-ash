@@ -143,6 +143,25 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
+  // 4b. PERMIT REGISTRY: MISSING SIGNATORY
+  {
+    label: "Authorization code on the permit, signatory column left blank. The clerk is still filing.",
+    tags: ['NPC', 'Records', 'Bureaucracy'],
+    xpReward: 15,
+    stageProgress: 0,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(15, 'reading administrative anomaly');
+
+      G.lastResult = `The permit registry desk smells of pressed wax and dry parchment. A row of transit authorizations sits in the outbox tray, stamped and dated, each one carrying a six-digit reference code in the upper margin. The third form down has the code — REF-7741-KS — printed cleanly. The signatory column beside it is blank. Not crossed out. Not initialed with a placeholder. Blank, as though the name was never meant to be there. The clerk on the far side of the room lifts a new form from the stack and begins writing without looking up.`;
+      addJournal('Permit registry at Shelkopolis civic hall: transit authorization REF-7741-KS carries a valid code but no signatory — column left empty, form filed as complete', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
   // 5. SHRINE HELPER: BLESSING EFFECTS DEGRADING
   {
     label: "The shrine wards need relaying more often. The formulas haven't changed.",
@@ -334,7 +353,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Garrison commander personally aware of your inquiry', 'complication', `shelkopolis-commander-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The supply logs open to the autumn columns. Several transfer entries are marked "approved redistribution" with no destination listed — just a reference number that doesn't match any warehouse in the standard registry. The coal-smoke smell of the garrison office hangs flat in the air while you copy the reference numbers down. They mean something to someone.`;
+        G.lastResult = `The supply logs open to the autumn columns. Several transfer entries are marked "approved redistribution" with no destination listed — just a reference number that doesn't match any warehouse in the standard registry. The coal-smoke smell of the garrison office hangs flat in the air while you copy the reference numbers down. They mean something to someone. The entry above the last transfer is dated the fourteenth; the transfer itself is dated the ninth.`;
         addJournal('Supply logs show signs of deliberate obfuscation', 'evidence', `shelkopolis-supply-obfuscated-${G.dayCount}`);
       } else {
         G.lastResult = `The quartermaster recites the access policy without looking up: garrison officers only, countersigned request, three-day processing. He's not hostile. He's a wall shaped like a man doing his job.`;
