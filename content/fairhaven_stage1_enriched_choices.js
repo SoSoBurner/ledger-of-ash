@@ -769,8 +769,8 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." She wraps her hands around her cup. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
         G.flags.met_elder_cassian = true;
+        G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." She wraps her hands around her cup. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
         addJournal('contact', 'Elder Cassian: recognized compound substitution by smell, has original sample, knows the community is being managed', `fairhaven-cassian-${G.dayCount}`);
       } else {
         G.lastResult = `Cassian is willing enough, but the conversation stalls at anything specific. She watches you with the patience of someone who has waited out other people's urgency before. She'll speak plainly when she decides you're the right person to speak plainly to.`;
@@ -790,9 +790,9 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Nyse leans against the post and thinks about it. "Six of us stayed. All long-posting. I've been here four years." She tilts her head slightly. "They said they needed people who knew the local households. For continuity." She doesn't say it as a criticism. She's describing a thing she accepted without fully naming what it is. The six who stayed are the ones who would recognize a face in the market square as someone they'd seen before, and know which household they belonged to.`;
         if (!G.flags) G.flags = {};
         G.flags.met_nyse_garrison = true;
+        G.lastResult = `Nyse leans against the post and glances up the square before she answers — left, right, the same sweep, habit worn into reflex. "Six of us stayed. All long-posting. I've been here four years." A beat. "They said they needed people who knew the local households. For continuity." She doesn't say it as a criticism. She's describing a thing she accepted without fully naming what it is. The six who stayed are the ones who'd recognize a face and know which household it belonged to.`;
         addJournal('contact', 'Corporal Nyse: retained specifically for community knowledge — long-term soldiers being used as surveillance assets', `fairhaven-nyse-${G.dayCount}`);
       } else {
         G.lastResult = `Nyse gives the shortest answer available. "Orders." She watches you to see if you'll push it. She waits long enough to make clear she hopes you won't.`;

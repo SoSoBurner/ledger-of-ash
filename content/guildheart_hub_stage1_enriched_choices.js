@@ -818,9 +818,9 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Observer Calla Trent keeps her hands folded on the desk and listens to the first two sentences before responding. "The Collegium has been stationed here sixty-two days. We are in a monitoring phase." She doesn't explain what monitoring leads to, but she slides a form across the desk — addressable, formal, with a Collegium reference line. "Written summary. Signed. Specific." She taps the reference line. "That's the channel."`;
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_observer = true;
+        G.lastResult = `Observer Calla Trent keeps her hands folded on the desk and listens to the first two sentences before responding. "The Collegium has been stationed here sixty-two days. We are in a monitoring phase." She doesn't explain what monitoring leads to, but she slides a form across the desk — addressable, formal, with a Collegium reference line. "Written summary. Signed. Specific." She taps the reference line. "That's the channel." She pulls the form back two inches and straightens it before releasing it. Everything here goes into her record, not yours.`;
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium observer Calla Trent — monitoring phase active, formal submission channel opened', `guildheart-collegium-${G.dayCount}`);
       } else {
@@ -880,9 +880,9 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Paerun Delst is still in Guildheart. Still waiting, though he doesn't say for what. His license was revoked for inconsistent weight measurement — a violation that carried a correction notice before the new enforcement protocol. "Same scales as Bren and Maret." He points at two active stalls. "Same calibration. Mine got pulled. Theirs didn't." He's already done being angry. What's left is just the fact of it, stated flat, waiting for someone to do something with it.`;
         if (!G.flags) G.flags = {};
         G.flags.met_paerun_delst = true;
+        G.lastResult = `Paerun Delst is still in Guildheart. Still waiting, though he doesn't say for what. He keeps his revoked license card in his breast pocket — visible edge above the cloth, the guild stamp face-out. "Same scales as Bren and Maret." He nods toward two active stalls. "Same calibration. Mine got pulled. Theirs didn't." He's already done being angry. What's left is just the fact of it, stated flat, waiting for someone to do something with it.`;
         addJournal('Displaced factor Paerun Delst: selective enforcement of identical violation confirmed', 'evidence', `guildheart-paerun-${G.dayCount}`);
       } else {
         G.lastResult = `Paerun watches you approach and answers before you finish the introduction. "I don't discuss the license case." He's not hostile — he's rehearsed. Someone told him not to, or he decided on his own that it doesn't help anymore. The stall space where he used to operate is empty and still marked with his registration number.`;

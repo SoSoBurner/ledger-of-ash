@@ -19,8 +19,8 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Cadrin keeps his log open on the crossing station desk, pen beside it. "Three nights per month my count and the walker's disagree. Same three nights. New moon, every time." He taps the page with one finger — not agitated, just precise. "My numbers don't change after I write them. Someone else's do." He slides the log toward you so you can read the column he's marked.`;
         G.flags.met_cadrin = true;
+        G.lastResult = `Cadrin keeps his log open on the crossing station desk, pen beside it. "Three nights per month my count and the walker's disagree. Same three nights. New moon, every time." He taps the page with one finger — not agitated, just precise. "My numbers don't change after I write them. Someone else's do." He slides the log toward you so you can read the column he's marked.`;
         addJournal('contact', 'Bridge keeper Cadrin met: systematic log discrepancies on predictable nights, willing to show records', `whitebridge-cadrin-${G.dayCount}`);
       } else {
         G.lastResult = `Cadrin is mid-count when you arrive — lips moving, stylus tracking each cart. He raises two fingers without looking up: wait. By the time the queue clears, his shift partner has returned and he won't break his working posture for a stranger. He'll be alone again after the evening handover.`;
@@ -341,8 +341,8 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Ashe lives on the far side of the crossing now, in a two-room dwelling with a window that faces away from the bridge. She pours water for both of you. When you ask about the inquiry, she talks about the crossing schedule — how the commune sets tidal windows for heavy cargo, how the eastern span requires a seasonal mortar review, how the warden rotation was restructured two years ago to distribute the overnight hours more fairly. She is thorough and patient and answers follow-up questions before you ask them. None of it touches the inquiry, or the closures, or the new-moon nights. She refills your cup when it's still half full and tells you the spring crossing season is the most interesting to observe, if you're here long enough.`;
         G.flags.met_ashe_director = true;
+        G.lastResult = `Ashe lives on the far side of the crossing now, window facing away from the bridge. She pours water for both of you, then keeps her eyes on the window frame while she talks — not looking out, just not looking at you. The inquiry comes up; she answers with the crossing schedule, tidal windows, mortar reviews, warden rotations. Thorough. Patient. None of it touches the closures or the new-moon nights. She refills your cup when it's still half full. It's the second time she's done it without being asked.`;
         addJournal('Former bridge director Ashe: excluded from own jurisdiction by mystery authorization, resigned in protest', 'contact_made', `whitebridge-ashe-${G.dayCount}`);
       } else {
         G.lastResult = `Ashe left Whitebridge two months after handing in her post. A neighboring settlement, across the crossing — close enough that she'd see the bridge lanterns on a clear night if she faced that direction. Nobody at the commune office will say why she left, only that the departure was her choice. She isn't here. Getting to her means crossing the bridge she no longer manages.`;
