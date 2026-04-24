@@ -4296,7 +4296,8 @@ const FACTIONS_BASE = [
   {id:'office_of_roazian_enforcement',name:'Office of Roazian Enforcement',rep:20},
   {id:'giant_council',name:'Giant Council',rep:15},
   {id:'communal_ration_allocators',name:'Communal Ration Allocators',rep:15},
-  {id:'fashion_artisans_collective',name:'Fashion Artisans Collective',rep:20}
+  {id:'fashion_artisans_collective',name:'Fashion Artisans Collective',rep:20},
+  {id:'oversight_collegium',name:'Oversight Collegium',rep:15}
 ];
 
 const TIMES = ['Dawnrise','Midlight','Duskcall','Nightwatch'];
@@ -8766,7 +8767,9 @@ function _beginLegendCore() {
   var _macroGoal = _macroGoals[G.archetype && G.archetype.group] || _macroGoals.neutral;
   G.quests = G.quests || [];
   G.quests.unshift(_macroGoal);
-  G.factions = FACTIONS_BASE.map(f => ({ id:f.id, name:f.name, rep:f.rep }));
+  if (!G.factions || !G.factions.length) {
+    G.factions = FACTIONS_BASE.map(f => ({ id:f.id, name:f.name, rep:f.rep }));
+  }
   (G.background.factionMods || []).forEach(m => modFaction(m.id, m.n || 0));
   // Starting inventory
   G.inventory = [{ name:G.background.bonus, type:'background_bonus', equipped:false }];
