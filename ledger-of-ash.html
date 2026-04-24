@@ -554,6 +554,15 @@ input, button, select, textarea { font-family: inherit; }
   transition: width .4s ease;
   width: 0%;
 }
+#stage-progress-label {
+  font-family: var(--font-display);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--ink-faint, #555);
+  text-align: center;
+  margin: 2px auto 0;
+  opacity: 0.75;
+}
 #hud-safe-streak {
   font-family: var(--font-display); font-size: 9px; letter-spacing: 1px;
   color: var(--gold-dim); opacity: 0.8; margin: 1px auto 0;
@@ -1720,6 +1729,7 @@ input, button, select, textarea { font-family: inherit; }
       <span class="game-title">Ledger of Ash</span>
       <span class="stage-pill" id="topbar-stage">Stage I</span>
       <div id="stage-progress-track"><div id="stage-progress-fill"></div></div>
+      <div id="stage-progress-label"></div>
       <div id="hud-safe-streak"></div>
       <div id="hud-case-file">
         <span id="hud-case-file-label">Case File</span>
@@ -12479,6 +12489,8 @@ function updateStageProgressBar() {
   var threshold = (stageNum === 1) ? 20 : (stageNum === 2) ? 15 : 20;
   var progress  = (G.stageProgress && G.stageProgress[stageNum]) ? G.stageProgress[stageNum] : 0;
   fill.style.width = Math.min(100, Math.round((progress / threshold) * 100)) + '%';
+  var _pLabel = document.getElementById('stage-progress-label');
+  if (_pLabel) _pLabel.textContent = progress + ' / ' + threshold;
 }
 
 function updateAlignmentHUD() {
