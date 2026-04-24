@@ -364,6 +364,68 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The overnight courier dispatch wall has a route that never posts return times.",
+    tags: ['stage2', 'guildheart_hub'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'examining courier dispatch wall for missing return logs');
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll.total >= 13) {
+        G.flags.guild_courier_route_traced = true;
+        G.investigationProgress++;
+        addNarration('No Return Time', 'The courier dispatch wall is chalked fresh each evening — departures in the left columns, returns in the right. Every active route posts both. One route has run for six weeks with departures chalked in clean and the return column left blank. The dispatch clerk is watchful of the wall in a way the other clerks are not; his thumb rests on the frame each time the route comes up. The route number corresponds to a waypoint east of Guildheart Hub that was decommissioned as a mail stop two years ago. Couriers still leave for it. Couriers do not appear to come back through the dispatch desk.');
+        addJournal('Courier dispatch: 6 weeks of departures to decommissioned eastern waypoint with no logged returns', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Dispatch Protocol', 'The dispatch clerk erases the oldest row of the wall before the question is finished. Courier route inquiries are directed to the routing supervisor on the second floor; a filed inspection request precedes any conversation. He hands across a form pre-stamped with today\'s date. The chalk dust on his sleeve has a faint brass-green cast from the route-number template he uses. The form he has offered routes through a tray that includes the same eastern route\'s supervisor. Filing it is filing your name into the watched column.');
+      }
+    }
+  },
+
+  {
+    label: "The canal-side weigh station prints duplicate tickets on one scale only.",
+    tags: ['stage2', 'guildheart_hub'],
+    xpReward: 36,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(36, 'examining canal weigh station duplicate ticket mechanism');
+      var roll = rollD20('craft', G.skills.craft);
+      if (roll.total >= 13) {
+        G.flags.guild_weigh_station_traced = true;
+        G.investigationProgress++;
+        addNarration('Duplicate Tickets', 'The canal-side weigh station has four scales arrayed under a timber awning. Three print single tickets for the driver. The fourth — the one furthest from the weigh master\'s booth — prints duplicates: one handed to the driver, one routed internally. The weigh master, a broad woman with grease under her nails and a cracked leather armguard worn over one wrist, waits until a driver clears the scale before she speaks. "Scale four tickets go to the charter desk queue. The other three go to the tariff audit queue." She does not say which queue is the honest one. She has told you which scales to watch.');
+        addJournal('Canal weigh station: scale four routes duplicate ticket to charter desk queue — bypasses tariff audit queue', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Weigh Station Protocol', 'The weigh master points you toward the station\'s public inquiry window without leaving her booth. Weight ticket questions are handled through the tariff adjudicator on a four-day filing window; walk-up queries are not part of the scale\'s working schedule. Her armguard creaks when she shifts her weight. A cart is already moving onto scale four behind you. The driver hands over a manifest and receives two tickets back, one of which he folds into his coat without reading. The station resumes its rhythm as if the question were never asked.');
+      }
+    }
+  },
+
+  {
+    label: "The transit ledger's marginalia marks one waypoint with a symbol that isn't in the key.",
+    tags: ['stage2', 'guildheart_hub'],
+    xpReward: 40,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(40, 'decoding unmarked waypoint symbol in Guildheart transit ledger');
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 14) {
+        G.flags.guild_waypoint_symbol_decoded = true;
+        G.investigationProgress++;
+        addNarration('Off-Key Mark', 'The transit ledger\'s marginalia key covers the standard route symbols — triangles for rest stops, circles for toll stations, squares for bonded depots. One waypoint carries a mark that is not in the key: two parallel bars crossed by a diagonal, drawn in ink rather than pencil. The mark appears at the same waypoint across thirty-one separate entries, always on charter-exempt routes, never on standard freight. A retired hauler at the next bench recognizes it — Shelkopolis coaster shorthand for a private hand-off point, used when cargo changes custody without a guild registration. The mark does not appear in any Union training material. Someone who learned it elsewhere taught it here.');
+        addJournal('Transit ledger: off-key waypoint symbol is Shelkopolis coaster private hand-off mark — 31 entries on charter-exempt routes', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Ledger Control', 'The transit ledger custodian closes the marginalia section and turns the book face-down on the counter. Marginalia is working-reference material, she says — compiled across generations of routing clerks, not for external review. The face-down posture is deliberate; she will not hand a closed ledger back across the counter until the person asking has walked out of the hall. A junior clerk at the next desk is making a careful copy of the cover description onto a slip of paper. It will go upstairs with the afternoon\'s routing reports. The ledger stays face-down.');
+      }
+    }
+  },
+
 ];
 
 window.GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES;
