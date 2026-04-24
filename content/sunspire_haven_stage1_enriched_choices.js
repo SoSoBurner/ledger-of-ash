@@ -309,11 +309,11 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Family analysis revealed systematic family restructuring', 'evidence', `sunspire-family-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your analysis of family structures draws attention from syndicate leadership. You're questioned about your interest in family organization. Your investigation is now flagged as unauthorized structural analysis.`;
+        G.lastResult = `A syndicate administrator intercepts you at the registry desk before you can finish pulling the second volume. The question is mild; the stillness around it isn't. "What is the purpose of this inquiry?" Your answer goes into a log. By the time you leave the registry hall, the family structure records are behind a locked cabinet they weren't in before.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate leadership alerted to family structure analysis', 'complication', `sunspire-family-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Family structures show recent changes. Some families have shifted, memberships have changed, and organizational patterns appear different. The family structure has been modified.`;
+        G.lastResult = `The work assignment records show movement — families shifted across production zones, membership lists updated. The cross-reference to the family registry shows the changes cluster around the past two cycles. Whether the pattern is administrative reorganization or something more deliberate requires a longer comparison window than the registry's open hours allow today.`;
         addJournal('Family structure modifications detected', 'evidence', `sunspire-family-modified-${G.dayCount}`);
       }
 
@@ -342,14 +342,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Resource analysis revealed engineered scarcity system', 'evidence', `sunspire-resources-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your documentation of resource scarcity engineering draws direct attention from syndicate leadership. Someone warns you that exposing resource management will result in your removal from Sunspire Haven. Your investigation is marked as a direct threat.`;
+        G.lastResult = `A syndicate coordinator steps between you and the harvest ledger before you can finish the column comparison. The warning arrives as a statement, not a threat: continued inquiry into resource management will result in removal from the haven's work access registry. The ledger closes. The numbers you were almost done reading disappear behind it.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate directly warned about resource scarcity inquiry', 'complication', `sunspire-resources-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Resource distribution shows suspicious patterns. Supply levels don't match harvest records. Something's diverting resources systematically. The scarcity appears deliberately engineered.`;
+        G.lastResult = `The harvest ledger and the distribution record don't agree — supply levels at the storage depot run significantly ahead of what the distribution columns show leaving. The gap isn't rounding error. Something between the harvest and the household is pulling volume sideways. The column you need to find it is in the locked section of the ledger.`;
         addJournal('Resource diversion pattern confirmed', 'evidence', `sunspire-resources-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `Resource management is complex. Understanding full scarcity engineering requires comparing harvest data, storage records, and distribution reports that you don't have complete access to.`;
+        G.lastResult = `The grain store logs and the distribution records are both present and legible. Cross-referencing them to find a deliberate diversion requires the harvest intake reports from the same period — those live in the yard master's office, behind a door that requires family standing to open. Without the intake baseline, the gap you suspect stays invisible in the math.`;
         addJournal('Resource scarcity proof incomplete without full data access', 'evidence', `sunspire-resources-blocked-${G.dayCount}`);
       }
 
@@ -378,11 +378,11 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Information analysis revealed systematic news filtering', 'evidence', `sunspire-information-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your tracking of information flows is noticed. Syndicate monitors question your interest in communication patterns. Your information analysis is now being monitored by the syndicate.`;
+        G.lastResult = `Two syndicate monitors find you at the message-posting board before your second circuit of the market lane. One asks what you're comparing; the other writes the answer down without waiting for it. The conversation that follows is brief and formal. The board is still accessible afterward. But a new name appears on the duty log beside the posting station — yours, with today's date.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate monitoring alerted to information flow tracking', 'complication', `sunspire-information-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Information flows show signs of recent changes. Some stories appear to be circulating less freely. External news reaching the community seems filtered.`;
+        G.lastResult = `The message board at the market's east wall has gaps in it — postings from external couriers that should arrive weekly are running thin. A traveler from the northern road mentions a labor dispute in a neighboring haven, then looks uncertain, as if expecting a reaction to the subject itself. The story didn't stop moving; the path it travels on has been narrowed.`;
         addJournal('Information filtering modifications detected', 'evidence', `sunspire-information-partial-${G.dayCount}`);
       }
 
@@ -411,14 +411,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coercion analysis mapped systematic threat apparatus', 'evidence', `sunspire-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your documentation of threats makes you a target. Someone warns you directly that continued investigation will result in your removal from Sunspire Haven. Your analysis of coercion has accelerated the very mechanisms you're studying.`;
+        G.lastResult = `A message arrives at the waystation before you return to it — unsigned, hand-delivered, one sentence. Continued documentation of family difficulties in Sunspire Haven will result in removal from the haven's access registry. The wording is administrative. The speed of delivery is not. Whoever wrote it knew where you'd been asking and got ahead of you before you finished.`;
         G.worldClocks.pressure += 2;
         addJournal('Investigation drawing direct coercion consequences', 'complication', `sunspire-coercion-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Evidence of family intimidation exists. Families are clearly afraid to resist. The threat mechanisms aren't fully visible but their effects are undeniable.`;
+        G.lastResult = `Two families decline to answer in the same way — not evasively, but with a particular practiced brevity that has been rehearsed. A third family's eldest keeps glancing at the syndicate administrator's window across the market lane. The threats aren't visible in what people say. They're visible in the distance people keep between themselves and the subject when anyone else might be watching.`;
         addJournal('Family intimidation confirmed through behavioral patterns', 'evidence', `sunspire-coercion-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Family fear exists but the specific coercion mechanisms are concealed. People won't openly discuss threats against them.`;
+        G.lastResult = `The families you speak with are careful and consistent. None will describe specific threats or pressure, and the conversations don't stay open long enough to reach that territory. The wariness is present — you can see it in how quickly topics close — but the mechanism producing it stays on the other side of every door you approach today.`;
         addJournal('Coercion suspected but specific mechanisms not documented', 'evidence', `sunspire-coercion-unclear-${G.dayCount}`);
       }
 
@@ -447,11 +447,11 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Resource flow analysis revealed systematic extraction', 'evidence', `sunspire-extraction-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your tracking of outbound resource flows draws attention from syndicate coordination. You're questioned about your interest in resource movements. The extraction networks are now aware you're mapping them.`;
+        G.lastResult = `A syndicate coordinator is waiting at the yard gate when you come back from the second waystation. The questions are procedural — purpose of visit, who authorized access — but the log they're writing in has your name already at the top, entered before the conversation began. The outbound manifests return to the locked cabinet inside. Whatever the next column shows, it won't be visible from this side of the gate.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate extraction operations alerted to tracking', 'complication', `sunspire-extraction-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Outbound resource movements show unusual patterns. Materials are being moved through non-standard channels. The extraction flows appear deliberately organized.`;
+        G.lastResult = `Three outbound convoys in the past two weeks show cargo weights that exceed what the manifest items would account for. The destination codes point north — past the standard trade route termini. What's going with those convoys isn't in the paperwork, and the paperwork isn't complete enough to make the absence look like error. Someone is moving something through channels they've made deliberately thin to read.`;
         addJournal('Resource extraction modifications detected', 'evidence', `sunspire-extraction-partial-${G.dayCount}`);
       }
 
@@ -480,14 +480,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Community analysis revealed systematic social fragmentation', 'evidence', `sunspire-community-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your documentation of community breakdown makes people nervous. Some avoid you because they fear your inquiry will attract surveillance to their concerns. Your analysis is accelerating the fragmentation you're studying.`;
+        G.lastResult = `By midday three people have changed their route to avoid walking near you at the communal meal area. One picks up her bowl and finishes eating beside the storage wall instead of at the table. Word precedes you here — whatever you've been asking, its subject travels faster than you do. The community isn't hostile. It's careful, and careful has a specific shape in Sunspire.`;
         G.worldClocks.isolation++;
         addJournal('Community members avoiding you due to fear of scrutiny', 'complication', `sunspire-community-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Community bonds have clearly weakened. Families interact more cautiously. Shared events are less frequent. The community cohesion has declined visibly.`;
+        G.lastResult = `The market square at midday is quieter than the posted gathering schedule would produce. Families cluster near their own stalls rather than crossing to others. The shared cooking fire at the commons has four people around it instead of the dozen that a fire that size would normally draw. The social infrastructure is intact — tables, fire, square — and the people are staying out of it.`;
         addJournal('Community fragmentation confirmed through behavioral observation', 'evidence', `sunspire-community-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Community concerns exist but the full scope of social breakdown is difficult to measure without deeper family access.`;
+        G.lastResult = `Sunspire's communal structures are all present and maintained. The market runs. The meal fires burn. Whether the bonds between families that once ran through those structures are still intact requires conversations that go deeper than a single pass through the square — and the families here don't open quickly to strangers, even in easier times.`;
         addJournal('Community fragmentation suspected but incompletely documented', 'evidence', `sunspire-community-unclear-${G.dayCount}`);
       }
 
@@ -516,14 +516,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Family analysis revealed systematic kinship destruction', 'evidence', `sunspire-fragmentation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your analysis of family breakdown draws direct attention from syndicate leadership. You're warned that documenting family separation is prohibited. The investigation is now flagged.`;
+        G.lastResult = `A syndicate administrator finds you at the work assignment board before you've finished the second column. The prohibition arrives in procedural language: documenting family placement details without registry authorization is a compliance matter. The board is still public, the names still visible. But the administrator stays nearby until you step away, and a note goes into the day log.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate prohibited further family fragmentation analysis', 'complication', `sunspire-fragmentation-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Family structures show clear signs of disruption and separation. Many families are visibly fragmented. The breakdown is observable but the full system isn't clear.`;
+        G.lastResult = `The work assignment board shows a pattern across three posting cycles: members of the same family unit landing in locations that put days of travel between them. It could be routine labor rotation. It's consistent enough — across multiple families, across multiple cycles — that routine doesn't hold as an explanation. Someone is making placement decisions that produce a specific result without appearing to be trying to.`;
         addJournal('Family fragmentation and separation patterns confirmed', 'evidence', `sunspire-fragmentation-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Family separation exists but understanding the full system requires deeper family interviews and access to work assignment records.`;
+        G.lastResult = `Family separation is visible in the housing blocks if you know what to look for — elderly members in outer residential zones, working-age family in production housing, children in communal care blocks. Whether that's a coordinated displacement or a function of how work assignment naturally distributes depends on the assignment records, which require family standing to open.`;
         addJournal('Family fragmentation analysis incomplete without assignment data', 'evidence', `sunspire-fragmentation-blocked-${G.dayCount}`);
       }
 
@@ -552,14 +552,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Consent analysis revealed manufactured acceptance apparatus', 'evidence', `sunspire-consent-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your analysis of coerced consent draws scrutiny from syndicate communication. You're warned that questioning "community participation" undermines social stability. The analysis is now being monitored.`;
+        G.lastResult = `A syndicate communication officer arrives at the communal hall before you finish the morning session. The language is measured: questions about community participation frameworks are sensitive matters affecting social cohesion. The warning is logged. So, now, is your presence in the communal hall during governance hours. The session ends by being formally closed around you.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate aware of consent apparatus analysis', 'complication', `sunspire-consent-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The community participation structure shows signs of manufactured nature. People claim to have agreed to systems while showing clear signs of duress. The consent is visible but coercive.`;
+        G.lastResult = `The council minutes show unanimous agreement on the last three major resource decisions. No recorded dissent, no abstentions. For decisions of this scope — distribution changes, quota revisions, housing reallocations — that uniformity is unusual. Either the community is genuinely aligned, or the disagreement happened before the record was made. The minutes don't show which.`;
         addJournal('Coerced consent structure confirmed', 'evidence', `sunspire-consent-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Community acceptance appears genuine but understanding the coercion mechanisms requires deeper analysis of threat systems and family vulnerabilities.`;
+        G.lastResult = `Community members describe the quota and distribution decisions as things they agreed to. The phrasing is consistent — "the family accepted the terms," "we came to an arrangement" — but what the alternative was, if one existed, nobody will say. The consent is documented. The conditions that produced it are not in the same record.`;
         addJournal('Manufactured consent analysis incomplete without threat documentation', 'evidence', `sunspire-consent-blocked-${G.dayCount}`);
       }
 
@@ -586,7 +586,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const rumor = ['the syndicate is deliberately making resources scarce to control families', 'families that resist are being broken up and scattered', 'food is being stored somewhere outside Sunspire instead of distributed', 'certain families are getting special treatment from the syndicate while others starve', 'someone is taking resources north and nobody knows why'];
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
-      G.lastResult = `The community whisper is: "${selected}." Families repeat it with varying certainty. Some claim direct experience, others are passing on fragments they've heard. But the collective narrative is consistent: the syndicate is deliberately harming the community to maintain control. Sunspire Haven's families are aware wrongness is happening, even if they can't articulate the full conspiracy yet.`;
+      G.lastResult = `At the communal meal area, between the second and third course, a family elder drops his voice: "${selected}." The person beside him doesn't look up. It's not a revelation — it's confirmation of something already circulating. The same fragment surfaces twice more through the afternoon in different corners of the market, from people who don't share a table. Nobody attaches a name to it. The detail travels because it lands on something people already half-know is there.`;
       addJournal(`Family rumor gathered: "${selected}"`, 'evidence', `sunspire-rumor-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
@@ -651,7 +651,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const npc = npcOptions[Math.floor(Math.random() * npcOptions.length)];
 
-      G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}." They're trapped, complicit, and terrified. You must decide: Do you expose them to stop the extraction system? Do you protect them and maintain your investigation quietly? Your choice determines whether this person becomes an informant or an enemy — and whether Sunspire Haven's resource hemorrhage can be challenged or continues unchecked.`;
+      G.lastResult = `${npc.name} doesn't wait for the second question. The first one breaks the silence they've been keeping. "${npc.fear}." They're not asking for anything — no absolution, no assurance. Their hands stay flat on the table. The fear is specific and old enough to have a shape. Whatever comes next is no longer entirely their decision.`;
 
       if (!G.flags) G.flags = {};
       G.flags.stage1_evidence_decision = 'pending';

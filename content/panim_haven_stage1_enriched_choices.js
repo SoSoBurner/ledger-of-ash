@@ -274,7 +274,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `You review a selection Veth permits and track outcome by party type. The decisions carry valid mediation reasoning in each case. But across the set, the same party types win at a rate that the individual case records don't explain. Someone with access to the scheduling system is touching something upstream of the decisions themselves.`;
         addJournal('Case review revealed possible systematic outcome bias', 'evidence', `panim_haven-mediation-bias-${G.dayCount}`);
       } else {
-        G.lastResult = `Veth recites the confidentiality requirement once and returns to his desk. "Formal authorization, in writing, from the ritual authority." The case folders on the shelf stay where they are. Nothing about him suggests this is a negotiating position.`;
+        G.lastResult = `The case folders stay on the shelf — close enough to read the spine labels, not close enough to open without standing Veth doesn't appear ready to grant. "Formal authorization, in writing, from the ritual authority." He's already back at his desk by the time the sentence ends. The authorization requirement isn't a hurdle he's inviting you to clear. It's a door he's closed from the inside. Nothing about his posture suggests it has another side.`;
         addJournal('Mediation case records blocked without authorization', 'evidence', `panim_haven-mediation-blocked-${G.dayCount}`);
       }
 
