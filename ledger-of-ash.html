@@ -9398,6 +9398,11 @@ function loadStageChoices(locId) {
       var arrivalChoice = buildArrivalChoice(G.location);
       if (arrivalChoice) adapted.unshift(adaptEnrichedChoice(arrivalChoice));
     }
+    // Inject NPC choices for this locality
+    if (typeof buildNPCChoices === 'function') {
+      var npcChoices = buildNPCChoices(G.location);
+      if (npcChoices && npcChoices.length) adapted.push.apply(adapted, npcChoices);
+    }
     renderChoices(_injectBossSeedChoices(adapted));
     return;
   }
@@ -9420,6 +9425,11 @@ function loadStageChoices(locId) {
   if (typeof shouldShowArrivalScene === 'function' && shouldShowArrivalScene(G.location)) {
     var arrivalChoiceFallback = buildArrivalChoice(G.location);
     if (arrivalChoiceFallback) base.unshift(arrivalChoiceFallback);
+  }
+  // Inject NPC choices for this locality
+  if (typeof buildNPCChoices === 'function') {
+    var npcChoicesFallback = buildNPCChoices(G.location);
+    if (npcChoicesFallback && npcChoicesFallback.length) base.push.apply(base, npcChoicesFallback);
   }
   if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(base));
 }
