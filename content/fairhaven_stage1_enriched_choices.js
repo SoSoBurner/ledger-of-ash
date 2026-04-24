@@ -105,7 +105,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The storage shelves hold more variation than they should — two jars labeled the same compound have different sediment lines. Thren watches you notice it and says nothing at first. "Sourcing has been difficult lately," he offers. He doesn't elaborate. He doesn't need to.`;
         addJournal('Craft analysis noted potential ingredient substitution', 'evidence', `fairhaven-alchemical-substitution-${G.dayCount}`);
       } else {
-        G.lastResult = `The workshop looks orderly. Without reference samples for side-by-side comparison, any degradation doesn't announce itself. The labels match the contents, at least on the surface.`;
+        G.lastResult = `The workshop looks orderly — shelves stacked, containers labeled, surfaces wiped. Without reference samples for side-by-side comparison, any degradation doesn't announce itself. The labels match the contents, the handwriting is consistent, the storage conditions are correct. Whatever has changed in the sourcing chain, this room has been organized to show nothing changed at all.`;
         addJournal('Ingredient quality assessment inconclusive', 'evidence', `fairhaven-alchemical-unclear-${G.dayCount}`);
       }
 
@@ -138,7 +138,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Provisioner reported your storage inquiry', 'complication', `fairhaven-provisioner-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Gareth admits the storage location changed recently. "The Shrine Keeper said it was necessary." He shrugs in the way of someone who stopped asking follow-up questions. The upper store smells faintly wrong — not spoiled yet, but moving that direction.`;
+        G.lastResult = `Gareth admits the storage location changed recently. "The Shrine Keeper said it was necessary." He shrugs in the way of someone who stopped asking follow-up questions some time ago and has accepted the silence that replaced them. He pulls the cellar door shut behind him on the way out. The upper store smell follows — faint but unmistakable, the early stage before spoilage has a name.`;
         addJournal('Provisioner confirmed storage procedure changes', 'evidence', `fairhaven-provisioner-changes-${G.dayCount}`);
       }
 
@@ -171,7 +171,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Tool craftsman now hostile to external inquiry', 'complication', `fairhaven-craftsman-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Halverd allows that durability has been inconsistent lately. "Materials come in different grades," he says — the kind of answer that explains nothing on purpose. He keeps working while he talks. Tools sit in the finished rack behind him, and he doesn't offer to show them.`;
+        G.lastResult = `Halverd allows that durability has been inconsistent lately. "Materials come in different grades," he says — the kind of answer that is technically accurate and practically empty. He keeps working while he talks, hammer moving in the same rhythm it held before you spoke. The finished rack behind him holds a row of plow blades. He doesn't offer to show them. Neither does he turn them away from view.`;
         addJournal('Craftsman confirmed tool quality decline', 'evidence', `fairhaven-craftsman-decline-${G.dayCount}`);
       }
 
@@ -207,7 +207,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Vren confirms the headcount is down. "Resource reallocation," he says. The phrase sits in the air without conviction. He crosses his arms and doesn't add to it. The duty roster on the wall behind him shows three patrol slots empty.`;
         addJournal('Guard captain confirmed garrison force reduction', 'evidence', `fairhaven-guard-reduction-${G.dayCount}`);
       } else {
-        G.lastResult = `Vren gives you a professional nod and nothing useful. "Strategic considerations shape deployment. That's all I can offer." He's already looking past you at the duty roster.`;
+        G.lastResult = `Vren gives you a professional nod and nothing useful. "Strategic considerations shape deployment. That's all I can offer." His eyes have already moved to the duty roster on the wall — three slots empty where names used to be chalked. He doesn't gesture toward it or comment on it. He's decided this conversation is over by his accounting, not yours.`;
         addJournal('Guard captain blocked military inquiry', 'evidence', `fairhaven-guard-blocked-${G.dayCount}`);
       }
 
@@ -350,7 +350,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `A cleared section under a rock shelf — ground pressed flat by repeated foot traffic, a faint chemical smell on the air. Something has been stored here recently and moved. The depression in the dirt holds the outline of stacked crates. The waystation exists, but it's been emptied or relocated.`;
         addJournal('Survival analysis found evidence of hidden storage', 'evidence', `fairhaven-survival-hidden-${G.dayCount}`);
       } else {
-        G.lastResult = `The glyph interference scrambles any consistent read of the terrain. The brush is thick and the rock formations break line of sight every twenty paces. If a waystation is out here, it's not findable on a single pass without a cleaner approach.`;
+        G.lastResult = `The glyph interference scrambles any consistent read of the terrain. Hair stands at the wrist. The stone gives off a low resonance that makes distances harder to judge than they should be. The brush is thick and rock formations break line of sight every twenty paces. Boot tracks are present but the glyph disturbance makes it impossible to read their direction reliably. If a waystation is out here, a single pass in these conditions won't find it.`;
         addJournal('Waystation search inconclusive', 'evidence', `fairhaven-survival-unclear-${G.dayCount}`);
       }
 
@@ -665,7 +665,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_formula_substitution = true;
         addJournal('Formula substitution: ghost authorization category used — no backing policy, substitution inserted covertly', 'evidence', `fairhaven-formula-${G.dayCount}`);
       } else {
-        G.lastResult = `The supply records are here. The delivery receipt cites a regional administrative code that isn't in the reference guide on the shelf — the one that should cover it. The substitution is written down and authorized by something. What that something actually is requires a reference you don't have access to yet.`;
+        G.lastResult = `The supply records are present and in order — order slips, delivery receipts, authorization codes along the margin. The delivery receipt cites a regional administrative code that isn't in the reference guide on the shelf. The correct guide would cross-reference it. This one doesn't cover that category. The substitution is written down and authorized by something that points outside what's accessible from this archive. The thread is here. The end of it isn't.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -773,7 +773,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." She wraps her hands around her cup. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
         addJournal('contact', 'Elder Cassian: recognized compound substitution by smell, has original sample, knows the community is being managed', `fairhaven-cassian-${G.dayCount}`);
       } else {
-        G.lastResult = `Cassian is willing enough, but the conversation stalls at anything specific. She watches you with the patience of someone who has waited out other people's urgency before. She'll speak plainly when she decides you're the right person to speak plainly to.`;
+        G.lastResult = `Cassian is willing enough, but the conversation stalls at anything specific. She refills her cup without being asked and doesn't rush the silence. She watches you with the patience of someone who has waited out other people's urgency before and found it usually resolves on its own. The jar she mentioned is somewhere in that cabinet behind her. She'll speak plainly when she decides you're the person to speak plainly to. That decision hasn't landed yet.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -795,7 +795,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Nyse leans against the post and glances up the square before she answers — left, right, the same sweep, habit worn into reflex. "Six of us stayed. All long-posting. I've been here four years." A beat. "They said they needed people who knew the local households. For continuity." She doesn't say it as a criticism. She's describing a thing she accepted without fully naming what it is. The six who stayed are the ones who'd recognize a face and know which household it belonged to.`;
         addJournal('contact', 'Corporal Nyse: retained specifically for community knowledge — long-term soldiers being used as surveillance assets', `fairhaven-nyse-${G.dayCount}`);
       } else {
-        G.lastResult = `Nyse gives the shortest answer available. "Orders." She watches you to see if you'll push it. She waits long enough to make clear she hopes you won't.`;
+        G.lastResult = `Nyse gives the shortest answer available. "Orders." She keeps her position against the post, arms loose, watching you to see if you'll push it. The square behind her is quiet — a market day that ended early. She waits long enough to make clear she hopes you won't. Whatever she knows about the six who stayed, she's decided this morning isn't the time to share it.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }

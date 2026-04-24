@@ -105,7 +105,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Elyra says coverage has been uneven this season. "Resources are allocated based on current priorities." The phrase comes out like something written for her to say. She keeps walking as she talks and doesn't slow down to elaborate.`;
         addJournal('Land Protector confirmed uneven protection allocation', 'evidence', `harvest-land-biased-${G.dayCount}`);
       } else {
-        G.lastResult = `Elyra answers in environmental terms — soil conditions, weather variance, seasonal barrier load. Nothing wrong with the answer. Nothing in it that addresses what was asked. The conversation moves around the subject without entering it.`;
+        G.lastResult = `Elyra answers in environmental terms — soil conditions, weather variance, seasonal barrier load. The words are accurate and the sentences are complete. Nothing in them touches what was asked. She keeps walking at the same pace throughout. The conversation moves around the subject with a deliberateness that reads less like deflection and more like practice.`;
         addJournal('Land stewardship blocked without agricultural access', 'evidence', `harvest-land-blocked-${G.dayCount}`);
       }
 
@@ -177,7 +177,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The Coordinator says this season's distribution has been more layered than usual. "There are different tiers now." They don't elaborate on who set the tiers or why. The draft distribution sheet is face-down on the table between you both.`;
         addJournal('Festival Coordinator confirmed inconsistent festival allocations', 'evidence', `harvest-festival-biased-${G.dayCount}`);
       } else {
-        G.lastResult = `The Coordinator says festival planning is handled internally. "The commune manages its own celebration." You've asked an outside question about an inside matter and gotten the answer that distinction produces.`;
+        G.lastResult = `The Coordinator says festival planning is handled internally. "The commune manages its own celebration." The distribution sheet stays face-down on the table between you. The answer is short, complete, and closes the subject. Outside questions about inside matters produce a particular kind of silence — not hostile, just sealed.`;
         addJournal('Festival procedures blocked without community authorization', 'evidence', `harvest-festival-blocked-${G.dayCount}`);
       }
 
@@ -213,7 +213,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Farlan acknowledges the documentation format changed seven months ago. "Updated procedures." He doesn't specify who updated them or why. He sets one document beside an older one without comment, as though the comparison explains itself — which it almost does.`;
         addJournal('Record Keeper confirmed recent documentation procedure changes', 'evidence', `harvest-records-changed-${G.dayCount}`);
       } else {
-        G.lastResult = `Farlan answers in procedural terms. Documentation requires training and authorization to interpret correctly. He's not wrong. He's also not opening the folder.`;
+        G.lastResult = `Farlan answers in procedural terms. Documentation requires training and authorization to interpret correctly — that much is genuine. The folder stays on the table between his hands, closed. He isn't wrong. He's also performing a competence barrier the same way a door performs a lock: technically neutral, functionally final.`;
         addJournal('Economic records blocked without recordkeeping access', 'evidence', `harvest-records-blocked-${G.dayCount}`);
       }
 
@@ -249,7 +249,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Garren admits the outcomes have been inconsistent. "Grain condition is complex." He presses the inspection log closed before you can read it straight. There's a gap between what he's saying and what he knows — visible in the way he handles the log.`;
         addJournal('Inspector confirmed inconsistent quality assessment', 'evidence', `harvest-quality-evasive-${G.dayCount}`);
       } else {
-        G.lastResult = `Garren keeps the inspection terminology precise and the conversation technical. Everything he says is accurate. None of it is useful without the log beside it, which stays under his hand.`;
+        G.lastResult = `Garren keeps the inspection terminology precise and the conversation technical. Moisture variance, batch cycling, storage grade — every answer is accurate and none of it addresses what matters. The log stays under his hand, palm flat. He isn't protecting himself from you. He's protecting himself from whoever reads the log after you've gone.`;
         addJournal('Grain quality assessment blocked without inspection access', 'evidence', `harvest-quality-blocked-${G.dayCount}`);
       }
 
@@ -285,7 +285,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Velrik confirms disputes have been running in consistent directions lately. "Complex family dynamics." He doesn't say which direction. But his expression makes the shape of the answer without committing it to words.`;
         addJournal('Mediator confirmed biased conflict resolution patterns', 'evidence', `harvest-mediation-biased-${G.dayCount}`);
       } else {
-        G.lastResult = `Velrik cites confidentiality as both the opening and closing of the conversation. The families involved have not consented to external review. Without that consent, nothing opens.`;
+        G.lastResult = `Velrik cites confidentiality as both the opening and closing of the conversation. The families involved have not consented to external review. He sets his hands on the desk and leaves them there. The mediation register sits to his left, closed. Without consent nothing opens — and he says this with the patience of someone who has waited longer than you have.`;
         addJournal('Family mediation blocked without authorization', 'evidence', `harvest-mediation-blocked-${G.dayCount}`);
       }
 
@@ -461,7 +461,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Several farmers speak carefully about what quota changes would mean for their households. None uses the word pressure. All of them describe a situation where the margin between compliance and loss is very thin and has gotten thinner this season.`;
         addJournal('Quota dependency and fear patterns confirmed', 'evidence', `harvest-dependency-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `The conversations stay surface-level. Quota exposure is real, but the families are not describing it to someone they don't yet trust with the specifics.`;
+        G.lastResult = `The conversations stay surface-level. Yes, quotas are tight. Yes, the margins have changed. But the specifics — the numbers, the names, the particular decisions that made things worse — stay back. Quota exposure is real, and these families know exactly how exposed they are. They're not describing it to someone they don't yet trust with what that exposure actually looks like.`;
         addJournal('Quota dependency analysis incomplete', 'evidence', `harvest-dependency-blocked-${G.dayCount}`);
       }
 
@@ -497,7 +497,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The current ceremony script differs from last season's in language that wasn't changed by accident. The references to collective harvest have been replaced by language that distinguishes between families. The revision is recent and specific.`;
         addJournal('Festival modification patterns confirmed', 'evidence', `harvest-unity-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Festival scripts change season to season for mundane reasons — weather, logistics, which elder is leading. Distinguishing deliberate ideological revision from ordinary ceremony management requires the full history side by side, not a single current draft.`;
+        G.lastResult = `Festival scripts change season to season for mundane reasons — weather, logistics, which elder is officiating, what the harvest permits. The current draft reads differently than last season's, but distinguishing deliberate ideological revision from ordinary ceremony management requires the full run of scripts set side by side. One current draft isn't enough. The archive holds four seasons of ceremony scripts. It takes longer to get access than the morning permits.`;
         addJournal('Festival manipulation analysis incomplete', 'evidence', `harvest-unity-blocked-${G.dayCount}`);
       }
 
@@ -720,7 +720,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_routing_anomaly = true;
         addJournal('Routing anomaly: 30 tonnes shipped without production record — false provenance laundering via Compact allocation', 'evidence', `harvest-routing-${G.dayCount}`);
       } else {
-        G.lastResult = `You find the routing records but matching them against production logs requires both datasets simultaneously — you have access to one at a time, not both.`;
+        G.lastResult = `The routing records are here — shipment totals, destination codes, authorization marks along the right margin. Matching them against the production logs requires both datasets at the same desk simultaneously. Access is granted one register at a time, not both, and the archivist isn't flexible on that procedure today. The gap in the numbers is probably there. You can't confirm it yet.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
