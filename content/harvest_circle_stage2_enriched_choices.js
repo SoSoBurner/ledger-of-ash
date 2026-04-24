@@ -239,6 +239,57 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "A counting court clerk wants my load declaration clarified.",
+    tags: ['stage2', 'harvest_circle', 'social_misstep', 'paperwork'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13) {
+        G.flags.counting_court_clerk_cooperative = true;
+        G.investigationProgress++;
+        addNarration(
+          'A Correctly Declared Load',
+          'The clerk keeps one finger on the declaration column while she reads yours back to you — the fingertip presses a small dent into the paper that she smooths flat before she lifts it. She accepts an honest amendment without comment. When you step away she says, half to the next entry on her page, that the Northern Provision Compact has filed three declarations this month that she had to amend herself. Her finger does not lift from her own column while she says it. The amendments were for weight discrepancies between manifest and cart.'
+        );
+        addJournal('Counting court clerk has amended three Northern Provision Compact declarations for weight discrepancies', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration(
+          'Marked for Re-declaration',
+          'The clerk writes a small mark in the upper corner of her register and sets your declaration aside for a secondary review. She does not explain what the mark means. A second clerk two stools down looks at it when he passes and writes something of his own in a bound book. You are asked to wait until the review is complete, and the wait is long enough that the drying rack line clears before you reach it.'
+        );
+      }
+    }
+  },
+
+  {
+    label: "A panic buyer is shouting about spoilage two stalls down.",
+    tags: ['stage2', 'harvest_circle', 'public_complication'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.spoilage_argument_overheard = true;
+        G.investigationProgress++;
+        addNarration(
+          'The Argument Behind the Argument',
+          'The panic buyer is loud about three barrels of seed grain that failed inspection two days ago. The grain factor is louder about charter-marked containers that arrived the same night and took up the cold-storage slots the seed should have held. The factor catches himself on the word charter, lowers his voice, and finishes the sentence with a gesture at the spoiled barrels instead. A commune enforcer is already crossing the lane. The buyer will be corrected. The factor will not repeat the word.'
+        );
+        addJournal('Grain factor publicly named charter-marked containers displacing cold storage before self-correcting', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration(
+          'Voices Below the Roofline',
+          'The argument resolves before you reach earshot. The panic buyer leaves with a tally slip and a warning. The grain factor is already wiping down his counter when the enforcer arrives, speaking in the quiet register that means nothing useful will be said in front of an outsider. You stand at the edge of the lane long enough to draw a second glance from the enforcer, and you move on.'
+        );
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Harvest Circle finale — the agricultural routing fraud and ghost supplier are confirmed. Report to the commune council or use the routing number data to intercept the next shipment.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
