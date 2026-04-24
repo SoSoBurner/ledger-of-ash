@@ -189,7 +189,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A northern road driver keeps a private log. He was there during the structure's construction.",
+    label: "A northern road driver keeps a private log from the construction period.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -217,7 +217,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outpost manifest has a requisition category that feeds the northern route, not the outpost.",
+    label: "The outpost manifest has a requisition category that feeds the northern route.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {

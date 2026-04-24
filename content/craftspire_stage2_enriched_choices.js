@@ -189,7 +189,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A dismissed copyist left a note in the Copy Warden's inbox that was never collected.",
+    label: "A dismissed copyist left a note in the Copy Warden's inbox. Never collected.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {

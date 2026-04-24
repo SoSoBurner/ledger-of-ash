@@ -186,7 +186,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "One tally clerk keeps her own count of the sealed-charter arrivals. Nobody asked her to.",
+    label: "One tally clerk keeps her own count of the sealed-charter arrivals. Unbidden.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {

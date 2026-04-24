@@ -197,7 +197,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The containment warden's field book has two readings that don't appear in the official log.",
+    label: "The containment warden's field book has two readings absent from the official log.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
