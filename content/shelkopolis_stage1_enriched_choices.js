@@ -145,7 +145,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 4b. PERMIT REGISTRY: MISSING SIGNATORY
   {
-    label: "Authorization code on the permit, signatory column left blank. The clerk is still filing.",
+    label: "Someone with authority filed this without leaving their name behind.",
     tags: ['NPC', 'Records', 'Bureaucracy'],
     xpReward: 15,
     stageProgress: 0,
