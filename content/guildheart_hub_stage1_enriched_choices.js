@@ -799,7 +799,8 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'stealth') {
         G.lastResult = `Three men on the floor have no merchandise. They're positioned wide: one near the main entrance, one near the record desk, one moving a slow circuit through the center. They track which merchants approach which stalls and in what sequence. Someone is building a relationship map of this floor, and they're doing it through observation, not conversation.`;
       } else {
-        G.lastResult = `A factor stops her pitch mid-sentence when the senior arbiter enters the floor. She waits until he passes her section before resuming. Her posture changes — shoulders lower, pace increases — the moment he clears the center aisle. The arbiter doesn't look at her. She tracks him without turning her head until he exits through the east corridor.`;
+        G.lastResult = `A factor stops her pitch mid-sentence when the senior arbiter enters the floor. She waits until he passes her section before resuming. Her posture changes — shoulders lower, pace increases — the moment he clears the center aisle. The arbiter doesn't look at her. She tracks him without turning her head until he exits through the east corridor. When you ask her about the Eastgate routing changes, she begins: "The directive came through the fourteenth-cycle administrative—" She stops. Her eyes move to something over your shoulder. She finishes a different sentence entirely: "Standard routing review. Nothing unusual."`;
+
       }
       addJournal('Guild floor analysis: second economy and coercive arbiter control confirmed', 'evidence', `guildheart-floor-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
