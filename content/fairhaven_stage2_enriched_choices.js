@@ -278,6 +278,43 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Six vessels arrived without signing out — night clearance invoked.",
+    tags: ['stage2', 'fairhaven', 'dock_records'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.investigationProgress++;
+        addNarration('Dock Authority Ledger — Missing Departures', 'The dock authority keeps arrivals in the left column and departures in the right, bound in the same daily ledger. Six vessels from the past two months have arrival entries with no corresponding departure — the right column is blank beside each one. The harbormistress\'s annotation on two of them reads "night clearance — no manifest presented." On the other four there is no annotation at all. Night clearance is a discretionary exception for guild-credentialed vessels in emergency conditions. None of the six entered through the standard credentialing queue. Their cargo classifications are listed as \'passenger and correspondence\' — the category that waives contents inspection.');
+        addJournal('Dock authority ledger — six vessels departed without sign-out, night clearance invoked, contents inspection waived', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Dock Authority Counter — Access Refused', 'The harbormistress\'s deputy is behind the counter and is not the harbormistress. He listens to the request for departure records and then checks a list pinned to the board behind him. Your name is not on it. "Ledger access requires a standing harbour-inquiry authorization from the Roadwarden post or the guild registry." He puts the list back without reading it aloud. The counter is closed to you.');
+      }
+    }
+  },
+
+  {
+    label: "A south pier manifest carries an expired seal predating delivery.",
+    tags: ['stage2', 'fairhaven', 'manifest_anomaly'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('craft', G.skills.craft);
+      if (roll.total >= 13) {
+        G.investigationProgress++;
+        addNarration('South Pier — Backdated Manifest Seal', 'The shipping agent spreads three manifests across the pier desk without being prompted. The third: a bulk delivery cleared through Fairhaven\'s south pier seven weeks ago. The authorization seal carries a certification date that expired forty-three days before the manifest was stamped. The seal was genuine — issued by a real authority — but its validity window closed before this delivery arrived. Someone used an expired seal and the pier inspector did not flag it, or chose not to. The agent taps the certification date twice. "That\'s not the inspector\'s handwriting on the clearance line," he says.');
+        addJournal('South pier manifest — authorization seal expired before delivery date, clearance line handwriting mismatch', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('South Pier — Agent Closed', 'The shipping agent at the south pier desk does not look up when you approach. He is cross-referencing two tally sheets and sets a finger on the column he is tracking before acknowledging you. "Manifest queries go through the dock registry, north end." He returns to the column. His shoulders are held with the careful blankness of someone who has been told to send people north.');
+      }
+    }
+  },
+
+  {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
