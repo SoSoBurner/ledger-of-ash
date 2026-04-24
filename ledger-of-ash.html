@@ -1237,6 +1237,13 @@ input, button, select, textarea { font-family: inherit; }
 }
 .journal-entry:last-child { border-bottom: none; margin-bottom: 0; }
 
+.journal-section-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
 
 /* ═══ OVERLAYS ════════════════════════════════════════════════════ */
 .overlay {
@@ -12761,21 +12768,40 @@ function updateQuestHUD() {
 
 function updateJournalHUD() {
   var el = document.getElementById('journal-list'); if (!el) return;
+  var JLABELS = {
+    evidence: 'EVIDENCE',
+    intelligence: 'INTEL',
+    rumor: 'RUMOR',
+    discovery: 'FIND',
+    complication: 'COMPLICATION',
+    contact_made: 'CONTACT'
+  };
+  var JCOLORS = {
+    evidence: 'var(--accent-gold)',
+    intelligence: 'var(--jade-bright)',
+    rumor: 'var(--ember-hi)',
+    discovery: 'var(--jade-bright)',
+    complication: 'var(--danger)',
+    contact_made: 'var(--discovery)'
+  };
+  function renderJEntry(rec) {
+    var lbl = JLABELS[rec.category] || '';
+    var col = JCOLORS[rec.category] || '';
+    var prefix = lbl ? '<span style="font-family:var(--font-display);font-size:9px;letter-spacing:1px;color:' + col + ';margin-right:5px;">' + lbl + '</span>' : '';
+    return '<div class="journal-entry">' + prefix + rec.text + '</div>';
+  }
   var records = G.journalRecords || [];
-  var counts = { evidence: 0, intelligence: 0, rumor: 0, discovery: 0 };
-  records.forEach(function(r) { if (counts[r.category] !== undefined) counts[r.category]++; });
-  var total = counts.evidence + counts.intelligence + counts.rumor + counts.discovery;
-  var summaryHtml = total > 0
-    ? '<div class="journal-summary">' +
-        (counts.evidence   ? '<span>' + counts.evidence   + ' ev</span>' : '') +
-        (counts.intelligence ? '<span>' + counts.intelligence + ' int</span>' : '') +
-        (counts.rumor      ? '<span>' + counts.rumor      + ' rum</span>' : '') +
-        (counts.discovery  ? '<span>' + counts.discovery  + ' disc</span>' : '') +
-      '</div>'
-    : '';
-  el.innerHTML = summaryHtml +
-    ((G.journal||[]).slice(0,6).map(j=>'<div class="journal-entry">'+j+'</div>').join('') ||
-    '<div class="journal-entry">Your ledger awaits its first entry.</div>');
+  var intelRecs = records.filter(function(r) { return r.category !== 'rumor'; }).slice(-6);
+  var rumorRecs = records.filter(function(r) { return r.category === 'rumor'; }).slice(-4);
+  el.innerHTML =
+    '<div class="journal-section-label">FIELD NOTES</div>' +
+    (intelRecs.length
+      ? intelRecs.map(renderJEntry).join('')
+      : '<div class="journal-entry">Your ledger awaits its first entry.</div>') +
+    '<div class="journal-section-label" style="margin-top:10px;">RUMORS</div>' +
+    (rumorRecs.length
+      ? rumorRecs.map(renderJEntry).join('')
+      : '<div class="journal-entry" style="color:var(--ink-faint);font-style:italic;">No rumors recorded.</div>');
 }
 
 function setText(id,val) { const el=document.getElementById(id); if(el) el.innerHTML=String(val); }
