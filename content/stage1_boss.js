@@ -182,6 +182,7 @@ function _stage1MainBossCombat(aggressive) {
     onDefeat: function() {
       G.flags.stage1_mainboss_defeated = true;
       G.flags.stage1_mainboss_complete = true;
+      G.flags.stage1_narrative_complete = true;
       G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 18);
       G.renown = (G.renown||0) + 10;
       addJournal('The pulled file contained records of forged permits traced through three different localities — all routed through ORE intake. Ironveil knew the pattern and was managing it, not stopping it.', 'evidence');

@@ -181,7 +181,6 @@ window.STAGE3_CLIMAX = (function() {
     G.flags.stage3_climax_complete = true;
     G.stageProgress = G.stageProgress || {};
     G.stageProgress[3] = Math.max(G.stageProgress[3] || 0, 20);
-    addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }

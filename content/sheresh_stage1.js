@@ -1,7 +1,7 @@
 var SHERESH_STAGE1 = (function() {
 
   function openingHook() {
-    var G = window.G;
+    
     if (!G || G.flags.sideplot_sheresh_started) return;
     G.flags.sideplot_sheresh_started = true;
 
@@ -25,7 +25,7 @@ var SHERESH_STAGE1 = (function() {
   }
 
   function askElder() {
-    var G = window.G;
+    
     var r = rollD20('charm');
     if (r.success) {
       G.lastResult = 'The elder stands at the registry shelf and does not reach for the book. She already knows the page you mean. "They came through with a correction order," she says. "They called it a duplicate registration. Two entries for the same individual." She pauses. "There was never a duplicate. I checked the year myself afterward." She cannot give you a name. She can tell you the order came in from outside the commune — sealed, stamped, and acted on before anyone thought to ask why.';
@@ -40,7 +40,7 @@ var SHERESH_STAGE1 = (function() {
   }
 
   function searchOlderRecords() {
-    var G = window.G;
+    
     var r = rollD20('wits');
     if (r.success) {
       G.lastResult = 'The secondary ledger is stored flat in a crate under correspondence bundles nobody has opened in years. Her name is there three times — a resource requisition for fever-plant compounds, a healer certification renewal, and a formal grievance filed against the commune memory board. The grievance is dated three months before the gap appears in the primary registry. It names "external registry interference" as the cause of the complaint. There is no resolution entry. The grievance was received and then nothing happened and then her name was gone.';
@@ -55,7 +55,7 @@ var SHERESH_STAGE1 = (function() {
   }
 
   function sitWithIt() {
-    var G = window.G;
+    
       G.lastResult = 'You sit with the ledger open to the blank line. You know what her hands looked like when she prepared a compress. You know which cough she took seriously and which she sent home with salt water. The record says none of that happened. Someone decided it should not have happened, and then someone else made the record agree. The pattern you have been following in other places started here — in your own commune, in a year when you were young enough not to notice. That is what the blank line is telling you. It started before you were looking.';
     G.flags.sheresh_emotional_anchor_set = true;
     G.worldClocks = G.worldClocks || {};
@@ -66,7 +66,7 @@ var SHERESH_STAGE1 = (function() {
   }
 
   function _closeWithHint() {
-    var G = window.G;
+    
     if (!G.flags.sheresh_principalities_hint_shown) {
       G.flags.sheresh_principalities_hint_shown = true;
       if (typeof addNarration === 'function') {

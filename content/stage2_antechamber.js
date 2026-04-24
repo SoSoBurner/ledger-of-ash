@@ -1,7 +1,7 @@
 window.STAGE2_ANTECHAMBER = (function() {
 
   function shouldTrigger() {
-    var G = window.G;
+    
     if (!G || !G.flags || !G.stageProgress) return false;
     return (
       !G.flags.stage2_climax_started &&
@@ -12,7 +12,7 @@ window.STAGE2_ANTECHAMBER = (function() {
   }
 
   function trigger() {
-    var G = window.G;
+    
     if (!G) return;
 
     G.flags.stage2_antechamber_started = true;
@@ -58,7 +58,7 @@ window.STAGE2_ANTECHAMBER = (function() {
   }
 
   function _resolve() {
-    var G = window.G;
+    
     G.flags.stage2_antechamber_done = true;
     if (typeof window.advanceTime === 'function') window.advanceTime(1);
   }

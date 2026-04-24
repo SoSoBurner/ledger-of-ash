@@ -1,7 +1,7 @@
 var SCOPE_REVEAL = (function() {
 
   function trigger() {
-    var G = window.G;
+    
     if (!G || G.flags.scope_reveal_shown) return;
     if ((G.investigationProgress || 0) < 5) return;
     G.flags.scope_reveal_shown = true;
@@ -17,16 +17,16 @@ var SCOPE_REVEAL = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       { id: 'scope_note_names', text: 'Record the names carefully. Cross-reference with everything you have found.', tag: 'bold',
         action: function() {
-          window.G.flags.scope_reveal_names_recorded = true;
-          window.G.investigationProgress = Math.max(window.G.investigationProgress || 0, 6);
+          G.flags.scope_reveal_names_recorded = true;
+          G.investigationProgress = Math.max(G.investigationProgress || 0, 6);
           if (typeof addNarration === 'function') addNarration('', 'Three more threads. The picture is not larger — it is deeper.');
           if (typeof checkStageAdvance === 'function') checkStageAdvance();
         }
       },
       { id: 'scope_take_document', text: 'Take the document. It should not be here.', tag: 'safe',
         action: function() {
-          window.G.flags.scope_reveal_document_taken = true;
-          window.G.investigationProgress = Math.max(6, (window.G.investigationProgress || 0) + 1);
+          G.flags.scope_reveal_document_taken = true;
+          G.investigationProgress = Math.max(6, (G.investigationProgress || 0) + 1);
           if (typeof addNarration === 'function') addNarration('', 'You fold it into your case notes. Evidence. Pattern. Purpose.');
           if (typeof checkStageAdvance === 'function') checkStageAdvance();
         }

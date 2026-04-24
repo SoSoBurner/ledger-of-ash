@@ -136,6 +136,12 @@
   --border-warm:   #362010;
   --border-em:     #3a1404;
 
+  /* ── Semantic role accents (4-role palette) */
+  --danger:        #be2828;   /* blood/threat/boss encounters */
+  --discovery:     #26603e;   /* jade/success/revelation */
+  --accent-gold:   #d89a2c;   /* renown/level/reward */
+  /* base surface: --ash / --coal / --char */
+
   /* ── Utility */
   --white:         #fff;
   --ink-mid:       #c4b49a;
@@ -1153,6 +1159,8 @@ input, button, select, textarea { font-family: inherit; }
 .clock-fill { height:100%; background:var(--ember-lo,#8b4a1a); border-radius:2px; transition:width 0.3s; }
 .clock-val { color:var(--ink-faint); width:16px; text-align:right; flex-shrink:0; }
 .world-notice { font-size:0.78em; color:var(--ink-faint); font-family: var(--font-body); margin:4px 0 0; }
+.stage-transition-banner { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999; font-family:var(--font-display); font-size:18px; letter-spacing:4px; text-transform:uppercase; color:var(--gold-bright); background:rgba(7,6,13,.92); border:1px solid var(--gold-dim); padding:18px 38px; border-radius:2px; pointer-events:none; animation:stageBannerFade 3s ease-out forwards; }
+@keyframes stageBannerFade { 0%{opacity:0;transform:translate(-50%,-50%) scale(.96)} 20%{opacity:1;transform:translate(-50%,-50%) scale(1)} 70%{opacity:1} 100%{opacity:0;transform:translate(-50%,-50%) scale(1.02)} }
 
 /* Quest items */
 .quest-item {
@@ -1307,6 +1315,7 @@ input, button, select, textarea { font-family: inherit; }
   padding: 16px 18px; margin-bottom: 14px; border-radius: 2px;
   box-shadow: 0 4px 16px rgba(110,16,16,.2);
 }
+.encounter--boss { border-left-color: var(--danger) !important; border-color: var(--danger) !important; box-shadow: 0 4px 20px rgba(190,40,40,.35) !important; }
 .combat-location { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
 .combat-intent { font-family: 'Crimson Pro', serif; font-size: 16.5px; color: var(--ink); line-height: 1.65; font-style: italic; margin-bottom: 8px; }
 .combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: var(--font-display); letter-spacing: 1px; }
@@ -1764,7 +1773,9 @@ input, button, select, textarea { font-family: inherit; }
         <div class="l-vitals-footer">
           <span class="stat-val good" id="hud-status">Stable</span>
           <span class="l-gold"><span class="l-gold-sym">&#x25C8;</span><span id="hud-gold">0</span></span>
+          <span id="hud-plotcredits" style="display:none;font-size:11px;color:var(--gold-dim)"></span>
         </div>
+        <div id="hud-watchfulness" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center"></div>
       </div>
       <div class="l-divider"></div>
       <div class="l-axis">
@@ -2091,15 +2102,15 @@ const COMPANION_DEFS = {
     id: 'vorath_gelden',
     name: 'Vorath Gelden',
     role: 'Former Garrison Commander & Labor Advocate',
-    locality: 'shelkopolis',
+    locality: null,
     npcId: 'Vorath Gelden',
-    stageMin: 'Stage II',
-    stageMinFlag: 'maren_oss_resolved',
+    stageMin: 'Stage I',
+    stageMinFlag: 'companion_gate_open',
     joinScene: {
-      text: "The big man at the labor registry looks like he belongs in a garrison, not behind a desk. He doesn't explain the discrepancy. 'I commanded the mine suppression four years ago. I was given an order and I executed it and six people died who didn't have to.' He doesn't flinch. 'I'm not here to confess — I'm here because I've been watching someone else build the same situation and I have enough experience to know how it ends. You're trying to stop it from ending that way. I want to help with that.'",
+      text: "The big man at the labor registry desk looks like he belongs commanding a post, not filing requisitions. He doesn't explain the discrepancy. 'I gave an order four years ago and six people died who didn't have to.' He says it plainly. 'I'm not here to confess — I'm here because I've been watching someone build the same situation again. You're trying to stop it. I have experience with how it ends. I want to help with that.'",
       choices: [
-        { text: "Accept. His tactical knowledge and Shelk contacts are invaluable.", outcome: 'join' },
-        { text: "Ask what he knows about the mine suppression specifically.", outcome: 'negotiate' },
+        { text: "Accept. His tactical knowledge and field experience are invaluable.", outcome: 'join' },
+        { text: "Ask what he knows about the situation he's describing.", outcome: 'negotiate' },
         { text: "Tell him you need people who didn't give those orders.", outcome: 'refuse' }
       ]
     },
@@ -2125,12 +2136,12 @@ const COMPANION_DEFS = {
     id: 'mira_calden',
     name: 'Mira Calden',
     role: 'Merchant Assembly Liaison & Collegium Watchdog',
-    locality: 'shelkopolis',
+    locality: null,
     npcId: 'Mira Calden',
-    stageMin: 'Stage II',
-    stageMinFlag: 'maren_oss_resolved',
+    stageMin: 'Stage I',
+    stageMinFlag: 'companion_gate_open',
     joinScene: {
-      text: "The woman with the Assembly seal in her lapel has been building a file for two years. She slides a portion of it across the table without preamble. 'The Collegium has been suppressing commercial records that would expose three years of route manipulation. The Assembly doesn't care — they're making money on the manipulation. I care because someone on the Assembly approved it, and when this breaks open — and it will — I need to be on the right side of it.' She looks at you. 'You're already pulling the same thread. Work with me and we both get what we need.'",
+      text: "The woman with the Assembly seal has been building a file for two years. She sets a portion of it on the table without preamble. 'The Collegium has been suppressing records that would expose three years of route manipulation. The Assembly isn't interested — they're profiting. I care because someone there approved it, and I need to be on the right side when it breaks.' She looks at you steadily. 'You're pulling the same thread. Work with me and we both get what we need.'",
       choices: [
         { text: "Accept. Her Assembly access opens doors nothing else can.", outcome: 'join' },
         { text: "Ask what her file actually contains before committing.", outcome: 'negotiate' },
@@ -2213,6 +2224,7 @@ function hasCompanion(id) {
   return !!(G.companions && G.companions[id] && G.companions[id].status === 'active');
 }
 
+/** @returns {Object[]} Active companion objects from G.companions. Gate: maren_oss_resolved + trust>=15. */
 function getActiveCompanions() {
   if (!G.companions) return [];
   return Object.values(G.companions).filter(c => c.status === 'active');
@@ -2640,6 +2652,7 @@ function advanceFactionClocks(ticks) {
 }
 
 // ── ENCOUNTER WEIGHTING BY ARCHETYPE FAMILY ──────────
+/** @returns {string} Family string for G.archetype — e.g. 'support', 'martial'. Defaults 'support'. */
 function getArchetypeFamily() {
   if (!G.archetype) return 'support';
   const id = G.archetype.id;
@@ -2669,6 +2682,7 @@ function getArchetypeEncounterOption(cid) {
 }
 
 // Inject archetype encounter option into a choices array
+/** @param {Object[]} choices — mutates array, appends archetype encounter option. Called by renderChoices override. */
 function weightChoicesForArchetype(choices) {
   if (!choices || choices.length >= 4) return choices;
   const family = getArchetypeFamily();
@@ -3108,6 +3122,7 @@ function getStagePool() {
 // ── COMBAT STATE ─────────────────────────────────────────
 let CS = null; // active combat session
 
+/** Low-level combat engine. Full TTRPG multi-round loop with archetype abilities. Use enterCombat() for narrative encounters. @param {string} enemyTemplateId @param {Object} [context] */
 function startCombat(enemyTemplateId, context) {
   // D1: Use tiered stats based on player level
   const scaledTpl = getEnemyStats(enemyTemplateId, G ? (G.level || 1) : 1);
@@ -3553,6 +3568,8 @@ function resolveCombatAction(action, abilityId) {
   CS.log.push({ round: CS.round, action, result: resultType });
   addNarration('Round ' + CS.round, resultText, resultType);
 
+  if (CS.playerFell) { CS.playerFell = false; endCombat(false); return; }
+
   // Check enemy flee
   const eFleePct = CS.enemy.hp / CS.enemy.maxHp;
   if (!isFled && CS.enemy.hp <= 0) {
@@ -3614,7 +3631,11 @@ function applyWound(damage, source) {
   if (G.hp <= 0) {
     G.hp = 1;
     G.recoveryState = 'critical';
-    addNarration('', '<em style="color:var(--blood-bright)">You are critically wounded. You need immediate recovery.</em>');
+    var _goldLost = Math.max(1, Math.floor((G.gold || 0) * 0.1));
+    G.gold = Math.max(0, (G.gold || 0) - _goldLost);
+    G.dayCount = (G.dayCount || 0) + 1;
+    if (CS) CS.playerFell = true;
+    addNarration('', '<em style="color:var(--blood-bright)">The fight goes out of you before the ground does. When awareness returns, the light has shifted — hours, maybe more. Your hands are empty of what they had. You have not won this. But you are still breathing, and that is where the next attempt begins.</em>');
   }
   updateHUD();
 }
@@ -8198,6 +8219,7 @@ let G = {
 
 let _pendingChoices = [];
 let _awaitingLevelUp = false;
+let _renderChoicesPending = null;
 let _activeGroupId = null;
 
 // ── STRING SAFETY ──────────────────────────────────────
@@ -8695,9 +8717,27 @@ function _beginLegendCore() {
   }
   G.location = BG_LOCATION_MAP[G.background.region] || 'shelkopolis';
   G.startingLocality = G.location;
+  // Companions follow the player to their starting locality
+  if (window.COMPANION_DEFS) {
+    COMPANION_DEFS.vorath_gelden.locality = G.startingLocality;
+    COMPANION_DEFS.mira_calden.locality = G.startingLocality;
+  }
+  G.flags.companion_gate_open = false;
   G.backstoryGroup = G.archetype.group || 'neutral';
   G.history.push('Born as ' + G.name + ', ' + G.archetype.name + ' of ' + G.background.region + '.');
   G.history.push(G.background.opening);
+  // Macro goal — pinned first quest in player's voice, keyed by archetype group
+  var _macroGoals = {
+    combat:  'Someone is routing supply chains through routes that shouldn\'t be clean. I want names.',
+    magic:   'The anomalies in these transit records follow a pattern. I intend to find where it leads.',
+    stealth: 'There are gaps in the official record — deliberate ones. I plan to find out what they\'re hiding.',
+    support: 'The displaced workers, the failed routes, the missing manifests — they have a common source. I\'m going to find it.',
+    craft:   'The materials moving through these routes don\'t match the manifests. Someone is skimming from the supply chain itself.',
+    neutral: 'The pattern in these records isn\'t coincidence. Trace it before it traces you.'
+  };
+  var _macroGoal = _macroGoals[G.archetype && G.archetype.group] || _macroGoals.neutral;
+  G.quests = G.quests || [];
+  G.quests.unshift(_macroGoal);
   G.factions = FACTIONS_BASE.map(f => ({ id:f.id, name:f.name, rep:f.rep }));
   (G.background.factionMods || []).forEach(m => modFaction(m.id, m.n || 0));
   // Starting inventory
@@ -8811,6 +8851,7 @@ function advanceRivals() {
 function triggerRivalEncounter(idx) {
   const r = G.rivalAdventurers[idx];
   if (!r) return;
+  if (G.flags['rival_met_' + idx]) return;
   G.flags['rival_met_' + idx] = true;
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
   const scenes = [
@@ -8830,6 +8871,16 @@ function triggerRivalEncounter(idx) {
   ]), 400);
 }
 
+function getRivalDCMod(locId) {
+  var mod = 0;
+  (G.rivalAdventurers || []).forEach(function(r, i) {
+    var claimed = (G.flags && G.flags['rival_claimed_' + locId + '_' + i]) || 0;
+    if (claimed >= 4) mod = Math.max(mod, 2);
+    else if (claimed >= 3) mod = Math.max(mod, 1);
+  });
+  return mod;
+}
+
 function resolveRivalOutcome(idx, outcome, success) {
   const r = G.rivalAdventurers[idx];
   const name = r ? r.name : 'the rival';
@@ -8837,8 +8888,11 @@ function resolveRivalOutcome(idx, outcome, success) {
     if (success) {
       addNarration('', name + ' pauses, weighs something, then offers a single lead — a name heard at the Waymark post, a manifest entry she cannot explain. You give her the warehouse timing in return. It is an uneasy balance. You are both aware it will not hold.', 'success');
       if (typeof addJournal === 'function') addJournal('Intel exchange with ' + name + '. Unverified lead acquired.', 'intelligence');
-      G.stageProgress = (G.stageProgress || 0) + 5;
+      var _spn1 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
+      G.stageProgress[_spn1] = (G.stageProgress[_spn1] || 0) + 5;
       if (r) r.renown = Math.max(r.renown || 0, 3);
+      G.flags = G.flags || {};
+      G.flags['rival_claimed_' + G.location + '_' + idx] = (r && r.renown) || 2;
     } else {
       addNarration('', name + ' listens, gives nothing back. Better at this than you expected. You walk away with a general sense that you have just been read.', 'failure');
     }
@@ -8849,7 +8903,10 @@ function resolveRivalOutcome(idx, outcome, success) {
     if (success) {
       addNarration('', 'You pull enough from the reaction to understand the shape of what they have. Not the detail — the shape. They know you did it and look briefly annoyed before recovering.', 'success');
       if (typeof addJournal === 'function') addJournal(name + ': has a dossier. Contents unknown — scope suggests pre-existing surveillance.', 'intelligence');
-      G.stageProgress = (G.stageProgress || 0) + 8;
+      var _spn2 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
+      G.stageProgress[_spn2] = (G.stageProgress[_spn2] || 0) + 8;
+      G.flags = G.flags || {};
+      G.flags['rival_claimed_' + G.location + '_' + idx] = (r && r.renown) || 2;
     } else {
       addNarration('', 'You get nothing you did not already have, and leave knowing they know that.', 'failure');
       G.worldClocks = G.worldClocks || {};
@@ -8857,7 +8914,7 @@ function resolveRivalOutcome(idx, outcome, success) {
     }
   }
   saveGame(); updateHUD();
-  setTimeout(() => loadStageChoices(G.location, G.stage), 600);
+  setTimeout(() => loadStageChoices(G.location), 600);
 }
 
 // ── BACKGROUND RIVAL TICK (v0.1 PLACEHOLDER) ────────────
@@ -9210,15 +9267,31 @@ function addNarration(label, html, resultType) {
 }
 
 // Stage-aware arrival choices after travel — replaces hardcoded generic three
+/** Wraps enriched choice fn() in try/catch — errors are silently swallowed. Missing G defaults are the #1 cause of silent failures. @param {Object} c — enriched choice object @returns {Object} standard choice */
 function adaptEnrichedChoice(c) {
+  var _rivalMod = (typeof getRivalDCMod === 'function') ? getRivalDCMod(G.location) : 0;
+  var _coreInvest = c.fn && /addJournal\(.*(?:'evidence'|'intelligence'|"evidence"|"intelligence")/.test(c.fn.toString());
+  if (_coreInvest) _rivalMod = 0;
   return {
     text: c.label,
     tag: 'risky',
     align: c.align || 'neutral',
     action: function() {
-      try { c.fn(); } catch(e) { console.error('[enriched]', e); }
+      try {
+        if (_rivalMod > 0) G._rivalDCPenalty = _rivalMod;
+        c.fn();
+      } catch(e) { console.error('[enriched]', e); } finally {
+        G._rivalDCPenalty = 0;
+      }
       const txt = G.lastResult || '';
-      if (txt) addNarration('', txt, G.lastResultType || 'neutral');
+      const _outcomeType = G.lastResultType || 'neutral';
+      if (txt) {
+        var _display = txt;
+        if (_rivalMod > 0 && (_outcomeType === 'failure' || _outcomeType === 'partial')) {
+          _display += '<br><em style="color:var(--ink-faint);font-size:13px">The trail here has been worked recently.</em>';
+        }
+        addNarration('', _display, _outcomeType);
+      }
       // Soreheim plot currency: increment on enriched choice execution in Soreheim territory
       const _soreLocs = ['soreheim','sunspire'];
       if (_soreLocs.indexOf(G.location) !== -1) {
@@ -9266,17 +9339,20 @@ function _injectBossSeedChoices(choices) {
   return [adaptSeedChoice(toInject)].concat(choices);
 }
 
+/** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
   const loc = locId || G.location || '';
-  const stageNum = /II/.test(G.stage || '') ? '2' : '1';
+  const stage = G.stage || '';
+  const stageNum = stage === 'Stage II' ? '2' : stage === 'Stage III' ? '3' : '1';
   const tableKey = loc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
     + '_STAGE' + stageNum + '_ENRICHED_CHOICES';
-  const enriched = window[tableKey];
+  const enriched = window[tableKey] || (stageNum === '3' ? window.STAGE3_ENRICHED_CHOICES : null);
 
   if (enriched && enriched.length) {
-    const seen = G.flags._seen_enriched = G.flags._seen_enriched || {};
+    const seenKey = '_seen_enriched_' + stageNum;
+    const seen = G.flags[seenKey] = G.flags[seenKey] || {};
     let pool = enriched.filter(function(c) { return !seen[c.label]; });
-    if (pool.length < 2) { G.flags._seen_enriched = {}; pool = enriched.slice(); }
+    if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.slice(); }
     // Fisher-Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -9303,7 +9379,6 @@ function loadStageChoices(locId) {
     { text: 'Find the local inn and read the room.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
     { text: 'Walk the settlement and read what is there.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' }
   ];
-  const stage = G.stage || '';
   if (stage.includes('II') || stage.includes('III')) {
     base.push({ text: 'Press for the next thread before the day ends.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'probe_order_origin' });
   } else {
@@ -9338,7 +9413,9 @@ function renderNavChoices() {
   }
 }
 
+/** Renders choice buttons. Overridden to call weightChoicesForArchetype() first. Clears pending debounce. @param {Object[]} choices */
 function renderChoices(choices) {
+  if (_renderChoicesPending) { clearTimeout(_renderChoicesPending); _renderChoicesPending = null; }
   if (!choices || choices.length === 0) { renderNavChoices(); return; }
   _pendingChoices = choices;
   // Fumble backup notice (one-time)
@@ -9457,9 +9534,12 @@ function renderChoices(choices) {
   });
   const tb = block.querySelector('#btn-use-trait');
   if (tb) tb.addEventListener('click', useTrait);
-  el.innerHTML = '';
-  el.appendChild(block);
-  scrollNarrative();
+  _renderChoicesPending = setTimeout(function() {
+    _renderChoicesPending = null;
+    el.innerHTML = '';
+    el.appendChild(block);
+    scrollNarrative();
+  }, 0);
 }
 
 function scrollNarrative() {
@@ -9594,10 +9674,12 @@ function useTrait() {
 // ── ENRICHED CHOICE HELPERS ───────────────────────────────
 function rollD20(skill, bonus) {
   var roll = Math.floor(Math.random() * 20) + 1;
-  var total = roll + (bonus || 0);
+  var penalty = (typeof G !== 'undefined' && G && G._rivalDCPenalty) ? G._rivalDCPenalty : 0;
+  var total = roll + (bonus || 0) - penalty;
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
 
+/** @param {number} amount — XP to add. Applies stage multiplier (S1=1x, S2=1.5x, S3=2x). Calls checkLevelUp() → checkStageAdvance(). */
 function gainXp(amount) {
   G.xp = (G.xp || 0) + amount;
   checkLevelUp();
@@ -9609,6 +9691,7 @@ function maybeStageAdvance() {
 }
 
 // ── CHOICE RESOLUTION ─────────────────────────────────────
+/** Main choice dispatcher. Routes legacyCombatCids to enterCombat(). Calls choice.fn() for enriched choices. @param {Object} choice */
 function handleChoice(choice) {
   // Route instant-attack escalation
   if (choice.cid === '__instant_attack_escalation__') {
@@ -9918,7 +10001,8 @@ function checkWorldClockThresholds() {
     G.flags.clock_p7 = true;
     addNarration('', 'Everything you have built is beginning to come apart. Leads are cold. Allies are scarce. You need to move — or accept that you are too late.', 'complication');
     if (typeof addWorldNotice === 'function') addWorldNotice('Pressure critical: the trail is going cold. Stage advance required to recover.');
-    G.stageProgress = Math.max(0, (G.stageProgress||0) - 10);
+    var _spn3 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
+    G.stageProgress[_spn3] = Math.max(0, (G.stageProgress[_spn3]||0) - 10);
   }
 
   // Rival thresholds
@@ -9932,7 +10016,8 @@ function checkWorldClockThresholds() {
     addNarration('', 'You arrive at the warehouse an hour behind schedule. The manifest you came for is gone. The clerk says a researcher collected it this morning — no name on the receipt.', 'complication');
     if (typeof addWorldNotice === 'function') addWorldNotice('Rival ahead: key evidence retrieved before you. Check remaining leads.');
     if (typeof addJournal === 'function') addJournal('Warehouse manifest collected by unknown researcher before your arrival.', 'intelligence');
-    G.stageProgress = Math.max(0, (G.stageProgress||0) - 5);
+    var _spn4 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
+    G.stageProgress[_spn4] = Math.max(0, (G.stageProgress[_spn4]||0) - 5);
   }
 }
 
@@ -9952,6 +10037,7 @@ function getNPCTrust(npcId) {
 }
 
 // ── INVENTORY ────────────────────────────────────────────
+/** @param {{name:string, type:'weapon'|'armor'|'tool'|'consumable'}} item — pushed to G.inventory with equipped:false. Shows toast. */
 function addToInventory(item) {
   if (!G.inventory) G.inventory = [];
   G.inventory.push(Object.assign({ equipped:false }, item));
@@ -10033,6 +10119,10 @@ function checkLevelUp() {
   if (G.level >= stageCap) {
     G.masteryXP = (G.masteryXP || 0) + (G.xp || 0);
     G.xp = 0;
+    if (G.stage === 'Stage I' && !G.flags.stage1_narrative_complete && !G.flags._s1cap_hint_shown) {
+      G.flags._s1cap_hint_shown = true;
+      if (typeof addNarration === 'function') addNarration('', '<em style="color:var(--gold-dim)">You have reached the limits of what this territory can teach you. Something larger waits — but first, there is unfinished business here.</em>');
+    }
     if (typeof updateHUD === 'function') updateHUD();
     return;
   }
@@ -10050,6 +10140,7 @@ function checkLevelUp() {
 }
 
 function showStage3Epilogue() {
+  if (!canAdvanceToStage3()) return;
   if (G.flags.stage3_epilogue_shown) return;
   G.flags.stage3_epilogue_shown = true;
 
@@ -10190,10 +10281,24 @@ function _showStage3BlockerLegacy() {
   });
 }
 
+function showTransitionBanner(text) {
+  var el = document.createElement('div');
+  el.className = 'stage-transition-banner';
+  el.textContent = text;
+  document.getElementById('game').appendChild(el);
+  setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 3000);
+}
+
+/** Stage gate: S1→S2 when stage1_narrative_complete flag set (Sera Ironveil defeated); S2→S3 via canAdvanceToStage3(). Also triggers Maren, antechamber, climax in order. Called by checkLevelUp(). */
 function checkStageAdvance() {
-  if (G.level >= 5 && G.stage === 'Stage I') {
+  // Companion gate — unlocks Vorath and Mira at mid-Stage 1
+  if (!G.flags.companion_gate_open && (G.stageProgress && G.stageProgress[1] || 0) >= 5) {
+    G.flags.companion_gate_open = true;
+  }
+  if (G.flags.stage1_narrative_complete && G.stage === 'Stage I') {
     G.stage = 'Stage II'; G.stageLabel = 'Local Inter-Polity';
     G.flags.principalities_route_unlocked = true;
+    showTransitionBanner('Stage II — The Scope Expands');
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE II UNLOCKED &#x2014; The world widens. You may now travel beyond your origin polity where routes support it.</em>');
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
     G.history.push('Completed Stage I. Entered the wider world at Level 5.');
@@ -10208,13 +10313,11 @@ function checkStageAdvance() {
       // Hint player toward missing gate conditions
       if (typeof addNarration === 'function' && !G.flags._stage3_hint_shown) {
         G.flags._stage3_hint_shown = true;
-        if (G.flags.stage3_blocked) {
-          addNarration('', '<em style="color:var(--ink-faint)">Your investigation is complete. Stage II remains open for continued exploration.</em>');
+        if (G.flags.stage2_climax_complete) {
+          addWorldNotice('The investigation is complete. The world remains open — your work here isn\'t finished.');
         } else {
           const missing = [];
           if (!G.flags.stage2_climax_complete) missing.push('the investigation has no resolution yet');
-          if ((G.investigationProgress||0) < 10) missing.push('the investigation is incomplete');
-          if (!G.flags.stage2_faction_contact_made) missing.push('no faction contact established');
           if ((G.stageProgress && G.stageProgress[2]||0) < 15) missing.push('more time is needed in the field');
           addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
         }
@@ -10297,12 +10400,9 @@ function checkNeutralArcScene() {
 }
 window.checkNeutralArcScene = checkNeutralArcScene;
 
+/** @returns {boolean} true when: stage2_climax_complete + stage2_faction_contact_made + investigationProgress>=10 */
 function canAdvanceToStage3() {
-  const climax  = !!(G.flags && G.flags.stage2_climax_complete);
-  const inv     = (G.investigationProgress || 0) >= 10;
-  const contact = !!(G.flags && G.flags.stage2_faction_contact_made);
-  const prog    = (G.stageProgress && G.stageProgress[2] || 0) >= 15;
-  return climax && inv && contact && prog;
+  return false; // Stage 3 not part of V1.0 release
 }
 
 function driftNomdara() {
@@ -10318,7 +10418,7 @@ function driftNomdara() {
   }
   if (chosen !== n.attached_locality_id) {
     n.attached_locality_id = chosen;
-    addJournal('The Nomdara Caravan has moved on.', 'travel');
+    addJournal('The Nomdara Caravan has moved on.', 'complication');
   }
 }
 
@@ -10635,6 +10735,7 @@ function tickAxis(n) {
   }
   updateHUD();
 }
+/** @param {string} text @param {'evidence'|'intelligence'|'rumor'|'discovery'|'contact_made'|'complication'} category @param {string} [dedupeKey] — WARNING: text is arg1, category is arg2. Reversing silently breaks logging. */
 function addJournal(text, category, dedupeKey) {
   if (!G.journal) G.journal = [];
   if (!G.journalRecords) G.journalRecords = [];
@@ -10666,6 +10767,7 @@ function addQuest(text) {
 }
 
 // ── TRAVEL ───────────────────────────────────────────────
+/** Locality transition. Stage I blocks cross-region travel. Sets G.location, ticks axis, renders arrival choices. @param {string} locId */
 function travelTo(locId) {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
@@ -10703,11 +10805,18 @@ function beginJourney(fromId, toId) {
 
 function _maybePublicComplication(locId) {
   if (!G || G.stage === 'Stage I') return;
-  var watch = (G.worldClocks && G.worldClocks.watchfulness) || 0;
+  var watch = Math.min(8, (G.worldClocks && G.worldClocks.watchfulness) || 0);
   if (watch < 3) return;
   var chance = 0.20 + (watch - 3) * 0.05;
   if (Math.random() > chance) return;
   if (typeof triggerPublicComplication === 'function') triggerPublicComplication(locId);
+}
+
+function showStage2BridgeScene() {
+  if (G.stage !== 'Stage II') return;
+  if (G.flags.stage2_bridge_shown) return;
+  G.flags.stage2_bridge_shown = true;
+  addNarration('', '<em>The scope has shifted. You have been working one locality\'s record; what you are walking into now is a territory. Other people have been asking questions here — some of them before you arrived. The work you have been doing is visible to people who watch for it. Public choices carry weight. The trail you leave is being read by someone who is better resourced than you are. That is the condition of Stage II. Proceed accordingly.</em>');
 }
 
 function resolveArrival(locId) {
@@ -10727,7 +10836,14 @@ function resolveArrival(locId) {
   if (typeof _checkSideplots === 'function') _checkSideplots();
   updateHUD(); updateEnvironmentPanel(); saveGame();
   addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+  showStage2BridgeScene();
   _maybePublicComplication(locId);
+  if ((locId === 'soreheim' || locId === 'sunspire') && !G.flags.soreheim_credit_starter_given) {
+    G.flags.soreheim_credit_starter_given = true;
+    G.sorePlotCredits = (G.sorePlotCredits || 0) + 5;
+    if (typeof addWorldNotice === 'function') addWorldNotice('In the Alliance territories, standing earns more than gold. You carry five credits of goodwill — spend them wisely.');
+    updateHUD();
+  }
   setTimeout(() => {
     if (typeof loadStageChoices === 'function') {
       loadStageChoices(locId, G.stage);
@@ -10829,6 +10945,7 @@ function seekProfessionalCare() {
 }
 
 // ── CAMP ─────────────────────────────────────────────────
+/** @param {'post_watches'|'craft'} type — post_watches requires >=1 active companion; converts night ambush to warned encounter. */
 function campAction(type) {
   closeOverlay('overlay-camp');
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_camp');
@@ -10928,13 +11045,21 @@ function campAction(type) {
         G.fatigue = Math.max(0, (G.fatigue||0) - 1);
         G.flags['_watch_posted_day_' + (G.dayCount || 0)] = true;
         addNarration('Camp', 'The watches hold. Your companions rotate through the night without incident. You wake less tired than expected.', 'success');
-        addJournal('Watches posted. The night was quiet.', 'field_note');
+        addJournal('Watches posted. The night was quiet.', 'discovery');
       } else {
         addNarration('Camp', 'The watches hold but something moved at the perimeter. Nothing materialized, but you all slept lighter for it.', 'partial');
       }
       saveGame(); updateHUD();
       setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
     }
+  } else if (type === 'lay_low') {
+    G.worldClocks = G.worldClocks || {};
+    G.worldClocks.watchfulness = Math.max(0, (G.worldClocks.watchfulness || 0) - 2);
+    G.dayCount = (G.dayCount || 0) + 1;
+    addNarration('Working Local', 'You spend the day working local — markets, labor calls, the kind of ordinary transit that doesn\'t put your name in anyone\'s records. The manifest boards and Collegium channels stay untouched. You move through the city as someone without a thread to pull, and by evening the tension that had been building behind your shoulder blades has loosened. The trail cools. Not gone, but quieter.');
+    addJournal('Spent a day off the institutional channels. Watchfulness reduced.', 'complication');
+    updateHUD(); saveGame();
+    setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
   } else if (type === 'sleep') {
     doSleepScene();
   }
@@ -10959,7 +11084,35 @@ const STAGE_DREAM_HINTS = {
   'Stage IV': 'The ledger has a name. You have been circling it for weeks.'
 };
 
+/** Main rest handler. Heals HP, clears fatigue, advances day. Companion regen applies here. Calls maybeStageAdvance(). */
 function doSleepScene() {
+  // Archetype confirmation beat — first rest after first stage 1 progress
+  if (!G.flags.archetype_confirmed && (G.stageProgress && G.stageProgress[1] || 0) >= 1) {
+    G.flags.archetype_confirmed = true;
+    var _archName = G.archetype ? G.archetype.name : 'this path';
+    var _archetypeReflections = {
+      combat: 'The work has been physical — direct, settled with weight and presence. That is what you are. The rest is context.',
+      magic: 'You have moved through this as someone who reads before they act. Pattern first, then decision. That is the way you work.',
+      stealth: 'You have been careful about what you leave in the record. Invisible work, legible results. That is the register you operate in.',
+      support: 'The thread you have been following isn\'t yours alone — it connects to other people\'s problems. You have been treating it that way.',
+      craft: 'The work reveals itself in what you make and what you repair. The investigation is another kind of construction. You know this.',
+      neutral: 'The work has taken on its own shape. You have been moving through it as yourself. That is enough of a start.'
+    };
+    var _reflection = _archetypeReflections[G.archetype && G.archetype.group] || _archetypeReflections.neutral;
+    addNarration('Reckoning', _reflection);
+    setTimeout(() => renderChoices([{
+      text: 'This is who I am. ' + _archName + '.',
+      tag: 'safe', skill: 'lore', align: 'neutral', cid: '__archetype_confirm__',
+      action: function() {
+        G.renown = (G.renown || 0) + 1;
+        addJournal('Confirmed path: ' + _archName + '. +1 renown.', 'discovery');
+        updateHUD();
+        doSleepScene();
+      }
+    }]), 300);
+    return;
+  }
+
   const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
   const innData = INN_NAMES[loc] || { cheap: 'a shared room at the local inn', comfortable: 'a private room at the local inn' };
   const isSoreheim = loc === 'soreheim_proper' || loc === 'ashforge_quarry' || loc === 'sunspire_haven' || loc === 'harvest_circle' || loc === 'quarry_flats';
@@ -11005,7 +11158,7 @@ function doSleep(cost, placeName, comfortable) {
     ? 'A proper bed. The noise of the settlement fades. You sleep without interruption.'
     : 'The common room empties around midnight. You sleep in layers of other travelers\' noise.') +
     ' +' + hpGain + ' HP. Fatigue reduced.' + dreamLine, 'success');
-  addJournal('Slept at ' + placeName + '.', 'field_note');
+  addJournal('Slept at ' + placeName + '.', 'discovery');
   saveGame(); updateHUD();
   setTimeout(() => renderChoices([
     { text:'Morning. Back to work.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' }
@@ -11119,6 +11272,7 @@ function doJourneyStart(destId) {
   setTimeout(function() { renderChoices(modeChoices); }, 300);
 }
 
+/** Executes multi-day journey to destId using G.travelMode and G.pace. Applies journey fatigue. @param {string} destId */
 function doTravelJourney(destId) {
   var routeKey = G.location + '|' + destId;
   var route = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[routeKey];
@@ -11564,10 +11718,12 @@ function showJournal() {
       '<span style="color:var(--gold-dim);font-size:11px">Pressure ' + renown + '/5 &middot; ' + status + '</span></div>';
   })();
 
-  const genericRivalRows = (G.rivalAdventurers||[]).map(r =>
-    '<div class="jov-rival"><strong>' + r.name + '</strong> (' + r.archetype + ') &mdash; ' + r.hook + '<br>' +
-    '<span style="color:var(--gold-dim);font-size:11px">Renown ' + r.renown + ' &middot; ' + (r.active ? 'Active' : r.lastSeen) + '</span></div>'
-  ).join('');
+  const genericRivalRows = (G.rivalAdventurers||[]).map(r => {
+    var _rn = r.renown || 0;
+    var _threat = _rn <= 1 ? 'Watching from a distance' : _rn === 2 ? 'Closing in' : _rn === 3 ? 'Active in your territory' : 'Ahead of you';
+    return '<div class="jov-rival"><strong>' + r.name + '</strong> (' + r.archetype + ') &mdash; ' + r.hook + '<br>' +
+    '<span style="color:var(--gold-dim);font-size:11px">Renown ' + r.renown + ' &middot; ' + (r.active ? 'Active' : r.lastSeen) + ' &middot; <em>' + _threat + '</em></span></div>';
+  }).join('');
   const rivalRows = (marenRow + genericRivalRows) || '<div style="color:var(--ink-faint);font-size:13px">No known rivals yet.</div>';
 
   const invRows = (G.inventory||[]).map((item,i) =>
@@ -11853,13 +12009,19 @@ function trySorehimCreditBoost(shopId) {
   const total = roll + bonus;
   const dc = 12;
   G.soreCreditUsed[key] = G.dayCount;
-  if (total >= dc) {
-    const boost = Math.floor((G.sorePlotCredits || 0) * 0.5);
+  if (roll === 20) {
+    const boost = Math.floor((G.sorePlotCredits || 0) * 0.25);
     G.shopCreditBoost = boost;
-    addNarration('', 'The allocation clerk nods when you mention the route work. A temporary line of credit — ' + boost + ' gold — opens for this visit.');
+    G.flags = G.flags || {};
+    G.flags['soreheim_exclusive_unlocked_' + shopId] = true;
+    addNarration('', 'The allocation clerk recognizes the name without hesitation. A credit discount — ' + boost + ' off the posted rate — opens for this visit. A word passes to the back office. There is something not on the standard manifest that may suit your work.');
+  } else if (total >= dc) {
+    const boost = Math.floor((G.sorePlotCredits || 0) * 0.25);
+    G.shopCreditBoost = boost;
+    addNarration('', 'The allocation clerk nods when you mention the route work. A credit discount — ' + boost + ' off the posted rate — opens for this visit.');
   } else {
     G.shopCreditBoost = 0;
-    addNarration('', 'The clerk is courteous but the connection does not land. No additional line today.');
+    addNarration('', 'The clerk is courteous but the connection does not land. No discount available today.');
   }
 }
 
@@ -11882,9 +12044,13 @@ function showShop() {
   block.className = 'scene-block';
 
   let html = '<div class="jov-title">Goods available in ' + (loc?loc.name:locId) + '</div>';
-  html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">Your gold: <strong style="color:var(--gold)" id="shop-gold-display">' + G.gold + '</strong>';
+  const _currSymbol = isSorehimShop ? '◆' : 'g';
+  const _currVal = isSorehimShop ? (G.sorePlotCredits || 0) : G.gold;
+  const _currColor = isSorehimShop ? 'var(--jade-bright)' : 'var(--gold)';
+  const _currLabel = isSorehimShop ? 'Alliance Credits' : 'Your gold';
+  html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:12px">' + _currLabel + ': <strong style="color:' + _currColor + '" id="shop-gold-display">' + (isSorehimShop ? '◆ ' : '') + _currVal + '</strong>';
   if (isSorehimShop && (G.shopCreditBoost || 0) > 0) {
-    html += ' &nbsp;<span style="color:var(--jade-bright);font-size:11px">(+' + G.shopCreditBoost + 'g credit active)</span>';
+    html += ' &nbsp;<span style="color:var(--jade-bright);font-size:11px">(-' + G.shopCreditBoost + '◆ discount active)</span>';
   }
   html += '</div>';
 
@@ -11895,9 +12061,9 @@ function showShop() {
   items.forEach((item, i) => {
     const boost = isSorehimShop ? (G.shopCreditBoost || 0) : 0;
     const effectiveCost = Math.max(1, item.cost - boost);
-    const canAfford = G.gold >= effectiveCost;
+    const canAfford = isSorehimShop ? (G.sorePlotCredits || 0) >= effectiveCost : G.gold >= effectiveCost;
     const alreadyOwned = (G.inventory||[]).find(inv => inv.id === item.id);
-    const costLabel = boost > 0 ? '<span style="text-decoration:line-through;color:var(--ink-faint)">' + item.cost + 'g</span> <span style="color:var(--jade-bright)">' + effectiveCost + 'g</span>' : item.cost + 'g';
+    const costLabel = boost > 0 ? '<span style="text-decoration:line-through;color:var(--ink-faint)">' + item.cost + _currSymbol + '</span> <span style="color:var(--jade-bright)">' + effectiveCost + _currSymbol + '</span>' : item.cost + _currSymbol;
     html += '<div class="shop-item">' +
       '<div class="shop-item-info">' +
         '<div class="shop-item-name">' + item.name + '</div>' +
@@ -11931,8 +12097,13 @@ function showShop() {
       const item = items[parseInt(btn.dataset.shopIdx, 10)];
       const boost = isSorehimShop ? (G.shopCreditBoost || 0) : 0;
       const effectiveCost = Math.max(1, item.cost - boost);
-      if (G.gold < effectiveCost) { showToast('Not enough gold.'); return; }
-      modGold(-effectiveCost);
+      if (isSorehimShop) {
+        if ((G.sorePlotCredits || 0) < effectiveCost) { showToast('Not enough Alliance credits.'); return; }
+        G.sorePlotCredits -= effectiveCost;
+      } else {
+        if (G.gold < effectiveCost) { showToast('Not enough gold.'); return; }
+        modGold(-effectiveCost);
+      }
       addToInventory(Object.assign({}, item, { equipped:false }));
       // Refresh the shop display
       btn.closest('.shop-item').querySelector('.shop-buy-btn').replaceWith(
@@ -11941,9 +12112,9 @@ function showShop() {
           textContent:'OWNED'
         })
       );
-      // Update gold display
+      // Update currency display
       const goldEl = block.querySelector('#shop-gold-display');
-      if (goldEl) goldEl.textContent = G.gold;
+      if (goldEl) goldEl.textContent = isSorehimShop ? '◆ ' + (G.sorePlotCredits || 0) : G.gold;
       showToast('Purchased: ' + item.name);
     });
   });
@@ -12150,6 +12321,15 @@ function updateHUD() {
   setText('hud-renown',  (G.renown||0) + ' — ' + getRenownedTitle());
   setText('hud-hp',      G.hp+' / '+G.maxHp);
   setText('hud-gold',    G.gold);
+  // Watchfulness tier indicator
+  var _w = Math.min(8, (G.worldClocks && G.worldClocks.watchfulness) || 0);
+  var _wTier = _w <= 2 ? '' : _w <= 4 ? 'Observed' : _w <= 6 ? 'Scrutinized' : 'Hunted';
+  var _wEl = document.getElementById('hud-watchfulness');
+  if (_wEl) { _wEl.textContent = _wTier; _wEl.style.display = _wTier ? '' : 'none'; }
+  // Alliance credits overlay (Soreheim/Sunspire only)
+  var _inSore = G.location === 'soreheim' || G.location === 'soreheim_proper' || G.location === 'sunspire' || G.location === 'sunspire_haven';
+  var _pcEl = document.getElementById('hud-plotcredits');
+  if (_pcEl) { _pcEl.textContent = _inSore ? '\u25C6 ' + (G.sorePlotCredits || 0) : ''; _pcEl.style.display = _inSore ? '' : 'none'; }
   setText('hud-axis',    G.axisInverted?'Inverted':'Normal');
   setText('hud-tick',    G.axisTick||0);
   setText('hud-location',WORLD_LOCATIONS[G.location]?WORLD_LOCATIONS[G.location].name:G.location);
@@ -12641,6 +12821,7 @@ function showToast(msg) {
 }
 
 function checkSave() { /* deprecated */ }// ── COMBAT ENTRY — FIRST-CLASS ENCOUNTER SETUP ────────
+/** Narrative combat entry. Shows enemy intent, renders Press/Defend/Talk/Retreat. Use for all story-driven fights. @param {string} enemyKey @param {{isBoss?:boolean, bossKeys?:string[]}} [context] */
 function enterCombat(enemyKey, context) {
   context = context || {};
   const enemy = (context && context.customEnemy) ? context.customEnemy : (ENEMY_TEMPLATES[enemyKey] || null);
@@ -12668,7 +12849,8 @@ function enterCombat(enemyKey, context) {
   const woundCount = (G.wounds||[]).filter(w=>!w.healed).length;
   const woundLine = woundCount > 0 ? '<div style="color:var(--blood-bright);font-size:12px;margin-top:6px">' + woundCount + ' unhealed wound' + (woundCount>1?'s':'') + ' — you are not at full capacity.</div>' : '';
 
-  const html = '<div class="combat-entry"><div class="combat-location">' + enemy.name + '</div><div class="combat-intent">' + intent + '</div>' + (compLine ? '<div class="combat-companions">' + compLine + '</div>' : '') + woundLine + '<div class="combat-actions-label">HOW DO YOU RESPOND</div></div>';
+  const _bossCls = (context.isBoss || (context.bossKeys && context.bossKeys.indexOf(enemyKey) !== -1)) ? ' encounter--boss' : '';
+  const html = '<div class="combat-entry' + _bossCls + '"><div class="combat-location">' + enemy.name + '</div><div class="combat-intent">' + intent + '</div>' + (compLine ? '<div class="combat-companions">' + compLine + '</div>' : '') + woundLine + '<div class="combat-actions-label">HOW DO YOU RESPOND</div></div>';
 
   addNarration('Combat', html);
   addJournal('Entered combat with ' + enemy.name + '.', 'field_note', 'combat_entry_' + enemyKey + '_' + (G.dayCount||0));

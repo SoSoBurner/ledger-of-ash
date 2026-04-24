@@ -42,7 +42,7 @@ All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
 
 ## Stage Content Status
 
-- **V1.0 Release scope: Stages 1, 2, and 3** — all three must be complete for release. Do not artificially limit development scope to Stage 1 or 2.
+- **V1.0 Release scope: Stages 1 and 2** — Stage 3 is NOT part of this release. Do not develop Stage 3 content until Stages 1 and 2 are complete.
 - **Stage 1**: Complete — 22 localities, ~15K lines, ~534 KB of enriched choice files. All authored.
 - **Stage 2**: Structurally present but thin — 27% of Stage 1 density. Needs escalation pass.
 - **Stage 3**: Not yet authored. Stage gate declared in `G.stageProgress` but no content files exist.
@@ -51,9 +51,25 @@ All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
 
 ## Stage Gate Logic
 
-- Stage I → II: Level 6 required — `checkStageAdvance()` ~line 8777 in `ledger-of-ash.html`
-- Stage II → III: `canAdvanceToStage3()` ~line 8786 — requires `stage2_climax_complete` flag + `stage2_faction_contact_made` flag + `stageProgress[2] >= 15`
+- Stage I → II: `stage1_narrative_complete` flag only — `checkStageAdvance()` ~line 8777. Level cap (5) stops XP but does NOT auto-advance stage.
+- Stage II → III: `canAdvanceToStage3()` ~line 8786 — **V1.0 stub: hardcoded `return false`**. Flags/conditions documented in plan but not yet active.
 - `G.stageProgress` is `{1:0, 2:0, 3:0, 4:0, 5:0}` — all 5 stages declared, 3–5 not yet authored
+
+## Testing Infrastructure
+
+- Run logic tests: `npx jest` (not `npm test` if jest not in PATH globally)
+- Run content validators: `node tests/content/validate-content.js && node tests/content/validate-flags.js && node tests/content/validate-structure.js`
+- Run E2E: `npx playwright test`
+- `locality_voice_guide.js` and `npc_dossiers.js` are reference-only — not loaded by HTML, whitelisted in validate-structure.js `REFERENCE_ONLY` set
+- `content/` has subdirectories — all `fs.readdirSync` scans must use `.filter(f => fs.statSync(...).isFile())`
+- Baseline (Apr 2026): 838 content violations pre-existing (label length, question marks). Validator is correct; content debt is real.
+
+## XP and Level System
+
+- Level 1→2: 120 XP. Level N→N+1: N×60 XP.
+- `STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20}`
+- At cap: XP overflow goes to `G.masteryXP`; level does not increase.
+- `equipItem(idx)` uses `item.type` ('weapon'/'armor' → matching slot; anything else → 'tool') — not `item.slot`.
 
 ## Travel Mode System
 
@@ -127,6 +143,19 @@ Base DCs: safe=7, risky=12, bold=15. Stage modifier: +1 per stage (Stage I=+0 �
 
 Both variables are defined in `:root`. Cinzel and Crimson Pro are embedded via `@font-face` (no network dependency).
 
+## Color Identity System (4-role palette — enforce consistently)
+
+| Role | Variable | Hex | Use |
+|------|----------|-----|-----|
+| Base surface | `--ash` / `--coal` / `--char` | `#07060d` / `#0c0a14` / `#131019` | Page backgrounds, panels |
+| Gold accent | `--accent-gold` / `--gold-bright` | `#d89a2c` | Renown, level, reward, stage unlock text |
+| Danger accent | `--danger` / `--blood-bright` | `#be2828` | Boss encounters, wounds, critical states, death |
+| Discovery accent | `--discovery` / `--jade-bright` | `#26603e` | Success, allies, safe paths, journal finds |
+
+Rule: use the semantic role variable (`--danger`, `--discovery`, `--accent-gold`) in new CSS. Fall back to the specific color variable only when the semantic one doesn't apply.
+
+Boss encounters: pass `{isBoss: true}` in context to `enterCombat()` — applies `.encounter--boss` class (danger border).
+
 ---
 
 # Narrative Project Rules
@@ -178,6 +207,7 @@ Backgrounds: sensory opening line, personal history first, never tell the player
 
 Journal category strings (addJournal calls): use specific types only — 'evidence', 'intelligence', 'rumor', 'discovery', 'contact_made', 'complication'. Never 'investigation'.
 `addJournal(text, category)` — text first, category second. Reversing silently breaks journal logging.
+`G.journalRecords` holds full records ({id, category, day, text}). `G.journal` is a string-only deduplicated array, capped at 30 — do not assert journal counts against it in tests.
 
 ## NPC Model
 

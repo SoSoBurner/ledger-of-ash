@@ -89,8 +89,7 @@ function _pell_phase1() {
         if (roll.total >= dc) {
           addNarration('', 'You do not appear at the listed time. Three days pass — no follow-up form, no courier. On the fourth morning a revised notice arrives: the inquiry window has been extended by ten days, the room number changed. Pell gave you space deliberately. He is not running on your clock and he is letting you know it. But the ten days exist, and the routes are quieter while they run.');
           G.flags.stage2_miniboss_p1_delayed = true;
-          G.worldClocks = G.worldClocks || {};
-          G.worldClocks.day = (G.worldClocks.day || 0) + 4;
+          G.dayCount = (G.dayCount || 0) + 4;
           if (typeof updateHUD === 'function') updateHUD();
         } else {
           addNarration('', 'The delay costs more than the meeting would have. By the second day without response a Division Liaison appears at your lodgings — not Pell, someone younger, holding a second form. "Senior Auditor Pell asks that I note your non-appearance in the intake log," she says. She is apologetic about it. The log notation is not. The inquiry window shortens; the paper trail thickens.');
@@ -108,6 +107,8 @@ function _pell_phase1() {
 
 // Phase 2 — The Meeting
 function _pell_phase2() {
+  if (G.flags.stage2_miniboss_p2_started) return;
+  G.flags.stage2_miniboss_p2_started = true;
   if (G.flags.stage2_miniboss_p1_delayed) {
     // Delayed path: meeting happens ten days later
     addNarration('', 'The rescheduled meeting. Pell\'s office is the same room, the same layout. He receives you without comment about the delay and lays the inquiry form face-down before reading it — he has a fresh copy. "Pursuant to the extended window, we can proceed." He opens a second folder while his hand still rests on the inquiry form. Inside: a cross-referenced route summary. His. "A former associate of yours has been quite cooperative," he says. The word \'associate\' is careful, chosen. He means Seld. He does not say Seld\'s name.');
@@ -186,14 +187,13 @@ function _pell_resolve_disappear() {
     addNarration('Absent from the Record', 'You are outside Shelkopolis before the review window closes. A week in a transit post, two in a regional locality, work that does not touch the routes Pell is watching. When you return the inquiry has been logged as inactive — subject unavailable for interview, file suspended pending re-contact. Pell\'s name is still on it. He is still watching, in the way that a bureaucrat watches: patiently, at no personal cost, waiting for the subject to reappear in the manifest logs. But the window cost him something. He had to file a suspension. His supervisor will have read it.');
     addJournal('Left Shelkopolis for the inquiry window. Pell\'s file is now logged as suspended — inactive, not closed. He is still watching, but the suspension is on his record now too.', 'intelligence');
     G.flags.stage2_miniboss_resolution = 'disappear';
-    G.worldClocks = G.worldClocks || {};
-    G.worldClocks.day = (G.worldClocks.day || 0) + 14;
+    G.dayCount = (G.dayCount || 0) + 14;
     if (typeof updateHUD === 'function') updateHUD();
   } else {
     addNarration('', 'The transit routes back into Shelkopolis have more checkpoint activity than usual. Three days out, a Division courier finds you at the post — formally, with a stamped re-notification. The inquiry window has been extended and a mandatory appearance date set. Pell filed a pursuit notation. He anticipated the exit.');
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
-    G.worldClocks.day = (G.worldClocks.day || 0) + 3;
+    G.dayCount = (G.dayCount || 0) + 3;
     G.flags.stage2_miniboss_resolution = 'disappear_failed';
     if (typeof updateHUD === 'function') updateHUD();
   }
@@ -216,7 +216,7 @@ function checkTrigger() {
   if (!G) return;
   if (!G.flags.stage2_miniboss_complete &&
       !G.flags.stage2_miniboss_started &&
-      (G.stageProgress && G.stageProgress[2] || 0) >= 8 &&
+      ((G.stageProgress && G.stageProgress[2]) || 0) >= 8 &&
       G.flags.stage2_miniboss_seed_seen) {
     setTimeout(_pell_phase1, 500);
   }

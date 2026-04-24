@@ -1,14 +1,14 @@
 var MAREN_OSS_ENCOUNTER = (function() {
 
   function shouldTrigger() {
-    var G = window.G;
+    
     return G && !G.flags.maren_oss_trail_found && !G.flags.maren_oss_encounter_done &&
            (G.investigationProgress || 0) >= 4 &&
            (G.location === 'guildheart_archive' || G.location === 'guildheart_hub');
   }
 
   function trigger() {
-    var G = window.G;
+    
     if (!G || G.flags.maren_oss_trail_found || G.flags.maren_oss_encounter_done) return;
     G.flags.maren_oss_trail_found = true;
 
@@ -53,7 +53,7 @@ var MAREN_OSS_ENCOUNTER = (function() {
   }
 
   function studyNotes() {
-    var G = window.G;
+    
     var r = rollD20('wits');
     if (r.success) {
       var renownLine = '';
@@ -73,7 +73,7 @@ var MAREN_OSS_ENCOUNTER = (function() {
   }
 
   function copyNotes() {
-    var G = window.G;
+    
     var r = rollD20('finesse');
     if (r.success) {
       G.lastResult = 'Three pages of methodology, two of source chains you have not seen before. You fold the copy into your coat without looking at it and return the folder to the shelf. The clerk is still on her break. You carry more than you came with.';
@@ -92,7 +92,7 @@ var MAREN_OSS_ENCOUNTER = (function() {
   }
 
   function leaveNotes() {
-    var G = window.G;
+    
     G.lastResult = 'You replace the folder exactly as you found it. Whoever left this here may return. Whatever they want you to know, they already decided you should find it — which means the question is why.';
     G.flags.maren_oss_suspected = true;
     G.recentOutcomeType = 'discovery';
@@ -100,7 +100,7 @@ var MAREN_OSS_ENCOUNTER = (function() {
   }
 
   function _close() {
-    var G = window.G;
+    
     addJournal(G.lastResult, 'discovery');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();

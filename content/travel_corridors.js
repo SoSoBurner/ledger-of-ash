@@ -444,7 +444,7 @@
 
     triggerEncounters: function(routeTier, fromId, toId) {
       // Gate: corridor encounters require authored result text before going live
-      if (!window.G || !window.G.flags || !window.G.flags.corridor_encounters_enabled) {
+      if (!G || !G.flags || !G.flags.corridor_encounters_enabled) {
         if (typeof loadStageChoices === 'function') loadStageChoices(toId || fromId);
         return;
       }
@@ -455,7 +455,7 @@
 
       // Determine encounter count by tier, modified by stage scaling (Stage I-II active)
       var encounterCount = tier === 'long' ? 3 : (tier === 'medium' ? 2 : 1);
-      var _scaling = window.COMBAT_SCALING_TABLE && window.G && window.COMBAT_SCALING_TABLE[window.G.stage];
+      var _scaling = window.COMBAT_SCALING_TABLE && G && window.COMBAT_SCALING_TABLE[G.stage];
       if (_scaling && _scaling.rateModifier > 1.0 && Math.random() < (_scaling.rateModifier - 1.0)) {
         encounterCount = Math.min(encounterCount + 1, 4);
       }
@@ -465,12 +465,12 @@
       var selected = pickRandom(pool, encounterCount);
 
       // Store remaining encounters for chaining
-      if (window.G && window.G.flags) {
-        window.G.flags._corridor_encounters_remaining = selected.length - 1;
-        window.G.flags._corridor_encounters_queue     = selected.slice(1).map(function(e){ return e.id; });
-        window.G.flags._corridor_from                 = from;
-        window.G.flags._corridor_to                   = to;
-        window.G.flags._corridor_tier                 = tier;
+      if (G && G.flags) {
+        G.flags._corridor_encounters_remaining = selected.length - 1;
+        G.flags._corridor_encounters_queue     = selected.slice(1).map(function(e){ return e.id; });
+        G.flags._corridor_from                 = from;
+        G.flags._corridor_to                   = to;
+        G.flags._corridor_tier                 = tier;
       }
 
       // Show macroregion narration
@@ -496,18 +496,18 @@
 
     // Called after a corridor choice resolves, to chain to the next encounter
     nextEncounter: function() {
-      if (!window.G || !window.G.flags) return;
-      var remaining = window.G.flags._corridor_encounters_remaining || 0;
+      if (!G || !G.flags) return;
+      var remaining = G.flags._corridor_encounters_remaining || 0;
       if (remaining <= 0) return;
 
-      var queue = window.G.flags._corridor_encounters_queue || [];
+      var queue = G.flags._corridor_encounters_queue || [];
       if (!queue.length) return;
 
       var nextId = queue.shift();
-      window.G.flags._corridor_encounters_queue     = queue;
-      window.G.flags._corridor_encounters_remaining = remaining - 1;
+      G.flags._corridor_encounters_queue     = queue;
+      G.flags._corridor_encounters_remaining = remaining - 1;
 
-      var tier = window.G.flags._corridor_tier || 'short';
+      var tier = G.flags._corridor_tier || 'short';
       var allTiers = [].concat(
         window.CORRIDOR_ENCOUNTERS.short || [],
         window.CORRIDOR_ENCOUNTERS.medium || [],

@@ -7,7 +7,7 @@ var SHADOW_LEDGER_HINTS = (function() {
   ];
 
   function checkAndFire() {
-    var G = window.G;
+    
     if (!G || !G.worldClocks) return;
     HINTS.forEach(function(hint) {
       if (!G.flags['hint_fired_' + hint.id] && (G.worldClocks[hint.clock] || 0) >= hint.threshold) {

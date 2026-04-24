@@ -1,6 +1,6 @@
 var SOREHEIM_STAGE1 = (function() {
   function openingHook() {
-    var G = window.G;
+    
     if (!G || G.flags.sideplot_interim_seat_started) return;
     G.flags.sideplot_interim_seat_started = true;
 
@@ -19,7 +19,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function investigateRegistry() {
-    var G = window.G;
+    
     var r = rollD20('wits');
     if (r.success) {
       G.lastResult = 'The dockworker\'s name is Gerrit and he has been patient about this for eleven days, which is longer than most people manage with the registry office. He is not alone in this — three other operators on the same macroregion route have the same gap in the same ledger. All four loads registered under the same output code. Gerrit has already tracked the code back to a processing clerk named Ossa Vonn. Vonn has been reassigned twice in six months, each time to a different station, each time lateral rather than promotional.';
@@ -34,7 +34,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function observeClanAgent() {
-    var G = window.G;
+    
     G.lastResult = 'The Vorrk agent does not speak to the clerk and does not approach the counter. He watches the exchange from his bench, writes three lines in his pocket book, and stands. He takes a route toward the side exit that does not pass the counter. The clerk\'s pen keeps moving the whole time. Whatever the agent needed to confirm, the argument itself was enough.';
     G.flags.interim_seat_clan_agent_observed = true;
     addJournal(G.lastResult, 'evidence');
@@ -42,7 +42,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function ignoreHook() {
-    var G = window.G;
+    
     G.lastResult = 'You walk past the counter and out the door. Behind you, Gerrit is still talking and the clerk is still not answering.';
     G.flags.sideplot_interim_seat_skipped = true;
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -60,7 +60,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function resolveExpose() {
-    var G = window.G;
+    
     G.lastResult = 'The oversight clerk copies your evidence twice, initials both copies, and opens a formal inquiry file in front of you. Three days later, Gerrit\'s ledger entry is corrected. Ossa Vonn receives a third reassignment. The Vorrk agent who watched from the bench does not appear anywhere in the inquiry record. The correction stands in the book. What it cost to put it there is a different calculation.';
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 2;
@@ -71,7 +71,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function resolveCorrect() {
-    var G = window.G;
+    
     G.lastResult = 'The clerk is young and makes the correction without being asked twice. She writes the new entry in careful script, blots it, and slides the book closed. "It should have been right the first time," she says, which is not quite the same as thanking you. The record is corrected. No one in the oversight office sees it happen.';
     G.investigationProgress = (G.investigationProgress || 0) + 1;
     G.flags.sideplot_interim_seat_complete = true;
@@ -80,7 +80,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function resolveConfront() {
-    var G = window.G;
+    
     var r = rollD20('charm');
     if (r.success) {
       G.lastResult = 'The Vorrk agent listens without expression and does not interrupt. When you finish, he takes thirty seconds to weigh it, then produces a written acknowledgment from his coat pocket — pre-drafted, as if he came prepared for this resolution. The records will be corrected by end of week. He folds his own copy and leaves. He does not offer his name.';
@@ -97,7 +97,7 @@ var SOREHEIM_STAGE1 = (function() {
   }
 
   function _close() {
-    var G = window.G;
+    
     addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();

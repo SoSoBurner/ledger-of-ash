@@ -152,7 +152,7 @@ const NOMDARA_STAGE2_CHOICES = [
     xpReward: 0,
     fn: function() {
       G.lastResult = `You step past the last wagon and the camp noise drops off quickly — not silence, but the muffled version of it that comes through canvas and wheel-wood. The road beyond the Nomdara perimeter is unlit and cooler by several degrees. You walk until the caravan's lantern glow is a single warm smear on the horizon behind you.`;
-      if (typeof renderChoices === 'function' && window.G && G.location) {
+      if (typeof renderChoices === 'function' && G && G.location) {
         if (typeof generateChoices === 'function') {
           renderChoices(generateChoices());
         }
