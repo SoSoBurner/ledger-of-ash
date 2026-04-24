@@ -10145,7 +10145,7 @@ function checkLevelUp() {
     G.xp = 0;
     if (G.stage === 'Stage I' && !G.flags.stage1_narrative_complete && !G.flags._s1cap_hint_shown) {
       G.flags._s1cap_hint_shown = true;
-      if (typeof addNarration === 'function') addNarration('', '<em style="color:var(--gold-dim)">You have reached the limits of what this territory can teach you. Something larger waits — but first, there is unfinished business here.</em>');
+      if (typeof addNarration === 'function') addNarration('', '<em style="color:var(--gold-dim)">You have reached the Stage I level cap. Advancement requires completing the stage arc — find and confront the source of the institutional pressure you have been tracing.</em>');
     }
     if (typeof updateHUD === 'function') updateHUD();
     return;
