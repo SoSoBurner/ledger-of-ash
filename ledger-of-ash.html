@@ -3695,7 +3695,7 @@ function endCombat(victory) {
 
     // pendingVictoryCallback — set by story encounters that need custom post-combat logic
     if (typeof G.pendingVictoryCallback === 'function') {
-      var _vcb = G.pendingVictoryCallback;
+      const _vcb = G.pendingVictoryCallback;
       G.pendingVictoryCallback = null;
       setTimeout(_vcb, 450);
     } else {
@@ -3706,6 +3706,7 @@ function endCombat(victory) {
       ]), 400);
     }
   } else {
+    G.pendingVictoryCallback = null;
     addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
     saveGame();
     setTimeout(() => renderChoices([
@@ -8241,6 +8242,7 @@ let G = {
   wounds:[], fatigue:0, recoveryState:'stable',
   npcMemory:{}, // { npcId: { trust, seen, lastNote } }
   trainingDisadvantage:0, // counts down — next N choices suffer -2
+  pendingVictoryCallback:null,
   dead:false,
   rivalAdventurers:[],
   marenRenown:0, marenRevealed:false,
@@ -9320,7 +9322,7 @@ function adaptEnrichedChoice(c) {
       try {
         if (_rivalMod > 0) G._rivalDCPenalty = _rivalMod;
         c.fn();
-      } catch(e) { console.error('[enriched]', e); } finally {
+      } catch(e) { console.error('[enriched]', e); G._rivalDCPenalty = 0; throw e; } finally {
         G._rivalDCPenalty = 0;
       }
       const txt = G.lastResult || '';
