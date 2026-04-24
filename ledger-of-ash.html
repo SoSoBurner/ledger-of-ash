@@ -10843,6 +10843,21 @@ function showStage2BridgeScene() {
   addNarration('', '<em>The scope has shifted. You have been working one locality\'s record; what you are walking into now is a territory. Other people have been asking questions here — some of them before you arrived. The work you have been doing is visible to people who watch for it. Public choices carry weight. The trail you leave is being read by someone who is better resourced than you are. That is the condition of Stage II. Proceed accordingly.</em>');
 }
 
+function maybeFireArrivalScene(localityId) {
+  if (!window.LOCALITY_ARRIVAL_NARRATIONS) return;
+  var entry = window.LOCALITY_ARRIVAL_NARRATIONS[localityId];
+  if (!entry) return;
+  var firstVisit = !G.flags['visited_' + localityId];
+  var stageReturn = G.flags['stage_at_visit_' + localityId] !== G.stage;
+  if (!firstVisit && !stageReturn) return;
+  addNarration('', entry.narration);
+  G.flags['visited_' + localityId] = true;
+  G.flags['stage_at_visit_' + localityId] = G.stage;
+}
+
+function shouldShowArrivalScene(localityId) { return false; }
+function buildArrivalChoice(localityId) { return null; }
+
 function resolveArrival(locId) {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
@@ -10860,6 +10875,7 @@ function resolveArrival(locId) {
   if (typeof _checkSideplots === 'function') _checkSideplots();
   updateHUD(); updateEnvironmentPanel(); saveGame();
   addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+  maybeFireArrivalScene(locId);
   showStage2BridgeScene();
   _maybePublicComplication(locId);
   if ((locId === 'soreheim' || locId === 'sunspire') && !G.flags.soreheim_credit_starter_given) {
@@ -13115,6 +13131,7 @@ function showHowToPlay() {
     if (typeof addNarration === 'function') {
       addNarration(loc.name, '<strong>' + loc.name + '</strong>.' + (loc.desc ? ' ' + loc.desc : ''));
     }
+    if (typeof maybeFireArrivalScene === 'function') maybeFireArrivalScene(locId);
     G.history.push('Traveled to ' + loc.name + '.');
     if (typeof saveGame === 'function') saveGame();
     // Trigger corridor encounters if available
