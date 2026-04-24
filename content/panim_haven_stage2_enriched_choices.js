@@ -62,7 +62,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Mediation Hall formally aware — access restricted', 'complication', `panim-elior-fail-${G.dayCount}`);
       } else {
         G.flags.met_elior_sepulcher = true;
-        G.lastResult = `Elior confirms the backlog exists and is sealed. They will not open it without formal authorization but acknowledge the suppression pattern is real and long-standing.`;
+        G.lastResult = `The office door stays open when Elior speaks, which keeps the exchange on the record. The backlog exists and is sealed — he confirms this without hesitation. Formal authorization is required before it opens. The suppression pattern is real, long-standing, and documented. He is telling you as much as he can within the boundaries of what his position permits him to say.`;
         addJournal('Elior confirms suppressed backlog — access refused without authorization', 'evidence', `panim-elior-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -86,7 +86,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Processional reroute — cover building identified', 'evidence', `panim-process-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `You follow a wrong processional branch into a memorial crush. You exit the district having seen nothing useful and confirmed as present in three separate porter logs.`;
+        G.lastResult = `The wrong branch takes you into a memorial crush — a procession moving at the slowest ritual pace, hemmed on both sides by family parties holding candle-covered biers. An hour passes before the crowd thins. Nothing useful surfaces. By the time you reach an open lane, three separate porter logs have recorded a presence matching your description moving against the processional flow in a restricted memorial corridor.`;
         addJournal('Processional crush — logged without intelligence gain', 'complication', `panim-process-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -113,7 +113,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Saryna has kept a personal copy of every suppressed flag. The flags describe coin entering the market in memorial offering form and leaving through a purchasing pattern that corresponds to no registered buyer. The exits are clean on paper. The entries show a single repeating source — a northern account attached to a subsidiary charter.`;
         addJournal('Saryna personal flags — northern account identified', 'evidence', `panim-saryna-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Saryna hesitates when you name the specific transactions. She has been warned not to discuss them. The warning came from above her role. She cannot say more without risk.`;
+        G.lastResult = `The specific transaction names land and something behind Saryna's expression closes. She sets down the ledger she was holding, not quickly but with care, the way someone sets down something they no longer want to be seen holding. A warning came from above her role. She cannot name the source and will not try. The stall resumes around her as if the question had never arrived.`;
         addJournal('Saryna warned off — source above her role', 'complication', `panim-saryna-fail-${G.dayCount}`);
       } else {
         G.flags.met_saryna_sepulcher = true;
@@ -142,7 +142,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Velune confirms shrine misuse — inverted ritual identified', 'evidence', `panim-velune-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `Your approach comes across as accusatory. Velune refuses and formally records your questions in the shrine attendance log. The divine balance is not to be questioned by strangers.`;
+        G.lastResult = `The phrasing is wrong before the second question is finished. Velune draws herself upright, not in anger but in the specific way a shrine attendant distances from a transgression, and reaches for the attendance log. Each question is entered verbatim. Her handwriting is clear and unhurried. "The shrine records all who come with doubt shaped as accusation." She does not ask you to leave. She does not need to.`;
         addJournal('Shrine attendance logged — reverence damaged', 'complication', `panim-velune-fail-${G.dayCount}`);
       } else {
         G.flags.met_velune_sepulcher = true;
@@ -170,7 +170,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Ithren has a porter's memory: he names three sealed containers that arrived under memorial service manifests but did not match standard offering weight profiles. Two were light. One was significantly heavy — heavy enough that he noted it in the unofficial cargo log he keeps for his own records.`;
         addJournal('Ithren cargo log — weight anomalies confirmed', 'evidence', `panim-ithren-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Ithren is officially bound by processional gate protocols. He cannot discuss cargo details and makes this clear with the practiced firmness of someone who has been warned about exactly this type of question.`;
+        G.lastResult = `The answer arrives without hesitation, which means it was prepared. Processional gate protocols cover cargo details — he cannot discuss them. The practiced firmness in his voice is the kind that comes from a specific prior warning, not from general policy. He holds eye contact for a beat longer than the refusal required, then looks back at the gate register. What he knows is behind a door he has been told to keep closed.`;
         addJournal('Porter protocols invoked — Ithren warned off', 'complication', `panim-ithren-fail-${G.dayCount}`);
       } else {
         G.flags.met_ithren_sepulcher = true;
@@ -202,11 +202,11 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 2;
-        G.lastResult = `The observer identifies you as an unaffiliated operative and reports this to the Collegium. The Collegium now treats your investigation as a competing operation that must be contained.`;
+        G.lastResult = `The doctrinal response is confident and wrong, and the observer catches it. Their posture shifts — the studied ease of a scholar drops and something more deliberate replaces it. The conversation ends on a courtesy that means nothing. Before the evening bell the Collegium has a report: unaffiliated operative, unknown allegiance, active in Panim mediation inquiry. The framing has changed from parallel to competing.`;
         addJournal('Collegium treating investigation as competing operation', 'complication', `panim-collegium-fail-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `Neutral first contact. The observer acknowledges your presence in the investigation space without declaring intent. The Collegium has noted you. The note is neither positive nor hostile — yet.`;
+        G.lastResult = `The observer's doctrinal citations are precise and the conversation stays on that surface — two scholars discussing archival practice in a memorial hall. No names exchanged. No intent declared. When it ends, there is a beat of shared understanding that the exchange was not about archives. The Collegium has taken a note. The note carries no category yet. That window is still open.`;
         addJournal('faction', 'Oversight Collegium — neutral first assessment', `panim-collegium-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
@@ -231,11 +231,11 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The seal alert triggers silently. You are gone before the guard arrives but the entry is logged. By morning, a formal security inquiry has been opened.`;
+        G.lastResult = `The seal alert is silent — no bell, no visible mechanism. The guard arrives four minutes later at a walk, not a run, which means the response protocol is routine. Out through the lane corridor before the lamp swings through the registry door. The entry is logged regardless. By morning the Mediation Hall has a formal security inquiry open with a description already circulating to the district watch posts.`;
         addJournal('Registry alert triggered — security inquiry opened', 'complication', `panim-registry-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `You access the registry and photograph six files before the approach window closes. Enough to confirm the chain exists and to identify two transaction endpoints.`;
+        G.lastResult = `Six files before the watch rotation closes the window. The candlelight is dim enough to work by and no more. Each page confirms what the daylight work suggested: the transaction chain is real, structured, and older than the past six months. Two endpoints emerge with enough clarity to act on. The full thirty-one remain sealed. What's in hand is a foothold, not a complete picture.`;
         addJournal('Registry partial access — transaction endpoints identified', 'evidence', `panim-registry-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -258,12 +258,12 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Merev has been keeping notes. Three guests in the past month used the inn as a meeting point and paid in memorial coin — an unusual denominator for secular transactions. Their conversations centered on "completion schedules" and "verification windows." Memorial language used for non-memorial logistics.`;
         addJournal('Memorial coin transaction pattern — Merev log', 'evidence', `panim-merev-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Merev is professionally closed about guest matters. In Panim Haven, innkeepers at memorial facilities are bound by the same confidentiality as shrines. They decline on principle.`;
+        G.lastResult = `The question about guests lands and a particular stillness settles over the counter. Memorial facility innkeepers in Panim Haven carry the same confidentiality obligation as shrine attendants — it's a civic compact, not a personal choice. The decline is without apology and without softening. There is a cup of cold tea on the counter. It gets refilled without the conversation resuming.`;
         addJournal('Memorial confidentiality invoked — no access', 'complication', `panim-merev-fail-${G.dayCount}`);
       } else {
         G.flags.met_merev_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Merev mentions three unusual guests without names. The guests spoke quietly and paid precisely. "Everything about them was deliberate. That's what I remember most."`;
+        G.lastResult = `Three guests, no names offered — Merev makes this boundary clear before beginning the description. They spoke quietly and occupied the same corner table each visit. Payment came in exact amounts, no exchange of change. "Everything about them was deliberate. That's what I remember most." A cloth is folded and set down. The description ends there, but the observation itself is sharp enough to be useful.`;
         addJournal('Memorial Inn — deliberate guests noted without detail', 'evidence', `panim-merev-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -283,14 +283,14 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The backlog is not accidental — it is managed. Specific cases have been routinely deferred to keep the mediation hall's formal review capacity saturated. A saturated hall cannot investigate new anomalies. The backlog is the cover for the phantom memorial contracts to operate undetected.`;
+        G.lastResult = `The backlog is not accidental — it is managed. Specific cases have been routinely deferred to keep the mediation hall's formal review capacity saturated. A saturated hall cannot pursue new anomalies. The backlog is the cover for the phantom memorial contracts to operate undetected.`;
         addJournal('Mediation backlog is deliberate operational cover', 'evidence', `panim-backlog-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your analysis of the backlog reaches a wrong conclusion that several mediation clerks pointedly correct. The embarrassment reduces your standing as an investigator in the district.`;
+        G.lastResult = `The analysis builds on a misread of the scheduling notation system — a local convention that differs from the standard mediation calendar. The error surfaces when two clerks compare what you've concluded against their own records. The correction is polite and public. Standing in the district as a credible outside presence has taken a quiet but measurable hit; the clerks' exchange carries further than the voices that made it.`;
         addJournal('Backlog analysis error — credibility reduced', 'complication', `panim-backlog-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The backlog pattern shows deliberate management without proving intent. Enough to know that someone with access to the scheduling system has been influencing case priority.`;
+        G.lastResult = `The pattern is there but stops short of proof of intent. Specific cases routed to defer at predictable intervals, the scheduling notation consistent enough to suggest a practiced hand rather than administrative drift. Someone with access to the mediation hall's priority queue has been making quiet adjustments. The scheduling system requires a clerk-level appointment to modify. That narrows the field without closing it.`;
         addJournal('Backlog management pattern — scheduling access implicated', 'evidence', `panim-backlog-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -441,7 +441,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Panim Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The investigation in Panim Haven is not complete. More evidence needed before the final step.`;
+        G.lastResult = `The evidence chain in Panim Haven is not yet complete. What exists points in the right direction but carries gaps that a prepared counter-argument could exploit. Presenting now hands the operation a half-built case it can absorb. More ground needs to be covered before this can move.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -450,12 +450,12 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You present to the civic oversight authority with the suppressed files, the coin chain, and the cargo anomalies as evidence. A formal inquest opens. Your name is on the filing. Stage III opens with institutional backing and maximum visibility.`;
+        G.lastResult = `The suppressed files, the coin chain, and the cargo anomalies go to the civic oversight authority in a single presentation. The clerk receiving them reads the cover sheet twice before calling a supervisor. A formal inquest opens before the hour ends. The filing carries a name — yours. Every party the evidence names now knows who submitted it. The next stage opens with institutional standing and the visibility that comes with it.`;
         addJournal('Panim S2 finale: formal inquest opened', 'evidence', `panim-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You route the evidence through the Collegium contact and Merev's informal network simultaneously. The institutional response will come, but the underground circuit creates immediate pressure on the operation before the formal channels can be stalled again.`;
+        G.lastResult = `The evidence splits into two streams at the same hour: the Collegium contact receives the coin chain by sealed courier, Merev's informal network gets the cargo anomalies by word of mouth through three separate conversations. The institutional response will arrive, but the underground circuit moves first and leaves no formal record with a name attached. Pressure lands on the operation before the channels that stalled before can close again.`;
         addJournal('Panim S2 finale: informal circuit activated', 'evidence', `panim-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

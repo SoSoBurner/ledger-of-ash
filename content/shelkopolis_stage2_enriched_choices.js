@@ -176,11 +176,11 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         if (arch === 'combat') G.rivalId = 'warden_captain';
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Windrider hears the briefing without interrupting. At the end he asks one question: "How did you come to hold sealed documentation from a restricted chapel intermediary?" Your answer doesn't satisfy him. He writes something in the duty log before you finish the sentence. You leave with a new entry in the Roadwarden enforcement record, no alliance, and a captain who has now categorized you as a variable he needs to account for.`;
+        G.lastResult = `The briefing runs without interruption. At the end, one question arrives: "How did you come to hold sealed documentation from a restricted chapel intermediary?" The answer doesn't satisfy. Something goes into the duty log before the sentence is finished. The exit carries a new entry in the Roadwarden enforcement record, no alliance, and a captain who has now categorized this as a variable he needs to account for.`;
         addJournal('Windrider briefing backfired — logged', 'complication', `shelk-windrider-fail-${G.dayCount}`);
       } else {
         G.flags.met_captain_windrider = true;
-        G.lastResult = `Windrider confirms the pattern is familiar to him and that the Roadwardens are working it through sanctioned channels. He asks you to report new developments. He makes no commitment in return and doesn't lean across the table when he says it. The conversation has the texture of a man who is still deciding what category you belong in.`;
+        G.lastResult = `The pattern is confirmed as familiar — the Roadwardens are working it through sanctioned channels. Report new developments. No commitment offered in return; the table stays between the two parties when it's said. The conversation has the texture of someone still deciding what category this belongs in.`;
         addJournal('Windrider aware — cautious contact made', 'evidence', `shelk-windrider-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -421,12 +421,12 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Innkeeper log — coordinated guest pattern confirmed', 'evidence', `shelk-inn-log-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Aelra asks why you need the guest log before she shows it. Your answer is too direct — it reads as a demand rather than a request, or names something she hasn't said aloud yet. Her expression closes. She covers the ledger with her forearm and says she doesn't keep records of that kind. The smell of coal smoke and old wood fills the silence. Her cooperation is done.`;
+        G.lastResult = `Why you need the guest log — the question arrives before the ledger moves. The answer comes out too direct, reads as a demand rather than a request, names something that hasn't been said aloud yet. An expression closes. The ledger gets covered with a forearm: no records of that kind. Coal smoke and old wood fill the silence. That door is closed.`;
         drawSocialMisstep(G.location);
         addJournal('Innkeeper log refused — relationship burned', 'complication', `shelk-inn-log-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Aelra hands over two months of entries with several pages folded back — the fold is deliberate, not accidental. What's visible confirms unusual guest coordination: shared timing, shared rooms, inconsistent names. The folded sections are where the record gets specific. She's not refusing to help. She's choosing what help looks like.`;
+        G.lastResult = `Two months of entries come across with several pages folded back — the fold is deliberate, not accidental. What's visible confirms unusual guest coordination: shared timing, shared rooms, inconsistent names. The folded sections are where the record gets specific. This isn't a refusal to help. It's a choice about what help looks like.`;
         addJournal('Innkeeper partial log — edited entries noted', 'evidence', `shelk-inn-log-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -726,16 +726,16 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.elowen_under_pressure = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Elowen receives you on the loggia above the rose court with tea already poured — a gesture that fixes the duration of the audience. Her right hand works a signet ring around her little finger, a slow quarter-turn and back, a quarter-turn and back. She speaks about fabric tariffs for six minutes. When you name the northern route she sets the cup down without the ring-turn breaking rhythm. "My cousin's son was married to the Panim mediator's niece eleven days ago. I was not told until after. I am being shown a shape, not asked for a vote." She names four families paying the same quiet courtesy call this month. The naming is itself a courtesy. She will not say it twice.`;
+        G.lastResult = `The loggia above the rose court, tea already poured — a gesture that fixes the duration of the audience. A right hand works a signet ring around the little finger, a slow quarter-turn and back, a quarter-turn and back. She speaks about fabric tariffs for six minutes. When you name the northern route she sets the cup down without the ring-turn breaking rhythm. "My cousin's son was married to the Panim mediator's niece eleven days ago. I was not told until after. I am being shown a shape, not asked for a vote." She names four families paying the same quiet courtesy call this month. The naming is itself a courtesy. She will not say it twice.`;
         addJournal('Elowen Shelk — forced marriage alliance tying Shelk to Panim; four families named', 'evidence', `shelk-elowen-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Elowen receives you standing, which sets the audience at under a minute. Her signet ring stays still on her finger. She hears your first framing and corrects it mildly, the way a tutor corrects a student who has read the wrong chapter. "You have come to the wrong branch of the house. My cousin handles matters of that kind." The dismissal is gracious. It is also complete. The rose court gate closes behind you before you reach the street.`;
+        G.lastResult = `The audience is conducted standing, which sets it at under a minute. The signet ring stays still. The first framing gets corrected mildly, the way a tutor corrects a student who has read the wrong chapter. "You have come to the wrong branch of the house. My cousin handles matters of that kind." The dismissal is gracious. It is also complete. The rose court gate closes before you reach the street.`;
         addJournal('Elowen declined audience — misdirected to cousin branch', 'complication', `shelk-elowen-fail-${G.dayCount}`);
       } else {
         G.flags.met_elowen_shelk = true;
         G.investigationProgress++;
-        G.lastResult = `Elowen lets the tea cool. She does not drink. Her signet ring turns once, stops, and does not start again. "There are conversations I cannot have until a matter concludes. I am told it will conclude soon. I am told this by people who do not usually tell me things." She does not name them. The admission that she is being told at all is the substance of what she will give today.`;
+        G.lastResult = `The tea cools untouched. The signet ring turns once, stops, and does not start again. "There are conversations I cannot have until a matter concludes. I am told it will conclude soon. I am told this by people who do not usually tell me things." No names offered. The admission of being told at all is the substance of what this audience will carry.`;
         addJournal('Elowen confirms institutional pressure — speakers unnamed', 'evidence', `shelk-elowen-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
