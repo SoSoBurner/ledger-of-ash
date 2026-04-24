@@ -34,7 +34,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_warden_sera_whiteglass = true;
         G.investigationProgress++;
-        G.lastResult = `Sera confirms the irregularities without being told what you already know. "Consistent with external recalibration," she says, pulling a second file. She's been working on the access event since she found it. "Someone changed our baseline readings." She writes something in her log, caps the pen, looks at you. "I don't know why yet. I intend to." She means it the way someone means a promise made to a decision board that's already been posted.`;
+        G.lastResult = `Sera confirms the irregularities without being told what you already know. "Consistent with external recalibration," she says, pulling a second file. She's been working on the access event since she found it. "Someone changed our baseline readings." She writes something in her log, caps the pen, looks at you. "I don't know why yet. I intend to." She smooths the written statement flat with one hand and does not look at it again. Her jaw is set. She's already moving to the next step before you've left the room.`;
         addJournal('Dome sensor baseline changed by external access — Sera investigating', 'evidence', `aur-sera-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

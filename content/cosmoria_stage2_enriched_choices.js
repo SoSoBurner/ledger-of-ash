@@ -60,7 +60,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_marrow_tideglass = true;
         G.investigationProgress++;
-        G.lastResult = `Marrow confirms the waiver category. His hands don't move while he talks. "Sealed containers under trade exemption category C require no secondary inspection. My office received the waiver classification with a valid authority code." He pauses. "I don't know what's in them. I've followed the instruction." He's staring at a point above your left shoulder. He knows the instruction is wrong. He's said it out loud to himself enough times that it comes out flat.`;
+        G.lastResult = `Marrow confirms the waiver category. His hands don't move while he talks. "Sealed containers under trade exemption category C require no secondary inspection. My office received the waiver classification with a valid authority code." He pauses. "I don't know what's in them. I've followed the instruction." He sets the waiver form on the desk between you and steps back from it. He doesn't push it toward you. He's staring at a point above your left shoulder when he speaks again. He knows the instruction is wrong. He's said it out loud to himself enough times that it comes out flat.`;
         addJournal('Harbor inspection waiver confirmed — captain knows it is irregular', 'evidence', `cos-marrow-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
