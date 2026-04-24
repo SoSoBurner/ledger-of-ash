@@ -40,7 +40,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Aurora Heights court: pre-Union charter invoked for atmospheric vent shaft access — same language as Guildheart charter', 'discovery', `aurora-heights-s1-court-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The session covers property boundary disputes, a maintenance contract renewal, and two access right filings. The magistrate handles all of it in the flat register of someone who has done this for twenty years. Nothing here demands a second look.`;
+        G.lastResult = `The session covers property boundary disputes, a maintenance contract renewal, and two access right filings. The magistrate works through each in the flat register of someone who has handled this docket for twenty years — no pauses, no elaboration. The documents are signed, the filings stamped, the next case called before the previous one fully settles. Nothing flags. Nothing warrants a second look today.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -64,7 +64,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Aurora Heights archive: unregistered contractor filtration workorder 11 months ago — dome sector 4 matches contested vent shafts', 'discovery', `aurora-heights-s1-archive-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The archive reading room is organized by district quarter and then by year — not by subject matter. Without a specific filing reference, navigating it is a half-day task at minimum. You note the structure and the access protocol for when you have a more precise entry point.`;
+        G.lastResult = `The archive reading room is organized by district quarter and then by year — not by subject matter. Wooden index drawers line two full walls, labeled in a hand that changed every decade. Without a specific filing reference or date range, navigating it requires working through the drawers in sequence — a half-day task at minimum, possibly a full day. You record the access protocol and the room's organizational logic for when you have a more precise entry point.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -86,7 +86,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'success';
         addJournal('Aurora Heights official: letter to unregistered building — same contractor as dome workorder', 'discovery', `aurora-heights-s1-follow-${G.dayCount}`);
       } else {
-        G.lastResult = `Aurora Heights pedestrian corridors are wide, well-lit, and offer no cover. She walks at a pace that closes distances fast, and by the third turn you've fallen behind enough to lose the trail. The district was designed for visibility, which works against anyone following and for anyone being followed.`;
+        G.lastResult = `Aurora Heights pedestrian corridors are wide, well-lit, and designed with a civic planner's eye for open sightlines. She walks at a pace that closes distances quickly, and by the third turn the gap between you has grown past recovery. The district's architecture offers no alcoves, no loading bays, nowhere to pause without standing in plain sight. Whatever this district was built to enable, it was also built to expose anyone trying to move through it unseen.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -151,7 +151,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Ironspool cargo registry: 4 vague dome maintenance entries, same duty officer accepted all four', 'discovery', `ironspool-s1-cargo-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The Ironspool Ward cargo registry runs to several hundred entries per week. Without a specific date range, company name, or manifest code to search against, the volume is too large for a single afternoon's pass. You log the access method and the search parameters you'd need.`;
+        G.lastResult = `The Ironspool Ward cargo registry runs to several hundred entries per week, organized by intake date with no subject index. The rows are dense — weight, category, clearing officer, manifest code — and they continue for three full ledger volumes. Without a specific date range, company name, or manifest code, a useful pass through the material takes days rather than hours. You record the access method, the ledger structure, and the search parameters you'd need to narrow it down.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -196,7 +196,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Hess: dome terminal night deliveries twice weekly, unknown carriers — duty officer stopped answering questions', 'discovery', `ironspool-s1-hess-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `She opens the door and reads you in about four seconds. She says she hopes you find what you're looking for and closes it again. Not hostile — measured. She's been in this ward long enough to know the difference between strangers who can be trusted and strangers who haven't established it yet. You're still in the second category.`;
+        G.lastResult = `She opens the door and reads you in a few seconds — eyes moving once, top to bottom, then back to your face. She says she hopes you find what you're looking for and closes it. Not hostile — measured. Forty years in the Ironspool Ward gives a person a specific kind of patience: she knows the difference between strangers who can be trusted and strangers who haven't established that yet. You're still in the second category. The door is closed but not latched.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -224,7 +224,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
         addJournal('Verdant Row botanist: plant bleaching from specific synthesis-signature compound — 8 weeks of exposure', 'discovery', `verdant-row-s1-botanical-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The botanical station is mid-season and occupied. The work being done is standard comparative growth monitoring — nothing atmospheric. The researchers are polite, busy, and not looking up from their ledgers for long.`;
+        G.lastResult = `The botanical station is mid-season and fully occupied — every bench has a researcher and every researcher has a ledger open. The work underway is standard comparative growth monitoring across four specimen rows, the kind of routine documentation that fills most of the station's calendar. The researchers acknowledge you briefly and return to their counts. Nothing in the open exposure beds today shows the discoloration you'd be looking for.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -248,7 +248,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
         addJournal('Verdant Row healer: continuous symptom cluster in blocks adjacent to dome terminals — not seasonal', 'discovery', `verdant-row-s1-healer-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The healer has a patient in the back room and three more waiting outside. "Seasonal," she says, already moving. "Standard presentation for this time of year. The log is there if you want to look, but nothing stands out." The log is there, closed, on a shelf she doesn't point to specifically.`;
+        G.lastResult = `The healer has a patient in the back room and three people waiting on the bench outside her door. "Seasonal," she says, already turning. "Standard presentation for this time of year — fatigue, some respiratory irritation. The log is there if you want to look." She gestures toward a shelf without pointing at anything specific and disappears through the back curtain. The log is there, closed, spine unmarked, indistinguishable from four others next to it.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -290,7 +290,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Granary Steps humidity intake connects to dome atmospheric system — secondary channel for compound distribution', 'discovery', `granary-s1-floor-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The Granary Steps distribution floor is operational and loud — machinery noise, shouted count-calls, the constant movement of carts and conveyor belts. You can walk through it but you can't stop and study anything without obstructing the work. You note the general floor plan and leave.`;
+        G.lastResult = `The Granary Steps distribution floor is operational and loud — machinery noise, shouted count-calls, the rattle and thump of carts against the conveyor guides. Workers move with the practiced efficiency of a floor that runs the same sequence every morning. Standing still in it means standing in someone's path. You walk the length of the floor without pausing, take in the general layout and the secondary intake channel at the far end, and step out through the loading bay exit.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -314,7 +314,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Granary Steps: triple-quantity grain treatment supplement deliveries, no protocol documentation', 'discovery', `granary-s1-clerk-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The receiving clerk is mid-count when you arrive and waves you to the records room at the end of the corridor. The records room is staffed by a different person who doesn't handle informal inquiries during active intake hours. There's a formal request form.`;
+        G.lastResult = `The receiving clerk is mid-count when you arrive — stylus moving, lips tracking numbers, one hand raised without looking up. She waves you toward the records room at the end of the corridor. The records room is staffed by a different clerk who handles documentation during intake hours only with formal requests. He sets a printed form on the desk and slides it forward without explanation. Seven sections. None of them are brief.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -338,7 +338,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Granary Steps supplement containers: charter mark confirmed — supply chain routed directly to dome humidity intake', 'discovery', `granary-s1-charter-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The containers are visible from the bay entrance but examining them closely requires a credentialed storage authorization that you don't currently hold. The mark you're looking for may be there. You can't get near enough to confirm it today.`;
+        G.lastResult = `Six containers sit stacked near the bay's inner wall, visible from the entrance. The base plates face inward against the wall — the position where a charter mark would appear. Getting close enough to read them requires a credentialed storage authorization that you don't currently hold; the bay supervisor is standing at the access point and checks passes before letting anyone past the threshold. The mark may be there. Today the distance between you and it stays fixed.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -367,7 +367,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Iron Ledger Ward: same ghost account technique aggregates to enough for 6 simultaneous administrative appointments', 'discovery', `iron-ledger-s1-registry-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The Iron Ledger Ward's public transaction registry covers fourteen months of entries with no topical index — entries are organized by date and account number, not subject. Without a specific transaction reference, account name, or credentialed search assistant, a manual review is a week of work minimum. You note the access structure and leave with a clearer search strategy for next time.`;
+        G.lastResult = `The Iron Ledger Ward's public transaction registry covers fourteen months of entries with no topical index — rows organized by date and account number, columns tracking transaction type, amount, and clearing institution. The room is quiet, the access policy permissive, but the volume is prohibitive. Without a specific transaction reference, account name, or credentialed search assistant to run the registry's internal cross-reference system, a useful pass through this material takes a week minimum. You record the access structure and leave with a more precise search strategy for your next visit.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -389,7 +389,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'success';
         addJournal('Iron Ledger debt specialist: leverage instruments with identical template from 3 creditor entities — designed to create permanent obligation', 'discovery', `iron-ledger-s1-leverage-${G.dayCount}`);
       } else {
-        G.lastResult = `The debt specialist has a client meeting starting in ten minutes and can't take a walk-in without a formal engagement on file. She hands you a form and points to the public registry across the corridor. Her attention is already elsewhere before you've left her desk.`;
+        G.lastResult = `The debt specialist has a client meeting starting in ten minutes and runs walk-in inquiries only with a formal engagement on file. She hands you a printed form without looking up from her current document, gestures toward the public registry across the corridor, and describes the credentialing process in two sentences. Her attention is back on her papers before you've stepped away from the desk. The form has four sections and requires a registered institutional affiliation.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -414,7 +414,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Maret Voss: ghost account methodology identical across 3 Principalities cities — centralized template operation', 'discovery', `iron-ledger-s1-maret-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Maret is in a formal review session that runs another ninety minutes. The colleague at the front desk says she's available most mornings but not to try walk-ins on review days. You leave your name with a note. No certainty she'll follow up.`;
+        G.lastResult = `Maret is in a formal review session that runs another ninety minutes — the colleague at the front desk checks the door schedule before answering. She's available most mornings but review days are blocked. You leave your name and a brief description of the transaction methodology you've been tracing. The colleague sets the note in a tray with three others. Whether Maret picks it up before end of day or files it for later isn't something she can tell you.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -443,7 +443,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Reckoning Quarter docket: 3 cases against northern bloc aliases frozen in administrative review', 'discovery', `reckoning-s1-docket-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The public docket is extensive and organized by filing date rather than subject matter. Finding relevant entries requires more time than available today.`;
+        G.lastResult = `The public docket runs six months deep and is organized by filing date, not by subject matter or party name. The justice hall provides no index — a research clerk is available by appointment for credentialed institutional inquiries only. Working through the docket manually means reading every entry in sequence. The filing volume for six months is several hundred cases. Finding relevant entries without a specific reference number requires more time than a single visit allows.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -468,7 +468,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Former adjudicator: cases frozen without notification, contract not renewed after complaint — has case notes', 'discovery', `reckoning-s1-adjudicator-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `She's guarded and doesn't speak to strangers about her work situation. She finished her coffee and left.`;
+        G.lastResult = `She's at the table outside with a coffee and a paper she isn't reading. When you approach she watches you cross the last few meters with the flat patience of someone who has fielded many unwanted conversations. She answers your opening question with two words, finishes her cup without hurrying, folds the paper in half, and leaves. Not hostile — just very specifically done. Whatever made her willing to talk to the right person, today's approach wasn't it.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -490,7 +490,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Administrative review office: Collegium has authorized regular access — not just monitoring, actively controlling frozen cases', 'discovery', `reckoning-s1-surveillance-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `You find a watching position but the office traffic is too light to draw conclusions from a single afternoon's observation.`;
+        G.lastResult = `The watching position is across the corridor behind a support column — adequate cover, sightline to the door. The administrative review office runs quiet: three exits over two hours, all of them clerical staff with nothing distinguishing about their carry or their pace. Light traffic could mean the unit is inactive, or it could mean the significant movement happens earlier in the day. One afternoon isn't enough to establish the pattern. The access and the sightline are worth returning to.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -518,7 +518,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Scriptorium Steps: margin annotation links published text to suppressed Iceveil study — academic community knows the gap', 'discovery', `scriptorium-s1-stacks-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The atmospheric science section is well-stocked with standard texts. Nothing marked for restricted access.`;
+        G.lastResult = `The atmospheric science section fills two full rows — standard texts on pressure regulation, dome architecture, compound behavior under variable conditions. All of it publicly accessible, all of it in the general catalog. Nothing is marked for restricted access or flagged for supplementary reference. The section is complete on its face. The absence of restrictions is itself a data point — if any of these texts had been reclassified, their shelf spots would be empty or replaced with a placeholder card. No gaps visible today.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -540,7 +540,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Scriptorium researcher: Warden Order liaison added to review board 18 months ago — 11 studies classified since, vs. decade norm', 'discovery', `scriptorium-s1-researcher-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The researcher is between projects and happy to talk in general terms, but doesn't have specific institutional knowledge of recent classification decisions.`;
+        G.lastResult = `The researcher is between projects and willing to talk. He covers the general classification framework clearly — review board composition, submission process, appeal channels. But he's been at the Scriptorium Steps for three years and hasn't served on the review board himself; the specific decisions made in the past eighteen months are above his involvement level. He names two colleagues who sit on the board. Neither of them is in the building today.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -565,7 +565,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Doss at Scriptorium: Mimolot formula + Glasswake shard amplification crosses toxicological threshold — both suppressed together', 'discovery', `scriptorium-s1-doss-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Doss isn't at the Scriptorium Steps today. A librarian says he comes in most mornings. Try again tomorrow.`;
+        G.lastResult = `Doss isn't at his usual table in the reference section. A librarian at the circulation desk says he comes in most mornings, typically before the ninth bell, and stays through midday. He has no formal affiliation with the library and no reserved space — the open access policy means his table is available to anyone on days he doesn't come in. She can't leave a message for him. He'll either be here tomorrow or he won't.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -593,7 +593,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('High Quarter hearing: northern bloc alias bidding for atmospheric system maintenance contracts in this district', 'discovery', `high-quarter-s1-hearing-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The hearing covers routine administrative matters — budget allocations, maintenance schedules. Nothing visible connects to your investigation today.`;
+        G.lastResult = `The hearing covers routine administrative matters — budget allocations for the coming quarter, two maintenance contract renewals, a dispute over right-of-access to a shared utility corridor. The presiding officer works through each item without deviation. The gallery holds a handful of credentialed observers and three factor representatives waiting for the next item. None of the agenda entries touch atmospheric systems or the vent shaft access currently being litigated elsewhere in the district.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -617,7 +617,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('High Quarter library: pre-Union charter renewed through here as sub-registry to avoid formal monitoring', 'discovery', `high-quarter-s1-library-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Access requires additional documentation. You make note of the credentialing process and come back when you have the right papers.`;
+        G.lastResult = `The library's restricted section requires a two-part credential — a district residency registration or a formal institutional research affiliation, plus a specific access request filed twenty-four hours in advance with the library's administrative clerk. The desk attendant explains the process without apology; the documentation requirement is standard. You record the credentialing steps and the filing deadline. The restricted section's catalog is available in the public area, which tells you what's in there without letting you read any of it.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -640,7 +640,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('High Quarter liaison: two prior \'coordinating association\' inquiries about vent shaft access — charter entity type matches', 'discovery', `high-quarter-s1-liaison-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The liaison is professional but not forthcoming with strangers. Standard procedural answers only.`;
+        G.lastResult = `The liaison is cordial and precise — she answers each question with the specific procedural answer it warrants and nothing additional. Her desk holds two stacks of pending correspondence and a scheduling ledger she glances at twice during the conversation. When you mention the vent shaft dispute in general terms, she describes the formal dispute resolution process without acknowledging whether this district has an active case. Standard procedural answers, no deviation. The meeting ends when you run out of questions she'll answer that way.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -668,7 +668,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Common Quarter vendor: customer fatigue pattern in blocks near dome terminal — consistent with sub-acute exposure', 'discovery', `common-quarter-s1-market-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Market day in the Common Quarter is busy and cheerful. People buy, sell, argue, joke. Nothing connects obviously to your investigation.`;
+        G.lastResult = `Market day in the Common Quarter fills the main corridor from wall to wall — vendors calling prices, a pair of children cutting between stalls, the smell of roasting grain from the far end. The conversations you manage to enter are about produce, about a neighbor's new cart, about someone's cousin who owed money and hasn't paid. The economic center of the district runs on close-range trust and daily complaint. Nothing here connects to dome terminals or supply chains.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -690,7 +690,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Common Quarter broker: operational survey of dome terminals 3 weeks ago — adversary mapped low-observation access points', 'discovery', `common-quarter-s1-broker-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The broker is busy and prices his information at a rate that you're not willing to pay without more confidence in what he knows. He shrugs and talks to someone else.`;
+        G.lastResult = `The broker is at his usual corner table with a cup he keeps refilling from a small pot at his elbow. He listens to the shape of your inquiry, names a price, and watches you. The price assumes he has specific knowledge — but without knowing what he knows, it's an amount for a risk rather than a product. He doesn't negotiate and he doesn't offer a summary to raise confidence. He shrugs and turns to the person at the next table. The offer stands when you're ready.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -733,7 +733,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Low Ward dock worker: containers had even weight distribution — liquid or loose fill, industrial standard', 'discovery', `low-ward-s1-docks-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The dock workers aren't talking to strangers about specific loads. They've learned not to.`;
+        G.lastResult = `The Low Ward docks run a tight schedule — workers loading and stacking in the practiced sequences of people who've done this together for years. Three different approaches, three different dock workers, each one the same: a pause, a look, and a return to work. No explanation offered. One of them, younger, glances at a supervisor on the far end of the dock before looking away from you. The dock workers have learned not to discuss specific loads with strangers. Whatever shaped that habit, it's settled in.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -756,7 +756,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Low Ward patrol gap: 20 minutes midnight to 1am, schedule adjusted 6 months ago — matches dome terminal delivery window', 'discovery', `low-ward-s1-patrol-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `The patrol is more irregular than you expected. You can't establish a reliable gap without another full night of observation.`;
+        G.lastResult = `The Low Ward enforcement patrol runs less predictably than standard contracted schedules allow — two officers, variable interval, sometimes together and sometimes thirty meters apart. A gap exists, but its edges shift by fifteen minutes depending on the night and the officer pair. One night's observation isn't enough to map a reliable window. Another full night of tracking, with specific timing notes at each checkpoint, would establish the pattern. The patrol is irregular by design or by poor discipline — either way, the gap is real but not yet usable.`;
         G.recentOutcomeType = 'neutral';
       }
     }
@@ -780,7 +780,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('consequence', 'Low Ward informant: Karnn is one of three buyers monitoring for dome terminal investigations', `low-ward-s1-informant-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `You find his location but he's not there. Someone tipped him off that an investigator was looking. He'll resurface — but not before he's told his buyers you were asking.`;
+        G.lastResult = `The corner table is empty. His cup is still there, still warm. Someone moved faster than you did — word that an inquiry was running reached him before you arrived, and he stepped out. He'll resurface when the situation settles, but not before he's passed your description to whoever is paying him. The buyers monitoring for dome terminal inquiries now have a new entry. The watchfulness clock just moved.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
         G.recentOutcomeType = 'complication';
