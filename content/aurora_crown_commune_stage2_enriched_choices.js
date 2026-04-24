@@ -224,6 +224,63 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Bastian Sealwater signs off on deliveries his crew was told to skip.",
+    tags: ['stage2', 'aurora_crown_commune'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13) {
+        G.flags.met_bastian_sealwater = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Foreman Who Stops Rubbing His Wrist', 'Bastian is hunched over the rotation board in the gallery anteroom, rubbing the underside of his left wrist with his thumb the way he does when something is sitting wrong with him. The wrist rubbing stops when you ask about the quarantine-bypassed deliveries. "Three this quarter my crew was told to skip inspection on. Maintenance authorization from the liaison office." He pulls the rotation log down from its hook. "I signed off anyway. Every time." He taps one line in pencil. "Crews get blamed when things go wrong in a gallery. I wanted the names on paper."');
+        addJournal('Foreman Bastian logged skipped-inspection deliveries on rotation board — liaison authorization on record', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Wrong Register at the Rotation Board', 'Bastian straightens from the rotation board before you reach him, left thumb going still against his wrist. "Gallery crews get briefed by dome administration on what they can discuss with outside parties." His tone is even, schedule-bound, unhappy. "This is a rotation morning. I have four crews to brief in twenty minutes." He doesn\'t tell you to leave the anteroom. He does turn his shoulder and go back to the board. A labor scribe at a side desk watches the exchange without writing anything down — which means she is watching carefully.');
+      }
+    }
+  },
+
+  {
+    label: "The liaison's name is already moving through the ration court.",
+    tags: ['stage2', 'aurora_crown_commune'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Ration Court, Mid-Distribution', 'The ration court is loud at mid-distribution — warm from bodies, sharp with the smell of lentil steam and wet wool. Two women at the grain line are halfway through a version of the story that has the liaison swapping seals at the inn: already garbled, already spreading. A dome steward twenty paces away is listening without turning her head, a cup halfway to her mouth. The rumor has outrun the evidence. The liaison will hear a ration-court version within the day, and whatever they do next will be pre-emptive.');
+        addJournal('Liaison rumor spreading through ration court — dome stewards monitoring, pre-emptive response likely', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        addNarration('A Hand on Your Sleeve', 'You are a half-step into the grain line when a woman in a stewardship band steps out from behind a ration column and rests two fingers on your sleeve — not gripping, just placed. "Outside parties in the ration court during distribution need to be queued through the visitor steward. That\'s me." She waits for you to turn with her. The line keeps moving. The two women at the grain table have stopped talking and are making a point of not looking. Your name is going into the visitor ledger with a time and a reason field the steward is already filling in.');
+      }
+    }
+  },
+
+  {
+    label: "The east gate argument is performed — someone wants the steward pulled.",
+    tags: ['stage2', 'aurora_crown_commune'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('East Gate, Manufactured Argument', 'The east gate argument is being performed. A haulier in a Collegium-marked coat is disputing a contamination-check stamp he clearly knows is valid — voice pitched to carry, gestures wide enough to pull every steward within thirty paces. While the duty steward steps out of the intake shed to mediate, a second figure in the same coat pattern walks a sealed case through the unattended inspection bench without logging it. Two minutes, maybe three. The haulier calms the instant the case clears the bench. The queue resumes. The intake log has a gap for that window.');
+        addJournal('East gate contamination-check dispute staged to cover unlogged Collegium case through intake', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Reading the Wrong Argument', 'You step closer to the gate to hear the haulier\'s dispute more clearly — and a contamination-check steward reads your attention as intervention. "Outside parties do not intercede at checkpoint arguments." She puts her body between you and the dispute and gestures toward the waiting bench. Behind her, the argument is already wrapping. Whatever was going to move through the intake bench during the distraction has moved. You watch the haulier\'s shoulders drop from across the plaza. The steward is still waiting for you to sit.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Aurora Crown finale — the dome population is being dosed through a compromised filtration system. Expose through Warden Whiteglass's official channel or immediately disable the supply chain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,

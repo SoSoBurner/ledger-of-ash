@@ -220,6 +220,62 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "A porter's stray errand keeps ending at the same shuttered cart shed.",
+    tags: ['stage2', 'sunspire_haven'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('survival', G.skills.survival);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('The Shed Off the Back Lane', 'The porter — name unasked, cheap tin whistle on a cord around his neck that he flicks against his collarbone every few strides — has walked you halfway there before he realizes he has walked you there. The shuttered cart shed sits behind the third textile yard, padlocked with new brass on old iron. The ground inside the lane is compacted in a pattern that says heavy convoy weight has been parked here recently, despite the shed\'s paint having weathered past two seasons. The porter flicks the whistle, once, and does not ask what you are looking at.');
+        addJournal('Shuttered cart shed behind textile yard shows recent heavy-convoy compaction — padlocked with new brass', 'discovery');
+        maybeStageAdvance();
+      } else {
+        addNarration('Wrong Lane, Wrong Time', 'The porter stops at the mouth of the back lane, flicks the tin whistle against his collarbone, and turns his body to block the turn. "Syndicate yard. Family-retained labor only past this point." He does not look directly at you while he says it. A syndicate clerk at the far end of the lane has already noticed the pause and is walking over without hurry. The porter stays where he is, whistle in hand. The conversation has been decided before it opens.');
+      }
+    }
+  },
+
+  {
+    label: "A paperwork dispute at stall sixteen pulls a steward at noon.",
+    tags: ['stage2', 'sunspire_haven'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Paperwork Clarification, Stall Sixteen', 'The clerk at stall sixteen — name patch worn, thumb bandaged from a stamp lip — keeps rotating his stamp through his fingers while he works. The disputed papers sit top of his queue: a grain manifest with two family endorsements that contradict each other on the origin yard. The dispute was filed three days ago and escalated to steward arbitration at noon. He rotates the stamp twice more. "One of these endorsements is a forged family mark. I cannot tell which." He sets the stamp down. He has already flagged it to the escalation board.');
+        addJournal('Forged patron-family endorsement on grain manifest — steward arbitration scheduled noon', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Queue Discipline', 'The clerk rotates the stamp through his fingers without looking up. "Stall queue is twelve parties deep. External queries after the noon steward arbitration." He re-inks the stamp pad. A porter behind you audibly shifts, making the point that you are the reason the queue is not moving. The clerk\'s bandaged thumb presses the next stamp. The window has closed without opening.');
+      }
+    }
+  },
+
+  {
+    label: "The family yard gate expects a retainer greeting I do not know how to give.",
+    tags: ['stage2', 'sunspire_haven'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.sunspire_retainer_greeting_mirrored = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Two Knocks on the Lintel', 'The Crownmere yard gate is open at the hour a retainer would expect it closed, and the gatekeeper — a small woman with a steel-wire armband coiled three turns high on her left forearm — taps the lintel twice with the side of her ring before she speaks to the retainer ahead of you. You mirror it when your turn comes, two knuckles, same rhythm. Her armband uncoils a fraction as her shoulders drop. She lets you through to the second courtyard where convoy handlers are loading crates stamped with the charter subsidiary mark in plain sight.');
+        addJournal('Crownmere yard loading crates with charter subsidiary mark in second courtyard — retainer greeting accepted', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('The Armband Tightens', 'The gatekeeper\'s steel-wire armband tightens a full coil when you skip the lintel tap and she looks at your shoulder line, not your face, for a full breath. "The yard is holding at retainer-only hours." Her ring is still against the lintel wood. She does not move it. A second retainer inside the courtyard has already set down his load and is walking toward the gate. You are outside before he reaches it. Your description goes into the yard log without you seeing the page.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Sunspire Haven finale — the convoy modification workshop and knowledge suppression campaign confirm Sunspire as an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,

@@ -222,6 +222,62 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "A clerk in the Bureau corridor has mistaken me for a Magistratus runner.",
+    tags: ['stage2', 'shirshal'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Mistaken for a Runner', 'The clerk — thin, ink smudge across her right cuff she has stopped trying to wipe off, tongue pressed into her cheek while she reads — pushes a sealed dispatch toward you without looking up. "For Magistratus review. Director\'s office, not Archive." The dispatch cover bears the override routing code Khalis flagged at the market counter. You carry it three paces before she notices the error and calls out — long enough to read the sender line and the route notation on the back. Same Collegium sub-registry Luneth mapped to the northern staging district. You hand it back. She does not meet your eyes when she takes it.');
+        addJournal('Sealed dispatch cover confirms Collegium override code routes through northern staging sub-registry', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        addNarration('Runner Verification', 'The clerk presses her tongue into her cheek and looks up properly this time — properly enough to see your face is not the face she expected. Her hand retracts the dispatch before you can read the cover and her other hand is already on the corridor duty bell. "Runner verification required. Name, origin, credentials." The Magistratus floor steward arrives within thirty seconds. Your presence in the Bureau corridor is now a matter of formal inquiry. You are not detained, but you are not free either.');
+      }
+    }
+  },
+
+  {
+    label: "A rumor about the suppressed case is circulating in the Bureau break room.",
+    tags: ['stage2', 'shirshal'],
+    xpReward: 30,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('persuasion', G.skills.persuasion);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Break Room Edge', 'The break room is narrow and over-lit, tea kettle on an iron ring, three investigators working through a tray of honey biscuits. The oldest of them — bald, habit of cracking the knuckle of his left forefinger once before he speaks — says the name "Tazren" through a mouthful of biscuit and stops himself. The other two go still. The rumor moving is this: Tazren\'s case is about to be reopened by someone, and whoever that someone is, they are not going to be allowed to reach the Director. The knuckle cracks again. "Ten days, tops." He sees you in the doorway and the conversation changes register without pausing.');
+        addJournal('Bureau internal rumor: someone is moving to reopen Tazren case — interception expected within ten days', 'intelligence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addNarration('Break Room Silence', 'The three investigators at the tray watch you step into the doorway and the conversation they were having disappears so completely it might never have happened. The bald one cracks the knuckle of his left forefinger, once, and pours a cup of tea he was not drinking. The other two begin discussing the roster rotation for next week. The honey biscuits sit between them untouched. You have the break room\'s full attention and none of its information.');
+      }
+    }
+  },
+
+  {
+    label: "The archive gate goes unattended for four minutes at shift change.",
+    tags: ['stage2', 'shirshal'],
+    xpReward: 32,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        addNarration('Shift-Change Gap', 'The archive wing gate closes for four minutes at shift change — procedure, not security. The outgoing warden hands her ring of keys to the incoming warden, both of them counting the ring aloud by touch. During the count, the access hallway is unattended. The first three stack aisles are visible from the gate. The third aisle holds the sealed-petition section; the cover boards of the top row show a consistent red Collegium stamp — except for three that do not. Those three carry a small geometric mark Mariel drew at the Dome Rest Inn. The count ends. You step back before either warden looks up.');
+        addJournal('Archive sealed-petition section: three files carry same geometric mark as Aurora Crown dome inn seal swap', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Counted Keys', 'The shift change count runs short — the incoming warden is new and the count goes wrong twice, which means both wardens are looking up more often than usual. You stay at the gate rail, which is where visitors are expected to stay, and the third-aisle row is partly obscured by a stack ladder someone has left angled against the shelf. The count finishes. The gate reopens. What you can see from the rail is what a thousand visitors have seen from the rail.');
+      }
+    }
+  },
+
+  {
     label: "Stage 2 Shirshal finale — Tazren's suppressed case file and the compliance record inversion confirm coordinated evidence management. Present to the Bureau director or route around it.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
