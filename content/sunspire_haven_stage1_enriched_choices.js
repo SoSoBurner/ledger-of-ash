@@ -33,7 +33,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Yard master now wary of your inquiries', 'complication', `sunspire-yard-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `"Routes have been updated," Corbek says, without quite committing to more. "Supply demands shift." He says it toward the manifest board rather than at you. The board behind him shows three depot notations scratched out and rewritten in the past ten days.`;
+        G.lastResult = `"Routes have been updated," Corbek says, without quite committing to more. "Supply demands shift." He says it toward the manifest board rather than at you, already reaching for the next page in the stack, already elsewhere. The board behind him shows three depot notations scratched out and rewritten in the past ten days — not updated, corrected, the old ink still legible under the new. A convoy horn sounds from the eastern yard. Corbek doesn't look up.`;
         addJournal('Yard master confirmed convoy route modifications', 'evidence', `sunspire-yard-pressure-${G.dayCount}`);
       }
 
@@ -66,7 +66,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Family brokers warned about your investigation', 'complication', `sunspire-broker-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Lysander grants you that. "Obligations are being standardized — more uniformly enforced now." He doesn't volunteer why, or by whom. The obligation board behind the registry desk has been repainted recently; the old chalk categories are visible beneath the new ones.`;
+        G.lastResult = `Lysander grants you that, folding his hands on the table. "Obligations are being standardized — more uniformly enforced now." He doesn't volunteer why, or by whom, or what uniformity means for the families on the short end of it. The obligation board behind the registry desk has been repainted recently; the old chalk categories are still visible beneath the new coat in certain light — different headings, different columns. The categories changed, not just the names inside them.`;
         addJournal('Broker confirmed recent obligation system changes', 'evidence', `sunspire-broker-unclear-${G.dayCount}`);
       } else {
         G.lastResult = `"Obligation policy is internal family documentation." Lysander doesn't apologize for it. Without family standing in Sunspire's registry, he won't open the ledgers. The obligation records are visible on the shelf behind him — close enough to read the spine labels, not close enough to open without permission.`;
@@ -98,10 +98,10 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coordinator revealed politicized food distribution system', 'evidence', `sunspire-harvest-distribution-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Mirrin turns back to the register. "Allocation decisions are complex and not for outside discussion." She's not rude about it; she just stops. The harvest hall has three other staff within earshot, and all three have gone slightly still. Questions about food distribution travel.`;
+        G.lastResult = `Mirrin turns back to the register without finishing her sentence, the grain ledger pulled close. "Allocation decisions are complex and not for outside discussion." She's not rude about it; she just stops, the way a shutter is drawn not against anything specific but against the draft. The harvest hall has three other staff within earshot, and all three have gone slightly still — hands continuing their tasks but attention elsewhere. Questions about food distribution travel faster than the distribution itself.`;
         addJournal('Harvest coordinator refuses further distribution inquiry', 'complication', `sunspire-harvest-silent-${G.dayCount}`);
       } else {
-        G.lastResult = `"Distribution has been adjusted to account for supply variations," Mirrin says. She doesn't expand on it. Behind her, the allocation column in the open register shows the same three family names at the top of every weekly entry for the past two months.`;
+        G.lastResult = `"Distribution has been adjusted to account for supply variations," Mirrin says. She doesn't expand on it — not which supply, not which variation, not whose determination it was to adjust. Behind her, the allocation column in the open register shows the same three family names at the top of every weekly entry for the past two months. The register is open because she was working in it when you arrived. It stays open because closing it now would acknowledge it.`;
         addJournal('Coordinator confirmed recent food distribution changes', 'evidence', `sunspire-harvest-confirmed-${G.dayCount}`);
       }
 
@@ -137,7 +137,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Keldan acknowledges uneven distribution without naming its source. "Competitive positions vary across families." He straightens a bolt of cloth that didn't need straightening. The contract board on the market's east wall has three family names appearing in six of the last seven premium material listings.`;
         addJournal('Merchant confirmed trade opportunity inequality', 'evidence', `sunspire-textile-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `"Commercial arrangements are private matters between parties." Keldan says it toward his stall rather than at you. The contract register behind the market administrator's counter requires merchant standing to access, and Keldan isn't offering to vouch for you.`;
+        G.lastResult = `"Commercial arrangements are private matters between parties." Keldan says it toward his stall rather than at you, straightening a bolt of fabric that was already straight. The light from Sunspire's upper windows cuts across the market lane at a steep angle this time of morning. The contract register behind the market administrator's counter requires merchant standing to access, and Keldan isn't offering to vouch for you — the offer never materializes, never gets close enough to be declined.`;
         addJournal('Trade preferences blocked without commercial access', 'evidence', `sunspire-textile-blocked-${G.dayCount}`);
       }
 
@@ -173,7 +173,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The targets have been adjusted in the past two cycles. Some families miss consistently — not by large margins, but always by enough to trigger a review. Other families hit their targets with room to spare. The resource allocations that accompany those targets don't explain the gap. The targets explain the gap.`;
         addJournal('Quota records show signs of deliberate inequality', 'evidence', `sunspire-quota-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `"Quota records are internal family documentation." Neria stacks the ledgers back against the wall before you can scan the visible page. Without family standing in Sunspire's production registry, the numbers stay closed. She's done this before — the stack is tight, spines facing inward.`;
+        G.lastResult = `"Quota records are internal family documentation." Neria stacks the ledgers back against the wall before you can finish scanning the visible page — the motion practiced, the stack returned tight with spines facing inward. Stone corridor cold comes in from the hall. Without family standing in Sunspire's production registry, the numbers stay closed. She's done this before; the stack settles into position the way something lands in its usual place. She doesn't look at it again to check.`;
         addJournal('Quota information blocked without family access', 'evidence', `sunspire-quota-blocked-${G.dayCount}`);
       }
 
@@ -206,7 +206,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Convoy organizer frightened by external coordination inquiry', 'complication', `sunspire-convoy-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Tholen admits there are runs that get handled differently. "Some convoys work outside the standard process. It's just how things go sometimes." He doesn't name which convoys or why. The departure log on his desk has three entries with the destination column left blank.`;
+        G.lastResult = `Tholen admits there are runs that get handled differently, eyes on the yard outside rather than on you. "Some convoys work outside the standard process. It's just how things go sometimes." He doesn't name which convoys, which standard, or whose authority governs the ones outside it. The departure log on his desk has three entries with the destination column left blank — not unfilled, left blank, the column present and the space deliberate.`;
         addJournal('Convoy organizer confirmed non-standard convoy operations', 'evidence', `sunspire-convoy-evasive-${G.dayCount}`);
       }
 
@@ -235,14 +235,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Elder revealed systemic family authority erosion', 'evidence', `sunspire-elder-authority-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Daven stops you with a raised hand. "Family governance is not open to outside discussion. You're not family." He says it without cruelty. The conversation ends there. In the courtyard, two people who were watching from doorways have already disappeared back inside.`;
+        G.lastResult = `Daven stops you with a raised hand — not a warning, a statement. "Family governance is not open to outside discussion. You're not family." He says it without cruelty, the way a boundary is stated rather than enforced. Morning light falls through the courtyard entrance at a long angle. The conversation ends there. In the courtyard, two people who were watching from doorways have already moved back inside before the last word lands. They were listening for exactly this answer.`;
         G.worldClocks.reverence++;
         addJournal('Family leadership banned you from authority questions', 'complication', `sunspire-elder-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Daven grants you a careful sentence. "Decision-making coordinates with the broader syndicate structure now." He doesn't say what was lost in that shift. The family governance board on the wall behind him has three new names in the advisory column that weren't there last season.`;
         addJournal('Elder confirmed family authority constraints', 'evidence', `sunspire-elder-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `"Family structure is internal." Daven closes the door to the governance room without explaining what's in it. Without family standing in Sunspire's registry, no elder will open that door for you. The frame is still warm from when someone recently pulled it shut.`;
+        G.lastResult = `"Family structure is internal." Daven closes the door to the governance room without explaining what's in it — the latch engages before you've formed a follow-up. Stone corridor, the smell of old wood and lamp oil, morning quiet. Without family standing in Sunspire's registry, no elder will open that door for you, and standing in Sunspire's registry requires the very authority the door protects. The frame is still warm from when someone recently pulled it shut.`;
         addJournal('Family governance blocked without family membership', 'evidence', `sunspire-elder-blocked-${G.dayCount}`);
       }
 
@@ -278,7 +278,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Varen allows that much. "Enforcement has been applied with contextual flexibility recently." He doesn't define context. The enforcement log's open page shows two stall closures from the same family name in the past month — both for minor variance — and three clearances for a different family name that the standards would have caught.`;
         addJournal('Inspector confirmed inconsistent enforcement practices', 'evidence', `sunspire-inspector-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `"Enforcement records are administrative." Varen closes the log and puts it on the high shelf. Without market authority in Sunspire's trade registry, the enforcement documents stay up there. He doesn't offer to retrieve them.`;
+        G.lastResult = `"Enforcement records are administrative." Varen closes the log and places it on the high shelf with both hands, out of casual reach. The market's midday noise carries through the stone arch — vendors calling measures, cart wheels on the lane. Without market authority in Sunspire's trade registry, the enforcement documents stay up there. He doesn't offer to retrieve them, doesn't acknowledge they could be retrieved. The distance between the shelf and the floor is the distance between you and that information.`;
         addJournal('Enforcement practices blocked without administrative access', 'evidence', `sunspire-inspector-blocked-${G.dayCount}`);
       }
 
@@ -614,14 +614,14 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Syndicate extraction conspiracy documented with proof', 'evidence', `sunspire-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your compilation of syndicate control proof is noticed. Someone intercepts your documentation and warns you that exposing syndicate resource management will result in your removal from Sunspire Haven. You're marked as a threat to the syndicate's operational security.`;
+        G.lastResult = `The compilation is noticed before it's finished. A syndicate coordinator arrives at the waystation before you've returned — not running, moving at the deliberate pace of someone who doesn't need to rush. The warning is delivered in administrative language: continued documentation of resource management will result in removal from Sunspire Haven's access registry. The phrasing is procedural. The speed of arrival is not. Your name is already in the syndicate's notation before you've left the room.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate directly warned about control system exposure', 'complication', `sunspire-proof-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `You find enough evidence to suggest deliberate syndicate resource extraction. Discrepancies between harvests and distributions, unusual external shipments — it's compelling but not conclusively proven without comparing to external destination records.`;
+        G.lastResult = `The evidence assembled is substantial: discrepancies between harvest volumes and distribution totals, convoy manifests with unexplained cargo weights, external shipments routed past standard trade termini. Together they suggest deliberate resource extraction through syndicate channels. Compelling but not conclusive — proof of coordination requires comparing local accounting against the external destination records, which aren't accessible from inside Sunspire Haven. The gap between suggestion and proof is one set of records wide.`;
         addJournal('Syndicate extraction strongly suggested by evidence', 'evidence', `sunspire-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The resource records exist but proving deliberate extraction requires comparing local accounting to external destination records that you don't yet have access to.`;
+        G.lastResult = `The resource records exist and are legible — harvest intakes, distribution columns, convoy departures. What they can't show on their own is whether the discrepancies are extraction or error. Proving deliberate extraction requires comparing local accounting against external destination records: what arrives where, under whose name, on what dates. Those records aren't in Sunspire Haven. They're wherever the convoys end up, and that address isn't on any manifest currently available.`;
         addJournal('Syndicate proof incomplete without external coordination records', 'evidence', `sunspire-proof-incomplete-${G.dayCount}`);
       }
 
@@ -691,7 +691,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The evidence points beyond Sunspire Haven. Courier routes reference "northern resource authorities." Extraction orders show external signature. The conspiracy is larger than the community itself. You don't know the exact source yet, but you know the resource extraction is being directed from outside Sunspire Haven's borders.`;
         addJournal('External coordination of Sunspire Haven extraction confirmed', 'discovery', `sunspire-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `You find pieces suggesting external involvement, but the origin source remains obscured. Whoever's orchestrating this has hidden their hand carefully.`;
+        G.lastResult = `The pieces suggest external involvement — courier receipts referencing outside parties, authorization marks without local provenance, convoy patterns that bypass Sunspire Haven's own route network. But the origin source remains obscured behind the layers that were built to obscure it. Whoever is orchestrating this has had sufficient time and resources to put distance between their instructions and their names. The shape of the apparatus is visible. The people who built it are not.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `sunspire-origin-unclear-${G.dayCount}`);
       }
 
@@ -722,7 +722,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.analyzed_signal_container = true;
         addJournal('Signal-damping container: custom-fabricated, Shelkopolis craftmark, military-grade shielding', 'evidence', `sunspire-container-${G.dayCount}`);
       } else {
-        G.lastResult = `The container construction is unusual — heavier than it looks, with a layered interior. You recognize the material isn't standard trade shielding but can't place the specification without a reference guide.`;
+        G.lastResult = `The container is heavier than its size suggests — dense without rattling, the weight distributed evenly through a layered interior wall. The inner surface has a composite texture, ash-resin over something metallic, not standard trade shielding. The construction is precise. Whoever made this had a specific payload in mind and a specific detection threat they were shielding against. Without a fabrication reference guide, placing the specification exactly is beyond what's available to you at this moment.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -791,7 +791,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.warden_order += 1;
         addJournal('faction', 'Warden Order Captain-Adjutant Sera: confirmed awareness of container category, open inquiry exists', `sunspire-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `The duty officer takes your report by rote. It goes into a form stack. No one follows up. Either the Warden Order isn't concerned with this convoy or they've been told not to be.`;
+        G.lastResult = `The duty officer takes your report by rote — pen moving before you've finished the second sentence, form already half-filled. It goes into a stack of similar forms on the corner of the desk. No follow-up is offered; no timeframe for review is mentioned. The north gate is cold and bright with morning sun off the spire stone. Either the Warden Order has no interest in this convoy's deviation, or someone has already told them not to develop one. The form disappears into the stack without ceremony.`;
         if (!G.flags) G.flags = {};
         G.flags.attempted_warden_order_sunspire = true;
       }
@@ -830,7 +830,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.container_documentation = true;
         addJournal('consequence', 'Container documentation completed and secured — craftmark recorded for later identification', `sunspire-document-${G.dayCount}`);
       } else {
-        G.lastResult = `You get most of it — dimensions, general construction — but the craftmark is already partially obscured by handling. What you have is better than nothing.`;
+        G.lastResult = `The sketch captures dimensions and general construction — the layered wall depth, the weight distribution, the composite interior surface noted in cross-section. The craftmark on the base is already partially obscured by handling: fingers, a rough surface somewhere in transit. Two of the three digits are clear; the third reads as either a four or a nine. The municipal stamp beside it is legible enough to narrow the district. What's recorded is useful without being complete.`;
         G.flags.container_documentation = true;
       }
       G.recentOutcomeType = 'craft'; maybeStageAdvance();
@@ -853,7 +853,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_tennen_guard = true;
         addJournal('contact', 'Convoy guard Tennen: inside contact was the second driver, Warden Order informed but took no visible action', `sunspire-tennen-${G.dayCount}`);
       } else {
-        G.lastResult = `Tennen is drifting in and out. He gives you fragments — a wrong turn, a man he didn't recognize — but can't hold the thread. Come back tomorrow when the concussion clears.`;
+        G.lastResult = `Tennen is drifting — the infirmary light too bright, his eyes tracking something slightly to the left of wherever you're standing. He gives fragments between silences: a wrong turn, a face he didn't recognize on a seat he thought he knew. The thread drops before it connects to anything. The concussion is still doing its work. What's inside the silence between his sentences might be exactly what's needed. Come back tomorrow, or the day after, when it clears.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -877,7 +877,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'stealth') {
         G.lastResult = `"Didn't ask about the disruption at all," the innkeeper says. "Just asked who'd been asking about it. Named three people by description before they'd been introduced." A counter-investigator. They were mapping inquirers, not events. Your name isn't on their list yet — but it will be.`;
       } else {
-        G.lastResult = `"Spoke to every staff member separately," the innkeeper says. "Different questions each time. I only put it together afterward — they were building a complete picture of everyone involved." Methodical social mapping. They have a profile of this investigation's participants already assembled.`;
+        G.lastResult = `"Spoke to every staff member separately," the innkeeper says. "Different questions each time. I only put it together afterward — they were building a complete picture of everyone involved." A pause, cloth folded on the counter. "Never repeated themselves. Each person got a different angle of the same thing." Methodical social mapping. They moved through the staff the way a surveyor moves through terrain — covering the ground systematically, never doubling back. A profile of this disruption's participants is already assembled somewhere. It's more complete than yours.`;
       }
 
       G.lastResult += ` This person was here before you. They know what you're looking for.`;
