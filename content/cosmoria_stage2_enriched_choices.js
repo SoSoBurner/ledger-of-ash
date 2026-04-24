@@ -312,6 +312,68 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The reading room patron closes the same volume to the same page every afternoon.",
+    tags: ['stage2', 'cosmoria'],
+    xpReward: 36,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(36, 'watching the reading room patron pattern');
+      var roll = rollD20('stealth', G.skills.stealth);
+      if (roll.total >= 13) {
+        G.flags.cos_reading_room_patron_tracked = true;
+        G.investigationProgress++;
+        addNarration('The Closed Page', 'The patron arrives at the same lamp every afternoon and requests the same bound volume — a compiled tariff commentary that is normally checked out once or twice a year. He reads for forty minutes without turning a page, closes it to the same interior bookmark ribbon, and returns it. When his chair empties, the page opens to a marginalia index listing decommissioned vessel registries cross-referenced to their final cargo declarations. Someone has been reading the index without drawing it from the stacks, because drawing it would leave a patron record.');
+        addJournal('Reading room: tariff commentary used as marginalia index for decommissioned vessel registries — access bypasses patron log', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('The Closed Page', 'The patron closes the volume the moment the bench across from his empties and someone sits. He does not look up. He tucks the bookmark ribbon deeper, lifts the volume, and returns it to the reshelving cart himself — a courtesy the reading room does not require. The reshelving clerk accepts it without comment and writes a short note in a pocket log that is not the patron register. You have been noticed, precisely and quietly, and the log that now holds your description is not one the archive publishes.');
+      }
+    }
+  },
+
+  {
+    label: "An apprentice name sits on the yard rolls without a commission assignment.",
+    tags: ['stage2', 'cosmoria'],
+    xpReward: 34,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(34, 'cross-checking shipwright apprentice rolls against commissions');
+      var roll = rollD20('craft', G.skills.craft);
+      if (roll.total >= 13) {
+        G.flags.cos_shipwright_apprentice_found = true;
+        G.investigationProgress++;
+        addNarration('The Unassigned Hand', 'The apprentice rolls are kept in a salt-stained ledger on the yard master\'s bench, held open with a lead weight shaped like a fish. One name has been on the rolls for eleven months without a commission assignment, which is structurally impossible — unassigned apprentices rotate through berth maintenance every three weeks. The yard master scratches the side of his jaw while he looks at the entry, a habit he falls into when he is about to say something he has already decided not to say. The name pays yard dues promptly. The dues come from a Shelkopolis account.');
+        addJournal('Shipwright yard: apprentice on rolls 11 months with no commission — Shelkopolis-sourced dues payment', 'evidence');
+        maybeStageAdvance();
+      } else {
+        addNarration('Yard Protocol', 'The yard master closes the rolls ledger before the question is finished and slides the lead weight off the cover with the flat of his hand. Apprentice registration is a trade guild record, he says, and trade guild records require a trade guild credential to review. The yard smells of pine tar and cold iron. Two apprentices near the slipway have stopped planing a hull plank and are listening without appearing to listen. The ledger goes back on the shelf above the bench, and the yard master places the weight on top of it like a seal.');
+      }
+    }
+  },
+
+  {
+    label: "The tax hall posting runs one column short this quarter.",
+    tags: ['stage2', 'cosmoria'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'reviewing Cosmoria tax hall quarterly revenue summary');
+      var roll = rollD20('lore', G.skills.lore);
+      if (roll.total >= 14) {
+        G.flags.cos_tax_summary_reviewed = true;
+        G.investigationProgress++;
+        addNarration('Missing Column', 'The tax hall summary is displayed behind glass in the public atrium, quarters posted left to right. The most recent quarter has six revenue columns where every prior quarter posts seven. The missing column, on the older postings, is labeled "Harbor Exemption Revenue Recovered" — a recovery category that captures duty on retroactively disqualified cargo exemptions. The new posting has the label removed entirely, not zeroed out. Coralyn\'s notation in the archive back-reference file flagged the omission eight weeks ago. No correction has been issued. The summary still hangs behind glass.');
+        addJournal('Tax hall summary missing Harbor Exemption Revenue column — archivist notation pending eight weeks without correction', 'evidence');
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addNarration('Atrium Protocol', 'A tax hall monitor approaches from the side corridor before the glass has been read in full. Public posting review is permitted; close reading with notetaking is a separate inquiry that requires a filed form. He produces the form from a leather folio he carries specifically for this purpose. The atrium has three other people in it, and all three have found reasons to face the opposite wall. The form asks for name, purpose, and professional affiliation. The monitor waits. The pressure in the room has shifted without anyone raising a voice.');
+      }
+    }
+  },
+
 ];
 
 window.COSMORIA_STAGE2_ENRICHED_CHOICES = COSMORIA_STAGE2_ENRICHED_CHOICES;
