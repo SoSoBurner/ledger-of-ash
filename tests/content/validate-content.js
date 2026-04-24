@@ -301,7 +301,20 @@ function checkNpcFlagTiming(fnSrc) {
     const firstName = fullName.split('_')[0];
     const flagPos = m.index;
     const before = src.slice(0, flagPos);
-    if (/addNarration\s*\(/.test(before) && before.toLowerCase().includes(firstName)) {
+    const narrationRe = /addNarration\s*\(/g;
+    let nm;
+    let violated = false;
+    while ((nm = narrationRe.exec(before)) !== null) {
+      // Skip narrations in a different branch (separated from the flag by } else)
+      const between = before.slice(nm.index, flagPos);
+      if (/\}\s*else/.test(between)) continue;
+      const callText = before.slice(nm.index, nm.index + 500);
+      if (callText.toLowerCase().includes(firstName.toLowerCase())) {
+        violated = true;
+        break;
+      }
+    }
+    if (violated) {
       violations.push({ level: 'fail', msg: `G.flags.met_${fullName} set after addNarration that names "${firstName}" — set the flag before narration` });
     }
   }

@@ -1,0 +1,238 @@
+{
+  "aurora_crown_commune_stage1_enriched_choices.js": {
+    "locality_prefix": "aurora_crown_commune",
+    "locality_names": [
+      "Aurora Crown Commune"
+    ]
+  },
+  "aurora_crown_commune_stage2_enriched_choices.js": {
+    "locality_prefix": "aurora_crown_commune",
+    "locality_names": [
+      "Aurora Crown Commune"
+    ]
+  },
+  "cosmoria_stage1_enriched_choices.js": {
+    "locality_prefix": "cosmoria",
+    "locality_names": [
+      "Cosmoria"
+    ]
+  },
+  "cosmoria_stage2_enriched_choices.js": {
+    "locality_prefix": "cosmoria",
+    "locality_names": [
+      "Cosmoria"
+    ]
+  },
+  "craftspire_stage1_enriched_choices.js": {
+    "locality_prefix": "craftspire",
+    "locality_names": [
+      "Craftspire"
+    ]
+  },
+  "craftspire_stage2_enriched_choices.js": {
+    "locality_prefix": "craftspire",
+    "locality_names": [
+      "Craftspire"
+    ]
+  },
+  "districts_stage1_enriched_choices.js": {
+    "locality_prefix": "districts",
+    "locality_names": []
+  },
+  "districts_stage2_enriched_choices.js": {
+    "locality_prefix": "districts",
+    "locality_names": []
+  },
+  "fairhaven_stage1_enriched_choices.js": {
+    "locality_prefix": "fairhaven",
+    "locality_names": [
+      "Fairhaven"
+    ]
+  },
+  "fairhaven_stage2_enriched_choices.js": {
+    "locality_prefix": "fairhaven",
+    "locality_names": [
+      "Fairhaven"
+    ]
+  },
+  "glasswake_commune_stage1_enriched_choices.js": {
+    "locality_prefix": "glasswake_commune",
+    "locality_names": [
+      "Glasswake Commune"
+    ]
+  },
+  "glasswake_commune_stage2_enriched_choices.js": {
+    "locality_prefix": "glasswake_commune",
+    "locality_names": [
+      "Glasswake Commune"
+    ]
+  },
+  "guildheart_hub_stage1_enriched_choices.js": {
+    "locality_prefix": "guildheart_hub",
+    "locality_names": [
+      "Guildheart Hub"
+    ]
+  },
+  "guildheart_hub_stage2_enriched_choices.js": {
+    "locality_prefix": "guildheart_hub",
+    "locality_names": [
+      "Guildheart Hub"
+    ]
+  },
+  "harvest_circle_stage1_enriched_choices.js": {
+    "locality_prefix": "harvest_circle",
+    "locality_names": [
+      "Harvest Circle"
+    ]
+  },
+  "harvest_circle_stage2_enriched_choices.js": {
+    "locality_prefix": "harvest_circle",
+    "locality_names": [
+      "Harvest Circle"
+    ]
+  },
+  "ironhold_quarry_stage1_enriched_choices.js": {
+    "locality_prefix": "ironhold_quarry",
+    "locality_names": [
+      "Ironhold Quarry"
+    ]
+  },
+  "ironhold_quarry_stage2_enriched_choices.js": {
+    "locality_prefix": "ironhold_quarry",
+    "locality_names": [
+      "Ironhold Quarry"
+    ]
+  },
+  "ithtananalor_stage1_enriched_choices.js": {
+    "locality_prefix": "ithtananalor",
+    "locality_names": [
+      "Ithtananalor"
+    ]
+  },
+  "ithtananalor_stage2_enriched_choices.js": {
+    "locality_prefix": "ithtananalor",
+    "locality_names": [
+      "Ithtananalor"
+    ]
+  },
+  "mimolot_academy_stage1_enriched_choices.js": {
+    "locality_prefix": "mimolot_academy",
+    "locality_names": [
+      "Mimolot Academy"
+    ]
+  },
+  "mimolot_academy_stage2_enriched_choices.js": {
+    "locality_prefix": "mimolot_academy",
+    "locality_names": [
+      "Mimolot Academy"
+    ]
+  },
+  "panim_haven_stage1_enriched_choices.js": {
+    "locality_prefix": "panim_haven",
+    "locality_names": [
+      "Panim Haven"
+    ]
+  },
+  "panim_haven_stage2_enriched_choices.js": {
+    "locality_prefix": "panim_haven",
+    "locality_names": [
+      "Panim Haven"
+    ]
+  },
+  "plumes_end_outpost_stage1_enriched_choices.js": {
+    "locality_prefix": "plumes_end_outpost",
+    "locality_names": [
+      "Plume’s End Outpost"
+    ]
+  },
+  "plumes_end_outpost_stage2_enriched_choices.js": {
+    "locality_prefix": "plumes_end_outpost",
+    "locality_names": [
+      "Plume’s End Outpost"
+    ]
+  },
+  "shelkopolis_stage1_enriched_choices.js": {
+    "locality_prefix": "shelkopolis",
+    "locality_names": [
+      "Shelkopolis"
+    ]
+  },
+  "shelkopolis_stage2_enriched_choices.js": {
+    "locality_prefix": "shelkopolis",
+    "locality_names": [
+      "Shelkopolis"
+    ]
+  },
+  "shirshal_stage1_enriched_choices.js": {
+    "locality_prefix": "shirshal",
+    "locality_names": [
+      "Shirshal"
+    ]
+  },
+  "shirshal_stage2_enriched_choices.js": {
+    "locality_prefix": "shirshal",
+    "locality_names": [
+      "Shirshal"
+    ]
+  },
+  "soreheim_proper_stage1_enriched_choices.js": {
+    "locality_prefix": "soreheim_proper",
+    "locality_names": [
+      "Soreheim Proper"
+    ]
+  },
+  "soreheim_proper_stage2_enriched_choices.js": {
+    "locality_prefix": "soreheim_proper",
+    "locality_names": [
+      "Soreheim Proper"
+    ]
+  },
+  "stage1_additional_enriched_choices.js": {
+    "locality_prefix": null,
+    "locality_names": []
+  },
+  "stage2_enriched_choices.js": {
+    "locality_prefix": null,
+    "locality_names": []
+  },
+  "stage3_enriched_choices.js": {
+    "locality_prefix": null,
+    "locality_names": []
+  },
+  "sunspire_haven_stage1_enriched_choices.js": {
+    "locality_prefix": "sunspire_haven",
+    "locality_names": [
+      "Sunspire Haven"
+    ]
+  },
+  "sunspire_haven_stage2_enriched_choices.js": {
+    "locality_prefix": "sunspire_haven",
+    "locality_names": [
+      "Sunspire Haven"
+    ]
+  },
+  "unity_square_stage1_enriched_choices.js": {
+    "locality_prefix": "unity_square",
+    "locality_names": [
+      "Unity Square"
+    ]
+  },
+  "unity_square_stage2_enriched_choices.js": {
+    "locality_prefix": "unity_square",
+    "locality_names": [
+      "Unity Square"
+    ]
+  },
+  "whitebridge_commune_stage1_enriched_choices.js": {
+    "locality_prefix": "whitebridge_commune",
+    "locality_names": [
+      "Whitebridge Commune"
+    ]
+  },
+  "whitebridge_commune_stage2_enriched_choices.js": {
+    "locality_prefix": "whitebridge_commune",
+    "locality_names": [
+      "Whitebridge Commune"
+    ]
+  }
+}
