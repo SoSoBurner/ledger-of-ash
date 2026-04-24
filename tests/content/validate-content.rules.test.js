@@ -1,5 +1,5 @@
 'use strict';
-const { extractResultStrings, checkResultWordCount } = require('./validate-content');
+const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource } = require('./validate-content');
 
 describe('extractResultStrings', () => {
   test('extracts single-quote result from addNarration call', () => {
@@ -73,5 +73,44 @@ describe('checkResultWordCount (A1)', () => {
   test('PASS: result in the 60-90 word target range', () => {
     const text = Array(75).fill('word').join(' ');
     expect(checkResultWordCount(text)).toBeNull();
+  });
+});
+
+describe('extractRumorTexts (A4)', () => {
+  test('extracts single-quote rumor from addJournal call', () => {
+    const src = `function fn() { addJournal('Word is the shipment moved at night.', 'rumor'); }`;
+    expect(extractRumorTexts(src)).toContain('Word is the shipment moved at night.');
+  });
+
+  test('extracts double-quote rumor text', () => {
+    const src = `function fn() { addJournal("A factor at the docks said the manifest was wrong.", "rumor"); }`;
+    expect(extractRumorTexts(src)).toContain('A factor at the docks said the manifest was wrong.');
+  });
+
+  test('ignores non-rumor addJournal calls', () => {
+    const src = `function fn() { addJournal('You found the package.', 'evidence'); }`;
+    expect(extractRumorTexts(src)).toHaveLength(0);
+  });
+});
+
+describe('checkRumorSource (A4)', () => {
+  test('PASS: rumor names a proper noun (NPC name)', () => {
+    expect(checkRumorSource('Elior Cadrin said the records were moved last week.')).toBeNull();
+  });
+
+  test('PASS: rumor names a social role', () => {
+    expect(checkRumorSource('A factor at the south dock said the cargo was rerouted.')).toBeNull();
+  });
+
+  test('PASS: rumor names a location word', () => {
+    expect(checkRumorSource('Overheard at the market — the guild levy doubled this quarter.')).toBeNull();
+  });
+
+  test('PASS: rumor uses location preposition pattern', () => {
+    expect(checkRumorSource('Someone from the inn near the gate mentioned the warden was asking around.')).toBeNull();
+  });
+
+  test('FAIL: rumor has no source, role, or location', () => {
+    expect(checkRumorSource('Word is the shipment was rerouted.')).toMatchObject({ level: 'fail' });
   });
 });

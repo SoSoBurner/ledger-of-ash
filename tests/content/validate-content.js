@@ -93,6 +93,12 @@ function validateChoice(file, choice) {
       const r3 = checkResultOpener(text);
       if (r3) fail(file, label, r3.msg);
     }
+    // A4: rumor source attribution
+    const rumorTexts = extractRumorTexts(choice.fn.toString());
+    for (const text of rumorTexts) {
+      const r4 = checkRumorSource(text);
+      if (r4) fail(file, label, r4.msg);
+    }
   }
 
   checked++;
@@ -247,6 +253,36 @@ function checkResultOpener(text) {
   return null;
 }
 
+// ─── A4 — Rumor Source Attribution ───────────────────────────────────────────
+
+const SOCIAL_ROLES_RE = /\b(?:merchant|factor|clerk|warden|innkeeper|stevedore|guildsman|handler|carter|broker|scribe|soldier|captain|lieutenant|marshal|sergeant|courier)\b/i;
+const LOCATION_WORDS_RE = /\b(?:market|hall|inn|gate|ward|district|square|dock|harbor|wharf|quay|alley|quarter|bridge|tower|guild|yard|cellar|tavern|chapel|warehouse)\b/i;
+const LOCATION_PREP_RE  = /\b(?:at|in|near|from)\s+the\s+[a-z]/i;
+const PROPER_NOUN_RE    = /[A-Z][a-z]+\s+[A-Z][a-z]+/;
+
+function extractRumorTexts(fnSrc) {
+  const src = fnSrc.replace(/\/\/[^\n]*/g, '');
+  const results = [];
+  const reSQ = /addJournal\s*\(\s*'((?:[^'\\]|\\.)*)'\s*,\s*'rumor'/g;
+  const reDQ = /addJournal\s*\(\s*"((?:[^"\\]|\\.)*)"\s*,\s*["']rumor["']/g;
+  for (const re of [reSQ, reDQ]) {
+    let m;
+    while ((m = re.exec(src)) !== null) {
+      const text = m[1].replace(/\\n/g, '\n').replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
+      if (text.length > 0) results.push(text);
+    }
+  }
+  return results;
+}
+
+function checkRumorSource(text) {
+  if (PROPER_NOUN_RE.test(text)) return null;
+  if (SOCIAL_ROLES_RE.test(text)) return null;
+  if (LOCATION_WORDS_RE.test(text)) return null;
+  if (LOCATION_PREP_RE.test(text)) return null;
+  return { level: 'fail', msg: 'rumor has no source attribution (no proper noun, social role, or location reference)' };
+}
+
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource };
