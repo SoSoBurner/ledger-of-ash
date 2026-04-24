@@ -72,3 +72,47 @@ addNarration('Gate', 'The gate clerk marks your name in the log. The next time t
 ```
 
 If the clock ticks, the player must feel it. Silent increments are invisible tax.
+
+---
+
+## Human Review Standards (B1–B5)
+
+These standards require judgment and cannot be automated. Run `npm run review:content <file>` to generate a checklist pre-populated with flagged choices, then work through each item.
+
+### B1 — Scene Opening
+
+**Check:** Does the result text open with an observable action, sensory detail, or physical environment — or does it open with a procedural summary that positions the player above the scene?
+
+**Pass signal:** *"Aurek sets the ledger down without looking at it."* (player is in the scene)
+
+**Fail signal:** *"Aurek confirms the figures match."* (player is above the scene, reading a verdict)
+
+**B1 vs A3:** A3 catches specific mechanical openers ("confirms", "it turns out"). B1 catches the broader pattern — any result that summarizes rather than shows. A clean declarative opener like "She was right." passes A3 but may fail B1 if it positions the player outside the moment.
+
+### B2 — NPC Register and Tell
+
+**Check:** For any named NPC appearing in dialogue — does their speech pattern match their dossier register? Does their physical tell appear at least once per scene?
+
+A tell is specific enough that no other NPC would do it. Wrong: *"she folds her hands."* Right: *"her thumb finds the chalk edge of the ward mark in the doorframe without her seeming to notice it."*
+
+Cross-check against `content/npc_dossiers.js` or V33_2 canon (`data/reference/V33_2_extracted/V33_2_DnD_Repository/02_CANON_BASELINE/named_npcs/`).
+
+### B3 — Rumor Source Texture
+
+**Check:** Does the rumor feel like it was overheard in a specific place, at a specific time, from a specific social register — or does it read like a labeled briefing?
+
+**B3 vs A4:** A4 checks mechanical presence of attribution (proper noun, location, or role). B3 checks whether the attribution feels *lived in*. "A merchant said X" passes A4. "A wool merchant at the Guildheart exchange — the one who argues about weight stamps every Tuesday — said X" passes B3.
+
+### B4 — Combat Result Vividness
+
+**Check:** Combat outcomes (press/defend results) must include at least one specific physical detail — a body part, a weapon behavior, a surface, or a sound. No generic outcome language.
+
+**Fail:** *"You win the fight."* / *"The enemy falls."*
+
+**Pass:** *"The blade catches him across the collarbone — not deep, but the shoulder drops and his grip goes slack."*
+
+### B5 — Subtext
+
+**Check:** Every named NPC scene must have at least one layer of subtext — something the NPC wants but does not say directly. If every NPC line can be taken at face value, the scene fails.
+
+NPCs rarely say exactly what they mean. An innkeeper who mentions the registry has been "very busy lately" might be warning you. A factor who answers every question completely may be performing compliance to avoid harder questions. If the NPC's agenda is fully visible in their words, add an unsaid layer.
