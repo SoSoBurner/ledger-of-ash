@@ -33,7 +33,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Case clerk reported your inquiry to magistrates', 'complication', `shirshal-clerk-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Sorren pauses before answering. "Procedures have been variable lately. Certain cases the magistrates handle differently." He doesn't name which magistrates or which cases. His pen keeps moving. He's answered you and is already trying to forget he did.`;
+        G.lastResult = `Sorren pauses before answering — the pause of someone deciding how much of the truth counts as answering. "Procedures have been variable lately. Certain cases the magistrates handle differently." He doesn't name which magistrates or which cases. His pen keeps moving through the entry he was making when you arrived, a line that should have been finished before the pause. He's answered you and is already working to forget he did, the way a person seals a letter they've reconsidered sending.`;
         addJournal('Case clerk acknowledged procedure variability', 'evidence', `shirshal-clerk-procedure-${G.dayCount}`);
       }
 
@@ -69,7 +69,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Thyn grants access to the current logs but not the archived originals. What's here has been edited — incident descriptions revised toward clinical neutrality, three entries stamped resolved with no supporting documentation. The edits are careful enough to survive a casual review. A systematic one would catch them.`;
         addJournal('Evidence logs show signs of careful alteration', 'evidence', `shirshal-evidence-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Thyn shakes his head before you finish the request. "Anomaly records aren't open access. Bring magistrate authorization and I'll set aside time." He's not hostile — just practiced. This refusal has been rehearsed recently.`;
+        G.lastResult = `Thyn shakes his head before you finish the request, a small motion, preemptive. "Anomaly records aren't open access. Bring magistrate authorization and I'll set aside time." He's not hostile — just practiced. The refusal has been rehearsed recently; the phrasing is too complete, too unbothered. He's had this conversation before, probably more than once in the past few weeks, and the answer came back the same each time.`;
         addJournal('Evidence logs blocked without magistrate authorization', 'evidence', `shirshal-evidence-blocked-${G.dayCount}`);
       }
 
@@ -98,11 +98,11 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Assistant revealed case routing manipulation', 'evidence', `shirshal-routing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kess goes still. "Case assignment is internal procedure. That's for the magistrates to manage." Her hands drop below the counter. She doesn't answer the follow-up. When you leave, she is writing something — not in the assignment ledger. Somewhere else.`;
+        G.lastResult = `Kess goes still. "Case assignment is internal procedure. That's for the magistrates to manage." Her hands drop below the counter without a sound — no shuffling of papers, no reaching for a pen, just gone. She doesn't answer the follow-up or acknowledge it. When you leave, she is writing something at the small desk behind the rotation board. Not in the assignment ledger. Somewhere else. The pen angle says it's personal, not administrative.`;
         G.worldClocks.pressure++;
         addJournal('Assistant will report case assignment inquiry', 'complication', `shirshal-routing-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Kess gives you a half-answer. "Assignments are more centralized than they were." She doesn't say by whom. The rotation board behind her is blank where the magistrate names used to be chalked in.`;
+        G.lastResult = `Kess gives you a half-answer, the kind built to satisfy the minimum obligation of the question. "Assignments are more centralized than they were." She doesn't say by whom, through what authority, or when the change happened. The rotation board behind her is blank where the magistrate names used to be chalked in — clean slate, chalk dust still faintly visible in the grooves of the board frame. Someone erased it recently enough that the smell of chalk still carries.`;
         addJournal('Assistant confirmed case assignment changes', 'evidence', `shirshal-routing-changed-${G.dayCount}`);
       }
 
@@ -171,7 +171,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Investigator now distrustful of your questions', 'complication', `shirshal-investigator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `"Need-to-know is the operating standard now," Kess says. She doesn't look happy about it. Across the room, another investigator is reading what's clearly an abbreviated brief — one sheet where there should be six. Neither of them mentions it.`;
+        G.lastResult = `"Need-to-know is the operating standard now," Kess says. She doesn't look happy about it — not angry either, something flatter than anger, more like a person who has stopped expecting the answer to change. Across the room, another investigator reads what's clearly an abbreviated brief — one sheet where there should be six, edges visible where the document was cut down. Neither of them mentions it. The hall's east corridor smells of fresh lime. The paint is still damp.`;
         addJournal('Investigator confirmed information restriction', 'evidence', `shirshal-investigator-restricted-${G.dayCount}`);
       }
 
@@ -204,10 +204,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Coordinator reported witness inquiry to magistrates', 'complication', `shirshal-witness-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Marsh grants you that much. "Availability has been difficult. Some witnesses are reluctant." He doesn't say why. The absence column in the open register behind him has more entries this quarter than the previous three combined.`;
+        G.lastResult = `Marsh grants you that much, voice low, eyes on the register open in front of him rather than on you. "Availability has been difficult. Some witnesses are reluctant." He doesn't say why they're reluctant, what the reluctance looks like in practice, or what happens to proceedings that can't produce a witness. The absence column in the open register behind him has more entries this quarter than the previous three combined — the ink is denser there, the column crowded with dates.`;
         addJournal('Coordinator confirmed witness availability issues', 'evidence', `shirshal-witness-issues-${G.dayCount}`);
       } else {
-        G.lastResult = `"Witness management requires confidentiality," Marsh says, with the patience of someone who's said it dozens of times. He doesn't discuss specifics. The door to the attendance records room is locked, and the key isn't on his belt.`;
+        G.lastResult = `"Witness management requires confidentiality," Marsh says, with the patience of someone who's said it dozens of times this season. He doesn't discuss specifics — not the names, not the cases, not the particular shape of reluctance that has emptied so much of the attendance column. The door to the records room is locked. He doesn't reach for a key or suggest one exists for this situation. The channel reeds smell of standing water through the corridor window, and somewhere on the harbor a boat is being unloaded.`;
         addJournal('Witness coordinator blocked further inquiry', 'evidence', `shirshal-witness-blocked-${G.dayCount}`);
       }
 
@@ -240,7 +240,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your questions', 'complication', `shirshal-innkeeper-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `"Sealed messages come through. Normal enough for a hall town," Noss says, but she says it toward the counter rather than at you. The east passage door swings shut on its own while she speaks. She doesn't look at it.`;
+        G.lastResult = `"Sealed messages come through. Normal enough for a hall town," Noss says, but she says it toward the counter rather than at you, cloth moving over the same spot she already wiped. Reed-damp wood smell comes through the open side window from the channel below. The east passage door swings shut on its own while she speaks — the draft doing it, probably. She doesn't look at it. Neither does anyone else in the room, which is something.`;
         addJournal('Innkeeper acknowledged message traffic', 'evidence', `shirshal-innkeeper-traffic-${G.dayCount}`);
       }
 
@@ -276,7 +276,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The magistrate chooses words with visible care. "Shirshal serves within a broader system. Decisions at that level involve considerations I'm not positioned to detail." He offers nothing further. But his posture — shoulders drawn in, eyes tracking toward the passage door — says something he didn't.`;
         addJournal('Magistrate hinted at external authority influence', 'evidence', `shirshal-magistrate-hint-${G.dayCount}`);
       } else {
-        G.lastResult = `"Magistrate operations are internal to this hierarchy." He's civil, professionally so. The conversation ends without ceremony. On the way out, you pass three other magistrates in the corridor. None of them meet your eyes, which tells you someone already told them you'd be coming.`;
+        G.lastResult = `"Magistrate operations are internal to this hierarchy." He's civil, professionally so — the kind of civil that has been practiced until it produces no friction and no opening. The conversation ends without ceremony: he turns to the writing desk, and the session closes itself. On the way out, you pass three other magistrates in the corridor. None of them meet your eyes. Someone told them you'd be coming, or told them enough that your arrival required no introduction.`;
         addJournal('Magistrate blocked further inquiry', 'evidence', `shirshal-magistrate-blocked-${G.dayCount}`);
       }
 
@@ -379,11 +379,11 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Lore analysis revealed procedural law inversion', 'evidence', `shirshal-lore-procedure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The archive assistant flags your request before processing it. Someone senior is summoned. "Comparative analysis of procedural standards isn't appropriate for external review." Your access level is recorded. The procedural volumes are moved to the restricted section before you leave the building.`;
+        G.lastResult = `The archive assistant flags your request before processing it — a small gesture, hand raised, pen set down. Someone senior is summoned from the inner office before the volumes are pulled. "Comparative analysis of procedural standards isn't appropriate for external review." The phrasing is specific, pre-existing. Your access level is recorded in a column that already exists for this category of inquiry. The procedural volumes are moved to the restricted section before you leave the building. The label on the shelf reads "administrative reference — restricted" in fresh ink.`;
         G.worldClocks.pressure++;
         addJournal('Your legal procedure research marked as concerning', 'complication', `shirshal-lore-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The procedures have been updated in the last six weeks — evidence standards relaxed, witness thresholds lowered. Each change has a justification note attached: "modernization of process," "efficiency of review." The justification notes are all in the same handwriting.`;
+        G.lastResult = `The procedures have been updated in the last six weeks — evidence standards relaxed, witness thresholds lowered, closure criteria broadened. Each change has a justification note attached in the margin: "modernization of process," "efficiency of review," "contextual assessment permitted." The notes are all in the same handwriting, the same ink, and carry no signature. Whoever authored the justifications didn't attach their name to any of them.`;
         addJournal('Lore research confirmed procedure revisions', 'evidence', `shirshal-lore-revision-${G.dayCount}`);
       } else {
         G.lastResult = `The procedural texts are dense with cross-reference codes and citation chains. Changes are present — the margin dates confirm recent amendments — but tracing which changes matter and why would take someone with a practitioner's fluency in Shirshal's legal taxonomy. You don't have that yet.`;
@@ -634,7 +634,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The pattern is legible: forged authorizations, accelerated closures, altered records, witnesses managed out of proceedings. The mechanism is visible across eight separate documentation threads. What's missing is the origin — who issued the directive, where The House operates from, what purpose the suppressed cases serve. The architecture of the corruption is clear. The builders remain outside your current reach.`;
         addJournal('Substantial corruption evidence compiled', 'evidence', `shirshal-conspiracy-substantial-${G.dayCount}`);
       } else {
-        G.lastResult = `The individual threads are real — missing statements, altered logs, accelerated closures. But to demonstrate they're connected rather than coincidental, you need the link between the directive packets and the specific case outcomes they produced. That chain is currently missing two nodes.`;
+        G.lastResult = `The individual threads are real — missing statements, altered logs, accelerated closures, forged seals on correspondence that shouldn't exist. But demonstrating they're connected rather than coincidental requires the link between the directive packets and the specific case outcomes they produced: who issued the instruction, which case number changed in response, on what date the record was altered. That chain is currently missing two nodes. Both are in records you don't yet have access to.`;
         addJournal('Conspiracy pattern visible but evidence incomplete', 'evidence', `shirshal-conspiracy-partial-${G.dayCount}`);
       }
 
