@@ -142,24 +142,42 @@ function _pell_phase2() {
   setTimeout(function() { renderChoices(resChoices); }, 700);
 }
 
-// Resolution A — Expose the irregular assignment
+// Resolution A — Expose the irregular assignment → triggers alarm, Dravn exits, Shadowhands rearguard
 function _pell_resolve_expose() {
   var roll = rollD20('lore');
   var dc = 15;
   if (roll.total >= dc) {
-    addNarration('A Procedural Irregularity', 'You lay it out for him without raising your voice, which is the only register he respects. His assignment was filed three days before the formal complaint that would have justified it. You name the date discrepancy. You name the division log that would show it. His hands stop moving on the folder. His thumb finds the corner of the inquiry form and presses it square against the desk seam — the alignment is already exact; he presses it anyway. For the first time in the meeting he looks at the desk surface rather than at you. He says nothing for a long moment. He lays his pen flat — nib toward him — before he speaks. Then: "Pursuant to the division\'s review calendar, this inquiry will be closed as inconclusive." He means it. He stands, which is your signal to leave. He does not offer his hand.');
-    addJournal('Pell\'s assignment predated the formal complaint by three days — confirmed and named to his face. He closed the inquiry on the spot. His exposure as an irregular appointment means he cannot escalate without surfacing his own irregularity.', 'evidence');
+    // Player lands the discrepancy. Dravn doesn't argue — he activates suppression protocol and exits.
+    G.lastResult = 'The date discrepancy lands clean. His hands stop on the folder — not a flinch, a recognition. He lays his pen flat, nib toward him, the small reset he performs before every sentence that matters. Then: "This is classified suppression protocol — standard procedure." He pulls a cord beside the wall-mounted lamp bracket. His voice does not change. He is through the rear access door before the room responds. The door closes without force. The corridor fills in from the sides.';
+    addNarration('Suppression Protocol', G.lastResult);
+    addJournal('Pell named the suppression protocol by its formal designation — then pulled an alarm cord and exited through a rear document corridor. Two Shadowhands operatives moved in immediately. His departure was prepared in advance.', 'evidence');
     G.flags.stage2_miniboss_resolution = 'expose';
-    G.worldClocks = G.worldClocks || {};
-    G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+    G.flags.stage2_miniboss_dravn_fled = true;
+    // Wire post-combat victory callback before entering combat
+    G.pendingVictoryCallback = function() {
+      var sh = (G.factions || []).find(function(f) { return f.id === 'shadowhands'; });
+      if (sh) sh.rep = Math.max(0, (sh.rep || 0) - 15);
+      G.lastResult = 'The corridor is empty. Dravn is gone — through whatever arrangement preceded this meeting. On the table: a transit seal manifest. His initials appear on three suppressed export routes. The operatives were a rearguard, not improvised. He planned to leave before you arrived.';
+      addNarration('Corridor Empty', G.lastResult, 'success');
+      addJournal('Dravn Pell fled during confrontation. Transit seal manifest recovered — his initials on three suppressed export routes.', 'evidence');
+      _closeMiniboss();
+    };
+    setTimeout(function() {
+      enterCombat('shadowhands_operative', {
+        isBoss: true,
+        groupSize: 2,
+        context: 'Two Shadowhands operatives fill the corridor. The rear door is already shut behind Dravn.'
+      });
+    }, 900);
+    // noRetreat not supported by enterCombat engine (hardcoded choice) — noted, not implemented
   } else {
     addNarration('', 'The dates are there but you cannot hold them cleanly under pressure — the division log, the complaint file, the assignment chain. Pell watches you lay the argument out and waits until you stop. He lays his pen flat before he answers. "In accordance with division procedure, assignment timing is an administrative matter, not subject to external review." His voice has not changed once in this meeting. He closes the folder and sets the pen across the top of it — done. "I will note your concern. The inquiry remains open."');
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
     G.flags.stage2_miniboss_resolution = 'expose_failed';
     // Still closes out — he\'s been warned off even if not fully neutralized
+    _closeMiniboss();
   }
-  _closeMiniboss();
 }
 
 // Resolution B — Negotiate a quiet closure

@@ -3693,11 +3693,18 @@ function endCombat(victory) {
     shiftAlignment(-5, 0); // violence costs morality slightly
     saveGame(); updateHUD();
 
-    setTimeout(() => renderChoices([
-      { text:'Search the area for more information.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' },
-      { text:'Take what you need and move before anyone arrives.', skill:'stealth', tag:'risky', align:'chaotic', cid:'east_road' },
-      { text:'Report what happened to the local authority.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact' }
-    ]), 400);
+    // pendingVictoryCallback — set by story encounters that need custom post-combat logic
+    if (typeof G.pendingVictoryCallback === 'function') {
+      var _vcb = G.pendingVictoryCallback;
+      G.pendingVictoryCallback = null;
+      setTimeout(_vcb, 450);
+    } else {
+      setTimeout(() => renderChoices([
+        { text:'Search the area for more information.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' },
+        { text:'Take what you need and move before anyone arrives.', skill:'stealth', tag:'risky', align:'chaotic', cid:'east_road' },
+        { text:'Report what happened to the local authority.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact' }
+      ]), 400);
+    }
   } else {
     addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
     saveGame();
