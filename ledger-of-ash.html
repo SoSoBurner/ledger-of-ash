@@ -8238,6 +8238,7 @@ let G = {
   pace: 'normal',
   supplyTier: 'light',
   journeyFatigue: 0,
+  recentOutcomeType: null,
   schemaVersion:3
 };
 
@@ -10851,6 +10852,7 @@ function maybeFireArrivalScene(localityId) {
   var stageReturn = G.flags['stage_at_visit_' + localityId] !== G.stage;
   if (!firstVisit && !stageReturn) return;
   addNarration('', entry.narration);
+  G.recentOutcomeType = 'arrival';
   G.flags['visited_' + localityId] = true;
   G.flags['stage_at_visit_' + localityId] = G.stage;
 }
