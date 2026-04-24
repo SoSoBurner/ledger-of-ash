@@ -33,7 +33,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Foreman now wary of your inquiries', 'complication', `soreheim-foreman-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Thrace glances back at the gate before answering. "Targets went up. Turnover's higher than usual." He restacks a crate that doesn't need restacking. "Management calls it a correction cycle." He doesn't call it that. He doesn't say what he calls it, either.`;
+        G.lastResult = `The shift yard smells of cut stone and the mineral tang of overheated pulley grease. Thrace glances back at the gate before answering. "Targets went up. Turnover's higher than usual." He restacks a crate that doesn't need restacking, aligning the corner to a grease mark on the board. "Management calls it a correction cycle." He doesn't call it that. He doesn't say what he calls it, either. Two workers wait for the next lift without speaking. The shift bell is still twenty minutes away and the yard is already on its feet.`;
         addJournal('Foreman confirmed quota increase and worker turnover', 'evidence', `soreheim-foreman-pressure-${G.dayCount}`);
       }
 
@@ -203,7 +203,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Labor brokers now aware of your investigation', 'complication', `soreheim-broker-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Meth shrugs one shoulder. "Personnel moves are normal. Seasonal variation, quota adjustments." He says it to the middle distance, not to you. The ledger on his desk is open to a page dense with crossed-out names. He doesn't offer to show it.`;
+        G.lastResult = `The placement office is narrow, lit by a single oil sconce that leaves the far shelf of ledgers in shadow. Meth shrugs one shoulder. "Personnel moves are normal. Seasonal variation, quota adjustments." He says it to the middle distance, not to you. The ledger on his desk is open to a page dense with crossed-out names, four deep in the last column. He doesn't offer to show it. His pen rests across the binding, nib still wet. The name he was writing when you walked in stays half-finished under his forearm.`;
         addJournal('Broker confirmed workforce transfers but minimized their scale', 'evidence', `soreheim-broker-evasive-${G.dayCount}`);
       }
 
@@ -239,7 +239,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The intake ledger has two different inks in the correction column — original entries in brown, alterations in black. Four workers listed as "transferred" have no destination recorded. One entry for a worker named Grett has a line drawn through it and nothing written underneath. Parol watches you notice. He doesn't explain.`;
         addJournal('Worker records show signs of deliberate alteration', 'evidence', `soreheim-records-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Parol straightens the stack of intake forms until they are perfectly aligned. "Employment documentation is restricted to authorized labor administration access." He sets a small stamped card on the counter — the request form for authorization. It takes two weeks to process.`;
+        G.lastResult = `The records room smells of dry ink and the dust of old intake forms. Parol straightens the stack on his counter until the edges are perfectly aligned, corrects a form that was already flush. "Employment documentation is restricted to authorized labor administration access." He sets a small stamped card on the counter — the request form for authorization. Two weeks to process, the card says, in print already worn soft from handling. Behind him, the cabinet is locked. The key is on a pull cord around his neck, and he does not look at the cabinet while he speaks.`;
         addJournal('Employment records blocked without labor administration approval', 'evidence', `soreheim-records-blocked-${G.dayCount}`);
       }
 
@@ -275,7 +275,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Aldren runs his thumb along a finished edge and shows you the result — a burr that shouldn't be there. "Quota demands speed. Speed produces this." He drops the piece back onto the bench. "I don't set the targets." He picks up a file and starts correcting the burr himself, off the clock.`;
         addJournal('Craftsperson confirmed craft standard compromise', 'evidence', `soreheim-craft-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Aldren keeps both hands on the piece he's working. "Standards are set by the quota office." He doesn't look up. Near the window, two other workers have gone quiet. The workshop is loud with tools and none of it is conversation.`;
+        G.lastResult = `The workshop smells of limestone dust and oil-blackened chisel steel. Aldren keeps both hands on the piece he's working — a corbel block, three-quarters rough, the finished face turned away from the door. "Standards are set by the quota office." He doesn't look up. Near the window, two other workers have gone quiet; their hammers strike in the same slow cadence Aldren sets, slower than quota pace. The workshop is loud with tools and none of it is conversation. A newer apprentice looks up once and remembers not to.`;
         addJournal('Craft standard information inaccessible without deeper rapport', 'evidence', `soreheim-craft-blocked-${G.dayCount}`);
       }
 
@@ -379,7 +379,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Logistics coordinators alerted to supply chain inquiry', 'complication', `soreheim-supply-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The dispatch yard is busier than a city of this quota cycle should be. Outbound carts outnumber inbound by three to one. The routing stamps on the outbound manifests face inward, away from the gate. The cart drivers don't stop to talk.`;
+        G.lastResult = `Cart wheels cut ruts into the yard's packed stone at a pace that would match a festival week, except the yard is quiet. No hailing between drivers, no teamsters calling loads. The dispatch yard is busier than a city of this quota cycle should be. Outbound carts outnumber inbound by three to one. The routing stamps on the outbound manifests face inward, away from the gate — turned so that the destinations don't read from where someone passing would see them. The cart drivers don't stop to talk. They don't look at each other either.`;
         addJournal('Supply chain anomalies detected but incompletely mapped', 'evidence', `soreheim-supply-partial-${G.dayCount}`);
       }
 
@@ -415,7 +415,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The directive board outside the administration hall has two stamp marks on every notice — Soreheim Alliance standard, and a second mark in the upper right corner. That second mark wasn't on the board two months ago. The workers passing it don't look at it.`;
         addJournal('Authority structure reorganization confirmed', 'evidence', `soreheim-authority-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `The administration building runs its posted schedule. Meetings at the posted times, staff at the posted desks. Who sets the agenda behind the posted schedule is a question that requires someone on the inside of those meetings to answer.`;
+        G.lastResult = `The administration building runs its posted schedule down to the quarter-hour. Meetings at the posted times, staff at the posted desks, the corridor lamps trimmed to an even burn. A clerk carries a stamped folio across the hall, another passes the opposite direction; neither looks at the other. Who sets the agenda behind the posted schedule is a question that requires someone on the inside of those meetings to answer. The door to the administrator's office is closed. A clerk at a desk outside it notes the time of every knock and the name of everyone who waits.`;
         addJournal('Authority structure analysis incomplete without insider perspective', 'evidence', `soreheim-authority-blocked-${G.dayCount}`);
       }
 
@@ -448,7 +448,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Communication network handlers now aware of monitoring attempt', 'complication', `soreheim-communication-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The courier circuit has new routing marks this season — an extra stop added between Soreheim and the regional relay, not listed in the public schedule. One courier shrugs when asked. "New logistics arrangement." He doesn't say whose.`;
+        G.lastResult = `The courier circuit has new routing marks chalked onto the dispatch board this season — an extra stop added between Soreheim and the regional relay, not listed in the public schedule posted in wax-sealed print beside it. The chalk is fresh, handwritten, in a cadence that doesn't match the clerk's. One courier shrugs when asked. "New logistics arrangement." He doesn't say whose. He checks his strap, adjusts the weight of his satchel, and leaves through the side gate instead of the main one. The main gate is the shorter route.`;
         addJournal('Communication network reorganization detected', 'evidence', `soreheim-communication-partial-${G.dayCount}`);
       }
 
@@ -484,7 +484,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `In the common housing block, no one eats near the door. Groups of three or more don't stay together after the meal. Anyone who meets your eyes looks away and doesn't look back. The space between people is practiced — wide enough to not be part of whatever conversation you're about to have.`;
         addJournal('Worker suppression confirmed through behavioral patterns', 'evidence', `soreheim-suppression-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Every conversation ends when it reaches a certain threshold. Workers talk freely about weather, quotas, sore backs. Then you ask about objections or organizing and the words stop coming. Not hostility — stoppage. As though that part of the conversation simply doesn't exist.`;
+        G.lastResult = `The meal hall smells of boiled barley and damp wool. Every conversation ends when it reaches a certain threshold. Workers talk freely about weather, quotas, sore backs — a thumbnail split under a chisel edge, a leaking bootseam — the ordinary griefs that make a day's labor sayable. Then you ask about objections or organizing and the words stop coming. Not hostility — stoppage. As though that part of the conversation simply doesn't exist. A man across the table reaches for the salt crock instead of answering, and holds it a little too long.`;
         addJournal('Worker suppression suspected but mechanisms not yet documented', 'evidence', `soreheim-suppression-unclear-${G.dayCount}`);
       }
 
@@ -513,7 +513,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival analysis revealed systematic worker vulnerability weaponization', 'evidence', `soreheim-survival-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A labor administrator catches up to you at the end of the housing block. "Documenting workforce precarity without authorization violates operational security policy." She hands you a printed notice. The notice was already printed. It has today's date on it.`;
+        G.lastResult = `A labor administrator catches up to you at the end of the housing block — a woman with ink-blackened knuckles and a leather document case worn smooth at the corners. "Documenting workforce precarity without authorization violates operational security policy." She hands you a printed notice. The paper smells faintly of the pressroom's lampblack. The notice was already printed. It has today's date on it. She waits while you read, weight on one heel, then collects the copy back and files it in the case without writing anything. Your name wasn't needed. The notice wasn't issued to you. It was shown.`;
         G.worldClocks.pressure++;
         addJournal('Management prohibited further worker vulnerability analysis', 'complication', `soreheim-survival-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -553,10 +553,10 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Management aware of narrative structure analysis', 'complication', `soreheim-narrative-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The three different posted notices about quota changes all end the same way: "per Alliance operational standards." They were written by different people — the handwriting varies — but the closing phrase is identical in all three. Someone gave them that phrase to use.`;
+        G.lastResult = `The three different posted notices about quota changes hang side by side on the administration hall's pinboard, each stamped and dated within the last two weeks. They all end the same way: "per Alliance operational standards." The handwriting varies — one hand is slanted, one upright, one pressed hard enough to cut the paper — but the closing phrase is identical in all three, down to the dash and the spacing before "standards." Someone gave them that phrase to use. The pinboard's older notices, underneath, close with different language. The change came together.`;
         addJournal('Official narrative structured justification confirmed', 'evidence', `soreheim-narrative-structured-${G.dayCount}`);
       } else {
-        G.lastResult = `The administration office has a printed language guide on the front counter — approved terminology for shift supervisors when discussing quota targets with workers. It's a small thing, a laminated card. It is not a small thing.`;
+        G.lastResult = `The administration office has a printed language guide on the front counter — a laminated card, finger-smudged at the edges from daily handling. Approved terminology for shift supervisors when discussing quota targets with workers. Three phrases on one side, three on the other; each with an annotation indicating what the older phrasing used to be. "Layoff" has been replaced with "transition allocation." "Deadline" with "compliance window." It's a small thing, a card. It is not a small thing. The supervisor on duty sees you reading it and turns the card face-down.`;
         addJournal('Narrative structure analysis incomplete without management documents', 'evidence', `soreheim-narrative-blocked-${G.dayCount}`);
       }
 

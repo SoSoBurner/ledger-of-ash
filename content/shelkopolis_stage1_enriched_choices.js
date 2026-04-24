@@ -182,7 +182,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shrine worker revealed systematic blessing degradation', 'evidence', `shelkopolis-blessing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sister Velda gives you an hour. Renewal cycles, protection radius, the seasonal cadence of blessings going back thirty years — she recites it with the confidence of someone who has said it many times. The wax smell of the chapel floor and the warmth of the candles make the morning pass quickly. It's only outside, in the coal-smoke of the street, that you realize: every figure she cited matched the documentation from three years ago. The shrine fed you its archived baseline. The morning is gone.`;
+        G.lastResult = `Sister Velda gives you an hour. Renewal cycles, protection radius, the seasonal cadence of blessings going back thirty years — she recites it with the confidence of someone who has said it many times. The wax smell of the chapel floor and the warmth of the candles make the morning pass quickly. It's only outside, in the coal-smoke of the street, that the figures settle into place: every one she cited matched the documentation from three years ago. The shrine fed you its archived baseline. The morning is gone.`;
         G.worldClocks.reverence++;
         addJournal('Shrine fed false baseline data — wasted morning, window lost', 'complication', `shelkopolis-shrine-hostile-${G.dayCount}`);
       } else {
@@ -356,7 +356,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The supply logs open to the autumn columns. Several transfer entries are marked "approved redistribution" with no destination listed — just a reference number that doesn't match any warehouse in the standard registry. The coal-smoke smell of the garrison office hangs flat in the air while you copy the reference numbers down. They mean something to someone. The entry above the last transfer is dated the fourteenth; the transfer itself is dated the ninth.`;
         addJournal('Supply logs show signs of deliberate obfuscation', 'evidence', `shelkopolis-supply-obfuscated-${G.dayCount}`);
       } else {
-        G.lastResult = `The quartermaster recites the access policy without looking up: garrison officers only, countersigned request, three-day processing. He's not hostile. He's a wall shaped like a man doing his job.`;
+        G.lastResult = `The quartermaster's office smells of oiled steel and old leather strapping. He recites the access policy without looking up from the inventory sheet under his forearm: garrison officers only, countersigned request, three-day processing. The pen continues down the column while he speaks, marking tallies in a rhythm that does not break for the question. He's not hostile. He's a wall shaped like a man doing his job. Above his desk, a row of ring keys hangs on hooks. One is missing from its peg. The peg has no dust on it.`;
         addJournal('Supply logs blocked without military authorization', 'evidence', `shelkopolis-supply-blocked-${G.dayCount}`);
       }
 
@@ -392,7 +392,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The ward coverage isn't uniform anymore. Trade routes and market squares run thin; the administrative buildings hold the old density. The redistribution is recent — the seam where old coverage ends and new begins still carries the faint residue of a deliberate cut. Someone rerouted the protection, and the city's merchants are on the unguarded side of that line.`;
         addJournal('Magic analysis noted uneven ward redistribution pattern', 'evidence', `shelkopolis-wards-uneven-${G.dayCount}`);
       } else {
-        G.lastResult = `The ward structure is legible in outline but not in detail. Something has changed in the layering — the signatures don't match the chapel's public records of what should be here. The specifics stay just past your reach.`;
+        G.lastResult = `Fresh wax marks dot the stone at the base of the harbor wall — ward renewals, laid in the last few days. The ward structure is legible in outline but not in detail. The resonance runs wrong at the outer trace: wider than the public chapel records specify, thinner in the zones that should hold densest. Something has changed in the layering — the signatures don't match the chapel's public records of what should be here. The specifics stay just past reach. Whoever relaid these knew more than the records publish, and didn't mind the difference showing.`;
         addJournal('Ward modifications detected but details unclear', 'evidence', `shelkopolis-wards-unclear-${G.dayCount}`);
       }
 
@@ -428,7 +428,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The formula pages Velda allows you to see show minor ratio variations — small enough to be transcription drift, specific enough to feel intentional. Without an archived copy from two years prior, you cannot prove which it is. The chapel smells of wax and old incense and provides no further access today.`;
         addJournal('Ritual formulas show signs of modification', 'evidence', `shelkopolis-ritual-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `The formulas are available but dense — layered in shrine notation that takes years to read fluently. Something in the component columns sits wrong, but the specifics stay behind the language barrier.`;
+        G.lastResult = `The ritual book's binding smells of beeswax and incense-oiled leather. Velda turns pages with the care of someone handling a testament. The formulas are available but dense — layered in shrine notation that takes years to read fluently, each ingredient listed in a symbol stack that stands for dose, purification state, and invocation order. Something in the component columns sits wrong, a recurring adjustment in the third mark of each entry, but the specifics stay behind the language barrier. Velda watches which pages are studied. She says nothing. When the book closes, she rests both hands on the cover.`;
         addJournal('Ritual access granted but formulas too complex to analyze', 'evidence', `shelkopolis-ritual-complex-${G.dayCount}`);
       }
 
@@ -461,7 +461,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Your covert movement reported to patrol command', 'complication', `shelkopolis-route-caught-${G.dayCount}`);
       } else {
-        G.lastResult = `Two passages through the tannery district that used to cut clean are partially blocked — recent stonework, no signage. You find alternate lines, but they're longer and exposed. The city's quiet routes are getting narrower.`;
+        G.lastResult = `The tannery district carries its particular sharpness — lye and wet hide, river silt under the drainage grates. Two passages that used to cut clean are partially blocked, fresh stonework with the mortar still pale at the seams. No posted signage, no guild mark to name who ordered the work. Alternate lines exist, but they're longer and run past the patrol rotation's sightlines. The city's quiet routes are getting narrower, and the work has been done at a pace that suggests the closures came to the masons as a single order, not a sequence of separate jobs.`;
         addJournal('Stealth mapping confirmed recent route restrictions', 'evidence', `shelkopolis-routes-restricted-${G.dayCount}`);
       }
 
@@ -497,7 +497,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two informants confirm things have shifted — shorter answers, more glances toward doorways. One says he stopped carrying certain information "about a month ago." He doesn't say why. The network is still running. It's just running with topics removed, like a market where certain stalls are always covered.`;
         addJournal('Information network confirmed to be operating under constraint', 'evidence', `shelkopolis-info-constrained-${G.dayCount}`);
       } else {
-        G.lastResult = `The street's available but not open. Informants greet you and say nothing useful. You haven't earned the currency that unlocks this layer yet.`;
+        G.lastResult = `The market's edge hums with its usual commerce — fish-salt from the harbor stalls, copper clang from the tinsmith's row. The street's available but not open. Two informants greet you with the practiced warmth of people who know your face and nothing about you, offer weather talk, a joke about last season's grain, a blessing from Silkweaver's. They give nothing that names a name, nothing that closes a thread. The currency that unlocks this layer hasn't been earned yet. One of them nods past your shoulder — a signal, small — and a third walks past without stopping.`;
         addJournal('Information network inaccessible without deeper trust', 'evidence', `shelkopolis-info-blocked-${G.dayCount}`);
       }
 
@@ -566,7 +566,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `A chandler mentions a partnership that dissolved last season — "trust issues," he says, and goes quiet. A tailor's apprentice says her master stopped attending the guild dinners. Two people in the same morning use the same phrase: "I don't know who to believe anymore." The fractures are real. The sources stay unnamed.`;
         addJournal('Widespread trust degradation confirmed by citizen accounts', 'evidence', `shelkopolis-trust-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `People are cordial and closed. The shape of the fear is clear from the outside — shorter answers, careful topics, eyes that track doorways. The specific injuries stay private.`;
+        G.lastResult = `At the Amber Fountain's bench, two chandlers share a jug but not a conversation, each drinking at their own pace. People are cordial and closed. The shape of the fear is clear from the outside — shorter answers, careful topics, eyes that track doorways at intervals too regular to be accidental. A cloth merchant greets a neighbor by trade and not by name. The specific injuries stay private. Whatever was done to each person here was done privately, and the repair, if it comes, will be the same way — one household at a time, with no one watching who would recognize the pattern.`;
         addJournal('Distrust sensed but not fully documented', 'evidence', `shelkopolis-trust-unclear-${G.dayCount}`);
       }
 
@@ -628,7 +628,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The garrison timeline and the chapel ledger dates don't match by accident — they overlap in a way that requires the same decision-maker. You can't prove coordination from these documents alone, but the question has shifted from whether something is wrong to who made it wrong.`;
         addJournal('Compelling contradiction evidence found', 'evidence', `shelkopolis-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The documents are suggestive but not conclusive. Each anomaly has a plausible separate explanation. The pattern you're looking for is there in outline, and the outline isn't enough yet.`;
+        G.lastResult = `The registry table smells of tallow and dry paper. The documents spread across it are suggestive but not conclusive. Garrison orders, chapel ledger pages, trade manifest copies — each anomaly has a plausible separate explanation, a benign procedural reason why this date is wrong, why that entry lacks a signature, why the third folio is shorter than the others. The pattern is there in outline: overlap too precise for chance, silences too exact to be neglect. The outline isn't enough yet. One lamp sputters and steadies. The ink on the newest copy is still drying at the margin.`;
         addJournal('Evidence fragments found but incomplete', 'evidence', `shelkopolis-proof-incomplete-${G.dayCount}`);
       }
 
@@ -695,10 +695,10 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Operators moved to intercept — they know which alcove you were heading for', 'complication', `shelkopolis-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The sealed letters reference northern intermediaries by role, not name. The language is trade tongue — formal, transactional, stripped of personal detail. Someone outside Shelkopolis is running these instructions inward. The city is a destination, not a source. The thread leads north.`;
+        G.lastResult = `The chapel alcove is cool, stone-walled, lit by a single votive at the far end. The sealed letters reference northern intermediaries by role, not name — "the broker," "the keeper," "the watch-hand" — titles that travel without a face attached. The language is trade tongue: formal, transactional, stripped of personal detail. Someone outside Shelkopolis is running these instructions inward. The city is a destination, not a source. The thread leads north. The wax on each seal carries the same impressed pattern — a concentric ring with a single break at the top, small enough that a casual eye passes over it.`;
         addJournal('External coordination of Shelkopolis conspiracy confirmed', 'discovery', `shelkopolis-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `The evidence points outward but not to anything specific. Northern trade references, coded timing, a cipher you can't break without a key you don't have. The origin is beyond what this pass yields.`;
+        G.lastResult = `The collected fragments spread across the lodging table in the lamplight — sealed letter extracts copied by hand, ledger gap dates, a handful of wax shards lifted from the chapel alcove floor. The evidence points outward but not to anything specific. Northern trade references, coded timing, a cipher that holds shape without yielding sound. Breaking it would take a key that hasn't surfaced: a named sender, a matched seal registry, a courier willing to talk. The origin is beyond what this pass yields. The shards rest in their cloth. They smell faintly of rosin and bees.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `shelkopolis-origin-unclear-${G.dayCount}`);
       }
 
@@ -726,9 +726,9 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Letters confirmed as operational directives — chapel is command channel', 'evidence', `shelk-crossref-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The registry volumes you need have been transferred to secure storage — a routine audit procedure, the clerk explains pleasantly. The timing is not routine. Someone moved the records before you arrived, which means someone knew you were coming to look at them.`;
+        G.lastResult = `The registry room smells of wax polish and the dryness of pressed parchment. The volumes you came for sit nowhere on the public shelves; the clerk gestures toward a locked side room. They've been transferred to secure storage — a routine audit procedure, she explains pleasantly, with the particular warmth of a polished refusal. The timing is not routine. Someone moved the records before you arrived, which means someone knew you were coming to look at them. The clerk returns to her work. Her pen continues without pause. She has been expecting you for at least a day.`;
       } else {
-        G.lastResult = `The dates align more than chance allows — letter deposits cluster just before supply shifts in three separate commodities. It isn't proof yet, but it narrows the window for coincidence considerably.`;
+        G.lastResult = `The cross-reference sits on the lodging table in three columns — letter deposit dates, supply shift dates, commodity code. The dates align more than chance allows. Letter deposits cluster just before supply shifts in three separate commodities: silkwood, dyed thread, finished bolts. The offset is consistent — two days, each time, the same margin that Brother Aldwin named at the chapel. It isn't proof yet, but the window for coincidence has narrowed considerably. The pages still smell of fresh ink. The lamp beside them burns steady, and the night outside is quiet.`;
         addJournal('Coordination pattern suggestive but inconclusive', 'evidence', `shelk-crossref-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -893,7 +893,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.investigationProgress++;
         addJournal('Glasswake moss orders tracked — resonance precursor moving through Verdant Row', 'evidence', `shelk-botanical-${G.dayCount}`);
       } else {
-        G.lastResult = `The herbalist mentions unusual order volumes in passing, then pulls back. She'll say more to someone she knows better. The trust isn't there yet, and she's not going to be pushed into it.`;
+        G.lastResult = `The herbalist's shop smells of dried bark and crushed lavender. Rows of labeled glass jars run the length of the back wall, each with a hand-written tag. The owner mentions unusual order volumes in passing — a word about northern buyers, a vague shrug toward a full shelf of glasswake — then pulls back, rearranges two jars that don't need rearranging, checks a tag already correct. She'll say more to someone she knows better. The trust isn't there yet, and she's not going to be pushed into it. The shop bell rings behind you. Another customer enters. The conversation is over.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -916,7 +916,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `A novice steps out of the chapel side door and looks directly at you — not surprised, not alarmed. Just noting. The letter alcove window goes dark within the hour. Three days pass with no deposits at all. The network didn't panic. It simply paused and waited for you to move on.`;
       } else {
-        G.lastResult = `The deposit count has edged up — one extra per week, nothing dramatic. The chapel routine looks unchanged from the street. Whatever the network registered about increased attention in Shelkopolis, it's absorbing it without breaking stride.`;
+        G.lastResult = `From the bench across from Silkweaver's Chapel, the deposit window is visible without being obvious — a slot in the alcove stone, wax-shadowed at the edges. The count has edged up over the last week: one extra deposit, nothing dramatic, nothing that would catch an idle eye. The chapel routine looks unchanged from the street. Novices trim the outer lamps at the posted hour. The morning blessings still ring at the posted times. Whatever the network registered about increased attention in Shelkopolis, it's absorbing it without breaking stride. That discipline is itself a signature.`;
         addJournal('Letter frequency increased — general alertness elevated', 'evidence', `shelk-monitor-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

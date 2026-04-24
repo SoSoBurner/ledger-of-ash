@@ -33,7 +33,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Arbitrator now protective of guild confidentiality', 'complication', `guildheart-arbitrator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Kesh straightens a stack of rulings that doesn't need straightening. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." A pause. "Not every merchant reads the terms they file under." He answers the question you asked. He doesn't answer the question you meant.`;
+        G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." A pause. "Not every merchant reads the terms they file under." He answers the question you asked. He doesn't answer the question you meant. Behind him, the shelf of closed dispute folios sits in chronological order — and three of the spines in the last row are new.`;
         addJournal('Arbitrator confirmed disputed resolution outcomes', 'evidence', `guildheart-arbitrator-pressure-${G.dayCount}`);
       }
 
@@ -66,10 +66,10 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Merchant representative spreading suspicion about your motives', 'complication', `guildheart-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Ilya handles the pages carefully, like they might be different from what she last read them as. "Terms shift. Notification doesn't always follow." She won't say more than that. Her caliper hangs from her belt, unused. She keeps reaching for it.`;
+        G.lastResult = `The loading yard is busy behind Ilya — cart wheels on wet flagstone, a cooper calling for a hand. Ilya handles the pages of her folder carefully, like they might be different from what she last read them as, turning each one flat rather than flipping it. "Terms shift. Notification doesn't always follow." She won't say more than that. Her brass caliper hangs from her belt, unused all morning. She keeps reaching for it, catches herself, lets her hand drop. The movement is a small nervous tic she hasn't fully noticed she's developed.`;
         addJournal('Merchant confirmed trade agreement ambiguity', 'evidence', `guildheart-merchant-unclear-${G.dayCount}`);
       } else {
-        G.lastResult = `Ilya's hand stays flat on the folder. "Guild contract details are Category One. You'd need a registered review authority." She says it without looking up. The cart moves. The conversation doesn't continue.`;
+        G.lastResult = `Ilya's hand stays flat on the folder, palm down, covering the top page so that nothing is visible to a passing eye. The loading cart behind her creaks as a cooper shifts a barrel. "Guild contract details are Category One. You'd need a registered review authority." She says it without looking up. The words come out practiced — in the cadence of a clerk reading a posted policy rather than in her own voice. The cart moves. The conversation doesn't continue. A second merchant two stalls over has already turned back to his own accounts, but his pen has stopped moving.`;
         addJournal('Trade agreements blocked without formal guild authorization', 'evidence', `guildheart-merchant-blocked-${G.dayCount}`);
       }
 
@@ -101,7 +101,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Noren turns to face the shelving behind him and begins re-counting a row of filed records that doesn't need counting. "Quality control procedures are internal to the department. Unregistered inquiry goes through the arbiter's office." He counts aloud until you leave. The department door closes before you reach the walkway.`;
         addJournal('Quality inspector refuses future inquiry', 'complication', `guildheart-inspector-silent-${G.dayCount}`);
       } else {
-        G.lastResult = `Noren rubs chalk dust off his fingers before speaking. "Consistency requires standardized conditions. Not every lot presents the same." He gestures at the stacked crates along the wall — different marks, different hands. "Application is contextual." He doesn't say whose context determines the outcome.`;
+        G.lastResult = `The inspection bay smells of tally-chalk and splinter-wood from broken crate lids. Noren rubs chalk dust off his fingers before speaking, brushing the residue onto the side of his leather apron. "Consistency requires standardized conditions. Not every lot presents the same." He gestures at the stacked crates along the wall — different marks, different hands, different waxes at the seals. "Application is contextual." He doesn't say whose context determines the outcome. The caliper he uses for official measurements sits on his workbench, not in its case. He hasn't closed it between the last two inspections.`;
         addJournal('Inspector confirmed inconsistent quality enforcement', 'evidence', `guildheart-inspector-inconsistent-${G.dayCount}`);
       }
 
@@ -134,10 +134,10 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Hall keeper now wary of your presence', 'complication', `guildheart-hall-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Emry marks something in the register before answering. "Processing times have extended. Review criteria are more thorough." She taps the page. "Done right takes longer than filed correctly." She doesn't elaborate on which one the current process is.`;
+        G.lastResult = `The hall keeper's counter is worn smooth from decades of hand-passed paperwork, the wood darkened in the exact places where applicants rest their forearms. Emry marks something in the register before answering, the pen's nib scratching once, twice, against the weave. "Processing times have extended. Review criteria are more thorough." She taps the page. "Done right takes longer than filed correctly." She doesn't elaborate on which one the current process is. The small brass bell on the counter sits inverted. Someone placed it that way. She hasn't turned it back.`;
         addJournal('Hall keeper confirmed recent membership policy changes', 'evidence', `guildheart-hall-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Emry keeps her eyes on the register. "Membership determinations are internal administrative procedure. Inquiry requires standing." She writes something — not your name, something already on the page. The counter between you stays clear.`;
+        G.lastResult = `Emry keeps her eyes on the register. The lamp above the counter casts her shadow long across the page, and her hand moves without pausing. "Membership determinations are internal administrative procedure. Inquiry requires standing." She writes something — not your name, something already on the page that she re-inks as though it had faded. The counter between you stays clear. A second clerk at the far desk has stopped working entirely, pen held an inch above a form. He resumes only when you turn toward the door, and the sound of his writing is loud in the silence.`;
         addJournal('Membership policy information blocked without formal request', 'evidence', `guildheart-hall-blocked-${G.dayCount}`);
       }
 
@@ -173,7 +173,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. "Entries get corrected," he says. "Forms go missing. It happens." He doesn't look at the entries while he says it.`;
         addJournal('Guild records show signs of alteration', 'evidence', `guildheart-ledger-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Toren's hand stays on the ledger binding. "Primary financial records — Leadership-Restricted, Category One." He writes something in a side log. "Authorization request takes eight to twelve working days. I can give you the form." He offers the form without standing up.`;
+        G.lastResult = `Toren's hand stays on the ledger binding, index finger through the cord loop that keeps the cover closed when unattended. The financial office smells of iron-gall ink and the beeswax coating on the ledger's leather. "Primary financial records — Leadership-Restricted, Category One." He writes something in a side log without looking at what he's writing. "Authorization request takes eight to twelve working days. I can give you the form." He offers the form without standing up, sliding it across the desk with the same hand that held the binding a moment before.`;
         addJournal('Guild financial records blocked without leadership authorization', 'evidence', `guildheart-ledger-blocked-${G.dayCount}`);
       }
 
@@ -206,7 +206,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Warehouse brokers warned about your inquiry', 'complication', `guildheart-broker-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The broker counts something on their abacus while answering. "Routes adjust to conditions. Charter holds extend timelines." The abacus doesn't move. "Logistics don't always match the schedule." They answer with the category before the thing, and neither answer is what you asked.`;
+        G.lastResult = `The warehouse yard echoes with cart-wheel and the call-out of loading teams. The broker stands behind a standing desk, counting something on their abacus while answering. "Routes adjust to conditions. Charter holds extend timelines." The abacus doesn't move; the beads are already in the position they were in when the conversation started. "Logistics don't always match the schedule." They answer with the category before the thing, and neither answer is what was asked. Behind them, a loader pauses with a crate half-lifted, listening, then remembers the work and carries the crate through to Bay Seven without being directed.`;
         addJournal('Broker confirmed non-standard merchandise movements', 'evidence', `guildheart-broker-evasive-${G.dayCount}`);
       }
 
@@ -239,7 +239,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Initiation overseer banned further membership questions', 'complication', `guildheart-initiation-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Drell checks the time before answering. "Requirements were updated to reflect current guild scope. More comprehensive than the prior version." He taps the binder cover. "Expansion is appropriate when the guild expands." The word comprehensive carries more weight than anything else he says.`;
+        G.lastResult = `The initiation chamber is a small room off the main hall, lined with bound oath texts and the smell of old leather. Drell checks the time on the wall clock before answering, as though the conversation has a scheduled endpoint. "Requirements were updated to reflect current guild scope. More comprehensive than the prior version." He taps the binder cover. "Expansion is appropriate when the guild expands." The word comprehensive carries more weight than anything else he says. The binder's spine shows two bindings: the original and a newer one, sewn over. The stitching is recent.`;
         addJournal('Initiation overseer confirmed recent membership requirement changes', 'evidence', `guildheart-initiation-expanded-${G.dayCount}`);
       } else {
         G.lastResult = `Drell meets your question with a practiced pause. "Ceremony records are guild confidential. Initiation protocol doesn't accommodate outside review." He gestures at the plaster wall behind him — where the old Artificers' wing seam is still visible. "Some things here go back further than current membership. That's not my department."`;
@@ -382,7 +382,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Guild monitoring alerted to information flow tracking', 'complication', `guildheart-information-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Two merchants tell the same story about a recent dispute resolution with the same phrasing — "appropriate to the circumstances." They don't know each other's stalls. The phrase is too specific to be coincidence. Something prepared the story before it reached either of them.`;
+        G.lastResult = `At opposite ends of the merchant quarter — one near the east gate, one near the warehouse row — two merchants tell the same story about a recent dispute resolution with the same phrasing: "appropriate to the circumstances." They don't know each other's stalls, don't share a factor, don't move the same kinds of goods. The phrase is too specific to be coincidence, too uniform in delivery to be street repetition. Something prepared the story before it reached either of them. Both merchants glance at the guild hall while they speak; neither mentions they did.`;
         addJournal('Information control modifications detected', 'evidence', `guildheart-information-partial-${G.dayCount}`);
       }
 
@@ -418,7 +418,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three merchants lower their voices before they answer the same question. All three glance at the same door before speaking — the hall's east corridor, where the arbitration office sits. They don't coordinate it. The direction is instinctive. Whatever enforcement runs through that door, they already know its range.`;
         addJournal('Merchant intimidation confirmed through behavioral patterns', 'evidence', `guildheart-coercion-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Merchants stop mid-sentence when other merchants pass. Conversations resume when the walkway clears. Nobody explains why. The pauses tell you the threat is real. The resumptions tell you nobody trusts the empty air yet either.`;
+        G.lastResult = `The covered walkway is long enough that a person's approach is visible thirty paces before they arrive, and the stalls along it have learned to use that visibility. Merchants stop mid-sentence when other merchants pass. Conversations resume when the walkway clears. Nobody explains why. The pauses tell the shape of the threat — it can be triggered by witnesses, so witnesses are to be removed before speaking. The resumptions say that even empty air has not earned the trust the square used to extend freely. One factor at the end of the row watches her own hands as she talks, not your face.`;
         addJournal('Coercion suspected but specific mechanisms not yet documented', 'evidence', `guildheart-coercion-unclear-${G.dayCount}`);
       }
 
@@ -487,7 +487,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `A factor mentions that two merchants who used to share a cart now ship separately. More expensive. Less efficient. "They had a disagreement about fees." Her tone makes it clear she doesn't believe the explanation she's giving. The cart is still parked between their stalls. Neither one claims it now.`;
         addJournal('Institutional trust erosion confirmed through merchant interviews', 'evidence', `guildheart-trust-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Merchants answer your questions about the guild politely and without length. The answers don't close — they stop. There's a difference. Closed answers have an endpoint. These just end, mid-thought, at the moment before anything specific.`;
+        G.lastResult = `The merchant quarter operates at its ordinary afternoon pace — cart wheels on stone, bargaining at the cloth stalls, a cooper's hammer working a barrel across the yard. Merchants answer questions about the guild politely and without length. The answers don't close — they stop. There's a difference. Closed answers have an endpoint, a concluding phrase, a wrap of politeness. These just end, mid-thought, at the moment before anything specific. Speakers find something to look at on the ground, on a passing cart, on their own hands. They return their attention to their work before the silence can be named.`;
         addJournal('Institutional trust concerns detected but incompletely documented', 'evidence', `guildheart-trust-unclear-${G.dayCount}`);
       }
 
@@ -559,7 +559,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The rulings board lists outcomes but not deliberation records. The standard guild process requires a three-party review notation. None of the last nine rulings carry the notation. They were decided by a single authority signature. When that authority is the arbitrator, the process requires a second signature. The second signature line is blank on eight of nine.`;
         addJournal('Decision structure opacity confirmed', 'evidence', `guildheart-opacity-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `The decision board is current. The posted process document is two years old. Whether they still match isn't something the board makes clear — it posts outcomes, not process. The gap between them is the question, and the board doesn't answer it.`;
+        G.lastResult = `The guild hall's decision board hangs under the east window, afternoon light angling across its pinned notices. The decision board is current; new rulings appear weekly, clean print, clean stamps. The posted process document — framed in oak above the board, behind smudged glass — is two years old. Whether they still match isn't something the board makes clear. It posts outcomes, not process. The gap between them is the question, and the board doesn't answer it. A clerk passes, replaces a thumbtack that had come loose, and continues without reading anything pinned to the board.`;
         addJournal('Decision opacity analysis incomplete without internal access', 'evidence', `guildheart-opacity-blocked-${G.dayCount}`);
       }
 
@@ -645,7 +645,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Seven rulings in nine weeks cite the same procedural category for their basis — "coordinating directive." Individually, each ruling looks standard. Together, the pattern is a column: same category, same outcome type, same week-of-month timing. Either the guild developed a remarkably consistent case distribution, or someone is scheduling the outcomes and the cases follow.`;
         addJournal('Arbitration coordination strongly suggested by ruling pattern', 'evidence', `guildheart-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The public rulings record is complete and unremarkable. The coordination, if it's there, runs through documents you don't have standing to access — internal deliberation notes, pre-hearing correspondence, originating directives. The public record was designed to be reviewed. What's behind it wasn't.`;
+        G.lastResult = `The public rulings record fills three bound volumes on the archive's reading table — entries dated, stamped, alphabetized, cross-referenced to the disputed parties. The record is complete and unremarkable. Every procedural mark is where it should be. The coordination, if it's there, runs through documents no outsider has standing to access: internal deliberation notes, pre-hearing correspondence, originating directives filed elsewhere. The public record was designed to be reviewed. What's behind it wasn't. The archive clerk watches from across the room and doesn't interrupt. She doesn't need to. The volumes say everything they were meant to say.`;
         addJournal('Arbitration proof incomplete without internal correspondence access', 'evidence', `guildheart-proof-incomplete-${G.dayCount}`);
       }
 
@@ -774,7 +774,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       } else if (result.total >= 11) {
         G.lastResult = `The arbiter takes a seat at the back of a tavern on the east side and stays for twenty minutes. No drink ordered, no visible conversation. The seat faces the rear entrance. When he leaves, the tavern keeper wipes the table immediately — before other patrons have cleared nearby seats. The table wasn't empty long enough for a natural cleaning rotation.`;
       } else {
-        G.lastResult = `The arbiter walks home. Steady pace, no detours, no secondary stops. Either tonight wasn't the night, or the route is a clean one used specifically when surveillance is expected. The tail produced nothing — and nothing is its own kind of result.`;
+        G.lastResult = `The lamp-lit streets of Guildheart thin out toward the residential quarter, and the arbiter walks them without glancing back. Steady pace, no detours, no secondary stops. The route cuts through the merchant square, past the east annexe gate, and straight to his posted residence. Either tonight wasn't the night, or the route is a clean one used specifically when surveillance is expected — a walk shaped for being observed without producing anything. The tail produced nothing. Nothing is its own kind of result, and the shape of this nothing is practiced. He's done this walk knowing it was watched before.`;
         if (!G.worldClocks) G.worldClocks = {};
         // No penalty — stealth fails shouldn't always punish
       }
