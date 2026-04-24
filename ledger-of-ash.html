@@ -9312,6 +9312,15 @@ function addNarration(label, html, resultType) {
   scrollNarrative();
 }
 
+// Cross-faction tension modifier — appends reactive NPC subtext when faction flags are set
+function applyTensionModifier(npcRole) {
+  var tensions = {
+    collegium_any: G.flags.stage2_faction_shadowhands ? " Her eyes settle on you a beat longer than the question warrants. \"Your name has come through channels we don't control.\" She writes nothing down." : '',
+    warden_any: G.flags.stage2_faction_red_hood ? " He doesn't offer his hand. \"You've been seen in the wrong company. Make that less visible.\"" : ''
+  };
+  return tensions[npcRole] || '';
+}
+
 // Stage-aware arrival choices after travel — replaces hardcoded generic three
 /** Wraps enriched choice fn() in try/catch — errors are silently swallowed. Missing G defaults are the #1 cause of silent failures. @param {Object} c — enriched choice object @returns {Object} standard choice */
 function adaptEnrichedChoice(c) {
