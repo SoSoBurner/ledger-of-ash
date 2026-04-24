@@ -10428,7 +10428,11 @@ window.checkNeutralArcScene = checkNeutralArcScene;
 
 /** @returns {boolean} true when: stage2_climax_complete + stage2_faction_contact_made + investigationProgress>=10 */
 function canAdvanceToStage3() {
-  return false; // Stage 3 not part of V1.0 release
+  // Future gate conditions (not yet active):
+  // G.flags.stage2_climax_complete &&
+  // G.flags.stage2_faction_contact_made &&
+  // G.investigationProgress >= 10
+  return false;
 }
 
 function driftNomdara() {

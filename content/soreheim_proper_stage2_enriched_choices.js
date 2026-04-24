@@ -15,10 +15,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'examining relic strategy requisitions with Decon Von Reckshem');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
-      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_decon_von_reckshem = true;
@@ -50,9 +46,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'negotiating with Councillor Mordoth Valinheim');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mordoth_valinheim = true;
@@ -84,10 +77,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'confronting Councillor Vorgul Oxtend on military transport passes');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
       const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vorgul_oxtend = true;
@@ -117,9 +106,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'appealing to Councillor Cron Udenine Arbiter of Justice');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cron_udenine = true;
@@ -149,9 +135,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'exposing Northern Ambition funding dependencies');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_roth_udenine = true;
@@ -180,8 +163,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       var roll = rollD20('lore', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.met_lyria_firesoul = true;
@@ -201,8 +182,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       var roll = rollD20('persuasion', G.skills.persuasion);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -221,8 +200,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       var roll = rollD20('stealth', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -246,8 +223,6 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation. More is needed before any formal step holds.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
@@ -301,7 +276,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   // BEAT 3 — Payoff
   {
-    label: "Pull the Station 42 log and put it in Ruven's hands before the muster bell.",
+    label: "Station 42 log is the piece Ruven needs — and it's still in the archive.",
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {

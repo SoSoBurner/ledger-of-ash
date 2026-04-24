@@ -16,15 +16,12 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'accessing Aurora Heights formal archive');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The sealed correspondence includes a letter from a House Shelk subordinate to the Northern Provision Compact confirming delivery terms. The noble registry preserved it without understanding what it was.`;
         addJournal('Aurora Heights archive: House Shelk letter confirms Northern Provision Compact delivery terms', 'evidence', `ah-archive-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Your archive access request is referred upward. House Shelk estate receives notification of your inquiry.`;
         addJournal('Aurora Heights archive inquiry escalated to House Shelk estate', 'complication', `ah-archive-fail-${G.dayCount}`);
@@ -43,8 +40,6 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'working Aurora Heights social circuit for charter intelligence');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -71,15 +66,12 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'locating Ironspool Ward workers who handled container modifications');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A former workshop hand describes the modification work in precise detail: signal-damping insulation panels, chemical seal reinforcement on the container joints, and a specific loading configuration designed to distribute weight evenly across a standard grain convoy arrangement. He was paid double rate and told not to discuss it. He discusses it anyway.`;
         addJournal('Ironspool Ward: worker describes container modification specs — signal damping, grain convoy weight config', 'evidence', `iron-ward-worker-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The worker community is tight. Word that someone is asking about the modification work reaches the wrong ear quickly.`;
         addJournal('Ironspool Ward: modification inquiry reached hostile party', 'complication', `iron-ward-fail-${G.dayCount}`);
@@ -98,8 +90,6 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing suppression compound street leakage in Ironspool Ward');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -153,7 +143,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
 
   // BEAT 3 — Payoff
   {
-    label: "Retrieve the satchel from the confiscation shelf and bring it to Anneth.",
+    label: "The satchel on the confiscation shelf hasn't been signed out properly.",
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
@@ -183,9 +173,6 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing Verdant Row healer exposure documentation');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -211,8 +198,6 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'establishing Verdant Row network contact');
-      if (!G.flags) G.flags = {};
-      if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.verdant_row_contact = true;
@@ -240,8 +225,6 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'intercepting live manifest routing number theft at Granary Steps');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -265,8 +248,6 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'examining Granary Steps ward boundary markers');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       var roll = rollD20('survival', G.skills.survival || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
@@ -289,9 +270,6 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing suppression compound payments in Iron Ledger Ward records');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -317,8 +295,6 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'pressing Guild Arbiter on Iron Ledger Ward claim dates');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       var roll = rollD20('persuasion', G.skills.persuasion || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
@@ -341,15 +317,12 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pursuing withdrawn memorial fraud complaint in Reckoning Quarter');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `You find the complainant. They withdrew under threat of legal action using the sealed charter as a basis for a defamation claim. The original complaint identified specific cargo that had been using their service classification. They kept a copy of the original complaint. They sign a new witness statement.`;
         addJournal('Reckoning Quarter: memorial fraud complainant located — witness statement secured', 'evidence', `rq-complaint-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The complainant has been legally warned against discussing the case. Your approach triggers a formal notification to their legal representative.`;
         addJournal('Reckoning Quarter: complainant legal warning triggered — notification sent to their representative', 'complication', `rq-complaint-fail-${G.dayCount}`);
@@ -368,9 +341,6 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'navigating Reckoning Quarter permit inspector social check');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
-      if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('stealth', G.skills.stealth || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
@@ -394,15 +364,12 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'routing findings through Scriptorium Steps back-channel');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.stage2_evidence_shared = true;
         G.lastResult = `The back-channel routes your documentation to Quenra Quillfire, Toman Iceveil, and Serin Sunweave simultaneously. All three researchers can now cross-reference their independent findings. The scholarly confirmation loop is closed.`;
         addJournal('Scriptorium back-channel: findings cross-distributed to 3 key researchers — scholarly loop closed', 'evidence', `ss-channel-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The back-channel has been compromised. Your routing triggers a notification to whoever is monitoring it.`;
         addJournal('Scriptorium back-channel compromised — routing notification to unknown monitor', 'complication', `ss-channel-fail-${G.dayCount}`);
@@ -426,15 +393,12 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'requesting high quarter charter record access');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The records hall contains a reference to the sealed charter subsidiary in a commercial dispute filing from eight months ago. The filing party withdrew the dispute. The reference remains in the index.`;
         addJournal('High quarter records: sealed charter subsidiary in withdrawn dispute filing', 'evidence', `hq-records-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Your records access request is escalated to local administration. Your name is logged.`;
         addJournal('High quarter records access escalated — name logged', 'complication', `hq-records-fail-${G.dayCount}`);
@@ -453,7 +417,6 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(62, 'working high quarter social circuit for charter intelligence');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -480,7 +443,6 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'gathering market intelligence in common quarter');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -504,7 +466,6 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(56, 'gathering off-contract employer intelligence from common quarter labor');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -531,15 +492,12 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'tapping low ward informant network for compound distribution intel');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `An informant knows the street distribution contact for the diluted compound. They provide a name and location. The street distributor is a direct link to the compound supply chain's overflow management.`;
         addJournal('Low ward informant: street distributor named and located — direct compound supply chain link', 'evidence', `lw-informant-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `The low ward reads your presence as threat-related. An information chain activates that you are not aware of. You've been marked.`;
         addJournal('Low ward: marked by hostile information chain', 'complication', `lw-informant-fail-${G.dayCount}`);
@@ -558,14 +516,12 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'pressing low ward off-books cargo workers');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A worker who loaded the containers describes the internal configuration he glimpsed when one container's seal failed briefly — rows of sealed vials in padded racks, each vial labeled with a dosage notation and a Soreheim military classification stamp.`;
         addJournal('Low ward worker: container interior glimpsed — vials with dosage notations, Soreheim military stamp', 'evidence', `lw-labor-${G.dayCount}`);
       } else if (result.isFumble) {
-        if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Your pressure approach is misread as intimidation. The worker files a street-level complaint that draws local attention.`;
         addJournal('Low ward: intimidation complaint filed, local attention drawn', 'complication', `lw-labor-fail-${G.dayCount}`);

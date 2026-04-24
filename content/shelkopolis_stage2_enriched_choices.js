@@ -16,8 +16,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'investigating sealed letter network');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
@@ -49,8 +47,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'correlating glyph and letter patterns');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -78,8 +74,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'mapping noble faction benefit');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
@@ -109,8 +103,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'handling gathered evidence');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.worldClocks) G.worldClocks = {};
       // Only meaningful when investigation has some progress
       const progress = G.investigationProgress;
       if (progress < 3) {
@@ -120,7 +112,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stage2_evidence_shared = true;
-        if (!G.flags) G.flags = {};
         G.flags.stage2_evidence_shared_crit = true;
         G.worldClocks.omens = (G.worldClocks.omens||0) + 1;
         G.lastResult = `You spread the documents across the table and let the contact read without speaking. They finish, tap one entry, and name a third party you hadn't placed yet — someone who bridges the chapel network and the guild records. They slide the papers back: "Keep going. Carefully." The work is shared now. So is the exposure.`;
@@ -143,8 +134,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'approaching House Shelk matriarch');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
@@ -174,8 +163,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'briefing Roadwarden command');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
@@ -207,8 +194,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'consulting High Priestess on ritual routes');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
@@ -240,9 +225,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'first Warden Order contact');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
-      if (!G.factionHostility) G.factionHostility = {};
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       // Set rival on first encounter
@@ -275,8 +257,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'managing named rival encounter');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       if ((G.worldClocks.rival||0) < 2 && !G.flags.stage2_rival_forced) {
         G.lastResult = `Multiple sources have confirmed the same description: someone asking the same questions, at the same addresses, one day behind your movements. You haven't shared the same room yet. The gap is real but hasn't closed. The moment to act or avoid hasn't arrived — but it's been scheduled by someone else's timeline.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
@@ -313,8 +293,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'Warden recruitment offer');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const arch = G.archetype && G.archetype.group;
       if (arch !== 'combat') {
         G.lastResult = `The invitation is printed on Roadwarden letterhead and addressed with the specific honorifics used for combat-trained candidates. It doesn't quite fit your profile and the recruiter's face confirms that when you arrive. You can acknowledge it formally, receive the courtesy response, and leave the door open without walking through it. That's the full range of what's available to you here.`;
@@ -343,8 +321,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'cathedral archive access attempt');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const arch = G.archetype && G.archetype.group;
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
@@ -374,8 +350,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'learning Verdant Row information protocols');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const arch = G.archetype && G.archetype.group;
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
@@ -406,8 +380,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'facilitating guild audit');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const arch = G.archetype && G.archetype.group;
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
@@ -441,8 +413,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'accessing innkeeper log');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.innkeeper_log = true;
@@ -470,7 +440,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'analyzing glyph surge residue');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -496,8 +465,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'evaluating patrol leader arrangement');
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.investigationProgress) G.investigationProgress = 0;
       const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -525,13 +492,10 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(95, 'tracing to operation authorization');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       if ((G.investigationProgress) < 6) {
         G.lastResult = `The evidence on the table points in a direction but doesn't reach the origin. The authorization chain requires more links before the terminal point becomes visible. The shape of the operation is clear. The name at the top is not.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
         G.investigationProgress += 2;
@@ -638,8 +602,6 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The picture is not complete. The evidence chain has gaps, and presenting it now hands someone an incomplete case they can absorb or redirect. Stage III requires the full picture. More ground to cover before this can move.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       if (result.total >= 14 || result.isCrit) {
         // Path A: institutional backing
