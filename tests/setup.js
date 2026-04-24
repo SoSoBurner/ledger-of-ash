@@ -190,6 +190,7 @@ function createGameContext(gOverrides) {
     getArchetypeFamily:ctx.getArchetypeFamily,
     getActiveCompanions:ctx.getActiveCompanions,
     gainXp:            ctx.gainXp,
+    adaptEnrichedChoice: ctx.adaptEnrichedChoice,
   };
 }
 

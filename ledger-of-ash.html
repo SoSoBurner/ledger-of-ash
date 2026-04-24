@@ -1899,6 +1899,7 @@ input, button, select, textarea { font-family: inherit; }
         <button class="camp-action" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare rations, tools, and materials. Requires Level 2.</div></button>
         <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion. More members improve success.</div></button>
         <button class="camp-action" data-camp="sleep"><div class="ca-icon">&#x263D;</div><div class="ca-title">Sleep</div><div class="ca-desc">Find a place to rest for the night. Settlements offer inn lodging — cheap or comfortable.</div></button>
+        <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
       </div>
       <div class="camp-footer"><button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button></div>
     </div>
@@ -8438,6 +8439,7 @@ function initCreate() {
         nomdara_last_visit_locality:null,
         seenChoices:{},
         startingLocality:'shelkopolis',
+        _campoutPenalty:0, campoutDay:-1,
         trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
         archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
         shopCreditBoost:0, statCap:10,
@@ -9724,12 +9726,26 @@ function useTrait() {
 }
 
 // ── ENRICHED CHOICE HELPERS ───────────────────────────────
+function pickNightEncounterKey() {
+  var region = (window.LOCALITY_MACROREGION && window.LOCALITY_MACROREGION[G.location]) || 'principalities';
+  var pools = {
+    principalities: ['city_thug', 'ratcatcher', 'deserter'],
+    soreheim:       ['border_wolf', 'deserter', 'bandit'],
+    sheresh:        ['marsh_creature', 'swamp_stalker', 'feral_hound'],
+    psanan:         ['plains_predator', 'bandit', 'dust_crawler']
+  };
+  var pool = pools[region] || pools.principalities;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
 function rollD20(skill, bonus) {
   var roll = Math.floor(Math.random() * 20) + 1;
   var penalty = (typeof G !== 'undefined' && G && G._rivalDCPenalty) ? G._rivalDCPenalty : 0;
   // Sleepless fatigue penalty: -1 per consecutive sleepless day, capped at -3
   var sleepless = (typeof G !== 'undefined' && G && G.consecutiveSleepless) ? Math.min(G.consecutiveSleepless, 3) : 0;
-  var total = roll + (bonus || 0) - penalty - sleepless;
+  // Campout penalty: -1 to combat and survival rolls the day after camping outside
+  var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (skill === 'combat' || skill === 'survival')) ? 1 : 0;
+  var total = roll + (bonus || 0) - penalty - sleepless - campoutMod;
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
 
@@ -11171,6 +11187,31 @@ function campAction(type) {
     setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
   } else if (type === 'sleep') {
     doSleepScene();
+  } else if (type === 'campout') {
+    var homeCamp = (typeof getActiveCompanions === 'function') ? getActiveCompanions().find(function(c) {
+      return COMPANION_DEFS[c.id] && COMPANION_DEFS[c.id].locality === G.location;
+    }) : null;
+    if (homeCamp) {
+      var _homeDef = COMPANION_DEFS[homeCamp.id];
+      G.restedWell = true;
+      addNarration('Home Rest', _homeDef.name + ' leads you through familiar streets to a family home — a real bed, warm food, and a night without watches. You sleep properly for the first time in weeks.', 'success');
+      addJournal('Stayed at ' + _homeDef.name + '\'s home. Warm rest, no encounter.', 'discovery');
+      updateHUD(); saveGame();
+      setTimeout(function() { renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]); }, 300);
+    } else {
+      G._campoutPenalty = 1;
+      G.campoutDay = G.dayCount;
+      addNarration('Camp Outside', 'Outside the settlement walls, the night air is cold and close. You make camp in the dark. Something stirs before long.', 'complication');
+      addJournal('Camped outside the settlement. Night encounter followed. Rolls -1 tomorrow.', 'complication');
+      updateHUD(); saveGame();
+      setTimeout(function() {
+        if (typeof enterCombat === 'function') {
+          enterCombat(pickNightEncounterKey(), {
+            context: 'Night outside the settlement — something stirs in the dark.'
+          });
+        }
+      }, 800);
+    }
   }
 }
 
@@ -11232,6 +11273,11 @@ function maybePromptDuskcallSleep() {
 
 /** Main rest handler. Heals HP, clears fatigue, advances day. Companion regen applies here. Calls maybeStageAdvance(). */
 function doSleepScene() {
+  // Clear campout penalty if it has expired (more than 1 day has passed)
+  if (G.campoutDay >= 0 && G.dayCount > G.campoutDay + 1) {
+    G._campoutPenalty = 0;
+    G.campoutDay = -1;
+  }
   // Archetype confirmation beat — first rest after first stage 1 progress
   if (!G.flags.archetype_confirmed && (G.stageProgress && G.stageProgress[1] || 0) >= 1) {
     G.flags.archetype_confirmed = true;
