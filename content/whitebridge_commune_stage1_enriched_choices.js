@@ -49,7 +49,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_bridge_discrepancy = true;
         addJournal('Bridge records: new-moon crossings systematically removed from official registry after filing — alteration professional', 'evidence', `whitebridge-discrepancy-${G.dayCount}`);
       } else {
-        G.lastResult = `The commune registry reads clean — neat columns, consistent hand, nothing struck through or corrected. Without Cadrin's personal log laid alongside it, the deletions leave no trace. The document answers only the questions it hasn't already erased.`;
+        G.lastResult = `The commune registry reads clean — neat columns, consistent hand, nothing struck through or corrected. The crossing station smells of river damp and old ink. Without Cadrin's personal log laid alongside it, the deletions leave no trace: the registry has been amended with a care that accounts for exactly this kind of single-document review. The ink coverage on three new-moon entries is slightly heavier than the surrounding pages, but only slightly, the kind of difference that vanishes under anything less than direct comparison. The document answers only the questions it hasn't already erased.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -101,7 +101,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_staging_area = true;
         addJournal('Midnight cargo staging area found: unmapped private access track with constructed loading area — significant prior investment', 'discovery', `whitebridge-staging-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The road conditions point west — the wheel ruts are consistent with loaded carts, the approach timed to miss the commune's watch rotation. The route threads the gaps between patrol coverage deliberately. Whoever laid it out walked the patrol schedule first.`;
+        G.lastResult = `The road conditions point west — the wheel ruts are deep and consistent with loaded carts, the clay compressed by weight that regular market traffic doesn't carry. The approach timing threads the commune's watch rotation: the gap between the eastern and western patrol circuits is forty minutes. The ruts suggest an operation timed to exactly that window, using exactly that gap, repeatedly. Whoever laid this route out walked the patrol schedule first and built the transit around it. The knowledge required for that isn't available to a casual traveler.`;
       } else {
         G.lastResult = `The shared approach roads carry enough daily cart traffic that individual crossings dissolve into the pattern. A distinctive rut or a specific turning point would separate these carts from the rest — but without that marker, the approach yields nothing usable. There's movement here; there's no way yet to name it.`;
       }
@@ -342,7 +342,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.flags.met_ashe_director = true;
-        G.lastResult = `Ashe lives on the far side of the crossing now, window facing away from the bridge. She pours water for both of you, then keeps her eyes on the window frame while she talks — not looking out, just not looking at you. The inquiry comes up; she answers with the crossing schedule, tidal windows, mortar reviews, warden rotations. Thorough. Patient. None of it touches the closures or the new-moon nights. She refills your cup when it's still half full. It's the second time she's done it without being asked.`;
+        G.lastResult = `Ashe lives on the far side of the crossing now, window facing away from the bridge. She pours water for both of you, then keeps her eyes on the window frame while she talks — not looking out, just not looking at you. You ask about the inquiry she filed. She answers with the crossing schedule: tidal windows, load weight limits, mortar review cycles, warden rotation intervals. The answer is thorough, unhurried, technically accurate, and addresses none of the questions you asked. She speaks at length about bridge maintenance culture. The closures, the new-moon nights, the ghost account that shut her own inquiry — none of it surfaces. She refills your cup when it's still half full. It's the second time she's done it without being asked. The helpfulness is the answer.`;
         addJournal('Former bridge director Ashe: excluded from own jurisdiction by mystery authorization, resigned in protest', 'contact_made', `whitebridge-ashe-${G.dayCount}`);
       } else {
         G.lastResult = `Ashe left Whitebridge two months after handing in her post. A neighboring settlement, across the crossing — close enough that she'd see the bridge lanterns on a clear night if she faced that direction. Nobody at the commune office will say why she left, only that the departure was her choice. She isn't here. Getting to her means crossing the bridge she no longer manages.`;
