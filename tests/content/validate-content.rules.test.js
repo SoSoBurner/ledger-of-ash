@@ -18,6 +18,30 @@ describe('extractResultStrings', () => {
   });
 });
 
+const { checkResultOpener } = require('./validate-content');
+
+describe('checkResultOpener (A3)', () => {
+  test('FAIL: result opens with "Confirms"', () => {
+    expect(checkResultOpener('Confirms the backlog exists and points you toward the third shelf.')).toMatchObject({ level: 'fail' });
+  });
+
+  test('FAIL: result opens with "You learn that"', () => {
+    expect(checkResultOpener('You learn that the shipment was rerouted three days ago.')).toMatchObject({ level: 'fail' });
+  });
+
+  test('FAIL: result opens with "It turns out"', () => {
+    expect(checkResultOpener('It turns out the warden was already watching the gate.')).toMatchObject({ level: 'fail' });
+  });
+
+  test('PASS: result opens with observable action', () => {
+    expect(checkResultOpener('The clerk sets the ledger down and does not look at you.')).toBeNull();
+  });
+
+  test('PASS: result opens with NPC dialogue', () => {
+    expect(checkResultOpener('"You were not expected," she says.')).toBeNull();
+  });
+});
+
 describe('checkResultWordCount (A2 — warn/fail range)', () => {
   test('WARN: result 30-59 words', () => {
     const text = Array(45).fill('word').join(' ');

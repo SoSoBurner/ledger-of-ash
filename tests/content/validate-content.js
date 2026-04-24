@@ -90,6 +90,8 @@ function validateChoice(file, choice) {
       const r = checkResultWordCount(text);
       if (r && r.level === 'fail') fail(file, label, r.msg);
       if (r && r.level === 'warn') warn(file, label, r.msg);
+      const r3 = checkResultOpener(text);
+      if (r3) fail(file, label, r3.msg);
     }
   }
 
@@ -233,6 +235,18 @@ function checkResultWordCount(text) {
   return null;
 }
 
+const SUMMARY_OPENERS = ['confirms', 'acknowledges', 'indicates', 'the result is', 'you learn that', 'it turns out'];
+
+function checkResultOpener(text) {
+  const lower = text.trimStart().toLowerCase();
+  for (const opener of SUMMARY_OPENERS) {
+    if (lower.startsWith(opener)) {
+      return { level: 'fail', msg: `result opens with summary-register phrase: "${opener}"` };
+    }
+  }
+  return null;
+}
+
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener };
