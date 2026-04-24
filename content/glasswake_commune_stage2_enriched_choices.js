@@ -13,9 +13,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'reviewing glasswake shard glyph correlation with Toman Iceveil');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_toman_iceveil = true;
@@ -44,8 +42,6 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'analyzing suppression order contents with Lenna Bannerhold');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
@@ -75,8 +71,8 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'routing Toman Iceveil research through protected publication channel');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.met_toman_iceveil && !G.flags.met_lenna_bannerhold) {
         G.lastResult = `You need to establish contact with both Toman and Lenna before attempting to route the research.`;
@@ -110,9 +106,9 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'tracing timed shard resonance pattern with Toman Iceveil');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.toman_second_meeting = true;
@@ -141,9 +137,9 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reading glyph pressure gradient at the shard formation site');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.shard_site_observed = true;
@@ -172,9 +168,9 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'navigating collective process breach with Lenna Bannerhold');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.lenna_trust_built = true;
@@ -264,7 +260,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;

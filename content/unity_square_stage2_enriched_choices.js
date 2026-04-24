@@ -13,9 +13,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'exposing arrival registry shadow sub-register with Vale Brokerwell');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
@@ -38,14 +36,12 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Vale Ledgermere has mediated disputes between parties that have now appeared in the investigation — the mediation records cross-identify operation participants.",
+    label: "Vale Ledgermere has mediated disputes between parties that have now appeared in the same network — the mediation records cross-identify operation participants.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing mediation participants with Vale Ledgermere');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
@@ -72,8 +68,8 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing suppression exposure symptoms with street physician Vale Tinmarch');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
@@ -102,9 +98,9 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'second shadow ledger discovered via Vale Brokerwell escalation');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.brokerwell_second_ledger = true;
@@ -133,9 +129,9 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing unlogged consignment weight back through loading lane manifests');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.consignment_route_traced = true;
@@ -163,9 +159,9 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'navigating mistaken-identity friction in ward mediation session');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.ward_mediation_friction_resolved = true;
@@ -253,7 +249,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;

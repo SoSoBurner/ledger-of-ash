@@ -13,9 +13,9 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'analyzing northern hazard readings with Letha Dawnsilk');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_letha_dawnsilk = true;
@@ -44,8 +44,8 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'questioning Patrol Leader about unmapped northern structure');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_patrol_leader = true;
@@ -73,8 +73,8 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing traveler accounts at Shrine of Cysur');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
@@ -104,9 +104,9 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'second conversation with Shrine Keeper Cysur');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.cysur_second_meeting = true;
@@ -135,9 +135,9 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'scouting the staging structure guard rotation');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.staging_structure_scouted = true;
@@ -165,9 +165,9 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'navigating Roadwarden checkpoint friction');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.roadwarden_checkpoint_passed = true;
@@ -200,7 +200,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_caravan_driver_osset = true;
         G.investigationProgress++;
         G.stageProgress[2]++;
-        G.lastResult = `The driver — Osset Halvarn, who keeps his private log in a worn oilskin pouch stitched to the underside of his cart bench — opens to a section flagged with a strip of red leather. The first entry describing the structure is fourteen months old: a construction crew of twenty-two, moving in on a road that hadn't existed the previous season. Four entries across the following three months document supply wagons arriving under Soreheim military tarp with Warden Order outriders. The first chemical delivery is described by smell — "sharp, like copper left in rain." The entry is underlined twice.`;
+        G.lastResult = `The driver — Osset Halvarn, who unlatches the bench compartment with a single knuckle-tap before he lifts the lid, as if announcing himself to what's inside — opens his oilskin log to a section flagged with red leather. The first entry describing the structure is fourteen months old: a construction crew of twenty-two, moving in on a road that hadn't existed the previous season. Four entries across the following three months document supply wagons arriving under Soreheim military tarp with Warden Order outriders. The first chemical delivery is described by smell — "sharp, like copper left in rain." The entry is underlined twice.`;
         addJournal('Driver Osset Halvarn log: structure construction 14 months ago, chemical delivery described by smell — Warden Order outriders', 'evidence', `plumes-osset-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -256,7 +256,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;

@@ -13,9 +13,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'investigating special mineral assessment logs with Darian Ironspike');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
@@ -44,8 +42,8 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'investigating worker exposure symptoms with Quarry Overseer Velka Ironspike');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_velka_ironspike = true;
@@ -72,9 +70,9 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'examining special extraction vein during shift handover');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -102,9 +100,9 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'pressing Darian Ironspike at the secondary gate for the second time');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
@@ -134,9 +132,9 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'observing the special assessment section from the ridge during midday break');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -165,9 +163,9 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'navigating a labor-culture dispute at the weighing station');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -254,7 +252,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;

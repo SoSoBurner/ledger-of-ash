@@ -14,9 +14,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing specialty chemical input discrepancies with Jorin Ledgermere');
-      if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
       const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
@@ -45,8 +43,8 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reviewing after-hours workshop observations with Tess Ledgermere');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_tess_ledgermere = true;
@@ -73,8 +71,8 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing falsified formula copy citations with the Copy Warden');
-      if (!G.investigationProgress) G.investigationProgress = 0;
-      if (!G.flags) G.flags = {};
+
+
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
@@ -104,9 +102,9 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing Collegium credit offset with Jorin Ledgermere');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
@@ -135,9 +133,9 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracking ghost workshop crate transfer through service corridor');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.ghost_workshop_crates_witnessed = true;
@@ -165,9 +163,9 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'navigating copy queue dispute at the Copy Bureau');
-      if (!G.investigationProgress) G.investigationProgress = 0;
+
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.copy_bureau_social_standing = true;
@@ -256,7 +254,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags) G.flags = {};
+
       const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
