@@ -1216,6 +1216,20 @@ input, button, select, textarea { font-family: inherit; }
 .pm-status { font-size: 8.8px; color: var(--blood-bright); letter-spacing: 1px; font-family: var(--font-display); }
 
 /* Journal */
+.journal-summary {
+  display: flex;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--ink-faint, #555);
+  text-transform: uppercase;
+  padding: 4px 8px 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 4px;
+}
+.journal-summary span { opacity: 0.8; }
+
 .journal-entry {
   font-family: var(--font-body); font-size: 13px; font-style: normal;
   color: var(--ink-dim); line-height: 1.52; margin-bottom: 5px;
@@ -12518,9 +12532,22 @@ function updateQuestHUD() {
 }
 
 function updateJournalHUD() {
-  const el = document.getElementById('journal-list'); if (!el) return;
-  el.innerHTML = (G.journal||[]).slice(0,6).map(j=>'<div class="journal-entry">'+j+'</div>').join('') ||
-    '<div class="journal-entry">Your ledger awaits its first entry.</div>';
+  var el = document.getElementById('journal-list'); if (!el) return;
+  var records = G.journalRecords || [];
+  var counts = { evidence: 0, intelligence: 0, rumor: 0, discovery: 0 };
+  records.forEach(function(r) { if (counts[r.category] !== undefined) counts[r.category]++; });
+  var total = counts.evidence + counts.intelligence + counts.rumor + counts.discovery;
+  var summaryHtml = total > 0
+    ? '<div class="journal-summary">' +
+        (counts.evidence   ? '<span>' + counts.evidence   + ' ev</span>' : '') +
+        (counts.intelligence ? '<span>' + counts.intelligence + ' int</span>' : '') +
+        (counts.rumor      ? '<span>' + counts.rumor      + ' rum</span>' : '') +
+        (counts.discovery  ? '<span>' + counts.discovery  + ' disc</span>' : '') +
+      '</div>'
+    : '';
+  el.innerHTML = summaryHtml +
+    ((G.journal||[]).slice(0,6).map(j=>'<div class="journal-entry">'+j+'</div>').join('') ||
+    '<div class="journal-entry">Your ledger awaits its first entry.</div>');
 }
 
 function setText(id,val) { const el=document.getElementById(id); if(el) el.innerHTML=String(val); }
