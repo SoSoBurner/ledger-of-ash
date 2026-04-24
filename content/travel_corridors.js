@@ -543,4 +543,30 @@
   window.PACE_MODIFIERS = PACE_MODIFIERS;
   window.BIOME_ENCOUNTER_WEIGHTS = BIOME_ENCOUNTER_WEIGHTS;
 
+  // ---------------------------------------------------------------------------
+  // BIOME_ENCOUNTER_POOLS — fast-pace extra encounter source by biome.
+  // Keys must exist in window.ENEMY_STATS (data/bestiary_lookup.js).
+  // ---------------------------------------------------------------------------
+  window.BIOME_ENCOUNTER_POOLS = {
+    plains:       ['principality_militia', 'roadwarden_sergeant', 'highland_route_patrol'],
+    highland:     ['highland_estate_guard', 'highland_route_patrol', 'principality_checkpoint_officer'],
+    coastal:      ['coastal_smuggler', 'sea_route_bandit', 'harbor_patrol_officer'],
+    mountain:     ['frontier_enforcer', 'quarry_guard', 'soreheim_outrider'],
+    forest:       ['principality_militia', 'highland_route_patrol', 'frontier_enforcer'],
+    'ash-zone':   ['volcanic_route_bandit', 'commune_enforcer', 'border_enforcer_roazian'],
+    'ice-locked': ['polar_route_bandit', 'dome_perimeter_patrol', 'sheresh_perimeter_guard']
+  };
+
+  // ---------------------------------------------------------------------------
+  // getBiomeForRoute — look up TRAVEL_ROUTES for the matching route pair
+  // and return its biome tag. Falls back through both orderings.
+  // ---------------------------------------------------------------------------
+  window.getBiomeForRoute = function(toId, fromId) {
+    if (!toId || !fromId) return null;
+    var keyA = fromId + '|' + toId;
+    var keyB = toId + '|' + fromId;
+    var r = TRAVEL_ROUTES[keyA] || TRAVEL_ROUTES[keyB];
+    return (r && r.biome) || null;
+  };
+
 })();

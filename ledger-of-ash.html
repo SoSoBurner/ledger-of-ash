@@ -8240,6 +8240,8 @@ let G = {
   journeyFatigue: 0,
   recentOutcomeType: null,
   district: null,
+  consecutiveSleepless: 0,
+  watchPosted: false,
   schemaVersion:3
 };
 
@@ -9701,7 +9703,9 @@ function useTrait() {
 function rollD20(skill, bonus) {
   var roll = Math.floor(Math.random() * 20) + 1;
   var penalty = (typeof G !== 'undefined' && G && G._rivalDCPenalty) ? G._rivalDCPenalty : 0;
-  var total = roll + (bonus || 0) - penalty;
+  // Sleepless fatigue penalty: -1 per consecutive sleepless day, capped at -3
+  var sleepless = (typeof G !== 'undefined' && G && G.consecutiveSleepless) ? Math.min(G.consecutiveSleepless, 3) : 0;
+  var total = roll + (bonus || 0) - penalty - sleepless;
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
 
@@ -10844,6 +10848,11 @@ function drawSocialMisstep(locality) {
 function districtTransition(fromDistrict, toDistrict) {
   var dayKey = 'district_complication_' + G.location + '_' + G.dayCount;
   if (G.flags[dayKey]) return; // day-gated: one complication per location per day
+  // Supply buffer: medium/plentiful supplies skip the complication 20% of the time
+  if ((G.supplyTier === 'medium' || G.supplyTier === 'plentiful') && Math.random() < 0.20) {
+    G.flags[dayKey] = true;
+    return;
+  }
   var locPackets = window.LOCALITY_PACKETS;
   // Fall back to checking the locality of the destination district if no parent packet
   var packetKey = G.location || toDistrict;
@@ -11023,7 +11032,9 @@ function campAction(type) {
   closeOverlay('overlay-camp');
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_camp');
   if (type === 'rest') {
-    const healed = Math.floor(G.maxHp * 0.45);
+    let healed = Math.floor(G.maxHp * 0.45);
+    // Plentiful supplies: +10% max HP restored
+    if (G.supplyTier === 'plentiful') healed += Math.floor(G.maxHp * 0.10);
     G.hp = Math.min(G.maxHp, G.hp + healed);
     tickAxis(1); advanceTime(2);
     if (G.traits && G.traits[0]) G.traits[0].used = false;
@@ -11117,6 +11128,7 @@ function campAction(type) {
       if (watchRoll >= 14) {
         G.fatigue = Math.max(0, (G.fatigue||0) - 1);
         G.flags['_watch_posted_day_' + (G.dayCount || 0)] = true;
+        G.watchPosted = true;
         addNarration('Camp', 'The watches hold. Your companions rotate through the night without incident. You wake less tired than expected.', 'success');
         addJournal('Watches posted. The night was quiet.', 'discovery');
       } else {
@@ -11156,6 +11168,43 @@ const STAGE_DREAM_HINTS = {
   'Stage III': 'Whoever built this system had institutional help. The paperwork has the look of official procedure applied to unofficial ends.',
   'Stage IV': 'The ledger has a name. You have been circling it for weeks.'
 };
+
+/** Duskcall sleep prompt — offered when timeIndex reaches Duskcall or later
+ *  and the player has not yet resolved today's sleep. Called from travel flows. */
+function maybePromptDuskcallSleep() {
+  if (!G || !G.flags) return;
+  if (G.flags['_slept_day_' + (G.dayCount || 0)]) return;
+  G.lastResult = 'Duskcall. The light is failing. Camp here or push on into the night?';
+  G.recentOutcomeType = 'prompt';
+  if (typeof addNarration === 'function') addNarration('Duskcall', G.lastResult);
+  setTimeout(function() {
+    if (typeof renderChoices === 'function') {
+      renderChoices([
+        {
+          text: 'Make camp. The dark is not worth the ground it covers.',
+          skill: 'survival', tag: 'safe', align: 'neutral', cid: 'duskcall_camp',
+          action: function() { doSleepScene(); }
+        },
+        {
+          text: 'Push on. Sleep is time you do not have.',
+          skill: 'survival', tag: 'risky', align: 'chaotic', cid: 'duskcall_push',
+          action: function() {
+            G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
+            G.consecutiveSleepless = (G.consecutiveSleepless || 0) + 1;
+            G.flags['_slept_day_' + (G.dayCount || 0)] = 'skipped';
+            if (typeof addNarration === 'function') addNarration('Nightwatch', 'You keep moving. The road is colder than you expected.', 'partial');
+            saveGame(); updateHUD();
+            setTimeout(function() {
+              if (typeof renderChoices === 'function') renderChoices([
+                { text: 'Keep the road.', skill: 'survival', tag: 'risky', align: 'neutral', cid: 'market_intel' }
+              ]);
+            }, 300);
+          }
+        }
+      ]);
+    }
+  }, 300);
+}
 
 /** Main rest handler. Heals HP, clears fatigue, advances day. Companion regen applies here. Calls maybeStageAdvance(). */
 function doSleepScene() {
@@ -11220,6 +11269,10 @@ function doSleep(cost, placeName, comfortable) {
     return;
   }
   if (cost > 0) modGold(-cost);
+  // Sleep resets sleepless counter and day-flag; clears any stale watch signal.
+  G.consecutiveSleepless = 0;
+  G.flags['_slept_day_' + (G.dayCount || 0)] = 'slept';
+  G.watchPosted = false;
   const hpGain = comfortable ? Math.floor(G.maxHp * 0.35) : Math.floor(G.maxHp * 0.2);
   G.hp = Math.min(G.maxHp, G.hp + hpGain);
   G.fatigue = Math.max(0, (G.fatigue||0) - (comfortable ? 3 : 2));
@@ -11240,6 +11293,8 @@ function doSleep(cost, placeName, comfortable) {
 
 function doPushThrough() {
   G.fatigue = Math.min(10, (G.fatigue||0) + 3);
+  G.consecutiveSleepless = (G.consecutiveSleepless || 0) + 1;
+  G.flags['_slept_day_' + (G.dayCount || 0)] = 'skipped';
   advanceTime(1);
   addNarration('Night', 'You do not sleep. You keep moving. By Dawnrise your eyes ache and small decisions feel larger than they are. +3 fatigue.', 'failure');
   saveGame(); updateHUD();
@@ -11308,18 +11363,45 @@ function doJourneyStart(destId) {
     }
   ];
 
+  // Pace selection — shown after a mode is chosen, before supply choice.
+  // cart: normal/slow only. boat: normal only. foot/horse: all three.
+  function _promptPace(mode) {
+    var paceChoices = [];
+    if (mode !== 'cart' && mode !== 'boat') {
+      paceChoices.push({
+        text: 'Fast pace \u2014 higher encounter risk.',
+        skill: 'survival', tag: 'bold', align: 'chaotic', cid: 'pace_fast_' + destId,
+        fn: function() { G.pace = 'fast'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300); }
+      });
+    }
+    paceChoices.push({
+      text: 'Normal pace \u2014 standard travel.',
+      skill: 'survival', tag: 'safe', align: 'neutral', cid: 'pace_normal_' + destId,
+      fn: function() { G.pace = 'normal'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300); }
+    });
+    if (mode !== 'boat') {
+      paceChoices.push({
+        text: 'Slow pace \u2014 more time, fewer risks.',
+        skill: 'lore', tag: 'safe', align: 'order', cid: 'pace_slow_' + destId,
+        fn: function() { G.pace = 'slow'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300); }
+      });
+    }
+    addNarration('Depart', 'Set the pace for the road ahead.', 'neutral');
+    setTimeout(function() { renderChoices(paceChoices); }, 300);
+  }
+
   var modeChoices = [
     {
       text: 'Foot \u2014 free',
       skill: 'survival', tag: 'risky', align: 'neutral', cid: 'mode_foot_' + destId,
-      fn: function() { G.travelMode = 'foot'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300); }
+      fn: function() { G.travelMode = 'foot'; _promptPace('foot'); }
     },
     {
       text: 'Horse \u2014 8g',
       skill: 'survival', tag: 'safe', align: 'neutral', cid: 'mode_horse_' + destId,
       fn: function() {
         if ((G.gold || 0) < 8) { addNarration('Depart', 'Not enough gold for a horse.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
-        G.gold -= 8; G.travelMode = 'horse'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300);
+        G.gold -= 8; G.travelMode = 'horse'; _promptPace('horse');
       }
     },
     {
@@ -11327,7 +11409,7 @@ function doJourneyStart(destId) {
       skill: 'lore', tag: 'safe', align: 'order', cid: 'mode_cart_' + destId,
       fn: function() {
         if ((G.gold || 0) < 12) { addNarration('Depart', 'Not enough gold for a cart.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
-        G.gold -= 12; G.travelMode = 'cart'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300);
+        G.gold -= 12; G.travelMode = 'cart'; _promptPace('cart');
       }
     }
   ];
@@ -11337,7 +11419,7 @@ function doJourneyStart(destId) {
       skill: 'lore', tag: 'safe', align: 'order', cid: 'mode_boat_' + destId,
       fn: function() {
         if ((G.gold || 0) < 15) { addNarration('Depart', 'Not enough gold for boat passage.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
-        G.gold -= 15; G.travelMode = 'boat'; addNarration('Depart', 'Choose your supply load.', 'neutral'); setTimeout(function() { renderChoices(choices); }, 300);
+        G.gold -= 15; G.travelMode = 'boat'; _promptPace('boat');
       }
     });
   }
@@ -13166,6 +13248,56 @@ function showHowToPlay() {
     if (typeof maybeFireArrivalScene === 'function') maybeFireArrivalScene(locId);
     G.history.push('Traveled to ' + loc.name + '.');
     if (typeof saveGame === 'function') saveGame();
+
+    // Fast-pace extra encounter roll (before corridor encounters).
+    // Mounted Discipline: Knight on horseback halves the extra-encounter chance.
+    if (G.pace === 'fast') {
+      var _encounterChance = 0.2;
+      if (G.travelMode === 'horse' && G.archetype === 'Knight') _encounterChance = 0.1;
+      if (Math.random() < _encounterChance) {
+        var _biome = (typeof window.getBiomeForRoute === 'function') ? window.getBiomeForRoute(locId, prevLocation) : null;
+        if (_biome) {
+          var _pool = window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[_biome];
+          if (_pool && _pool.length) {
+            var _enemy = _pool[Math.floor(Math.random() * _pool.length)];
+            if (typeof enterCombat === 'function') {
+              enterCombat(_enemy, { pace: 'fast' });
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    // Check for watch-posted + night encounter: give player a moment to choose.
+    var _isNight = (G.timeIndex || 0) >= 3; // Nightwatch
+    if (G.watchPosted && _isNight) {
+      G.lastResult = 'Your watches spotted movement in time. You have a moment to choose.';
+      G.recentOutcomeType = 'warning';
+      G.watchPosted = false;
+      if (typeof addNarration === 'function') addNarration('Watches Held', G.lastResult, 'partial');
+      setTimeout(function() {
+        if (typeof renderChoices === 'function') {
+          renderChoices([
+            { text: 'Engage on your terms.', skill: 'combat', tag: 'bold', align: 'neutral', cid: 'watch_engage' },
+            { text: 'Hold position and let them pass.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'watch_hide' },
+            { text: 'Break camp and retreat along the back trail.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'watch_retreat' }
+          ]);
+        }
+      }, 300);
+      return;
+    }
+
+    // Reset supply tier at destination (resupply at each arrival).
+    G.supplyTier = 'light';
+
+    // Duskcall sleep prompt — offered once per day when time has reached Duskcall or later.
+    if ((G.timeIndex || 0) >= 2 && typeof maybePromptDuskcallSleep === 'function') {
+      maybePromptDuskcallSleep();
+      // If a prompt fired, it rendered its own choices; otherwise fall through to corridor.
+      if (G.recentOutcomeType === 'prompt') return;
+    }
+
     // Trigger corridor encounters if available
     if (window.TRAVEL_CORRIDOR && typeof TRAVEL_CORRIDOR.triggerEncounters === 'function') {
       var _rk = prevLocation + '|' + locId;
