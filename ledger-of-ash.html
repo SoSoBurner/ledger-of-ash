@@ -1807,6 +1807,9 @@ input, button, select, textarea { font-family: inherit; }
           <span id="hud-plotcredits" style="display:none;font-size:11px;color:var(--gold-dim)"></span>
         </div>
         <div id="hud-watchfulness" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center"></div>
+        <div id="hud-day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
+        <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
+        <div id="hud-heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
       </div>
       <div class="l-divider"></div>
       <div class="l-axis">
@@ -12050,6 +12053,32 @@ function showCharSheet() {
     row('Location',WORLD_LOCATIONS[G.location]?WORLD_LOCATIONS[G.location].name:G.location) +
     '</div></div>' +
 
+    (function(){
+      var lines = [];
+      // Day count — always shown
+      lines.push(row('Day', G.dayCount || 0));
+      // Watchfulness — only when > 0
+      var _w = (G.worldClocks && G.worldClocks.watchfulness) || 0;
+      if (_w > 0) {
+        var _wLabel = _w <= 2 ? 'Low' : _w <= 4 ? 'Observed' : _w <= 6 ? 'Scrutinized' : 'Hunted';
+        lines.push('<div class="char-stat-row"><span class="char-stat-key">Watchfulness</span><span class="char-stat-val" style="color:var(--danger)">' + _w + ' &mdash; ' + _wLabel + '</span></div>');
+      }
+      // Rival clock — highest pressure
+      var _rm = 0;
+      (G.rivalAdventurers || []).forEach(function(r) { if ((r.renown || 0) > _rm) _rm = r.renown; });
+      var _mp = (G.flags && G.flags.maren_oss_trail_found) ? (G.marenRenown || 0) : 0;
+      if (_mp > _rm) _rm = _mp;
+      if (_rm > 0) lines.push(row('Rival Clock', _rm));
+      // Heat (per-polity) — defensive guard
+      if (G.heat && typeof G.heat === 'object') {
+        Object.keys(G.heat).filter(function(k){ return G.heat[k] > 0; }).forEach(function(k){
+          lines.push('<div class="char-stat-row"><span class="char-stat-key">Heat &mdash; ' + k + '</span><span class="char-stat-val" style="color:var(--danger)">' + G.heat[k] + '</span></div>');
+        });
+      }
+      if (!lines.length) return '';
+      return '<div style="margin-top:20px"><div class="char-section-title">Standing</div>' + lines.join('') + '</div>';
+    })() +
+
     '<div style="margin-top:20px"><div class="char-section-title">Skills</div>' +
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">' +
     Object.entries(G.skills||{}).map(([k,v]) => {
@@ -12587,6 +12616,28 @@ function updateHUD() {
   var _wTier = _w <= 2 ? '' : _w <= 4 ? 'Observed' : _w <= 6 ? 'Scrutinized' : 'Hunted';
   var _wEl = document.getElementById('hud-watchfulness');
   if (_wEl) { _wEl.textContent = _wTier; _wEl.style.display = _wTier ? '' : 'none'; }
+  // Day count
+  var _dayEl = document.getElementById('hud-day');
+  if (_dayEl) { var _day = G.dayCount || 0; _dayEl.textContent = 'Day ' + _day; _dayEl.style.display = ''; }
+  // Rival clock — highest renown across rivalAdventurers + Maren pressure
+  var _rivalEl = document.getElementById('hud-rival');
+  if (_rivalEl) {
+    var _rivalMax = 0;
+    (G.rivalAdventurers || []).forEach(function(r) { if ((r.renown || 0) > _rivalMax) _rivalMax = r.renown; });
+    var _marenP = (G.flags && G.flags.maren_oss_trail_found) ? (G.marenRenown || 0) : 0;
+    if (_marenP > _rivalMax) _rivalMax = _marenP;
+    if (_rivalMax > 0) { _rivalEl.textContent = 'rival: ' + _rivalMax; _rivalEl.style.display = ''; }
+    else { _rivalEl.style.display = 'none'; }
+  }
+  // Heat (per-polity) — defensive: G.heat may not exist yet (Task 7.1)
+  var _heatEl = document.getElementById('hud-heat');
+  if (_heatEl) {
+    if (G.heat && typeof G.heat === 'object') {
+      var _heatLines = Object.keys(G.heat).filter(function(k){ return G.heat[k] > 0; }).map(function(k){ return k + ' ' + G.heat[k]; });
+      if (_heatLines.length) { _heatEl.innerHTML = 'heat: ' + _heatLines.join('<br>heat: '); _heatEl.style.display = ''; }
+      else { _heatEl.style.display = 'none'; }
+    } else { _heatEl.style.display = 'none'; }
+  }
   // Alliance credits overlay (Soreheim/Sunspire only)
   var _inSore = G.location === 'soreheim' || G.location === 'soreheim_proper' || G.location === 'sunspire' || G.location === 'sunspire_haven';
   var _pcEl = document.getElementById('hud-plotcredits');
