@@ -1911,6 +1911,7 @@ input, button, select, textarea { font-family: inherit; }
         <button class="camp-action" data-camp="sleep"><div class="ca-icon">&#x263D;</div><div class="ca-title">Sleep</div><div class="ca-desc">Find a place to rest for the night. Settlements offer inn lodging — cheap or comfortable.</div></button>
         <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
         <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness by 1. Costs a day.</div></button>
+        <button class="camp-action" id="btn-review-notes" data-camp="review_notes" style="display:none"><div class="ca-icon">&#x2393;</div><div class="ca-title">Review Notes</div><div class="ca-desc">Go back to the beginning. A lost thread may still hold. Costs a day.</div></button>
       </div>
       <div class="camp-footer"><button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button></div>
     </div>
@@ -10110,6 +10111,7 @@ function checkWorldClockThresholds() {
     if (typeof addWorldNotice === 'function') addWorldNotice('Pressure critical: the trail is going cold. Stage advance required to recover.');
     var _spn3 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
     G.stageProgress[_spn3] = Math.max(0, (G.stageProgress[_spn3]||0) - 10);
+    if ((G.stageProgress[_spn3]||0) <= 0) { G.flags.recovery_thread_available = true; if (typeof addWorldNotice === 'function') addWorldNotice('The trail has gone cold. Your notes may hold something you missed.'); }
   }
 
   // Rival thresholds
@@ -10125,6 +10127,7 @@ function checkWorldClockThresholds() {
     if (typeof addJournal === 'function') addJournal('Warehouse manifest collected by unknown researcher before your arrival.', 'intelligence');
     var _spn4 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
     G.stageProgress[_spn4] = Math.max(0, (G.stageProgress[_spn4]||0) - 5);
+    if ((G.stageProgress[_spn4]||0) <= 0) { G.flags.recovery_thread_available = true; if (typeof addWorldNotice === 'function') addWorldNotice('The trail has gone cold. Your notes may hold something you missed.'); }
   }
 }
 
@@ -11104,7 +11107,7 @@ function seekProfessionalCare() {
 }
 
 // ── CAMP ─────────────────────────────────────────────────
-/** @param {'post_watches'|'craft'} type — post_watches requires >=1 active companion; converts night ambush to warned encounter. */
+/** @param {'post_watches'|'craft'|'review_notes'} type — post_watches requires >=1 active companion; review_notes requires recovery_thread_available flag. */
 function campAction(type) {
   closeOverlay('overlay-camp');
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_camp');
@@ -11227,6 +11230,28 @@ function campAction(type) {
     addJournal('Spent a day off the institutional channels. Watchfulness reduced.', 'complication');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+  } else if (type === 'review_notes') {
+    if (!G.flags.recovery_thread_available) {
+      addNarration('Camp', 'Nothing in your notes demands another pass. The trail is still warm.', 'failure');
+      setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+    } else {
+      G.flags.recovery_thread_available = false;
+      G.dayCount = (G.dayCount || 0) + 1;
+      var _rnStageKey = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      var _rnRoll = Math.floor(Math.random() * 20) + 1;
+      if (_rnRoll >= 10) {
+        G.stageProgress[_rnStageKey] = (G.stageProgress[_rnStageKey] || 0) + 2;
+        G.lastResult = 'You lay your notes out and go back to the beginning. Something was missed \u2014 and now you see it. The thread is thin but it holds.';
+      } else {
+        G.stageProgress[_rnStageKey] = (G.stageProgress[_rnStageKey] || 0) + 1;
+        G.lastResult = 'You lay your notes out and go back to the beginning. Something was missed. You mark the gap and set it aside. The day is spent.';
+      }
+      addNarration('Review Notes', G.lastResult, _rnRoll >= 10 ? 'success' : 'partial');
+      addJournal('Reviewed notes at camp. Recovered a thread.', 'intelligence');
+      updateHUD(); saveGame();
+      setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+    }
   } else if (type === 'sleep') {
     doSleepScene();
   } else if (type === 'campout') {
@@ -12878,6 +12903,8 @@ function showCamp() {
   if (sleepBtn) sleepBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
   const layLowBtn = document.getElementById('btn-lay-low');
   if (layLowBtn) layLowBtn.style.display = ((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 ? '' : 'none';
+  const reviewNotesBtn = document.getElementById('btn-review-notes');
+  if (reviewNotesBtn) reviewNotesBtn.style.display = (G.flags && G.flags.recovery_thread_available) ? '' : 'none';
   showOverlay('overlay-camp');
 }
 
