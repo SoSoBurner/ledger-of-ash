@@ -1131,8 +1131,9 @@
 
   // Faction 1: Oversight Collegium
   {
+    cid: 'stage2_collegium_contact',
     label: 'Seld has been building the same picture from the other side.',
-    tags: ['stage2', 'faction_contact'],
+    tags: ['stage2', 'faction_contact', 'Faction', 'Collegium', 'Social'],
     xpReward: 60,
     fn: function() {
       var roll = rollD20('lore', G.skills.lore);
@@ -1143,6 +1144,10 @@
         G.flags.stage2_faction_contact_made = true;
         G.flags.shadowhands_alerted = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        applyTensionModifier('collegium_archivist');
+        if (G.factions && G.factions['shadowhands']) {
+          G.factions['shadowhands'].tension = Math.min(10, (G.factions['shadowhands'].tension || 0) + 1);
+        }
         maybeStageAdvance();
       } else {
         addNarration('Archive Meeting — No Exchange', 'Seld reads your hesitation before you say anything. She closes the folder and tucks it back under her arm. The offer stands, she says, but only until end of the third week. After that the files rotate to deep storage and she loses access. She leaves through the staff corridor. The archive reading room empties around you.');
@@ -1152,8 +1157,9 @@
 
   // Faction 2: Shadowhands
   {
+    cid: 'stage2_shadowhands_contact',
     label: 'The question in that note could only come from someone tracking the same routes.',
-    tags: ['stage2', 'faction_contact'],
+    tags: ['stage2', 'faction_contact', 'Faction', 'Shadowhands', 'Stealth'],
     xpReward: 60,
     fn: function() {
       var roll = rollD20('stealth', G.skills.stealth);
@@ -1164,6 +1170,10 @@
         G.flags.stage2_faction_contact_made = true;
         G.flags.collegium_alerted = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        applyTensionModifier('shadowhands_operative');
+        if (G.factions && G.factions['collegium']) {
+          G.factions['collegium'].tension = Math.min(10, (G.factions['collegium'].tension || 0) + 2);
+        }
         maybeStageAdvance();
       } else {
         addNarration('Relay — Aborted', 'The waypoint is clear when you arrive. No courier, no signal. An hour later a child passes and drops a folded note at your feet without slowing: one word, "watched." You leave the packet at the lodging and spend the evening doing nothing that looks like waiting. Whatever window existed has closed.');
@@ -1173,8 +1183,9 @@
 
   // Faction 3: Road Wardens Order
   {
+    cid: 'stage2_wardens_contact',
     label: 'The Warden flagged my transit pattern — she already knows what I\'ve been tracking.',
-    tags: ['stage2', 'faction_contact'],
+    tags: ['stage2', 'faction_contact', 'Faction', 'Wardens', 'Social'],
     xpReward: 60,
     fn: function() {
       var roll = rollD20('persuasion', G.skills.persuasion);
@@ -1185,6 +1196,9 @@
         G.flags.stage2_faction_contact_made = true;
         G.flags.red_hood_warned = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        applyTensionModifier('road_warden');
+        if (!G.worldClocks) G.worldClocks = {};
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         maybeStageAdvance();
       } else {
         addNarration('Checkpoint — No Filing', 'The Warden listens, then shakes her head once. Without a formal complication report on record, she can\'t share monitored route data with a civilian transit — Order protocol. She\'s not unfriendly about it. The checkpoint clears and traffic resumes around you. The maps stay rolled under her arm.');
@@ -1194,8 +1208,9 @@
 
   // Faction 4: Red Hood Guild
   {
+    cid: 'stage2_redhood_contact',
     label: 'She knows about the unmarked cargo — that phrase wasn\'t an accident.',
-    tags: ['stage2', 'faction_contact'],
+    tags: ['stage2', 'faction_contact', 'Faction', 'RedHood', 'Stealth'],
     xpReward: 60,
     fn: function() {
       var roll = rollD20('persuasion', G.skills.persuasion);
@@ -1206,6 +1221,10 @@
         G.flags.stage2_faction_contact_made = true;
         G.flags.wardens_hostile = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        applyTensionModifier('redhood_broker');
+        if (G.factions && G.factions['wardens']) {
+          G.factions['wardens'].standing = Math.max(-20, (G.factions['wardens'].standing || 0) - 3);
+        }
         maybeStageAdvance();
       } else {
         addNarration('Guild Fence — No Deal', 'She names what she wants and you don\'t have it — or you have it and won\'t give it. Either way her expression doesn\'t change. She picks up a clay jar and turns it in her hands, appraising the glaze. The conversation is over. The stall stays busy around you and she doesn\'t look at you again.');
