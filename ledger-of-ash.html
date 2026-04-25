@@ -8674,35 +8674,32 @@ var _onboardingPage = 0;
 var _currentOnboardingPages = [];
 
 function _buildOnboardingPages() {
-  var archGroup = (G.archetype && G.archetype.group) || 'combat';
-  var archHooks = {
-    combat:  'You have resolved disputes with steel. Shelkopolis is a city where steel settles very little — but knowing where the bodies are buried matters enormously.',
-    magic:   'You have read patterns where others see noise. Something in the city\'s ledgers does not add up. You\'ve learned to trust that instinct.',
-    stealth: 'You\'ve moved through the cracks of commerce and law. The investigation leads somewhere only someone like you can go without being seen.',
-    support: 'You\'ve watched what happens when people are quietly removed — from rosters, from memory, from record. This investigation has that same smell.'
-  };
   return [
     {
-      title: 'How to Read This Game',
-      body:  'Each <strong>choice</strong> shows its risk tier: <em>safe</em> is low-stakes, <em>risky</em> raises the tension, <em>bold</em> can change everything. The <strong>HUD</strong> at the top tracks your HP, case progress, and three world clocks — <em>Watchfulness</em>, <em>Pressure</em>, <em>Reverence</em>. Read them. They tell you how the city sees you.'
+      title: 'The Investigation',
+      body:  '<p>You are tracking something institutional. Names are missing. Routes don\'t add up. You don\'t have a case yet — you have a gap where one should be.</p>'
     },
     {
-      title: 'The World',
-      body:  'Two hundred years ago the Catastrophe ended the Axis Age. The great systems of power — magical, political, mercantile — shattered and rebuilt into the Principality you now inhabit. Shelkopolis is its centre: a city of factions, ledgers, and things that were supposed to stay buried.'
+      title: 'Making Choices',
+      body:  '<p>Every choice is tagged: <strong>Safe</strong> choices always succeed — modest return. <strong>Risky</strong> choices roll a d20 — meet the DC to succeed. <strong>Bold</strong> choices carry higher stakes and higher reward. Your skills shift the odds.</p>'
     },
     {
-      title: 'Your Place in It',
-      body:  archHooks[archGroup] || archHooks.combat
+      title: 'World Clocks',
+      body:  '<p>Attention accumulates as you work. <strong>Watchfulness</strong> marks how visible you\'ve become. Rivals move independently. The world advances whether you act or not.</p>'
     },
     {
-      title: 'The Investigation Begins',
-      body:  'A contact is dead. A ledger has surfaced. Someone wants both forgotten. You are the investigator the city did not send — which means you are the only one who might find the truth.<br><br>The game saves automatically. Open <strong>How to Play</strong> from the menu at any time.'
+      title: 'Saving',
+      body:  '<p>Your progress is saved automatically after each choice. To return later: note your 4-character save code from the main screen. Load it on next visit.</p>'
+    },
+    {
+      title: 'How to Play',
+      body:  '<p>Move between localities to gather leads. Rest at camp to recover. Follow threads to advance your case. When enough evidence accumulates, the next stage opens.</p>'
     }
   ];
 }
 
 function showOnboarding() {
-  if (!window.G || window.G.flags.onboarding_complete) return;
+  if (!G || G.flags.onboarding_complete) return;
   _currentOnboardingPages = _buildOnboardingPages();
   _onboardingPage = 0;
   _renderOnboardingPage();
@@ -8722,7 +8719,7 @@ function _renderOnboardingPage() {
 
 function _closeOnboarding() {
   document.getElementById('onboarding-modal').classList.remove('active');
-  if (window.G) window.G.flags.onboarding_complete = true;
+  if (G) G.flags.onboarding_complete = true;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
