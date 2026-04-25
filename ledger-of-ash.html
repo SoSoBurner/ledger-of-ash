@@ -9075,6 +9075,7 @@ function startOpeningScene() {
   if (!scene) {
     const loc = WORLD_LOCATIONS[G.location];
     addNarration('', (loc ? loc.desc : '') + ' You arrive.');
+    addNarration('', 'The manifest you carried out of the Crossing Hall is missing four entries. The routing numbers exist in the system. The shipments do not.');
     setTimeout(() => renderChoices([
       { text:'Find the nearest inn and take stock.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival' },
       { text:'Walk the main road and read the settlement.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' }
@@ -9082,6 +9083,7 @@ function startOpeningScene() {
     return;
   }
   addNarration('', scene.text);
+  addNarration('', 'The manifest you carried out of the Crossing Hall is missing four entries. The routing numbers exist in the system. The shipments do not.');
   setTimeout(() => renderChoices(scene.choices), 300);
 }
 
