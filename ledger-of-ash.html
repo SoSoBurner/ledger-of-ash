@@ -3075,13 +3075,13 @@ const ARCHETYPE_COMBAT_ABILITIES = {
 const ARCHETYPE_TRAIT_POOLS = {
   warrior:   [
     {id:'tw_tenacity',   name:'Tenacity',           type:'passive',      desc:'Below 30% HP, +1 to all attack rolls.', levelMin:2},
-    {id:'tw_press',      name:'Relentless Press',    type:'active',       desc:'After landing a hit, one immediate follow-up attack costs no action (1/combat).', levelMin:5},
+    {id:'tw_press',      name:'Relentless Press',    type:'active', traitType:'active', activeSkillType:'combative', desc:'After landing a hit, one immediate follow-up attack costs no action (1/combat).', levelMin:5, skill:'might', bonus:1, successEffect:'The follow-up lands — the enemy has no time to reset.', failEffect:'The press overextends. You lose the advantage.', critEffect:'Relentless: a third strike finds the gap.'},
     {id:'tw_steel',      name:'Iron Discipline',     type:'passive',      desc:'Wound penalties apply at 4 wounds instead of 3.', levelMin:8},
     {id:'tw_read',       name:'Combat Read',         type:'investigation',desc:'Identify an enemy\'s primary weapon skill and highest stat before engaging. You cannot be surprised by their combat style.', levelMin:3},
   ],
   knight:    [
     {id:'tk_oath',       name:'Sworn Oath',          type:'passive',      desc:'+2 to all rolls when defending someone you aided this scene.', levelMin:2},
-    {id:'tk_presence',   name:'Noble Presence',      type:'active',       desc:'Social check to halt aggression before it escalates.', levelMin:4},
+    {id:'tk_presence',   name:'Noble Presence',      type:'active', traitType:'active', activeSkillType:'utility', desc:'Social check to halt aggression before it escalates.', levelMin:4, skill:'charm', bonus:1, utilityResult:'Your bearing alone changes the calculation. One threat recedes before it requires force.'},
     {id:'tk_endure',     name:'Endurance',           type:'passive',      desc:'Recover +1 HP at the start of each combat round.', levelMin:6},
     {id:'tk_code',       name:'Code of Honor',       type:'investigation',desc:'When invoking legal or organizational authority, NPCs must visibly comply or visibly refuse (no ambiguity). +1 Charm on the roll.', levelMin:3},
   ],
@@ -3089,47 +3089,47 @@ const ARCHETYPE_TRAIT_POOLS = {
     {id:'tr_track',      name:'Tracker',             type:'passive',      desc:'+1 Finesse when following a trail or predicting movement.', levelMin:2},
     {id:'tr_distance',   name:'Distance Mastery',    type:'passive',      desc:'+1 attack at Medium and Long range.', levelMin:4},
     {id:'tr_wild',       name:'Wilderness Lore',     type:'investigation',desc:'Correctly read weather, animal behavior, or terrain 24 hours in advance. Natural environments hold no secrets from you.', levelMin:3},
-    {id:'tr_patience',   name:'Patient Hunter',      type:'active',       desc:'Skip your action: next attack gains +3 and costs no action.', levelMin:6},
+    {id:'tr_patience',   name:'Patient Hunter',      type:'active', traitType:'active', activeSkillType:'combative', desc:'Skip your action: next attack gains +3 and costs no action.', levelMin:6, skill:'finesse', bonus:3, successEffect:'The patience pays — the strike finds the exact opening you waited for.', failEffect:'The moment came and passed. The bonus is lost.', critEffect:'Perfect timing: the strike bypasses all defenses.'},
   ],
   rogue:     [
     {id:'tro_shadow',    name:'Shadow Step',         type:'passive',      desc:'Move between cover positions without triggering detection.', levelMin:2},
-    {id:'tro_exit',      name:'Quick Exit',          type:'active',       desc:'Disengage without rolling if you are currently undetected.', levelMin:4},
+    {id:'tro_exit',      name:'Quick Exit',          type:'active', traitType:'active', activeSkillType:'utility', desc:'Disengage without rolling if you are currently undetected.', levelMin:4, skill:'finesse', bonus:1, utilityResult:'You are gone before anyone marks the space you occupied.'},
     {id:'tro_read',      name:'Read the Room',       type:'investigation',desc:'On entering any location, automatically identify the two most significant threats and the fastest exit route.', levelMin:3},
     {id:'tro_opportunist',name:'Opportunist',        type:'passive',      desc:'+2 attack when a distraction was created this round.', levelMin:6},
   ],
   assassin:  [
     {id:'ta_mark',       name:'Marked Target',       type:'passive',      desc:'+1 to all rolls against a target you\'ve observed for one full round.', levelMin:2},
-    {id:'ta_vanish',     name:'Vanish',              type:'active',       desc:'After any kill, become hidden without a roll.', levelMin:5},
+    {id:'ta_vanish',     name:'Vanish',              type:'active', traitType:'active', activeSkillType:'combative', desc:'After any kill, become hidden without a roll.', levelMin:5, skill:'finesse', bonus:2, successEffect:'You step into shadow. The body is the only evidence you were here.', failEffect:'The exit is partially seen. You are hidden, but not clean.', critEffect:'Perfect vanish — your position is entirely unknown. Next attack gains advantage.'},
     {id:'ta_cold',       name:'Cold Approach',       type:'investigation',desc:'+1 Finesse when moving through a hostile area undetected. If you succeed, you also learn one fact about who controls that space.', levelMin:3},
     {id:'ta_precision',  name:'Precision',           type:'passive',      desc:'Critical threshold reduced by 1 (crits on 19–20).', levelMin:7},
   ],
   wizard:    [
     {id:'twz_focus',     name:'Arcane Focus',        type:'passive',      desc:'+1 Wits on all knowledge and arcane checks.', levelMin:2},
     {id:'twz_pattern',   name:'Pattern Memory',      type:'investigation',desc:'After observing a system (political, logistical, magical) for one scene, identify one deliberate anomaly or hidden actor without a roll.', levelMin:3},
-    {id:'twz_overdrive', name:'Arcane Overdrive',    type:'active',       desc:'Force a re-roll on any failed Wits check (1/scene).', levelMin:6},
+    {id:'twz_overdrive', name:'Arcane Overdrive',    type:'active', traitType:'active', activeSkillType:'utility', desc:'Force a re-roll on any failed Wits check (1/scene).', levelMin:6, skill:'wits', bonus:0, utilityResult:'The mental framework reforms. What failed once succeeds on the second pass.'},
     {id:'twz_depth',     name:'Deep Lore',           type:'passive',      desc:'Access esoteric knowledge without a library or DC check.', levelMin:4},
   ],
   inquisitor:[
-    {id:'ti_pressure',   name:'Applied Pressure',    type:'active',       desc:'Spend an action to impose -2 on target\'s next check.', levelMin:2},
+    {id:'ti_pressure',   name:'Applied Pressure',    type:'active', traitType:'active', activeSkillType:'combative', desc:'Spend an action to impose -2 on target\'s next check.', levelMin:2, skill:'charm', bonus:0, successEffect:'The pressure lands — the target\'s next check loses 2.', failEffect:'The target shrugs it off. No effect.', critEffect:'The pressure breaks something — target loses 3 on next two checks.'},
     {id:'ti_truth',      name:'Truth Sense',         type:'passive',      desc:'+1 Wits when detecting deception or omission.', levelMin:3},
     {id:'ti_authority',  name:'Institutional Weight',type:'investigation',desc:'When invoking legal or organizational authority, NPCs must visibly comply or visibly refuse (no ambiguity). +1 Charm on the roll.', levelMin:4},
     {id:'ti_relentless', name:'Relentless Inquiry',  type:'passive',      desc:'Failed social checks shift the scene rather than ending it.', levelMin:6},
   ],
   bard:      [
     {id:'tb_eye',        name:'Performer\'s Eye',    type:'investigation',desc:'Read any crowd within a scene to know their dominant emotion and one belief they hold that is false. No roll required.', levelMin:2},
-    {id:'tb_distract',   name:'Social Distraction',  type:'active',       desc:'Draw attention — allies gain +1 Finesse for one check this scene.', levelMin:3},
-    {id:'tb_inspire',    name:'Inspire',             type:'active',       desc:'One companion gains +2 on their next check this scene.', levelMin:5},
+    {id:'tb_distract',   name:'Social Distraction',  type:'active', traitType:'active', activeSkillType:'utility', desc:'Draw attention — allies gain +1 Finesse for one check this scene.', levelMin:3, skill:'charm', bonus:1, utilityResult:'Eyes follow you. For a moment, nothing else exists in the room. Your companions use the gap.'},
+    {id:'tb_inspire',    name:'Inspire',             type:'active', traitType:'active', activeSkillType:'utility', desc:'One companion gains +2 on their next check this scene.', levelMin:5, skill:'charm', bonus:0, utilityResult:'The words find the right register. A companion straightens — their next check carries the weight of it.'},
     {id:'tb_memory',     name:'Perfect Memory',      type:'passive',      desc:'+1 Wits when recalling names, faces, or prior conversations.', levelMin:4},
   ],
   healer:    [
     {id:'th_triage',     name:'Field Triage',        type:'passive',      desc:'Stabilize a dying ally as a free action (1/combat).', levelMin:2},
-    {id:'th_mend',       name:'Rapid Mend',          type:'active',       desc:'Restore 1d6+2 HP to self or ally outside combat (1/scene).', levelMin:4},
+    {id:'th_mend',       name:'Rapid Mend',          type:'active', traitType:'active', activeSkillType:'utility', desc:'Restore 1d6+2 HP to self or ally outside combat (1/scene).', levelMin:4, skill:'charm', bonus:0, utilityResult:'Your hands find the wound with practiced economy. The bleeding slows. Enough to move, enough to fight.'},
     {id:'th_calm',       name:'Calming Presence',    type:'investigation',desc:'In any scene where fear, grief, or trauma is present, you may ask one direct question and receive an honest answer before any roll is made.', levelMin:3},
     {id:'th_resilience', name:'Resilience',          type:'passive',      desc:'Wound penalties apply at 4 wounds instead of 3.', levelMin:6},
   ],
   _default:  [
     {id:'td_instincts',  name:'Sharp Instincts',     type:'passive',      desc:'+1 to the first roll made in any new scene.', levelMin:2},
-    {id:'td_adapt',      name:'Adaptability',        type:'active',       desc:'Re-roll one failed check per scene.', levelMin:4},
+    {id:'td_adapt',      name:'Adaptability',        type:'active', traitType:'active', activeSkillType:'utility', desc:'Re-roll one failed check per scene.', levelMin:4, skill:'wits', bonus:0, utilityResult:'You reconsider the approach. The second attempt has the benefit of watching the first one fail.'},
     {id:'td_contacts',   name:'Contacts',            type:'investigation',desc:'Once per location, name a type of person (merchant, guard, scribe) and find one within 1 hour. +1 Charm when seeking information through this contact.', levelMin:3},
     {id:'td_resolve',    name:'Inner Resolve',       type:'passive',      desc:'Once per session, treat a failure as a minimal success (no crit effects).', levelMin:7},
   ],
@@ -3848,6 +3848,17 @@ function renderCombatRound() {
     '<span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag risky">risky</span></span>' +
     '</button>';
 
+  // Inject unlocked combative active skills
+  var _combativeSkills = (G.traits || []).filter(function(t) {
+    return (t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'combative' && !t.used;
+  });
+  _combativeSkills.forEach(function(skill) {
+    html += '<button class="choice-btn combat-btn" data-action="use_active_skill" data-skill-id="' + skill.id + '">' +
+      '<span class="choice-text">' + skill.name + ' — ' + (skill.desc || 'Active skill') + '</span>' +
+      '<span class="choice-meta"><span class="choice-skill">' + (skill.skill || 'might') + '</span><span class="choice-tag bold">active</span></span>' +
+      '</button>';
+  });
+
   html += '</div></div>';
 
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
@@ -3855,7 +3866,7 @@ function renderCombatRound() {
   block.className = 'scene-block combat-block';
   block.innerHTML = html;
   block.querySelectorAll('.combat-btn').forEach(btn => {
-    btn.addEventListener('click', () => resolveCombatAction(btn.dataset.action, btn.dataset.ability));
+    btn.addEventListener('click', () => resolveCombatAction(btn.dataset.action, btn.dataset.ability || btn.dataset.skillId));
   });
   el.appendChild(block);
   scrollNarrative();
@@ -3911,6 +3922,11 @@ function resolveCombatAction(action, abilityId) {
     });
     el2.appendChild(block2);
     scrollNarrative();
+    return;
+
+  } else if (action === 'use_active_skill') {
+    useCombativeSkill(abilityId);
+    renderCombatRound();
     return;
 
   } else if (action === 'back_to_combat') {
@@ -9157,6 +9173,7 @@ function initCreate() {
         startingLocality:'shelkopolis',
         _campoutPenalty:0, campoutDay:-1,
         trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
+        masteryXP:0, traitProgress:{}, unlockedTraits:[],
         archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
         shopCreditBoost:0, statCap:10,
         restCount:0,
@@ -12724,6 +12741,60 @@ function doTravelJourney(destId) {
   }
 }
 
+function _getAvailableMasteryTraits(type) {
+  var archetypeId = G.archetype && G.archetype.id;
+  var pool = (window.ARCHETYPE_TRAIT_POOLS && window.ARCHETYPE_TRAIT_POOLS[archetypeId])
+    || (window.ARCHETYPE_TRAIT_POOLS && window.ARCHETYPE_TRAIT_POOLS['_default']) || [];
+  return pool.filter(function(t) {
+    return t.traitType === type && !(G.unlockedTraits || []).includes(t.id);
+  });
+}
+
+function trainMastery(traitId) {
+  var cost = 10;
+  if ((G.masteryXP || 0) < cost) {
+    G.lastResult = 'Not enough Mastery XP. It accumulates when you earn XP past your stage level cap.';
+    if (typeof updateHUD === 'function') updateHUD();
+    return;
+  }
+  G.masteryXP = (G.masteryXP || 0) - cost;
+  G.traitProgress = G.traitProgress || {};
+  G.traitProgress[traitId] = (G.traitProgress[traitId] || 0) + 1;
+  var prog = G.traitProgress[traitId];
+  G.lastResult = 'Training session complete. Progress: ' + prog + '/3.';
+  if (prog >= 3) {
+    var archetypeId = G.archetype && G.archetype.id;
+    var pool = (window.ARCHETYPE_TRAIT_POOLS && window.ARCHETYPE_TRAIT_POOLS[archetypeId])
+      || (window.ARCHETYPE_TRAIT_POOLS && window.ARCHETYPE_TRAIT_POOLS['_default']) || [];
+    var trait = pool.find(function(t){ return t.id === traitId; });
+    if (trait) {
+      G.unlockedTraits = G.unlockedTraits || [];
+      if (!G.unlockedTraits.includes(trait.id)) G.unlockedTraits.push(trait.id);
+      G.traits = G.traits || [];
+      if (!G.traits.find(function(t){ return t.id === trait.id; })) {
+        G.traits.push({
+          name: trait.name || trait.id,
+          description: trait.desc || '',
+          traitType: trait.traitType || 'passive',
+          activeSkillType: trait.activeSkillType || null,
+          source: 'mastery',
+          passive: trait.traitType === 'passive',
+          skillBonus: trait.skillBonus || null,
+          bonus: trait.bonus || 0,
+          skill: trait.bonusSkill || null,
+          used: false,
+          id: trait.id
+        });
+      }
+      G.lastResult = trait.name + ' unlocked via mastery training.';
+      if (typeof addWorldNotice === 'function') addWorldNotice('Mastered: ' + trait.name + '.');
+    }
+  }
+  addJournal(G.lastResult, 'discovery');
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof showTrainingMenu === 'function') showTrainingMenu();
+}
+
 function showTrainingMenu() {
   closeOverlay('overlay-camp');
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
@@ -12776,7 +12847,51 @@ function showTrainingMenu() {
       '<span class="choice-meta">' + statusNote + '</span></button>';
   });
 
-  html += '</div><div style="margin-top:8px"><button class="btn btn-ghost btn-sm" id="btn-cancel-train">Cancel</button></div>';
+  html += '</div>';
+
+  var mxp = G.masteryXP || 0;
+  var activeTraits = _getAvailableMasteryTraits('active');
+  var passiveTraits = _getAvailableMasteryTraits('passive');
+
+  if (activeTraits.length > 0) {
+    html += '<div class="training-section" style="margin-top:14px"><div class="choice-label">Active Skills</div>';
+    html += '<div style="color:var(--ink-dim);font-size:11px;margin-bottom:8px">3 sessions to unlock &middot; 10 Mastery XP per session</div>';
+    activeTraits.forEach(function(t) {
+      var prog = (G.traitProgress || {})[t.id] || 0;
+      html += '<div class="training-row" style="display:flex;justify-content:space-between;align-items:center;padding:4px 0">';
+      html += '<span style="color:var(--ink-light)">' + (t.name || t.id) + ' (' + prog + '/3)</span>';
+      if (prog >= 3) {
+        html += '<span style="color:var(--jade-bright)">Unlocked</span>';
+      } else if (mxp >= 10) {
+        html += '<button class="btn btn-ghost btn-sm" onclick="trainMastery(\'' + t.id + '\')">Train (10 MXP)</button>';
+      } else {
+        html += '<span style="color:var(--ink-dim)">Need 10 MXP</span>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  if (passiveTraits.length > 0) {
+    html += '<div class="training-section" style="margin-top:14px"><div class="choice-label">Passive Traits</div>';
+    html += '<div style="color:var(--ink-dim);font-size:11px;margin-bottom:8px">3 sessions to unlock &middot; 10 Mastery XP per session</div>';
+    passiveTraits.forEach(function(t) {
+      var prog = (G.traitProgress || {})[t.id] || 0;
+      html += '<div class="training-row" style="display:flex;justify-content:space-between;align-items:center;padding:4px 0">';
+      html += '<span style="color:var(--ink-light)">' + (t.name || t.id) + ' (' + prog + '/3)</span>';
+      if (prog >= 3) {
+        html += '<span style="color:var(--jade-bright)">Unlocked</span>';
+      } else if (mxp >= 10) {
+        html += '<button class="btn btn-ghost btn-sm" onclick="trainMastery(\'' + t.id + '\')">Train (10 MXP)</button>';
+      } else {
+        html += '<span style="color:var(--ink-dim)">Need 10 MXP</span>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  html += '<div style="margin-top:8px"><button class="btn btn-ghost btn-sm" id="btn-cancel-train">Cancel</button></div>';
   block.innerHTML = html;
 
   block.querySelectorAll('.train-btn:not([disabled])').forEach(btn => {
@@ -14372,7 +14487,51 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-function checkSave() { /* deprecated */ }// ── COMBAT ENTRY — FIRST-CLASS ENCOUNTER SETUP ────────
+function checkSave() { /* deprecated */ }
+
+// ── ACTIVE SKILL RESOLUTION ────────────────────────────────────────────────
+function useCombativeSkill(skillId) {
+  var trait = (G.traits || []).find(function(t){ return t.id === skillId; });
+  if (!trait || trait.used) return;
+  var r = rollD20(trait.skill || 'might', trait.bonus || 0);
+  trait.used = true;
+  var resultText;
+  if (r.isCrit) {
+    resultText = trait.critEffect || trait.name + ': Critical activation.';
+  } else if (r.total >= 12) {
+    resultText = trait.successEffect || trait.name + ' lands cleanly.';
+  } else {
+    resultText = trait.failEffect || trait.name + ': The attempt falls short.';
+    if (r.isFumble) trait.used = false;
+  }
+  G.lastResult = resultText;
+  addJournal(resultText, 'evidence');
+  if (typeof updateHUD === 'function') updateHUD();
+}
+
+function useUtilitySkill(skillId) {
+  if (G.flags && G.flags.in_combat) {
+    G.lastResult = 'Utility skills cannot be used during combat.';
+    if (typeof updateHUD === 'function') updateHUD();
+    return;
+  }
+  var trait = (G.traits || []).find(function(t){ return t.id === skillId; });
+  if (!trait || trait.used) return;
+  trait.used = true;
+  var r = rollD20(trait.skill || 'wits', trait.bonus || 0);
+  var resultText;
+  if (r.total >= 10) {
+    resultText = trait.utilityResult || trait.name + ': You apply your expertise to good effect.';
+  } else {
+    resultText = trait.name + ': The attempt yields little this time.';
+  }
+  G.lastResult = resultText;
+  addJournal(resultText, 'discovery');
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
+}
+
+// ── COMBAT ENTRY — FIRST-CLASS ENCOUNTER SETUP ────────
 /** Narrative combat entry. Shows enemy intent, renders Press/Defend/Talk/Retreat. Use for all story-driven fights. @param {string} enemyKey @param {{isBoss?:boolean, bossKeys?:string[]}} [context] */
 function enterCombat(enemyKey, context) {
   context = context || {};
