@@ -8261,7 +8261,7 @@ let G = {
   timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
   stage:'Stage I', stageLabel:'Grass Roots',
   benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
-  factions:[], quests:[], journal:[], journalRecords:[], history:[],
+  factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
   inventory:[], equipped:{weapon:null, armor:null, tool:null},
   materials:{},
   wounds:[], fatigue:0, recoveryState:'stable',
@@ -8637,7 +8637,7 @@ function initCreate() {
         skills:{combat:0,survival:0,persuasion:0,lore:0,stealth:0,craft:0},
         traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
         stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
-        factions:[], quests:[], journal:[], journalRecords:[], history:[],
+        factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
         inventory:[], equipped:{weapon:null,armor:null,tool:null},
         wounds:[], fatigue:0, recoveryState:'stable',
         npcMemory:{}, trainingDisadvantage:0,
@@ -10505,7 +10505,7 @@ function resolveConsequence(cid, success, partial) {
 function applyEffect(fx) {
   switch (fx.type) {
     case 'journal':   addJournal(fx.msg); break;
-    case 'quest':     addQuest(fx.msg); break;
+    case 'quest':     addQuest(fx.msg, fx.hint, fx.questId); break;
     case 'gold':      modGold(fx.n); break;
     case 'faction':   modFaction(fx.id, fx.n); break;
     case 'damage':    modHP(-Math.abs(fx.n)); break;
@@ -11354,11 +11354,17 @@ function addJournal(text, category, dedupeKey) {
   G.journal = G.journalRecords.slice(0,30).map(e => e.text);
   updateJournalHUD();
 }
-function addQuest(text) {
+function addQuest(text, hint, questId) {
   if (!G.quests) G.quests = [];
-  if (!G.quests.includes(text)) {
-    G.quests.push(text); updateQuestHUD();
+  var already = G.quests.some(function(q) { return (typeof q === 'string' ? q : q.msg) === text; });
+  if (!already) {
+    G.quests.push({msg: text, questId: questId || null});
+    updateQuestHUD();
     showToast('Quest: ' + text.slice(0,40) + (text.length>40?'...':''));
+  }
+  if (questId && hint) {
+    if (!G.questHints) G.questHints = {};
+    G.questHints[questId] = hint;
   }
 }
 
@@ -12678,7 +12684,16 @@ function showCharSheet() {
     '<div style="font-size:10px;color:var(--gold-dim);margin-bottom:4px;font-family:Cinzel,serif;letter-spacing:2px">ORDER AXIS</div>' +
     '<div class="align-bar"><div class="align-fill order-axis" style="width:'+((G.orderAxis||0)+50)*1+'%"></div></div>' +
     '<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--ink-faint);margin-top:2px"><span>Anarchy</span><span>Order</span></div></div>' +
-    '</div></div>' +
+    '</div>' +
+    (function() {
+      var _badges = [];
+      if ((G.benevolence||0) > 10) _badges.push('Benevolent');
+      else if ((G.benevolence||0) < -10) _badges.push('Cruel');
+      if ((G.orderAxis||0) > 10) _badges.push('Order');
+      else if ((G.orderAxis||0) < -10) _badges.push('Anarchy');
+      return _badges.length ? '<div style="margin-top:8px;font-family:var(--font-display);font-size:11px;color:var(--accent-gold);letter-spacing:0.08em">' + _badges.join(' · ') + '</div>' : '';
+    })() +
+    '</div>' +
 
     '<div style="margin-top:20px"><div class="char-section-title">Wounds</div>' + woundRows + '</div>' +
     '<div style="margin-top:20px"><div class="char-section-title">History</div>' + histRows + '</div>' +
@@ -13391,9 +13406,19 @@ function updateFactionHUD() {
 
 function updateQuestHUD() {
   const el = document.getElementById('quest-list'); if (!el) return;
-  el.innerHTML = (G.quests||[]).length ?
-    (G.quests||[]).slice(-4).map(q=>'<div class="quest-item">'+q+'</div>').join('') :
-    '<div style="color:var(--ink-faint);font-size:12px;font-style:normal">No active quests.</div>';
+  var quests = G.quests || [];
+  if (!quests.length) {
+    el.innerHTML = '<div style="color:var(--ink-faint);font-size:12px;font-style:normal">No active quests.</div>';
+    return;
+  }
+  el.innerHTML = quests.slice(-4).map(function(q) {
+    var msg = typeof q === 'string' ? q : q.msg;
+    var qid = typeof q === 'string' ? null : q.questId;
+    var hint = G.questHints && qid && G.questHints[qid];
+    return '<div class="quest-item">' + msg +
+      (hint ? '<div style="font-size:11px;color:var(--ink-faint);margin-top:2px;">\u2192 ' + hint + '</div>' : '') +
+      '</div>';
+  }).join('');
 }
 
 function updateJournalHUD() {
