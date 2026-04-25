@@ -8273,6 +8273,7 @@ let G = {
   consecutiveSleepless: 0,
   watchPosted: false,
   heat: {},
+  _heatDCMod: 0,
   schemaVersion:3
 };
 
@@ -9626,8 +9627,40 @@ function _injectBossSeedChoices(choices) {
   return [adaptSeedChoice(toInject)].concat(choices);
 }
 
+/** Evaluates G.heat thresholds and applies world-state consequences. Call on locality load. */
+function checkHeatConsequences() {
+  const heat = G.heat || 0;
+  // Heat 3: world notice — NPCs become guarded
+  if (heat >= 3 && !G.flags.heat3_noticed) {
+    G.flags.heat3_noticed = true;
+    addNarration('Word has spread. Faces that once passed over you now pause a beat longer.');
+  }
+  // Heat 5: mandatory patrol encounter pressure + DC penalty
+  if (heat >= 5 && !G.flags.heat5_active) {
+    G.flags.heat5_active = true;
+    G._heatDCMod = 1;
+    addNarration('Authority patrols have your description. Moving freely has a cost now.');
+  }
+  // Heat 5 patrol encounter trigger (random, ~1-in-3 chance per locality load)
+  if (heat >= 5 && Math.random() < 0.33 && !G.flags._patrolEncounterThisTick) {
+    G.flags._patrolEncounterThisTick = true;
+    if (typeof enterCombat === 'function') {
+      enterCombat('warrant_patrol', { isBoss: false, heatTriggered: true });
+    }
+  } else {
+    G.flags._patrolEncounterThisTick = false;
+  }
+  // Heat 8: warrant issued
+  if (heat >= 8 && !G.flags.warrant_issued) {
+    G.flags.warrant_issued = true;
+    addJournal('A warrant has been issued. Crossing any controlled threshold carries arrest risk.', 'complication');
+    addNarration('Your name appears on notice boards now. The warrant is real.');
+  }
+}
+
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
+  checkHeatConsequences();
   const loc = locId || G.location || '';
   const stage = G.stage || '';
   const stageNum = stage === 'Stage II' ? '2' : stage === 'Stage III' ? '3' : '1';
@@ -10192,7 +10225,8 @@ function handleChoice(choice) {
   const isOutdoor = choice.skill === 'survival' || (G.archetype && G.archetype.id === 'ranger' && choice.skill === 'combat');
   const weatherMod = weatherSev >= 4 ? 1 : (weatherSev >= 3 && isOutdoor ? 1 : 0);
   const levelMod = Math.floor(((G.level || 1) - 1) / 2);
-  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod;
+  var _heatMod = (G._heatDCMod || 0);
+  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0);
   const success = total >= diff;
   const partial = !success && total >= diff - 4;
 
