@@ -9355,7 +9355,7 @@ function adaptEnrichedChoice(c) {
   var _coreInvest = c.fn && /addJournal\(.*(?:'evidence'|'intelligence'|"evidence"|"intelligence")/.test(c.fn.toString());
   if (_coreInvest) _rivalMod = 0;
   // Derive tag from c.tag (explicit) or c.tags array; default 'risky'
-  var _BOLD_TAGS  = ['Combat','Violence','Accusation','Betrayal','Exposure','Tribunal','Confrontation','Assault','Ambush'];
+  var _BOLD_TAGS  = ['Combat','Violence','Accusation','Negotiation','Betrayal','Exposure','Tribunal','Confrontation','Assault','Ambush'];
   var _SAFE_TAGS  = ['Rest','Stealth','Craft','Study','Observation','Lore','Trade','Retreat','Gather'];
   var _derivedTag = 'risky';
   if (c.tag && (c.tag === 'bold' || c.tag === 'risky' || c.tag === 'safe')) {
