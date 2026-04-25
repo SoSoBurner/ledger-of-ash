@@ -10,7 +10,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 1. GUILD ARBITRATOR: DISPUTE RESOLUTION FAILURES
   {
-    label: "Question the guild arbitrator about recent dispute resolutions — are decisions favoring certain merchants unfairly, and has the arbitration process become unpredictable?",
+    label: "The arbitrator's rulings have been going the same direction for weeks. Someone upstream is setting the outcome.",
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -44,7 +44,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 2. MERCHANT REPRESENTATIVE: TRADE AGREEMENT CHANGES
   {
-    label: "Consult with merchant representatives about recent changes to trade agreements — have terms been altered unilaterally, or are certain merchants being frozen out?",
+    label: "The merchants who lost agreements last month all trade the same goods. That's not coincidence.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Agreements', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -80,7 +80,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 3. QUALITY INSPECTOR: STANDARDS DETERIORATION
   {
-    label: "Interview the guild quality inspector — are quality standards being lowered for certain merchants, or are inspections being inconsistently applied?",
+    label: "The inspection stamps don't match what's coming off the dock. Someone is passing what shouldn't pass.",
     tags: ['Investigation', 'NPC', 'Quality', 'Standards', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -112,7 +112,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 4. HALL KEEPER: EXCLUSION PATTERNS
   {
-    label: "Question the guild hall keeper about recent membership changes — are certain merchants being denied access, and is hall usage being restricted?",
+    label: "The hall keeps turning away the same kinds of merchants. The keeper knows the pattern.",
     tags: ['Investigation', 'NPC', 'Access', 'Membership', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -148,7 +148,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 5. LEDGER MASTER: RECORD FALSIFICATION
   {
-    label: "Access the guild's financial and trading ledgers — are records being altered to hide merchant activities, or are entries being deliberately obscured?",
+    label: "The ledger master handles every guild account. If numbers are wrong, he's been told to write them wrong.",
     tags: ['Investigation', 'NPC', 'Records', 'Finance', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -184,7 +184,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 6. WAREHOUSE BROKER: GOODS DIVERSION
   {
-    label: "Question warehouse brokers about merchandise movements — are goods being diverted to unlisted destinations, or are shipments being held longer than usual?",
+    label: "Bay Seven has had the same crates sitting there for days. The broker knows they're not moving by accident.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -217,7 +217,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INITIATION OVERSEER: MEMBERSHIP COERCION
   {
-    label: "Speak with the initiation overseer about membership requirements — are initiates being asked for loyalty oaths beyond normal guild practice?",
+    label: "The new initiation oath asks about household doubts. That was never in the ceremony before.",
     tags: ['Investigation', 'NPC', 'Membership', 'Coercion', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -253,7 +253,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 8. APPRENTICE MASTER: SKILL SUPPRESSION
   {
-    label: "Consult with the apprentice master about craft training — are certain skills being deliberately withheld from apprentices, or are knowledge-sharing practices changing?",
+    label: "Weight assessment and independent arbitration were year-one skills. Now they're locked behind Level Four.",
     tags: ['Investigation', 'NPC', 'Craft', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -291,7 +291,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 9. GUILD STRUCTURE TIER 1: HIERARCHY REORGANIZATION
   {
-    label: "Analyze the guild's organizational hierarchy — has the formal structure been modified, or are decision powers being centralized?",
+    label: "Three department head positions are vacant and the merchant council is now 'advisory.' That change wasn't announced.",
     tags: ['Investigation', 'Structure', 'Organization', 'Power', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -324,7 +324,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 10. TRADE NETWORK TIER 2: MERCHANT DISPLACEMENT
   {
-    label: "Map the active merchants in Guildheart Hub — who's been removed from trading networks, and who's gaining unprecedented access?",
+    label: "Seventeen merchants dropped from the roster in eight months. Fifteen replaced by names sharing one endorsing signature.",
     tags: ['Investigation', 'Networks', 'Commerce', 'Displacement', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -360,7 +360,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INFORMATION CONTROL TIER 1: RUMOR SUPPRESSION
   {
-    label: "Track how information flows through Guildheart Hub — are certain stories being deliberately suppressed, and is communication being filtered?",
+    label: "Two merchants at opposite ends of the quarter used the same phrase to describe the same event. They don't know each other.",
     tags: ['Investigation', 'Information', 'Communication', 'Control', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -393,7 +393,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 12. COERCION MECHANISMS TIER 2: THREAT MAPPING
   {
-    label: "Document the specific threats and consequences being used against merchants — who's being threatened, by what means, and for what refusals?",
+    label: "Every merchant who filed a complaint lost something four days later. Same interval, different mechanism.",
     tags: ['Investigation', 'Coercion', 'Fear', 'Threats', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -429,7 +429,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 13. EXTERNAL MOVEMENT TIER 1: RESOURCE REDIRECTION
   {
-    label: "Trace resource flows from Guildheart Hub outward — are guild resources being channeled to external destinations?",
+    label: "Nineteen percent of total intake went to 'administrative coordination, external' last quarter. That line has no service contract.",
     tags: ['Investigation', 'Resources', 'Flow', 'Redirection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -462,7 +462,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 14. TRUST EROSION TIER 2: INSTITUTIONAL FAITH COLLAPSE
   {
-    label: "Document the breakdown of merchant confidence in guild institutions — what bonds of trust have fractured, and what's replacing mutual faith?",
+    label: "The common bench is empty at midday. Merchants who arrived together are standing at separate walls.",
     tags: ['Investigation', 'Trust', 'Institutions', 'Faith', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -498,7 +498,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 15. MERCHANT VULNERABILITY TIER 1: ECONOMIC EXPOSURE
   {
-    label: "Document individual merchant economic vulnerability — who's most at risk of losing their standing, and what pressures can force compliance?",
+    label: "The recent arbitration rulings cluster on merchants with one trade route and no backup suppliers. Someone mapped their exposure first.",
     tags: ['Investigation', 'Vulnerability', 'Economics', 'Exposure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -534,7 +534,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 16. DECISION OPACITY TIER 2: UNEXPLAINED AUTHORITY SHIFTS
   {
-    label: "Analyze who's making key guild decisions — who's appearing in leadership while actual power is held elsewhere, creating confusion about authority?",
+    label: "The rulings cite 'coordinating directive' with no number and no issuing body. The arbitrator's name is on the outcome, not the origin.",
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -572,7 +572,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: MERCHANT WHISPERS
   {
-    label: "Gather gossip in merchant quarters and warehouse districts — what stories are traders telling each other about guild changes?",
+    label: "The merchant quarter is running a story that doesn't need to be accurate — just possible.",
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -728,7 +728,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: PRE-UNION CHARTER FRAGMENT
   {
-    label: "Locate a fragment of the pre-Union charter in the guild archive basement — compare it to the current arbitration mandate.",
+    label: "The pre-Union charter is in the basement. The current mandate cites authority that isn't in it.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -754,7 +754,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: OFF-CHANNEL ARBITER CONTACT
   {
-    label: "Shadow the senior arbiter's movements after the guild hall closes — follow where they go that isn't on the official schedule.",
+    label: "The senior arbiter's posted schedule ends at close of hall. The route he takes after that isn't filed anywhere.",
     tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 75,
     fn: function() {
@@ -784,7 +784,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE GUILD FLOOR
   {
-    label: "Walk the guild trading floor at peak hours and read what's actually happening beneath the commerce.",
+    label: "The guild floor has a second accounting running beneath the first. The second one is the one that matters.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -809,7 +809,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "Speak to the Oversight Collegium observer stationed at the guild hall's east annexe.",
+    label: "The Oversight Collegium has had an observer here for sixty-two days. That's a monitoring phase, not an investigation.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -835,7 +835,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE GUILD MEMORIAL BELL
   {
-    label: "Listen to the guild memorial bell at midday and ask a local factor what it commemorates.",
+    label: "The bell rings nine times. There are twelve registered guilds now.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     fn: function() {
@@ -850,7 +850,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC SETUP: COURIER NETWORK
   {
-    label: "Establish a courier drop — a way to get information out of Guildheart without it passing through the guild's monitored channels.",
+    label: "Everything that goes out of Guildheart gets logged at the guild desk. That's been mandatory for a year.",
     tags: ['PersonalArc', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -872,7 +872,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE DISPLACED FACTOR
   {
-    label: "Find the factor who lost their trade license last month and ask what actually happened.",
+    label: "Three factors pulled last month for the same violation. Two kept their licenses. One didn't.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {

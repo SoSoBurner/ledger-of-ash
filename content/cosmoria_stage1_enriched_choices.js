@@ -10,7 +10,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 1. STABLE FACTOR: TRADE ROUTES MANIPULATION
   {
-    label: "Question Aurek Tidereach, the Stable Factor — are certain merchant routes being systematically blocked, and has trade priority shifted in ways that benefit specific interests?",
+    label: "Three brigs are riding at anchor with idle cranes above them. The berths they're waiting for are occupied by Cosmouth vessels that arrived after them.",
     tags: ['Investigation', 'NPC', 'Maritime', 'Commerce', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -44,7 +44,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 2. QUARTERMASTER: SUPPLY CHAIN DIVERSION
   {
-    label: "Consult with Quartermaster Coralyn Foamglass about recent supply distribution — has maritime resource allocation been altered, and are certain crews getting preferential access?",
+    label: "The ledger shows forty bolts for independent merchants. The correction shows twenty. Cosmouth brig crews show forty. The corrections are in someone else's hand.",
     tags: ['Investigation', 'NPC', 'Resources', 'Supply', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -80,7 +80,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 3. SHRINE CARETAKER: RITUAL CORRUPTION
   {
-    label: "Interview Maris Coralwake, the Shrine Caretaker — are maritime rituals and protections being altered, and has the sacredness of sea communion been compromised?",
+    label: "The morning blessing list is handed to the caretaker before the tide. Some crews get the full communion. Others get a shorter rite.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -116,7 +116,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 4. CLERK OF ARRIVALS: RECORD TAMPERING
   {
-    label: "Speak with Tideon Anchorlight, the Clerk of Arrivals — are arrival records being falsified, and has documentation been modified to hide arrivals or departures?",
+    label: "Three vessels in the arrival record have manifests that are identical word for word. Different ships, different dates, same manifest.",
     tags: ['Investigation', 'NPC', 'Archives', 'Records', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -152,7 +152,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 5. WARD MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
-    label: "Consult with Nerissa Bluefin, the Ward Mediator — are disputes between floating districts being resolved fairly, or is mediation being weaponized?",
+    label: "A sealed document arrived before her last hearing with the preferred ruling already written. She ruled differently. The review of her credentials arrived the following week.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Districts', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -188,7 +188,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 6. STREET PHYSICIAN: HEALTH RECORDS FALSIFICATION
   {
-    label: "Interview Sevrin Shellmark, the Street Physician — are health records being falsified, and has disease reporting been manipulated to hide population strain?",
+    label: "The physician's own record shows acute respiratory. The official harbor health roll shows seasonal minor. Different date, different severity.",
     tags: ['Investigation', 'NPC', 'Health', 'Records', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -224,7 +224,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 7. ARCHIVIST: DOCUMENT DESTRUCTION
   {
-    label: "Speak with the Archive Keeper about recent document removal procedures — are historical records being systematically destroyed, and has collection integrity been compromised?",
+    label: "There's a gap on the archive shelf — dust-free at the edges, older dust in the center. The third level that holds what was there didn't exist six months ago.",
     tags: ['Investigation', 'NPC', 'Archives', 'History', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -260,7 +260,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 8. SHIPWRIGHT FOREMAN: QUALITY STANDARDS CORRUPTION
   {
-    label: "Consult with a senior Shipwright about recent construction standards — are vessel safety requirements being lowered, and has quality inspection been compromised?",
+    label: "The Cosmouth vessel's joins pass inspection. The independent builder's identical joins are under correction review for eleven days.",
     tags: ['Investigation', 'NPC', 'Craft', 'Quality', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -298,7 +298,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 9. MARITIME HIERARCHY: FLOATING DISTRICT REORGANIZATION
   {
-    label: "Analyze Cosmoria's floating district organization — has the formal governance structure been modified, and are decision powers being centralized within House Cosmouth?",
+    label: "Five ward charter amendments in eight months, each adding a Cosmouth oversight clause to a previously independent function.",
     tags: ['Investigation', 'Structure', 'Organization', 'Maritime', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -331,7 +331,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 10. MARITIME NETWORKS: MERCHANT DISPLACEMENT
   {
-    label: "Map the active maritime merchants in Cosmoria — who's been removed from trading networks, and who's gaining unprecedented access to shipping infrastructure?",
+    label: "The harbor didn't shrink. Sixty-four independent merchants three years ago, forty-one now. It was selectively cleared.",
     tags: ['Investigation', 'Networks', 'Maritime', 'Displacement', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -367,7 +367,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 11. ARCHIVE INTEGRITY: DOCUMENTATION SYSTEM ANALYSIS
   {
-    label: "Examine how Cosmoria's archive documentation system has evolved — what categories of records are being restricted, and what information is being protected from public access?",
+    label: "The archive public access list ran to three pages a year ago. The current version is one page. Every removed category covers the period before Cosmouth consolidated harbor authority.",
     tags: ['Investigation', 'Archives', 'System', 'Information', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -400,7 +400,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL AMBITION TRACKING: WHO'S RISING
   {
-    label: "Document which individuals are gaining unprecedented power within Cosmoria — who's being positioned for authority, and what methods are enabling their rapid ascension?",
+    label: "Three newly powerful positions, all created in the same administrative cycle, all filled by the same harbor authority office.",
     tags: ['Investigation', 'Ambition', 'Power', 'Tracking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -436,7 +436,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSTITUTIONAL LEVERAGE: DEPENDENCY SYSTEM
   {
-    label: "Document how Cosmoria's institutions are being weaponized to create dependency — what groups are most vulnerable to institutional pressure, and how is compliance being enforced?",
+    label: "The coercion arrives as process, as delay, as paperwork — until the person at the center works out what the paperwork wants from them.",
     tags: ['Investigation', 'Institutions', 'Dependency', 'Power', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -472,7 +472,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SUPPLY MANIPULATION: RESOURCE SCARCITY CREATION
   {
-    label: "Document how maritime resource scarcity is being artificially created — what materials are being withheld, and how is shortage being used to enforce compliance?",
+    label: "Full deliveries arrive at the harbor warehouse. Independent builders get sixty percent. The rest sits reserved for Cosmouth fleet maintenance with nothing scheduled.",
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -508,7 +508,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FAITH WEAPONIZATION: RITUAL AS CONTROL
   {
-    label: "Document how maritime spiritual practices are being corrupted — what rituals are being weaponized for political allegiance, and how is faith being transformed into compliance?",
+    label: "Cosmouth brig crews get the full morning ceremony. Independent fishing crews are turned away. They leave quickly. They've been turned away before.",
     tags: ['Investigation', 'Faith', 'Ritual', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -546,7 +546,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 16. HARBOR RUMOR: DOCKWORKER WHISPERS
   {
-    label: "Gather gossip among harbor dockworkers and maritime crews — what stories are sailors telling each other about changes in Cosmoria's shipping system?",
+    label: "The lower docks have absorbed something as established fact. Three different people in an hour, all treating it the same way — quietly, without asking why.",
     tags: ['Investigation', 'Rumor', 'Maritime', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -570,7 +570,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 17. ARCHIVE RUMOR: SCHOLAR WHISPERS
   {
-    label: "Gather gossip among archive scholars and researchers — what stories are archivists telling each other about restricted documents and historical record changes?",
+    label: "The reading room above the harbor has its own current. Scholars share things quietly, plausibly deniable, already accepted.",
     tags: ['Investigation', 'Rumor', 'Archives', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -594,7 +594,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL CRACK: CORRUPTION PROOF COMPILATION
   {
-    label: "Compile documented evidence that proves maritime institutions are being systematically corrupted — show the paper trail linking institutional corruption to coordinated strategy.",
+    label: "Nine documents from nine different institutions. None point at each other. All point the same direction.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -630,7 +630,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: INSTITUTION LOYALTY COMPROMISE
   {
-    label: "Confront a Cosmoria official who's complicit in institutional corruption — demand explanation and decide whether to protect them or expose their role.",
+    label: "They've been waiting for someone to ask for months. Now someone is here and they don't know if it makes things better or worse.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -664,7 +664,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
-    label: "Find the evidence that proves Cosmoria's institutional corruption is being coordinated from outside — discover the external hand orchestrating maritime system capture.",
+    label: "The money came first. The charter amendments followed. Cosmoria's institutions didn't change from inside.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -702,7 +702,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: GHOST VESSEL EVIDENCE
   {
-    label: "Examine the maritime registry for vessels that departed Cosmoria without filing a return manifest — ghost vessels.",
+    label: "Seven vessels departed without return manifests. All seven flags were raised. All seven were cleared by the same administrator on irregular days.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -728,7 +728,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: MARITIME TRANSIT LAUNDERING
   {
-    label: "Trace the cargo manifests of the ghost vessels — follow the paper chain from departure documentation to origin ownership.",
+    label: "Seven departure manifests, seven different vessels and dates, one identical document filed seven times.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -749,7 +749,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE HARBOR
   {
-    label: "Walk Cosmoria's working harbor at peak tide — read what the port's activity pattern is actually communicating.",
+    label: "Berths four and six load during the noisiest window of the day. Someone scheduled those departures to be invisible by circumstance.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -773,7 +773,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: IRON COMPACT MARITIME CONTACT
   {
-    label: "Approach the Iron Compact's Cosmoria trade agent — they maintain an office in the maritime quarter.",
+    label: "The Iron Compact tracks cargo routing. Seven ghost vessels show up as a routing gap in their projections.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -799,7 +799,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE TIDE MARKER
   {
-    label: "Study the tide markers at the harbor mouth — observe what they show about how Cosmoria reads time.",
+    label: "The last name carved on the harbor tide markers is two years old. The tradition just stopped. No sign, no locked gate, no explanation.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -814,7 +814,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: THE HARBOR ADMINISTRATOR'S RECORD
   {
-    label: "Obtain a copy of the harbor administrator's personal appointment log — document when they personally cleared the ghost vessel flags.",
+    label: "The administrator created their own cover by recording just enough to fill the space. The log is on their desk.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -836,7 +836,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE RETURNING SAILOR
   {
-    label: "Speak to a sailor who was crew on one of the vessels that departed with a template manifest — find out where it actually went.",
+    label: "One of those crews came back. Private mooring, sealed cases, men who moved like they'd offloaded there before. Triple rate, no return manifest.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {

@@ -10,7 +10,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 1. SHRINE HELPER: OFFERING PATTERNS CORRUPTED
   {
-    label: "Ask the shrine helper about changes in offerings — are donations unusual lately, and are the accepted/rejected patterns shifting?",
+    label: "The offering standards changed. Copper mixed with iron is being accepted now. That was always sent back before.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Offerings', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -45,7 +45,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 2. LEDGER KEEPER: MEDIATION RECORDS TAMPERED
   {
-    label: "Access the mediation ledgers at the shrine — are records being altered, destroyed, or written with unusual language patterns?",
+    label: "The mediation ledger entries from six weeks ago use newer ink than the dates claim.",
     tags: ['Investigation', 'NPC', 'Records', 'Mediation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -81,7 +81,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 3. MEMORIAL COUNSELOR: GRIEF PROCESSING CHANGING
   {
-    label: "Consult with the memorial counselor about changes in how families process grief — are rituals being shortened, or are mourners reporting unusual emotional responses?",
+    label: "Families used to take weeks. Now they're done in days and they're not finished — they're empty.",
     tags: ['Investigation', 'NPC', 'Grief', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -114,7 +114,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 4. PROCESSIONAL COORDINATOR: ROUTE DIVERSIONS
   {
-    label: "Question the processional coordinator about recent changes to shrine routes — are the traditional paths being avoided, or are new routes being used?",
+    label: "The processional routes changed three weeks ago. Every path now runs straight to the mediation courts.",
     tags: ['Investigation', 'NPC', 'Process', 'Routes', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -147,7 +147,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 5. CHAPEL KEEPER: BLESSING FAILURE
   {
-    label: "Speak with the chapel keeper about whether the shrine blessings are working as expected — are people returning to say they feel unprotected?",
+    label: "People are returning to say their blessings didn't hold. The ritual authority says the blessings are working as designed.",
     tags: ['Investigation', 'NPC', 'Divine', 'Protection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -180,7 +180,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 6. RITUAL AUTHORITY: DOCTRINE CHANGES
   {
-    label: "Approach the ritual authority directly about recent changes to blessing formulas, offering standards, or mediation procedures — what's driving these shifts?",
+    label: "The ritual authority received sealed guidance from outside. They know the ritual structure precisely — not approximately.",
     tags: ['Investigation', 'NPC', 'Authority', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -216,7 +216,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INNKEEPER: GUEST PATTERNS AND SEALED LETTERS
   {
-    label: "Question the Panim Haven innkeeper about unusual guests — who's arrived recently, what routes do they take, are they carrying sealed documents?",
+    label: "Northern couriers arrive every seven days, always sealed, always meeting the ritual authority. Different courier, same timing.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -249,7 +249,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MEDIATION OFFICIAL: CASE OUTCOMES RIGGED
   {
-    label: "Review mediation cases with an official — are certain families' cases being resolved in their favor consistently, regardless of merit?",
+    label: "Northern traders win every merchant dispute. Inheritance cases transfer to outside buyers. The pattern is forty cases deep.",
     tags: ['Investigation', 'NPC', 'Justice', 'Corruption', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -287,7 +287,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE TIER 1: RITUAL FORMULA ANALYSIS
   {
-    label: "Study the historical blessing formulas used by Panim Haven — have the underlying magical components or invocations been altered?",
+    label: "The original invocation asks for balance of divine and mortal will. The current version asks for appropriate divine resolution.",
     tags: ['Investigation', 'Lore', 'Magic', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -323,7 +323,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 10. LORE TIER 2: DIVINE BALANCE DOCTRINE
   {
-    label: "Research the doctrine of divine balance that Panim Haven is built upon — has the philosophy behind the mediation system been twisted?",
+    label: "Old doctrine: find the just outcome. New doctrine: find the efficient one. The primary texts haven't changed — the interpretation has.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -359,7 +359,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 11. CRAFT TIER 1: OFFERING PREPARATION INSPECTION
   {
-    label: "Examine how offerings are prepared and processed — are materials being handled differently, or are impurities being introduced to sacred items?",
+    label: "The offering materials pass a surface check. Each substitution passes a casual check. Together they corrupt everything.",
     tags: ['Investigation', 'Craft', 'Materials', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -395,7 +395,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 12. CRAFT TIER 2: MEDIATION LEDGER DOCUMENT ANALYSIS
   {
-    label: "Examine the physical ledger documents themselves — are they being created with different inks, papers, or binding techniques that suggest recent forgery?",
+    label: "The binding threads on the replaced sections are newer than surrounding pages. Someone with document craft did this.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -431,7 +431,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 13. SURVIVAL TIER 1: ROUTE NETWORK ANALYSIS
   {
-    label: "Trace the physical routes used by shrine messengers — where do they actually go, and what patterns emerge in their movements?",
+    label: "The messenger routes don't align with any official shrine business destination. Same paths, same timings, different messengers.",
     tags: ['Investigation', 'Survival', 'Routes', 'Movement', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -467,7 +467,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SURVIVAL TIER 2: WAYSTATION INSPECTION
   {
-    label: "Visit the memorial waystations along the processional paths — are supplies being stored there that don't match their stated purpose?",
+    label: "The waystation back rooms hold document supplies and currency. Not water, food, or candles.",
     tags: ['Investigation', 'Survival', 'Supplies', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -504,7 +504,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: FAMILIES BEING DIVIDED
   {
-    label: "Gather street rumors at the offering halls — what are people whisper about mediation outcomes? What family stories are spreading?",
+    label: "The offering hall crowd is circling something. Three people, different tones, same direction.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -534,7 +534,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: SHRINE WORKER DEFECTION
   {
-    label: "Locate a shrine worker who is beginning to doubt the institution — someone willing to speak about what they've witnessed that doesn't align with official narrative.",
+    label: "One of the shrine workers knows the blessings changed. The fear in how they describe it is specific, not general.",
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -569,7 +569,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MEDIATION FAILURE: WRONGED FAMILY SPEAKS
   {
-    label: "Find a family whose mediation case was decided unfairly — someone angry enough to detail exactly how the system failed them.",
+    label: "Every precedent was in her favor. The mediation official ruled against her. Her home sold within the month.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -605,7 +605,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 18. LAYERED REVELATION: MEDIATION AS INSTRUMENT
   {
-    label: "Piece together all evidence about mediation corruption — prove that the system isn't broken, but has been weaponized to serve an external agenda.",
+    label: "The system isn't broken. It's been reoriented. Everything points the same direction and always to the same beneficiaries.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -642,7 +642,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 19. CLUE: BUREAU CASE FRAGMENTS
   {
-    label: "Access the Bureau of Reckoning's public case register — look for cases that were opened and closed without recorded resolution.",
+    label: "Forty-three cases closed in seventy-two hours with no transcripts, no outcomes, no parties named.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -668,7 +668,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 20. CLUE: COASTAL ROUTE PASSAGE RECORDS
   {
-    label: "Check the coastal passage logs at the harbor authority — trace what vessels have been flagged for Bureau involvement.",
+    label: "Three vessels departed under Bureau escort during the ghost case windows. The cargo has left this jurisdiction.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -689,7 +689,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 21. ARCHETYPE-GATED: READING THE RECKONING QUARTER
   {
-    label: "Walk the Reckoning Quarter at midday and observe how the Bureau's presence shapes the space.",
+    label: "The queue outside the Bureau hasn't moved in three hours. The wait is the answer — not a delay, a mechanism.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -713,7 +713,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 22. FACTION SEED: OVERSIGHT COLLEGIUM OBSERVER
   {
-    label: "Speak to the Oversight Collegium's observer posted at the Panim Haven civic hall.",
+    label: "The Collegium received a formal complaint fourteen weeks ago. The review panel hasn't convened.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -738,7 +738,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ATMOSPHERE: TAZREN'S SHADOW
   {
-    label: "Ask the oldest Bureau worker about Tazren — the name that keeps appearing in the pre-reform case archive.",
+    label: "Tazren's name appears in every pre-reform archive. It's absent from every current Bureau document. That absence required effort.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     fn: function() {
@@ -753,7 +753,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 24. PERSONAL ARC: FIND TAZREN
   {
-    label: "Track down Tazren — the retired Bureau head whose name has been erased from current institutional records.",
+    label: "The retired Bureau head lives two streets from the Bureau. His name was deliberately removed from every current record.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -775,7 +775,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 25. SOCIAL: THE CASE THAT WAS CLOSED YESTERDAY
   {
-    label: "Find the party whose case was closed yesterday under the ghost closure code — speak to them before they leave Panim Haven.",
+    label: "A case was closed yesterday under the ghost code. The complainant hasn't left yet. The window is narrow.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {

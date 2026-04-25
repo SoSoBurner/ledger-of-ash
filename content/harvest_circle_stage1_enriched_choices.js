@@ -10,7 +10,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. GRAIN MEASURER: QUOTA MANIPULATION
   {
-    label: "Question Svala Coalward, the Grain Measurer — are harvest quotas being systematically altered, and have measurement standards shifted in ways that favor certain families?",
+    label: "Connected families: log light. Independent farmers: extra review, lower count than the scale shows. Instructions, not guidelines.",
     tags: ['Investigation', 'NPC', 'Grain', 'Quotas', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -44,7 +44,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. MARKET BROKER: PRICE MANIPULATION
   {
-    label: "Consult with Varik Stonecarve, the Market Broker — has price setting been altered, and are certain families getting favorable pricing while others face price pressure?",
+    label: "Festival pricing used to be fixed by the elder council. Now it comes from quota administration and arrives pre-circulated to buyers.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Prices', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -80,7 +80,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. PROTECTOR OF MAGICAL FORESTS: LAND CORRUPTION
   {
-    label: "Interview Elyra Mossbane, Protector of magical forests and plains — are protective barriers being weakened, and has land stewardship been compromised?",
+    label: "Fields are now maintained by family standing, not agricultural condition. The Halversen family's blight risk has been real for six weeks.",
     tags: ['Investigation', 'NPC', 'Land', 'Protection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -116,7 +116,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. STORAGE KEEPER: GRAIN DIVERSION
   {
-    label: "Speak with the Storage Keeper about recent grain storage management — are stored grain reserves being diverted, and has storage allocation been secretly manipulated?",
+    label: "Festival allocation — forty tonnes. Private transfer — forty tonnes, same date. The numbers are identical.",
     tags: ['Investigation', 'NPC', 'Storage', 'Resources', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -152,7 +152,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. FESTIVAL COORDINATOR: CELEBRATION MANIPULATION
   {
-    label: "Consult with the Festival Coordinator about recent festival planning — is festival distribution being manipulated, and has celebration unity been corrupted?",
+    label: "Premium offering for patron-aligned families. Standard share for independents. The draft arrived from quota administration, not the elder council.",
     tags: ['Investigation', 'NPC', 'Festival', 'Distribution', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -188,7 +188,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. RECORD KEEPER: DOCUMENT FALSIFICATION
   {
-    label: "Interview Farlan Inkshade, Academic and recordkeeping steward — are harvest records being falsified, and has documentation been manipulated to hide economic redistribution?",
+    label: "The delivery figure on the record is higher than the summary confirms. The ink shade is different. He has six like this.",
     tags: ['Investigation', 'NPC', 'Records', 'Documents', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -224,7 +224,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INSPECTOR: QUALITY SUPPRESSION
   {
-    label: "Speak with Garren Ashmason, Night-Lantern Inspector — are grain quality standards being lowered, and has inspection been compromised to hide spoilage?",
+    label: "He marks the grain. He files the mark. Two days later the mark is gone from the record — passed, no note.",
     tags: ['Investigation', 'NPC', 'Quality', 'Inspection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -260,7 +260,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. DISPUTE MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
-    label: "Consult with Velrik Durnshade, Guild dispute mediator — are family disputes being resolved fairly, and has mediation been weaponized to suppress dissent?",
+    label: "He received the outcome note before the hearing. He ruled as instructed. The Halversen family lost storage they'd held for eleven years.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Conflicts', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -298,7 +298,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. GRAIN SYSTEM HIERARCHY: AUTHORITY REORGANIZATION
   {
-    label: "Analyze the grain steward hierarchy — has the formal structure been modified, and are decision powers being centralized within patron families?",
+    label: "Three independent steward positions absorbed over eighteen months. The elder council still meets. Its rulings are now labeled advisory.",
     tags: ['Investigation', 'Structure', 'Hierarchy', 'Authority', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -331,7 +331,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. FARMING NETWORKS: FAMILY DISPLACEMENT
   {
-    label: "Map active farming families in Harvest Circle — who's been removed from grain networks, and who's gaining unprecedented access to quota and resources?",
+    label: "Fourteen independent families on old records, gone from current ones. Seven left in the same eight-week window. Nine patron-aligned families entered during the same period.",
     tags: ['Investigation', 'Networks', 'Farming', 'Displacement', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -367,7 +367,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. SPOILAGE SYSTEM: DEGRADATION ACCELERATION
   {
-    label: "Examine how spoilage rates are changing in Harvest Circle — what grain is being allowed to degrade, and where are losses being artificially created?",
+    label: "Same harvest, same commune, same season — stored two different ways. The gap between the annexes is forty feet and one administrative decision.",
     tags: ['Investigation', 'Spoilage', 'Degradation', 'Analysis', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -400,7 +400,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. FAMILY POWER TRACKING: WHO'S RISING
   {
-    label: "Document which families are gaining unprecedented power in Harvest Circle — who's being positioned for authority, and what methods are enabling their rapid ascension?",
+    label: "Two families appear in the governance record for the first time fourteen months ago. Both rose through appointments ratified in the same three-week session.",
     tags: ['Investigation', 'Power', 'Ambition', 'Tracking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -436,7 +436,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. QUOTA DEPENDENCY: CONTROL SYSTEM
   {
-    label: "Document how quota systems are weaponizing farmer dependency — what groups are most vulnerable to quota pressure, and how is compliance being enforced?",
+    label: "Every farmer is threaded through dependencies that make non-compliance catastrophic. The system was adjusted to be this way.",
     tags: ['Investigation', 'Quotas', 'Dependency', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -472,7 +472,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. FESTIVAL MANIPULATION: UNITY WEAPONIZATION
   {
-    label: "Document how festival systems are being weaponized to divide community — what cultural unity is being destroyed, and how is celebration being turned into hierarchy enforcement?",
+    label: "The opening address used to name the harvest as belonging to the commune. The new draft names covenant families first. That category didn't exist before.",
     tags: ['Investigation', 'Festival', 'Unity', 'Division', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -510,7 +510,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FIELD RUMOR: FARMER WHISPERS
   {
-    label: "Gather gossip among farmers in the fields — what stories are farming families telling each other about quota changes and economic pressure?",
+    label: "Walking the field rows at midday, the murmur is consistent. One farmer says it eyes down. His neighbor nods — the nod of someone who stopped arguing with it.",
     tags: ['Investigation', 'Rumor', 'Farming', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -534,7 +534,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. MARKET RUMOR: MERCHANT WHISPERS
   {
-    label: "Gather gossip in the market and festival squares — what stories are merchants and traders telling each other about price manipulation and family favoritism?",
+    label: "The cloth trader says it at normal volume to his customer. No lowered voice, no looking around. Whatever caution applied six months ago has worn thin.",
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
