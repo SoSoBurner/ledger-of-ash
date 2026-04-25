@@ -24,7 +24,7 @@
         addJournal('Misled by false information', 'complication', `false-maps-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `The trader answers questions with questions. What you get is real enough — two confirmed checkpoints, one road closure, and one stretch marked dangerous without explanation. What they're holding back is legible in the pauses. It's enough to move on.`;
+        G.lastResult = `The trader answers questions with questions. What you get is real enough — two confirmed checkpoints, one road closure, and one stretch marked dangerous without explanation. What they're holding back is legible in the pauses. It's enough to move on. The pattern holds even when the documents don't.`;
         addJournal('Partial map data', 'intelligence', `maps-partial-${G.dayCount}`);
       }
 
@@ -56,7 +56,7 @@
         addJournal('setback', 'Terrain damage', `injury-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `The detour adds most of a day. The ground is treacherous in patches but navigable if slow. You arrive intact, slightly behind, rations lighter than planned. The northern route was worse — three wrecked carts visible from the ridge confirmed it.`;
+        G.lastResult = `The detour adds most of a day. The ground is treacherous in patches but navigable if slow. You arrive intact, slightly behind, rations lighter than planned. The northern route was worse — three wrecked carts visible from the ridge confirmed it. There is still the matter of who is managing which routes stay open and which don't.`;
         addJournal('progress', 'Route traversed', `route-${G.dayCount}`);
       }
 
@@ -88,7 +88,7 @@
         addJournal('Reputation damage', 'complication', `rep-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `He adds a docking surcharge that wasn't mentioned at the start. You pay it. He doesn't apologize. The crossing is quiet, the water is cold, and you arrive on the far bank with lighter coin and no further complications.`;
+        G.lastResult = `He adds a docking surcharge that wasn't mentioned at the start. You pay it. He doesn't apologize. The crossing is quiet, the water is cold, and you arrive on the far bank with lighter coin and no further complications. The Collegium's outer office is not the only layer — neither is any toll structure on a monitored crossing.`;
         addJournal('expense', 'Crossing toll paid', `toll-${G.dayCount}`);
       }
 
@@ -120,7 +120,7 @@
         addJournal('combat', 'Ambush encounter', `ambush-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `The camp is cold — abandoned at least a day ago. Someone left a pot half-packed and a bedroll pinned under a rock. You take nothing, sleep light, and leave before first light. The night passes without incident.`;
+        G.lastResult = `The camp is cold — abandoned at least a day ago. Someone left a pot half-packed and a bedroll pinned under a rock. You take nothing, sleep light, and leave before first light. The night passes without incident. Seld's name appears in the suppression gap — and whoever used this camp knew the route well enough to leave in a hurry.`;
         addJournal('rest', 'Safe camping', `camp-${G.dayCount}`);
       }
 
@@ -152,7 +152,7 @@
         addJournal('consequence', 'Wanted status rising', `wanted-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `The messenger breaks left into rough terrain and the riders lose them in the scrub. One of the riders holds at the tree line, looking back. You're still, and the light is bad. They move on. You don't know if they marked you. Probably not. Possibly yes.`;
+        G.lastResult = `The messenger breaks left into rough terrain and the riders lose them in the scrub. One of the riders holds at the tree line, looking back. You're still, and the light is bad. They move on. You don't know if they marked you. Probably not. Possibly yes. There is still the matter of what the messenger was carrying and who sent the riders after it.`;
         addJournal('action', 'Help given', `help-${G.dayCount}`);
       }
 
@@ -184,7 +184,7 @@
         addJournal('Authority suspicion', 'complication', `authority-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `You walk with him as far as the next waystation and point him toward a route that avoids the main checkpoints. He gives you a name in the next locality — someone who can be asked for help without explanation. No promises on either side. That's enough.`;
+        G.lastResult = `You walk with him as far as the next waystation and point him toward a route that avoids the main checkpoints. He gives you a name in the next locality — someone who can be asked for help without explanation. No promises on either side. That's enough. The Collegium's outer office is not the only layer — and a researcher whose work was suppressed knows exactly which layer stopped him.`;
         addJournal('contact', 'Scholar network', `contact-${G.dayCount}`);
       }
 
@@ -216,13 +216,14 @@
         addJournal('combat', 'Bandit trap', `trap-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `You hold your ground and watch. The lights pulse irregularly, flare once, and go dark. Nothing moves toward you. You mark the location on your own chart and give it a wide berth. Whatever it was, it's gone now, and the road ahead is ordinary.`;
+        G.lastResult = `You hold your ground and watch. The lights pulse irregularly, flare once, and go dark. Nothing moves toward you. You mark the location on your own chart and give it a wide berth. Whatever it was, it's gone now, and the road ahead is ordinary. The pattern holds even when the documents don't — and warden-stone markers don't pulse unless someone is maintaining them.`;
         addJournal('mystery', 'Phenomenon logged', `phenom-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'travel';
       maybeStageAdvance();
-    }
+    },
+    failResult: 'This path is closed here, but warden-stone routes still run through the district network — and someone maintains them for a reason.'
   },
   {
     label: "You discover a hidden trail that could shorten your journey by three days. But it's clearly marked as forbidden territory.",
@@ -248,7 +249,7 @@
         addJournal('combat', 'Territorial encounter', `terr-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `The trail holds but barely — loose shale twice, a downed tree across the path that cost thirty minutes to work around. You reach the destination as the last light fades, aching and behind where you wanted to be, but intact. The shortcut was real. It just wasn't clean.`;
+        G.lastResult = `The trail holds but barely — loose shale twice, a downed tree across the path that cost thirty minutes to work around. You reach the destination as the last light fades, aching and behind where you wanted to be, but intact. The shortcut was real. It just wasn't clean. There is still the matter of who posted the prohibition markers and what they're protecting on this corridor.`;
         addJournal('progress', 'Shortcut taken', `short-${G.dayCount}`);
       }
 
@@ -280,7 +281,7 @@
         addJournal('threat', 'Location compromised', `loc-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `You share a meal at a roadside post and don't say much that matters. She tells you the road behind is quieter than expected. You tell her the road ahead has one rough checkpoint. You part before dark, traveling in different directions. The conversation stays surface level by unspoken mutual agreement.`;
+        G.lastResult = `You share a meal at a roadside post and don't say much that matters. She tells you the road behind is quieter than expected. You tell her the road ahead has one rough checkpoint. You part before dark, traveling in different directions. The conversation stays surface level by unspoken mutual agreement. Seld's name appears in the suppression gap — and people who left for the same reasons you did often crossed the same records on their way out.`;
         addJournal('contact', 'Old connection revisited', `old-${G.dayCount}`);
       }
 
@@ -312,7 +313,7 @@
         addJournal('Official scrutiny', 'complication', `scrutiny-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `You hand out bread and water and keep your ears open. The story is consistent: three days of something, then a fast evacuation order, then the road. Nobody agrees on the cause. One man says flooding, another says a fire, a third won't say anything specific and keeps looking at the road behind him. The region is unstable. That much is clear.`;
+        G.lastResult = `You hand out bread and water and keep your ears open. The story is consistent: three days of something, then a fast evacuation order, then the road. Nobody agrees on the cause. One man says flooding, another says a fire, a third won't say anything specific and keeps looking at the road behind him. The region is unstable. That much is clear. There is still the matter of the name that appears in four unconnected offices — and supply collapses don't happen in isolation.`;
         addJournal('news', 'Regional status known', `news-${G.dayCount}`);
       }
 
@@ -608,7 +609,8 @@
 
       G.recentOutcomeType = 'faction';
       maybeStageAdvance();
-    }
+    },
+    failResult: 'This path is closed here, but Seld\'s name appears in the suppression gap — the faction\'s storage records still point toward an unresolved routing discrepancy.'
   },
 
   // ========== COMPANION DYNAMICS: Loyalty Tests & Moral Stands ==========
@@ -996,7 +998,8 @@
 
       G.recentOutcomeType = 'intelligence';
       maybeStageAdvance();
-    }
+    },
+    failResult: 'This path is closed here, but the Collegium\'s outer office is not the only layer — the building at the administrative edge still has no public record.'
   },
   {
     label: "A network of scouts offers to share their route intelligence network in exchange for protection. Accept or decline?",
@@ -1060,7 +1063,8 @@
 
       G.recentOutcomeType = 'intelligence';
       maybeStageAdvance();
-    }
+    },
+    failResult: 'This path is closed here, but there is still the matter of the name that appears in four unconnected offices — the routing records and the Iron Ledger Ward are not finished with each other.'
   },
   {
     label: "Institutional archives are breached. Access sensitive information before it's locked down or warn authorities?",
