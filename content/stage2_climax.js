@@ -150,12 +150,18 @@ var STAGE2_CLIMAX = (function() {
   }
 
   function _closeClimax() {
-    
+
     G.flags.stage2_climax_complete = true;
     G.flags.maren_oss_resolved = true;
     addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
+    if (!G.flags.stage3_blocked) {
+      G.flags.stage3_blocked = true;
+      setTimeout(function() {
+        if (typeof _showStage3BlockedModal === 'function') _showStage3BlockedModal();
+      }, 800);
+    }
   }
 
   // Public trigger — called from checkStageAdvance when conditions are met

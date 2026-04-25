@@ -10806,7 +10806,7 @@ function checkStageAdvance() {
     if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
     if (window.STAGE2_ANTECHAMBER && window.STAGE2_ANTECHAMBER.shouldTrigger()) { window.STAGE2_ANTECHAMBER.trigger(); return; }
-    if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && canAdvanceToStage3()) { window.STAGE2_CLIMAX.trigger(); return; }
+    if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && !!(G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made)) { window.STAGE2_CLIMAX.trigger(); return; }
     if (!canAdvanceToStage3()) {
       // Hint player toward missing gate conditions
       if (typeof addNarration === 'function' && !G.flags._stage3_hint_shown) {
@@ -10910,6 +10910,22 @@ function canAdvanceToStage3() {
   // G.investigationProgress >= 10
   return false;
 }
+
+function _showStage3BlockedModal() {
+  var d = document.createElement('div');
+  d.className = 'modal-overlay';
+  d.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(7,6,13,.88);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  d.innerHTML = '<div style="max-width:520px;background:var(--coal,#0c0a14);border:1px solid var(--accent-gold,#d89a2c);padding:44px 40px;text-align:center;">' +
+    '<div style="font-family:var(--font-display,\'Cinzel\',serif);font-size:20px;color:var(--accent-gold,#d89a2c);margin-bottom:20px;letter-spacing:.06em;">Thank You for Playing</div>' +
+    '<div style="font-family:\'Crimson Pro\',serif;font-size:18px;line-height:1.75;color:var(--ink-mid,#c4b49a);margin-bottom:32px;">' +
+    'You have reached the end of Ledger of Ash v0.1.<br><br>' +
+    'Stage III is in development. The investigation is not over.' +
+    '</div>' +
+    '<button class="btn btn-primary" onclick="this.closest(\'[style*=position\\\\:fixed]\').remove();" style="min-width:160px;">Return to Stage II</button>' +
+    '</div>';
+  document.body.appendChild(d);
+}
+window._showStage3BlockedModal = _showStage3BlockedModal;
 
 function driftNomdara() {
   const n = window.NOMDARA_OVERLAY;
