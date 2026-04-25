@@ -470,6 +470,173 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: INFORMATION — WORLD COLOR VIGNETTE (no skill check)
+  {
+    label: "The guild mark on every door here is the same — but the ink shade shifts subtly block by block.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 40,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(40, 'observing guild mark variation');
+      G.lastResult = `Guild marks at Craftspire are stamped by the administration, not applied by the member — the stamp comes with registration, and renewal stamps arrive on the same schedule for every workshop in the district. But the ink color drifts slightly building by building: workshops near the north end run darker, a richer black that holds its tone in direct light. Workshops toward the commercial corridor fade faster, a warmer shade that reads as brown in overcast. The same guild, the same mark, applied with different materials over the years as supply contracts changed. The consistency of the symbol and the drift of its execution sit in the same doorframe.`;
+      addJournal('Craftspire guild mark ink variation: supply contract changes visible in mark color across district blocks', 'discovery', `craftspire-guildmark-${G.dayCount}`);
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — ARCHETYPE GATE (Craft-heavy: Artificer/Engineer/Alchemist)
+  {
+    label: "The ventilation spacing in this workshop doesn't match any standard guild safety specification.",
+    tags: ['Information', 'Craft', 'Stage1', 'ArchetypeGate'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Craft-heavy') {
+        G.lastResult = `The workshop ventilation layout is unusual — ducts running at angles that serve no obvious function in a standard chemical processing environment. Someone who knew the material science would read this space differently. You note the oddity and move on.`;
+        gainXp(30, 'noting unusual workshop configuration');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(72, 'analyzing workshop ventilation layout');
+      G.stageProgress[1]++;
+      G.lastResult = `The duct spacing is calibrated for a specific compound density range — not the declared inputs, which are light enough to disperse with standard flow rates. These vents handle something heavier. The configuration is consistent with processing a material that needs controlled atmospheric containment to prevent accumulation at floor level. Someone fitted this workshop for a material class the guild's declared operations don't include. The ghost of that specification is built into the walls.`;
+      if (!G.flags) G.flags = {};
+      G.flags.craftspire_vent_analysis = true;
+      addJournal('Workshop ventilation layout: calibrated for undeclared heavy-compound processing — ghost specification in infrastructure', 'evidence', `craftspire-vents-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BACKGROUND FLAVOR
+  {
+    label: "The supply manifest register uses a shorthand nobody on staff can fully decode anymore.",
+    tags: ['Information', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'reading supply manifest shorthand');
+      const bg = G.background || '';
+      let result = `The supply manifest register runs twelve years deep, and the shorthand system in the earliest entries belongs to a clerk who left the guild before most of the current staff arrived. Three symbols repeat at irregular intervals — not weekly, not seasonal, not tied to any batch cycle visible in the adjacent columns. The current registrar can identify most of the notation, but those three marks appear in her reference guide with the notation "purpose unclear." Someone documented a pattern. The documentation outlasted the documentation's author.`;
+      if (bg === 'merchant' || bg === 'guild') {
+        result = `The supply manifest register shorthand is in a style you recognize from early guild training documents — old Compact notation, standard before the administrative reform that simplified record-keeping across member workshops. The three recurring symbols are Compact-era cost-shifting markers: material reported under one line item but charged against another. Deliberate obfuscation built into the notation system itself, from before the current guild administration.`;
+      }
+      G.lastResult = result;
+      addJournal('Craftspire supply manifest: three recurring undecoded symbols at irregular intervals — possible cost-shifting notation', 'intelligence', `craftspire-manifest-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — RISKY
+  {
+    label: "The guild archive's restricted section has a public-facing index that lists what's sealed and why.",
+    tags: ['Information', 'Risky', 'Records', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading restricted archive index');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `The restricted section index is public by charter — sealed documents must have their titles and sealing authorities listed, even if the contents aren't accessible. Seventeen entries in the past two years. Nine cite a single authority reference: a designation code rather than a named office. The code doesn't appear in the guild's own administrative directory. Whatever sealed those nine documents has no official name in this building's records.`;
+        if (!G.flags) G.flags = {};
+        G.flags.craftspire_archive_code = true;
+        addJournal('Guild restricted archive: 9 documents sealed under unidentified authority code — code absent from administrative directory', 'evidence', `craftspire-archive-${G.dayCount}`);
+      } else {
+        G.lastResult = `The index is available at the reading desk — a clerk slides it across without being asked, which means this request happens often enough to be routine. The entries are legible but the sealing authority citations use abbreviations. The reference glossary for those abbreviations is itself in the restricted section. The index is technically public. What it describes is not.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BOLD
+  {
+    label: "The outgoing ledger has a column that doesn't appear on the incoming side.",
+    tags: ['Information', 'Bold', 'Records', 'Stage1'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'cross-referencing supply ledgers');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 14) {
+        G.lastResult = `The incoming supply ledger tracks material in nine columns: origin, carrier, declared weight, tested weight, compound class, batch code, destination workshop, transit duration, and authorization number. The outgoing ledger tracks eight of the same — but adds a column that doesn't appear on the receiving end: a secondary destination field, listed after the workshop destination, filled in for exactly the batches where tested weight falls below declared weight. Whatever is being extracted from those batches has a logged destination. The column exists. Nobody mentioned it.`;
+        if (!G.flags) G.flags = {};
+        G.flags.craftspire_secondary_destination = true;
+        addJournal('Supply ledger asymmetry: outgoing records carry secondary destination column absent from receiving ledger — logs where extracted material goes', 'evidence', `craftspire-ledger-${G.dayCount}`);
+      } else {
+        G.lastResult = `Cross-referencing two ledgers simultaneously requires working space and time the reading desk doesn't allow — clerks cycle the records back to storage after twenty minutes of external review. A full comparison needs a longer window than today's access permits, or a copy of both ledgers to work from outside the building. The access exists. The conditions don't yet.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — SAFE/LORE
+  {
+    label: "The guild charter amendment logs go back forty years — something changed in the materials licensing section fifteen years ago.",
+    tags: ['Information', 'Safe', 'Lore', 'Stage1'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'reviewing guild charter amendment history');
+      G.lastResult = `Fifteen years back, the materials licensing section of the guild charter was amended to add a clause permitting temporary non-disclosure of compound inputs during "active external partnership agreements." The clause runs three lines. The amendment was passed during a session with two-thirds attendance — below the standard quorum for charter revisions, but within the emergency provision threshold. The partnership agreement category it creates has no corresponding definition in the charter itself. It permits secrecy. It doesn't define what secrecy is permitted for.`;
+      addJournal('Guild charter amendment: 15-year-old clause permitting compound input non-disclosure during undefined "partnership agreements" — passed below standard quorum', 'evidence', `craftspire-charter-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — SAFE/ATMOSPHERE
+  {
+    label: "The afternoon shift change produces thirty seconds of complete quiet across the whole district.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 35,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'observing guild district shift rhythm');
+      G.lastResult = `At the second bell past midday, every workshop in the district pauses together — the guild shift rotation is synchronized by charter, every operation running on the same production clock. For thirty seconds the district is quiet in a way a single workshop going still never produces: the accumulated absence of a hundred processes at once. Ventilation fans spinning down, press mechanisms cycling off, burners reducing. Then the incoming shift arrives at their benches and the district comes back up in layers, workshop by workshop, until the noise is indistinguishable from the noise before. The pause happens every day. Most of the district's workers have stopped noticing it.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — SOCIAL/RISKY
+  {
+    label: "The quality standards officer has a reputation for thoroughness — and she stopped filing inspection reports eight months ago.",
+    tags: ['Information', 'Risky', 'NPC', 'Stage1'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'speaking with quality standards officer');
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Miv Sothrel keeps her inspection forms current on the desk — filled in, dated, organized by workshop in the sequence she visits them. She doesn't file them anymore. "I filed six reports with findings. Three were returned with the notation 'unsubstantiated.' Two were not acknowledged. One was acknowledged and the finding was removed from the version that entered the permanent record." She taps the stack. "These are accurate. What's in the archive isn't." She files accurate records for herself now. She stopped feeding the official version eight months ago.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_miv_sothrel = true;
+        addJournal('Quality inspector Miv Sothrel: filing accurate records privately after official archive began removing her findings 8 months ago', 'evidence', `craftspire-miv-${G.dayCount}`);
+      } else {
+        G.lastResult = `Miv Sothrel's desk is visible from the corridor — the inspection forms stacked in precise order, a filing tray on the left that appears never to be used. When you knock she answers without moving toward the door. "Inspection inquiries go through the guild administrative desk." She doesn't look up from the form she's completing. The administrative desk already told you it has no pending inspection requests on file. The gap between those two statements is somewhere in this office.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BOLD/COMBAT-GATE
+  {
+    label: "The locked supply room in the guild's northern annex has a new hasp that doesn't match the building's age.",
+    tags: ['Information', 'Bold', 'Stage1'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'examining northern annex storage');
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The annex room holds sealed containers — same locking mechanism as standard Compact export containers, which Craftspire doesn't use for internal storage. Twelve of them, stacked in two rows, each one weight-marked in the corner with a figure well above standard compound batches. The material inside has been consolidated from dispersed extraction into transit-ready packaging. Whatever has been removed from the workshop supply chains is staged here for collection. A collection that hasn't happened yet.`;
+        if (!G.flags) G.flags = {};
+        G.flags.craftspire_staging_found = true;
+        addJournal('Northern annex: 12 sealed export containers with above-standard weight markings — extracted material staged for collection', 'evidence', `craftspire-annex-${G.dayCount}`);
+      } else {
+        G.lastResult = `The annex corridor has two guild wardens on rotation — not posted at the room itself, but covering the access from both approaches. The new hasp on the storage room door and the guard rotation weren't here last month; something changed the security requirement recently. The room is accessible during the shift transition window, when the rotation handover moves both wardens to the same end of the corridor. That window is twelve minutes and it happens once per day.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

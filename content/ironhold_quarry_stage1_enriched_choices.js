@@ -476,6 +476,172 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: DISCOVERY — WORLD COLOR VIGNETTE
+  {
+    label: "The quarry face at noon sounds different from the quarry face at dawn.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing quarry acoustic change');
+      G.lastResult = `At dawn the quarry face resonates — sound carries differently in cold air, the percussion of extraction work ringing off the stone walls and returning a half-second late. By noon the air warms and the resonance flattens: the same tools, the same rock, but the sound arrives and dies where it lands. Workers who have spent years at Ironhold tell time by it — the shift from resonant to flat marks the midpoint of the working day as accurately as any bell. The eastern face runs quieter than the main operation throughout. At noon, when the rest of the quarry flattens, the eastern face is already silent.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — ARCHETYPE GATE (Support family)
+  {
+    label: "The workers coming off the eastern face rotation show a specific pattern of fatigue that isn't from physical labor.",
+    tags: ['Discovery', 'ArchetypeGate', 'Stage1'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Support') {
+        G.lastResult = `The eastern face workers come off rotation looking tired in a way that doesn't match their reported work classification. The eastern section isn't listed as heavy-extraction. The fatigue profile doesn't fit the task description. You note the discrepancy without being able to characterize it further.`;
+        gainXp(32, 'noting eastern face worker fatigue pattern');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(72, 'assessing eastern face worker health pattern');
+      G.stageProgress[1]++;
+      G.lastResult = `Three workers finishing the eastern face rotation show the same fatigue signature: dry throat, mild headache behind the eyes, slight coordination delay in fine motor movements. Not exhaustion from load-bearing — compound exposure. Low-level, cumulative, the kind that clears overnight at current exposure rates but accumulates over weeks and months. The protective gear is heavier than standard issue but not heavy enough for the material class the symptom profile suggests. The workers are being exposed to something the issued equipment was not designed to contain.`;
+      if (!G.flags) G.flags = {};
+      G.flags.ironhold_exposure_noted = true;
+      addJournal('Eastern face workers: compound exposure symptoms — issued protective gear insufficient for material class being handled', 'evidence', `ironhold-exposure-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — BACKGROUND FLAVOR
+  {
+    label: "The equipment shed wall chart tracks totals that the official production records don't mention.",
+    tags: ['Discovery', 'Background', 'Stage1'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'reading equipment shed wall chart');
+      const bg = G.background || '';
+      let result = `The eastern equipment shed has a running total chart on the interior wall — a simple column format, date and figure, running back fourteen months. The figures don't correspond to any production category in the official daily reports. The column header is a symbol, not a word. The chart is updated regularly; the most recent entry is three days old. Someone is tracking a parallel output metric that exists only inside this shed.`;
+      if (bg === 'laborer' || bg === 'trades') {
+        result = `The chart format is production-standard — same column structure used in every extraction operation you've worked near. But the category marker at the top is a symbol you don't recognize from standard quarry reporting. That marker belongs to the old Compact extraction classification system, deprecated when the unified reporting codes came in. Whoever built this chart is using pre-reform notation. Old notation, new entries, fourteen months of parallel tracking that the official records don't acknowledge.`;
+      }
+      G.lastResult = result;
+      addJournal('Eastern equipment shed: 14-month wall chart tracking undisclosed output category in non-standard notation', 'evidence', `ironhold-wallchart-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — RISKY
+  {
+    label: "The eastern face drainage channel runs a different color after heavy rain than the main face channels do.",
+    tags: ['Discovery', 'Risky', 'Physical', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'sampling eastern drainage channel');
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `After this morning's rain, the main face drainage channels run grey-brown — standard quarry runoff, stone particulate and surface clay. The eastern face channel runs a slightly different shade: duller, less reflective, with a surface film that doesn't appear in the western channels. The film isn't thick enough to be residue from a spill. It's consistent with persistent low-level leaching from material stored or processed in that section over a sustained period. The eastern face has been producing this signature long enough that it shows in the drainage pattern.`;
+        if (!G.flags) G.flags = {};
+        G.flags.ironhold_drainage_sampled = true;
+        addJournal('Eastern face drainage: distinct surface film after rain — consistent with sustained material leaching, not incidental spill', 'evidence', `ironhold-drainage-${G.dayCount}`);
+      } else {
+        G.lastResult = `The drainage channel access on the eastern perimeter requires moving past the service gate that the secondary guard rotation covers. Getting to the channel during daylight means explaining the detour to whoever is on gate duty, and the most likely explanation — routine inspection — doesn't hold up when you're not carrying inspection credentials. After dark the gate goes unattended. The drainage channel will still be there.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — BOLD
+  {
+    label: "The operations manifest for last month shows a container batch number that doesn't appear in either the intake or dispatch records.",
+    tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'tracking ghost container batch');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 14) {
+        G.lastResult = `Batch reference IH-4471-E appears in the operations manifest as received and processed — but no corresponding entry exists in the intake log, and no dispatch record carries it out. The batch exists in the middle of the supply chain with no origin and no destination in the official record. IH-prefix codes belong to the eastern face designation series. A container that arrived and left without being logged at either end was handled by a process running parallel to the official system. The manifest entry is the only trace — whoever maintained the parallel process missed one record.`;
+        if (!G.flags) G.flags = {};
+        G.flags.ironhold_ghost_batch = true;
+        addJournal('Ghost batch IH-4471-E: eastern face container with no intake or dispatch record — parallel handling process exposed by single manifest entry', 'evidence', `ironhold-ghost-batch-${G.dayCount}`);
+      } else {
+        G.lastResult = `The operations manifest runs to forty-eight pages for last month — batch references in the hundreds, cross-referenced across three separate logs. Finding an anomaly in that volume requires either a complete ledger comparison or knowing which date range to target. Velka's private log would narrow the window considerably. Without her records as a reference frame, the manifest search is a month of work with no guaranteed entry point.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — SAFE/LORE
+  {
+    label: "Ironhold's original extraction license covers seventeen material categories — the current operation adds an eighteenth, unnamed.",
+    tags: ['Discovery', 'Safe', 'Records', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'reviewing Ironhold extraction license');
+      G.lastResult = `The original Ironhold extraction license is framed inside the administration building entry — a display copy, not the working document, but the text is legible. Seventeen material categories: standard aggregate, three grades of structural stone, mineral iron, various clay classes. Below the listed categories, an addendum notation in smaller type: "including unlisted category designates approved under supplementary Compact authorization." The addendum has no date. The supplementary authorization it references isn't on display. The license permits something without naming it.`;
+      addJournal('Ironhold extraction license: addendum authorizes unnamed additional material category under undisplayed supplementary Compact authorization', 'evidence', `ironhold-license-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — SOCIAL/RISKY
+  {
+    label: "The supply contractor who delivers the eastern face's specialized equipment visits only at night and leaves before dawn.",
+    tags: ['Discovery', 'Risky', 'NPC', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'intercepting the night delivery contractor');
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `The contractor goes by a supply house name rather than a personal name, which means the conversation happens at the service track where the cart waits during unloading. "I deliver. I don't ask." He says it before you've finished the question. What he will confirm: the order comes through a routing number that bypasses the standard quarry supply channel, the equipment specs are provided by the client, not selected from a standard catalog, and payment clears before each delivery, not after — which is unusual enough that he noted it. He doesn't know what the equipment is used for. He knows he's not supposed to be there during daylight.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_night_contractor = true;
+        addJournal('Night supply contractor: specialized equipment routed through non-standard channel, pre-payment, daylight exclusion — deliberate operational separation', 'evidence', `ironhold-contractor-${G.dayCount}`);
+      } else {
+        G.lastResult = `The service track is empty at the hours the equipment arrives — Velka's private log marks the delivery windows as two to four in the morning on irregular dates. Intercepting the contractor means being at the service track during those windows without triggering the eastern perimeter guard rotation. The guard pattern changes the same nights the deliveries happen. The timing isn't coincidental.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — ATMOSPHERE SAFE
+  {
+    label: "The carved depth markers on the quarry's oldest sections still carry the original surveyors' initials.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 35,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'reading original quarry depth markers');
+      G.lastResult = `Stone quarries mark their work as they go — depth indicators, layer designations, cut boundaries, surveyor initials chiseled at intervals as the face advances. The oldest sections of Ironhold carry marks from three surveyors whose initials appear in the first decade of operation: K.V., the original lead; T.M., the secondary survey; and a third, H.R., who appears only in the deepest sections and nowhere in the administrative records. The marks are permanent. The administrative records aren't.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: DISCOVERY — BOLD/LORE
+  {
+    label: "The geological survey for Ironhold was last updated eight years ago — and a section was redacted before filing.",
+    tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'reading geological survey with redaction');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The filed geological survey is eighty-three pages. Pages forty-one through forty-seven are replaced with a single redaction notice: "Section 7 — Stratum Composition Detail — withheld per Compact resource classification protocol." The protocol it cites was in effect eight years ago, which means someone used an existing regulatory mechanism to seal what a geological survey found in a specific stratum. The redaction is legal. The stratum it covers corresponds to the eastern face's depth range. Someone found something in that layer and immediately classified what they found.`;
+        if (!G.flags) G.flags = {};
+        G.flags.ironhold_survey_redaction = true;
+        addJournal('Geological survey: 7-page section on eastern stratum redacted under Compact classification protocol — material found in that layer was immediately sealed', 'evidence', `ironhold-survey-${G.dayCount}`);
+      } else {
+        G.lastResult = `The geological survey is a public filing — available at the district resource office, filed with the Compact administrative branch, accessible in principle. In practice, the copy at the resource office has a processing lag: it's available "upon written request with a fourteen-day handling period." The copy that should be at the quarry's own administration building isn't on the shelf where surveys are kept. The absence isn't noted anywhere. Something isn't where it's supposed to be, and nobody marked the gap.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

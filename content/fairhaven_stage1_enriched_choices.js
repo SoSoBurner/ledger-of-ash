@@ -834,6 +834,61 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: PRESSURE — WORLD COLOR VIGNETTE
+  {
+    label: "The fishing boats come in at the same hour they always did. The dock records don't reflect it.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing Fairhaven dock rhythms');
+      G.lastResult = `The fishing boats return on the tide as they always have — the same families, the same berths, the smell of salt and cleaned fish on the planking by midmorning. The dock records, posted on the coordination board at the harbor end, show lower catch volumes than what came in. Three boats logged at sixty percent of what you watched them offload. The discrepancy isn't hidden: anyone who stands at the dock and watches and then reads the board will see it. The community doesn't look at the board anymore. They stopped trusting it before they stopped watching.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ARCHETYPE GATE (Healer — Support family)
+  {
+    label: "The community's children show a specific nutritional pattern that only develops over sustained months of inadequate provision.",
+    tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Support') {
+        G.lastResult = `The children in Fairhaven look thinner than a seasonal lean would explain. You note the observation without being able to attach a cause to it.`;
+        gainXp(30, 'noting Fairhaven child nutrition pattern');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(70, 'assessing Fairhaven community nutrition');
+      G.stageProgress[1]++;
+      G.lastResult = `The pattern is specific: fatigue at midday, pale nail beds, a particular quality of dullness in the skin that comes from sustained protein shortfall rather than acute hunger. This isn't a bad week or a hard month — this took time to develop. Four months minimum based on presentation. The community has been under provisioned long enough that it's written in the children's bodies. Whatever the shrine's doctrine says about sufficiency and spiritual testing, the bodies don't support the narrative.`;
+      if (!G.flags) G.flags = {};
+      G.flags.fairhaven_nutrition_assessed = true;
+      addJournal('Fairhaven community: sustained protein shortfall in children, 4+ month development timeline — physical evidence contradicts sufficiency doctrine', 'evidence', `fairhaven-nutrition-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BACKGROUND FLAVOR
+  {
+    label: "The harbor master's logbook has two numbering systems — one for public records, one for something else.",
+    tags: ['Pressure', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'examining harbor master logbook structure');
+      const bg = G.background || '';
+      let result = `The harbor master's logbook runs with two distinct entry number series: a standard sequential series beginning with H- for public dock entries, and a second series beginning with R- that appears irregularly, interspersed with the H- entries but never posted on the coordination board. R-series entries occupy roughly one in six pages. The harbor master pages past them without comment when showing the log.`;
+      if (bg === 'sailor' || bg === 'merchant' || bg === 'trader') {
+        result = `R-prefix entries in harbor logs are a practice from the old regional reserve fleet system — vessels operating under direct Compact authorization that bypassed standard port administration. The reserve fleet was dissolved eleven years ago. R-series entries shouldn't exist in any active logbook. Either the harbor master has been using a dead classification system out of habit, or R-series entries are currently being used to register vessels that someone wants excluded from the standard public record.`;
+      }
+      G.lastResult = result;
+      addJournal('Fairhaven harbor log: two entry series — H- public, R- unpublished, one in six pages — R-prefix in use despite reserve fleet dissolution', 'evidence', `fairhaven-harbor-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

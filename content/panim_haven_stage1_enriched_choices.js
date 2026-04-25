@@ -828,6 +828,61 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: INFORMATION — WORLD COLOR VIGNETTE
+  {
+    label: "The offering smoke from Panim Haven's memorial halls carries in a specific direction every morning regardless of the wind.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing memorial hall offering smoke');
+      G.lastResult = `The memorial halls at Panim Haven burn slow-smoke offerings at dawn — a combination of dried herbs and waxed cord that the attendants set before the first processional. The smoke rises and then drifts consistently north regardless of the morning air, which the attendants attribute to the hall architecture directing air currents. The effect is deliberate: the smoke visible from the northern approach road marks the haven as active from a distance, assuring travelers the halls are staffed before they arrive. The smoke is also the signal to the waystation network that the daily route is open. Two functions, one flame, visible to everyone and read differently by those who know.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — ARCHETYPE GATE (Saint — Support family)
+  {
+    label: "The blessings distributed at Panim Haven have been systematically weakened — the doctrine that explains the change is recent.",
+    tags: ['Information', 'ArchetypeGate', 'Stage1'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Support') {
+        G.lastResult = `The blessing materials distributed at Panim Haven's processionals have changed in composition — the practitioners mention it as a doctrinal refinement. Without specific knowledge of how blessing materials function, the change reads as administrative.`;
+        gainXp(30, 'noting blessing material change');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(72, 'analyzing blessing material composition change');
+      G.stageProgress[1]++;
+      G.lastResult = `The current blessing materials are substituted at the third component — the binding element that determines duration and penetration. The original formula held for a full seasonal cycle per application. The current formula holds for six weeks. The doctrine explanation for the change frames shorter-cycle blessings as requiring more frequent renewal, which increases shrine contact and dependency. But the practical effect is that property protections — the most common blessing application in a haven of this type — now lapse before the agricultural season completes. Three months into a planting cycle, the protection expires.`;
+      if (!G.flags) G.flags = {};
+      G.flags.panim_blessing_weakened = true;
+      addJournal('Panim Haven blessing formula: third component substituted, duration halved — property protections now expire mid-season, increasing shrine dependency', 'evidence', `panim-blessing-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BACKGROUND FLAVOR
+  {
+    label: "The shrine's donation ledger has entries that describe transactions the shrine's charter doesn't permit.",
+    tags: ['Information', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'reviewing shrine donation ledger');
+      const bg = G.background || '';
+      let result = `The shrine donation ledger — publicly accessible as part of the transparency requirement under the Union's charitable institution guidelines — includes entries categorized as "property transfer in lieu of donation." Fourteen such entries in the past year. Shrine charters at institutions of this type are permitted to accept cash and material donations; property transfers require a separate legal instrument under regional law. The ledger entries don't reference any corresponding legal instruments.`;
+      if (bg === 'scholar' || bg === 'administrator' || bg === 'lawyer') {
+        result = `Property-in-lieu-of-donation entries without corresponding transfer instruments are a known mechanism for obscuring forced transfers — if the property appears in the donation ledger, it reads as voluntary. The fourteen entries span twelve different families. Cross-referencing against the mediation case records you've seen: three of those families had active mediation cases that were closed during the same period their property appeared in the donation ledger. Correlation across records that weren't designed to be read together.`;
+      }
+      G.lastResult = result;
+      addJournal('Shrine donation ledger: 14 property transfers without required legal instruments — 3 match families with closed mediation cases same period', 'evidence', `panim-donation-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

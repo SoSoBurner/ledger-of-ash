@@ -464,6 +464,172 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: PRESSURE — WORLD COLOR VIGNETTE
+  {
+    label: "The river beneath the bridge carries sound differently at dawn than at any other hour.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing bridge river acoustics at dawn');
+      G.lastResult = `Before the first commercial crossing of the day, when the bridge deck carries nothing heavier than the keeper's footsteps and the mist is still sitting on the water, the river underneath runs loud enough to hear from the railing without leaning over. Current on current — the main flow and the eddy system that forms around the bridge's central pier, working against each other, the combination producing a low churning that carries up through the stone. By mid-morning, when the foot traffic and cart weight build, the deck vibration drowns it. Cadrin says you can hear the river's mood in those early minutes, if you learn what to listen for. This morning the eddy sounds harder than usual.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ARCHETYPE GATE (Bard/Healer — Support family)
+  {
+    label: "The crossing workers talk differently to travelers who seem trustworthy than to those who seem official.",
+    tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Support') {
+        G.lastResult = `The crossing workers are noticeably more guarded around some travelers than others — the distinction isn't wealth or bearing, but something subtler. You can't quite read the line they're drawing between people they'll talk openly with and people they won't.`;
+        gainXp(28, 'noting crossing worker social calibration');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(70, 'reading crossing worker social calibration');
+      G.stageProgress[1]++;
+      G.lastResult = `The distinction they draw is between people they read as likely to report what they hear upward and people they read as unlikely to. The signals are behavioral: how someone holds eye contact when they ask questions, whether they write things down immediately or remember them, whether they respond to unexpected information with concern or professional interest. Workers at a compromised crossing have developed a fast, accurate read of which travelers are safe to talk to. They've placed you in the safe category. They're right. But the fact that the screening exists at all is itself the evidence: they have things to say that they've learned not to say to the wrong people.`;
+      if (!G.flags) G.flags = {};
+      G.flags.whitebridge_worker_trust = true;
+      addJournal('Crossing workers screen travelers for safety before speaking — active suppression awareness in the workforce', 'evidence', `whitebridge-workers-${G.dayCount}`);
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BACKGROUND FLAVOR
+  {
+    label: "The bridge crossing fee schedule was last revised two years ago — but certain cargo classes pay rates from a different document.",
+    tags: ['Pressure', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'comparing crossing fee schedules');
+      const bg = G.background || '';
+      let result = `The posted crossing fee schedule runs to twelve cargo categories with rates by weight class. At the keeper's station, a second document sits below the posted schedule — same format, different rates for three specific cargo designations. Those three categories pay at the lower rate from the secondary document. Nobody announces this. If you know to check the secondary schedule, the clerk applies it without comment. The secondary schedule has no official posting date.`;
+      if (bg === 'merchant' || bg === 'trader') {
+        result = `The secondary crossing rate document is a practice you recognize from toll roads with informal preferred-partner arrangements — certain cargo designations get a lower rate as a matter of policy that isn't publicized because formalizing it would require explaining who qualifies and why. The rates themselves aren't the problem. The problem is what the three discounted cargo classes have in common: they don't appear in any standard commercial classification guide. Someone created three new cargo designations specifically to capture the discounted rate, and no one asked what those designations contain.`;
+      }
+      G.lastResult = result;
+      addJournal('Whitebridge crossing fees: secondary rate document covers three unclassified cargo designations at reduced rates — unofficial preferred classification', 'evidence', `whitebridge-fees-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — RISKY
+  {
+    label: "The bridge director's administrative log has a regular notation that reads 'authorized under operational continuity' — a phrase that doesn't appear anywhere in the commune's charter.",
+    tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing bridge director administrative log');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `The notation appears eighteen times over the past nine months — always adjacent to entries involving the midnight cargo crossings Cadrin's log documents. "Authorized under operational continuity." The commune's charter uses no such phrase. The crossing authority's founding documents use no such phrase. It's a bureaucratic construction with no legal basis in any document governing this bridge, used repeatedly to authorize crossings that needed authorization without a legitimate mechanism to provide it. Whoever wrote those entries invented the authority they cited.`;
+        if (!G.flags) G.flags = {};
+        G.flags.whitebridge_invented_authority = true;
+        addJournal('Bridge director log: "operational continuity" authorization cited 18 times for midnight crossings — phrase has no legal basis in any governing document', 'evidence', `whitebridge-authority-${G.dayCount}`);
+      } else {
+        G.lastResult = `The administrative log is in the bridge director's office — a working document, not a public record, accessible during the director's posted administrative hours. The director's current schedule lists administrative hours in the late morning, which closed an hour ago. Access tomorrow morning is straightforward. Access today requires either the director's direct authorization or a reason to be in that office that the current staff will accept without escalating.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BOLD
+  {
+    label: "The cargo manifests for the midnight crossings are filed in a different administrative category than standard crossing records.",
+    tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'locating midnight crossing manifests');
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 14) {
+        G.lastResult = `The midnight cargo manifests are filed under "supplementary transit authorizations" — a category that exists in the administrative system but carries no public access designation, meaning they're neither sealed nor available by default. They sit in a filing drawer that isn't labeled on the front because it isn't expected to be searched. Three manifests for the past month: all three list the cargo as "consolidated regional goods," all three list the carrier as the same numeric reference code, all three show a destination address that is a Shelkopolis commercial post office box rather than a commercial premises. The address receives cargo without a named recipient.`;
+        if (!G.flags) G.flags = {};
+        G.flags.whitebridge_manifests_found = true;
+        addJournal('Midnight crossing manifests: all filed as "consolidated regional goods" to anonymous Shelkopolis PO box — no named recipient, same carrier code across all entries', 'evidence', `whitebridge-manifests-${G.dayCount}`);
+      } else {
+        G.lastResult = `The administrative filing system at the crossing authority has four categories of records: public, restricted, sealed, and a fourth that the index describes as "operational supplementary." That fourth category isn't accessible without bridge director authorization, but it's not marked sealed — the distinction is procedural, not legal. Someone who understood the classification system and had a reason the director would accept could request access. The director is sympathetic to the inquiry. The conversation with her hasn't happened yet.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — SAFE/SOCIAL
+  {
+    label: "The commune's elder council hasn't convened a full session in four months — the last three meetings were closed without quorum.",
+    tags: ['Pressure', 'Safe', 'Social', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'asking about elder council sessions');
+      G.lastResult = `The commune elder council requires a quorum of five of its seven members to convene formally. For four months, sessions have ended without five members present. One elder explains it without being asked for a reason: "Two members began citing administrative conflicts every session after the crossing irregularities were first raised in chamber. Without those two seats, we're always at four." The four present members have tried calling unscheduled sessions — those require seven-day notice, which gives the absent members time to file conflicts. The community's governance mechanism has been effectively suspended by selective absence.`;
+      addJournal('Whitebridge elder council: quorum blocked for 4 months by two members filing conflicts whenever irregularities are on the agenda', 'evidence', `whitebridge-council-${G.dayCount}`);
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — RISKY/NPC
+  {
+    label: "The night-shift crossing assistant has been keeping her own count of the midnight cargo crossings — separately from the official log.",
+    tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'finding night-shift crossing counter');
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Sali has been keeping a tally on the back of her rotation schedule — hash marks, one per crossing, with a weight estimate beside each based on how the bridge deck responded under the load. She doesn't know why she started. "Something to do. And it seemed like the kind of thing someone should know." Seventeen crossings in four months, with estimates ranging from three hundred to eight hundred weight units per load. The high-end loads correspond with the new moon dates Cadrin identified. The bridge deck flexes differently under that weight. Sali noticed. She has no idea what to do with the information.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_sali_counter = true;
+        addJournal('Night-shift Sali: 17 midnight crossings in 4 months, load estimates by deck response — high loads on new moon dates matching Cadrin\'s log', 'evidence', `whitebridge-sali-${G.dayCount}`);
+      } else {
+        G.lastResult = `The night-shift crossing assistant is on a split rotation — present at the bridge for the first four hours of overnight and the last two hours before dawn, absent during the middle portion when the midnight crossings actually occur. She's aware of them but wasn't on deck when they happened. She knows someone who was: the relief keeper who works the middle overnight window, who tends to spend the quiet hours at the river end of the bridge rather than the station. That person has a different relationship to what crosses at midnight.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ATMOSPHERE
+  {
+    label: "The bridge-side inn keeps a book of travelers who pass through — a tradition, not a requirement.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 35,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'reading bridge-side inn traveler book');
+      G.lastResult = `The inn at the western approach keeps a guest book going back forty years — not a requirement, an old custom, the kind that survives because travelers find it interesting to read the names of who came before them. The innkeeper allows browsing without comment. The book runs dense for most years: merchants, pilgrims, officials, families relocating. The last eight months are sparse. The inn is seeing less foot traffic, and what's there is less varied — the commercial names that used to appear regularly are absent, replaced by a narrower set of repeating names traveling the same route on a regular cycle. The crossing still operates. The kind of people who used it have changed.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BOLD/LORE
+  {
+    label: "The crossing authority's founding compact gives the keeper authority to halt crossing operations under specific conditions — conditions that currently apply.",
+    tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'reading crossing authority founding compact');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The crossing authority's founding compact — the original document establishing Cadrin's position and its powers — includes a provision for "operational suspension on grounds of manifest record discrepancy." If the keeper's crossing count and the administrative record diverge by more than fifteen percent over any thirty-day period, the keeper has authority to suspend crossings pending reconciliation. Cadrin's count and the administrative record diverge by thirty-one percent over the past month. The authority to act exists. Cadrin didn't know the provision existed. He was never shown the full founding compact — only the duty summary.`;
+        if (!G.flags) G.flags = {};
+        G.flags.whitebridge_suspension_authority = true;
+        addJournal('Crossing compact: keeper suspension authority triggered at 15% record discrepancy — current discrepancy 31%, Cadrin never informed of this provision', 'evidence', `whitebridge-compact-${G.dayCount}`);
+      } else {
+        G.lastResult = `The crossing authority's founding compact is a public document, held at the commune administrative office and the regional registry. The commune copy is available during administrative hours. What Cadrin was given when he was posted here was a duty summary — two pages, condensed. Whether that summary captured everything the founding compact grants his position requires reading both documents side by side.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

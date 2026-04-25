@@ -471,6 +471,172 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: PRESSURE — WORLD COLOR VIGNETTE
+  {
+    label: "The waiting hall at Unity Square operates on a numbered queue system that everyone ignores in practice.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing Unity Square queue dynamics');
+      G.lastResult = `The intake desk at Unity Square issues numbered queue slips, printed on pale blue paper with the current date stamped at the corner. The board above the door posts the active number. The number on the board and the order in which parties are actually called into the coordination chambers diverge by mid-morning: certain parties are called before their number comes up, without announcement, while others with lower numbers wait through three rotations. The intake clerk tracks it with a separate ledger — a second queue running parallel to the visible one, managing the same traffic but answering to a different priority system than the posted numbers suggest.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ARCHETYPE GATE (Tactician)
+  {
+    label: "The coordination chamber layout is designed to put petitioners at a disadvantage before they speak.",
+    tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Support') {
+        G.lastResult = `The coordination chamber puts the petitioner's bench lower than the arbitration table — a small elevation difference, easy to miss. The light comes from behind the arbiter's position. You note the setup is tilted without being able to fully articulate why it matters.`;
+        gainXp(30, 'observing chamber layout');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(70, 'analyzing coordination chamber positioning');
+      G.stageProgress[1]++;
+      G.lastResult = `The chamber is a controlled environment: petitioner bench set eight inches lower than the arbitration table, lighting angled to put the petitioner's face in full illumination while the arbiter's expression is in partial shadow, a four-second acoustic delay from the petitioner's position to the record-clerk station that creates an unconscious speaking-lag pressure. These aren't accidental design choices. This is a space built to extract concessions through environmental pressure before a single argument is made. The system runs on the layout before Brokerwell says anything.`;
+      if (!G.flags) G.flags = {};
+      G.flags.unity_chamber_analysis = true;
+      addJournal('Unity Square chamber: deliberate positional and acoustic pressure design — systematic disadvantage built into room before proceedings begin', 'evidence', `unity-chamber-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BACKGROUND FLAVOR
+  {
+    label: "The coordination ledger's binding has been replaced recently — the old stitching marks are visible inside the cover.",
+    tags: ['Pressure', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'examining coordination ledger binding');
+      const bg = G.background || '';
+      let result = `The coordination ledger on the public reference shelf has a new binding — the spine is fresh, the thread clean, no wear at the corners. Inside the front cover, ghost marks from the old stitching run a different pattern: the previous binding held more pages than the current one. The ledger was rebound after pages were removed. The current version is shorter than whatever it replaced.`;
+      if (bg === 'scholar' || bg === 'clerk') {
+        result = `Rebinding records is a standard archival practice for damaged or deteriorating documents. It is not standard practice for coordination ledgers, which are working documents replaced in full when capacity is exhausted. Removing pages from a working ledger and rebinding the remainder means someone chose to preserve the physical ledger while eliminating specific entries — they wanted the ledger to look continuous while removing what it contained. The old stitching ghost shows the original page count. The current count is shorter by at least thirty pages.`;
+      }
+      G.lastResult = result;
+      addJournal('Unity Square coordination ledger: rebound with fewer pages — pages removed before rebinding, record made to appear continuous', 'evidence', `unity-ledger-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — RISKY
+  {
+    label: "The parties who win coordination decisions in Brokerwell's chamber share a single commercial sponsor.",
+    tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing coordination outcomes and sponsorships');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `The public record of coordination outcomes lists the parties and results — not the commercial sponsors, which are in the registered affiliation section of the intake forms, a separate file. Cross-referencing the two: eleven of the last fifteen coordination decisions in Brokerwell's chamber found in favor of parties affiliated with a single commercial sponsor designation: "Northern Commercial Compact Sub-registry Seven." The same sponsor code on every winning party, across eleven different case types, over fourteen months. The pattern is visible if you look across both files at once. Nobody has been looking across both files.`;
+        if (!G.flags) G.flags = {};
+        G.flags.unity_sponsor_pattern = true;
+        addJournal('Coordination outcomes: 11 of 15 recent decisions favor parties sharing single sponsor code — Northern Commercial Compact Sub-registry Seven', 'evidence', `unity-sponsor-${G.dayCount}`);
+      } else {
+        G.lastResult = `The intake affiliation forms and the outcome records are filed separately — different desks, different clerks, different administrative categories. Pulling both for the same set of cases requires either authorization to access both administrative areas simultaneously or two separate requests with a waiting period between them. The correlation is in the gap between the two filing systems.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BOLD
+  {
+    label: "Brokerwell's private office has a second door that doesn't appear on the building's floor plan.",
+    tags: ['Pressure', 'Bold', 'Physical', 'Stage1'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'locating hidden office exit');
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 14) {
+        G.lastResult = `The second door is behind a shelving unit that swings on a recessed pivot — not locked, not concealed particularly carefully, the kind of modification that works because nobody looks for it. The corridor it opens to runs parallel to the main passage and exits at the building's eastern service entrance. Brokerwell has a route from his office to the street that bypasses the reception, the waiting hall, and the public entrance log entirely. The modification isn't recent: the floor shows wear patterns from regular use. He's been using this exit for long enough that the path is worn smooth.`;
+        if (!G.flags) G.flags = {};
+        G.flags.unity_hidden_exit = true;
+        addJournal('Brokerwell private exit: concealed second door to service corridor — regular use pattern, bypasses all reception and logging points', 'evidence', `unity-exit-${G.dayCount}`);
+      } else {
+        G.lastResult = `Brokerwell's office is on the second floor with a single visible access — the corridor past the reception desk, with the clerk's line of sight covering the approach from the waiting hall. After-hours access requires a key or a window, both of which present their own complications. During business hours the corridor is never empty for long enough to make the search comfortable. The office will need a different entry window than this.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — SAFE/SOCIAL
+  {
+    label: "The factors who appear most often in the waiting hall have stopped bringing their own clerks.",
+    tags: ['Pressure', 'Safe', 'Social', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'observing factor behavior change');
+      G.lastResult = `Experienced commercial factors bring their own record-keepers to coordination proceedings — standard practice when the outcome will be cited in future disputes. Three of the most active factors at Unity Square stopped bringing their clerks six months ago. One of them explains it directly when asked: "I stopped bringing witnesses when I stopped trusting the outcomes to stay what they were decided to be." He says it without heat, the way someone describes a weather change. He still comes. He's stopped expecting the record to match what happens in the room.`;
+      addJournal('Experienced factors stopped bringing clerks to Unity Square proceedings — distrust in record accuracy explicitly stated', 'evidence', `unity-factors-${G.dayCount}`);
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — RISKY/NPC
+  {
+    label: "The Oversight Collegium has an observer posted at Unity Square — she has been filing reports for six months and receiving no acknowledgment.",
+    tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'speaking with the Collegium observer');
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Observer Tena works from a desk in the public documentation area — technically on-site, technically visible, functionally ignored. "Six months of weekly reports. The first two received acknowledgment. After the third the acknowledgments stopped." She slides a carbon copy of her last report across the desk. "I kept filing. At some point you file because the record needs to exist, not because anyone is reading it." She's been documenting the same pattern you're documenting, from inside the building, for six months, without institutional backing. Her reports are accurate and unread.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_tena_observer = true;
+        addJournal('Collegium observer Tena: 6 months of unacknowledged reports, filing to create a record rather than expecting a response', 'evidence', `unity-tena-${G.dayCount}`);
+      } else {
+        G.lastResult = `The Collegium observer's desk is in the documentation area, marked with a small institutional placard. The current occupant is absent — the schedule on the placard shows she visits on a rotating basis, three days per week. Today isn't one of her posted days. The desk has papers on it and a half-completed form face-down. She's been here recently.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ATMOSPHERE
+  {
+    label: "The coordination seal stamp at Unity Square has worn to a point where most impressions are unreadable — nobody has requested a replacement.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 35,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'observing coordination seal degradation');
+      G.lastResult = `The official coordination seal at Unity Square — the stamp applied to every outcome document — has worn thin enough that the impression it leaves is legible only under direct light held at an angle. The outer ring detail is gone. The center device, which is supposed to show the Union's interlocking mark, now reads as an undifferentiated oval. The stamp has been in this condition long enough for the degradation to become familiar: clerks press harder to compensate, which is why the outer edge has worn further than the center. A replacement stamp is a standard administrative request. No replacement has been ordered.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BOLD/LORE
+  {
+    label: "Unity Square's founding charter contains a recall provision that has never been used — and has never been publicized.",
+    tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'locating charter recall provision');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `Section fourteen of Unity Square's founding charter covers arbiter recall: a two-thirds vote of registered commercial parties with active coordination cases can trigger a full administrative review of the current arbiter's tenure, including access to all sealed case records. The provision requires sixty days' notice filed with the Collegium and a petition signed by qualifying parties. It has never been used — not because the mechanism doesn't exist, but because nobody outside the original drafters has read section fourteen. The current situation qualifies. The mechanism is available.`;
+        if (!G.flags) G.flags = {};
+        G.flags.unity_recall_provision = true;
+        addJournal('Unity Square charter section 14: unused recall provision — 2/3 commercial party vote triggers full administrative review including sealed records, 60-day petition process', 'evidence', `unity-charter-${G.dayCount}`);
+      } else {
+        G.lastResult = `The founding charter is a public document, archived at the commercial registry. The reference copy at Unity Square itself is in the arbiter's administrative library, which is accessible by request during specific administrative hours. The original filing at the registry is the more accessible version. Both carry the same text. The hours at the commercial registry run later than Unity Square's administrative period.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

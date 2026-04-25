@@ -468,6 +468,175 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: PRESSURE — WORLD COLOR VIGNETTE
+  {
+    label: "The wind at Plumes End has a name the patrol uses among themselves that doesn't appear on any map.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'learning the frontier wind name');
+      G.lastResult = `The patrol at Plumes End calls the northeast wind "the push" — named for what it does to the pressure readings, which reliably spike when the wind turns northeast for more than two consecutive days. It's not in any official meteorological record; the name lives in patrol hand-off notes and verbal briefings and the shorthand entries in Letha's personal log. The meteorological charts the outpost files use compass bearings and seasonal designations. "The push" is a local invention, precise in meaning to anyone stationed here long enough to know what it predicts. Letha uses it without explanation in six months of notes, expecting whoever reads them to know what it means.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ARCHETYPE GATE (Knight archetype / mounted)
+  {
+    label: "The patrol routes on the northeast circuit were quietly shortened three months ago — the amended maps never reached the supply traders.",
+    tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const arch = G.archetype || '';
+      const isMounted = (arch === 'Knight') || (G.archetype && G.archetype.name === 'Knight');
+      if (!isMounted) {
+        G.lastResult = `The patrol coverage maps at Plumes End show routes that stop short of where the older maps show them continuing. Someone reduced the patrol depth into the northeast three months ago. You note the discrepancy in the posted vs. archived maps without being able to determine whether the decision was operational or institutional.`;
+        gainXp(32, 'noting patrol route discrepancy');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(70, 'analyzing patrol route reduction');
+      G.stageProgress[1]++;
+      G.lastResult = `The amended patrol maps cut the northeast circuit at the ridge line — stopping three leagues short of where the pre-amendment maps showed the boundary. For mounted patrol, three leagues is forty minutes of coverage. The reduction leaves the affected zone unmonitored without removing it from the patrol jurisdiction record: the outpost still officially covers the area, it simply no longer sends patrols there. Whatever is producing the pressure anomalies in the northeast is now in a monitored-but-unvisited zone. The amendment created that status deliberately.`;
+      if (!G.flags) G.flags = {};
+      G.flags.plumes_route_reduction = true;
+      addJournal('Patrol route amendment: northeast circuit shortened to ridge line 3 months ago — affected zone officially covered but no longer visited', 'evidence', `plumes-routes-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BACKGROUND FLAVOR
+  {
+    label: "The outpost's supply manifest has a line item that appears every month but corresponds to no equipment in the inventory.",
+    tags: ['Pressure', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'checking outpost supply manifest against inventory');
+      const bg = G.background || '';
+      let result = `The monthly supply manifest includes a recurring line item: "specialized atmospheric monitoring equipment — maintenance allocation." The equipment cache at the outpost carries standard patrol gear, emergency supplies, and survey instruments. No atmospheric monitoring equipment appears in the inventory. The allocation exists. The equipment doesn't. The monthly allocation line has been running for fourteen months.`;
+      if (bg === 'soldier' || bg === 'scout') {
+        result = `Supply manifests at frontier outposts carry ghost line items occasionally — budget allocations for equipment that was requested, approved, never delivered, but whose allocation wasn't cancelled. Standard administrative lag. This one is different: "specialized atmospheric monitoring equipment" has been in the manifest for fourteen months with a maintenance allocation rather than an acquisition allocation. You don't allocate for maintenance on equipment you don't yet have. Either the equipment existed and was removed without updating the manifest, or the line item is covering funding that's going somewhere other than equipment.`;
+      }
+      G.lastResult = result;
+      addJournal('Plumes End supply manifest: 14-month maintenance allocation for atmospheric monitoring equipment absent from inventory', 'evidence', `plumes-manifest-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — RISKY
+  {
+    label: "The outpost's communications log shows a two-week gap in acknowledged receipt from the central coordination channel.",
+    tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing outpost communications log');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `Outpost communications logs run continuous — every transmission sent, every acknowledgment received, dated and signed by the duty clerk. The gap runs from the third to the seventeenth of last month: outpost transmissions continue normally, but the received-acknowledgment column goes blank. Sixteen days of sent dispatches with no return signal. During that same window, Letha's log shows the pressure readings reached their highest recorded value. Someone at the receiving end stopped responding to Plumes End during the period when the outpost's data was most significant.`;
+        if (!G.flags) G.flags = {};
+        G.flags.plumes_comms_gap = true;
+        addJournal('Communications log gap: 16 days of unanswered dispatches during peak pressure anomaly period — silence at the moment data was most significant', 'evidence', `plumes-comms-${G.dayCount}`);
+      } else {
+        G.lastResult = `The communications log lives in the duty station, which runs on Letha's posted schedule — the log is accessible during the daily administrative period, which closed forty minutes ago and won't reopen until the morning rotation. The gap Letha mentioned informally is in that log. It's also in her personal records, which she's offered to share. The official log version is one day away.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BOLD
+  {
+    label: "The suppression order's language has a clause that Letha didn't receive — someone edited the version sent to Plumes End.",
+    tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'comparing suppression order versions');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 14) {
+        G.lastResult = `The suppression order that arrived at Plumes End is missing clause four from the standard template — the clause that specifies exemptions for emergency communications when patrol safety is at risk. That clause is in every other suppression order in the outpost's archive of similar directives. Its absence means Letha's staff believed they had no communication exemption even in an emergency. The version sent here was modified before dispatch. Someone specifically targeted this outpost's ability to break the silence under any circumstances.`;
+        if (!G.flags) G.flags = {};
+        G.flags.plumes_order_modified = true;
+        addJournal('Suppression order comparison: Plumes End version missing emergency exemption clause present in all other archived orders — targeted modification', 'evidence', `plumes-order-${G.dayCount}`);
+      } else {
+        G.lastResult = `Comparing the suppression order's language against the standard template requires access to the archive of similar directives, which Letha keeps but is currently reviewing. Getting the specific version sent here alongside the template requires that review to complete first, or her authorization to access the archive directly. The comparison is a half-hour task once the materials are in hand.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — SAFE/SOCIAL
+  {
+    label: "The youngest patrol member has been on the northeast route more times than anyone else at this outpost.",
+    tags: ['Pressure', 'Safe', 'NPC', 'Stage1'],
+    xpReward: 58,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(58, 'talking to the northeast patrol veteran');
+      G.lastResult = `Recruit Wess has completed the northeast patrol circuit fourteen times — more than any other active member, because nobody else accepts the assignment twice voluntarily. "The air changes about two hours in," he says. He's not alarmed by this; alarm faded somewhere around the sixth patrol. "You can taste it. Sweet, wrong — the kind of wrong you notice once and then spend the rest of the patrol trying not to breathe deeply." He adjusts his route markers when he returns from each one, noting where the air quality boundary moved. The boundary has moved south on every patrol for the past three months. It's getting closer.`;
+      if (!G.flags) G.flags = {};
+      G.flags.met_wess_patrol = true;
+      addJournal('Patrol recruit Wess: sweet-wrong air quality shift on northeast route, boundary moving south each patrol for 3 months', 'evidence', `plumes-wess-${G.dayCount}`);
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — SOCIAL/RISKY
+  {
+    label: "The regional Compact officer who is supposed to review Plumes End's monthly reports hasn't visited in eight months.",
+    tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'inquiring about Compact oversight absence');
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `The Compact regional officer was here eight months ago for a standard quarterly review — the last one. The two scheduled reviews since then were postponed, then cancelled with a form notice citing "administrative reorganization." The reorganization notice arrived once. No further explanation followed. Letha filed her quarterly reports to the standard address regardless. Return acknowledgments came back with a different signature each time — different people, different handwriting, no consistent reviewer. The oversight structure for this outpost has been unstaffed or deliberately rotated for eight months.`;
+        if (!G.flags) G.flags = {};
+        G.flags.plumes_oversight_gap = true;
+        addJournal('Compact oversight absent 8 months: quarterly reviews cancelled, return acknowledgments signed by different people each time — oversight structure deliberately disrupted', 'evidence', `plumes-oversight-${G.dayCount}`);
+      } else {
+        G.lastResult = `Administrative records of the Compact review schedule live in the duty station's external correspondence folder — posted visits, cancellation notices, acknowledgment logs. The duty station is staffed but the correspondence folder is under Letha's administrative access. This is a request she'd need to authorize. Given her established cooperation, it's a request she'd authorize. The conversation needs to happen first.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — ATMOSPHERE
+  {
+    label: "The supply station has a small hearth that the overnight watch keeps burning regardless of the season.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 35,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'observing the outpost overnight hearth');
+      G.lastResult = `The supply station hearth runs through the night on every rotation — not for warmth, which is adequate without it, but because the overnight watch developed the habit after the first northeast patrols started returning with the smell of the affected zone on their gear. The hearth smoke clears the space. Practical in the way frontier adaptations always are: an observation that became a practice that became a rotation standard without ever being written into the duty manual. The current watch officer learned it from the previous one, who learned it from Wess. The outpost's institutional memory lives in the habits, not the records.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: PRESSURE — BOLD/STEALTH
+  {
+    label: "The northeast zone boundary cairns have been moved — they mark a smaller area than the map shows.",
+    tags: ['Pressure', 'Bold', 'Physical', 'Stage1'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'checking northeast boundary cairn positions');
+      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.total >= 13) {
+        G.lastResult = `The first boundary cairn on the northeast approach sits thirty meters south of where the patrol map marks it. The second sits forty meters south of its marked position. Both cairns are solid, weathered, look long-established — but the ground around the base of each shows faint disturbance, the kind that comes from moving a heavy stone and resetting the earth to erase the evidence of movement. The boundary of the "unsafe zone" has been physically contracted. Whatever is actually producing the atmospheric anomaly now sits outside the marked boundary, in territory that looks unmapped and unclaimed on any official document.`;
+        if (!G.flags) G.flags = {};
+        G.flags.plumes_cairns_moved = true;
+        addJournal('Northeast boundary cairns: both moved south 30-40m from map positions — anomaly source now lies outside the officially marked danger zone', 'evidence', `plumes-cairns-${G.dayCount}`);
+      } else {
+        G.lastResult = `The northeast route past the boundary cairns puts you in territory where Wess marks the air quality shift. Reaching the cairn positions for comparison against the map requires passing through that threshold — which is manageable with preparation, less manageable unannounced. The patrol gear at the outpost includes the heavier protection Wess uses. Borrowing it before the approach is the difference between a survivable comparison and a miserable one.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

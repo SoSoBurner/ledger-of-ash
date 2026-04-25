@@ -502,6 +502,139 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: INFORMATION — WORLD COLOR VIGNETTE
+  {
+    label: "The sluice channels at Glasswake were built to move water and light at the same time.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing Glasswake sluice design');
+      G.lastResult = `The sluice channels running through Glasswake Commune were engineered with a secondary purpose visible only when the water is moving slowly: the channel floors are surfaced with polished pale stone that acts as a reflector, and the shard samples stored in the adjacent study alcoves were positioned to catch the reflected light from below rather than direct light from above. The founders understood the shards' light-translation properties required indirect, diffuse illumination for accurate observation. The infrastructure is a study instrument. Walking through it, you're inside the apparatus.`;
+      addJournal('Glasswake sluice infrastructure: engineered for indirect light distribution to study alcoves — settlement built as integrated research apparatus', 'discovery', `glasswake-sluice-${G.dayCount}`);
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — ARCHETYPE GATE (Alchemist — Craft-heavy)
+  {
+    label: "The shard samples Toman stores show a chemical reaction profile that shouldn't be possible under known material science.",
+    tags: ['Information', 'ArchetypeGate', 'Stage1'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Craft-heavy') {
+        G.lastResult = `Toman's shard samples react to reagent exposure in ways he can't fully explain — the results are outside his reference framework. You understand that this is unusual without being able to characterize what's unusual about it.`;
+        gainXp(30, 'noting shard anomalous reaction profile');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(72, 'analyzing shard chemical reaction profile');
+      G.stageProgress[1]++;
+      G.lastResult = `The reaction profile Toman documents is a class that doesn't appear in the standard material reference — the shards respond to reagent introduction with an energy output that exceeds the input by a consistent factor. Not random, not variable: a reliable multiplier that holds across forty-seven tested samples. That isn't degradation, contamination, or observer error. That's a material with an energy-amplification property that the current material science framework doesn't account for. Suppressing study of this isn't administrative tidiness. Something significant depends on this property remaining unstudied.`;
+      if (!G.flags) G.flags = {};
+      G.flags.glasswake_amplification_property = true;
+      addJournal('Shard reaction profile: consistent energy amplification factor across 47 samples — undocumented property, suppression not administrative', 'evidence', `glasswake-reaction-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BACKGROUND FLAVOR
+  {
+    label: "The administrative committee's composition changed three years ago — a majority arrived in the same appointment cycle.",
+    tags: ['Information', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'reviewing committee appointment history');
+      const bg = G.background || '';
+      let result = `The Glasswake administrative committee has nine members. Five of the current nine were appointed in the same cycle three years ago — all five nominated by the same regional authority body. Under the commune's own charter, this level of concentrated appointment requires a supermajority ratification vote. The ratification happened on a date when two of the committee's longest-serving members were documented as absent for illness. The vote passed with the minimum margin.`;
+      if (bg === 'scholar' || bg === 'administrator') {
+        result = `Committees structured with a coordinated majority block are recognizable from the appointment record — same origin cycle, same nominating authority, insufficient ratification margin. The resulting body has a reliable five-four split on any contested question, which means the minority bloc can never block a decision, only object to it. The split was engineered. Toman's research suppression came eleven months after the majority bloc was seated. The timing isn't coincidental.`;
+      }
+      G.lastResult = result;
+      addJournal('Glasswake committee: 5 of 9 members appointed same cycle by same regional authority — coordinated majority enables consistent 5-4 suppression votes', 'evidence', `glasswake-committee-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — RISKY
+  {
+    label: "The commune's archive holds the original shard observation records from its founding generation — they contradict the current suppression rationale.",
+    tags: ['Information', 'Risky', 'Records', 'Stage1'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading founding generation shard records');
+      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.total >= 12) {
+        G.lastResult = `The founding generation records describe direct shard observation over forty years of study — results logged, methods documented, researchers named. The current committee's stated reason for suppressing ongoing research is "unresolved safety concerns." The founding records don't show safety incidents. They show the opposite: a community that worked with shards continuously for forty years without harm. The suppression rationale contradicts the documented historical record. Someone on the committee knows what the archive contains and cited safety concerns anyway.`;
+        if (!G.flags) G.flags = {};
+        G.flags.glasswake_archive_contradiction = true;
+        addJournal('Glasswake founding archive: 40 years of shard research with no safety incidents — committee safety rationale directly contradicted by historical record', 'evidence', `glasswake-archive-${G.dayCount}`);
+      } else {
+        G.lastResult = `The commune archive is organized by era, and the founding generation records occupy the oldest section — original vellum documents in cases with humidity seals, accessible by request with a thirty-minute notice period. The archivist is on rotation today and hasn't returned from the midday break. The archive request is straightforward. The timing isn't.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BOLD
+  {
+    label: "The committee's correspondence with the regional authority contains a reference to a specific study outcome they needed prevented.",
+    tags: ['Information', 'Bold', 'Records', 'Stage1'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'reading committee-authority correspondence');
+      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.total >= 14) {
+        G.lastResult = `The correspondence file between the committee and the regional authority runs thirty-one letters. Most are administrative. Letter nineteen is different: a response from the regional authority acknowledging the committee's request for "acceleration of the amplification study closure" and noting that "the energy multiplier finding must not enter the public record before the parallel project reaches completion." The parallel project isn't named. The energy multiplier is Toman's forty-seven-sample finding. Someone outside Glasswake knew about that finding and acted to suppress it before it was published.`;
+        if (!G.flags) G.flags = {};
+        G.flags.glasswake_correspondence_found = true;
+        addJournal('Committee correspondence: regional authority letter confirms "energy multiplier finding must not enter public record before parallel project completion" — external coordination of suppression', 'evidence', `glasswake-correspondence-${G.dayCount}`);
+      } else {
+        G.lastResult = `The committee's official correspondence is an administrative record — classified as internal by default, accessible through a formal records request that routes to the committee chair for approval. The chair is the head of the five-member majority bloc. That route is closed. The archivist handles physical filing; the correspondence file is in a cabinet in the administrative office, not the commune archive. The archivist and the administrative office are separate buildings.`;
+      }
+      G.recentOutcomeType = 'stealth'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — SAFE LORE
+  {
+    label: "The shard field at the commune's edge is larger now than when the settlement was founded — the shards grow.",
+    tags: ['Information', 'Safe', 'Lore', 'Stage1'],
+    xpReward: 52,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(52, 'learning about shard growth rate');
+      G.lastResult = `Toman has the original survey maps alongside the current field boundaries — the shard formation has expanded by roughly twelve percent in the settlement's recorded history, growing outward from the original cluster at a consistent rate. Not fast enough to alarm, not slow enough to be negligible. The growth raises a question the founding research was beginning to address before the suppression: what drives the expansion, and does the energy-amplification property scale with the total formation size. The current shard field is twelve percent more capable — of whatever it's capable of — than the one the founders studied.`;
+      addJournal('Glasswake shard formation: 12% growth in settlement history, consistent rate — amplification properties may scale with formation size', 'discovery', `glasswake-growth-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — SOCIAL RISKY
+  {
+    label: "The two committee members who voted against the suppression still attend meetings — and they take notes on everything.",
+    tags: ['Information', 'Risky', 'NPC', 'Stage1'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'meeting the dissenting committee members');
+      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.total >= 11) {
+        G.lastResult = `Arven and Missa have attended every committee session since the suppression vote and objected in the record to every decision made by the majority bloc. Their notes are comprehensive — every procedural motion, every stated rationale, every dissent. "We document because we know the official minutes are edited before filing," Arven says. He doesn't say it with particular emotion. "The edited minutes are what the record shows. Our notes show what happened in the room." Two years of parallel documentation, the committee's version and the accurate version sitting in different places.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_dissenting_committee = true;
+        addJournal('Dissenting committee members Arven and Missa: 2 years of parallel documentation — their notes vs. edited official minutes', 'evidence', `glasswake-dissent-${G.dayCount}`);
+      } else {
+        G.lastResult = `The two dissenting members are in the chamber for the current committee session — observable from the public gallery. They take notes in notebooks they carry personally, not on the committee's standard documentation forms. The session ends in forty minutes. The corridor outside the chamber is where people linger afterward.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],

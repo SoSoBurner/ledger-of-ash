@@ -834,6 +834,61 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // TYPE: INFORMATION — WORLD COLOR VIGNETTE
+  {
+    label: "The Shirshal courthouse keeps its exterior lamps burning through the day — a procedural statement, not a practical one.",
+    tags: ['WorldColor', 'Atmosphere', 'Stage1'],
+    xpReward: 38,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(38, 'observing courthouse lamp tradition');
+      G.lastResult = `The courthouse lamps at Shirshal run continuously — oil maintained through the night, wicks trimmed at dawn and dusk by a dedicated maintenance role that exists in the courthouse staff roster as a titled position. In midday light the lamps are invisible from more than twenty feet. The tradition dates from the founding charter: the lamps signal that proceedings are accessible at any hour, that the institution does not close. The current lamp keeper is the third generation of her family to hold the role. She trims the wicks at the same hour her grandmother did. The institution signals continuity through the gesture regardless of what proceeds inside.`;
+      G.recentOutcomeType = 'observe'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — ARCHETYPE GATE (Artificer — Craft-heavy)
+  {
+    label: "The physical evidence in Shirshal's case storage shows signs of systematic environmental manipulation.",
+    tags: ['Information', 'ArchetypeGate', 'Stage1'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
+      if (family !== 'Craft-heavy') {
+        G.lastResult = `Some of the physical evidence in Shirshal's case storage appears degraded beyond what age and handling would explain. You note the condition without being able to characterize what caused it.`;
+        gainXp(28, 'noting degraded evidence condition');
+        G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
+      }
+      gainXp(72, 'analyzing evidence degradation pattern');
+      G.stageProgress[1]++;
+      G.lastResult = `The degradation pattern on the affected evidence samples is consistent with controlled chemical exposure: a solvent class that attacks organic binding agents over weeks to months, leaving physical materials intact while destroying provenance markings, dated impressions, and ink-based annotations. The effect reads as age at casual inspection. Under close examination, the degradation is too uniform across different material types — parchment and pressed fiber and wax all showing the same degradation rate, which would be impossible under natural aging but consistent under a single applied agent. Someone has been chemically aging specific evidence items.`;
+      if (!G.flags) G.flags = {};
+      G.flags.shirshal_evidence_manipulated = true;
+      addJournal('Shirshal case evidence: controlled chemical degradation of provenance markings — uniform across material types, consistent with deliberate aging agent application', 'evidence', `shirshal-evidence-chem-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // TYPE: INFORMATION — BACKGROUND FLAVOR
+  {
+    label: "The magistrates' public schedule lists sessions that the court's own interior records show were cancelled.",
+    tags: ['Information', 'Background', 'Stage1'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(55, 'cross-referencing magistrate schedules');
+      const bg = G.background || '';
+      let result = `The posted magistrate session schedule lists fourteen public hearings for last month. The court's interior proceeding log — accessible at the clerk's public window — records eleven sessions held. Three sessions on the public schedule produced no interior record. For those three dates, the clerk's window was closed and the hearing room was locked. The gap is documented in both directions: the public schedule says sessions happened; the interior record shows the building was unstaffed.`;
+      if (bg === 'investigator' || bg === 'lawkeeper' || bg === 'official') {
+        result = `Ghost sessions on a magistrate schedule — listed publicly, no interior record — are a mechanism for creating unaccountable time windows in a justice system. Three sessions last month with no interior record. During unrecorded sessions, the building was accessible to those with keys, proceedings could occur, evidence could be handled, and none of it would exist in any official timeline. Whatever happens in Shirshal's justice building during those three-per-month gaps runs without a record that anyone will ever be able to subpoena.`;
+      }
+      G.lastResult = result;
+      addJournal('Shirshal magistrate schedule: 3 ghost sessions — listed publicly, no interior proceeding record, building closed during listed hours', 'evidence', `shirshal-ghost-sessions-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
