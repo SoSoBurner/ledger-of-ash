@@ -8290,6 +8290,165 @@ function addHeat(polity, amount) {
   G.heat[polity] = Math.min(10, Math.max(0, (G.heat[polity] || 0) + amount));
 }
 
+// ── AUTHORITY CONFRONTATION SYSTEM ────────────────────
+/**
+ * enterAuthorityConfrontation(authorityKey, ctx)
+ * Mandatory 3-phase confrontation for institutional authority encounters.
+ * Phase 1: de-escalation (always). Phase 2: escalated standoff. Phase 3: detention or combat victory.
+ * CID format: __authority__{authorityKey}__{polity}__{phase}__{outcome}
+ * @param {string} authorityKey  e.g. 'road_wardens', 'civic_harmony_hall'
+ * @param {Object} ctx  { polity, heatLevel, offense, locality }
+ */
+function enterAuthorityConfrontation(authorityKey, ctx) {
+  ctx = ctx || {};
+  var polity    = ctx.polity    || authorityKey;
+  var heatLevel = ctx.heatLevel != null ? ctx.heatLevel : getHeat(polity);
+  var offense   = ctx.offense   || 'unspecified violation';
+  var locality  = ctx.locality  || G.location || 'unknown';
+
+  var authorityLabel = authorityKey.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+
+  var sceneText = 'The ' + authorityLabel + ' step into your path. Their attention is specific — they know what they are looking for. The offense: ' + offense + '. They have not drawn weapons yet. You have a moment to decide how this goes.';
+
+  document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
+  addNarration(authorityLabel, sceneText);
+
+  _authorityRenderPhase1(authorityKey, polity, heatLevel);
+}
+
+function _authorityRenderPhase1(authorityKey, polity, heatLevel) {
+  var dc_safe  = 7  + heatLevel;
+  var dc_risky = 12 + heatLevel;
+  var ak = safeAttr(authorityKey), pk = safeAttr(polity);
+
+  var choices = [
+    {
+      text: 'Cooperate fully. Give them no reason to push further.',
+      skill: 'persuasion', tag: 'safe', align: 'lawful',
+      cid: '__authority__' + ak + '__' + pk + '__1__comply'
+    },
+    {
+      text: 'There is a procedural angle here. Work it.',
+      skill: 'persuasion', tag: 'risky', align: 'neutral',
+      cid: '__authority__' + ak + '__' + pk + '__1__negotiate'
+    },
+    {
+      text: 'This does not have to be about you. Give them somewhere else to look.',
+      skill: 'stealth', tag: 'risky', align: 'chaotic',
+      cid: '__authority__' + ak + '__' + pk + '__1__deflect'
+    }
+  ];
+  setTimeout(function(){ renderChoices(choices); }, 300);
+}
+
+function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
+  var currentHeat = getHeat(polity);
+  var ak = safeAttr(authorityKey), pk = safeAttr(polity);
+
+  addNarration('', 'The situation has tightened. They are not satisfied. Your options are narrowing.');
+
+  var choices = [
+    {
+      text: 'Hold your ground. Make them commit.',
+      skill: 'persuasion', tag: 'bold', align: 'chaotic',
+      cid: '__authority__' + ak + '__' + pk + '__2__stand_firm'
+    },
+    {
+      text: 'There is a gap — move through it before it closes.',
+      skill: 'stealth', tag: 'bold', align: 'chaotic',
+      cid: '__authority__' + ak + '__' + pk + '__2__attempt_escape'
+    },
+    {
+      text: 'Hands up. This is not the place to fight.',
+      skill: 'persuasion', tag: 'safe', align: 'lawful',
+      cid: '__authority__' + ak + '__' + pk + '__2__accept_detention'
+    }
+  ];
+  if (currentHeat >= 5) {
+    choices.push({
+      text: 'They are not leaving you a choice. Commit to it.',
+      skill: 'combat', tag: 'bold', align: 'chaotic',
+      cid: '__authority__' + ak + '__' + pk + '__2__fight'
+    });
+  }
+  setTimeout(function(){ renderChoices(choices); }, 300);
+}
+
+function _authorityResolvePhase1(authorityKey, polity, heatLevel, outcome, roll, skillVal) {
+  var dc_safe  = 7  + heatLevel;
+  var dc_risky = 12 + heatLevel;
+  var dc        = outcome === 'comply' ? dc_safe : dc_risky;
+  var success   = (roll + skillVal) >= dc;
+  var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + '</span>';
+  addNarration('', rollLabel);
+
+  if (success) {
+    if (outcome === 'comply' || outcome === 'negotiate') {
+      addHeat(polity, -1);
+      addNarration('', 'They assess you, then stand aside. Something in your manner satisfies them — for now. You walk away clean.');
+      addJournal('Resolved ' + authorityKey.replace(/_/g,' ') + ' confrontation without incident.', 'complication');
+    } else {
+      addNarration('', 'Their attention slides to something else. You move before it slides back. Clean exit.');
+    }
+    setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 600);
+  } else {
+    addNarration('', 'It does not work. Their posture shifts — this is no longer a conversation.');
+    _authorityRenderPhase2(authorityKey, polity, heatLevel);
+  }
+}
+
+function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll, skillVal) {
+  if (outcome === 'stand_firm') {
+    addHeat(polity, 1);
+    addNarration('', 'You hold. They hold. The standoff burns one more layer of goodwill. You can still back down.');
+    _authorityRenderPhase2(authorityKey, polity, heatLevel + 1);
+    return;
+  }
+  if (outcome === 'attempt_escape') {
+    var dc      = 14;
+    var success = (roll + skillVal) >= dc;
+    var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + '</span>';
+    addNarration('', rollLabel);
+    if (success) {
+      addHeat(polity, 1);
+      addNarration('', 'You are through before they can close. Your name is on a report now, but you are free.');
+      addJournal('Slipped a ' + authorityKey.replace(/_/g,' ') + ' checkpoint. Heat rising.', 'complication');
+      setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 600);
+    } else {
+      addNarration('', 'They expected it. You are detained.');
+      _authorityResolveDetention(authorityKey, polity);
+    }
+    return;
+  }
+  if (outcome === 'accept_detention') {
+    _authorityResolveDetention(authorityKey, polity);
+    return;
+  }
+  if (outcome === 'fight') {
+    // Combat victory result wired via post-combat hook — here we just enter combat
+    addHeat(polity, 0); // heat added on victory in _authorityResolveCombatVictory
+    document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
+    if (typeof enterCombat === 'function') {
+      enterCombat(authorityKey + '_officer', { isBoss: false, _authorityPolity: polity, _authorityKey: authorityKey, _authorityFight: true });
+    }
+  }
+}
+
+function _authorityResolveDetention(authorityKey, polity) {
+  addHeat(polity, 2);
+  G.dayCount  = (G.dayCount  || 0) + 3;
+  G.restCount = 0;
+  addNarration('Detained', 'Three days in a holding cell. The charge is documented. You are released with a warning — and a record.');
+  addJournal('Detained by ' + authorityKey.replace(/_/g,' ') + '. Three days lost.', 'complication');
+  setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 600);
+}
+
+/** Call after combat victory when the fight originated from an authority confrontation. */
+function _authorityResolveCombatVictory(authorityKey, polity) {
+  addHeat(polity, 3);
+  addJournal('Fought through ' + authorityKey.replace(/_/g,' ') + ' checkpoint.', 'evidence');
+}
+
 // ── STRING SAFETY ──────────────────────────────────────
 // Content strings may contain apostrophes. When building innerHTML,
 // apostrophes in JS single-quoted strings are fine since they're assigned
@@ -9958,6 +10117,28 @@ function handleChoice(choice) {
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
     addNarration('', '<em>You chose: ' + choice.text + '</em>');
     showShop();
+    return;
+  }
+  // Authority confrontation routing  __authority__{authorityKey}__{polity}__{phase}__{outcome}
+  if (choice.cid && choice.cid.startsWith('__authority__')) {
+    const _aParts = choice.cid.split('__').filter(function(s){return s!=='';});
+    // _aParts: ['authority', authorityKey, polity, phase, outcome]
+    const _aKey     = _aParts[1] || '';
+    const _aPolity  = _aParts[2] || _aKey;
+    const _aPhase   = parseInt(_aParts[3], 10) || 1;
+    const _aOutcome = _aParts[4] || '';
+    const _aHeat    = getHeat(_aPolity);
+    document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
+    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
+    // Roll for skill-based outcomes
+    const _aSkillKey = choice.skill || 'persuasion';
+    const _aSkillVal = G.skills[_aSkillKey] || 0;
+    const _aRoll     = Math.floor(Math.random() * 20) + 1;
+    if (_aPhase === 1) {
+      _authorityResolvePhase1(_aKey, _aPolity, _aHeat, _aOutcome, _aRoll, _aSkillVal);
+    } else if (_aPhase === 2) {
+      _authorityResolvePhase2(_aKey, _aPolity, _aHeat, _aOutcome, _aRoll, _aSkillVal);
+    }
     return;
   }
   // Check for combat trigger
