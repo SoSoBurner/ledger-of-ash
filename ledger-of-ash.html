@@ -9076,6 +9076,7 @@ function advanceTime(ticks) {
     }
   }
   updateHUD();
+  if (typeof SHADOW_LEDGER_HINTS !== 'undefined' && SHADOW_LEDGER_HINTS.checkAndFire) SHADOW_LEDGER_HINTS.checkAndFire();
 }
 
 
@@ -9523,6 +9524,7 @@ function _beginLegendCore() {
     COMPANION_DEFS.mira_calden.locality = G.startingLocality;
   }
   G.flags.companion_gate_open = false;
+  G.flags.corridor_encounters_enabled = true;
   G.backstoryGroup = G.archetype.group || 'neutral';
   G.history.push('Born as ' + G.name + ', ' + G.archetype.name + ' of ' + G.background.region + '.');
   G.history.push(G.background.opening);
@@ -11437,6 +11439,7 @@ function showTransitionBanner(text) {
 
 /** Stage gate: S1→S2 when stage1_narrative_complete flag set (Sera Ironveil defeated); S2→S3 via canAdvanceToStage3(). Also triggers Maren, antechamber, climax in order. Called by checkLevelUp(). */
 function checkStageAdvance() {
+  if (typeof SCOPE_REVEAL !== 'undefined' && SCOPE_REVEAL.trigger) SCOPE_REVEAL.trigger();
   // Companion gate — unlocks Vorath and Mira at mid-Stage 1
   if (!G.flags.companion_gate_open && (G.stageProgress && G.stageProgress[1] || 0) >= 5) {
     G.flags.companion_gate_open = true;
@@ -12227,7 +12230,7 @@ function campAction(type) {
     if (G.supplyTier === 'plentiful') healed += Math.floor(G.maxHp * 0.10);
     G.hp = Math.min(G.maxHp, G.hp + healed);
     tickAxis(1); advanceTime(2);
-    if (G.traits && G.traits[0]) G.traits[0].used = false;
+    if (G.traits) { G.traits.forEach(function(t) { if (t.traitType !== 'passive') t.used = false; }); }
     updateRecoveryState();
     G.restCount = (G.restCount || 0) + 1;
     addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success');
