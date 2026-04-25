@@ -540,6 +540,11 @@ input, button, select, textarea { font-family: inherit; }
   background: var(--storm-lo); border: 1px solid var(--storm);
   color: var(--storm-hi);
 }
+.stage-flash { animation: stagePulse 0.8s ease-out; }
+@keyframes stagePulse {
+  0%,100% { box-shadow: none; }
+  50%      { box-shadow: 0 0 18px 4px var(--accent-gold); }
+}
 #stage-progress-track {
   width: 120px; height: 4px;
   background: rgba(255,255,255,.12);
@@ -10497,6 +10502,8 @@ function checkStageAdvance() {
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
     G.history.push('Completed Stage I. Entered the wider world at Level 5.');
     updateHUD();
+    var _pill = document.getElementById('topbar-stage');
+    if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
   } else if (G.level >= 11 && G.stage === 'Stage II') {
     checkNeutralArcScene();
     if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
@@ -10529,11 +10536,15 @@ function checkStageAdvance() {
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE IV &#x2014; International consequence. What you do now echoes.</em>');
     addJournal('Advanced to Stage IV: International.', 'discovery');
     G.history.push('Reached Stage IV at Level 16. Your name crosses borders.');
+    var _pill = document.getElementById('topbar-stage');
+    if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
   } else if (G.level === 19 && G.stage === 'Stage IV') {
     G.stage = 'Stage V'; G.stageLabel = 'International to Cosmic';
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE V &#x2014; The axis responds to what you do. The world is watching.</em>');
     addJournal('Advanced to Stage V: International to Cosmic. The work has become something larger.');
     G.history.push('Reached Stage V at Level 19. The axis itself is in motion.');
+    var _pill = document.getElementById('topbar-stage');
+    if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
     addWorldNotice('[STAGE V] The axis anomaly has escalated to international consequence. Roadwarden Order formally requests all parties with evidence to come forward.');
     // Stage V quest spines
     addQuest('Stage V: Identify who authorized the original axis exploitation operation.');
