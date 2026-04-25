@@ -24,7 +24,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
 
-      G.lastResult = `You copy the most critical quota ledger entries onto loose paper — compact, deniable. The originals stay in the files where they belong. Anyone looking for tampering will find none. You, though, carry the pattern in your head and on your person. Soreheim's labor machinery grinds on behind you as you pack.`;
+      G.lastResult = `You copy the most critical quota ledger entries onto loose paper — compact, deniable. The originals stay in the files where they belong. Anyone looking for tampering will find none. You, though, carry the pattern in your head and on your person. Soreheim's labor machinery grinds on behind you as you pack. Somewhere behind you, a record of your departure has already been made.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Soreheim with quota evidence', `soreheim-departure-${G.dayCount}`);
     }

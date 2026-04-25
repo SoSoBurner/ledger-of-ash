@@ -20,7 +20,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `Three documents rolled together and wrapped in oilcloth: the original dome filtration specification, the replacement additive delivery manifest, and the pressure monitoring log that shows the gradient shift beginning two days after substitution. Read separately, each is administrative paper. Together, they show a residential atmospheric system changed by design. You carry them south. Leaving them in Aurora Crown means leaving them within reach of whoever changed the system to begin with.`;
+      G.lastResult = `Three documents rolled together and wrapped in oilcloth: the original dome filtration specification, the replacement additive delivery manifest, and the pressure monitoring log that shows the gradient shift beginning two days after substitution. Read separately, each is administrative paper. Together, they show a residential atmospheric system changed by design. You carry them south. Leaving them in Aurora Crown means leaving them within reach of whoever changed the system to begin with. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Aurora Crown carrying dome contamination documentation south', `aurora-arc-departure-${G.dayCount}`);
     }

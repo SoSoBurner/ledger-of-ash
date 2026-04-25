@@ -20,7 +20,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `The ghost visitor records are names that appeared in Shirshal's Bureau reception log and then never appeared in any official file, case assignment, or personnel record. They were there. They signed in. Then they ceased to exist administratively. Six names over four months, all during the period Tazren's case was active. Whatever they were investigating, the investigation ended them — not the other way around.`;
+      G.lastResult = `The ghost visitor records are names that appeared in Shirshal's Bureau reception log and then never appeared in any official file, case assignment, or personnel record. They were there. They signed in. Then they ceased to exist administratively. Six names over four months, all during the period Tazren's case was active. Whatever they were investigating, the investigation ended them — not the other way around. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Shirshal with ghost visitor records — six investigators disappeared administratively during Tazren case', `shirshal-arc-departure-${G.dayCount}`);
     }

@@ -20,7 +20,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `The container's liner — non-reactive polymer rated for atmospheric compounds — came from a Principalities supplier. That provenance detail is not in any Sunspire manifest. You've transcribed the chemical liner rating onto paper small enough to fold into your boot. Someone spent significant capital to keep this moving quietly.`;
+      G.lastResult = `The container's liner — non-reactive polymer rated for atmospheric compounds — came from a Principalities supplier. That provenance detail is not in any Sunspire manifest. You've transcribed the chemical liner rating onto paper small enough to fold into your boot. Someone spent significant capital to keep this moving quietly. The people who paid that capital track who comes asking about it.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Sunspire Haven with container liner evidence', `sunspire-arc-departure-${G.dayCount}`);
     }

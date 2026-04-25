@@ -20,7 +20,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `The ghost accounts moved capital through the Iron Ledger Ward in fractions — amounts below the review threshold, distributed across dozens of transactions, aggregating to significant sums over time. The same technique appears in the Whitebridge bridge authority records and the Unity Square arbitration register. The northern operation has one financial methodology. Tracing where its capital ended up requires Shelkopolis's central financial registry.`;
+      G.lastResult = `The ghost accounts moved capital through the Iron Ledger Ward in fractions — amounts below the review threshold, distributed across dozens of transactions, aggregating to significant sums over time. The same technique appears in the Whitebridge bridge authority records and the Unity Square arbitration register. The northern operation has one financial methodology. Tracing where its capital ended up requires Shelkopolis's central financial registry. The people who built that methodology do not ignore those who come looking at it.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Ithtananalor carrying ghost account transaction pattern for central registry', `ithtan-arc-departure-${G.dayCount}`);
     }

@@ -20,7 +20,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `Cadrin kept his log in a personal notation — dates, weights estimated by bridge stone stress, glove-type of handlers, and his own shorthand for "something wrong here." Thirty-one entries over five months. The entries align with the routing gaps in the official record. This is the document the bridge director's ghost account was designed to suppress. You copy it and leave Cadrin's original in place.`;
+      G.lastResult = `Cadrin kept his log in a personal notation — dates, weights estimated by bridge stone stress, glove-type of handlers, and his own shorthand for "something wrong here." Thirty-one entries over five months. The entries align with the routing gaps in the official record. This is the document the bridge director's ghost account was designed to suppress. You copy it and leave Cadrin's original in place. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Whitebridge with Cadrin\'s crossing log — copy taken, original in place', `whitebridge-arc-departure-${G.dayCount}`);
     }

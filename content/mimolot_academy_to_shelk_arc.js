@@ -20,7 +20,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `The formula fragments are academic notation — the kind of shorthand that means nothing to anyone who didn't study atmospheric chemistry formally. You copy the relevant sections in that same notation, which is useful: if you're stopped, you're carrying academic research notes. Only someone trained to read them would understand what they describe. You're betting Shelkopolis has those people.`;
+      G.lastResult = `The formula fragments are academic notation — the kind of shorthand that means nothing to anyone who didn't study atmospheric chemistry formally. You copy the relevant sections in that same notation, which is useful: if you're stopped, you're carrying academic research notes. Only someone trained to read them would understand what they describe. You're betting Shelkopolis has those people. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Mimolot with formula fragments in academic notation — readable only to trained chemists', `mimolot-arc-departure-${G.dayCount}`);
     }

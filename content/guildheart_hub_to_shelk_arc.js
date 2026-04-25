@@ -20,7 +20,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-      G.lastResult = `The charter is forty years old and written in pre-Union commercial language. It grants "coordinating commercial association" status — a category that predates the current guild registration system entirely and sits outside every modern oversight tier. The northern bloc has been operating under its protections without ever filing under current law. Whether that status remains legally valid is a question only the central guild registry in Shelkopolis can answer. If the charter has lapsed, the legal architecture of the entire operation comes apart.`;
+      G.lastResult = `The charter is forty years old and written in pre-Union commercial language. It grants "coordinating commercial association" status — a category that predates the current guild registration system entirely and sits outside every modern oversight tier. The northern bloc has been operating under its protections without ever filing under current law. Whether that status remains legally valid is a question only the central guild registry in Shelkopolis can answer. If the charter has lapsed, the legal architecture of the entire operation comes apart. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
       addJournal('decision', 'Left Guildheart with pre-Union charter fragment — validity check needed in central registry', `guildheart-arc-departure-${G.dayCount}`);
     }
