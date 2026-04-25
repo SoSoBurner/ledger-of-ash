@@ -3670,7 +3670,7 @@ function applyWound(damage, source) {
     G.recoveryState = 'critical';
     var _goldLost = Math.max(1, Math.floor((G.gold || 0) * 0.1));
     G.gold = Math.max(0, (G.gold || 0) - _goldLost);
-    G.dayCount = (G.dayCount || 0) + 1;
+    G.dayCount = (G.dayCount || 0) + 1; G.restCount = 0;
     if (CS) CS.playerFell = true;
     addNarration('', '<em style="color:var(--blood-bright)">The fight goes out of you before the ground does. When awareness returns, the light has shifted — hours, maybe more. Your hands are empty of what they had. You have not won this. But you are still breathing, and that is where the next attempt begins.</em>');
   }
@@ -8329,7 +8329,7 @@ function advanceTime(ticks) {
   ticks = ticks || 1;
   const prevIndex = G.timeIndex;
   G.timeIndex = (G.timeIndex + ticks) % 4;
-  if (G.timeIndex === 0) G.dayCount = (G.dayCount || 0) + 1;
+  if (G.timeIndex === 0) { G.dayCount = (G.dayCount || 0) + 1; G.restCount = 0; }
   // Drift Nomdara every 10 time units
   const drift = window.NOMDARA_OVERLAY && window.NOMDARA_OVERLAY.drift_interval_time_units || 10;
   if (((G.timeIndex + (G.dayCount||0)*4) % drift) === 0 && typeof driftNomdara === 'function') {
@@ -8455,6 +8455,7 @@ function initCreate() {
         trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
         archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
         shopCreditBoost:0, statCap:10,
+        restCount:0,
         schemaVersion:6 };
   _awaitingLevelUp = false;
   _activeGroupId = null;
@@ -10041,6 +10042,14 @@ function handleChoice(choice) {
       }
     }
 
+    // Crit rewards: natural 20 → +1 XP + +1 stageProgress
+    if (roll === 20) {
+      if (typeof addXP === 'function') addXP(1); else G.xp = (G.xp||0)+1;
+      var _critSK = G.stage==='Stage II'?2:G.stage==='Stage III'?3:1;
+      G.stageProgress = G.stageProgress||{1:0,2:0,3:0,4:0,5:0};
+      G.stageProgress[_critSK] = (G.stageProgress[_critSK]||0)+1;
+    }
+
     resolveConsequence(choice.cid, success, partial);
 
     // After resolveConsequence: if a backup is pending, inject it into the next choice render
@@ -10871,7 +10880,7 @@ function resolveEnforcementChoice(choice) {
   const tier = getLocalityHeatTier(G.location);
   if (choice === 'submit') {
     const days = tier === 'hot' ? Math.floor(Math.random()*20)+5 : Math.floor(Math.random()*5)+1;
-    G.dayCount = (G.dayCount||0) + days;
+    G.dayCount = (G.dayCount||0) + days; G.restCount = 0;
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.rival = (G.worldClocks.rival||0) + Math.ceil(days/3);
     updateLocalityHeat(G.location, -10);
@@ -11187,6 +11196,14 @@ function campAction(type) {
   closeOverlay('overlay-camp');
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_camp');
   if (type === 'rest') {
+    if ((G.restCount || 0) >= 2) {
+      G.lastResult = 'Your body resists sleep — you have already rested twice today. The night passes without benefit.';
+      addNarration('Camp', G.lastResult, 'failure');
+      setTimeout(() => renderChoices([
+        { text:'Break camp and move on.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' }
+      ]), 300);
+      return;
+    }
     let healed = Math.floor(G.maxHp * 0.45);
     // Plentiful supplies: +10% max HP restored
     if (G.supplyTier === 'plentiful') healed += Math.floor(G.maxHp * 0.10);
@@ -11194,6 +11211,7 @@ function campAction(type) {
     tickAxis(1); advanceTime(2);
     if (G.traits && G.traits[0]) G.traits[0].used = false;
     updateRecoveryState();
+    G.restCount = (G.restCount || 0) + 1;
     addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success');
     addJournal('Rested at camp. Recovered HP. Trait refreshed.', 'discovery');
     updateHUD(); saveGame();
