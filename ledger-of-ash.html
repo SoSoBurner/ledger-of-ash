@@ -1910,6 +1910,7 @@ input, button, select, textarea { font-family: inherit; }
         <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion. More members improve success.</div></button>
         <button class="camp-action" data-camp="sleep"><div class="ca-icon">&#x263D;</div><div class="ca-title">Sleep</div><div class="ca-desc">Find a place to rest for the night. Settlements offer inn lodging — cheap or comfortable.</div></button>
         <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
+        <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness by 1. Costs a day.</div></button>
       </div>
       <div class="camp-footer"><button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button></div>
     </div>
@@ -8933,6 +8934,8 @@ function getRivalDCMod(locId) {
     var claimed = (G.flags && G.flags['rival_claimed_' + locId + '_' + i]) || 0;
     if (claimed >= 4) mod = Math.max(mod, 2);
     else if (claimed >= 3) mod = Math.max(mod, 1);
+    // Rival pressure at renown 6: applies dcPenalty:1 globally regardless of location claim
+    if ((r.renown || 0) >= 6) mod = Math.max(mod, 1);
   });
   return mod;
 }
@@ -11213,9 +11216,14 @@ function campAction(type) {
     }
   } else if (type === 'lay_low') {
     G.worldClocks = G.worldClocks || {};
-    G.worldClocks.watchfulness = Math.max(0, (G.worldClocks.watchfulness || 0) - 2);
+    G.worldClocks.watchfulness = Math.max(0, (G.worldClocks.watchfulness || 0) - 1);
     G.dayCount = (G.dayCount || 0) + 1;
-    addNarration('Working Local', 'You spend the day working local — markets, labor calls, the kind of ordinary transit that doesn\'t put your name in anyone\'s records. The manifest boards and Collegium channels stay untouched. You move through the city as someone without a thread to pull, and by evening the tension that had been building behind your shoulder blades has loosened. The trail cools. Not gone, but quieter.');
+    if (G.heat && typeof G.heat === 'object') {
+      var _llPolity = G.currentLocality && G.currentLocality.polity ? G.currentLocality.polity.toLowerCase() : null;
+      if (_llPolity && G.heat[_llPolity] > 0) G.heat[_llPolity] = Math.max(0, G.heat[_llPolity] - 1);
+    }
+    G.lastResult = 'You go quiet — no meetings, no movement, no visible trail. The attention fades by one degree. The day is gone.';
+    addNarration('Working Local', G.lastResult);
     addJournal('Spent a day off the institutional channels. Watchfulness reduced.', 'complication');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
@@ -12868,6 +12876,8 @@ function showCamp() {
   if (pw) pw.style.display = (INN_NAMES && INN_NAMES[loc]) ? 'none' : '';
   const sleepBtn = document.querySelector('[data-camp="sleep"]');
   if (sleepBtn) sleepBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
+  const layLowBtn = document.getElementById('btn-lay-low');
+  if (layLowBtn) layLowBtn.style.display = ((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 ? '' : 'none';
   showOverlay('overlay-camp');
 }
 
