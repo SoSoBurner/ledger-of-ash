@@ -10308,6 +10308,41 @@ function handleChoice(choice) {
   if (typeof choice.action === 'function') {
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
     addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
+
+    // Universal roll: auto-derive DC if no explicit roll defined on the choice
+    var _autoRoll = null;
+    if (!choice.roll) {
+      var _tier = choice.tag || 'risky';
+      var _dc = _tier === 'safe' ? 7 : _tier === 'bold' ? 15 : 12;
+      // Stage modifier: +1 per stage above Stage I
+      var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
+      _dc += _stageBonus;
+      var _autoSkill = choice.skill || (G.archetype && G.archetype.primarySkill) || 'lore';
+      _autoRoll = { skill: _autoSkill, dc: _dc };
+      console.debug('[auto-roll]', choice.id || choice.cid || choice.text, _tier, 'DC', _dc, _autoSkill);
+    }
+    var _effectiveRoll = choice.roll || _autoRoll;
+
+    // Perform the auto-roll and check for failResult short-circuit
+    var _autoRollFailed = false;
+    if (_autoRoll && _effectiveRoll) {
+      var _arSkillVal = (G.skills && G.skills[_effectiveRoll.skill]) || 0;
+      var _arRoll = Math.floor(Math.random() * 20) + 1;
+      var _arTotal = _arRoll + _arSkillVal;
+      _autoRollFailed = _arTotal < _effectiveRoll.dc;
+      addNarration('', '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + '</span>');
+      if (_autoRollFailed && choice.failResult) {
+        G.lastResult = choice.failResult;
+        G.recentOutcomeType = 'complication';
+        addNarration('', choice.failResult, 'complication');
+        addJournal(choice.failResult, 'complication');
+        if (typeof updateHUD === 'function') updateHUD();
+        if (typeof saveGame === 'function') saveGame();
+        setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
+        return;
+      }
+    }
+
     choice.action();
     return;
   }
