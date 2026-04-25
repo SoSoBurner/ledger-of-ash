@@ -131,7 +131,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Learned real evidence — but Thom marked exactly what you found', 'complication', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. The routing numbers exist. The shipments do not. Behind him on the lower shelf, a drawer with a brass pull bears a wax seal pressed over the lock plate — the seal belongs to no registry office listed on the room's posted charter.`;
+        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. The routing numbers exist. The shipments do not. Behind him on the lower shelf, a drawer with a brass pull bears a wax seal pressed over the lock plate — the seal belongs to no registry office listed on the room's posted charter. There is still the matter of the routing entries.`;
         addJournal('Clerk confirmed deliberate ledger removal pattern', 'evidence', `shelkopolis-ledger-removed-${G.dayCount}`);
       } else {
         G.lastResult = `Thom straightens a stack of already-straight papers and explains that registry access requires a stamped request from the Iron Accord, countersigned by a house advocate. He says it pleasantly. There's a lamplight smell of tallow and old ink in the room, and none of it belongs to you without the paperwork.`;
@@ -219,7 +219,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Broker warned other merchants of your inquiry', 'complication', `shelkopolis-broker-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Kaen shrugs and marks something on his tally board. Tighter than usual — that's all he'll say about silkwood, and he says it without looking up. The board shows three blank lines where supplier names should be. He doesn't explain the blanks, and he doesn't expect you to stop noticing them. The routing numbers exist. The shipments do not.`;
+        G.lastResult = `Kaen shrugs and marks something on his tally board. Tighter than usual — that's all he'll say about silkwood, and he says it without looking up. The board shows three blank lines where supplier names should be. He doesn't explain the blanks, and he doesn't expect you to stop noticing them. The routing numbers exist. The shipments do not. There is still the matter of the routing entries.`;
         addJournal('Broker confirmed silkwood supply shortage — routing numbers exist, shipments do not', 'evidence', `shelkopolis-broker-supply-${G.dayCount}`);
       }
 

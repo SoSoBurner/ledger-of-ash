@@ -9,7 +9,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: LETHA DAWNSILK
   {
-    label: "Report to Commander Letha Dawnsilk — the outpost commander whose pressure measurement logs were recently reclassified.",
+    label: "The outpost commander's pressure logs were reclassified. She's still here.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -32,7 +32,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: PRESSURE GRADIENT RECORDS
   {
-    label: "Study Letha's pressure anomaly reports in full — map what the gradient readings actually show.",
+    label: "Letha's six months of pressure records are sitting on that desk.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -62,7 +62,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: CENTRAL COORDINATION SUPPRESSION
   {
-    label: "Trace the chain of command that ordered Letha's pressure reports to be placed 'under review' — determine who gave that instruction.",
+    label: "Someone issued that suppression order. The name on it isn't in any standard directory.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -88,7 +88,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: WILDLIFE BEHAVIOR CHANGES
   {
-    label: "Interview the outpost's frontier patrol rangers about wildlife behavior changes in the northeastern territories.",
+    label: "The patrol rangers have been watching the northeast corridors empty out.",
     tags: ['Investigation', 'Survival', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -138,7 +138,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: WARDEN ORDER PATROL COORDINATION
   {
-    label: "Contact the Warden Order's regional patrol coordinator through Letha — report the suppressed pressure anomaly data.",
+    label: "The Warden Order's coordinator doesn't know what Letha has been measuring.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -164,7 +164,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: THE VETERAN PATROL RANGER
   {
-    label: "Speak to the outpost's longest-serving patrol ranger about what the frontier has been like over the past year.",
+    label: "Eleven years on this frontier. He knows what the air used to feel like.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -186,7 +186,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: LETHA'S POSITION
   {
-    label: "Letha asks directly: does she escalate through official channels knowing they've been compromised, or does she go around them?",
+    label: "The official channels are compromised. Letha knows it. She's waiting to see if I do.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -204,7 +204,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 9. INVESTIGATION: THE COMPOUND ELEMENT IN THE GRADIENT
   {
-    label: "Collect a sample from the atmospheric gradient and analyze its chemical composition.",
+    label: "Something is in that gradient. The outpost equipment might be able to name it.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -230,7 +230,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ATMOSPHERE: THE FRONTIER AT DAWN
   {
-    label: "Watch the frontier horizon from the outpost watchtower at first light — observe what the landscape tells you.",
+    label: "The northeast horizon looks wrong. Letha has been watching it change for six months.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -245,7 +245,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION: HISTORICAL COMPARISON
   {
-    label: "Search the outpost's historical atmospheric records — determine if similar gradients have been recorded before and what happened afterward.",
+    label: "This outpost was built to detect something from the northeast. There was a previous event.",
     tags: ['Investigation', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -269,7 +269,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL ARC: LETHA'S REPORTS OFFSITE
   {
-    label: "Help Letha get six months of pressure anomaly reports out of Plumes End and into the investigation's main archive.",
+    label: "Letha's six months of records can't stay here. The suppression knows where to look.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -291,7 +291,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "Talk to the supply traders who pass through Plumes End on the frontier circuit — what are they hearing from the northeast territories?",
+    label: "The supply traders hear everything. The northeast has been producing more worth remembering lately.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     fn: function() {
@@ -314,7 +314,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SOCIAL: THE ABANDONING FARMER
   {
-    label: "Find one of the frontier farmers who recently abandoned their northeast holding — ask what drove them out.",
+    label: "Three farming families left their northeast holdings without harvesting. People don't abandon a harvest.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -336,7 +336,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 15. INVESTIGATION: THE SCALE OF THE AFFECTED ZONE
   {
-    label: "Map the full extent of the atmospheric gradient using Letha's reports and field observations — determine how large the affected area is.",
+    label: "Letha's directional readings can anchor a radius calculation. The zone is bigger than anyone has said.",
     tags: ['Investigation', 'Survival', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -366,7 +366,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 16. ATMOSPHERE: PLUMES END AT NIGHT
   {
-    label: "Watch the northeast sky from the outpost at night — observe how the atmospheric gradient appears after dark.",
+    label: "After dark, the northeast horizon has a glow that doesn't match any settlement.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -381,7 +381,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INVESTIGATION: WHY PLUMES END MATTERS
   {
-    label: "Determine why the suppression specifically targeted Plumes End's reports — what would have happened if they'd reached central coordination.",
+    label: "If Letha's reports had arrived, the hazard protocol would have triggered four months ago.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -401,7 +401,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 18. WORLD COLOR: LETHA'S READING HABITS
   {
-    label: "Notice the technical manuals on Letha's desk — ask what she's been studying.",
+    label: "Letha has three volumes of atmospheric chemistry texts she didn't have six months ago.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 48,
     fn: function() {
@@ -416,7 +416,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: THE FULL PICTURE
   {
-    label: "Synthesize everything you've learned at Plumes End — articulate what the complete operation looks like from this evidence point.",
+    label: "Plumes End is detecting the leading edge. The operation is already in progress.",
     tags: ['Investigation', 'Synthesis', 'Stage1', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -437,7 +437,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "A supply runner passing through Plumes End describes a traveler they encountered on the frontier road who seemed to be moving away from the northeast quickly.",
+    label: "A supply runner saw someone moving south from the northeast — too fast, too purposeful.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -578,6 +578,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       G.flags.met_wess_patrol = true;
       addJournal('Patrol recruit Wess: sweet-wrong air quality shift on northeast route, boundary moving south each patrol for 3 months', 'evidence', `plumes-wess-${G.dayCount}`);
+      G.lastResult += ' The boundary has moved south on every patrol for three months. The thread points the same direction it has been pointing.';
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
   },

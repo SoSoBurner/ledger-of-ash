@@ -23,7 +23,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Observe the morning formal session at the Aurora Heights courts — access hearings, appeals, property disputes.",
+    label: "The Aurora Heights courts run formal session this morning — property disputes, access hearings, pre-Union charter arguments.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 65,
     fn: function() {
@@ -47,7 +47,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Access the Aurora Heights district archive reading room — open to residents and credentialed researchers.",
+    label: "The Aurora Heights archive reading room. Maintenance records go back years. Something changed eleven months ago.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 70,
     fn: function() {
@@ -93,7 +93,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Study the dome infrastructure schematics displayed in the Aurora Heights civic hall lobby — these are public documents.",
+    label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared pressure equalization vents. The lobby schematic shows this.",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
     fn: function() {
@@ -134,7 +134,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Check the Ironspool Ward's public cargo registry — incoming material declarations for the industrial district.",
+    label: "Four cargo entries in two months, all filed under 'dome maintenance.' No part numbers. No contractor references.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -158,7 +158,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Find the contraband exchange point in the Ironspool Ward — everyone in the district knows roughly where it is.",
+    label: "Everyone in the Ironspool Ward knows roughly where the contraband exchange point is. Nobody says directly.",
     tags: ['District', 'Stealth', 'Combat'],
     xpReward: 70,
     fn: function() {
@@ -180,7 +180,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Talk to the longtime Ironspool Ward resident who lives near the dome access terminal — she's seen everything that moves through.",
+    label: "Forty years in the Ironspool Ward. The dome terminal started getting late-night deliveries three months ago.",
     tags: ['District', 'Persuasion', 'NPC'],
     xpReward: 65,
     fn: function() {
@@ -350,7 +350,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
 const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Request access to the Iron Ledger Ward's public transaction registry — available to credentialed financial researchers.",
+    label: "The Iron Ledger Ward's transaction registry. Three shell entities, each one below the audit threshold on its own.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -374,7 +374,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Talk to a factor at the Iron Ledger Ward who specializes in debt instrument verification.",
+    label: "Three creditor entities, one structural template. The exit clauses are written to trap regardless of performance.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 65,
     fn: function() {
@@ -396,7 +396,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Find Maret Voss at the Iron Ledger Ward — she's the analyst who first flagged the ghost account methodology.",
+    label: "Maret Voss flagged the ghost account methodology first. She's been tracing it for three months. She's hit a wall.",
     tags: ['District', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -426,7 +426,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
 const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Review the public docket at the Reckoning Quarter justice hall — cases filed in the past six months.",
+    label: "Three cases against northern bloc aliases in the public docket — all transferred to administrative review, all frozen.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 60,
     fn: function() {
@@ -475,7 +475,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Observe who enters and exits the administrative review office — the unit that absorbs frozen cases.",
+    label: "The administrative review office is where frozen cases go. Someone with Collegium credentials walks out of it regularly.",
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -502,7 +502,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Browse the public stacks at the Scriptorium Steps research library — atmospheric science section.",
+    label: "The Scriptorium Steps atmospheric science section. One text has a pencil annotation: 'See Iceveil for updated findings.'",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
     fn: function() {
@@ -525,7 +525,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Talk to a senior researcher at the Scriptorium Steps about classification practices for atmospheric chemistry studies.",
+    label: "A Warden Order liaison was added to the Scriptorium classification review board. Eleven studies classified since. One per decade before that.",
     tags: ['District', 'Persuasion', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -547,7 +547,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Find Doss at the Scriptorium Steps — the suppressed scholar from Mimolot Academy who relocated to Shelkopolis.",
+    label: "Doss uses the Scriptorium Steps as his working space. He was suppressed at Mimolot Academy. He knows why.",
     tags: ['District', 'Social', 'NPC'],
     xpReward: 75,
     fn: function() {
@@ -600,7 +600,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Access the High Quarter formal library — restricted to district residents and credentialed researchers, but accessible with the right documentation.",
+    label: "The pre-Union charter was renewed through the High Quarter library as a sub-registry — below the threshold of formal monitoring.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -624,7 +624,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Meet the High Quarter district liaison — the official connection between district administration and citywide governance.",
+    label: "Two people called themselves 'coordinating association representatives' before me. The charter entity type is exactly that.",
     tags: ['District', 'Persuasion', 'NPC'],
     xpReward: 65,
     fn: function() {

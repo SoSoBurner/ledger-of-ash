@@ -9,7 +9,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: VALE BROKERWELL
   {
-    label: "Arrange a formal introduction to Vale Brokerwell — the senior arbiter whose coordination decisions have recently become controversial.",
+    label: "Vale Brokerwell's decisions have been reshaping who controls these routes. He knows someone is looking.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -32,7 +32,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: ARBITRATION RECORD ALTERATION
   {
-    label: "Compare the public arbitration summary register against three parties' private copies of their own case outcomes.",
+    label: "The public register and the parties' private outcome copies don't say the same thing.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -58,7 +58,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: THE DELETED CASE
   {
-    label: "Investigate the arbitration case that was deleted from the public register — find what it was about and why it disappeared.",
+    label: "A case number exists on a private outcome document. The public register has no record of that case.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -110,7 +110,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. INVESTIGATION: VALE BROKERWELL'S APPOINTMENT
   {
-    label: "Research how Vale Brokerwell was appointed to the senior arbiter position — determine if the appointment process was legitimate.",
+    label: "Brokerwell's appointment used an emergency succession protocol. His predecessor retired — voluntarily.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -136,7 +136,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "Report the arbitration record alterations to the Oversight Collegium's observer at Unity Square.",
+    label: "The Oversight Collegium has an observer here. The two previous complaints went to the council for self-review.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -162,7 +162,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: THE DISPOSSESSED ROUTING PARTY
   {
-    label: "Find the party that won the deleted routing rights case — speak to them about what's happened since the decision disappeared.",
+    label: "The party that won the routing case has the original outcome document. The register says that case never existed.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -184,7 +184,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: THE ARBITER BELOW VALE
   {
-    label: "Approach a junior arbiter who has been carrying out Vale Brokerwell's instructions — ask what they know and what they've been doing.",
+    label: "The junior arbiter near the archive door is the one who enters Brokerwell's corrections into the public record.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -202,7 +202,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. INVESTIGATION: THE NORTHERN COMMERCIAL BLOC
   {
-    label: "Identify the northern commercial bloc that benefited from the deleted routing rights decision.",
+    label: "The same principals appear in trade registrations across three localities under three different names.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -243,7 +243,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION: VALE BROKERWELL'S CORRESPONDENCE
   {
-    label: "Obtain a copy of Vale Brokerwell's external correspondence log for the past year.",
+    label: "Brokerwell's filing drawer is accessible. The correspondence with the northern consortium goes back twelve months.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -273,7 +273,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL ARC: DOCUMENT COLLECTION
   {
-    label: "Compile all obtained private outcome documents into a single secured collection and get them to the Oversight Collegium observer.",
+    label: "The private outcome documents need to reach the Collegium observer without passing through Brokerwell's network.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -295,7 +295,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "Listen to parties waiting for coordination decisions — what are they saying about Unity Square's reliability?",
+    label: "The factors in the waiting hall have stopped expecting the process to be neutral. They say it plainly.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     fn: function() {
@@ -318,7 +318,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SOCIAL: BROKERWELL'S PREDECESSOR
   {
-    label: "Find Vale Brokerwell's predecessor — the arbiter who retired before the emergency succession protocol was invoked.",
+    label: "Brokerwell's predecessor retired without explanation and has moved twice since. The forwarding address leads nowhere.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -340,7 +340,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. INVESTIGATION: WHAT UNITY SQUARE COORDINATES
   {
-    label: "Map Unity Square's coordination function — what routes, agreements, and flows does it actually manage?",
+    label: "The public mandate board lists seven agreements. The filing index shows seventeen. The rest aren't posted anywhere.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -375,7 +375,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INVESTIGATION: THE NORTHERN BLOC'S GAINS
   {
-    label: "Calculate what the northern commercial bloc has gained through the record alterations and the deleted routing decision.",
+    label: "Three interventions: deleted routing restriction, two altered contract terms. Each invisible on its own.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -416,7 +416,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: SHELKOPOLIS CONNECTION
   {
-    label: "Determine what connects Unity Square's situation to Shelkopolis — why does this matter beyond the hub itself?",
+    label: "Routing rights captured here feed supply lines that run directly into Shelkopolis's market. This isn't isolated.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {

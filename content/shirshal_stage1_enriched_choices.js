@@ -10,7 +10,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 1. CASE CLERK: WITNESS STATEMENTS DISAPPEARING
   {
-    label: "Ask the case clerk about recent witness testimony — are statements being filed inconsistently, or are certain testimonies going missing from the record?",
+    label: "The case clerk has been filing statements for eight years. He knows when one goes missing.",
     tags: ['Investigation', 'NPC', 'Evidence', 'Records', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -44,7 +44,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 2. EVIDENCE HANDLER: MAGICAL ANOMALY RECORDS FALSIFIED
   {
-    label: "Access the evidence handler's logs for magical anomaly cases — are records being altered, or are certain anomalies not being documented?",
+    label: "The evidence handler filed what he observed. What's in the log now is not what he filed.",
     tags: ['Investigation', 'NPC', 'Magic', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -80,7 +80,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 3. MAGISTRATE'S ASSISTANT: CASE ASSIGNMENTS MANIPULATED
   {
-    label: "Question the magistrate's assistant about case assignment procedures — are certain cases being directed to specific magistrates, or are assignments being changed post-filing?",
+    label: "Case assignments stopped rotating four weeks ago. Someone above the clerk is choosing now.",
     tags: ['Investigation', 'NPC', 'Process', 'Justice', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -113,7 +113,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 4. RECORD KEEPER: INVESTIGATION CLOSURE PATTERNS
   {
-    label: "Examine investigation closure records — are cases being marked as resolved without proper documentation, or are investigations being arbitrarily ended?",
+    label: "Cases are being closed, not resolved. The witness follow-up fields are blank.",
     tags: ['Investigation', 'NPC', 'Records', 'Procedure', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -149,7 +149,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 5. INVESTIGATOR: CASE BRIEFINGS WITHHELD OR ALTERED
   {
-    label: "Speak with an investigator about recent cases — are they receiving incomplete briefings, or are details of incidents being hidden from those assigned to investigate?",
+    label: "The investigators are being given briefings with sections already missing.",
     tags: ['Investigation', 'NPC', 'Information', 'Obstruction', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -182,7 +182,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 6. WITNESS COORDINATOR: TESTIMONY CONTROL AND INTIMIDATION
   {
-    label: "Question the witness coordinator about recent testimony handling — are witnesses being coached, discouraged from testifying, or being made unavailable?",
+    label: "Three witnesses left Shirshal last month. The magistrates accepted every absence without a query.",
     tags: ['Investigation', 'NPC', 'Witness', 'Intimidation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -218,7 +218,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INNKEEPER: MESSAGE TRAFFIC AND SEALED COURIERS
   {
-    label: "Question the innkeeper about recent message traffic — are sealed documents being moved through Shirshal, and who's coordinating their delivery?",
+    label: "Sealed couriers, different faces, same back room. The innkeeper keeps track of what she's not supposed to notice.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -251,7 +251,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MAGISTRATE (RELUCTANT): AUTHORITY PRESSURE FROM ABOVE
   {
-    label: "Approach a magistrate who seems uncomfortable with recent changes — try to get them to admit they're receiving pressure from higher authority.",
+    label: "One magistrate checks his rulings against what arrived in the morning packet. He knows whose law it is.",
     tags: ['Investigation', 'NPC', 'Authority', 'Pressure', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -289,7 +289,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 9. STEALTH TIER 1: HIDDEN MEETING SURVEILLANCE
   {
-    label: "Observe hidden meetings between magistrates and outside visitors — track their movements and identify the external parties directing them.",
+    label: "The magistrates are meeting outside visitors in rooms that aren't on any schedule.",
     tags: ['Investigation', 'Stealth', 'Surveillance', 'Hidden', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -325,7 +325,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 10. STEALTH TIER 2: SEALED DOCUMENT CONTENT DISCOVERY
   {
-    label: "Access and read sealed documents being exchanged between magistrates and external parties — what are the actual directives?",
+    label: "Those sealed packets name case numbers beside outcomes that were decided before the cases opened.",
     tags: ['Investigation', 'Stealth', 'Documents', 'Secrets', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -361,7 +361,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 11. LORE TIER 1: INVESTIGATIVE LAW AND PROCEDURE CORRUPTION
   {
-    label: "Study Shirshal's foundational investigative procedures — have the standards for evidence, witness handling, and case closure been deliberately altered?",
+    label: "Shirshal's evidence standards were rewritten. All three revisions in the same six-week window.",
     tags: ['Investigation', 'Lore', 'Law', 'Procedure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -397,7 +397,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 12. LORE TIER 2: TRUTH AND JUSTICE DOCTRINE REFRAMED
   {
-    label: "Research Shirshal's foundational doctrine about truth and justice — has the philosophical basis for investigation been corrupted?",
+    label: "The founding doctrine says truth is the foundation. The current teaching document says order is.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Justice', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -433,7 +433,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 13. CRAFT TIER 1: EVIDENCE DOCUMENT FORGERY DETECTION
   {
-    label: "Examine evidence documents used in recent cases — are official seals and signatures being forged to support predetermined outcomes?",
+    label: "The closure signatures are reproductions. Someone built a forgery apparatus for Shirshal's document standard.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -469,7 +469,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 14. CRAFT TIER 2: SEALED CORRESPONDENCE FORGERY
   {
-    label: "Examine the sealed correspondence used to direct magistrates — are the official seals authentic, or have they been forged to make directives appear legitimate?",
+    label: "The magistrates are executing directives from an authority that doesn't exist in the form it claims.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Authority', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -507,7 +507,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: CASES DISAPPEARING AND JUSTICE FAILING
   {
-    label: "Gather street rumors in Shirshal — what are people saying about cases, investigations, and justice that isn't happening?",
+    label: "People have stopped repeating what they know because no one acted on it the first time.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -537,7 +537,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 16. VICTIM TESTIMONY: CASE ABANDONED WITHOUT RESOLUTION
   {
-    label: "Find someone whose case was abandoned mid-investigation — someone angry enough to detail exactly what happened to their investigation.",
+    label: "An investigator worked his case for three weeks. He's not permitted to know what they found.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -573,7 +573,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INSTITUTIONAL BREAKDOWN: INVESTIGATOR DEFECTION
   {
-    label: "Find an investigator who is beginning to question the system — someone willing to provide documentation of how investigations are being suppressed.",
+    label: "One investigator has been keeping personal notes. She's leaving Shirshal at dawn.",
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -609,7 +609,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 18. CONSPIRACY EXPOSURE: SYSTEMATIC JUSTICE WEAPONIZATION
   {
-    label: "Compile complete evidence showing Shirshal's justice system has been weaponized — prove that investigations are being systematically suppressed to serve external interests.",
+    label: "The thread runs clean from external directive to forged authorization to falsified outcome.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -647,7 +647,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 19. CLUE: SUPPRESSED TAZREN CASE EVIDENCE
   {
-    label: "Search the public case archive for the cases that reference Tazren's original ruling — before the doctrine revision that superseded it.",
+    label: "Fourteen cases cite the Tazren precedent. Six have been re-adjudicated. All six reversed.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -673,7 +673,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 20. CLUE: BUREAU GHOST VISITOR RECORDS
   {
-    label: "Review the justice hall's visitor log for the past six months — identify visitors who have no corresponding case file.",
+    label: "Eight visitors signed the log with no corresponding case. Three visited on Tazren erasure days.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -688,6 +688,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       G.flags.found_bureau_ghost_visitors = true;
       addJournal('Bureau ghost visitors: eight untraced institutional visits, three coincide with Tazren erasure re-adjudications', 'evidence', `shirshal-ghost-visitors-${G.dayCount}`);
+      G.lastResult += ' The name that keeps appearing in the visit log is not in any official list.';
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -718,7 +719,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 22. FACTION SEED: OVERSIGHT COLLEGIUM LIAISON
   {
-    label: "Contact the Oversight Collegium's judicial liaison stationed in Shirshal.",
+    label: "The Oversight Collegium has an observer here. She's ready to escalate if the data is there.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -744,7 +745,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ATMOSPHERE: THE HARBOR AT NIGHT
   {
-    label: "Walk Shirshal's harbor at low tide — observe what the port does after the justice hall closes.",
+    label: "The harbor holds what the justice hall took. Former owners watch their impounded vessels at night.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -759,7 +760,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 24. PERSONAL ARC: THE MAGISTRATE WHO REFUSED
   {
-    label: "Find the magistrate who refused to issue a re-adjudication and was subsequently 'transferred' out of Shirshal.",
+    label: "One magistrate refused a re-adjudication and was transferred three days later.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -781,7 +782,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 25. SOCIAL: THE DISPOSSESSED SHIPOWNER
   {
-    label: "Approach one of the former vessel owners watching their impounded ship from the harbor pier.",
+    label: "The law changed after he registered the vessel. They applied it retroactively.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -803,7 +804,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 26. SHADOW RIVAL INTRO
   {
-    label: "Magistrate Corin mentions someone visited her two weeks ago — also asking about the refused re-adjudication case.",
+    label: "Someone else visited Magistrate Corin two weeks ago. They knew she had kept copies.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {

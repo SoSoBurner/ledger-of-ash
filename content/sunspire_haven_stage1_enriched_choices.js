@@ -10,7 +10,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 1. SYNDICATE YARD MASTER: CONVOY ROUTE CHANGES
   {
-    label: "Question the syndicate yard master about recent convoy route changes — are supplies being diverted, and is transport being restricted?",
+    label: "The yard master signs off on routes he didn't write. The convoys go where he isn't told they go.",
     tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -44,7 +44,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 2. FAMILY BROKER: OBLIGATION ENFORCEMENT
   {
-    label: "Speak with a family broker about recent changes in family obligation enforcement — are obligations being weaponized against certain families?",
+    label: "Family obligations used to be mutual. Something changed who decides what the obligation means.",
     tags: ['Investigation', 'NPC', 'Family', 'Coercion', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -80,7 +80,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 3. HARVEST COORDINATOR: FOOD DISTRIBUTION CHANGES
   {
-    label: "Consult with the harvest coordinator — is food allocation being unequally distributed, or are certain families receiving preferential rations?",
+    label: "The grain register says scarcity. The grain depot says otherwise.",
     tags: ['Investigation', 'NPC', 'Resources', 'Food', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -112,7 +112,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 4. TEXTILE MERCHANT: TRADE PREFERENCE BIAS
   {
-    label: "Question textile merchants about recent changes to trade opportunities — are certain families receiving favorable contracts while others are excluded?",
+    label: "The contract board shows the same three family names at the top of every premium listing for two months.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Bias', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -148,7 +148,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 5. QUOTA KEEPER: PRODUCTION PRESSURE
   {
-    label: "Interview the quota keeper about recent production targets — are quotas becoming impossible to meet, or are families failing to achieve them deliberately?",
+    label: "The quotas for certain families are set above what their resource allocation can reach.",
     tags: ['Investigation', 'NPC', 'Production', 'Quotas', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -184,7 +184,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 6. CONVOY ORGANIZER: EXTERNAL COORDINATION
   {
-    label: "Question the convoy organizer about communication with external interests — are shipments being coordinated with outside forces, and are messages being encrypted?",
+    label: "Some convoys get instructions that don't come from the yard. The organizer was told not to ask about those runs.",
     tags: ['Investigation', 'NPC', 'Communication', 'External', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -217,7 +217,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 7. FAMILY ELDER: DECISION AUTHORITY EROSION
   {
-    label: "Speak confidentially with a family elder about decision-making authority — has their power been undermined, or are syndicate directives overriding family autonomy?",
+    label: "The elder still holds the title. The decisions stopped being his some time ago.",
     tags: ['Investigation', 'NPC', 'Family', 'Authority', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -253,7 +253,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MARKET INSPECTOR: QUALITY ENFORCEMENT BIAS
   {
-    label: "Question the market inspector about quality enforcement — are standards being applied inconsistently, or are certain families receiving special treatment?",
+    label: "The inspector enforces standards on families who complain and waves through stalls that don't.",
     tags: ['Investigation', 'NPC', 'Quality', 'Market', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -291,7 +291,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 9. FAMILY STRUCTURE TIER 1: SYNDICATE INTEGRATION ANALYSIS
   {
-    label: "Analyze how Sunspire Haven's family structures have been reorganized — are families being consolidated, broken apart, or restructured to depend on the syndicate?",
+    label: "The work assignments have been pulling family members apart, systematically, for two cycles.",
     tags: ['Investigation', 'Family', 'Structure', 'Organization', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -324,7 +324,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 10. RESOURCE CONTROL TIER 2: SCARCITY ENGINEERING
   {
-    label: "Document evidence that resource scarcity is being engineered — show how syndicate control is creating artificial shortages to maintain dependence.",
+    label: "More food comes in than goes out to households. The gap between those numbers is going somewhere.",
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -346,7 +346,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Syndicate directly warned about resource scarcity inquiry', 'complication', `sunspire-resources-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The harvest ledger and the distribution record don't agree — supply levels at the storage depot run significantly ahead of what the distribution columns show leaving. The gap isn't rounding error. Something between the harvest and the household is pulling volume sideways. The column you need to find it is in the locked section of the ledger.`;
+        G.lastResult = `The harvest ledger and the distribution record don't agree — supply levels at the storage depot run significantly ahead of what the distribution columns show leaving. The gap isn't rounding error. Something between the harvest and the household is pulling volume sideways. The column you need to find it is in the locked section of the ledger. The thread points the same direction it has been pointing.`;
         addJournal('Resource diversion pattern confirmed', 'evidence', `sunspire-resources-partial-${G.dayCount}`);
       } else {
         G.lastResult = `The grain store logs and the distribution records are both present and legible. Cross-referencing them to find a deliberate diversion requires the harvest intake reports from the same period — those live in the yard master's office, behind a door that requires family standing to open. Without the intake baseline, the gap you suspect stays invisible in the math.`;
@@ -360,7 +360,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INFORMATION ISOLATION TIER 1: EXTERNAL NEWS FILTERING
   {
-    label: "Track what information reaches Sunspire Haven from external sources — is news being filtered, and is the community being information-isolated?",
+    label: "The message board is thinner than it should be. The traveler from the northern road stopped mid-story.",
     tags: ['Investigation', 'Information', 'Isolation', 'Communication', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -393,7 +393,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 12. COERCION SYSTEM TIER 2: THREAT MAPPING
   {
-    label: "Document the specific threats and consequences used against families — who's being threatened, what are they threatened with, and for what resistance?",
+    label: "The families that push back get resource cuts. The families that comply get waivers. That's not variance.",
     tags: ['Investigation', 'Coercion', 'Threats', 'Fear', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -429,7 +429,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 13. EXTERNAL FLOWS TIER 1: RESOURCE EXTRACTION
   {
-    label: "Trace resource flows moving away from Sunspire Haven outward — what's being extracted, where is it going, and who's authorizing these shipments?",
+    label: "Three outbound convoys carry more than their manifests account for. The destinations point north past any trade route.",
     tags: ['Investigation', 'Resources', 'Flow', 'Extraction', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -462,7 +462,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 14. COMMUNITY COHESION TIER 2: SOCIAL FRAGMENTATION
   {
-    label: "Document the breakdown of community bonds — what traditional relationships have fractured, and what mutual aid networks are being disrupted?",
+    label: "The communal fire is the right size for a dozen people. Four sit around it. Nobody moved the others away.",
     tags: ['Investigation', 'Community', 'Bonds', 'Fragmentation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -498,7 +498,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FAMILY FRAGMENTATION TIER 1: KINSHIP BREAKDOWN
   {
-    label: "Document the breakdown of family bonds — which families are being separated, and what social pressures are preventing families from uniting?",
+    label: "The work assignments keep landing members of the same family in locations days apart. Consistently.",
     tags: ['Investigation', 'Family', 'Bonds', 'Fragmentation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -534,7 +534,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 16. CONSENT FICTION TIER 2: MANUFACTURED ACCEPTANCE
   {
-    label: "Document how community resistance is being suppressed while maintaining the fiction of voluntary participation — analyze the mechanisms of coerced consent.",
+    label: "The council minutes show unanimous agreement on every major decision. No abstentions. No dissent. Not once.",
     tags: ['Investigation', 'Coercion', 'Consent', 'Fiction', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -572,7 +572,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: FAMILY WHISPERS
   {
-    label: "Gather gossip at market gatherings and communal meal areas — what stories are families telling each other about syndicate changes?",
+    label: "The same story at both ends of the market square, in a lowered voice. Nobody is organizing it.",
     tags: ['Investigation', 'Rumor', 'Family', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -596,7 +596,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: SYNDICATE CONTROL PROOF
   {
-    label: "Compile documented evidence that proves the syndicate is deliberately harming the community for external benefit — show the coordination and extraction system.",
+    label: "The diversion, the scarcity, the family pressure — these aren't separate problems. They're one apparatus.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -632,7 +632,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: FAMILY COMPLICITY CHOICE
   {
-    label: "Confront a family leader who's complicit in syndicate resource extraction — demand explanation and decide whether to protect them or expose them.",
+    label: "The family leader cooperated. The question is whether they had any other choice.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -666,7 +666,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
-    label: "Find the evidence that proves Sunspire Haven's syndicate resource extraction is coordinated from outside — discover the external interest controlling the system.",
+    label: "The syndicate takes orders from someone outside Sunspire. The courier receipts came from somewhere north.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -704,7 +704,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: SIGNAL-DAMPING CONTAINER
   {
-    label: "Examine the sealed container recovered from the disrupted convoy — study its construction and the markings on the interior lining.",
+    label: "The sealed container from the disrupted convoy is heavier than its size. The interior lining isn't trade-grade.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -730,7 +730,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: CONVOY ROUTE DEVIATION
   {
-    label: "Pull the convoy route logs and compare the filed route to the route the convoy actually traveled.",
+    label: "The filed route and the actual route don't match. The detour avoided the only Warden checkpoint on that road.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -751,7 +751,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE AFTERMATH
   {
-    label: "Study the site where the convoy disruption occurred — read what the scene tells you that the official report didn't.",
+    label: "The official report describes a raid. The site tells a different story.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -775,7 +775,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: WARDEN ORDER CONTACT
   {
-    label: "Report the convoy route deviation to the Warden Order post at Sunspire's north gate.",
+    label: "The Warden Order post at the north gate. Either they already know, or they need to.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -801,7 +801,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE SIGNAL TOWER
   {
-    label: "Climb to Sunspire's signal tower at dusk — observe the pattern of lights and what they're actually communicating.",
+    label: "The signal tower runs the standard sequence. Between the second and third light, there's a half-beat pause that isn't in the protocol.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 53,
     fn: function() {
@@ -816,7 +816,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: DOCUMENT THE CONTAINER
   {
-    label: "Make a complete technical sketch of the container and its craftmark before it's catalogued and locked away.",
+    label: "The container gets catalogued and locked away today. The craftmark needs to be recorded before that happens.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 62,
     fn: function() {
@@ -839,7 +839,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE CONVOY GUARD SURVIVOR
   {
-    label: "Find the convoy guard who survived the disruption and is still recovering at the waystation infirmary.",
+    label: "One guard survived the convoy disruption. He's still at the waystation infirmary, still lucid enough to talk.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
