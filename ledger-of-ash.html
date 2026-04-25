@@ -1827,6 +1827,7 @@ input, button, select, textarea { font-family: inherit; }
         <div id="hud-day" data-clock="day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-heat" data-clock="heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
+        <div id="hud-progress" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:3px;text-align:center;font-family:var(--font-body);letter-spacing:0.04em"></div>
       </div>
       <div class="l-divider"></div>
       <div class="l-axis">
@@ -8261,7 +8262,7 @@ let G = {
   name:'', archetype:null, background:null,
   level:1, xp:0, renown:0,
   hp:20, maxHp:20, gold:20,
-  skills:{combat:0,survival:0,persuasion:0,lore:0,stealth:0,craft:0},
+  skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
   traits:[], location:'shelkopolis',
   timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
   stage:'Stage I', stageLabel:'Grass Roots',
@@ -8648,7 +8649,7 @@ function getAllLegends() {
 // ── CHARACTER CREATION ──────────────────────────────────
 function initCreate() {
   G = { name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
-        skills:{combat:0,survival:0,persuasion:0,lore:0,stealth:0,craft:0},
+        skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
         traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
         stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
         factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
@@ -10439,6 +10440,26 @@ function handleChoice(choice) {
           }, _backup);
           // Store for post-resolveConsequence render
           window._pendingBackupChoice = _backupChoice;
+        } else {
+          // Generic fallback: different angle on the same thread
+          window._pendingBackupChoice = {
+            text: 'That approach failed. The record still exists somewhere.',
+            skill: 'lore',
+            tag: 'risky',
+            align: 'neutral',
+            plot: 'main',
+            cid: choice.cid + '_backup',
+            result: function() {
+              var _stageKey = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
+              G.stageProgress = G.stageProgress || {1:0,2:0,3:0,4:0,5:0};
+              G.stageProgress[_stageKey] = (G.stageProgress[_stageKey] || 0) + 1;
+              G.lastResult = 'You step back and look at the thread from a different angle. The first approach closed, but the routing numbers still exist in a secondary register — and secondary registers are audited less carefully. There is still a way forward.';
+              G.recentOutcomeType = 'partial';
+              addJournal('Regrouped after failed approach. Secondary angle still open.', 'intelligence');
+              if (typeof updateHUD === 'function') updateHUD();
+              if (typeof loadStageChoices === 'function') loadStageChoices();
+            }
+          };
         }
         // "path closed" notice is shown regardless — resolveConsequence handles fumble result text
       } else if (choice.criticalSideplot) {
@@ -10913,6 +10934,18 @@ function checkStageAdvance() {
   // Companion gate — unlocks Vorath and Mira at mid-Stage 1
   if (!G.flags.companion_gate_open && (G.stageProgress && G.stageProgress[1] || 0) >= 5) {
     G.flags.companion_gate_open = true;
+  }
+  // Stage I investigation milestone notices — give the player a sense of accumulating progress
+  var _sp1n = (G.stageProgress && G.stageProgress[1]) || 0;
+  if (_sp1n >= 9 && !G.flags.progress_notice_9) {
+    G.flags.progress_notice_9 = true;
+    if (typeof addWorldNotice === 'function') addWorldNotice('You are close to something. Whatever it is, someone spent considerable effort making sure you would not find it.');
+  } else if (_sp1n >= 6 && !G.flags.progress_notice_6) {
+    G.flags.progress_notice_6 = true;
+    if (typeof addWorldNotice === 'function') addWorldNotice('The threads are converging. This record was cleaned recently. Someone is still watching it.');
+  } else if (_sp1n >= 3 && !G.flags.progress_notice_3) {
+    G.flags.progress_notice_3 = true;
+    if (typeof addWorldNotice === 'function') addWorldNotice('Something is being deliberately obscured. The pattern has a shape, even if you cannot name it yet.');
   }
   if (G.flags.stage1_narrative_complete && G.stage === 'Stage I') {
     if (!G.flags.stage1_bridge_shown) {
@@ -13286,6 +13319,18 @@ function updateHUD() {
       else { _heatEl.style.display = 'none'; }
     } else { _heatEl.style.display = 'none'; }
   }
+  // Investigation thread progress
+  var _progEl = document.getElementById('hud-progress');
+  if (_progEl) {
+    var _stageNum = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
+    var _sp = (G.stageProgress && G.stageProgress[_stageNum]) || 0;
+    if (_sp > 0) {
+      var _dots = '';
+      for (var _d = 0; _d < Math.min(_sp, 12); _d++) { _dots += _d < _sp ? '◆' : '◇'; }
+      _progEl.textContent = 'thread ' + _dots;
+      _progEl.style.display = '';
+    } else { _progEl.style.display = 'none'; }
+  }
   // Alliance credits overlay (Soreheim/Sunspire only)
   var _inSore = G.location === 'soreheim' || G.location === 'soreheim_proper' || G.location === 'sunspire' || G.location === 'sunspire_haven';
   var _pcEl = document.getElementById('hud-plotcredits');
@@ -13990,9 +14035,9 @@ function showHowToPlay() {
 <script src='content/stealth_midspine.js'></script>
 <script src='content/support_midspine.js'></script>
 <!-- ── TRAVEL ARCS (Stage 1→2 transition) ── -->
-<script src='content/aurora_crown_to_shelk_arc.js'></script>
+<script src='content/aurora_crown_commune_to_shelk_arc.js'></script>
 <script src='content/cosmoria_to_shelk_arc.js'></script>
-<script src='content/glasswake_to_shelk_arc.js'></script>
+<script src='content/glasswake_commune_to_shelk_arc.js'></script>
 <script src='content/guildheart_hub_to_shelk_arc.js'></script>
 <script src='content/harvest_circle_to_shelk_arc.js'></script>
 <script src='content/ithtananalor_to_shelk_arc.js'></script>
@@ -14001,7 +14046,7 @@ function showHowToPlay() {
 <script src='content/shirshal_to_shelk_arc.js'></script>
 <script src='content/soreheim_proper_to_shelk_arc.js'></script>
 <script src='content/sunspire_haven_to_shelk_arc.js'></script>
-<script src='content/whitebridge_to_shelk_arc.js'></script>
+<script src='content/whitebridge_commune_to_shelk_arc.js'></script>
 <!-- ── ENRICHED CHOICES Stage 2: per-locality ── -->
 <script src='content/shelkopolis_stage2_enriched_choices.js'></script>
 <script src='content/soreheim_proper_stage2_enriched_choices.js'></script>
