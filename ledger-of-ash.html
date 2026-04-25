@@ -11362,8 +11362,7 @@ function maybeFireArrivalScene(localityId) {
   G.flags['stage_at_visit_' + localityId] = G.stage;
 }
 
-function shouldShowArrivalScene(localityId) { return false; }
-function buildArrivalChoice(localityId) { return null; }
+// shouldShowArrivalScene and buildArrivalChoice defined in content/locality_arrival_narrations.js
 
 function resolveArrival(locId) {
   const loc = WORLD_LOCATIONS[locId];
