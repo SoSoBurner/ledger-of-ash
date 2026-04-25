@@ -903,6 +903,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         else if (arch === 'stealth') G.rivalId = 'shadow_broker';
         else G.rivalId = 'provost_lenn';
       }
+      G.flags.stage1_rival_seeded = true;
       addJournal('warning', 'Rival-adjacent operative visited Maret Voss one day before you — investigating same financial anomalies', `ithtananalor-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

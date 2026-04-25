@@ -915,6 +915,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         else if (arch === 'stealth') G.rivalId = 'shadow_broker';
         else G.rivalId = 'provost_lenn';
       }
+      G.flags.stage1_rival_seeded = true;
       addJournal('warning', 'Rival-adjacent operative contacted Archivist Doss before you — expert-level knowledge, well-resourced', `mimolot-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

@@ -497,6 +497,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         else if (arch === 'stealth') G.rivalId = 'shadow_broker';
         else G.rivalId = 'provost_lenn';
       }
+      G.flags.stage1_rival_seeded = true;
       addJournal('warning', 'Rival-adjacent operative visited Toman Iceveil 2 months ago — reconnaissance, expert knowledge, or acquisition attempt', `glasswake-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

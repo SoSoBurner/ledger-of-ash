@@ -785,6 +785,12 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
         G.recentOutcomeType = 'complication';
       }
+      if (!G.rivalId) {
+        addNarration('A name surfaces in passing — someone who moves through the same paperwork, asks the same questions. You do not have a face yet.');
+        if (!G.flags) G.flags = {};
+        G.rivalId = 'delt_karnn';
+        G.flags.stage1_rival_seeded = true;
+      }
     }
   }
 ,

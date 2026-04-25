@@ -465,6 +465,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         else if (arch === 'stealth') G.rivalId = 'shadow_broker';
         else G.rivalId = 'provost_lenn';
       }
+      G.flags.stage1_rival_seeded = true;
       addJournal('warning', 'Rival-adjacent operative visited Craftspire workshop 6 weeks ago — expert compound knowledge, full-scope network mapping', `craftspire-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

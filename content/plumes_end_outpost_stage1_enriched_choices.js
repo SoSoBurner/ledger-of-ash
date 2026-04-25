@@ -463,6 +463,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         else if (arch === 'stealth') G.rivalId = 'shadow_broker';
         else G.rivalId = 'provost_lenn';
       }
+      G.flags.stage1_rival_seeded = true;
       addJournal('warning', 'Rival-adjacent operative moving from northeast zone toward Shelkopolis ahead of you — field intelligence collected, same destination', `plumes-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
