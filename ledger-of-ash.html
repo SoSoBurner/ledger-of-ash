@@ -12690,9 +12690,10 @@ function maybeShowTutorial(event) {
     first_map: '<strong>Map:</strong> In Stage I, you are restricted to your origin polity. At Level 6, Stage II opens cross-polity travel. Travel advances the axis and time of day.',
     first_combat: '<strong>Combat:</strong> You enter combat only when you choose to or are forced into it. You can always attempt to talk, flee, or find another approach before fighting.',
     first_shop: '<strong>Shopping:</strong> Each location has goods available from local sites. Gold is limited — spend it on what your archetype actually uses.',
-    first_watchfulness: 'The city\'s gaze sharpens. Watchfulness rises when your actions draw scrutiny — if it peaks, the authorities move against you.',
-    first_pressure: 'The weight of the investigation mounts. Pressure rises with reckless choices — if it peaks, your investigation fractures.',
+    first_watchfulness: '<strong>Watchfulness increased.</strong> This marks how visible your movements have become. High watchfulness raises DCs and draws attention from local authorities.',
+    first_pressure: '<strong>Attention is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
     first_reverence: 'A thread of fate winds tighter. Reverence rises with significant acts — at its peak, the world takes notice of your legend.',
+    first_rival: '<strong>A rival has gained ground.</strong> Rivals advance independently and impose DC penalties when their renown is high. Keep moving.',
   };
   if (msgs[event] && !G.tutorialFlags[event]) {
     showTutorial(event, msgs[event]);
@@ -12708,6 +12709,11 @@ function maybeShowTutorial(event) {
     if ((G.worldClocks.reverence || 0) > 0 && !G.tutorialFlags['first_reverence']) {
       showTutorial('first_reverence', msgs['first_reverence']);
     }
+  }
+  // Auto-check rival renown first-increment trigger
+  var _anyRivalRenown = (G.rivalAdventurers || []).some(function(r) { return (r.renown || 0) > 0; });
+  if (_anyRivalRenown && !G.tutorialFlags['first_rival']) {
+    showTutorial('first_rival', msgs['first_rival']);
   }
 }
 
@@ -13408,13 +13414,12 @@ document.getElementById('howto-close').addEventListener('click', function() {
 <script>
 var HOWTO_SECTIONS = [
   { heading: 'Risk Tiers', body: 'Every choice is tagged: <strong>Safe</strong> choices carry no roll — they always succeed at modest reward. <strong>Risky</strong> choices roll a d20 plus your relevant skill against a difficulty (DC). <strong>Bold</strong> choices are high-stakes — higher DC, higher reward on success, harder consequences on failure. A natural 20 is a critical success.' },
-  { heading: 'Difficulty (DC)', body: 'When you roll, your d20 result plus your skill bonus must meet or beat the DC. DCs range from <strong>10</strong> (average task) to <strong>15</strong> (harder), <strong>20</strong> (challenging), <strong>25</strong> (very difficult), and <strong>30</strong> (a long shot). Higher DCs only appear once your case has reached Stage 3 or later.' },
-  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — rises when you draw scrutiny. At high levels, faction agents begin to interfere.</li><li><strong>Pressure</strong> — rises with reckless action. Too much pressure fractures your leads.</li><li><strong>Reverence</strong> — rises with significant acts. At its peak, your legend draws powerful attention.</li></ul>' },
-  { heading: 'Stage Progression', body: 'Your case unfolds in stages. The progress bar beneath your stage name tracks advancement. Bold and risky successes push the stage forward. Your rival also advances — rest too often and they may reach key sources first.' },
+  { heading: 'World Clocks', body: '<ul><li><strong>Attention</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Watchfulness</strong> — marks how visible your movements have become. High watchfulness raises DCs and draws scrutiny.</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
+  { heading: 'Stage Progression', body: 'Gathering evidence fills your case. Each stage requires a threshold of progress — bold and risky successes push it forward. Advancing stages unlocks new localities and plot threads. Your rival advances in parallel; fall too far behind and they reach key sources first.' },
+  { heading: 'Rest Mechanics', body: 'Rest at camp to recover HP. You may rest at most twice per day — a third attempt is too exhausting. <strong>Lay Low</strong> reduces watchfulness at the cost of a day. <strong>Review Notes</strong> recovers from stall conditions when the case feels stuck.' },
   { heading: 'Travel', body: 'From the travel panel, you can move between localities. Each route costs time units and sometimes gold. Some routes are locked by stage or season. Arriving at a new locality resets local encounter options — what you find depends on when you arrive.' },
   { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The case always continues: a backup path appears for main-thread choices. Some side paths, once closed, are closed for good.' },
-  { heading: 'Rest', body: 'You may rest twice per in-game day to recover. Resting costs forward momentum and gives the rival clock one tick. A third rest in the same day is too exhausting to attempt.' },
-  { heading: 'Saving', body: 'The game saves automatically after every choice. Your four-digit code is your legend\'s identity — enter it at the title screen to return to your last position. You can export your full save as a JSON file from the menu.' },
+  { heading: 'Save System', body: 'Progress saves automatically after each choice. Your save code appears on the main screen — note it to resume later. Export Save is available in Settings for a full JSON backup.' },
 ];
 
 function showHowToPlay() {
