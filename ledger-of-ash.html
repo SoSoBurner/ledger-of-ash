@@ -9739,7 +9739,16 @@ function loadStageChoices(locId) {
     { text: 'Walk the settlement and read what is there.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' }
   ];
   if (stage.includes('II') || stage.includes('III')) {
-    base.push({ text: 'Press for the next thread before the day ends.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'probe_order_origin' });
+    base.push({ text: 'Press for the next thread before the day ends.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'probe_order_origin' });
+    base.push({
+      text: 'The routing discrepancy is still unresolved. Return to it.',
+      skill: 'lore', tag: 'safe', align: 'neutral', cid: 'stage2_review_thread',
+      result: 'The notes spread across the table again. Three manifests, different hands, the same destination code — a transfer point that appears on none of the official route records. Not an omission. A deliberate absence. The authorization column is blank where it should carry a name. Finding who signed off on that blank space is the next step.',
+      onSuccess: function() {
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('The routing discrepancy points to a transfer point with no official record — authorization column deliberately blank.', 'evidence');
+      }
+    });
   } else {
     base.push({ text: 'Seek the local authority.', skill: 'persuasion', tag: 'bold', align: 'lawful', cid: 'garrison_contact' });
   }
