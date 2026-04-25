@@ -43,8 +43,16 @@ All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
 ## Stage Content Status
 
 - **V1.0 Release scope: Stages 1 and 2** — Stage 3 is NOT part of this release. Do not develop Stage 3 content until Stages 1 and 2 are complete.
-- **Stage 1**: Complete — 22 localities, ~15K lines, ~534 KB of enriched choice files. All authored.
-- **Stage 2**: Structurally present but thin — 27% of Stage 1 density. Needs escalation pass.
+- **Stage 1**: COMPLETE AND FROZEN for reduction. 22 localities, ~15K lines, ~534 KB of enriched choice files. Additive fixes only (label wording, forward hooks, NPC subtext). Never reduce choice count or result text.
+- **Stage 2**: Completable end-to-end (boss→antechamber→climax all wired). Content needs expansion to EXCEED Stage 1 total content volume.
+
+## World Expansion Rule
+
+Every plan phase that adds content must expand the total content of the stage it targets. Each stage must have slightly more total content than the previous stage — more localities, more choices per locality, more result text, more NPC encounters. The world grows as the player progresses: Stage 2 exceeds Stage 1, Stage 3 exceeds Stage 2, and so on. This applies to every future plan and content authoring session.
+
+- Never reduce content in a completed stage to make room for a new one.
+- Additive fixes (label rewording, hook additions, subtext) do not count as new content — they are maintenance.
+- New choices, new localities, new NPC scenes, and new result branches count as content expansion.
 - **Stage 3**: Not yet authored. Stage gate declared in `G.stageProgress` but no content files exist.
 - Stage 1→2 bridge arcs: `*_to_shelk_arc.js` files in `content/` (12 files, inject when progress ≥ 5 OR level ≥ 6)
 - Stage 2 global specials: `stage2_enriched_choices.js` (pool), `stage2_antechamber.js` (triggers at stageProgress[2] ≥ 12), `stage2_climax.js` (confrontation)
@@ -316,3 +324,38 @@ All of the following are permanently authorized. Use them proactively without as
 - **Parallel dispatch**: When 2+ tasks are independent, dispatch them in parallel as the default — sequential is the exception.
 - **Hooks**: Treat hook feedback as direct user instructions.
 - **Widgets and commands**: Use whenever available and relevant without asking first.
+
+## Alignment System
+
+`G.benevolence` (−50 to +50) and `G.orderAxis` (−50 to +50) are live in G defaults. Modified via choice effects: `{type:'morality', n}` adjusts benevolence; `{type:'order', n}` adjusts orderAxis. Character sheet renders both as bar charts (BENEVOLENCE / ORDER sections). Alignment badges (Cruel/Benevolent, Anarchy/Order) appear on character sheet only at threshold ±10 — **never on choice buttons** (preserves discovery tension). No new fields required — derive badges at render time from existing G values.
+
+## Quest System
+
+`G.quests` array + `addQuest(msg)` + `updateQuestHUD()` are live. Wired to `{type:'quest', msg:'...'}` effects. Quest hints use a **parallel map** `G.questHints = {}` keyed by `questId` string — **do not change G.quests structure** (breaks save compatibility). Wire: `{type:'quest', msg:'...', hint:'...', questId:'key'}`. `updateQuestHUD()` shows hint line below quest text when `G.questHints[questId]` exists. Rival clock appears in journal page only — **not in quest HUD**.
+
+## Heat System
+
+`G.heat[polityKey]` (0–10, integers) per-polity heat tracking. Helpers: `getHeat(polity)` returns integer; `addHeat(polity, amount)` clamps at 10. 11 polity keys: `shelk`, `roaz`, `shirsh`, `mimolot`, `panim`, `cosmouth`, `zootia`, `union`, `sheresh`, `soreheim`, `nomdara`. `enterAuthorityConfrontation(authorityKey, ctx)` handles all authority encounters — never call `enterCombat()` directly for authority figures. Heat thresholds: 3 = notice + optional encounter, 5 = mandatory encounter + DC+1, 8 = warrant issued. Law enforcement NPCs remember past interactions: narration in `enterAuthorityConfrontation` Phase 1 includes heat-conditional opening line at heat 3-4 / 5-7 / 8+.
+
+## Safe/Risky/Bold Classification
+
+**Bug (pre-existing):** Stage 1 enriched choices use semantic tags (`['Investigation','NPC','Maritime']`) that don't match `BOLD_TAGS`/`SAFE_TAGS` — all default to 'risky'. **Fix approach:** Add semantic mapping to tag lookup: `Investigation/NPC/Social/Lore/Maritime/Archive/Observation` → safe; `Confrontation/Accusation/Exposure/Betrayal/Tribunal/Ambush` → bold. Also support explicit scalar `tag` field: `tag:'safe'`/`'risky'`/`'bold'` bypasses semantic lookup entirely. Do not change choice content to fix this — fix the classification logic.
+
+## Universal Roll Rule
+
+**Every choice must roll.** Safe choices auto-roll at DC 7 if no explicit `choice.roll` is specified. Mechanical wire: derive roll at call time in `handleChoice` — do not mutate choice data. DC derivation: safe=7, risky=12, bold=15 (plus stage modifier from DC Reference). Content requirement: every safe choice must have a `failResult` field — failure redirects rather than dead-ends. Safe failure register: "This path is closed here, but [forward thread]." This affects all 19 Stage 1 files, Stage 2 files, and the tutorial (which must explain that all choices involve a roll).
+
+## Choice Label Standard — Moral Texture
+
+Labels are the player's inner voice. Under 15 words, no question marks, no infinitives, no NPC-directed verbs. The label carries moral register — not revealed only in the result. Four example pairs (old → new):
+
+- "Ask Aurek Tidereach whether certain merchant routes are being blocked." → "Aurek knows which routes stopped moving. He's decided not to say."
+- "To investigate the routing discrepancy further." → "The numbers don't match. Someone made them not match."
+- "Consult the night archivist about the missing manifest entries." → "The archivist works nights for a reason."
+- "Question the road warden about checkpoint irregularities." → "The warden stamped that manifest without looking at it."
+
+Root cause of label drift: absent enforcement at authoring time. New choices must pass the 15-word / inner-voice test before commit.
+
+## Stage 3+ Content Freeze
+
+Stage 3, 4, and 5 content is **NOT being authored** until Stages 1 and 2 are complete and play-tested. `canAdvanceToStage3()` is hardcoded `return false`. Do not author Stage 3+ choices, NPCs, localities, climaxes, or mechanics in any plan or session until explicitly instructed. Stage 3 stub files (`stage3_enriched_choices.js`, `stage3_climax.js`) exist but contain no playable content.
