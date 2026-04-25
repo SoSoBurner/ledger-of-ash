@@ -10,7 +10,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 1. SENIOR LIBRARIAN: RESEARCH RESTRICTIONS TIGHTENING
   {
-    label: "Interview the senior librarian about recent research access changes — why are certain research topics being restricted, and what authority is imposing these restrictions?",
+    label: "The senior librarian knows which research topics were accessible last year and aren't now. He also knows he wasn't the one who changed them.",
     tags: ['Investigation', 'NPC', 'Observation', 'Knowledge', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -36,7 +36,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Theron acknowledges the access changes with a measured nod. Administrative efficiency, he says — some reorganization of how priority materials are catalogued. The archive hush settles around the words as he speaks them. He describes the mechanism in detail and the purpose not at all. Two of his answers sit at different distances from the same fact, and the gap between them is where the real answer lives. He notices the pause that follows, and begins straightening papers on his desk with the deliberate attention of someone ending an interview.`;
         addJournal('Librarian confirmed research access changes but details incomplete', 'evidence', `mimolot-librarian-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `Theron gives back the standard account: research priorities are managed centrally, access is tiered by standing, everything is as it should be. He answers every question asked and none of the answers contain anything. The chalk dust on his sleeve catches the lamp light as he adjusts the ledger. He's given this account before, to other visitors, and he'll give it again. He's practiced every word of it.`;
+        G.lastResult = `Theron gives back the standard account: research priorities are managed centrally, access is tiered by standing, everything is as it should be. He answers every question asked and none of the answers contain anything. The chalk dust on his sleeve catches the lamp light as he adjusts the ledger. He's given this account before, to other visitors, and he'll give it again. He's practiced every word of it. Dalmir in the upper reading room has been working in the suppressed subjects for three years. He knows which lines can't be crossed from the inside.`;
         addJournal('Research restriction inquiry inconclusive', 'evidence', `mimolot-librarian-blocked-${G.dayCount}`);
       }
 
@@ -47,7 +47,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 2. RESEARCH SCHOLAR: RESEARCH SUPPRESSION
   {
-    label: "Meet with active researchers to find out what research is being suppressed — what questions have become forbidden, and who decided they're forbidden?",
+    label: "Scholars who were working on institutional critique have been reassigned to cataloging. Their projects still exist. They don't.",
     tags: ['Investigation', 'NPC', 'Records', 'Research', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -72,7 +72,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three scholars confirm that certain directions are being discouraged — one calls it "a narrowing of institutional focus." None will name which topics. The conversation stays in that register: general enough to be defensible, specific enough to confirm there's a shape to what's missing. You leave with the outline of something but not its dimensions.`;
         addJournal('Scholars confirmed research discouragement patterns', 'evidence', `mimolot-scholar-discouraged-${G.dayCount}`);
       } else {
-        G.lastResult = `The scholars in the upper reading room are polite and brief. Each conversation ends before it arrives anywhere. They're not hostile — they're careful, and there's a real difference between the two. One keeps a finger in his place in a bound volume the whole time you're speaking, as if the conversation is an interruption he intends to outlast. An hour spent here yields nothing but the particular quality of their silence — present, specific, practiced.`;
+        G.lastResult = `The scholars in the upper reading room are polite and brief. Each conversation ends before it arrives anywhere. They're not hostile — they're careful, and there's a real difference between the two. One keeps a finger in his place in a bound volume the whole time you're speaking, as if the conversation is an interruption he intends to outlast. An hour spent here yields nothing but the particular quality of their silence — present, specific, practiced. The scholars who have already been reassigned are less careful. They have nothing left to protect.`;
         addJournal('Research suppression inquiry inconclusive', 'evidence', `mimolot-scholar-blocked-${G.dayCount}`);
       }
 
@@ -83,7 +83,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 3. ARCHIVE GUARDIAN: SEALED SECTIONS EXPANDED
   {
-    label: "Investigate the sealed archive sections — what knowledge is being locked away, and why are restricted areas expanding?",
+    label: "The sealed sections have been expanding for a year. What's behind the new doors is exactly what used to be available to senior scholars.",
     tags: ['Investigation', 'NPC', 'Archives', 'Secrets', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -107,7 +107,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Sevik confirms the expansion. Document preservation, he says — humidity control, fragile materials requiring restricted handling conditions. It's a reasonable explanation stated without hesitation, which is the problem. He had the answer ready before the question finished. You note which sections expanded most recently. He watches you note it.`;
         addJournal('Guardian confirmed archive expansion but explanation questionable', 'evidence', `mimolot-guardian-expanding-${G.dayCount}`);
       } else {
-        G.lastResult = `Sevik describes archival security protocols at length — access tiers, material handling procedures, the physical constraints of the building, humidity requirements for the eastern stack. He's thorough and technically accurate on every point he raises. None of it touches the question you asked. The lamp on his desk illuminates a shelf gap where materials used to be. He doesn't glance at it once. You leave understanding every procedure and nothing about who changed them or when.`;
+        G.lastResult = `Sevik describes archival security protocols at length — access tiers, material handling procedures, the physical constraints of the building, humidity requirements for the eastern stack. He's thorough and technically accurate on every point he raises. None of it touches the question you asked. The lamp on his desk illuminates a shelf gap where materials used to be. He doesn't glance at it once. You leave understanding every procedure and nothing about who changed them or when. Kensa in the document room has been logging those changes in her own notes. She's comparing the current versions against manuscript originals.`;
         addJournal('Archive expansion inquiry inconclusive', 'evidence', `mimolot-guardian-blocked-${G.dayCount}`);
       }
 
@@ -118,7 +118,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 4. KNOWLEDGE ARCHIVIST: DOCUMENTATION BEING ALTERED
   {
-    label: "Track historical documentation with the knowledge archivist — are scholarly records being changed, or is the historical record being rewritten?",
+    label: "The knowledge archivist has both the current edition and the manuscript original. She's been documenting the differences for four months.",
     tags: ['Investigation', 'NPC', 'History', 'Records', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -143,7 +143,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Kensa grants access to the current-edition records. Working through the administrative history, you find three passages that read awkwardly — phrasing that doesn't match the period's conventions, transitions that skip steps that should be documented. Something has been adjusted, but confirming it requires a manuscript copy for direct comparison. Those are in the restricted section.`;
         addJournal('Historical records show signs of revision patterns', 'evidence', `mimolot-archivist-revised-${G.dayCount}`);
       } else {
-        G.lastResult = `The historical records are well-organized and extensive. Kensa points you to the relevant administrative period and leaves you to work. Two hours in, the documents appear complete — clean entries, consistent dates, proper notation. Whether they are complete is a different question entirely. Completeness requires something to compare them against, and the manuscript originals are three floors up behind a lock that requires separate authorization. The records look right. That's all you can determine from here.`;
+        G.lastResult = `The historical records are well-organized and extensive. Kensa points you to the relevant administrative period and leaves you to work. Two hours in, the documents appear complete — clean entries, consistent dates, proper notation. Whether they are complete is a different question entirely. Completeness requires something to compare them against, and the manuscript originals are three floors up behind a lock that requires separate authorization. The records look right. That's all you can determine from here. Kensa has already done that comparison. She has a list of the changes. She's been waiting for the right moment to decide what to do with it.`;
         addJournal('Historical record verification inconclusive', 'evidence', `mimolot-archivist-unclear-${G.dayCount}`);
       }
 
@@ -154,7 +154,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 5. STUDENT ADMINISTRATOR: ENROLLMENT RESTRICTIONS
   {
-    label: "Review student enrollment patterns with the administrator — are certain students being prevented from studying specific subjects, or is scholarship access being restricted by background?",
+    label: "Students with strong critical methodology assessments are not receiving advanced research placements. That gap has a direction to it.",
     tags: ['Investigation', 'NPC', 'Students', 'Access', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -190,7 +190,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 6. RESTRICTION KEEPER: FORBIDDEN KNOWLEDGE CATALOGED
   {
-    label: "Interview the restriction keeper about classified materials — what knowledge has been declared too dangerous to share, and who made those declarations?",
+    label: "Everything classified in the last eighteen months has one thing in common. The restriction keeper has noticed. He catalogs these things for a living.",
     tags: ['Investigation', 'NPC', 'Classification', 'Forbidden', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -215,7 +215,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Vorin confirms the classifications exist and acknowledges the category labels. The criteria used to assign them, he says, are determined at the senior administrative level and not within his purview to explain. He can tell you what something has been labeled. He won't tell you who did the labeling or by what standard.`;
         addJournal('Keeper confirmed materials classified as dangerous knowledge', 'evidence', `mimolot-keeper-classified-${G.dayCount}`);
       } else {
-        G.lastResult = `Vorin explains the classification system as it's written: materials deemed potentially harmful to public order or institutional function are reviewed by senior staff and assigned restricted status. He recites it the way a man reads from a notice he's posted so many times he no longer looks at the paper. The account is accurate and contains nothing. What the system has actually been used to accomplish in the past eighteen months stays behind the same closed door his explanation was designed to keep you from reaching.`;
+        G.lastResult = `Vorin explains the classification system as it's written: materials deemed potentially harmful to public order or institutional function are reviewed by senior staff and assigned restricted status. He recites it the way a man reads from a notice he's posted so many times he no longer looks at the paper. The account is accurate and contains nothing. What the system has actually been used to accomplish in the past eighteen months stays behind the same closed door his explanation was designed to keep you from reaching. The categories he's been assigning all point the same direction. He's noticed. He hasn't named it to anyone yet.`;
         addJournal('Knowledge classification inquiry inconclusive', 'evidence', `mimolot-keeper-blocked-${G.dayCount}`);
       }
 
@@ -226,7 +226,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 7. CURATION MASTER: COLLECTION BIAS SYSTEMATIC
   {
-    label: "Study how the Academy's collection has been curated — are certain perspectives being excluded, or is knowledge collection being shaped by ideological bias?",
+    label: "The acquisition ledgers show eighteen months of silence in whole subject areas. The curation master knows what he stopped ordering and when he stopped ordering it.",
     tags: ['Investigation', 'NPC', 'Curation', 'Bias', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -262,7 +262,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 8. VERIFICATION SCRIBE: TRUTH VERIFICATION COMPROMISED
   {
-    label: "Meet with verification scribes about their process — has truth verification become corrupted, or are scribes being pressured to approve false documentation?",
+    label: "Three scribes have been reassigned in the past year. All three refused to certify documentation they had flagged as inaccurate.",
     tags: ['Investigation', 'NPC', 'Verification', 'Truth', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -300,7 +300,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE TIER 1: ACADEMIC PRECEDENT ANALYSIS
   {
-    label: "Study academic precedent — has the interpretive framework for analyzing truth been deliberately changed to make certain conclusions invalid?",
+    label: "The interpretive framework was revised fourteen months ago. The burden of proof was inverted. Someone who knew the law found the fulcrum before they applied the weight.",
     tags: ['Investigation', 'Lore', 'Precedent', 'Framework', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -336,7 +336,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ARCANA TIER 2: MAGICAL KNOWLEDGE SUPPRESSION
   {
-    label: "Investigate magical research suppression — what arcane knowledge is being locked away, and why are certain spells or magical theories restricted?",
+    label: "The restricted arcane texts are specifically the ones that describe how to work without Academy-authorized equipment. Someone noticed that too.",
     tags: ['Investigation', 'Arcana', 'Magical', 'Power', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -372,7 +372,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION TIER 1: INQUIRY PATTERNS MONITORED
   {
-    label: "Track which scholars are being monitored — are researchers being watched based on their inquiry topics, or is scholarly curiosity itself being controlled?",
+    label: "Scholars who request documents on institutional history receive a follow-up review entry within twenty-four hours. The monitoring doesn't announce itself.",
     tags: ['Investigation', 'Investigation', 'Monitoring', 'Control', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -408,7 +408,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 12. INSIGHT TIER 2: INTELLECTUAL AUTONOMY ERODED
   {
-    label: "Map the intellectual climate — are scholars losing confidence in their ability to think independently, or is intellectual autonomy being systematically suppressed?",
+    label: "Twenty years ago, scholars shouted contested interpretations at each other across the refectory. The silence now is not contentment.",
     tags: ['Investigation', 'Insight', 'Autonomy', 'Freedom', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -444,7 +444,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 13. PERCEPTION TIER 1: ADMINISTRATIVE HIERARCHY MAPPED
   {
-    label: "Map the administrative hierarchy of the Academy — who makes final decisions about research restrictions and knowledge access?",
+    label: "The charter says the scholarly council governs. The personnel reassignments and access restrictions carry signatures that don't belong to any faculty position.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -480,7 +480,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: EXTERNAL CONTROL COORDINATION
   {
-    label: "Investigate whether Mimolot's administration answers to external authority — are orders about knowledge suppression coming from outside the Academy?",
+    label: "The restriction directives arrive through a sealed external correspondence channel. The administrators treat them as binding. Nobody has asked who's sending them.",
     tags: ['Investigation', 'Perception', 'Control', 'External', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -518,7 +518,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: SCHOLARLY ANXIETIES
   {
-    label: "Gather whispered concerns in the study halls — what are scholars whispering about knowledge suppression and research restrictions?",
+    label: "The study halls go quiet in a specific way when the wrong people walk through. What's left in the gaps is the real picture.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -542,7 +542,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF KNOWLEDGE CONSPIRACY
   {
-    label: "Compile evidence that Mimolot's knowledge function has been corrupted — find proof that truth suppression is systematic and coordinated.",
+    label: "Restriction decrees, altered records, compromised verification, enrollment steering — each piece has an innocent explanation. Together they don't.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -567,7 +567,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The contradictions between the Academy's stated charter commitments and the documented administrative actions are clear enough to establish that the two are not operating in the same direction. This is no longer a question of mismanagement or institutional drift. The actions are too deliberate and too concentrated. Someone has been running a different institution inside the official one.`;
         addJournal('Compelling institutional conspiracy evidence found', 'evidence', `mimolot-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The evidence pieces are each individually ambiguous. A restriction decree could be administrative caution. A historical revision could be scholarly correction. A verification pressure complaint could be a personnel dispute. To establish that these are connected, you need more of them and a clearer line between them. What you have says something is wrong. It doesn't yet say it's deliberate.`;
+        G.lastResult = `The evidence pieces are each individually ambiguous. A restriction decree could be administrative caution. A historical revision could be scholarly correction. A verification pressure complaint could be a personnel dispute. To establish that these are connected, you need more of them and a clearer line between them. What you have says something is wrong. It doesn't yet say it's deliberate. The administrative vault in the correspondence wing holds sealed directives. The connective tissue is in there, not here.`;
         addJournal('Evidence fragments found but incomplete', 'evidence', `mimolot-proof-incomplete-${G.dayCount}`);
       }
 
@@ -578,7 +578,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
-    label: "Confront a scholar who is participating in suppression — demand explanation and decide whether to protect them or report them.",
+    label: "One of them is complicit and knows it. The question is whether they're the kind of person who can be turned, or only the kind who can be used.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -612,7 +612,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
-    label: "Find the central evidence that confirms knowledge suppression — discover who is directing Mimolot Academy's corruption from outside.",
+    label: "There's a document somewhere that names who is directing this from outside. The administrative vault is one door further than anyone has asked about.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -637,7 +637,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Several of the administrative directives reference authorization from outside the Academy's governance structure — a source designation that doesn't match any institutional title in the regional directory. The restriction orders are being issued by someone external to Mimolot, implemented by internal administrators treating those orders as binding. The specific identity of the external party isn't in the documents available here. The external hand exists. Its name is in a sealed file you haven't reached.`;
         addJournal('External coordination of Mimolot knowledge suppression confirmed', 'discovery', `mimolot-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `The external authorization references in the administrative documents use a designation that doesn't resolve to a specific person or office — a category title that could mean several things or nothing particular. The trail leads to a sealed correspondence archive that requires senior faculty authorization to open. The external hand is visible in the documents. Its identity has been deliberately kept one layer further back than the records you can access.`;
+        G.lastResult = `The external authorization references in the administrative documents use a designation that doesn't resolve to a specific person or office — a category title that could mean several things or nothing particular. The trail leads to a sealed correspondence archive that requires senior faculty authorization to open. The external hand is visible in the documents. Its identity has been deliberately kept one layer further back than the records you can access. Archivist Doss has copies of the suppressed papers. She left the Academy eight months ago with her research materials still under administrative hold. She's still nearby.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `mimolot-origin-unclear-${G.dayCount}`);
       }
 
@@ -648,7 +648,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
-    label: "Recognize the pattern connecting research suppression, historical rewriting, and external coordination — understand that all knowledge systems are being corrupted simultaneously.",
+    label: "Research suppression, historical revision, verification corruption, enrollment steering — all pointing the same direction. All starting in the same eighteen-month window.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -684,7 +684,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
-    label: "Synthesize all evidence into complete understanding — Mimolot Academy is being systematically corrupted by external forces to weaponize knowledge itself.",
+    label: "This isn't institutional drift. The four systems of knowledge access have been rebuilt to prevent a specific kind of conclusion. Someone engineered the blindspot.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -709,7 +709,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The evidence leads to a conclusion that the scope of what's happening here extends beyond Mimolot. The methods being applied — external authorization, administrative implementation, faculty bypassed at every step — are too systematic to be purpose-built for a single institution. This looks like a template being field-tested. The certainty isn't complete, but the pattern points clearly past this building.`;
         addJournal('Mimolot as experimental knowledge weaponization model suspected', 'discovery', `mimolot-understanding-experimental-${G.dayCount}`);
       } else {
-        G.lastResult = `The threads you've gathered don't yet form a complete picture. The individual findings are solid — restriction, revision, verification pressure, external authorization. What's missing is the connective tissue: the full list of what's being restricted and why, the timeline of when the external hand first arrived, the scope of what comes next. The shape of the operation is partially visible. Its full purpose hasn't come into view yet.`;
+        G.lastResult = `The threads you've gathered don't yet form a complete picture. The individual findings are solid — restriction, revision, verification pressure, external authorization. What's missing is the connective tissue: the full list of what's being restricted and why, the timeline of when the external hand first arrived, the scope of what comes next. The shape of the operation is partially visible. Its full purpose hasn't come into view yet. The Memory Hall's off-catalogue section holds formal council requests to reclassify research. That's where implementation dates live.`;
         addJournal('Knowledge warfare purpose not yet fully revealed', 'evidence', `mimolot-understanding-incomplete-${G.dayCount}`);
       }
 
@@ -804,7 +804,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: WARDEN ORDER ACADEMIC LIASON
   {
-    label: "Locate the Warden Order's academic liaison stationed at the Mimolot Archive annexe.",
+    label: "The Warden Order has an academic liaison at the Archive annexe. He's been watching the suppression unfold and hasn't filed a public report.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -820,7 +820,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.warden_order += 1;
         addJournal('faction', 'Warden Order liaison Brevard Ashe: institutional interest in suppression, provided secondary scholar contact', `mimolot-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that substantive engagement with the Warden Order's liaison function requires a formal appointment submitted through the Academy's administrative registry. He keeps one finger between the pages while he speaks, intending to return. He's not unfriendly — he's procedural, which is more durable. Nothing will be said without paperwork in place first. His presence here is established. Getting past the procedure requires a different approach and probably a known name as introduction.`;
+        G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that substantive engagement with the Warden Order's liaison function requires a formal appointment submitted through the Academy's administrative registry. He keeps one finger between the pages while he speaks, intending to return. He's not unfriendly — he's procedural, which is more durable. Nothing will be said without paperwork in place first. His presence here is established. Getting past the procedure requires a different approach and probably a known name as introduction. A named introduction from Archivist Doss would clear that threshold.`;
         if (!G.flags) G.flags = {};
         G.flags.located_warden_order_mimolot = true;
       }
@@ -867,7 +867,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE STUDENT WHO ASKS THE WRONG QUESTIONS
   {
-    label: "Speak to the student who was flagged by the auditor in the lecture hall.",
+    label: "A third-year student asked about the previous edition of the assigned text. An auditor wrote his name down. He doesn't know that yet.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -881,7 +881,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_tavin_student = true;
         addJournal('contact', 'Student Tavin: has pre-revision edition with original chapter 12, unaware he is under surveillance', `mimolot-tavin-${G.dayCount}`);
       } else {
-        G.lastResult = `Tavin watches you approach and shortens his stride before you reach him. His lecture notes are tucked under one arm, chalk dust still on his left sleeve. A stranger, after a lecture, wanting to talk — this is precisely the kind of interaction the current academic climate has taught students to close down quickly. He answers in single sentences and keeps walking. The culture here has done the work of maintaining distance without anyone needing to issue instructions. He never stopped moving from the moment he saw you.`;
+        G.lastResult = `Tavin watches you approach and shortens his stride before you reach him. His lecture notes are tucked under one arm, chalk dust still on his left sleeve. A stranger, after a lecture, wanting to talk — this is precisely the kind of interaction the current academic climate has taught students to close down quickly. He answers in single sentences and keeps walking. The culture here has done the work of maintaining distance without anyone needing to issue instructions. He never stopped moving from the moment he saw you. He found his pre-revision edition at a used book stall outside the Academy walls. He still goes there. That's a less guarded conversation than this one.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }

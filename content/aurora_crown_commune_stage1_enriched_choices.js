@@ -10,7 +10,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. DOME TECHNICIAN: MAINTENANCE ROTATIONS DISRUPTED
   {
-    label: "Question the dome maintenance chief about recent schedule changes — why have emergency rotations increased, and are fewer people than usual assigned to critical repairs?",
+    label: "The emergency rotations have increased. Fewer people are being assigned to the repairs that need them most.",
     tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -47,7 +47,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. RESEARCH ARCHIVIST: CELESTIAL RECORDS REMOVAL
   {
-    label: "Access the research archives and investigate recent removals — are celestial observation logs being deleted or relocated, and who authorized this?",
+    label: "The celestial observation logs have been moved. Someone authorized it. The authorization isn't on the board.",
     tags: ['Investigation', 'NPC', 'Records', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -83,7 +83,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. RESOURCE ALLOCATOR: SUPPLY DIVERSION
   {
-    label: "Interview the resource allocator about recent distribution patterns — are survival supplies being redirected to specific locations, and at what cost to general population needs?",
+    label: "Survival supplies are being redirected. The destination codes don't appear in any public record.",
     tags: ['Investigation', 'NPC', 'Logistics', 'Survival', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -119,7 +119,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. REPAIR COORDINATOR: MAINTENANCE DELAYS SYSTEMATIC
   {
-    label: "Track the repair work order queue with the repair coordinator — are critical repairs being delayed, deprioritized, or systematically blocked?",
+    label: "Critical repairs are sitting in the queue. They have been sitting there for weeks.",
     tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -156,7 +156,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. CELESTIAL OBSERVER: AURORA PATTERNS CORRUPTED
   {
-    label: "Speak with the celestial observer about recent sky changes — are the auroras showing unusual patterns, or is something about the contamination seepage behavior different?",
+    label: "The celestial observer's charts have been running irregular for three weeks. He hasn't filed a notice.",
     tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -193,7 +193,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. CONTAMINATION MONITOR: SEEPAGE ALLOWED DELIBERATELY
   {
-    label: "Confront the contamination monitor about barrier integrity — have containment protocols been modified, or are seepage events being permitted?",
+    label: "The seepage logs show response times doubling. The monitor knows.",
     tags: ['Investigation', 'NPC', 'Contamination', 'Safety', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -230,7 +230,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. RELAY KEEPER: COMMUNICATION MONITORING
   {
-    label: "Investigate the relay system with the relay keeper — are outbound messages being filtered, or are communications to external communes being monitored?",
+    label: "A second relay channel opened six weeks ago. The keeper hasn't asked what it's for.",
     tags: ['Investigation', 'NPC', 'Communications', 'Information', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -267,7 +267,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. SURVIVAL PLANNER: CONTINGENCY PROTOCOLS ABANDONED
   {
-    label: "Meet with the survival planner to review emergency protocols — have evacuation procedures been changed, or are survival contingencies being removed?",
+    label: "The evacuation procedures aren't in the current binder. They were there last year.",
     tags: ['Investigation', 'NPC', 'Emergency', 'Protocol', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -306,7 +306,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE/INVESTIGATION TIER 1: DOME STRUCTURAL ANALYSIS
   {
-    label: "Read the dome's structural history and engineering — have stress points been deliberately left unrepaired, or is the dome's integrity being compromised through design?",
+    label: "Three stress points appear in the maintenance log fourteen times. None of them have repair authorizations.",
     tags: ['Investigation', 'Lore', 'Structure', 'Engineering', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -342,7 +342,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. CRAFT/INVESTIGATION TIER 2: CONTAMINATION BARRIER MODIFICATION
   {
-    label: "Examine the contamination barrier's construction — have barrier components been altered or substituted with inferior materials?",
+    label: "The barrier components look correct. They aren't the same material.",
     tags: ['Investigation', 'Craft', 'Barrier', 'Materials', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -378,7 +378,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. SURVIVAL TIER 1: RESOURCE SUSTAINABILITY CALCULATIONS
   {
-    label: "Calculate resource sustainability with available data — at current consumption rates, how long can Aurora Crown survive, and are supplies actually being depleted as reported?",
+    label: "The consumption figures don't match the population. Twelve months of supply is moving somewhere else.",
     tags: ['Investigation', 'Survival', 'Economics', 'Resources', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -414,7 +414,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSUASION TIER 2: COLLECTIVE CONSENT MANUFACTURED
   {
-    label: "Investigate how silence is being maintained — who is being coerced into complicity, and what consequences are threatened against those who speak?",
+    label: "Every conversation stops at the same topic. The line is too consistent to be coincidence.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Silence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -450,7 +450,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSIGHT TIER 1: PSYCHOLOGICAL PRESSURE DOCUMENTED
   {
-    label: "Study the psychological state of the commune — are people showing signs of collective trauma, learned helplessness, or systematic demoralization?",
+    label: "The communal tables are empty at the hours they should be full. Nobody reads the decision boards.",
     tags: ['Investigation', 'Insight', 'Psychology', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -486,7 +486,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: ADMINISTRATIVE COORDINATION DISCOVERED
   {
-    label: "Map the administrative hierarchy — who is giving orders, and are they coordinating with external forces beyond Aurora Crown?",
+    label: "Three directives, three administrators, three timing windows that match the secondary relay traffic. Someone outside is running this.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -524,7 +524,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: SURVIVAL ANXIETIES
   {
-    label: "Gather whispered concerns in the maintenance commons — what are workers whispering about the dome's real condition?",
+    label: "The maintenance workers don't talk about the dome readings. Not where anyone can hear.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -548,7 +548,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF SYSTEMATIC SABOTAGE
   {
-    label: "Compile the contradiction between stated dome policies and actual maintenance practices — find proof that Aurora Crown's safety systems are being actively undermined.",
+    label: "Four documents, four contradictions, all pointing the same direction. Someone built that.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systematic', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -584,7 +584,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
-    label: "Confront a complicit administrator who is participating in sabotage — demand explanation and decide whether to protect them or expose them.",
+    label: "They didn't design the trap. They're just standing in it with everyone else.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -618,7 +618,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
-    label: "Find the central evidence that confirms the sabotage — discover the origin source directing Aurora Crown's destruction from outside the commune.",
+    label: "The instruction chain passes through the relay and terminates somewhere the commune doesn't have a name for.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -654,7 +654,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
-    label: "Recognize the pattern connecting dome failures, resource loss, and contamination — understand that all systems are being attacked simultaneously by design.",
+    label: "Barrier, maintenance, resources, protocol. All degrading. All timed to the same relay windows.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Connection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -690,7 +690,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
-    label: "Synthesize all evidence into complete understanding — Aurora Crown is being systematically destroyed by external forces for a purpose beyond simple domination.",
+    label: "The degradation is calibrated. Not fast enough to trigger outside response. Not slow enough to be natural.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -728,7 +728,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: FILTRATION SYSTEM DOCUMENTATION
   {
-    label: "Recover the original filtration system installation records from the commune's maintenance archive.",
+    label: "The filtration log from eighteen months ago has a two-word margin note. Those two words are the answer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -746,7 +746,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_filtration_documentation = true;
         addJournal('Filtration records: additive substitution eighteen months ago matches dome degradation pattern', 'evidence', `aurora-filtration-${G.dayCount}`);
       } else {
-        G.lastResult = `The bound volume is intact except for three pages in the relevant service log section. They've been excised cleanly — not torn, cut at the binding with something narrow. The archive log shows the volume was last accessed four months ago by someone whose name appears only by initial. The information was here and it was removed deliberately, recently enough that the binding still shows faint resistance where the cut was made. Someone came for these pages specifically.`;
+        G.lastResult = `The bound volume is intact except for three pages in the relevant service log section. They've been excised cleanly — not torn, cut at the binding with something narrow. The archive log shows the volume was last accessed four months ago by someone whose name appears only by initial. The information was here and it was removed deliberately, recently enough that the binding still shows faint resistance where the cut was made. Someone came for these pages specifically. The contamination monitor's chain signed the most recent service entry — the one directly before the gap.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
@@ -756,7 +756,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: DOME PRESSURE GRADIENT DATA
   {
-    label: "Take pressure gradient readings at four points around the dome perimeter — compare the variance to structural tolerances.",
+    label: "The northeast quadrant reading should have tripped an alarm. The alarm wire has been bypassed.",
     tags: ['Investigation', 'Evidence', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -776,7 +776,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.total >= 12) {
         G.lastResult = `Three quadrants read within acceptable range. The northeast reads significantly above them — not off the charts, but distinct enough to flag in any honest comparison. The distribution suggests stress concentrated in that sector specifically, not general structural aging. Whether that's an underlying structural problem or something applied from outside requires access to the maintenance history for that section. The dome isn't degrading evenly.`;
       } else {
-        G.lastResult = `Four readings, four points around the perimeter. The variance is real — you can see it in the numbers — but without calibrated equipment to compare against the dome's design tolerances, you can't say whether the spread is within expected range for a structure this age or a sign of concentrated stress. The dome carries pressure. You can confirm that. Where the problem originated, if there is one, requires the engineering baseline you don't have access to.`;
+        G.lastResult = `Four readings, four points around the perimeter. The variance is real — you can see it in the numbers — but without calibrated equipment to compare against the dome's design tolerances, you can't say whether the spread is within expected range for a structure this age or a sign of concentrated stress. The dome carries pressure. You can confirm that. The engineer who filed the original complaint — the one who was reassigned — had the baseline tolerances in the documentation he submitted. He still has it.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -808,7 +808,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "Contact the Oversight Collegium representative whose name appears in the commune's external correspondence log.",
+    label: "The Oversight Collegium's name is in the external correspondence log. Someone in the commune already tried this route.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -824,7 +824,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium rep Merav Solind: complaint review delayed, actively seeking documentation', `aurora-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `Merav Solind confirms the complaint is logged — that much she'll say. The review process is not discussable with someone who isn't formally part of the case. She says it without apology and without hostility. You need documentation, a formal introduction, or both before this door opens further. She does not tell you to stop trying. That's the most she gives you today.`;
+        G.lastResult = `Merav Solind confirms the complaint is logged — that much she'll say. The review process is not discussable with someone who isn't formally part of the case. She says it without apology and without hostility. You need documentation, a formal introduction, or both before this door opens further. She does not tell you to stop trying. The filtration records the complaint referenced are still in the maintenance archive — the original service log, not the copy the commune filed with the Collegium.`;
         if (!G.flags) G.flags = {};
         G.flags.located_oversight_collegium_aurora = true;
       }
@@ -863,7 +863,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.aurora_evidence_secured = true;
         addJournal('consequence', 'Filtration anomaly data secured via commune traveler — offsite copy created', `aurora-evidence-${G.dayCount}`);
       } else {
-        G.lastResult = `Every outgoing package through official transit channels is logged and subject to inspection — the same administrative structure that controls the archive controls the outgoing manifest. A sealed document tube in a standard pack would get opened. You need a route that doesn't pass through the official transit station, and the people who might know one aren't talking to strangers yet. The data stays in the commune for now.`;
+        G.lastResult = `Every outgoing package through official transit channels is logged and subject to inspection — the same administrative structure that controls the archive controls the outgoing manifest. A sealed document tube in a standard pack would get opened. The commune traveler who runs the regular supply run between Aurora Crown and the outer settlements doesn't route through the official station. She has her own arrangement with the second waypoint.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -871,7 +871,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE ENGINEER WHO FILED THE COMPLAINT
   {
-    label: "Find the dome engineer who submitted the original formal complaint and ask what happened afterward.",
+    label: "The complaint was filed. The engineer who filed it was reassigned three days later.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -886,7 +886,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_orren_engineer = true;
         addJournal('contact', 'Engineer Orren: complaint filed, then reassigned — has original supporting documentation', `aurora-orren-${G.dayCount}`);
       } else {
-        G.lastResult = `Orren looks at the work order in front of him instead of at you. "I don't discuss the complaint. I was told it's being handled." That's the full sentence. He picks up his tools and goes back to the residential maintenance task in front of him. He doesn't tell you to leave. He doesn't ask you any questions. He's been warned or he's afraid — possibly both — and today isn't the day he decides which matters more.`;
+        G.lastResult = `Orren looks at the work order in front of him instead of at you. "I don't discuss the complaint. I was told it's being handled." That's the full sentence. He picks up his tools and goes back to the residential maintenance task in front of him. He doesn't tell you to leave. He doesn't ask you any questions. He's been warned or he's afraid — possibly both. The sealed document case on the shelf behind him has an engineering stamp on the corner tab — the same stamp as the NE quadrant inspection report.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }

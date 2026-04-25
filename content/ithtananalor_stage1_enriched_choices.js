@@ -10,7 +10,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 1. MARTIAL COMMANDER: COMMAND STRUCTURE FRACTURING
   {
-    label: "Question the martial commander about recent command decisions — have orders been unusual, or is the hierarchy losing coherence?",
+    label: "Orders are contradicting each other. The hierarchy is losing coherence and no one up the chain will say why.",
     tags: ['Investigation', 'NPC', 'Observation', 'Military', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -36,7 +36,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The commander acknowledges pressure in the command structure without naming a source. "Orders come down. We execute them. That's the structure." He doesn't move toward the door, but he doesn't continue either. The answer has been chosen in advance — specific enough to acknowledge the question, empty enough to say nothing.`;
         addJournal('Commander confirmed command pressure but details refused', 'evidence', `ithtananalor-commander-pressure-${G.dayCount}`);
       } else {
-        G.lastResult = `The commander gives back exactly what the garrison manual provides on chain of command and discipline — correct, sequential, complete. Nothing outside the prepared answer, nothing that admits any space for a follow-up question to enter. The stone walls of the command office hold the cold well into the afternoon. Either the pressure hasn't reached this level of the command structure or he's practiced at not showing it. The conversation ends without a crack in either direction, his expression unchanged throughout.`;
+        G.lastResult = `The commander gives back exactly what the garrison manual provides on chain of command and discipline — correct, sequential, complete. Nothing outside the prepared answer, nothing that admits any space for a follow-up question to enter. The stone walls of the command office hold the cold well into the afternoon. Either the pressure hasn't reached this level of the command structure or he's practiced at not showing it. The conversation ends without a crack in either direction, his expression unchanged throughout. The clerk who processes his correspondence works the same annex as the garrison records room — and her desk sits between two filing systems that shouldn't need to be in the same room.`;
         addJournal('Military command inquiry inconclusive', 'evidence', `ithtananalor-commander-blocked-${G.dayCount}`);
       }
 
@@ -47,7 +47,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 2. HONOR GUARD: OATH-BINDING COMPROMISED
   {
-    label: "Interview the honor guard about oath enforcement — have oaths been binding people to unjust commands, or is oath-binding itself being weaponized?",
+    label: "Oaths are binding soldiers to commands they know are wrong. The oath-binding mechanism has been turned against the people it was meant to protect.",
     tags: ['Investigation', 'NPC', 'Oaths', 'Binding', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -72,7 +72,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The oath documentation is accessible in the garrison's civic records section. Recent administrations show text variants from the standard form — subtle, embedded in archaic binding-law phrasing that requires specialist reading to parse. The language has changed. Whether the change is administrative revision or deliberate reinterpretation takes a closer reading than the access window permits.`;
         addJournal('Oath documents show language modification patterns', 'evidence', `ithtananalor-guard-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `Oath documents are administered under the garrison's sacred records protocols — accessible for ceremonial review but not for comparative textual analysis without a named legal proceeding. The clerk who manages the ceremonial record speaks through a half-open window in the records annex, the bound oath volumes visible on the shelf behind her. The oaths are being given. What they contain is behind a classification that requires a practitioner of binding law to access formally. The clerk closes the window before you've finished writing down the procedure.`;
+        G.lastResult = `Oath documents are administered under the garrison's sacred records protocols — accessible for ceremonial review but not for comparative textual analysis without a named legal proceeding. The clerk who manages the ceremonial record speaks through a half-open window in the records annex, the bound oath volumes visible on the shelf behind her. The oaths are being given. What they contain is behind a classification that requires a practitioner of binding law to access formally. The clerk closes the window before you've finished writing down the procedure. Mordain in the records annex has seen the current and archive copies side by side. He knows what changed.`;
         addJournal('Oath administration inquiry inconclusive', 'evidence', `ithtananalor-guard-blocked-${G.dayCount}`);
       }
 
@@ -83,7 +83,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 3. OATH KEEPER: OATH RECORDS FALSIFIED
   {
-    label: "Review oath records with the oath keeper — are binding records being altered, or are new oaths replacing old commitments?",
+    label: "The oath records show new bindings replacing old ones. Someone is overwriting commitments that were meant to be permanent.",
     tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -107,7 +107,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Mordain grants access to current records only — the archive copies are held separately and require a separate authorization. Current entries show modification timestamps on several files. What was modified and how it differs from the sworn original requires pulling the archived versions, which means a return visit with the right credentials.`;
         addJournal('Oath records show recent modification patterns', 'evidence', `ithtananalor-keeper-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `The records room is maintained and current — ledgers shelved in proper order, entries dated and up to date, the ink on the most recent entries still with some faint sheen. What's visible confirms the system is active and regularly used. What's not visible is whether the content matches what soldiers originally swore. Confirming that requires archive access and a direct comparison between current entries and original sworn text. This visit hasn't produced either. Mordain watches from the doorway as you leave.`;
+        G.lastResult = `The records room is maintained and current — ledgers shelved in proper order, entries dated and up to date, the ink on the most recent entries still with some faint sheen. What's visible confirms the system is active and regularly used. What's not visible is whether the content matches what soldiers originally swore. Confirming that requires archive access and a direct comparison between current entries and original sworn text. This visit hasn't produced either. Mordain watches from the doorway as you leave. He maintains both systems. He knows exactly what the comparison would show.`;
         addJournal('Oath record verification inconclusive', 'evidence', `ithtananalor-keeper-blocked-${G.dayCount}`);
       }
 
@@ -118,7 +118,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 4. TRAINING MASTER: DISCIPLINE BECOMING BRUTALITY
   {
-    label: "Observe training practices with the training master — has physical discipline escalated beyond martial standards, or is training becoming weaponized?",
+    label: "Training has escalated past martial standard. The training master knows the difference between discipline and something else.",
     tags: ['Investigation', 'NPC', 'Training', 'Discipline', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -154,7 +154,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 5. GARRISON CLERK: ROSTER DISCREPANCIES
   {
-    label: "Review garrison rosters with the clerk — are soldiers disappearing from records, or are assignments being hidden from standard documentation?",
+    label: "Soldiers are disappearing from the garrison roster. Assignments are going somewhere that isn't in the standard documentation.",
     tags: ['Investigation', 'NPC', 'Records', 'Personnel', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -178,7 +178,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Helix grants access to the main roster under general garrison audit rights. Seventeen soldiers appear in assignment entries from the past four months that have no corresponding active duty position, no transfer record, and no discharge notation. They were assigned somewhere. There's no documentation of where. The gap in the record is consistent and deliberate.`;
         addJournal('Roster analysis shows unexplained personnel disappearance', 'evidence', `ithtananalor-clerk-disappear-${G.dayCount}`);
       } else {
-        G.lastResult = `The roster covers four hundred soldiers across fourteen rotations. Movement between assignments is frequent and the pattern is complex enough that identifying anomalous gaps requires comparison between the assignment log and active deployment records — a task that needs more time and a clearer authorization level than this access provides.`;
+        G.lastResult = `The roster covers four hundred soldiers across fourteen rotations. Movement between assignments is frequent and the pattern is complex enough that identifying anomalous gaps requires comparison between the assignment log and active deployment records — a task that needs more time and a clearer authorization level than this access provides. Helix maintains a second log that doesn't appear in the main system. He knows which soldiers aren't in either one.`;
         addJournal('Personnel roster analysis inconclusive', 'evidence', `ithtananalor-clerk-unclear-${G.dayCount}`);
       }
 
@@ -189,7 +189,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 6. SUPPLY QUARTERMASTER: WEAPONRY REDISTRIBUTION
   {
-    label: "Interview the quartermaster about recent supply movements — are weapons being stored in hidden locations, or is military capability being redistributed?",
+    label: "Supply movements don't match the garrison's declared deployment. Military capability is being redistributed somewhere not on the map.",
     tags: ['Investigation', 'NPC', 'Supply', 'Weaponry', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -214,7 +214,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Sarn confirms supply movements have been happening and describes them as equipment rotation to maintenance facilities. He gives this in a practiced sequence — type, volume, destination category, classification. The description is complete in structure and empty of the one detail that would make it verifiable: the facility addresses. When asked for them directly, he pauses before citing restricted logistics protocols.`;
         addJournal('Quartermaster confirmed supply movements but explanation incomplete', 'evidence', `ithtananalor-quartermaster-unusual-${G.dayCount}`);
       } else {
-        G.lastResult = `Sarn gives technically accurate answers about the supply management process: categories, rotation schedules, classification tiers. Nothing outside standard procedure emerges as a discrepancy from this conversation. Either the redistribution hasn't reached Sarn's level or he's describing the surface of it in terms that reveal nothing.`;
+        G.lastResult = `Sarn gives technically accurate answers about the supply management process: categories, rotation schedules, classification tiers. Nothing outside standard procedure emerges as a discrepancy from this conversation. Either the redistribution hasn't reached Sarn's level or he's describing the surface of it in terms that reveal nothing. He visited one of the maintenance facility addresses listed in his own logs. He knows the address is empty shelving. He hasn't filed a discrepancy report.`;
         addJournal('Supply movement inquiry inconclusive', 'evidence', `ithtananalor-quartermaster-blocked-${G.dayCount}`);
       }
 
@@ -225,7 +225,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 7. RITUAL KEEPER: RITUAL CORRUPTED
   {
-    label: "Investigate sacred rituals that bind the military structure — have ritual formulas been changed, or is sacred practice being rewritten?",
+    label: "The ritual formulas that bind the military structure have been altered. Sacred practice is being rewritten by someone with access to the texts.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Sacred', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -261,7 +261,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 8. RITUAL AUTHORITY: COMMAND LEGITIMACY COMPROMISED
   {
-    label: "Question the ritual authority about command legitimacy — is the chain of authority being spiritually validated, or has legitimate authority been replaced?",
+    label: "Legitimate authority has been replaced. The ritual chain is being used to validate commands that have no legitimate source.",
     tags: ['Investigation', 'NPC', 'Authority', 'Legitimacy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -299,7 +299,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 9. COMBAT TIER 1: DEFENSIVE POSITION ANALYSIS
   {
-    label: "Analyze Ithtananalor's defensive positions — are fortifications being modified in ways that weaken protection, or is the garrison architecture being sabotaged?",
+    label: "The defensive positions have been modified. The modifications open specific approach angles that the original fortifications closed.",
     tags: ['Investigation', 'Combat', 'Fortification', 'Defense', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -335,7 +335,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 10. COMBAT TIER 2: HIDDEN MILITARY FORCE MAPPED
   {
-    label: "Track the hidden military force — where are the disappeared soldiers being deployed, and what command structure are they under?",
+    label: "The disappeared soldiers are somewhere. They're under a command structure that doesn't appear in any garrison record.",
     tags: ['Investigation', 'Combat', 'Hidden-Force', 'Command', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -360,7 +360,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The supply trace points the disappeared soldiers toward a single delivery cluster — three addresses, close enough to be one operational zone, outside the garrison's administrative boundary. What the zone is used for isn't visible from the supply record alone. The soldiers are there. The command structure above them isn't documented anywhere this search has reached.`;
         addJournal('Shadow military deployment zone identified but purpose unclear', 'evidence', `ithtananalor-shadow-deployed-${G.dayCount}`);
       } else {
-        G.lastResult = `The assignment record shows the soldiers leaving their documented positions — dates noted, departure logged, no subsequent entry. Where those assignments lead requires a routing record that sits above the clerk level: a command transfer log or an external deployment manifest. The clerk's access tier doesn't include either. The gap in the record is clean and consistent — not an oversight but the edge of a deliberate boundary. What's on the other side requires a higher authorization than today's approach has produced.`;
+        G.lastResult = `The assignment record shows the soldiers leaving their documented positions — dates noted, departure logged, no subsequent entry. Where those assignments lead requires a routing record that sits above the clerk level: a command transfer log or an external deployment manifest. The clerk's access tier doesn't include either. The gap in the record is clean and consistent — not an oversight but the edge of a deliberate boundary. What's on the other side requires a higher authorization than today's approach has produced. The supply trace knows where those soldiers are receiving weapons. The roster and the supply record point to the same three addresses.`;
         addJournal('Hidden force tracking inconclusive', 'evidence', `ithtananalor-shadow-blocked-${G.dayCount}`);
       }
 
@@ -371,7 +371,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 11. LORE TIER 1: OATH BINDING LEGAL ANALYSIS
   {
-    label: "Study historical oath law — how have legitimate oaths been reinterpreted, and what legal precedent allows oath corruption?",
+    label: "The oath corruption uses historical precedent as cover. Someone who knew the law found the loophole before they built the trap.",
     tags: ['Investigation', 'Lore', 'Law', 'Precedent', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -407,7 +407,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSUASION TIER 2: COERCION THROUGH OATH
   {
-    label: "Investigate how oath-binding is being weaponized to coerce compliance — who is being forced to swear what oaths, and what consequences fall on oath-breakers?",
+    label: "Soldiers are being forced to swear oaths to commands they can't refuse. The consequences for breaking them are specific and documented.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Oath-Breaking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -432,7 +432,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three soldiers confirm pressure to swear beyond the standard binding. None will describe the specific content or the commander they were asked to swear to. Two cite the oath itself as the reason they can't speak — once sworn, discussing the oath with an outsider may constitute breach. The pressure is confirmed. The specific mechanism stays behind the oath that enforces the silence.`;
         addJournal('Oath-based pressure confirmed by soldier interviews', 'evidence', `ithtananalor-coercion-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Soldiers in the garrison commons don't finish sentences about oaths before redirecting. The meal smell hangs in the low-ceilinged room — salt ration and boiled grain — and the tables nearest the wall are the most occupied, backs to the stone. The guardedness is consistent across multiple conversations but none of it yields specifics. Something is being protected by the collective silence. What it is and how the protection operates requires a source willing to speak past the point where everyone else stops. That source hasn't appeared yet.`;
+        G.lastResult = `Soldiers in the garrison commons don't finish sentences about oaths before redirecting. The meal smell hangs in the low-ceilinged room — salt ration and boiled grain — and the tables nearest the wall are the most occupied, backs to the stone. The guardedness is consistent across multiple conversations but none of it yields specifics. Something is being protected by the collective silence. What it is and how the protection operates requires a source willing to speak past the point where everyone else stops. That source hasn't appeared yet. One of the three displaced officers is still at Ithtananalor. She hasn't been told to leave and she isn't bound by an active supplementary oath.`;
         addJournal('Oath coercion patterns sensed but not documented', 'evidence', `ithtananalor-coercion-unclear-${G.dayCount}`);
       }
 
@@ -443,7 +443,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSIGHT TIER 1: MILITARY MORALE COLLAPSE
   {
-    label: "Assess military morale and unit cohesion — are soldiers losing faith in command, or is trust in the military structure eroding?",
+    label: "Trust in the command structure is eroding. The soldiers still show up. They've stopped believing the orders mean what they say.",
     tags: ['Investigation', 'Insight', 'Morale', 'Trust', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -479,7 +479,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: COMMAND CONSPIRACY REVEALED
   {
-    label: "Map the upper command hierarchy — who is directing the oath corruption and shadow military force, and are they answering to authority outside Ithtananalor?",
+    label: "Someone is directing the oath corruption. They're answering to authority outside Ithtananalor. The command chain terminates somewhere else.",
     tags: ['Investigation', 'Perception', 'Conspiracy', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -517,7 +517,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: MILITARY ANXIETIES
   {
-    label: "Gather whispered concerns in the garrison commons — what are soldiers whispering about command decisions and oath-binding?",
+    label: "The garrison commons goes quiet when the wrong people walk through. What's left in the gaps between conversations is the real picture.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -541,7 +541,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF MILITARY OVERTHROW
   {
-    label: "Compile evidence that Ithtananalor's military is being externally controlled — find proof that the command structure has been compromised.",
+    label: "Every institution in Ithtananalor has bent the same direction in the same window. That's not drift. Someone built it.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -565,7 +565,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       } else if (result.total >= 14) {
         G.lastResult = `The contradictions between external command authentication, oath record modifications, and shadow roster maintenance are significant enough in combination to move past "something is wrong" toward "the garrison command structure has been systematically replaced." Not all the links are fully documented, but the pattern is compelling. The pieces that remain missing are the specific external authority and the final deployment purpose.`;        addJournal('Compelling military conspiracy evidence found', 'evidence', `ithtananalor-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The fragments exist: modified oath records, supply movements, roster discrepancies, command communication anomalies. Each is documentable. What isn't documentable yet is the connection between them — the shared intent or authority that ties them into a single operation rather than a collection of administrative failures. The fragments need assembly and the assembly needs more access than today's sources have provided.`;
+        G.lastResult = `The fragments exist: modified oath records, supply movements, roster discrepancies, command communication anomalies. Each is documentable. What isn't documentable yet is the connection between them — the shared intent or authority that ties them into a single operation rather than a collection of administrative failures. The fragments need assembly and the assembly needs more access than today's sources have provided. The command records room holds directive pouches that carry external authentication marks. That's the connective tissue.`;
         addJournal('Evidence fragments found but incomplete', 'evidence', `ithtananalor-proof-incomplete-${G.dayCount}`);
       }
 
@@ -576,7 +576,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
-    label: "Confront a soldier who is participating in the conspiracy — demand explanation and decide whether to protect them or report them.",
+    label: "One of them is participating in the conspiracy. They know it. The choice is whether they're the kind of person who can be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -610,7 +610,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
-    label: "Find the central evidence that confirms external military control — discover who is directing Ithtananalor's military from outside.",
+    label: "There's a document somewhere that names who is directing this from outside. The garrison's own records point toward it.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -635,7 +635,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three directives from the partial access carry authentication marks from outside Ithtananalor's command hierarchy. The external authority isn't named in what's accessible — the signatures use a classification code rather than a named office. But the routing is unmistakable: orders for the garrison's internal restructuring are originating from somewhere that isn't the garrison. Ithtananalor isn't being corrupted from within. It's being directed from outside.`;
         addJournal('External coordination of Ithtananalor military conspiracy confirmed', 'discovery', `ithtananalor-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `The authentication marks on the directives point outside Ithtananalor's command structure, but the external source stays one layer further back than the available documents reach. The routing passes through an intermediary designation that doesn't resolve to a named office or registered authority. Whoever is directing this has structured the paper trail to confirm external coordination while keeping their identity inside a sealed correspondence tier. The hand is visible. The name attached to it is not.`;
+        G.lastResult = `The authentication marks on the directives point outside Ithtananalor's command structure, but the external source stays one layer further back than the available documents reach. The routing passes through an intermediary designation that doesn't resolve to a named office or registered authority. Whoever is directing this has structured the paper trail to confirm external coordination while keeping their identity inside a sealed correspondence tier. The hand is visible. The name attached to it is not. The intermediary designation appears on correspondence routed through Shelkopolis financial channels — the Iron Ledger Ward has seen that designation before.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `ithtananalor-origin-unclear-${G.dayCount}`);
       }
 
@@ -646,7 +646,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
-    label: "Recognize the pattern connecting oath corruption, military restructuring, and external coordination — understand that all command layers are being compromised simultaneously.",
+    label: "Oath corruption, missing soldiers, rewritten rituals, weakened fortifications — all happening at once. All pointing the same direction.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Command', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -682,7 +682,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
-    label: "Synthesize all evidence into complete understanding — Ithtananalor's military is being systematically occupied by external forces for a purpose beyond simple conquest.",
+    label: "This isn't conquest. Conquest announces itself. Whatever is happening to Ithtananalor's military is designed to be invisible until it's complete.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Occupation', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -707,7 +707,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The evidence points toward Ithtananalor as an experimental model rather than a final target. The methods applied here — oath redirection, shadow force construction, command structure replacement — are too systematically developed to have been purpose-built for a single garrison. They read as a methodology being tested before wider application. The certainty isn't complete: a single clear link to a broader operational plan hasn't surfaced. But the pattern points past this garrison's walls toward something still in motion.`;
         addJournal('Ithtananalor as experimental military occupation model suspected', 'discovery', `ithtananalor-understanding-experimental-${G.dayCount}`);
       } else {
-        G.lastResult = `The evidence in hand accounts for the mechanism but not the purpose. Oath redirection, command replacement, shadow force construction — the how is documented well enough. Why Ithtananalor specifically, what the occupied garrison is being positioned to do, what comes next once the conversion is complete: those answers aren't in the documents gathered so far. The full picture has a center that hasn't been reached. The outer structure is visible. The purpose it serves is still one step further in.`;
+        G.lastResult = `The evidence in hand accounts for the mechanism but not the purpose. Oath redirection, command replacement, shadow force construction — the how is documented well enough. Why Ithtananalor specifically, what the occupied garrison is being positioned to do, what comes next once the conversion is complete: those answers aren't in the documents gathered so far. The full picture has a center that hasn't been reached. The outer structure is visible. The purpose it serves is still one step further in. The same authentication marks appearing in Ithtananalor's directives have surfaced in at least two other garrison jurisdictions. This methodology isn't being tested here. It's being repeated.`;
         addJournal('Occupation purpose not yet fully revealed', 'evidence', `ithtananalor-understanding-incomplete-${G.dayCount}`);
       }
 
@@ -720,7 +720,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: IRON LEDGER ANOMALY
   {
-    label: "Request a read-only audit pass for the Iron Ledger Ward's public records terminal — scan the last six months of transaction summaries.",
+    label: "The Iron Ledger Ward's public records terminal shows six months of transaction summaries. Something in those numbers has been moving on a schedule.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
     fn: function() {
@@ -738,7 +738,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_ledger_ghost_accounts = true;
         addJournal('Iron Ledger: three ghost accounts using valid formatting codes without registered entities', 'evidence', `ithtananalor-ledger-${G.dayCount}`);
       } else {
-        G.lastResult = `The terminal returns summary data cleanly enough — column totals, category breakdowns, date ranges. The anomalous accounts surface in the list but carry a restricted flag on their transaction histories. Totals are visible; the individual entries behind them require elevated access credentials. The amounts are significant. Where the money moved, in what increments, and when requires a different authorization level than the public audit pass provides. The accounts are confirmed. Their activity stays behind the flag.`;
+        G.lastResult = `The terminal returns summary data cleanly enough — column totals, category breakdowns, date ranges. The anomalous accounts surface in the list but carry a restricted flag on their transaction histories. Totals are visible; the individual entries behind them require elevated access credentials. The amounts are significant. Where the money moved, in what increments, and when requires a different authorization level than the public audit pass provides. The accounts are confirmed. Their activity stays behind the flag. Maret Voss handles disputed account resolution. Flagged transaction histories are her jurisdiction.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -746,7 +746,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: DEBT LEVERAGE TRAIL
   {
-    label: "Follow the debt leverage trail — find who holds the outstanding obligations of three recently displaced garrison officers.",
+    label: "Three garrison officers were displaced in the same month. Someone holds their outstanding obligations. That's not coincidence.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -767,7 +767,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE GARRISON
   {
-    label: "Walk the garrison courtyard at change of watch — read what the soldier transitions tell you about the command structure.",
+    label: "Change of watch is when the command structure shows its seams. Who defers to whom, who doesn't make eye contact, who's watching the gate.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -791,7 +791,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: WARDEN ORDER FINANCIAL ATTACHE
   {
-    label: "Speak to the Warden Order's financial attaché stationed at the Iron Ledger Ward.",
+    label: "The Warden Order has a financial attaché at the Iron Ledger Ward. Debt leverage used against garrison officers falls in his jurisdiction.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -807,7 +807,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.warden_order += 1;
         addJournal('faction', 'Warden Order attaché Denn Calver: confirmed awareness of financial anomalies, gauging investigator alignment', `ithtananalor-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `The attaché is busy and professional, his desk covered with ledger extracts and a sealed correspondence bundle still uncut. Formal appointment required — submitted through the standard administrative channel, two working days for confirmation. The Warden Order's financial presence here is real but guarded in the way institutional presences guard themselves when operating in sensitive territory. Access requires proper introduction and a stated purpose that will withstand scrutiny. Today's approach produced neither.`;
+        G.lastResult = `The attaché is busy and professional, his desk covered with ledger extracts and a sealed correspondence bundle still uncut. Formal appointment required — submitted through the standard administrative channel, two working days for confirmation. The Warden Order's financial presence here is real but guarded in the way institutional presences guard themselves when operating in sensitive territory. Access requires proper introduction and a stated purpose that will withstand scrutiny. Today's approach produced neither. A named introduction through Maret Voss would clear the proper introduction requirement.`;
         if (!G.flags) G.flags = {};
         G.flags.located_warden_order_ithtananalor = true;
       }
@@ -817,7 +817,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE IRON LEDGER WARD AT NIGHT
   {
-    label: "Walk the Iron Ledger Ward after the market closes — observe what it does when it thinks no one is watching.",
+    label: "The Iron Ledger Ward runs different business after the market closes. That's when the accounts that aren't posted move.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     fn: function() {
@@ -832,7 +832,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: MARET VOSS INTRODUCTION
   {
-    label: "Introduce yourself to Maret Voss at the Iron Ledger Ward — the specialist in disputed account resolution.",
+    label: "Maret Voss specializes in disputed account resolution. Three displaced garrison officers have disputed accounts.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -846,7 +846,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_maret_voss = true;
         addJournal('contact', 'Maret Voss introduced: Iron Ledger specialist, aware you have a real purpose, door open for return', `ithtananalor-maret-${G.dayCount}`);
       } else {
-        G.lastResult = `Maret Voss is professional and busy — two open case files on the desk, a stack of ledger extracts flagged with paper markers, the scratch of her pen continuing while she listens. She answers the initial question correctly and moves on without lingering. Not unfriendly: she operates on appointment time, and an unscheduled visitor with a general question doesn't clear that threshold. A return visit with something specific and a clearer purpose would land differently than this one did.`;
+        G.lastResult = `Maret Voss is professional and busy — two open case files on the desk, a stack of ledger extracts flagged with paper markers, the scratch of her pen continuing while she listens. She answers the initial question correctly and moves on without lingering. Not unfriendly: she operates on appointment time, and an unscheduled visitor with a general question doesn't clear that threshold. A return visit with something specific and a clearer purpose would land differently than this one did. The ghost accounts flagged in the public terminal are something specific. She'd have a reason to keep the door open.`;
         G.flags.located_maret_voss = true;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
@@ -855,7 +855,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE DISPLACED GARRISON OFFICER
   {
-    label: "Find one of the three displaced garrison officers and understand what leverage was used against them.",
+    label: "Three officers were displaced in the same month. One of them is still at Ithtananalor and hasn't been told to leave.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -869,7 +869,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_lysel_displaced_officer = true;
         addJournal('contact', 'Displaced Captain Lysel: debt called suddenly then offered retirement — leverage still potentially active', `ithtananalor-lysel-${G.dayCount}`);
       } else {
-        G.lastResult = `The officer is living quietly in a rented room outside the garrison quarter, away from the streets she used to walk in uniform. The door opens a hand's width before closing again. She doesn't want contact with anyone connected to military or financial proceedings — the distinction between the two has stopped mattering to her. Part of the agreement that ended her service may have included silence as a condition. The door stays closed. Whatever she knows, it's not coming through today's approach.`;
+        G.lastResult = `The officer is living quietly in a rented room outside the garrison quarter, away from the streets she used to walk in uniform. The door opens a hand's width before closing again. She doesn't want contact with anyone connected to military or financial proceedings — the distinction between the two has stopped mattering to her. Part of the agreement that ended her service may have included silence as a condition. The door stays closed. Whatever she knows, it's not coming through today's approach. The debt that ended her career is still held by the same external entity. Whoever holds it can call it again at any time. She knows that. The door stays closed for a reason.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -877,7 +877,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "Maret Voss mentions a researcher visited the day before you asking about the same formatting codes — their credentials were from a prestigious northern archive.",
+    label: "Someone was here yesterday asking about the same formatting codes. Their credentials were from a northern archive. Maret remembers faces.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {

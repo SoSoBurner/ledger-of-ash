@@ -9,7 +9,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: TOMAN ICEVEIL
   {
-    label: "Seek out Toman Iceveil — the glasswake researcher whose work is cited in suppressed documents.",
+    label: "A researcher's work is cited in suppressed documents. He's still here. He's been waiting for someone to ask.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -32,7 +32,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: SUPPRESSED SHARD STUDY
   {
-    label: "Access the commune's research archive — find what section of the glasswake shard studies has been reclassified.",
+    label: "Sections of the shard study are marked 'pending administrative review.' The review was filed fourteen months ago. No review entry exists.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -49,7 +49,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_shard_reclassification = true;
         addJournal('Shard study reclassification: sections 7-12 blocked — describe atmospheric interaction with shard-dense geology matching Aurora Crown', 'evidence', `glasswake-reclassification-${G.dayCount}`);
       } else {
-        G.lastResult = `The catalogue lists sections 7 through 12 clearly — they're not hidden, just walled off. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then stops herself. "Or any senior researcher," she adds. The correction is too quick. Toman is the name. You'll need to go through him.`;
+        G.lastResult = `The catalogue lists sections 7 through 12 clearly — they're not hidden, just walled off. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then stops herself. "Or any senior researcher," she adds. The correction is too quick. Toman is the name. He works late in the research annex — after the committee leaves for the day, he's there.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -57,7 +57,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: SHARD AMPLIFICATION DATA
   {
-    label: "Request Toman Iceveil's unpublished amplification data — the numerical basis for the reclassified sections.",
+    label: "The reclassified sections describe a mechanism. Toman has the numbers behind it. He has them in a locked drawer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -83,7 +83,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE COMMITTEE'S AUTHORITY
   {
-    label: "Map who sits on the administrative committee that ordered the research reclassification.",
+    label: "Three of the five committee members were appointed eighteen months ago. The reclassification was filed that same month.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -99,7 +99,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Five members on the committee. Two have served for years — their names appear in the commune's institutional documents going back a decade. The three appointed eighteen months ago — the same month the reclassification was filed — don't appear in any Glasswake institutional record before their appointment. Their shared professional affiliation is a northern materials research consortium. The appointment category used for them — "cooperative research partnership" — had never been invoked before. The committee's working majority was installed from outside, through a procedural category opened specifically to install them.`;
         addJournal('Committee: three of five members appointed 18 months ago via unused "cooperative partnership" — external affiliation to northern consortium', 'evidence', `glasswake-committee-${G.dayCount}`);
       } else {
-        G.lastResult = `The committee roster is posted in the research hall, current and public. Five names, their areas of expertise, their committee roles. No appointment history on the posting. Tracing how each member arrived requires the archive appointment records, which are accessible during regular archive hours and require a researcher endorsement to pull. You know who's on the committee. How three of them got there is in a room you haven't opened yet.`;
+        G.lastResult = `The committee roster is posted in the research hall, current and public. Five names, their areas of expertise, their committee roles. No appointment history on the posting. Tracing how each member arrived requires the archive appointment records, which are accessible during regular archive hours and require a researcher endorsement to pull. You know who's on the committee. How three of them got there is in the archive — the researcher Fen has a working access credential.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -153,7 +153,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "Contact the Oversight Collegium's science and research liaison present at the commune's administrative hall.",
+    label: "The Oversight Collegium has a liaison at the administrative hall. Toman's complaint to them was acknowledged fourteen months ago.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -169,7 +169,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium liaison Orsel: external committee appointment provides standing to intervene — wants consortium connection documented', `glasswake-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `The Collegium's liaison table stands near the administrative hall entrance, unmanned. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk explains the procedure without looking up: written request, registered party affiliation, supporting documentation attached. She slides a blank form across the counter and goes back to her ledger. The room smells of old paper and floor wax. Nothing here moves without a form number.`;
+        G.lastResult = `The Collegium's liaison table stands near the administrative hall entrance, unmanned. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk explains the procedure without looking up: written request, registered party affiliation, supporting documentation attached. She slides a blank form across the counter and goes back to her ledger. The room smells of old paper and floor wax. The consortium connection — three committee members appointed through an unprecedented procedural category — is the kind of documentation that changes what a formal petition can compel.`;
         if (!G.flags) G.flags = {};
         G.flags.located_oversight_collegium_glasswake = true;
       }
@@ -179,7 +179,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. INVESTIGATION: EXTERNAL CORRESPONDENCE
   {
-    label: "Find evidence of correspondence between the committee's new members and their northern consortium affiliation.",
+    label: "Three committee members receive weekly sealed letters from a northern address. The letters arrive before each major suppression decision.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
     fn: function() {
@@ -199,7 +199,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.total >= 11) {
         G.lastResult = `The outer section of the mail log shows two committee members receiving sealed correspondence from an external northern address — weekly intervals, consistent sender formatting. The letters are sealed and the content stays inside them. What's legible is the frequency: every seven days without interruption for eight months. Whatever those letters contain, the schedule never slipped. The correspondence predates every major committee decision in the same period. The timing is its own kind of evidence.`;
       } else {
-        G.lastResult = `The administrative mail station sits at the far end of the research hall, behind a counter with a locked hinged panel. During business hours a mail clerk is at the station; after hours the panel closes and the lock engages. The external correspondence log hangs on a nail inside the panel — visible through the gap at the hinge, unavailable to hands that can't reach it. The route to it goes through a clerk who does not share records with visitors.`;
+        G.lastResult = `The administrative mail station sits at the far end of the research hall, behind a counter with a locked hinged panel. During business hours a mail clerk is at the station; after hours the panel closes and the lock engages. The external correspondence log hangs on a nail inside the panel — visible through the gap at the hinge, unavailable to hands that can't reach it. The commune's shard gallery has an unofficial building path that the researchers use to cross between wings without going through the main corridor.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
@@ -227,7 +227,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. INVESTIGATION: THE SUPPRESSED PUBLICATION
   {
-    label: "Retrieve the suppressed journal submission Toman sent to the Regional Science Review fourteen months ago — trace what happened to it.",
+    label: "Toman submitted to the Regional Science Review fourteen months ago. The submission was deferred. The deferral was requested by someone else.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -241,7 +241,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.traced_publication_suppression = true;
         addJournal('Publication suppressed via timed journal review agreement — Northern Materials Consortium inserted mandatory review one month before submission', 'evidence', `glasswake-publication-${G.dayCount}`);
       } else {
-        G.lastResult = `The Regional Science Review's public response log shows a single entry for Toman's submission: "received — deferred pending institutional review, per current review protocol." The entry is dated two days after submission. The review protocol it references is real — the Review publishes it. But invoking that protocol requires a registered reviewing institution to formally request it. Who requested the deferral, and why, is between the Review and that institution. The correspondence isn't public, and the Review cites that relationship to close the inquiry.`;
+        G.lastResult = `The Regional Science Review's public response log shows a single entry for Toman's submission: "received — deferred pending institutional review, per current review protocol." The entry is dated two days after submission. The review protocol it references is real — the Review publishes it. But invoking that protocol requires a registered reviewing institution to formally request it. The Review's partnership agreements are public charter filings. One of them was signed one month before Toman's submission date.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -286,7 +286,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INVESTIGATION: THE COMMITTEE VOTE RECORD
   {
-    label: "Obtain the committee vote record for the original reclassification order — who voted how.",
+    label: "Two researchers voted against the reclassification. Three voted for it. The vote record is buried with the classified research.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -300,7 +300,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.obtained_vote_record = true;
         addJournal('Vote record: 3-2 split on external/internal lines, dissent registered but buried with classified research', 'evidence', `glasswake-vote-${G.dayCount}`);
       } else {
-        G.lastResult = `The committee's vote record sits inside a classified proceedings file — the same classification order that covers the reclassified research. The archivist on duty locates the file number without difficulty; the file itself requires committee authorization to open. One committee member could share the record informally. Both of the dissenting members know what the vote was. Neither of them is willing to put the vote count in front of a visitor until they know what it's being used for.`;
+        G.lastResult = `The committee's vote record sits inside a classified proceedings file — the same classification order that covers the reclassified research. The archivist on duty locates the file number without difficulty; the file itself requires committee authorization to open. One committee member could share the record informally. Researcher Winn voted against and stayed on the committee specifically to ensure dissent remains in the record. She keeps notes on every session.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -308,7 +308,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. INVESTIGATION: THE CONSORTIUM BENEFIT
   {
-    label: "Determine what the Northern Materials Consortium gains from keeping the shard amplification study suppressed.",
+    label: "The Northern Materials Consortium holds licensing rights to the additive class Toman's study would implicate. That's not coincidence.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -324,7 +324,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The Northern Materials Consortium holds licensing rights to the specific filtration additive class that the shard amplification data would implicate. If the data is published, their additives are identified as dangerous in shard-geology environments — which describes every dome settlement in the region. Their product category would require reformulation or withdrawal. The suppression isn't scientific conservatism — it's commercial liability protection. They're suppressing data that would destroy a revenue stream.`;
         addJournal('Consortium benefit: holds licensing rights to implicated additive class — suppression protects commercial liability', 'evidence', `glasswake-benefit-${G.dayCount}`);
       } else {
-        G.lastResult = `The Northern Materials Consortium's trade charter lists its registered product categories — atmospheric processing compounds, dome-grade filtration additives, specialty mineral derivatives. The listing is public, accurate as far as it goes. Whether any of those categories carry liability exposure under the research Toman's study describes requires cross-referencing the compound classifications against his interaction model. That work takes the research itself, which is still reclassified. The liability picture is there in outline. The specifics stay locked with the study.`;
+        G.lastResult = `The Northern Materials Consortium's trade charter lists its registered product categories — atmospheric processing compounds, dome-grade filtration additives, specialty mineral derivatives. The listing is public, accurate as far as it goes. Whether any of those categories carry liability exposure under the research Toman's study describes requires cross-referencing the compound classifications against his interaction model. Toman knows the compound class codes. He can run that comparison himself if you bring him the consortium's product registration.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -332,7 +332,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SOCIAL: THE DISSENTING COMMITTEE MEMBER
   {
-    label: "Speak privately to one of the two original commune researchers who voted against the reclassification.",
+    label: "One of the two researchers who voted against reclassification stayed on the committee. She's been building a written record ever since.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -346,7 +346,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_winn_dissenter = true;
         addJournal('contact', 'Committee dissenter Winn: staying to prevent fourth external appointment, has written record of every suppression decision', `glasswake-winn-${G.dayCount}`);
       } else {
-        G.lastResult = `Researcher Winn is at her desk when you introduce yourself. She listens to the first sentence, then sets her pen down and straightens the papers in front of her into an already-straight stack. "I'm not in a position to speak informally about committee proceedings." Her register is careful, each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. She already knows what kind of question is coming, and she has an answer ready that closes it without lying.`;
+        G.lastResult = `Researcher Winn is at her desk when you introduce yourself. She listens to the first sentence, then sets her pen down and straightens the papers in front of her into an already-straight stack. "I'm not in a position to speak informally about committee proceedings." Her register is careful, each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name. That record is in the same classified file as Toman's research.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -354,7 +354,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. RUMOR LAYER
   {
-    label: "Listen to commune members' informal conversation about the research situation — what do people believe is happening?",
+    label: "The commune knows something is wrong with the research situation. They just don't have the full shape of it yet.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 62,
     fn: function() {
@@ -412,7 +412,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: THE CONSORTIUM'S GLASSWAKE PRESENCE
   {
-    label: "Document the Northern Materials Consortium's physical presence in Glasswake — personnel, assets, any infrastructure.",
+    label: "The Northern Materials Consortium has a registered address in Glasswake's northern quarter. It looks like a mineral trading office.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -438,7 +438,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. MORAL: PROTECT OR EXPOSE TOMAN
   {
-    label: "Decide whether to identify Toman as a source in the investigation record or protect his name until he's out of Glasswake.",
+    label: "Toman's data is the keystone. Naming him strengthens the case. It also gives the committee grounds to move against him.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -471,7 +471,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 22. SHADOW RIVAL INTRO
   {
-    label: "Toman Iceveil says someone came to see him two months ago claiming to want to help — he didn't trust them.",
+    label: "Two months ago someone came to Toman claiming to want to help. He didn't trust them. He still doesn't know who they were.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {
@@ -573,7 +573,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.glasswake_archive_contradiction = true;
         addJournal('Glasswake founding archive: 40 years of shard research with no safety incidents — committee safety rationale directly contradicted by historical record', 'evidence', `glasswake-archive-${G.dayCount}`);
       } else {
-        G.lastResult = `The commune archive is organized by era, and the founding generation records occupy the oldest section — original vellum documents in cases with humidity seals, accessible by request with a thirty-minute notice period. The archivist is on rotation today and hasn't returned from the midday break. The archive request is straightforward. The timing isn't.`;
+        G.lastResult = `The commune archive is organized by era, and the founding generation records occupy the oldest section — original vellum documents in cases with humidity seals, accessible by request with a thirty-minute notice period. The archivist is on rotation today and hasn't returned from the midday break. The archive request is straightforward. Toman has a researcher endorsement that allows him to pull founding-era documents without a wait period.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -594,7 +594,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.glasswake_correspondence_found = true;
         addJournal('Committee correspondence: regional authority letter confirms "energy multiplier finding must not enter public record before parallel project completion" — external coordination of suppression', 'evidence', `glasswake-correspondence-${G.dayCount}`);
       } else {
-        G.lastResult = `The committee's official correspondence is an administrative record — classified as internal by default, accessible through a formal records request that routes to the committee chair for approval. The chair is the head of the five-member majority bloc. That route is closed. The archivist handles physical filing; the correspondence file is in a cabinet in the administrative office, not the commune archive. The archivist and the administrative office are separate buildings.`;
+        G.lastResult = `The committee's official correspondence is an administrative record — classified as internal by default, accessible through a formal records request that routes to the committee chair for approval. The chair is the head of the five-member majority bloc. That route is closed. The archivist handles physical filing; the correspondence file is in a cabinet in the administrative office, not the commune archive. The dissenting members Arven and Missa keep parallel notes — their version of every meeting includes correspondence that was read aloud but never formally entered into the official minutes.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }

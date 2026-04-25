@@ -9,7 +9,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: JORIN
   {
-    label: "Find Jorin — the workshop master who submitted an unofficial complaint about chemical input anomalies four months ago.",
+    label: "An unofficial complaint about chemical input anomalies was filed four months ago. The master who filed it is still at his bench.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -22,7 +22,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Jorin runs his thumb along a component on the work bench before he answers — habit, checking tolerance. "Four months of receiving inputs that test at sixty to seventy percent of declared concentration. I've checked my instruments. I've checked my analysis process." He sets the component down. The workshop smells of hot metal and flux, the kind of smell that settles into clothing. "Same base compounds. Correct labeling. Wrong amounts. Someone upstream is removing material before delivery and it's happening every batch, on a schedule." He already knows it's deliberate. He needed someone to tell him what to do with that knowledge.`;        G.flags.met_jorin = true;
         addJournal('contact', 'Workshop master Jorin met: chemical input modifications documented — deliberate concentration changes across supply chain', `craftspire-jorin-${G.dayCount}`);
       } else {
-        G.lastResult = `Jorin is mid-run on a precision fabrication when you arrive — he holds up one finger without looking up from the calibration gauge. The workshop is loud with controlled heat and the metallic bite of flux. When the gauge settles he sets it down carefully and says break periods are at the second and sixth bell. "Come back then." He goes back to the bench. He noticed you come in, checked your hands, checked your boots, and went back to work. He's thorough by habit.`;
+        G.lastResult = `Jorin is mid-run on a precision fabrication when you arrive — he holds up one finger without looking up from the calibration gauge. The workshop is loud with controlled heat and the metallic bite of flux. When the gauge settles he sets it down carefully and says break periods are at the second and sixth bell. "Come back then." He goes back to the bench. He noticed you come in, checked your hands, checked your boots, and went back to work. The analysis sheets on the bench behind him go back six months — they're in plain sight.`;
         G.flags.located_jorin = true;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
@@ -31,7 +31,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: CHEMICAL INPUT RECORDS
   {
-    label: "Review the guild's incoming chemical manifests against the delivered sample analysis — document the concentration discrepancies.",
+    label: "The manifests say one concentration. The delivered samples test at another. Someone in the supply chain is doing the math.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -53,7 +53,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
           G.lastResult = `Jorin's analysis sheets are spread across the bench in order — six months of entries, columns of compound codes and concentration figures marked in his careful hand. The numbers are legible. The gap between declared and measured concentration is visible on almost every page. Whether that gap represents standard transit loss, instrument error, or something deliberate requires the kind of trained judgment that comes from years at a fabrication bench. The data is in front of you. The interpretation isn't yours to make.`;
         }
       } else {
-        G.lastResult = `The guild records office window has a clerk behind it and a printed access policy tacked to the counter face. Incoming material analysis is held for registered members and credentialed inspectors. The precision workshop's records are filed under Jorin's member number. The clerk confirms this without looking up from her work. She's answered this question before. The analysis sheets exist, their location is no secret, and the route to them runs entirely through a workshop master who hasn't vouched for you yet.`;
+        G.lastResult = `The guild records office window has a clerk behind it and a printed access policy tacked to the counter face. Incoming material analysis is held for registered members and credentialed inspectors. The precision workshop's records are filed under Jorin's member number. The clerk confirms this without looking up from her work. She's answered this question before. The analysis sheets exist, their location is no secret, and the route to them runs entirely through Jorin — who takes his break at the second and sixth bell.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -61,7 +61,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: WHAT THE EXTRACTED COMPOUND DOES
   {
-    label: "Ask Jorin to explain what the extracted compound fraction would be used for — determine what's being accumulated.",
+    label: "Jorin knows the compound class. He hasn't said yet what that volume would build.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -86,7 +86,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE SUPPLY CHAIN ORIGIN
   {
-    label: "Trace the chemical supply chain backwards — find where the modification is happening before delivery to Craftspire.",
+    label: "The compound leaves the production facility at full concentration. It arrives here short. Something happens in between.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -112,7 +112,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. ARCHETYPE-GATED: READING CRAFTSPIRE
   {
-    label: "Walk Craftspire's guild district at production hours — read what the workshop activity tells you.",
+    label: "The guild district runs on a tight production clock. What's happening doesn't match the posted schedule.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -136,7 +136,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: WARDEN ORDER INDUSTRIAL COMPLIANCE
   {
-    label: "Report the chemical input modification to the Warden Order's industrial compliance officer stationed at the guild registry.",
+    label: "The Warden Order's industrial compliance officer is stationed at the guild registry. This has to go somewhere official.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -152,7 +152,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.warden_order += 1;
         addJournal('faction', 'Warden Order compliance officer Bren: compound class triggers elevated response, case opened — Warden Order knows the implications', `craftspire-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `The compliance officer takes the written summary, initials the intake log, and stamps it received. "Standard supply chain discrepancies are reviewed in the order received." He adds it to a tray. The tray has twelve items in it already. He doesn't ask any questions, which means either the summary didn't contain enough to prompt them or nobody in that office knows what the compound class implies. Either way, the response is slow and procedural.`;
+        G.lastResult = `The compliance officer takes the written summary, initials the intake log, and stamps it received. "Standard supply chain discrepancies are reviewed in the order received." He adds it to a tray. The tray has twelve items in it already. He doesn't ask any questions, which means either the summary didn't contain enough to prompt them or nobody in that office knows what the compound class implies. Jorin's documentation includes the compound class code — with that specific code named, the intake category changes from supply fraud to material interference.`;
         if (!G.flags) G.flags = {};
         G.flags.attempted_warden_order_craftspire = true;
       }
@@ -162,7 +162,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: THE WAYSTATION WORKER
   {
-    label: "Travel to the transit waystation and speak to a worker who handles the chemical processing stage.",
+    label: "The extraction happens at the waystation. Someone on that processing floor logs the numbers every day and knows it.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -176,7 +176,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_pell_waystation = true;
         addJournal('contact', 'Waystation handler Pell: "transit variance" log category normalizes extraction — trained to record without flagging, documentation designed to absorb evidence', `craftspire-pell-${G.dayCount}`);
       } else {
-        G.lastResult = `The waystation supervisor intercepts you before you reach the processing floor. Workers on the output line are under guild contract administration — inquiries from non-guild parties require a supervisor approval form, minimum two-day processing. You can submit the form at the gate office. You do. The workers on the floor keep their eyes on the line. They heard the exchange. One of them — Pell, by the work placement — looks up briefly and then goes back to the gauge.`;
+        G.lastResult = `The waystation supervisor intercepts you before you reach the processing floor. Workers on the output line are under guild contract administration — inquiries from non-guild parties require a supervisor approval form, minimum two-day processing. You can submit the form at the gate office. You do. The workers on the floor keep their eyes on the line. They heard the exchange. One of them — Pell, by the work placement — looks up briefly and then goes back to the gauge. The "transit variance" column on the form he's writing in is visible from here.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -184,7 +184,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: JORIN'S CHOICE
   {
-    label: "Jorin asks whether he should file a formal guild complaint or keep documenting quietly — his workshop is at risk either way.",
+    label: "Jorin has been doing the quiet version for four months. He needs to know if that's still the right call.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -202,7 +202,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. INVESTIGATION: THE TRANSIT VARIANCE LOG ORIGIN
   {
-    label: "Determine when and why the 'transit variance' log category was created in the waystation documentation system.",
+    label: "The 'transit variance' log category exists to absorb this. Someone had to create it. Someone had to authorize it.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -220,7 +220,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.traced_variance_log_origin = true;
         addJournal('Transit variance log: created one month before extraction began, authorized by unregistered "regional materials coordination body"', 'evidence', `craftspire-variance-origin-${G.dayCount}`);
       } else {
-        G.lastResult = `The waystation log format has a version date printed in the footer of each page — a reference number that changes when the form is revised. Pell's oldest log sheets use a different version than the current forms. The category addition happened between those two versions, seven months ago by the date sequence. Who authorized the revision is in the waystation's internal administrative records, filed under the supply contractor's management. Guild channels don't reach those files. The authorization trail stops at the contractor's wall.`;
+        G.lastResult = `The waystation log format has a version date printed in the footer of each page — a reference number that changes when the form is revised. Pell's oldest log sheets use a different version than the current forms. The category addition happened between those two versions, seven months ago by the date sequence. Who authorized the revision is in the waystation's internal administrative records, filed under the supply contractor's management. Guild channels don't reach those files. The supply contractor's registration is filed with the guild — the registered contact office has a name attached.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -243,7 +243,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION: THE UNINSPECTED EXIT
   {
-    label: "Follow the uninspected exit route from the loading dock — determine where crates that use it are going.",
+    label: "Some crates leave through a route that bypasses the guild's outgoing inspection entirely. That gap didn't happen by accident.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -287,7 +287,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.jorin_records_secured = true;
         addJournal('consequence', 'Jorin\'s six-month chemical analysis secured offsite — compound discrepancy data preserved outside guild administration', `craftspire-records-secure-${G.dayCount}`);
       } else {
-        G.lastResult = `The guild's outgoing review desk sits at the main exit — a table with a stamps tray and a clerk who checks outgoing documentation against a manifest checklist. Jorin's analysis sheets are the right format for guild records; the problem is that anyone who reads them will recognize what they are. Getting them past that desk means either a carrier the desk knows and doesn't inspect closely, or a document format that passes a visual check without inviting a second look. Neither option is available right now.`;
+        G.lastResult = `The guild's outgoing review desk sits at the main exit — a table with a stamps tray and a clerk who checks outgoing documentation against a manifest checklist. Jorin's analysis sheets are the right format for guild records; the problem is that anyone who reads them will recognize what they are. Getting them past that desk means either a carrier the desk knows and doesn't inspect closely, or a document format that passes a visual check without inviting a second look. Jorin's assistant Lev makes a regular run to the materials depot — he carries guild documentation without going through the review desk.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -295,7 +295,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "Ask around the guild district for rumors about what's changed in the production environment recently.",
+    label: "Something changed in this district recently. The workers know it. They just haven't said it in front of the wrong person yet.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     fn: function() {
@@ -318,7 +318,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. INVESTIGATION: THE OTHER AFFECTED GUILDS
   {
-    label: "Contact guild masters at other Craftspire workshops — determine if the chemical input modification affects multiple production lines.",
+    label: "Jorin isn't the only master on this supply chain. The other workshops are receiving from the same source.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -332,7 +332,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_multi_workshop_extraction = true;
         addJournal('Multi-workshop extraction: three workshops affected simultaneously — accumulation volume dramatically larger than single-source estimate', 'evidence', `craftspire-multi-workshop-${G.dayCount}`);
       } else {
-        G.lastResult = `Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data — inputs, concentrations, batch records — is registered guild information. Sharing it with someone outside their specific registration requires either a formal authorization or a personal reason to trust. One master points at Jorin's workshop across the district and says nothing else. Jorin's name opens this door. Without his endorsement, both masters go back to their benches and the conversation ends.`;
+        G.lastResult = `Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data — inputs, concentrations, batch records — is registered guild information. Sharing it with someone outside their specific registration requires either a formal authorization or a personal reason to trust. One master points at Jorin's workshop across the district and says nothing else. His endorsement is what opens this door. Without it, both masters go back to their benches.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -340,7 +340,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SOCIAL: THE ASSISTANT WHO NOTICED
   {
-    label: "Speak to Jorin's youngest workshop assistant — ask what they've seen that Jorin might have missed.",
+    label: "Jorin tracks the numbers. His assistant tracks the deliveries. They're watching different parts of the same problem.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 64,
     fn: function() {
@@ -354,7 +354,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_lev_assistant = true;
         addJournal('contact', 'Assistant Lev: parallel delivery cart identified — different vehicle, same supplier name, only runs on extraction days', `craftspire-lev-${G.dayCount}`);
       } else {
-        G.lastResult = `Lev is at the far end of the workshop sorting incoming sample containers when you approach. He listens to the first question, then looks toward the main bench where Jorin works. "I don't talk about what goes on in here without Jorin knowing about it." He turns back to the containers. The workshop smells of flux and ground mineral, and the hiss of the cooling rack fills the silence. He's not hostile. He's careful. That caution was probably taught to him here.`;
+        G.lastResult = `Lev is at the far end of the workshop sorting incoming sample containers when you approach. He listens to the first question, then looks toward the main bench where Jorin works. "I don't talk about what goes on in here without Jorin knowing about it." He turns back to the containers. The workshop smells of flux and ground mineral, and the hiss of the cooling rack fills the silence. He's not hostile. He's careful. Jorin's endorsement changes that calculation — Lev watches the deliveries that Jorin doesn't see.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -377,7 +377,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INVESTIGATION: ACCUMULATION VOLUME ESTIMATE
   {
-    label: "Work with Jorin to calculate the total compound accumulated over six months across all affected workshops.",
+    label: "Six months of extraction from three workshops. The accumulated volume needs a number behind it.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -422,7 +422,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. PERSONAL ARC: TRAVEL DECISION
   {
-    label: "Decide whether to go to Shelkopolis with Jorin's evidence or continue gathering more data at Craftspire.",
+    label: "The accumulation is ongoing. Every day here is a day the supply chain runs. This doesn't wait forever.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -439,7 +439,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "Jorin mentions someone visited the workshop six weeks ago claiming to be a quality standards auditor — their questions weren't about quality standards.",
+    label: "Six weeks before you arrived, someone else came here asking about the compound. Their questions already had the answers built in.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -541,7 +541,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.craftspire_archive_code = true;
         addJournal('Guild restricted archive: 9 documents sealed under unidentified authority code — code absent from administrative directory', 'evidence', `craftspire-archive-${G.dayCount}`);
       } else {
-        G.lastResult = `The index is available at the reading desk — a clerk slides it across without being asked, which means this request happens often enough to be routine. The entries are legible but the sealing authority citations use abbreviations. The reference glossary for those abbreviations is itself in the restricted section. The index is technically public. What it describes is not.`;
+        G.lastResult = `The index is available at the reading desk — a clerk slides it across without being asked, which means this request happens often enough to be routine. The entries are legible but the sealing authority citations use abbreviations. The reference glossary for those abbreviations is itself in the restricted section. The sealing authority code appears nine times. That code must appear somewhere in the guild's external registration records, which are public by charter.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

@@ -9,7 +9,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: VELKA IRONSPIKE
   {
-    label: "Find Velka Ironspike — the mine overseer who has been operating this quarry for twenty years and has started keeping a private operations log.",
+    label: "A mine overseer has been here twenty years. She's been keeping a private operations log for fourteen months. The official record is wrong on purpose.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -32,7 +32,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: THE EASTERN FACE EXTRACTION
   {
-    label: "Access Velka's personal operations log — read what the eastern face extraction is producing that doesn't appear in official output reports.",
+    label: "The eastern face produces something that gets classified as disposal. The disposal schedule doesn't match the shipping calendar.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -49,7 +49,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_eastern_face_evidence = true;
         addJournal('Eastern face: secondary mineral layer logged as "disposal" but actually collected separately on off-schedule — primary extraction disguised as waste', 'evidence', `ironhold-eastern-face-${G.dayCount}`);
       } else {
-        G.lastResult = `The eastern face is visible from the main equipment road — same stone, same cut lines, indistinguishable from the standard face at this distance. The access path branches behind the shed line without markings. The official production reports show geological waste volumes in the expected range for this deposit type. Those numbers only look wrong when compared against an independent count — which Velka has, and which you don't yet have access to. The reports are a closed door that doesn't announce itself as one.`;
+        G.lastResult = `The eastern face is visible from the main equipment road — same stone, same cut lines, indistinguishable from the standard face at this distance. The access path branches behind the shed line without markings. The official production reports show geological waste volumes in the expected range for this deposit type. Those numbers only look wrong when compared against an independent count — which Velka has. She takes her break at the end-of-shift wind-down, when the face goes quiet and the supervisors move to the equipment shed.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -57,7 +57,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: DARIAN'S OPERATIONS SCHEDULE
   {
-    label: "Obtain Darian's operations schedule — compare the eastern face activity against the official production calendar.",
+    label: "The extraction runs on days the official calendar leaves blank. Someone read the inspection timetable before building it.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -75,7 +75,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_darian_schedule = true;
         addJournal('Darian schedule: eastern face extraction on off-calendar days matching courier windows — timed to avoid quarry inspection', 'evidence', `ironhold-schedule-${G.dayCount}`);
       } else {
-        G.lastResult = `The management shed door is closed and stays closed during active shift hours — a standard practice at production sites to keep the work floor's dust out of the paperwork. Through the window, the schedule board is visible but not readable from this angle. The window for getting inside is narrow: either a shift change when the supervisors move to the equipment sheds for the daily count, or an introduction through someone with standing access. Neither of those options is available right now.`;
+        G.lastResult = `The management shed door is closed and stays closed during active shift hours — a standard practice at production sites to keep the work floor's dust out of the paperwork. Through the window, the schedule board is visible but not readable from this angle. The window for getting inside is narrow: either a shift change when the supervisors move to the equipment sheds for the daily count, or an introduction through someone with standing access. Velka has standing access to the management shed — she's been signing off production reports there for twenty years.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -83,7 +83,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE SECONDARY MINERAL
   {
-    label: "Identify the secondary mineral being extracted from the eastern face — determine what it is and what it's used for.",
+    label: "The official sheet calls it geological waste. The color banding is wrong for waste. Something specific is in that discard pile.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -109,7 +109,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 5. ARCHETYPE-GATED: READING THE QUARRY
   {
-    label: "Walk the quarry complex at peak production — read what the workforce and operations tell you.",
+    label: "The quarry runs at peak production and the workforce knows what it's doing. So does everyone watching it.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -133,7 +133,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: IRON COMPACT MINING AUTHORITY
   {
-    label: "Report the off-schedule extraction to the Iron Compact's mining authority representative stationed at Ironhold.",
+    label: "The Iron Compact's mining authority has a representative here. This needs to go somewhere with enforcement standing.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -149,7 +149,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.iron_compact += 1;
         addJournal('faction', 'Iron Compact authority Kess: off-calendar extraction is financial violation, reactive precursor elevates category — Compact investigation opened', `ironhold-iron-${G.dayCount}`);
       } else {
-        G.lastResult = `Kess is at the assay station with a tally register open and gives you two minutes before her next run. The description of schedule discrepancies doesn't move her expression. "I need the production calendar laid against the operations board entries — show me the specific dates where they diverge." She taps her register with one finger. Without documentation, informal description sits as hearsay in the Compact's process and goes nowhere. She returns to her tally and doesn't look up again.`;
+        G.lastResult = `Kess is at the assay station with a tally register open and gives you two minutes before her next run. The description of schedule discrepancies doesn't move her expression. "I need the production calendar laid against the operations board entries — show me the specific dates where they diverge." She taps her register with one finger. Without documentation, informal description sits as hearsay in the Compact's process and goes nowhere. Velka's log has fourteen months of eastern face dates laid against the official production calendar. That's the document Kess needs.`;
         if (!G.flags) G.flags = {};
         G.flags.located_iron_compact_ironhold = true;
       }
@@ -159,7 +159,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: DARIAN'S BACKGROUND
   {
-    label: "Research Darian's background and how he came to be the Ironhold operations lead.",
+    label: "Darian arrived as operations lead eighteen months ago. His predecessor is still at Ironhold, doing different work.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -173,7 +173,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.researched_darian = true;
         addJournal('Darian: appointed from external ownership 18 months ago, prior work in reactive compound processing — recruited specifically for secondary mineral management', 'evidence', `ironhold-darian-background-${G.dayCount}`);
       } else {
-        G.lastResult = `Darian's employment record is held in the quarry's administrative files inside the management building — a closed cabinet accessible only to site administration or through a formal Compact audit request. The Compact's public registry shows Ironhold's license structure and ownership filings, not individual personnel histories. Whatever his background includes before this posting, the public-facing record shows only his current title and appointment date. What he's put on the board is all that's visible from here.`;
+        G.lastResult = `Darian's employment record is held in the quarry's administrative files inside the management building — a closed cabinet accessible only to site administration or through a formal Compact audit request. The Compact's public registry shows Ironhold's license structure and ownership filings, not individual personnel histories. The appointment date is visible in the public record: eighteen months ago. The same month the eastern face reached the secondary mineral layer. The timing is the information.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -181,7 +181,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: VELKA'S DILEMMA
   {
-    label: "Velka asks whether she should confront Darian directly or continue documenting quietly — she's been watching for fourteen months.",
+    label: "Velka has been doing the quiet version for fourteen months. She needs to know if that's still the right call.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -199,7 +199,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 9. INVESTIGATION: THE CONTAINER DESTINATION
   {
-    label: "Track the unmarked containers leaving the eastern face — determine where they're being shipped.",
+    label: "Unmarked containers leave the eastern face on days the official calendar shows no shipments. They go somewhere.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -244,7 +244,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION: QUARRY OWNERSHIP STRUCTURE
   {
-    label: "Map Ironhold's ownership structure — who has authority over the quarry above the operations management level.",
+    label: "Darian reports to management. Management reports to someone. The ownership structure above them doesn't appear in any public filing.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -262,7 +262,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_ironhold_ownership = true;
         addJournal('Ironhold ownership: controlling interest held by same northern consortium as Unity Square entity — multi-locality control pattern confirmed', 'evidence', `ironhold-ownership-${G.dayCount}`);
       } else {
-        G.lastResult = `The Compact's registry is accessible at the assay station during business hours — a bound volume for current operating licenses, an indexed ledger for affiliate filings going back five years. The surface layer is clear: Ironhold's license sits under the Compact's quarrying affiliate. Below that, the affiliate structure runs through multiple registration layers, each requiring a cross-reference to a separate filing volume. The station's daily access window closes at the fourth bell. Reaching the controlling interest at the end of the chain takes a dedicated session, not an afternoon.`;
+        G.lastResult = `The Compact's registry is accessible at the assay station during business hours — a bound volume for current operating licenses, an indexed ledger for affiliate filings going back five years. The surface layer is clear: Ironhold's license sits under the Compact's quarrying affiliate. Below that, the affiliate structure runs through multiple registration layers, each requiring a cross-reference to a separate filing volume. Kess the Compact authority representative has cross-reference access to the full affiliate structure. The documentation session runs through her.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -270,7 +270,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL ARC: VELKA'S LOG OFFSITE
   {
-    label: "Secure a copy of Velka's fourteen-month operations log for preservation outside Ironhold's administrative reach.",
+    label: "Velka's fourteen-month log is the only accurate record of what the eastern face has produced. It can't stay here.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -292,7 +292,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "Listen to quarry workers at the end-of-shift gathering — what are they saying about changes at the eastern face?",
+    label: "The end-of-shift gathering is when the face goes quiet and the supervisors move to the equipment shed. That's when workers talk.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     fn: function() {
@@ -315,7 +315,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SOCIAL: THE RETURNING EASTERN FACE WORKER
   {
-    label: "Speak to a worker who has been on the eastern face rotation and is willing to describe the conditions.",
+    label: "One of the eastern face crew has been on that rotation long enough to know what the official sheet isn't recording.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -329,7 +329,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_worge_worker = true;
         addJournal('contact', 'Eastern face worker Worge: unnamed material quota tracked against specific target, heavy protective gear, no questions permitted', `ironhold-worge-${G.dayCount}`);
       } else {
-        G.lastResult = `The worker you approach checks your face twice before answering. Eastern face rotation workers signed a supplementary contract clause — she won't say what it covers, but the way she steps back and looks toward the equipment shed tells you it includes conversations with outsiders. She walks back to the face without another word. The clause is in effect.`;
+        G.lastResult = `The worker you approach checks your face twice before answering. Eastern face rotation workers signed a supplementary contract clause — she won't say what it covers, but the way she steps back and looks toward the equipment shed tells you it includes conversations with outsiders. She walks back to the face without another word. Velka placed three of those workers on their first rotation herself. They trust her in a way they won't trust a visitor.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -337,7 +337,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 15. INVESTIGATION: THE QUOTA TARGET
   {
-    label: "Estimate the eastern face extraction quota — determine how close to completion the operation is.",
+    label: "Velka's fourteen-month log has enough volume data to calculate how far along the operation is. The number matters.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -359,7 +359,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
           G.lastResult = `The stratum depth is in Velka's personal notation — she mapped it herself over fourteen months without the quarry's sanction or assistance. Without that map, the mineral layer could be ten meters deep or a hundred; the exposed face gives no reliable indication. The extraction rate per shift is a fixed number. But rate without total volume is meaningless for estimating completion. The calculation requires Velka's depth data, and accessing it means working through her rather than around her.`;
         }
       } else {
-        G.lastResult = `From the main terrace, the eastern face reads as a standard exposure — cut lines, pale stone, drainage channels that haven't been maintained. Whether the secondary mineral stratum runs three meters deep or thirty is not visible from here. Velka has been mapping it in her personal log for over a year, depth notation in quarry-standard measurement. Without her cooperation and access to that log, the completion timeline is guesswork built on an unknown floor.`;
+        G.lastResult = `From the main terrace, the eastern face reads as a standard exposure — cut lines, pale stone, drainage channels that haven't been maintained. Whether the secondary mineral stratum runs three meters deep or thirty is not visible from here. Velka has been mapping it in her personal log for over a year, depth notation in quarry-standard measurement. She takes her break at the end-of-shift wind-down. That's the window.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -367,7 +367,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 16. ATMOSPHERE: VELKA'S TWENTY YEARS
   {
-    label: "Ask Velka what she would have done if this had happened in her first year here rather than after twenty.",
+    label: "Velka has twenty years at this face. The question isn't what she knows — it's what twenty years costs a person to keep quiet.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 48,
     fn: function() {
@@ -382,7 +382,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INVESTIGATION: CONNECTING IRONHOLD TO SHELKOPOLIS
   {
-    label: "Map how the eastern face extraction operation connects to the larger investigation centered on Shelkopolis.",
+    label: "The same mineral class appearing at Craftspire and here means both operations are moving toward the same point. That point isn't Ironhold.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -400,7 +400,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.mapped_ironhold_shelkopolis_connection = true;
         addJournal('Ironhold + Craftspire materials converge toward Shelkopolis outer district — dome-level atmospheric application endpoint', 'evidence', `ironhold-connection-${G.dayCount}`);
       } else {
-        G.lastResult = `The container route ends at Whitebridge and the trail goes cold. What's in hand: two origin points, a transfer crossing, and a northbound road that runs toward the Shelkopolis outer district. What's missing: the final leg's documentation. Mapping it requires port records, district freight manifests, or an outer district registry that covers inbound industrial supply — none of which are held at Ironhold. The routing logic points toward a destination. The documentation to name that destination lives elsewhere.`;
+        G.lastResult = `The container route ends at Whitebridge and the trail goes cold. What's in hand: two origin points, a transfer crossing, and a northbound road that runs toward the Shelkopolis outer district. What's missing: the final leg's documentation. Mapping it requires port records, district freight manifests, or an outer district registry that covers inbound industrial supply — none of which are held at Ironhold. The charter mark on the containers was partially visible. That mark is registered with the Compact.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -423,7 +423,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: TIMELINE URGENCY
   {
-    label: "Assess the full timeline: if the eastern face operation completes in 4-6 weeks, what happens to the accumulated material afterward?",
+    label: "The extraction is 4-6 weeks from completion. What the accumulated material does after collection is the question no one has answered yet.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -445,7 +445,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "Velka Ironspike says someone visited the quarry four months ago — a geological assessor whose questions weren't about geology.",
+    label: "Four months ago a geological assessor came through. His questions weren't about geology. Velka noticed.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
