@@ -3,6 +3,9 @@
  * Per-file content review report generator.
  * Usage: node tests/content/review-content.js <content-filename>
  * Output: docs/reviews/<filename>-review.md
+ *
+ * Baseline (2026-04-24, 45 files): 0 FAIL, 291 WARN
+ * All warnings are A2 short-result advisories (content debt, not blockers).
  */
 
 const fs   = require('fs');
