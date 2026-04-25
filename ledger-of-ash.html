@@ -3096,12 +3096,18 @@ const ARCHETYPE_TRAIT_POOLS = {
     {id:'tro_exit',      name:'Quick Exit',          type:'active', traitType:'active', activeSkillType:'utility', desc:'Disengage without rolling if you are currently undetected.', levelMin:4, skill:'finesse', bonus:1, utilityResult:'You are gone before anyone marks the space you occupied.'},
     {id:'tro_read',      name:'Read the Room',       type:'investigation',desc:'On entering any location, automatically identify the two most significant threats and the fastest exit route.', levelMin:3},
     {id:'tro_opportunist',name:'Opportunist',        type:'passive',      desc:'+2 attack when a distraction was created this round.', levelMin:6},
+    { id:'stealth_mastery', name:'Stealth Mastery', traitType:'passive',
+      desc:'Concealment is second nature. Finesse rolls for avoiding detection gain +2.',
+      bonusSkill:'finesse', bonus:2, minLevel:2 },
   ],
   assassin:  [
     {id:'ta_mark',       name:'Marked Target',       type:'passive',      desc:'+1 to all rolls against a target you\'ve observed for one full round.', levelMin:2},
     {id:'ta_vanish',     name:'Vanish',              type:'active', traitType:'active', activeSkillType:'combative', desc:'After any kill, become hidden without a roll.', levelMin:5, skill:'finesse', bonus:2, successEffect:'You step into shadow. The body is the only evidence you were here.', failEffect:'The exit is partially seen. You are hidden, but not clean.', critEffect:'Perfect vanish — your position is entirely unknown. Next attack gains advantage.'},
     {id:'ta_cold',       name:'Cold Approach',       type:'investigation',desc:'+1 Finesse when moving through a hostile area undetected. If you succeed, you also learn one fact about who controls that space.', levelMin:3},
     {id:'ta_precision',  name:'Precision',           type:'passive',      desc:'Critical threshold reduced by 1 (crits on 19–20).', levelMin:7},
+    { id:'stealth_mastery', name:'Stealth Mastery', traitType:'passive',
+      desc:'Concealment is second nature. Finesse rolls for avoiding detection gain +2.',
+      bonusSkill:'finesse', bonus:2, minLevel:2 },
   ],
   wizard:    [
     {id:'twz_focus',     name:'Arcane Focus',        type:'passive',      desc:'+1 Wits on all knowledge and arcane checks.', levelMin:2},
@@ -11268,8 +11274,11 @@ function checkLevelUp() {
     _awaitingLevelUp = true;
     G.xp -= needed;
     G.level++;
-    G.maxHp = Math.floor(G.maxHp * 1.1);
-    G.hp = Math.min(G.maxHp, G.hp + 2);
+    var vigorBonus = Math.floor(((G.skills && G.skills.vigor) || 0) / 2);
+    var archetypeHpBonus = (G.archetype && G.archetype.family === 'Support') ? 3 : 0;
+    var hpGain = 4 + vigorBonus + archetypeHpBonus;
+    G.maxHp = (G.maxHp || 20) + hpGain;
+    G.hp = Math.min((G.hp || G.maxHp), G.maxHp);
     checkStageAdvance();
     updateHUD();
     showLevelUpScreen();
@@ -11620,7 +11629,7 @@ function showLevelUpScreen() {
   addNarration('', '<em class="level-up-msg">&#x2014; LEVEL ' + G.level + ' REACHED &#x2014;</em><br><span style="color:var(--gold-dim);font-size:13px">' + getRenownedTitle() + ' &middot; ' + (G.stageLabel||G.stage) + '</span>');
 
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
-  const totalStatPicks = G.level <= 10 ? 1 : 3;
+  var totalStatPicks = getLevelUpSkillCount();
   let remainingPicks = totalStatPicks;
   const chosenStats = [];
 
@@ -11660,8 +11669,11 @@ function showLevelUpScreen() {
 
   function renderTraitStep(chosenStat) {
     const archId = G.archetype ? G.archetype.id : '_default';
-    const pool = (ARCHETYPE_TRAIT_POOLS[archId] || ARCHETYPE_TRAIT_POOLS._default)
-      .filter(t => t.levelMin <= G.level && !(G.unlockedTraits || []).includes(t.id));
+    var pool = (ARCHETYPE_TRAIT_POOLS[archId] || ARCHETYPE_TRAIT_POOLS._default)
+      .filter(t => (!t.levelMin || t.levelMin <= G.level) && !(G.unlockedTraits || []).includes(t.id));
+    pool = pool.filter(function(t) {
+      return !t.minLevel || (G.level || 1) >= t.minLevel;
+    });
     const options = pool.length > 0 ? pool.slice(0, 4)
       : ARCHETYPE_TRAIT_POOLS._default.filter(t => !(G.unlockedTraits||[]).includes(t.id)).slice(0, 4);
 
@@ -11772,10 +11784,10 @@ function applyPassiveAbility(ab) {
 }
 
 function getLevelUpSkillCount() {
-  if (G.level <= 2) return 2;
-  if (G.level <= 5) return 3;
-  if (G.level <= 10) return 4;
-  return 5;
+  var lvl = G.level || 1;
+  if (lvl >= 10) return 3;
+  if (lvl >= 5) return 2;
+  return 1;
 }
 
 // ── STAGE 2 ───────────────────────────────────────────────
