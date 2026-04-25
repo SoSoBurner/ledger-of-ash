@@ -19,7 +19,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Letha Dawnsilk has the reports stacked on the left side of her desk — a six-month column of paper, organized by date. She doesn't offer you a seat. "I've been sending pressure anomaly readings to central coordination for six months. Three months ago they stopped acknowledging receipt. Two months ago I was told the measurements were under review and not to share them externally." She taps the stack. She never stopped writing the reports. "If they won't use them, at least they exist."  `;
+        G.lastResult = `Letha Dawnsilk has the reports stacked on the left side of her desk — a six-month column of paper, organized by date. She doesn't offer you a seat. She checks the window before she answers. Not the street outside — the reflection in the glass. "I've been sending pressure anomaly readings to central coordination for six months. Three months ago they stopped acknowledging receipt. Two months ago I was told the measurements were under review and not to share them externally." She taps the stack. She never stopped writing the reports. "If they won't use them, at least they exist."  `;
         G.flags.met_letha_dawnsilk = true;
         addJournal('contact', 'Commander Letha Dawnsilk met: 6 months of suppressed pressure anomaly reports, still maintaining records despite official silence', `plumes-letha-${G.dayCount}`);
       } else {
@@ -194,7 +194,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'Letha escalation decision');
       if (!G.flags) G.flags = {};
 
-      G.lastResult = `"If I go through official channels and they're compromised, I'm just feeding information to the people suppressing it," Letha says. "If I go around them, I'm potentially violating my chain of command in a way that would give them grounds to dismiss my reports as unauthorized." She has six months of valid, documented data about an atmospheric event that's affecting people's ability to live in the affected zone. And she's been structurally blocked from sharing it. She's asking how to move without losing the authority that makes her reports credible.`;
+      G.lastResult = `"If I go through official channels and they're compromised, I'm just feeding information to the people suppressing it," Letha says. She checks the window before she continues — not the street outside, the reflection in the glass. "If I go around them, I'm potentially violating my chain of command in a way that would give them grounds to dismiss my reports as unauthorized." She has six months of valid, documented data about an atmospheric event that's affecting people's ability to live in the affected zone. And she's been structurally blocked from sharing it. She's asking how to move without losing the authority that makes her reports credible.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Letha Dawnsilk';
       addJournal('consequence', 'Letha Dawnsilk escalation decision: official channels compromised, unofficial channels risk authority — structural trap', `plumes-letha-decision-${G.dayCount}`);
@@ -408,7 +408,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(48, 'learning Letha\'s research focus');
 
-      G.lastResult = `Letha has three volumes of atmospheric chemistry texts she's been reading since the gradient appeared. "I'm an operations commander, not a chemist," she says. "But if my reports are going to be taken seriously, I need to understand what I'm measuring well enough to defend the data." She's been educating herself specifically so she can argue for her own observations. The suppression has turned a frontier commander into a self-taught atmospheric scientist. The work she's doing is beyond her job description and she knows it. "Someone needs to understand this," she says simply.`;
+      G.lastResult = `Letha has three volumes of atmospheric chemistry texts she's been reading since the gradient appeared. She checks the window before she answers — not the street outside, the reflection in the glass. "I'm an operations commander, not a chemist," she says. "But if my reports are going to be taken seriously, I need to understand what I'm measuring well enough to defend the data." She's been educating herself specifically so she can argue for her own observations. The suppression has turned a frontier commander into a self-taught atmospheric scientist. The work she's doing is beyond her job description and she knows it. "Someone needs to understand this," she says simply.`;
       addJournal('Letha self-educating in atmospheric chemistry to defend suppressed data — command competence in response to institutional suppression', 'discovery', `plumes-letha-books-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }

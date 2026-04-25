@@ -35,8 +35,8 @@ var STAGE2_CLIMAX = (function() {
     var r = _roll('persuasion', 14);
     if (r.success) {
       var orvethOpener = (G.renown || 0) >= 10
-        ? 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk. "I had heard your name before you were shown in. That is unusual for someone at your stage of things." She gives you her full attention.'
-        : 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk, then gives you her full attention.';
+        ? 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk. "I had heard your name before you were shown in. That is unusual for someone at your stage of things." She gives you her full attention. She straightens the document she set at the corner — squaring it precisely, though it was already square.'
+        : 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk, then gives you her full attention. She straightens the document she set there — squaring it precisely, though it was already square.';
       G.lastResult = orvethOpener + ' She listens without speaking. When you finish, she says: "You have been thorough. Perhaps too thorough. We will be watching." She rises to indicate the meeting is over. You are not detained. The door closes behind you with the quiet click of something not quite resolved.';
       G.flags.stage2_climax_negotiated = true;
       if (r.isCrit) { G.lastResult += ' At the door, she stops you: "If you find what I think you will find — bring it to me first. Before anyone else." She does not wait for an answer.'; G.flags.stage2_climax_inquisitor_contact = true; }
@@ -80,7 +80,7 @@ var STAGE2_CLIMAX = (function() {
   // Phase 2 — The Revelation
   function phase2() {
     
-    G.lastResult = 'The archivist who has been feeding you fragments in silence finds you that night. His name is Seld — junior Collegium staff, access to the deep filing rooms. He is not calm. "They know I\'ve been talking. Whatever I haven\'t told you yet, I\'m telling you now." What he says changes the shape of what you\'ve been looking at. The records are not a log of crimes. They are a record of suppressed names — people the Collegium removed from official history. Someone inside has been protecting those names. Someone else has been selling them.';
+    G.lastResult = 'The archivist who has been feeding you fragments in silence finds you that night. His name is Seld — junior Collegium staff, access to the deep filing rooms. He is not calm. "They know I\'ve been talking. Whatever I haven\'t told you yet, I\'m telling you now." He counts on his fingers as he speaks — a small movement, thumb to each fingertip, as though tallying what has been said against what hasn\'t. What he says changes the shape of what you\'ve been looking at. The records are not a log of crimes. They are a record of suppressed names — people the Collegium removed from official history. Someone inside has been protecting those names. Someone else has been selling them.';
     G.recentOutcomeType = 'discovery';
     G.investigationProgress = Math.max(G.investigationProgress || 0, 10);
     G.flags.stage2_revelation_received = true;
@@ -132,7 +132,7 @@ var STAGE2_CLIMAX = (function() {
   function phase3_align() {
     
     G.flags.stage2_climax_resolution = 'align';
-    G.lastResult = 'Orveth receives the document without comment. She reads it standing, at her window, with the street noise below and her back to the room. After a long moment she turns: "The names in this record are under Collegium protection. What remains of it." She sets the document face-down on the desk. "Someone inside has been selling that protection. That is where your next thread leads." She is not your ally. She has her own reasons, and they are not yours. But they point the same direction. That is enough.';
+    G.lastResult = 'Orveth receives the document without comment. She reads it standing, at her window, with the street noise below and her back to the room. She does not turn until she has decided what her face will show when she does. After a long moment she turns: "The names in this record are under Collegium protection. What remains of it." She sets the document face-down on the desk. "Someone inside has been selling that protection. That is where your next thread leads." She is not your ally. She has her own reasons, and they are not yours. But they point the same direction. That is enough.';
     G.recentOutcomeType = 'success';
     G.flags.stage2_climax_inquisitor_contact = true;
     window.addWorldNotice('An uneasy alignment with the Oversight Collegium. Watch your back.');
