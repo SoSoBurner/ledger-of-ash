@@ -5,6 +5,7 @@
 var DC_PELL_EXPOSE = 14;
 var DC_PELL_NEGOTIATE = 14;
 var DC_PELL_DISAPPEAR = 13;
+var DC_PELL_EXPOSE_BOLD = 15;
 
 var STAGE2_BOSS_NPC_MINIBOSS = 'customs_senior_auditor_dravn_pell';
 
@@ -149,7 +150,7 @@ function _pell_phase2() {
 // Resolution A — Expose the irregular assignment → triggers alarm, Dravn exits, Shadowhands rearguard
 function _pell_resolve_expose() {
   var roll = rollD20('lore');
-  var dc = 15;
+  var dc = DC_PELL_EXPOSE_BOLD;
   if (roll.total >= dc) {
     // Player lands the discrepancy. Dravn doesn't argue — he activates suppression protocol and exits.
     G.lastResult = 'The date discrepancy lands clean. His hands stop on the folder — not a flinch, a recognition. He lays his pen flat, nib toward him, the small reset he performs before every sentence that matters. Then: "This is classified suppression protocol — standard procedure." He pulls a cord beside the wall-mounted lamp bracket. His voice does not change. He is through the rear access door before the room responds. The door closes without force. The corridor fills in from the sides.';
