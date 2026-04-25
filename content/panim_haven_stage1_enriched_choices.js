@@ -67,7 +67,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Shrine master alerted to ledger inquiry attempt', 'complication', `panim_haven-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Partial access: Thenim supervises and selects which volumes you can handle. Pages have been removed and replaced — the binding thread is new at the spine on several sections, the fiber texture different from surrounding pages. Recent entries carry a handwriting pattern that diverges from the historical hand in the same volume. Someone with regular archive access has been editing the record from inside.`;
+        G.lastResult = `Partial access: Thenim supervises and selects which volumes you can handle. Pages have been removed and replaced — the binding thread is new at the spine on several sections, the fiber texture different from surrounding pages. Recent entries carry a handwriting pattern that diverges from the historical hand in the same volume. Someone with regular archive access has been editing the record from inside. The craft analysis of fiber composition would confirm whether the replacement pages were made from the same stock — there is still the matter of matching the thread gauge.`;
         addJournal('Ledger records show evidence of careful alteration', 'evidence', `panim_haven-ledger-altered-${G.dayCount}`);
       } else {
         G.lastResult = `Thenim recites the authorization requirement without inflection — written permission, ritual authority signature, forty-eight hour processing window. The salt-air coming through the high louvers shifts the candle flame on his desk; he doesn't glance at it. He's given this answer so many times that nothing about it costs him anything. The cabinet stays locked. The rope-and-peg latch hasn't moved since you sat down, and it won't. Nothing about his posture suggests the conversation is still open.`;
@@ -312,7 +312,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The recent copies differ from the oldest texts in ways that don't track with natural scribal drift — the changes cluster in the invocation and protective components, not in the opening or closing forms. Deliberate edits that weren't flagged as edits. The revised elements affect what the blessing is structurally asking for. Someone made changes and kept the record clean.`;
         addJournal('Lore research noted formula revision patterns', 'evidence', `panim_haven-lore-revision-${G.dayCount}`);
       } else {
-        G.lastResult = `The formula language is dense and the archaic constructions make direct comparison slow. Something in the protective invocation section reads differently between the old hand and the current copy, but pinning down whether the difference is scribal variation or deliberate revision requires more time than the reading session allows.`;
+        G.lastResult = `The formula language is dense and the archaic constructions make direct comparison slow. Something in the protective invocation section reads differently between the old hand and the current copy, but pinning down whether the difference is scribal variation or deliberate revision requires more time than the reading session allows. Tazren kept a copy of the pre-reform doctrine text — his version would serve as a clean reference baseline.`;
         addJournal('Formula analysis inconclusive', 'evidence', `panim_haven-lore-unclear-${G.dayCount}`);
       }
 
@@ -348,7 +348,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Tracing the doctrine from primary texts to recent commentary shows a gradual shift in the interpretation layer. The primary texts haven't changed. The weight placed on specific passages has. Recent commentary emphasizes the hierarchy of needs in a way the original texts don't support. The doctrinal foundation is being used to justify outcomes the doctrine itself doesn't mandate.`;
         addJournal('Lore research confirmed doctrine interpretation shift', 'evidence', `panim_haven-lore-shift-${G.dayCount}`);
       } else {
-        G.lastResult = `The theological texts are dense and the interpretive tradition is layered enough that distinguishing deliberate corruption from philosophical evolution requires a reference point you don't yet have. The shift is visible. Whether it was imposed or emerged is still open. That distinction matters for what it means to act on it.`;
+        G.lastResult = `The theological texts are dense and the interpretive tradition is layered enough that distinguishing deliberate corruption from philosophical evolution requires a reference point you don't yet have. The shift is visible. Whether it was imposed or emerged is still open. That distinction matters for what it means to act on it. The name keeps appearing in unrelated offices — the doctrine commentary and the sealed courier guidance arrive through the same shrine messenger channel.`;
         addJournal('Doctrine interpretation analysis inconclusive', 'evidence', `panim_haven-lore-unclear-${G.dayCount}`);
       }
 
@@ -456,7 +456,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The messenger routes don't align with official shrine business destinations. Main roads are consistently avoided in favor of secondary paths between the waystations. The avoidance is practiced, not incidental — same paths, same timings, across different messengers. Whatever is being moved through these routes is being moved carefully.`;
         addJournal('Survival analysis noted unusual messenger route patterns', 'evidence', `panim_haven-survival-pattern-${G.dayCount}`);
       } else {
-        G.lastResult = `The messengers move without pattern observable from a single position — route variation, timing variation, delivery window spread across the full day. Tracking them would require more positions than you can hold simultaneously, or a longer sustained observation period than today's window allows.`;
+        G.lastResult = `The messengers move without pattern observable from a single position — route variation, timing variation, delivery window spread across the full day. Tracking them would require more positions than you can hold simultaneously, or a longer sustained observation period than today's window allows. The waystation network the messengers use is a fixed structure — the back rooms are accessible through the maintenance path the route workers use.`;
         addJournal('Messenger route surveillance inconclusive', 'evidence', `panim_haven-survival-unclear-${G.dayCount}`);
       }
 
@@ -645,6 +645,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Forty-three cases closed in seventy-two hours with no transcripts, no outcomes, no parties named.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
+    failResult: 'This path is closed here, but the cluster of fast closures is documentable by timing pattern alone — the harbor logs showing Bureau-escorted vessel departures during those same windows are publicly filed.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'reading Bureau case register');
@@ -716,6 +717,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The Collegium received a formal complaint fourteen weeks ago. The review panel hasn't convened.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: 'This path is closed here, but Callow made plain that a formal written complaint — specific, signed — would be received and filed without the standing requirement.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Oversight Collegium contact');
@@ -756,6 +758,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The retired Bureau head lives two streets from the Bureau. His name was deliberately removed from every current record.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: 'This path is closed here, but someone from the Bureau era who can introduce you as trustworthy is the specific key Tazren\'s neighbors named — the archive clerk who still dusts the plaque knows which names survived the revision.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'finding Tazren');
@@ -778,6 +781,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "A case was closed yesterday under the ghost code. The complainant hasn't left yet. The window is narrow.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
+    failResult: 'This path is closed here, but the Bureau closure process moved faster than expected — the forged release-of-claim signature is still something the harbor master may have a copy of if the property transfer required a maritime stamp.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing recent ghost case complainant');

@@ -33,7 +33,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Grain Measurer now protective of quota procedures', 'complication', `harvest-quotas-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Svala says measurement has been complicated lately. "Family expectations vary." They leave it there and return attention to the scale mechanism, making a small adjustment that didn't need making. The answer sits between them and the scale — close enough to the truth to confirm the question, too guarded to name anything specific. Their hands stay busy. Whatever they know, they've decided this morning isn't when they say it.`;
+        G.lastResult = `Svala says measurement has been complicated lately. "Family expectations vary." They leave it there and return attention to the scale mechanism, making a small adjustment that didn't need making. The answer sits between them and the scale — close enough to the truth to confirm the question, too guarded to name anything specific. Their hands stay busy. Whatever they know, they've decided this morning isn't when they say it. The record keeper Farlan operates a different kind of access — there is still the matter of the delivery figures.`;
         addJournal('Grain Measurer confirmed inconsistent quota measurements', 'evidence', `harvest-quotas-pressure-${G.dayCount}`);
       }
 
@@ -356,7 +356,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The roster shows movement — names gone, names added. The exits are documented under administrative categories that don't invite follow-up questions. The entries are recent and all share a similar profile. The composition has shifted, but whether deliberately requires checking what those categories actually mean in practice.`;
         addJournal('Farming family composition changes confirmed', 'evidence', `harvest-network-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `The roster alone doesn't carry enough context. Names crossed out and names added — the record shows exits and entries without explaining either. Who left and why requires speaking to the families themselves, and the families who are gone aren't easy to locate through the commune's current records. The addresses column for departed members reads "removed from registry" in the same hand. The trail ends where someone decided it should.`;
+        G.lastResult = `The roster alone doesn't carry enough context. Names crossed out and names added — the record shows exits and entries without explaining either. Who left and why requires speaking to the families themselves, and the families who are gone aren't easy to locate through the commune's current records. The addresses column for departed members reads "removed from registry" in the same hand. The trail ends where someone decided it should. The Iron Compact liaison tracks incoming cargo — she may hold destination records the commune's roster does not.`;
         addJournal('Family displacement analysis incomplete', 'evidence', `harvest-network-partial-${G.dayCount}`);
       }
 
@@ -425,7 +425,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two families have moved from the roster margins to governance positions in under two years. Their ascent shows up in the appointment records as a sequence of ratified nominations. What the record doesn't show is who proposed them — that would be in the closed session minutes, which aren't accessible here.`;
         addJournal('Family authority advancement changes confirmed', 'evidence', `harvest-power-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `The governance record shows the current power arrangement but not how it got there. Internal patron-family politics don't surface in the official appointment logs — those decisions happen in rooms before they're committed to paper, and what's recorded is the outcome, not the process that produced it. The appointments look unanimous. The record of who proposed them isn't here. That would be in closed session minutes, and closed session minutes require authorization to open.`;
+        G.lastResult = `The governance record shows the current power arrangement but not how it got there. Internal patron-family politics don't surface in the official appointment logs — those decisions happen in rooms before they're committed to paper, and what's recorded is the outcome, not the process that produced it. The appointments look unanimous. The record of who proposed them isn't here. That would be in closed session minutes, and closed session minutes require authorization to open. The thread points the same direction it has been pointing — the closed session chair who ratified those appointments was replaced the following month.`;
         addJournal('Family power tracking incomplete', 'evidence', `harvest-power-partial-${G.dayCount}`);
       }
 
@@ -705,6 +705,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Examine the Northern Provision Compact's routing records — check for grain shipments that don't match Harvest Circle's logged output.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
+    failResult: 'This path is closed here, but the charter-marked container bearing the northern merchant consortium stamp may be reachable through the outbound staging area directly.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'analyzing routing number anomalies');
@@ -776,6 +777,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Speak to the Iron Compact's Provision Compact liaison stationed at Harvest Circle's distribution center.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: 'This path is closed here, but documented evidence of a compliance issue affecting Iron Compact interests — the routing number anomaly — would open a different conversation with the liaison.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Iron Compact contact');
@@ -839,6 +841,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Find a worker who has been at Harvest Circle long enough to remember the pre-quota-change era — speak to them about what changed.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: 'This path is closed here, but the long-tenure workers remember what the central scale showed before the section leads took over — a second visit once trust has accumulated may open it.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'interviewing long-tenure worker');

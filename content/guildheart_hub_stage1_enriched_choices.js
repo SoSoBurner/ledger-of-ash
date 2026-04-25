@@ -33,7 +33,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Arbitrator now protective of guild confidentiality', 'complication', `guildheart-arbitrator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." A pause. "Not every merchant reads the terms they file under." He answers the question you asked. He doesn't answer the question you meant. Behind him, the shelf of closed dispute folios sits in chronological order — and three of the spines in the last row are new.`;
+        G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." A pause. "Not every merchant reads the terms they file under." He answers the question you asked. He doesn't answer the question you meant. Behind him, the shelf of closed dispute folios sits in chronological order — and three of the spines in the last row are new. The new spines and the coordinating directive share a reference window worth checking.`;
         addJournal('Arbitrator confirmed disputed resolution outcomes', 'evidence', `guildheart-arbitrator-pressure-${G.dayCount}`);
       }
 
@@ -170,7 +170,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Guild arbitrator alerted to financial records inquiry', 'complication', `guildheart-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. "Entries get corrected," he says. "Forms go missing. It happens." He doesn't look at the entries while he says it. One correction mark covers a name — not a figure, a name. Another name has been struck through. This one more recently.`;
+        G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. "Entries get corrected," he says. "Forms go missing. It happens." He doesn't look at the entries while he says it. One correction mark covers a name — not a figure, a name. Another name has been struck through. This one more recently. The struck name and the external coordination line item share the same date column.`;
         addJournal('Guild ledger: another name struck through, this one more recently', 'evidence', `guildheart-ledger-altered-${G.dayCount}`);
       } else {
         G.lastResult = `Toren's hand stays on the ledger binding, index finger through the cord loop that keeps the cover closed when unattended. The financial office smells of iron-gall ink and the beeswax coating on the ledger's leather. "Primary financial records — Leadership-Restricted, Category One." He writes something in a side log without looking at what he's writing. "Authorization request takes eight to twelve working days. I can give you the form." He offers the form without standing up, sliding it across the desk with the same hand that held the binding a moment before.`;
@@ -313,7 +313,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Guild leadership alerted to hierarchy analysis inquiry', 'complication', `guildheart-structure-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The hierarchy board on the east wall of the main hall shows recent additions — two new titles with no corresponding department descriptions. Three prior positions have been relabeled. The relabeling is administrative language: different weight, same function implied. The change happened in the past two months. No announcement is posted.`;
+        G.lastResult = `The hierarchy board on the east wall of the main hall shows recent additions — two new titles with no corresponding department descriptions. Three prior positions have been relabeled. The relabeling is administrative language: different weight, same function implied. The change happened in the past two months. No announcement is posted. The endorsing registrar whose signature appears on the new appointments is the same thread worth pulling.`;
         addJournal('Guild hierarchy modifications confirmed', 'evidence', `guildheart-structure-modified-${G.dayCount}`);
       }
 
@@ -346,7 +346,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Guild commercial operations alerted to network analysis', 'complication', `guildheart-network-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The posted trader board shows gaps — spaces where names were removed without replacement text. Four previously prominent traders are absent. Three new names appear near the top of a category they have no prior history in. The board is organized by registration date. The new entries have registration dates from the same two-week window.`;
+        G.lastResult = `The posted trader board shows gaps — spaces where names were removed without replacement text. Four previously prominent traders are absent. Three new names appear near the top of a category they have no prior history in. The board is organized by registration date. The new entries have registration dates from the same two-week window. The name keeps appearing in unrelated offices — the single endorsing registrar signature links both this board and the membership record.`;
         addJournal('Merchant network composition changes confirmed', 'evidence', `guildheart-network-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The active roster is behind the counter, not posted. The clerk confirms the count is current but won't allow direct comparison without authorization. "Membership records — Category Two, registered review only." The number she quotes for active traders doesn't match the number of marked stalls visible from the walkway.`;
@@ -451,7 +451,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Guild financial operations alerted to resource flow tracking', 'complication', `guildheart-resources-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The posted summary shows infrastructure maintenance costs lower than the previous year, despite two new annexe builds. The gap could be accounting lag — or a line moved to a different register. The numbers are consistent with the posted totals. They're not consistent with the physical building work visible from the yard.`;
+        G.lastResult = `The posted summary shows infrastructure maintenance costs lower than the previous year, despite two new annexe builds. The gap could be accounting lag — or a line moved to a different register. The numbers are consistent with the posted totals. They're not consistent with the physical building work visible from the yard. The subsidiary accounts Toren controls are the next place to look.`;
         addJournal('Resource redistribution modifications detected', 'evidence', `guildheart-resources-partial-${G.dayCount}`);
       }
 
@@ -746,7 +746,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_charter_discrepancy = true;
         addJournal('Charter discrepancy identified: arbitration authority reassigned to unnamed oversight body', 'evidence', `guildheart-charter-${G.dayCount}`);
       } else {
-        G.lastResult = `You find the relevant charter section. The paper is water-stained at the top, and the authority clause runs directly into the damaged margin. The structure of the document changed — the column layout is different from the current mandate — but the original language of the authority provisions is illegible where it matters most.`;
+        G.lastResult = `You find the relevant charter section. The paper is water-stained at the top, and the authority clause runs directly into the damaged margin. The structure of the document changed — the column layout is different from the current mandate — but the original language of the authority provisions is illegible where it matters most. The Collegium observer may hold a clean copy of the pre-Union text.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -774,7 +774,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       } else if (result.total >= 11) {
         G.lastResult = `The arbiter takes a seat at the back of a tavern on the east side and stays for twenty minutes. No drink ordered, no visible conversation. The seat faces the rear entrance. When he leaves, the tavern keeper wipes the table immediately — before other patrons have cleared nearby seats. The table wasn't empty long enough for a natural cleaning rotation.`;
       } else {
-        G.lastResult = `The lamp-lit streets of Guildheart thin out toward the residential quarter, and the arbiter walks them without glancing back. Steady pace, no detours, no secondary stops. The route cuts through the merchant square, past the east annexe gate, and straight to his posted residence. Either tonight wasn't the night, or the route is a clean one used specifically when surveillance is expected — a walk shaped for being observed without producing anything. The tail produced nothing. Nothing is its own kind of result, and the shape of this nothing is practiced. He's done this walk knowing it was watched before.`;
+        G.lastResult = `The lamp-lit streets of Guildheart thin out toward the residential quarter, and the arbiter walks them without glancing back. Steady pace, no detours, no secondary stops. The route cuts through the merchant square, past the east annexe gate, and straight to his posted residence. Either tonight wasn't the night, or the route is a clean one used specifically when surveillance is expected — a walk shaped for being observed without producing anything. The tail produced nothing. Nothing is its own kind of result, and the shape of this nothing is practiced. He's done this walk knowing it was watched before. The cartwright's workshop on the east side — where the courier stopped — is still worth examining in daylight.`;
         if (!G.worldClocks) G.worldClocks = {};
         // No penalty — stealth fails shouldn't always punish
       }
@@ -812,6 +812,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The Oversight Collegium has had an observer here for sixty-two days. That's a monitoring phase, not an investigation.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: 'This path is closed here, but the formal submission channel Trent described — written, signed, specific — is still open.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Oversight Collegium contact');
@@ -853,6 +854,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Everything that goes out of Guildheart gets logged at the guild desk. That's been mandatory for a year.",
     tags: ['PersonalArc', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: 'This path is closed here, but the wool merchant who makes the outlying settlement run three times a week may operate differently than the registry couriers.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'establishing courier drop');
@@ -875,6 +877,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Three factors pulled last month for the same violation. Two kept their licenses. One didn't.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
+    failResult: 'This path is closed here, but the empty stall space still carries Paerun\'s registration number — the hall records will show who filed the enforcement action.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'hearing displaced factor account');

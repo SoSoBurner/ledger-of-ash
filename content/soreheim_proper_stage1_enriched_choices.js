@@ -310,7 +310,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Labor administration alerted to workforce analysis inquiry', 'complication', `soreheim-workforce-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The common areas of the housing block tell a partial story: newer faces at the morning meal, older workers clustered at the far end of the benches, keeping to themselves. The shift composition has changed. The specific shape of the change — who was pulled, who was placed — stays inside the administration building.`;
+        G.lastResult = `The common areas of the housing block tell a partial story: newer faces at the morning meal, older workers clustered at the far end of the benches, keeping to themselves. The shift composition has changed. The specific shape of the change — who was pulled, who was placed — stays inside the administration building. There is still the matter of the displacement log — the handed notation and missing destinations may be readable through the record keeper Parol.`;
         addJournal('Workforce composition changes detected but incomplete data', 'evidence', `soreheim-workforce-partial-${G.dayCount}`);
       }
 
@@ -346,7 +346,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why. In the older set, entries run day by day through the full production season until the twenty-third of the second quarter month; they resume on the eighth of the third — fifteen days absent, no annotation marking the gap, no closing entry, no resumption note. The log continues after as though the fifteen days were not missing.`;
         addJournal('Quota system modifications confirmed', 'evidence', `soreheim-quota-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `The quota board outside the administration building shows this week's targets in fresh paint. The numbers are large. The methodology behind them lives inside the building, behind a desk with a stamp on it. The stamp belongs to someone who isn't available to speak with you today.`;
+        G.lastResult = `The quota board outside the administration building shows this week's targets in fresh paint. The numbers are large. The methodology behind them lives inside the building, behind a desk with a stamp on it. The stamp belongs to someone who isn't available to speak with you today. The junior clerk Davel works the evening shift alone — he files documents into a system whose dating key he doesn't hold, which means someone above him does.`;
         addJournal('Quota system mechanics inaccessible without management access', 'evidence', `soreheim-quota-blocked-${G.dayCount}`);
       }
 
@@ -379,7 +379,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Logistics coordinators alerted to supply chain inquiry', 'complication', `soreheim-supply-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Cart wheels cut ruts into the yard's packed stone at a pace that would match a festival week, except the yard is quiet. No hailing between drivers, no teamsters calling loads. The dispatch yard is busier than a city of this quota cycle should be. Outbound carts outnumber inbound by three to one. The routing stamps on the outbound manifests face inward, away from the gate — turned so that the destinations don't read from where someone passing would see them. The cart drivers don't stop to talk. They don't look at each other either.`;
+        G.lastResult = `Cart wheels cut ruts into the yard's packed stone at a pace that would match a festival week, except the yard is quiet. No hailing between drivers, no teamsters calling loads. The dispatch yard is busier than a city of this quota cycle should be. Outbound carts outnumber inbound by three to one. The routing stamps on the outbound manifests face inward, away from the gate — turned so that the destinations don't read from where someone passing would see them. The cart drivers don't stop to talk. They don't look at each other either. The Iron Compact routing marks on the secondary stamps in the outbound crates — three crates not on any manifest — point toward the same northern relay.`;
         addJournal('Supply chain anomalies detected but incompletely mapped', 'evidence', `soreheim-supply-partial-${G.dayCount}`);
       }
 
@@ -704,6 +704,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Three crates in the outbound row carry a secondary stamp not in the Soreheim registry. The crate numbers don't appear in the dispatch manifest on the wall.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: 'This path is closed here, but the Iron Compact arbiter Keln Vare holds office inside the shift administration building — the anomalous freight marks fall inside his stated area of oversight.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reading shipment routing evidence');
@@ -775,6 +776,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The youngest clerk is on the evening shift alone. He asked why they changed the dating system. Nobody told him.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: 'This path is closed here, but Davel is still at the evening shift tomorrow — bringing something that shows what the dating code maps to may give him a reason to talk.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'building low-pressure rapport');
@@ -797,6 +799,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The Iron Compact's regional arbiter has an office inside the shift administration building. That's an unusual location for a neutral party.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: 'This path is closed here, but Vare said even-numbered afternoons during shift administrator reviews — the office runs a posted schedule and the secretary records every name that waits.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making Iron Compact contact');
