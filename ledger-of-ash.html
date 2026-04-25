@@ -8876,26 +8876,44 @@ var _onboardingPage = 0;
 var _currentOnboardingPages = [];
 
 function _buildOnboardingPages() {
+  // Page 1: grant manifest item + quest (once)
+  if (G && !G.flags.manifest_received) {
+    G.flags.manifest_received = true;
+    if (!Array.isArray(G.inventory)) G.inventory = [];
+    G.inventory.push({
+      id: 'anomalous_manifest',
+      name: 'Unsigned Manifest',
+      readable: true,
+      readText: 'Four routing numbers. No corresponding cargo on record. The destination code belongs to a district decommissioned three years ago. Someone sent this to you specifically — there is no other way the number pattern makes sense.'
+    });
+    if (!G.questHints) G.questHints = {};
+    G.questHints['anomalous_manifest'] = 'The routing numbers exist. Find who assigned them.';
+    if (typeof addQuest === 'function') addQuest('The manifest has no matching shipment.');
+  }
   return [
     {
-      title: 'The Investigation',
-      body:  '<p>You are tracking something institutional. Names are missing. Routes don\'t add up. You don\'t have a case yet — you have a gap where one should be.</p>'
+      title: 'Before Dawn',
+      body:  '<p class="narrative-text">Before dawn, your lodgings are quiet. Cold water from the basin. The street below is empty — a cart somewhere, the sound of it. You are in Shelkopolis because someone sent you here, or because the work led here, or because you chose it. The reason matters less than the pattern you\'ve been following.</p>' +
+             '<p class="narrative-text">Before you leave, an envelope appears under the door. No seal. No name. Inside: a manifest for a shipment that doesn\'t exist. Four routing numbers. No corresponding cargo. No record of delivery. The destination code belongs to a district that was decommissioned three years ago.</p>' +
+             '<p class="narrative-text">Someone sent this to you specifically.</p>' +
+             '<p style="margin-top:1em; font-size:0.85em; color:var(--accent-gold);">An unsigned manifest has been added to your inventory.</p>'
     },
     {
       title: 'Making Choices',
-      body:  '<p>Every choice is tagged: <strong>Safe</strong> choices always succeed — modest return. <strong>Risky</strong> choices roll a d20 — meet the DC to succeed. <strong>Bold</strong> choices carry higher stakes and higher reward. Your skills shift the odds.</p>'
+      body:  '<p><strong>Every choice in this game involves a roll.</strong> Reading a public ledger is safe — DC 7, nearly certain to succeed. Confronting a warden directly is bold — DC 15, real chance of failure.</p>' +
+             '<p>Safe, risky, and bold choices are color-coded. Safe choices have a low chance of going wrong, but they can. When they do, the path redirects rather than ends — there is always a thread to pull.</p>' +
+             '<p>The roll happens whether you see it or not.</p>'
     },
     {
-      title: 'World Clocks',
-      body:  '<p>Attention accumulates as you work. <strong>Watchfulness</strong> marks how visible you\'ve become. Rivals move independently. The world advances whether you act or not.</p>'
-    },
-    {
-      title: 'Saving',
-      body:  '<p>Your progress is saved automatically after each choice. To return later: note your 4-character save code from the main screen. Load it on next visit.</p>'
+      title: 'Three Things to Watch',
+      body:  '<p><strong>Day</strong> — time passing. The rival tracking you advances as days accumulate.</p>' +
+             '<p><strong>Watchfulness</strong> — how closely the city\'s institutional eyes are on your movements. High watchfulness means harder checks and fewer clean exits.</p>' +
+             '<p><strong>Heat</strong> — your standing with each polity\'s enforcement body. Heat rises when you cause trouble in their jurisdiction. At heat 3, word has spread. At heat 5, encounters become mandatory. At heat 8, a warrant has been issued.</p>'
     },
     {
       title: 'How to Play',
-      body:  '<p>Move between localities to gather leads. Rest at camp to recover. Follow threads to advance your case. When enough evidence accumulates, the next stage opens.</p>'
+      body:  '<p>Move between localities to gather leads. Rest at camp to recover. Follow threads to advance your case. When enough evidence accumulates, the next stage opens.</p>' +
+             '<p>Your progress saves automatically after each choice.</p>'
     }
   ];
 }
