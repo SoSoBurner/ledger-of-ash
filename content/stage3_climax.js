@@ -157,7 +157,9 @@ window.STAGE3_CLIMAX = (function() {
     G.flags.stage3_climax_resolution = 'mediate';
     if (r.success) {
       if (usesOrveth) {
-        G.lastResult = 'Orveth receives the volume at a secondary location she nominates by message the same evening — a small charter filing room on the third floor of the Assessors\' Hall, after hours. She reads the index standing, without sitting. She does not look up until she finishes. "He built this outside authorized channels," she says. "That means it cannot be suppressed the same way the authorized records can." She sets the volume on the desk between you. "I need three days. Keep Voss outside Shelkopolis." She has already decided something. You were not consulted.';
+        // Acknowledge the Stage 2 inquisitor contact payoff
+        var contact_acknowledgment = 'Orveth sends word before the meeting — a single line through the Collegium channel, acknowledging what you both know she knows. It shifts the weight of what you are walking into.';
+        G.lastResult = contact_acknowledgment + ' Orveth receives the volume at a secondary location she nominates by message the same evening — a small charter filing room on the third floor of the Assessors\' Hall, after hours. She reads the index standing, without sitting. She does not look up until she finishes. "He built this outside authorized channels," she says. "That means it cannot be suppressed the same way the authorized records can." She sets the volume on the desk between you. "I need three days. Keep Voss outside Shelkopolis." She has already decided something. You were not consulted.';
         G.flags.stage3_orveth_holds_record = true;
         G.recentOutcomeType = 'success';
         if (typeof window.addWorldNotice === 'function') window.addWorldNotice('Orveth holds the accounting. Her reasons are still her own.');
