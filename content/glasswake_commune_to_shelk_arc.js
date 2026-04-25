@@ -55,7 +55,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       gainXp(70, 'circumventing consortium transit monitoring');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The commune's internal courier network reaches the first waystation through a path that does not cross the road authority checkpoint. Courier runs are logged by category — "internal correspondence delivery" — not by individual name. The consortium's monitoring contract specifies researcher transit departures. You are, for the record, a correspondence packet. You reach the waystation without appearing in any log that the consortium can pull.`;
         G.flags.glasswake_arc_bypass_monitoring = true;
@@ -101,7 +101,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       gainXp(75, 'tracing Winn\'s forwarded message south');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Winn's message went to the Shelkopolis Institute of Applied Atmospheric Sciences — the one body with jurisdictional authority to demand the suppressed study from the Glasswake committee under research transparency protocols. An Institute request cannot be ignored the way a private complaint can. But the process moves slowly: initial inquiry, committee response, formal review. Months, at minimum. The operation will conclude before the Institute's first formal filing reaches the Glasswake registry.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -165,7 +165,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       gainXp(80, 'finding contact to decode cipher and formalize shard data');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Oslet works in a back office of the Institute that is technically hers but not listed in the Institute's public directory. She decodes your cipher in under twenty minutes, using the methodology in Fen's appendix as a key. She reads the concentration figures twice, then sets the paper down carefully. "Winn described the method," she says. "I needed the numbers." She files the data formally into the Institute's independent review process — a submission that creates a permanent record she cannot be asked to withdraw. The study is now in official channels and in the network simultaneously.`;
         G.flags.met_oslet_institute = true;

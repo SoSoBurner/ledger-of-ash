@@ -17,7 +17,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_tazren_coilspire = true;
         G.investigationProgress++;
@@ -47,7 +47,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'tracing missing evidence transfers with Luneth Coilspire');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_luneth_coilspire = true;
         G.investigationProgress++;
@@ -75,7 +75,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'examining arcane material import classifications');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_khalis_coilspire = true;
         G.investigationProgress++;
@@ -104,7 +104,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'questioning Mirae Coilspire about Bureau personnel patterns');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
@@ -134,7 +134,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_sivren_coilspire = true;
         G.investigationProgress++;
@@ -164,7 +164,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.met_ravel_coilspire = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -186,7 +186,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Calibration Stone', 'The stone at the north corridor junction sits three finger-widths off its seat, rotated clockwise past its mount notch. The notch exists precisely to prevent this rotation. The ward it anchors covers the archive wing entrance — not suppressed, but redirected: pulses that should register on the Bureau\'s monitoring array are being shed sideways, absorbed into the wall cavity instead of logged. Someone repositioned this with the patience to understand what repositioning it would do.');
@@ -207,7 +207,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.flags.met_eris_coilspire = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -227,7 +227,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Mistaken for a Runner', 'The clerk — thin, ink smudge across her right cuff she has stopped trying to wipe off, tongue pressed into her cheek while she reads — pushes a sealed dispatch toward you without looking up. "For Magistratus review. Director\'s office, not Archive." The dispatch cover bears the override routing code Khalis flagged at the market counter. You carry it three paces before she notices the error and calls out — long enough to read the sender line and the route notation on the back. Same Collegium sub-registry Luneth mapped to the northern staging district. You hand it back. She does not meet your eyes when she takes it.');
@@ -246,7 +246,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Break Room Edge', 'The break room is narrow and over-lit, tea kettle on an iron ring, three investigators working through a tray of honey biscuits. The oldest of them — bald, habit of cracking the knuckle of his left forefinger once before he speaks — says the name "Tazren" through a mouthful of biscuit and stops himself. The other two go still. The rumor moving is this: Tazren\'s case is about to be reopened by someone, and whoever that someone is, they are not going to be allowed to reach the Director. The knuckle cracks again. "Ten days, tops." He sees you in the doorway and the conversation changes register without pausing.');
@@ -265,7 +265,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Shift-Change Gap', 'The archive wing gate closes for four minutes at shift change — procedure, not security. The outgoing warden hands her ring of keys to the incoming warden, both of them counting the ring aloud by touch. During the count, the access hallway is unattended. The first three stack aisles are visible from the gate. The third aisle holds the sealed-petition section; the cover boards of the top row show a consistent red Collegium stamp — except for three that do not. Those three carry a small geometric mark Mariel drew at the Dome Rest Inn. The count ends. You step back before either warden looks up.');
@@ -290,7 +290,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

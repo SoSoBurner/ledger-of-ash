@@ -17,7 +17,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.investigationProgress++;
@@ -48,7 +48,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(82, 'approaching Elior Sepulcher');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_elior_sepulcher = true;
         G.flags.stage2_faction_contact_made = true;
@@ -78,7 +78,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'tracking processional route changes');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -106,7 +106,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(78, 'accessing Saryna Sepulcher market report');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_saryna_sepulcher = true;
         G.investigationProgress++;
@@ -134,7 +134,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(80, 'gaining Velune Sepulcher trust');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_velune_sepulcher = true;
         G.investigationProgress++;
@@ -163,7 +163,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'questioning Ithren Sepulcher porter');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_ithren_sepulcher = true;
         G.investigationProgress++;
@@ -193,7 +193,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.factionHostility) G.factionHostility = {};
       if (!G.flags) G.flags = {};
       if (!G.rivalId) G.rivalId = 'archivist_veld';
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.flags.stage2_faction_contact_made = true;
@@ -222,7 +222,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(84, 'night access to district registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -251,7 +251,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'questioning Merev Sepulcher innkeeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_merev_sepulcher = true;
         G.investigationProgress++;
@@ -279,7 +279,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'mapping mediation backlog beneficiaries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -306,7 +306,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.elior_source_revealed = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -328,7 +328,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Threshold Marks', 'The building faces the street with blank shuttered windows and a door painted the standard memorial grey. The threshold is the tell. Three ward-marks are incised into the stone at foot level — old cuts, not recent. Two are standard Panim purification glyphs. The third is an accounting notation from a pre-reform ledger system discontinued eleven years ago: it denotes a storage site for valuables under active claim dispute. Someone retrofitted an administrative classification into a ritual inscription.');
@@ -349,7 +349,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Quiet Hands', 'You move through the offering queue without disrupting its rhythm — presenting correctly at each transition, keeping the submission posture that marks a petition rather than a purchase. The clerk two positions ahead does not register you as out of place. That invisibility is enough. From this angle the stall\'s secondary ledger is visible between transactions: its binding is a different color than the primary, and the hand entering figures into it is not Saryna\'s.');
@@ -368,7 +368,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress++;
         addNarration('Sanctuary Without Mourners', 'The rolls are posted on the outer wall of the mediation hall — a courtesy so families can find their registered dead. You read them from the bottom row, where the oldest untouched entries gather. Twenty-seven names across the last half year show no visitation mark, no amendment, no claim. A sanctuary entry protects a body from civil seizure while a family arranges rites. Twenty-seven active protections on bodies no one has come to mourn. The names themselves read wrong — too many from trade rosters, too few from the congregant rolls. Someone is using the sanctuary frame as a holding pattern.');
@@ -387,7 +387,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'Nemeia crew records');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_nemeia_sepulcher = true;
         G.investigationProgress++;
@@ -414,7 +414,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'tailing shrine visitor egress');
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -446,7 +446,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

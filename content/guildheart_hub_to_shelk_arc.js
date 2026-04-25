@@ -36,7 +36,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       gainXp(70, 'talking with Paerun Delst about complaint filing failures');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Paerun has a folder. Three months of deflections, each one documented: the Collegium told him it was a guild matter. The guild told him it was commercial arbitration. The commercial arbitration council told him it was a Collegium matter. Each venue named the next one. No venue accepted the complaint. "I stopped thinking it was incompetence after the second full rotation," he says. He hands you the folder. Whoever structured the off-channel arbiter operation understood that the jurisdictional gap between those three bodies would consume any complaint filed against it indefinitely.`;
         G.flags.met_paerun_delst = true;
@@ -102,7 +102,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       gainXp(75, 'noticing elevated guild memorial bell frequency');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Four deaths in six months among full-member charter holders — a rate that is five times the previous four-year average. The guild registry records the causes: two accidents, one illness, one entry marked "circumstances under review." The dates in the registry, set against the agreement timeline, produce a pattern: each death occurred within three weeks of that holder filing a formal objection to a northern bloc charter agreement. Co-option is the preferred mechanism. When that fails, the resolution is different.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -126,7 +126,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       gainXp(75, 'tracing charter renewal history');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Pre-Union charters renew on twenty-year cycles. This one was renewed nineteen months ago — an off-cycle renewal, which requires a filed justification. The renewing authority was a Collegium archive officer in Shelkopolis. The renewal application lists the charter's "coordinating member entities" as company names that appear in no current commercial register, trade registry, or guild index. The charter was renewed on behalf of entities that did not exist in any official record when the renewal was filed. The Collegium officer either did not check or chose not to.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -171,7 +171,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       gainXp(80, 'finding the Shelkopolis off-channel arbitration counterpart');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Fen Torr is retired from the registry office and keeps a private record of charter transactions that do not make it into the official log — a practice she began when she noticed the gaps herself. She examines the fragment without speaking for a moment. "Twelve amendments in two years," she says. "None of them recorded." She opens a ledger kept in a locked box under her workbench. Twelve filings, twelve new entities added to the charter's membership, all conducted through amendment procedure that bypassed the official record. The operation constructed its entire legal shell through documents that technically exist and officially do not.`;
         G.flags.met_fen_torr_registrar = true;

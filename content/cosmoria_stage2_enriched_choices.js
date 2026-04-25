@@ -17,7 +17,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_coralyn_tideglass = true;
         G.investigationProgress++;
@@ -47,7 +47,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'pressuring Harbor Captain Marrow Tideglass on sealed cargo waivers');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_marrow_tideglass = true;
         G.investigationProgress++;
@@ -76,7 +76,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'tracing sealed container distribution with market clerk Tavian Tideglass');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_tavian_tideglass = true;
         G.investigationProgress++;
@@ -104,7 +104,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'questioning innkeeper Selka Tideglass about shipping agent patterns');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_selka_tideglass = true;
         G.investigationProgress++;
@@ -133,7 +133,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_nerissa_tideglass = true;
         G.investigationProgress++;
@@ -165,7 +165,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.coralyn_reviewer_log_seen = true;
         G.investigationProgress++;
@@ -187,7 +187,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(30, 'examining the night airship loading quay for physical evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.flags.quay_markings_examined = true;
         G.investigationProgress++;
@@ -210,7 +210,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.flags.archive_form_navigated = true;
         G.investigationProgress++;
@@ -237,7 +237,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -263,7 +263,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'Cosmoria Collegium sealed filing');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 12) {
         G.flags.met_clerk_mevra = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -292,7 +292,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'Cosmoria Collegium archivist cadence');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 13) {
         G.flags.met_archivist_peldan = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -319,7 +319,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(36, 'watching the reading room patron pattern');
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.flags.cos_reading_room_patron_tracked = true;
         G.investigationProgress++;
@@ -340,7 +340,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(34, 'cross-checking shipwright apprentice rolls against commissions');
-      var roll = rollD20('craft', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.craft);
       if (roll.total >= 13) {
         G.flags.cos_shipwright_apprentice_found = true;
         G.investigationProgress++;
@@ -360,7 +360,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'reviewing Cosmoria tax hall quarterly revenue summary');
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 14) {
         G.flags.cos_tax_summary_reviewed = true;
         G.investigationProgress++;

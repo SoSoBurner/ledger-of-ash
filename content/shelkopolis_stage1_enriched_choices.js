@@ -21,7 +21,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'gathering intelligence from trusted source');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -55,7 +55,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering covert communication network');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit || (result.total >= 13 && !result.isFumble)) {
         G.lastResult = `Brother Aldwin folds his hands on the lectern before he speaks. Twice a week — Thursdays and Sundays after vespers — a veiled figure collects the letters. Northern trade-tongue. No names. The wax seals carry no house crest. He admits the letters began arriving the same month the evening blessings started requiring a second repetition to hold. "I told myself it was coincidence," he says. The wax smell still clings to the alcove where they're left. The letters reference consignment tallies that don't appear in any registered manifest. The routing numbers exist. The shipments do not.`;
@@ -88,7 +88,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading commercial disruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Sereth pours without being asked. "Verdant threadweave, twelve bolts — six weeks of work per commission." He spreads three order slips on the cutting table. All the same pattern. All paid in full. None collected. He taps the fish-salt smell of the harbor that comes through his open window. "The harbor's full of buyers who want this cloth and can't get it. Meanwhile I've been blocked from weaving it for anyone else for three months. Someone is commissioning work specifically so it cannot be commissioned by others."`;
@@ -120,7 +120,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering administrative concealment');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Thom pulls the ledger and keeps his voice barely above the scratch of quills elsewhere in the room. He runs his finger down the column and stops. Silkwood shipments from the northern territories — steady for four years, then gone. Not marked declined or delayed. The entries are simply absent, three weeks back, the ink around the gap undisturbed and clean. "Erasures leave a shadow," he says. "This leaves nothing. Whoever did this had the original, not a copy." He closes the book before anyone passes the door.`;
@@ -175,7 +175,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading spiritual corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Sister Velda glances toward the chapel door before she answers. The wax on the floor stones is fresh — they've been relaying the protection marks more often. "Forty percent more ritual repetition just to hold the same coverage." Her voice drops. "The formulas are unchanged. The faith is as strong as it's been. But something is pulling against the work from outside. We renew a ward at dawn, and by midday the edges are soft again." Her thumb finds the chalk edge of the ward mark in the alcove doorframe without her seeming to notice it. The candles behind her burn a quarter-inch faster than they should.`;
@@ -208,7 +208,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'deciphering economic pressure');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kaen steers you to the far end of the stall, away from the open row. "Three weeks. No northern silkwood. Not delayed — stopped." He keeps his voice below the market noise. "The shortfall is too clean. One supplier goes quiet, another follows the same week. That doesn't happen by weather or road. Someone with reach into the northern territories is holding the supply off Verdant Row deliberately." The fish-salt smell from the harbor district drifts through. "When the primary trade good dries up, the estates start owing favors to whoever still has it."`;
@@ -241,7 +241,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading enforcement reallocation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Thorne wraps both hands around his cup before he starts. "Orders shifted twice in two weeks. Ironspool district — we pull back at nightfall now. 'Resource optimization.' Nobody in the lower ranks believes that." He keeps his voice level, but his thumb taps the table once. "Temple district doubled. No declared threat. Someone above the garrison commander is repositioning us, and the commander is letting them." He drains the cup. He knows he's told you something that can't be untold, and he's not sure yet if that was a mistake.`;
@@ -274,7 +274,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering spiritual coercion');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Aldwin steps away from the nave before he answers. The wax-and-stone smell of the chapel is heavier here, away from the door. "The confessions are different. People are not confessing wrongs — they're confessing fear. Of being watched, of pressure they can't name, of expectations no one has spoken aloud." He does not look at the confession register when he says it, though it sits open beside him. "The faith hasn't weakened. But it's being pressed on from somewhere outside it, and what comes through the confession gate now is mostly people trying to understand why they're afraid."`;
@@ -309,7 +309,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'military structural analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The relocation pattern reads wrong the moment you walk the perimeter. Weapon stores pulled back from the trade-district wall — that wall is now soft. Reinforcement concentrated around the administrative quarter and registry buildings. No military logic justifies that exchange unless you're not trying to protect the city from outside. The garrison has been rearranged to control internal movement and leave specific districts undefended. Someone gave those orders, and the garrison followed them without apparent question.`;
@@ -342,7 +342,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'military logistics analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The quartermaster pours a second cup before he pulls the ledger. Weapons transfers — marked "training surplus" — routed to an unmarked Ironspool warehouse over six weeks. The numbers are wrong for any standard rotation; they're right for stocking a secondary armory. "I was told tactical security." He taps the column with one finger. "But the garrison commander didn't sign these. I don't know who did. I stopped asking." He closes the ledger and leaves his hand resting on the cover.`;
@@ -378,7 +378,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'arcane architecture analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The old trade-route wards are thin — not decayed, pulled. Someone drew the coverage deliberately inward. What replaced them clusters tight around the administrative quarter and garrison walls, but the geometry is wrong for defense. A ward built to keep threats out faces outward. These face inward. The entire lattice has been inverted: the new architecture constrains movement within Shelkopolis rather than guarding its perimeter. Whoever rebuilt this understood the original structure intimately enough to reverse it without collapsing it.`;
@@ -414,7 +414,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering ritual sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Sister Velda opens the ritual books with her palms flat on the cover first — a chapel habit, not a gesture toward you. The component measurements have been altered in fractions. Ingredient ratios shifted by amounts too small to trigger a visible failure, large enough to erode efficacy over months. The wax smell of the chapel is heavy in the small room. "I thought I was misreading them," she says quietly. Whoever made these changes understood the formulas well enough to know exactly how little to change.`;
@@ -450,7 +450,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'covert route mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Three Verdant Row passages that used to run clear are blocked — not collapsed, filled. Rubble placed with care, construction framing used as cover. New guard posts sit at the junction points that used to be blind, positioned obliquely so they're not obvious until you're already in the choke. Every old escape line through the central district now runs through a watched point. Someone mapped the city's unmonitored paths and closed them one by one. Moving quietly through Shelkopolis now means moving where you're meant to be seen.`;
@@ -483,7 +483,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'penetrating surveillance network');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Crow keeps walking while he talks — an old habit. "The network's still there. It just doesn't move the same topics anymore." He describes informants who spoke too freely about northern trade routes or garrison orders: gone for three or four days, back afterward with a new policy about what they discuss. No visible enforcement. No garrison involvement. "Someone else is doing it. Someone with reach and patience." He glances at the coal-smoke haze above the tannery district. "The city still talks. Just not about certain things."`;
@@ -519,7 +519,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'community analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The Amber Fountain used to host the ward councils — Marta still has the bench arrangement for it, shoved against the wall now. The market runs transaction to transaction without the sideways conversations that used to slow it down. Three families you watch in the square near the chapel split off before they would have before: a nod, a word, then separate directions. Nobody has forbidden gathering. Nobody needed to. The pressure is diffuse and sourceless, and the city has learned to avoid what it can't name.`;
@@ -552,7 +552,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping institutional distrust');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A wool merchant won't share a table with the silk broker he's traded alongside for eleven years — not a quarrel, a precaution. Two artisan families who split a kiln for a decade stopped sharing it in autumn; neither says why. The shrine no longer draws people who linger. The garrison and the civilian quarter nod and don't speak. The fractures are everywhere and nobody made a single dramatic move. Someone introduced just enough uncertainty — a rumor here, a consequence there — and let the city do the rest. Shelkopolis is breaking itself from the inside.`;
@@ -614,7 +614,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing institutional conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Garrison weapon transfer orders. Chapel ledger pages with component ratios altered by fractions. Trade registry entries that end and don't resume. Each document alone is explainable. Spread on the same surface in lamplight, with the tallow smell of the registry room around you, they are not. The same hand — or the same instruction — reached into three separate institutions in the same eight-week window. This is not institutional decay. Something directed this, and the direction came from outside the ordinary chain.`;
@@ -684,7 +684,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `In the chapel's letter alcove, tucked inside a consecration record no one would pull without cause, a single sheet of correspondence in northern trade tongue. It names no one in Shelkopolis by title, only by function — the garrison officer, the shrine keeper, the registry clerk. Orders, not requests. The sheet smells of the same wax on every sealed letter Marta flagged at the Amber Fountain. Shelkopolis isn't failing. It's being operated from somewhere north of its borders, and whoever is running it hasn't finished yet.`;
@@ -720,7 +720,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `Every supply disruption follows a sealed letter by two days. The gaps in the trade registry track the same Thursday-Sunday deposit schedule Brother Aldwin described. The chapel letter system isn't incidental to the conspiracy — it is the command channel. Someone reads those deposits and moves the supply lines accordingly.`;
         addJournal('Letters confirmed as operational directives — chapel is command channel', 'evidence', `shelk-crossref-${G.dayCount}`);
@@ -848,7 +848,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `The recipients map to the sealed letter network. The dates align with supply disruptions and garrison order changes. The chapel's blessing record — open to any petitioner, logged in plain ink — is an operational schedule. Recipients mark whom to contact; dates mark when to move. The wax-and-stone smell of the chapel is everywhere in this room, and the conspiracy has been using its most public document as a broadcast channel.`;
         addJournal('Chapel blessing records decoded as operational schedule cipher', 'discovery', `shelk-cipher-${G.dayCount}`);
@@ -869,7 +869,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(58, 'gathering night-watch intelligence');
       if (!G.flags) G.flags = {};
       G.flags.met_night_watch_commander = true;
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11 || result.isCrit) {
         G.lastResult = `The night-watch commander turns her signet ring halfway around her finger, stone-side-in, before she speaks — a habit from reporting to superiors, reversed now to address you. "I file reports. Some come back amended. I stopped asking why." Ironspool district, after midnight: unmarked carts, no manifest, no escort. "Authorized transports," she was told. She turns the ring back the other way. "I stopped following up." She hasn't stopped noticing. That's why she's telling you.`;
         addJournal('Night-watch confirms unauthorized Ironspool midnight transports', 'evidence', `shelk-nightwatch-${G.dayCount}`);
@@ -887,7 +887,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(62, 'checking botanical compound movement');
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11 || result.isCrit) {
         G.lastResult = `The herbalist pulls the order book without being asked — she's been waiting for someone to ask. Dried glasswake moss, eight months of northern orders, quantities that would supply the Academy for two years. "We assumed that's where it went." The tannery smell drifts in from the south end of the row. Glasswake is a resonance amplifier. The Academy hasn't placed any orders with Verdant Row this season.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -908,7 +908,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'monitoring surveillance response');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `Twice the deposits, same two-day window. Something changed — either the operation's timeline accelerated, or word of your questions reached whoever writes the orders. The wax seals on the alcove shelf have been replaced more recently than usual; the chapel stone still smells of fresh tallow from the relighting. The network is moving faster, and it knows this city better than you do.`;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;

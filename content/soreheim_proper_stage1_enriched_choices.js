@@ -21,7 +21,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading labor pressure patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -55,7 +55,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering quota manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Serin slides the ledger across the desk with two fingers, like she's handling something she doesn't want to hold. The targets listed are beyond what the quarry workforce could meet at full capacity under clean conditions. That's not the wrongness. The wrongness is in the correction column: when targets aren't met, the recorded shortfall is worse than the actual numbers. "They set the ceiling high," she whispers. "Then they raise the floor on failure. Both ends. The replacement paperwork practically writes itself."`;
@@ -91,7 +91,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading equipment sabotage patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Halden wipes his hands on his apron and doesn't lower his voice. "Ten years I've run this workshop. That pulley should take one day — parts are on the shelf. Now it takes three. Parts are on the shelf. I put in the repair order and it sits for two days before anyone approves it." He taps a clipboard hung on a nail. "A decade of records. Failure rate tripled in six weeks. Parts aren't missing. Authorization is slow. Someone upstream is sitting on the approvals."`;
@@ -123,7 +123,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering workplace endangerment');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Eldis pulls back his sleeve without being asked. The burn scar on his forearm is two weeks old, still pink at the edges. "Three accidents this month. One a season used to be the pattern. Maret lost two fingers on the press last week — quota speed, skipped the guard protocol. Shift coordinator told her: file a complaint with the external committee and she's replaced before the bandaging comes off." He looks at the scar. "Nobody's filing anything. That's the point."`;
@@ -159,7 +159,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading spiritual pressure patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kestra refills the oil lamp before answering. "Used to be harvest thanks. Travel blessings. New baby prayers." She replaces the lamp glass. "Now they come in after the shift bell and they kneel for a long time without saying anything. When they do speak it's — keep my position, keep my family housed. Two people last week prayed not to be replaced." She straightens the cloth on the offering ledge. "They whisper. Like a tally-marker might be listening."`;
@@ -192,7 +192,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'mapping labor displacement flows');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Meth checks the doorway before pulling his chair closer. "Placed forty workers into Soreheim in the last six weeks. All from outside — Sunspire Haven, the outlying camps. No prior Soreheim ties, no history here." He taps the ledger. "The outbound flow is the tell. Displaced workers go in three directions and none of them cluster. They're scattered — Sunspire, the northern routes, the agricultural circuits. Scattered workers don't organize. The new ones are grateful enough not to ask questions. Someone chose those ratios deliberately."`;
@@ -225,7 +225,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering documentation erasure');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Parol opens the cabinet without speaking and steps aside. Employment histories end mid-season, no termination notation. Three workers appear twice under different name spellings — same body measurements in the intake column, different names. Dates in at least six entries have been overwritten. "I got a directive three weeks ago," Parol says. "Don't flag erasure entries. Don't question alterations." He closes the cabinet. "These people are being removed from the record. Not from the city. From the record."`;
@@ -261,7 +261,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'reading craft standard erosion');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Aldren holds up a finished joint for you to look at. The fit is sloppy — visible gap, wrong angle. "That would have come back to me three months ago. Now it ships." He sets it down. "Forty years working stone. I filed a standards complaint in the fourth week of the new quota cycle. They moved me off master assignments. Kosta and Prell both tried to hold the tolerance line — gone the following shift. Replaced by workers who cut fast and don't know what they're cutting." He doesn't look at the joint again.`;
@@ -299,7 +299,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'workforce composition analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The intake logs span six weeks. Week one: twelve experienced quarry hands replaced by eight newer workers. Week three: the senior stonecutters' foremen bloc — four people — gone in three days. The new arrivals are younger, quieter in the common areas, and without existing ties to each other. The skill mix that let Soreheim run independently without outside direction has been excised position by position. Whatever comes next, this workforce won't organize to stop it — they don't know each other well enough.`;
@@ -332,7 +332,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing quota system architecture');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The baseline capacity figures are sourced from peak-condition records — best weeks, optimal weather, full crew, no equipment downtime. Those figures are what the targets are built on. Then the targets are raised five percent above that. The measurement methodology changed six weeks ago: safety stops now count against output. Equipment maintenance time counts against output. Quota compliance is the only path to 'passing.' Everything else is failure. A worker who stops to prevent an accident fails their quota. The architecture makes the compliant and the surviving mutually exclusive.`;
@@ -368,7 +368,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'supply chain flow analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Six weeks ago the inbound stone and timber materials switched from three rotating suppliers to one: a northern logistics house with no prior Soreheim record. Outbound finished goods have changed routing — no longer moving to the regional market circuit. The dispatch stamps show a single northern destination. Soreheim's quarry output is being funneled out through a single controlled point. The city's own repair and maintenance requisitions are backlogged — city needs deprioritized behind extraction quota. The production infrastructure is being pointed outward and emptied.`;
@@ -401,7 +401,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing authority restructuring');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The shift administrator Bresn still holds the title on the door plaque. He also still holds the morning briefing — stands at the head of the table, takes questions, distributes the day's targets. But every numbered directive on those targets carries a secondary header stamp from the northern coordination office. Bresn didn't write any of them. He reads them out. The people in that room know it. None of them say so in front of each other. The structure looks intact from outside. Inside, it runs on a different track.`;
@@ -437,7 +437,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'communication network analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A courier named Fess explains it without being asked twice. "Outbound labor petitions — delayed at the relay station. I've had three in the past month held for 'verification.' They come back stamped but not forwarded." He shows a receipt log. Incoming news from outside arrives in bundled summaries now, three days late, already edited — the originals don't make it to the posting board. Requests to the regional labor board are being intercepted before they leave Soreheim. The city is being kept talking to itself.`;
@@ -470,7 +470,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing suppression apparatus');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A pattern across four separate conversations: each person who raised a quota objection was reassigned within a week. Two who pushed on safety were moved to isolated single shifts with no coworkers. One who tried to circulate a petition had her housing reassignment request denied the next day — the only denial on record in two months. No one received a formal warning. The pressure came through ordinary administrative processes, timed precisely. The machinery of suppression wears the face of routine management.`;
@@ -506,7 +506,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'worker vulnerability mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Older workers: replaced first — they cost more per unit output. Workers with children in the city schools: their housing allocation is tied to their employment status, which means the children move if the parent is cut. Skilled workers whose training is Soreheim-specific: they can't leave without losing everything that makes them hireable. Young workers brought in from outside: no housing ties yet, nothing to protect, compliant from scarcity. Each category has been identified and its weakness applied with precision. This is not an economy under pressure. This is a pressure map that someone drew first.`;
@@ -542,7 +542,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'official narrative deconstruction');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The posted notices in the administration hall use three phrases, cycling: "regional efficiency correction," "strategic workforce alignment," "productivity enhancement program." Each sounds like a different thing. Laid in sequence, they describe the same process from three angles — enough variation to seem organic, consistent enough to hold the same shape. The phrases didn't originate here; the same language appears in a northern Iron Compact bulletin from eight weeks ago, word for word. The cover story was supplied along with the directives.`;
@@ -604,7 +604,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing quota system conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Three documents, laid side by side: the capacity survey from two years ago, the baseline figure used to set current quotas, and the actual shift output records from the past month. The capacity survey shows a sustainable maximum. The baseline used for quotas is thirty percent above it. The output records show the workforce hitting ninety-two percent of sustainable maximum every day — and failing quota every day. The math is not ambiguous. The target was designed to produce documented failure. Every dismissed worker has a clean paper justification that was written before they arrived.`;
@@ -674,7 +674,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of displacement');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The courier receipts are bundled behind the quota adjustment notices in the administration archive — tucked, not filed. Northern territories letterhead. The instructions name specific positions: the foreman, the quota clerk, the labor brokers. Names, not titles. Whoever wrote these knew the organizational chart before the restructuring started. The orders predate the first quota increase by three weeks. Soreheim wasn't reacting to a problem. Soreheim was the plan.`;
@@ -713,7 +713,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `Three crates in the outbound row carry a secondary stamp below the standard routing mark — smaller, different ink, not in the Soreheim mark registry. Iron Compact northern freight relay. The crate numbers don't appear in the dispatch manifest on the wall. They exist in the yard. They don't exist on paper. Someone is moving selected quarry output outside Soreheim's own allocation record.`;
         if (!G.flags) G.flags = {};
@@ -781,7 +781,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'building low-pressure rapport');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Davel talks to his food at first, not to you. He's nineteen and working the evening shift alone. Three weeks ago his supervisor told him to stop dating records by locality — use a new numerical code instead. "I asked what the code maps to. He said it's being unified across the network." Davel hasn't been told what network. The documents he's filed since then go into a system he has no key to read. Someone above his supervisor does.`;
         if (!G.flags) G.flags = {};
@@ -805,7 +805,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(72, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Keln Vare doesn't stand when you enter. He finishes writing a line in his ledger, then sets down the pen. "Regional efficiency correction," he says, before you've asked anything. He offers priority placement in a labor registry — generous enough that accepting it would mean something. You decline. He closes the ledger. "Then we're two parties observing the same process." The way he says it: he'll be here when you change your mind.`;
         if (!G.flags) G.flags = {};
@@ -846,7 +846,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'securing evidence cache');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Three locations, none adjacent. The quota records go into a shrine alcove behind the candle supply shelf — low traffic after midday. The displacement log rolls tight and slides inside a wall-mounted tool bracket in the coopering workshop, behind two mallets nobody has moved in weeks. The courier receipt copies go into a false-bottom crate on the bottom shelf of the same workshop. A search that finds one location stops there.`;
         G.flags.evidence_secured_soreheim = true;
@@ -872,7 +872,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `The outer frame of the letter isn't coded. It doesn't need to be — nobody was supposed to read it. "Stage two of the restructuring proceeds on schedule. Workforce resistance below threshold. Recommend advancing timeline for final extraction." The body is coded. The seal at the bottom is a crest you don't recognize: a coiled chain above a horizontal bar, no text underneath. This operation has stages. It has a final stage. Someone north of Soreheim is tracking its progress.`;
         if (!G.flags) G.flags = {};

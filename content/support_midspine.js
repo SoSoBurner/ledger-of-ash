@@ -26,7 +26,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.total >= target) {
@@ -65,7 +65,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.total >= 12) {
         G.lastResult = `You don't accept and you don't refuse. You come to the second meeting with a counter-proposal: affiliated in name, unaffiliated in method, no operational reporting requirements attached. The backers want the association on paper more than they want oversight. After an hour they agree. Archive access, witness protection capacity, legal consultation in three districts — these are now available to you. What you've traded is the posture of neutrality. Anyone who checks your affiliation record will see the connection. You no longer claim to stand outside the institutional landscape.`;

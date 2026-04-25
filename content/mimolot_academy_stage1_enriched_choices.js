@@ -21,7 +21,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'gathering research restriction intelligence');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -58,7 +58,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering research suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Dalmir pulls the study door half-closed before he speaks. Scholars working on regional corruption analysis have been reassigned — their projects reclassified as outside institutional scope. Those tracing economic power structures were told their work "does not align with current priorities." One colleague studying historical reform precedent now handles only provenance cataloging. "Nobody loses their post," Dalmir says. "They just stop being able to work. There's a difference between the two that the administration is careful to maintain."`;
@@ -94,7 +94,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'mapping knowledge restriction');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Sevik walks you to the boundary of the eastern stack and keeps his voice down. The sealed sections have expanded twice in the past year. Documents senior scholars accessed for decades moved into restricted storage without faculty review. "The classification is always 'institutional security' or 'sensitive material,'" he says, tracing a line on the shelf where materials used to be. "But read what's gone. Past administrative failures. Records of overreach. Every document that would tell you this institution made mistakes is now behind a door that only four people can open."`;
@@ -129,7 +129,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing historical record corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kensa lays two versions of the same document side by side — current and manuscript original — and points at the differences without speaking first. In the current version, an administrative overreach from forty years ago is described as a "procedural adjustment." The original calls it a sanction, names the officials, describes the harm. "The changes preserve surface consistency," she says. "A casual reader won't catch it. But the substance is gone." She's been documenting the alterations for four months. She has a list.`;
@@ -165,7 +165,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading enrollment manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Maris pulls the enrollment ledger and speaks with it open between you. Students from lower institutional standing are being routed toward service and cataloging tracks — the recommendation forms cite "aptitude alignment." Those who showed strong critical methodology in their early assessments are not receiving advanced placement in research programs. "They leave here thinking it was their choice," she says, running her finger along a column of notations. "The steering is in the guidance sessions. By the time a student knows their options, the options have already been shaped for them."`;
@@ -201,7 +201,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'uncovering danger justifications');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Vorin speaks toward the shelf rather than at you. He catalogs classifications for a living, and lately the categories have been expanding in one direction. Documentation of administrative failures: "dangerous to institutional stability." Records of overreach: "dangerous to public confidence." Precedent for reform: "dangerous to social order." He names each category like a man reciting a list that disturbs him. "Everything classified in the last eighteen months has one thing in common," he says. "It would be useful to someone challenging the current arrangement."`;
@@ -237,7 +237,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading collection bias');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Aldis spreads the acquisition ledgers across the table and shows you the line where things changed. For twenty years, the collection policy was comprehensive — anything relevant to the fields, regardless of its conclusions. Eighteen months ago, the acquisition pace dropped and the range narrowed. Works questioning power structures: no new purchases. Historical texts documenting institutional failure: "out of print, unavailable." Critical methodology texts: under review, acquisition pending indefinitely. "The collection looks the same to someone who hasn't used it long," Aldis says. "But the new arrivals only point one direction."`;
@@ -273,7 +273,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing truth verification corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The scribe who talks to you — Theron, not the senior one — keeps his voice below the ambient noise of the scriptorium floor. Three scribes have been reassigned in the past year. All three refused to approve documentation with discrepancies they had flagged. "We're told 'institutional needs sometimes require flexibility with detail,'" he says, and the phrase has the flatness of something repeated at him until he memorized it against his will. "We certify documents as accurate. We're now being asked to certify documents we know are not." His pen is still in his hand. He hasn't written anything in ten minutes.`;
@@ -311,7 +311,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'academic framework analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The change is in the footnotes. Interpretive criteria that governed evidence evaluation for sixty years have been quietly reclassified — the methodology that permitted critical analysis of institutional decisions is now listed as "insufficiently rigorous" in the current standards appendix. The burden of proof has been inverted: where authority once had to justify its decisions, the framework now requires challengers to disprove the decision at a standard that no available evidence can satisfy. The revision is dated fourteen months ago. It has a single signatory from the administrative council.`;
@@ -347,7 +347,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing arcane knowledge suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `In the restricted classification log, the pattern holds across magical research: the texts reclassified as dangerous in the past year are specifically those covering independent arcane operation — spells requiring no institutional channeling, theories that expand what a practitioner can do without Academy-authorized equipment or oversight. An arcanist you find in the corner of the lower study speaks without looking up from her work. "The restricted texts are the ones that would let you work without us. Someone noticed that."`;
@@ -383,7 +383,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'researcher surveillance mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The administrative access logs aren't locked — they're just stored in a section visitors rarely use. Working through three months of entries: scholars accessing materials on institutional history are flagged with a secondary notation. Those who request documents related to administrative decisions receive a follow-up review entry within twenty-four hours. One name appears in reassignment records six weeks after a cluster of flagged document requests. The monitoring doesn't announce itself. It just produces consequences, quietly, weeks later.`;
@@ -419,7 +419,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping intellectual autonomy erosion');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `An older scholar in the upper study speaks while keeping his eyes on his manuscript. "Twenty years ago, someone would defend a contested interpretation in the refectory and three colleagues would shout back at them before the soup went cold." He turns a page. "Now we publish peer-reviewed consensus and nobody disputes it in public." He's not describing a golden age — he's describing what went away. The scholars moving through the reading hall below don't look up when you pass. They've learned the shape of safe research and they work inside it.`;
@@ -455,7 +455,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'administrative hierarchy mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The formal charter lists the scholarly council as the governing body. Working through administrative decision records, a parallel structure emerges: research restriction decisions documented without scholarly council minutes, access changes implemented under administrative decree, personnel reassignments carrying signatures that don't belong to any faculty position in the register. There's an administrative layer that acts without faculty authorization and isn't accountable to the scholarly hierarchy. It appears to report somewhere else entirely.`;
@@ -491,7 +491,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering external institutional control');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The sealed communications register is accessible to someone who knows what they're looking for. Research restriction directives cross-referenced against the administrative chain: the orders don't originate inside Mimolot. They arrive through a sealed external correspondence channel and are implemented by internal administrators who treat them as binding. The senders carry no title that appears in the Academy's charter or in any regional authority directory. Someone outside this institution is directing its internal policies, and the administrators receiving those directives are not questioning the authority behind them.`;
@@ -553,7 +553,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing knowledge suppression conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The documents laid out together: restriction decrees, historical record alterations, verification compromises, enrollment guidance patterns, framework revisions. Each one can be argued as poor administration in isolation. Together they require a different explanation. The same type of document — institutional overreach — appears across every system at the same point in time, implemented through channels that bypass the faculty council. This isn't a series of failures. It's a series of deliberate acts that used the appearance of procedure to accomplish something procedure would not allow.`;
@@ -623,7 +623,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of knowledge suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The administrative vault holds sealed orders. House Shelk's mark is on the wax. The directives inside are specific: which subject areas to restrict, which historical materials to reclassify, which scholars' work to redirect. This is not general pressure applied from outside — these are operational instructions, delivered to specific administrators, specifying actions to take and timelines to follow. Mimolot Academy is being run by someone in Shelkopolis who has no title here and no public accountability here. The institution hasn't been dismantled. It's been repurposed from the inside.`;
@@ -659,7 +659,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'recognizing systematic knowledge capture pattern');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The pattern is specific: research suppression prevents new challenge. Historical revision eliminates precedent. Verification corruption makes false documents indistinguishable from genuine ones. Enrollment steering determines which minds are allowed to develop the capacity to notice any of this. These four systems together don't leave gaps. A scholar trained in the current curriculum, working from the current collection, verifying against the current records, using the current interpretive framework — that scholar cannot reach conclusions that challenge the current arrangement. The institution hasn't failed. It's been rebuilt to prevent failure of a different kind.`;
@@ -695,7 +695,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'achieving knowledge weaponization understanding');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Each thread connects to the others and all of them connect to the same external directing hand. Research restrictions that prevent new scholarship from challenging the arrangement. Historical revisions that remove evidence the arrangement ever failed before. Verification corruption that makes false documentation appear certified. Enrollment steering that limits which minds can develop the capacity to see any of this. Mimolot Academy is not being run as an institution of knowledge anymore. It's being run as a proof that the method works. Whoever is doing this plans to do it elsewhere.`;
@@ -733,7 +733,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The fragments are from a process chemistry text on atmospheric stabilization compounds. The redacted sections in the public catalogue correspond precisely to the passages that describe how the compound class interacts with dome filtration media — exactly the mechanism that would explain Aurora Crown's degradation pattern. The redaction wasn't broad. Someone pulled specific pages. They knew what Aurora Crown was experiencing and knew which pages would connect the compounds to it.`;
         if (!G.flags) G.flags = {};
@@ -761,7 +761,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `The off-catalogue section runs two decades deep. The most recent bundle, six months old, is a formal request from the Principality's administrative council to reclassify twenty-three research papers as restricted — reason given: "content requires administrative context before public dissemination." All twenty-three papers share three authors. All three of those faculty members are currently on indefinite academic leave. The papers, the leave, and the request share a date range of four weeks.`;
         if (!G.flags) G.flags = {};
@@ -812,7 +812,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Warden Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Brevard Ashe is at a corner desk with a volume of administrative law, and his posture when you approach is the posture of someone who anticipated a visitor. His presence here is "ongoing materials coordination." He's careful with each phrase, but he's clearly been watching the suppression unfold. "The Warden Order takes an institutional interest in conditions that affect scholarly access," he says — a sentence that points carefully away from its subject. Before you leave he writes a name on a scrap of paper: a scholar who departed the Academy last year, described only as "willing to discuss the prior academic climate." Not a recommendation. A door.`;
         if (!G.flags) G.flags = {};
@@ -853,7 +853,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting suppressed faculty member');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Doss left "voluntarily" eight months ago and is still here — her research materials are locked in storage under administrative hold, so she can't go anywhere useful. She opens the door without surprise, like she's been expecting someone eventually. "They didn't remove me. They made working impossible: no access to my own notes, no publication approvals, no assigned students." She has copies of the suppressed papers. She tells you this before you ask. She's been waiting for someone to come around who isn't from the administrative council, and she needs a few more minutes to determine if that's you.`;
         G.flags.met_doss_suppressed_scholar = true;
@@ -874,7 +874,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'speaking to surveilled student');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Tavin is a third-year materials student and he doesn't know he's been flagged. He's genuinely pleased to discuss it — he found an old edition at a used book stall outside the Academy walls and has been working through the differences. "Chapter twelve in the original describes a stabilization failure mode in detail. The current edition has two paragraphs where that chapter used to be." He's not alarmed by this. He thinks it's a fascinating editorial puzzle. He has no idea the auditors in this morning's lecture wrote his name down for asking about it.`;
         if (!G.flags) G.flags = {};

@@ -14,7 +14,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reviewing union freight charter exemptions');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_sable_ledgermere = true;
         G.investigationProgress++;
@@ -42,7 +42,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'questioning freight porter Luthen Ledgermere');
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_luthen_ledgermere = true;
         G.investigationProgress++;
@@ -68,7 +68,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining systematically zero-rated imports with Derris Ledgermere');
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_derris_ledgermere = true;
         G.investigationProgress++;
@@ -95,7 +95,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'questioning innkeeper Cala Ledgermere about trade arbiter guests');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cala_ledgermere = true;
         G.investigationProgress++;
@@ -123,7 +123,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'speaking with shrine attendant Nyra Ledgermere');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_nyra_ledgermere = true;
         G.investigationProgress++;
@@ -151,7 +151,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.met_selene_brokerwell = true;
         G.investigationProgress++;
@@ -177,7 +177,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.guildheart_bay7_examined = true;
         G.investigationProgress++;
@@ -202,7 +202,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration(
@@ -232,7 +232,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The Council clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -256,7 +256,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'Guildheart Collegium factor');
-      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 13) {
         G.flags.met_factor_toven = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -283,7 +283,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'Guildheart Collegium sealed order');
-      var result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/2));
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.lastResult = 'The document is heavier than standard transit paper — linen content, the kind used for long-archive filings. The seal is iron-grey wax with a quill impression, pressed at a slight angle as if stamped in haste. The routing stamp below it reads GUILDHEART TRANSIT HUB — RECEIVING, but the freight category line is blank. Not redacted. Blank, as if whoever typed the order did not know what category applied, or did not want one to. The order number is not sequential with the surrounding block.';
@@ -371,7 +371,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'examining courier dispatch wall for missing return logs');
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.flags.guild_courier_route_traced = true;
         G.investigationProgress++;
@@ -392,7 +392,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(36, 'examining canal weigh station duplicate ticket mechanism');
-      var roll = rollD20('craft', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.craft);
       if (roll.total >= 13) {
         G.flags.guild_weigh_station_traced = true;
         G.investigationProgress++;
@@ -412,7 +412,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(40, 'decoding unmarked waypoint symbol in Guildheart transit ledger');
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 14) {
         G.flags.guild_waypoint_symbol_decoded = true;
         G.investigationProgress++;

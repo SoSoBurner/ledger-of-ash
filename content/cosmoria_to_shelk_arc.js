@@ -55,7 +55,7 @@ const COSMORIA_TO_SHELK_ARC = [
       gainXp(70, 'traveling with Kavan toward Shelkopolis');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Kavan holds his hands apart to show container width, then height. "Merchant sailors load rough. These people were slow — two-person lifts, deliberate movements, no jarring." The handlers wore elbow-length gloves with wrist seals. He remembered because he had never seen that protocol used on freight he recognized as ordinary cargo. The dimensions he sketches match the three-to-five tonne weight class from Cadrin's Whitebridge bridge stress observations. The coastal and inland supply chains are handling identical containers.`;
         G.flags.kavan_traveling_south = true;
@@ -102,7 +102,7 @@ const COSMORIA_TO_SHELK_ARC = [
       gainXp(75, 'cross-referencing Cosmoria departures with Shelkopolis arrivals');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Each ghost vessel departure date from Cosmoria corresponds to an arrival at Shelkopolis's secondary freight terminal, logged under one of the same three manifest categories. The transit times match standard maritime speed along the coastal route. The cargo that left Cosmoria's harbor arrived at Shelkopolis's secondary terminal. The last arrival entry is dated nineteen days ago. The coastal delivery phase of this supply chain finished before you left Cosmoria.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -126,7 +126,7 @@ const COSMORIA_TO_SHELK_ARC = [
       gainXp(75, 'decoding tide marker notation');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The chalk notation is not harbor depth marking — the format is a compressed inland grid reference, updated weekly in fresh chalk over older marks. The coordinates resolve to a location in Shelkopolis's outer district. Someone at Cosmoria's harbor is still communicating position information to maritime contacts. The delivery phase may be complete but the operation has not withdrawn its presence from the harbor. Someone is still watching it and reporting south.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -154,7 +154,7 @@ const COSMORIA_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `The secondary freight terminal sits adjacent to the main port — a smaller, quieter building staffed by three full-time workers and a rotating duty officer. It handles non-commercial cargo: maintenance equipment, emergency provisions, inspection materials. Nothing here is supposed to be reviewed at the commercial tier. An underground freight channel runs from the terminal's loading bay four kilometres to the dome infrastructure's primary distribution hub. This is where the coastal supply chain hands off to the city's interior delivery system.`;
         G.flags.cosmoria_arc_terminal_surveyed = true;
@@ -177,7 +177,7 @@ const COSMORIA_TO_SHELK_ARC = [
       gainXp(80, 'connecting with maritime investigation network contact');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Aldeth from Shirshal arrived three days ahead of you and has already been working with a port authority archivist named Sevel who tracks manifest discrepancies as a private interest. They have a cross-reference built: secondary terminal arrivals against the three manifest categories, sorted by date. Sevel puts the total in front of you without preamble: forty-one arrivals over fourteen months. Forty-one containers moved from the secondary terminal into the underground channel. "We don't know what's at the channel's other end," he says. You do.`;
         G.flags.met_sevel_port = true;

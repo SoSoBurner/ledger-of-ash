@@ -21,7 +21,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading convoy diversion patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -55,7 +55,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering obligation weaponization');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Lysander chooses a corner of the market hall before he speaks. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means." He keeps his hands folded. "Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to.`;
@@ -91,7 +91,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading food distribution patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Mirrin stands beside the grain register with her arms crossed and speaks quietly and fast. "Access to the harvest now follows a list I don't write. Syndicate-aligned families get first access, quality grain, guaranteed portions. Families that have raised questions get what's left — lower-quality stores, shorter guarantees, smaller portions. I distribute what I'm told to distribute." She opens the register and closes it again without showing it. "The accounting makes it look like scarcity. It isn't scarcity."`;
@@ -123,7 +123,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering trade preference bias');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Keldan steps away from his stall and speaks with his back to the market lane. "Premium material access, extended payment terms, favorable contract timelines — all of it now runs through syndicate family connections. The quality of the work doesn't matter. I've seen good craft turned away and inferior work given prime contract terms because of whose family name it came from." He keeps his voice level. "The market hasn't been disrupted. It's been redesigned."  `;
@@ -159,7 +159,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading quota pressure patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Neria sits with her hands on the quota ledger and doesn't open it. "The targets for certain families have been set at levels they can't reach with the resources they're allocated. When they fail — and they fail — they lose standing, resource access, community position." She opens the ledger to a comparison page she's already marked. "Families with syndicate alignment get targets calculated to their actual capacity, sometimes lower. It isn't variance. It's engineering."`;
@@ -195,7 +195,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'tracing external communication');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Tholen glances at the yard before speaking. "Some convoys get separate instructions — not from yard management, from a different source entirely. Encrypted messages, private couriers, destinations updated at departure without explanation." He keeps his voice down. "I was told clearly not to ask about these runs. They go out, they come back, the manifests don't match what left." He pauses. "These aren't trade convoys. They're carrying something the manifests aren't naming."`;
@@ -228,7 +228,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering authority erosion');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Daven speaks without sitting down, hands behind his back. "Thirty years as an elder. My family brought decisions to me because I was the one who made them." He looks out toward the courtyard where two of his youngest grandchildren are working a job assignment he didn't authorize. "Syndicate directives arrive now with the weight of tradition. I'm told to implement them. When I've pushed back, I've been reminded that family standing depends on syndicate goodwill." He's steady, controlled, but the grief is in the word "reminded."  `;
@@ -264,7 +264,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering enforcement bias');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + (G.skills.insight || 0) / 2 + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Varen moves to the far end of the inspection table before speaking. "The quality standards exist. What I'm permitted to do with them depends on who I'm inspecting." He taps the enforcement log. "Syndicate-aligned stalls pass with deviations I'd shut down another trader for. Families that have raised objections at the council get intensive review — minor variance, goods removed, stall flagged." He holds the log shut. "I document what I'm told to enforce. I don't write the instructions."  `;
@@ -302,7 +302,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'family structure analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The work assignment records, cross-referenced against the family registry, show a clear pattern. Children from families that have raised syndicate objections are placed in assignments at locations separate from their households — not punishingly distant, just far enough. Families aligned with syndicate leadership are clustered, given shared housing and coordinated resource access. Multi-generational households that traditionally provided their members with stability and collective standing are being dispersed into smaller units with individual dependencies. The family structure is being redrawn around syndicate favor.`;
@@ -335,7 +335,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'scarcity engineering documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The resource system reveals deliberate engineering of scarcity. Harvests are diverted before reaching community storage. Food that could be distributed for subsistence is instead warehoused to create artificial shortages. Families dependent on market access for grain are increasingly forced to rely on syndicate-controlled rationing. Tools and materials are allocated through syndicate channels rather than through traditional family networks. Artificial scarcity is being weaponized — communities face enough shortage to require dependence while avoiding starvation that would provoke resistance.`;
@@ -371,7 +371,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'information isolation analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Information reaching Sunspire Haven from outside is being deliberately filtered. Stories about other localities' labor unrest, trade disruptions, or similar patterns are suppressed. Messages that might inspire collective resistance are intercepted before distribution. Travelers are questioned about what they've discussed with community members. The community is being information-isolated — cut off from perspective that they're part of a larger pattern, prevented from learning that other localities face similar manipulation.`;
@@ -404,7 +404,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'coercion apparatus documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A pattern of threats emerges. Families who question syndicate decisions face resource allocation reductions. Families who speak publicly about manipulation face social isolation and removal from communal events. Families who attempt to organize resistance face threats to family members' employment and housing. Children of resistant families are directed to dangerous work assignments. The threats are calibrated — severe enough to enforce compliance, but maintained at levels that prevent open resistance. Coercion has become the hidden infrastructure of syndicate control.`;
@@ -440,7 +440,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'resource extraction tracking');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Resources that should sustain Sunspire Haven are being systematically extracted. Food beyond basic rations is being moved to external storage and destinations. Tools and materials are being diverted to external interests. Family craftwork is being accumulated in external warehouses. Sunspire Haven is being treated as a production facility rather than a community — resources are extracted after basic subsistence allowances are provided. The community is being economically hollowed out.`;
@@ -473,7 +473,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'community fragmentation documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Community bonds that once held Sunspire Haven together are being deliberately fractured. Families that traditionally cooperated are now in competition for syndicate-controlled resources. Mutual aid networks are being disrupted through resource control. Shared celebrations and gathering events are being limited or canceled. Young people are isolated from elders through separate work assignments. The social infrastructure that enabled collective action is being systematically destroyed. What's replacing it is individual family desperation and dependence on syndicate favor.`;
@@ -509,7 +509,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'family fragmentation mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Family bonds are being systematically severed. Children are separated from parents through work assignments to distant locations. Extended families that traditionally lived and worked together are being parceled into separate housing. Couples are assigned to different production cycles. Multi-generational families are losing their cohesion. Attempts to maintain family connections are viewed as suspicious loyalty questions. The primary tool of control — the family unit — is being deliberately fractured to prevent collective resistance. Families as economic and social units have been weaponized against themselves.`;
@@ -545,7 +545,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'manufactured consent structure analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The system maintains a fiction of voluntary participation. Communities are told they've "agreed" to resource distributions and family obligations. Families are told they've "accepted" their roles in production quotas. The syndicate maintains the appearance that the community is consenting to the system. In reality, families that resist face threats, exclusion, and starvation. The consent is manufactured through coercion disguised as voluntary choice. The system is designed to break resistance while maintaining the appearance that the community has accepted its own subjugation.`;
@@ -607,7 +607,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing syndicate conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You piece together the evidence: resource accounting showing more harvested food diverted than distributed. Records showing families allocated less than subsistence levels while syndicate leadership stores surplus. Communications showing syndicate coordination with external parties about resource extraction. Work records showing families directed to production far beyond their own needs. Family obligation records showing systematic targeting of resistant families. The documentation is clear: the syndicate is deliberately extracting resources from Sunspire Haven and sending them externally while maintaining community dependence through artificial scarcity. The wrongness has architectural documentation.`;
@@ -677,7 +677,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of extraction');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the diverted resources and artificial scarcity, you find the thread that leads outside Sunspire Haven. Courier receipts from northern territories with instructions to maximize resource extraction and minimize community distribution. Financial transfers paying the syndicate leadership for cooperation. Orders for "family atomization protocols" designed to prevent collective resistance. Sunspire Haven's community is being systematically harvested by external interests using the syndicate as a management apparatus. Someone in the northern territories — or someone allied with them — is coordinating the resource extraction and social destruction. The conspiracy is coordinated, resourced, and external.`;
@@ -715,7 +715,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The interior lining is composite — ash-resin layered over a fine copper mesh. Signal damping, but not commercial. The precision exceeds anything in trade-grade shielding. A craftmark on the base reads a three-digit code followed by what looks like a municipal stamp from Shelkopolis's outer fabrication district. This container was manufactured specifically and recently. Someone ordered it custom for a payload they didn't want detected in transit.`;
         if (!G.flags) G.flags = {};
@@ -783,7 +783,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'making Warden Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Captain-Adjutant Sera receives your report with calibrated attention. She asks three clarifying questions — all about the container, none about the disruption itself. "We're aware of the deviation category," she says finally. "What you've added is the Milegate confirmation." She gives you a reference number and tells you an inquiry is open. She doesn't tell you what the inquiry is about. The Warden Order knows more than they're sharing.`;
         if (!G.flags) G.flags = {};
@@ -824,7 +824,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(62, 'documenting container specifications');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Your sketch captures dimensions, material layering, and the craftmark precisely — enough that a fabricator could identify the manufacture source from the drawing alone. You copy it twice and cache the second in your personal kit. Whatever happens to the physical container, you have its record.`;
         G.flags.container_documentation = true;
@@ -846,7 +846,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'interviewing convoy survivor');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the contact." He's told the Warden Order this. They thanked him and told him to rest. The driver can't be found.`;
         if (!G.flags) G.flags = {};

@@ -36,7 +36,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       gainXp(70, 'bypassing Collegium observation posts via harbor district');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The harbor district's commercial traffic — deliveries, boat maintenance crews, fish market workers — provides the cover of normal movement. You move through it without drawing attention and exit the city via the freight gate rather than the main road. No one logs you as departing.`;
         G.flags.panim_arc_clean_exit = true;
@@ -101,7 +101,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       gainXp(75, 'observing Bureau courier with familiar case prefix');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The case number prefix is the same series as Tazren's suppressed case — but the suffix is new. Someone has reopened the case under a different number. Bureau administrative procedure: when a case is suppressed by order, it can be reconstructed under a new case number by a different adjudicator if new evidence emerges. Someone inside the Bureau is continuing what Tazren started.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -125,7 +125,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       gainXp(75, 'reading Callow\'s irregular patrol as surveillance of the route');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Callow's patrol pattern isn't a route — it's a watch. He covers a three-kilometer stretch of the inland road on irregular schedules, which is exactly how you'd monitor a road without being predictable enough for someone traveling it to avoid you. You adjust your timing and come through during a gap in his pattern.`;
         G.flags.panim_arc_avoided_callow = true;
@@ -168,7 +168,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       gainXp(80, 'finding Sana with Case 4-Reckoning record');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Sana is in her fifties, runs a legitimate textile operation, and has been holding case records for the Panim network for eight years. "Case 4-Reckoning has twenty-three attached documents," she says, sliding a portfolio across the counter. "Tazren filed the last six before his case was suppressed. He knew what was in the coastal passage. He just couldn't prove who authorized it." She stamps you into the network. You have the full case record now.`;
         G.flags.met_sana_verdant_row = true;

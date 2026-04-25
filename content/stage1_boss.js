@@ -55,7 +55,7 @@ function triggerStage1MiniBoss() {
       tag: 'risky',
       skill: 'persuasion',
       action: function() {
-        var roll = rollD20('persuasion');
+        var roll = rollD20('charm');
         var dc = 13 + Math.floor(((G.level||1)-1)/2);
         if (roll.total >= dc) {
           addNarration('', 'The buckle-tracing stops. You name the pressure directly — the re-stitched insignia, the doubled registry entries, the debt or promise or fear that is driving a roadwarden lieutenant to do something a roadwarden lieutenant should not be doing. His jaw tightens. Then loosens. He does not deny it. He tells you the name of who sent him, which is more than he intended, and steps back. The alley opens. He turns and walks north without looking back.');
@@ -81,7 +81,7 @@ function triggerStage1MiniBoss() {
       tag: 'risky',
       skill: 'stealth',
       action: function() {
-        var roll = rollD20('stealth');
+        var roll = rollD20('finesse');
         var dc = 12 + Math.floor(((G.level||1)-1)/2);
         if (roll.total >= dc) {
           addNarration('', 'You move before he has finished his sentence. The second exit is a low arch into a cooper\'s yard; you are through it and across the yard and into the lane behind before he clears the alley mouth. When you look back from the far end of the street, he is standing at the arch. He does not chase. He marks something in a small book with a silver-capped pencil. He already has what he needed — your face, confirmed.');
@@ -131,7 +131,7 @@ function triggerStage1MainBoss() {
       tag: 'safe',
       skill: 'lore',
       action: function() {
-        var roll = rollD20('lore');
+        var roll = rollD20('wits');
         if (roll.total >= 10) {
           addNarration('', 'The desk tells you what the room means. The document she set squarely at the corner when you walked in is a detainment notice, unsigned. The lamp is angled toward the chair across from her, not toward her own work. The shelf behind her has a gap where a file should be — a file she pulled before you arrived. She has been preparing for this longer than you have.');
           G.flags.stage1_mainboss_assessed = true;
@@ -212,7 +212,7 @@ function _stage1MainBossResolution() {
       tag: 'risky',
       skill: 'stealth',
       action: function() {
-        var roll = rollD20('stealth');
+        var roll = rollD20('finesse');
         if (roll.total >= 12) {
           addNarration('', 'You read the files without moving them. The dates, names, and notations are committed to memory. The stack goes back in the order it came. The ward lock cycles and releases and you are at the door before the latch finishes turning. The hall outside is empty. You leave nothing in the room that was not there when you arrived.');
           addJournal('Memorized four ORE intake files — same Tier 1 notation, same handwriting, spanning eight months and three localities. Left the hall clean.', 'intelligence');

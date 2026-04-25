@@ -17,7 +17,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'locating key researcher');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The research annex is small and smells of ground mineral compound and old paper. Toman Iceveil is already at his worktable when you arrive, turning a shard sample in his fingers. He sets it down when you explain why you're here and studies you for a moment. "I've been waiting for someone to ask questions that weren't from the administrative committee." He won't hand over current research — too many requests have come in that direction and he's learned to read them. But he'll confirm what you already have evidence for, and he'll point you toward what the committee has spent fourteen months keeping out of print.`;
         G.flags.met_toman_iceveil = true;
@@ -43,7 +43,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Sections 7 through 12 of the shard amplification study sit in the catalogue marked "preliminary — pending administrative review." The reclassification is dated fourteen months ago. No review entry exists anywhere in the subsequent record. You find this at a reading table near the archive window, water light broken across the surface of the estuary outside. Those sections describe the amplification mechanism — specifically how certain atmospheric processing compounds interact with shard-dense geology. Reclassifying them as preliminary prevents publication of the interaction model. The part that was suppressed is the part that explains what's happening to Aurora Crown's dome.`;
         G.flags.found_shard_reclassification = true;
@@ -94,7 +94,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Five members on the committee. Two have served for years — their names appear in the commune's institutional documents going back a decade. The three appointed eighteen months ago — the same month the reclassification was filed — don't appear in any Glasswake institutional record before their appointment. Their shared professional affiliation is a northern materials research consortium. The appointment category used for them — "cooperative research partnership" — had never been invoked before. The committee's working majority was installed from outside, through a procedural category opened specifically to install them.`;
         addJournal('Committee: three of five members appointed 18 months ago via unused "cooperative partnership" — external affiliation to northern consortium', 'evidence', `glasswake-committee-${G.dayCount}`);
@@ -138,7 +138,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'speaking to junior researcher');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Fen is at a side bench near the estuary-facing window, sample log open in front of her. Six months at Glasswake, still close enough to her arrival that the suppression is a puzzle rather than a landscape. "I've read the reclassified abstract. Just the abstract." She sets down her pen. "The mechanism it describes is real — I've seen the measurement rig Toman built. There's no way that data is wrong." She looks at the dock boards through the window. "Why would you suppress correct research?" She genuinely doesn't know yet. The answer, when she figures it out, will land hard.`;
         if (!G.flags) G.flags = {};
@@ -161,7 +161,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Liaison Orsel has been monitoring the reclassification situation for three months. "The Collegium received a research freedom complaint from Glasswake fourteen months ago. We acknowledged it. The response is delayed." She's matter-of-fact about what the delay means: institutional suppression of the complaint. She's interested in the northern consortium connection — that's new information. "If the committee majority was externally installed through a previously unused procedural category, that changes the Collegium's standing to intervene."`;
         if (!G.flags) G.flags = {};
@@ -190,7 +190,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `A courier log at the commune's outgoing mail station shows three of the committee's new members receive weekly sealed correspondence from a northern address — marked "Northern Materials Consortium, Scientific Affairs." The timing of each correspondence batch correlates with subsequent committee decisions: reclassification orders, denial of research access, extension of review period. The consortium is directing the committee's decisions through weekly instruction cycles.`;
         if (!G.flags) G.flags = {};
@@ -234,7 +234,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing suppressed publication fate');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The Regional Science Review acknowledges receiving the submission but records it as "declined pending further review by the submitting institution." The institution that requested the delay: the Northern Materials Consortium, who are listed as a "reviewing partner" for geological and atmospheric research. The consortium blocked publication by inserting themselves as a mandatory review step — through a journal agreement that was signed one month before Toman submitted. The agreement was timed.`;
         if (!G.flags) G.flags = {};
@@ -272,7 +272,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(72, 'securing data offsite');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `A mineral trader who moves between Glasswake and Shelkopolis monthly agrees to carry a sealed document case. The case is inside a sample kit — unremarkable in her cargo. Toman's amplification data is now in transit to Shelkopolis without passing through the commune's administrative channels. Whatever happens to Toman or the archive, the data survives.`;
         G.flags.glasswake_data_secured = true;
@@ -293,7 +293,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'obtaining committee vote record');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The two original commune researchers voted against reclassification. The three externally-appointed members voted for it. A three-to-two majority carried the motion. The original researchers formally registered their dissent in the minutes — their objection is part of the record, but the record is classified under the same order that classified the research. The dissent is buried with the evidence it objected to.`;
         if (!G.flags) G.flags = {};
@@ -319,7 +319,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The Northern Materials Consortium holds licensing rights to the specific filtration additive class that the shard amplification data would implicate. If the data is published, their additives are identified as dangerous in shard-geology environments — which describes every dome settlement in the region. Their product category would require reformulation or withdrawal. The suppression isn't scientific conservatism — it's commercial liability protection. They're suppressing data that would destroy a revenue stream.`;
         addJournal('Consortium benefit: holds licensing rights to implicated additive class — suppression protects commercial liability', 'evidence', `glasswake-benefit-${G.dayCount}`);
@@ -339,7 +339,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking to dissenting committee member');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Researcher Winn voted against but has stayed on the committee. "I stay because if I leave, they appoint a fourth external member. My presence prevents a four-to-one majority." She's accepted being outvoted as the price of maintaining any internal presence. "I can't stop them. But I can make the record show they were opposed. That matters eventually." She's been building a written record of every overreach, every suppression. She'll share it with someone who can use it.`;
         if (!G.flags) G.flags = {};
@@ -399,7 +399,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'researching predecessor study');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `A study published thirty years ago by a Glasswake founder describes observing "unexpected atmospheric interaction with shard-adjacent processing compounds." The observation was listed as an anomaly requiring future study. No follow-up was funded for twenty years. When Toman finally followed up, the committee suppressed his findings. The anomaly has been known for three decades. It's been deliberately under-investigated, then suppressed when finally studied.`;
         addJournal('Predecessor study: anomaly known for 30 years, deliberately under-investigated, suppressed when finally studied', 'evidence', `glasswake-predecessor-${G.dayCount}`);
@@ -423,7 +423,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The consortium has a "sample acquisition office" registered at a northern-quarter address in Glasswake. Listed as a commercial mineral buying operation. Two staff members. But the building has more communication equipment than a sample buyer would need — and receives courier deliveries addressed to the committee members through the sample office's address. The office is the instruction relay. Committee members receive their directives through what looks like a commercial address.`;
         if (!G.flags) G.flags = {};
@@ -566,7 +566,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading founding generation shard records');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The founding generation records describe direct shard observation over forty years of study — results logged, methods documented, researchers named. The current committee's stated reason for suppressing ongoing research is "unresolved safety concerns." The founding records don't show safety incidents. They show the opposite: a community that worked with shards continuously for forty years without harm. The suppression rationale contradicts the documented historical record. Someone on the committee knows what the archive contains and cited safety concerns anyway.`;
         if (!G.flags) G.flags = {};
@@ -587,7 +587,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'reading committee-authority correspondence');
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `The correspondence file between the committee and the regional authority runs thirty-one letters. Most are administrative. Letter nineteen is different: a response from the regional authority acknowledging the committee's request for "acceleration of the amplification study closure" and noting that "the energy multiplier finding must not enter the public record before the parallel project reaches completion." The parallel project isn't named. The energy multiplier is Toman's forty-seven-sample finding. Someone outside Glasswake knew about that finding and acted to suppress it before it was published.`;
         if (!G.flags) G.flags = {};
@@ -622,7 +622,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'meeting the dissenting committee members');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Arven and Missa have attended every committee session since the suppression vote and objected in the record to every decision made by the majority bloc. Their notes are comprehensive — every procedural motion, every stated rationale, every dissent. "We document because we know the official minutes are edited before filing," Arven says. He doesn't say it with particular emotion. "The edited minutes are what the record shows. Our notes show what happened in the room." Two years of parallel documentation, the committee's version and the accurate version sitting in different places.`;
         if (!G.flags) G.flags = {};

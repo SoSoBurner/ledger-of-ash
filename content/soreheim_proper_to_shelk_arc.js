@@ -41,7 +41,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       gainXp(75, 'passing the Compact checkpoint');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -72,7 +72,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       gainXp(70, 'encountering displaced worker on the road');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 10;
 
       if (result.total >= target) {
@@ -131,7 +131,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       G.telemetry.turns++;
       gainXp(75, 'evaluating suspicious courier contact');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const target = 13;
 
       if (result.total >= target) {
@@ -160,7 +160,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       gainXp(75, 'approaching the off-duty logistics officer');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 14;
 
       if (result.isCrit) {
@@ -197,7 +197,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       const target = 10;
 
       if (result.total >= target) {
@@ -223,7 +223,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       gainXp(80, 'making first contact in Shelkopolis investigation network');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.total >= target) {
@@ -308,7 +308,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       gainXp(85, 'losing the Iron Compact tail');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + (G.skills.combat || 0) + Math.floor(G.level / 3));
       const target = 14;
 
       if (result.isCrit) {

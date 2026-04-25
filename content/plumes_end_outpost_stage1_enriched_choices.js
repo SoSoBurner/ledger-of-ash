@@ -17,7 +17,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting Commander Letha Dawnsilk');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Letha Dawnsilk has the reports stacked on the left side of her desk — a six-month column of paper, organized by date. She doesn't offer you a seat. She checks the window before she answers. Not the street outside — the reflection in the glass. "I've been sending pressure anomaly readings to central coordination for six months. Three months ago they stopped acknowledging receipt. Two months ago I was told the measurements were under review and not to share them externally." She taps the stack. She never stopped writing the reports. "If they won't use them, at least they exist."  `;
         G.flags.met_letha_dawnsilk = true;
@@ -45,7 +45,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
       if (!G.flags) G.flags = {};
       if (G.flags.met_letha_dawnsilk) {
-        const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+        const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
         if (result.total >= 12) {
           G.lastResult = `Six months of readings, laid out in order: the gradient is directional, not diffuse, building consistently from the northeast quadrant — the direction that puts Aurora Crown Commune at its origin point. Low-level, slow-building, not matching any weather or seasonal pattern. Four months ago the rate of increase accelerated. Letha has the date circled. It corresponds to the period when Aurora Crown's dome filtration additive was substituted. Whatever the dome is releasing has been propagating outward from that point. Plumes End is reading the leading edge of it.`;
           G.flags.analyzed_pressure_reports = true;
@@ -73,7 +73,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The suppression order came through a "regional environmental coordination office" — a body Letha has never received communications from before. The instruction was formatted correctly for a central coordination directive, but the issuing office doesn't appear in the standard directory of regional oversight bodies. Another ghost institution. Someone inserted a suppression order into the legitimate communication chain using a fabricated authority. Letha's reports were silenced by an entity that technically doesn't exist.`;
         if (!G.flags) G.flags = {};
@@ -99,7 +99,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Patrol rangers have documented movement pattern changes in birds and large mammals starting four months ago. Animals are shifting territory southward and away from the northeast quadrant. "We've seen this before during volcanic pressure events," one ranger says. "But there's no geological activity in that direction." What there is: an atmospheric pressure gradient that animals are sensitive to before human instruments detect it clearly. The fauna have been evacuating the affected zone. The gradient is real and it's been building long enough for wildlife to notice.`;
         if (!G.flags) G.flags = {};
@@ -146,7 +146,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Warden Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Patrol coordinator Sera Vance receives the summary of Letha's reports with visible concern. "We've had two other outposts report communication disruptions from the same regional coordination source — the one that told Commander Dawnsilk to suppress her readings." She pauses. "If the same ghost authority is suppressing data at multiple outposts simultaneously, there's a systematic information blackout in the field." The Warden Order has been operating with deliberately incomplete atmospheric data across the region. They're operating blind in a zone that's actively changing.`;
         if (!G.flags) G.flags = {};
@@ -171,7 +171,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'interviewing veteran patrol ranger');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Ranger Coss has been patrolling this frontier for eleven years. "The air here used to be clean. We'd go days without needing the patrol's environmental gear." He pauses. "Now I wear it for extended northeast patrols. Not orders — just habit. I don't feel right without it in that direction anymore." He hasn't been formally told to wear protective equipment on northeast routes. He started doing it himself three months ago because his body told him to. His nervous system is picking up what the instruments are measuring.`;
         if (!G.flags) G.flags = {};
@@ -215,7 +215,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Using the outpost's environmental analysis equipment, you capture and analyze a sample from the northeast perimeter. The gradient contains trace levels of the same compound class that Jorin identified at Craftspire and that Glasswake's shard amplification data describes as dangerous in atmospheric applications. At Plumes End, the concentration is still low — the leading edge of whatever is propagating from Aurora Crown's zone. At source concentration, this compound class would be significantly more hazardous. Plumes End is in the far fallout zone. Aurora Crown is in the source zone.`;
         if (!G.flags) G.flags = {};
@@ -256,7 +256,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Historical records at Plumes End go back forty years. One comparable gradient event: recorded sixty-three years ago, before the outpost's current archive. A note references it in the archive's preface as a reason the outpost was established — "to provide early detection of atmospheric irregularities in the northeastern territories." The outpost was built because of a previous event from this direction. Whatever happened sixty-three years ago was significant enough to establish a permanent monitoring presence. Letha is detecting the early signs of a second occurrence of something that was judged severe enough to warrant permanent outpost installation.`;
         addJournal('Historical comparison: outpost established after similar event 63 years ago — Plumes End exists specifically to detect early signs of NE atmospheric irregularity', 'discovery', `plumes-historical-${G.dayCount}`);
@@ -277,7 +277,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'securing Letha\'s reports offsite');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Letha prepares a secondary copy of the six months of reports — formatted as standard patrol documentation, which is what they officially are. A patrol supply run to Shelkopolis carries the copy inside a standard patrol dispatch bag. The suppression order was applied to the official reporting channel. The patrol dispatch channel runs separately. Letha found the gap in the suppression and used it. The reports are on their way to Shelkopolis.`;
         G.flags.letha_reports_secured = true;
@@ -321,7 +321,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing displaced frontier farmer');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Farmer Edne abandoned a holding her family maintained for three generations. "The headaches started first. We thought it was the season. Then the animals started leaving — not running, just slowly moving their grazing toward the south. We moved too when my youngest stopped sleeping through the night and our water tasted wrong." She describes symptoms consistent with low-level exposure to the compound class Letha's data suggests is present. "I couldn't tell you what was wrong. I just knew something was." She left with almost nothing. The holding is still there. She's not going back.`;
         if (!G.flags) G.flags = {};
@@ -349,7 +349,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
       if (!G.flags) G.flags = {};
       if (G.flags.met_letha_dawnsilk) {
-        const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+        const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
         if (result.total >= 12) {
           G.lastResult = `Combining Letha's directional readings with the wildlife displacement corridors and the farmer abandonment pattern: the gradient's effective zone is approximately eighty kilometers across at Plumes End's distance. Scaling backward to the Aurora Crown source location and applying atmospheric diffusion models, the source zone would be experiencing concentrations approximately forty times what Plumes End is detecting. At that concentration, long-term residence becomes medically hazardous. Aurora Crown's dome has been releasing this compound at forty times safe exposure levels for potentially four months.`;
           G.flags.mapped_affected_zone = true;
@@ -388,7 +388,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'understanding suppression motivation');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Standard central coordination protocol for a consistent atmospheric anomaly of Plumes End's reported scale: automatic environmental hazard assessment, mandatory field investigation, public notification if the assessment confirms hazard. The suppression prevented that protocol from triggering. If Letha's reports had arrived, the field investigation would have identified Aurora Crown's contamination zone four months ago — before the affected population had been exposed for the full duration. The suppression didn't just hide the data. It extended the exposure window by four months.`;
         addJournal('Suppression consequence: prevented standard hazard protocol from triggering — exposure window extended by 4 months deliberately', 'evidence', `plumes-suppression-purpose-${G.dayCount}`);
@@ -532,7 +532,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing outpost communications log');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Outpost communications logs run continuous — every transmission sent, every acknowledgment received, dated and signed by the duty clerk. The gap runs from the third to the seventeenth of last month: outpost transmissions continue normally, but the received-acknowledgment column goes blank. Sixteen days of sent dispatches with no return signal. During that same window, Letha's log shows the pressure readings reached their highest recorded value. Someone at the receiving end stopped responding to Plumes End during the period when the outpost's data was most significant.`;
         if (!G.flags) G.flags = {};
@@ -553,7 +553,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'comparing suppression order versions');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `The suppression order that arrived at Plumes End is missing clause four from the standard template — the clause that specifies exemptions for emergency communications when patrol safety is at risk. That clause is in every other suppression order in the outpost's archive of similar directives. Its absence means Letha's staff believed they had no communication exemption even in an emergency. The version sent here was modified before dispatch. Someone specifically targeted this outpost's ability to break the silence under any circumstances.`;
         if (!G.flags) G.flags = {};
@@ -591,7 +591,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'inquiring about Compact oversight absence');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The Compact regional officer was here eight months ago for a standard quarterly review — the last one. The two scheduled reviews since then were postponed, then cancelled with a form notice citing "administrative reorganization." The reorganization notice arrived once. No further explanation followed. Letha filed her quarterly reports to the standard address regardless. Return acknowledgments came back with a different signature each time — different people, different handwriting, no consistent reviewer. The oversight structure for this outpost has been unstaffed or deliberately rotated for eight months.`;
         if (!G.flags) G.flags = {};
@@ -625,7 +625,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'checking northeast boundary cairn positions');
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The first boundary cairn on the northeast approach sits thirty meters south of where the patrol map marks it. The second sits forty meters south of its marked position. Both cairns are solid, weathered, look long-established — but the ground around the base of each shows faint disturbance, the kind that comes from moving a heavy stone and resetting the earth to erase the evidence of movement. The boundary of the "unsafe zone" has been physically contracted. Whatever is actually producing the atmospheric anomaly now sits outside the marked boundary, in territory that looks unmapped and unclaimed on any official document.`;
         if (!G.flags) G.flags = {};

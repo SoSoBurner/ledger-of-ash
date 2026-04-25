@@ -14,7 +14,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'reviewing glasswake shard glyph correlation with Toman Iceveil');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_toman_iceveil = true;
         G.investigationProgress++;
@@ -43,7 +43,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'analyzing suppression order contents with Lenna Bannerhold');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_lenna_bannerhold = true;
         G.investigationProgress++;
@@ -78,7 +78,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The routing channel requires both researchers' cooperation — Toman's data and Lenna's access to the suppression order's structure. Without both threads confirmed, the package that reaches the archive will be incomplete, and an incomplete submission won't carry the weight needed to protect it. The groundwork here isn't done yet.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -109,7 +109,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.toman_second_meeting = true;
         G.investigationProgress++;
@@ -140,7 +140,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.shard_site_observed = true;
         G.investigationProgress++;
@@ -171,7 +171,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.lenna_trust_built = true;
         G.investigationProgress++;
@@ -199,7 +199,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'comparing containment warden field book against redacted official pylon logs');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_containment_warden_pita = true;
         G.investigationProgress++;
@@ -227,7 +227,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing suppression authority courier transit receipt return address');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.suppression_authority_traced = true;
         G.investigationProgress++;
@@ -261,7 +261,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

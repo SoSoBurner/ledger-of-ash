@@ -36,7 +36,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       gainXp(70, 'passing Provision Compact transit office');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `"Crop yield documentation for the Shelkopolis Granary Authority." The transit clerk reads the category, stamps the paper, and slides it back across the counter without looking at your face. It is a real category, it is genuinely tedious, and nobody requests a secondary check on yield documentation. You are through the transit office and back on the road in four minutes.`;
         G.flags.harvest_arc_clean_transit = true;
@@ -60,7 +60,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       gainXp(70, 'meeting Nann on the road south');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Nann left Harvest Circle two days after a Compact overseer told her the count records were "being reviewed for accuracy." She has been a fieldworker long enough to know what that phrase precedes. She took her own copies before the review could reach them. "They were right for thirty years," she says. "Now they're wrong. And the containers that made them wrong are all moving the same direction you are." She pats her coat where the copies are folded.`;
         G.flags.met_nann_harvest = true;
@@ -107,7 +107,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       gainXp(75, 'finding charter mark on road market supply crates');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The vendor has been receiving pre-marked crates for six months through a "coordinating wholesaler" that uses a different company name on every order form. He does not know the entity behind the name changes. "Pay on time, no disputes," he says. "I assumed it was one of the efficiency consortiums." When he empties the crates, a runner collects them and they go north. The crates return empty, charter mark still intact, to wherever they came from.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -131,7 +131,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       gainXp(75, 'finding Veth Karst\'s transit authority authorization');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Veth Karst authorized a blanket transit pass two months ago for "coordinated agricultural distribution" — a category that appears nowhere in standard transit law. He filed it as a special administrative provision under a section of the transit code that allows for expedited movement of perishable goods. The pass covers containers matching specific weight ranges and exempts them from checkpoint inspection at three stations between Harvest Circle and Shelkopolis. The containers do not need to be opened. They only need to be moving.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -159,7 +159,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `The Granary Steps complex at dusk: grain dust and the mechanical rhythm of distribution machinery. The loading area feeds directly into Shelkopolis's pressure-equalized dome distribution network — the atmospheric system serving the outer districts. A charter-marked container moved through this complex's loading intake would introduce its contents into a delivery system that propagates to residential and industrial zones without discrimination. The Harvest Circle supply chain ends here. So does every other supply chain you have been following.`;
         G.flags.harvest_arc_granary_steps_surveyed = true;
@@ -182,7 +182,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       gainXp(80, 'making contact at the Ironspool Ward factor\'s office');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The factor, a compact man named Reth, has already received the charter mark specification. "We've had four people bring us pieces of this," he says. "Harvest Circle is the piece about supply chain insertion. The Glasswake piece is the chemical mechanism. The Ironhold piece is the raw material. And someone from Plumes End sent a note about atmospheric detection." He spreads four maps on his desk. The charter mark is on all of them.`;
         G.flags.met_reth_ironspool = true;

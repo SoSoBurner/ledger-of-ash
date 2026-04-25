@@ -36,7 +36,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       gainXp(70, 'traveling south with Maret Voss');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Maret isn't leaving because she found the accounts — she's leaving because someone found out she found them. "My review authorization was revoked on a procedural technicality," she says. "The technicality was invented two weeks after I filed my first inquiry." She's carrying her work in her head, not on paper. In Shelkopolis she knows a financial arbitrator who operates outside the Compact's review structure. She'll introduce you.`;
         G.flags.maret_voss_traveling_south = true;
@@ -61,7 +61,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       gainXp(70, 'connecting garrison reduction timing to ghost account activity');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Lysel's garrison reduction corresponded with a Warden Order efficiency review — the review itself was requested by the same Iron Compact attaché who was accessing the ghost accounts. The financial operation and the physical security reduction were coordinated. Someone used the financial infrastructure to buy the security clearance to make the operation possible.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -107,7 +107,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       gainXp(75, 'identifying matching transaction pattern in road exchange house');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The exchange house serves the road between Ithtananalor and Shelkopolis. Its public registry — required by Principalities commercial law — shows eighteen transactions in the past three months using the same below-threshold fragmentation technique as the Iron Ledger ghost accounts. The money is flowing south. It's already in Shelkopolis's financial system. Whatever it was paying for, it's been paid.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -131,7 +131,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       gainXp(75, 'tracing Calver\'s Warden Order posting history');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Calver has been posted to financial review assignments in four localities over the past eighteen months — always just before significant ghost account activity begins and transferred out just after it ends. He's a mobile asset. His current posting is listed as "central administration reassignment" — which, cross-referenced with the Warden Order's Shelkopolis office, places him in the city right now.`;
         G.flags.calver_in_shelkopolis = true;
@@ -177,7 +177,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       gainXp(80, 'reaching Maret\'s arbitrator contact in Shelkopolis');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Arbitrator Hess operates an independent dispute resolution practice that doesn't require Compact registration — technically legal, practically invisible to the financial review structure. Maret already sent him a summary. "I can access the central archive under the independent review provision," he tells you. "It takes three days. But once I file the access request, it can't be withdrawn without creating a record of the withdrawal. The operation can't suppress this quietly anymore."`;
         G.flags.met_hess_arbitrator = true;

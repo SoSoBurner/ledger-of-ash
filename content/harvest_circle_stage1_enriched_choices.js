@@ -21,7 +21,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading quota manipulation patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -55,7 +55,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering price manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Varik spreads two price sheets on the table — one for the festival last season, one for the season prior. The numbers diverge in a consistent direction: connected-family grain priced lower, independent-farmer grain priced higher. "This line here," he taps the column. "Festival pricing used to be fixed by the elder council. Now it comes through as a preliminary schedule from the quota administration. By the time the council sees it, it's already been circulated to buyers." He folds both sheets back. "The market that's supposed to level the exchange is doing the opposite."`;
@@ -91,7 +91,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading land protection corruption patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Elyra stops walking and turns to face you directly. "Six weeks ago I received a prioritization order. Fields are ranked by family standing, not agricultural condition. I maintain the barriers in that order." She points northeast. "The Halversen family fields — independent, no patron alliance — have had half-strength barrier coverage since the order came through. The blight risk there is now real." She looks at her maintenance log. "I put this to the elder council. They said they'd review the prioritization criteria. I haven't heard back."`;
@@ -127,7 +127,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering grain storage diversion');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The Storage Keeper shuts the grain store door behind you both. "Festival allocation is supposed to come from the communal reserve. For the last three months, portions earmarked for festival distribution have been transferred to private warehouse accounts before they ever reach the distribution ledger." They lift a section of the inventory log. "This row — festival allocation, forty tonnes. This row — private transfer, forty tonnes, same date." The numbers are identical. "Independent farmers' reserve space has been quietly reassigned. I raised this at the keeper's meeting. The chair said allocation decisions were under review."`;
@@ -163,7 +163,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering festival manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The Coordinator pulls out two distribution sheets — last season's and the incoming draft. "Last season: uniform allocation by household size across all families. This season's draft: 'premium offering' tier for patron-aligned families, 'standard share' tier for independents." They flip to the ceremony script. "The opening address used to name the harvest as belonging to the commune. The new draft names the patron families first." They set both documents flat. "I didn't write these. They arrived from quota administration two weeks ago. I'm told to implement them."`;
@@ -199,7 +199,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading record falsification patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Farlan has the evidence already assembled — he's been waiting for someone to ask. "Look at the delivery record for the Coalward family, third week of last season." He sets it beside a summary sheet. The delivery figure on the record is higher than the summary confirms. "That change happened after the document was signed. The ink shade is different. I have six like this." He stacks the flagged documents carefully. "Grain that was delivered in one quantity is being recorded in another. The recordkeeping is supposed to prevent this. Someone changed what goes into the records."`;
@@ -235,7 +235,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering quality inspection corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Garren keeps his voice low and his back to the lantern. "I mark the grain. I file the mark. Two days later I check the record and the mark is gone — passed, no note." He holds up his inspection log beside the official record. The same batch, two different outcomes. "I've been told directly: connected-family grain passes. I had a batch last month, Halversen family, quality grain, flagged it for minor moisture variance. It was overruled by the supervisor." He sets both logs down. "The grain that went out from the Halversen flag was good. The batch that passed without a flag — I won't eat from it."`;
@@ -271,7 +271,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering mediation corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Velrik sets his hands on the desk and looks at them. "Three weeks ago I received a pre-session note from the quota administration on a dispute between the Halversen family and the Durnwall patron house. The note described the outcome I should reach before I'd heard either side." He picks up the note and sets it in front of you. "I ruled as instructed. The Halversen family lost storage access they'd held for eleven years." He folds the note back along its crease. "The family I ruled against has not appealed. They know the appeals process runs through the same administration."`;
@@ -309,7 +309,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'grain hierarchy analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The charter records show three independent steward positions absorbed into the patron-family coordination council over eighteen months. Each absorption was ratified as an efficiency measure. The elder council still meets — its rulings are now labeled advisory. Two stewards who objected to consolidation have been replaced; their names appear in the personnel register under "reassigned." The organization that governed by distributed judgment now has one center and everything else is tributary to it.`;
@@ -342,7 +342,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'farming family network displacement mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Cross-referencing the current active roster against five seasons prior: fourteen independent farming families appear on old records and not the current one. Each exit is documented as voluntary withdrawal, storage dispute resolution, or quota non-compliance. The timing clusters — seven of the fourteen left in the same eight-week window. Nine new families entered during the same period, all with documented patron-family alignment. Withdrawal, replacement, withdrawal, replacement — consistent enough to be a pattern, documented carefully enough to look like ordinary turnover.`;
@@ -378,7 +378,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'spoilage analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The spoilage logs sorted by family affiliation show a clear division. Independent-family grain: stored in the eastern annex, lower floor, poor air circulation, pest traps not replaced on schedule. Patron-family grain: western annex, upper floor, ventilated, maintained. Same harvest, same commune, same season — stored two different ways. The loss reports attribute the eastern annex spoilage to environmental variance. The ventilation gap between the two annexes is forty feet and one administrative decision about where to put which family's grain.`;
@@ -411,7 +411,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'family power pattern mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Two families appear in the governance record for the first time fourteen months ago. The Durnwall house — grain merchants with no prior agricultural council role — now holds three quota allocation seats. The Pressen family — two seasons of commune history — currently chairs the festival distribution committee. Both rose through a series of elder council appointments that were all ratified in the same three-week session. The council chair who ratified those appointments was replaced the following month. His replacement's name appears on the Durnwall family correspondence log from six months earlier.`;
@@ -447,7 +447,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'quota dependency system documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The pattern becomes clear across the three interviews: no independent farmer family can absorb a quota reduction, a storage restriction, or a festival exclusion independently — each one is exposed on all three fronts simultaneously. Withdraw quota credit and the family can't meet their annual payment obligation. Restrict storage and the harvest spoils before it can be sold. Exclude from festival distribution and the household runs short in the lean weeks. Every farmer is threaded through dependencies that make non-compliance catastrophic. The system wasn't designed this way. It was adjusted to be this way.`;
@@ -483,7 +483,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'festival weaponization mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The last three seasons of ceremony scripts tell the story in the script margins. Season one: "commune's harvest, shared by all households." Season two: "harvest bounty, recognized by all families in good standing." Season three, the draft: "harvest bounty, honored first among those who sustain Harvest Circle's covenant families." The opening address has been rewritten to create a category — covenant families — that didn't exist in Harvest Circle's tradition. The language builds the hierarchy before the distribution makes it material.`;
@@ -569,7 +569,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing harvest system conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Farlan's flagged records. Svala's directive instructions. Garren's inspection log versus the filed results. The festival allocation draft with its tiered language. The storage spoilage disparity between the two annexes. Set side by side, they describe a single operation running through five separate institutional systems simultaneously. No one institution shows enough to prosecute on its own. Together they describe the same hand in all five places. This is the paper trail, and it leads somewhere outside Harvest Circle.`;
@@ -639,7 +639,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of harvest system corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Behind the corrupted quota records, diverted grain, manipulated prices, and weaponized festivals, you find the thread leading outside Harvest Circle. Courier manifests reference cities in northern territories with detailed instructions for "grain system restructuring." Merchant house letters from external allied contacts directing family elevation. Financial transfers originating from north-aligned entities. Harvest Circle's grain system is being systematically captured by external interests. Someone in the northern territories — or someone allied with them — is using Harvest Circle's own institutions and families to extract agricultural resources and consolidate control. The conspiracy is coordinated, resourced, and external.`;
@@ -675,7 +675,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'confirming full external harvest conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The full conspiracy is now clear: Northern merchant authorities are systematically extracting Harvest Circle's agricultural surplus through corrupted systems. Grain quotas are being artificially inflated to force overproduction. Storage systems are being diverted to send grain north. Festival manipulation is preventing community awareness of shortage. Selected families are being elevated specifically to cooperate with external extraction. The entire Harvest Circle grain system has been weaponized as a resource extraction apparatus. Harvest Circle remains unaware its economic foundation is being deliberately harvested by external interests.`;
@@ -714,7 +714,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Routing records show Harvest Circle shipped 340 tonnes of grain north in the past quarter under Provision Compact routing numbers. Harvest Circle's own production logs show 310 tonnes harvested. Thirty tonnes that weren't produced were apparently shipped. Either the production records are understating output, or routing numbers are being assigned to grain that originated elsewhere and is being laundered through Harvest Circle's Compact allocation. The routing number is creating false provenance.`;
         if (!G.flags) G.flags = {};
@@ -783,7 +783,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Liaison Veth Karst manages Iron Compact allocation tracking for the Provision Compact's northern routes. She's aware of the routing anomaly — it's showing up as inventory discrepancy in Iron Compact's own logistics chain. "We're receiving grain attributed to Harvest Circle that we haven't formally purchased through Compact channels." She wants to understand the routing number source. She'll share Iron Compact's incoming cargo data if you'll share the charter mark identification. Commercial alignment, not ideological.`;
         if (!G.flags) G.flags = {};
@@ -824,7 +824,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'running independent harvest count');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Your count: 12.4 tonnes from the west mid-field section. Official log entry for the same section, filed the same day: 10.8 tonnes. A 1.6 tonne discrepancy — 13 percent — on a single section. Scale that across the full harvest area and you have the routing anomaly's source. The production logs are being systematically understated at collection, and the difference is being routed out under the Provision Compact allocation numbers. You have proof now. A single section count against a single log entry.`;
         G.flags.independent_count_completed = true;
@@ -846,7 +846,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'interviewing long-tenure worker');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Elder fieldworker Nann has worked at Harvest Circle for thirty-one years. "The measurement changed about eighteen months ago. Before: we counted the full load at the central scale. After: section leads count first, then totals are reported to the central scale. The full load still goes on the central scale — but the reported number is the section leads' count, not the central weighing." She understands exactly what happened. "The central scale's reading stopped being the official number. Someone replaced the scale with the section leads." She kept three seasons of her own personal field tallies. They match the central scale readings. They don't match the official reports.`;
         if (!G.flags) G.flags = {};

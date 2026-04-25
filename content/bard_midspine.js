@@ -23,7 +23,7 @@ window.BARD_MIDSPINE_NODES = [
       G.signals = G.signals || {};
 
       const loc = getLocality(G.location);
-      const r = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const r = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const dc = 10;
       const success = r.isCrit || (r.total >= dc && !r.isFumble);
 
@@ -90,7 +90,7 @@ window.BARD_MIDSPINE_NODES = [
       G.signals = G.signals || {};
 
       const loc = getLocality(G.location);
-      const r = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const r = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const dc = 12;
       const success = r.isCrit || (r.total >= dc && !r.isFumble);
 
@@ -158,7 +158,7 @@ window.BARD_MIDSPINE_NODES = [
       G.signals = G.signals || {};
 
       const loc = getLocality(G.location);
-      const r = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const r = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const dc = 14;
       const success = r.isCrit || (r.total >= dc && !r.isFumble);
 

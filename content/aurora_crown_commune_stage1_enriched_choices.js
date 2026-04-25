@@ -21,7 +21,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'uncovering maintenance pressures');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -58,7 +58,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering data suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Meren closes the archive room door before speaking. The celestial observation logs from the past month have been flagged for "archive consolidation" — her word for removal, spoken with precise distaste. The orders came through the contamination monitor's office. "Not medical orders. Not safety protocols." She sets a flagged folder on the table between you. "Our record board shows every decision ever made in this commune. This one isn't on it." She taps the folder. "Someone is erasing what the skies are showing."`;
@@ -94,7 +94,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading distribution pressure');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Thass spreads the distribution ledger on the table between you and keeps a finger on two lines. Food preservation supplies — the cold-season critical ones — are marked for "containment research allocation." No commune decision on the board. No posted rationale. Taken from general circulation and moved somewhere sealed. "I asked once," Thass says. "They told me I wasn't cleared." He smooths the corner of the ledger page. "These are survival stores. There's a process for touching survival stores. They skipped it."`;
@@ -130,7 +130,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing maintenance sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Yani drops the work order queue on the table between you and doesn't sit down. Several critical repairs marked "under review" — weeks past any normal review window. She's circled them herself, in red, with dates. "Dome structural stress needs immediate attention. I followed up twice. I was told to stop asking." She points at the top item on the stack. "When the dome starts failing, it'll be logged as structural age. It's not age. Every one of these could have been repaired. Someone is keeping them stuck."`;
@@ -167,7 +167,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading celestial corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Corvus has his observation charts spread across a long worktable and doesn't offer you a seat. He points instead — bands of pattern data running across four weeks of nights. "Used to follow a cycle. The dome's interaction with the contamination field made stable, readable patterns." His finger traces where the pattern breaks. Three weeks ago. "That's not natural drift. Either the contamination itself changed, or someone is manipulating the containment field deliberately." He rolls the chart back up. "What we're seeing out there now — that's not what the barrier is supposed to look like."`;
@@ -204,7 +204,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading containment sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kael pulls up a stool across from you and sits like someone who stopped sleeping correctly weeks ago. The barrier protocols were changed. Seepage that should trigger emergency lockdown is now rerouted to specific containment cells. "I filed a safety violation report," he says. "They told me the new protocols were authorized at higher levels." He has a theory — someone collecting contamination samples, someone testing exposure thresholds. He sets a handwritten log on the table. "I'm supposed to record the breaches and do nothing. So I'm recording them."`;
@@ -241,7 +241,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'uncovering communications control');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Nox waits until the other relay operator steps out, then speaks at normal volume, which turns out to be the most unnerving choice. "Messages about dome maintenance, resource allocation, contamination seepage — those get routed through a secondary relay before they go out. I was told it was protocol consolidation." She points at the routing board behind her. "Coordination between communes means if one fails, the others respond. Someone is cutting that off. You only do that if you want one commune to fail quietly."`;
@@ -278,7 +278,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping emergency system sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Seer lays the emergency protocol binder open to a section marked "Revision — Current." Then lays an older version beside it. The difference takes you ten seconds to read. The old version has evacuation procedures, bunker access protocols, mass contamination response trees. The new version has none of them. "I asked why these were removed," she says. "The answer was: no longer necessary." She taps the older binder. "These procedures exist because failure is possible. Removing them doesn't prevent failure. It prevents surviving it."`;
@@ -317,7 +317,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'structural vulnerability mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The structural records go back to the dome's original construction. You read them at a communal table, cold water glass sweating beside you. Load-bearing sections show weight routed through specific concentration points where better distribution was possible — the inspection reports for three of them are in the same binder, dated and signed. No repair was ever authorized against those reports. The dome stays up because the balance holds. It is precisely the kind of balance that doesn't announce when it ends.`;
@@ -353,7 +353,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing material sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The substitutions don't announce themselves. The replacement components look identical to spec at arm's length — same shape, same color, same weight. Under stress analysis they're different materials entirely, cheaper variants that degrade faster under contamination pressure. The swap was done in place, component by component, across twelve barrier sections. Whoever did it had access, time, and knew that visual inspection would pass them. The barrier holds for now. Materials like these don't fail gradually.`;
@@ -389,7 +389,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'resource sustainability analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The numbers work out to eighteen months of normal operations at reported population size. The actual consumption rate — drawn from supply receipts and the distribution ledger — supports six months. A twelve-month gap between what should be consumed and what is. The commune doesn't have a hidden population large enough to account for it. The supplies are going somewhere that isn't the population. The grain stores outside are clearly labeled. The thing they're labeled as holding doesn't match what the ledger says is being pulled from them.`;
@@ -425,7 +425,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping coercion network');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `You spend the morning at the communal tables near the grain stores, listening. Three separate conversations stop when they notice you. Not because of who you are — because of what you're near. People talk around the dome's condition, the resource distribution, the contamination reports. They reference "the record" and "the commune decision" the way people reference things they've stopped expecting to change. Everyone present knows someone who was reassigned after raising a question publicly. The ration boards are clearly visible. Nobody needs to say the rest.`;
@@ -461,7 +461,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'psychological pressure analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The communal spaces built for assembly stand empty at the hours they used to fill. A long-term resident — she's been here since the dome's second decade, she mentions it without pride — sits at a table in the commons and doesn't look up when two people walk past. That's the thing you keep noticing: nobody looks up. Aurora Crown was built on collective decision-making; the record boards are everywhere, the decision logs are public. The boards are current. Nobody reads them. When you ask a group near the cooking area about the future, the answers arrive in the same register: the dome will fail. There's no way through. Not said with grief — said with the flatness of something already decided.`;
@@ -497,7 +497,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering administrative conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Mapped on paper, the decision chain doesn't follow the org chart. The maintenance chief's freeze orders trace back to the contamination monitor's office. The contamination monitor's protocol changes align with timing from the survival planner's directives. The survival planner's decisions correlate exactly with incoming relay traffic on a secondary channel. Someone outside Aurora Crown is issuing instructions that travel through three local administrators before they reach the dome's physical systems. The commune's own structure is being used as a transmission mechanism.`;
@@ -559,7 +559,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing systemic sabotage conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Spread across the communal table: maintenance policy requires the critical repairs that work order freezes prevent. Contamination protocol specifies barrier integrity that redirected seepage deliberately violates. Emergency protocol guarantees evacuation procedures that have been officially removed from the current binder. Resource allocation states survival-first priorities while the ledger shows systematic diversion. Each document on its own could be explained as administrative error. The four of them together have one common feature: every gap serves the same direction of failure. That doesn't happen by accident.`;
@@ -629,7 +629,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of dome sabotage');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The thread runs through the relay secondary channel, into a coded correspondence batch, into transit-marked canisters that originate from Sunspire Haven. Outgoing instructions: specific protocol change orders to the contamination monitor, specific freeze directives to the survival planner, timestamped and coordinated. Someone beyond Aurora Crown's borders is running the sequence from outside. The commune's administrators aren't the architects of this — they're the mechanism. Whoever is directing it has authority to route through the relay and reason to collapse Aurora Crown without appearing to touch it.`;
@@ -665,7 +665,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'recognizing systematic collapse pattern');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Laid out on the communal table in sequence: the structural stress points left unrepaired, the barrier materials substituted for cheaper equivalents, the seepage rerouted instead of contained, the resource diverted from survival stores, the evacuation procedures removed from protocol. None of these failing systems is touching the others at the surface level. Structurally they're all touching: a weakened barrier lets contamination enter; diverted resources prevent repair; blocked maintenance can't fix the dome; a population with no evacuation option and no hope of outside help stops looking for a way through. Every failure is designed to amplify the next one.`;
@@ -701,7 +701,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'achieving systemic wrongness understanding');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The pattern holds at every level you check it: dome, barrier, resources, protocol, population. Each pressure applied in sequence, each withdrawal timed. But what you're reading isn't destruction for its own sake. The schedule is too measured. The changes are calibrated — enough to degrade, not enough to cause immediate collapse. Someone is not trying to destroy Aurora Crown quickly. They're observing how long a survival commune can hold under systematic pressure before it stops functioning as a community. The commune is the data. Whatever is being learned here will be applied somewhere else.`;
@@ -739,7 +739,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The specification calls for quarterly maintenance cycles and specific mineral additives. The most recent service log — eighteen months ago — carries a two-word margin note: "material substitution." The substitute compound isn't named. The log was signed by someone in the contamination monitor's chain, not the maintenance chief's. The dome's degradation since that date follows the pattern you'd see if the stabilizing additive had been replaced with an inert filler. The contamination isn't a failure of maintenance. The maintenance record shows it was introduced.`;
         if (!G.flags) G.flags = {};
@@ -767,7 +767,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `Northeast quadrant: seventeen percent above tolerance. That reading alone should trigger automatic maintenance protocol — the dome's own safety architecture requires it. It hasn't triggered. You follow the sensor wire to its junction box and find a bypass loop — a short piece of wire that reroutes the signal before it reaches the reporting system. The loop is clean work. Not improvised. The dome is failing in that quadrant and the alarm has been manually removed from the circuit. The failure is meant to proceed without announcing itself.`;
         if (!G.flags) G.flags = {};
@@ -816,7 +816,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Merav Solind receives you in the commune's external correspondence room — not her office, a neutral space. "Seven weeks ago Aurora Crown submitted a formal complaint under Communal Integrity Protocol." She folds her hands. "The Collegium opened a preliminary review. That review has been delayed." She doesn't say by whom. She asks if you have documentation. She's precise in what she offers back: nothing formal yet, nothing that commits the Collegium to anything. But she writes down the filtration records reference before you leave, and she writes it in ink.`;
         if (!G.flags) G.flags = {};
@@ -857,7 +857,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'securing filtration evidence offsite');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `She travels between Aurora Crown and three outer settlements on a regular supply run — predictable enough that a sealed tube in her pack draws no particular attention. She doesn't ask what's in it. She'll drop it at the transit depot in the second settlement, marked for pickup. The filtration records leave the dome in a supply pack alongside preserves and replacement seals. Whatever happens to the archive copy, this one is outside anyone's reach here.`;
         G.flags.aurora_evidence_secured = true;
@@ -878,7 +878,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'hearing engineer account');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Orren keeps his voice level in the way of someone who's had nine weeks to get used to what happened. "I filed with supporting pressure data and photographs of the NE quadrant stress fractures. Three days later — reassigned to residential maintenance. They called it a rotation." He wasn't consulted. His replacement has no dome engineering background. He pauses on that. "Someone needed the complaint to go away without formally rejecting it. Moving me sideways accomplished that." He reaches into a storage locker and sets a sealed document case on the bench between you. "I still have everything I submitted."`;
 

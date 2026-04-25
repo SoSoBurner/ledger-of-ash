@@ -25,7 +25,7 @@ const STEALTH_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       const target = 13;
 
       if (result.total >= target) {
@@ -64,7 +64,7 @@ const STEALTH_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.total >= 12) {
         G.lastResult = `You accept — with conditions. The package you deliver is real enough to satisfy: three solid findings, two supporting documents, no source names and no active leads. Valuable, and not the whole picture. The payment comes through a northern clearinghouse with a standard commercial routing code. It's the kind of routing code that looks generic and traces, with two steps of work, to a specific financial channel within the northern bloc's operational infrastructure. You have been paid, at standard rate, by the network you're working against. The receipt is in your ledger.`;
@@ -106,7 +106,7 @@ const STEALTH_MIDSPINE_CHOICES = [
 
       G.flags.stealth_midspine_node3_complete = true;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `The structure has three visible tiers. At the base: street-level brokers, the kind you've been working with — they buy and sell without knowing what the information is used for. Above them: coordinating buyers who aggregate and pass upward, identifiable by their payment routing. At the top: a central receiving function that turns the aggregated intelligence into operational decisions for the northern bloc. That central function operates out of Shelkopolis — specifically from a location in the same administrative district as the network you're embedded in. They are not monitoring the northern supply chain. They are monitoring the people monitoring the northern supply chain. Every finding you surface, they are trying to know that you've surfaced it.`;
         G.flags.stealth_midspine_network_mapped = true;

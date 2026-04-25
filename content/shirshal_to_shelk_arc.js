@@ -36,7 +36,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       gainXp(70, 'following Corin\'s undisposed case number');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `A formally closed case that was never disposed means the physical case file still exists somewhere — it wasn't destroyed. Normally closed cases are archived within sixty days. This one has been in limbo for twelve months, which means someone is keeping it accessible without putting it into the permanent archive. The maritime registry's limbo files are held at the Shelkopolis central bureau. That's where it went when Shirshal couldn't dispose of it without explaining why it was closed.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -60,7 +60,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       gainXp(70, 'getting Wend\'s account of the shipping license suspension');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Wend has been a shipowner for twenty-two years. His license was suspended after he refused to accept a rerouting order that would have taken his vessel through a specified maritime corridor during a specified twelve-hour window. "They wanted me out of that corridor," he says. "I didn't go. Three days later, my license was under review." The corridor and the twelve-hour window he describes correspond exactly with the ghost vessel registry dates from his region.`;
         G.flags.met_wend_shipowner = true;
@@ -107,7 +107,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       gainXp(75, 'cross-referencing Parro\'s clean reports with ghost vessel dates');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Parro's check-ins are regular and his language is consistent: "maritime sector — no unusual activity." The ghost vessel dates and his clean-report dates overlap perfectly. He either didn't see the activity or he reported clean deliberately. His transfer to Shelkopolis happened one week after the last ghost vessel's maritime transit window closed. He's not a passive observer — he's a participant in the coverage operation.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -131,7 +131,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       gainXp(70, 'surveying the harbor for post-operation signs');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `The mooring patterns have changed. Three berths that were in regular use during the ghost vessel period now show no wear patterns consistent with recent use. The supply chain through Shirshal's harbor is finished. Whatever it was building toward, the maritime delivery phase was completed seventeen days ago. You're behind the supply chain. Shelkopolis is where you catch up.`;
         G.flags.shirshal_arc_maritime_complete = true;
@@ -158,7 +158,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `The Shelkopolis port district connects to the city's dome infrastructure via an underground freight channel — a legacy system from the city's founding, used for bulk material transit between port and manufacturing districts. The ghost vessels didn't dock at the main port. They used the secondary freight terminal, which feeds directly into that underground channel. Whatever they delivered bypassed port inspection entirely and went directly into the city's interior distribution system.`;
         G.flags.shirshal_arc_port_channel_mapped = true;
@@ -181,7 +181,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       gainXp(80, 'making contact at the secondary port registry');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The port registrar is a woman named Aldeth who has been tracking discrepancies in the secondary freight terminal logs for six months. "Six vessels logged as 'maintenance transit' that never appeared in the maintenance queue," she says. "I filed a query three times. Each time, the query was rerouted to a bureau that didn't exist." She connects ghost vessels, undisposed cases, and the maintenance transit cover story into a single pattern. She stamps you into the network.`;
         G.flags.met_aldeth_port = true;

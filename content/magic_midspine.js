@@ -25,7 +25,7 @@ const MAGIC_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const target = 11;
 
       if (result.total >= target) {
@@ -63,7 +63,7 @@ const MAGIC_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.total >= 13) {
         G.lastResult = `You file through the Institute's independent review channel — the same mechanism Oslet uses for contested submissions. The filing timestamps automatically and routes to three committee members simultaneously; no single reviewer can suppress it without leaving a record of the suppression attempt. One of the three is not connected to the northern bloc. The study's findings are now documented, trackable, and visible to anyone who looks at the review queue. That is the trade you've made.`;
@@ -103,7 +103,7 @@ const MAGIC_MIDSPINE_CHOICES = [
 
       G.flags.magic_midspine_node3_complete = true;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The shorthand breaks into two layers: one from the Glasswake field research tradition, one from Mimolot Academy's theoretical notation. Rare combination — both institutions train for different problems. You pull alumni records for researchers active in both programs during the relevant period. Four names. Three have verifiable institutional affiliations that don't fit the document's secrecy. The fourth — Dr. Hael Woss — carries the listing "independent research," the classification used when someone has been removed from an institution without a formal dismissal on record. Current address: Shelkopolis. Eight months at the same location, which is either stability or waiting.`;
         G.flags.magic_midspine_annotator_found = true;

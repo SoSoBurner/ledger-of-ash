@@ -34,7 +34,7 @@ window.STAGE3_CLIMAX = (function() {
   }
 
   function phase1_open() {
-    var r = _roll('persuasion', 13);
+    var r = _roll('charm', 13);
     if (r.success) {
       G.lastResult = 'The man who opens the door is perhaps fifty, carrying himself the way people carry a thing they have held too long. He looks at you without surprise — he was expecting you to come as yourself. "Good," he says, and steps back from the door. "I had to know whether you were the kind of person who could." He does not explain what he means. He closes the door and moves to the table without waiting for an answer.';
       G.flags.stage3_voss_reassured = true;
@@ -48,7 +48,7 @@ window.STAGE3_CLIMAX = (function() {
   }
 
   function phase1_guarded() {
-    var r = _roll('stealth', 12);
+    var r = _roll('finesse', 12);
     if (r.success) {
       G.lastResult = 'You give him a name that is not yours. He writes nothing down. After a moment he says: "I didn\'t ask your name. I know your work." He slides a folded document across the table — a page from a transit manifest, a section you cross-referenced three weeks ago, your specific notation in the margin. He has a copy of something you believed was in a sealed file. "We have been reading the same record," he says. "For longer than either of us planned."';
       G.flags.stage3_voss_knows_work = true;
@@ -62,7 +62,7 @@ window.STAGE3_CLIMAX = (function() {
   }
 
   function phase1_early() {
-    var r = _roll('survival', 12);
+    var r = _roll('vigor', 12);
     if (r.success) {
       G.lastResult = 'You arrive forty minutes before the time given and watch the street from the lane behind the dye works. Three people pass. One is a transit runner on a standard post round. One is a woman with a charter notary\'s guild mark on her sleeve. The third stops at the corner, checks the time, moves on. None of them look at the Weavers\' Hall. When you go up, the man inside shows no surprise at your silence. He was watching the same street from a different window.';
       G.flags.stage3_voss_mutual_surveillance = true;
@@ -113,7 +113,7 @@ window.STAGE3_CLIMAX = (function() {
   }
 
   function phase3_carry() {
-    var r = _roll('survival', 14);
+    var r = _roll('vigor', 14);
     G.flags.stage3_climax_resolution = 'carry';
     if (r.success) {
       G.lastResult = 'You take the volume. Voss says nothing when you leave — he is already clearing the table, reducing what he holds to nothing traceable. You move through three neighborhoods before dawn, not by any route you have used before. The volume is a weight in your pack that is not its physical weight. By morning you are outside the city limits with a document that maps eleven years of the same mechanism you have been piecing together from fragments. The fragments now have a spine.';
@@ -134,7 +134,7 @@ window.STAGE3_CLIMAX = (function() {
   }
 
   function phase3_expose() {
-    var r = _roll('lore', 15);
+    var r = _roll('wits', 15);
     G.flags.stage3_climax_resolution = 'expose';
     if (r.success) {
       G.lastResult = 'Voss has a relationship with the Merchant Assembly\'s charter review committee that you do not — standing, a decade of filings, a name the clerk at the archive reading room recognizes. Together, the record reaches three committee members before the Collegium\'s internal move against Voss can be actioned. The committee does not publish findings. They do not name the mechanism. They open an inquiry. That is enough — inquiries have their own momentum, and this one begins with eleven years of source material.';
@@ -153,7 +153,7 @@ window.STAGE3_CLIMAX = (function() {
 
   function phase3_mediate() {
     var usesOrveth = G.flags && G.flags.stage2_climax_inquisitor_contact;
-    var r = usesOrveth ? _roll('persuasion', 12) : _roll('persuasion', 15);
+    var r = usesOrveth ? _roll('charm', 12) : _roll('charm', 15);
     G.flags.stage3_climax_resolution = 'mediate';
     if (r.success) {
       if (usesOrveth) {

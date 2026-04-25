@@ -36,7 +36,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       gainXp(70, 'meeting former bridge director Ashe');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Ashe was removed via an audit that found "administrative irregularities" — a charge she's certain was fabricated. "I refused to sign the new duty-walker scheduling," she says. "The new schedule created the night gaps." She wasn't suspicious then — just rigid. Now she is. She gives you the name of who filed the audit against her: an Iron Compact compliance officer who has since been promoted.`;
         G.flags.met_ashe_whitebridge = true;
@@ -102,7 +102,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       gainXp(75, 'calculating load weight from bridge stress observations');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The bridge's main span flexes measurably under loads above two tonnes — Cadrin noted the flex sound specifically. His thirty-one entries include twenty-four where he heard the flex. Three-to-five tonne range. Industrial shipping containers for reactive precursor run 2.8-4.6 tonnes when full. Cadrin's weight estimates are consistent with full containers. Whatever came across that bridge over five months could supply a large-scale atmospheric application.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -126,7 +126,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       gainXp(75, 'locating the unmapped east bank staging area');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The staging area is a cleared section of riverbank two kilometers east of the bridge — enough room for four large carts, with wheel ruts in the soil consistent with heavy loads. The soil near the edge shows trace reactive compound residue — the kind left when containers are imperfectly sealed. The ruts run northeast. Northeast of Whitebridge, at the distance implied by the rut depth and direction, is Ironhold Quarry. The supply chain is confirmed end-to-end.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -156,7 +156,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `You enter through the commercial freight gate during peak delivery hours — dozens of carts, no one checking faces, just manifests. You don't see Karnn and, more importantly, he doesn't see you. Whatever his role in Shelkopolis's phase of the operation, he hasn't been briefed to watch for you specifically.`;
         G.flags.whitebridge_arc_clean_entry = true;
@@ -180,7 +180,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       gainXp(80, 'contacting the Ironspool Ward investigation network');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The network coordinator, Brev, already has a file on Delt Karnn. "He transferred under a reassignment authorization that lists his previous posting as 'crossing administration review' — which is not an official administrative category," she says. "That means the transfer paperwork itself is a forgery." She connects Karnn's arrival to three other recent transfers using the same fabricated category. The same clearing mechanism used at Whitebridge is being used here.`;
         G.flags.met_brev_ironspool = true;

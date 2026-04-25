@@ -21,7 +21,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading guild dispute patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -55,7 +55,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering trade agreement manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Ilya sets two documents side by side on the cart bench — the original agreement and what she received after filing. The column for storage access fees reads differently in each. "Signed copy. Amended copy. Same reference number." She taps the date on the amendment. It predates her notification by eleven days. "I didn't agree to these terms. I was informed I already had."`;
@@ -91,7 +91,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading quality control patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Noren opens a drawer and removes two copies of the same inspection record. Same goods, same batch number — different outcome stamps. "I filed the first one. This version is what the registry shows now." He puts both on the table and doesn't pick either up. "I've stopped writing in pen. It doesn't matter what I write." His caliper lies across the drawer edge, balanced there since before you arrived.`;
@@ -123,7 +123,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering access control manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Emry slides the denial log across the counter without being asked, then pulls it back before you can lift it. "Twelve denials in six weeks. Prior six weeks: two." She reads the stated reasons aloud without inflection. "Insufficient trade history. Reputation review pending. Administrative hold." She closes the log. "The three merchants fast-tracked to full standing last month had shorter histories than four of the denials."`;
@@ -159,7 +159,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading ledger manipulation patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Toren opens the ledger to a page that shows two column totals — one in the standard ink, one in a correction red that doesn't correspond to any correction notation. "The red column doesn't reconcile against any registered account." He turns three more pages. The same red column appears, different amounts, no source reference. "Someone is running a parallel line through the primary ledger. It's been there at least eight months."`;
@@ -195,7 +195,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'tracing merchandise diversion');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Selain steps between two loaded carts and speaks toward the wall. "Standard hold is three days before transit. Bay Seven has had the same four crates for—" She stops. Her eyes move to the covered walkway above, where a tariff clerk crosses without pausing. She resumes. "The morning routing sheet doesn't show everything that moves." She names Bay Seven without looking at it. "Diversion orders arrive already signed. I don't add my name." She moves back into the main flow of the yard before the next cart passes.`;
@@ -228,7 +228,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering coercive membership practices');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Drell holds the revised oath text for a moment before setting it down. "Traditional commitments covered craft conduct and dispute protocols. This version covers personal disclosure — who initiates speak to, what doubts they hold, who in their household might object to guild obligations." He turns the page over. "I administer what I'm given. I don't write it." His caliper sits in his breast pocket, tip outward, unused all day.`;
@@ -264,7 +264,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering craft knowledge suppression');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Keon pulls a training syllabus from his stack and reads without preamble. "Weight assessment, market-rate negotiation, independent quality arbitration — all three marked 'advanced placement only, Level Four clearance.'" He sets the page down. "My apprentices reach Level Four in year three. These are year one skills. I taught them in week two before the revision." He doesn't say who revised it. He doesn't need to.`;
@@ -302,7 +302,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'guild hierarchy analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The posted charter shows five department heads with independent reporting authority. The current roster shows three of those positions vacant, two filled within the past six weeks by names that don't appear in prior guild rosters. The merchant council's listed function has changed from "governing board" to "advisory body" — in the same document, same header, different revision date. The revision date is not posted. Someone changed the charter annotation without issuing a new version number.`;
@@ -335,7 +335,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'merchant network displacement mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The active trading roster from eight months ago lists forty-three registered merchants. The current roster lists forty-one — but only twenty-six names overlap. Seventeen merchants have been removed; fifteen new ones added. The removed names cluster around specific trade categories: independent textile, direct-import grain, non-guild craft goods. The added names share a single endorsing registrar signature. One person approved all fifteen new registrations.`;
@@ -371,7 +371,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'information flow analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Three merchants describe the same event differently. One says a colleague was removed from the roster for fee arrears. One says she resigned. One hasn't heard anything. All three were present at the same hall session three weeks ago. The event was the same. The versions aren't. Someone spoke to at least two of them after the session. The version that travels is the one that requires no follow-up questions.`;
@@ -404,7 +404,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'coercion apparatus documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The pattern is in the timing. A merchant files a complaint about an arbitration ruling. Four days later, her warehouse access code stops working. Another questions a membership denial at a hall session. The following week, his trade agreement with a supplier is voided — the supplier cites a clause the merchant says was never in the original. The mechanisms are different. The interval is the same. Four days, every time.`;
@@ -440,7 +440,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'resource flow tracking');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The quarterly fee summary shows total intake and total infrastructure expenditure. The gap between them has widened each quarter for eight months — not because costs dropped, but because a third line appeared: "administrative coordination, external." It started at four percent of total intake. Last quarter it reached nineteen. The line item has no corresponding service contract in the posted expenditure register. The money is leaving Guildheart. Where it goes is not listed.`;
@@ -473,7 +473,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'institutional trust erosion documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The guild hall's common bench — where merchants used to gather before proceedings — is empty at midday. Six merchants stand separately, each at a different wall. They arrived at the same time. None of them approached the others. A factor nearby says the same bench was crowded six months ago. "People stopped sitting together." She doesn't say why. She doesn't need to. The bench is still the same bench. The merchants are still the same merchants. Something between them is gone.`;
@@ -509,7 +509,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'merchant vulnerability mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The most exposed merchants share a profile: no guild family, single trade route, no secondary supplier. Remove warehouse access and they have nowhere to stage goods. Void one agreement and their only route closes. Each one is one ruling away from stopping. Someone catalogued this — the recent arbitration rulings cluster on merchants matching the profile with striking precision. The variance isn't random. These aren't the merchants who lost disputes. They're the merchants who could be stopped with the least resistance.`;
@@ -545,7 +545,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'authority structure opacity analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Three rulings this month cite the same authority: "per coordinating directive." No directive is numbered. No issuing body is named. The arbitrator's own name appears as the implementing authority — not the originating one. He executes decisions he didn't make and takes credit for the outcome in the record. When merchants appeal, they appeal to him. His response is the directive he implemented. The appeal closes on the same document that opened it. The loop has no exit point.`;
@@ -631,7 +631,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing arbitration conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The rulings carry marginal notes in one hand — the arbitrator's — that directly contradict the written decision text. "Hold — pending confirmation" appears on a ruling stamped as finalized. A letter fragment references "outcome Category Two, proceed per attached schedule." The schedule isn't attached. But three rulings issued the following week match the sequence the letter implies. The record isn't clean. Someone assembled it to look clean from a distance.`;
@@ -701,7 +701,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of arbitration corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The courier receipts use a routing code that doesn't appear in the Guildheart manifest registry. When you trace it against the transit yard's external ledger, the code maps to a delivery point northeast of Ithtananalor — same staging location the porter Selain described. The instructions attached to two of the receipts use language from the arbitration amendment directives verbatim. Whoever wrote the directives also wrote the courier instructions. The hand coordinating Guildheart's arbitration is north of it, and has been for at least eight months.`;
@@ -739,7 +739,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The pre-Union charter grants arbitration authority to a council of seven elected representatives. The current mandate assigns the same authority to a single senior arbiter — appointed by a "coordinating oversight body." The oversight body is not named anywhere in the document. Not footnoted. Not defined. The authority now flows to a position appointed by something the charter declines to describe.`;
         if (!G.flags) G.flags = {};
@@ -765,7 +765,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `The arbiter stops at a cartwright's workshop three blocks east. No transaction — a sealed letter taken from a courier, a single hand gesture of acknowledgment. The courier's pack carries a pressed mark: a lamp centered above a scale. No guild registry you know uses that sigil. The arbiter is back at the hall in under twenty minutes. The letter goes directly into the inside pocket, not the document satchel. It wasn't filed. It was kept.`;
         if (!G.flags) G.flags = {};
@@ -818,7 +818,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_observer = true;
@@ -860,7 +860,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'establishing courier drop');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `A wool merchant who makes the run to outlying settlements three times a week doesn't look up from her manifest when you explain the arrangement. "Sealed cargo is sealed cargo." She names a drop location near the eastern gate and a timing window. "Don't make it complicated." She adds your first parcel to the wool manifest under a fiber weight notation that will mean nothing to a guild clerk. The channel is open.`;
         G.flags.courier_drop_guildheart = true;
@@ -882,7 +882,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'hearing displaced factor account');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         if (!G.flags) G.flags = {};
         G.flags.met_paerun_delst = true;

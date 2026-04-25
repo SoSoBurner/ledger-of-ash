@@ -55,7 +55,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       gainXp(70, 'using Tavin\'s student travel for document cover');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Tavin doesn't need to know what he's carrying — you write the formula fragments into a genuine academic recommendation letter for him, embedded in the notation as if they're course examples. He carries his own recommendation. You carry the formula. The content is invisible unless the reader is looking for it.`;
         G.flags.tavin_carrying_formula = true;
@@ -119,7 +119,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       gainXp(70, 'final Scriptorium check before departure');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `In the secondary index — the one kept in a physical card system rather than the primary electronic record — you find a cross-reference: the formula's originating researcher filed an application to the Shelkopolis Institute fourteen months ago. The application was denied by a review board that included Brevard Ashe. The research was denied publication and simultaneously classified. Ashe has been managing the suppression of this formula from inside Mimolot for over a year.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -164,7 +164,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       gainXp(80, 'finding Doss before Ashe can');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Doss is alive and careful. He's been running his analysis through a private correspondence chain that uses historical research as cover. "I've completed the full synthesis model," he tells you. "The formula fragments plus the Glasswake shard amplification data plus the Craftspire accumulation quantity — it produces a compound that is lethal at sustained exposure above 180 hours." He says it quietly. "That's what we're talking about."`;
         G.flags.met_doss_shelkopolis = true;

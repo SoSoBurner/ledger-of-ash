@@ -21,7 +21,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading witness record manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -55,7 +55,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering anomaly documentation corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Master Thyn spreads two ledgers side by side without speaking. The difference is visible from a step away. Four weeks back, entries read "arcane signature suggesting external origin." The same incidents now read "minor fluctuation within acceptable parameters." Three anomalies are stamped resolved before a single follow-up visit was logged. Thyn taps one entry with a finger and pulls his hand back. "I filed what I observed. What's here now is not what I filed."`;
@@ -91,7 +91,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading case routing manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kess checks the corridor before answering. "Four weeks ago the rotation stopped. Now assignments come from above me, and they aren't random — complex cases with political weight go to Magistrate Verek, cases touching Shelkopolis merchants go to Magistrate Illys. Every time." She smooths the edge of the assignment ledger with one thumb. "I used to understand why a case went where it went. Now I just copy the names down."`;
@@ -124,7 +124,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'tracing investigation termination patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Brother Tam pulls a file from the resolved stack and opens it on the counter. "Witness follow-up: blank. Final evidence summary: blank. Notified families: no entries." The magistrate's closure signature is dated three days after the case was filed. "I track the docket by hand. I watch these cases. This one wasn't resolved — it was ended." He closes the file and slides it back. "They're stopping proceedings, not completing them. Families haven't been told."  `;
@@ -160,7 +160,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading information obstruction');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Investigator Kess speaks with a flat, controlled anger. "Briefings arrive with sections missing — 'under review,' 'reserved for magistrate eyes.' We proceed with whatever we're given, request the missing sections, get told the case is already resolved at a higher level." She sets a file on the table. "Three weeks of work. Marked closed yesterday. I found out from the docket board, not from anyone above me. Whatever we're doing out there, it's procedural cover. Someone else is making the actual determinations."`;
@@ -193,7 +193,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering witness manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Elder Marsh keeps his back to the window when he speaks. "Someone is reaching witnesses before their scheduled appearances. Not threatening — advising. 'Friendly advisors' who explain that testimony could become complicated, that absence might be safer.' Three witnesses left Shirshal entirely last month. Two more claim travel. The magistrates accept every absence without a single follow-up query." He folds his hands. "Without witnesses the proceedings are hollow. We're producing the form of justice without any of its weight."`;
@@ -229,7 +229,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'mapping external communication');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Keeper Noss refills your cup before answering. "Couriers come in regularly. Sealed packets, different faces each time, but they all know to ask for the back room near the east passage." She wipes the counter. "They meet with magistrates or their visitors, leave more sealed packets, gone within the hour. One told me they traveled from 'places that take interest in how Shirshal serves law.' Before I could ask what that meant, a man at the corner table told the courier that was enough." She glances at the corner. "That table books by the week now."`;
@@ -262,7 +262,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'revealing authority pressure');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Verek waits until the antechamber door is latched before he speaks. "There is pressure. Not from within Shirshal — from outside. Instructions arrive through channels I'm told not to trace. They specify how to handle certain cases, which witnesses to accommodate and which to find unavailable, which proceedings to accelerate." He sits with his hands flat on the table. "We're told it's system optimization. Investigative efficiency." A pause. "My rulings used to be mine. Now I check them against what arrived in the morning packet. I don't know whose law I'm enforcing."`;
@@ -300,7 +300,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'surveillance and observation');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Magistrate Illys and three travelers meet in the storeroom adjacent to the east archive. The door gaps at the hinge. Fragments: "...cases handled per the specified sequence..." "...witness unavailable as arranged..." "...documents prepared to the stated format." The visitors hand Illys a sealed packet before leaving. One pauses at the door. "Coordinator will receive the report. Shirshal is performing as required." Illys nods once, the way a subordinate nods to a superior. None of them work for Shirshal.`;
@@ -336,7 +336,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'accessing sealed communications');
       G.stageProgress[1]++;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The packet contains directive sheets, handwritten in two different hands. One column lists case numbers; beside each, instructions: close, defer, witness unavailable, outcome to be established per regional determination. A header reads "coordination with regional interests." A footer initialed "Coord." and countersigned with a mark you don't recognize — labeled "The House." These aren't procedural notes. They're a schedule of outcomes. Someone outside this hall decided what Shirshal's cases would find before the cases were opened.`;
@@ -372,7 +372,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'procedure law analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The revisions are spread across three procedural volumes, small enough that each one reads as administrative tidying. But set side by side: witness corroboration used to require multiple independent sources; it now requires one if a magistrate deems it "contextually sufficient." Physical evidence used to require direct verification; documentary substitution is now permitted under "contextual assessment." Case closure used to require completed witness follow-up; it now requires only that the "investigative trajectory is established." Each change is defensible. Together, they convert Shirshal's standard from evidence-required to discretion-sufficient — and someone authored all three within the same six-week period.`;
@@ -408,7 +408,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'tracing doctrine inversion');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The founding doctrine is carved into the entrance stone: "Truth is the foundation, justice is the purpose." The current teaching document, distributed to magistrates last quarter, reads differently: "Order is the foundation; truth serves order where it can." The revision is not a refinement — it's an inversion. Under the old doctrine, suppressing evidence violated the system's purpose. Under the new one, suppressing evidence that disrupts order becomes the system's purpose. The teaching document is signed by no one.`;
@@ -444,7 +444,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'evidence document analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The closure signatures are reproductions — the ink depth and pressure are uniform where a hand-signed document would show variation in grip and angle. The evidence seals have been duplicated using chemically treated paper; the impression is clean where a wax pull on authentic parchment would show grain resistance. Witness authentication marks carry identical pen spacing across three separate documents supposedly signed on different days. Someone has built a forgery apparatus calibrated specifically to Shirshal's formal document standards — close enough to pass a clerk's review, not close enough to pass this one.`;
@@ -480,7 +480,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'detecting authority credential forgery');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The regional magistrate seals are precise — too precise. Wax impressions from the same die show natural variation from heat and hand pressure; these are identical across four separate letters. The authority signatures are handwriting reproductions: technically convincing, but the pen angle is consistent across all three documents where a single person's signature shifts slightly based on surface and grip. The paper stock is the tell — slightly too white, too even in texture. Contemporary manufacture aged to match regional archive materials. The magistrates of Shirshal are executing directives from an authority that doesn't exist in the form it claims.`;
@@ -548,7 +548,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'gathering victim testimony');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The merchant speaks at the edge of the dock, away from the stalls. "Theft case. Investigator had suspects, had the documentation. Three weeks in. Then the magistrate marked it resolved." He stops. "Resolved means it's over. Mine isn't over. The suspects weren't charged. My stock wasn't returned. When I went to the hall to ask why, I was told the case was beyond my standing to question." His hands are steady but his jaw isn't. "An investigator worked my case for three weeks and I'm not permitted to know what they found."`;
@@ -584,7 +584,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'turning investigative witness');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Past the tenth bell, the eastern walkway near the archive is empty. Kess has a leather satchel under her arm. "I've been compiling this for two months." She opens it briefly — case files, witness logs, a comparison of pre- and post-closure record entries. "Cases I worked that were closed without my knowledge. Statements I filed that aren't in the current record. Magistrate rulings that contradict the evidence I submitted." She closes the satchel. "I'm leaving Shirshal at dawn. I need someone outside this system to hold what I've documented. Someone they can't reach through the hall's procedures." She waits.`;
@@ -620,7 +620,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing justice system conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Laid out on the table in sequence: Sorren's account of missing statements. Thyn's altered anomaly logs. The accelerated closure records. The procedural revisions. The doctrine inversion document. Three sets of forged seals. The directive packet with the Coordinator and The House initials. Elder Marsh's witness suppression account. Kess's collected case files. The thread runs clean from external directive to forged authorization to magistrate execution to falsified outcome. Shirshal's justice system hasn't been corrupted — it's been replaced with a mechanism wearing the same name, built to ensure specific cases never resolve.`;
@@ -658,7 +658,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Fourteen cases in the archive cite the Tazren precedent as their ruling basis. In the past eight months, six of those cases have been re-opened and "re-adjudicated under current doctrine." The re-adjudications consistently reverse the original rulings, transferring property and rights to institutional parties over individual claimants. The precedent isn't being updated — it's being systematically erased case by case, each erasure disguised as a separate legal proceeding.`;
         if (!G.flags) G.flags = {};
@@ -727,7 +727,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Liaison Parro has been stationed in Shirshal for six months, ostensibly reviewing procedural compliance. "The Collegium has concerns about the rate of re-adjudications," she tells you. "We've flagged it as a compliance monitoring category. We have not yet escalated." She asks detailed questions about the ghost visitor pattern. When you describe the visit-timing correlation with the re-adjudications, she pauses. "That would change the Collegium's escalation timeline." She's careful with her words but the direction is clear: give her the correlation data.`;
         if (!G.flags) G.flags = {};
@@ -768,7 +768,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'finding transferred magistrate');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Magistrate Corin lives in a coastal village three hours from Shirshal. She was transferred eight months ago. "I refused one re-adjudication," she says. "I told them the doctrine revision didn't grant authority to override settled property rights retroactively. They thanked me for my service and assigned me to here." She has the case files from the refused re-adjudication — she kept copies, which was technically improper. "I thought I might need them someday." Today is that day.`;
         G.flags.met_corin_magistrate = true;
@@ -789,7 +789,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'speaking to dispossessed shipowner');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Wend hasn't moved far from the harbor since the re-adjudication six weeks ago. "The verdict said the vessel was 'improperly registered under the terms of the administrative continuity resolution.' I've been operating that vessel for eleven years. Under the same registration. The administration never objected." He pulls out the original registration — valid, unstamped, entirely legal under the laws that were in effect when it was issued. The law changed after he registered it and was applied retroactively.`;
         if (!G.flags) G.flags = {};

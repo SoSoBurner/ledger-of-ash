@@ -32,7 +32,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'observing Aurora Heights formal session');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `A property dispute between a northern trading consortium and a residential cooperative — the contested asset is maintenance access to an atmospheric vent shaft. The consortium's advocate argues their pre-Union charter supersedes the cooperative's registered claim. The magistrate defers for written ruling without comment. You recognize the charter language: it matches the Guildheart pre-Union charter almost word for word. The phrasing wasn't borrowed. It was copied.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -56,7 +56,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'researching in Aurora Heights archive');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Eleven months back in the district maintenance records: a workorder for "filtration system adjustment — dome sector 4." The filing contractor doesn't appear anywhere in the current contractor registry — not suspended, not transferred, simply absent. Dome sector 4 maps directly to the residential blocks adjacent to the atmospheric vent shafts currently being disputed in the Aurora Heights court. The same shafts. The same timeframe. An unregistered contractor adjusted the filtration before the legal dispute over access began.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -80,7 +80,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'following the urgent official from Aurora Heights civic hall');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `She takes three extra turns — each one adding time to any direct route, each one giving her a sightline back along the path. At the third corner she pauses and checks before moving. The delivery point is a private address with no business registry entry. The maintenance contractor's sign on the door carries the same company name as the dome sector 4 workorder filed eleven months ago. The same unregistered contractor. She knows where the work came from. The entry is there. The entry after it is gone.`;
         G.recentOutcomeType = 'success';
@@ -119,7 +119,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.turns++;
       gainXp(60, 'mingling at Ironspool Ward shift change');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `A maintenance worker stops when you ask about the dome vents. She's been in this sector seven years and something changed three months ago — the pressure cycle timing is off by a consistent interval. "Not broken," she says, without looking up. "Just different. Someone adjusted it." She filed a query through the standard channel. Nobody came and nobody replied. She kept working because the vents still function. She's telling you because you asked, and because she's the kind of person who doesn't like unexplained adjustments to things she's responsible for.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -143,7 +143,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'reviewing Ironspool Ward cargo registry');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Four entries over the past two months, all filed as "maintenance supply — dome sector." Standard manifest entries include part numbers and contractor references. These four have neither — just the category label and a weight declaration. They should have been flagged at intake. They weren't. All four were cleared by the same duty officer on separate days across a two-month window. The pattern isn't accidental. One lazy entry might be. Four from the same hand is a decision.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -167,7 +167,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'locating the Ironspool contraband exchange point');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The exchange point is a maintenance equipment storage building that shares a wall with the dome access terminal. The handler is selling paperwork, not product — altered manifests for industrial materials that need to pass checkpoint without inspection. His clients range from standard contraband traders to one party whose description and billing code match the Aurora Heights unregistered maintenance contractor profile closely enough to be the same entity. He doesn't know what his clients are shipping. He doesn't ask.`;
         addJournal('Ironspool contraband exchange sells altered manifests — same contractor profile as Aurora Heights dome workorder', 'discovery', `ironspool-s1-exchange-${G.dayCount}`);
@@ -189,7 +189,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'speaking with longtime Ironspool resident near dome terminal');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Her name is Hess. Forty years in the Ironspool Ward, the last twelve in the same building. She talks to you because you stood at the right angle to her window and knocked the right way — she explains this without irony. "Three months back, the terminal changed," she says. "Twice a week now, late. People carrying things by hand, not contractor crews. I asked the duty officer. He said maintenance. I told him maintenance workers use trolleys and come in the morning. He stopped answering after that." She lets the silence do the rest.`;
         G.flags.met_hess_ironspool_resident = true;
@@ -216,7 +216,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.turns++;
       gainXp(60, 'visiting Verdant Row botanical station');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `A botanist is bent over a row of test plants with a magnifying lens, marking something in a ledger. She shows you without being asked: upper leaf bleaching, consistent across eight weeks of sampling, concentrated in the atmospheric exposure bed. "Not pollution," she says, and the specificity in her voice is the specificity of someone who's tested the alternative explanations. "The compound profile is too narrow. It has a synthesis signature. Something built this." She hasn't reported it formally. She isn't sure where formal reports go when they involve atmospheric compounds.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -240,7 +240,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'asking Verdant Row healers about unusual symptom patterns');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `The senior healer pulls out her symptom log before you've finished the question. "Two months of this," she says, with the tone of someone who's been waiting for someone to ask. Fatigue, mild respiratory irritation, pressure sensitivity — sub-acute across the board, which is why she kept treating it as seasonal. The pattern doesn't break between seasons. It's continuous. And it's dense in the residential blocks directly adjacent to the dome access terminals. She names the blocks. She hasn't yet mapped the terminals onto them. She's a healer, not a cartographer. But the geography is there.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -282,7 +282,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'surveying Granary Steps distribution floor');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The mechanized sorting system runs the full length of the floor — several hundred tonnes of grain per day moving through it at harvest peak. At the far end, a secondary intake channel handles humidity regulation for the storage bays. The channel connects directly to the dome atmospheric distribution network. The connection is structural: whatever enters the humidity intake propagates into the same dome system as the primary atmospheric supply. The channel is labeled for grain storage maintenance. But its pathway is identical to an atmospheric distribution point. The intake is currently unlocked.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -306,7 +306,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'questioning Granary Steps receiving clerk');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The clerk pulls up the flagged entries without hesitation — she's been wanting to show them to someone. Four incoming containers, all declared as grain treatment supplement for the humidity system's pest prevention cycle. The quantities were three times the standard monthly allocation. She flagged it at intake. Her supervisor told her the allocation had been increased under a new treatment protocol. She asked for the protocol documentation. It hasn't arrived. That was six weeks ago. "I stopped asking," she says. "But I kept the flags."`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -330,7 +330,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'examining charter mark on supplement containers');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Six containers in the storage bay, all labeled grain treatment supplement. All six carry the same mark on their base plate: the capital C with horizontal strike. You've seen it at Ironhold, at Whitebridge, at the Harvest Circle intake. The supply chain terminated here — not at the port, but routed directly into the Granary Steps humidity intake system. These containers have been entering the dome atmospheric distribution network for months. The mark confirms the same originating entity across every point in the chain.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -359,7 +359,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'accessing Iron Ledger Ward public transaction registry');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Fourteen months of entries. Three shell entities, all transacting below the individual review threshold — small enough that each one passes without audit, large enough in aggregate to matter. The fragmentation technique matches the ghost account pattern from the Ithtananalor records: amounts split to avoid thresholds, routed through intermediary holding structures with no listed principals. The total across all three entities over the fourteen months is sufficient to fund the simultaneous acquisition of six administrative positions in six different localities. That's not embezzlement. That's a placement operation.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -383,7 +383,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'consulting Iron Ledger Ward debt specialist');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The debt specialist has been in the Iron Ledger Ward long enough to recognize instrument design by intent. "These comply with Principalities commercial law on their face," she says, spreading copies across the table. "But the exit clauses are written to make departure financially ruinous regardless of performance. You can meet every obligation and still end up bound." Three creditor entities, one structural template — the same default threshold, the same compounding schedule, the same personal liability clause. "Whoever drafted these knew exactly what they were building," she says. "This isn't standard leverage. It's a trap with a Compact seal on it."`;
         G.recentOutcomeType = 'success';
@@ -405,7 +405,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'finding Maret Voss at the Iron Ledger Ward');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Maret keeps you standing for the first two minutes, reading you while she finishes something. Then she waves you to the chair. She's been on this for three months and she's hit the boundary of what her jurisdiction allows: she can trace the transactions but the originating entity sits behind a cross-jurisdiction registry search that requires Compact authorization she doesn't hold. "What I can give you," she says, leaning forward, "is pattern confirmation. The methodology is identical to ghost account structures I've documented in two other Principalities cities. Same threshold fragmentation, same holding structure, same timing. This is a template being deployed in multiple locations by the same originating operation."`;
         G.flags.met_maret_voss = true;
@@ -435,7 +435,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
       gainXp(60, 'reviewing Reckoning Quarter public docket');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The docket includes three cases that were formally filed, assigned to a magistrate, and then transferred to "administrative review" — a category that removes them from the public docket without formal dismissal. Cases in administrative review are effectively frozen. All three were filed against commercial entities whose names match the alias variations of the northern bloc.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -459,7 +459,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'speaking with the former Bureau adjudicator');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `She was the adjudicator for two of the three frozen cases. "I assigned them both to the same magistrate," she says. "The magistrate transferred them to administrative review without notifying me. I filed a complaint about the procedure. Two weeks later, I was informed that my adjudicator contract was not being renewed. No further explanation." She kept her case notes. She gives you the relevant pages.`;
         G.flags.met_former_adjudicator = true;
@@ -484,7 +484,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'surveilling the administrative review office');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Three exits over two hours. Two standard administrative staff. One — in the third exit — is Oversight Collegium, identified by the standard Collegium notation on their satchel clasp. The Collegium has regular access to the administrative review office. They're not just monitoring the frozen cases — they have authorized access to the unit that holds them.`;
         addJournal('Administrative review office: Collegium has authorized regular access — not just monitoring, actively controlling frozen cases', 'discovery', `reckoning-s1-surveillance-${G.dayCount}`);
@@ -510,7 +510,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.turns++;
       gainXp(60, 'browsing Scriptorium Steps atmospheric science stacks');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `A text on atmospheric compound behavior under pressure regulation systems — published seven years ago, now marked "supplementary reference only." The margin annotation in pencil by a previous reader: "See Iceveil et al. for updated findings." Iceveil is Toman Iceveil from Glasswake. His findings updated this text's core claims. His findings were then suppressed. The public stack still has the original text; the update exists only in a suppressed study.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -534,7 +534,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'speaking with Scriptorium Steps senior researcher');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Classification of atmospheric chemistry research requires a review board determination — it's not automatic. The researcher explains that the classification process was recently changed: the review board now includes a mandatory Warden Order liaison position. "Before that change," he says, "almost nothing was classified. In the past eighteen months, eleven studies have been classified. That's more than in the previous decade combined."`;
         addJournal('Scriptorium researcher: Warden Order liaison added to review board 18 months ago — 11 studies classified since, vs. decade norm', 'discovery', `scriptorium-s1-researcher-${G.dayCount}`);
@@ -556,7 +556,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'finding Doss at Scriptorium Steps');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Doss uses the Scriptorium Steps as his working space — he doesn't have an institutional affiliation here, but the library's open access policy lets him use the reference section indefinitely. He's cautious but once he knows you're connected to the investigation network, he opens his notes. "The formula fragments describe a compound that becomes something different under shard amplification," he says. "It crosses a toxicological threshold. The study that explains that threshold is the Iceveil study. Both were suppressed for the same reason."`;
         G.flags.met_doss_scriptorium = true;
@@ -585,7 +585,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.turns++;
       gainXp(60, 'attending High Quarter administrative hearing');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The hearing concerns resource allocation for district maintenance — specifically, who controls access to the atmospheric system access points within the High Quarter. An external consulting firm is bidding to take over maintenance contracts currently held by a district cooperative. The consulting firm's name rotates through the same alias variants as the northern bloc. The bid is being considered seriously by the district authority.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -609,7 +609,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'accessing High Quarter formal library');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The formal library's restricted section contains administrative records going back thirty years. The pre-Union charter fragment from Guildheart appears in a cross-reference index here — it was renewed through this library's administrative arm, not the central registry. The library served as a filing location specifically because it's considered a sub-registry, below the threshold of formal registry monitoring.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -633,7 +633,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'meeting the High Quarter district liaison');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The liaison is careful — her position requires it. But when you reference the atmospheric vent shaft dispute as a research interest, she says something specific: "That's the third inquiry about vent shaft access this quarter. The other two came from people who identified themselves as 'coordinating association representatives.' I've never heard that term before." The pre-Union charter's entity type is a "coordinating commercial association." They've been here before you.`;
         G.flags.met_high_quarter_liaison = true;
@@ -660,7 +660,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.turns++;
       gainXp(55, 'working the Common Quarter market');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `A food vendor has noticed changes in her regular customers' health over the past three months — nothing dramatic, but a steady increase in the "something's not right" quality of complaint. "They come in looking tired," she says. "Not sick-tired. Heavy-tired. Like breathing is work." The description matches sub-acute atmospheric compound exposure. Her stall is two blocks from a dome access terminal.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -684,7 +684,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'consulting the Common Quarter information broker');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The broker knows you're asking about something before you ask it. "Someone else was asking about the dome terminals three weeks ago," he says. "Not investigator — operational. They were asking which terminals are least observed, not what's going into them. I told them nothing. I'm telling you: they know this district as well as I do."`;
         addJournal('Common Quarter broker: operational survey of dome terminals 3 weeks ago — adversary mapped low-observation access points', 'discovery', `common-quarter-s1-broker-${G.dayCount}`);
@@ -725,7 +725,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'talking to Low Ward dock workers about unusual loads');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `An older dock worker remembers the containers. "Heavy for their size and wrong balance," he says. "Normal sealed containers have their weight low and center. These ones were distributed evenly — like liquid or loose fill. Industrial standard. Not grain, not equipment parts. Something that moves."`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -749,7 +749,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'mapping the Low Ward enforcement patrol gap');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The gap is twenty minutes, from the second-to-last patrol post to the return sweep — a window that falls between midnight and one hour past midnight. The dome terminal night deliveries that Hess described in the Ironspool Ward fall within this exact window. The patrol gap wasn't accidental. The enforcement contractor's schedule was adjusted to create it six months ago.`;
         G.flags.low_ward_patrol_gap_mapped = true;
@@ -772,7 +772,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'finding the Low Ward information seller');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `You find him before he finds information about you. He's a young man who's been approached three times by people he describes as "professional — not like the usual buyers." Each time, they asked about anyone asking about the dome terminals. He hasn't reported you yet because you're the first investigator he's met who found him first. He tells you the three buyers' physical descriptions. One matches Delt Karnn.`;
         if (!G.worldClocks) G.worldClocks = {};

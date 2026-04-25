@@ -15,7 +15,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'examining relic strategy requisitions with Decon Von Reckshem');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_decon_von_reckshem = true;
         G.investigationProgress++;
@@ -46,7 +46,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'negotiating with Councillor Mordoth Valinheim');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mordoth_valinheim = true;
         G.investigationProgress++;
@@ -77,7 +77,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'confronting Councillor Vorgul Oxtend on military transport passes');
-      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vorgul_oxtend = true;
         G.investigationProgress++;
@@ -106,7 +106,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'appealing to Councillor Cron Udenine Arbiter of Justice');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cron_udenine = true;
         G.investigationProgress++;
@@ -135,7 +135,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'exposing Northern Ambition funding dependencies');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_roth_udenine = true;
         G.investigationProgress++;
@@ -163,7 +163,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.met_lyria_firesoul = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -182,7 +182,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('The Porter\'s Account', 'He doesn\'t stop moving. The crate goes onto the freight sled and he picks up the next one before answering. "Transfer order came down with a Relic Strategy Wing seal on it. I moved it because the seal was good." He sets the second crate down harder than necessary. "Four loads that week. Same destination each time. Not on the standard route manifest." He straightens up and looks at the loading dock clock rather than at you. "Staging depot, north bridge access road. I wrote it in my personal log because the route number didn\'t exist."');
@@ -200,7 +200,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('The Ceremony Record', 'The shrine attendance rolls are kept in a cedar cabinet behind the offering table. The attendant is at the far end of the hall, adjusting a candle arrangement with careful attention. The ceremony record for the sixth-week merit judgment is third from the top — the name entered under the Northern Ambition bloc representative slot does not match the councillor\'s registered seal. The substituted name is a Relic Strategy Wing clerk designation. Whoever attended that merit judgment was not authorized to receive the production allocation it conveyed. The allocation is still in effect.');
@@ -218,7 +218,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.tower_scribe_cooperative = true;
         G.investigationProgress++;
@@ -238,7 +238,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.trade_permit_archive_checked = true;
         G.investigationProgress++;
@@ -257,7 +257,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('craft', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.craft);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Export Manifest — Dual Stamp Anomaly', 'The export manifest sits in the surface pile at the guild registry counter — recent enough to be unfiled. Two stamps on the lower third of the page: the Giant Council export authority mark in blue ink, and a Relic Strategy Wing operational clearance in black. Both are genuine. Both authorize the same outbound shipment. The guild registry clerk\'s copy, filed in the bound ledger beside the counter, carries only the Giant Council stamp. The black stamp on the manifest copy does not appear anywhere in the clerk\'s records. The operational clearance was added after the clerk\'s copy was taken. The shipment already left.');
@@ -275,7 +275,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.foreman_quota_dispute_overheard = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -299,7 +299,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation. More is needed before any formal step holds.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

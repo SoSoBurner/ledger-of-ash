@@ -16,7 +16,7 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'accessing Aurora Heights formal archive');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `Deep in the sealed correspondence, a single letter sits apart from the routine charter filings — a House Shelk subordinate writing to the Northern Provision Compact with delivery terms laid out in blunt commercial language. The noble registry bound it in with the quarterly administrative packets without marking it. Whatever it confirmed passed through this archive unnoticed for years, preserved by accident inside the wrong folder.`;
@@ -40,7 +40,7 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'working Aurora Heights social circuit for charter intelligence');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A court contact identifies the sealed charter holder by family name — a minor noble house that was dissolved three years ago but whose legal entity was never formally struck from the registry. It is a legal ghost operating under the protection of expired legitimacy.`;
@@ -63,7 +63,7 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing Aurora Heights registrar signature into low ward filings');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The registrar's counter-mark is a small down-stroke she adds only when she signs from her own bench — a personal flourish the clerks in Aurora Heights know by sight. It sits on the bottom corner of a housing review filed six weeks ago against a low ward tenant who had filed a noise complaint about the dome terminal deliveries. The review shifted the tenant out of the building. The registrar has no administrative reach into the low ward. Somebody walked the document across jurisdictions and she signed it without logging the transit.`;
@@ -90,7 +90,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'locating Ironspool Ward workers who handled container modifications');
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A former workshop hand describes the modification work in precise detail: signal-damping insulation panels, chemical seal reinforcement on the container joints, and a specific loading configuration designed to distribute weight evenly across a standard grain convoy arrangement. He was paid double rate and told not to discuss it. He discusses it anyway.`;
@@ -114,7 +114,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing suppression compound street leakage in Ironspool Ward');
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The fence produces a small vial from a cloth-lined case beneath the counter — a pale suspension, almost colorless. "Calming agent." He taps the stopper with one finger. "Three parts cut. Still works." The street-level product is diluted from bulk stock; no street distributor is running primary production. The volume in circulation implies a supply surplus far above what a targeted operation would require. Someone is moving more of this than the plan accounts for.`;
@@ -203,7 +203,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing Verdant Row healer exposure documentation');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -228,7 +228,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'establishing Verdant Row network contact');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.verdant_row_contact = true;
         G.lastResult = `The man across the table — grey-haired, ink on his left sleeve from a morning of copying — lays down the evidence summary and holds it flat with two fingers. He doesn't speak immediately. When he does, it's to a point on the wall above your shoulder. "The circuit moves on confirmation, not promise." He slides the summary back. The Verdant Row distribution network is committed: any findings routed through this channel reach every allied investigative and healer network in the region at once, with no single point of interception.`;
@@ -252,7 +252,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracking Reckoning Quarter magistrate into Verdant Row');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The senior healer confirms the magistrate has come three times in the past month — always mid-afternoon, always with the same adjudicator's clerk, always to take depositions from patients being treated for compound exposure. The depositions are filed in Reckoning Quarter records, not Verdant Row's civic hall. The magistrate brings his own seal block and carries it out in a cloth bag afterward. The healer kept a list of which patients were called. She gives it to you.`;
@@ -279,7 +279,7 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'intercepting live manifest routing number theft at Granary Steps');
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `You catch the manifest as it is being processed. The grain routing number on a non-agricultural manifest was entered four minutes ago. The submitting agent is still at the counter. You obtain a physical description and the exact charter subsidiary code they used. Live evidence.`;
@@ -302,7 +302,7 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'examining Granary Steps ward boundary markers');
-      var roll = rollD20('survival', G.skills.survival || 0);
+      var roll = rollD20('vigor', G.skills.survival || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Ward Marker Palimpsest', 'The stone post at the granary district boundary shows three layers of mark — the current ward designation in fresh chalk, an older grain routing code in wax crayon beneath it, and underneath both, a carved cipher that matches the charter subsidiary format you have seen in the Aurora Heights filings. The carving was meant to be permanent. Someone chalked over it when the routing number changed. The original claim is still there in the stone.');
@@ -324,7 +324,7 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing suppression compound payments in Iron Ledger Ward records');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -349,7 +349,7 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'pressing Guild Arbiter on Iron Ledger Ward claim dates');
-      var roll = rollD20('persuasion', G.skills.persuasion || 0);
+      var roll = rollD20('charm', G.skills.persuasion || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Arbiter Seniris, Off the Record', 'She lays the two documents on her desk in the order she always does — seniority of claim date, not guild seniority. The Northern Provision Compact filing is dated four months before the Guild Merchant\'s counter-claim. Her thumb rests on the date without pointing to it. "A provisional determination reflects what the documents show," she says, not looking up. "A full arbitration outcome reflects what the documents are worth." She does not explain the difference. She does not have to.');
@@ -371,7 +371,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pursuing withdrawn memorial fraud complaint in Reckoning Quarter');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `You find the complainant. They withdrew under threat of legal action using the sealed charter as a basis for a defamation claim. The original complaint identified specific cargo that had been using their service classification. They kept a copy of the original complaint. They sign a new witness statement.`;
@@ -395,7 +395,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'navigating Reckoning Quarter permit inspector social check');
-      var roll = rollD20('stealth', G.skills.stealth || 0);
+      var roll = rollD20('finesse', G.skills.stealth || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Permit Corridor, Clean Transit', 'You catch the inspector mid-patrol at the passage between the justice hall and the public record annex. She folds her document to the scope field first — the habit is automatic. Your transit papers show exactly what they need to show and nothing more. She returns the document without comment and moves to the next corner marker. The constabulary log at the annex entrance has no new entry after you pass. The corridor stays open.');
@@ -418,7 +418,7 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'routing findings through Scriptorium Steps back-channel');
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.stage2_evidence_shared = true;
         G.lastResult = `The copying clerk at the back of the Scriptorium Steps distributes the documentation bundle across three separate scholarly corridors without entering it in the standard outgoing log — the back-channel runs clean through the Academy's own infrastructure, invisible to anyone monitoring external mail. Within the day, Quenra Quillfire, Toman Iceveil, and Serin Sunweave each hold copies of findings the others generated independently. They can now cross-reference. The confirmation loop closes without a single documented handoff.`;
@@ -442,7 +442,7 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining misrouted Scriptorium correspondence through Iron Ledger franking');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The franking clerk logs every outgoing bundle by originating district. Scholarly correspondence from Scriptorium Steps should go through the Academy's own mail office. Seven bundles this quarter routed through Iron Ledger instead, each stamped with a financial-class franking seal that triples the permissible inspection window. Under financial franking, the letters can be opened for a solvency audit. Under academic franking they cannot. The misrouting wasn't administrative — it rewrote the legal status of the mail in transit.`;
@@ -471,7 +471,7 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'requesting high quarter charter record access');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The records hall clerk pulls the index for commercial disputes filed in the last year and runs a finger down the entry column. Eight months ago, a local merchant firm cited the sealed charter subsidiary in a freight contract dispute — then withdrew the filing three weeks later without explanation. The dispute is closed; the index entry is not. The name sits in the register's margin, unreferenced and unresolved, because no one thought to scrub the index when the filing was pulled.`;
@@ -495,7 +495,7 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(62, 'working high quarter social circuit for charter intelligence');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The man in the embroidered grey coat sets down his drink and turns his head slightly — the angle of someone retrieving something from memory rather than improvising. "Old money. Been very busy lately." He names a family. The name matches the dissolved noble entity that surfaced in the Aurora Heights filings: a house formally struck from the living registry three years ago, legal entity never deregistered. He doesn't know that. To him it's just gossip about money moving in old channels.`;
@@ -521,7 +521,7 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'gathering market intelligence in common quarter');
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A freight handler at the far end of the market stalls leans on her cart and narrows her eyes at the question. Three weeks ago: four sealed containers, arrived on a standard merchant wagon but listed underweight. She lifted one end of the first container herself and set it back down fast. "Way too heavy for what the manifest said." Chemical smell on the seals — sharp and faintly sweet. Collected same day, paid in advance with documentation she wasn't allowed to copy. The party wore no guild mark.`;
@@ -544,7 +544,7 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(56, 'gathering off-contract employer intelligence from common quarter labor');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A man with quarry-scarred hands and a guild pin worn upside-down — the common quarter signal for currently unaffiliated — nods at the description and names a specific employer: a freight consolidator operating out of a bonded yard near the eastern transit road. Overnight loading, casual hire, above-rate cash. "They don't use guild contracts. They use sealed charter authorization instead." He says it like it's a curiosity, not a crime. The charter substitutes for documentation that would leave a labor trail.`;
@@ -570,7 +570,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'tapping low ward informant network for compound distribution intel');
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The informant — a thin woman who leans against the low ward's crumbling gatehouse wall and speaks without looking at you — names a distributor and gives a street corner and a time of day. The diluted compound moves through this distributor's hands as a sideline, not a primary business. That's what makes the link useful: the distributor is close enough to the supply chain's overflow to know where volume comes from, but disposable enough to talk. A direct thread back to whoever is managing the surplus.`;
@@ -594,7 +594,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'pressing low ward off-books cargo workers');
-      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A worker with a crooked jaw and hands that haven't quite healed right leans back in his chair and stares at the ceiling while he talks. One container seal blew during transit — a dry failure, not a chemical one, but it pulled the lid up for a few seconds. "Racks inside. Padded. Rows of vials, each one labeled." He taps his forearm where the label would have been. The notation was a dosage figure. Below it, a Soreheim military classification stamp in standard command red. He closed the lid and said nothing to anyone for four months.`;

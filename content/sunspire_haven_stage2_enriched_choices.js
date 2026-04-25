@@ -18,7 +18,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -48,7 +48,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'examining convoy modification requisitions with Kael Emberthrone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_kael_emberthrone = true;
         G.investigationProgress++;
@@ -76,7 +76,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining container commission dispute with Orvak Strone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_orvak_strone = true;
         G.investigationProgress++;
@@ -105,7 +105,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_elyra_mossbane_sun = true;
         G.investigationProgress++;
@@ -135,7 +135,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(64, 'reviewing convoy handler payment report with Jorva Helmrune');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_jorva_helmrune_sun = true;
         G.investigationProgress++;
@@ -162,7 +162,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.kael_ledger_gap_revealed = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -183,7 +183,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.storehouse_glyph_marks_examined = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -205,7 +205,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.sunspire_social_breach_navigated = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -225,7 +225,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('The Shed Off the Back Lane', 'The porter — name unasked, cheap tin whistle on a cord around his neck that he flicks against his collarbone every few strides — has walked you halfway there before he realizes he has walked you there. The shuttered cart shed sits behind the third textile yard, padlocked with new brass on old iron. The ground inside the lane is compacted in a pattern that says heavy convoy weight has been parked here recently, despite the shed\'s paint having weathered past two seasons. The porter flicks the whistle, once, and does not ask what you are looking at.');
@@ -243,7 +243,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Paperwork Clarification, Stall Sixteen', 'The clerk at stall sixteen — name patch worn, thumb bandaged from a stamp lip — keeps rotating his stamp through his fingers while he works. The disputed papers sit top of his queue: a grain manifest with two family endorsements that contradict each other on the origin yard. The dispute was filed three days ago and escalated to steward arbitration at noon. He rotates the stamp twice more. "One of these endorsements is a forged family mark. I cannot tell which." He sets the stamp down. He has already flagged it to the escalation board.');
@@ -261,7 +261,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.sunspire_retainer_greeting_mirrored = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -288,7 +288,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/2));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

@@ -14,7 +14,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'investigating special mineral assessment logs with Darian Ironspike');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
         G.investigationProgress++;
@@ -44,7 +44,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'investigating worker exposure symptoms with Quarry Overseer Velka Ironspike');
 
 
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_velka_ironspike = true;
         G.investigationProgress++;
@@ -73,7 +73,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -103,7 +103,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
         G.flags.darian_second_encounter = true;
@@ -135,7 +135,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.flags.special_assessment_observed = true;
@@ -166,7 +166,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.flags.weighing_station_trust = true;
@@ -191,7 +191,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'observing the off-manifest transport crew at the quarry canteen');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.transport_crew_identified = true;
         G.investigationProgress++;
@@ -219,7 +219,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'approaching the night tally supervisor at the secondary slope rest point');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_night_tally_supervisor = true;
         G.investigationProgress++;
@@ -253,7 +253,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/2));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

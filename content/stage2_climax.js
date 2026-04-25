@@ -32,7 +32,7 @@ var STAGE2_CLIMAX = (function() {
 
   function phase1_negotiate() {
     
-    var r = _roll('persuasion', 14);
+    var r = _roll('charm', 14);
     if (r.success) {
       var orvethOpener = (G.renown || 0) >= 10
         ? 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk. "I had heard your name before you were shown in. That is unusual for someone at your stage of things." She gives you her full attention. She straightens the document she set at the corner — squaring it precisely, though it was already square.'
@@ -53,7 +53,7 @@ var STAGE2_CLIMAX = (function() {
 
   function phase1_deflect() {
     
-    var r = _roll('stealth', 13);
+    var r = _roll('finesse', 13);
     if (r.success) {
       G.lastResult = 'Your performance is convincing — a records clerk with too much time, following a dusty administrative thread that leads nowhere. The Collegium\'s clerk makes a note, issues a form warning about interference in active inquiries, and sends you back to the street. The form is in triplicate. They have already moved on. For now.';
       G.recentOutcomeType = 'success';
@@ -115,7 +115,7 @@ var STAGE2_CLIMAX = (function() {
 
   function phase3_expose() {
     
-    var r = _roll('lore', 15);
+    var r = _roll('wits', 15);
     G.flags.stage2_climax_resolution = 'expose';
     if (r.success) {
       G.lastResult = 'The partial document reaches three independent sources before dawn. By midmorning it is being read aloud in the Merchant Assembly — names that have not been spoken in official record for years, in some cases decades. The Collegium moves to suppress it, but suppression requires consensus, and the Assembly is already arguing. You have released something. What it burns is no longer yours to direct.';

@@ -17,7 +17,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_thalen_sunweave = true;
         G.investigationProgress++;
@@ -47,7 +47,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'reviewing celestial creature sighting records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
@@ -76,7 +76,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'examining Fairhaven market manifests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_maris_sunweave = true;
         G.investigationProgress++;
@@ -104,7 +104,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'questioning Vaelis Sunweave innkeeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vaelis_sunweave = true;
         G.investigationProgress++;
@@ -132,7 +132,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(80, 'examining Watchers Perch glyph cave');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -159,7 +159,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.met_naevys_sunweave = true;
         G.investigationProgress++;
@@ -180,7 +180,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Cyfoes Fountain — Drainage Shift', 'The market square fountain runs from a carved stone basin fed by a spring channel under the paving. The drain faces east now — the basin lip has been re-seated, recently, with fresh mortar still pale against the old stone. The original drain faced west toward the chapel. An eastward drain in Cyfoes fountain practice routes the blessing flow away from the faith ward and toward the field roads. Someone relocated the basin without announcing it. The shrine attendant nearby has not acknowledged the change, which is its own kind of acknowledgment.');
@@ -201,7 +201,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.flags.met_elira_sunweave = true;
         G.investigationProgress++;
@@ -223,7 +223,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
@@ -244,7 +244,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Western Field Road — Cart Track', 'The ruts cut through field road clay that hasn\'t been graded since last season. Two sets of wheel marks, wide gauge, heavily loaded — the near wheel sank four finger-widths into the soft shoulder at the bend. The road ends at the equipment barn and the old drainage channel. Neither receives bulk deliveries. Backtracking the tire marks to the market gate shows the departure time was after the second watch bell, when the market records close for the night. Whatever moved through here was not moving under a manifest.');
@@ -264,7 +264,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Cyfoes Shrine — Charter Bearer', 'The shrine attendant\'s hands stop mid-offering arrangement when the sealed charter comes out. He does not look at the bearer\'s face — he looks at the seal, and then at the charter ribbon, and then at the seal again. His thumb finds the chalk edge of the ward mark in the doorframe without him seeming to notice it. In Fairhaven, presenting a Shelkopolis administrative charter at a Cyfoes shrine signals that the bearer operates outside both the guild registry and the chapel record. The attendant finishes his arrangement and steps to the far side of the altar without speaking. He will not record having seen this person.');
@@ -283,7 +283,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Dock Authority Ledger — Missing Departures', 'The dock authority keeps arrivals in the left column and departures in the right, bound in the same daily ledger. Six vessels from the past two months have arrival entries with no corresponding departure — the right column is blank beside each one. The harbormistress\'s annotation on two of them reads "night clearance — no manifest presented." On the other four there is no annotation at all. Night clearance is a discretionary exception for guild-credentialed vessels in emergency conditions. None of the six entered through the standard credentialing queue. Their cargo classifications are listed as \'passenger and correspondence\' — the category that waives contents inspection.');
@@ -301,7 +301,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('craft', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.craft);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('South Pier — Backdated Manifest Seal', 'The shipping agent spreads three manifests across the pier desk without being prompted. The third: a bulk delivery cleared through Fairhaven\'s south pier seven weeks ago. The authorization seal carries a certification date that expired forty-three days before the manifest was stamped. The seal was genuine — issued by a real authority — but its validity window closed before this delivery arrived. Someone used an expired seal and the pier inspector did not flag it, or chose not to. The agent taps the certification date twice. "That\'s not the inspector\'s handwriting on the clearance line," he says.');
@@ -327,7 +327,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/2));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

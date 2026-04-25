@@ -18,7 +18,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_warden_sera_whiteglass = true;
         G.investigationProgress++;
@@ -50,7 +50,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'examining filtration maintenance deliveries with Theron Sealwater');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
@@ -79,7 +79,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining filtration budget anomalies with Cadrin Sealwater');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cadrin_sealwater = true;
         G.investigationProgress++;
@@ -108,7 +108,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'questioning Mariel Sealwater about Collegium liaison activity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mariel_sealwater = true;
         G.investigationProgress++;
@@ -138,7 +138,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_liora_sealwater = true;
         G.investigationProgress++;
@@ -168,7 +168,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.met_alis_sealwater = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -189,7 +189,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Residue in the Intake Gallery', 'The maintenance gallery runs along the dome\'s lower curve, warm from the thermal conduits packed into the wall behind the paneling. The filtration intake manifold is third on the left — a chest-high unit bolted into the floor, inspection cover accessible without tools. The residue ring inside the intake throat is the wrong color: pale amber where it should be grey-white, with a waxy deposit along the lower seam. The service log clipped to the unit shows the last inspection as routine. Nothing about amber. Nothing about the waxy line.');
@@ -210,7 +210,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Screening Queue, Side Gate', 'The side gate queue moves faster and the steward running it is younger — checking transit stamps without reading the names above them. The contamination-check notation on your record is a secondary flag, not a primary hold; it only surfaces if the steward cross-references the transit log against the daily alert sheet. This one does not. You are through in four minutes. Behind you, another steward at the main gate is going sheet by sheet. The two queues are twenty meters apart and processing the same list by different methods.');
@@ -229,7 +229,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.met_bastian_sealwater = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -248,7 +248,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -268,7 +268,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('East Gate, Manufactured Argument', 'The east gate argument is being performed. A haulier in a Collegium-marked coat is disputing a contamination-check stamp he clearly knows is valid — voice pitched to carry, gestures wide enough to pull every steward within thirty paces. While the duty steward steps out of the intake shed to mediate, a second figure in the same coat pattern walks a sealed case through the unattended inspection bench without logging it. Two minutes, maybe three. The haulier calms the instant the case clears the bench. The queue resumes. The intake log has a gap for that window.');
@@ -293,7 +293,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/2));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

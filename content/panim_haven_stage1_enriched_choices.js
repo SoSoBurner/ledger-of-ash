@@ -21,7 +21,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading offering corruption patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -56,7 +56,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering ledger manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Brother Thenim holds the ledger for a moment before handing it across. The entries from six weeks ago have been rewritten — the ink is newer than the dates claim, and the letterforms shift between older and recent hands partway through a page. More specific: the outcome language has changed. Old entries read "balance achieved." New ones use "appropriate resolution" or "necessary outcome." The substitution reframes mediation from finding a truth to executing a decision. Someone has been revising how the record says grief gets handled in Panim Haven.`;
@@ -92,7 +92,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading grief manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kaelas lowers his voice before he starts. "Families used to take weeks. Sometimes months. Now they're done in days, and they're not finished — they're empty. Anger becomes numbness. Loss becomes compliance." He pauses. "I brought it to the ritual authority. They said prolonged grieving was becoming spiritually inefficient. As if grief has a productivity measure." He looks toward the door. "Someone is teaching Panim Haven to mourn wrong, and calling it progress."`;
@@ -125,7 +125,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading ritual route manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Elder Fareth glances at the route board before speaking. "Three weeks ago the primary routes changed. The paths through the memorial waystation and the offering halls — gone. Now every procession runs through the inner shrine and straight to the mediation courts." He touches the edge of the new map with one finger. "The old routes took longer. They passed through more places. These routes are shorter and they feel thin." He pulls his hand back. "I asked why. I was told that's not my concern anymore. The coordinator role used to mean I set the routes."`;
@@ -158,7 +158,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading divine protection corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Meryl keeps her voice low and her back to the door. "People are returning. A merchant blessed for protection — robbed north of here within the week. A widow blessed for guidance through loss — she came back to say it made her numb, not steadier." She straightens a candle that doesn't need straightening. "I reported it. The ritual authority said the blessings were working as designed and people's expectations were the problem." She pauses. "I've administered blessings for eleven years. I know what a failing one looks like."`;
@@ -191,7 +191,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'confronting institutional authority');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Master Thiren takes a breath before answering. "There have been changes. Doctrine adapts." He stops, then continues more carefully: "Panim Haven has received guidance from outside. Sealed documents through shrine messengers. I don't know the origin. But whoever sends them knows our ritual structure precisely — not approximately, precisely. They know exactly which elements to adjust to produce different outcomes without breaking the visible form." His hands are flat on the desk. "I'm no longer certain we are adapting. I think we may be being rewritten."`;
@@ -227,7 +227,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'tracing external communication');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Joseline leans over the bar. "Every seven days, northern courier. Always meets with the ritual authority. Always leaves sealed documents with shrine staff. Different courier each time — same route, same timing, same unmarked coin payment." She glances at the door. "One of them mentioned, offhand, that they come from a place interested in how Panim Haven serves faith. That was all. Then the shrine told me not to speak with couriers directly." She straightens. "Someone from outside is running something through this village, and the shrine is the entry point."`;
@@ -260,7 +260,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering mediation bias');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Veth pulls the case register and puts his finger on a column without speaking first. "Merchant disputes: northern trader wins, every time, past two months. Inheritance cases: property transfers to outside buyers. Family mediations where reconciliation was the likely outcome — they end in separation." He closes the register. "I can't prove a directive exists. But the pattern across forty cases doesn't happen by accident. The mediation system is producing someone else's preferred outcomes."`;
@@ -298,7 +298,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'ritual formula analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The oldest texts and the current copies sit side by side. Invocations have been shortened — not translated, compressed. Protective components swapped for adjacent ones that read similarly in spoken form but carry different weight in the written registry. The original calls for "balance of divine and mortal will." The current version asks for "appropriate divine resolution." Three words changed. The entire orientation of the blessing shifted from mutual to prescribed. Someone has been editing the formulas to produce different outcomes from the same ritual form.`;
@@ -334,7 +334,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'tracing doctrine corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The original doctrine of divine balance treated every person's need as equal weight in the mediation scale — the text is explicit about this. Recent theological commentary reframes balance as "appropriate hierarchy": certain needs carry more weight, and wisdom lies in knowing which to serve first. The system itself hasn't changed form. Its stated purpose has. Old doctrine: find the just outcome. New doctrine: find the efficient one. The rewrite is in the interpretation layer, where it's harder to point to as forgery.`;
@@ -370,7 +370,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'offering preparation analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The preparation area shows substitution at every level. Incense components cut with lower-quality fill — identifiable by combustion rate and residue color. White grief-cloth bleached with caustic compounds that photograph correctly but break down faster than undamaged fiber. Copper vessels coated with a base metal film that reads as copper on surface inspection. Each substitution passes a casual check. Together they corrupt the material basis of every offering processed through this room. The substitution is systematic and old enough to have been done on a schedule.`;
@@ -406,7 +406,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing document forgery');
       G.stageProgress[1]++;
 
-      const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Professional forgery. The recent entries use ink that has been chemically aged — the oxidation is correct on the surface but the underlying fiber absorption is wrong. Paper fiber composition differs from the original volume stock; the mismatch is subtle enough to miss without a cross-section comparison. Binding threads on the replaced sections are newer than the surrounding pages by visible thread diameter. Someone with document restoration skills removed sections and replaced them with forged copies built to survive casual examination. This is deliberate, skilled, and not the first time they've done it.`;
@@ -442,7 +442,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'messenger route analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The messenger patterns map to a network. Documents exit Panim Haven northward — not by the main road but through secondary routes connecting the memorial waystations and offering halls, places where foot traffic reads as shrine business and attracts no additional scrutiny. Route workers name three locations that messengers visit on a regular schedule that doesn't appear in any official shrine documentation. Someone built a communication network using Panim Haven's sacred infrastructure as the cover layer.`;
@@ -478,7 +478,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering waystation stockpiles');
       G.stageProgress[1]++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The locked room in the second waystation holds nothing related to processional rest. Sealed document stacks, ink and writing materials, multiple sets of clothing in different regional styles, currency in at least three denominations. The storage is organized and regularly accessed — the documents are sorted, not piled. Someone has been running a logistics operation through Panim Haven's sacred waystation network for long enough to have developed an internal filing system. The sacred infrastructure is the cover. The cover is very good.`;
@@ -545,7 +545,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'turning institutional witness');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Thenim finds you near the dock at the third hour. He's carrying a wrapped package and talks without preamble. "I'm done here. The blessings I'm giving aren't the blessings I was trained to give. The mediation outcomes are set before the cases open. The directives come from outside and nobody questions where." He holds out the package. "I've kept records. Formula changes, ledger alterations, external correspondence that directed shrine decisions. I can't name who's at the top. I can document that the shrine has been taken apart from the inside." He looks at the water. "I'm leaving tonight. This goes to someone who acts on it, or it disappears with me."`;
@@ -580,7 +580,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'gathering victim testimony');
       G.stageProgress[1]++;
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The widow sits at her sister's table, which is not her own table anymore. "My husband's brother contested the will. Northern trader, came here for the case specifically. Every precedent was in my favor." She folds her hands. "The mediation official ruled against me. My home sold to a northern consortium within the month, for half its appraised value." She looks at the window. "I filed complaints. They were dismissed without review. I have the dismissal letters." She stands and retrieves them from a shelf. "The signature on each is the same name. One person closed all three."`;
@@ -616,7 +616,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing mediation conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Laid out together: forged ledger entries, doctrine philosophical shift, victim testimony, defected worker documentation, courier patterns, waystation stockpiles. The pattern resolves. Panim Haven's mediation system has been redesigned to transfer property and authority from local families to external stakeholders. The blessings have been weakened to create dependency on shrine intervention rather than independent protection. The processional reroutes created surveillance gaps for the logistics operation. Someone with precise knowledge of how each system functions built this — not by destroying what was there, but by reorienting it. The outcome isn't degradation. It's replacement with a structure that looks identical from the outside.`;
@@ -654,7 +654,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Forty-three cases in the past year: opened, assigned to senior mediators, closed within seventy-two hours. Status in each: "resolved per supplementary doctrine." No transcripts. No outcome records. No parties named. The supplementary doctrine citation traces to a doctrine revision that cites another doctrine revision — a circular reference that terminates at itself. These cases didn't reach resolution. They were removed from visibility using the appearance of resolution.`;
         if (!G.flags) G.flags = {};
@@ -723,7 +723,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Callow has been at the Panim Haven posting for four months. He speaks without preamble. "The Collegium received a formal complaint about Bureau case handling fourteen weeks ago. Received, logged, acknowledged, assigned to a review panel." He pauses. "That panel hasn't convened." He doesn't editorialize further — the arithmetic does it for him. He asks whether you've accessed the case register. When you describe the ghost closure pattern, he writes it down. "That will support the existing complaint file." His pen keeps moving.`;        if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_panim = true;
@@ -764,7 +764,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(72, 'finding Tazren');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Tazren answers the door before you knock twice. He lives two streets from the Bureau and doesn't ask who you are or how you found him. He steps back to let you in. "The doctrine revision wasn't a reform. It was a transfer of ownership. I don't know to whom." He sets a cup down in front of you. "I left when I stopped recognizing the system I'd built." He keeps a copy of the pre-reform doctrine text on the shelf behind him — he touches the spine when he mentions it. He'll help. On his own terms. With his own limits, which he'll name when he reaches them.`;
         G.flags.met_tazren = true;
@@ -786,7 +786,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing recent ghost case complainant');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Sera is still at the guesthouse — she hasn't processed what happened yet. She describes it in short sentences: land dispute, six weeks in the Bureau queue, yesterday she received a sealed letter and a small payment. "Resolved per supplementary doctrine. The case is closed." She holds the letter without opening it. When you ask, she hands it across. Release of claim form, signed in her name. She watches you read it. "I didn't sign that." Her handwriting is close but not hers — the loop on the final letter of her surname goes the wrong direction.`;
         if (!G.flags) G.flags = {};

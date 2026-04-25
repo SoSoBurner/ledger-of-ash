@@ -17,7 +17,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cadrin_crownmere = true;
         G.investigationProgress++;
@@ -46,7 +46,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'gathering night-transfer witness account from Aster Starice');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_aster_starice = true;
         G.investigationProgress++;
@@ -75,7 +75,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'reviewing unusual container claim with Arbiter Nyra Thawmark');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_arbiter_nyra_thawmark = true;
         G.investigationProgress++;
@@ -104,7 +104,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_thora_snowveil = true;
         G.investigationProgress++;
@@ -132,7 +132,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.met_arbiter_nyra_thawmark = true;
         G.investigationProgress++;
@@ -153,7 +153,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('survival', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('East Pier Brazier Platform', 'The platform is fixed to the outer rib of the bridgework, three meters above the crossing deck. Wind off the ice shelf cuts straight through. From here the full midspan is visible: both banks, the center support post, the gap between the rail sections where the decking flexes in freeze-thaw cycles. That gap is wider than it should be — the planking on the south side has been reset recently, fasteners new against weathered wood. The disturbed planks form a rough square large enough to conceal a container beneath the decking surface.');
@@ -174,7 +174,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Shelter Hall — Hauler\'s Complaint', 'The hauler is gesturing at the gate roster board, voice carrying across the shelter hall benches. Two wardens are moving to intervene. In the moment before they reach him, you position close enough to hear the specific complaint under the noise: he held at the east gate for two hours on a crossing that should have taken twenty minutes. The gate log showed his slot filled by an unlisted priority crossing — sealed cargo, diplomatic exemption, no declared route intent filed. The wardens reach him. The conversation becomes quiet and official. The gate log page is still visible on the board.');
@@ -195,7 +195,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.flags.met_cadrin_crownmere = true;
         G.investigationProgress++;
@@ -216,7 +216,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Center Support Post — Load Scoring', 'The post is two meters of fitted stone wrapped in iron banding. The banding shows compression scoring in horizontal bands at three distinct heights — normal crossing traffic scores in a scatter pattern; these are clean parallel lines, consistent with a rigid container edge resting in the same position across repeated crossings. The lowest band sits at crate-base height, roughly forty centimeters off the deck. The iron is scored there more than anywhere else on the structure. Whatever rested against this post, it rested here many times, always the same dimensions.');
@@ -237,7 +237,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('East Gate — Undeclared Transit', 'The warden lifts the barrier log and taps the blank column where a route declaration should be. You produce a transit chit from the shelter hall — technically a supply-run permit, not a crossing declaration, but the form shares a column header. The warden reads the chit twice, looks at your pack once, and enters it in the log under supply transit. While he writes, you read the facing page: three crossing slots this week marked with a stamp you have not seen before — a double-circle mark, no declared route, approved directly. The warden closes the log before you can read the approval source.');
@@ -257,7 +257,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing the missing expedition through story circle');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.wb_missing_expedition_traced = true;
         G.investigationProgress++;
@@ -283,7 +283,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'reading the skipped arbiter seat');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.wb_arbiter_seat_skipped = true;
         G.investigationProgress++;
@@ -310,7 +310,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'reading the anomalous refugee paperwork');
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.wb_refugee_anomaly = true;
         G.investigationProgress++;
@@ -342,7 +342,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

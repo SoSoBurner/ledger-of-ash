@@ -17,7 +17,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_quenra_quillfire = true;
         G.investigationProgress++;
@@ -47,7 +47,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'reviewing Archive Loading Bay delivery records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
@@ -75,7 +75,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining Academy knowledge tariff bypass records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
@@ -104,7 +104,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'questioning Academy innkeeper about scholar guests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_ilys_quillfire = true;
         G.investigationProgress++;
@@ -133,7 +133,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_velis_quillfire = true;
         G.investigationProgress++;
@@ -164,7 +164,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var roll = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (roll.total >= 16) {
         G.flags.met_leth_quillfire = true;
         G.investigationProgress++;
@@ -194,7 +194,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(60, 'examining Restricted Stacks seal and archive infrastructure');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      var roll = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (roll.total >= 13) {
         G.investigationProgress++;
         addNarration('Restricted Stacks', 'The archive housing is original construction — stone cut and set during the Academy\'s founding period, the mortar joints darkened with decades of lamp-oil residue. The seal on the Restricted Stacks gate is a different story: pressed wax over a cast-iron plate, the wax still showing tool marks, the plate mounted in brackets that have not oxidized yet. Somebody sealed this section recently. The classification directive date on Quenra\'s files is the same month as the bracket installation, judging by the hardware finish.');
@@ -222,7 +222,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var roll = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (roll.total >= 13) {
         G.flags.met_calia_quillfire = true;
         G.investigationProgress++;
@@ -256,7 +256,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -282,7 +282,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'Mimolot Collegium academic correspondence');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/2));
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.lastResult = 'The correspondence is between two faculty members — formal register, tight margins, no salutation beyond initials. The first letter asks whether the external classification directive applies to the theoretical work as well as the applied findings. The second answers: classification directives from outside the faculty are not standard procedure and have no precedent in the Academy charter, but the directive arrived with a Collegium counter-seal, which means it carries force regardless of charter. The correspondent adds, in a postscript so compressed it is nearly illegible: "We are being told to not write down what we already know."';
@@ -309,7 +309,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'Mimolot Collegium scholar evasion');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 14) {
         G.flags.met_scholar_ruveth = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -336,7 +336,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(36, 'reviewing academy thesis defense deferrals');
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.flags.mim_defense_deferrals_traced = true;
         G.investigationProgress++;
@@ -357,7 +357,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'tracing Academy restricted-stack withdrawals');
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 14) {
         G.flags.mim_restricted_withdrawal_tracked = true;
         G.investigationProgress++;
@@ -377,7 +377,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(40, 'observing a lecturer self-censoring margin notes');
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 14) {
         G.flags.mim_lecturer_self_censor_seen = true;
         G.investigationProgress++;

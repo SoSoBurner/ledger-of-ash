@@ -17,7 +17,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting Vale Brokerwell');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Brokerwell's desk faces the door. He was already watching when you were shown in. "Unity Square functions on trust in the process," he says, before you've asked anything. He pours water for himself without offering any. The sentence is measured — not aggressive, not warm. He lets it sit. When you respond, he listens with his hands flat on the desk and his eyes on your collarbone rather than your face. He's cataloguing something.`;
         G.flags.met_vale_brokerwell = true;
@@ -43,7 +43,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Three private outcome documents, laid beside their public register equivalents. Two diverge: the public summaries carry terms favorable to institutional parties that the private outcomes don't include. Favorable language inserted after the fact, without the parties' knowledge. The third case has no public register entry at all — the case number pulls no record. The parties received a private outcome with a valid case number. Officially, no such case exists. All three alterations happened after private outcomes were filed, before the register was made accessible for public review.`;
         if (!G.flags) G.flags = {};
@@ -70,7 +70,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `The private outcome names the parties and the matter: routing access rights, Unity Square hub versus a northern commercial bloc. The arbiter's decision ran seventeen pages. The hub won on geographic and historical grounds; the northern bloc was barred from those routes without paying the fee structure the arbitration imposed. That outcome has no public register entry. The northern bloc began using those routes three months after the deletion — operating on terrain the arbitration had restricted, with no public record of the restriction. The deletion didn't reverse the decision. It simply made the decision disappear.`;
         G.flags.investigated_deleted_case = true;
@@ -121,7 +121,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The appointment file has three signature blocks, as required. Two are filled by current council members in standard form. The third reads: "expedited confirmation — emergency succession protocol." Emergency succession applies when an arbiter dies in post or becomes incapacitated mid-term. Brokerwell's predecessor submitted a voluntary retirement notice twelve days before the appointment. Retirement is not incapacitation. The protocol was misapplied to compress the confirmation timeline and bypass the third council member's standard review. The appointment was processed. The irregularity is in the paperwork, not the stamp.`;
         if (!G.flags) G.flags = {};
@@ -144,7 +144,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Nance Tarn has a small desk near the square's public board, close enough to read every posting. "Two complaints came to the Collegium in the past year. Both were forwarded to the coordination council for self-review." She sets her pen down. "Council reviewed. Found no irregularities. Self-review of a compromised system produces a clean result regardless of the underlying condition." She looks at you directly. "I need the private outcome documents. If you have them, or can get them, I can run an independent comparison. The council's review is useless to me."`;
         if (!G.flags) G.flags = {};
@@ -169,7 +169,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing dispossessed routing party');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Rell keeps her private outcome document in a flat leather case she carries with her. "Seventeen months ago. I walked out of the arbitration hall with that in my hand." When the northern bloc's carts started using the restricted routes, she went back to Brokerwell's office. "He opened the register. No record. Told me my copy was unofficial documentation — no legal standing without the public register entry." She sets the leather case on the table between you. "I have the arbiter's signature, the date stamp, the case number. He told me that wasn't enough." She's been trying to enforce a decision that has been made to not exist. She knows she's not the first.`;
         if (!G.flags) G.flags = {};
@@ -213,7 +213,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Cross-referencing the routing rights dispute party against commercial registers in adjacent localities: at Unity Square, the Northern Route Coordination Consortium. In Craftspire, the Regional Materials Coordination Body. In Cosmoria, a name that appears in the transit chain thread. Different names, but the registered principals overlap — three names appear across all three registrations, and all three share an address cluster in the same northern commercial district. The same principals, reorganized under different trade names in each jurisdiction, operating as if they were separate entities.`;
         if (!G.flags) G.flags = {};
@@ -254,7 +254,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `Brokerwell's filing drawer holds twelve months of correspondence, sorted by sender. The Northern Route Coordination Consortium appears every week — sometimes twice. The earliest letter is dated four months before Brokerwell's appointment as senior arbiter. The consortium was writing to him when he held a junior coordination role with no authority over routing decisions. The letters from that period use his name without his title. They were already in communication when the appointment was processed. He didn't gain a relationship when he gained the position. He had the relationship first.`;
         if (!G.flags) G.flags = {};
@@ -281,7 +281,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'compiling and transferring evidence collection');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `A visiting factor from a settlement two localities north is passing through for a single day's trade business — no affiliations with Unity Square, no reason for anyone to track who he speaks to. He takes the sealed document package without asking what it contains and hands it to Tarn at her desk while making an unrelated inquiry about the public board. Tarn receives it, signs nothing, and continues the conversation without breaking stride. The Collegium has the comparison documents. The transfer has no visible record.`;
         G.flags.unity_evidence_transferred = true;
@@ -325,7 +325,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'finding Brokerwell\'s predecessor');
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Polt settled two days' travel from Unity Square in a settlement with no trade routes he'd ever arbitrated. He answers the door himself and doesn't invite you past the threshold. "I was given a choice," he says. "Take the package and go, or stay in the post under terms I wasn't willing to accept." He doesn't name the terms. "The person who filled my position after I left — their name was in circulation before I submitted my retirement notice. The confirmation process confirmed a decision that had already been made somewhere else."`;
         if (!G.flags) G.flags = {};
@@ -347,7 +347,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'mapping coordination hub scope');
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Seven major trade route agreements, three inter-settlement supply contracts, two regional resource allocation frameworks — all currently active, all with Unity Square arbitration clauses built in. Disputes under any of them come here first. Together they cover roughly forty percent of commercial flow between settlements in the operational zone. Every rate negotiation, every routing conflict, every supply shortfall that matters goes through this process. A captured arbitration record doesn't affect one case. It sets the terms every party in the zone operates within.`;
         addJournal('Unity Square scope: 40% of regional commercial flow governed by arbitration it controls — a leverage point, not just a hub', 'evidence', `unity-scope-${G.dayCount}`);
@@ -386,7 +386,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The deleted routing decision: three transit corridors, previously subject to a fee structure the consortium was required to pay. After the deletion, they use those corridors without the restriction appearing in any accessible record. The two altered cases: supply contract terms adjusted post-session to favor the consortium's positions — the parties on the other side of those contracts believe different terms were agreed than what the public record now shows. Three interventions, each invisible in isolation. Cumulative effect: the northern bloc moves freely through the zone's commercial infrastructure on terms no competitor can read or match.`;
         if (!G.flags) G.flags = {};
@@ -427,7 +427,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Unity Square's mandate covers supply chain disputes that include Shelkopolis's outlying districts. Three of the active agreements include parties who also hold trade positions inside Shelkopolis's commercial registry. The routing rights the northern bloc gained here give them access to supply lines that feed directly into Shelkopolis's market. The contract advantages they obtained through the altered cases affect the pricing and availability of goods that flow through Shelkopolis factors. The capture of this hub translates into leverage inside the larger one. What's built here gets used there.`;
         if (!G.flags) G.flags = {};
@@ -534,7 +534,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing coordination outcomes and sponsorships');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The public record of coordination outcomes lists the parties and results — not the commercial sponsors, which are in the registered affiliation section of the intake forms, a separate file. Cross-referencing the two: eleven of the last fifteen coordination decisions in Brokerwell's chamber found in favor of parties affiliated with a single commercial sponsor designation: "Northern Commercial Compact Sub-registry Seven." The same sponsor code on every winning party, across eleven different case types, over fourteen months. The pattern is visible if you look across both files at once. Nobody has been looking across both files.`;
         if (!G.flags) G.flags = {};
@@ -555,7 +555,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'locating hidden office exit');
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `The second door is behind a shelving unit that swings on a recessed pivot — not locked, not concealed particularly carefully, the kind of modification that works because nobody looks for it. The corridor it opens to runs parallel to the main passage and exits at the building's eastern service entrance. Brokerwell has a route from his office to the street that bypasses the reception, the waiting hall, and the public entrance log entirely. The modification isn't recent: the floor shows wear patterns from regular use. He's been using this exit for long enough that the path is worn smooth.`;
         if (!G.flags) G.flags = {};
@@ -590,7 +590,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking with the Collegium observer');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Observer Tena works from a desk in the public documentation area — technically on-site, technically visible, functionally ignored. "Six months of weekly reports. The first two received acknowledgment. After the third the acknowledgments stopped." She slides a carbon copy of her last report across the desk. "I kept filing. At some point you file because the record needs to exist, not because anyone is reading it." She's been documenting the same pattern you're documenting, from inside the building, for six months, without institutional backing. Her reports are accurate and unread.`;
         if (!G.flags) G.flags = {};
@@ -624,7 +624,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'locating charter recall provision');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `Section fourteen of Unity Square's founding charter covers arbiter recall: a two-thirds vote of registered commercial parties with active coordination cases can trigger a full administrative review of the current arbiter's tenure, including access to all sealed case records. The provision requires sixty days' notice filed with the Collegium and a petition signed by qualifying parties. It has never been used — not because the mechanism doesn't exist, but because nobody outside the original drafters has read section fourteen. The current situation qualifies. The mechanism is available.`;
         if (!G.flags) G.flags = {};

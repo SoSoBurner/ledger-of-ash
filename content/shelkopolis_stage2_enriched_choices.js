@@ -16,7 +16,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'investigating sealed letter network');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.investigationProgress++;
@@ -47,7 +47,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'correlating glyph and letter patterns');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -74,7 +74,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'mapping noble faction benefit');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.investigationProgress++;
@@ -109,7 +109,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You lay out what you have on the table: partial dates, two names with unconfirmed roles, a pattern that holds in three of five cases. It isn't enough. Sharing this now hands someone a half-built case they can dismantle or absorb. The picture needs more before it can be moved.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stage2_evidence_shared = true;
         G.flags.stage2_evidence_shared_crit = true;
@@ -134,7 +134,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'approaching House Shelk matriarch');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.flags.met_lady_isabella = true;
@@ -163,7 +163,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'briefing Roadwarden command');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.flags.met_captain_windrider = true;
@@ -194,7 +194,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'consulting High Priestess on ritual routes');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.flags.met_high_priestess = true;
@@ -225,7 +225,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'first Warden Order contact');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       // Set rival on first encounter
       if (!G.rivalId) G.rivalId = 'warden_captain';
@@ -261,7 +261,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Multiple sources have confirmed the same description: someone asking the same questions, at the same addresses, one day behind your movements. You haven't shared the same room yet. The gap is real but hasn't closed. The moment to act or avoid hasn't arrived — but it's been scheduled by someone else's timeline.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('might', (G.skills.combat || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stage2_rival_status = 'negotiated';
@@ -299,7 +299,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.warden_invitation_seen = true;
         G.recentOutcomeType = 'faction'; maybeStageAdvance(); return;
       }
-      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('might', (G.skills.combat || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.warden_invitation_seen = true;
         G.flags.warden_interest_declared = true;
@@ -322,7 +322,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'cathedral archive access attempt');
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         if (!G.rivalId && arch === 'magic') G.rivalId = 'archivist_veld';
         G.flags.cathedral_archive_accessed = true;
@@ -351,7 +351,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'learning Verdant Row information protocols');
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         if (!G.rivalId && arch === 'stealth') G.rivalId = 'shadow_broker';
         G.flags.verdant_row_network = true;
@@ -381,7 +381,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'facilitating guild audit');
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
         if (!G.rivalId && arch === 'support') G.rivalId = 'provost_lenn';
         G.flags.guild_chairwoman_contact = true;
@@ -413,7 +413,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'accessing innkeeper log');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.innkeeper_log = true;
         G.investigationProgress++;
@@ -440,7 +440,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'analyzing glyph surge residue');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The scorch patterns don't radiate from a center — they lean. The damage is heavier on the northwest-facing surfaces of every stall that burned. The surge was channeled in from outside the market, not generated within it. Northwest means the archival quarter. Channeling a surge requires working knowledge of the city's underground glyph grid — the kind of knowledge that's held by fewer than a dozen people with active registry credentials.`;
@@ -465,7 +465,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'evaluating patrol leader arrangement');
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The personal matter is a property boundary dispute that's been stalled in the civic queue for eight months — real, concrete, and solvable. You work it through a guild records clerk who owes you nothing but processes the paperwork anyway. Three days later the patrol leader slides three folded pages across the tavern table without making eye contact. The pages name two relay stations on the northern route network, both listed under supply depot classifications that don't match their described locations.`;
@@ -496,7 +496,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The evidence on the table points in a direction but doesn't reach the origin. The authorization chain requires more links before the terminal point becomes visible. The shape of the operation is clear. The name at the top is not.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 2));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
         G.investigationProgress += 2;
         if (G.investigationProgress >= 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -525,7 +525,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1);
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         addNarration(
           'The Name She Won\'t Write Down',
@@ -549,7 +549,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1);
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         addNarration(
           'The Archive That Doesn\'t Line Up',
@@ -573,7 +573,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1);
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         addNarration(
           'Reading the Room Before the Room Reads You',
@@ -602,7 +602,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The picture is not complete. The evidence chain has gaps, and presenting it now hands someone an incomplete case they can absorb or redirect. Stage III requires the full picture. More ground to cover before this can move.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       if (result.total >= 14 || result.isCrit) {
         // Path A: institutional backing
         G.flags.stage2_finale_institutional = true;
@@ -693,7 +693,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'cross-polity suppression order');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -720,7 +720,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'Elowen pressure reveal');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.met_elowen_shelk = true;
         G.flags.elowen_under_pressure = true;

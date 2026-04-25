@@ -171,7 +171,7 @@
             skill: 'survival', tag: 'risky', align: 'neutral',
             cid: 'corridor_scavenge_short_search',
             action: function() {
-              var r = (typeof rollD20 === 'function') ? rollD20('survival', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
+              var r = (typeof rollD20 === 'function') ? rollD20('vigor', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
               var txt;
               if (r.isFumble) {
                 txt = 'The compound is waterlogged through. The sleeve is empty — contents long gone, address blurred past the seal. You lose time and come back with nothing useful.';
@@ -254,7 +254,7 @@
             skill: 'survival', tag: 'risky', align: 'neutral',
             cid: 'corridor_scavenge_medium_search',
             action: function() {
-              var r = (typeof rollD20 === 'function') ? rollD20('survival', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
+              var r = (typeof rollD20 === 'function') ? rollD20('vigor', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
               var txt;
               if (r.isFumble) {
                 txt = 'The jar is empty — cleaned out deliberately, not abandoned. The fiber has rotted through wherever it matters. You spend time on something that was already picked over.';
@@ -338,7 +338,7 @@
             skill: 'survival', tag: 'bold', align: 'neutral',
             cid: 'corridor_scavenge_long_search',
             action: function() {
-              var r = (typeof rollD20 === 'function') ? rollD20('survival', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
+              var r = (typeof rollD20 === 'function') ? rollD20('vigor', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
               var txt;
               if (r.isFumble) {
                 txt = 'The bundle is decoy weight — wrapped stone. The paper is blank beneath the route marks. Someone leaves false caches on long routes for a reason, and now you have announced yourself to whatever that reason is.';

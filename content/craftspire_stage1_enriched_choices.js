@@ -17,7 +17,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting Jorin the workshop master');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Jorin runs his thumb along a component on the work bench before he answers — habit, checking tolerance. "Four months of receiving inputs that test at sixty to seventy percent of declared concentration. I've checked my instruments. I've checked my analysis process." He sets the component down. The workshop smells of hot metal and flux, the kind of smell that settles into clothing. "Same base compounds. Correct labeling. Wrong amounts. Someone upstream is removing material before delivery and it's happening every batch, on a schedule." He already knows it's deliberate. He needed someone to tell him what to do with that knowledge.`;        G.flags.met_jorin = true;
         addJournal('contact', 'Workshop master Jorin met: chemical input modifications documented — deliberate concentration changes across supply chain', `craftspire-jorin-${G.dayCount}`);
@@ -44,7 +44,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
       if (!G.flags) G.flags = {};
       if (G.flags.met_jorin) {
-        const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+        const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
         if (result.total >= 12) {
           G.lastResult = `Jorin's analysis sheets go back six months, each batch logged by delivery date, declared concentration, and measured concentration. The gap is always 30-40%, always in the same compound class, always precise to within two percentage points. "Degradation is irregular," Jorin says. "This is consistent. The precision tells you it's controlled." He taps the most recent entry. The extracted fraction, accumulated over six months, isn't incidental material loss. Someone is running a separate extraction operation through Craftspire's supply chain and the supply chain is the mechanism.`;
           G.flags.found_chemical_discrepancy = true;
@@ -97,7 +97,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The supply chain runs in three stages: production, waystation, delivery. You get sample analysis from each stage — production facility output is full concentration, waystation intake is full concentration. Waystation output is 60-70%. The gap appears between waystation intake and output. Whatever processing happens in that building is removing material and passing the remainder forward as if nothing changed. The waystation is the extraction point. The operation is running inside a legitimate transit facility.`;
         if (!G.flags) G.flags = {};
@@ -144,7 +144,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Warden Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Bren writes as you speak. He asks three questions: volume extracted per batch, compound class code, duration of documented extraction. He writes each answer without comment. When you finish he puts down the pen and says "material interference with licensed production" without inflection — he's reading from a category in his head. He opens a case file. "If the compound class is what you're indicating, this is elevated above standard supply fraud." He gives you a case number and tells you someone will be in touch. He doesn't say when. The case number is already filed.`;
         if (!G.flags) G.flags = {};
@@ -169,7 +169,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'interviewing waystation worker');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Pell has the flat patience of someone who's had the same conversation with himself many times. "We measure intake and output. The number goes down sometimes. We log it transit variance and move the batch forward." He shows you the log form — a pre-printed category, stamped in the margin. "I was trained to use this column when the concentration drops. I asked why once. They told me it's standard for this compound class in transit." He knows you're going to tell him it isn't standard. He already suspects it isn't. He kept logging anyway because stopping would require him to say what he suspected in writing.`;
         if (!G.flags) G.flags = {};
@@ -213,7 +213,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The transit variance category was added to the waystation log format seven months ago — one month before the first chemical input discrepancy appeared in Jorin's records. The category addition was authorized by a supply chain standards update issued by a "regional materials coordination body" that has no public registration in guild records. The documentation system was prepared to receive the extraction evidence before the extraction began.`;
         if (!G.flags) G.flags = {};
@@ -254,7 +254,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `You follow a crate through the uninspected exit route to a staging yard two streets from the guild. The yard is commercial storage on record — available for hire — but it's been continuously occupied by the same party for eight months. The crates entering the yard don't have outgoing transit manifests. They're being held in the yard, not shipped onward. Whatever is being accumulated here hasn't reached its destination yet. The accumulation is ongoing.`;
         if (!G.flags) G.flags = {};
@@ -281,7 +281,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       gainXp(67, 'securing Jorin\'s analysis records');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Jorin's records are dense with chemical notation — readable to a guild chemist, dense enough to look like routine analysis documentation to anyone else. You carry a copy out in plain sight in a supply manifest folder. Nobody stops you. The six months of compound discrepancy analysis is now outside the guild's administrative reach.`;
         G.flags.jorin_records_secured = true;
@@ -325,7 +325,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'investigating other affected guilds');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Two other workshop masters have noticed the same concentration discrepancies. Neither filed a complaint: one was told it was standard transit degradation; the other was quietly offered a contract extension and didn't connect the two events. The extraction affects at least three workshops using the same supply chain. The scope is larger than Jorin realized — the compound is being extracted from multiple product lines simultaneously, which dramatically increases the accumulation volume.`;
         if (!G.flags) G.flags = {};
@@ -347,7 +347,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'speaking to Jorin\'s assistant');
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Lev has been watching the production inputs for three months on Jorin's behalf. "The deliveries come from a cart that's different from the regular supply wagon. Same company name on the side, different wheel configuration. Different horses." He's been noting physical characteristics Jorin's analysis doesn't capture. "The different cart only runs on days the concentration is lower. It's a separate delivery operation running under the same supplier name." There's a parallel delivery system using the legitimate supplier's identity.`;
         if (!G.flags) G.flags = {};
@@ -390,7 +390,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
       if (!G.flags) G.flags = {};
       if (G.flags.met_jorin) {
-        const result = rollD20('craft', (G.skills.craft || 0) + Math.floor(G.level / 3));
+        const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
         if (result.total >= 12) {
           G.lastResult = `Jorin's six months plus the other two workshops' data: approximately 340 kilograms of concentrated compound extracted. At dome filtration application rates, this is enough to process fifteen to twenty dome atmospheres. At reactive compound synthesis rates, Jorin goes quiet for a long time. "That's not a small operation," he finally says. "Whatever they're building, they've been preparing for it for at least six months and they have industrial-scale capacity." He looks disturbed. "This needs to go to Shelkopolis. This is bigger than Craftspire."`;
           G.flags.calculated_accumulation = true;
@@ -534,7 +534,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading restricted archive index');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The restricted section index is public by charter — sealed documents must have their titles and sealing authorities listed, even if the contents aren't accessible. Seventeen entries in the past two years. Nine cite a single authority reference: a designation code rather than a named office. The code doesn't appear in the guild's own administrative directory. Whatever sealed those nine documents has no official name in this building's records.`;
         if (!G.flags) G.flags = {};
@@ -555,7 +555,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'cross-referencing supply ledgers');
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `The incoming supply ledger tracks material in nine columns: origin, carrier, declared weight, tested weight, compound class, batch code, destination workshop, transit duration, and authorization number. The outgoing ledger tracks eight of the same — but adds a column that doesn't appear on the receiving end: a secondary destination field, listed after the workshop destination, filled in for exactly the batches where tested weight falls below declared weight. Whatever is being extracted from those batches has a logged destination. The column exists. Nobody mentioned it.`;
         if (!G.flags) G.flags = {};
@@ -603,7 +603,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'speaking with quality standards officer');
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Miv Sothrel keeps her inspection forms current on the desk — filled in, dated, organized by workshop in the sequence she visits them. She doesn't file them anymore. "I filed six reports with findings. Three were returned with the notation 'unsubstantiated.' Two were not acknowledged. One was acknowledged and the finding was removed from the version that entered the permanent record." She taps the stack. "These are accurate. What's in the archive isn't." She files accurate records for herself now. She stopped feeding the official version eight months ago.`;
         if (!G.flags) G.flags = {};
@@ -624,7 +624,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'examining northern annex storage');
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The annex room holds sealed containers — same locking mechanism as standard Compact export containers, which Craftspire doesn't use for internal storage. Twelve of them, stacked in two rows, each one weight-marked in the corner with a figure well above standard compound batches. The material inside has been consolidated from dispersed extraction into transit-ready packaging. Whatever has been removed from the workshop supply chains is staged here for collection. A collection that hasn't happened yet.`;
         if (!G.flags) G.flags = {};

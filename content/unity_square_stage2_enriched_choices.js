@@ -14,7 +14,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'exposing arrival registry shadow sub-register with Vale Brokerwell');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.investigationProgress++;
@@ -42,7 +42,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing mediation participants with Vale Ledgermere');
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.investigationProgress++;
@@ -71,7 +71,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
 
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_tinmarch = true;
         G.investigationProgress++;
@@ -101,7 +101,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.brokerwell_second_ledger = true;
         G.investigationProgress++;
@@ -132,7 +132,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.consignment_route_traced = true;
         G.investigationProgress++;
@@ -162,7 +162,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.ward_mediation_friction_resolved = true;
         G.investigationProgress++;
@@ -188,7 +188,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-referencing tally tower clerk observations with shadow register entries');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_tally_clerk_fera = true;
         G.investigationProgress++;
@@ -216,7 +216,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'observing the unindexed counting house during off-hours');
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.counting_house_interior_seen = true;
         G.investigationProgress++;
@@ -250,7 +250,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

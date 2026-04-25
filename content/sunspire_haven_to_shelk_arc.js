@@ -36,7 +36,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       gainXp(75, 'timing departure around garrison rotation');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `You leave during the four-hour gap between garrison out-processing and the new unit's arrival. No outgoing guards to report unusual departures; no incoming guards to have been briefed yet. The road south is clear.`;
         G.flags.sunspire_arc_clean_departure = true;
@@ -60,7 +60,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       gainXp(70, 'traveling with displaced convoy guard Tennen');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `Tennen isn't angry — he's methodical. He kept his own log of the convoy deviation dates, because that's what he does. Seventeen deviations in eight months, all on nights where he and three other guards were replaced by a different crew. "I thought it was scheduling," he says. "Now I think I was being managed." He gives you his log.`;
         G.flags.met_tennen_sunspire = true;
@@ -107,7 +107,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       gainXp(75, 'finding matching containers in junction waybills');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Three identical specifications, three different declared senders — all using name variations that differ by one word: "Regional Supplies Consortium," "Northern Regional Supplies," "Regional Supply Coordination." Same entity, rotating its alias. The last container passed through six days ago.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -151,7 +151,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `The dome serves the outer six districts simultaneously — a unified atmospheric system, pressure-equalized, meaning what enters one access point propagates to all six. The Sunspire container, deployment-configured, released at one access point would disperse to a combined residential and industrial population of several hundred thousand. You walk slower for a moment. Then you walk faster.`;
         G.flags.sunspire_arc_dome_scale_understood = true;
@@ -174,7 +174,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       gainXp(80, 'making contact in Aurora Heights');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The bookbinder knows who you are before you identify yourself. "Sunspire," she says, not a question. "The container information — three others tried to bring that same container spec to our attention before you. None of them made it south." She says it matter-of-factly. She stamps your documentation into the network. Your evidence is now in multiple locations simultaneously.`;
         G.flags.met_aurora_heights_contact = true;
