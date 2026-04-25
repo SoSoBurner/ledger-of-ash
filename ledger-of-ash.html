@@ -9684,6 +9684,17 @@ function _getAuthorityEncounterChoice(polity) {
   return pool[polity];
 }
 
+function prioritizeChoices(choices) {
+  if (!Array.isArray(choices)) return choices;
+  var TIERS = { 'main': 1, 'side': 2, 'enriched': 3, 'utility': 4 };
+  var sorted = choices.slice().sort(function(a, b) {
+    var ta = TIERS[a.plot] || (a.isUtility ? 4 : 3);
+    var tb = TIERS[b.plot] || (b.isUtility ? 4 : 3);
+    return ta - tb;
+  });
+  return sorted.slice(0, 5);
+}
+
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
   checkHeatConsequences();
@@ -9729,7 +9740,28 @@ function loadStageChoices(locId) {
     // Inject authority encounter at top if heat threshold met
     var authChoice = _getAuthorityEncounterChoice(G._currentPolity || '');
     if (authChoice) adapted.unshift(authChoice);
-    renderChoices(_injectBossSeedChoices(adapted));
+    // Inject inventory Read button for unread readable items
+    if (Array.isArray(G.inventory)) {
+      G.inventory.forEach(function(item) {
+        if (item && item.readable && item.id && !G.flags['read_' + item.id]) {
+          adapted.push({
+            cid: 'read_item_' + item.id,
+            text: 'The entry about ' + (item.name || item.id) + ' is still open.',
+            tag: 'safe',
+            plot: 'utility',
+            isUtility: true,
+            result: function(capturedItem) { return function() {
+              G.flags['read_' + capturedItem.id] = true;
+              G.lastResult = capturedItem.readText || ('You read the entry for ' + (capturedItem.name || capturedItem.id) + '.');
+              if (typeof addJournal === 'function') addJournal(G.lastResult, 'intelligence');
+              if (typeof updateHUD === 'function') updateHUD();
+              if (typeof loadStageChoices === 'function') loadStageChoices();
+            }; }(item)
+          });
+        }
+      });
+    }
+    renderChoices(_injectBossSeedChoices(prioritizeChoices(adapted)));
     return;
   }
 
@@ -9769,7 +9801,7 @@ function loadStageChoices(locId) {
   // Inject authority encounter at top if heat threshold met
   var authChoiceFallback = _getAuthorityEncounterChoice(G._currentPolity || '');
   if (authChoiceFallback) base.unshift(authChoiceFallback);
-  if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(base));
+  if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(prioritizeChoices(base)));
 }
 
 function renderNavChoices() {
