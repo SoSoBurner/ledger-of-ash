@@ -9354,9 +9354,19 @@ function adaptEnrichedChoice(c) {
   var _rivalMod = (typeof getRivalDCMod === 'function') ? getRivalDCMod(G.location) : 0;
   var _coreInvest = c.fn && /addJournal\(.*(?:'evidence'|'intelligence'|"evidence"|"intelligence")/.test(c.fn.toString());
   if (_coreInvest) _rivalMod = 0;
+  // Derive tag from c.tag (explicit) or c.tags array; default 'risky'
+  var _BOLD_TAGS  = ['Combat','Violence','Accusation','Betrayal','Exposure','Tribunal','Confrontation','Assault','Ambush'];
+  var _SAFE_TAGS  = ['Rest','Stealth','Craft','Study','Observation','Lore','Trade','Retreat','Gather'];
+  var _derivedTag = 'risky';
+  if (c.tag && (c.tag === 'bold' || c.tag === 'risky' || c.tag === 'safe')) {
+    _derivedTag = c.tag;
+  } else if (Array.isArray(c.tags)) {
+    if (c.tags.some(function(t){ return _BOLD_TAGS.indexOf(t) !== -1; })) _derivedTag = 'bold';
+    else if (c.tags.some(function(t){ return _SAFE_TAGS.indexOf(t) !== -1; })) _derivedTag = 'safe';
+  }
   return {
     text: c.label,
-    tag: 'risky',
+    tag: _derivedTag,
     align: c.align || 'neutral',
     action: function() {
       try {
