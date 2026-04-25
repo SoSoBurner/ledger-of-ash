@@ -808,6 +808,34 @@ input, button, select, textarea { font-family: inherit; }
   flex: 1; height: 5px; border-radius: 3px;
   background: var(--border-hi); overflow: hidden;
 }
+
+/* Pressure bars — watchfulness and heat */
+.pressure-bars { padding: 0 14px 8px; display: none; }
+.pressure-bars.has-values { display: block; }
+.pressure-bar-row { margin-bottom: 6px; }
+.pressure-bar-label {
+  font-family: var(--font-display); font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--ink-faint);
+  display: flex; justify-content: space-between; margin-bottom: 3px;
+}
+.pressure-bar-label .pbar-val { color: var(--ink); }
+.pressure-bar-track {
+  height: 6px;
+  background: rgba(0,0,0,.55);
+  border-radius: 3px; overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.4);
+}
+.pressure-bar-fill {
+  height: 100%; border-radius: 3px; transition: width .4s ease;
+}
+.pressure-bar-fill.watchfulness-fill {
+  background: linear-gradient(90deg, var(--danger) 0%, var(--blood-bright) 100%);
+  box-shadow: 0 0 6px rgba(190,40,40,.4);
+}
+.pressure-bar-fill.heat-fill {
+  background: linear-gradient(90deg, #7a3010 0%, #c85020 100%);
+  box-shadow: 0 0 6px rgba(200,80,16,.4);
+}
 .skill-bar-fill {
   height: 100%; border-radius: 3px;
   background: linear-gradient(to right, #2d6b4a, var(--ember));
@@ -1431,6 +1459,11 @@ input, button, select, textarea { font-family: inherit; }
 .ability-card-type { font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-display); color: var(--ember-hi); margin-bottom: 4px; }
 .ability-card-effect { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
 .card-trait { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--storm); padding: 10px; border-radius: 2px; margin-bottom: 6px; }
+.eq-summary { padding: 8px 0 4px; }
+.eq-summary-header { font-family: var(--font-display); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+.eq-summary-row { display: flex; justify-content: space-between; margin-bottom: 3px; }
+.eq-name { font-family: var(--font-display); font-size: 10px; color: var(--ink); }
+.eq-bonus { font-family: var(--font-display); font-size: 10px; color: var(--accent-gold); }
 .archetype-mechanic-note { font-size: .78rem; color: var(--gold-dim, #9a7a32); font-family: var(--font-body); margin-top: .4rem; line-height: 1.4; }
 .align-bar { height: 7px; background: rgba(0,0,0,.5); border-radius: 3px; margin: 4px 0; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.5); }
 .align-fill { height: 100%; border-radius: 3px; background: var(--ember); transition: width .3s; }
@@ -1823,6 +1856,7 @@ input, button, select, textarea { font-family: inherit; }
           <span class="l-gold"><span class="l-gold-sym">&#x25C8;</span><span id="hud-gold">0</span></span>
           <span id="hud-plotcredits" style="display:none;font-size:11px;color:var(--gold-dim)"></span>
         </div>
+        <div id="hud-consumable-count" class="stat-val" style="display:none;color:var(--jade-bright);font-size:10px;margin-top:2px;text-align:center"></div>
         <div id="hud-watchfulness" data-clock="watchfulness" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center"></div>
         <div id="hud-day" data-clock="day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
@@ -1841,6 +1875,24 @@ input, button, select, textarea { font-family: inherit; }
         <div class="l-axis-sub">Tick <span id="hud-tick">0</span>/73</div>
       </div>
       <div class="l-divider"></div>
+      <div class="pressure-bars" id="hud-pressure-bars">
+        <div class="pressure-bar-row" id="hud-watch-row" style="display:none">
+          <div class="pressure-bar-label">
+            <span>WATCHFULNESS</span><span class="pbar-val" id="hud-watch-val">0</span>
+          </div>
+          <div class="pressure-bar-track">
+            <div class="pressure-bar-fill watchfulness-fill" id="hud-watch-fill" style="width:0%"></div>
+          </div>
+        </div>
+        <div class="pressure-bar-row" id="hud-heat-row" style="display:none">
+          <div class="pressure-bar-label">
+            <span>HEAT</span><span class="pbar-val" id="hud-heat-val">0</span>
+          </div>
+          <div class="pressure-bar-track">
+            <div class="pressure-bar-fill heat-fill" id="hud-heat-fill" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
       <div class="l-skills">
         <div class="l-section-cap">Stats</div>
         <div id="hud-skills"></div>
@@ -13363,6 +13415,20 @@ function showCharSheet() {
       return '<div class="char-skill-row"><span class="char-skill-name">'+cap(k)+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
     }).join('') + '</div></div>' +
 
+    (function(){
+      var _SKILL_DISPLAY = {might:'Might',vigor:'Vigor',charm:'Charm',wits:'Wits',finesse:'Finesse',spirit:'Spirit',combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      var _eqLines = [];
+      ['weapon','armor','tool'].forEach(function(slot) {
+        var _item = G.equipped && G.equipped[slot];
+        if (_item && _item.bonus > 0) {
+          var _lbl = _SKILL_DISPLAY[_item.skillBonus] || _item.skillBonus || '';
+          _eqLines.push('<div class="eq-summary-row"><span class="eq-name">'+_item.name+'</span><span class="eq-bonus">+'+_item.bonus+(_lbl?' '+_lbl:'')+'</span></div>');
+        }
+      });
+      if (!_eqLines.length) return '';
+      return '<div class="eq-summary" style="margin-top:14px"><div class="eq-summary-header">Equipped Bonuses</div>' + _eqLines.join('') + '</div>';
+    })() +
+
     '<div style="margin-top:20px"><div class="char-section-title">Trait</div>' +
     (G.traits||[]).map(t => {
       var useBtn = '';
@@ -13924,11 +13990,9 @@ function updateHUD() {
   setText('hud-renown',  (G.renown||0) + ' — ' + getRenownedTitle());
   setText('hud-hp',      G.hp+' / '+G.maxHp);
   setText('hud-gold',    G.gold);
-  // Watchfulness tier indicator
-  var _w = Math.min(8, (G.worldClocks && G.worldClocks.watchfulness) || 0);
-  var _wTier = _w <= 2 ? '' : _w <= 4 ? 'Observed' : _w <= 6 ? 'Scrutinized' : 'Hunted';
+  // Watchfulness — suppress old plain-text div
   var _wEl = document.getElementById('hud-watchfulness');
-  if (_wEl) { _wEl.textContent = _wTier; _wEl.style.display = _wTier ? '' : 'none'; }
+  if (_wEl) { _wEl.style.display = 'none'; }
   // Day count
   var _dayEl = document.getElementById('hud-day');
   if (_dayEl) { var _day = G.dayCount || 0; _dayEl.textContent = 'Day ' + _day; _dayEl.style.display = ''; }
@@ -13942,14 +14006,29 @@ function updateHUD() {
     if (_rivalMax > 0) { _rivalEl.textContent = 'rival: ' + _rivalMax; _rivalEl.style.display = ''; }
     else { _rivalEl.style.display = 'none'; }
   }
-  // Heat (per-polity) — defensive: G.heat may not exist yet (Task 7.1)
+  // Heat — suppress old plain-text div
   var _heatEl = document.getElementById('hud-heat');
-  if (_heatEl) {
-    if (G.heat && typeof G.heat === 'object') {
-      var _heatLines = Object.keys(G.heat).filter(function(k){ return G.heat[k] > 0; }).map(function(k){ return k + ' ' + G.heat[k]; });
-      if (_heatLines.length) { _heatEl.innerHTML = 'heat: ' + _heatLines.join('<br>heat: '); _heatEl.style.display = ''; }
-      else { _heatEl.style.display = 'none'; }
-    } else { _heatEl.style.display = 'none'; }
+  if (_heatEl) { _heatEl.style.display = 'none'; }
+  // Pressure bars — watchfulness and heat
+  var _watch = (G.worldClocks && G.worldClocks.watchfulness) || 0;
+  var _maxHeat = 0;
+  if (G.heat) Object.values(G.heat).forEach(function(v){ if(v>_maxHeat) _maxHeat=v; });
+  var _watchRow = document.getElementById('hud-watch-row');
+  var _heatRow = document.getElementById('hud-heat-row');
+  var _pBars = document.getElementById('hud-pressure-bars');
+  if (_watchRow) { _watchRow.style.display = _watch > 0 ? '' : 'none'; }
+  if (document.getElementById('hud-watch-val')) document.getElementById('hud-watch-val').textContent = _watch;
+  if (document.getElementById('hud-watch-fill')) document.getElementById('hud-watch-fill').style.width = Math.min(100, _watch*10) + '%';
+  if (_heatRow) { _heatRow.style.display = _maxHeat > 0 ? '' : 'none'; }
+  if (document.getElementById('hud-heat-val')) document.getElementById('hud-heat-val').textContent = _maxHeat;
+  if (document.getElementById('hud-heat-fill')) document.getElementById('hud-heat-fill').style.width = Math.min(100, _maxHeat*10) + '%';
+  if (_pBars) _pBars.classList.toggle('has-values', _watch > 0 || _maxHeat > 0);
+  // Consumable count
+  var _consumCount = (G.inventory || []).filter(function(i){ return i.type === 'consumable'; }).length;
+  var _consumEl = document.getElementById('hud-consumable-count');
+  if (_consumEl) {
+    _consumEl.textContent = _consumCount > 0 ? _consumCount + ' CONSUMABLE' + (_consumCount > 1 ? 'S' : '') : '';
+    _consumEl.style.display = _consumCount > 0 ? '' : 'none';
   }
   // Investigation thread progress
   var _progEl = document.getElementById('hud-progress');
