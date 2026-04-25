@@ -1591,6 +1591,14 @@ input, button, select, textarea { font-family: inherit; }
   .card-grid { grid-template-columns: 1fr 1fr; }
   .char-sheet-grid { grid-template-columns: 1fr; }
 }
+@keyframes statFlash {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+.stat-flash {
+  animation: statFlash 500ms ease-out;
+}
 </style>
 <style>
 #splash-screen {
@@ -1810,10 +1818,10 @@ input, button, select, textarea { font-family: inherit; }
           <span class="l-gold"><span class="l-gold-sym">&#x25C8;</span><span id="hud-gold">0</span></span>
           <span id="hud-plotcredits" style="display:none;font-size:11px;color:var(--gold-dim)"></span>
         </div>
-        <div id="hud-watchfulness" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center"></div>
-        <div id="hud-day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
+        <div id="hud-watchfulness" data-clock="watchfulness" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center"></div>
+        <div id="hud-day" data-clock="day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
-        <div id="hud-heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
+        <div id="hud-heat" data-clock="heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
       </div>
       <div class="l-divider"></div>
       <div class="l-axis">
@@ -8288,6 +8296,7 @@ function getHeat(polity) {
 function addHeat(polity, amount) {
   if (!G.heat) G.heat = {};
   G.heat[polity] = Math.min(10, Math.max(0, (G.heat[polity] || 0) + amount));
+  if (typeof flashStatRow === 'function') { flashStatRow('heat'); flashStatRow('heat-' + polity); }
 }
 
 // ── AUTHORITY CONFRONTATION SYSTEM ────────────────────
@@ -9172,6 +9181,7 @@ function resolveRivalOutcome(idx, outcome, success) {
       addNarration('', 'You get nothing you did not already have, and leave knowing they know that.', 'failure');
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      if (typeof flashStatRow === 'function') flashStatRow('watchfulness');
     }
   }
   saveGame(); updateHUD();
@@ -12588,7 +12598,7 @@ function showCharSheet() {
       var _w = (G.worldClocks && G.worldClocks.watchfulness) || 0;
       if (_w > 0) {
         var _wLabel = _w <= 2 ? 'Low' : _w <= 4 ? 'Observed' : _w <= 6 ? 'Scrutinized' : 'Hunted';
-        lines.push('<div class="char-stat-row"><span class="char-stat-key">Watchfulness</span><span class="char-stat-val" style="color:var(--danger)">' + _w + ' &mdash; ' + _wLabel + '</span></div>');
+        lines.push('<div class="char-stat-row" data-clock="watchfulness"><span class="char-stat-key">Watchfulness</span><span class="char-stat-val" style="color:var(--danger)">' + _w + ' &mdash; ' + _wLabel + '</span></div>');
       }
       // Rival clock — highest pressure
       var _rm = 0;
@@ -12599,7 +12609,7 @@ function showCharSheet() {
       // Heat (per-polity) — defensive guard
       if (G.heat && typeof G.heat === 'object') {
         Object.keys(G.heat).filter(function(k){ return G.heat[k] > 0; }).forEach(function(k){
-          lines.push('<div class="char-stat-row"><span class="char-stat-key">Heat &mdash; ' + k + '</span><span class="char-stat-val" style="color:var(--danger)">' + G.heat[k] + '</span></div>');
+          lines.push('<div class="char-stat-row" data-clock="heat"><span class="char-stat-key">Heat &mdash; ' + k + '</span><span class="char-stat-val" style="color:var(--danger)">' + G.heat[k] + '</span></div>');
         });
       }
       if (!lines.length) return '';
@@ -13137,6 +13147,21 @@ function showHallOfLegends() {
 }
 
 // ── HUD ──────────────────────────────────────────────────
+/**
+ * Flashes all elements that carry a matching data-clock attribute.
+ * @param {string} key  e.g. 'watchfulness', 'heat-shelk', 'heat'
+ */
+function flashStatRow(key) {
+  var sel = '[data-clock="' + key + '"]';
+  var els = document.querySelectorAll(sel);
+  els.forEach(function(el) {
+    el.classList.remove('stat-flash');
+    void el.offsetWidth; // force reflow so animation restarts
+    el.classList.add('stat-flash');
+    setTimeout(function() { el.classList.remove('stat-flash'); }, 500);
+  });
+}
+
 function updateHUD() {
   setText('hud-name',    G.name||'&#x2014;');
   setText('hud-class',   G.archetype?G.archetype.name:'&#x2014;');
