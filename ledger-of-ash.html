@@ -8272,6 +8272,7 @@ let G = {
   district: null,
   consecutiveSleepless: 0,
   watchPosted: false,
+  heat: {},
   schemaVersion:3
 };
 
@@ -8279,6 +8280,15 @@ let _pendingChoices = [];
 let _awaitingLevelUp = false;
 let _renderChoicesPending = null;
 let _activeGroupId = null;
+
+// ── HEAT HELPERS ───────────────────────────────────────
+function getHeat(polity) {
+  return Math.floor((G.heat && G.heat[polity]) || 0);
+}
+function addHeat(polity, amount) {
+  if (!G.heat) G.heat = {};
+  G.heat[polity] = Math.min(10, Math.max(0, (G.heat[polity] || 0) + amount));
+}
 
 // ── STRING SAFETY ──────────────────────────────────────
 // Content strings may contain apostrophes. When building innerHTML,
@@ -8353,6 +8363,22 @@ function advanceTime(ticks) {
   if (G.worldClocks && G.worldClocks.weather > 0 && G.timeIndex === 0) {
     const daysSinceFlip = G.axisFlipDay !== undefined ? (G.dayCount||0) - G.axisFlipDay : 999;
     if (daysSinceFlip > 3) G.worldClocks.weather = Math.max(0, G.worldClocks.weather - 1);
+  }
+  // Bidirectional bleed between heat and attention at >7 threshold
+  if (G.heat && G.location) {
+    var _htPolity = WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].polity;
+    if (_htPolity) {
+      var _htKey = _htPolity.toLowerCase().replace(/\s+/g,'_').split('_')[0];
+      // heat → attention bleed
+      if (getHeat(_htKey) > 7) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.attention = Math.min(10, (G.worldClocks.attention || 0) + 0.5);
+      }
+      // attention → heat bleed
+      if ((G.worldClocks && G.worldClocks.attention || 0) > 7) {
+        addHeat(_htKey, 0.5);
+      }
+    }
   }
   updateHUD();
 }
@@ -8461,6 +8487,7 @@ function initCreate() {
         archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
         shopCreditBoost:0, statCap:10,
         restCount:0,
+        heat:{},
         schemaVersion:6 };
   _awaitingLevelUp = false;
   _activeGroupId = null;
