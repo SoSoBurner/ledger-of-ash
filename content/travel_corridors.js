@@ -386,8 +386,8 @@
       name: 'Fairhaven East Waystation',
       desc: 'A Roadwarden waystation at the eastern edge of Fairhaven territory. Stone-built, single room, fire laid but not lit. The dispatch board has four notices pinned to it; two are this week\'s. Water is clean. The door bolt works from inside.',
       choices: [
-        { text: 'Rest here. The road will still be there at first light.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp' },
-        { text: 'Read the dispatch board before pushing on.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'anchor_push_on' }
+        { text: 'Rest here. The road will still be there at first light.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_fairhaven' },
+        { text: 'Read the dispatch board before pushing on.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_fairhaven' }
       ]
     },
     {
@@ -396,8 +396,8 @@
       name: 'Soreheim Border Allocation Post',
       desc: 'A Giant Council allocation post at the Soreheim boundary marker. Staffed during quota hours; currently empty. A grease-pencil transit log on the counter shows twelve crossings today. The stove is warm. Someone left a canteen.',
       choices: [
-        { text: 'An empty quota post and a warm stove. Make use of both.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp' },
-        { text: 'The transit log has names. Cross the boundary now and stay out of it.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'anchor_push_on' }
+        { text: 'An empty quota post and a warm stove. Make use of both.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_soreheim' },
+        { text: 'The transit log has names. Cross the boundary now and stay out of it.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'anchor_push_on_soreheim' }
       ]
     },
     {
@@ -406,8 +406,8 @@
       name: 'Dome Perimeter Rest Stop',
       desc: 'A Dome Stewards-maintained rest point at the Sheresh perimeter. The dome-light is close enough here to read by without a lamp. Insulated sleeping rolls are stored in a locked rack — key on a hook above the door, available to travelers. The cold through the walls is steady, not cutting.',
       choices: [
-        { text: 'Dome-light does not stop. Sleep is possible if the cold is manageable.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp' },
-        { text: 'The dome perimeter is monitored. Better to arrive in full daylight.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'anchor_push_on' }
+        { text: 'Dome-light does not stop. Sleep is possible if the cold is manageable.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_sheresh' },
+        { text: 'The dome perimeter is monitored. Better to arrive in full daylight.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_sheresh' }
       ]
     },
     {
@@ -416,8 +416,8 @@
       name: 'Ash Road Iron Station',
       desc: 'A cast-iron waystation on the Psanan ash road. Ventilation slots along the roof keep the air inside cleaner than outside. The forge heat from below keeps it warm without fire. A route advisory board carries one current notice, updated in grease pencil: ASH LEVEL — ELEVATED EAST.',
       choices: [
-        { text: 'The forge heat and the clean air are reasons enough to stop.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp' },
-        { text: 'Elevated ash east means the timing matters. Move now.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'anchor_push_on' }
+        { text: 'The forge heat and the clean air are reasons enough to stop.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_psanan' },
+        { text: 'Elevated ash east means the timing matters. Move now.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'anchor_push_on_psanan' }
       ]
     }
   ];

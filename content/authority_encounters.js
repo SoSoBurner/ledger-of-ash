@@ -132,7 +132,7 @@
     }
   };
 
-  // ── COSMOUTH — Cosmouth Archives & Treasury ───────────────────────────────
+  // ── COSMOUTH — Cosmouth Archives and Treasury ───────────────────────────────
   // Tax records, maritime fiscal legitimacy, cargo disputes.
   window.AUTHORITY_ENCOUNTER_CHOICES['cosmouth'] = {
     cid: 'authority_cosmouth_tier1',
@@ -141,7 +141,7 @@
     plot: 'side',
     result: function () {
       var polity = 'cosmouth';
-      addNarration('Cosmouth Archives & Treasury',
+      addNarration('Cosmouth Archives and Treasury',
         'The archivist unrolls a cargo manifest across the counter without preamble. ' +
         'She smooths the edges flat with both palms, then asks for your routing mark. ' +
         'Behind her, shelves of bound ledgers run floor to ceiling, ' +
