@@ -13349,10 +13349,14 @@ function showCharSheet() {
     }).join('') + '</div></div>' +
 
     '<div style="margin-top:20px"><div class="char-section-title">Trait</div>' +
-    (G.traits||[]).map(t =>
-      '<div style="margin-bottom:10px"><span class="trait-pill'+(t.used?' used':'')+'">'+t.name+(t.used?' (used)':'')+'</span>' +
-      '<div style="font-size:12px;color:var(--ink-faint);margin-top:4px">'+t.desc+'</div></div>'
-    ).join('') + '</div>' +
+    (G.traits||[]).map(t => {
+      var useBtn = '';
+      if ((t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'utility' && !t.used) {
+        useBtn = '<button class="btn btn-ghost btn-xs" onclick="useUtilitySkill(\'' + t.id + '\')" style="margin-top:4px;font-size:11px;padding:2px 8px">Use</button>';
+      }
+      return '<div style="margin-bottom:10px"><span class="trait-pill'+(t.used?' used':'')+'">'+t.name+(t.used?' (used)':'')+'</span>' +
+        '<div style="font-size:12px;color:var(--ink-faint);margin-top:4px">'+t.desc+'</div>' + useBtn + '</div>';
+    }).join('') + '</div>' +
     (function(){
       var currentArch = G.archetype || null;
       return '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:1px;color:var(--accent-gold);margin:12px 0 5px;">BACKGROUND</div>' +
