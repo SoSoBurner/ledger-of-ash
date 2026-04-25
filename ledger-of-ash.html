@@ -3135,6 +3135,489 @@ const ARCHETYPE_TRAIT_POOLS = {
   ],
 };
 
+  // ── COMBAT ARCHETYPES ────────────────────────────────────────────────────
+
+  ARCHETYPE_TRAIT_POOLS['paladin'] = [
+    { id:'divine_strike', name:'Divine Strike', traitType:'active', activeSkillType:'combative',
+      desc:'Channel divine energy into a weapon strike.', minLevel:1,
+      skill:'might', bonus:1,
+      successEffect:'Sacred light burns through — the strike lands with authority.',
+      failEffect:'The blessing falters. The blow lands normally.',
+      critEffect:'Divine Strike erupts — allies in the scene feel the resonance.' },
+    { id:'lay_on_hands', name:'Lay On Hands', traitType:'active', activeSkillType:'utility',
+      desc:'Transfer healing energy to a wounded ally or yourself.', minLevel:1,
+      skill:'charm', bonus:0, utilityLabel:'Lay hands on a wound.',
+      utilityResult:'You draw on reserves of focused will. A wound closes — not entirely, but enough.' },
+    { id:'aura_of_protection', name:'Aura of Protection', traitType:'passive',
+      desc:'Your presence stabilizes those around you. Non-combat persuasion checks gain +1.',
+      bonusSkill:'charm', bonus:1 },
+    { id:'sacred_ground', name:'Sacred Ground', traitType:'passive',
+      desc:'You fight better in places of moral clarity. When defending a known innocent, might rolls gain +1.',
+      bonusSkill:'might', bonus:1 },
+    { id:'holy_resilience', name:'Holy Resilience', traitType:'passive',
+      desc:'Conviction sustains you past ordinary limits. At 40% HP or less, vigor checks gain +2.',
+      bonusSkill:'vigor', bonus:2, condition:'hp_low' }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['berserker'] = [
+    { id:'rage', name:'Rage', traitType:'active', activeSkillType:'combative',
+      desc:'Abandon defense for overwhelming offense. Might roll +3 but cannot defend this round.', minLevel:1,
+      skill:'might', bonus:3,
+      successEffect:'The blow is devastating — the enemy staggers.',
+      failEffect:'The fury overreaches. You leave yourself open.',
+      critEffect:'Frenzy: two strikes land simultaneously.' },
+    { id:'berserker_endurance', name:'Berserker Endurance', traitType:'passive',
+      desc:'Pain feeds the rage. At 40% HP or less, might rolls gain +2.',
+      bonusSkill:'might', bonus:2, condition:'hp_low' },
+    { id:'intimidating_presence', name:'Intimidating Presence', traitType:'passive',
+      desc:'Your reputation for violence precedes you. Charm rolls to intimidate gain +2.',
+      bonusSkill:'charm', bonus:2 },
+    { id:'battle_trance', name:'Battle Trance', traitType:'passive',
+      desc:'In extended combat your focus sharpens. Vigor saves gain +1.',
+      bonusSkill:'vigor', bonus:1 },
+    { id:'warcry', name:'Warcry', traitType:'active', activeSkillType:'combative',
+      desc:'A shout that breaks enemy formation.', minLevel:3,
+      skill:'charm', bonus:0,
+      successEffect:'The enemy hesitates — your next roll gains +1.',
+      failEffect:'The cry draws attention but changes nothing.',
+      critEffect:'The warcry breaks one enemy resolve entirely.' }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['warden'] = [
+    { id:'terrain_advantage', name:'Terrain Advantage', traitType:'active', activeSkillType:'combative',
+      desc:'Use the environment to control the fight.', minLevel:1,
+      skill:'wits', bonus:1,
+      successEffect:'You redirect the fight to ground you chose — DC drops by 1 for this encounter.',
+      failEffect:'The terrain read was wrong. No advantage.',
+      critEffect:'Perfect positioning: you dictate the entire encounter shape.' },
+    { id:'nature_awareness', name:'Nature Awareness', traitType:'passive',
+      desc:'Survival instinct is always on. Vigor checks in wilderness settings gain +2.',
+      bonusSkill:'vigor', bonus:2 },
+    { id:'rangers_eye', name:"Ranger's Eye", traitType:'active', activeSkillType:'utility',
+      desc:'Assess a path or location for threats before entering.', minLevel:1,
+      skill:'wits', bonus:0, utilityLabel:'Read the terrain ahead.',
+      utilityResult:'You identify the pressure points before you step into them. One complication in the next choice becomes visible.' },
+    { id:'animal_instinct', name:'Animal Instinct', traitType:'passive',
+      desc:'You read threat before it forms. Wits checks to detect ambush gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'forced_march', name:'Forced March', traitType:'passive',
+      desc:'Distance does not break you. Vigor checks for travel fatigue gain +2.',
+      bonusSkill:'vigor', bonus:2 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['warlord'] = [
+    { id:'command_presence', name:'Command Presence', traitType:'active', activeSkillType:'combative',
+      desc:'Tactical order that reorganizes the fight in your favor.', minLevel:1,
+      skill:'charm', bonus:2,
+      successEffect:'Your allies move with purpose — DC on the next action drops by 1.',
+      failEffect:'The command does not land. Everyone acts independently.',
+      critEffect:'Perfect execution — your side gains initiative for this round.' },
+    { id:'tactical_mind', name:'Tactical Mind', traitType:'passive',
+      desc:'Every situation is a problem to solve. Wits checks for planning gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'field_assessment', name:'Field Assessment', traitType:'active', activeSkillType:'utility',
+      desc:'Read a scene for threat vectors and opportunities before acting.', minLevel:1,
+      skill:'wits', bonus:1, utilityLabel:'Assess the field.',
+      utilityResult:'You read the room like a battle map. One hidden option in the next choice pool becomes visible.' },
+    { id:'iron_discipline', name:'Iron Discipline', traitType:'passive',
+      desc:'You perform under pressure. Charm rolls to maintain composure gain +1.',
+      bonusSkill:'charm', bonus:1 },
+    { id:'exploit_opening', name:'Exploit Opening', traitType:'active', activeSkillType:'combative',
+      desc:'Punish any moment of enemy hesitation.', minLevel:3,
+      skill:'might', bonus:2,
+      successEffect:'The gap was there and you took it.',
+      failEffect:'The opening closed before you reached it.',
+      critEffect:'The strike exposes a deeper weakness — DC on follow-up drops by 2.' }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['death_knight'] = [
+    { id:'unholy_strike', name:'Unholy Strike', traitType:'active', activeSkillType:'combative',
+      desc:'A blow infused with necrotic energy.', minLevel:1,
+      skill:'might', bonus:2,
+      successEffect:'The necrotic charge burns cold — the enemy staggers.',
+      failEffect:'The charge dissipates. Strike lands normally.',
+      critEffect:'The necrotic surge spreads — secondary enemies in range feel it.' },
+    { id:'death_mark', name:'Death Mark', traitType:'active', activeSkillType:'combative',
+      desc:'Mark an enemy — your next strike against them gains +2.', minLevel:2,
+      skill:'wits', bonus:0,
+      successEffect:'The mark adheres. Your next strike against this target gains +2.',
+      failEffect:'The mark fails to hold.',
+      critEffect:'The mark pulses — all your attacks against this target gain +1 for the encounter.' },
+    { id:'undying_will', name:'Undying Will', traitType:'passive',
+      desc:'You persist past the threshold where others fall. At 20% HP or less, all rolls gain +2.',
+      bonusSkill:'might', bonus:2, condition:'hp_critical' },
+    { id:'cold_command', name:'Cold Command', traitType:'passive',
+      desc:'Your authority carries death weight. Charm rolls to intimidate gain +3.',
+      bonusSkill:'charm', bonus:3 },
+    { id:'necrotic_resilience', name:'Necrotic Resilience', traitType:'passive',
+      desc:'The boundary between living and dead makes you difficult to kill. Vigor checks gain +1.',
+      bonusSkill:'vigor', bonus:1 }
+  ];
+
+  // ── MAGIC ARCHETYPES ─────────────────────────────────────────────────────
+
+  ARCHETYPE_TRAIT_POOLS['cleric'] = [
+    { id:'channel_divinity', name:'Channel Divinity', traitType:'active', activeSkillType:'combative',
+      desc:'Focus divine power into a direct effect — healing or harm depending on alignment.', minLevel:1,
+      skill:'charm', bonus:2,
+      successEffect:'The channel flows cleanly — you choose its direction.',
+      failEffect:'The divine link wavers. No effect this round.',
+      critEffect:'Perfect conduit — the effect is doubled in intensity.' },
+    { id:'sacred_word', name:'Sacred Word', traitType:'active', activeSkillType:'utility',
+      desc:'Speak a word of power to stabilize a situation or calm a crowd.', minLevel:1,
+      skill:'charm', bonus:1, utilityLabel:'Speak the sacred word.',
+      utilityResult:'The word lands with institutional weight. One obstacle in the current scene yields.' },
+    { id:'divine_insight', name:'Divine Insight', traitType:'passive',
+      desc:'The divine current gives you access to truths others miss. Wits rolls for hidden information gain +1.',
+      bonusSkill:'wits', bonus:1 },
+    { id:'resilience_of_faith', name:'Resilience of Faith', traitType:'passive',
+      desc:'Faith sustains. Vigor checks at 40% HP or less gain +2.',
+      bonusSkill:'vigor', bonus:2, condition:'hp_low' },
+    { id:'blessed_ground', name:'Blessed Ground', traitType:'passive',
+      desc:'Consecrated space amplifies your work. Spirit rolls in sacred or institutional sites gain +1.',
+      bonusSkill:'spirit', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['priest'] = [
+    { id:'holy_word', name:'Holy Word', traitType:'active', activeSkillType:'combative',
+      desc:'A binding command that disrupts an opponent next action.', minLevel:1,
+      skill:'charm', bonus:2,
+      successEffect:'The command lands — the opponent loses initiative this round.',
+      failEffect:'The word disperses. The opponent continues.',
+      critEffect:'The holy word resonates beyond the target — area effect.' },
+    { id:'intercessory_prayer', name:'Intercessory Prayer', traitType:'active', activeSkillType:'utility',
+      desc:'Call on institutional or divine authority to open a path normally closed.', minLevel:1,
+      skill:'charm', bonus:1, utilityLabel:'Invoke institutional standing.',
+      utilityResult:'Your clergy credentials open what locked itself against others. One information path clears.' },
+    { id:'doctrine_shield', name:'Doctrine Shield', traitType:'passive',
+      desc:'Canonical knowledge protects against deception. Wits rolls to detect manipulation gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'pastoral_calm', name:'Pastoral Calm', traitType:'passive',
+      desc:'Your presence reduces aggression. Charm rolls in fraught social situations gain +1.',
+      bonusSkill:'charm', bonus:1 },
+    { id:'liturgical_memory', name:'Liturgical Memory', traitType:'passive',
+      desc:'Ceremonial text is indexed in your memory. Wits rolls for lore checks gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['necromancer'] = [
+    { id:'life_drain', name:'Life Drain', traitType:'active', activeSkillType:'combative',
+      desc:'Draw vitality from an opponent to sustain yourself.', minLevel:1,
+      skill:'wits', bonus:1,
+      successEffect:'Vitality flows toward you — you recover 3 HP.',
+      failEffect:'The drain fails to attach. No effect.',
+      critEffect:'The drain overwhelms — you recover 6 HP and the target is weakened.' },
+    { id:'animate_shadow', name:'Animate Shadow', traitType:'active', activeSkillType:'combative',
+      desc:'Weaponize ambient shadow as a distraction or pressure source.', minLevel:2,
+      skill:'wits', bonus:2,
+      successEffect:'The shadow moves against the target — their next roll loses 1.',
+      failEffect:'Shadow is just shadow today.',
+      critEffect:'The animated shadow attacks independently — counts as a second action.' },
+    { id:'deathsense', name:'Deathsense', traitType:'active', activeSkillType:'utility',
+      desc:'Read the death-history of a location or object.', minLevel:1,
+      skill:'wits', bonus:0, utilityLabel:'Read what has died here.',
+      utilityResult:'The residue speaks. You learn one piece of evidence a living investigator would have missed.' },
+    { id:'necrotic_constitution', name:'Necrotic Constitution', traitType:'passive',
+      desc:'Familiarity with death makes you harder to kill. At 20% HP or less, vigor checks gain +3.',
+      bonusSkill:'vigor', bonus:3, condition:'hp_critical' },
+    { id:'cold_calculation', name:'Cold Calculation', traitType:'passive',
+      desc:'Detachment sharpens analysis. Wits checks in high-emotion situations gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['illusionist'] = [
+    { id:'phantom_strike', name:'Phantom Strike', traitType:'active', activeSkillType:'combative',
+      desc:'A strike that arrives from an unexpected direction.', minLevel:1,
+      skill:'finesse', bonus:2,
+      successEffect:'The double-image works — the target defends the wrong direction.',
+      failEffect:'The illusion collapses before impact.',
+      critEffect:'Perfect misdirection — the target cannot defend next round.' },
+    { id:'veil', name:'Veil', traitType:'active', activeSkillType:'utility',
+      desc:'Blur your appearance for a scene — not invisibility, but enough to pass at distance.', minLevel:1,
+      skill:'finesse', bonus:1, utilityLabel:'Blur your presence.',
+      utilityResult:'You are there and not there at the same time. One check that would have required explanation no longer does.' },
+    { id:'misdirection', name:'Misdirection', traitType:'passive',
+      desc:'Attention slides off you naturally. Finesse checks to avoid detection gain +2.',
+      bonusSkill:'finesse', bonus:2 },
+    { id:'false_reading', name:'False Reading', traitType:'passive',
+      desc:'You are difficult to read. Charm rolls to resist persuasion gain +1.',
+      bonusSkill:'charm', bonus:1 },
+    { id:'layered_perception', name:'Layered Perception', traitType:'passive',
+      desc:'You see through constructed appearances. Wits checks to identify deception gain +2.',
+      bonusSkill:'wits', bonus:2 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['elementalist'] = [
+    { id:'elemental_blast', name:'Elemental Blast', traitType:'active', activeSkillType:'combative',
+      desc:'Release a focused elemental charge at a target.', minLevel:1,
+      skill:'wits', bonus:2,
+      successEffect:'The charge lands with force — the target is staggered.',
+      failEffect:'The element disperses before concentrating.',
+      critEffect:'The blast overchannels — area effect, secondary targets take partial impact.' },
+    { id:'elemental_shield', name:'Elemental Shield', traitType:'active', activeSkillType:'combative',
+      desc:'Wrap yourself in elemental energy — absorbs one incoming hit.', minLevel:2,
+      skill:'wits', bonus:0,
+      successEffect:'The shield holds — next incoming hit is reduced by 3.',
+      failEffect:'The shield forms but dissipates before impact.',
+      critEffect:'The shield reflects — attacker takes partial damage.' },
+    { id:'elemental_attunement', name:'Elemental Attunement', traitType:'active', activeSkillType:'utility',
+      desc:'Read the elemental state of a location for navigation or safety assessment.', minLevel:1,
+      skill:'wits', bonus:0, utilityLabel:'Read the elemental current.',
+      utilityResult:'You sense what the elements are doing here. One environmental complication in the next choice becomes readable before it strikes.' },
+    { id:'elemental_resilience', name:'Elemental Resilience', traitType:'passive',
+      desc:'Extended contact with raw forces makes you harder to shake. Vigor checks against environmental hazards gain +2.',
+      bonusSkill:'vigor', bonus:2 },
+    { id:'channel_raw', name:'Channel Raw', traitType:'passive',
+      desc:'You can push harder than training recommends. Wits rolls when overchanneling gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['oracle'] = [
+    { id:'foresight_strike', name:'Foresight Strike', traitType:'active', activeSkillType:'combative',
+      desc:'You act on information the opponent does not know you have.', minLevel:1,
+      skill:'wits', bonus:3,
+      successEffect:'You were already where they did not expect you.',
+      failEffect:'The vision was partial. The moment passes.',
+      critEffect:'Perfect foresight — you anticipate two moves ahead. You choose the outcome.' },
+    { id:'read_intent', name:'Read Intent', traitType:'active', activeSkillType:'utility',
+      desc:'Sense what someone intends to do in the next few minutes.', minLevel:1,
+      skill:'wits', bonus:1, utilityLabel:'Read their next move.',
+      utilityResult:'Intent crystallizes. You know which direction they are leaning before they do.' },
+    { id:'precognitive_edge', name:'Precognitive Edge', traitType:'passive',
+      desc:'Glimpses of outcome improve reaction. Wits checks for investigation gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'seen_this', name:'Seen This', traitType:'passive',
+      desc:'Deja vu is information. Wits rolls when encountering a familiar situation gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'calm_center', name:'Calm Center', traitType:'passive',
+      desc:'The visions do not break you. Charm rolls under pressure gain +1.',
+      bonusSkill:'charm', bonus:1 }
+  ];
+
+  // ── STEALTH ARCHETYPES ───────────────────────────────────────────────────
+
+  ARCHETYPE_TRAIT_POOLS['spellthief'] = [
+    { id:'spell_steal', name:'Spell Steal', traitType:'active', activeSkillType:'combative',
+      desc:'Intercept and redirect an opponent magical action.', minLevel:1,
+      skill:'finesse', bonus:2,
+      successEffect:'You catch the working mid-cast and redirect it.',
+      failEffect:'The spell escapes your reach.',
+      critEffect:'Perfect steal — you absorb the spell and can redirect it once this encounter.' },
+    { id:'arcane_infiltration', name:'Arcane Infiltration', traitType:'active', activeSkillType:'utility',
+      desc:'Slip through magical barriers or detection wards.', minLevel:1,
+      skill:'finesse', bonus:1, utilityLabel:'Thread through the wards.',
+      utilityResult:'You find the gap in the magical pattern. One warded access becomes passable.' },
+    { id:'stealth_mastery', name:'Stealth Mastery', traitType:'passive',
+      desc:'Concealment is second nature. Finesse rolls for avoiding detection gain +2.',
+      bonusSkill:'finesse', bonus:2, minLevel:2 },
+    { id:'spell_sense', name:'Spell Sense', traitType:'passive',
+      desc:'You feel magical workings before they manifest. Wits checks to detect active magic gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'shadow_cast', name:'Shadow Cast', traitType:'passive',
+      desc:'Your stolen techniques are harder to counter. Wits rolls for improvised magic gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['scout_c'] = [
+    { id:'rapid_recon', name:'Rapid Recon', traitType:'active', activeSkillType:'utility',
+      desc:'Fast assessment of terrain, exits, and threats.', minLevel:1,
+      skill:'wits', bonus:1, utilityLabel:'Read the ground quickly.',
+      utilityResult:'In thirty seconds you know what matters: exits, sightlines, where trouble is coming from.' },
+    { id:'precise_shot', name:'Precise Shot', traitType:'active', activeSkillType:'combative',
+      desc:'A ranged strike that targets a specific vulnerability.', minLevel:1,
+      skill:'finesse', bonus:2,
+      successEffect:'The shot finds the gap in their defense.',
+      failEffect:'The shot is clean but finds no gap.',
+      critEffect:'The shot hits a critical point — the target is disoriented for the next round.' },
+    { id:'stealth_mastery', name:'Stealth Mastery', traitType:'passive',
+      desc:'Moving unseen is trained reflex. Finesse rolls for avoiding detection gain +2.',
+      bonusSkill:'finesse', bonus:2, minLevel:2 },
+    { id:'threat_reading', name:'Threat Reading', traitType:'passive',
+      desc:'You process danger faster than untrained observers. Wits rolls to detect ambush gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'light_step', name:'Light Step', traitType:'passive',
+      desc:'You move without announcing yourself. Finesse checks for quiet movement gain +1.',
+      bonusSkill:'finesse', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['thief'] = [
+    { id:'pickpocket', name:'Pickpocket', traitType:'active', activeSkillType:'utility',
+      desc:'Acquire a held item without the holder noticing.', minLevel:1,
+      skill:'finesse', bonus:1, utilityLabel:'Take what they are holding.',
+      utilityResult:'Your hand finds the item before the mark finds your hand.' },
+    { id:'sucker_punch', name:'Sucker Punch', traitType:'active', activeSkillType:'combative',
+      desc:'Strike before the opponent registers you as a threat.', minLevel:1,
+      skill:'finesse', bonus:2,
+      successEffect:'They did not see it coming. The strike lands clean.',
+      failEffect:'They saw it. The element of surprise is gone.',
+      critEffect:'Perfect hit — the target drops initiative for the full encounter.' },
+    { id:'stealth_mastery', name:'Stealth Mastery', traitType:'passive',
+      desc:'You move in the dark without thinking about it. Finesse rolls for avoiding detection gain +2.',
+      bonusSkill:'finesse', bonus:2, minLevel:2 },
+    { id:'quick_hands', name:'Quick Hands', traitType:'passive',
+      desc:'Speed is a form of accuracy. Finesse checks for sleight-of-hand gain +2.',
+      bonusSkill:'finesse', bonus:2 },
+    { id:'street_read', name:'Street Read', traitType:'passive',
+      desc:'You know who to trust and who to avoid. Wits rolls to assess social risk gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['trickster'] = [
+    { id:'feint', name:'Feint', traitType:'active', activeSkillType:'combative',
+      desc:'Create an opening through misdirection.', minLevel:1,
+      skill:'charm', bonus:2,
+      successEffect:'The feint worked — the opening is there.',
+      failEffect:'They did not bite. Position neutral.',
+      critEffect:'Perfect feint — the opponent is off-balance for two rounds.' },
+    { id:'fast_talk', name:'Fast Talk', traitType:'active', activeSkillType:'utility',
+      desc:'Talk your way through a door, a guard, or a confrontation before it starts.', minLevel:1,
+      skill:'charm', bonus:2, utilityLabel:'Talk them out of caring.',
+      utilityResult:'You talk faster than they think. The obstacle dissolves into conversation and then nothing.' },
+    { id:'social_camouflage', name:'Social Camouflage', traitType:'passive',
+      desc:'You become whoever the room needs. Charm rolls for social navigation gain +2.',
+      bonusSkill:'charm', bonus:2 },
+    { id:'read_the_room', name:'Read the Room', traitType:'passive',
+      desc:'Social pressure is information. Wits checks to read NPC intent gain +1.',
+      bonusSkill:'wits', bonus:1 },
+    { id:'lucky_escape', name:'Lucky Escape', traitType:'passive',
+      desc:'When situations go wrong, you find exits others do not. Finesse checks to disengage gain +2.',
+      bonusSkill:'finesse', bonus:2 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['beastmaster'] = [
+    { id:'animal_companion_strike', name:'Companion Strike', traitType:'active', activeSkillType:'combative',
+      desc:'Direct your animal companion to attack in coordination with your move.', minLevel:1,
+      skill:'charm', bonus:1,
+      successEffect:'The coordinated strike hits from two directions.',
+      failEffect:'The companion is hesitant. You act alone.',
+      critEffect:'Perfect coordination — companion and you both land.' },
+    { id:'call_of_the_wild', name:'Call of the Wild', traitType:'active', activeSkillType:'utility',
+      desc:'Sense the state of local animals and use that information.', minLevel:1,
+      skill:'wits', bonus:0, utilityLabel:'Read what the animals know.',
+      utilityResult:'The animals in the area have been watching. What they saw is useful.' },
+    { id:'pack_instinct', name:'Pack Instinct', traitType:'passive',
+      desc:'You read group behavior instantly. Wits checks to understand crowd or group dynamics gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'predator_sense', name:'Predator Sense', traitType:'passive',
+      desc:'You know when you are being hunted. Wits rolls to detect pursuit or surveillance gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'naturalist_endurance', name:'Naturalist Endurance', traitType:'passive',
+      desc:'Time in the wild has hardened you. Vigor checks for travel and exposure gain +2.',
+      bonusSkill:'vigor', bonus:2 }
+  ];
+
+  // ── SUPPORT ARCHETYPES ───────────────────────────────────────────────────
+
+  ARCHETYPE_TRAIT_POOLS['artificer'] = [
+    { id:'device_deploy', name:'Device Deploy', traitType:'active', activeSkillType:'combative',
+      desc:'Deploy a prepared device in combat — trap, deterrent, or distraction.', minLevel:1,
+      skill:'spirit', bonus:1,
+      successEffect:'The device deploys cleanly and functions as intended.',
+      failEffect:'The device misfires. No effect.',
+      critEffect:'The device exceeds design parameters — effect is doubled.' },
+    { id:'field_diagnosis', name:'Field Diagnosis', traitType:'active', activeSkillType:'utility',
+      desc:'Assess a mechanism, object, or structural problem quickly.', minLevel:1,
+      skill:'spirit', bonus:2, utilityLabel:'Diagnose the device.',
+      utilityResult:'You identify the problem and its origin in under a minute. The fix path is clear.' },
+    { id:'applied_craft', name:'Applied Craft', traitType:'passive',
+      desc:'Technical knowledge translates directly. Spirit rolls for crafting and device work gain +2.',
+      bonusSkill:'spirit', bonus:2, minLevel:2 },
+    { id:'material_knowledge', name:'Material Knowledge', traitType:'passive',
+      desc:'You know what things are made of and what they can take. Wits rolls for material assessment gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'improvise_solution', name:'Improvise Solution', traitType:'passive',
+      desc:'When the right tool is not there, you make do. Spirit checks without proper equipment lose only 1 instead of 2.',
+      bonusSkill:'spirit', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['engineer'] = [
+    { id:'structural_strike', name:'Structural Strike', traitType:'active', activeSkillType:'combative',
+      desc:'Target a structural point — object, door, wall, or opponent equipment.', minLevel:1,
+      skill:'might', bonus:1,
+      successEffect:'The point gives. The obstacle ceases to function as one.',
+      failEffect:'The material holds.',
+      critEffect:'The structure fails catastrophically — cascade effect.' },
+    { id:'rapid_assessment', name:'Rapid Assessment', traitType:'active', activeSkillType:'utility',
+      desc:'Fast-read a building, bridge, or installation for vulnerabilities or access points.', minLevel:1,
+      skill:'wits', bonus:1, utilityLabel:'Read the structure.',
+      utilityResult:'You see what the builder intended and what they did not account for. One access point becomes available.' },
+    { id:'applied_craft', name:'Applied Craft', traitType:'passive',
+      desc:'Technical mastery applies everywhere. Spirit rolls for crafting and device work gain +2.',
+      bonusSkill:'spirit', bonus:2, minLevel:2 },
+    { id:'load_bearing', name:'Load Bearing', traitType:'passive',
+      desc:'You know what structures can take. Vigor checks under physical load or structural stress gain +2.',
+      bonusSkill:'vigor', bonus:2 },
+    { id:'efficiency_mind', name:'Efficiency Mind', traitType:'passive',
+      desc:'You find the fastest path. Wits checks for route-finding and logistics gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['tactician'] = [
+    { id:'calculated_strike', name:'Calculated Strike', traitType:'active', activeSkillType:'combative',
+      desc:'A strike placed at the geometrically optimal moment.', minLevel:1,
+      skill:'wits', bonus:2,
+      successEffect:'The geometry was right. The strike lands where no defense was.',
+      failEffect:'The calculation was off. Neutral outcome.',
+      critEffect:'Perfect geometry — the opponent has no response option.' },
+    { id:'logistics_review', name:'Logistics Review', traitType:'active', activeSkillType:'utility',
+      desc:'Assess supply, personnel, and route for a planned operation.', minLevel:1,
+      skill:'wits', bonus:2, utilityLabel:'Run the numbers.',
+      utilityResult:'The plan has a gap you have now found. Or it does not, and you proceed with confidence.' },
+    { id:'positional_awareness', name:'Positional Awareness', traitType:'passive',
+      desc:'You always know where everyone is. Wits checks for combat positioning gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'pressure_control', name:'Pressure Control', traitType:'passive',
+      desc:'You perform better under time constraints. Charm rolls when time pressure is present gain +1.',
+      bonusSkill:'charm', bonus:1 },
+    { id:'asymmetric_advantage', name:'Asymmetric Advantage', traitType:'passive',
+      desc:'You find unequal exchanges in your favor. Wits rolls to identify leverage gain +1.',
+      bonusSkill:'wits', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['alchemist'] = [
+    { id:'throw_compound', name:'Throw Compound', traitType:'active', activeSkillType:'combative',
+      desc:'Hurl a prepared alchemical compound at a target.', minLevel:1,
+      skill:'finesse', bonus:1,
+      successEffect:'The compound delivers its intended effect on contact.',
+      failEffect:'The compound misses or fails to activate.',
+      critEffect:'The compound overreacts — area effect, double potency.' },
+    { id:'field_synthesis', name:'Field Synthesis', traitType:'active', activeSkillType:'utility',
+      desc:'Improvise a compound from available materials in a scene.', minLevel:1,
+      skill:'spirit', bonus:2, utilityLabel:'Synthesize from what is here.',
+      utilityResult:'The ingredients were there if you knew what to look for. A useful compound takes shape.' },
+    { id:'applied_craft', name:'Applied Craft', traitType:'passive',
+      desc:'Alchemical knowledge generalizes. Spirit rolls for crafting and compound work gain +2.',
+      bonusSkill:'spirit', bonus:2, minLevel:2 },
+    { id:'compound_intuition', name:'Compound Intuition', traitType:'passive',
+      desc:'You know what things do to each other. Wits checks for identifying substances gain +2.',
+      bonusSkill:'wits', bonus:2 },
+    { id:'self_dosing', name:'Self-Dosing', traitType:'passive',
+      desc:'You know how to use your own compounds on yourself effectively. Vigor checks after consuming a compound gain +1.',
+      bonusSkill:'vigor', bonus:1 }
+  ];
+
+  ARCHETYPE_TRAIT_POOLS['saint'] = [
+    { id:'intercession', name:'Intercession', traitType:'active', activeSkillType:'combative',
+      desc:'Place yourself between harm and another — absorb or deflect an incoming effect.', minLevel:1,
+      skill:'vigor', bonus:0,
+      successEffect:'You take it instead. The protected party is unharmed.',
+      failEffect:'You could not reach them in time.',
+      critEffect:'Perfect intercession — you absorb the hit without taking full effect.' },
+    { id:'sanctuary_blessing', name:'Sanctuary Blessing', traitType:'active', activeSkillType:'utility',
+      desc:'Mark a space or person with protection for a scene.', minLevel:1,
+      skill:'charm', bonus:1, utilityLabel:'Establish sanctuary.',
+      utilityResult:'The blessing holds for this scene. Hostile approaches require additional effort to initiate.' },
+    { id:'unshakeable_calm', name:'Unshakeable Calm', traitType:'passive',
+      desc:'Nothing rattles you for long. Charm rolls under social pressure gain +2.',
+      bonusSkill:'charm', bonus:2 },
+    { id:'martyrs_resolve', name:"Martyr's Resolve", traitType:'passive',
+      desc:'You grow stronger as the cost rises. At 40% HP or less, all rolls gain +1.',
+      bonusSkill:'vigor', bonus:1, condition:'hp_low' },
+    { id:'radiant_presence', name:'Radiant Presence', traitType:'passive',
+      desc:'Your sincerity disarms. Charm rolls in first contact situations gain +2.',
+      bonusSkill:'charm', bonus:2 }
+  ];
+
 // ── ENEMY TIER SCALING ───────────────────────────────────
 const ENEMY_TIER_MODIFIERS = {
   t1: { hp:0,  atk:0,  def:0 },   // levels 1-3
