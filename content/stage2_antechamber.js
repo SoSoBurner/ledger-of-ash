@@ -29,7 +29,7 @@ window.STAGE2_ANTECHAMBER = (function() {
         text: 'You press harder \u2014 they\u2019re warning you because you\u2019re close.',
         tag: 'risky \u00b7 pressure \u00b7 DC 12',
         action: function() {
-          var r = window.rollD20 ? window.rollD20('investigation') : { total: Math.floor(Math.random() * 20) + 1 };
+          var r = window.rollD20 ? window.rollD20('lore') : { total: Math.floor(Math.random() * 20) + 1 };
           if (r.total >= 12) {
             G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
             window.addJournal('You change your route and the pace of it. The name you had been circling appears in a second source \u2014 unsolicited, mentioned in passing by a warehouse clerk who did not know it mattered. You write it down without looking up. The clerk keeps talking. You let him. Two threads, previously set aside, now point at the same thing.', 'evidence');
