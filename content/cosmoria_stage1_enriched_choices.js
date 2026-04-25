@@ -33,7 +33,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Stable Factor now protective of maritime trade allocation', 'complication', `cosmoria-trade-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Aurek sets down his tally sheet and admits berth priority has been "irregular this season." He gestures toward the harbor window — three brigs riding at anchor in the outer channel, loading cranes idle above them. "Weather and tides make scheduling difficult. That's always been true." He picks up the tally again before you can follow up.`;
+        G.lastResult = `Aurek sets down his tally sheet and admits berth priority has been "irregular this season." He gestures toward the harbor window — three brigs riding at anchor in the outer channel, loading cranes idle above them. "Weather and tides make scheduling difficult. That's always been true." He picks up the tally again before you can follow up. The three brigs at anchor are all flying independent merchant pennants — the berths they're waiting for are occupied by vessels with Cosmouth house flags that arrived after them.`;
         addJournal('Stable Factor confirmed inconsistent route allocations', 'evidence', `cosmoria-trade-pressure-${G.dayCount}`);
       }
 
@@ -69,7 +69,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking. The correction appears across three consecutive pages; whoever adjusted these figures is still working through the ledger. Someone was cleaning the record ahead of you. They are still doing it.`;
         addJournal('Quartermaster confirmed supply allocation ambiguity — record being cleaned ahead of inquiry', 'evidence', `cosmoria-supplies-unclear-${G.dayCount}`);
       } else {
-        G.lastResult = `Coralyn says the ledgers require a Cosmouth supply warrant to access. She says it without meeting your eyes, her thumb pressed flat against the warrant procedure notice on her desk as if to keep it from speaking for her. The process takes three days minimum, routes through the harbor administration that manages dock priority, and requires a reason in writing. The door is there. The same hand holds it shut.`;
+        G.lastResult = `Coralyn says the ledgers require a Cosmouth supply warrant to access. She says it without meeting your eyes, her thumb pressed flat against the warrant procedure notice on her desk as if to keep it from speaking for her. The process takes three days minimum, routes through the harbor administration that manages dock priority, and requires a reason in writing. The clerk of arrivals, Tideon, holds a separate set of carbon copies of the supply receipts as part of the manifest filing chain — a parallel record that doesn't require the same warrant.`;
         addJournal('Supply records blocked without archive authorization', 'evidence', `cosmoria-supplies-blocked-${G.dayCount}`);
       }
 
@@ -177,7 +177,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Nerissa says ward disputes have been "unusually contentious this cycle." She describes one case — a mooring rights dispute between an independent fisher and a Cosmouth brig captain — and the way she tells it, the reasoning she applied, doesn't match the ruling she issued. She notices you noticing. "I applied the standard framework," she says. She doesn't repeat it.`;
         addJournal('Ward Mediator confirmed recent mediation bias patterns', 'evidence', `cosmoria-mediation-biased-${G.dayCount}`);
       } else {
-        G.lastResult = `Nerissa explains that case records are sealed for sixty days per ward protocol. Summaries are available through the district clerk's office with a party-of-interest certification. You are not a party of interest. She writes down the clerk's address on a slip of paper and hands it over. Her handwriting is precise. She's given that address before, recently, to someone else.`;
+        G.lastResult = `Nerissa explains that case records are sealed for sixty days per ward protocol. Summaries are available through the district clerk's office with a party-of-interest certification. You are not a party of interest. She writes down the clerk's address on a slip of paper and hands it over. Her handwriting is precise. One independent merchant who held the mooring rights in the dispute she described would qualify as a party of interest — and the case summary index is public.`;
         addJournal('District mediation blocked without ward authorization', 'evidence', `cosmoria-mediation-blocked-${G.dayCount}`);
       }
 
@@ -285,7 +285,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The shipwright admits inspection timelines have been "inconsistent." She points at two vessels in adjacent berths — one approved in a day, one delayed for nine. She doesn't say which house flags they're carrying, but she doesn't have to. You can read the pennants yourself. "Standards evolve," she says. She picks up her adze.`;
         addJournal('Shipwright confirmed inconsistent quality standard application', 'evidence', `cosmoria-shipwright-evasive-${G.dayCount}`);
       } else {
-        G.lastResult = `The shipwright tells you inspection records are guild-sealed and not available without a build commission. Without one, you can walk the public berths and look at the hulls yourself, which tells you nothing about what passed or failed inspection and why. The dry dock smells of fresh pitch. Somewhere a crane chain is dragging against iron. You leave without what you came for.`;
+        G.lastResult = `The shipwright tells you inspection records are guild-sealed and not available without a build commission. Without one, you can walk the public berths and look at the hulls yourself. Two adjacent berths hold vessels from different flag affiliations — one Cosmouth, one independent — with visibly different join tolerances at the waterline. The inspection panel that approved both is the same panel. The appeal log for the independent vessel's correction review is in the public guild record.`;
         addJournal('Shipwright standards blocked without craft access', 'evidence', `cosmoria-shipwright-blocked-${G.dayCount}`);
       }
 
@@ -320,7 +320,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('House Cosmouth alerted to governance structure inquiry', 'complication', `cosmoria-structure-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The public ward charter shows three amendments in the past year. The language is dense with maritime administrative terminology but the structural effect is readable: two ward positions that previously reported to the district council now report directly to the harbor authority. Whether that's routine restructuring or something more pointed requires seeing the full charter record, which is restricted to Cosmouth administrative staff.`;
+        G.lastResult = `The public ward charter shows three amendments in the past year. The language is dense with maritime administrative terminology but the structural effect is readable: two ward positions that previously reported to the district council now report directly to the harbor authority. The emergency maritime stability provision cited in each amendment requires a formal emergency declaration — that declaration, if it exists, is in the public harbor registry as a matter of record.`;
         addJournal('District hierarchy modifications confirmed', 'evidence', `cosmoria-structure-modified-${G.dayCount}`);
       }
 
@@ -356,7 +356,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The public trader registry shows turnover — names dropping off, new names appearing. Without the historical roster for comparison you can only see the current state, not the shape of what changed. What's visible: four of the seven newest registrations share an address in the Cosmouth merchant quarter. That much is in the public record.`;
         addJournal('Merchant network composition changes confirmed', 'evidence', `cosmoria-network-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `The current trader registry shows who's active, not who isn't. Without access to the decline records or the historical roster, you can map what's present but not what was removed. Two independent merchants you speak to on the lower docks confirm departures — "Essad left in the fourth month, Corl three weeks after" — but their own access to documentation is no better than yours.`;
+        G.lastResult = `The current trader registry shows who's active, not who isn't. Without access to the decline records or the historical roster, you can map what's present but not what was removed. Two independent merchants you speak to on the lower docks confirm departures — "Essad left in the fourth month, Corl three weeks after" — and name the dock allocation denials that preceded each departure. Dock allocation decisions are logged by berth date in the stable factor's public scheduling record.`;
         addJournal('Merchant displacement analysis incomplete', 'evidence', `cosmoria-network-partial-${G.dayCount}`);
       }
 
@@ -497,7 +497,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three independent builders confirm their allocation requests came back short this quarter. All three used the word "shortage" and all three were told the shortage was seasonal. The seasonal shortage explanation doesn't account for why the Cosmouth brig that launched yesterday had full-weight rope fittings. You saw the fittings. They weren't short on anything.`;
         addJournal('Resource distribution modifications detected', 'evidence', `cosmoria-scarcity-modified-${G.dayCount}`);
       } else {
-        G.lastResult = `You can see that independent builders are receiving less than they ordered. You can't see the warehouse inventory or the allocation orders that determine who gets what. The builders themselves don't have that documentation — they only have the shortage, which they were told is seasonal. Whether it's engineered or genuinely seasonal requires access to supplier manifests you don't have yet.`;
+        G.lastResult = `You can see that independent builders are receiving less than they ordered. You can't see the warehouse inventory or the allocation orders that determine who gets what. The builders themselves don't have that documentation — they only have the shortage. The Iron Compact's cargo projections include inbound supplier manifests as part of their routing data; the same documents the harbor warehouse controls appear in the Compact's commercial intake log as a separate filing.`;
         addJournal('Resource scarcity analysis incomplete', 'evidence', `cosmoria-scarcity-blocked-${G.dayCount}`);
       }
 

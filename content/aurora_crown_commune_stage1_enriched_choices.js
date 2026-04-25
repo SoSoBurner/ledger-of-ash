@@ -36,7 +36,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Kess answers carefully, eyes on the record board. "Scheduling has been unusual. People get borrowed for other duties." She doesn't say what duties. When you press, she taps the board — there's a posted decision from three weeks ago, commune-signed, about labor reallocation to unspecified infrastructure projects. She lets you read it, then folds her arms. That's all she'll give.`;
         addJournal('Technician confirmed unusual personnel reallocations', 'evidence', `aurora-technician-understaffed-${G.dayCount}`);
       } else {
-        G.lastResult = `Kess doesn't look up from the gauge she's reading. "Schedules change. That's survival work." She marks something on her log, replaces the gauge cap, and moves to the next station. The conversation is over and she never raised her voice. Nothing you can point to as refusal. The corridor hum fills the silence.`;
+        G.lastResult = `Kess doesn't look up from the gauge she's reading. "Schedules change. That's survival work." She marks something on her log, replaces the gauge cap, and moves to the next station. The conversation is over and she never raised her voice. The work order queue in the repair coordinator's office carries the same schedule — if the rotations are being deliberately thinned, the queue will show which repair slots are staying empty longest.`;
         addJournal('Dome maintenance schedule inquiry inconclusive', 'evidence', `aurora-technician-blocked-${G.dayCount}`);
       }
 
@@ -108,7 +108,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Thass runs a finger down the column you're pointing at and nods, just once. "Distributions have been unusual lately. Some supplies go to specific areas." He doesn't say which areas. He doesn't say why. He turns the ledger so the destination codes face him instead of you. The pattern is there in the numbers — you can see enough to know something is being redirected. He won't tell you where it goes.`;
         addJournal('Allocator confirmed unusual distribution patterns', 'evidence', `aurora-allocator-unusual-${G.dayCount}`);
       } else {
-        G.lastResult = `Thass gives you the standard answer — balance, conservation, fluctuation by season. He says it the way someone says something they've said enough times to stop hearing it. Nothing he tells you is wrong. Nothing is specific enough to follow. The grain stores are clearly labeled outside in the commons. He talks about those instead of the sealed-section lines you came to ask about.`;
+        G.lastResult = `Thass gives you the standard answer — balance, conservation, fluctuation by season. He says it the way someone says something they've said enough times to stop hearing it. Nothing he tells you is wrong. Nothing is specific enough to follow. The grain stores are clearly labeled outside in the commons. The destination codes in the sealed-section ledger columns — visible for a moment before he turned it face-down — are the specific language the contamination monitor's office uses in its internal routing logs.`;
         addJournal('Resource allocation patterns inconclusive', 'evidence', `aurora-allocator-blocked-${G.dayCount}`);
       }
 
@@ -145,7 +145,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Yani lets you look at three completed files before closing the stack. Two of the three show extended review periods — six and nine weeks respectively, against a four-day standard. She marks that in her own log while you read. "I don't know what's holding them," she says. "I just log what I see." She writes the word "irregular" next to each entry. The word is careful. She's been careful about this for a while.`;
         addJournal('Work orders show signs of unusual delay patterns', 'evidence', `aurora-coordinator-delayed-${G.dayCount}`);
       } else {
-        G.lastResult = `The work order room is dense with binders, cross-indexed by section code and date. Repairs are being logged. Work is listed as happening. But reading whether any specific delay is deliberate requires knowing what normal looks like in this commune — and you don't, not yet. You leave with the shape of the system in your head but nothing you could show anyone.`;
+        G.lastResult = `The work order room is dense with binders, cross-indexed by section code and date. Repairs are being logged. Work is listed as happening. But reading whether any specific delay is deliberate requires knowing what normal looks like in this commune — and you don't, not yet. The celestial observer's four-week pattern charts include a column tracking dome intervention dates — laid against this queue, the gaps would be legible.`;
         addJournal('Repair queue patterns inconclusive', 'evidence', `aurora-coordinator-unclear-${G.dayCount}`);
       }
 
@@ -256,7 +256,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Nox acknowledges the routing change when you describe it — not with surprise, with the flatness of someone who's been sitting with something uncomfortable. "Reorganization happened about six weeks ago. I don't have the reason. That's above my level." She adjusts a relay switch that doesn't need adjusting. The routing board behind her shows the secondary channel running. She's been watching it since it appeared.`;
         addJournal('Relay keeper confirmed message system reorganization', 'evidence', `aurora-keeper-reorganized-${G.dayCount}`);
       } else {
-        G.lastResult = `Nox answers your questions about message routing the way someone answers questions about a system they trust. Routing logic, relay priority, channel allocation. All of it technically correct and none of it opening the door you came to open. Either she doesn't see the secondary channel as significant, or she does and has decided not to share it. You leave with a clear picture of how the relay is supposed to work and no way to tell if it does.`;
+        G.lastResult = `Nox answers your questions about message routing the way someone answers questions about a system they trust. Routing logic, relay priority, channel allocation. All of it technically correct and none of it opening the door you came to open. Either she doesn't see the secondary channel as significant, or she does and has decided not to share it. The routing board shows a second channel active since six weeks ago — the same window the administrative coordination decisions began clustering against incoming relay traffic.`;
         addJournal('Relay operations inquiry inconclusive', 'evidence', `aurora-keeper-blocked-${G.dayCount}`);
       }
 
@@ -293,7 +293,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The public version of the emergency protocol — posted on the registry hall board, as required — shows revisions dated three months ago. The language in the revised section is vaguer than what preceded it. "Occupant response" replaced "evacuation route." "Facility assessment" replaced "bunker access." The words do less work than the ones they replaced. Whether that's deliberate simplification or something being removed requires the full version to confirm.`;
         addJournal('Emergency protocols show recent revision patterns', 'evidence', `aurora-planner-revised-${G.dayCount}`);
       } else {
-        G.lastResult = `The emergency protocol folder on the registry hall board is thick and cross-indexed. Procedures clearly exist. Whether any of them have been stripped out requires a side-by-side comparison with the historical version — which lives in the closed archive, requiring authorization you don't have. The gap between "something is posted" and "the right things are posted" stays invisible from where you're standing.`;
+        G.lastResult = `The emergency protocol folder on the registry hall board is thick and cross-indexed. Procedures clearly exist. Whether any of them have been stripped out requires a side-by-side comparison with the historical version — which lives in the closed archive. The survival planner's revision log entry from three months ago carries a co-authorization stamp from the same office that has been routing supply destination codes to sealed sections.`;
         addJournal('Emergency protocol analysis incomplete', 'evidence', `aurora-planner-unclear-${G.dayCount}`);
       }
 
@@ -331,7 +331,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three stress points appear in the maintenance log seven times between them, across fourteen months. Each entry flagged. Each entry without a follow-up repair authorization. The commune's resource records for those same periods show no shortage of relevant materials or personnel. The repairs weren't blocked by scarcity. They were just never approved. You sit with that distinction for a moment before closing the binder.`;
         addJournal('Structural analysis confirmed unrepairable stress point pattern', 'evidence', `aurora-structure-neglect-${G.dayCount}`);
       } else {
-        G.lastResult = `The structural documentation fills two shelf sections in the registry hall's technical room. Repairs are logged as ongoing. Inspection reports are dated and signed. Without knowing the engineering baseline — what tolerance is normal, what threshold triggers mandatory action — you can read that something is being done without knowing whether it's enough. The documents are complete. Your ability to interpret them is not.`;
+        G.lastResult = `The structural documentation fills two shelf sections in the registry hall's technical room. Repairs are logged as ongoing. Inspection reports are dated and signed. Without knowing the engineering baseline — what tolerance is normal, what threshold triggers mandatory action — you can read that something is being done without knowing whether it's enough. The inspection reports for the northeast quadrant are signed by a name that doesn't appear anywhere in the current maintenance staff roster.`;
         addJournal('Structural engineering analysis inconclusive', 'evidence', `aurora-structure-unclear-${G.dayCount}`);
       }
 
@@ -367,7 +367,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Two of the components you can access show wear patterns inconsistent with their installation age. The surface texture is wrong — too smooth in places where contamination pressure should have roughened it, too pitted where the stress distribution should be even. It could be material variance within acceptable range. It could be a different material entirely. A laboratory comparison with specification samples would answer it. You don't have that access here.`;
         addJournal('Barrier materials show unusual degradation patterns', 'evidence', `aurora-barrier-degraded-${G.dayCount}`);
       } else {
-        G.lastResult = `The accessible barrier sections look intact to the eye. Nothing you can reach by hand and examine without instruments gives you a definitive reading. Contamination barrier materials are engineered to look sound under normal observation — that's part of the spec. Knowing whether any component has been swapped requires calibrated testing equipment and a reference set. You have neither.`;
+        G.lastResult = `The accessible barrier sections look intact to the eye. Nothing you can reach by hand and examine without instruments gives you a definitive reading. Contamination barrier materials are engineered to look sound under normal observation — that's part of the spec. The filtration installation records from eighteen months ago note a "material substitution" co-signed by someone in the contamination monitor's chain — a baseline for comparison against the current components.`;
         addJournal('Barrier material examination incomplete', 'evidence', `aurora-barrier-incomplete-${G.dayCount}`);
       }
 
@@ -403,7 +403,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Consumption is running ahead of the official estimate by eleven percent. Noticeable when you lay the two figures beside each other in the same column. It could be population undercounting. It could be seasonal drift in estimate methodology. The discrepancy is real but not yet large enough to be indefensible as error. You note it, close the ledger, and go back for the month before.`;
         addJournal('Sustainability analysis showed minor consumption variance', 'evidence', `aurora-survival-variance-${G.dayCount}`);
       } else {
-        G.lastResult = `The calculation requires reliable population data and the commune's population estimate has three versions in three different documents from the same fiscal year, none of which match. Without a baseline you trust, the sustainability figure you produce could be anywhere in a wide range. You finish the math and know you've done it correctly. The uncertainty is in the inputs, not the process.`;
+        G.lastResult = `The calculation requires reliable population data and the commune's population estimate has three versions in three different documents from the same fiscal year, none of which match. Without a baseline you trust, the sustainability figure you produce could be anywhere in a wide range. The resource allocator's sealed-section distribution lines carry specific volume figures — if those numbers are accurate, they resolve which population count to trust.`;
         addJournal('Sustainability calculations inconclusive', 'evidence', `aurora-survival-unclear-${G.dayCount}`);
       }
 
@@ -439,7 +439,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `People will say they're careful. A maintenance worker at the communal meal table puts it plainly: "You learn what questions go in writing and what questions stay in the room." He won't say what the consequences are for the wrong kind. Three others nearby eat without contributing to the conversation. When you ask what they're careful about, specifically, the maintenance worker checks the posted decision board behind you and goes back to his food.`;
         addJournal('General fear-based compliance confirmed by population interviews', 'evidence', `aurora-coercion-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Nobody uses the word fear. Nobody uses the word pressure. The conversations you join go quiet at specific topics and resume at others, and the dividing line between what's discussable and what isn't follows a consistent logic you can't quite articulate yet. Something is shaping what gets said. You can see its outline in the gaps. You can't name its mechanism from what you've gathered today.`;
+        G.lastResult = `Nobody uses the word fear. Nobody uses the word pressure. The conversations you join go quiet at specific topics and resume at others, and the dividing line between what's discussable and what isn't follows a consistent logic you can't quite articulate yet. Three distinct conversations went silent at the moment the maintenance schedule was mentioned — a specificity that points to a single incident, not general unease.`;
         addJournal('Coercion patterns sensed but not fully documented', 'evidence', `aurora-coercion-unclear-${G.dayCount}`);
       }
 
@@ -511,7 +511,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three decisions — one from maintenance, one from contamination monitoring, one from emergency protocol — all issued within two days of incoming relay traffic on the secondary channel. Could be coincidence. Could be routine inter-commune coordination, which does happen. The decisions themselves are legal and procedurally correct. The timing alone isn't evidence. But the timing alone is what you have, and it's difficult to ignore.`;
         addJournal('Administrative hierarchy shows external coordination patterns', 'evidence', `aurora-admin-coordinated-${G.dayCount}`);
       } else {
-        G.lastResult = `The decision boards show a clear hierarchy — every posted directive is signed, dated, and attributed. Decisions flow from the senior administrators downward and then outward to the working teams. Normal commune governance, visible and documented. Where the directives originate before they reach the senior administrators isn't captured in any posted record. That layer doesn't make it onto the boards.`;
+        G.lastResult = `The decision boards show a clear hierarchy — every posted directive is signed, dated, and attributed. Decisions flow from the senior administrators downward and then outward to the working teams. Normal commune governance, visible and documented. The three directives that align to secondary relay traffic windows are all signed by the same two administrators — a pattern narrow enough to follow if the relay correspondence batch dates can be confirmed.`;
         addJournal('Administrative hierarchy mapping incomplete', 'evidence', `aurora-admin-unclear-${G.dayCount}`);
       }
 
@@ -679,7 +679,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Three of the failures share a timing signature: each one worsened within two weeks of a secondary relay message batch. The barrier degradation, the resource redirection, the evacuation protocol removal — all three correspond to that same window. It's not proof of intent. But the failures aren't behaving independently. Something connects them below the surface level you can access from the records room.`;
         addJournal('System failure connections mapped', 'evidence', `aurora-pattern-connected-${G.dayCount}`);
       } else {
-        G.lastResult = `Maintenance failures, resource gaps, barrier issues — they all exist. In a commune operating under survival conditions for this long, you'd expect system stress in multiple areas simultaneously. Whether that stress is natural accumulation or something coordinated requires more data than you have today. The failures are real. The connection between them isn't visible from here.`;
+        G.lastResult = `Maintenance failures, resource gaps, barrier issues — they all exist. In a commune operating under survival conditions for this long, you'd expect system stress in multiple areas simultaneously. Whether that stress is natural accumulation or something coordinated requires more data than you have today. The three secondary relay traffic windows and the three worsening events — maintenance freeze, resource redirection, protocol revision — share a date range narrow enough to test.`;
         addJournal('System pattern analysis inconclusive', 'evidence', `aurora-pattern-unclear-${G.dayCount}`);
       }
 
