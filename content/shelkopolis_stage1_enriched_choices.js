@@ -58,9 +58,9 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit || (result.total >= 13 && !result.isFumble)) {
-        G.lastResult = `Brother Aldwin folds his hands on the lectern before he speaks. Twice a week — Thursdays and Sundays after vespers — a veiled figure collects the letters. Northern trade-tongue. No names. The wax seals carry no house crest. He admits the letters began arriving the same month the evening blessings started requiring a second repetition to hold. "I told myself it was coincidence," he says. The wax smell still clings to the alcove where they're left.`;
+        G.lastResult = `Brother Aldwin folds his hands on the lectern before he speaks. Twice a week — Thursdays and Sundays after vespers — a veiled figure collects the letters. Northern trade-tongue. No names. The wax seals carry no house crest. He admits the letters began arriving the same month the evening blessings started requiring a second repetition to hold. "I told myself it was coincidence," he says. The wax smell still clings to the alcove where they're left. The letters reference consignment tallies that don't appear in any registered manifest. The routing numbers exist. The shipments do not.`;
         G.stageProgress[1]++;
-        addJournal('Sealed letter network mapped to chapel intermediary', 'evidence', `shelkopolis-letters-${G.dayCount}`);
+        addJournal('Sealed letter network mapped to chapel intermediary — routing numbers exist, shipments do not', 'evidence', `shelkopolis-letters-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Brother Aldwin receives your questions with the full warmth of the chapel's public face. He walks you to the door himself, offers a traveling blessing, wishes you safe passage. The wax-and-stone smell of the chapel follows you out. You're three streets away before you remember: there was a novice at a writing desk in the side alcove the entire time. You don't know what was recorded. The chapel didn't need to ask you to leave. It simply wrote down that you came.`;
         G.worldClocks.watchfulness++;
@@ -131,7 +131,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Learned real evidence — but Thom marked exactly what you found', 'complication', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. Behind him on the lower shelf, a drawer with a brass pull bears a wax seal pressed over the lock plate — the seal belongs to no registry office listed on the room's posted charter.`;
+        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. The routing numbers exist. The shipments do not. Behind him on the lower shelf, a drawer with a brass pull bears a wax seal pressed over the lock plate — the seal belongs to no registry office listed on the room's posted charter.`;
         addJournal('Clerk confirmed deliberate ledger removal pattern', 'evidence', `shelkopolis-ledger-removed-${G.dayCount}`);
       } else {
         G.lastResult = `Thom straightens a stack of already-straight papers and explains that registry access requires a stamped request from the Iron Accord, countersigned by a house advocate. He says it pleasantly. There's a lamplight smell of tallow and old ink in the room, and none of it belongs to you without the paperwork.`;
@@ -219,8 +219,8 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Broker warned other merchants of your inquiry', 'complication', `shelkopolis-broker-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Kaen shrugs and marks something on his tally board. Tighter than usual — that's all he'll say about silkwood, and he says it without looking up. The board shows three blank lines where supplier names should be. He doesn't explain the blanks, and he doesn't expect you to stop noticing them.`;
-        addJournal('Broker confirmed silkwood supply shortage', 'evidence', `shelkopolis-broker-supply-${G.dayCount}`);
+        G.lastResult = `Kaen shrugs and marks something on his tally board. Tighter than usual — that's all he'll say about silkwood, and he says it without looking up. The board shows three blank lines where supplier names should be. He doesn't explain the blanks, and he doesn't expect you to stop noticing them. The routing numbers exist. The shipments do not.`;
+        addJournal('Broker confirmed silkwood supply shortage — routing numbers exist, shipments do not', 'evidence', `shelkopolis-broker-supply-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';

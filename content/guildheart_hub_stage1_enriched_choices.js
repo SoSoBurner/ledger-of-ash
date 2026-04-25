@@ -170,8 +170,8 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Guild arbitrator alerted to financial records inquiry', 'complication', `guildheart-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. "Entries get corrected," he says. "Forms go missing. It happens." He doesn't look at the entries while he says it.`;
-        addJournal('Guild records show signs of alteration', 'evidence', `guildheart-ledger-altered-${G.dayCount}`);
+        G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. "Entries get corrected," he says. "Forms go missing. It happens." He doesn't look at the entries while he says it. One correction mark covers a name — not a figure, a name. Another name has been struck through. This one more recently.`;
+        addJournal('Guild ledger: another name struck through, this one more recently', 'evidence', `guildheart-ledger-altered-${G.dayCount}`);
       } else {
         G.lastResult = `Toren's hand stays on the ledger binding, index finger through the cord loop that keeps the cover closed when unattended. The financial office smells of iron-gall ink and the beeswax coating on the ledger's leather. "Primary financial records — Leadership-Restricted, Category One." He writes something in a side log without looking at what he's writing. "Authorization request takes eight to twelve working days. I can give you the form." He offers the form without standing up, sliding it across the desk with the same hand that held the binding a moment before.`;
         addJournal('Guild financial records blocked without leadership authorization', 'evidence', `guildheart-ledger-blocked-${G.dayCount}`);

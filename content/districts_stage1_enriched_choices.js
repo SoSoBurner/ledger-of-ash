@@ -82,9 +82,9 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `She takes three extra turns — each one adding time to any direct route, each one giving her a sightline back along the path. At the third corner she pauses and checks before moving. The delivery point is a private address with no business registry entry. The maintenance contractor's sign on the door carries the same company name as the dome sector 4 workorder filed eleven months ago. The same unregistered contractor. She knows where the work came from.`;
+        G.lastResult = `She takes three extra turns — each one adding time to any direct route, each one giving her a sightline back along the path. At the third corner she pauses and checks before moving. The delivery point is a private address with no business registry entry. The maintenance contractor's sign on the door carries the same company name as the dome sector 4 workorder filed eleven months ago. The same unregistered contractor. She knows where the work came from. The entry is there. The entry after it is gone.`;
         G.recentOutcomeType = 'success';
-        addJournal('Aurora Heights official: letter to unregistered building — same contractor as dome workorder', 'discovery', `aurora-heights-s1-follow-${G.dayCount}`);
+        addJournal('Aurora Heights official: unregistered contractor link confirmed — the entry is there, the entry after it is gone', 'discovery', `aurora-heights-s1-follow-${G.dayCount}`);
       } else {
         G.lastResult = `Aurora Heights pedestrian corridors are wide, well-lit, and designed with a civic planner's eye for open sightlines. She walks at a pace that closes distances quickly, and by the third turn the gap between you has grown past recovery. The district's architecture offers no alcoves, no loading bays, nowhere to pause without standing in plain sight. Whatever this district was built to enable, it was also built to expose anyone trying to move through it unseen.`;
         G.recentOutcomeType = 'neutral';

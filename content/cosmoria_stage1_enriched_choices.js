@@ -66,8 +66,8 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Quartermaster spreading suspicion about supply chain investigation', 'complication', `cosmoria-supplies-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking.`;
-        addJournal('Quartermaster confirmed supply allocation ambiguity', 'evidence', `cosmoria-supplies-unclear-${G.dayCount}`);
+        G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking. The correction appears across three consecutive pages; whoever adjusted these figures is still working through the ledger. Someone was cleaning the record ahead of you. They are still doing it.`;
+        addJournal('Quartermaster confirmed supply allocation ambiguity — record being cleaned ahead of inquiry', 'evidence', `cosmoria-supplies-unclear-${G.dayCount}`);
       } else {
         G.lastResult = `Coralyn says the ledgers require a Cosmouth supply warrant to access. She says it without meeting your eyes, her thumb pressed flat against the warrant procedure notice on her desk as if to keep it from speaking for her. The process takes three days minimum, routes through the harbor administration that manages dock priority, and requires a reason in writing. The door is there. The same hand holds it shut.`;
         addJournal('Supply records blocked without archive authorization', 'evidence', `cosmoria-supplies-blocked-${G.dayCount}`);
@@ -246,8 +246,8 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Archive Keeper banned you from collection inquiry', 'complication', `cosmoria-archives-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The archivist confirms there was a collection reorganization — calls it a security audit. Several document categories moved to restricted access. He shows you the current access tier list, printed on a fresh sheet with no date. The paper smells of recent ink. When you ask for the previous tier list for comparison, he tells you the prior version wasn't retained.`;
-        addJournal('Archive Keeper confirmed document management reorganization', 'evidence', `cosmoria-archives-reorganized-${G.dayCount}`);
+        G.lastResult = `The archivist confirms there was a collection reorganization — calls it a security audit. Several document categories moved to restricted access. He shows you the current access tier list, printed on a fresh sheet with no date. The paper smells of recent ink. When you ask for the previous tier list for comparison, he tells you the prior version wasn't retained. Someone was cleaning the record ahead of you. They are still doing it.`;
+        addJournal('Archive Keeper confirmed document reorganization — someone was cleaning the record ahead of you', 'evidence', `cosmoria-archives-reorganized-${G.dayCount}`);
       } else {
         G.lastResult = `The archivist directs you to the public catalogue — vessels, cargo categories, tide records. The specific records you need are in a collection section that requires a permanent research credential. Applications take four to six weeks. The credential is issued by the harbor registry. You are back at the same door. The catalogue smells of old salt-stiffened paper and tells you nothing you don't already know.`;
         addJournal('Archive records blocked without collection access', 'evidence', `cosmoria-archives-blocked-${G.dayCount}`);
