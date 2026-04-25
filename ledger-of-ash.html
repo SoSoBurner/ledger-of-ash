@@ -1079,7 +1079,7 @@ input, button, select, textarea { font-family: inherit; }
   filter: grayscale(0.6);
 }
 .choice-btn.plot-main {
-  border-left: 2px solid var(--gold-dim, #9a7a32);
+  border-left: 2px solid var(--accent-gold);
 }
 .choice-btn.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
 .choice-btn.tension-hot  { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
@@ -9520,10 +9520,14 @@ function renderChoices(choices) {
   if (_renderChoicesPending) { clearTimeout(_renderChoicesPending); _renderChoicesPending = null; }
   if (!choices || choices.length === 0) { renderNavChoices(); return; }
   _pendingChoices = choices;
-  // Fumble backup notice (one-time)
-  if (window.G && window.G._pendingBackupChoices && window.G._pendingBackupChoices.length > 0 && !window.G.flags._taught_backup) {
-    window.G.flags._taught_backup = true;
-    if (typeof window.addWorldNotice === 'function') addWorldNotice('A path has closed. Another has opened — though it may be harder to walk.');
+  // Fumble backup notice (one-time) + drain pending backup choices into this render
+  if (G._pendingBackupChoices && G._pendingBackupChoices.length > 0) {
+    if (!G.flags._taught_backup) {
+      G.flags._taught_backup = true;
+      if (typeof addWorldNotice === 'function') addWorldNotice('A path has closed. Another has opened — though it may be harder to walk.');
+    }
+    choices = G._pendingBackupChoices.concat(choices);
+    G._pendingBackupChoices = [];
   }
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
   const block = document.createElement('div');
@@ -9552,16 +9556,16 @@ function renderChoices(choices) {
     const alignSymbol = {lawful:'&#x2696;', chaotic:'&#x2605;', good:'&#x2665;', evil:'&#x2620;'}[c.align] || '';
     // Check fumble lock
     var cid = c.cid || c.id;
-    var isLocked = cid && window.G && window.G.flags && window.G.flags['fumble_locked_' + cid];
+    var isLocked = cid && G.flags && G.flags['fumble_locked_' + cid];
     var btnClasses = 'choice-btn';
     if (isLocked) btnClasses += ' fumble-locked';
     if (c.plot === 'main') btnClasses += ' plot-main';
-    if (window.G && (window.G.tensionLevel||0) >= 1) btnClasses += ' tension-warn';
-    if (window.G && (window.G.tensionLevel||0) >= 2) btnClasses += ' tension-hot';
+    if ((G.tensionLevel||0) >= 1) btnClasses += ' tension-warn';
+    if ((G.tensionLevel||0) >= 2) btnClasses += ' tension-hot';
     var npcEl = document.getElementById('npc-container') || document.getElementById('npc-display');
     if (npcEl) {
-      npcEl.classList.toggle('tension-warn', (window.G && (window.G.tensionLevel||0) >= 1));
-      npcEl.classList.toggle('tension-hot',  (window.G && (window.G.tensionLevel||0) >= 2));
+      npcEl.classList.toggle('tension-warn', (G.tensionLevel||0) >= 1);
+      npcEl.classList.toggle('tension-hot',  (G.tensionLevel||0) >= 2);
     }
     // G1: threatLevel border color
     var threatStyle = '';
@@ -9577,8 +9581,8 @@ function renderChoices(choices) {
       (c.dc ? '<span class="choice-dc">DC ' + c.dc + '</span>' : '') +
       '</span></button>';
     // Per-tier first-encounter hint
-    if (c.tag && _tierHints[c.tag] && window.G && window.G.flags && !window.G.flags['taught_' + c.tag]) {
-      window.G.flags['taught_' + c.tag] = true;
+    if (c.tag && _tierHints[c.tag] && G.flags && !G.flags['taught_' + c.tag]) {
+      G.flags['taught_' + c.tag] = true;
       html += '<div class="choice-tutorial-hint" data-tier="' + c.tag + '">' + _tierHints[c.tag] + '</div>';
     }
     // G1: instant-attack escalation injection after threatLevel:1 choices
@@ -9595,7 +9599,7 @@ function renderChoices(choices) {
     }
   });
   // Combat flip: at tensionLevel 2, inject a "force it" option that opens tactical UI
-  if (window.G && (window.G.tensionLevel||0) >= 2) {
+  if ((G.tensionLevel||0) >= 2) {
     var fightIdx = choices.length;
     html += '<button class="choice-btn tension-hot combat-flip-btn" data-idx="' + fightIdx + '">' +
       '<span class="choice-text">Force it — reach for your weapon.</span>' +
@@ -10007,7 +10011,62 @@ function handleChoice(choice) {
 
   setTimeout(() => {
     loading.remove();
+
+    // Fumble locking — fires when roll === 1 (isFumble)
+    var _isFumble = (roll === 1);
+    if (_isFumble && choice.cid) {
+      if (choice.plot === 'main') {
+        // Lock this main-plot choice permanently
+        G.flags['fumble_locked_' + choice.cid] = true;
+        // Check for authored backup
+        var _backup = BACKUP_CHOICES[choice.cid];
+        if (_backup) {
+          // Inject backup into pending pool for next render
+          G.flags['pending_backup_' + choice.cid] = true;
+          // Enrich backup into a renderable choice and queue it
+          var _backupChoice = Object.assign({
+            skill: choice.skill || 'lore',
+            tag: 'risky',
+            align: choice.align || 'neutral',
+            plot: 'main'
+          }, _backup);
+          // Store for post-resolveConsequence render
+          window._pendingBackupChoice = _backupChoice;
+        }
+        // "path closed" notice is shown regardless — resolveConsequence handles fumble result text
+      } else if (choice.criticalSideplot) {
+        // Lock critical side-plot choice
+        G.flags['sideplot_failed_' + choice.cid] = true;
+        if (typeof addJournal === 'function') addJournal('This path has closed.', 'complication');
+      }
+    }
+
     resolveConsequence(choice.cid, success, partial);
+
+    // After resolveConsequence: if a backup is pending, inject it into the next choice render
+    if (window._pendingBackupChoice) {
+      var _bc = window._pendingBackupChoice;
+      window._pendingBackupChoice = null;
+      // Append backup to the next rendered choice set via a deferred render
+      setTimeout(function() {
+        var _existingBlock = document.querySelector('.choice-block');
+        if (_existingBlock) {
+          // Already rendered — inject backup button into existing block
+          var _bIdx = (_pendingChoices || []).length;
+          if (typeof _pendingChoices !== 'undefined') _pendingChoices.push(_bc);
+          var _bBtn = document.createElement('button');
+          _bBtn.className = 'choice-btn plot-main';
+          _bBtn.setAttribute('data-idx', _bIdx);
+          _bBtn.innerHTML = '<span class="choice-text">' + (_bc.text || _bc.label || 'Find another way.') + '</span>' +
+            '<span class="choice-meta">' +
+            (_bc.skill ? '<span class="choice-skill">' + _bc.skill + '</span>' : '') +
+            (_bc.tag ? '<span class="choice-tag ' + _bc.tag + '">' + _bc.tag + '</span>' : '') +
+            '</span>';
+          _existingBlock.appendChild(_bBtn);
+        }
+      }, 100);
+    }
+
     if (typeof saveGame === 'function') {
       saveGame();
       if (!sessionStorage.getItem('loa_saved_once')) {
@@ -10221,6 +10280,12 @@ function gainXP(n) {
 }
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
+
+// Fumble backup choices for main plot CIDs.
+// Keyed by original choice CID. Each backup is a different approach with reduced stageProgress yield (+1 vs +2).
+// Format: 'original_cid': { label: '...', result: '...', stageProgress: 1, skill: '...', tag: '...' }
+// Infrastructure active even when empty — populate per arc as main plot choices are authored.
+var BACKUP_CHOICES = {};
 
 // Encounter rate modifier per stage (rateModifier applied as extra-encounter probability).
 // S1-2 tuned and active. S3-5: infrastructure only — bestiary tiers not yet authored.
