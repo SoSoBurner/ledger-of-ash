@@ -1206,6 +1206,609 @@
     }
   },
 
+  // ========== COLLEGIUM FACTION PATH (4 choices, plot:'main') ==========
+
+  {
+    id: 's2_collegium_1',
+    text: 'Seld counted something on his fingers just now. He stopped at four.',
+    tags: ['Investigation', 'Social'],
+    plot: 'main',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'He touches each fingertip in sequence — thumb to little finger, then back — while he speaks about filing rotations, and the count doesn\'t match the words. He\'s tallying something else. When you meet his eyes he stops and glances toward the corridor. He says his name is Seld, that he works mornings in the secondary index, and that he has seen the same routing number appear in three separate suppression batches. He says it like a question. He leaves before you answer.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_collegium_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Junior archivist Seld approached with knowledge of suppressed routing patterns across three separate batches.', 'contact_made');
+      } else {
+        G.lastResult = 'He is precise with his words and his hands — thumb to fingertip, a private count. But the hallway is busy and whatever he was about to say gets absorbed into the foot traffic. He nods and moves on. The secondary index is visible from here. He\'ll be back at that desk in the morning, and the morning after. This thread is still open.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Possible Collegium source identified in secondary index. No exchange yet.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_collegium_2',
+    text: 'Seld has a document fragment he isn\'t supposed to have.',
+    tags: ['Investigation', 'Social'],
+    plot: 'main',
+    condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'He counts to four again before he speaks — a habit he probably doesn\'t notice. The fragment is a quarter-sheet, torn along a ruled line, in administrative script. Three routing codes and a date stamp from fourteen months ago. He says the full record was pulled from the main index and the withdrawal slip was filed under a category that shouldn\'t exist: "Procedural Alignment." He has seen that category twice. Both times the record disappeared within a week.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Seld provided document fragment showing routing codes filed under suppressed category "Procedural Alignment."', 'evidence');
+      } else {
+        G.lastResult = 'He produces the fragment and then stops. His thumb finds his index finger and holds there — three, not four. He says there are readers assigned to this section today who are not the usual readers. He puts the fragment back in his coat. Tomorrow, he says, at the east reading room, second hour. He walks away counting on nothing, hands still.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Collegium exchange postponed — archive readers reassigned, possible surveillance.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_collegium_3',
+    text: 'Seld is being watched. He knows and he came anyway.',
+    tags: ['Confrontation', 'Social'],
+    plot: 'main',
+    condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var r = rollD20(G.skills.persuasion || 0);
+      if (r.total >= 14) {
+        G.lastResult = 'He sits across from you in the canteen and counts through all five fingers twice, both hands, before he says anything. Two Collegium readers have been logging his access requests for the past eight days. He knows because one of them left the notation sheet visible on the reading room desk — careless, or deliberate. He names what he needs from you: a route out of the building after dark, one night only. He is not asking to leave permanently. He is asking to move something.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_collegium_risk_escalated = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Seld confirmed under Collegium reader surveillance. Requested covert egress for one night.', 'intelligence');
+      } else {
+        G.lastResult = 'He starts the count and doesn\'t finish it. His hand closes flat on the table when he sees who is sitting two tables behind you. He stands, says he left something in the index room, and goes. The figure behind you stays seated. Neither of them looks at the other. Whatever Seld needed to say will wait, and the watchfulness around him is now something you have personally observed.';
+        G.recentOutcomeType = 'complication';
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        addJournal('Collegium surveillance on Seld confirmed by direct observation. Meeting aborted.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_collegium_4',
+    text: 'Seld trusts process. The Wardens trust force. These are not compatible.',
+    tags: ['Confrontation', 'Social'],
+    plot: 'main',
+    condition: function() { return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact; },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.persuasion || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'You bring both threads to the same table — not literally, but in sequence, same afternoon. Seld wants the routing records formally entered into the Collegium\'s suppression index so they can\'t be quietly withdrawn again. The Warden contact wants them kept out of any official record so nothing triggers a jurisdictional review. Seld counts through his fingers while you explain the Warden\'s position. He stops at three. He says he can work with a sealed filing — not public, but permanent. You carry that back. The Warden accepts it with the expression of someone who has learned not to argue about procedure.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_cross_faction_resolution = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Brokered sealed-filing compromise between Collegium and Road Wardens on routing records.', 'evidence');
+      } else {
+        G.lastResult = 'Seld\'s count stops at two. He says the Wardens\' position is not a procedural position — it\'s an operational one, and the Collegium doesn\'t work with operational arrangements. He\'s not hostile. He just stops moving. The two factions are pulling on the same piece of information from opposite directions and you are the only thing currently between them. That position does not become easier over time.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Collegium-Wardens faction tension unresolved. Both claim authority over routing records.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  // ========== ROAD WARDENS FACTION PATH (4 choices, plot:'main') ==========
+
+  {
+    id: 's2_wardens_1',
+    text: 'The checkpoint officer pulled my transit record before she said a word.',
+    tags: ['Investigation', 'Social'],
+    plot: 'main',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'She has your transit dates memorized — not from the sheet in her hand, from memory, which means she looked at this before you arrived. She asks about three specific route entries that don\'t follow a logical traveler\'s progression. She isn\'t accusing you. She is showing you that someone with access to route manifests has been tracking the same anomaly she has. She sets the transit record face-down between you and tells you her name is not important but her shift ends at dusk.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_wardens_contact = true;
+        G.flags.stage2_faction_contact_made = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Road Wardens checkpoint officer identified anomalous transit patterns. First contact made.', 'contact_made');
+      } else {
+        G.lastResult = 'She goes through the standard questions and you give standard answers. The transit record sits between you, face up, and nothing about it prompts anything beyond procedure. She stamps the document and hands it back. The checkpoint queue moves. Whatever she was weighing, she kept it. The dusk shift is posted on the board behind her.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Checkpoint clearance — no exchange. Officer noted transit record with unusual attention.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_wardens_2',
+    text: 'She has corridor data that hasn\'t been filed with any district office.',
+    tags: ['Investigation', 'Social'],
+    plot: 'main',
+    condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.survival || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'The maps she spreads across the field desk are patrol-issue — the kind that get updated by the officers walking the corridors, not by administrative decree. Three routes show markings she made herself: cargo movement times, vehicle types, one notation that reads "non-manifest, recurring." She circles the Shelk transit junction with one finger and says it happens every nine days. No one has filed a report because filing a report creates a record and a record creates a review and a review would go to the same office that is managing the movement.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (typeof addHeat === 'function') addHeat('shelk', 1);
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Warden officer provided field-annotated corridor maps showing recurring non-manifest cargo at Shelk transit junction.', 'evidence');
+      } else {
+        G.lastResult = 'She starts rolling the maps out, then stops. A second officer crosses the checkpoint post behind her, close enough to see the table. She rolls them back without comment and tells you the weather has made the northern routes unreliable this week. The second officer moves on. She doesn\'t open the maps again. The information she was about to show you is still somewhere inside her coat.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Warden route intelligence exchange interrupted by second officer. Evidence held back.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_wardens_3',
+    text: 'The Wardens are being watched from above their own chain.',
+    tags: ['Investigation', 'Social'],
+    plot: 'main',
+    condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'She tells you without drama: Order command has attached a compliance observer to the patrol district for thirty days. No stated reason. The observer attends briefings and says nothing. She has seen this before — twice, in other postings — and both times it meant someone above the district level had decided the local record was unreliable. She can share what she has while the window stays open, but after thirty days she doesn\'t know what her access will look like. The observation log is already running. She knows because the observer logs everything, including who she speaks to on her breaks.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_wardens_under_watch = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Road Wardens district under compliance observation from Order command. Thirty-day window before access changes.', 'intelligence');
+      } else {
+        G.lastResult = 'She says there has been a personnel change at the district level. She doesn\'t elaborate. The checkpoint traffic picks up and she goes back to processing transits. The pattern she described last time — nine days, Shelk junction — is still active. Whatever is happening inside the Order, it hasn\'t stopped the movement she\'s been watching. It has just made the people watching it more careful.';
+        G.recentOutcomeType = 'complication';
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        addJournal('Warden contact closed down. Internal Order personnel shift observed.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_wardens_4',
+    text: 'The Wardens enforce what the Collegium documents. One without the other stops here.',
+    tags: ['Social', 'Confrontation'],
+    plot: 'main',
+    condition: function() { return G.flags && G.flags.stage2_wardens_contact && G.flags.stage2_collegium_contact; },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.persuasion || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'She listens to the shape of what the Collegium archivist described without asking his name, which tells you she already knows there is someone on that side tracking the same thing. She says the Order\'s compliance observer is logging who files complication reports and who doesn\'t — which means a formal Collegium record could trigger an Order review she can\'t control the outcome of. She pauses. Then she says: if the filing goes into a sealed category, the compliance observer won\'t flag it. She gives you the category designation without being asked.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_cross_faction_resolution = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Road Wardens officer provided sealed filing category that satisfies Collegium process without triggering Order compliance review.', 'evidence');
+      } else {
+        G.lastResult = 'She hears you out and goes quiet for longer than is comfortable. What you are describing is a coordination between her chain and a civilian archive body, and Order protocol does not include that kind of lateral arrangement. She is not hostile, but she is no longer moving. She says she will think about it. That is the most she will say.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Warden-Collegium coordination blocked by Order protocol. No resolution.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  // ========== GENERAL STAGE 2 INVESTIGATION CHOICES (12 choices) ==========
+
+  {
+    id: 's2_routing_crossref',
+    text: 'The district numbers and the route numbers share a column they shouldn\'t.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'The column alignment is not accidental. Someone has been filing district expense authorizations against route codes in a format that makes the cross-reference invisible unless you lay both ledgers side by side. The shared column represents seven months of movements that appear in neither record individually. You copy the column headings and the date range by hand. The ink on the copies is your own. The originals go back on the shelf.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('District expense records cross-referenced against route codes reveal seven months of hidden movement filings.', 'evidence');
+      } else {
+        G.lastResult = 'The cross-reference is there — you can see the column alignment — but the ledger you need for the route codes is not in the public index. It\'s in a restricted access section that requires a processing clerks\' endorsement. The public ledger goes back on the shelf. The gap in your record has a specific location now, and a specific procedure that stands between you and it.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Route code ledger restricted — requires processing clerks\' endorsement. Cross-reference incomplete.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_follow_the_watcher',
+    text: 'Someone has been following my route. I want to know who gave them the itinerary.',
+    tags: ['Stealth', 'Investigation'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var r = rollD20(G.skills.stealth || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'You double back through the grain market where the stalls overlap and the sightlines are short. The figure behind you hesitates at the entrance — they\'re good, but not good enough with crowds. You watch from a vendor\'s alcove while they scan the stalls. When they move on, you follow them instead. They walk to a courier exchange office three streets over and go in. The building has a posting board outside. One of the notices lists a route summary — yours, from yesterday — posted as a query. Someone is paying for location updates on your transit.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_surveillance_identified = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Surveillance traced to courier exchange posting paid transit location queries on your movements.', 'evidence');
+      } else {
+        G.lastResult = 'You double back, but the figure anticipated it — or they have a partner you didn\'t account for. By the time you\'ve worked through the grain market, the trail is cold. You don\'t see them again that afternoon. They know you noticed, which means the nature of the surveillance has just changed. Whatever they were doing passively, they\'ll do actively now.';
+        G.recentOutcomeType = 'complication';
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        addJournal('Surveillance counter-attempt failed. Watcher now aware of detection attempt.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_sealed_archive_loophole',
+    text: 'A procedural appeal is not the same as an access request. The rule doesn\'t cover it.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'The procedural appeal window is forty-eight hours and requires a filing number rather than a name — which means you can reference the restricted record by its administrative designation without triggering the personal access review. The intake clerk accepts the form without looking at what it references. The appeal goes into the system. Six hours later, a summary record is returned to the public index by automatic procedure: three pages of the document you couldn\'t reach directly, now technically available under appeal review. Enough to read. Enough to copy.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Procedural appeal loophole surfaced three pages of sealed routing authorization record.', 'evidence');
+      } else {
+        G.lastResult = 'The intake clerk accepts the form and then routes it to a senior archivist for review rather than processing it automatically. The senior archivist sends it back with a notation: procedural appeals require a party-of-record designation that matches an active transaction. You are not party of record on the filing number you used. The loophole closes. The clerk files your returned form under "Misdirected Inquiry" and stamps it with today\'s date.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Appeal loophole closed by senior archivist review. Access still blocked.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_merchant_subtext',
+    text: 'He answered every question I didn\'t ask. Not one I did.',
+    tags: ['Investigation', 'Social'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.persuasion || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'You stop asking direct questions and start noting what he volunteers. He describes a shipping delay in language that implies he knew the route would be affected before the delay was announced. He mentions a district assessor by name, unprompted, in a way that suggests familiarity not displeasure. He tells you a cargo lot arrived "clean" — which is a specific reassurance no one asked him for. By the end of the conversation, you have three data points that don\'t fit the story he\'s telling. He notices you noticing and offers you tea.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Merchant\'s volunteered information implies advance knowledge of route closures and connection to district assessor.', 'intelligence');
+      } else {
+        G.lastResult = 'He gives you exactly what you ask for and nothing adjacent to it. The answers are complete, consistent, and empty. He\'s done this before — answered questions precisely enough to close them without opening anything else. By the end you\'ve confirmed what you already knew and learned that he is careful. That\'s something. Just not what you came for.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Merchant questioned. Answers precise and uninformative. Source is careful and aware.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_recurring_name',
+    text: 'That name has appeared in four separate documents from three different offices.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'The name "Arven Pol" — a processing authority designation, not a personal name, which is why it survived multiple redaction passes — appears as signatory on four documents that have no stated connection to each other. Freight release in Shelk. Transit variance in the Roaz corridor. A cargo reclassification issued without physical inspection. An emergency route authorization that post-dates the route\'s closure. Every document moves something. The same authority signature approves it. No one in any of these offices is named Arven Pol.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_arven_pol_identified = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Processing authority "Arven Pol" appears across four unconnected documents — freight release, transit variance, cargo reclassification, emergency route authorization.', 'evidence');
+      } else {
+        G.lastResult = 'The name appears in two documents you can access. In both cases it\'s a processing authority designation rather than a personal identification, which means the records office treats it as a system code rather than an individual. The archivist on duty says these designations are assigned regionally and there\'s no central registry. The thread is real. The end of it is somewhere you can\'t reach from here.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Recurring authority designation identified in two documents. No central registry to trace.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_collegium_public_vs_deep',
+    text: 'The public Collegium office exists to be seen. What\'s behind it does not.',
+    tags: ['Investigation', 'Stealth'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.stealth || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'The public intake desk processes citizen queries and files summary reports — nothing suppressed, nothing cross-referenced. But the corridor behind the intake desk has a door that does not appear on the building\'s public layout. You spend an afternoon mapping foot traffic: who goes through it, at what hours, carrying what. Three people with Collegium marks. One without any mark at all. The one without a mark goes through twice and both times leaves with a smaller bag than they entered with. That door is where the documents go when they stop being public.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_collegium_inner_office_mapped = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Collegium inner office mapped via foot traffic observation. Unmarked courier identified using unlisted access corridor.', 'intelligence');
+      } else {
+        G.lastResult = 'The public desk is thorough and unhelpful in equal measure. The staff are trained in exactly what questions to answer and in what register to decline the rest. You leave with a summary of information you already had and a pamphlet about the Collegium\'s role in transit procedure. The building behind the intake desk is not something the intake desk discusses.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Collegium public office unproductive. No access to inner proceedings.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_suppression_gap',
+    text: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'The suppression was applied to primary records and summary indices. But the subcategory cross-reference files — maintained separately, updated quarterly, and formatted for administrative review rather than public access — were not flagged. They\'re not public, but they\'re not restricted either. They sit in a procedural gap between suppression and disclosure. You pull the relevant quarter. Inside: cargo type codes, movement authorizations, and a column of inspection waivers, all referencing the same route cluster. The gap is probably deliberate. Someone left it.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Subcategory cross-reference files survived suppression. Contains cargo codes, movement authorizations, inspection waivers from target route cluster.', 'evidence');
+      } else {
+        G.lastResult = 'The gap exists — the subcategory format is different from the primary records and falls outside the standard suppression protocol. But the specific quarter you need has already been archived to long-term storage, which requires a three-day retrieval request through the administrative register. Three days is a long time for a gap to stay open once someone notices you\'re looking at it.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Suppression gap identified in subcategory files. Relevant quarter in long-term storage — three-day retrieval required.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_district_night_records',
+    text: 'The night shift desk doesn\'t log visitors. That\'s a known feature, not an oversight.',
+    tags: ['Stealth', 'Investigation'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.stealth || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'The night desk clerk is a different person from the day staff and operates under a separate register — one that does not record visitor names, only transaction codes. You come in as a transit inquiry and leave with access to the secondary manifest stack that the day staff redirects to the restricted counter. The night clerk processes the transaction by the code, not the category, and doesn\'t cross-check against the suppression list. Two hours of reading by lamplight. The secondary manifests cover routes the day counter says don\'t exist.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Night shift access to secondary manifests confirmed. Routes listed in night records marked as non-existent in day records.', 'evidence');
+      } else {
+        G.lastResult = 'The night desk is different — quieter, less formal. But the clerk on duty tonight is not the usual one. He processes your transaction code and then holds it while he looks up the category in a cross-reference binder. The binder is the suppression index. He finds the match and tells you, without expression, that this category is restricted to credentialed personnel only. He stamps the transaction "declined" and files it. Tomorrow morning the day staff will see a declined night inquiry on record.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Night desk access attempt declined. Suppression index checked by substitute clerk. Declined inquiry now on record.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_inspection_waiver_trail',
+    text: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'Eleven inspection waivers across a four-month window, all for cargo originating from the same two transfer points. Each waiver cites a different procedural basis — weather delay, transit emergency, seasonal reclassification — but all eleven were processed by the same authorization desk within a forty-eight-hour window of each other. The procedural bases are real categories. The timing makes it impossible for them to be independent decisions. Someone requested them all at once, formatted them individually, and filed them over four months to avoid the bulk-processing flag.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_waiver_pattern_found = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Eleven inspection waivers traced to single authorization desk. All processed within 48-hour window, filed over four months to avoid bulk-processing flags.', 'evidence');
+      } else {
+        G.lastResult = 'The waivers are individually valid — each cites a legitimate procedural category and carries a proper authorization stamp. Building a pattern requires accessing the processing timestamps from the authorization desk\'s internal log, which is not a public record. The waivers themselves are clean. The story they tell together is in data you can\'t reach without inside access.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Inspection waivers individually valid. Timestamp pattern requires authorization desk internal log — not a public record.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_cargo_reclassification',
+    text: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'The reclassification entries move goods from the freight manifest into the "materials in transit" category — a classification used for institutional supplies that bypasses standard cargo inspection and customs declaration. Once reclassified, the goods disappear from the freight record entirely and reappear in a separate institutional ledger that isn\'t cross-referenced with customs. Six reclassifications over two years, all originating at the same loading dock, all arriving at a single institutional address in the inner district. You copy the address.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Six cargo reclassifications traced from single loading dock to institutional address in inner district, bypassing customs via "materials in transit" category.', 'evidence');
+      } else {
+        G.lastResult = 'The reclassification process is legitimate and the records are clean. What the records don\'t show is what was reclassified — the category change strips the original goods description. All you can confirm is that something moved from freight status to institutional transit status, six times, from the same origin point. The destination is listed as "administrative receiving," which is a category, not an address.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Cargo reclassification confirmed but goods descriptions stripped. Destination listed as category, not address.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_warden_patrol_gap',
+    text: 'There\'s a patrol gap that stays consistent. Gaps don\'t stay consistent by accident.',
+    tags: ['Stealth', 'Investigation'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.survival || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'Three days of observation from the same rooftop position — a tanning shed roof, which means the smell is considerable, but the sightline is direct. The gap in the patrol rotation is fourteen minutes, appearing at the same hour each evening. No variation. Patrol rotations have natural drift unless someone is actively managing the clock. You mark the gap\'s location: a loading bay access on the eastern freight corridor, wide enough for a cart.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_patrol_gap_mapped = true;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Fourteen-minute patrol gap mapped at eastern freight corridor loading bay. Gap is deliberately maintained — no natural drift across three-day observation.', 'intelligence');
+      } else {
+        G.lastResult = 'The patrol variation is real but inconsistent — two-day windows of a gap, then three days of coverage, then a gap again. You can\'t map it from outside without more data points. What you can say is that someone is managing this rotation, because natural patrol drift doesn\'t produce on-off patterns with this regularity. The loading bay is there. The window into it is not predictable yet.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Patrol gap at eastern freight corridor identified but not yet mapped to consistent schedule.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_ledger_ward_anomaly',
+    text: 'The Iron Ledger Ward has a transaction that predates the institution\'s founding.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'The date stamp is in the older format — a calendar notation that predates the current administrative system by six years. The Iron Ledger Ward was not established until four years after the current system began. The transaction it records should be impossible: a route authorization issued through an institution that didn\'t exist yet. The format is internally consistent and the seal is genuine. Someone created this record after the fact and backdated it. The transaction it authorizes is the origin point for the route cluster you\'ve been tracking.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_backdated_origin_found = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Iron Ledger Ward transaction dated six years before the Ward\'s founding. Backdated origin record for target route cluster identified.', 'evidence');
+      } else {
+        G.lastResult = 'The date format is unusual — an older notation system — and the record sits slightly apart from the surrounding entries, which suggests it was filed separately. Whether that means it\'s anomalous or simply archaic you can\'t determine without knowing the Ward\'s founding date precisely, and that information is in a different section of the archive. The thread is there. Following it requires another visit.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Iron Ledger Ward record with unusual date format identified. Verification requires Ward founding date from separate archive section.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  // ========== ARCHETYPE-EXCLUSIVE CHOICES (3 choices) ==========
+
+  {
+    id: 's2_arch_lore_cipher_read',
+    text: 'The cipher format is institutional — I\'ve seen this encoding in the academy index.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    condition: function() {
+      return G.archetype && (
+        G.archetype === 'Scholar' || G.archetype === 'Archivist' ||
+        G.archetype === 'Sage' || G.archetype === 'Lorekeeper' ||
+        (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'lore')
+      );
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.lore || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'The encoding is a variant of the standard administrative cipher used in institutional correspondence — a format you know because your training covered the index systems of four administrative bodies. The variant tells you which body generated it: a fiscal sub-registry that operates under the Compact\'s transit authority but files under the district government\'s identifier. That administrative overlap is not accidental. It allows the same record to be reported to two separate oversight bodies without either body knowing the other received it. The document\'s full content opens under that key.';
+        G.recentOutcomeType = 'discovery';
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Institutional cipher decoded via academic training. Document reveals fiscal sub-registry filing under dual jurisdiction to prevent cross-body oversight.', 'evidence');
+      } else {
+        G.lastResult = 'The variant is close to a format you know, but diverges at the third encoding layer — a modification you haven\'t seen. The base structure is clear enough to read the headers and the date range. The content rows hold. What you can\'t decode is the authorization column, which is exactly what would identify the signatory. The cipher is almost within reach. Almost.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Partial cipher decode via academic training. Authorization column remains encoded — third layer unresolved.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_arch_craft_forged_seal',
+    text: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',
+    tags: ['Investigation', 'Lore'],
+    plot: 'side',
+    condition: function() {
+      return G.archetype && (
+        G.archetype === 'Artificer' || G.archetype === 'Engineer' ||
+        G.archetype === 'Alchemist' ||
+        (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'craft')
+      );
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.craft || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'The stamp die was cut from a different material than the standard Compact seal — harder, which produces a slightly sharper impression with less ink spread. The off-center placement is consistent across six documents, which rules out handling error. The person stamping these used a replica die, and they used the same one every time. A replica die requires a mold of the original. You photograph the impression angle with a ruled reference next to it. The documentation of a forged seal is itself evidence.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_forged_seal_documented = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Forged Compact seal identified via impression analysis — harder die material, consistent off-center placement across six documents.', 'evidence');
+      } else {
+        G.lastResult = 'The seal impression is marginally off, but without a reference impression from a known-genuine document for direct comparison, you can\'t establish it as a forgery definitively. The deviation could be a worn die, a pressure variation, or stock paper difference. The anomaly is noted. Confirmation requires a genuine seal document from the same period and issuing office.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Seal impression anomaly noted. Confirmation requires genuine comparison document from same issuing office.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_arch_stealth_inner_access',
+    text: 'The service entrance isn\'t on the floor plan. Neither is what\'s behind it.',
+    tags: ['Stealth', 'Investigation'],
+    plot: 'side',
+    condition: function() {
+      return G.archetype && (
+        G.archetype === 'Rogue' || G.archetype === 'Infiltrator' ||
+        G.archetype === 'Scout' || G.archetype === 'Shadowblade' ||
+        (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth')
+      );
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var r = rollD20(G.skills.stealth || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'The service entrance is used by the building\'s laundry and supply intake — people moving things, always slightly loaded, never making eye contact with authority figures. You fit the pattern well enough. Inside: a utility corridor that runs behind the public reading room and connects to a records annex that has no door on the public side. The annex holds working files, not archive — current, active documents organized by processing date. What you find in the current week\'s batch: three route variance requests, two with "Arven Pol" as processing authority, all for the same corridor cluster.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_inner_annex_accessed = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Records annex accessed via service entrance. Current-week files include three route variance requests under "Arven Pol" authority for target corridor cluster.', 'evidence');
+      } else {
+        G.lastResult = 'The service entrance is used by people who are expected there. A delivery clerk who\'s worked the route for years notices you in the corridor immediately — not because you look wrong exactly, but because the building knows its own people and you are not one of them. He doesn\'t call for a warden. He asks your business in a tone that makes it clear the question is a formality. You give a plausible answer and leave. The annex door, visible at the corridor\'s end, stays closed.';
+        G.recentOutcomeType = 'complication';
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        addJournal('Service entrance approach identified by delivery clerk. Building staff now aware of unauthorized corridor presence.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
   // Faction 4: Red Hood Guild
   {
     cid: 'stage2_redhood_contact',
