@@ -1074,9 +1074,6 @@ input, button, select, textarea { font-family: inherit; }
   color: var(--ink-bright); padding-left: 28px;
 }
 .choice-btn:hover::before { opacity: 1; }
-.choice-btn.bold:hover  { border-color: var(--ember-lo); }
-.choice-btn.risky:hover { border-color: rgba(110,16,16,.6); }
-.choice-btn.safe:hover  { border-color: var(--jade); }
 .choice-btn.fumble-locked {
   opacity: 0.4;
   cursor: not-allowed;
@@ -1084,10 +1081,12 @@ input, button, select, textarea { font-family: inherit; }
   filter: grayscale(0.6);
 }
 .choice-btn.plot-main {
-  border-left: 2px solid var(--accent-gold);
+  border-left: 2px solid #4a7ab5;
 }
-.choice-btn.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
-.choice-btn.tension-hot  { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
+.choice-btn.combat-lv1 { border-left: 2px solid #c8b400; }
+.choice-btn.combat-lv2 { border-left: 2px solid #d47517; }
+.choice-btn.combat-lv3 { border-left: 2px solid #be2828; }
+.choice-btn.deescalate { background: rgba(22,56,40,.10); }
 .npc-container.tension-warn, .npc-display.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
 .npc-container.tension-hot, .npc-display.tension-hot   { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
 @keyframes pulse-red { 0%,100% { box-shadow: 0 0 8px rgba(139,32,32,0.45); } 50% { box-shadow: 0 0 16px rgba(139,32,32,0.75); } }
@@ -8326,16 +8325,19 @@ function _authorityRenderPhase1(authorityKey, polity, heatLevel) {
     {
       text: 'Cooperate fully. Give them no reason to push further.',
       skill: 'persuasion', tag: 'safe', align: 'lawful',
+      extraClass: 'deescalate',
       cid: '__authority__' + ak + '__' + pk + '__1__comply'
     },
     {
       text: 'There is a procedural angle here. Work it.',
       skill: 'persuasion', tag: 'risky', align: 'neutral',
+      extraClass: 'deescalate',
       cid: '__authority__' + ak + '__' + pk + '__1__negotiate'
     },
     {
       text: 'This does not have to be about you. Give them somewhere else to look.',
       skill: 'stealth', tag: 'risky', align: 'chaotic',
+      extraClass: 'deescalate',
       cid: '__authority__' + ak + '__' + pk + '__1__deflect'
     }
   ];
@@ -8352,16 +8354,19 @@ function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
     {
       text: 'Hold your ground. Make them commit.',
       skill: 'persuasion', tag: 'bold', align: 'chaotic',
+      extraClass: 'combat-lv2',
       cid: '__authority__' + ak + '__' + pk + '__2__stand_firm'
     },
     {
       text: 'There is a gap — move through it before it closes.',
       skill: 'stealth', tag: 'bold', align: 'chaotic',
+      extraClass: 'combat-lv1',
       cid: '__authority__' + ak + '__' + pk + '__2__attempt_escape'
     },
     {
       text: 'Hands up. This is not the place to fight.',
       skill: 'persuasion', tag: 'safe', align: 'lawful',
+      extraClass: 'combat-lv1',
       cid: '__authority__' + ak + '__' + pk + '__2__accept_detention'
     }
   ];
@@ -8369,6 +8374,7 @@ function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
     choices.push({
       text: 'They are not leaving you a choice. Commit to it.',
       skill: 'combat', tag: 'bold', align: 'chaotic',
+      extraClass: 'combat-lv3',
       cid: '__authority__' + ak + '__' + pk + '__2__fight'
     });
   }
@@ -9814,8 +9820,7 @@ function renderChoices(choices) {
     var btnClasses = 'choice-btn';
     if (isLocked) btnClasses += ' fumble-locked';
     if (c.plot === 'main') btnClasses += ' plot-main';
-    if ((G.tensionLevel||0) >= 1) btnClasses += ' tension-warn';
-    if ((G.tensionLevel||0) >= 2) btnClasses += ' tension-hot';
+    if (c.extraClass) btnClasses += ' ' + c.extraClass;
     var npcEl = document.getElementById('npc-container') || document.getElementById('npc-display');
     if (npcEl) {
       npcEl.classList.toggle('tension-warn', (G.tensionLevel||0) >= 1);
@@ -9845,7 +9850,7 @@ function renderChoices(choices) {
       var _benev = G.benevolence || 0;
       if (_archFamG1 === 'combat' || _benev < -20) {
         var escIdx = _pendingChoices.length; // will be appended below
-        html += '<button class="choice-btn" data-idx="__escal_' + i + '__" style="border-color:#d47517">' +
+        html += '<button class="choice-btn combat-lv3" data-idx="__escal_' + i + '__">' +
           '<span class="choice-text">There\'s no reason to wait for them to start it.</span>' +
           '<span class="choice-meta"><span class="choice-skill">combat</span><span class="choice-tag risky">risky</span></span>' +
           '</button>';
@@ -13127,10 +13132,11 @@ function updateHUD() {
   const sk = document.getElementById('hud-skills');
   if (sk) {
     sk.innerHTML = '';
+    var _SKILL_LABELS = { combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit' };
     Object.entries(G.skills||{}).forEach(([k,v]) => {
       const r = document.createElement('div'); r.className='skill-item';
       const pct=Math.round((v/20)*100);
-      r.innerHTML='<span class="skill-name">'+(k.charAt(0).toUpperCase()+k.slice(1))+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div>';
+      r.innerHTML='<span class="skill-name">'+(_SKILL_LABELS[k] || (k.charAt(0).toUpperCase()+k.slice(1)))+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div>';
       sk.appendChild(r);
     });
   }
