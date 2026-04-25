@@ -8852,14 +8852,16 @@ function generateRivals() {
       name: RIVAL_NAMES[i],
       archetype: RIVAL_CLASSES[i],
       hook: RIVAL_HOOKS[i % RIVAL_HOOKS.length],
-      renown: Math.floor(Math.random() * 3),
+      renown: 2,
       active: true,
-      lastSeen: 'Not encountered'
+      lastSeen: 'Not encountered',
+      location: null
     };
     // PLACEHOLDER: rivals[1] and [2] are simple tick-based destination signalers for v0.1.
     // Remove/replace when the full rival system is expanded beyond Maren Oss.
-    if (i === 1) { r._bgRival = true; r._bgDest = 'fairhaven';    r._bgTick = 0; }
-    if (i === 2) { r._bgRival = true; r._bgDest = 'shelkopolis';  r._bgTick = 0; }
+    if (i === 0) { r.location = 'fairhaven'; }
+    if (i === 1) { r._bgRival = true; r._bgDest = 'fairhaven';    r._bgTick = 0; r.location = 'fairhaven'; }
+    if (i === 2) { r._bgRival = true; r._bgDest = 'shelkopolis';  r._bgTick = 0; r.location = 'shelkopolis'; }
     return r;
   });
 }
@@ -8887,6 +8889,8 @@ function advanceRivals() {
       }
     }
   });
+  // Renown escalation driven by stage progress
+  const _sp1 = (G.stageProgress && G.stageProgress[1]) || 0;
   G.rivalAdventurers.forEach((r, i) => {
     if (r._resolved || !r.active) return;
     // Each major choice advances rivals
@@ -8898,11 +8902,12 @@ function advanceRivals() {
       r.active = false;
       r.lastSeen = 'Disappeared. Reason unknown.';
     }
-    // Trigger one-shot encounter when rival is at player's location with enough renown
+    // Stage-progress-driven renown escalation
+    if (_sp1 >= 6) { if ((r.renown || 0) < 4) r.renown = 4; }
+    else if (_sp1 >= 3) { if ((r.renown || 0) < 3) r.renown = 3; }
+    // Trigger one-shot encounter when rival is at player's location
     if (!G.flags['rival_met_' + i] && (r.renown || 0) >= 2) {
-      const atSameLocation = r._bgDest === G.location ||
-        (!r._bgRival && r.lastSeen === (WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].name));
-      if (atSameLocation && Math.random() < 0.30) {
+      if (r.location === G.location && Math.random() < 0.30) {
         setTimeout(() => triggerRivalEncounter(i), 800);
       }
     }
@@ -8995,6 +9000,7 @@ function advanceBackgroundRivals() {
 
     const prev = r._bgDest;
     r._bgDest = prev === 'fairhaven' ? 'shelkopolis' : 'fairhaven';
+    r.location = r._bgDest;
     const dest = r._bgDest;
     const destName = dest === 'fairhaven' ? 'Fairhaven' : 'Shelkopolis';
     const fromName = prev === 'fairhaven' ? 'Fairhaven' : 'Shelkopolis';
