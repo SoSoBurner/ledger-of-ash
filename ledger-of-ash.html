@@ -9688,6 +9688,11 @@ function _getAuthorityEncounterChoice(polity) {
 function loadStageChoices(locId) {
   checkHeatConsequences();
   const loc = locId || G.location || '';
+  // Derive polity key from WORLD_LOCATIONS config for authority encounter injection
+  var _wlData = (window.WORLD_LOCATIONS && window.WORLD_LOCATIONS[loc]) || {};
+  var _rawPolity = (_wlData.polity || '').toLowerCase();
+  var _polityKeys = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+  G._currentPolity = _polityKeys.reduce(function(found, k){ return found || (_rawPolity.indexOf(k) >= 0 ? k : ''); }, '');
   const stage = G.stage || '';
   const stageNum = stage === 'Stage II' ? '2' : stage === 'Stage III' ? '3' : '1';
   const tableKey = loc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
