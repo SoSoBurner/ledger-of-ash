@@ -648,6 +648,57 @@
 
   };
 
+  // ── Named threshold constants (Task 10.1 spec) ────────────────────────────
+  var NPC_ACCESS_STANDING_T2 = 10;
+  var NPC_ACCESS_STANDING_T3 = 20;
+  var NPC_ACCESS_PROGRESS_T2 = 4;
+  var NPC_ACCESS_PROGRESS_T3 = 7;
+  var NPC_ACCESS_RENOWN_T2   = 3;
+  var NPC_ACCESS_RENOWN_T3   = 6;
+
+  // ── Public aliases (Task 10.1 API) ────────────────────────────────────────
+  window.NPC_ACCESS_STANDING_T2 = NPC_ACCESS_STANDING_T2;
+  window.NPC_ACCESS_STANDING_T3 = NPC_ACCESS_STANDING_T3;
+  window.NPC_ACCESS_PROGRESS_T2 = NPC_ACCESS_PROGRESS_T2;
+  window.NPC_ACCESS_PROGRESS_T3 = NPC_ACCESS_PROGRESS_T3;
+  window.NPC_ACCESS_RENOWN_T2   = NPC_ACCESS_RENOWN_T2;
+  window.NPC_ACCESS_RENOWN_T3   = NPC_ACCESS_RENOWN_T3;
+
+  /** getNpcTierData(id) — returns NPC_LOOKUP entry or null */
+  window.getNpcTierData = function (id) {
+    return NPC_LOOKUP[id] || null;
+  };
+
+  /** canAccessNpc(id, G_obj) — lowercase alias matching Task 10.1 spec */
+  window.canAccessNpc = function (id, G_obj) {
+    var npc = NPC_LOOKUP[id];
+    if (!npc) return true; // unknown NPCs always accessible
+    // Use the existing gate logic via a temporary G swap if G_obj provided
+    if (G_obj) {
+      var saved = typeof G !== 'undefined' ? G : null;
+      // Call through canAccessNPC which reads the module-scope G
+      // For external G_obj, evaluate directly using the spec thresholds
+      var tier = npc.tier || 1;
+      if (tier <= 1) return true;
+      var polity = npc.polity;
+      var standing = (G_obj.factions && polity && G_obj.factions[polity] && G_obj.factions[polity].standing) || 0;
+      var progress = G_obj.investigationProgress || 0;
+      var renown   = G_obj.renown || 0;
+      var ts = tier >= 3 ? NPC_ACCESS_STANDING_T3 : NPC_ACCESS_STANDING_T2;
+      var tp = tier >= 3 ? NPC_ACCESS_PROGRESS_T3 : NPC_ACCESS_PROGRESS_T2;
+      var tr = tier >= 3 ? NPC_ACCESS_RENOWN_T3   : NPC_ACCESS_RENOWN_T2;
+      return standing >= ts || progress >= tp || renown >= tr;
+    }
+    return canAccessNPC(id);
+  };
+
+  /** escalateDC(id, G_obj) — +2 DC per prior attempt on this NPC */
+  window.escalateDC = function (id, G_obj) {
+    var flags = (G_obj && G_obj.flags) || (typeof G !== 'undefined' && G.flags) || {};
+    var attempts = flags['npc_' + id + '_attempts'] || 0;
+    return attempts * 2;
+  };
+
   // ── Expose ─────────────────────────────────────────────────────────────────
   window.NPC_LOOKUP          = NPC_LOOKUP;
   window.openNPCEncounter    = openNPCEncounter;
