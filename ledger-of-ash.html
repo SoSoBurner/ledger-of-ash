@@ -8317,7 +8317,16 @@ function enterAuthorityConfrontation(authorityKey, ctx) {
 
   var authorityLabel = authorityKey.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
 
-  var sceneText = 'The ' + authorityLabel + ' step into your path. Their attention is specific — they know what they are looking for. The offense: ' + offense + '. They have not drawn weapons yet. You have a moment to decide how this goes.';
+  var _heatLine = '';
+  var _hl = (ctx && typeof ctx.heatLevel === 'number') ? ctx.heatLevel : (typeof getHeat === 'function' && ctx && ctx.polity ? getHeat(ctx.polity) : 0);
+  if (_hl >= 8) {
+    _heatLine = 'We have been expecting you to pass through again. We do not need to explain why. ';
+  } else if (_hl >= 5) {
+    _heatLine = 'You are already in the ledger. This is not your first flag in this jurisdiction. ';
+  } else if (_hl >= 3) {
+    _heatLine = 'Your name came up in the morning brief. Routine. ';
+  }
+  var sceneText = _heatLine + 'The ' + authorityLabel + ' step into your path. Their attention is specific — they know what they are looking for. The offense: ' + offense + '. They have not drawn weapons yet. You have a moment to decide how this goes.';
 
   document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
   addNarration(authorityLabel, sceneText);
