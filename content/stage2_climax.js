@@ -153,6 +153,14 @@ var STAGE2_CLIMAX = (function() {
 
     G.flags.stage2_climax_complete = true;
     G.flags.maren_oss_resolved = true;
+    // Acknowledge unchosen paths as intelligence, not loss
+    if (G.flags.stage2_climax_resolution === 'expose') {
+      G.lastResult += ' The names still held in the Collegium\'s deep files remain there, for now — and Orveth\'s offer of a more careful approach remains open.';
+    } else if (G.flags.stage2_climax_resolution === 'align') {
+      G.lastResult += ' The document is contained, not destroyed — whatever was in the full record, you have seen only what Orveth chose to show.';
+    } else if (G.flags.stage2_climax_resolution === 'withdraw') {
+      G.lastResult += ' The Collegium\'s reader knows a document was in circulation. They do not know you have it. That will change.';
+    }
     addJournal(G.lastResult, 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
