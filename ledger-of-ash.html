@@ -9658,6 +9658,26 @@ function checkHeatConsequences() {
   }
 }
 
+/**
+ * Returns a polity-specific authority encounter choice object (from AUTHORITY_ENCOUNTER_CHOICES)
+ * if heat for that polity is >= 3 and the encounter has not already fired this session.
+ * Used by loadStageChoices to inject into the top of the choice list.
+ * @param {string} polity
+ * @returns {Object|null}
+ */
+function _getAuthorityEncounterChoice(polity) {
+  if (!polity) return null;
+  var heat = getHeat(polity);
+  if (heat < 3) return null;
+  // Only fire once per locality visit (not per session) — clear on travel
+  var seenKey = '_authority_enc_seen_' + polity;
+  if (G.flags[seenKey]) return null;
+  var pool = window.AUTHORITY_ENCOUNTER_CHOICES;
+  if (!pool || !pool[polity]) return null;
+  G.flags[seenKey] = true;
+  return pool[polity];
+}
+
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
   checkHeatConsequences();
@@ -9695,6 +9715,9 @@ function loadStageChoices(locId) {
       var npcChoices = buildNPCChoices(G.location);
       if (npcChoices && npcChoices.length) adapted.push.apply(adapted, npcChoices);
     }
+    // Inject authority encounter at top if heat threshold met
+    var authChoice = _getAuthorityEncounterChoice(G._currentPolity || '');
+    if (authChoice) adapted.unshift(authChoice);
     renderChoices(_injectBossSeedChoices(adapted));
     return;
   }
@@ -9723,6 +9746,9 @@ function loadStageChoices(locId) {
     var npcChoicesFallback = buildNPCChoices(G.location);
     if (npcChoicesFallback && npcChoicesFallback.length) base.push.apply(base, npcChoicesFallback);
   }
+  // Inject authority encounter at top if heat threshold met
+  var authChoiceFallback = _getAuthorityEncounterChoice(G._currentPolity || '');
+  if (authChoiceFallback) base.unshift(authChoiceFallback);
   if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(base));
 }
 
@@ -13796,6 +13822,7 @@ function showHowToPlay() {
 <script src='content/stage2_enriched_choices.js'></script>
 <script src='content/stage3_enriched_choices.js'></script>
 <script src='content/stage3_climax.js'></script>
+<script src='content/authority_encounters.js'></script>
 <script src='content/stage4_enriched_choices.js'></script>
 <script src='content/stage5_enriched_choices.js'></script>
 <!-- ── TRAVEL ENGINE ── -->
