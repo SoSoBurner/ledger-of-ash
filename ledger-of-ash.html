@@ -10051,7 +10051,9 @@ function rollD20(skill, bonus) {
   var sleepless = (typeof G !== 'undefined' && G && G.consecutiveSleepless) ? Math.min(G.consecutiveSleepless, 3) : 0;
   // Campout penalty: -1 to combat and survival rolls the day after camping outside
   var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (skill === 'combat' || skill === 'survival')) ? 1 : 0;
-  var total = roll + (bonus || 0) - penalty - sleepless - campoutMod;
+  // travel_fatigued: -1 to all rolls until next rest (cleared in doSleepScene)
+  var travelFatiguedMod = (G && G.flags && G.flags.travel_fatigued) ? 1 : 0;
+  var total = roll + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod;
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
 
@@ -11605,7 +11607,25 @@ function campAction(type) {
         addNarration('Camp', 'The watches hold. Your companions rotate through the night without incident. You wake less tired than expected.', 'success');
         addJournal('Watches posted. The night was quiet.', 'discovery');
       } else {
-        addNarration('Camp', 'The watches hold but something moved at the perimeter. Nothing materialized, but you all slept lighter for it.', 'partial');
+        // Threat detected — convert night ambush to warned encounter (Engage/Retreat/Hide)
+        G.flags.travel_warned_encounter = true;
+        addNarration('Camp', 'Movement at the perimeter. Your companion wakes you before it reaches the fire. You have a moment to decide — they have not seen you clearly yet.', 'partial');
+        saveGame(); updateHUD();
+        setTimeout(() => renderChoices([
+          { text: 'Step out to meet them. Waiting gives up the ground.', skill: 'combat', tag: 'bold', align: 'neutral', cid: 'watch_engage',
+            action: function() { G.flags.travel_warned_encounter = false; if (typeof enterCombat === 'function') enterCombat('principality_militia', { isBoss: false, context: 'night_camp' }); else if (typeof loadStageChoices === 'function') loadStageChoices(); } },
+          { text: 'Pull back into the dark and let them pass.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'watch_retreat',
+            action: function() { G.flags.travel_warned_encounter = false; addNarration('Camp', 'You hold still. They move through the perimeter without finding the fire. You wait until the sound is gone.', 'success'); saveGame(); updateHUD(); setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300); } },
+          { text: 'Stay low and read them before committing.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'watch_hide',
+            action: function() {
+              G.flags.travel_warned_encounter = false;
+              var _wr = (typeof rollD20 === 'function') ? rollD20('stealth', G.skills ? G.skills.stealth : 0) : { total: 10 };
+              if (_wr.total >= 12) { addNarration('Camp', 'They circle the perimeter once and move on. Road travelers, not scouts. You get a full night.', 'success'); }
+              else { addNarration('Camp', 'They find the fire. You exchange wary nods with a group of route traders who wanted warmth. Nothing more.', 'partial'); }
+              saveGame(); updateHUD(); setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
+            } }
+        ]), 300);
+        return;
       }
       saveGame(); updateHUD();
       setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
@@ -11717,7 +11737,8 @@ function maybePromptDuskcallSleep() {
             G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             G.consecutiveSleepless = (G.consecutiveSleepless || 0) + 1;
             G.flags['_slept_day_' + (G.dayCount || 0)] = 'skipped';
-            if (typeof addNarration === 'function') addNarration('Nightwatch', 'You keep moving. The road is colder than you expected.', 'partial');
+            G.flags.travel_fatigued = true;  // next-day skill roll debuff -1
+            if (typeof addNarration === 'function') addNarration('Nightwatch', 'You keep moving. The road is colder than you expected. By dawn your judgment is slower than it should be. -1 to skill rolls until next rest.', 'partial');
             saveGame(); updateHUD();
             setTimeout(function() {
               if (typeof renderChoices === 'function') renderChoices([
@@ -11738,6 +11759,8 @@ function doSleepScene() {
     G._campoutPenalty = 0;
     G.campoutDay = -1;
   }
+  // Clear travel fatigue flag — rest removes next-day skill debuff
+  if (G.flags && G.flags.travel_fatigued) G.flags.travel_fatigued = false;
   // Archetype confirmation beat — first rest after first stage 1 progress
   if (!G.flags.archetype_confirmed && (G.stageProgress && G.stageProgress[1] || 0) >= 1) {
     G.flags.archetype_confirmed = true;
@@ -11867,10 +11890,21 @@ function doJourneyStart(destId) {
 
   function supplyGold(base) {
     if (sorehStanding) return 0;
-    return isSupport ? Math.max(0, base - 3) : base;
+    return isSupport ? Math.max(0, base - 5) : base;
   }
 
-  var costs = { light: supplyGold(0), medium: supplyGold(3), plentiful: supplyGold(6) };
+  // Craft-heavy archetypes (Artificer/Engineer/Alchemist) with craft >= 3 get a free tier upgrade on DC 10 craft check
+  var _craftUpgrade = false;
+  if (!isSupport && G.archetype && G.skills) {
+    var _archId = (G.archetype.id || G.archetype || '').toLowerCase();
+    var _isCraftHeavy = (_archId === 'artificer' || _archId === 'engineer' || _archId === 'alchemist');
+    if (_isCraftHeavy && (G.skills.craft || 0) >= 3) {
+      var _craftRoll = (typeof rollD20 === 'function') ? rollD20('craft', G.skills.craft) : { total: 10 };
+      _craftUpgrade = (_craftRoll.total >= 10);
+    }
+  }
+
+  var costs = { light: supplyGold(0), medium: _craftUpgrade ? supplyGold(0) : supplyGold(5), plentiful: _craftUpgrade ? supplyGold(5) : supplyGold(12) };
 
   var choices = [
     {
