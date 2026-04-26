@@ -10794,7 +10794,8 @@ function activateAbility(abilId) {
       if (typeof updateHUD === 'function') updateHUD();
     }
   } else {
-    // Fallback for ability IDs not in the dispatch table
+    // Fallback: ability ID missing from dispatch table — should not happen for authored abilities
+    console.error('[activateAbility] No effect defined for ability ID: ' + abilId);
     var skillKey = ab.skillReq && ab.skillReq.skill ? ab.skillReq.skill : null;
     G._pendingAbilityBonus = 2;
     G._pendingAbilitySkill = skillKey;
@@ -11365,7 +11366,7 @@ function handleChoice(choice) {
   const weatherMod = weatherSev >= 4 ? 1 : (weatherSev >= 3 && isOutdoor ? 1 : 0);
   const levelMod = Math.floor(((G.level || 1) - 1) / 2);
   var _heatMod = (G._heatDCMod || 0);
-  var _dcReduce = (G._pendingDcReduce || 0);
+  var _dcReduce = Math.max(0, G._pendingDcReduce || 0);
   if (_dcReduce > 0) G._pendingDcReduce = 0;
   const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0) - _dcReduce;
   const success = total >= diff;
