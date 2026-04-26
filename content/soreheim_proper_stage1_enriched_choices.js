@@ -615,7 +615,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Management directly warned about quota system analysis', 'complication', `soreheim-proof-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The baseline figures don't cite a source document — they appear as given, handed down from somewhere upstream. The current workforce's monthly output, when plotted against those baselines, fails every week without exception. Either the workforce is collectively failing by the same margin simultaneously, or the baselines were chosen to produce that result. Both can't be true at once.`;
+        G.lastResult = `The baseline figures don't cite a source document — they appear as given, handed down from somewhere upstream. The current workforce's monthly output, when plotted against those baselines, fails every week without exception. Either the workforce is collectively failing by the same margin simultaneously, or the baselines were chosen to produce that result. Both can't be true at once. The entries for the third week of last season stop mid-page and resume four days later; the gap carries no closing notation, no suspension mark, nothing.`;
         addJournal('Quota system rigging strongly suggested by data analysis', 'evidence', `soreheim-proof-partial-${G.dayCount}`);
       } else {
         G.lastResult = `The quota documentation references a capacity survey as its source material. The capacity survey is in a separate archive. That archive is authorized access only. The person who holds that authorization is currently in a review meeting that began this morning and has no posted end time.`;
@@ -956,6 +956,19 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+{
+  label: 'A past-season ledger should be easy to pull',
+  tags: ['Records', 'Intelligence'],
+  xpReward: 15,
+  fn: function() {
+    advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+    gainXp(15, 'reading institutional refusal pattern');
+    G.lastResult = 'The clerk sets down his stamp. "That filing is not available at this registry level." He does not look up. He has returned to stamping before the sentence is complete. Behind him, through the half-open door, the correct shelf is visible. Blue spine, last season\'s date on the edge tab. He does not explain. He does not look at the shelf.';
+    addJournal('A routine records request at the Soreheim Proper guild registry was refused without explanation. The ledger was visible on the shelf behind the clerk. Source: Soreheim Proper guild registry, records desk.', 'intelligence');
+    G.recentOutcomeType = 'investigate';
+    maybeStageAdvance();
+  }
+},
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
