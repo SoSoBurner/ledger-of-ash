@@ -763,6 +763,50 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: 'A sealed filing in the wrong stack. Collegium seal, not guild',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'sealed collegium filing');
+      G.lastResult = 'The records request is for a routine filing. What comes back includes a second document — thick paper, red wax seal, Collegium administrative mark on the flap. It is in the wrong stack. The clerk notices at the same moment you do. She takes it back without a word and files it separately, in a drawer she locks. The routine document she gives you has nothing useful in it.';
+      addJournal('A Collegium-sealed filing appeared in a routine records pull at Cosmoria — the clerk retrieved it before I could examine it. Source: Cosmoria civic records office.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The administrator checks the same folder before answering anything',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'collegium administrator pattern');
+      G.lastResult = 'Three questions. Before each answer, her hand goes to the same slim folder on the left side of her desk — not opening it, just touching the edge. She is precise, procedural, correct in everything she says. The folder stays closed. She is not consulting it. She is checking it is still there. Whatever is in it shapes every answer she gives without ever being referenced directly.';
+      addJournal('A Cosmoria Collegium administrator checks the same closed folder before answering each question — the folder never opens. Source: Cosmoria administrative office, morning session.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The hold stamp is dated three weeks after the document was filed',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'retroactive hold anomaly');
+      G.lastResult = 'The filing date is on the cover page. The ADMINISTRATIVE HOLD stamp is on the third page, interior. Standard procedure puts it on the cover. The stamp date is three weeks after the filing date — the hold was applied retroactively, to a document that was already in circulation. There is no annotation explaining why. The archivist who pulls it for you does not seem to notice the discrepancy.';
+      addJournal('An administrative hold at Cosmoria was applied retroactively — stamp date three weeks after original filing. No annotation. Source: Cosmoria civic archive, records retrieval desk.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 // Sideplot injection — cosmoria harbor weight fraud rung2 hook
