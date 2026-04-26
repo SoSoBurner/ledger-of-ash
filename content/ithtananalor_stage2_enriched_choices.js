@@ -504,6 +504,239 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The ore assay records declare a grade the foundry output cannot physically produce.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing ore assay records against foundry output');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.assay_discrepancy_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The certified assay records declare Grade IV purity on three consignments spanning five months. Grade IV ore produces a specific slag ratio during smelting — a ratio the foundry's own exhaust vents make physically impossible to fake. The vent deposits run consistently at Grade II chemistry. Someone certified ore they never tested at a grade they knew it could not be. The assay stamps carry a registrar number that does not appear on the current roster. The registrar was active, then not.`;
+        addJournal('Assay records fraudulent — Grade IV declared on Grade II ore, registrar number unverifiable', 'evidence', `ith-assay-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The assay archive desk requires a craft certification to pull technical records, and the certification level presented does not clear the threshold for the consignment grade range in question. The inquiry goes into a pending queue behind an assessor review. Pending queue access logs route to the same enforcement monitoring channel as the ledger queries. The wait is indefinite.`;
+        addJournal('Assay archive access denied — certification threshold, inquiry logged', 'complication', `ith-assay-fail-${G.dayCount}`);
+      } else {
+        G.flags.assay_discrepancy_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The assay records for the three-consignment window are accessible at the summary level. The declared grade is IV across all three — a high-purity designation that carries significant quota value above Grade II material. The foundry vent deposit color visible from the service walkway runs dark and sulfurous, which is a Grade II indicator. The chemistry does not match the paper. Confirming the discrepancy precisely requires access to the technical intake records, a tier above what is available here.`;
+        addJournal('Assay grade declared vs foundry vent chemistry mismatched — technical records inaccessible', 'intelligence', `ith-assay-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Shadowhands courier run loops past the cold hold and the foundry loading dock on the same circuit.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'mapping Shadowhands courier route');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_route_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `Three mornings of position work from the service corridor overhang. The courier departs the Shadowhands logistics annex at the fifth bell, walks to the foundry dock first, then the cold hold, then back. Each stop is under four minutes. No exchange of goods visible — only a gloved hand pressed to a panel and held there. The panels at both stops are newer than the surrounding wall fittings. They are not structural. They are readers for something embedded in the courier's glove. A material transfer system that leaves no physical trace.`;
+        addJournal('Courier route confirmed — panel-reader transfer system, no visible goods exchange', 'evidence', `ith-courier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The courier is trained for exactly the kind of observation being attempted — the overhang position is one of four that any competent surveillance-aware operative checks by habit on a sensitive route. The courier does not break stride but lifts two fingers against the thigh on the third morning, which is a signal rather than a habit. The route changes the following day. Whatever pattern existed is now retired.`;
+        addJournal('Courier route observation burned — route retired, signal logged', 'complication', `ith-courier-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `Two mornings of observation confirm the courier stops at both the foundry dock and the cold hold on the same circuit. The stop duration is consistent: short enough that no goods exchange is possible, long enough that something else is happening. The gloves are the same style both mornings — indoor courier gloves, grip-reinforced, an unusual choice for a route that is mostly interior. The pattern is clear. The mechanism is not.`;
+        addJournal('Courier route confirmed — same stops, same gloves, mechanism unclear', 'intelligence', `ith-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The enforcement quarter notice board runs two layers — the public one and the one behind it.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading enforcement quarter notice board second layer');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.notice_board_second_layer = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The public board is a cedar frame, notices pinned in the standard civic format. The frame itself is mounted on a secondary backing board that extends six inches beyond the cedar on three sides — the extra space is filled with notices in a smaller hand, pinned beneath the public layer and readable only from an angle that no casual passer would take. Four of the sub-layer notices carry the two-letter unit code from Harlan's private ledger. One of them lists a name, a date, and the word "cleared." The date is the same week the ghost accounts first appeared.`;
+        addJournal('Notice board sub-layer — unit code with name cleared on same week accounts opened', 'evidence', `ith-noticeboard-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The angle required to read the secondary layer means standing with shoulders turned and gaze tilted down and to the right — a posture that no civilian arriving at the public board would ever hold. A duty officer on the far side of the courtyard tracks the position for thirty seconds before walking over. The conversation is brief and formally polite. The credential is checked, returned, and a notation made. The board is a watched location now.`;
+        addJournal('Notice board angle posture flagged — duty officer notation made', 'complication', `ith-noticeboard-fail-${G.dayCount}`);
+      } else {
+        G.flags.notice_board_second_layer = true;
+        G.investigationProgress++;
+        G.lastResult = `The secondary layer exists. Three notices visible from the available angle before the position becomes conspicuous — two carry the two-letter unit code, one carries a date and a status mark. The status mark uses a symbol that does not appear in any public enforcement cipher, which means it is internal to the unit. The board is a communication channel for the unlisted logistics sub-unit. Reading the full layer requires more time and a better cover than is available now.`;
+        addJournal('Notice board secondary layer confirmed — unlisted unit communication channel', 'intelligence', `ith-noticeboard-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The civic tribunal has a case file that was opened, sealed, and never docketed — that sequence is not procedurally possible.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining civic tribunal sealed undocketed case file');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.tribunal_sealed_case_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The case number exists in the intake register but not in the docket — a gap that requires a magistrate-level override to create, because the intake system automatically assigns docket numbers at the moment of opening. The override code used is identical to the authorization code on the archive's cross-referenced oath-breaker redactions. One person executed both operations: the tribunal case suppression and the archive redactions. The operations occurred in the same four-hour window. That person had simultaneous access to the tribunal and the archive under a single authority code.`;
+        addJournal('Tribunal suppression and archive redaction — same authorization code, same four-hour window', 'evidence', `ith-tribunal-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The tribunal registrar's intake counter closes for the midday compliance review exactly when the case number is found in the register. The gap between intake and docket is visible — a sealed case with no docket assignment — but the registrar who returns after compliance review is a different clerk, and the question about the case number produces a referral form rather than an answer. The referral requires magistrate authorization to process and will take three to five working days. The inquiry is now in the official queue with a name attached.`;
+        addJournal('Tribunal sealed case — referral form issued, name in official queue', 'complication', `ith-tribunal-fail-${G.dayCount}`);
+      } else {
+        G.flags.tribunal_sealed_case_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The intake register shows a case number with an opening date and a sealed notation. The docket column is empty. The intake clerk, when asked about the procedural gap, consults a manual she has not opened in some time and confirms that sealed-before-docket requires a magistrate override — the system does not permit it otherwise. She cannot say who executed the override from her access tier. The case itself is sealed. The existence of the override is now documented.`;
+        addJournal('Tribunal case opened-sealed-undocketed confirmed — magistrate override required, identity unknown', 'intelligence', `ith-tribunal-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The foundry supervisor tallies ore by weight before it enters the quota system — not after.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'speaking with foundry supervisor about pre-quota weight tally');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.foundry_supervisor_tally = true;
+        G.investigationProgress++;
+        G.lastResult = `The foundry supervisor — a broad woman named Ansel Druve who keeps her tally on a strip of waxed linen tucked inside her belt rather than in any official format — shows the strip without much persuading. She has been waiting for someone with a reason to look. Her pre-quota numbers run consistently higher than the declared extraction by a margin between 12 and 15 percent across every month the ghost accounts have been active. The missing weight is being extracted before it reaches the quota system entirely.`;
+        addJournal('Supervisor Ansel Druve — pre-quota tally shows 12-15% extraction before quota system entry', 'evidence', `ith-supervisor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The foundry floor is a supervised workspace — the supervisor's position has line of sight to every entry point, and a stranger at the intake bay asking about weight tally methodology reads as a quality audit, which requires authorization from the enforcement oversight desk. The supervisor is professional and unhelpful in the particular way of someone who has learned that helpfulness without authorization creates problems. The question goes nowhere and the approach is noted in the shift log.`;
+        addJournal('Foundry floor approach — authorization required, shift log noted', 'complication', `ith-supervisor-fail-${G.dayCount}`);
+      } else {
+        G.flags.foundry_supervisor_tally = true;
+        G.investigationProgress++;
+        G.lastResult = `Ansel Druve does not produce her strip immediately, but she confirms she keeps one. The declared numbers come from the quota intake desk, not from her floor tally, and the two sets of numbers do not always agree. She characterizes the discrepancy as "measurement variance" in the same careful register Ivena used with her practiced deflection — the phrase of someone who has found a way to name the thing without carrying it. She did not say the numbers match. She said variance.`;
+        addJournal('Supervisor Druve confirms pre-quota tally discrepancy — "measurement variance"', 'intelligence', `ith-supervisor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A compliance officer filed a formal query eighteen months ago and was transferred to a non-posting within the week.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing compliance officer transfer after filing formal query');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.compliance_officer_trace = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The officer's name is Pell Varic. His transfer record lists a posting in the transit administration tier — a desk that processes cargo transit amendments and reports to no one in the enforcement chain. The posting was created eight days after his query was filed. The query itself was formally closed as "resolved — no further action," signed by an authorization code that matches the one used on the tribunal suppression. Pell Varic is alive, in Ithtananalor, in a desk that exists specifically to keep him contained and isolated from enforcement channels.`;
+        addJournal('Pell Varic — compliance officer isolated in transit admin desk, query closed by same authorization as tribunal suppression', 'evidence', `ith-varic-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Personnel records from eighteen months ago require a records access authorization that takes a working day to obtain through proper channels. The informal route — asking at the personnel registry counter — triggers a secondary check when the officer's name is entered, and the check produces a flag that routes the query to the Shadowhands administrative desk. The flag is attached to the credential before any information is returned. The desk now knows the name was asked about, and by whom.`;
+        addJournal('Pell Varic name query — personnel flag routes to Shadowhands administrative desk', 'complication', `ith-varic-fail-${G.dayCount}`);
+      } else {
+        G.flags.compliance_officer_trace = true;
+        G.investigationProgress++;
+        G.lastResult = `The personnel registry locates Pell Varic in the transit administration tier — a posting that takes a moment to find because it does not appear in the standard enforcement org chart. His formal query from eighteen months ago is listed as closed; the closure notation is brief and offers no substance. The transfer and the closure share a date proximity that is too tight for coincidence. Varic is findable. Getting to him without alerting whatever channel processed his original query is the problem.`;
+        addJournal('Pell Varic located — transit admin non-posting, query closure date matches transfer', 'intelligence', `ith-varic-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The reclassified logistics unit occupies a floor of the enforcement quarter that does not appear on the building schematic.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating unlisted logistics unit floor in enforcement quarter');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.logistics_floor_located = true;
+        G.investigationProgress++;
+        G.lastResult = `The enforcement quarter building is six floors by the public schematic. The exterior stairwell, counted from the ground, has seven landings. The seventh floor has no windows on the south face where the other six do — the stonework is newer, the mortar line visible from the adjacent rooftop. The single access point is a door on the sixth-floor landing that is keyed separately from the standard enforcement access system. Through a gap in the sixth-floor window shutter: a clerk's desk, stacks of material transfer manifests, and on the wall the two-letter unit identifier from Harlan's ledger, rendered large in painted block letters.`;
+        addJournal('Seventh floor confirmed — unlisted logistics unit, separate key system, material transfer manifests visible', 'evidence', `ith-logistics-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The roof access that would give a count of the exterior stairwell landings requires crossing a service bridge flagged for maintenance restrictions. The bridge warden — a tired man with a clipboard — records the attempt and the credential. The maintenance restriction is a standing one that has been renewed on a rolling basis for eleven months. It is not a construction restriction. It is an access restriction, maintained on the same renewal schedule as the ghost accounts.`;
+        addJournal('Roof access blocked — maintenance restriction renewed monthly, access logged', 'complication', `ith-logistics-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The exterior stairwell count from ground level: seven landings, six windows on the south face. The discrepancy is one floor. The seventh landing door is visible from the sixth-floor corridor through the gap between a storage rack and the wall — heavier frame, different hardware, no unit placard. The access system is independent of the floor below. Whatever occupies the seventh floor does not share access protocols with the standard enforcement quarter. The interior is not visible from this position.`;
+        addJournal('Seventh floor physical evidence — heavier door, independent access, no placard', 'intelligence', `ith-logistics-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The compliance cycle's external auditor has not set foot in Ithtananalor for three consecutive review periods.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing external auditor absence from compliance cycle');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.auditor_absence_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The compliance cycle ledger shows external auditor sign-ins for three consecutive review periods — same handwriting, same credential notation, same inspection seal. The Guild transit registry shows no arrival record for the auditor's name during any of those windows. The signature in the compliance ledger was not written by the auditor. The compliance cycle for the past eighteen months has been self-certified by the enforcement apparatus it was supposed to independently review, and the forgery of the auditor's presence was done carefully enough to pass routine inspection.`;
+        addJournal('Auditor signatures forged — three consecutive compliance periods self-certified by enforcement apparatus', 'evidence', `ith-auditor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The compliance ledger is held at the Guild administrative desk, not the enforcement quarter, and the cross-referencing required — ledger sign-ins against transit registry arrivals — triggers a Guild protocol flag when the credential presented does not carry auditor authorization. The flag pauses the request and routes it to a Guild compliance officer for review. In Ithtananalor, that officer operates on a seven-day review cycle. The inquiry sits in the queue with the credential attached.`;
+        addJournal('Auditor cross-reference flagged — Guild compliance queue, seven-day review cycle', 'complication', `ith-auditor-fail-${G.dayCount}`);
+      } else {
+        G.flags.auditor_absence_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The compliance ledger confirms auditor sign-ins for all three periods. The transit registry is accessible for the same date ranges and shows no arrival entry for the auditor's credential mark during any of the three windows. Both records cannot be accurate. The discrepancy is real and documented across two independent administrative systems that do not communicate with each other, which means the inconsistency has existed without being noticed or without anyone having cause to check.`;
+        addJournal('Compliance sign-ins vs transit registry — auditor presence unverifiable across three periods', 'intelligence', `ith-auditor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Ithtananalor finale — act on the ghost account evidence through Roaz command or through independent disclosure.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
