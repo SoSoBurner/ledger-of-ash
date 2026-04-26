@@ -9155,6 +9155,13 @@ function advanceTime(ticks) {
   }
   updateHUD();
   if (typeof SHADOW_LEDGER_HINTS !== 'undefined' && SHADOW_LEDGER_HINTS.checkAndFire) SHADOW_LEDGER_HINTS.checkAndFire();
+  // Passive rival pressure in Stage II
+  if (G.stage === 'Stage II' && !(G.flags && G.flags.maren_oss_resolved)) {
+    if (Math.random() < 0.15) {
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.rival = Math.min(10, (G.worldClocks.rival || 0) + 1);
+    }
+  }
 }
 
 
@@ -14416,13 +14423,16 @@ function updateWorldTab() {
   var el = document.getElementById('tab-world');
   if (!el || !window.G || !G.worldClocks) return;
   var clocks = ['pressure','watchfulness','rival','reverence','omens','isolation'];
-  var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'Rival',reverence:'Reverence',omens:'Omens',isolation:'Isolation'};
+  var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'RIVAL PRESSURE',reverence:'Reverence',omens:'Omens',isolation:'Isolation'};
   var html = clocks.map(function(c) {
     var val = Math.max(0, G.worldClocks[c] || 0);
+    if (c === 'rival' && val === 0) return '';
     var pct = Math.min(100, (val / 10) * 100);
-    return '<div class="clock-row"><span class="clock-label">' + labels[c] + '</span>' +
-           '<div class="clock-track"><div class="clock-fill" style="width:' + pct + '%"></div></div>' +
-           '<span class="clock-val">' + val + '</span></div>';
+    var fillStyle = c === 'rival' ? 'width:' + pct + '%;background:var(--danger)' : 'width:' + pct + '%';
+    var labelStyle = c === 'rival' ? ' style="color:var(--danger)"' : '';
+    return '<div class="clock-row"><span class="clock-label"' + labelStyle + '>' + labels[c] + '</span>' +
+           '<div class="clock-track"><div class="clock-fill" style="' + fillStyle + '"></div></div>' +
+           '<span class="clock-val"' + labelStyle + '>' + val + '</span></div>';
   }).join('');
   var notices = (G.worldNotices || []).slice(-3).map(function(n){ return '<p class="world-notice">' + n + '</p>'; }).join('');
   el.innerHTML = '<h4 style="margin:0 0 8px;font-size:0.8em;color:var(--ink-dim)">WORLD CLOCKS</h4>' + html + notices;
