@@ -3782,9 +3782,9 @@ function getRangeModifier(attackType) {
 
 function fleeRoll() {
   var tier = (CS && CS.rangeTier) || 'close';
-  var r1 = rollD20('finesse');
+  var r1 = rollD20('stealth');
   if (tier === 'veryfar') {
-    var r2 = rollD20('finesse');
+    var r2 = rollD20('stealth');
     return r1.total >= r2.total ? r1 : r2;
   }
   return r1;
@@ -12419,7 +12419,7 @@ function campAction(type) {
           { text: 'Stay low and read them before committing.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'watch_hide',
             action: function() {
               G.flags.travel_warned_encounter = false;
-              var _wr = (typeof rollD20 === 'function') ? rollD20('finesse', G.skills ? G.skills.finesse : 0) : { total: 10 };
+              var _wr = (typeof rollD20 === 'function') ? rollD20('stealth', G.skills ? G.skills.stealth : 0) : { total: 10 };
               if (_wr.total >= 12) { addNarration('Camp', 'They circle the perimeter once and move on. Road travelers, not scouts. You get a full night.', 'success'); }
               else { addNarration('Camp', 'They find the fire. You exchange wary nods with a group of route traders who wanted warmth. Nothing more.', 'partial'); }
               saveGame(); updateHUD(); setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
