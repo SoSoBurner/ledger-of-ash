@@ -386,6 +386,235 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The quarry infirmary keeps a log the safety office never sees.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading the quarry infirmary admissions log');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.infirmary_log_read = true;
+        G.investigationProgress++;
+        G.lastResult = `The infirmary orderly keeps two ledgers — one that routes to safety oversight, one that stays at the desk. The desk ledger has fourteen entries for the special extraction crew over four months. Cause of admission is listed as "rotation fatigue" across every entry, regardless of symptom. The orderly circles the words with a fingernail rather than a pen. "Fatigue doesn't make your hands stop tracking what your eyes see." He closes the ledger and replaces it under the counter. The entries match Velka's injury log exactly, week for week.`;
+        addJournal('Infirmary desk ledger: 14 special extraction crew admissions — cause falsified as rotation fatigue', 'evidence', `iron-infirmary-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The infirmary is staffed by two orderlies during the midday window and neither one reads an approach from outside the extraction crew as legitimate. The ledger desk closes when you enter. One orderly asks for a work card. The other stands between you and the counter shelving. The records stay below the counter and the orderlies stay in position until the infirmary bell marks the shift return.`;
+        addJournal('Infirmary access refused — work card required, orderlies closed ledger desk', 'complication', `iron-infirmary-fail-${G.dayCount}`);
+      } else {
+        G.flags.infirmary_log_read = true;
+        G.investigationProgress++;
+        G.lastResult = `The orderly at the infirmary desk confirms admissions from the special extraction rotation without opening the ledger — he has the numbers committed. Eleven entries, four months. All logged as rotation fatigue. He does not offer the desk ledger but he does not step away from the counter either. "Rotation fatigue is the category I'm given. I write what I'm given." His hand rests flat on the closed ledger cover.`;
+        addJournal('Infirmary confirms 11 extraction admissions logged as rotation fatigue — cause classification dictated', 'intelligence', `iron-infirmary-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The man in the gray coat Tor described has a position — he runs the secondary cut on a schedule no posted roster shows.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'tracking the gray-coated extraction supervisor through the quarry site');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.gray_coat_supervisor_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three hours of site movement before he surfaces: a spare man in his fifties who wears the gray coat over quarry-standard trousers, which means the coat is not quarry-issue. He moves from the access tunnel mouth to the secondary cut bay without stopping at any crew station. He never picks up a tool. He reads from a folded paper at the bay entrance, makes a mark, and returns the way he came. The coat has a sleeve tab that's been removed — the stitching is still visible where a rank or institution badge was unpicked. Capital rank, stripped for fieldwork.`;
+        addJournal('Gray coat supervisor identified: no crew stops, rank badge removed — capital operative running secondary cut', 'evidence', `iron-graycoat-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The gray coat appears at the secondary cut access tunnel and then does not. He is either already inside or he clocked the trailing position before entering. Either way he comes out by a different route and by the time you reach the access mouth the tunnel is empty. A quarry security flag goes up at the eastern perimeter — someone called it in. The secondary cut access is restricted from the following shift onward.`;
+        addJournal('Gray coat surveillance failed — secondary cut access restricted, security flag raised', 'complication', `iron-graycoat-fail-${G.dayCount}`);
+      } else {
+        G.flags.gray_coat_supervisor_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The gray coat crosses the main extraction floor twice during the observation window, both times moving toward the secondary cut bay. He does not stop to speak with quarry crew. He carries a folded paper in his left hand on both passes and returns without it — he leaves it at the bay, or passes it inside. No name visible. No insignia. His quarry access is clearly authorized: the gate guards track his movement without challenge.`;
+        addJournal('Gray coat supervisor makes two runs to secondary cut bay — gate-authorized, no insignia visible', 'intelligence', `iron-graycoat-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The secondary cut is engineered differently from every other extraction face in the quarry.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'assessing the secondary cut excavation method from the access tunnel approach');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.secondary_cut_assessed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The cut was made with resonance-damping tools — not percussion gear. The face shows the characteristic smooth-shear pattern of glyph-sensitive extraction: the kind used when the material must arrive intact rather than fractured. Standard quarry percussion would shatter the glyph-resonant mineral layer's crystalline structure and destroy its amplifier properties. Whoever designed this extraction knows exactly what the mineral does and why it must be handled undamaged. This is a research-specification extraction method, not a production one.`;
+        addJournal('Secondary cut uses resonance-damping extraction — research-specification method preserving amplifier properties', 'evidence', `iron-cut-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The access tunnel mouth is visible from the eastern guard post — a positioning detail that is not on the site map you were using. Standing at the tunnel approach for long enough to assess the face geometry is long enough for the eastern guard to mark the position. He sends a second guard to verify. You are off the tunnel approach before they arrive but the location is now associated with your presence in the site movement log.`;
+        addJournal('Secondary cut tunnel approach marked by eastern guard post — site movement log entry', 'complication', `iron-cut-fail-${G.dayCount}`);
+      } else {
+        G.flags.secondary_cut_assessed = true;
+        G.investigationProgress++;
+        G.lastResult = `The cut face is visible from the tunnel approach without entering the restricted zone. The shear pattern on the extraction wall is wrong for percussion tools — the face is too clean, the mineral layer too intact. Standard quarry work fractures the vein to sort usable material. Whatever is coming out of this cut arrives whole. The equipment visible inside the bay is not standard ORE extraction gear.`;
+        addJournal('Secondary cut face shows non-percussion extraction method — equipment not standard ORE issue', 'intelligence', `iron-cut-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The transport dock closes for one hour at shift end. Someone signs the outbound manifest before it seals.",
+    tags: ['Stage2', 'NPC', 'Social'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'approaching the transport dock signing officer at shift-end manifest close');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dock_manifest_signatory_met = true;
+        G.investigationProgress++;
+        G.lastResult = `The signing officer is not quarry staff — she holds her pen at the wrong angle for someone who handles manifests daily, correcting mid-signature in the way of someone working in an unfamiliar format. She signs a block cipher rather than a name. You ask about the loading destination while she is still checking the form's column headers. She answers before she has time to not answer: the manifest routes to a receiving station in Shelk under a designation she reads from the form rather than reciting from memory. She stops. She does not elaborate. The manifest seals before you can read the destination block yourself.`;
+        addJournal('Transport dock manifest signed by non-quarry officer — destination in Shelk, cipher signature, routes to capital receiving station', 'evidence', `iron-dock-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The dock closes the public perimeter barrier at shift-end minus fifteen minutes — earlier than posted. The signing officer is already inside the barrier when you reach it. A dock handler at the gate shakes his head without speaking. The manifest signing happens behind a barrier you cannot see through, and the dock crew who would have been visible departing take an alternate route to the secondary transport bay. The early close is new.`;
+        addJournal('Transport dock closed barrier early — manifest signing out of sight, crew took alternate exit', 'complication', `iron-dock-fail-${G.dayCount}`);
+      } else {
+        G.flags.dock_manifest_signatory_met = true;
+        G.investigationProgress++;
+        G.lastResult = `The signing officer acknowledges the approach but keeps the manifest folded against her chest while she works through the close-out process. She confirms the dock routes to a Shelk receiving station — she says it without inflection, as though it is public knowledge, which it is not. She doesn't confirm the station designation. She seals the manifest and hands it to the dock handler before you can ask a second question.`;
+        addJournal('Dock signing officer confirms Shelk receiving station destination — no designation detail given', 'intelligence', `iron-dock-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Kael Drovish has been counting dock departures in a notebook he keeps in his coat.",
+    tags: ['Stage2', 'Lore', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'returning to Kael Drovish at the secondary slope with his dock departure count');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.kael_departure_log = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Drovish pulls a small notebook from his coat — the kind used for personal tally work, spiral-bound, worn at the corners from being folded shut repeatedly. He has sixty-three entries: date, estimated load weight based on crew effort observed, and departure time. The weights trend upward over four months. The first month averaged five hundred weight units per departure. The most recent month averages nine hundred. The extraction rate has accelerated without any corresponding increase in the official quarry output log. He doesn't hand the notebook over. He reads the last entry aloud, slowly, so it can be written down.`;
+        addJournal('Drovish departure log: 63 entries, output increased from 500 to 900 weight — acceleration not in official logs', 'evidence', `iron-kael2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Drovish is not at the secondary slope for his break — his break time has shifted, which means either he changed it or someone changed it for him. A different supervisor occupies the slope position, and he looks up when you arrive with the specific attention of someone who was told to look. Drovish's notebook, wherever it is, stays there. The slope is not approachable again tonight.`;
+        addJournal('Drovish break time shifted — replacement supervisor present, slope approach noted', 'complication', `iron-kael2-fail-${G.dayCount}`);
+      } else {
+        G.flags.kael_departure_log = true;
+        G.investigationProgress++;
+        G.lastResult = `Drovish shows two pages of the notebook — recent entries only. The departure weights are climbing. He doesn't know what the material is, only how much effort the dock crew puts into loading it, which he has been translating into approximate weight. "Four months ago they moved it in two men. Now it takes four." He closes the notebook and puts it away. He is watching the dock again before you finish writing.`;
+        addJournal('Drovish departure weights increasing — crew loading effort doubled over four months', 'intelligence', `iron-kael2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The prison labor intake supervisor assigns rotation to the special extraction crew. He has done it long enough to know the pattern.",
+    tags: ['Stage2', 'NPC', 'Survival'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'pressing the prison labor intake supervisor on special extraction rotation assignments');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.intake_supervisor_met = true;
+        G.investigationProgress++;
+        G.lastResult = `The intake supervisor — a lean man named Borek who keeps his assignment ledger closed with a leather strap even when he is actively using it — did not choose the rotation criteria for the special extraction crew. The criteria came to him written on an ORE command form: physical build above a threshold, no family contacts within three localities, no active legal appeals. He reads that last criterion aloud once and then reads it again. The workers assigned to the special extraction rotation have no one positioned to notice if they go missing. The criteria were designed for silence, not for labor efficiency.`;
+        addJournal('Intake supervisor Borek: special extraction rotation criteria select for isolated workers — no family contacts, no active appeals', 'evidence', `iron-borek-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Borek reads the approach as a labor grievance being worked around the formal channel — he gets them routed this way often enough to have a procedure. He directs you to the ORE labor relations desk and closes his assignment ledger before you finish your first sentence. The labor relations desk is four buildings away and processes inquiries in writing, with a three-day response window. Borek's assignment decisions are not accessible through it.`;
+        addJournal('Intake supervisor deflected inquiry to ORE labor relations — written process, three-day delay', 'complication', `iron-borek-fail-${G.dayCount}`);
+      } else {
+        G.flags.intake_supervisor_met = true;
+        G.investigationProgress++;
+        G.lastResult = `Borek acknowledges the special extraction rotation without opening the ledger. The assignment criteria are not his: they arrived in written form from the ORE command office. He applies them, he doesn't set them. "I match workers to the criteria. I don't write the criteria." He tightens the strap on the ledger. He knows what the criteria select for — the body type requirements and the contact restrictions together make a narrow group. He doesn't say that directly. He doesn't need to.`;
+        addJournal('Intake supervisor confirms ORE command wrote extraction rotation criteria — Borek applies, does not set them', 'intelligence', `iron-borek-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The tool requisition shed issues equipment to every extraction crew. The special crew's requisition slips are filed separately.",
+    tags: ['Stage2', 'Craft', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining the tool requisition records for the special extraction crew');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.tool_requisition_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `The shed keeper — a methodical woman who sorts the returned tools by wear pattern before logging them — keeps the special crew's slips in a separate folder with a red edge tab, because the equipment they return doesn't match what a percussion extraction process would wear. The tool wear profiles show lateral shear stress rather than impact stress. The items returned intact are the ones that would be destroyed by standard quarry work. She sets the folder on the counter. "This is resonance-damping gear. I've seen it once before, at a research survey site outside Soreheim." She closes the folder and marks it back into the stack.`;
+        addJournal('Tool shed: special crew returns resonance-damping gear, not percussion tools — shed keeper identifies research survey profile', 'evidence', `iron-tools-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The requisition records are filed in the ORE classified equipment category — the shed keeper shows you the cover of the folder and then the classification stamp on the inside cover. Accessing the contents requires an ORE equipment officer authorization, which routes through the same command chain that classified the special extraction category. The folder goes back in the stack. The shed keeper logs the inquiry in her access record.`;
+        addJournal('Tool requisition records for special crew classified — ORE equipment officer authorization required, inquiry logged', 'complication', `iron-tools-fail-${G.dayCount}`);
+      } else {
+        G.flags.tool_requisition_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `The shed keeper pulls the red-tabbed folder without being asked to explain the tab system. The slips show equipment types that don't appear in the standard quarry requisition catalog — she had to create new line items for them when they first arrived. The descriptions use a technical vocabulary she doesn't recognize from standard ORE procurement language. "I write down what I'm handed and I issue what's requested." She slides the folder back. The equipment description strings are visible long enough to copy two of them.`;
+        addJournal('Tool shed folder shows non-catalog equipment types with unrecognized technical vocabulary — two descriptions copied', 'intelligence', `iron-tools-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The official quarry survey map omits the secondary cut entirely.",
+    tags: ['Stage2', 'Stealth', 'Lore'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'comparing the posted quarry survey map against the physical site layout');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.survey_map_discrepancy_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The survey map is posted in the main access corridor — a legal requirement for active extraction sites — and the secondary cut does not appear on it. Not labeled differently, not omitted by edge cropping: the physical geography at the cut's location is shown as unworked stone. The survey date is current. Someone reissued a false survey within the last quarter, replacing the accurate site map with one that shows the secondary cut bay as solid rock face. The map is a legal document. Whoever filed it committed a survey fraud under ORE extraction law and had the authority to get it posted without challenge.`;
+        addJournal('Posted quarry survey omits secondary cut — false survey filed this quarter, site map is legal document fraud', 'evidence', `iron-map-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The survey map is behind a safety glass panel in the access corridor, which means you cannot hold it or photograph the secondary cut area against your own notes without removing the panel. Removing the panel takes tools and time and creates noise. A quarry operations supervisor enters the corridor midway through the attempt. The panel is logged as tampered at the next shift inspection.`;
+        addJournal('Survey map behind safety glass — tamper logged by quarry operations after panel approach', 'complication', `iron-map-fail-${G.dayCount}`);
+      } else {
+        G.flags.survey_map_discrepancy_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The survey map shows the secondary cut area as unworked stone. Standing in the access corridor with the map visible and the secondary cut physically present behind the eastern partition — accessible, operating, producing ore — the discrepancy is unambiguous. The survey date is this quarter. The map was updated recently and the update removed the secondary cut from the official site record.`;
+        addJournal('Survey map discrepancy confirmed: secondary cut physically present but removed from current survey filing', 'intelligence', `iron-map-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Ironhold Quarry finale — the raw material source is confirmed. Report through ORE command chain or route the evidence to the Roadwarden Ithtananalor post.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
