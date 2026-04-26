@@ -192,7 +192,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Terris keeps his tally counter on his belt — a worn brass clicker, four years of use on the thumb lever. "My method doesn't change. Click for every crossing, total at end of shift, same as always." He clicks it once, absently. "New-moon nights my total comes out higher than Cadrin's. I reported it twice. Both times they said I'd miscounted." He doesn't say he believes them. He doesn't say he doesn't.`;
+        G.lastResult = `Terris keeps his tally counter on his belt — a worn brass clicker, four years of use on the thumb lever. When you ask about the count discrepancy on new-moon nights, he answers at length: the commune's traffic patterns, the difference between pedestrian crossings and loaded carts, how weather affects toll queue speed, the particular way afternoon light makes the eastern span harder to watch. He is helpful throughout. His manner is open, his tone easy. None of it addresses what you asked. Then, without transition: "My method doesn't change. Click for every crossing, total at end of shift, same as always." He clicks it once, absently. "New-moon nights my total comes out higher than Cadrin's. I reported it twice. Both times they said I'd miscounted." He doesn't say he believes them. He doesn't say he doesn't.`;
         if (!G.flags) G.flags = {};
         G.flags.met_terris_walker = true;
         addJournal('contact', 'Duty walker Terris: confirmed count discrepancy, twice told he miscounted — discrepancy normalized through administrative dismissal', `whitebridge-terris-${G.dayCount}`);
