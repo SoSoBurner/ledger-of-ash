@@ -4281,7 +4281,10 @@ function resolveCombatAction(action, abilityId) {
 
 function applyWound(damage, source) {
   if (damage <= 0) return;
-  G.hp = Math.max(0, G.hp - damage);
+  var armorBonus = (G.equipped && G.equipped.armor && G.equipped.armor.effect && G.equipped.armor.effect.defBonus) || 0;
+  var finalDamage = Math.max(0, damage - armorBonus);
+  G.hp = Math.max(0, G.hp - finalDamage);
+  damage = finalDamage;
   // Track wounds
   if (!G.wounds) G.wounds = [];
   if (damage >= 5) {
