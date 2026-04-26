@@ -394,6 +394,245 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The anatomical study room access log has a block of entries that share the same handwriting as the charter exemptions.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing study room access log against charter exemption handwriting');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_access_log_handwriting_matched = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The study room access log is kept in a cloth binder at the anatomy faculty desk — open reference, no reader credential required. Eight entries over three months use a compressed, vertical hand that matches the counter-entries in Leth's dual-notation ledger. The study room booked under those entries is the cadaveric chemistry suite, which requires a secondary faculty approval for glyph-sensitive reagent work. That approval was signed by a regent code Sarith could not match. The anatomy faculty desk clerk flips to the approval slips unprompted. She has already noticed the handwriting. She has been waiting for someone to ask.`;
+        addJournal('Study room access log: charter hand matches ledger — chemistry suite approvals use unverifiable regent code', 'evidence', `mim-accesslog-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The anatomy faculty desk is staffed by a proctor running two posts simultaneously. He logs the inquiry before answering it — duty protocol, he explains, for any cross-referencing request involving access records. The log binder goes under the desk. Cross-referencing access records against external documents requires a formal comparative analysis request, reviewed by the faculty secretary. The request form is three pages. The review takes ten days.`;
+        addJournal('Study room access log request blocked — comparative analysis protocol invoked', 'complication', `mim-accesslog-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_access_log_handwriting_matched = true;
+        G.investigationProgress++;
+        G.lastResult = `The access log shows eight bookings in the cadaveric chemistry suite outside the standard teaching schedule. The hand in those entries is compressed and vertical — not the anatomy faculty's rounded administrative script. The desk clerk confirms she did not write those entries. They are in the log because they arrived pre-filled, already approved. She filed them without questioning the format. The regent code on the approval slips is the same code Sarith flagged.`;
+        addJournal('Pre-filled chemistry suite bookings in foreign hand — Sarith regent code on approvals', 'intelligence', `mim-accesslog-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Student stipend disbursements for glyph resonance candidates stopped without a faculty notice.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing glyph resonance student stipend disbursement halt');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_stipend_halt_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The stipend disbursement office is run by Neven Osk, a compact man who keeps his records in coloured folders by funding source. The glyph resonance track folder is thinner than the others. Neven opens it without prompting and names the disbursement halt date: the same week Pellin Ost's anomaly report was reclassified. The halt was not a budget decision — the fund balance was intact. It was an administrative hold placed by an external authority code that Neven had not encountered before and has not encountered since. Three candidates received half-disbursement before the hold. The fourth received nothing and withdrew the following term.`;
+        addJournal('Stipend halt: administrative hold by unknown authority code, same week as Pellin reclassification — one candidate withdrew', 'evidence', `mim-stipend-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Neven Osk asks for a faculty authorization code before opening the disbursement records. He is not obstructing — he is following a procedure that was added to his desk manual four months ago, precisely for glyph resonance track inquiries. He shows the desk manual page, which is printed on paper that does not match the surrounding pages: thicker stock, fresher ink, inserted after the original binding. Someone added that procedure recently and specifically.`;
+        addJournal('Stipend office: new glyph resonance inquiry procedure inserted into desk manual — recent addition', 'complication', `mim-stipend-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_stipend_halt_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Neven confirms the disbursement halt without hesitation — it is an anomaly in his records and he has no satisfactory explanation for it. The halt code applied to the entire glyph resonance track at once, affecting four active candidates. The fund remained solvent throughout. No faculty notice accompanied the hold. He filed a query with the Dean's finance office. The query was acknowledged and is marked pending, which in this office means it will not be answered.`;
+        addJournal('Glyph resonance stipend halt: whole-track administrative hold, solvent fund — Dean finance query unanswered', 'intelligence', `mim-stipend-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The observatory's glyph sensor log recorded a pressure spike on the same night as a Fairhaven delivery that isn't in any manifest.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'correlating observatory glyph sensor spike with off-manifest Fairhaven delivery');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_observatory_spike_linked = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The observatory keeps a continuous glyph pressure log — a long paper roll mechanically advanced by a calibrated clock drum, updated every four hours. The technician on duty, Bress Alvane, pulls the roll to the inspection table and points to the spike without being asked: a pressure deviation three times the ambient baseline, lasting forty minutes, origin bearing southwest. Southwest is the Watchers Perch tunnel approach. The date is four nights before the classification directive was issued. The same date is the last unmanifested Fairhaven delivery in Myra's personal cargo log. The spike is annotated in the margin in Bress's handwriting: "No weather cause — source unknown."`;
+        addJournal('Observatory spike matches last unmanifested Fairhaven delivery — Watchers Perch bearing, pre-classification', 'evidence', `mim-observatory-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The observatory is locked for calibration maintenance — a scheduled event that the door notice says runs until the end of the week. Bress Alvane can be reached through the faculty instrument office, where a secretary takes the inquiry and adds it to a callback list. The callback list, she mentions, currently runs about twelve days. The lock on the observatory door is a padlock, not a key cylinder — it has been added recently, over the original door hardware.`;
+        addJournal('Observatory locked for calibration — padlock added over original hardware', 'complication', `mim-observatory-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_observatory_spike_linked = true;
+        G.investigationProgress++;
+        G.lastResult = `Bress Alvane is willing to show the pressure log and does so without formality. The spike is documented: southwest bearing, no weather cause noted, forty-minute duration. The date falls in the same window as the unmanifested Fairhaven deliveries Myra's cargo log covers. Bress cannot say what caused it — the instruments measure direction and magnitude, not source. But the bearing puts the origin consistent with the Watchers Perch access tunnel, and the date puts it consistent with delivery activity.`;
+        addJournal('Observatory pressure spike: southwest bearing, no weather cause — consistent with Watchers Perch and Fairhaven delivery window', 'intelligence', `mim-observatory-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The visiting lecturer's credential file contains a Collegium endorsement that the Collegium's own registry cannot confirm.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'verifying visiting lecturer Collegium credential against registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_lecturer_credential_fraudulent = true;
+        G.investigationProgress++;
+        G.lastResult = `The credential file is in the faculty registrar's open-access visitor section — no restriction on reading, only on copying. The Collegium endorsement uses a valid seal format, the right counter-signature position, the correct certification phrase. Everything except the reference number. The reference number resolves to a dormant Collegium file from eleven years ago, assigned to an institution that no longer exists. Someone transferred the number to a current credential. The visiting lecturer has been delivering glyph resonance supplementary sessions for six weeks, off the public lecture calendar.`;
+        addJournal('Visiting lecturer credential: Collegium reference number belongs to defunct institution — off-calendar glyph resonance sessions', 'evidence', `mim-lecturer-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The registrar's visitor section is open during posted hours. The hours posted on the door are different from the hours on the faculty noticeboard in the rotunda. The section is closed when arrived at. The registrar on duty through the window writes something at his desk while maintaining the polite fiction of not having seen you at the door. The duty log entry will note an after-hours approach. Come back during the correct hours, which will now require looking them up.`;
+        addJournal('Registrar visitor section closed — after-hours approach logged', 'complication', `mim-lecturer-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_lecturer_credential_fraudulent = true;
+        G.investigationProgress++;
+        G.lastResult = `The credential file is readable. The Collegium endorsement looks correct in form — seal position, counter-signature, certification phrase — but the reference number does not appear in the Collegium registry when checked against the posted annual index. The annual index is current as of three months ago. The credential was filed seven months ago. Either the endorsement predates the index update, or it was never in the registry to begin with. The visiting lecturer's session schedule is not on the public calendar.`;
+        addJournal('Visiting lecturer Collegium reference not in annual registry — session schedule off public calendar', 'intelligence', `mim-lecturer-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The grounds crew serviced the east tunnel approach three times in one month — no maintenance order filed.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'questioning grounds crew lead Torva Seld about unlogged east tunnel maintenance');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_torva_seld = true;
+        G.investigationProgress++;
+        G.lastResult = `Torva Seld runs the grounds crew out of a low building near the east perimeter and keeps her own work orders filed in a wooden box by date. She tips the box out on the table between you without ceremony and points to three dates. No maintenance orders — she asked for them each time and was told by a single faculty regent that the work was pre-authorized verbally and the orders would follow. They did not follow. The work was clearing and widening the east tunnel approach: not routine, not maintenance. She knows the difference. The regent's name she gives does not appear on the faculty roster. She described him. He matches the physical description Ilys gave of the non-faculty inn guest.`;
+        addJournal('Grounds crew: east tunnel widening, no orders — non-faculty regent matches Ilys inn guest description', 'evidence', `mim-grounds-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Torva Seld is mid-shift and her crew is visible across the east yard. She listens to the question, sets her work order binder flat, and says that grounds crew records are property of the Academy estates office and are not available for external review. She is not hostile. She is specific. The estates office is on the other side of the main building, open three mornings a week, and requires a faculty sponsor for external access requests. Her crew has gone back to work around her.`;
+        addJournal('Grounds crew records referred to estates office — faculty sponsor required for access', 'complication', `mim-grounds-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_torva_seld = true;
+        G.investigationProgress++;
+        G.lastResult = `Torva confirms the three east tunnel approach servicing jobs and confirms no maintenance orders were filed for any of them. Verbal authorization from a faculty regent, she says — she asked twice for written orders and was told they were coming. The work itself was approach clearance and tunnel-mouth widening: not standard maintenance, more consistent with preparing a route for repeated vehicle or cargo access. She noted this at the time in her personal log but did not escalate it.`;
+        addJournal('East tunnel approach widened three times, verbal auth only — grounds lead noted cargo-access preparation', 'intelligence', `mim-grounds-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The emeritus office was cleared mid-term — furniture moved out, key returned, no sabbatical notice posted.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'tracing sudden mid-term emeritus office vacancy');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_emeritus_office_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The faculty housing office keeps departure records by room number. The emeritus office cleared nine weeks ago: furniture removed in a single morning, key returned by proxy, no forwarding address filed. The proxy who returned the key signed with the same compressed hand as the charter exemptions and the anatomy study room entries. The emeritus who held the office is the same one whose initials appear exclusively on the restricted-stack withdrawal register for the past eleven months. He did not resign or retire — no notice in the faculty record. He stopped appearing and someone returned his key.`;
+        addJournal('Emeritus office cleared by proxy with charter hand — restricted-stack monopoly holder vanished without notice', 'evidence', `mim-emeritus-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The faculty housing office has a standing instruction — added to the duty protocol at the same time as the anatomy desk manual amendment — that emeritus accommodation changes are handled through the Dean's office directly and not discussed with external parties. The housing clerk shows the protocol amendment before closing the inquiry. It is the same thick-stock paper, the same fresher ink as the anatomy desk amendment. Someone updated two different office manuals at the same time.`;
+        addJournal('Housing office: emeritus records closed by Dean protocol — same paper stock as anatomy desk amendment', 'complication', `mim-emeritus-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_emeritus_office_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The housing office confirms the emeritus departure: nine weeks ago, morning clearance, key by proxy. No sabbatical posted, no forwarding address. The clerk pulls the departure slip — the proxy signature is initials only, compressed script. She doesn't recognize the hand. The emeritus's name is the same one on the restricted-stack withdrawal register. He held exclusive access for eleven months. He is no longer in the building. Nobody in the housing office was told why.`;
+        addJournal('Emeritus departed by proxy, nine weeks ago — same individual as restricted-stack monopoly holder', 'intelligence', `mim-emeritus-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "After certain seminars, the same group of students leaves together and does not return to the dormitory wing.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tailing student group departing seminars to off-dormitory destination');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_student_debrief_route_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `Four students, all on the glyph resonance track, exit through the library garden gate after the visiting lecturer's off-calendar sessions and walk to a provisioning house on the east side of the settlement — not a faculty building, not on Academy maps. The route goes past the east gate without stopping. Inside the provisioning house, through the window, a lamp is already burning at a table with three chairs and documents laid flat. The students are met by a figure in a plain coat who is not the visiting lecturer. The session in there runs longer than the seminar did. Whatever is being taught officially, this is the actual curriculum.`;
+        addJournal('Glyph resonance students debrief at off-Academy provisioning house — third-party instructor, documents on table', 'evidence', `mim-debrief-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The group splits at the library garden gate — two take the dormitory path, two continue east, and one of the eastbound students glances back before the corner. The glance is brief and returns forward without reaction, but the pace of the two eastbound students increases after the corner. When the corner is rounded, they are gone: not into a building, not down the lane, simply not where a normal walking pace would have put them. Someone in that group has been watching for followers.`;
+        addJournal('Student group counter-surveillance at library gate — eastbound pair lost after corner check', 'complication', `mim-debrief-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_student_debrief_route_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `Three students from the visiting lecturer's off-calendar sessions leave together via the library garden gate. The route goes east, past the main campus boundary, to a provisioning house not marked on Academy maps. The building's ground-floor window shows lamplight after dark on the same evenings as the sessions. The pattern is consistent enough to be a standing arrangement. Whatever is happening in that building is tied to the same schedule as the off-calendar seminars.`;
+        addJournal('Student group follows east route to unmapped provisioning house after off-calendar sessions — standing arrangement', 'intelligence', `mim-debrief-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The ink on the external charter document is wrong for the date on it — the seal is right but the paper has not aged.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'conducting materials analysis on external charter document authenticity');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_charter_document_forged = true;
+        G.investigationProgress++;
+        G.lastResult = `The external charter document that authorized the classification directive sits in the Dean's open reference file as a matter of institutional record. The seal is authentic — old wax, the right press depth, heat-oxidation consistent with its stated date. The paper is not. The fiber compression on this stock does not occur until after three years of shelf storage; this document shows none. The ink carrier has not fully set into the weave. Written on paper produced this year, dated three years ago, sealed with a genuine seal from that period. A genuine seal taken from a different document and transferred. The classification directive is built on a fabricated foundation.`;
+        addJournal('External charter document: genuine seal on fresh paper — seal transferred from period document, directive is fabricated', 'evidence', `mim-charter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The Dean's reference file is available to faculty and registered researchers. Registered readers may view documents but not handle them without archivist supervision. The archivist assigned to supervise document handling is away from the desk. The duty archivist who covers in her absence handles document access through a booking form with a two-day turnaround. The charter document is visible in the file through the reference cabinet glass — the seal is right, the paper is another matter — but the glass is between the document and any analysis.`;
+        addJournal('Charter document visible but inaccessible — archivist booking required, two-day wait', 'complication', `mim-charter-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_charter_document_forged = true;
+        G.investigationProgress++;
+        G.lastResult = `The paper stock and the seal do not belong to the same document. The seal carries genuine age: wax oxidation, press depth consistent with old tooling. The paper is too fresh — the fiber has not had time to compress fully, and the ink carrier sits on the surface rather than sinking into the weave. Three years old on the face. Produced this year by the material evidence. The classification directive rests on a document where the authority mark and the physical record are from different sources.`;
+        addJournal('Charter document seal and paper from different sources — directive authority mark transferred onto fresh paper', 'intelligence', `mim-charter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Mimolot Academy finale — the Academy's classified research was the theoretical foundation for the entire suppression operation. Expose or contain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
