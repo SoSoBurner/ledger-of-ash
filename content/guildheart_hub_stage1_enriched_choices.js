@@ -33,7 +33,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Arbitrator now protective of guild confidentiality', 'complication', `guildheart-arbitrator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." A pause. "Not every merchant reads the terms they file under." He answers the question you asked. He doesn't answer the question you meant. Behind him, the shelf of closed dispute folios sits in chronological order — and three of the spines in the last row are new. The new spines and the coordinating directive share a reference window worth checking.`;
+        G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." He begins: "The coordinating—" His eyes go to the corridor window. A clerk passes in the hall beyond the glass. "Not every merchant reads the terms they file under." The interrupted thought is not recovered. Behind him, the shelf of closed dispute folios sits in chronological order — three spines in the last row are new, sharing a reference window with the directive.`;
         addJournal('Arbitrator confirmed disputed resolution outcomes', 'evidence', `guildheart-arbitrator-pressure-${G.dayCount}`);
       }
 
@@ -170,7 +170,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Guild arbitrator alerted to financial records inquiry', 'complication', `guildheart-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. "Entries get corrected," he says. "Forms go missing. It happens." He doesn't look at the entries while he says it. One correction mark covers a name — not a figure, a name. Another name has been struck through. This one more recently. The struck name and the external coordination line item share the same date column.`;
+        G.lastResult = `Toren allows the general ledger, not the subsidiary accounts. Three entries carry correction marks without a corresponding correction form. The dates cluster within a ten-day window four months back. He opens his mouth — starts something about the subsidiary filing process — then his eyes go to the corridor door. A clerk passes in the glass panel. He waits until the shadow moves on. "Entries get corrected," he says. "Forms go missing. It happens." One correction mark covers a name — not a figure, a name. Another name has been struck through, more recently. The struck name and the external coordination line item share the same date column.`;
         addJournal('Guild ledger: another name struck through, this one more recently', 'evidence', `guildheart-ledger-altered-${G.dayCount}`);
       } else {
         G.lastResult = `Toren's hand stays on the ledger binding, index finger through the cord loop that keeps the cover closed when unattended. The financial office smells of iron-gall ink and the beeswax coating on the ledger's leather. "Primary financial records — Leadership-Restricted, Category One." He writes something in a side log without looking at what he's writing. "Authorization request takes eight to twelve working days. I can give you the form." He offers the form without standing up, sliding it across the desk with the same hand that held the binding a moment before.`;
@@ -960,6 +960,19 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     G.flags[key] = true;
     drawLocalityRumor(G.location);
   }
-}
+},
+{
+  label: 'Two officials. One number. Then they see me',
+  tags: ['Intelligence', 'Observation'],
+  xpReward: 15,
+  fn: function() {
+    advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+    gainXp(15, 'overheard administrative reference');
+    G.lastResult = 'Two factors near the manifest desk. The shorter one says a number — not a sum, a reference code, the kind stamped on an administrative filing. The other glances toward you. The conversation ends. Neither leaves. They stand there, not speaking, until you move toward the stairs. The reference code stays with you the way things do when someone decides you should not have heard them.';
+    addJournal('Overheard at the Guildheart Hub transit floor: an administrative reference code, spoken between two factors before they spotted me. Source: Guildheart Hub manifest desk, morning shift.', 'intelligence');
+    G.recentOutcomeType = 'investigate';
+    maybeStageAdvance();
+  }
+},
 ];
 window.GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES;
