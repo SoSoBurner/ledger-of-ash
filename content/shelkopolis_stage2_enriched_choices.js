@@ -713,6 +713,150 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW INVESTIGATION BEATS (Oversight Collegium / suppressed names) ──────
+
+  {
+    label: "The Collegium arbiter's docket skips three names. The gap is deliberate.",
+    tags: ['Stage2', 'Investigation', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading the Oversight Collegium arbiter docket');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.collegium_docket_gap_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = `The Collegium's open docket runs in continuous reference numbering. You count the entries against the sequence: 7, 8, 9, then 13. Four cases removed from the public record, their numbers surviving only as blank rows in the binding margin. The blank rows carry the same wax-seal imprint used for Collegium emergency suppression — a seal that requires two Arbiter signatures and a civic underwriter co-sign. This wasn't administrative error. Someone pulled these with full procedural authority and knew exactly which numbers would be missed last.`;
+        addJournal('Collegium docket — four entries suppressed under emergency seal, three-signature process confirmed', 'evidence', `shelk-docket-gap-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The reading room attendant asks to see your access authorization before the docket reaches the table. What you carry covers registry cross-reference, not active arbiter records. She is polite and exact. Your name goes into the request log — a log that the Collegium Arbiter's office reviews each week as part of its standard oversight cycle. The door is closed correctly and without hostility, which is worse than if it had been slammed.`;
+        addJournal('Collegium docket request refused — name entered in review log', 'complication', `shelk-docket-fail-${G.dayCount}`);
+      } else {
+        G.flags.collegium_docket_gap_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The sequence break is visible to anyone who counts: reference numbers 10 through 12 are absent from the public docket without notation. The standard format requires a suppression marker at the gap — a bracketed dash, per Collegium procedure. There is no dash. The absence of the marker means whoever pulled these didn't want the suppression itself on record. The gap was hidden inside a procedure designed to display gaps.`;
+        addJournal('Collegium docket — suppression markers absent, removal concealed within procedure', 'evidence', `shelk-docket-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Inquisitor Orveth conducts his reviews at the same tavern table every third day.",
+    tags: ['Stage2', 'NPC', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'approaching Inquisitor Orveth at the Stoat and Wax');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.met_inquisitor_orveth = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = `Orveth conducts his reviews in public on purpose: he keeps a tavern table so that anyone approaching him can be explained as casual. His tell is that his left thumb moves to the inside edge of whatever document he's reading whenever something in the conversation surprises him — a habit he appears unaware of. When you describe the docket gap, the thumb moves. He names the suppressed cases without being asked. Two are trade fraud complaints. The third is a formal objection to a charter amendment that would give the Oversight Collegium emergency appointment authority over its own arbiters. The fourth he does not name. He closes his folder over that one specifically.`;
+        addJournal('Inquisitor Orveth — three of four suppressed cases named; fourth withheld; charter amendment objection confirmed', 'evidence', `shelk-orveth-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        G.lastResult = `You reach the table at the wrong interval — Orveth has a companion already seated, a Collegium liaison you don't recognize who watches your approach with a registry clerk's patience. Orveth receives you briefly and formally. The companion writes nothing down and does not look away. The exchange lasts under two minutes and produces nothing except a clear record that someone came looking for the Inquisitor outside official channels. The companion is still at the table when you leave.`;
+        addJournal('Orveth approach observed by Collegium liaison — no information gained', 'complication', `shelk-orveth-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_inquisitor_orveth = true;
+        G.investigationProgress++;
+        G.lastResult = `Orveth acknowledges the docket gap without confirming specifics. He says: "There are reviews that require a different kind of patience than the ones that produce reports." His thumb finds the folder edge and stays there. He is not refusing to help. He is establishing conditions for what help looks like — conditions he hasn't named yet, which means the conversation is an opening, not a door.`;
+        addJournal('Orveth aware of docket gap — conditions for cooperation not yet stated', 'intelligence', `shelk-orveth-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Ironspool night foreman knows whose crates skip the Collegium intake check.",
+    tags: ['Stage2', 'Investigation', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'pressing the Ironspool night foreman for intake bypass detail');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.ironspool_intake_bypass_named = true;
+        G.investigationProgress++;
+        G.lastResult = `The foreman works the south dock from the third bell through dawn because no Collegium inspector covers that window — a staffing gap that has existed for eleven months. He lists the bypass crates from memory: three weights, two freight codes, always the same origin seal, always cleared by the same overnight Roadwarden aide who works that rotation exclusively. The aide's name is Forren Dass. The foreman says the name the way someone says a thing they've been holding for a long time and are glad to be rid of.`;
+        addJournal('Ironspool south dock — bypass crates named, Roadwarden aide Forren Dass identified as intake clearance officer', 'evidence', `shelk-foreman-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        G.lastResult = `The foreman listens and then calls one of his dock runners over, which is not a good sign. The runner is sent somewhere. Five minutes later a senior Ironspool factor arrives and conducts the rest of the conversation in place of the foreman, who finds work at the far end of the dock and does not return. The factor's responses are complete, unhelpful, and noted in his own ledger as he gives them. Your approach to the south dock is now on record with Ironspool management.`;
+        addJournal('Ironspool approach escalated to senior factor — foreman removed from conversation', 'complication', `shelk-foreman-fail-${G.dayCount}`);
+      } else {
+        G.flags.ironspool_intake_bypass_named = true;
+        G.investigationProgress++;
+        G.lastResult = `The foreman confirms the bypass pattern without naming anyone attached to it. Three crate types, cleared fast, cleared at night. He says: "Not my check to make." The deflection has a specific shape: he knows whose responsibility it is and has decided that naming them is a different conversation than this one. He doesn't move away from the dock ledger while he's talking, which means he's already recorded this exchange somewhere for his own protection.`;
+        addJournal('Ironspool south dock — bypass crates confirmed, responsible party deflected', 'intelligence', `shelk-foreman-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The suppression amendment is three signatures from ratification. One belongs to someone who hasn't signed yet.",
+    tags: ['Stage2', 'Investigation', 'Faction'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the Collegium charter amendment signature chain');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.collegium_amendment_signature_tracked = true;
+        G.investigationProgress++;
+        G.lastResult = `The amendment circulates in a courier envelope sealed with both the Collegium administrative mark and a House Shelk subsidiary stamp — two seals on one envelope, which is not standard. You get a look at the signature page during a ten-second window at a registry clerk's desk: two signatures affixed, a third line blank. The blank line carries a pre-printed title: Deputy Civic Underwriter, Panim Mediation Oversight. The amendment cannot ratify without a Panim co-sign. Whoever drafted it needs Panim's cooperation and doesn't have it yet. That gap is a lever.`;
+        addJournal('Collegium amendment — Panim co-sign still absent; two signatures affixed; double-sealed with Shelk subsidiary stamp', 'evidence', `shelk-amendment-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        G.lastResult = `The courier envelope is handed off at the registry counter three desks from where you're standing. By the time you've moved to a better angle the handoff is complete and the envelope is already behind the counter partition. The clerk who received it looks up — not at you, at the space you just left. She marks something in her own ledger. The timing was off by thirty seconds and thirty seconds was enough to be noticed without seeing anything.`;
+        addJournal('Amendment tracking attempt observed — no document access', 'complication', `shelk-amendment-fail-${G.dayCount}`);
+      } else {
+        G.flags.collegium_amendment_signature_tracked = true;
+        G.investigationProgress++;
+        G.lastResult = `The envelope title block is visible through a gap in the courier's grip as he waits at the desk: Collegium Charter Revision — Restricted Circulation. Two seals on the cover. The courier shifts his hold before the signature page becomes readable, but the cover alone confirms the amendment is still in active circulation. It hasn't ratified. The process is still moving, which means it can still be interrupted.`;
+        addJournal('Collegium charter revision confirmed in active circulation — ratification not yet complete', 'intelligence', `shelk-amendment-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Orveth's sealed notes on the fourth case were filed separately. The location is inferrable.",
+    tags: ['Stage2', 'Investigation', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating Inquisitor Orveth\'s sealed fourth-case notes');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.orveth_fourth_case_notes_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Collegium procedure routes sealed inquisitor notes to the Civic Repository sub-level when the associated case is suppressed — not the main archive, the sub-level, which uses a different index maintained by a different clerk. You find the sub-level index and the entry: Sealed Review File, Arbiter Division, no case number, one name. The name is not a person. It is an office: Director of Civic Charter Integrity. An office that does not appear in the Collegium's published organizational structure. An office that signed the emergency suppression of its own case.`;
+        addJournal('Orveth fourth case — suppressed by Director of Civic Charter Integrity, an unpublished office; self-suppression confirmed', 'evidence', `shelk-fourth-case-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The Civic Repository sub-level requires a separate access notation that you don't hold. The sub-level attendant checks her authorized-access list while you wait. Your name is not on it. She offers to submit a formal access request on your behalf, which would be reviewed in seven to fourteen days. She begins writing the request form before you answer. The pending request will be visible to whoever monitors new sub-level access applications. That is everyone with a reason to watch.`;
+        addJournal('Civic Repository sub-level access denied — pending request submitted and visible', 'complication', `shelk-fourth-case-fail-${G.dayCount}`);
+      } else {
+        G.flags.orveth_fourth_case_notes_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The sub-level index entry exists: sealed, no case number, filed under a Collegium arbiter division designation you haven't seen before. The index gives you the shelf location but not the content. The shelf is accessible with standard registry credentials. What's on the shelf is a sealed envelope with a suppression stamp that requires two-arbiter sign-off to open legally. The envelope is there. Getting inside it is a different problem than finding it.`;
+        addJournal('Orveth fourth case — located in sub-level, sealed envelope confirmed, two-arbiter sign-off required to open', 'intelligence', `shelk-fourth-case-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
   {
     label: "Lady Elowen's hand is steady on the cup. The other is not.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
