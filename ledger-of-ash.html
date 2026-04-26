@@ -9635,6 +9635,7 @@ function _beginLegendCore() {
   }
   G.location = BG_LOCATION_MAP[G.background.region] || 'shelkopolis';
   G.startingLocality = G.location;
+  if (typeof buildLivingDesc === 'function') buildLivingDesc(G.location, G);
   // Companions follow the player to their starting locality
   if (window.COMPANION_DEFS) {
     COMPANION_DEFS.vorath_gelden.locality = G.startingLocality;
