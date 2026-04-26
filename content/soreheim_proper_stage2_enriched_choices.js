@@ -431,6 +431,233 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The off-books laborers were paid — and the wage records show the same sealed-charter reference Roth's budget used.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing off-books wage records to sealed-charter reference');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wage_ledger_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The labor disbursement ledger kept by the outer-district pay station records six separate cash payments to unnamed work crews across twelve weeks — each entry marked only with a sealed-charter identifier: SC-4417, the same code stamped on the voided trade permits and Roth's expansion budget income line. The payments are categorized as "contingent labor, northern depot operations." The pay station clerk who signed the disbursements retired three weeks after the last payment. His forwarding address is a district outside Soreheim Alliance jurisdiction. The sealed-charter reference now links three independent financial records to a single coordinating entity.`;
+        addJournal('Wage disbursement ledger: SC-4417 sealed-charter reference links off-books labor payments to same entity as voided trade permits and Northern Ambition budget', 'evidence', `sor-wage-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The outer-district pay station maintains disbursement records by period only — no cross-reference by charter identifier without a Giant Council labor registry authorization. The authorization requires a tower-rank sponsor. The clerk writes the requirement in full on a request slip and adds the current processing time at the bottom: fourteen working days. The pay records sit behind a counter that is six steps away, organized in clearly labeled monthly files. Fourteen days from now those files rotate to the archive annex.`;
+        addJournal('Wage ledger access blocked — labor registry authorization required; files rotating to archive in 14 days', 'complication', `sor-wage-fail-${G.dayCount}`);
+      } else {
+        G.flags.wage_ledger_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Three of the six disbursement entries carry the sealed-charter reference SC-4417 in the authorization column. The pay station clerk traces the reference through her charter index and finds no registered entity — the charter number was issued but the corresponding entity registration was never completed. "Incomplete charters can't legally authorize disbursements." She marks all three entries. "Someone processed these anyway."`;
+        addJournal('Pay station: SC-4417 charter identifier incomplete — three disbursements processed without legal entity registration', 'intelligence', `sor-wage-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The council herald who carries sealed correspondence between the bloc offices has been running extra routes on days Decon is absent from the tower.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'pressing council herald Bren Sothwick on irregular dispatch routes');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_bren_sothwick = true;
+        G.investigationProgress++;
+        G.lastResult = `Bren Sothwick is the kind of person who keeps his route log current by reflex — the habit of someone whose job depends on provable delivery times. He opens it to the relevant weeks without being asked, laying it flat on the mail bench. On the four days Decon's tower access log showed him absent, Bren ran sealed dispatches from an outer-district drop point to the council transit registry rather than the standard Wing receiving office. The drop point address is a disused commercial factor's address two streets behind the north bridge transit station — the same street block as the unlisted annex the courier's route ended at. Someone used the herald's official schedule to route correspondence through an address that doesn't carry Wing oversight.`;
+        addJournal('Herald Bren Sothwick: 4 irregular dispatches from outer-district factor address to transit registry — same block as unlisted north bridge annex', 'evidence', `sor-herald-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Bren closes his route log the moment he reads the dispatch date you cite. "Sealed correspondence is covered by council herald privilege. The routes, the recipients, and the origin points are not discussable without a council directive from the Arbiter's office." He stands up from the mail bench. The route log goes into his document bag. He is technically correct about the privilege, which is exactly the kind of technical correctness that has kept him employed through four different administrations.`;
+        addJournal('Herald Bren Sothwick — council herald privilege invoked; route log closed', 'complication', `sor-herald-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_bren_sothwick = true;
+        G.investigationProgress++;
+        G.lastResult = `Bren confirms the extra routes. "Authorization came through the standard dispatch order system — I had a signed order for each run." He checks the log for the originating signature. The orders were signed by a Wing administrative designate, not by Decon directly. Bren delivered to a commercial factor address on two of the four runs. "Different drop than usual, but the order was valid."`;
+        addJournal('Herald confirms 4 irregular dispatches — Wing administrative designate authorized, factor address used as drop point', 'intelligence', `sor-herald-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The restricted tower blueprint vault holds a floor plan that doesn't match the structure visible from the north bridge approach.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'accessing restricted tower blueprint vault to find undisclosed floor space');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.blueprint_discrepancy_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The restricted blueprint drawer is filed by tower column — the lock uses the same key pattern as the forge registry annex, and the gap between shifts is four minutes wide. The original construction survey for the third forge column shows a sub-level cavity that does not appear on any current operational blueprint: a space below the thermal buffer designation, accessible by a maintenance ladder behind the northwest fire door. The cavity dimensions match the crate volume the unbadged loading crew delivered during the cold cycle. The original survey is dated twelve years ago. Someone removed the cavity from later plans without issuing a construction amendment.`;
+        addJournal('Blueprint vault: original 3rd-column survey shows undisclosed sub-level cavity — removed from later plans, cavity dimensions match observed cold-cycle loading volume', 'evidence', `sor-blueprint-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The blueprint vault door has a secondary latch that isn't visible from outside — it registers the door position on a mechanical counter inside the frame. The counter is checked by the duty archivist at each shift change. The latch was engaged. The counter registers an access during an unstaffed window. By the time you reach the main corridor two tower enforcers are already at the registry desk checking the counter log. The vault is now on enhanced watch.`;
+        addJournal('Blueprint vault access attempt detected — mechanical counter logged entry, enhanced watch activated', 'complication', `sor-blueprint-fail-${G.dayCount}`);
+      } else {
+        G.flags.blueprint_discrepancy_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The current operational blueprint for the third column shows the thermal buffer cavity as a labeled but empty maintenance space — no dimensions, no access notation. The adjacent original survey file, unfiled in the same drawer, has full dimensions and a ladder access marked in red ink. The current blueprint was amended. The amendment removed the sub-level designation without closing the physical space.`;
+        addJournal('3rd-column blueprint amended: sub-level cavity removed from current plans but physical access remains — original survey still in file', 'intelligence', `sor-blueprint-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Night patrol at the north bridge curfew line reveals which transit passes move freely after the third bell — and whose names appear on them.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'enduring a full night on the north bridge curfew line to log post-curfew transit');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.night_transit_log_observed = true;
+        G.investigationProgress++;
+        G.lastResult = `The north bridge curfew post checks fourteen passes between the third and fifth bell. Eleven are standard cargo holds — crew names, company seals, scheduled window. Three are different: plain passes, no company mark, the authorizing stamp a Relic Strategy Wing operational code that the checkpoint sergeant reads and waves through without recording. The sergeant does not enter them in his curfew log. The third pass carrier wears a transit registry badge on the left breast — the same badge type the Wing courier met at the north bridge approach corner. All three unlogged passes move toward the factor-address street block.`;
+        addJournal('North bridge curfew post: 3 unlogged Wing operational passes waved through after third bell — no entry in sergeant\'s log, all moving toward factor-address block', 'evidence', `sor-nightwatch-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The curfew observation position at the north bridge approach is a loading-dock overhang with a clear angle on the checkpoint but no cover from the patrol sweep that runs at the fourth bell. The sweep catches the position. A patrol officer takes your name and tower-rank identifier, writes them in a small book, and walks you back to the inner-ring gate. The curfew log at the checkpoint has been closed for the night before you get another angle on it.`;
+        addJournal('North bridge curfew observation — patrol sweep caught position; name logged, escorted from area', 'complication', `sor-nightwatch-fail-${G.dayCount}`);
+      } else {
+        G.flags.night_transit_log_observed = true;
+        G.investigationProgress++;
+        G.lastResult = `Four passes move through the north bridge curfew checkpoint after the third bell without standard company marks. The sergeant waves two of them through without logging them — the other two go into the standard curfew record. The unlogged passes carry a stamp too small to read from this distance, but both pass-carriers move toward the north bridge approach rather than the inner-ring commercial district. One of them carries a satchel that sits too rigid to be empty.`;
+        addJournal('2 unlogged passes at north bridge curfew — non-standard stamp, moving toward north bridge approach; one carrier with rigid satchel', 'intelligence', `sor-nightwatch-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The assay marks on the crates recovered from the forge cavity don't match any of Soreheim's registered forge stamps — they came from somewhere else.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing crate assay marks against Soreheim registered forge stamps');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.assay_marks_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The assay mark on the crate fragment is a tripartite stamp — two exterior marks flanking a center designation. Soreheim's registered forge stamps all use a single-authority center mark with directional supplementals. This pattern is a northern frontier assay convention, used in five localities outside Soreheim Alliance territory. The center designation matches a now-decommissioned extraction site in the northern resettlement corridor — territory covered by the accords Soreheim signed twelve years ago. The compound wasn't produced in Soreheim. It was produced in a facility that no longer officially exists, transported into Soreheim territory, and given a local paper trail through the material ledger laundering. The operation crosses two separate treaty obligations.`;
+        addJournal('Crate assay marks: northern frontier convention, decommissioned extraction site in resettlement corridor — compound produced outside Soreheim, smuggled in and given local ledger cover', 'evidence', `sor-assay-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The forge stamp registry requires a physical sample cross-reference, not a sketch or description — the assay mark must be presented in original form to the metallurgical verification desk. The sample is from a crate fragment that was logged when recovered, which means it has an evidence hold on it. Removing it for a registry cross-reference requires a council authorization from the Arbiter's office. Cron could sign it, but the authorization process takes three working days and creates a record that the Relic Strategy Wing will be able to read.`;
+        addJournal('Assay mark registry cross-reference blocked — evidence hold requires Arbiter authorization; 3-day process creates Wing-visible record', 'complication', `sor-assay-fail-${G.dayCount}`);
+      } else {
+        G.flags.assay_marks_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The metallurgical registry clerk identifies the stamp pattern as non-Soreheim without needing the index — she recognizes the tripartite convention by eye. "This is northern frontier assay work. Pre-resettlement." She checks the origin index. Five possible localities, all outside Soreheim Alliance territory. "None of these are current production sites." She marks the entry. "This material was not manufactured here."`;
+        addJournal('Assay marks identified as northern frontier convention — pre-resettlement era, no current production sites; compound not of Soreheim manufacture', 'intelligence', `sor-assay-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A retired senior Wing officer living in the outer ring knows the internal override protocols — and stopped working for the Wing without explanation two years ago.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'approaching retired Wing officer Hassel Dorn about internal override protocols');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_hassel_dorn = true;
+        G.investigationProgress++;
+        G.lastResult = `Hassel Dorn does not ask how you found his address. He sits across from you in a room that has no Wing insignia, no commendation plaques, nothing that marks the twenty-three years. His tell is that he straightens the edge of whatever document is nearest to him before he speaks — not reading it, just squaring it. He designed the override authorization system. The external code Senne Orvath couldn't find in the roster is not a fabrication: it's a recovery code, a backdoor Dorn built into the system for emergency access. He gave that code to one person when he resigned. He names the person. It is not Decon Von Reckshem. Decon got it from someone above him.`;
+        addJournal('Hassel Dorn (retired Wing architect): emergency override code given on resignation to a named superior — Decon received it second-hand; command chain extends above Relic Strategy Wing', 'evidence', `sor-dorn-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Dorn opens the door, reads your face for three seconds, and closes it without speaking. A note slides under the door thirty seconds later: a single line in a careful hand — "Wing retirement agreements carry a non-disclosure clause. I have a family." The note is unsigned. He does not answer a second knock. The outer-ring residential block has two exits, and a neighbor across the landing is watching the corridor from her doorway with no particular reason to be standing there.`;
+        addJournal('Hassel Dorn refuses approach — Wing non-disclosure clause cited; neighbour surveillance noted', 'complication', `sor-dorn-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_hassel_dorn = true;
+        G.investigationProgress++;
+        G.lastResult = `Dorn lets you in and stays standing the whole time. He confirms the override code exists and that he designed it. "It was a structural safeguard. Single-use, emergency access only." He does not confirm who has it. "I gave it to the person I was supposed to give it to when I left. What they did with it is not something I can speak to." He squares the edge of a letter on the sideboard before he shows you to the door. The conversation lasted nine minutes.`;
+        addJournal('Hassel Dorn confirms emergency override code exists — given to one person on his resignation; refuses to name them', 'intelligence', `sor-dorn-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Iron Compact treaty amendment archive holds a suppressed addendum that redefined what counts as northern defense materiel — giving the operation legal cover it never disclosed.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'uncovering suppressed Iron Compact treaty addendum in amendment archive');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.treaty_addendum_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The treaty amendment archive runs chronologically — the Iron Compact accords fill four bound volumes, the amendments a fifth that is narrower and less read. Tucked between two uncontroversial border-access amendments is a three-page addendum dated eleven months ago, ratified under an emergency council session with no public notice period: "Addendum 7-C — Northern Defense Materiel Clarification." It redefines the class of materials exempted from northern resettlement accord restrictions to include "compounds required for infrastructure stabilization operations." The language is drafted with precision. The restricted compound from the alloy register fits the new definition exactly. The addendum was ratified in the same session Mordoth chaired as pro-tem council presider. Cron was not present.`;
+        addJournal('Iron Compact Addendum 7-C: emergency ratification redefined northern defense materiel to cover restricted compound — retroactive cover, ratified without Arbiter present', 'evidence', `sor-addendum-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The treaty amendment archive is administered by the council chancellor's office, not the Arbiter's registry — a distinction that matters because access requires the chancellor's clerk to pull the volumes and remain present during the review. The clerk on duty today is the same one who filed the permit override three weeks ago. She asks your name, writes it, and tells you the next available archive appointment is in eight days. The appointment book is full. It was not full yesterday, according to the date-stamps on the last three entries.`;
+        addJournal('Treaty archive access blocked — chancellor clerk filled appointment book after inquiry; same clerk who filed permit override', 'complication', `sor-addendum-fail-${G.dayCount}`);
+      } else {
+        G.flags.treaty_addendum_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Addendum 7-C is in the archive — a short document, three pages, ratified under emergency session. The definition of "northern defense materiel" was expanded to include compounds used in "infrastructure stabilization operations." The addendum was not published in the standard council notice register. The ratification session had four council members present out of seven. The presiding officer is listed as a pro-tem designate rather than the standard session chair.`;
+        addJournal('Iron Compact Addendum 7-C found: northern defense materiel definition expanded — emergency session, 4 of 7 members, pro-tem chair, unpublished notice', 'intelligence', `sor-addendum-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A sealed dispatch rider leaves the factor-address block every third morning — the timing and the route suggest the next compound shipment is closer than the evidence implies.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'intercepting dispatch rider leaving the factor-address block to read shipment timing');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dispatch_rider_intercepted = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The dispatch rider takes the east outer-ring road rather than the transit corridor — a longer route that avoids the checkpoint logs. The sealed pouch rides inside his coat rather than the standard saddle bag, which means the contents are not subject to the transit manifest requirement. At the second rest point he stops, checks the road in both directions, and opens the pouch to read the top document before re-sealing it. The gap lasts forty seconds. The first line of the document is legible: "Second deployment — north bridge depot, loading window opens four days from today's date. Authorization: SC-4417." The second deployment of the suppression compound is already scheduled. The authorization code matches every financial record assembled so far. Four days.`;
+        addJournal('Dispatch rider: second compound deployment authorized under SC-4417 — north bridge depot loading window opens in 4 days', 'evidence', `sor-rider-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The dispatch rider checks his back trail twice in the first quarter-mile — a trained habit, not a random glance. On the second check he holds longer than reflex would require and adjusts his pace. He takes a different turn than expected and arrives at a secondary checkpoint where he hands a note to the officer on duty before proceeding. The note goes into the checkpoint log. The rider continues without stopping. The secondary checkpoint has now been told someone is following the outer-ring dispatch route. The watchfulness goes up before the evidence does.`;
+        addJournal('Dispatch rider surveillance detected — rider alerted secondary checkpoint; surveillance noted in official log', 'complication', `sor-rider-fail-${G.dayCount}`);
+      } else {
+        G.flags.dispatch_rider_intercepted = true;
+        G.investigationProgress++;
+        G.lastResult = `The dispatch rider stops at the outer-ring water point and sets the saddle pouch on the trough edge while he drinks. The pouch seal is intact but the outer label is visible: "Operational — Northern Depot, Priority Window." The routing mark on the label uses the same three-character prefix as the Relic Strategy Wing operational codes logged in the permit ledger. The delivery destination is north of the transit station. The priority window notation suggests a fixed time constraint on the contents.`;
+        addJournal('Dispatch pouch label: "Operational — Northern Depot, Priority Window" — Wing operational code prefix, north transit station destination', 'intelligence', `sor-rider-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Soreheim Proper finale — the operation's command structure is confirmed. Use Cron's Arbiter seal for formal prosecution or expose the expansion budget publicly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
