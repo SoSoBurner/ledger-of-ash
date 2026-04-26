@@ -11365,7 +11365,7 @@ function applyEffect(fx) {
     case 'additem':   addToInventory(fx.item); break;
     case 'history':   G.history.push(fx.msg); break;
     case 'stage2':    checkStage2Unlock(); break;
-    case 'travel':    G.location = fx.dest; if (typeof updateHUD === 'function') updateHUD(); if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel(); buildLivingDesc(G.location, G); break;
+    case 'travel':    G.location = fx.dest; if (typeof updateHUD === 'function') updateHUD(); if (typeof updateEnvironmentPanel === 'function') { updateEnvironmentPanel(); buildLivingDesc(G.location, G); } break;
   }
 }
 
