@@ -434,6 +434,158 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The northern charter subsidiary has a registration address. It belongs to something that doesn't exist.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'tracing northern charter subsidiary registration');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.northern_charter_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The subsidiary charter resolves to a civic registration address in the northern quarter — a building that burned in a district fire nine years ago and was never rebuilt. The charter has been renewed four times since the fire, each renewal signed by a different notary, none of them current. The entity holds real accounts, moves real coin, and has no physical location that could be entered, examined, or shut. It is a permanent administrative ghost with active status.`;
+        addJournal('Northern charter entity — active ghost registration, burned-site address', 'evidence', `panim-charter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The charter registration search requires a civil records clerk to pull the founding documents from the district archive. The clerk is professionally helpful and the request is entirely routine. An hour later, the inquiry has been flagged by the archive duty officer as part of a broader records review already underway — the same review Elior mentioned. Any further access to the charter's founding documentation will now route through that review and the clerk who handles it. That clerk reports to the oversight tier.`;
+        addJournal('Charter search flagged — routed to oversight review', 'complication', `panim-charter-fail-${G.dayCount}`);
+      } else {
+        G.flags.northern_charter_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The registration address is real on paper and wrong on the ground. A note in the margin of the third renewal says "address under civic review" — a designation that has sat unchanged for seven years. The entity's account activity is current; the address is not. Whatever administrative mechanism should have caught this gap, it did not run.`;
+        addJournal('Northern charter — valid accounts, unresolvable civic address', 'intelligence', `panim-charter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "That building's floor has been cut. The rite marks are cover for something structural.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'examining unregistered building interior');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.building_interior_accessed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The door opens on a single-room space that reads, at first, as an abandoned preparation chamber — stone bench, empty wall brackets, cold ash in the fire grate. The floor is the tell. Three flagstones in the southwest corner have been reset within the last season: the mortar color is wrong and the edge-cuts are cleaner than the surrounding work. Below the stones, a cavity large enough to hold a standard memorial container. The cavity is empty and recently cleared. Whoever used it knew to move before this moment.`;
+        addJournal('Unregistered building — sub-floor cavity confirmed, recently cleared', 'evidence', `panim-building-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The entry point holds for ninety seconds before a sound from the lane side of the building stops you — not footsteps, but the specific silence that replaces them. Out through the rear shutter before the lane-side door opens. You do not see who enters. They see the disturbed threshold and the open shutter, and they do not come after you, which is the more concerning response. The building will be emptied before you can return.`;
+        addJournal('Building entry detected — contents likely moved', 'complication', `panim-building-fail-${G.dayCount}`);
+      } else {
+        G.flags.building_interior_accessed = true;
+        G.investigationProgress++;
+        G.lastResult = `The interior confirms use without revealing what it holds. The stone bench carries weight marks from regular loading — rectangular, consistent with standard memorial containers. The floor near the southwest corner shows fine grit swept into the mortar lines but not out of them. Something rested here often enough to leave the pattern. Whatever was stored here was moved with care, not in haste.`;
+        addJournal('Unregistered building — load marks confirm storage use', 'evidence', `panim-building-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Caldor Sepulcher takes the same route to the oversight hall. Not today — today he changes it.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'tailing Caldor Sepulcher through memorial district');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.caldor_route_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `Caldor breaks his route at the junction where the memorial district meets the freight lane — the same junction where the porter's gate empties. He enters a chandler's shop that has no customers visible through the window. Seven minutes later he exits carrying nothing and takes the direct route to the oversight hall without deviation. The chandler's shop is registered to a trade address in the northern quarter. The northern account's subsidiary charter lists the same address.`;
+        addJournal('Caldor route deviation — chandler stop links to northern charter address', 'evidence', `panim-caldor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Caldor stops at the junction and turns. The look he gives the lane behind him is not a glance — it is a professional check, unhurried, covering both sides. His eyes move past you once and return. He does not change his pace. By the time he reaches the oversight hall the lane behind you has a porter crossing it in the wrong direction for that hour, arms empty, walking too slowly. You are being walked home.`;
+        addJournal('Tailing attempt burned — counter-surveillance active', 'complication', `panim-caldor-fail-${G.dayCount}`);
+      } else {
+        G.flags.caldor_route_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `Caldor deviates once — a brief stop at a chandler's shop that reads as routine. Duration too short for an actual purchase. The shop closes its shutters from the inside while he is there. He emerges and continues without looking back. The deviation is documented. The chandler's shop location and the northern charter's registered trade address are worth cross-referencing before taking the next step.`;
+        addJournal('Caldor route deviation — chandler stop duration noted', 'intelligence', `panim-caldor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The freight lane runs before the bell. The wrong seal on a cart is readable at that hour.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'dawn freight lane observation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.freight_seal_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `Three carts move through the freight lane in the hour before the dawn bell, all carrying memorial service manifests. Two bear the standard funerary service seal — correct denomination, correct color. The third carries an oversight-tier administrative seal on the axle plate, the same discrepancy noted on the third-hour visitor's cart. The driver's tally book is open across his knee: the route destination is listed as the district archive annex. The archive annex has no scheduled deliveries logged for this morning.`;
+        addJournal('Freight lane — oversight-tier cart, unscheduled archive annex destination', 'evidence', `panim-freight-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The lane position holds through the cold but the light does not cooperate — the carts move before the lanterns along that section are lit, and the axle plates stay in shadow. One driver pauses to reset a harness strap and looks directly at your position in the alcove. He does not call out. He reaches his destination without taking the route the manifest lists. You have been noted without being confronted, which means the information goes somewhere before any authority hears it from you.`;
+        addJournal('Freight lane observation failed — driver noted presence', 'complication', `panim-freight-fail-${G.dayCount}`);
+      } else {
+        G.flags.freight_seal_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `One cart in three carries a seal that does not match its manifest type. The axle plate is readable for a half-second as the cart rounds the lane corner — oversight-tier denomination, not funerary service. The driver's route takes the cart past the archive annex and continues without stopping. Where it stops is beyond the visible section of the lane from this position.`;
+        addJournal('Freight lane — mismatched seal cart confirmed, destination unclear', 'intelligence', `panim-freight-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The district watch captain filed three reports that went nowhere. He stopped filing after that.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'approaching district watch captain');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_watch_captain = true;
+        G.investigationProgress++;
+        G.lastResult = `The captain's name is Orvath Sepulcher. He opens the third report without being asked — it has been kept separate from the bound filing stack, in a plain folio without a cover mark. The report documents a freight irregularity in the porter's gate lane on a specific date six months ago. The response from the oversight tier was a single line: jurisdictional review pending. The same line appears on reports two and one. "When I stopped, no one came to ask why." He pushes the folio across the desk. He does not ask for it back.`;
+        addJournal('Orvath Sepulcher — three suppressed watch reports, folio surrendered', 'evidence', `panim-captain-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Orvath Sepulcher hears the approach and gives it three seconds before his expression settles into the particular flatness of a senior watch officer who has fielded this category of conversation before. "I file reports. I don't discuss them." He is not hostile. He is a man who has learned the precise boundary of what his position permits and has placed himself squarely behind it. Any further approach before his formal filing access is established will add a name to the watch log.`;
+        addJournal('Watch captain declined — approach noted in watch log', 'complication', `panim-captain-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_watch_captain = true;
+        G.investigationProgress++;
+        G.lastResult = `Orvath confirms the reports without producing them. Three filings, three identical responses, all from the same oversight tier signatory. He does not name the signatory — the name is in the reports and the reports are filed. He confirms they are accessible through the district archive intake log. That log is public record. The path to the reports does not require his cooperation; he is telling you this without saying it directly.`;
+        addJournal('Orvath — three oversight-suppressed reports accessible via archive intake log', 'intelligence', `panim-captain-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
