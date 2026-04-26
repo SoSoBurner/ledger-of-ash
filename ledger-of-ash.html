@@ -13555,7 +13555,20 @@ function showJournal() {
     return '<div class="jov-rival"><strong>' + r.name + '</strong> (' + r.archetype + ') &mdash; ' + r.hook + '<br>' +
     '<span style="color:var(--gold-dim);font-size:11px">Renown ' + r.renown + ' &middot; ' + (r.active ? 'Active' : r.lastSeen) + ' &middot; <em>' + _threat + '</em></span></div>';
   }).join('');
-  const rivalRows = (marenRow + genericRivalRows) || '<div style="color:var(--ink-faint);font-size:13px">No known rivals yet.</div>';
+  const rivalClockVal = (G.worldClocks && G.worldClocks.rival) || 0;
+  const rivalClockRow = rivalClockVal > 0
+    ? '<div class="jov-rival" style="border-left:2px solid var(--danger);padding-left:8px;margin-bottom:6px">' +
+      '<strong style="color:var(--danger);font-family:var(--font-display);font-size:11px;letter-spacing:1px">RIVAL</strong> &mdash; ' +
+      '<span style="color:var(--ink-hi)">' + rivalClockVal + ' / 10</span><br>' +
+      '<span style="color:var(--gold-dim);font-size:11px">' +
+      (rivalClockVal <= 2 ? 'Distant \u2014 a name on other lips' :
+       rivalClockVal <= 4 ? 'Closing in \u2014 sharing your sources' :
+       rivalClockVal <= 6 ? 'Ahead of you \u2014 channels closing' :
+       rivalClockVal <= 8 ? 'Active pressure \u2014 access narrowing' :
+       'Critical \u2014 rival has structural advantage') +
+      '</span></div>'
+    : '';
+  const rivalRows = (rivalClockRow + marenRow + genericRivalRows) || '<div style="color:var(--ink-faint);font-size:13px">No known rivals yet.</div>';
 
   const invRows = (G.inventory||[]).map((item,i) =>
     '<div class="jov-item">' + item.name + ' <span style="color:var(--ink-faint);font-size:11px">(' + item.type + ')</span>' +
