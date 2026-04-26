@@ -225,6 +225,156 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The Pallmark Reach decommission file has a witness signature that belongs to no current Harbor Authority officer.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the witness signature on the Pallmark Reach decommission file');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.pallmark_witness_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The witness signature on the decommission file belongs to a Harbor Authority registrar who left Cosmoria's administrative roll fourteen months ago — reassigned to a Cosmouth regional office, no forwarding record on file. Coralyn pulls the personnel transfer log without being asked and opens it to a page with two lines missing from the middle — torn out cleanly, not worn. The transfer order is intact. The receiving office confirmation is gone. Someone removed the paperwork trail that would show where the registrar went after signing the decommission.`;
+        addJournal('Pallmark Reach decommission witness: registrar transferred to Cosmouth regional office, transfer confirmation removed from personnel log', 'evidence', `cos-witness-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Personnel records require a formal records request countersigned by the Harbor Captain's administrative office. Coralyn explains this clearly, in the even tone of someone who has explained it before. Marrow Tideglass's office receives the countersignature request before the hour is out. The inquiry is now linked in writing to both the archive and the Harbor Captain's administrative log. Two clerks know the question has been asked.`;
+        addJournal('Personnel record request for decommission witness — routed through Harbor Captain administrative office', 'complication', `cos-witness-fail-${G.dayCount}`);
+      } else {
+        G.flags.pallmark_witness_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The witness signature is legible. Coralyn traces it against the Harbor Authority personnel register — the name appears on the active roll through fourteen months ago, then stops. "Transfer out," she says, and reads the entry twice before closing the register. "The receiving office line is blank." She leaves the register open to the page. A blank receiving office line on a transfer means the record was never confirmed complete. Someone let the file sit unfinished, and the unfinished file let the decommission sit open.`;
+        addJournal('Pallmark Reach decommission witness transferred out of Cosmoria — receiving office line blank, transfer unconfirmed', 'intelligence', `cos-witness-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The night airship loading manifest has a column the day manifest does not — someone added it.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'comparing night vs day airship manifests for added columns');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.night_manifest_column_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The added column is labeled "Bonded Continuity Reference" — a phrase that appears nowhere in the Harbor Authority's standard manifest glossary. The BCR entries in the night manifest are six-digit codes, all beginning with the same three digits. Marrow recognizes the prefix when he reads it: "That prefix belongs to a Cosmouth administrative authorization block. Not a cargo classification. An administrative override." The column wasn't added to the manifest template — it was added to the night manifest copies only, by hand, in the same ink weight as the printed form.`;
+        addJournal('Night airship manifest: "Bonded Continuity Reference" column added by hand — Cosmouth admin override prefix, not in standard glossary', 'evidence', `cos-manifest-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The night platform foreman intercepts at the loading dock steps. Manifests are active operational documents during pre-departure staging — they cannot be reviewed by non-crew until the airship has cleared the harbor. He is not unkind about it. He is practiced. Two crew members on the upper platform have already noted the direction of approach and the time of day in a small pocket ledger one of them carries clipped to his belt.`;
+        addJournal('Night manifest review blocked during pre-departure staging — crew observation logged', 'complication', `cos-manifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.night_manifest_column_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Side by side, the day and night manifests differ in structure, not just content. The night form carries an extra column on the right margin — "BCR" — that the day form does not have. The BCR entries are six-digit codes. They don't appear in the standard manifest glossary posted at the Harbor Authority intake desk. The codes are consistent across every night manifest for the past eight months.`;
+        addJournal('Night airship manifest carries extra BCR column absent from day manifests — consistent across 8 months', 'evidence', `cos-manifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Nerissa's tidal observation sheets cross-reference against a Cosmouth tide authority calendar that was discontinued two years ago.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'examining the discontinued Cosmouth tide calendar against Nerissa\'s tidal records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.cosmouth_tide_calendar_linked = true;
+        G.investigationProgress++;
+        G.lastResult = `The discontinued Cosmouth tide authority calendar was the only publication that predicted dual-tide amplitude windows at seven-day resolution. Nerissa has kept a copy — she uses it for comparison. The surge schedule matches the calendar's amplitude peak predictions with a precision that cannot be coincidental: whoever planned the operation had access to the same predictive data. The calendar was discontinued after its publisher was absorbed into a Cosmouth administrative bureau. Nerissa notes the absorption date: eight months before the first sealed container declaration.`;
+        addJournal('Discontinued Cosmouth tide calendar: surge schedule matches amplitude peaks — calendar publisher absorbed into Cosmouth bureau 8 months before first sealed cargo', 'evidence', `cos-tidecal-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = `Nerissa hesitates before pulling the comparison calendar. "It's a reference document from a discontinued civil authority. I use it privately for baseline verification — it's not officially sourced anymore." She closes it again before spreading it on the table. The hesitation isn't hostility; it's the instinct of someone who has used an unofficial document in professional work for two years and knows it. She will need a clearer statement of purpose before she puts that calendar next to her shrine records for someone else to see.`;
+        addJournal('Sea shrine: discontinued tide calendar held privately — attendant unwilling to produce without clearer purpose', 'complication', `cos-tidecal-fail-${G.dayCount}`);
+      } else {
+        G.flags.cosmouth_tide_calendar_linked = true;
+        G.investigationProgress++;
+        G.lastResult = `Nerissa spreads the discontinued calendar next to her observation sheets. The comparison is easier to see than to explain — every surge date on her log falls on a peak-window entry from the discontinued calendar. She traces three of them with her finger. "I thought the calendar was obsolete. I kept it because the amplitude modeling was more granular than the current regional tide tables." The calendar's amplitude modeling is what makes the surge schedule predictable. Someone still had access to it when the schedule was built.`;
+        addJournal('Discontinued Cosmouth tide calendar amplitude windows match surge schedule — granular data unavailable in current regional tide tables', 'intelligence', `cos-tidecal-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Selka keeps a second booking register — the one she doesn't show to Harbor Authority inspectors.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'pressing Selka Tideglass on the existence of a second booking register');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.selka_second_register_seen = true;
+        G.investigationProgress++;
+        G.lastResult = `Selka doesn't deny it. She reaches under the counter and puts the second register flat between you without being asked twice — a narrow cloth-bound book, smaller than the main ledger, pages worn at the top corner where a thumb would catch them. "Any innkeeper on the harbor side keeps a private log. Not for authority review. For my own memory." The log records correspondence received by room, not by guest name. Three entries carry notation: sealed envelope, departure before dark, no reply expected. The seal description matches the charter mark from the first register's margin.`;
+        addJournal('Selka private register: 3 sealed-envelope entries with departure before dark — same charter mark as main ledger margin notation', 'evidence', `cos-selka2-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Selka finishes wiping the counter in a long, slow pass before she answers. "I run a harbor inn. Every inspector who comes through this door has a different idea of what I'm supposed to show them and a different form for me to fill out when they're done. I keep what I keep, and what I keep is my business." She sets the cloth down on the counter and leaves her hand on it. The conversation is over. The harbor wharfmaster's office is two minutes' walk; she picks up a written complaint form from them on a regular basis and she's not shy about using it.`;
+        addJournal('Dockside inn: Selka declined second register inquiry — complaint-form familiarity noted', 'complication', `cos-selka2-fail-${G.dayCount}`);
+      } else {
+        G.flags.selka_second_register_seen = true;
+        G.investigationProgress++;
+        G.lastResult = `Selka glances at the under-counter shelf before answering, which is answer enough. "Harbor-side innkeepers keep a private log for correspondence handling. It's not unusual." She opens it to a middle page — not the beginning, not the relevant entries — and holds it at a reading angle that would be useful if you were standing behind the counter. The page shows room numbers and correspondence notations. She closes it after ten seconds. "Guests who use this inn expect discretion. I provide it. I also notice patterns."`;
+        addJournal('Selka private correspondence log confirmed — contains room-based correspondence notations, selectively shown', 'intelligence', `cos-selka2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Floating Market bonded transit column has been audited before — the same auditor, three times, always inconclusive.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing repeat audit history in the Floating Market bonded transit column');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.market_repeat_auditor_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The audit history for the bonded transit column runs to three separate reviews over eighteen months — all three conducted by the same external auditor, all three returning an inconclusive finding with identical language: "No procedural irregularity identified; record maintenance within acceptable variance." Tavian has the originals filed under a tab labeled RESOLVED, which is the correct administrative category for an inconclusive finding. The auditor's firm is registered to a Cosmouth commercial address that also appears in the ghost vessel's original registration filing. The same address, different name on the door.`;
+        addJournal('Bonded transit audited three times by same firm — auditor registered to same Cosmouth address as Pallmark Reach ghost vessel', 'evidence', `cos-audit-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Tavian stiffens slightly — not rudely, but visibly. "Audit records are under active Cosmouth administrative review. I explained this." He is correct; he did explain it. The audit files go back into the drawer he keeps them in, which is not the standard records tray. He keeps them in reach. He's been expecting the question, which means he's been expecting someone would eventually come asking it in a way that would not be helpful to answer.`;
+        addJournal('Market audit records again inaccessible — Tavian\'s drawer location of files noted', 'complication', `cos-audit-fail-${G.dayCount}`);
+      } else {
+        G.flags.market_repeat_auditor_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Tavian pulls the audit file from the drawer himself without being asked. "Three reviews. Three inconclusive findings." He opens the first one and the second and sets them side by side. The language is word-for-word identical across two separate audit reports — not similar, identical, including a punctuation choice in the third sentence that is unusual. He points to it with the end of his pen without saying anything. Someone wrote the conclusion before conducting the review.`;
+        addJournal('Three repeat audits with identical inconclusive language — conclusion appears pre-written across multiple reports', 'evidence', `cos-audit-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Cosmoria finale — the maritime transit laundering route and tidal surge mechanics are confirmed. Report to House Cosmouth authority or expose through the airship network.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
