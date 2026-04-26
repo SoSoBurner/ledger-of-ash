@@ -12487,7 +12487,7 @@ function resolveArrival(locId) {
   advanceMaren();
   G.history.push('Traveled to ' + loc.name + '.');
   if (typeof _checkSideplots === 'function') _checkSideplots();
-  updateHUD(); updateEnvironmentPanel(); saveGame();
+  updateHUD(); updateEnvironmentPanel(); buildLivingDesc(G.location, G); saveGame();
   addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
   maybeFireArrivalScene(locId);
   showStage2BridgeScene();
@@ -12525,7 +12525,7 @@ function enterDistrict(distId) {
   const parentName = (lm[parentId] && (lm[parentId].display_name_raw || lm[parentId].name)) || parentId || '';
   addNarration(dist.display_name_raw || dist.name, '<strong>' + (dist.display_name_raw || dist.name) + '</strong>. ' + sceneText);
   _maybePublicComplication(distId);
-  updateHUD(); updateEnvironmentPanel(); saveGame();
+  updateHUD(); updateEnvironmentPanel(); buildLivingDesc(G.location, G); saveGame();
   setTimeout(() => renderChoices([
     { text: 'Observe the district and read its rhythms.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
     { text: 'Look for work or leads here.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel' },
@@ -12548,7 +12548,7 @@ function enterNomdara() {
     : '';
   const flavorLine = nomdara.mobile_flavor_profile || 'The caravan is quiet between stops.';
   addNarration('Nomdara Caravan', flavorLine + (castLine ? ' ' + castLine : ''));
-  updateHUD(); updateEnvironmentPanel(); saveGame();
+  updateHUD(); updateEnvironmentPanel(); buildLivingDesc(G.location, G); saveGame();
   // Build choices from NOMDARA_STAGE2_CHOICES if available, else default service choices
   const nomChoices = (window.NOMDARA_STAGE2_CHOICES || []).slice();
   const defaults = [
@@ -13164,6 +13164,7 @@ function doTravelJourney(destId) {
 
   var origin = G.location;
   G.location = destId;
+  buildLivingDesc(G.location, G);
 
   // Fire corridor encounters
   if (typeof window._travelStartEncounter === 'function') {
