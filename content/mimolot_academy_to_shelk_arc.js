@@ -147,7 +147,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      G.lastResult = `The central Academy is three times Mimolot's size and operates on a completely open submission model — any researcher can file a study for review. But the review board that accepts or rejects submissions has a Warden Order liaison as a formal member. Ashe's predecessor held that seat for eleven years. Ashe will hold it now. Whatever the investigation network files through official channels will reach his desk.`;
+      G.lastResult = `The central Academy is three times Mimolot's size and operates on a completely open submission model — any researcher can file a study for review. But the review board that accepts or rejects submissions has a Warden Order liaison as a formal member. Ashe's predecessor held that seat for eleven years. Ashe will hold it now. Whatever is filed through the Collegium's official channels will reach his desk.`;
       G.flags.mimolot_arc_central_academy_surveyed = true;
       addJournal('Shelkopolis central Academy review board includes Warden Order liaison — Ashe now holds that seat', 'discovery', `mimolot-arc-academy-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';

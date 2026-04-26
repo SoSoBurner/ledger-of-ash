@@ -848,7 +848,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the contact." He's told the Warden Order this. They thanked him and told him to rest. The driver can't be found.`;
+        G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the plant." He's told the Warden Order this. They thanked him and told him to rest. The driver can't be found.`;
         if (!G.flags) G.flags = {};
         G.flags.met_tennen_guard = true;
         addJournal('contact', 'Convoy guard Tennen: inside contact was the second driver, Warden Order informed but took no visible action', `sunspire-tennen-${G.dayCount}`);

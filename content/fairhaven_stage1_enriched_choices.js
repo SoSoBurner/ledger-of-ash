@@ -815,7 +815,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `"Military bearing," the traveler says. "Moved like someone who has the road to themselves by right. Wasn't nervous about the sample case — carried it openly. Whoever they were, they left Fairhaven with something official enough to carry without cover." A senior operative transporting verified evidence openly. They've already completed what you're still beginning.`;
       } else if (arch === 'magic') {
-        G.lastResult = `"Carried the sample case with both hands, carefully," the traveler says. "Like something fragile. But the case was sealed, not padded. They were preserving a substance, not an object." Someone is carrying the original compound sample — or a sample of the substituted formula — out of Fairhaven for analysis. They're doing the same investigation but they're already at the laboratory stage.`;
+        G.lastResult = `"Carried the sample case with both hands, carefully," the traveler says. "Like something fragile. But the case was sealed, not padded. They were preserving a substance, not an object." Someone is carrying the original compound sample — or a sample of the substituted formula — out of Fairhaven for analysis. They're already at the laboratory stage.`;
       } else if (arch === 'stealth') {
         G.lastResult = `"Walked like they were counting their steps," the traveler says. "Looked back twice on the main road, once when they thought no one was watching. Spotted me watching them on the second check." Counter-surveillance habits. This person is professionally careful and they know they're carrying something that matters.`;
       } else {

@@ -177,9 +177,9 @@ window.BARD_MIDSPINE_NODES = [
         `The suppressed account surfaces in ${loc.name}. It names an eastern route action that was administratively erased after the fact.`;
 
       const noticeTexts = {
-        shelkopolis: 'Account recovered: Roadwarden clearance with no issuance record. The eastern route investigation has a named cargo.',
-        guildheart_hub: 'Account recovered: Shadowhands seal on Union freight. The eastern route investigation has a named transit actor.',
-        panim_haven: 'Account recovered: the convoy that officially never arrived did arrive. The eastern route investigation has a named loss event.'
+        shelkopolis: 'Account recovered: Roadwarden clearance with no issuance record. The eastern route pattern now has a named cargo.',
+        guildheart_hub: 'Account recovered: Shadowhands seal on Union freight. The eastern route pattern now has a named transit actor.',
+        panim_haven: 'Account recovered: the convoy that officially never arrived did arrive. The eastern route pattern now has a named loss event.'
       };
 
       if (r.isCrit) {
@@ -191,7 +191,7 @@ window.BARD_MIDSPINE_NODES = [
           `bard-spine-node3-crit-${G.dayCount}`
         );
         markMoment(`Recovered the suppressed account in ${loc.name}`);
-        addNotice(noticeTexts[G.location] || 'Suppressed account recovered. The investigation opens onto the eastern route.');
+        addNotice(noticeTexts[G.location] || 'Suppressed account recovered. The eastern route pattern is now documented.');
         G.lastResult = recovery + ' ' + (r.flavor || '') +
           ' The account is intact, dated, and specific. It names what moved and who cleared it. The eastern route pattern is no longer inferred — it is documented, in a source\'s own words, recovered and in your hands.';
         G.recentOutcomeType = 'investigate';
@@ -204,7 +204,7 @@ window.BARD_MIDSPINE_NODES = [
           `bard-spine-node3-${G.dayCount}`
         );
         markMoment(`Recovered the suppressed account in ${loc.name}`);
-        addNotice(noticeTexts[G.location] || 'Suppressed account recovered. The eastern route investigation is now active.');
+        addNotice(noticeTexts[G.location] || 'Suppressed account recovered. The eastern route pattern is now active.');
         G.lastResult = recovery + ' The account is recovered. The eastern route has a name, a date, and a paper trail. This is the thread everything else was attached to.';
         G.recentOutcomeType = 'investigate';
       } else if (r.isFumble) {

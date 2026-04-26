@@ -456,7 +456,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `"They were troubled," the runner says. "Not frightened — troubled. Like someone who has seen something they didn't want to see and is now deciding what to do about it." Someone was in the northeast zone personally. They saw what's happening at source. And they're now moving toward Shelkopolis with that knowledge.`;
       }
 
-      G.lastResult += ` Someone else has been in the field on this same investigation and they're ahead of you.`;
+      G.lastResult += ` Someone else has been working this same ground and they're ahead of you.`;
       if (!G.rivalId) {
         if (arch === 'combat') G.rivalId = 'warden_captain';
         else if (arch === 'magic') G.rivalId = 'archivist_veld';

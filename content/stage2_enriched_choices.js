@@ -1017,7 +1017,7 @@
 
       if (result.isCrit) {
         G.stageProgress[2]++;
-        G.lastResult = `You negotiate protection terms that are specific and achievable — two safe houses, access to your contacts in two localities, and a commitment to route warning updates when you have them. The scout network lead writes it all down and signs it with a thumbprint, which is how they do it in their circuit. The information begins arriving within three days. Current, accurate, and specific to the routes you're using.`;
+        G.lastResult = `You negotiate protection terms that are specific and achievable — two safe houses, access to your sources in two localities, and a commitment to route warning updates when you have them. The scout network lead writes it all down and signs it with a thumbprint, which is how they do it in their circuit. The information begins arriving within three days. Current, accurate, and specific to the routes you're using.`;
         addJournal('Scout network integrated', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;

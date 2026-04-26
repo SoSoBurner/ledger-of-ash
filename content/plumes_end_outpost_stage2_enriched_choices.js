@@ -50,7 +50,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_patrol_leader = true;
         G.investigationProgress++;
-        G.lastResult = `The Patrol Leader has been to the structure twice. It is a fortified supply depot with active guard rotation — Soreheim military insignia on the perimeter posts, not local Outpost authority. He was warned off on the second visit by a patrol with Warden Order badges riding under Soreheim authorization. The structure is jointly held by two factions of the investigation.`;
+        G.lastResult = `The Patrol Leader has been to the structure twice. It is a fortified supply depot with active guard rotation — Soreheim military insignia on the perimeter posts, not local Outpost authority. He was warned off on the second visit by a patrol with Warden Order badges riding under Soreheim authorization. The structure is jointly held by two factions pursuing the same leads.`;
         addJournal('Staging structure confirmed: Soreheim military + Warden Order joint control — Patrol Leader warned off', 'evidence', `plumes-patrol-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;

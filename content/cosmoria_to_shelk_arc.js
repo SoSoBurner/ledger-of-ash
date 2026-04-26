@@ -168,7 +168,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find the investigation network contact in Shelkopolis who handles maritime jurisdiction — they'll know Aldeth from the port registry.",
+    label: "Find the Shelkopolis maritime handler — they'll know Aldeth from the port registry.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

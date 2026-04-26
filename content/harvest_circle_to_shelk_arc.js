@@ -173,7 +173,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The investigation network address in Shelkopolis: a factor's office in the Ironspool Ward that handles 'commodity reconciliation.'",
+    label: "The Ironspool Ward address in Shelkopolis: a factor's office that handles 'commodity reconciliation.'",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

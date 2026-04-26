@@ -171,7 +171,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The investigation network address: a weights-and-measures office in the Ironspool Ward that handles cross-district commodity verification.",
+    label: "The Ironspool Ward address: a weights-and-measures office that handles cross-district commodity verification.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

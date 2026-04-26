@@ -359,7 +359,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       if (arch === 'combat') {
         finalText = ` Your background in operational structure makes the scale of what you're looking at clear: this isn't a corrupt official or a single bad actor. This is coordinated. You enter Shelkopolis as someone who has fought before but never against something this patient.`;
       } else if (arch === 'magic') {
-        finalText = ` The theoretical framework for atmospheric propagation and shard amplification converges with everything you've gathered. Someone with access to specialized knowledge designed this. You enter Shelkopolis knowing you're not the only one in this investigation with expertise.`;
+        finalText = ` The theoretical framework for atmospheric propagation and shard amplification converges with everything you've gathered. Someone with access to specialized knowledge designed this. You enter Shelkopolis knowing you're not the only one with expertise tracing it.`;
       } else if (arch === 'stealth') {
         finalText = ` Every operational signature you've catalogued points to a single planning methodology — the same hand in different localities. You enter Shelkopolis knowing that whoever designed this is still active and watching the threads.`;
       } else {

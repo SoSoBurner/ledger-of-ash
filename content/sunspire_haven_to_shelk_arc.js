@@ -165,7 +165,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find temporary accommodation in the Aurora Heights district — the investigation network contact address references a specific bookbinder there.",
+    label: "Find temporary accommodation in the Aurora Heights district — the handler's address references a specific bookbinder there.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

@@ -866,7 +866,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.flags.courier_drop_guildheart = true;
         addJournal('consequence', 'Independent courier channel established through wool merchant', `guildheart-courier-${G.dayCount}`);
       } else {
-        G.lastResult = `Three couriers, three conversations. All three route through the guild's message registry. One of them says it directly: "Anything that goes out of Guildheart gets logged at the desk. That's been mandatory for a year." The channel you need doesn't exist yet. Building it takes a contact you don't have.`;
+        G.lastResult = `Three couriers, three conversations. All three route through the guild's message registry. One of them says it directly: "Anything that goes out of Guildheart gets logged at the desk. That's been mandatory for a year." The channel you need doesn't exist yet. Building it takes a courier you don't have.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }

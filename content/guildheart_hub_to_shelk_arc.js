@@ -162,7 +162,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "The off-channel arbiter contact from Guildheart has a counterpart in Shelkopolis. Find them through the investigation network.",
+    label: "The off-channel arbiter from Guildheart has a counterpart in Shelkopolis. Find them through the Ironspool Ward broker.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

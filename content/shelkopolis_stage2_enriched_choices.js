@@ -114,7 +114,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.stage2_evidence_shared = true;
         G.flags.stage2_evidence_shared_crit = true;
         G.worldClocks.omens = (G.worldClocks.omens||0) + 1;
-        G.lastResult = `You spread the documents across the table and let the contact read without speaking. They finish, tap one entry, and name a third party you hadn't placed yet — someone who bridges the chapel network and the guild records. They slide the papers back: "Keep going. Carefully." The work is shared now. So is the exposure.`;
+        G.lastResult = `You spread the documents across the table and let the archivist read without speaking. They finish, tap one entry, and name a third party you hadn't placed yet — someone who bridges the chapel network and the guild records. They slide the papers back: "Keep going. Carefully." The work is shared now. So is the exposure.`;
         addJournal('Evidence shared — investigation expanded', 'evidence', `shelk-evidence-shared-${G.dayCount}`);
       } else {
         G.stage2_evidence_shared = false;

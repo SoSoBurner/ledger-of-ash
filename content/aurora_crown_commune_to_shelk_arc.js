@@ -165,7 +165,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "The investigation network contact in Shelkopolis is at a technical archive in the Aurora Heights district. They've been waiting for someone with dome documentation.",
+    label: "The Shelkopolis handler is at a technical archive in the Aurora Heights district. They've been waiting for someone with dome documentation.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
