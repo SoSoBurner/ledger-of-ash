@@ -1874,6 +1874,12 @@ input, button, select, textarea { font-family: inherit; }
         <div id="hud-heat" data-clock="heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-progress" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:3px;text-align:center;font-family:var(--font-body);letter-spacing:0.04em"></div>
       </div>
+      <div id="hud-stage-progress-wrap" class="pressure-bar-row" style="display:none;padding:0 14px 6px;">
+        <div class="pressure-bar-label" style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;">
+          <span>INVESTIGATION</span><span id="hud-stage-progress-val"></span>
+        </div>
+        <div class="skill-bar-track"><div id="hud-stage-progress" class="skill-bar-fill" style="background:var(--discovery);width:0%"></div></div>
+      </div>
       <div class="l-divider"></div>
       <div class="l-axis">
         <div class="l-axis-row">
@@ -14374,6 +14380,16 @@ function updateHUD() {
   if (document.getElementById('hud-heat-val')) document.getElementById('hud-heat-val').textContent = _maxHeat;
   if (document.getElementById('hud-heat-fill')) document.getElementById('hud-heat-fill').style.width = Math.min(100, _maxHeat*10) + '%';
   if (_pBars) _pBars.classList.toggle('has-values', _watch > 0 || _maxHeat > 0);
+  // Stage progress investigation bar
+  var _spKey = G.stage === 'Stage I' ? 1 : 2;
+  var _spVal = (G.stageProgress && G.stageProgress[_spKey]) || 0;
+  var _spMax = G.stage === 'Stage I' ? 15 : 20;
+  var _spEl = document.getElementById('hud-stage-progress');
+  var _spWrap = document.getElementById('hud-stage-progress-wrap');
+  var _spValEl = document.getElementById('hud-stage-progress-val');
+  if (_spEl) _spEl.style.width = Math.min(100, (_spVal / _spMax) * 100) + '%';
+  if (_spValEl) _spValEl.textContent = _spVal;
+  if (_spWrap) _spWrap.style.display = _spVal > 0 ? 'block' : 'none';
   // Consumable count
   var _consumCount = (G.inventory || []).filter(function(i){ return i.type === 'consumable'; }).length;
   var _consumEl = document.getElementById('hud-consumable-count');
