@@ -238,6 +238,147 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The arbitration runner knows every sealed-notice route. He doesn't know what he's been carrying.",
+    tags: ['Stage2', 'Social'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'extracting route and timing intelligence from the arbitration runner');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.runner_routes_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The runner — young, ink-stained at the cuffs, the kind of careful that comes from being corrected often — spreads his delivery route on the table between you without being asked. He traces the sealed-notice runs with a fingertip: always the same three stops, always the same sequence, and always before the second bell on the days the shadow register shows arrivals. The timing gap is thirty minutes. Enough for a party to receive notice and reach the exchange court before open session ends. He asks what the notices contain. You tell him you don't know yet either. That's the first honest thing anyone has said to him about it.`;
+        addJournal('Arbitration runner routes confirmed — sealed-notice delivery precedes shadow register arrivals by 30 min', 'evidence', `unity-runner-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The runner listens, nods, and excuses himself before the conversation reaches the routes. Ten minutes later, the shift supervisor appears at the outer court door and watches the square without approaching. The runner's loyalty is to his post, not to the parties he delivers for — but his first instinct was to report the inquiry, not answer it. The routes stay his.`;
+        addJournal('Arbitration runner approach failed — shift supervisor observed, runner did not disclose routes', 'complication', `unity-runner-fail-${G.dayCount}`);
+      } else {
+        G.flags.runner_routes_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The runner gives you the broad pattern without the specifics: always three stops, always the northern side of the square, never south of the tally towers. The notices go out before second bell. He knows the timing because he's never missed a handoff — not once, in four months. "Same windows, same sequence." He straightens the strap on his satchel. "Whoever sets the schedule doesn't miss either."`;
+        addJournal('Runner delivery pattern: 3 stops, northern side, before second bell — consistent for 4 months', 'intelligence', `unity-runner-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The unindexed charter series should appear in the Ward tax ledger. Its absence is the record.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing unindexed charter series absence in Ward tax records');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ward_tax_gap_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The Ward tax ledger for the current fiscal period runs to four bound volumes. The charter series from the shadow register should generate assessable activity — transit fees, storage duties, the standard commercial levy on consignment weight above a set threshold. None of the unindexed charter marks appear in any volume. Not assessed, not exempt, not appealed. They are structurally absent: the tax administration has no record that these charters exist. The counting house operating under them has been commercially active for at least fourteen months without generating a single tax line. That requires someone in the assessment office to actively not see them.`;
+        addJournal('Unindexed charter series absent from Ward tax ledger — active evasion requires assessment office complicity', 'evidence', `unity-tax-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The tax ledger reading room requires a stated inquiry purpose logged with the archive clerk. The clerk's notation of your inquiry category — charter cross-reference, commercial assessment — routes automatically to a supervisor review queue. The ledger volumes arrive but the relevant fiscal period is flagged as under administrative review, access restricted pending committee clearance. The gap you came to trace is now behind a closed door with your name attached to the request.`;
+        addJournal('Tax ledger access flagged — administrative review restriction, inquiry logged under your name', 'complication', `unity-tax-fail-${G.dayCount}`);
+      } else {
+        G.flags.ward_tax_gap_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `Two volumes cover the period in question. Neither contains the charter marks from the shadow register — not in the assessment index, not in the exemptions list, not in the appeals log. The archive clerk, when asked about the charter format generally, confirms that any active commercial charter generates at least one tax assessment event per quarter. Four quarters with nothing means the charter was never presented to the assessment office. Or it was presented and the record was removed.`;
+        addJournal('Unindexed charters not in tax records — either never assessed or record removed', 'intelligence', `unity-tax-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Tinmarch's patient remembers which days she got worse. Those days have a pattern.",
+    tags: ['Stage2', 'Social'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'interviewing consenting patient about symptom timeline');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.patient_symptom_timeline_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `She sits near the window with both hands around a clay cup that has been empty for a while. Her name is Senna — she offers it before you ask. The bad days, she says, were always the day after a certain kind of night: the kind where the air near the alley exchange smelled faintly chemical, like a lamp wick burnt all the way down. She has written the dates in the back of a household ledger because she is precise by habit. Twelve dates. Tinmarch's symptom peaks match ten of them exactly. The other two fall within a day on either side. She slides the ledger across the table and leaves her hand on it a moment before letting go.`;
+        addJournal('Patient Senna: 12 symptom dates match coordination meeting windows — household ledger produced as record', 'evidence', `unity-patient-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Senna is willing to talk, but the conversation surfaces more than she anticipated — describing the worst nights brings the physical memory with it, and she stops mid-sentence and sets down the cup. "I need to stop here." She isn't unwilling. She is spent. Tinmarch, when you return to him, says this happens. He suggests waiting two days before approaching again. The dates are there but not yet in hand.`;
+        addJournal('Patient interview paused — Senna willing but needs time, Tinmarch advises two-day wait', 'complication', `unity-patient-fail-${G.dayCount}`);
+      } else {
+        G.flags.patient_symptom_timeline_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `Senna describes the pattern without producing documentation: "Worse nights came in clusters. Same time of month, sometimes twice in the same week." She identifies the alley exchange as the directional source — the smell always came from that side. She doesn't have exact dates, but her description of the clustering matches the shadow register's arrival frequency closely enough that the correlation holds. She offers to check her household accounts for the specific days if that would help.`;
+        addJournal('Patient symptom clustering matches shadow register arrival frequency — household accounts may confirm exact dates', 'intelligence', `unity-patient-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Without a signature, the diplomatic exemptions expire. One administrator has been signing every renewal.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing diplomatic exemption renewal signatures to institutional enabler');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.exemption_signer_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The exemption renewal forms sit in a secondary administration archive, filed by renewal date rather than by charter. Each form requires a countersignature from the Ward's designated exemption administrator — a position that rotates on a two-year appointment. The current administrator is Vale Osken, appointed fourteen months ago, two months before the shadow register's earliest entry. Every renewal in the relevant series carries the same signature. Osken's appointment letter is in the same archive box. The letter lists his prior post: freight licensing administrator for the Guildheart Hub transit corridor. The appointment wasn't random.`;
+        addJournal('Exemption renewals signed by Vale Osken — appointed 14 months ago, prior post Guildheart Hub freight licensing', 'evidence', `unity-exemption-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The exemption renewal archive requires a departmental access code — standard procedure for administrative records above a certain sensitivity tier. The code changes monthly. The current month's code is held by the Ward supervisor on duty. When you ask for access, the supervisor's response is to check which exemption series you are requesting before deciding. He doesn't refuse — he simply does not return.`;
+        addJournal('Exemption archive access blocked — supervisor checked series before declining to return', 'complication', `unity-exemption-fail-${G.dayCount}`);
+      } else {
+        G.flags.exemption_signer_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The renewal forms are accessible but the signature on each is rendered as an administrative stamp rather than a personal mark — standard for routine counter-signatures. The stamp identifies the position, not the individual: "Designated Exemption Administrator, Ward of Unity Square." The position exists. The person holding it during the relevant period is traceable through the appointment register, which is a separate volume. The appointment register is in a different room and requires a separate access request.`;
+        addJournal('Exemption renewals stamped by position, not name — appointment register identifies current holder', 'intelligence', `unity-exemption-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Fera's northern laneway has a gatekeeper post that goes unstaffed on a schedule. Someone set that schedule.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'examining gatekeeper post logs for deliberate scheduling gaps');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.gatekeeper_schedule_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The post log is a chalk-and-slate board mounted inside the gatekeeper's box — updated by whoever holds the post, checked at shift close by the lane supervisor. The entries for the relevant windows are there but the duty column is blank: a staffing gap notation, not an absence. Staffing gaps require administrative authorization, and each one has an authorization code in the margin. All the gap-window codes trace to the same issuance: a standing order placed fourteen months ago, renewed automatically, signed by the designated exemption administrator. The laneway wasn't left open by accident or understaffing. It was opened on a schedule that was authorized in writing.`;
+        addJournal('Northern laneway post gaps authorized by standing order — same administrator who signed exemption renewals', 'evidence', `unity-gatepost-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The gatekeeper box is occupied when you reach it — not the scheduled officer, but a relief post who arrived early and is eating lunch with the log board propped against his knee. He watches you approach the whole way. The lane is well-lit at this hour, and there is no adjacent cover. He doesn't challenge you, but he closes the log board and sets it behind him before you reach the post. Whatever the board contains, you won't see it today.`;
+        addJournal('Gatekeeper post occupied by unscheduled relief — log board closed before approach', 'complication', `unity-gatepost-fail-${G.dayCount}`);
+      } else {
+        G.flags.gatekeeper_schedule_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The gap windows are in the log — twelve entries over four months, each marked with a staffing authorization code rather than a duty officer's name. The codes are formatted differently from standard lane rotation gaps, suggesting a separate authorization pathway. The lane supervisor, when asked about the code class in general terms, says standing-order codes come from the Ward administration tier, not the lane management tier. Someone above the lane level set the schedule.`;
+        addJournal('Gatekeeper gap windows on standing-order codes — authorization from Ward administration tier, not lane management', 'intelligence', `unity-gatepost-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Unity Square finale — the coordination hub is confirmed. Expose the shadow register publicly or use it to map and intercept the final operation meeting.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
