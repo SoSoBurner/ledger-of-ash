@@ -3819,9 +3819,10 @@ function getRangeModifier(attackType) {
 
 function fleeRoll() {
   var tier = (CS && CS.rangeTier) || 'close';
-  var r1 = rollD20('finesse');
+  var _fleeBon = (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0);
+  var r1 = rollD20('finesse', _fleeBon);
   if (tier === 'veryfar') {
-    var r2 = rollD20('finesse');
+    var r2 = rollD20('finesse', _fleeBon);
     return r1.total >= r2.total ? r1 : r2;
   }
   return r1;
@@ -10419,7 +10420,7 @@ function adaptSeedChoice(c) {
     action: function() {
       document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
       addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + c.text + '</em>');
-      var result = rollD20(c.skill);
+      var result = rollD20(c.skill, (typeof getEquipmentBonus === 'function' ? getEquipmentBonus(c.skill) : 0));
       if (result.total >= (c.dc || 12)) {
         try { if (c.onSuccess) c.onSuccess(); } catch(e) { console.error('[seed]', e); }
       } else {
@@ -12694,7 +12695,7 @@ function campAction(type) {
       return;
     }
     var _doCraft = function(recipe) {
-      var roll = rollD20('spirit', (G.skills.spirit || 0) + Math.floor((G.level || 1) / 3));
+      var roll = rollD20('spirit', (G.skills.spirit || 0) + Math.floor((G.level || 1) / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('spirit') : 0));
       var itemDef = ITEM_DEFS[recipe.output] || {};
       var itemName = itemDef.name || recipe.name;
       if (roll.isFumble) {
@@ -12773,7 +12774,7 @@ function campAction(type) {
           { text: 'Stay low and read them before committing.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'watch_hide',
             action: function() {
               G.flags.travel_warned_encounter = false;
-              var _wr = (typeof rollD20 === 'function') ? rollD20('finesse', G.skills ? G.skills.finesse : 0) : { total: 10 };
+              var _wr = (typeof rollD20 === 'function') ? rollD20('finesse', (G.skills ? G.skills.finesse : 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0)) : { total: 10 };
               if (_wr.total >= 12) { addNarration('Camp', 'They circle the perimeter once and move on. Road travelers, not scouts. You get a full night.', 'success'); }
               else { addNarration('Camp', 'They find the fire. You exchange wary nods with a group of route traders who wanted warmth. Nothing more.', 'partial'); }
               saveGame(); updateHUD(); setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
@@ -13071,7 +13072,7 @@ function doJourneyStart(destId) {
     var _archId = (G.archetype.id || G.archetype || '').toLowerCase();
     var _isCraftHeavy = (_archId === 'artificer' || _archId === 'engineer' || _archId === 'alchemist');
     if (_isCraftHeavy && (G.skills.spirit || 0) >= 3) {
-      var _craftRoll = (typeof rollD20 === 'function') ? rollD20('spirit', G.skills.spirit) : { total: 10 };
+      var _craftRoll = (typeof rollD20 === 'function') ? rollD20('spirit', (G.skills.spirit || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('spirit') : 0)) : { total: 10 };
       _craftUpgrade = (_craftRoll.total >= 10);
     }
   }
@@ -15364,7 +15365,7 @@ function checkSave() { /* deprecated */ }
 function useCombativeSkill(skillId) {
   var trait = (G.traits || []).find(function(t){ return t.id === skillId; });
   if (!trait || trait.used) return;
-  var r = rollD20(trait.skill || 'might', trait.bonus || 0);
+  var r = rollD20(trait.skill || 'might', (trait.bonus || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus(trait.skill || 'might') : 0));
   trait.used = true;
   var resultText;
   if (r.isCrit) {
@@ -15389,7 +15390,7 @@ function useUtilitySkill(skillId) {
   var trait = (G.traits || []).find(function(t){ return t.id === skillId; });
   if (!trait || trait.used) return;
   trait.used = true;
-  var r = rollD20(trait.skill || 'wits', trait.bonus || 0);
+  var r = rollD20(trait.skill || 'wits', (trait.bonus || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus(trait.skill || 'wits') : 0));
   var resultText;
   if (r.total >= 10) {
     resultText = trait.utilityResult || trait.name + ': You apply your expertise to good effect.';
