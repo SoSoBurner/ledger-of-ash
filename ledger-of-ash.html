@@ -10588,7 +10588,8 @@ function loadStageChoices(locId) {
         }
       });
     }
-    renderChoices(_injectBossSeedChoices(prioritizeChoices(adapted, 8)));
+    const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8);
+    renderChoices(choices);
     return;
   }
 
@@ -10628,7 +10629,10 @@ function loadStageChoices(locId) {
   // Inject authority encounter at top if heat threshold met
   var authChoiceFallback = _getAuthorityEncounterChoice(G._currentPolity || '');
   if (authChoiceFallback) base.unshift(authChoiceFallback);
-  if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(prioritizeChoices(base, 8)));
+  if (typeof renderChoices === 'function') {
+    const choices = _injectBossSeedChoices(prioritizeChoices(base, 8)).slice(0, 8);
+    renderChoices(choices);
+  }
 }
 
 function renderNavChoices() {
