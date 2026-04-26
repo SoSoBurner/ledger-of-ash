@@ -243,6 +243,148 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The certification inspector's unsigned forms are stacked three months deep — her stamp is on the record, but her eyes never were.",
+    tags: ['Stage2', 'NPC', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining unsigned certification forms with the materials inspector');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.certification_backlog_exposed = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'The inspector's tray holds sixty-three unsigned forms. She certified each batch on the master ledger the same day it arrived — but the intake log shows the materials entered the building two hours before the testing lab opened. The certification precedes the test. She looks at the stack without moving. "I sign what the allocation sheet tells me passed." The allocation sheet column for lab technician reads the same initials across three months: a name that does not appear on any active staff roster.';
+        addJournal('Certification inspector signing without testing — lab tech initials on forms belong to no active staff member', 'evidence', `craft-inspector-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The inspector stands when you approach her desk, blocking the tray from view with her body. "The certification process is an internal materials function. Queries go through the Materials Compliance Office in writing." She has already moved the tray to the shelf behind her before the sentence ends. The forms stay out of reach. Her name badge faces inward.';
+        addJournal('Inspector deflected query — forms moved out of view, written process only', 'complication', `craft-inspector-fail-${G.dayCount}`);
+      } else {
+        G.flags.certification_backlog_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = 'She points to the tray without explaining it. The forms are dated daily but the test columns are empty — blank where a result should appear. "Allocation sheets come in certified. I process them certified." She turns back to her desk. The stack is real. The gap between the date stamps and any visible test record is real. She does not say anything else.';
+        addJournal('Certification forms show no test results — materials arrive pre-certified via allocation sheet', 'intelligence', `craft-inspector-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A furnace operator runs a shift that the guild roster says does not exist.",
+    tags: ['Stage2', 'NPC', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the ghost-shift furnace operator and his unlisted wages');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ghost_shift_operator_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'The furnace operator's name is Dervel. He has worked the pre-dawn shift for eleven months. The guild payroll shows no record of him — but the furnace heat logs show his shift every third night with the precision of someone who runs the same temperature sequence each time. His wages draw from an account flagged in the material ledger as a Collegium operational disbursement. The Collegium does not operate furnaces. Someone is paying Dervel to run a furnace the guild pretends is cold.';
+        addJournal('Ghost-shift furnace operator paid from Collegium disbursement account — shift runs every third pre-dawn', 'evidence', `craft-furnace-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The furnace hall at pre-dawn is empty. The heat log clipboard is gone from its bracket. Someone has pulled it within the last hour — the bracket screw is still warm from the friction of removal. Whatever record was there is not here now. The furnace bricks radiate the specific orange-deep heat of a long operational burn. The operator left before you arrived.';
+        addJournal('Furnace heat log removed before arrival — operator cleared the scene', 'complication', `craft-furnace-fail-${G.dayCount}`);
+      } else {
+        G.flags.ghost_shift_operator_traced = true;
+        G.investigationProgress++;
+        G.lastResult = 'Dervel is at his station when you arrive, but the guild roster clipboard near the entrance does not have his name on any shift line. He does not acknowledge the discrepancy. The heat log on the furnace control panel shows eleven months of consistent entries in the same hand. His tool belt carries a calibration key for a model of regulator not listed in any Craftspire workshop inventory you have seen.';
+        addJournal('Ghost-shift furnace operator present but absent from guild roster — non-standard calibration tool observed', 'intelligence', `craft-furnace-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The transit manifest was amended after the shipment left Craftspire — the correction is in different ink.",
+    tags: ['Stage2', 'Lore', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining the amended transit manifest for the redirected precision tools');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transit_manifest_amended = true;
+        G.investigationProgress++;
+        G.lastResult = 'The amendment overwrites the destination with a routing code that resolves to a bonded holding depot outside Craftspire's jurisdiction — a depot whose registration lists a trade entity that shares an administrative address with the ghost workshop. The original destination, barely legible under the correction, is the Guild Council's own precision instruments archive. Someone redirected a tools shipment bound for the Guild's own records office. The amendment ink is Oversight Collegium standard issue.';
+        addJournal('Transit manifest amended in Collegium ink — tools redirected from Guild archive to ghost-entity depot', 'evidence', `craft-manifest-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The transit office clerk pulls the manifest copy from the outbound file and holds it at an angle that keeps the amendment line out of your direct view. "Manifest amendments are a carrier-side function. We hold the originating copy. The amended version is with the carrier." The carrier's contact information on the form is a trade post address three localities away. The clerk does not offer to forward an inquiry.';
+        addJournal('Transit amendment copy withheld — carrier-side version inaccessible from Craftspire', 'complication', `craft-manifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.transit_manifest_amended = true;
+        G.investigationProgress++;
+        G.lastResult = 'The amendment is visible in natural light: darker strokes over lighter ones, the earlier destination still legible at the right margin where the correction did not fully cover it. The new routing code sends the shipment outside Craftspire's trade district. You copy both codes before returning the manifest. The transit clerk does not stop you, but she notes the time of your visit in the access log beside the filing shelf.';
+        addJournal('Redirected tools manifest — original destination partially visible under amendment, outside-district routing code copied', 'intelligence', `craft-manifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "An auditor's defect report is statistically impossible — no workshop in Craftspire history has cleared this clean.",
+    tags: ['Stage2', 'Lore', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing the quality auditor\'s impossible defect report against historical records');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.audit_report_impossibility_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = 'The defect rate in the report is 0.003 percent across forty-two inspection rounds — a figure that would require every component to arrive pre-graded, pre-selected, and pre-certified before entering the workshop floor. That is not a manufacturing process. It is a documentation process. Comparing the report's component batch codes to the no-PO chemical inputs in Jorin's ledger, three batch codes overlap: the "zero defect" materials are the same materials with no purchase orders. The audit report is covering for unverified inputs by recording them as flawless outputs.';
+        addJournal('Impossible audit report: zero-defect batches match no-PO chemical inputs — audit laundering undocumented materials', 'evidence', `craft-audit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The Quality Standards Office keeps historical audit reports behind a certification access barrier — a brass-edged partition with a sign listing the credential classes required to review comparative defect records. Your credential class is not on the list. The clerk behind the partition gestures to a public summary board near the entrance that shows aggregate workshop performance ratings without batch-level detail. The summary shows nothing unusual.';
+        addJournal('Historical audit records credential-gated — batch-level comparison unavailable without certification access', 'complication', `craft-audit-fail-${G.dayCount}`);
+      } else {
+        G.flags.audit_report_impossibility_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = 'The historical comparison takes an hour in the reference stacks. Craftspire's workshop defect rates average between 2 and 6 percent across every recorded cycle — the variance is consistent with material quality and operator experience. The report in question shows 0.003 percent. Either this workshop operates at a precision level no Craftspire facility has ever achieved, or the number was chosen rather than measured. You copy the batch codes from the report before the reading room closes.';
+        addJournal('Audit defect rate 0.003% — statistically impossible against all Craftspire historical baselines, batch codes copied', 'intelligence', `craft-audit-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A sealed archive predates the current guild charter — and names institutions that were never supposed to exist in Craftspire.",
+    tags: ['Stage2', 'Lore', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'accessing the sealed pre-charter guild correspondence archive');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sealed_archive_accessed = true;
+        G.investigationProgress++;
+        G.lastResult = 'The earliest letters address a body called the Craftspire Oversight Collegium Provisional Bureau — a name that does not appear in any public guild founding document. The correspondence discusses material testing exemptions being granted to an unregistered workshop collective, pending formal charter integration that, based on the letters, never occurred. The Bureau apparently continued operating past the charter ratification date under a dormant authorization that was never rescinded. What is now a ghost entity started as an official provisional organ that was officially forgotten rather than officially closed.';
+        addJournal('Pre-charter archive: Oversight Collegium Provisional Bureau operated in Craftspire — never closed, became ghost entity', 'evidence', `craft-archive-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The archive box is sealed with a wax impression that carries a guild charter ratification mark — the kind applied when a document collection is formally placed into restricted holding. Breaking the seal without a Records Tribunal order is a guild infraction. The Copy Bureau clerk who brought you this far checks the seal, sets the box back in its slot, and logs the access request as incomplete. The referral goes to the Records Compliance office. You will not hear back quickly.';
+        addJournal('Sealed pre-charter archive: wax seal requires Records Tribunal order to break — referral filed', 'complication', `craft-archive-fail-${G.dayCount}`);
+      } else {
+        G.flags.sealed_archive_accessed = true;
+        G.investigationProgress++;
+        G.lastResult = 'The seal is cracked at one edge — old damage, not recent. The first visible letter is addressed to a body whose name does not match any guild institution in the current charter. The correspondence references testing exemptions and a provisional workshop authorization. You get three pages before the archivist arrives to close the reading session. The institution name and the exemption reference are in your notes before the box goes back to its shelf.';
+        addJournal('Pre-charter letters reference unchartered institution with workshop exemptions — name and authorization language copied', 'intelligence', `craft-archive-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Craftspire finale — the ghost workshop and ledger laundering confirm Craftspire as the production facility. Raid through guild authority or dismantle the supply chain from below.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
