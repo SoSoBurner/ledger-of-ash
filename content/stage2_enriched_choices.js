@@ -1957,6 +1957,235 @@
     }
   },
 
+  // ========== GLOBAL STAGE 2: Institutional Pattern Choices ==========
+
+  {
+    label: "The courier route changed three months ago. The posted notice is still the old one.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing courier route notices');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_route_discrepancy = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The route board lists three active courier lines, each with a dispatch frequency and a named relay point. The one marked for the eastern corridor shows a relay station that closed in the second month of last season — the building is still standing, but the posted dispatch frequency would require a keeper who isn't there. Someone updated the route but left the notice board unchanged. The gap isn't clerical. Deliberate omissions from public-facing records follow a pattern.`;
+        addJournal('Courier route board lists closed relay station — gap between posted notice and operational reality is intentional', 'evidence', `s2global2-courier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The dispatch office clerk has the updated route schedule, but it's an internal document — not for public distribution. You ask why the board hasn't been corrected. She looks at you the way people look when a question has a simple answer and the asker is about to get complicated. She offers to take a message for the route supervisor. The supervisor isn't in today. The board remains unchanged when you leave.`;
+        addJournal('Courier route discrepancy — internal schedule not public, route supervisor unavailable', 'complication', `s2global2-courier-fail-${G.dayCount}`);
+      } else {
+        G.flags.courier_route_discrepancy = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The relay station marked on the board closed after a charter review — the review ruling is posted inside the office, not outside it. The current route actually passes through a waystation not listed anywhere on the public board. Whoever uses this corridor regularly knows the change. Whoever depends on posted notices doesn't. That asymmetry has a use.`;
+        addJournal('Eastern courier relay closed — actual route uses unlisted waystation, public board not corrected', 'intelligence', `s2global2-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Collegium's outer-tier seals appear on documents that predate the tier's existence.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'dating Collegium seal documents');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.collegium_seal_anachronism = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The outer-tier designation was established fourteen months ago after a Guild Council amendment. The documents in front of you carry that seal on paper that the watermark dates to two seasons earlier. Whoever applied these seals either worked from a stock of pre-stamped blanks or had access to the seal before its official creation — which means access to the amendment process itself, not just its outcome. The institutional reach implied here runs higher than the documents suggest.`;
+        addJournal('Collegium outer-tier seals on documents predating the tier — seal access preceded official establishment by at least two seasons', 'evidence', `s2global2-seals-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The archive registrar notices your attention on the seal dating and asks what you're cross-referencing. Archival access for comparative seal work requires a research designation — a specific one, not a general reading permit. You don't have it. She's not unkind about it, but the documents go back into their folder and the folder goes back to the shelf. The registrar notes the inquiry in the access log.`;
+        addJournal('Seal comparison access denied — requires specific research designation, inquiry logged', 'complication', `s2global2-seals-fail-${G.dayCount}`);
+      } else {
+        G.flags.collegium_seal_anachronism = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `Three documents in the current review batch carry the outer-tier seal. Two of them are dated within the last six months — consistent with the tier's existence. The third is dated a full year earlier, before the amendment. The registrar doesn't notice; she's working through intake volume. The seal on the older document uses the same wax composition, same stamp pressure, same positioning. It wasn't added later. It was applied when the document was originally produced.`;
+        addJournal('One document in batch carries outer-tier seal predating the tier — original application, not retroactive stamp', 'intelligence', `s2global2-seals-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The night archivist's log shows entries written during hours she wasn't rostered to work.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading archivist roster against access log');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.archivist_offhours_entries = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The access log and the roster don't overlap cleanly — entries appear on three nights she wasn't scheduled, each between the second and fourth hour of the watch. The handwriting matches. The documents accessed on those nights include two manifest files marked restricted and one correspondence bundle from the Collegium's regional office. She wasn't just working late. She came in specifically, on unrostered nights, to pull exactly those files. Someone gave her access codes for her own off-hours. Someone with administrative override.`;
+        addJournal('Night archivist made three unrostered access entries — restricted manifests and Collegium correspondence pulled during off-hours with override access', 'evidence', `s2global2-archivist-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The roster ledger is kept at the duty desk, not the reading room. Getting to it required explaining why you needed staff records rather than archive materials. The explanation held long enough for a look, but not long enough to cross-reference the access log — the access log is in a different office, under a different administrative chain. The duty clerk logged your inquiry under a category that will circle back to the archivist eventually.`;
+        addJournal('Roster access interrupted — access log in separate chain, inquiry logged under archivist oversight category', 'complication', `s2global2-archivist-fail-${G.dayCount}`);
+      } else {
+        G.flags.archivist_offhours_entries = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `Two entries in the access log are dated to nights when the duty roster shows only a single watch-keeper rostered — not the archivist. The entries are brief: a pull-and-return on a manifest file, no annotation. The handwriting is careful. Whoever entered those lines was not in a hurry, but they kept the entry minimal. They knew someone might read it later.`;
+        addJournal('Two off-roster access entries in archivist handwriting — minimal annotation, restricted manifest pulled and returned', 'intelligence', `s2global2-archivist-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A broker's ledger lists three clients. The Guild registry shows only one of them as licensed.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-checking broker ledger against Guild registry');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.broker_unlicensed_clients = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The broker gives up the unlicensed client names with less resistance than expected — she's been waiting for this conversation for two months. One name is a shell trade entity she's never been able to verify in person. The second is a regional supply coordinator whose license lapsed and was never renewed but whose payments kept arriving on schedule. She kept taking the work because refusing it came with an implied consequence she couldn't document. The pattern is coercion dressed as commerce.`;
+        addJournal('Broker operating under implied coercion — two unlicensed clients, one shell entity, one lapsed coordinator; broker ready to speak', 'evidence', `s2global2-broker-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The broker closes the ledger before you finish the question. She's been through a licensing review before and knows exactly where this type of inquiry leads. She offers to have her Guild representative present before continuing and asks for your formal identification. The conversation ends there. She's not hostile — but the ledger is already locked and the key is in her coat.`;
+        addJournal('Broker closed ledger on licensing query — requested formal identification, Guild rep required for continuation', 'complication', `s2global2-broker-fail-${G.dayCount}`);
+      } else {
+        G.flags.broker_unlicensed_clients = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The broker explains the unlicensed entries as pending registry — applications filed, approvals expected. She produces copies of the applications. One has a confirmation receipt dated four months ago; the other has no receipt at all. She's not lying, exactly. She's filling in the shape of a story that doesn't fully hold. The applications exist. What they're waiting for isn't clear.`;
+        addJournal('Two unlicensed broker clients — one pending with 4-month-old receipt, one with no confirmation, applications exist but status unclear', 'intelligence', `s2global2-broker-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The transit warden stamped fourteen crates without opening one. The cargo list says dry goods.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'questioning transit warden inspection procedure');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transit_warden_uninspected = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The warden's inspection stamp log shows forty-three cargo batches in the last six weeks. Cross-referenced against the physical inspection record — a separate ledger with photo-weight signatures — eleven batches have stamps but no corresponding physical check. All eleven are from the same carrier entity. The warden's name appears on each stamp. He was present; he just didn't open the crates. That's a decision, not an oversight, and it happened across six weeks.`;
+        addJournal('Transit warden stamped 11 batches from single carrier with no physical inspection — consistent pattern across 6 weeks, not oversight', 'evidence', `s2global2-warden-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The warden doesn't answer the question about the unopened crates. He answers a different question — the one about whether dry goods require physical inspection under the current transit charter. They don't, he explains, for certified carriers with a clean compliance record. He produces the carrier's compliance certificate. It's current and properly signed. Whatever is in the crates isn't your business under that charter, and he knows the charter better than you do.`;
+        addJournal('Transit warden cited charter exemption — certified carrier dry goods exempt from physical inspection, certificate valid', 'complication', `s2global2-warden-fail-${G.dayCount}`);
+      } else {
+        G.flags.transit_warden_uninspected = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The warden looked at the cargo list but not the cargo. He says the carrier's weight declarations were within tolerance and the charter doesn't require physical inspection for certified dry goods below a certain declared value. This batch declared just under that threshold. The declared value on the manifest is handwritten in a different ink than the rest of the entry.`;
+        addJournal('14-crate transit batch uninspected — declared value handwritten in different ink, just under physical inspection threshold', 'intelligence', `s2global2-warden-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The missing quarter's supply allocation reappeared, filed under a category that didn't exist then.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing retroactively filed supply allocation');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.supply_retroactive_filing = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The allocation was filed under a "provisional logistical reserve" category — a classification that didn't exist in the archive taxonomy until this fiscal quarter. Someone went back into last season's records and retroactively assigned a category to make the missing allocation appear accounted for. The category itself is real; it was created legitimately. What's illegitimate is its application to documents that predate it. The archive system accepted the change without flagging the temporal inconsistency.`;
+        addJournal('Missing allocation retroactively filed under new category — taxonomy manipulation, archive system accepted without dating flag', 'evidence', `s2global2-supply-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The supply ledger clerk pulls the category index and shows you the classification reference. The entry exists and is properly cross-referenced. The clerk runs a record integrity check while you wait — it comes back clean. Whatever manipulation occurred is above the level the standard integrity check examines. You've reached the edge of what routine document review can surface without specialist access.`;
+        addJournal('Supply ledger integrity check returned clean — manipulation above standard review level, specialist access required', 'complication', `s2global2-supply-fail-${G.dayCount}`);
+      } else {
+        G.flags.supply_retroactive_filing = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The "provisional logistical reserve" classification appears twice in the archive: once in its actual creation record from this quarter, and once applied to the missing allocation from last season. The dates don't match. The clerk points this out herself, unprompted — she noticed it during routine intake and logged a query to the category administration office. The query hasn't been answered.`;
+        addJournal('Provisional reserve category applied retroactively — clerk noticed date mismatch, query to category admin unanswered', 'intelligence', `s2global2-supply-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The person who processed these clearances left two months ago. No one replaced her.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing vacant clearance role');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.clearance_role_vacant = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The role was not posted for replacement. The function — processing transit clearances for the mid-tier cargo categories — has continued uninterrupted since she left. Someone is doing the work without the role title, without the salary line, and without appearing in the staff register. The clearances themselves are valid; the stamps match; the authorization codes are current. Whoever took over has full institutional access and no institutional record. That combination doesn't happen accidentally.`;
+        addJournal('Clearance role vacant 2 months — function continues under unregistered operator with full access and no staff record, not accidental', 'evidence', `s2global2-clearance-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The administrative supervisor you need is the person who would normally handle this type of inquiry — but she's the one who left. Her replacement question gets referred to a deputy who covers three other functions and doesn't have context for clearance processing. He offers to pass along a message and find out who's currently handling the intake. He'll have an answer by end of week. He doesn't look certain of that.`;
+        addJournal('Clearance vacancy inquiry referred to uninformed deputy — no resolution timeline, end-of-week answer uncertain', 'complication', `s2global2-clearance-fail-${G.dayCount}`);
+      } else {
+        G.flags.clearance_role_vacant = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The staff register shows the position as "under review for consolidation" — a bureaucratic holding category that doesn't trigger a mandatory replacement timeline. The clearances processed since her departure carry valid stamps but a slightly different signature formation on the authorization line. Different hand. Someone is processing these, listed under no designation in the register.`;
+        addJournal('Clearance role under review, not replaced — different signature formation on recent clearances, processor unlisted in register', 'intelligence', `s2global2-clearance-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The duty roster pins identical shifts for three weeks. No one keeps identical shifts.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading duty roster for shift pattern anomalies');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.roster_shift_pattern = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `Natural shift variation — illness, trade, schedule adjustment — guarantees that three weeks of identical pinned assignments cannot occur without deliberate intervention. The roster has been printed rather than written, using an administrative template that locks the assignments and prevents the usual field notation. Someone with access to the administrative print function set the roster to auto-repeat and removed the notation field. The shift assignments frozen in place are for the positions that cover the mid-corridor checkpoint — the one where the uninspected crates transit.`;
+        addJournal('Duty roster auto-repeated via admin template — notation removed, frozen positions cover mid-corridor checkpoint used for uninspected cargo', 'evidence', `s2global2-roster-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The shift supervisor catches you reading the duty roster without checking in at the duty desk first. Protocol requires logging entry intent before accessing staff documents. It's a minor procedural breach, not a serious one, but it gets noted and it colors the rest of the conversation. The supervisor answers shift questions in the narrowest possible terms. The roster goes back to its position behind the desk before you've finished.`;
+        addJournal('Duty roster access procedural breach — supervisor noted entry, shift questions answered minimally', 'complication', `s2global2-roster-fail-${G.dayCount}`);
+      } else {
+        G.flags.roster_shift_pattern = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The roster is printed, not written — unusual enough that the day supervisor mentions it without being asked, attributing it to a new administrative standardization push. The assignments on the printed roster are identical across all three weeks visible on the board. Shift swaps and adjustments would normally show up as handwritten notations in the margins. There are none. The standardization push, if it exists, removed the mechanism for recording variation.`;
+        addJournal('Printed roster with no margin notations — standardization push eliminated shift variation recording mechanism', 'intelligence', `s2global2-roster-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
   // Faction 4: Red Hood Guild
   {
     cid: 'stage2_redhood_contact',
