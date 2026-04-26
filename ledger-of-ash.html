@@ -2669,6 +2669,8 @@ function addWorldNotice(text) {
   if (!G.worldNotices) G.worldNotices = [];
   G.worldNotices.unshift({ id:'dyn_'+Date.now(), text, seen:false, day:G.dayCount||0 });
   if (G.worldNotices.length > 20) G.worldNotices.pop();
+  G.newNoticeCount = (G.newNoticeCount || 0) + 1;
+  if (typeof updateHUD === 'function') updateHUD();
 }
 
 function getVisibleNotices() {
@@ -2687,6 +2689,8 @@ function showNoticesOverlay() {
   if (!el) return;
 
   if (!G.worldNotices) initWorldNotices();
+  G.newNoticeCount = 0;
+  if (typeof updateNoticesBadge === 'function') updateNoticesBadge();
 
   // Add rival notices
   (G.rivalAdventurers || []).forEach(r => {
@@ -9244,6 +9248,7 @@ function initCreate() {
         restCount:0,
         heat:{},
         tempBonuses:{},
+        newNoticeCount:0,
         schemaVersion:6 };
   _awaitingLevelUp = false;
   _activeGroupId = null;
@@ -10389,6 +10394,34 @@ function loadStageChoices(locId) {
               if (typeof loadStageChoices === 'function') loadStageChoices();
             }; }(item)
           });
+        }
+      });
+    }
+    // NPC conversation injection from LOCALITY_DATA
+    if (typeof LOCALITY_DATA !== 'undefined' && G.location && LOCALITY_DATA[G.location]) {
+      var _localityNpcs = LOCALITY_DATA[G.location].npcData || [];
+      _localityNpcs.forEach(function(npc) {
+        if (!npc || !npc.name) return;
+        var npcId = npc.name.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'');
+        var trustMet = (G.renown || 0) >= (npc.trust || 0);
+        var skillMet = !npc.skillReq || (G.skills && (G.skills[npc.skillReq] || 0) >= 2);
+        if (trustMet && skillMet && !G.flags['npc_conv_done_' + npcId + '_' + (G.dayCount || 0)]) {
+          (function(capturedNpc, capturedNpcId) {
+            adapted.push({
+              cid: 'npc_conv_' + capturedNpcId,
+              text: (capturedNpc.role ? capturedNpc.role + ' — ' : '') + ((capturedNpc.note || '').slice(0, 60) || 'has something to say.'),
+              tags: ['NPC', 'Social'],
+              plot: 'side',
+              result: function() {
+                G.flags['met_' + capturedNpcId] = true;
+                G.flags['npc_conv_done_' + capturedNpcId + '_' + (G.dayCount || 0)] = true;
+                G.lastResult = capturedNpc.note || (capturedNpc.name + ' speaks briefly. The exchange ends without resolution.');
+                G.recentOutcomeType = 'intelligence';
+                addJournal(G.lastResult, 'contact_made');
+                if (typeof checkStageAdvance === 'function') checkStageAdvance();
+              }
+            });
+          })(npc, npcId);
         }
       });
     }
@@ -12540,13 +12573,26 @@ function campAction(type) {
 // ── SLEEP / INN SYSTEM ───────────────────────────────────
 const INN_NAMES = {
   shelkopolis: { cheap: 'The Amber Fountain (common room)', comfortable: 'The Amber Fountain (private room)' },
-  fairhaven:   { cheap: 'The Waypost Arms (shared bunk)',   comfortable: 'The Waypost Arms (private room)' },
-  guildheart_hub: { cheap: 'The Charter Rest (bunk ward)', comfortable: 'The Charter Rest (factor\'s room)' },
+  fairhaven:   { cheap: 'The Road Gate Bunkhouse',          comfortable: 'The Warden\'s Rest' },
+  guildheart_hub: { cheap: 'The Guild Floor',               comfortable: 'The Arbitration Suite' },
   soreheim_proper: { cheap: 'Allocation Hall billet',       comfortable: 'Allocation Hall officer quarter' },
   aurora_crown:   { cheap: 'The Dome Shelter (common bunk)', comfortable: 'The Dome Shelter (sealed room)' },
   ashforge_citadel: { cheap: 'The Forge Rest (floor roll)',  comfortable: 'The Forge Rest (private berth)' },
-  ithtananalor:   { cheap: 'The Yard Bunk (common ward)',    comfortable: 'The Marshal\'s Lodge (private)' },
-  lantern_docket: { cheap: 'The Paper House (cot)',          comfortable: 'The Paper House (private room)' }
+  ithtananalor:   { cheap: 'The Roazian Billet',             comfortable: 'The Inspection Quarters' },
+  lantern_docket: { cheap: 'The Paper House (cot)',          comfortable: 'The Paper House (private room)' },
+  cosmoria:        { cheap: 'The Tidal Anchor',              comfortable: 'The Harbor Ledger House' },
+  panim_haven:     { cheap: 'The Memorial Ward',             comfortable: 'The Offering House' },
+  mimolot_academy: { cheap: 'The Student Annex',             comfortable: 'The Examiner\'s Lodge' },
+  shirshal:        { cheap: 'The Evidence Quarter',          comfortable: 'The Magistratus Rest House' },
+  harvest_circle:  { cheap: 'The Granary Floor',             comfortable: 'The Board House' },
+  glasswake_commune: { cheap: 'The Dome Bunk',               comfortable: 'The Commune Chamber' },
+  aurora_crown_commune: { cheap: 'The Aurora Billet',        comfortable: 'The Commune Inner Lodge' },
+  unity_square:    { cheap: 'The Open Floor',                comfortable: 'The Guild Charter Room' },
+  whitebridge_commune: { cheap: 'The Crossing Bunk',         comfortable: 'The Bridgekeeper\'s Room' },
+  craftspire:      { cheap: 'The Workshop Annex',            comfortable: 'The Spire Quarters' },
+  ironhold_quarry: { cheap: 'The Quarry Bunk',               comfortable: 'The Foreman\'s Lodge' },
+  plumes_end_outpost: { cheap: 'The Patrol Floor',           comfortable: 'The Outpost Officer\'s Room' },
+  sunspire_haven:  { cheap: 'The Haven Bunk',                comfortable: 'The Watchtower Suite' }
 };
 
 const STAGE_DREAM_HINTS = {
