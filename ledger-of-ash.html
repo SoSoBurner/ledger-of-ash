@@ -934,8 +934,13 @@ input, button, select, textarea { font-family: inherit; }
 .env-echo {
   font-style: italic;
   color: var(--ink-faint);
-  display: block;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+}
+.env-desc p {
+  margin: 0 0 6px 0;
+}
+.env-desc p:last-child {
+  margin-bottom: 0;
 }
 .env-status { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
 .env-pill {
@@ -10117,12 +10122,14 @@ function buildLivingDesc(locId, g) {
   var _key = priorityKey(g);
   var _suffixes = window.STATE_SUFFIXES && window.STATE_SUFFIXES[_tier] && window.STATE_SUFFIXES[_tier][_key];
   var _suffix = _suffixes ? _suffixes[(g.dayCount || 0) % 4] : '';
-  var _echoHtml = '';
+  var _parts = [];
   var _echo = g.narrationEcho || '';
   if (_echo && (_ot === 'success' || _ot === 'complication' || _ot === 'crit' || _ot === 'fumble')) {
-    _echoHtml = '<span class="env-echo">' + _echo.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
+    _parts.push('<p class="env-echo">' + _echo.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</p>');
   }
-  _el.innerHTML = _echoHtml + _anchor + (_suffix ? ' ' + _suffix : '');
+  if (_anchor) _parts.push('<p>' + _anchor + '</p>');
+  if (_suffix) _parts.push('<p>' + _suffix + '</p>');
+  _el.innerHTML = _parts.join('');
 }
 
 function scheduleLivingDescUpdate() {
