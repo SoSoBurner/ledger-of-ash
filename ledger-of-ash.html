@@ -1132,6 +1132,9 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn--warn2  { border-left: 3px solid #b8860b; }
 .choice-btn--warn1  { border-left: 3px solid #c87020; }
 .choice-btn--combat { border-left: 3px solid var(--danger); }
+.ability-btn { border: 1px solid var(--accent-gold); color: var(--accent-gold); background: rgba(216,154,44,0.07); margin-top: 4px; font-family: var(--font-display); font-size: 13px; padding: 6px 14px; cursor: pointer; width: 100%; text-align: left; }
+.ability-btn--spent { opacity: 0.4; cursor: not-allowed; }
+.ability-btn-area { margin-top: 8px; border-top: 1px solid var(--char); padding-top: 8px; }
 .npc-container.tension-warn, .npc-display.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
 .npc-container.tension-hot, .npc-display.tension-hot   { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
 @keyframes pulse-red { 0%,100% { box-shadow: 0 0 8px rgba(139,32,32,0.45); } 50% { box-shadow: 0 0 16px rgba(139,32,32,0.75); } }
@@ -9272,6 +9275,7 @@ function getDefaultG() {
     wounds:[], fatigue:0, recoveryState:'stable',
     npcMemory:{}, trainingDisadvantage:0,
     unlockedAbilities:[], unlockedCombatAbilities:[],
+    abilityUsedThisRest:{}, _pendingAbilityBonus:0, _pendingAbilitySkill:null, _pendingDcReduce:0,
     companions:{}, tutorialFlags:{},
     dead:false, rivalAdventurers:[],
     marenRenown:0, marenRevealed:false,
@@ -10683,6 +10687,26 @@ function renderNavChoices() {
 }
 
 /** Renders choice buttons. Overridden to call weightChoicesForArchetype() first. Clears pending debounce. @param {Object[]} choices */
+function getAbilityById(id) {
+  if (typeof ARCHETYPE_ABILITY_TREES === 'undefined') return null;
+  var archId = G.archetype ? G.archetype.id : null;
+  if (!archId) return null;
+  var tree = ARCHETYPE_ABILITY_TREES[archId] || [];
+  return tree.find(function(a){ return a.id === id; }) || null;
+}
+
+function activateAbility(abilId) {
+  if (!G.abilityUsedThisRest) G.abilityUsedThisRest = {};
+  G.abilityUsedThisRest[abilId] = true;
+  var ab = getAbilityById(abilId);
+  if (!ab) return;
+  var skillKey = ab.skillReq && ab.skillReq.skill ? ab.skillReq.skill : null;
+  G._pendingAbilityBonus = 2;
+  G._pendingAbilitySkill = skillKey;
+  addNarration(ab.name, '<p class="env-desc" style="font-style:italic">' + (ab.desc || ab.gameEffect || '') + '</p>', 'neutral');
+  renderChoices(_pendingChoices);
+}
+
 function renderChoices(choices) {
   if (_renderChoicesPending) { clearTimeout(_renderChoicesPending); _renderChoicesPending = null; }
   if (!Array.isArray(choices) || choices.length === 0) {
@@ -10806,6 +10830,22 @@ function renderChoices(choices) {
   // Trait use button — combat only
   if (CS && G.archetype && G.traits && G.traits[0] && !G.traits[0].used) {
     html += '<div class="trait-use-area"><button class="trait-use-btn" id="btn-use-trait">&#x2736; Use Trait: ' + G.archetype.trait + '</button></div>';
+  }
+
+  // Active ability buttons (ARCHETYPE_ABILITY_TREES, type:'active', once per rest)
+  var _activeAbs = (G.unlockedAbilities || []).map(function(id){ return getAbilityById(id); })
+    .filter(function(a){ return a && a.type === 'active'; });
+  if (_activeAbs.length > 0) {
+    html += '<div class="ability-btn-area">';
+    _activeAbs.forEach(function(ab) {
+      var _used = G.abilityUsedThisRest && G.abilityUsedThisRest[ab.id];
+      html += '<button class="ability-btn' + (_used ? ' ability-btn--spent' : '') + '"'
+        + ' onclick="activateAbility(\'' + ab.id + '\')"'
+        + (_used ? ' disabled' : '') + '>'
+        + (_used ? '[Used] ' : '&#x2736; ') + ab.name
+        + '</button>';
+    });
+    html += '</div>';
   }
 
   block.innerHTML = html;
@@ -11159,11 +11199,18 @@ function handleChoice(choice) {
     var _autoRollFailed = false;
     if (_autoRoll && _effectiveRoll) {
       var _arSkillVal = (G.skills && G.skills[_effectiveRoll.skill]) || 0;
+      var _abilBonus = 0;
+      if (G._pendingAbilityBonus > 0 && (!G._pendingAbilitySkill || G._pendingAbilitySkill === _effectiveRoll.skill)) {
+        _abilBonus = G._pendingAbilityBonus;
+        G._pendingAbilityBonus = 0;
+        G._pendingAbilitySkill = null;
+      }
       var _arRoll = Math.floor(Math.random() * 20) + 1;
-      var _arTotal = _arRoll + _arSkillVal;
+      var _arTotal = _arRoll + _arSkillVal + _abilBonus;
       _autoRollFailed = _arTotal < _effectiveRoll.dc;
       var _rollClass = 'roll-result ' + (_autoRollFailed ? 'failure' : 'success');
-      addNarration('', '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
+      var _abilStr = _abilBonus > 0 ? ' + ability ' + _abilBonus : '';
+      addNarration('', '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
@@ -13019,6 +13066,7 @@ function doSleep(cost, placeName, comfortable) {
       if (t && t.passive !== true) t.used = false;
     });
   }
+  G.abilityUsedThisRest = {};
   const hpGain = comfortable ? Math.floor(G.maxHp * 0.35) : Math.floor(G.maxHp * 0.2);
   G.hp = Math.min(G.maxHp, G.hp + hpGain);
   G.fatigue = Math.max(0, (G.fatigue||0) - (comfortable ? 3 : 2));
