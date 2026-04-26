@@ -33,7 +33,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Grain Measurer now protective of quota procedures', 'complication', `harvest-quotas-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Svala says measurement has been complicated lately. "Family expectations vary." They leave it there and return attention to the scale mechanism, making a small adjustment that didn't need making. The answer sits between them and the scale — close enough to the truth to confirm the question, too guarded to name anything specific. Their hands stay busy. Whatever they know, they've decided this morning isn't when they say it. The record keeper Farlan operates a different kind of access — there is still the matter of the delivery figures.`;
+        G.lastResult = `The patron-family quota boards run the full length of the market wall, tally rolls pinned beneath each listing by the field output brokers. Svala says measurement has been complicated lately. "Family expectations vary." They leave it there and return attention to the scale mechanism, making a small adjustment that didn't need making. The answer sits between them and the scale — close enough to the truth to confirm the question, too guarded to name anything specific. Their hands stay busy. Whatever they know, they've decided this morning isn't when they say it. The record keeper Farlan operates a different kind of access — there is still the matter of the delivery figures.`;
         addJournal('Grain Measurer confirmed inconsistent quota measurements', 'evidence', `harvest-quotas-pressure-${G.dayCount}`);
       }
 
@@ -69,7 +69,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Varik calls it a complicated season. "Pricing reflects a lot of variables." He doesn't enumerate the variables. The price sheets stay in the drawer — he pats its edge once, a habit, then catches himself doing it. His answers are technically responsive and practically empty, built to close the subject without appearing to. The pen goes back in his hand. The conversation is over by his reckoning.`;
         addJournal('Market Broker confirmed non-standard pricing practices', 'evidence', `harvest-prices-evasive-${G.dayCount}`);
       } else {
-        G.lastResult = `Varik shakes his head before you finish the question. "Market rates are internal to the Harvest Circle brokerage. Not for external discussion." He turns back to his ledger, and the pen moves before you've stepped away from the counter — not writing anything that matters, but demonstrating that the transaction of this conversation is complete. The conversation ends by his accounting. The ledger occupies his hands for longer than the entry requires.`;
+        G.lastResult = `Grain storage sits at the market's far end, the harvest crew organization boards posted outside its doors, tally rolls current through the morning. Varik shakes his head before you finish the question. "Market rates are internal to the Harvest Circle brokerage. Not for external discussion." He turns back to his ledger, and the pen moves before you've stepped away from the counter — not writing anything that matters, but demonstrating that the transaction of this conversation is complete. The conversation ends by his accounting. The ledger occupies his hands for longer than the entry requires.`;
         addJournal('Pricing records blocked without broker authorization', 'evidence', `harvest-prices-blocked-${G.dayCount}`);
       }
 
