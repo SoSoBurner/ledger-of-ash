@@ -11087,7 +11087,7 @@ function handleChoice(choice) {
     addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     const _rSkill = G.skills[choice.skill] || 0;
     const _rRoll = Math.floor(Math.random() * 20) + 1;
-    const _rDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 12 : 15;
+    const _rDiff = choice.tag === 'safe' ? 8 : choice.tag === 'risky' ? 13 : 16;
     const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
     addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
     resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
@@ -11185,7 +11185,7 @@ function handleChoice(choice) {
     var _autoRoll = null;
     if (!choice.roll) {
       var _tier = choice.tag || 'risky';
-      var _dc = _tier === 'safe' ? 7 : _tier === 'bold' ? 15 : 12;
+      var _dc = _tier === 'safe' ? 8 : _tier === 'bold' ? 16 : 13;
       // Stage modifier: +1 per stage above Stage I
       var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
       _dc += _stageBonus;
@@ -11251,7 +11251,7 @@ function handleChoice(choice) {
 
   const roll = Math.floor(Math.random() * 20) + 1;
   const total = roll + skillVal + traitBonus + oneTime + disadvantage + eqBonus + compBonus;
-  const baseDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 12 : 15;
+  const baseDiff = choice.tag === 'safe' ? 8 : choice.tag === 'risky' ? 13 : 16;
   // Stage DC scaling: +1 per stage to keep challenges meaningful as stats grow
   const _stageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
   // Axis flip DC modifier: +2 for days 0-3, +1 for days 4-6 after flip

@@ -132,7 +132,7 @@ Skills render in `updateHUD()` (~line 10862) and `renderCharacterSheet()` (~line
 
 ## DC Reference
 
-Base DCs: safe=7, risky=12, bold=15. Stage modifier: +1 per stage (Stage I=+0 … Stage V=+4). Additional: axis flip +1–2, severe weather +1.
+Base DCs: safe=8, risky=13, bold=16. Stage modifier: +1 per stage (Stage I=+0 … Stage V=+4). Additional: axis flip +1–2, severe weather +1.
 
 ## Combat Entry
 
