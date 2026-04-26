@@ -281,6 +281,162 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The supplier authorization came from a committee that has not met in six months.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing filtration chemical supplier change through Warden Sera Whiteglass records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_warden_sera_whiteglass = true;
+        G.flags.aurora_supplier_change_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Sera lays the chemical procurement file on her desk and opens it to the authorization page. The supplier change — from the commune's established filtration vendor to Northern Provision Compact — was approved under the founding charter technical committee's standing authority. She shows you the committee's last meeting record: eight months ago. The compound class Northern Provision Compact supplies isn't in the commune's approved substance registry. She signed off on it because the authorization looked formal. She looks at the page for a long moment. "This committee has not convened since before the deliveries began," she says. She closes the file slowly, then opens it again.`;
+        addJournal('Filtration supplier change authorized by dormant charter committee — compound class unregistered', 'evidence', `aur-sera-supplier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The procurement file sits in the dome administration archive under a classification tier that requires Sera's own counter-authorization to access — a protocol she put in place after the quarantine bypass anomalies. She initiates the authorization while you watch, which generates a security log entry for the archive access. Someone auditing the dome's archive activity will see it. The file will take until the following morning to clear. She notes the time. You note the log.`;
+        addJournal('Procurement archive access flagged — security log entry generated', 'complication', `aur-sera-supplier-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_warden_sera_whiteglass = true;
+        G.investigationProgress++;
+        G.lastResult = `Sera pulls the supplier change authorization and reads it through once before she hands it to you. The founding charter technical committee signed off on it. She shows you the committee's meeting schedule on the wall calendar — the last session was eight months ago. "They have standing authority," she says. "The authorization was technically valid." She taps the compound class listed for Northern Provision Compact. "That class is not in our approved registry." She's already started a second file on the desk, pulling records in sequence.`;
+        addJournal('Filtration supplier approved by dormant committee — compound class outside approved registry', 'intelligence', `aur-sera-supplier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The residents nearest the filtration intake have been attending the shrine the most.",
+    tags: ['Stage2', 'NPC', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'mapping shrine resensitization attendance against filtration intake geography');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_liora_sealwater = true;
+        G.flags.aurora_intake_geography_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Liora spreads the resensitization attendance log across the shrine counter and you set the commune residential map next to it. The match is clean. Residents in the intake corridor's ventilation catchment area — a wedge shape running from the filtration room out through the eastern quarters — account for eighty percent of the shrine's increased attendance over four months. Liora traces the wedge boundary with her finger, following the housing blocks. "These are the residents I see weekly now," she says. "A year ago, monthly." She draws a circle at the intake position on the map. Her finger stays there. "The dose is heaviest at the source."`;
+        addJournal('Shrine resensitization attendance maps to intake catchment zone — exposure gradient confirmed', 'evidence', `aur-liora-geo-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = `The resensitization records are categorized under medical doctrine, not community health data — a classification Liora applies strictly. She explains this without apology. Sharing the records requires the resident's consent or the medical board's written authorization; cross-referencing them against geographic data would compound the breach. "The records are here to protect people," she says. "Not to be mapped." She gestures toward the door. Not unkindly. The distinction she draws is real, and she will enforce it.`;
+        addJournal('Resensitization records protected under medical doctrine — geographic cross-reference refused', 'complication', `aur-liora-geo-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_liora_sealwater = true;
+        G.investigationProgress++;
+        G.lastResult = `Liora looks at the residential map for a long time before she says anything. She doesn't use the attendance records — doctrine is doctrine. But she talks through what she's observed without opening a file: the residents she sees weekly now. She describes which parts of the commune they come from, working from memory. You mark the map as she speaks. When she stops, the marks cluster at the intake corridor end of the eastern quarters, radiating outward. She looks at the cluster. "I didn't put it in those terms before," she says quietly.`;
+        addJournal('Shrine attendant locates intake-adjacent resident cluster from memory — exposure pattern consistent', 'intelligence', `aur-liora-geo-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Theron Sealwater knows what the third-bell crates contain. He's decided not to.",
+    tags: ['Stage2', 'NPC', 'Social'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'pressing Theron Sealwater on east storage bay crate movements');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_theron_sealwater = true;
+        G.flags.aurora_theron_crates_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `Theron stops moving when you describe the third bell. His hand finds the edge of the filtration access door frame and he keeps it there, fingertips pressed into the seal edge — a specific pressure, like he's measuring something. "I move what I'm given a movement order for," he says. Then he is quiet for long enough that it stops being a pause and becomes something else. "The order says east storage bay. It doesn't say what's in them." He looks at his hand on the frame. "The crates are labeled Class-C chemical transport. I looked up what that class covers." He doesn't say what it covers. He is still looking at his hand.`;
+        addJournal('Theron logged Class-C chemical crate movements to east bay at third bell — aware of compound class', 'evidence', `aur-theron-crates-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Theron's response is simple and immediate: he received a porter briefing from dome administration at the start of the month covering what discussions about cargo movement are permitted with external parties. That briefing included the third-bell crates. He names it without tension, the way he might name a departure time. He will not discuss it further. He goes back to his routing board, picks up a pencil, and resumes marking. He was not rude. He will not help.`;
+        addJournal('Theron briefed by administration — third-bell cargo off-limits to external discussion', 'complication', `aur-theron-crates-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_theron_sealwater = true;
+        G.investigationProgress++;
+        G.lastResult = `Theron's hand goes to the door frame before he answers — two fingers against the seal edge, a brief press. "Porter protocol: I move what the order says, I don't open what I'm not clearing." He meets your eyes once. "The orders come from the filtration access corridor. They go to the east storage bay." He doesn't say what time. He doesn't say how often. He picks up his routing board. His fingers leave a smudge on the door seal that stays after he moves away.`;
+        addJournal('Theron confirms crate movements from filtration corridor to east bay — movement order source noted', 'intelligence', `aur-theron-crates-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dismissed technician still lives here. She didn't dispute the dismissal.",
+    tags: ['Stage2', 'NPC', 'Stealth'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'locating dismissed filtration technician and accessing her personal technical log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_dismissed_technician_found = true;
+        G.investigationProgress++;
+        G.lastResult = `She answers the door immediately, as if she was expecting it to be someone eventually. Her name isn't on the dismissal record — just her role and the administrative reason. She has a copy of her technical log for the six months before her dismissal, kept in a cloth-wrapped sleeve under the worktable. "Inadequate record-keeping," she says, setting the sleeve on the table. "I kept detailed records. That was the problem." The log covers the compound introduction in month three: compound class, delivery source, intake concentrations. She recorded the smell anomaly on day two. Her dismissal order is dated four days after that entry.`;
+        addJournal('Dismissed technician log shows compound introduction noted and anomaly recorded — dismissal followed four days later', 'evidence', `aur-tech-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The quarter near the filtration access is small enough that a stranger moving through it at an off-hour is noticed before they reach the address. A dome steward falls in behind you two blocks out — routine, unhurried, but consistent. When you reach the technician's residence the door doesn't open. The following morning a notation appears in the dome administration visitor log: external party, filtration quarters, unannounced, evening hours. Someone added a cross-reference to your name at the dome checkpoint.`;
+        addJournal('Filtration quarters patrol noted — steward surveillance triggered, visitor log entry created', 'complication', `aur-tech-fail-${G.dayCount}`);
+      } else {
+        G.flags.aurora_dismissed_technician_found = true;
+        G.investigationProgress++;
+        G.lastResult = `She doesn't introduce herself. She opens the log to the month the new compound arrived and sets it on the table between you without explanation. "I recorded the intake concentrations every delivery. The smell was wrong from the first one." She turns to the page with her dismissal date marked in the margin. "I'd submitted two anomaly reports by then." The log is complete. It covers the period before her dismissal. She did not give up her copy when she left because no one asked her to.`;
+        addJournal('Dismissed technician log confirms compound anomaly reported before dismissal — two reports on file', 'intelligence', `aur-tech-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Ten times the annual maintenance supply. None of it in the maintenance stores.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing dome sealant surplus via Cadrin Sealwater market supply ledger');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_cadrin_sealwater = true;
+        G.flags.aurora_sealant_surplus_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Cadrin lays the purchase record and the maintenance inventory side by side on the counter. The dome sealant purchase — four months ago, quantity sufficient for a decade of standard maintenance — shows a delivery address in the commune's maintenance stores. The current inventory shows three months of standard supply. The gap between purchased and present is nine-tenths of the original order. Cadrin runs the arithmetic twice. "It was received," he says. "Signed and received. Then it moved." He checks the transfer log. There is no outbound entry. "Whatever it moved into, it moved off the books."`;
+        addJournal('Dome sealant surplus received and logged — nine-tenths transferred off-book, no outbound record', 'evidence', `aur-cadrin-sealant-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The finance committee notification went out when you accessed the main supply ledger earlier. When you pull the dome sealant line item separately, a second notification generates automatically — two external access events in the same ledger category triggers an escalation flag. Cadrin shows you the escalation notice on his screen with the expression of someone who has now been involved in something he didn't choose. "The committee chair will have this before the end of the day," he says. He closes the ledger.`;
+        addJournal('Second ledger access triggered escalation flag — finance committee chair notified', 'complication', `aur-cadrin-sealant-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_cadrin_sealwater = true;
+        G.investigationProgress++;
+        G.lastResult = `Cadrin finds the sealant purchase in thirty seconds — a line item that size is not easy to miss once you know to look. He checks the maintenance inventory without being asked. "Received and signed for four months ago. Current stores hold about a month's worth of normal use." He does the subtraction on the ledger margin, pencil, no calculator. "The rest isn't in any maintenance record." He underlines the number. "If it was moved, it was moved without a transfer entry." He does not speculate about where it went.`;
+        addJournal('Dome sealant bulk purchase confirmed — surplus absent from all maintenance records', 'intelligence', `aur-cadrin-sealant-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Aurora Crown finale — the dome population is being dosed through a compromised filtration system. Expose through Warden Whiteglass's official channel or immediately disable the supply chain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
