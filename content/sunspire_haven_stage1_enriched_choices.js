@@ -58,7 +58,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Lysander chooses a corner of the market hall before he speaks. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means." He keeps his hands folded. "Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to.`;
+        G.lastResult = `Lysander chooses a corner of the market hall before he speaks. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means." He keeps his hands folded. "Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to. The registry is a public document. This season's waivers and increases will be in the record.`;
         G.stageProgress[1]++;
         addJournal('Broker revealed obligation system weaponization', 'evidence', `sunspire-broker-obligations-${G.dayCount}`);
       } else if (result.isFumble) {

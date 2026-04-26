@@ -25,7 +25,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Aurek leans against the counting-house rail so his back is to the crane operators below. His voice drops under the chain noise. "Scheduling used to follow tides and declared cargo. Now I receive a list — berth two goes to Halvern's brig, berth seven stays empty until Cosmouth's factor authorizes. Independent captains sit at anchor until the tide turns against them. I've filed three complaints. Two went missing. One came back stamped 'reviewed.'" He stops talking when a stevedore passes with a ledger under his arm.`;
+        G.lastResult = `Aurek leans against the counting-house rail so his back is to the crane operators below. His voice drops under the chain noise. "Scheduling used to follow tides and declared cargo. Now I receive a list — berth two goes to Halvern's brig, berth seven stays empty until Cosmouth's factor authorizes. Independent captains sit at anchor until the tide turns against them. I've filed three complaints. Two went missing. One came back stamped 'reviewed.'" He stops talking when a stevedore passes with a ledger under his arm. The two complaints that disappeared were filed at the harbor registry. Whatever reviewed them left a trail.`;
         G.stageProgress[1]++;
         addJournal('Stable Factor revealed corrupted maritime trade route system', 'evidence', `cosmoria-trade-routes-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -102,7 +102,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine Caretaker barred you from faith record access', 'complication', `cosmoria-rituals-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Maris says the communion form was updated at the start of this tide cycle — new language in the tide-oath, a different sequence for the water-sealing at the end. "Doctrine evolves," she says. She recites it like something she rehearsed. When you ask who authorized the change she names a Cosmouth administrative body you haven't heard of before.`;
+        G.lastResult = `Maris says the communion form was updated at the start of this tide cycle — new language in the tide-oath, a different sequence for the water-sealing at the end. "Doctrine evolves," she says. She recites it like something she rehearsed. When you ask who authorized the change she names a Cosmouth administrative body you haven't heard of before. The same body name appears in the ward charter amendments from the past eight months.`;
         addJournal('Shrine Caretaker confirmed recent ritual modifications', 'evidence', `cosmoria-rituals-changed-${G.dayCount}`);
       } else {
         G.lastResult = `Maris says ritual records are restricted to initiated caretakers. Her answer is polite and complete and tells you nothing. The ritual text you need is written on a board inside the water gate — visible from the threshold but not from outside it. You are standing outside it.`;
@@ -174,7 +174,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Ward Mediator prohibited further mediation questions', 'complication', `cosmoria-mediation-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Nerissa says ward disputes have been "unusually contentious this cycle." She describes one case — a mooring rights dispute between an independent fisher and a Cosmouth brig captain — and the way she tells it, the reasoning she applied, doesn't match the ruling she issued. She notices you noticing. "I applied the standard framework," she says. She doesn't repeat it.`;
+        G.lastResult = `Nerissa says ward disputes have been "unusually contentious this cycle." She describes one case — a mooring rights dispute between an independent fisher and a Cosmouth brig captain — and the way she tells it, the reasoning she applied, doesn't match the ruling she issued. She notices you noticing. "I applied the standard framework," she says. She doesn't repeat it. The ruling she issued is in the public case summary index — the reasoning she filed is on record.`;
         addJournal('Ward Mediator confirmed recent mediation bias patterns', 'evidence', `cosmoria-mediation-biased-${G.dayCount}`);
       } else {
         G.lastResult = `Nerissa explains that case records are sealed for sixty days per ward protocol. Summaries are available through the district clerk's office with a party-of-interest certification. You are not a party of interest. She writes down the clerk's address on a slip of paper and hands it over. Her handwriting is precise. One independent merchant who held the mooring rights in the dispute she described would qualify as a party of interest — and the case summary index is public.`;
@@ -282,7 +282,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Shipwright community warned about your quality inquiry', 'complication', `cosmoria-shipwright-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The shipwright admits inspection timelines have been "inconsistent." She points at two vessels in adjacent berths — one approved in a day, one delayed for nine. She doesn't say which house flags they're carrying, but she doesn't have to. You can read the pennants yourself. "Standards evolve," she says. She picks up her adze.`;
+        G.lastResult = `The shipwright admits inspection timelines have been "inconsistent." She points at two vessels in adjacent berths — one approved in a day, one delayed for nine. She doesn't say which house flags they're carrying, but she doesn't have to. You can read the pennants yourself. "Standards evolve," she says. She picks up her adze. The appeal log for the delayed vessel's correction review is in the public guild record.`;
         addJournal('Shipwright confirmed inconsistent quality standard application', 'evidence', `cosmoria-shipwright-evasive-${G.dayCount}`);
       } else {
         G.lastResult = `The shipwright tells you inspection records are guild-sealed and not available without a build commission. Without one, you can walk the public berths and look at the hulls yourself. Two adjacent berths hold vessels from different flag affiliations — one Cosmouth, one independent — with visibly different join tolerances at the waterline. The inspection panel that approved both is the same panel. The appeal log for the independent vessel's correction review is in the public guild record.`;

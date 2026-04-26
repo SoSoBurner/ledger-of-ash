@@ -58,7 +58,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Ilya sets two documents side by side on the cart bench — the original agreement and what she received after filing. The column for storage access fees reads differently in each. "Signed copy. Amended copy. Same reference number." She taps the date on the amendment. It predates her notification by eleven days. "I didn't agree to these terms. I was informed I already had."`;
+        G.lastResult = `Ilya sets two documents side by side on the cart bench — the original agreement and what she received after filing. The column for storage access fees reads differently in each. "Signed copy. Amended copy. Same reference number." She taps the date on the amendment. It predates her notification by eleven days. "I didn't agree to these terms. I was informed I already had." The amendment carries her reference number. Whoever filed it left a name in the amendment registry.`;
         G.stageProgress[1]++;
         addJournal('Merchant revealed trade agreement post-signing manipulation', 'evidence', `guildheart-merchant-agreements-${G.dayCount}`);
       } else if (result.isFumble) {
