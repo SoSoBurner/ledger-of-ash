@@ -15208,14 +15208,7 @@ function updateStageProgressBar() {
   var progress  = (G.stageProgress && G.stageProgress[stageNum]) ? G.stageProgress[stageNum] : 0;
   fill.style.width = Math.min(100, Math.round((progress / threshold) * 100)) + '%';
   var _pLabel = document.getElementById('stage-progress-label');
-  if (_pLabel) {
-    _pLabel.textContent = 'Stage Progress: ' + progress;
-    _pLabel.style.fontFamily = 'var(--font-display)';
-    _pLabel.style.fontSize = '10px';
-    _pLabel.style.color = 'var(--ink-faint)';
-    _pLabel.style.letterSpacing = '1px';
-    _pLabel.style.marginTop = '2px';
-  }
+  if (_pLabel) _pLabel.textContent = progress + ' / ' + threshold;
 }
 
 function updateAlignmentHUD() {
