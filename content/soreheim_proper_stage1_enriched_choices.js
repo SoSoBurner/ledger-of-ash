@@ -343,7 +343,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Management restricted access to quota system information', 'complication', `soreheim-quota-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why. In the older set, entries run day by day through the full production season until the twenty-third of the second quarter month; they resume on the eighth of the third — fifteen days absent, no annotation marking the gap, no closing entry, no resumption note. The log continues after as though the fifteen days were not missing.`;
+        G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why. In the older set, entries run day by day through the full production season — then stop. They resume eleven days later with no annotation, no closing entry for the gap, no note of suspension. The ink on the resumption day is slightly different in weight from the surrounding pages, as though the pen was taken up again after a long pause and pressed harder at first. The eleven days are simply absent.`;
         addJournal('Quota system modifications confirmed', 'evidence', `soreheim-quota-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The quota board outside the administration building shows this week's targets in fresh paint. The numbers are large. The methodology behind them lives inside the building, behind a desk with a stamp on it. The stamp belongs to someone who isn't available to speak with you today. The junior clerk Davel works the evening shift alone — he files documents into a system whose dating key he doesn't hold, which means someone above him does.`;
@@ -923,6 +923,22 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_rival_seeded = true;
       addJournal('warning', 'Rival-adjacent figure confirmed following the inquiry trail in Soreheim', `soreheim-rival-shadow-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // SUPPRESSION: PAST-SEASON LEDGER REFUSED WITHOUT EXPLANATION
+  {
+    label: "A past-season ledger is a routine request. The refusal was not routine.",
+    tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'reading institutional refusal pattern');
+
+      G.lastResult = `The registry window looks out onto the shift yard. Morning light comes in hard from the east, catching the dust on the sill. The clerk finds the relevant section without needing to search. "That filing is not available at this registry level." No pause. No hesitation. She sets her pen back against the column she was working and does not look up again. No hostility — just completion. The transaction is finished. There is no next step she is offering, and no question she has left room for. The refusal has been given before. The phrasing was chosen in advance for exactly this request.`;
+      addJournal('Soreheim Proper registry — past-season ledger request refused at counter level without explanation. Refusal language was prepared.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
     }
   },
 
