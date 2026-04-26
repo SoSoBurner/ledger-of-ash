@@ -17,7 +17,7 @@
     plot: 'side',
     result: function () {
       var polity = 'shelk';
-      addNarration('Road Wardens Order',
+      addNarration('Roadwardens Order',
         'The warden sets his ledger on the gatehouse shelf before he speaks. ' +
         'He reads the warrant number aloud — a long sequence, recited without looking up. ' +
         'Only then does he say your name. The form is already open to the correct page. ' +
@@ -91,7 +91,7 @@
     plot: 'side',
     result: function () {
       var polity = 'mimolot';
-      addNarration('Book Tariff Office',
+      addNarration('Mimolot Book Tariff Office',
         'The assessor holds your document up against the window light without ceremony. ' +
         'He turns it once, then opens the exemption register to a tabbed page. ' +
         'His finger moves down the column slowly — not because he is slow, ' +
@@ -216,7 +216,7 @@
     plot: 'side',
     result: function () {
       var polity = 'sheresh';
-      addNarration('Route Warden Compacts',
+      addNarration('Sheresh Route Warden Compacts',
         'The compact officer takes your crossing documentation without looking at you first. ' +
         'She holds each page up against the checkpoint lamp — the one mounted high so forgeries show. ' +
         'Her expression gives nothing back. The barrier behind her is down; ' +
@@ -266,7 +266,7 @@
     plot: 'side',
     result: function () {
       var polity = 'nomdara';
-      addNarration('Bond Registry Ring',
+      addNarration('Nomdara Bond Registry Ring',
         'The bond clerk\'s seal kit is spread across the wagon\'s fold-down table — ' +
         'wax, three stamps, a narrow ledger, and a witness rod laid parallel to the edge. ' +
         'Every transaction here is witnessed; the rod signals that someone else is already watching. ' +
