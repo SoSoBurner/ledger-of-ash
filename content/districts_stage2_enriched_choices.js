@@ -587,6 +587,150 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // ── NEW CHOICES (5) ─────────────────────────────────────────────────
+
+  {
+    label: "The ward constable's patrol log skips three nights in a row — the gap lines up with the container transfers.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing constable patrol log gaps with container transfer dates');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_patrol_gap_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The constable's patrol log for the low ward sits in an open ledger at the district hall — three nights in the past two months logged as "re-routed, administrative order," each one signed with an authorization code that traces to the Reckoning Quarter magistrate's office rather than the local watch captain. On those same nights, the container transfer records from Ironspool Ward show delivery windows to a bonded yard three streets over. The patrol gaps were arranged. The magistrate's authorization code is written in the same hand on all three entries, dated in advance.`;
+        addJournal('Low ward: patrol gap on container transfer nights — Reckoning Quarter magistrate pre-authorized constable re-routing', 'evidence', `dist-patrol-gap-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The duty clerk at the district hall sets the patrol log spine-down on the desk as soon as the relevant dates are mentioned. She doesn't reach for another log or offer to check a secondary record. She writes something on a slip and feeds it through the wall slot behind her. The patrol records for those nights have already been noted by someone who anticipated this inquiry — the slot behind the clerk's left shoulder leads to a box that is emptied twice daily, and today's note will not wait for the afternoon collection.`;
+        addJournal('Low ward patrol log inquiry escalated — district hall clerk flagged request', 'complication', `dist-patrol-gap-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_patrol_gap_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The patrol log entries for those three nights are marked "administrative re-route" in a cleaner hand than the surrounding entries — someone copied the notation from a template rather than writing it fresh. The authorization code in the margin is partially legible: two letters and a district prefix that matches the Reckoning Quarter magistrate's standard filing block. Three gaps, three container windows, one authorization source. The match is not proof of arrangement. It is close to it.`;
+        addJournal('Low ward patrol log: three gaps with Reckoning Quarter authorization codes matching container transfer nights', 'intelligence', `dist-patrol-gap-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The bonded yard keeper keeps a private ledger — every irregular load he accepts goes in the back column, unnamed.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'pressing the bonded yard keeper for off-books intake records');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_yard_keeper_turned = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The yard keeper — a heavyset man named Torvel Mast, with a guild pin he turns face-in whenever the subject shifts to money — produces the back-column ledger from a locked drawer beneath the intake desk without much preamble. He is tired of holding it. Three loads in two months: sealed containers, advance payment in coin, a handling note specifying the exact ward patrol window during which delivery was timed. The handling notes are signed with the same charter subsidiary code that appears in the Aurora Heights filings. Torvel keeps his eyes on the wall while you copy the entries. He doesn't ask what you're going to do with them.`;
+        addJournal('Bonded yard keeper Torvel Mast: back-column ledger — charter subsidiary code on handling notes, patrol windows pre-specified', 'evidence', `dist-yard-keeper-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Torvel Mast listens with his arms crossed and his weight planted, the posture of a man who has decided before the question ends. He runs an authorized bonded yard — his words — and everything in it is documented to standard. The drawer under the intake desk doesn't move. He's already calculating whether the visit warrants a notification to the yard's charter holder. The answer, from the way he picks up his pen, is yes. Whatever protection the back-column provides him, losing it to outside inquiry isn't worth the alternative.`;
+        addJournal('Bonded yard keeper: refused access, notification likely sent to charter holder', 'complication', `dist-yard-keeper-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_yard_keeper_turned = true;
+        G.investigationProgress++;
+        G.lastResult = `Torvel Mast doesn't produce the back ledger, but he confirms it exists — taps the desk over the drawer once with two fingers without looking at it. "Three loads. Timing was specified in advance, down to the patrol window." He pauses. "That's not normal yard intake language." He won't let the entries be copied tonight, but he names the delivery window pattern: always the same three-hour bracket, always on nights that corresponded to the low ward administrative re-routes. He knows what the alignment means. He hasn't decided what to do about it yet.`;
+        addJournal('Bonded yard: three loads with pre-specified patrol windows confirmed verbally — back ledger not produced', 'intelligence', `dist-yard-keeper-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The transit road's weight-check station keeps a shadow manifest for loads that bypass the standard inspector.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'locating shadow manifests at the eastern transit road weight station');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_shadow_manifest_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The weight-check station's overflow room holds a box of manifests folded the wrong way — spine inward, so the routing numbers don't show when the box lid is open. Six manifests in the box: non-agricultural loads listed under grain routing codes, each stamped with a sealed charter authorization that waived the weight inspection requirement. The authorization stamp is the same on all six. The inspector who processed them initialed beside each stamp and didn't log a single one in the standard transit record. His initials are on the last manifest dated four days ago. The loads are still moving.`;
+        addJournal('Transit weight station shadow manifests: 6 non-ag loads under grain codes, charter waiver stamp, off-log', 'evidence', `dist-shadow-manifest-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The weight-check station's day inspector is on his regular round when the visit happens, and someone at the incoming road flag post has already sent a runner ahead. By the time the overflow room question is raised, the station supervisor has appeared at the far end of the corridor — clipboard in hand, moving at the deliberate pace of someone with authority to ask who authorized this visit. The shadow manifests, if they were there, are not visible from the public corridor. The supervisor's question arrives before any answer can.`;
+        addJournal('Transit weight station: visit flagged ahead by road post, supervisor intercepted approach', 'complication', `dist-shadow-manifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_shadow_manifest_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The overflow room isn't locked — just an unmarked door at the end of the inspection corridor. The box inside holds manifests separated from the main log, folded inward. Four of them visible at a glance: grain routing codes, non-agricultural cargo, charter authorization stamps in the top corner. The inspector who processed them didn't log the weights. The stamp format matches what has appeared in the Aurora Heights records, but the box is shallow and only partially full. More loads than this have moved through here — these are the ones that didn't get filed away properly.`;
+        addJournal('Transit weight station: 4 shadow manifests found — charter auth stamp, no weight logs', 'evidence', `dist-shadow-manifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A displaced tenant from the dome terminal complaint eviction — she kept her notice papers and knows who served them.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'tracing dome terminal eviction to the displaced tenant');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_tenant_witness = true;
+        G.investigationProgress++;
+        G.lastResult = `The woman — Bela Croft, still carrying her possessions in two cloth bundles — unfolds the eviction papers from her coat's inner pocket with the practiced care of someone who has unfolded them many times. The housing review carries the Aurora Heights registrar's counter-mark in the lower corner. The server was not a constable: a man in a plain grey coat, no guild mark, no badge, carrying a notary seal she had never seen before. He read the notice aloud and left before she could ask his name. The seal impression in the wax on the notice is not in any public notary register she or her building neighbor checked afterward.`;
+        addJournal('Dome terminal eviction witness Bela Croft: Aurora Heights registrar mark on notice, unknown notary seal — server not affiliated with any registered constable body', 'evidence', `dist-tenant-witness-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The low ward's street network moves information quickly, and word of an outsider asking about the dome terminal evictions reaches Bela Croft before the approach. She is gone from the corner where she was reported to stay — two women nearby confirm she moved to another ward this morning, which is not entirely true and also not entirely false. The community is protecting her. Whatever outside attention the eviction drew before, it did not end well enough for her neighbors to trust the next inquiry.`;
+        addJournal('Dome terminal eviction witness: community protection, location withheld', 'complication', `dist-tenant-witness-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_tenant_witness = true;
+        G.investigationProgress++;
+        G.lastResult = `Bela Croft produces the eviction notice without being asked — she keeps it folded small in her coat lining. The registrar's counter-mark is in the lower corner, exactly where the Aurora Heights records suggested it would be. The server's description: plain grey coat, notary seal carried in a leather case, no greeting, no guild mark visible. He waited until she had read it before leaving. She tried to find his registration afterward and found nothing. The notice itself is real. The authority behind it is not documented anywhere she could reach.`;
+        addJournal('Dome terminal eviction: Bela Croft witness statement — registrar mark confirmed, unregistered notary', 'intelligence', `dist-tenant-witness-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The ghost entity's charter subsidiary stamping tool was ordered from a Scriptorium Steps copy house — the order slip is still in the bindery log.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing charter subsidiary stamp manufacture through Scriptorium bindery log');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_stamp_origin_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The bindery log at the Scriptorium Steps copy house carries an order entry from eleven months ago: a commission for a single-impression seal block, custom-cut to a charter subsidiary format not in any standard catalog. The order was placed under a Mimolot Academy reference number that the bindery accepted without verification — Academy commissions bypass the standard identity check. The delivery address on the order slip is an Iron Ledger Ward box number that was closed two weeks after the stamp was collected. The craftsman who cut the block initials the entry in a hand that shakes slightly; he remembered the commission because the substrate was harder than standard and the caller never came back for a second impression. The stamp exists. Someone is carrying it.`;
+        addJournal('Scriptorium bindery: custom charter subsidiary seal commissioned under false Academy reference — delivery address closed two weeks post-collection', 'evidence', `dist-stamp-origin-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The bindery supervisor pulls the order log for the relevant period and pages through it while standing, which means she isn't going to offer a seat or a long look. She finds the entry — or finds the gap where it should be. The page is continuous except for a two-line space that has been neatly razored and re-bound, the thread pulled tight and pressed flat. The removal was done with professional care. Whoever cleaned this entry knew the bindery's record-keeping well enough to leave the surrounding entries intact. The log has been visited before this visit.`;
+        addJournal('Scriptorium bindery log: order entry razored out — professional removal, prior visit suspected', 'complication', `dist-stamp-origin-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_stamp_origin_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The bindery log entry is intact: a custom seal order, charter subsidiary format, placed eleven months ago under an Academy reference number. The craftsman's initials are in the margin — a small looping signature the supervisor confirms is his without checking twice. The delivery address is listed as an Iron Ledger Ward box; whether that box is still active is a separate question. The order was paid in advance, cash, no receipt copy retained by the customer. The format of the charter subsidiary cut matches the stamping pattern visible on the Aurora Heights filings.`;
+        addJournal('Scriptorium bindery: charter subsidiary seal order found — format matches Aurora Heights stamp pattern', 'evidence', `dist-stamp-origin-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
   {
     label: "Low ward's labor underground — workers who handled off-books cargo for extra pay know more than they told their handlers.",
     tags: ['Combat', 'Stealth', 'Stage2'],
