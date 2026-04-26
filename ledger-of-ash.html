@@ -10710,9 +10710,96 @@ function activateAbility(abilId) {
   G.abilityUsedThisRest[abilId] = true;
   var ab = getAbilityById(abilId);
   if (!ab) return;
-  var skillKey = ab.skillReq && ab.skillReq.skill ? ab.skillReq.skill : null;
-  G._pendingAbilityBonus = 2;
-  G._pendingAbilitySkill = skillKey;
+
+  var ABILITY_EFFECTS = {
+    // warrior
+    wa_endure:            { type: 'heal',       hp: 4 },
+    wa_rally:             { type: 'roll_bonus', skill: 'persuasion', bonus: 2 },
+    // knight
+    kn_shield_wall:       { type: 'heal',       hp: 3 },
+    // ranger
+    ra_wilderness_craft:  { type: 'heal',       hp: 4 },
+    // paladin
+    pa_detect_injustice:  { type: 'dc_reduce',  skill: 'lore',       amount: 2 },
+    pa_mandate:           { type: 'dc_reduce',  skill: 'persuasion', amount: 2 },
+    // archer
+    ar_called_shot:       { type: 'roll_bonus', skill: 'combat',     bonus: 2 },
+    // berserker
+    be_last_stand:        { type: 'roll_bonus', skill: 'combat',     bonus: 4 },
+    // wizard
+    wz_arcane_ward:       { type: 'dc_reduce',  skill: 'lore',       amount: 3 },
+    // cleric
+    cl_sanctuary:         { type: 'dc_reduce',  skill: 'persuasion', amount: 3 },
+    cl_restoration:       { type: 'heal',       hp: 8 },
+    // priest
+    pr_ritual_healing:    { type: 'heal',       hp: 5 },
+    // necromancer
+    nc_read_the_dead:     { type: 'roll_bonus', skill: 'lore',       bonus: 3 },
+    // illusionist
+    il_phantom_presence:  { type: 'roll_bonus', skill: 'stealth',    bonus: 3 },
+    // inquisitor
+    iq_pressure_method:   { type: 'roll_bonus', skill: 'lore',       bonus: 2 },
+    // elementalist
+    el_elemental_ward:    { type: 'dc_reduce',  skill: 'lore',       amount: 3 },
+    // rogue
+    ro_quick_exit:        { type: 'roll_bonus', skill: 'stealth',    bonus: 3 },
+    // assassin
+    as_target_study:      { type: 'roll_bonus', skill: 'combat',     bonus: 2 },
+    as_vanish:            { type: 'roll_bonus', skill: 'stealth',    bonus: 4 },
+    // spellthief
+    st_borrowed_power:    { type: 'roll_bonus', skill: 'lore',       bonus: 2 },
+    // scout
+    sc_forward_position:  { type: 'roll_bonus', skill: 'combat',     bonus: 2 },
+    // thief
+    th_sleight:           { type: 'roll_bonus', skill: 'stealth',    bonus: 3 },
+    // trickster
+    tr_misdirect:         { type: 'dc_reduce',  skill: 'persuasion', amount: 2 },
+    // healer
+    hl_emergency_care:    { type: 'heal',       hp: 10 },
+    // artificer
+    af_field_repair:      { type: 'roll_bonus', skill: 'craft',      bonus: 3 },
+    af_improvised_device: { type: 'dc_reduce',  skill: 'craft',      amount: 2 },
+    // engineer
+    eg_fortify:           { type: 'heal',       hp: 3 },
+    // tactician
+    tc_coordinated_action:{ type: 'roll_bonus', skill: 'lore',       bonus: 2 },
+    // alchemist
+    al_field_synthesis:   { type: 'heal',       hp: 6 },
+    // saint
+    sn_sanctified_ground: { type: 'dc_reduce',  skill: 'persuasion', amount: 3 },
+    sn_testimony:         { type: 'roll_bonus', skill: 'persuasion', bonus: 4 },
+    // bard
+    bd_captivate:         { type: 'dc_reduce',  skill: 'persuasion', amount: 3 },
+    // oracle
+    or_terminus:          { type: 'dc_reduce',  skill: 'lore',       amount: 3 },
+    // warden
+    wd_interpose:         { type: 'heal',       hp: 3 },
+    wd_last_stand_w:      { type: 'roll_bonus', skill: 'combat',     bonus: 2 },
+    // warlord
+    wl_order:             { type: 'roll_bonus', skill: 'persuasion', bonus: 3 },
+    wl_hold_ground:       { type: 'roll_bonus', skill: 'combat',     bonus: 2 },
+    // death knight
+    dk_finish_it:         { type: 'roll_bonus', skill: 'combat',     bonus: 3 }
+  };
+
+  var effect = ABILITY_EFFECTS[abilId];
+  if (effect) {
+    if (effect.type === 'roll_bonus') {
+      G._pendingAbilityBonus = effect.bonus;
+      G._pendingAbilitySkill = effect.skill;
+    } else if (effect.type === 'dc_reduce') {
+      G._pendingDcReduce = (G._pendingDcReduce || 0) + effect.amount;
+    } else if (effect.type === 'heal') {
+      G.hp = Math.min(G.maxHp || 20, (G.hp || 0) + effect.hp);
+      if (typeof updateHUD === 'function') updateHUD();
+    }
+  } else {
+    // Fallback for ability IDs not in the dispatch table
+    var skillKey = ab.skillReq && ab.skillReq.skill ? ab.skillReq.skill : null;
+    G._pendingAbilityBonus = 2;
+    G._pendingAbilitySkill = skillKey;
+  }
+
   addNarration(ab.name, '<p style="font-style:italic;color:var(--ink-dim)">' + (ab.desc || ab.gameEffect || '') + '</p>', 'neutral');
   renderChoices(_pendingChoices);
 }
@@ -11278,7 +11365,9 @@ function handleChoice(choice) {
   const weatherMod = weatherSev >= 4 ? 1 : (weatherSev >= 3 && isOutdoor ? 1 : 0);
   const levelMod = Math.floor(((G.level || 1) - 1) / 2);
   var _heatMod = (G._heatDCMod || 0);
-  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0);
+  var _dcReduce = (G._pendingDcReduce || 0);
+  if (_dcReduce > 0) G._pendingDcReduce = 0;
+  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0) - _dcReduce;
   const success = total >= diff;
   const partial = !success && total >= diff - 4;
 
