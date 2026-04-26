@@ -276,6 +276,132 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The charter exemption number she cited was written for diplomatic pouches, not bulk cargo.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining sealed container weight exemption with shipping clerk');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_weight_exemption_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The clerk — Bessa, her name burned into the station plate at her elbow — sets the exemption index flat and runs her finger to the column without being asked. Charter class 7-F: diplomatic sealed correspondence, weight not declared for security of state. The sealed containers are listed as 7-F on every northern convoy manifest for the past six months. She turns the index so you can read the weight threshold for 7-F: twelve pounds. The containers moving through Sunspire's staging yard run between four hundred and nine hundred pounds each. Her finger stays on the threshold line.`;
+        addJournal('Northern convoy containers claim 7-F diplomatic exemption — weight threshold exceeded by 75x', 'evidence', `sun-weight-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Bessa closes the exemption index and sets it square with the station edge. "Exemption classification queries go to the Adjudicator's office, not staging clerks." Her tone does not rise. She writes something in her station log — the date, the nature of the query — and caps the ink without looking up. The entry is made before you have turned to leave. Her supervisor's office is visible through the glass partition, and the supervisor has already lifted his eyes from his own work.`;
+        addJournal('Weight exemption query logged at staging station — supervisor notified', 'complication', `sun-weight-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_weight_exemption_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Bessa pulls the index without ceremony and opens it to class 7-F. Diplomatic sealed correspondence. She reads the threshold aloud — twelve pounds — and then looks at the staging manifest on her desk without touching it. "I cite the number because the paperwork requires a citation. The paperwork has always required a citation." She closes the index. She does not say that the discrepancy is obvious, because she has already decided not to be the one who says it.`;
+        addJournal('7-F diplomatic exemption applied to bulk cargo — staging clerk aware of weight discrepancy', 'intelligence', `sun-weight-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The backup archive was last accessed the week the suppression requests started.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing Knowledge Registry backup access logs');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_backup_archive_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The off-site archive sits in a stone outbuilding behind the main registry — door unlocked, visitor log hanging inside on a peg. Six months back, one entry: a name written in a hand that presses hard enough to groove the page, followed by a charter reference number and the word "compliance." The date is three days before the first suppression request arrived at Taldan's desk. The same charter reference number runs through the container modification work orders. The visitor's name is not in any local family roll.`;
+        addJournal('Backup archive accessed 3 days before first suppression request — same charter ref as container work orders', 'evidence', `sun-backup-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The outbuilding door opens onto a clerk who was not expected to be there — Taldan's junior archivist, cataloguing by lamplight. She does not ask what you are doing. She writes the time in her own log, notes the visitor, and goes back to cataloguing. Her log entry will reach Taldan's desk in the morning report. The visitor log on the peg is visible but she has moved her lamp between you and it without appearing to do so deliberately.`;
+        addJournal('Backup archive visit logged by junior archivist — Taldan notified by morning', 'complication', `sun-backup-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_backup_archive_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The visitor log shows one entry in the last year — six months back, a charter reference and the notation "compliance review." The date is close to when Taldan's suppression files start. The name attached to the visit is written in careful block letters, not cursive, which is unusual for registry procedure. Whether the name is real or assumed cannot be determined from the log alone, but the charter reference number is legible and matches at least one number already in the file.`;
+        addJournal('Off-site archive: one visitor six months ago, charter ref matches existing file — name unverified', 'intelligence', `sun-backup-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The withdrawn contract dispute has a reference number and no resolution on file.",
+    tags: ['Stage2', 'Persuasion'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing withdrawn contract dispute in Elyra Mossbane patronage portfolio');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_mossbane_dispute_traced = true;
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Elyra sets her hand flat on the patronage ledger and does not open it. "Researcher Lenn Orvaith filed a contract dispute two months ago and withdrew it three days later. The reference number exists. The resolution does not." Her thumbnail finds the ledger's spine and stays there. "Orvaith's funded research was on glyph pressure dispersal. It went quiet at the same time the dispute closed." She looks at a point past your shoulder. "I have not heard from him since the withdrawal."`;
+        addJournal('Mossbane patronage: Orvaith withdrew dispute 3 days after filing — glyph dispersal research went silent same week', 'evidence', `sun-dispute-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Elyra's hand closes the ledger before the question finishes. "Patronage portfolio matters are patron-family private." Her thumbnail finds the spine and stays there. "The researcher in question withdrew the dispute voluntarily. That is the record." She exhales through her nose — small, controlled — and the ledger does not move again. The conversation has a shape she has given to it, and she is holding that shape until you leave.`;
+        addJournal('Mossbane declined to discuss withdrawn researcher dispute — portfolio private', 'complication', `sun-dispute-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_mossbane_dispute_traced = true;
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Elyra opens the ledger to the dispute entry and taps the reference number with one finger. A funded researcher filed, then withdrew three days later. No resolution record. The research topic — glyph pressure work — is listed as "suspended pending review." She keeps her finger on the entry. "I do not know why it was withdrawn. I know the researcher did not contact me before he withdrew it." She closes the ledger with both hands, squaring the cover.`;
+        addJournal('Mossbane ledger: glyph research dispute withdrawn without patron contact — research suspended', 'intelligence', `sun-dispute-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The sealed bay was listed as testing infrastructure. The question is what it is testing.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'examining sealed component bay in machinery section');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_sealed_bay_examined = true;
+        G.flags.met_kael_emberthrone = true;
+        G.investigationProgress++;
+        G.lastResult = `The bay door is unlocked — Kael has not said this, but he has also not said otherwise. Inside: a low stone table, glyph-scored in a grid pattern across the surface, with brass anchor points at each corner. The scoring is the same depth and spacing as the marks in the grain storehouse wall. A pressure-sampling array, full scale. The anchor points match the external dimensions of the modified containers. The bay was not built to test infrastructure. It was built to calibrate the containers to a specific glyph saturation threshold before they shipped north.`;
+        addJournal('Sealed bay: full-scale glyph pressure calibration rig, container-matched anchor points — purpose was pre-shipment calibration', 'evidence', `sun-bay-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Kael's hand finds the bay door before you reach it — not blocking, simply present, the flat of his palm against the panel. "ORE-adjacent construction permit means ORE inspection rights. An outside party in that space during an active permit window creates a compliance flag for the whole facility." He does not raise his voice. He is explaining procedure, and the procedure is the lock. A compliance flag affects every other operation under his oversight. He waits for you to step back.`;
+        addJournal('Sealed bay access refused — ORE inspection rights invoked, compliance flag risk cited', 'complication', `sun-bay-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_sealed_bay_examined = true;
+        G.flags.met_kael_emberthrone = true;
+        G.investigationProgress++;
+        G.lastResult = `The bay is narrow, stone-floored, with a low table at center and a set of brass anchor points spaced along its edges. The anchor point spacing is wider than standard workshop fixtures. The table surface carries shallow scoring in a grid — not random wear, too even. Kael stands at the door and says nothing, which is its own answer. The dimensions of the anchor point array are close enough to the container specs in his requisition records to ask whether they are the same.`;
+        addJournal('Sealed bay contains brass anchor array matching container dimensions — table scoring consistent with pressure calibration', 'intelligence', `sun-bay-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Sunspire Haven finale — the convoy modification workshop and knowledge suppression campaign confirm Sunspire as an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
