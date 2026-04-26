@@ -968,7 +968,43 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     G.flags[key] = true;
     drawLocalityRumor(G.location);
   }
-}
+},
+  {
+    label: "The barkeep remembers faces. She hasn't forgotten mine.",
+    tags: ['Tavern', 'Social', 'NPC'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      gainXp(50, 'talking to the barkeep');
+      var result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3) + (typeof getTraitBonus==='function'?getTraitBonus('persuasion'):0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
+      if (result.total >= 8) {
+        G.lastResult = "Maret wipes down the counter and doesn't look at you when she talks. She mentions a manifest clerk who's been drinking alone three nights running — starting the evening the southern shipment arrived. She doesn't say what was in it. She sets down a second cup without being asked. That's the closest she comes to endorsing your line of work.";
+        G.flags = G.flags || {};
+        G.flags.shelk_barkeep_manifest_thread = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.recentOutcomeType = 'success';
+        addJournal('Maret (barkeep): manifest clerk drinking alone since the southern shipment arrived', 'intelligence');
+      } else {
+        G.lastResult = "Maret refills the cup and moves on. She's not unfriendly — she just doesn't know you well enough yet to be useful.";
+        G.recentOutcomeType = 'neutral';
+      }
+    }
+  },
+  {
+    label: "There's a room upstairs and a reason to stay another night.",
+    tags: ['Inn', 'Rest', 'Social'],
+    xpReward: 40,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      gainXp(40, 'staying at the inn');
+      G.hp = Math.min(G.maxHp, (G.hp||0) + 5);
+      G.lastResult = "The room is narrow and the mattress is stuffed with something that isn't quite wool. The innkeeper — a man named Fessel who records everything in a small ledger — notes your arrival without comment. He does say the room above yours was vacated this morning, two days early. He says it the way you say things you want someone else to follow up on.";
+      G.recentOutcomeType = 'neutral';
+      addJournal('Fessel (innkeeper): room above vacated two days early this morning', 'intelligence');
+    }
+  }
 ];
 
 // Sideplot injection — shelk-fairhaven ledger shadow opening hook

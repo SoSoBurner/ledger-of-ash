@@ -51,7 +51,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The dates line up exactly. Every major glyph surge in the south market broke within thirty-six hours of a sealed letter arriving at the chapel — without exception, across eleven incidents. The letters are either triggering the surges or confirming them after the fact. Either reading puts the chapel at the center of both. You have a physical timeline now, and the timeline holds.`;
+        G.lastResult = `The dates line up exactly. Every major glyph surge in the south market broke within thirty-six hours of a sealed letter arriving at the chapel — without exception, across eleven incidents. The letters are either triggering the surges or confirming them after the fact. Either reading puts the chapel at the center of both. You have a physical timeline now, and the timeline holds. Someone has made a second record of your transit today — the handwriting on the secondary ledger is not Collegium standard. Red Hood keeps its own accounting.`;
         addJournal('Glyph-letter pattern correlation confirmed', 'evidence', `shelk-glyph-corr-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -443,7 +443,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `The scorch patterns don't radiate from a center — they lean. The damage is heavier on the northwest-facing surfaces of every stall that burned. The surge was channeled in from outside the market, not generated within it. Northwest means the archival quarter. Channeling a surge requires working knowledge of the city's underground glyph grid — the kind of knowledge that's held by fewer than a dozen people with active registry credentials.`;
+        G.lastResult = `The scorch patterns don't radiate from a center — they lean. The damage is heavier on the northwest-facing surfaces of every stall that burned. The surge was channeled in from outside the market, not generated within it. Northwest means the archival quarter. Channeling a surge requires working knowledge of the city's underground glyph grid — the kind of knowledge that's held by fewer than a dozen people with active registry credentials. The figure at the far table has not ordered anything in two hours. Red Hood does not announce itself. It simply notes where you are.`;
         addJournal('Glyph surge directed — northwest origin confirmed', 'evidence', `shelk-glyph-read-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;

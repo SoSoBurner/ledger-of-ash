@@ -414,6 +414,102 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The workshop quota board shows production targets no legitimate craft operation could meet.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining workshop quota targets against registered capacity');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      if (result.isCrit) {
+        G.flags.quota_board_discrepancy_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The quota board covers three floors of the ledger balcony, each row a registered workshop entity with its output target for the quarter. One row is set at four times the capacity listed in the guild registry for that workshop — a physical impossibility given the workshop's registered floor space and equipment inventory. The registered inspector's approval mark is at the end of the row. When you locate the same inspector's other quota approvals, all four of the ghost entity's workshop assignments carry the same mark. He approved quotas for a workshop he never visited. The capacity numbers came from somewhere other than the floor.`;
+        addJournal('Craftspire quota board: ghost entity workshop approved at 4x registered capacity — same inspector mark across all four ghost assignments', 'evidence', `craft-quota-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The quota board is a working administrative document — the guild floor coordinator intercepts before the relevant row is fully read. Quota records are internal production data, not accessible to unaffiliated review. A notation goes into the access log before you reach the corridor. The coordinator's pen moves quickly; he's practiced at writing descriptions efficiently.`;
+        addJournal('Quota board access blocked — access log notation completed', 'complication', `craft-quota-fail-${G.dayCount}`);
+        G.recentOutcomeType = 'complication';
+      } else {
+        G.flags.quota_board_discrepancy_found = true;
+        G.investigationProgress++;
+        G.lastResult = `One row on the lower ledger balcony board runs well above the surrounding entries — output targets that would require continuous operation across registered floor space with no margin for equipment downtime. The inspector approval mark is there. No secondary verification notation. Standard quota approvals at this level require two marks. This row has one. The second mark's absence is either an oversight or it was never submitted for review.`;
+        addJournal('Quota board: single-mark approval on oversize ghost workshop target — second mark absent', 'intelligence', `craft-quota-partial-${G.dayCount}`);
+        G.recentOutcomeType = 'neutral';
+      }
+      if (!result.isFumble) G.recentOutcomeType = result.isCrit ? 'success' : 'neutral';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The copy tower's materials intake log has a category for compounds that no registered copy process uses.",
+    tags: ['Archive', 'Stage2', 'Observation'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'cross-checking copy tower materials intake log against registered process categories');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      if (result.isCrit) {
+        G.flags.copy_tower_intake_anomaly = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The copy tower's materials intake log classifies incoming compounds under eleven standard categories, each corresponding to a registered copy process in the guild's technical charter. A twelfth category appears in the log beginning six months ago — no charter reference, no process code, just a running tally of received volume. The category label is "Specialty Fixative — Exempt." The exempt designation bypasses the intake inspection that all other categories require. Seventeen entries across six months, always arriving in the same delivery window as the no-PO chemical inputs Jorin logged. The copy tower is not copying anything with these compounds. They pass through the intake log and disappear.`;
+        addJournal('Copy tower intake log: unlisted exempt category receives compounds matching Jorin no-PO inputs — 17 entries, no process code', 'evidence', `craft-copytower-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The copy tower intake desk operates under a separate administrative charter from the main workshop floor — the clerk on duty cites it immediately when the materials log is requested. Internal intake records are charter-restricted. An access petition routes through the Copy Bureau document director and carries a fourteen-day review window. Filing it announces the question to the director's office before any answer arrives.`;
+        addJournal('Copy tower intake access requires charter petition — director notified on filing', 'complication', `craft-copytower-fail-${G.dayCount}`);
+        G.recentOutcomeType = 'complication';
+      } else {
+        G.flags.copy_tower_intake_anomaly = true;
+        G.investigationProgress++;
+        G.lastResult = `The intake log is visible at the public counter — posted daily summaries, not the full intake record. The daily summary shows eleven compound categories with volume totals. A hand has written a running tally in the summary margin for a twelfth category with no printed column. The margin notation begins six months ago. The clerk who posts the summaries writes it in without being asked and without attaching a category name. It appears between two standard entries as if it belongs there.`;
+        addJournal('Copy tower daily summary: uncategorized margin tally running 6 months — no label, no process code', 'intelligence', `craft-copytower-partial-${G.dayCount}`);
+        G.recentOutcomeType = 'neutral';
+      }
+      if (!result.isFumble) G.recentOutcomeType = result.isCrit ? 'success' : 'neutral';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The guild registry's supply chain ledger shows a materials broker who filed a complaint and then withdrew it the same day.",
+    tags: ['NPC', 'Stage2', 'Observation'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing withdrawn supply chain complaint in Craftspire guild registry');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
+      if (result.isCrit) {
+        G.flags.supply_broker_complaint_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The broker — a compact woman named Heln Varris who keeps her invoice ledgers in a waxed canvas roll she carries on her belt — filed the complaint at the ninth bell and withdrew it before the second bell the following morning. She is direct about why: someone came to her workshop between those two bells and left a sealed letter with no return address. The letter contained a correct accounting of her remaining supply contracts, her outstanding debts to three specific creditors, and a note explaining that the complaint would make the accounting public. She withdrew the complaint and has not filed anything since. The original complaint described specialty chemical inputs arriving without purchase orders and being redirected to a workshop entity she could not find in the trade registry. She kept a copy of the complaint. It is in the waxed canvas roll on her belt.`;
+        addJournal('Supply broker Heln Varris: withdrew complaint after sealed letter with financial leverage — complaint copy retained, describes no-PO compounds and ghost workshop entity', 'evidence', `craft-broker-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The broker's workshop is locked mid-morning — unusual. A neighbor says Heln Varris closed early three days ago and has not reopened. No notice posted. The guild registry shows her license as active and her last compliance filing as current. Her workshop door has a chalk mark on the lower left corner that was not there last week. It is not a Craftspire guild mark.`;
+        addJournal('Supply broker workshop closed without notice — door carries unidentified chalk mark', 'complication', `craft-broker-fail-${G.dayCount}`);
+        G.recentOutcomeType = 'complication';
+      } else {
+        G.flags.supply_broker_complaint_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Heln Varris confirms she filed and withdrew a complaint in the same day. She gives the reason in a single sentence and does not elaborate: "It became clear that filing had costs I hadn't anticipated." She opens the waxed canvas roll slightly — far enough to confirm the papers inside are there, not far enough to show them. "I still have the original. If the situation changes, I have options." She closes the roll and tightens the strap.`;
+        addJournal('Supply broker acknowledges complaint and retained copy — declined to produce without changed circumstances', 'intelligence', `craft-broker-partial-${G.dayCount}`);
+        G.recentOutcomeType = 'neutral';
+      }
+      if (!result.isFumble) G.recentOutcomeType = result.isCrit ? 'success' : 'neutral';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = CRAFTSPIRE_STAGE2_ENRICHED_CHOICES;

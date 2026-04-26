@@ -903,7 +903,27 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
     G.flags[key] = true;
     drawLocalityRumor(G.location);
   }
-}
+},
+  {
+    label: "The dockside tavern has a different kind of ledger — who owes whom.",
+    tags: ['Tavern', 'Social', 'Maritime'],
+    xpReward: 55,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      gainXp(55, 'at the dockside tavern');
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getTraitBonus==='function'?getTraitBonus('lore'):0));
+      if (result.total >= 11) {
+        G.lastResult = "The barman at the Anchor counts his coin between every exchange — a habit, not suspicion. He mentions that the southern berths have been rotating faster than seasonal demand explains. Two vessels arrived, took on no cargo, and left within a day. He doesn't know what that means. He knows it isn't nothing.";
+        G.recentOutcomeType = 'success';
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        addJournal('Cosmoria dockside: two vessels arrived with no cargo uptake, left within a day', 'intelligence');
+      } else {
+        G.lastResult = "The barman is polite and uninformative. The dockworkers aren't talking where a stranger can hear. The round costs more than it should.";
+        G.recentOutcomeType = 'neutral';
+      }
+    }
+  }
 ];
 
 // Sideplot injection — cosmoria harbor weight fraud opening hook

@@ -116,7 +116,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_selka_tideglass = true;
         G.investigationProgress++;
-        G.lastResult = `Selka thinks about it for a moment, then shrugs. "Books, pays full, leaves by evening. Eighteen times." She wipes the counter again. "Good business for me. Something about it that isn't good business for someone else, I'd guess." She puts the cloth down. She's willing to say that much because it doesn't cost her anything.`;
+        G.lastResult = `Selka thinks about it for a moment, then shrugs. "Books, pays full, leaves by evening. Eighteen times." She wipes the counter again. "Good business for me. Something about it that isn't good business for someone else, I'd guess." She puts the cloth down. She's willing to say that much because it doesn't cost her anything. Before she can continue, her attention goes to the far door. She folds the paper and says nothing more. You recognize the specific silence of someone who has seen what Red Hood does to people who talk.`;
         addJournal('Shipping agent using inn as short-stay transit address', 'evidence', `cos-selka-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

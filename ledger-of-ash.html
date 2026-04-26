@@ -10623,6 +10623,13 @@ function loadStageChoices(locId) {
         }
       });
     }
+    // Inject Stage 2 Shadowhands arc choices when applicable
+    if (G.stage === 'Stage II' && window.STAGE2_SHADOWHANDS_ARC) {
+      var _shadowArc = window.STAGE2_SHADOWHANDS_ARC.filter(function(c) {
+        return !c.condition || c.condition();
+      }).map(adaptEnrichedChoice);
+      if (_shadowArc.length) adapted.unshift.apply(adapted, _shadowArc);
+    }
     const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8);
     renderChoices(choices);
     return;
@@ -11914,12 +11921,15 @@ function checkStageAdvance() {
   if (_sp1n >= 9 && !G.flags.progress_notice_9) {
     G.flags.progress_notice_9 = true;
     if (typeof addWorldNotice === 'function') addWorldNotice('You are close to something. Whatever it is, someone spent considerable effort making sure you would not find it.');
+    addQuest('You are close to the full picture.', 'The final pieces are in the institutional record. Press on.', 'q_s1_close');
   } else if (_sp1n >= 6 && !G.flags.progress_notice_6) {
     G.flags.progress_notice_6 = true;
     if (typeof addWorldNotice === 'function') addWorldNotice('The threads are converging. This record was cleaned recently. Someone is still watching it.');
+    addQuest('The record was cleaned. Someone is still watching it.', 'Find what connects the missing entries — the center of the operation is not far.', 'q_s1_converging');
   } else if (_sp1n >= 3 && !G.flags.progress_notice_3) {
     G.flags.progress_notice_3 = true;
     if (typeof addWorldNotice === 'function') addWorldNotice('Something is being deliberately obscured. The pattern has a shape, even if you cannot name it yet.');
+    addQuest('The anomalies are part of a pattern.', 'Keep following the institutional record — the shape becomes clearer with each locality.', 'q_s1_pattern');
   }
   if (G.flags.stage1_narrative_complete && G.stage === 'Stage I') {
     if (!G.flags.stage1_bridge_shown) {
@@ -11937,11 +11947,21 @@ function checkStageAdvance() {
     if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
   } else if (G.level >= 11 && G.stage === 'Stage II') {
     checkNeutralArcScene();
+    var _sp2n = (G.stageProgress && G.stageProgress[2]) || 0;
+    if (_sp2n >= 5 && !G.flags.quest_s2_boss_hint) {
+      G.flags.quest_s2_boss_hint = true;
+      addQuest('Dravn Pell is not the only mechanism.', 'Find his institutional backing before the confrontation. The names are in the supply records.', 'q_s2_boss');
+    }
+    if (G.flags.stage2_faction_contact_made && G.flags.stage2_miniboss_complete && !G.flags.quest_s2_climax_hint) {
+      G.flags.quest_s2_climax_hint = true;
+      addQuest('Torveld Mast authorized the suppression.', 'The Soreheim Transit Post. He stamps what he is told to stamp. The accounting ends there.', 'q_s2_climax');
+    }
     if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
     if ((G.stageProgress[2] || 0) === 10 && !G.flags.antechamber_signal_shown) {
       addWorldNotice('The pattern is starting to resolve. Someone at the center of it is still moving.');
       G.flags.antechamber_signal_shown = true;
+      addQuest('The accounting is almost complete.', 'The final confrontation is close — the antechamber holds the last piece.', 'q_s2_antechamber');
     }
     if (window.STAGE2_ANTECHAMBER && window.STAGE2_ANTECHAMBER.shouldTrigger()) { window.STAGE2_ANTECHAMBER.trigger(); return; }
     if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && !!(G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made)) { window.STAGE2_CLIMAX.trigger(); return; }
@@ -12478,6 +12498,49 @@ function addQuest(text, hint, questId) {
 
 // ── TRAVEL ───────────────────────────────────────────────
 /** Locality transition. Stage I blocks cross-region travel. Sets G.location, ticks axis, renders arrival choices. @param {string} locId */
+function showTravelModeSelect(destId, destName, onConfirm) {
+  var _existing = document.getElementById('travel-mode-modal');
+  if (_existing) _existing.remove();
+  var _costs = { foot: 0, horse: 5, cart: 3, boat: 8 };
+  var _paces = { foot: '1 region/day', horse: '2 regions/day', cart: '1 region/day (cargo bonus)', boat: '3 regions/day (route-fixed)' };
+  var _labels = { foot: 'On Foot', horse: 'Horse', cart: 'Cart', boat: 'River Passage' };
+  var _gold = G.gold || 0;
+  var _modal = document.createElement('div');
+  _modal.id = 'travel-mode-modal';
+  _modal.style.cssText = 'position:fixed;inset:0;background:rgba(7,6,13,0.92);z-index:800;display:flex;align-items:center;justify-content:center;';
+  var _btns = ['foot','horse','cart','boat'].map(function(m) {
+    var _cost = _costs[m];
+    var _canAfford = _cost === 0 || _gold >= _cost;
+    var _costStr = _cost > 0 ? _cost + ' gold' : 'Free';
+    return '<button onclick="selectTravelMode(\'' + m + '\',\'' + destId + '\')" '
+      + (!_canAfford ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : 'style="cursor:pointer;"')
+      + ' class="choice-btn" style="margin:5px;padding:10px 18px;font-family:var(--font-display);font-size:13px;display:block;width:100%;text-align:left;">'
+      + _labels[m] + '<br><span style="font-size:11px;color:var(--ink-dim)">' + _paces[m] + ' — ' + _costStr + '</span></button>';
+  }).join('');
+  _modal.innerHTML = '<div style="background:var(--coal);border:1px solid var(--char);padding:28px;max-width:360px;width:90%;text-align:center">'
+    + '<div style="font-family:var(--font-display);font-size:15px;margin-bottom:16px;color:var(--accent-gold)">Travel to ' + destName + '</div>'
+    + _btns
+    + '<button onclick="document.getElementById(\'travel-mode-modal\').remove()" style="margin-top:12px;padding:6px 14px;font-family:var(--font-display);font-size:12px;cursor:pointer;color:var(--ink-dim);background:none;border:1px solid var(--char)">Cancel</button>'
+    + '</div>';
+  document.body.appendChild(_modal);
+  window._travelModeCallback = onConfirm;
+}
+
+function selectTravelMode(mode, destId) {
+  var _costs = { foot: 0, horse: 5, cart: 3, boat: 8 };
+  var _cost = _costs[mode] || 0;
+  if (_cost > 0) G.gold = Math.max(0, (G.gold||0) - _cost);
+  G.travelMode = mode;
+  var _modal = document.getElementById('travel-mode-modal');
+  if (_modal) _modal.remove();
+  if (typeof window._travelModeCallback === 'function') {
+    var _cb = window._travelModeCallback;
+    window._travelModeCallback = null;
+    _cb();
+  }
+}
+window.selectTravelMode = selectTravelMode;
+
 function travelTo(locId) {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
@@ -12493,7 +12556,7 @@ function travelTo(locId) {
     }
   }
   G._journeyDest = locId;
-  beginJourney(G.location, locId);
+  showTravelModeSelect(locId, loc.name, function() { beginJourney(G.location, locId); });
 }
 
 function beginJourney(fromId, toId) {
@@ -15716,6 +15779,7 @@ function showHowToPlay() {
 <script src='content/stage2_antechamber.js'></script>
 <script src='content/stage2_boss.js'></script>
 <script src='content/stage2_climax.js'></script>
+<script src='content/stage2_shadowhands_arc.js'></script>
 <!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
 <script src='content/stage2_enriched_choices.js'></script>
 <script src='content/stage3_enriched_choices.js'></script>

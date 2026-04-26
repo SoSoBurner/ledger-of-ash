@@ -408,6 +408,101 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The perimeter awning registry shows forty-two active color-code disputes. One dispute covers the same plot from three different filing angles.",
+    tags: ['Investigation', 'Stage2', 'Archive'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing overlapping awning territory dispute filings in Unity Square registry');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      if (result.isCrit) {
+        G.flags.awning_dispute_triple_filing_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The corner plot in question is the arrival address from Brokerwell's shadow register — the one that appears most frequently across the coordination entries. Three separate parties have filed awning territory claims against it under three different color-code designations, each claim citing a different historical precedent. The three claimants share no registered business relationship. Their filings are spaced four weeks apart, each one designed to extend the dispute's unresolved status. While a plot is under active territory dispute, the Ward mediation protocol suspends commercial inspection rights. The counting house operating on that plot has been inspection-exempt for fourteen months because three unrelated parties keep filing claims against it. The dispute is a maintenance structure, not a genuine contest.`;
+        addJournal('Unity Square awning dispute triple-filing: three unconnected parties maintain active dispute on coordination hub plot — commercial inspection suspended for 14 months', 'evidence', `unity-awning-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The awning registry desk routes active dispute files through the Ward mediation queue rather than the public archive — the active status means the records are restricted to the involved parties and their designated mediators until resolution. Access requires a mediation party credential or a Vale Ledgermere referral. The clerk at the desk notes the request and the time. The note goes into the same tray as Ledgermere's morning correspondence.`;
+        addJournal('Awning dispute files restricted during active status — access request logged to Ledgermere correspondence tray', 'complication', `unity-awning-fail-${G.dayCount}`);
+        G.recentOutcomeType = 'complication';
+      } else {
+        G.flags.awning_dispute_triple_filing_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The same plot appears three times in the dispute index — different claimants, different color-code designations, sequential filing dates. The registry clerk notes the overlap without being asked: "Multiple claims on the same plot aren't unusual if the parties are disputing the same boundary. Three separate designations on the same plot is unusual." She checks the claimant register. None of the three parties share a registered address or a common business designation. She makes a note in the margin of the dispute index that will go to the Ward mediator at week close.`;
+        addJournal('Awning registry: triple-filing on coordination hub plot — unrelated claimants, Ward mediator notification pending', 'intelligence', `unity-awning-partial-${G.dayCount}`);
+        G.recentOutcomeType = 'neutral';
+      }
+      if (!result.isFumble) G.recentOutcomeType = result.isCrit ? 'success' : 'neutral';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The tally tower night log shows a standing exemption from the standard counting cycle — filed once, never renewed, still active.",
+    tags: ['Archive', 'Stage2', 'Lore'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing perpetual tally exemption in Unity Square tally tower night log');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      if (result.isCrit) {
+        G.flags.tally_tower_night_exemption_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The tally tower night log exemption is filed under a Ward administrative code that predates the current tally protocol by six years — which means it was never subject to the renewal requirements the current protocol mandates. It exempts one chartered entity from the nightly transit count during any calendar window when a diplomatic transit exemption is active in the Ward. The charter designation on the exemption matches the unindexed series from Brokerwell's shadow register. Every time a party arrives under diplomatic transit exemption, the counting stop that would record their presence in the tally tower disappears automatically. The exemption is a standing instruction. Nobody has to renew it because the system was designed to accept it permanently.`;
+        addJournal('Tally tower night exemption: pre-protocol filing auto-clears counting stops on diplomatic exemption windows — unindexed charter, no renewal required', 'evidence', `unity-tallyexempt-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The night log is a supervisor-access document — the tally tower's public record covers day counts only. Night log access requires a Ward oversight authorization issued by the same administration office that handles the diplomatic exemption renewals. The request form, filled and submitted, reaches the authorization desk and sits there. The person who processes it is the same position that signs the exemption renewals. The form does not come back.`;
+        addJournal('Tally tower night log access blocked — authorization desk is same office that signs exemption renewals', 'complication', `unity-tallyexempt-fail-${G.dayCount}`);
+        G.recentOutcomeType = 'complication';
+      } else {
+        G.flags.tally_tower_night_exemption_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Fera — the tally clerk who keeps her own count — recognizes the exemption code when shown it. "Old filing. It pre-dates the current count protocol." She traces the charter designation. "When this code is active, the night count skips that entry automatically. It was built into the protocol when the protocol was written." She doesn't say the word deliberate. She taps the code twice and looks at the counting board as if the board has already given its answer.`;
+        addJournal('Tally tower exemption pre-baked into protocol — unindexed charter automatically skipped in night count', 'intelligence', `unity-tallyexempt-partial-${G.dayCount}`);
+        G.recentOutcomeType = 'neutral';
+      }
+      if (!result.isFumble) G.recentOutcomeType = result.isCrit ? 'success' : 'neutral';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A street physician's supply order was rerouted through a Unity Square bonding house the same week the exposure cluster began.",
+    tags: ['NPC', 'Stage2', 'Social'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'tracing street physician supply reroute through Unity Square bonding house');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
+      if (result.isCrit) {
+        G.flags.tinmarch_supply_reroute_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Tinmarch keeps his supply orders in a pocket folio he updates after each delivery is received. The rerouted order arrived three days late and short by one component — a binding agent he uses for compound treatments. The bonding house stamp on the replacement delivery slip is from an entity he has not ordered from before or since. He sets the slip on the table between you. The bonding house charter designation is in the unindexed series. His supply was delayed because it moved through the same transit structure as the suppression compounds. The shortage was incidental. The reroute was not.`;
+        addJournal('Tinmarch supply rerouted through unindexed bonding house — same charter series as coordination operation, one component short on delivery', 'evidence', `unity-tinmarch2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Tinmarch hears the connection and closes his folio before the sentence is finished. "My patients are already living with what happened to them. I'm not going to hand their physician's supply records into an open investigation without knowing where they end up." He is not hostile. He is weighing care against exposure. He'll consider it. Right now that means no.`;
+        addJournal('Tinmarch declined supply record access — weighing patient confidentiality, door remains open', 'complication', `unity-tinmarch2-fail-${G.dayCount}`);
+        G.recentOutcomeType = 'complication';
+      } else {
+        G.flags.tinmarch_supply_reroute_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `Tinmarch confirms the reroute. "Came through a bonding house I'd never dealt with. Late, short one component." He shows the delivery slip without producing the full folio. The bonding house stamp is a charter designation he doesn't recognize. "I filed a supply dispute. It was resolved with a credit note and no explanation." He kept the original slip. The credit note is in the folio. He hasn't filed anything else against the bonding house.`;
+        addJournal('Tinmarch supply rerouted through unknown bonding house — delivery short, dispute resolved without explanation, original slip retained', 'intelligence', `unity-tinmarch2-partial-${G.dayCount}`);
+        G.recentOutcomeType = 'neutral';
+      }
+      if (!result.isFumble) G.recentOutcomeType = result.isCrit ? 'success' : 'neutral';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = UNITY_SQUARE_STAGE2_ENRICHED_CHOICES;
