@@ -9939,7 +9939,7 @@ function startOpeningScene() {
   }
   addNarration('', scene.text);
   addNarration('', 'The manifest you carried out of the Crossing Hall is missing four entries. The routing numbers exist in the system. The shipments do not.');
-  setTimeout(() => renderChoices(scene.choices), 300);
+  setTimeout(() => { if (Array.isArray(scene.choices)) renderChoices(scene.choices); }, 300);
 }
 
 // ── ENVIRONMENT PANEL ────────────────────────────────────
@@ -11551,9 +11551,7 @@ function _showStage3BlockerLegacy() {
     modal.style.transition = 'opacity 0.4s';
     setTimeout(function() { modal.remove(); }, 400);
     // Update stage advancement hint for sandbox mode
-    if (window.G) {
-      window.G.flags.stage3_blocked = true;
-    }
+    if (G && G.flags) G.flags.stage3_blocked = true;
   });
 }
 
@@ -15144,20 +15142,12 @@ function showHowToPlay() {
 <script src='content/authority_encounters.js'></script>
 <script src='content/stage4_enriched_choices.js'></script>
 <script src='content/stage5_enriched_choices.js'></script>
-<!-- ── TRAVEL ENGINE ── -->
-<script src='js/travel.js'></script>
 <!-- ── ENRICHED CHOICE BRIDGE ── -->
 <script src='js/loa-enriched-bridge.js'></script>
 
 <!-- ── TRAVEL ENGINE CALLBACKS ── -->
 <script>
 (function() {
-  // _travelEngineG: live getter so travel.js always sees the current G
-  Object.defineProperty(window, '_travelEngineG', {
-    get: function() { return window.G; },
-    configurable: true
-  });
-
   window._travelRender = function() {
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
