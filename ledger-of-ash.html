@@ -14739,7 +14739,7 @@ function loadGame(slotArg, legacyCode) {
         d = migrateState(d);
         if (!d.runId) d.runId = _generateUUID();
         if (!d.caseCode) d.caseCode = _makeCaseCode(d.runId);
-        Object.assign(G, d);
+        Object.assign(G, getDefaultG(), d);
         saveToSlot('loa_slot_1');
         localStorage.removeItem(legacyKey);
         if (typeof showToast === 'function') showToast('Legacy save migrated to Slot 1. Case: ' + G.caseCode);
@@ -14777,7 +14777,7 @@ function importSave(file) {
       if (!d.runId || !d.name) { showToast('Save missing runId or name — cannot import.'); return; }
       d = migrateState(d);
       if (!d.caseCode) d.caseCode = _makeCaseCode(d.runId);
-      Object.assign(G, d);
+      Object.assign(G, getDefaultG(), d);
       var slot = G.lastUsedSlot || 'loa_slot_1';
       saveToSlot(slot);
       if (typeof updateHUD === 'function') updateHUD();
