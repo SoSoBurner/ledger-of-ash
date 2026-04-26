@@ -249,6 +249,120 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The waste disposal schedule changed six months ago. The new hours run when no environmental assessor is on shift.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing waste shard disposal schedule change at glasswake commune');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.disposal_schedule_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The glassworker — Fen Ashmark, whose hands are permanently pale at the fingertips from cold-shard handling — pulls the old disposal ledger from the back shelf without being asked. The change is dated six months and four days ago. New run time: the third watch shift, when the environmental assessors are logging off and the night crew hasn't checked in. He sets his finger on the date column and doesn't move it. "The shards that go out in those runs aren't logged by weight. Just by count."`;
+        addJournal('Disposal runs now happen during assessor gap shift — shard weight not logged since change', 'evidence', `glass-disposal-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Fen Ashmark answers the question with a glance toward the containment office door, which is open. The disposal ledger stays on the shelf. "Schedule changes go through the operations board." He writes something at the bottom of his current shift log — you can't see the entry from where you stand — and sets his pen down on top of it. The shift supervisor walks past the doorway thirty seconds later, not stopping, but the timing is not accidental.`;
+        addJournal('Disposal schedule inquiry deflected — Ashmark logged something, supervisor passed within seconds', 'complication', `glass-disposal-fail-${G.dayCount}`);
+      } else {
+        G.flags.disposal_schedule_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Fen Ashmark confirms the schedule change without consulting the ledger — he was on shift the night it happened. Third watch, six months ago. "Environmental assessors don't run overlap on that shift. Never have." He won't say the word correlation. But he pulls the current month's run sheet and holds it where the total weight column is visible: the entries from third-watch runs are in a different hand from the rest.`;
+        addJournal('Third-watch disposal runs logged in different handwriting — Ashmark confirmed schedule change date', 'intelligence', `glass-disposal-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The ambient glyph reading archive goes back four years. The spike pattern in the last six months doesn't resemble anything in the earlier record.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining glasswake ambient glyph archive for anomalous spike pattern');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.glyph_archive_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `The archive occupies three drawers in the environmental monitoring post, each drawer labeled by year in faded ink. The earlier readings are stable — small seasonal variance, no event spikes above twelve percent above baseline. The last six months fill less than half a drawer. The spikes run to sixty and seventy percent above baseline, irregular in frequency but consistent in shape: a sharp rise, a plateau of two to three hours, a clean drop. No natural atmospheric event produces that plateau profile. The shape is controlled.`;
+        addJournal('Glyph archive: pre-six-month readings stable; recent spikes plateau-shaped — controlled profile, not natural', 'evidence', `glass-archive-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The monitoring post archivist — a precise, unhurried person who checks your access credentials twice before opening the drawer — finds a routing hold on the last two quarters of readings. "Sequestered for review by the Containment Research Concord. No external access until the review closes." She shows you the hold notice: no end date, no reviewing body listed. The archive's most recent entries are not available.`;
+        addJournal('Recent glyph archive sequestered by Concord — no end date on hold, reviewing body unnamed', 'complication', `glass-archive-fail-${G.dayCount}`);
+      } else {
+        G.flags.glyph_archive_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `Three years of baseline readings, then the shift. The spikes in the recent record are higher than anything in the prior archive and they hold shape across separate events — same rise time, same plateau duration. A natural variance event does not repeat with that consistency. The archivist notes the same anomaly in the margin of the most recent quarterly summary but has not filed a formal report. "I was waiting for the Concord's review to close before I sent anything."`;
+        addJournal('Archivist noticed spike pattern, margin note only — formal report held pending Concord review', 'intelligence', `glass-archive-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Lenna found formula notes in handwriting she doesn't recognize, inside a returned research text. She hasn't decided what to do with them.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'navigating Lenna Bannerhold compound formula discovery');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.lenna_formula_notes = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Lenna takes the research text from the lower shelf and sets it on the desk. The pages are tucked inside the back cover — four sheets, dense notation, compound ratios in a hand that uses different shorthand conventions from any commune researcher she knows. She reads the margin abbreviations aloud: "CRS" — compound residue suspension. "TW-exp" — tidal window exposure. "Vol-E" — volume exposure target. She sets the sheets on the desk between you and does not pick them up again. "I was going to report them this morning. Then I looked up what CRS stands for."`;
+        addJournal('Lenna found compound formula notes in returned text — CRS, tidal window, population exposure targets documented', 'evidence', `glass-lenna-formula-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Lenna's hand goes to the desk drawer when the subject comes up. She opens it, looks at what's inside, and closes it. "Anything found in returned archive materials is the property of the commune's research office. There's a process for reporting anomalous inclusions." She recites it from memory — the protocol form number, the routing path, the review timeline. She has already decided on the procedural route, and she's telling you so. The notes are going to the Concord.`;
+        addJournal('Lenna routing formula notes through Concord process — procedural path chosen before conversation', 'complication', `glass-lenna-formula-fail-${G.dayCount}`);
+      } else {
+        G.flags.lenna_formula_notes = true;
+        G.investigationProgress++;
+        G.lastResult = `Lenna shows one page — the first sheet, the one without the most identifiable notation. Compound ratios, four ingredients, two unknown by commune labeling convention. The handwriting is precise, the spacing consistent with someone accustomed to formal documentation. "It was in the back of a text returned by a visiting researcher from Mimolot. I checked the return log." She photographs the page entry in the archive log. "I know I have to report this. I wanted someone else to see it first."`;
+        addJournal('One formula page shown — Mimolot visitor return log confirmed, Lenna will report but wanted witness', 'intelligence', `glass-lenna-formula-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A Mimolot Academy researcher arrived three months ago and left abruptly two weeks later. The visitor log entry is four words.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing Mimolot visitor departure at glasswake commune');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mimolot_visitor_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The visitor log is in the intake desk's lower tray, access open. The entry for the Mimolot researcher — "Verath Dunnell, Mimolot Academy, glyph properties study" — takes four words to describe the stated research purpose. The departure note is blank where a completion summary should be. But the equipment request log from the same two-week window shows something: three requests for containment-grade sample jars, normally used for hazardous material extraction. Dunnell's name is on two of them. The third is blank in the requestor column.`;
+        addJournal('Mimolot visitor Verath Dunnell requested containment-grade sample jars — departure summary blank, third request unattributed', 'evidence', `glass-mimolot-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The intake desk is occupied by a commune administrator who watches the visitor log being handled without looking up from his own work. He lets it go for thirty seconds, then: "Visitor records are available by written request through the commune research office. Walk-in access isn't logged, which means it isn't authorized." His tone is even. He places his hand on the log and pulls it back to his side of the desk. The brief look at the open page showed four words next to one entry and nothing more.`;
+        addJournal('Visitor log retrieved by administrator before full review — access method flagged', 'complication', `glass-mimolot-fail-${G.dayCount}`);
+      } else {
+        G.flags.mimolot_visitor_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `"Verath Dunnell, Mimolot Academy, glyph properties study." Departure date, no completion note. The commune's equipment request records are stored separately and accessible to researchers — Dunnell's name appears twice: containment-grade sample jar requests, both approved. The equipment was returned on the departure date. Where the samples went is not in the commune's records.`;
+        addJournal('Dunnell requested containment-grade sample jars, returned equipment on departure — sample destination unrecorded', 'intelligence', `glass-mimolot-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Glasswake Commune finale — the shard amplification proof and suppressed conclusions confirm the full operation mechanism. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 106,
