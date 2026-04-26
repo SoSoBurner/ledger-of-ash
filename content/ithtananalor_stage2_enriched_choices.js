@@ -358,6 +358,152 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The transferred duty officer left a forwarding seal at the transit registry — one that was never collected.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing transferred duty officer forwarding seal');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.duty_officer_trace_complete = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The forwarding seal sits in the uncollected tray at the transit registry, dated the same week Velden mentioned the reassignment. The registry clerk — a woman who keeps a worn ledger stamp tucked in her sleeve seam — recognizes the credential mark on the seal as Shadowhands logistics division, a sub-unit that handles material transport outside normal quota channels. The officer was not reassigned to a distant posting. The "posting with no public record" is a desk inside the same enforcement quarter, reclassified under a unit that does not appear on the public org chart.`;
+        addJournal('Transferred officer — still in quarter, unit unlisted on public org chart', 'evidence', `ith-officer-trace-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The transit registry clerk checks the uncollected tray and pauses. The forwarding seal is there, but the check triggers a secondary log — an alert affixed to the credential mark that routes any access attempt to the Shadowhands logistics desk. By the time the clerk looks back up, the answer is a practiced apology: this item requires pickup authorization from the issuing unit. The item stays in the tray, and someone in the logistics division now knows it was asked about.`;
+        addJournal('Forwarding seal access attempted — Shadowhands logistics alerted', 'complication', `ith-officer-fail-${G.dayCount}`);
+      } else {
+        G.flags.duty_officer_trace_complete = true;
+        G.investigationProgress++;
+        G.lastResult = `The forwarding seal is in the uncollected tray. The registry date matches the week of the reassignment. The clerk confirms the credential mark is an internal enforcement division — not a regional posting, not a transit billet. The officer stayed in Ithtananalor under a reclassified unit designation. The unit name on the seal is partially legible through the wax impression: logistics, a word, then an authorization sequence the clerk will not read aloud.`;
+        addJournal('Transferred officer seal recovered — stayed in Ithtananalor, reclassified unit', 'intelligence', `ith-officer-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The quota calibration threshold is not a round number — whoever set it knew the exact audit trigger.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'analyzing quota calibration mathematics');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.quota_calibration_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The audit trigger threshold is 847 weight-units — not a round administrative figure, not a standard trade denomination. It derives from a formula published in a restricted enforcement operations manual that has not been publicly distributed since the quota system was redesigned four years ago. Someone with access to that manual set the ghost account transaction ceiling. Enforcement operations manuals at that access tier require Shadowhands command clearance to obtain. The threshold is a fingerprint.`;
+        addJournal('Quota threshold 847 — derived from restricted enforcement manual, command clearance required', 'evidence', `ith-quota-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The quota mathematics pull from three overlapping regulatory frameworks, each one updated on a different cycle. Without access to the current enforcement operations parameters — a restricted document tier — reconstructing the trigger formula from public sources produces four plausible thresholds, none of which can be confirmed as the operative one. The time spent at the registry terminal generates an access log entry that sits in the same system as the query that triggered the initial Shadowhands notification.`;
+        addJournal('Quota threshold calculation failed — restricted parameters inaccessible, access logged', 'complication', `ith-quota-fail-${G.dayCount}`);
+      } else {
+        G.flags.quota_calibration_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The threshold is 847 weight-units. Cross-referencing public audit schedules and trade registration floor values confirms the figure is not administratively standard — it falls below every published audit trigger in the registry by a margin too precise to be coincidental. The specific derivation requires a formula this analysis cannot reconstruct without restricted enforcement parameters, but the intentionality is clear. Someone calculated this number to avoid automatic detection.`;
+        addJournal('Quota threshold 847 — non-standard, deliberately calibrated below all public audit triggers', 'evidence', `ith-quota-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "One of the contraband materials requires cold storage — there are only three registered cold holds in the enforcement quarter.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating cold storage endpoint for contraband materials');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.cold_hold_located = true;
+        G.investigationProgress++;
+        G.lastResult = `Two of the three registered cold holds are standard enforcement storage — temperature consistent with evidence preservation, access logs cross-referenced with active case files. The third is different. Ambient temperature is lower than evidence protocols require, the access log entries use a numeric code rather than officer names, and the condensation pattern on the exterior bracket shows the door opens on a different schedule than the listed maintenance rotation. The ghost account endpoints are running a live cold hold inside enforcement storage.`;
+        addJournal('Third cold hold — below-protocol temp, coded access, off-schedule operation confirmed', 'evidence', `ith-cold-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The enforcement quarter cold holds are in a restricted service corridor that requires active duty credentials to enter. The approach through the supply access door triggers a proximity sensor mounted inside the frame — a secondary security layer not on the public facility schematic. A duty officer appears from the far end of the corridor within four minutes. The exit is uncontested but the corridor access has been logged under a surveillance classification that routes to the Shadowhands duty desk automatically.`;
+        addJournal('Cold hold corridor triggered sensor — auto-routed to Shadowhands duty desk', 'complication', `ith-cold-fail-${G.dayCount}`);
+      } else {
+        G.investigationProgress++;
+        G.lastResult = `The physical survey of the three cold holds requires working through the service access on a maintenance schedule. Two hold examination confirms standard evidence protocols. The third is accessible from the exterior bracket only — the service hatch is sealed from inside. The temperature differential between the bracket and the wall surface is measurable with a hand pressed flat against the stone: colder than the other two, colder than necessary for evidence preservation. Something is stored there on a cycle that does not match the maintenance log.`;
+        addJournal('Third cold hold exterior survey — below-protocol temp, sealed interior access', 'intelligence', `ith-cold-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The anti-magic statute has a materials exemption written in a hand that does not match the rest of the document.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining anti-magic statute materials exemption provenance');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.statute_exemption_provenance = true;
+        G.investigationProgress++;
+        G.lastResult = `The exemption clause is a later insertion — the vellum density is lighter than the surrounding pages, the ink oxidation profile puts it three to four years after the statute's original ratification, and the scribal hand uses a ligature style that replaced the older form only after Guild administrative reforms. The exemption that allows enforcement-level access to bypass anti-magic containment protocols was not part of the original statute. It was inserted after the ghost accounts were opened. The sequence is inverted: the accounts came first, then the legal cover was created.`;
+        addJournal('Statute exemption inserted after original ratification — legal cover created post-hoc for accounts', 'evidence', `ith-statute-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The statute archive copy is sealed under a preservation order that requires Guild certification to handle for materials analysis. The public reading copy has the exemption clause in a consistent hand — either the insertion was done by a skilled forger who matched the original, or the reading copy was replaced entirely. Without the sealed original for comparison, the analysis cannot establish provenance. The request to inspect the sealed copy goes into the certification queue. A Shadowhands administrative liaison receives the queue notification automatically.`;
+        addJournal('Statute original sealed — public copy inconclusive, certification request logged', 'complication', `ith-statute-fail-${G.dayCount}`);
+      } else {
+        G.flags.statute_exemption_provenance = true;
+        G.investigationProgress++;
+        G.lastResult = `The exemption clause sits at the bottom of the third page, in a hand that tilts forward where the rest of the document tilts back. The ink in that section has a slightly different sheen under angled light — a different mixing ratio, a different preparation. Without laboratory comparison it cannot be confirmed as a later insertion, but the physical difference is present and consistent. The clause that grants enforcement bypass of containment protocols reads like it was added rather than written with the document.`;
+        addJournal('Statute exemption — physical inconsistency suggests later insertion, unconfirmed without lab analysis', 'intelligence', `ith-statute-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Harlan keeps a second ledger behind the bar — not for accounts, for names and dates he does not trust to memory.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'accessing Harlan\'s private ledger of enforcement names and dates');
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.harlan_ledger_read = true;
+        G.investigationProgress++;
+        G.lastResult = `The ledger behind the bar is a narrow cloth-bound book, entries in a compressed hand — dates, a unit abbreviation, a count, occasionally a single word that functions as a note. Twelve entries over seven months correspond to the ghost account transaction dates identified earlier: same date, a unit abbreviation that matches the unlisted logistics sub-unit from the forwarding seal. Harlan has been quietly documenting the same activity. His entry from four days ago reads: "verification window — closing, two weeks."`;
+        addJournal('Harlan\'s private ledger — 12 entries matching ghost account dates, closing window noted 4 days ago', 'evidence', `ith-harlan-ledger-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Harlan is behind the bar when the reach toward the ledger becomes visible to him — not a dramatic moment, just the particular stillness of a man who has spent years reading what enforcement officers do with their hands when they think no one is tracking. He sets a tankard down on the ledger without looking directly at it. When he meets the eyes across the bar his expression carries no accusation, just the flat exhaustion of someone who has already decided he cannot afford to have any conversation about what just happened.`;
+        addJournal('Harlan ledger access burned — innkeeper aware, channel closed', 'complication', `ith-harlan-ledger-fail-${G.dayCount}`);
+      } else {
+        G.flags.harlan_ledger_read = true;
+        G.investigationProgress++;
+        G.lastResult = `The ledger is accessible for thirty seconds before Harlan returns from the cellar stair. Eight entries are visible in that window — dates and unit abbreviations, nothing self-explaining. Three of the dates land within a day of ghost account transaction dates from the evidence already gathered. The unit abbreviation is consistent across all eight: a two-letter code that does not appear on any public enforcement org chart. The ledger closes when Harlan's steps reach the top of the stair.`;
+        addJournal('Harlan ledger — eight entries visible, three dates match ghost account activity, unknown unit code', 'intelligence', `ith-harlan-ledger-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Ithtananalor finale — act on the ghost account evidence through Roaz command or through independent disclosure.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
