@@ -289,6 +289,148 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The northern transit ledger shows compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing expired exemption code in northern transit ledger');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transit_ledger_exemption_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The exemption code is stamped across eleven consecutive manifests — GC-Transit-Exemption-4417, issued to a now-dissolved northern resupply cooperative, expired at the close of the last fiscal season. The transit clerk's copy shows the expiry date crossed out in fresh ink and a handwritten extension notation beneath it. The notation carries no authorizing signature. Whoever renewed the exemption did it on the face of the document, by hand, without council approval. The shipments moved anyway. Every manifest after the expiry date is legally unsanctioned.`;
+        addJournal('Northern transit ledger: 11 manifests under expired GC exemption code — unauthorized handwritten extension, no countersignature', 'evidence', `sor-transit-ledger-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The transit ledger office requires a Giant Council registry identifier for cross-period exemption searches. The clerk writes the requirement on a slip and slides it across the counter without looking up. Behind the counter the ledger sits open to the wrong season. The identifier requirement is not posted anywhere visible — it was added to the internal protocol three weeks ago. The forward path runs through the permit archive, where the procedural wall hasn't been erected yet.`;
+        addJournal('Northern transit ledger access blocked — new GC identifier requirement', 'complication', `sor-transit-ledger-fail-${G.dayCount}`);
+      } else {
+        G.flags.transit_ledger_exemption_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The exemption code appears on seven manifests across a four-month window. The transit clerk confirms it was issued to a dissolved cooperative — she checks the dissolution register without being asked and marks the date. "Expired accounts shouldn't carry active exemption codes." She looks at the manifests once more. "These were processed by a different shift." She does not say which shift.`;
+        addJournal('Northern transit ledger: expired exemption code on 7 manifests — dissolved cooperative, different shift processing', 'intelligence', `sor-transit-ledger-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A junior Wing clerk was on duty the night Decon's override was entered — she filed a personal correction note that never reached the official record.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'interviewing junior Relic Strategy Wing clerk Senne Orvath');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_senne_orvath = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Senne Orvath keeps her hands in her lap and does not lean toward the table. Her personal correction note is folded inside the back cover of her duty log — she has been carrying it there since the night she wrote it, two months ago. The note records the override sequence Decon entered: timestamp, authorization code, destination registry. She wrote it because the authorization code did not exist in the Wing's official code roster. She checked it three times. It was generated outside the Wing's formal issuance system — a code Decon produced from an external source and entered as if it were internal. The correction note has never left her duty log.`;
+        addJournal('Senne Orvath (Wing clerk): Decon\'s override used a fabricated authorization code — generated outside official Wing issuance, witnessed and logged privately', 'evidence', `sor-senne-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Senne closes her duty log before you finish the first question. Her thumb presses the cover flat against the desk. "Relic Strategy Wing personnel are not available for external queries without a formal Wing directive." She says it without inflection — the exact phrasing from the Wing's standard refusal protocol, which she has clearly been given. She does not look at the back cover of the log when she puts it away. But she put it in her bag, not in the filing stack.`;
+        addJournal('Wing clerk Senne Orvath — formal refusal; kept duty log in personal bag', 'complication', `sor-senne-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_senne_orvath = true;
+        G.investigationProgress++;
+        G.lastResult = `Senne confirms she was on duty that night. She confirms an override was entered. "The authorization code wasn't in the roster I was trained on." She pauses. "I wrote it down." She does not produce the note, but she does not deny it exists. Her hand moves briefly to her bag before settling back on the table.`;
+        addJournal('Wing clerk Senne Orvath confirms override entry and private notation of non-roster authorization code', 'intelligence', `sor-senne-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A Relic Strategy Wing courier leaves the third tower at the same hour every fourth night — the route doesn't match any posted assignment.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'shadowing the off-schedule Relic Strategy Wing courier');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_route_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The courier moves through three service corridors that bypass the forge-dock checkpoints entirely — maintenance access routes that are open but unwatched after the third bell. He ends at a storage annex behind the north bridge transit station: a low building with a new padlock on the loading bay door and no signage. He goes in, stays twelve minutes, and comes back without the satchel he carried in. The annex does not appear in the tower registry as active storage. The padlock manufacturer's mark is the same mark stamped on the staging depot hardware Vorgul's manifest described.`;
+        addJournal('Wing courier route traced to unlisted north bridge annex — new padlock matching staging depot hardware; satchel delivered, courier returned empty-handed', 'evidence', `sor-courier-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The courier stops at the junction of the second service corridor and faces the wall, still, for thirty seconds. Then he turns around and retraces two full corridor segments without going anywhere. He exits through the public dock and returns to the tower by the main entrance. A patrol officer in the dock writes something in a small notebook when you emerge behind the courier. The notebook goes into his breast pocket. The writing took about four seconds.`;
+        addJournal('Courier surveillance burned — patrol officer logged your presence at dock exit', 'complication', `sor-courier-fail-${G.dayCount}`);
+      } else {
+        G.flags.courier_route_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The courier takes a maintenance corridor to a side exit at the north bridge approach. He meets someone at the street corner — a brief exchange, nothing passed visibly — and returns the same way. The meeting point is a corner with clear sight lines in three directions. You watch from the fourth. The person he met wore a transit registry badge, not a Wing insignia.`;
+        addJournal('Wing courier met transit registry contact at north bridge approach — maintenance corridor egress, no visible transfer', 'intelligence', `sor-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The outer forge ring runs cold one night a week — but the loading crews show up anyway.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'enduring the outer forge ring to observe off-books loading');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.forge_ring_offbooks_witnessed = true;
+        G.investigationProgress++;
+        G.lastResult = `The forge ring goes cold at the second bell — venting stacks idle, heat dropping fast. By the third bell the ambient temperature at the outer ring has dropped enough that breath shows. The loading crew that arrives is six people, no tower badges, carrying unmarked crates on a flatbed sled. They work without lanterns. The crates go into a recessed bay at the base of the third forge column that is listed on the tower blueprint as a thermal buffer cavity. It holds eleven crates before the bay doors close. No manifest is produced. No signature changes hands. The crew leaves the way they came.`;
+        addJournal('Outer forge ring: 6-person unbadged crew loads 11 crates into unlisted thermal cavity at 3rd bell cold cycle — no manifest, no signature', 'evidence', `sor-forge-ring-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The outer ring at cold-cycle is exposed on three sides with no cover that holds for more than forty minutes. By the second hour the position becomes untenable — thermal drop, wind channeled between forge columns. You pull back before the loading crew arrives. The next cold cycle is four nights away. The observation position needs a different approach: something lower and closer to the forge column base rather than the ring perimeter.`;
+        addJournal('Outer forge ring cold-cycle observation — position untenable; exposure before loading crew arrived', 'complication', `sor-forge-ring-fail-${G.dayCount}`);
+      } else {
+        G.flags.forge_ring_offbooks_witnessed = true;
+        G.investigationProgress++;
+        G.lastResult = `A crew arrives at the outer ring during the cold cycle — four people, no badges visible at this distance. They work near the third column base for about thirty minutes and leave with an empty sled. The crates they carried in did not come back out. The column base bay is visible but not close enough to read any markings on the crates. Something was stored. The bay doors are the same recessed type marked as thermal buffer cavities on the posted tower blueprints.`;
+        addJournal('Outer forge ring: unbadged crew deposits crates in thermal cavity bay during cold cycle — not recovered on departure', 'intelligence', `sor-forge-ring-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Residue on the staging depot's loading sleds matches a compound profile — and Soreheim's alloy register can confirm it was never authorized for export.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'analyzing compound residue against the Soreheim alloy export register');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.compound_residue_matched = true;
+        G.investigationProgress++;
+        G.lastResult = `The residue sample scraped from the sled runners is a layered compound — base mineral binder with a synthetic catalyst fixed on top, the kind of layering that requires a controlled bonding step, not a field mix. The alloy export register lists every compound with that binder profile. None of them are cleared for export to the localities named in Roth's expansion budget. One of them is specifically flagged as a restricted compound under the northern resettlement accords — agreements Soreheim signed twelve years ago. The compound was moved in violation of a treaty obligation, not just a trade rule.`;
+        addJournal('Compound residue matched to resettlement-accord restricted compound — Soreheim export register confirms treaty violation, not merely a trade infraction', 'evidence', `sor-residue-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The alloy export register requires a guild craft identifier to run a compound cross-reference. The identifier requirement is enforced at the register desk by a clerk who has clearly been asked about compound profiles before — she asks for your identifier before you finish the description and does not accept a work-around. The sample analysis can be run through a private craft assay house in the outer district, but the result would not be admissible in council proceedings without the official register cross-reference.`;
+        addJournal('Alloy export register access blocked — guild craft identifier required; private assay possible but non-admissible', 'complication', `sor-residue-fail-${G.dayCount}`);
+      } else {
+        G.flags.compound_residue_matched = true;
+        G.investigationProgress++;
+        G.lastResult = `The clerk runs the compound profile against the export register and marks three entries with the same binder structure. Two are cleared for export. One is flagged as restricted — northern resettlement accords, signed twelve years ago. She circles the flag notation. "This one would need a council waiver to move." She checks the waiver ledger without being asked. There is no waiver on file for the current fiscal year.`;
+        addJournal('Compound residue matches restricted northern-accord compound — no export waiver on file for current year', 'intelligence', `sor-residue-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Soreheim Proper finale — the operation's command structure is confirmed. Use Cron's Arbiter seal for formal prosecution or expose the expansion budget publicly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
