@@ -8,7 +8,7 @@
 const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Thalen's suppression compound ledger has a sealed-charter buyer and a northwest staging coordinate circled in red.",
+    label: "A sealed-charter buyer and a northwest staging coordinate circled in red. Thalen's ledger.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -39,7 +39,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Serin's sighting log: every celestial creature appeared in the aftermath of a glyph surge, not before.",
+    label: "Every creature in Serin's sighting log appeared after a glyph surge. Not before.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -96,7 +96,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Three guests, no names on record. North to south, sealed cases, every ten to twelve days.",
+    label: "Three guests with no names on record. Sealed cases. Every ten to twelve days, north to south.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -124,7 +124,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Tool marks inside the cave mouth, above head height. Flat chisel cuts into the pressure nodes. Months old.",
+    label: "Tool marks above head height inside the cave. Flat chisel cuts into the pressure nodes.",
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -152,7 +152,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Naevys keeps her old guild records separate from the shop ledger. The separation itself is the tell.",
+    label: "Guild records kept separate from the shop ledger. That separation doesn't happen by accident.",
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -173,7 +173,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The purification fountain in the market square drains east. It hasn't drained east in living memory.",
+    label: "The market square fountain drains east. Nobody here can remember it doing that before.",
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -237,7 +237,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The western field road has fresh cart ruts. Nothing west of the marker road ships bulk goods.",
+    label: "Fresh cart ruts on the western field road. Nothing west of the marker ships bulk goods.",
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -257,7 +257,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Bringing a sealed Shelkopolis charter to a Cyfoes shrine marks the bearer as someone who answers to neither.",
+    label: "A Shelkopolis charter at a Cyfoes shrine marks the bearer as answering to neither.",
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -315,7 +315,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Roadwarden checkpoint logs record the same three-day transit window every twelve days, no cargo declared.",
+    label: "The same three-day transit window every twelve days. No cargo declared at the checkpoint.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -346,7 +346,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The harbormistress signs the night clearances herself. She would have to know what she was waiving.",
+    label: "The harbormistress signs every night clearance herself. She knows what she's waiving.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -437,7 +437,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The courier cycle runs on a tide schedule. The next window opens at the fourth hour tomorrow.",
+    label: "The courier cycle runs on the tide. The next window is the fourth hour tomorrow.",
     tags: ['Stage2', 'Survival'],
     xpReward: 66,
     fn: function() {
@@ -467,7 +467,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The equipment barn at the field road's end has a false floor. The smell coming up through the boards is not grain.",
+    label: "The equipment barn has a false floor. The smell coming up through the boards is not grain.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -498,7 +498,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Fairhaven physic has been treating a recurring rash pattern. The same compound exposure, different patients, same window.",
+    label: "The physic keeps treating the same rash. Different patients, same compound, same window.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -527,7 +527,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Cyfoes shrine attendant logs every visitor who touches the ward mark. The log goes somewhere Serin doesn't see.",
+    label: "The shrine visitor log goes somewhere Serin doesn't see. That wasn't always the arrangement.",
     tags: ['Stage2', 'Lore'],
     xpReward: 66,
     fn: function() {
@@ -557,7 +557,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The cartwright who built sealed-compartment crates remembers the commission. The order came in writing. He kept the letter.",
+    label: "The cartwright built the sealed-compartment crates. He kept the written order.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -587,7 +587,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The deputy harbormistress added 'night clearance' to the standing protocol. Nobody authorized her to write that language.",
+    label: "The deputy wrote 'night clearance' into standing protocol. Nobody authorized that language.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {
@@ -617,7 +617,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Roadwarden post commander keeps a personal notation ledger separate from the official log. It shows two entries he never filed.",
+    label: "The post commander's personal ledger has two entries that never made it to the official log.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -647,7 +647,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A traveling factor passed through Fairhaven twice in the last quarter and signed the same sealed charter at both stops.",
+    label: "A factor passed through twice last quarter and signed the same sealed charter at both stops.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
     fn: function() {

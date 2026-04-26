@@ -7,7 +7,7 @@
 const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Darian Ironspike commands the Quarry Gate — a specific ore extraction category has been logged as 'special mineral assessment' for six months without any corresponding assay reports.",
+    label: "Six months of 'special mineral assessment' logs. No assay reports exist to support any of them.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -36,7 +36,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Velka Ironspike oversees the labor zone — workers in the special extraction section have been experiencing symptoms similar to the Unity Square exposure cluster.",
+    label: "Workers in the special extraction section show symptoms matching the Unity Square exposure cluster.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -64,7 +64,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The special extraction vein can be accessed during the night shift handover — examine the raw mineral for confirmation of glyph-resonant properties.",
+    label: "The special vein is accessible during night shift handover. The raw mineral needs examining.",
     tags: ['Investigation', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -94,7 +94,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Darian Ironspike is at the secondary gate post — the detention record from the last encounter sits between you. He has something he didn't say then.",
+    label: "The detention record sits between us. He has something he didn't say the first time.",
     tags: ['Stage2', 'NPC', 'Escalation'],
     xpReward: 76,
     fn: function() {
@@ -126,7 +126,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The special assessment section is accessible during the midday shift break — the extraction face and the ore staging area both visible from the ridge above the lower vein.",
+    label: "The assessment section is open during midday break. The extraction face is visible from the ridge.",
     tags: ['Stage2', 'Physical', 'Survival'],
     xpReward: 72,
     fn: function() {
@@ -157,7 +157,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A queue dispute at the ore weighing station — an outsider questioning the tally process in front of the crew is the fastest way to become the day's problem in Ironhold.",
+    label: "Questioning the tally in front of the crew is the fastest way to become the day's problem.",
     tags: ['Stage2', 'Social', 'Complication'],
     xpReward: 68,
     fn: function() {
@@ -241,7 +241,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The man rotating back onto the standard line has dust from the wrong vein still in his collar.",
+    label: "The man rotating back to standard line has dust from the wrong vein in his collar.",
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 72,
     fn: function() {
@@ -298,7 +298,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The canteen cook has been collecting those coins for six months. He knows exactly when the crew changed.",
+    label: "Six months of those coins. The canteen cook knows exactly when the crew changed.",
     tags: ['Stage2', 'Lore', 'Observation'],
     xpReward: 68,
     fn: function() {
@@ -326,7 +326,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Velka has a fourth safety report she hasn't filed. She's been waiting to see if someone would help her make it stick.",
+    label: "Velka has a fourth safety report she hasn't filed. She's waiting for someone to make it stick.",
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 76,
     fn: function() {
@@ -414,7 +414,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The man in the gray coat Tor described has a position — he runs the secondary cut on a schedule no posted roster shows.",
+    label: "The man in the gray coat runs the secondary cut on a schedule no posted roster shows.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 76,
     fn: function() {
@@ -473,7 +473,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transport dock closes for one hour at shift end. Someone signs the outbound manifest before it seals.",
+    label: "The dock closes for one hour at shift end. The outbound manifest is signed before it seals.",
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 70,
     fn: function() {
@@ -530,7 +530,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The prison labor intake supervisor assigns rotation to the special extraction crew. He has done it long enough to know the pattern.",
+    label: "The intake supervisor has assigned this rotation long enough to know the pattern by heart.",
     tags: ['Stage2', 'NPC', 'Survival'],
     xpReward: 70,
     fn: function() {
@@ -558,7 +558,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The tool requisition shed issues equipment to every extraction crew. The special crew's requisition slips are filed separately.",
+    label: "Every crew's requisition slips go through the same shed. The special crew's are filed separately.",
     tags: ['Stage2', 'Craft', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -615,7 +615,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Ironhold Quarry finale — the raw material source is confirmed. Report through ORE command chain or route the evidence to the Roadwarden Ithtananalor post.",
+    label: "The raw material source is confirmed. ORE command chain or Roadwarden post — the evidence needs a route.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {

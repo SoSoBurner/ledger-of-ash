@@ -9,7 +9,7 @@
 const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Decon Von Reckshem's Relic Strategy Wing has been requisitioning glyph-adjacent materials under 'northern defense relic assessment' — the requisitions match suppression compound precursor profiles.",
+    label: "Relic Wing requisitions under 'northern defense assessment' match suppression compound precursor profiles.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -40,7 +40,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Mordoth Valinheim, Architect of Progress, is the council member who approved the distribution contracts — he may be willing to negotiate now that the evidence exists.",
+    label: "Mordoth approved the distribution contracts. The evidence exists now. He may be willing to negotiate.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -71,7 +71,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Vorgul Oxtend, Shield of the Alliance, commands the military logistics chain — the suppression compound staging location used Soreheim military transport passes.",
+    label: "The staging location used Soreheim military transport passes. Vorgul commands the logistics chain.",
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -100,7 +100,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Cron Udenine, Arbiter of Justice, is privately alarmed by the operation's scope — he is not part of the conspiracy but suspects his council colleagues.",
+    label: "Cron is privately alarmed. Not part of the conspiracy, but he suspects his council colleagues.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -129,7 +129,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Roth Udenine's Northern Ambition council bloc is funding expansion projects that depend on continued glyph disruption keeping rival settlements destabilized.",
+    label: "The Northern Ambition bloc's expansion projects depend on glyph disruption keeping rivals destabilized.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -158,7 +158,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Lyria Firesoul's forge manifest shows a discrepancy — the allotment numbers don't match the war-production quota ledger.",
+    label: "The forge manifest allotment numbers don't match the war-production quota ledger.",
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -177,7 +177,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The porter moving crates through the third-tower logistics yard knows exactly what\'s in the manifest discrepancy — and who signed the transfer order.",
+    label: "The porter knows exactly what's in the manifest discrepancy. He knows who signed the transfer order.",
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -195,7 +195,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The shrine attendant\'s record of public oath displays shows the wrong name on a tower merit judgment — someone substituted into a ceremony they had no standing to attend.",
+    label: "The wrong name on a tower merit judgment. Someone substituted into a ceremony they had no standing to attend.",
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -270,7 +270,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A labor foreman at the forge dock is arguing with a quota clerk about a reassigned crew.",
+    label: "A forge dock foreman and a quota clerk arguing about a reassigned crew.",
     tags: ['stage2', 'soreheim_proper', 'public_complication'],
     xpReward: 30,
     fn: function() {
@@ -289,7 +289,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The northern transit ledger shows compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
+    label: "Compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -318,7 +318,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A junior Wing clerk was on duty the night Decon's override was entered — she filed a personal correction note that never reached the official record.",
+    label: "A junior Wing clerk was on duty when the override was entered. Her correction note never reached the record.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -347,7 +347,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Relic Strategy Wing courier leaves the third tower at the same hour every fourth night — the route doesn't match any posted assignment.",
+    label: "A Wing courier leaving the third tower the same hour every fourth night. No posted assignment matches the route.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -375,7 +375,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outer forge ring runs cold one night a week — but the loading crews show up anyway.",
+    label: "The outer forge ring runs cold one night a week. The loading crews show up anyway.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -403,7 +403,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Residue on the staging depot's loading sleds matches a compound profile — and Soreheim's alloy register can confirm it was never authorized for export.",
+    label: "Residue on the staging sleds matches a compound profile never authorized for export.",
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -431,7 +431,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The off-books laborers were paid — and the wage records show the same sealed-charter reference Roth's budget used.",
+    label: "The wage records for off-books laborers show the same sealed-charter reference Roth's budget used.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -460,7 +460,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The council herald who carries sealed correspondence between the bloc offices has been running extra routes on days Decon is absent from the tower.",
+    label: "The herald runs extra routes on days Decon is absent. The correspondence doesn't go to posted destinations.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -488,7 +488,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The restricted tower blueprint vault holds a floor plan that doesn't match the structure visible from the north bridge approach.",
+    label: "The blueprint vault floor plan doesn't match the structure visible from the north bridge.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -516,7 +516,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Night patrol at the north bridge curfew line reveals which transit passes move freely after the third bell — and whose names appear on them.",
+    label: "Night patrol at the curfew line shows which transit passes move freely after the third bell.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -544,7 +544,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The assay marks on the crates recovered from the forge cavity don't match any of Soreheim's registered forge stamps — they came from somewhere else.",
+    label: "The assay marks on the forge cavity crates don't match any Soreheim stamp. They came from somewhere else.",
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -572,7 +572,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A retired senior Wing officer living in the outer ring knows the internal override protocols — and stopped working for the Wing without explanation two years ago.",
+    label: "A retired senior Wing officer who knows the override protocols. Left without explanation two years ago.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -600,7 +600,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Iron Compact treaty amendment archive holds a suppressed addendum that redefined what counts as northern defense materiel — giving the operation legal cover it never disclosed.",
+    label: "A suppressed addendum redefined northern defense materiel. It gave the operation legal cover it never disclosed.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -629,7 +629,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A sealed dispatch rider leaves the factor-address block every third morning — the timing and the route suggest the next compound shipment is closer than the evidence implies.",
+    label: "A sealed dispatch rider every third morning. The route suggests the next shipment is closer than the evidence implies.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -658,7 +658,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Soreheim Proper finale — the operation's command structure is confirmed. Use Cron's Arbiter seal for formal prosecution or expose the expansion budget publicly.",
+    label: "The command structure is confirmed. Cron's Arbiter seal for prosecution or expose the expansion budget.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
     fn: function() {

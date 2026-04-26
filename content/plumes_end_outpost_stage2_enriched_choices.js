@@ -7,7 +7,7 @@
 const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Letha Dawnsilk's Northern Road Hazard Station tracks atmospheric glyph pressure — her readings show a persistent pressure gradient pointing northwest toward the staging location.",
+    label: "Persistent glyph pressure gradient pointing northwest. It points toward the staging location.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -38,7 +38,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Patrol Leader has been running northern road patrols and has encountered a structure that does not appear on any survey map — the staging location.",
+    label: "A structure on the northern road not on any survey map. The Patrol Leader has seen it.",
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -67,7 +67,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Shrine Keeper Cysur's shrine records include travelers' accounts — a cluster of travelers have described the northwestern structure and its connection to 'the pressure management work.'",
+    label: "Multiple travelers described the northwestern structure. They called it 'the pressure management work.'",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -98,7 +98,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Shrine Keeper Cysur has been keeping something back. A second conversation — after the shrine clears of travelers — may draw it out.",
+    label: "Cysur held something back. A second conversation once the shrine clears may draw it out.",
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
     fn: function() {
@@ -129,7 +129,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The staging structure's guard rotation has a gap — a narrow window between the northern and western patrol legs where the tree line reaches within thirty meters of the outer wall.",
+    label: "A gap in the guard rotation where the tree line reaches thirty meters from the outer wall.",
     tags: ['Stage2', 'Scouting'],
     xpReward: 80,
     fn: function() {
@@ -159,7 +159,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Roadwarden checkpoint at the northern gate requires stating your business before you pass. The wrong answer here is anything vague.",
+    label: "The northern gate checkpoint demands a stated purpose. The wrong answer is anything vague.",
     tags: ['Stage2', 'Social'],
     xpReward: 68,
     fn: function() {
@@ -245,7 +245,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outpost smithy repairs field equipment — the smith has seen what the northern crews bring in for maintenance.",
+    label: "The smith has seen what the northern crews bring in for maintenance. He hasn't said anything.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -274,7 +274,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outpost's supply depot clerk has a discrepancy she flagged and then was told to un-flag.",
+    label: "The depot clerk flagged a discrepancy. She was told to un-flag it.",
     tags: ['Stage2', 'Archive'],
     xpReward: 68,
     fn: function() {
@@ -303,7 +303,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The northern tree line holds a camp marker from a survey team that stopped returning reports six weeks ago.",
+    label: "A survey team camp marker in the northern tree line. The team stopped returning reports six weeks ago.",
     tags: ['Stage2', 'Scouting'],
     xpReward: 72,
     fn: function() {
@@ -359,7 +359,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A supply runner who works the northern route knows the structure by its cargo — she has been inside.",
+    label: "The supply runner who works the northern route knows the structure by its cargo. She's been inside.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -387,7 +387,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outpost apothecary has been asked about a chemical smell drifting from the north on still mornings.",
+    label: "The apothecary has been asked about a chemical smell drifting from the north on still mornings.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -416,7 +416,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A gap in the patrol log covers three days when the northern road was supposedly clear — no entries, no annotation.",
+    label: "Three days in the patrol log with no entries, no annotation, northern road supposedly clear.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -445,7 +445,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A traveler laid up at the waystation infirmary came down from the northern hills with symptoms the outpost medic doesn't recognize.",
+    label: "A traveler from the northern hills with symptoms the outpost medic doesn't recognize.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -473,7 +473,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outpost night-watch keeps a private account — things seen on the northern road after the gate closes.",
+    label: "The night-watch keeps a private account of what moves on the northern road after gate close.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -501,7 +501,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A waymarker post on the northern road has been repositioned — the original socket is still visible in the ground ten meters back.",
+    label: "A waymarker post repositioned on the northern road. The original socket is ten meters back.",
     tags: ['Stage2', 'Scouting'],
     xpReward: 65,
     fn: function() {
@@ -529,7 +529,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Roadwarden duty roster has a standing northern assignment that cycles through a single auxiliary — the same name, every week, unrotated.",
+    label: "The northern assignment cycles through a single auxiliary. Same name, every week, never rotated.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -558,7 +558,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A trapper who works the northern spruce line stopped using his best territory eight months ago — the reason matters.",
+    label: "The trapper stopped working his best northern territory eight months ago. The reason matters.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -586,7 +586,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The woodcutter's yard at the outpost edge has been supplying fuel loads to the north — the delivery records name a structure that doesn't appear on any register.",
+    label: "The woodcutter's yard has been supplying fuel north. The delivery records name a structure not on any register.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -614,7 +614,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Plume's End Outpost finale — the staging location is physically located. Scout it formally with Patrol Leader backup or use Letha's map to infiltrate quietly.",
+    label: "The staging location is physically located. Patrol Leader backup or Letha's map — two ways in.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
     fn: function() {

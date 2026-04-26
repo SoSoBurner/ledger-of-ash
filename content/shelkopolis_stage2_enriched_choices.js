@@ -680,7 +680,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two names from the suppressed docket complaints are still in the city. Both went quiet the same week.",
+    label: "Two names from suppressed docket complaints still in the city. Both went quiet the same week.",
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -737,7 +737,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The south market ward grid has a maintenance node in the archival quarter. The channel ran through it.",
+    label: "A maintenance node in the archival quarter. The channel ran through it.",
     tags: ['Stage2', 'Investigation', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -794,7 +794,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Ironspool factor who replaced the night foreman was transferred in from Panim six weeks ago.",
+    label: "The replacement night foreman was transferred in from Panim six weeks ago.",
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -1032,7 +1032,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The suppression amendment is three signatures from ratification. One belongs to someone who hasn't signed yet.",
+    label: "Three signatures from ratification. One belongs to someone who hasn't signed yet.",
     tags: ['Stage2', 'Investigation', 'Faction'],
     xpReward: 68,
     fn: function() {

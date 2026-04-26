@@ -8,7 +8,7 @@
 const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Jorin Ledgermere's Material Ledger Office tracks every craft input — a category of 'specialty chemical inputs' has been appearing in ledgers without corresponding purchase orders.",
+    label: "Specialty chemical inputs appear in the ledgers. No purchase orders exist for them.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -37,7 +37,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Tess Ledgermere's Night-Lantern Circuit monitors workshop activity after hours — she has observed craft workshops operating during restricted hours on materials that match suppression compound components.",
+    label: "Workshops operating after hours on materials that match suppression compound components.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -65,7 +65,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Copy Warden's Book-Copy Bureau reviews all document reproduction — copies of suppression compound formulas have been reproduced under academic exemption using a falsified Mimolot Academy citation.",
+    label: "Formula copies reproduced under academic exemption. The Mimolot citation is falsified.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -96,7 +96,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Jorin Ledgermere has found a second ledger anomaly — a recurring materials credit issued by a Collegium-adjacent trade office that offsets the no-PO chemical inputs. He's willing to share it, but only if you help him formalize the record trail before it disappears.",
+    label: "A recurring Collegium credit offsets the no-PO inputs. The record trail is disappearing.",
     tags: ['Stage2', 'NPC', 'Escalation'],
     xpReward: 75,
     fn: function() {
@@ -127,7 +127,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A ghost workshop entity has begun moving unmarked crates through a service corridor connecting two licensed workhouses — the same corridor Tess flagged. Reaching the transfer point means crossing active workshop boundaries without triggering the floor inspectors.",
+    label: "Unmarked crates moving through the corridor Tess flagged. The floor inspectors can't see it.",
     tags: ['Stage2', 'Stealth', 'Environmental'],
     xpReward: 78,
     fn: function() {
@@ -157,7 +157,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A queue dispute at a Copy Bureau intake desk has drawn a crowd. An artisan is blocking the window, insisting a commissioned work was copied without authorization. The Copy Warden is not present. Workshop staff are watching to see how outsiders read the room.",
+    label: "An artisan is blocking the copy window. A crowd is watching. The Warden isn't here yet.",
     tags: ['Stage2', 'Social', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -243,7 +243,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The certification inspector's unsigned forms are stacked three months deep — her stamp is on the record, but her eyes never were.",
+    label: "Three months of unsigned forms. Her stamp is on them. Her eyes weren't.",
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -301,7 +301,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transit manifest was amended after the shipment left Craftspire — the correction is in different ink.",
+    label: "The manifest was amended after the shipment left. The correction is in different ink.",
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -329,7 +329,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "An auditor's defect report is statistically impossible — no workshop in Craftspire history has cleared this clean.",
+    label: "The defect report is statistically impossible. No workshop has ever cleared this clean.",
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -357,7 +357,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A sealed archive predates the current guild charter — and names institutions that were never supposed to exist in Craftspire.",
+    label: "The sealed archive predates the charter. It names institutions that were never supposed to exist here.",
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -385,7 +385,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Craftspire finale — the ghost workshop and ledger laundering confirm Craftspire as the production facility. Raid through guild authority or dismantle the supply chain from below.",
+    label: "Craftspire is the production facility. Guild authority or supply chain — one path closes the other.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
     fn: function() {
@@ -447,7 +447,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The copy tower's materials intake log has a category for compounds that no registered copy process uses.",
+    label: "The intake log has a compound category no registered copy process uses.",
     tags: ['Archive', 'Stage2', 'Observation'],
     xpReward: 65,
     fn: function() {
@@ -479,7 +479,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The guild registry's supply chain ledger shows a materials broker who filed a complaint and then withdrew it the same day.",
+    label: "A materials broker filed a complaint and withdrew it the same day.",
     tags: ['NPC', 'Stage2', 'Observation'],
     xpReward: 70,
     fn: function() {

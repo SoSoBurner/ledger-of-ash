@@ -9,7 +9,7 @@
 const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Taldan Veyst's Knowledge Registry has been receiving requests to suppress glyph research documentation — the suppression requests cite a non-existent regulatory authority.",
+    label: "Suppression requests citing a non-existent regulatory authority. The registry keeps receiving them.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -40,7 +40,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Kael Emberthrone's machinery oversight records show unusual requisitions for convoy modification equipment — the modifications match descriptions of suppression compound transport containers.",
+    label: "Convoy modification requisitions matching suppression compound transport container descriptions.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -68,7 +68,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Orvak Strone adjudicates unauthorized trade disputes — a dispute over payment for the container modification work reveals the commissioning party's documentation.",
+    label: "A payment dispute over container modification work. The commissioning party's documentation is in it.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -96,7 +96,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elyra Mossbane's Patron of Forests and Plains role gives her a regional ecological overview — glyph surges have been disrupting local wildlife migration in a pattern she has tracked for four months.",
+    label: "Glyph surges disrupting wildlife migration in a pattern Elyra has tracked for four months.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -127,7 +127,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Jorva Helmrune's communal responsibility enforcement covers supply chain integrity — a community member filed a report about convoy handlers receiving payments from an external party.",
+    label: "A community member filed a report. Convoy handlers receiving payments from an external party.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 64,
     fn: function() {
@@ -155,7 +155,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Kael is holding something back — the requisition ledger has a gap where a page was removed.",
+    label: "The requisition ledger has a gap where a page was removed. Kael hasn't mentioned it.",
     tags: ['stage2', 'sunspire_haven'],
     xpReward: 30,
     fn: function() {
@@ -176,7 +176,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The grain storehouse wall carries glyph-scoring marks at the wrong height — not structural, not decorative.",
+    label: "Glyph-scoring marks on the storehouse wall at the wrong height. Not structural, not decorative.",
     tags: ['stage2', 'sunspire_haven'],
     xpReward: 30,
     fn: function() {
@@ -197,7 +197,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Presenting sealed papers without a family endorsement mark is the kind of error that draws attention here.",
+    label: "Sealed papers without a family endorsement mark. That kind of error draws attention here.",
     tags: ['stage2', 'sunspire_haven'],
     xpReward: 30,
     fn: function() {
@@ -433,7 +433,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The north gate convoy log runs twelve days with no notation where there should be daily entries.",
+    label: "Twelve days in the convoy log with no notation where daily entries should be.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -496,7 +496,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A handler who took the external payment has been avoiding the communal common house for a month.",
+    label: "The handler who took the external payment has avoided the common house for a month.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -651,7 +651,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Sunspire Haven finale — the convoy modification workshop and knowledge suppression campaign confirm Sunspire as an operation infrastructure node. Shut it down formally or neutralize it quietly.",
+    label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {

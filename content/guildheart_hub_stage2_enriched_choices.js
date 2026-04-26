@@ -8,7 +8,7 @@
 const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Sable Ledgermere's Archive Scribing Hall has union freight charter records. The sealed charter pattern appears in three filed exemptions.",
+    label: "The sealed charter pattern appears in three filed freight exemptions. Not once by accident.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -36,7 +36,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Luthen Ledgermere routes freight through the transit yard — three cargo batches under charter exemption were loaded at unusual hours without standard inspection.",
+    label: "Three charter-exempt batches loaded at unusual hours without standard inspection.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -62,7 +62,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Derris Ledgermere at the Tariff Exchange Counter processes every import fee in Guildheart — a category of imports has been systematically zero-rated for eight months.",
+    label: "An import category has been zero-rated at the tariff counter for eight consecutive months.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -89,7 +89,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Cala Ledgermere's Guild Quarter Inn hosts traveling trade arbiters — one arbiters has been a regular guest while working on a contract she refuses to identify.",
+    label: "A regular arbiter guest. She's been working on a contract for months. She won't name it.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -117,7 +117,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Nyra Ledgermere's Guild Shrine Alcove serves as neutral meeting ground — she has witnessed two conversations between parties who should not know each other.",
+    label: "Two conversations at the shrine alcove between parties who should not know each other.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 64,
     fn: function() {
@@ -146,7 +146,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Selene Brokerwell's name keeps appearing on the subsidiary archive requests — she filed three in the same week the charter rider was renewed.",
+    label: "Selene Brokerwell filed three subsidiary archive requests the same week the charter rider renewed.",
     tags: ['stage2', 'guildheart_hub'],
     xpReward: 30,
     fn: function() {
@@ -172,7 +172,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The bonded warehouse blocks along the canal run — the loading crane at bay seven has chalk marks that don't match any active freight manifest.",
+    label: "Bay seven crane has chalk marks that don't appear on any active freight manifest.",
     tags: ['stage2', 'guildheart_hub'],
     xpReward: 30,
     fn: function() {
@@ -197,7 +197,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Guild Sanction Board hearing queue moves on strict rotation — cutting it would resolve this faster, but the room notices everything.",
+    label: "The Sanction Board queue moves on strict rotation. Cutting it resolves this faster. The room notices.",
     tags: ['stage2', 'guildheart_hub'],
     xpReward: 30,
     fn: function() {
@@ -222,7 +222,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The provisional registration for the mystery broker renews monthly — the clerks processing it don't read the attached rider.",
+    label: "The mystery broker's registration renews monthly. The clerks don't read the attached rider.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -251,7 +251,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Shelk notary cipher on the renewal rider should match an active notarial seal — it doesn't.",
+    label: "The notary cipher on the renewal rider should match an active seal. It doesn't.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -280,7 +280,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The northeast waypoint on Luthen's manifest doesn't appear in the Union route registry — it appears in a private Shelk charter annex.",
+    label: "The manifest waypoint isn't in the Union route registry. It's in a private Shelk charter annex.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -308,7 +308,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Guild Arbiter who was supposed to review the tariff exemption at month three is still on staff — he filed the review as complete without doing it.",
+    label: "The arbiter filed the tariff exemption review as complete. He never did it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -336,7 +336,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Panim memorial import classification is stamped by a Panim cultural attaché who hasn't been stationed at Guildheart Hub in three years.",
+    label: "The import stamp belongs to a cultural attaché not stationed here for three years.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -364,7 +364,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The freight insurance ledger at the Union bonding house shows three charter-exempt loads were never insured — the broker signed a waiver he can't explain.",
+    label: "Three charter-exempt loads never insured. The broker signed a waiver he can't explain.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -393,7 +393,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Guild Watchers duty roster shows a gap in coverage during the three off-hours loading windows — the same shift supervisor signed off on all three.",
+    label: "Coverage gaps during all three off-hours loading windows. Same shift supervisor signed off each time.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -422,7 +422,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The supply register cross-references Ithtananalor as a secondary transit node — but the volume assigned to it exceeds the node's declared capacity by a factor of four.",
+    label: "The volume assigned to that transit node exceeds declared capacity by a factor of four.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -450,7 +450,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Union ink-seal press used to authenticate charter documents shows residue from a non-standard compound — it's been used to print something other than official charter marks.",
+    label: "The ink-seal press has residue from a non-standard compound. It printed more than charter marks.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -478,7 +478,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A fire report from the archive subroom was reclassified as a routine maintenance incident — the original report described smoke damage to the charter exemption files.",
+    label: "The fire report was reclassified as maintenance. The original described smoke damage to exemption files.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -506,7 +506,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The dockside labor guild posted a grievance about the off-hours loading crews — it was withdrawn the following week with no resolution recorded.",
+    label: "The labor guild posted a grievance about the off-hours crews. Withdrawn the following week. No resolution.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -534,7 +534,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The formal Sanction Board record lists one witness as present at the charter exemption hearing — the witness says she was never called.",
+    label: "The Sanction Board record lists her as a hearing witness. She was never called.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -563,7 +563,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The hub registry has a standing amendment to the charter exemption category that nobody signed — it was filed as a clerical correction, not a policy change.",
+    label: "A standing amendment to the exemption category. Nobody signed it. Filed as a clerical correction.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -591,7 +591,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Guildheart Hub finale — the pre-Union charter, zero-rated imports, and shrine document exchange form a complete financing chain. Move through guild channels or route it informally.",
+    label: "The charter, the zero-rated imports, the shrine exchange — a complete financing chain. Guild channels or informal route.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
     fn: function() {

@@ -496,7 +496,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Caldor Sepulcher takes the same route to the oversight hall. Not today — today he changes it.",
+    label: "Caldor takes the same route every day. Not today. He changed it.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 82,
     fn: function() {
@@ -526,7 +526,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The freight lane runs before the bell. The wrong seal on a cart is readable at that hour.",
+    label: "The freight lane moves before the bell. A wrong seal is readable at that hour.",
     tags: ['Stage2', 'Survival'],
     xpReward: 74,
     fn: function() {
@@ -586,7 +586,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Transit permits for memorial cargo require a signatory. The same name appears on every unsealed shipment.",
+    label: "Every unsealed memorial shipment carries the same signatory name. One name, every time.",
     tags: ['Stage2', 'Lore'],
     xpReward: 76,
     fn: function() {
@@ -648,7 +648,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A family came to collect remains and was told the files showed no record of the service.",
+    label: "A family came to collect remains. The files showed no record of the service.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -707,7 +707,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Caldor's notary chain has four names. Three of them signed the same month they were appointed.",
+    label: "Four names in the notary chain. Three signed the same month they were appointed.",
     tags: ['Stage2', 'Lore'],
     xpReward: 78,
     fn: function() {
@@ -738,7 +738,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The archive annex delivery log is posted at the loading bay. No appointment required to read it.",
+    label: "The annex delivery log is posted at the loading bay. No appointment required.",
     tags: ['Stage2', 'Survival'],
     xpReward: 70,
     fn: function() {
@@ -768,7 +768,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The sanctuary list names trace to trade rosters. Not a single one appears in congregant records.",
+    label: "The sanctuary list traces to trade rosters. Not one name appears in congregant records.",
     tags: ['Stage2', 'Lore'],
     xpReward: 76,
     fn: function() {
@@ -797,7 +797,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The shrine water source runs under two buildings. One of them is the unregistered storage site.",
+    label: "The shrine water runs under two buildings. One is the unregistered storage site.",
     tags: ['Stage2', 'Survival'],
     xpReward: 72,
     fn: function() {

@@ -8,8 +8,8 @@
 const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Warden Sera Whiteglass's Dome Administration Center manages all filtration systems — the dome's glyph surge detection sensors have been recalibrated to report lower readings than actual.",
-    tags: ['Investigation', 'Stage2', 'Meaningful'],
+    label: "The sensors were changed. The dome still reads safe.",
+    tags: ['Investigation', 'Stage2'],
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -42,8 +42,8 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Theron Sealwater processes all dome transit — sealed cargo deliveries marked 'filtration maintenance supplies' have been arriving monthly and bypassing the standard intake quarantine.",
-    tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
+    label: "Maintenance supply crates arrive monthly. They never go to maintenance.",
+    tags: ['NPC', 'Survival', 'Stage2'],
     xpReward: 72,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -71,8 +71,8 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Cadrin Sealwater's Supply Ledger Counter tracks all supply costs — the filtration maintenance budget has tripled in the past six months without any infrastructure upgrade explanation.",
-    tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
+    label: "The filtration budget tripled. Nothing new was built.",
+    tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -100,8 +100,8 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Mariel Sealwater's Dome Rest Inn hosts the Collegium liaison during monthly visits — she has noticed the liaison always brings sealed documentation that leaves with different seals than it arrived with.",
-    tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
+    label: "The liaison's documents arrive with one seal. They leave with another.",
+    tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -129,8 +129,8 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Liora Sealwater at the Survival Shrine records community health petitions — a spike in respiratory complaints correlates exactly with the filtration supply delivery schedule.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    label: "The shrine attendance spikes the same week as every delivery.",
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -161,7 +161,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Alis Sealwater has been sitting on something — the commune scribe does not file documents she cannot account for.",
+    label: "The commune scribe doesn't file what she can't account for. She can't account for these.",
     tags: ['stage2', 'aurora_crown_commune'],
     xpReward: 30,
     fn: function() {
@@ -182,7 +182,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The maintenance gallery smells wrong — filtration infrastructure leaves residue that does not match what the manifests say is running through it.",
+    label: "The maintenance gallery smells wrong. The residue doesn't match the manifests.",
     tags: ['stage2', 'aurora_crown_commune'],
     xpReward: 30,
     fn: function() {
@@ -202,7 +202,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The contamination check queue has me marked as a repeat non-compliant — the dome's intake screening protocol has flagged my transit record.",
+    label: "The dome flagged my transit record. I'm now a repeat non-compliant on paper.",
     tags: ['stage2', 'aurora_crown_commune'],
     xpReward: 30,
     fn: function() {
@@ -437,7 +437,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The liaison's archive credential has been used from inside the dome — on days the liaison was not present.",
+    label: "The liaison's credential ran inside the dome on days the liaison wasn't here.",
     tags: ['Stage2', 'NPC', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -468,7 +468,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Orvyn Mast manages the condensate lines — a second distribution path runs beneath the filtration intake.",
+    label: "A second distribution path runs under the filtration intake. It isn't on any schematic.",
     tags: ['Stage2', 'NPC', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -499,7 +499,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune council minutes from four months ago have a motion that was tabled without a recorded vote.",
+    label: "The council tabled a motion four months ago. No vote is recorded.",
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -530,7 +530,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Pella Greave runs the dome transit desk — the liaison's private exit log never matches the public entry record.",
+    label: "The liaison's private exit log never matches the public entry record.",
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 68,
     fn: function() {
@@ -622,7 +622,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Sovan Drest knows which workers were moved away from the intake section and why they didn't ask questions.",
+    label: "The workers moved from intake didn't ask questions. Someone knows why they didn't.",
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 68,
     fn: function() {
@@ -683,8 +683,8 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Aurora Crown finale — the dome population is being dosed through a compromised filtration system. Expose through Warden Whiteglass's official channel or immediately disable the supply chain.",
-    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
+    label: "The evidence is complete. The dome is being dosed. Time to move.",
+    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 110,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

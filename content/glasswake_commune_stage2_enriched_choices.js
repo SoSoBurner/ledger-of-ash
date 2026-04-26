@@ -7,7 +7,7 @@
 const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Researcher Toman Iceveil's contamination data shows glasswake shard output increasing in correlation with external glyph pressure events — the shards are responding to engineered surges.",
+    label: "Shard output tracks against external glyph pressure events. The shards respond to engineered surges.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -36,7 +36,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Lenna Bannerhold's research clerk records include a suppression order that names four specific research conclusions — the conclusions describe the full operation mechanism if read together.",
+    label: "A suppression order names four specific research conclusions. Together they describe the full mechanism.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -65,7 +65,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Toman Iceveil's unpublished research, combined with the suppression order, creates a complete evidentiary package — help him submit it through a protected channel.",
+    label: "The unpublished research and the suppression order together form a complete package. It needs a protected channel.",
     tags: ['Investigation', 'Craft', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -100,7 +100,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Toman Iceveil returns to the observation gallery with a second data set — shard resonance patterns from three separate clear-sky windows. The amplification is not random. It is timed.",
+    label: "A second data set: shard resonance across three clear-sky windows. The amplification is timed.",
     tags: ['Stage2', 'Lore'],
     xpReward: 80,
     fn: function() {
@@ -131,7 +131,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The flagged exposure trenches outside the dome mark the shard formation perimeter. At low-observation hours the pylons go dark. The glyph pressure gradient is readable directly from the trench edge.",
+    label: "The pylons go dark at low-observation hours. The glyph gradient is readable from the trench edge.",
     tags: ['Stage2', 'Survival'],
     xpReward: 80,
     fn: function() {
@@ -162,7 +162,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Lenna Bannerhold flags a procedural breach: you accessed the shard perimeter log without submitting a prior scan record. The Containment Research Concord requires collective sign-off before field access.",
+    label: "A procedural breach flagged. The Concord requires collective sign-off before field access.",
     tags: ['Stage2', 'Persuasion'],
     xpReward: 80,
     fn: function() {
@@ -249,7 +249,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The waste disposal schedule changed six months ago. The new hours run when no environmental assessor is on shift.",
+    label: "The disposal schedule changed six months ago. New hours run when no assessor is on shift.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -278,7 +278,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ambient glyph reading archive goes back four years. The spike pattern in the last six months doesn't resemble anything in the earlier record.",
+    label: "Four years of glyph readings. The last six months don't resemble anything in the earlier record.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -306,7 +306,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Lenna found formula notes in handwriting she doesn't recognize, inside a returned research text. She hasn't decided what to do with them.",
+    label: "Formula notes in an unrecognized hand inside a returned text. Lenna hasn't decided what to do.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -335,7 +335,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Mimolot Academy researcher arrived three months ago and left abruptly two weeks later. The visitor log entry is four words.",
+    label: "A Mimolot researcher arrived, then left abruptly two weeks later. Four words in the visitor log.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -363,7 +363,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Pita Sormund logs her personal route deviation notes in a second book she keeps at the pylon base, not the containment office.",
+    label: "The route deviation notes are in a second book at the pylon base, not the containment office.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -392,7 +392,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune governance board voted to restrict glyph research scope eight months ago. The vote record names who proposed the restriction.",
+    label: "The board voted to restrict glyph research eight months ago. The record names who proposed it.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -421,7 +421,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Fen Ashmark's third-watch disposal partner keeps a private tally. The numbers don't agree with the run sheets.",
+    label: "The third-watch disposal partner keeps a private tally. It doesn't agree with the run sheets.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -449,7 +449,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The glyph pylon circuit board is exposed during a maintenance cycle. The timing configuration etched into the base plate is not from the commune's own technical spec.",
+    label: "The pylon circuit board is exposed during maintenance. The timing config isn't from the commune's spec.",
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -477,7 +477,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A physical shard fragment in the containment lab carries residue that does not match the formation's known mineral signature.",
+    label: "A shard fragment in the lab carries residue that doesn't match the formation's mineral signature.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -506,7 +506,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's supply intake manifests from six months ago show a delivery that bypassed the standard weighing station.",
+    label: "Six months ago a delivery bypassed the standard weighing station. No record of why.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -534,7 +534,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Board Member Orend Cavel keeps office hours in the commune's north wing. His meeting calendar is posted outside the door.",
+    label: "Orend Cavel keeps office hours in the north wing. His meeting calendar is posted outside.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -562,7 +562,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The compound residue in the disposal trench soil is readable at the surface. The concentration gradient tells you which direction the source is.",
+    label: "The residue in the trench soil is readable at the surface. The gradient points toward the source.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -590,7 +590,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Glasswake Commune finale — the shard amplification proof and suppressed conclusions confirm the full operation mechanism. Publish openly or submit to institutional authority.",
+    label: "The full mechanism is confirmed. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 106,
     fn: function() {

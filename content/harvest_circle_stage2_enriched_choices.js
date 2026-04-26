@@ -9,7 +9,7 @@
 const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Farlan Inkshade maintains the academic quota records that cross-reference all incoming and outgoing supply manifests — Panim memorial manifests have been using harvest shipment routing numbers.",
+    label: "Panim memorial manifests have been using harvest shipment routing numbers. The records prove it.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -39,7 +39,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Valen Crestmark's Harvest Assessment Office knows every shipment that passes through Harvest Circle — an anomalous shipment arrived from the north six weeks ago under no recognized manifest category.",
+    label: "A shipment from the north six weeks ago. No recognized manifest category. No record of what it was.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -68,7 +68,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Jorva Helmrune enforces communal responsibility — a commune member has filed a grievance claiming the anomalous shipment passed through a restricted grain storage area without permission.",
+    label: "A grievance filed: the anomalous shipment moved through restricted grain storage without permission.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -96,7 +96,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elyra Mossbane as Patron-Family Broker has trade relationships with every supplier in the region — she knows which northern supplier claims to have dealt with Harvest Circle but doesn't appear in any actual contract.",
+    label: "A northern supplier claims dealings with Harvest Circle. Elyra knows it doesn't appear in any contract.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -127,7 +127,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Velrik Durnshade mediates guild disputes — a dispute between two harvest guild members over a sealed cargo handling fee reveals an internal accounting irregularity.",
+    label: "A sealed cargo handling fee dispute. The accounting irregularity it exposes is more than the dispute.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 64,
     fn: function() {
@@ -155,7 +155,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elyra keeps her supplier ledger face-down when I approach — she knows I've seen the name.",
+    label: "Elyra turns the supplier ledger face-down when I approach. She knows I've seen the name.",
     tags: ['stage2', 'harvest_circle', 'npc_escalation'],
     xpReward: 30,
     fn: function() {
@@ -184,7 +184,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The chalk marks on the drying rack posts run in the wrong direction for moisture tallies.",
+    label: "Chalk marks on the drying rack posts running the wrong direction for moisture tallies.",
     tags: ['stage2', 'harvest_circle', 'physical_evidence'],
     xpReward: 30,
     fn: function() {
@@ -211,7 +211,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "I stepped into the wrong convoy line — the stall holder at the front has already noticed.",
+    label: "Wrong convoy line. The stall holder at the front has already noticed.",
     tags: ['stage2', 'harvest_circle', 'social_complication'],
     xpReward: 30,
     fn: function() {
@@ -323,7 +323,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The silo operator near the Panim junction weighs everything. He doesn't open offering crates. He weighs them.",
+    label: "The silo operator weighs everything. He doesn't open the offering crates. He just weighs them.",
     tags: ['Stage2', 'Survival'],
     xpReward: 66,
     fn: function() {
@@ -354,7 +354,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A grain trader stopped his independent routes the week after the Compact filed against him. He's still here.",
+    label: "The Compact filed against him and his routes stopped. He's still here, still watching.",
     tags: ['Stage2', 'Charm'],
     xpReward: 64,
     fn: function() {
@@ -449,7 +449,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's seed-keeper tracks every variety by name. Three varieties went missing last autumn without a spoilage report.",
+    label: "Three seed varieties went missing last autumn. No spoilage report was filed.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -480,7 +480,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A night courier who runs the pre-dawn offerings route saw the Compact's handlers up close. He hasn't filed a report because no one asked.",
+    label: "The pre-dawn courier saw the Compact's handlers up close. No one asked him what he saw.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -540,7 +540,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's ritual herbalist prepares every offering bundle. She noticed the weight had changed before the route even left.",
+    label: "The ritual herbalist noticed the bundle weight had changed before the route even left.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -571,7 +571,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's seasonal timing records show the offering routes were rescheduled to match the Compact's arrival windows. That scheduling authority belongs to one office.",
+    label: "The offering routes were rescheduled to match the Compact's windows. One office holds that authority.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -601,7 +601,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Denet Alvar relocated to the eastern stalls. He's still watching the routes he used to run.",
+    label: "Denet Alvar moved to the eastern stalls. He still watches the routes he used to run.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -631,7 +631,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's night patrol route passes within thirty meters of the cold storage corridor. The patrol log has two months of gap entries, no explanation filed.",
+    label: "Two months of gap entries in the night patrol log near cold storage. No explanation filed.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -661,7 +661,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Harvest Circle finale — the agricultural routing fraud and ghost supplier are confirmed. Report to the commune council or use the routing number data to intercept the next shipment.",
+    label: "The routing fraud and ghost supplier are confirmed. Report to council or intercept the next shipment.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {

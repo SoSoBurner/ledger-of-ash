@@ -8,8 +8,8 @@
 const COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Coralyn Tideglass at the Maritime Archive Hall has records of every vessel entering Cosmoria's harbor — one shipping agent has filed cargo declarations that do not match any registered vessel registry.",
-    tags: ['Investigation', 'Stage2', 'Meaningful'],
+    label: "Seventeen cargo declarations. One vessel name. The vessel has been decommissioned for twelve years.",
+    tags: ['Investigation', 'Stage2'],
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -39,8 +39,8 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Marrow Tideglass as Harbor Captain has authority over all vessel inspections — he has been instructed to wave through a specific category of sealed cargo containers.",
-    tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
+    label: "The Harbor Captain received an order. He filed an objection. The order stood.",
+    tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 76,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -68,8 +68,8 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Tavian Tideglass's Floating Market Exchange processes all incoming maritime cargo for retail distribution — the sealed containers never reach the market floor.",
-    tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
+    label: "The market is just a stamp. The containers never touch the floor.",
+    tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -96,8 +96,8 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Selka Tideglass at the Cosmouth Dockside Inn hosts the shipping agents who work the Cosmoria maritime routes — one agent has been paying for rooms she never uses.",
-    tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
+    label: "The agent books the room, receives a letter, leaves on the night airship. Never stays.",
+    tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -124,8 +124,8 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Nerissa Tideglass at the Sea Communion Shrine records tidal observations — the glyph surge timing at Shelkopolis correlates with specific tidal window combinations she has documented.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    label: "The surge schedule matches the tide windows. The operation runs on a natural clock.",
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 74,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -156,7 +156,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Coralyn's secondary ledger has a third column she didn't show — the one that logs who reviewed each entry.",
+    label: "Coralyn's secondary ledger has a third column. She didn't show it.",
     tags: ['stage2', 'cosmoria'],
     xpReward: 30,
     fn: function() {
@@ -179,7 +179,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The night airship loading platform uses different quay markings than the day berths — someone painted them over.",
+    label: "The night platform uses different quay markings. Someone painted over the originals.",
     tags: ['stage2', 'cosmoria'],
     xpReward: 30,
     fn: function() {
@@ -201,7 +201,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The archive staff noticed the wrong thing about the research request — the form, not the question.",
+    label: "The archive staff read the form, not the question. They noticed the wrong thing.",
     tags: ['stage2', 'cosmoria'],
     xpReward: 30,
     fn: function() {
@@ -225,7 +225,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Pallmark Reach decommission file has a witness signature that belongs to no current Harbor Authority officer.",
+    label: "The decommission file has a witness signature. No current Harbor Authority officer owns it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -256,7 +256,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The night airship loading manifest has a column the day manifest does not — someone added it.",
+    label: "The night manifest has a column the day manifest doesn't. Someone added it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -287,7 +287,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Nerissa's tidal observation sheets cross-reference against a Cosmouth tide authority calendar that was discontinued two years ago.",
+    label: "Nerissa's observation sheets reference a Cosmouth tide calendar discontinued two years ago.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -317,7 +317,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Selka keeps a second booking register — the one she doesn't show to Harbor Authority inspectors.",
+    label: "Selka's second booking register doesn't go to Harbor Authority inspectors.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -346,7 +346,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Floating Market bonded transit column has been audited before — the same auditor, three times, always inconclusive.",
+    label: "The bonded transit column has been audited three times. Same auditor. Always inconclusive.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -375,7 +375,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The harbor pilot licensing board keeps approach charts for every registered vessel — Pallmark Reach has one.",
+    label: "Every registered vessel has an approach chart. The Pallmark Reach has one. It shouldn't.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -406,7 +406,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The cargo insurance broker on Quay Row underwrites every sealed container shipment — the policy holder is not a shipping company.",
+    label: "The cargo insurance policy holder isn't a shipping company.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -436,7 +436,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The quayside labor guild keeps a roster of every stevedore who worked the night platform — the same crew, every time.",
+    label: "The night platform roster shows the same crew every time. That's not how rosters work.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -466,7 +466,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The customs bond broker holds surety for every waived sealed container — the bond has never been called.",
+    label: "The bond surety covers every waived container. It has never once been called.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -495,7 +495,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The airship company's route ledger at the Cosmoria station office has a departure category that does not appear in the public tariff schedule.",
+    label: "The route ledger has a departure category. It doesn't appear in the public tariff schedule.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -525,7 +525,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The harbor weighmaster's log records cargo weight at intake — the sealed containers are logged at zero.",
+    label: "The weighmaster logs every cargo weight at intake. The sealed containers are logged at zero.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -555,7 +555,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The warehouse night watchman has been signing the same shift log for eight months — the entries are not in his hand.",
+    label: "Eight months of shift log entries. Not one is in the night watchman's hand.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -584,7 +584,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The dock factor who coordinates cargo transfers between sea vessels and airship manifests keeps a correspondence ledger — one agent's letters always arrive sealed with wax, not paper tape.",
+    label: "Wax seal means they expect it unopened. Forty-one letters. All before a departure.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -614,8 +614,8 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Cosmoria finale — the maritime transit laundering route and tidal surge mechanics are confirmed. Report to House Cosmouth authority or expose through the airship network.",
-    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
+    label: "The transit laundering route is confirmed. The tidal window is the trigger. Time to act.",
+    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 108,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

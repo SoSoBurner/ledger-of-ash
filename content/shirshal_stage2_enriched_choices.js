@@ -8,7 +8,7 @@
 const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Tazren Coilspire has an open case file that touches every thread I have been following. He has been pulling at this longer than I have.",
+    label: "Tazren's open case file touches every thread I've followed. He's been pulling at this longer than I have.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -39,7 +39,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Luneth Coilspire processes evidence transfers between Bureau departments — three evidence packages related to glyph cases were marked delivered but never logged at their destination.",
+    label: "Three glyph case evidence packages marked delivered. None logged at destination.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -67,7 +67,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Khalis Coilspire's Arcane Market Counter tracks all arcane material imports — suppression compound precursors have been flowing through Shirshal under false material classifications.",
+    label: "Suppression compound precursors flowing through Shirshal under false material classifications.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -96,7 +96,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Mirae Coilspire's inn is adjacent to the Bureau — she has been watching investigator patterns for years and knows who doesn't belong on the active roster.",
+    label: "The innkeeper has watched Bureau patterns for years. She knows who doesn't belong on the active roster.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -125,7 +125,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Sivren Coilspire's Compliance Shrine records petitions — a cluster of compliance petitions from glyph-affected localities were dismissed simultaneously under a single ruling three months ago.",
+    label: "A cluster of glyph-locality petitions dismissed simultaneously under a single ruling. Three months ago.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -156,7 +156,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ravel Coilspire keeps two sets of interview transcripts — one filed, one hidden. The gap between them is where the real testimony went.",
+    label: "Two sets of interview transcripts. One filed, one hidden. The gap is where real testimony went.",
     tags: ['stage2', 'shirshal'],
     xpReward: 30,
     fn: function() {
@@ -178,7 +178,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Bureau's warding array has calibration stones mounted at every corridor junction — one stone is misaligned in a way no standard maintenance cycle would produce.",
+    label: "One calibration stone misaligned in a way no standard maintenance cycle would produce.",
     tags: ['stage2', 'shirshal'],
     xpReward: 30,
     fn: function() {
@@ -199,7 +199,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Eris Coilspire holds the labor foreman role and controls who enters restricted sections — the wrong question here ends up in a Magistratus incident log.",
+    label: "Eris controls who enters restricted sections. The wrong question ends up in a Magistratus incident log.",
     tags: ['stage2', 'shirshal'],
     xpReward: 30,
     fn: function() {
@@ -278,7 +278,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A courier out of the northern staging district carries a sealed packet addressed to the same unlisted sub-registry Luneth mapped.",
+    label: "A northern staging courier. Sealed packet to the same unlisted sub-registry Luneth mapped.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -309,7 +309,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A woman from Panim Haven arrived at the Bureau three days ago with testimony. She has not been seen inside since the first morning.",
+    label: "A woman from Panim Haven arrived with testimony. Not seen inside since the first morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -340,7 +340,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Collegium sub-registry code appears in the Bureau's own charter amendments — someone embedded the routing authority years before it was used.",
+    label: "The Collegium sub-registry code is in the Bureau's own charter amendments. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {
@@ -370,7 +370,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two of Tazren's supervisors are in the building today. One of them signed the original case closure order.",
+    label: "Two of Tazren's supervisors in the building today. One signed the original case closure order.",
     tags: ['Stage2', 'NPC'],
     xpReward: 78,
     fn: function() {
@@ -401,7 +401,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transit post office keeps a field rotation log the Collegium never asked them to stop keeping.",
+    label: "The transit post office kept a field rotation log. The Collegium never asked them to stop.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -431,7 +431,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A retired Bureau archivist lives near the compliance shrine. She left under circumstances the official record does not describe.",
+    label: "A retired archivist near the compliance shrine. She left under circumstances the record doesn't describe.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -461,7 +461,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The north road at the hour Mirae named. Someone on the ten-day cycle leaves from here.",
+    label: "The north road at the hour Mirae named. The ten-day cycle leaves from here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -492,7 +492,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The residue on the calibration stone is a compound, not a natural sediment. It has a specific formulation.",
+    label: "The residue on the calibration stone is a compound, not sediment. It has a specific formulation.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -522,7 +522,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The glyph surge incident reports and the petition dismissal dates do not line up the way the official account requires.",
+    label: "The surge incident reports and the petition dismissal dates don't line up the way the official account requires.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {
@@ -553,7 +553,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Verdant Row network knows which localities received the suppressed materials. They track what the Bureau does not.",
+    label: "The Verdant Row network knows which localities received the suppressed materials. They track what the Bureau doesn't.",
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
     fn: function() {
@@ -584,7 +584,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The override code Khalis flagged appears in a second Bureau branch's intake log from three months before it appeared in Shirshal.",
+    label: "The override code appeared in a second Bureau branch three months before it showed up here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -614,7 +614,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ravel Coilspire's hidden transcripts name three glyph surge witnesses. One of those witnesses is still in Shirshal.",
+    label: "The hidden transcripts name three surge witnesses. One is still in Shirshal.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -644,7 +644,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Shirshal finale — Tazren's suppressed case file and the compliance record inversion confirm coordinated evidence management. Present to the Bureau director or route around it.",
+    label: "Coordinated evidence management confirmed. Bureau director or route around it — both paths are open.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
     fn: function() {

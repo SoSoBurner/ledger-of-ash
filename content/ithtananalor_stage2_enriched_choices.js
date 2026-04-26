@@ -40,7 +40,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ivena Ironspike processes every registered transaction. She has seen the ghost account activity and said nothing.",
+    label: "She processes every transaction. She has seen the ghost account activity and said nothing.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -69,7 +69,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Sir Velden Ironspike commands the Shadowhands — the ghost accounts point toward his unit's involvement. Request a formal meeting.",
+    label: "The ghost accounts point toward the Shadowhands. Velden commands them. A formal meeting is one option.",
     tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
     xpReward: 90,
     fn: function() {
@@ -102,7 +102,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Brenn Ironspike at the Justice Shrine has witnessed unusual evening proceedings at the enforcement quarter — ask what they have seen.",
+    label: "Unusual evening proceedings at the enforcement quarter. The shrine attendant witnessed them.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -130,7 +130,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Harlan Ironspike's Enforcement Quarter Inn is where off-duty Shadowhands officers stay — observe their behavior over an evening.",
+    label: "Off-duty Shadowhands officers stay at the quarter inn. An evening there would tell something.",
     tags: ['Stealth', 'NPC', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -159,7 +159,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The illicit magic enforcement culture in Ithtananalor has created a shadow market — access it to find the ghost account endpoints.",
+    label: "The enforcement culture created a shadow market. The ghost account endpoints are somewhere inside it.",
     tags: ['Stealth', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -187,7 +187,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Captain Darian Roaz heads ORE Supreme Command — either an ally against internal corruption or the source of it. Make an assessment before contact.",
+    label: "Roaz heads ORE Supreme Command. Either an ally against internal corruption or the source of it.",
     tags: ['Combat', 'Investigation', 'Personal', 'Stage2', 'Meaningful'],
     xpReward: 88,
     fn: function() {
@@ -217,7 +217,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ivena's practiced deflection was a rehearsed line — she rehearses lines when she has something to protect",
+    label: "That deflection was rehearsed. She rehearses lines when she has something to protect",
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     fn: function() {
@@ -238,7 +238,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The foundry loading dock runs night shifts — unmarked crates move through here when the quota ledger says nothing is moving",
+    label: "Unmarked crates move through the foundry dock on nights the quota ledger says nothing is moving",
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     fn: function() {
@@ -358,7 +358,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transferred duty officer left a forwarding seal at the transit registry — one that was never collected.",
+    label: "The transferred officer left a forwarding seal at the transit registry. It was never collected.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -388,7 +388,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The quota calibration threshold is not a round number — whoever set it knew the exact audit trigger.",
+    label: "The quota calibration threshold is not a round number. Whoever set it knew the exact audit trigger.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -418,7 +418,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "One of the contraband materials requires cold storage — there are only three registered cold holds in the enforcement quarter.",
+    label: "The contraband needs cold storage. Three registered cold holds in the enforcement quarter.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -446,7 +446,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The anti-magic statute has a materials exemption written in a hand that does not match the rest of the document.",
+    label: "The materials exemption in the anti-magic statute is in different handwriting than the rest.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -475,7 +475,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Harlan keeps a second ledger behind the bar — not for accounts, for names and dates he does not trust to memory.",
+    label: "Harlan's second ledger behind the bar holds names and dates he doesn't trust to memory.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -534,7 +534,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Shadowhands courier run loops past the cold hold and the foundry loading dock on the same circuit.",
+    label: "The courier run loops the cold hold and the foundry loading dock on the same circuit.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -562,7 +562,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The enforcement quarter notice board runs two layers — the public one and the one behind it.",
+    label: "The notice board runs two layers. The public one, and the one posted behind it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -592,7 +592,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The civic tribunal has a case file that was opened, sealed, and never docketed — that sequence is not procedurally possible.",
+    label: "A case file opened, sealed, and never docketed. That sequence is not procedurally possible.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -621,7 +621,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The foundry supervisor tallies ore by weight before it enters the quota system — not after.",
+    label: "The foundry supervisor tallies ore by weight before it enters the quota system. Not after.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -650,7 +650,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A compliance officer filed a formal query eighteen months ago and was transferred to a non-posting within the week.",
+    label: "A compliance officer filed a query eighteen months ago. Transferred to a non-posting within the week.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -680,7 +680,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The reclassified logistics unit occupies a floor of the enforcement quarter that does not appear on the building schematic.",
+    label: "The reclassified unit occupies a floor of the enforcement quarter not on the building schematic.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -708,7 +708,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The compliance cycle's external auditor has not set foot in Ithtananalor for three consecutive review periods.",
+    label: "The external auditor hasn't set foot here for three consecutive review periods.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -737,7 +737,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Ithtananalor finale — act on the ghost account evidence through Roaz command or through independent disclosure.",
+    label: "The ghost account evidence is ready. Roaz command or independent disclosure — both paths are open.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
     fn: function() {

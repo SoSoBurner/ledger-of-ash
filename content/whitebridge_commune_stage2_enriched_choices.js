@@ -8,7 +8,7 @@
 const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Cadrin Crownmere's Bridge Crossing Office records every transit — a specific crossing pattern repeats every twelve days and matches the northern courier schedule Vaelis Sunweave identified in Fairhaven.",
+    label: "A twelve-day crossing pattern matching the northern courier schedule Vaelis identified in Fairhaven.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -38,7 +38,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Aster Starice's Night-Lantern Circuit surveys the bridge at night — she has witnessed cargo transfers occurring on the bridge after midnight that are not logged in any crossing record.",
+    label: "Cargo transfers on the bridge after midnight. Not logged in any crossing record.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -67,7 +67,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Arbiter Nyra Thawmark adjudicates crossing loss claims — a claim filed by a farmer for cargo damaged at the bridge contains a description of an unusual container he found on the bridge.",
+    label: "A farmer's cargo claim includes a description of an unusual container found on the bridge.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -95,7 +95,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Thora Snowveil's grain measurement records track all agricultural transit — sealed non-agricultural containers have been using grain convoy exemptions to cross the bridge without inspection.",
+    label: "Sealed non-agricultural containers using grain convoy exemptions to cross without inspection.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -125,7 +125,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Arbiter Nyra has seen this container mark before — her Loss Ledger records reach back further than any crossing log.",
+    label: "Nyra has seen this container mark before. Her Loss Ledger reaches back further than any crossing log.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -146,7 +146,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The signal brazier platform on the east pier is the only vantage point that overlooks the full midspan.",
+    label: "The east pier brazier platform is the only vantage that overlooks the full midspan.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -166,7 +166,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A hauler at the shelter hall is loudly declaring a route condition the wardens have already cleared — the commune does not tolerate panic spreading.",
+    label: "A hauler loudly declaring a route condition the wardens already cleared. The commune watches.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -188,7 +188,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Cadrin left one name off the record — the override signature is a person, not a position.",
+    label: "One name off the record. The override signature is a person, not a position.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -209,7 +209,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The center support post carries every load that crosses — the scoring on it reads like a ledger.",
+    label: "The center support post carries every load. The scoring on it reads like a ledger.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -229,7 +229,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The gate warden flagged my pack before I said a word — he knows I haven't declared a route.",
+    label: "The gate warden flagged my pack before I said a word. He knows I haven't declared a route.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -330,7 +330,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's founding transit charter granted exemptions — the original carve-outs look nothing like what they have become.",
+    label: "The founding charter exemptions look nothing like what they have become.",
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -361,7 +361,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Thora filed her discrepancy reports — someone told her to stop. That person has a name.",
+    label: "Thora filed discrepancy reports. Someone told her to stop. That person has a name.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -391,7 +391,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The twelve-day courier does not vary his route. He does vary his company at the midspan.",
+    label: "The twelve-day courier never varies his route. He varies his company at the midspan.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -421,7 +421,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A night on the bridge before the next twelve-day window — cold enough that no one expects anyone to be watching.",
+    label: "A night on the bridge before the next twelve-day window. Cold enough no one expects a watcher.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -450,7 +450,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune apothecary examined Nyra's vials — his notes went somewhere they weren't supposed to go.",
+    label: "The apothecary examined Nyra's vials. His notes went somewhere they weren't supposed to go.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -480,7 +480,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The commune's tithe ledger records every crossing fee — the diplomatic exemptions left a credit gap someone was meant to offset.",
+    label: "The diplomatic exemptions left a credit gap in the tithe ledger. Someone was meant to offset it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -511,7 +511,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The east-pier brazier keeper maintains the signal light — he does not sleep through the nights Aster avoids.",
+    label: "The brazier keeper doesn't sleep through the nights Aster avoids.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -541,7 +541,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A surveyor returned from the ice shelf two days ago — she crossed the bridge during one of the flagged windows.",
+    label: "A surveyor back from the ice shelf. She crossed the bridge during one of the flagged windows.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {

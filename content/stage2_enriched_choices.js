@@ -452,7 +452,7 @@
     }
   },
   {
-    label: "The insider wants out. She's been watched long enough to know the gaps in the rotation.",
+    label: "She's been watched long enough to know the gaps in the rotation. She wants out.",
     tags: ['Faction', 'Risk', 'Defection', 'Moral', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -548,7 +548,7 @@
     }
   },
   {
-    label: "The faction wants eyes in a region I don't know. Saying no has a cost too.",
+    label: "The faction wants eyes in a region I don't know. Saying no carries its own cost.",
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -775,7 +775,7 @@
     }
   },
   {
-    label: "A companion's family member is inside a facility I can reach. The window will not stay open.",
+    label: "A companion's family member inside a facility I can reach. The window won't stay open long.",
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -807,7 +807,7 @@
     }
   },
   {
-    label: "A companion secretly sacrificed something important for the group. Discover this and decide how to respond.",
+    label: "A companion gave something up for the group quietly. They haven't said anything about it.",
     tags: ['Companion', 'Sacrifice', 'Revelation', 'Loyalty', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -839,7 +839,7 @@
     }
   },
   {
-    label: "The companion was hired to watch me. They stopped. The gap between those two facts is the only question.",
+    label: "The companion was hired to watch me. They stopped. That gap is the only question.",
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -873,7 +873,7 @@
 
   // ========== ROUTE INTELLIGENCE: Scouts, Spies & Institutional Observation ==========
   {
-    label: "A scout has checkpoint maps. The price and what I offer in return are still undecided.",
+    label: "A scout with checkpoint maps. The price and what I offer in return are still undecided.",
     tags: ['Intelligence', 'Route', 'Information', 'Cost', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -937,7 +937,7 @@
     }
   },
   {
-    label: "An institutional spy wants shelter. What they carry is worth more than what I gain turning them over.",
+    label: "An institutional spy wants shelter. What they carry outweighs what I gain by turning them in.",
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -1002,7 +1002,7 @@
     failResult: 'This path is closed here, but the Collegium\'s outer office is not the only layer — the building at the administrative edge still has no public record.'
   },
   {
-    label: "A scout network is offering access to their route data. The price is protection I may not be able to deliver.",
+    label: "A scout network offers route data. The price is protection I may not be able to deliver.",
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -1067,7 +1067,7 @@
     failResult: 'This path is closed here, but there is still the matter of the name that appears in four unconnected offices — the routing records and the Iron Ledger Ward are not finished with each other.'
   },
   {
-    label: "The archive is breached. The secondary stacks are unguarded for a window that will not stay open.",
+    label: "The archive is breached. The secondary stacks are unguarded. The window won't stay open.",
     tags: ['Intelligence', 'Opportunity', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -1099,7 +1099,7 @@
     }
   },
   {
-    label: "A corruption network needs my testimony against institutional officials. The protection they offer may not outlast my usefulness.",
+    label: "They need my testimony against institutional officers. Their protection may not outlast my usefulness.",
     tags: ['Intelligence', 'Corruption', 'Legal', 'Risk', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -1874,7 +1874,7 @@
   },
 
   {
-    label: "The Oversight Collegium has a liaison in every major locality. None of them file the same report.",
+    label: "The Collegium has a liaison in every major locality. None file the same report.",
     tags: ['Stage2', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -2047,7 +2047,7 @@
   },
 
   {
-    label: "A broker's ledger lists three clients. The Guild registry shows only one of them as licensed.",
+    label: "A broker's ledger lists three clients. Only one appears in the Guild registry as licensed.",
     tags: ['Stage2', 'Investigation'],
     xpReward: 68,
     fn: function() {

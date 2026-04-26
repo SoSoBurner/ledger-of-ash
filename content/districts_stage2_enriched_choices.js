@@ -10,7 +10,7 @@
 
 const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "Aurora Heights formal archive holds sealed correspondence from the charter period — request access through the noble registry.",
+    label: "Sealed charter-period correspondence sits in Aurora Heights archive. The noble registry controls access.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -34,7 +34,7 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "Aurora Heights court circuit — press contacts among the high-society network for off-record information about the sealed charter parties.",
+    label: "The high-society network holds off-record knowledge about the charter parties.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -84,7 +84,7 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
 
 const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "Ironspool Ward's labor circuit has workers who handled the suppression compound container modifications — find them at the shift end taverns.",
+    label: "Workers who touched the container modifications end their shifts at the ward taverns.",
     tags: ['Investigation', 'Stealth', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -108,7 +108,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "Ironspool Ward's contraband edge — a local fence has been handling small quantities of the suppression compound that leaked from the main supply chain.",
+    label: "A ward fence has been moving suppression compound that leaked from the main supply chain.",
     tags: ['Stealth', 'Craft', 'Stage2'],
     xpReward: 66,
     fn: function() {
@@ -197,7 +197,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
 
 const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "Verdant Row's botanical healers have been treating patients with suppression compound symptoms — they have been quietly documenting exposure cases.",
+    label: "Botanical healers have been quietly documenting suppression compound exposure cases.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -222,7 +222,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "The Verdant Row distribution network reaches every allied healer and recorder in the region. They are waiting for something worth routing.",
+    label: "Every allied healer and recorder in the region is connected. They're waiting for something worth routing.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 64,
     fn: function() {
@@ -273,7 +273,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
 
 const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "Harvest Keep's Granary Steps market has grain manifests showing the agricultural routing number theft in real time — catch it before it clears.",
+    label: "The routing number theft is happening in the manifests right now. Catch it before it clears.",
     tags: ['Investigation', 'Craft', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -318,7 +318,7 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
 
 const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The Iron Ledger Ward's financial records office tracks every large-denomination transaction in Ithtananalor — the suppression compound payments appear as routine asset transfers.",
+    label: "The suppression compound payments are filed as routine asset transfers in the financial records.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -365,7 +365,7 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
 
 const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The Reckoning Quarter's justice records include a case of a memorial service provider who filed a fraud complaint about misuse of their service classification — and then withdrew it under pressure.",
+    label: "A memorial service provider filed a fraud complaint, then withdrew it. Pressure was applied.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -389,7 +389,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "The permit inspector patrols that corridor — a wrong word here closes every door in the quarter.",
+    label: "The permit inspector patrols that corridor. One wrong word closes every door in the quarter.",
     tags: ['stage2', 'districts'],
     xpReward: 30,
     fn: function() {
@@ -412,7 +412,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
 
 const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The Scriptorium Steps has a back-channel for scholarly correspondence that bypasses standard Academy mail. The evidence needs a route that doesn't get intercepted.",
+    label: "Scriptorium Steps has a back-channel that bypasses Academy mail. The evidence needs that route.",
     tags: ['Craft', 'Lore', 'Stage2'],
     xpReward: 64,
     fn: function() {
@@ -465,7 +465,7 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
 
 const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The high quarter records hall has charter and contract files. The access credentials may be enough to get through the gate.",
+    label: "Charter and contract files in the high quarter hall. The credentials may open the gate.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 66,
     fn: function() {
@@ -489,7 +489,7 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "The settlement's high quarter social circuit — press elite contacts for information about off-record charter activity.",
+    label: "The high quarter social circuit keeps its own record of charter activity.",
     tags: ['Persuasion', 'Stage2'],
     xpReward: 62,
     fn: function() {
@@ -515,7 +515,7 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
 
 const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The settlement's common quarter market stalls — traders here track every unusual shipment passing through and share information freely.",
+    label: "Market stall traders track every unusual shipment. They share freely.",
     tags: ['Survival', 'Stage2'],
     xpReward: 58,
     fn: function() {
@@ -538,7 +538,7 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "Common quarter labor contacts — workers here know which employers are operating outside standard guild contracts.",
+    label: "Ward workers know which employers are running outside guild contracts.",
     tags: ['Persuasion', 'Craft', 'Stage2'],
     xpReward: 56,
     fn: function() {
@@ -564,7 +564,7 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
 
 const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The settlement's low ward informant network — contraband awareness here is high and someone knows about the suppression compound distribution edge.",
+    label: "The low ward tracks contraband movement. Someone here knows the suppression compound edge.",
     tags: ['Stealth', 'Stage2'],
     xpReward: 60,
     fn: function() {
@@ -590,7 +590,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   // ── NEW CHOICES (5) ─────────────────────────────────────────────────
 
   {
-    label: "The ward constable's patrol log skips three nights in a row — the gap lines up with the container transfers.",
+    label: "The patrol log skips three nights. The gap lines up with the container transfers.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -619,7 +619,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The bonded yard keeper keeps a private ledger — every irregular load he accepts goes in the back column, unnamed.",
+    label: "The bonded yard keeper's private ledger has a back column. Every irregular load. Unnamed.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -648,7 +648,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transit road's weight-check station keeps a shadow manifest for loads that bypass the standard inspector.",
+    label: "The weight-check station keeps a shadow manifest for loads that bypass the standard inspector.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -676,7 +676,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A displaced tenant from the dome terminal complaint eviction — she kept her notice papers and knows who served them.",
+    label: "The evicted tenant kept her notice papers. She knows who served them.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -704,7 +704,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ghost entity's charter subsidiary stamping tool was ordered from a Scriptorium Steps copy house — the order slip is still in the bindery log.",
+    label: "The charter subsidiary stamping tool was ordered from a copy house. The order slip is in the bindery log.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -732,7 +732,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The dome terminal's intake ledger records every container by volume — three entries list the same routing code twice.",
+    label: "Three entries in the intake ledger list the same routing code twice.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -761,7 +761,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The district Warden faction is split — the junior officers resent the patrol re-routing orders they were never given a reason for.",
+    label: "Junior Warden officers resent the patrol re-routing orders. No reason was ever given.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -791,7 +791,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The civic hall night archivist works without witnesses — she has seen what gets filed after hours and what gets pulled before morning.",
+    label: "The night archivist works alone. She has seen what gets filed after hours and pulled before morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -819,7 +819,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "An Ithtananalor trading post ledger shows the ghost entity accepting commodity receipts it has no warehouse to hold.",
+    label: "The ghost entity is accepting commodity receipts. It has no warehouse to hold them.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -846,7 +846,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The healer collective's apothecary supplier kept delivery records — the supply volumes tell a different story than the treatment logs.",
+    label: "The apothecary delivery records and the treatment logs don't tell the same story.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -874,7 +874,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A disgraced courier route supervisor was removed after filing a manifest discrepancy report — he kept a copy of what he found.",
+    label: "The route supervisor was removed after filing a discrepancy report. He kept a copy.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -902,7 +902,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Aurora Heights estate solicitor mentioned the charter holder family once — she chose not to finish the sentence.",
+    label: "The estate solicitor mentioned the charter holder family once. She didn't finish the sentence.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -929,7 +929,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Low ward's labor underground — workers who handled off-books cargo for extra pay know more than they told their handlers.",
+    label: "Workers who handled off-books cargo for extra pay know more than they told their handlers.",
     tags: ['Combat', 'Stealth', 'Stage2'],
     xpReward: 58,
     fn: function() {

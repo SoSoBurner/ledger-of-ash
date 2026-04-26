@@ -8,7 +8,7 @@
 const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Quenra Quillfire's lecture hall contains restricted curriculum materials — the suppression compound formula appears in theoretical texts three years before it was commissioned.",
+    label: "The suppression compound formula appears in theoretical texts three years before it was commissioned.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -39,7 +39,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Myra Quillfire handles Archive Loading Bay deliveries — she has recorded incoming shipments that do not match standard academic supply manifests.",
+    label: "Incoming shipments logged that don't match standard academic supply manifests.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -67,7 +67,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Sarith Quillfire's Knowledge Tariff Counter processes fees on all research materials entering the Academy — three recent acquisitions bypassed tariff entirely.",
+    label: "Three recent acquisitions bypassed tariff entirely. No exemption filed.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -96,7 +96,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ilys Quillfire's Academy Inn hosts visiting scholars — she overheard a late-night conversation about 'pressure management protocols' between guests who are not on the faculty roster.",
+    label: "A late-night conversation about 'pressure management protocols.' The guests aren't on the faculty roster.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -124,7 +124,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Velis Quillfire maintains Memory Hall Shrine records — the shrine's historical inscriptions include pre-suppression glyph architecture data that was never formally classified.",
+    label: "The shrine inscriptions include pre-suppression glyph data that was never formally classified.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -244,7 +244,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Hoven Draske works the night materials dock — he moves things that do not appear in the morning shift's intake log.",
+    label: "Things moved through the night dock that don't appear in the morning intake log.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -275,7 +275,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Pellin Ost audits faculty expenditures — he stopped filing anomaly reports six weeks ago and has not explained why.",
+    label: "The faculty auditor stopped filing anomaly reports six weeks ago. No explanation given.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -305,7 +305,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Fairhaven courier route has a regular stop at the Academy that does not appear in the public delivery schedule.",
+    label: "A regular Fairhaven courier stop at the Academy that doesn't appear in the public schedule.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -335,7 +335,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The glyph resonance theory papers in the archive are cited by research that does not exist in the Academy's own catalog.",
+    label: "The archive papers are cited by research that doesn't exist in the Academy's own catalog.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -365,7 +365,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The reagent storage manifest uses a weighing notation that does not match Academy standard — the discrepancy is a craft tell, not a clerical error.",
+    label: "The weighing notation in the reagent manifest doesn't match Academy standard. A craft tell, not a clerical error.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -394,7 +394,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The anatomical study room access log has a block of entries that share the same handwriting as the charter exemptions.",
+    label: "The study room access log has entries in the same hand as the charter exemptions.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -454,7 +454,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The observatory's glyph sensor log recorded a pressure spike on the same night as a Fairhaven delivery that isn't in any manifest.",
+    label: "A pressure spike on the same night as a Fairhaven delivery not in any manifest.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -485,7 +485,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The visiting lecturer's credential file contains a Collegium endorsement that the Collegium's own registry cannot confirm.",
+    label: "The credential file holds a Collegium endorsement the Collegium's registry can't confirm.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -515,7 +515,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The grounds crew serviced the east tunnel approach three times in one month — no maintenance order filed.",
+    label: "The east tunnel approach serviced three times in one month. No maintenance order filed.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -544,7 +544,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The emeritus office was cleared mid-term — furniture moved out, key returned, no sabbatical notice posted.",
+    label: "The emeritus office was cleared mid-term. Furniture out, key returned, no sabbatical notice posted.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -574,7 +574,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "After certain seminars, the same group of students leaves together and does not return to the dormitory wing.",
+    label: "After certain seminars the same group leaves together. They don't return to the dormitory.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -604,7 +604,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ink on the external charter document is wrong for the date on it — the seal is right but the paper has not aged.",
+    label: "The charter ink is wrong for the date. The seal is right. The paper hasn't aged.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -633,7 +633,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Mimolot Academy finale — the Academy's classified research was the theoretical foundation for the entire suppression operation. Expose or contain.",
+    label: "The Academy's classified research was the theoretical foundation. Expose or contain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
     fn: function() {

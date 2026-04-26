@@ -7,7 +7,7 @@
 const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Vale Brokerwell's Arrival Registry has a systematic gap — parties arriving under diplomatic transit exemption are not logged in the main registry, only in a shadow sub-register.",
+    label: "Diplomatic transit arrivals not logged in the main registry. Only in a shadow sub-register.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -36,7 +36,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Vale Ledgermere has mediated disputes between parties that have now appeared in the same network — the mediation records cross-identify operation participants.",
+    label: "Parties from prior mediations have now appeared in the same network. The records cross-identify them.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -62,7 +62,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Vale Tinmarch has treated patients presenting with symptoms consistent with low-level suppression compound exposure — they are Unity Square residents who live near the coordination meeting points.",
+    label: "Patients with low-level exposure symptoms. All Unity Square residents near the coordination meeting points.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -92,7 +92,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Vale Brokerwell pulls you aside near the tally towers — he has found a second shadow ledger he didn't build, and the handwriting isn't his. Someone else inside the registry has been logging the same parties.",
+    label: "A second shadow ledger he didn't build. The handwriting isn't his. Someone else inside the registry.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -123,7 +123,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "One of the unlogged diplomatic arrivals lists a consignment weight that matches no known cargo class — tracing the transit route back through the loading lane manifests may locate where it was staged.",
+    label: "An unlogged arrival with a consignment weight matching no known cargo class. The staging point is traceable.",
     tags: ['Stage2', 'Registry'],
     xpReward: 68,
     fn: function() {
@@ -153,7 +153,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A ward mediation session spills into the open exchange court — one of the disputing parties recognizes you and assumes you are an arbitration runner sent to document the proceedings against them.",
+    label: "The mediation spills into the open court. One party assumes I'm here to document proceedings against them.",
     tags: ['Stage2', 'Social'],
     xpReward: 66,
     fn: function() {
@@ -267,7 +267,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The unindexed charter series should appear in the Ward tax ledger. Its absence is the record.",
+    label: "The charter series should appear in the Ward tax ledger. Its absence is the record.",
     tags: ['Stage2', 'Lore'],
     xpReward: 70,
     fn: function() {
@@ -351,7 +351,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Fera's northern laneway has a gatekeeper post that goes unstaffed on a schedule. Someone set that schedule.",
+    label: "The northern laneway gatekeeper post goes unstaffed on a schedule. Someone set that schedule.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 67,
     fn: function() {
@@ -379,7 +379,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Unity Square finale — the coordination hub is confirmed. Expose the shadow register publicly or use it to map and intercept the final operation meeting.",
+    label: "The coordination hub is confirmed. Expose the shadow register or use it to intercept the final meeting.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
     fn: function() {
@@ -409,7 +409,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The perimeter awning registry shows forty-two active color-code disputes. One dispute covers the same plot from three different filing angles.",
+    label: "One awning dispute covers the same plot from three different filing angles. That doesn't happen.",
     tags: ['Investigation', 'Stage2', 'Archive'],
     xpReward: 68,
     fn: function() {
@@ -441,7 +441,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The tally tower night log shows a standing exemption from the standard counting cycle — filed once, never renewed, still active.",
+    label: "A standing exemption from the counting cycle. Filed once, never renewed, still active.",
     tags: ['Archive', 'Stage2', 'Lore'],
     xpReward: 66,
     fn: function() {
@@ -473,7 +473,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A street physician's supply order was rerouted through a Unity Square bonding house the same week the exposure cluster began.",
+    label: "A street physician's supply order rerouted through a bonding house the same week the exposure cluster began.",
     tags: ['NPC', 'Stage2', 'Social'],
     xpReward: 67,
     fn: function() {
