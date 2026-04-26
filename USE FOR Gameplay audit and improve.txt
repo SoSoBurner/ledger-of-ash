@@ -1,0 +1,13 @@
+/brainstorming   1. Load all skills in parallel — spec-miner, code-reviewer,
+  context-mode, humanizer, writing-skills, karpathy-guidelines, TDD,
+  test-master
+  2. Apply every skill's lens to the codebase — extract what exists, find
+   quality gaps, define the bar
+  3. Synthesize into a draft plan — covering all content types and
+  systems
+  4. Interview you — present the draft and ask questions based on what
+  the skills surfaced (gaps, ambiguities, design choices the skills
+  couldn't resolve)
+  5. Final interview — one last round when all questions are exhausted,
+  before handing off to implementation planning
+  6. Write the spec → invoke writing-plans

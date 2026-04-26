@@ -1,0 +1,16 @@
+brainstorming → spec-miner → architecture-designer → executing-plans
+                                                             ↓
+                                                  requesting-code-review
+						(checks against all three)                                                                                                                               											     ↓
+                                                          humanizer
+                                                  (inside narrative tasks)
+
+    Each tool's output is explicit input to the next. brainstorming was the
+     missing root of the chain.
+
+    Each tool informs the next. No tool runs in isolation. Load any agents, commands, Built-in tools, Hooks, skills and widgets that will assist you during the process and check again before you being implementation.
+
+    The skill needs that rewire — the tools aren't a checklist, they're a
+    pipeline where each output becomes the next tool's input.
+
+Respond "Let's Build a Game!" when you're ready for my input.
