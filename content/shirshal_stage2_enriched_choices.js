@@ -278,6 +278,129 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "A courier out of the northern staging district carries a sealed packet addressed to the same unlisted sub-registry Luneth mapped.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'intercepting northern courier packet');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_intercept_done = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The courier stops at the staging post water trough to let the horse drink. The packet sits in an open saddlebag, flap unclipped from the road heat. The cover reads no recipient name — only the sub-registry notation and a date-of-action stamp that falls five days from now. Inside the outer wrapper: a transfer authorization bearing the same Collegium override code Khalis identified at the market counter, and a consignment list in handwriting you recognize from the margin notes in Ravel's hidden transcripts. The courier remounts. You have what you came for.`;
+        addJournal('Northern courier packet: override code + Ravel handwriting on consignment list — action dated 5 days out', 'evidence', `shir-courier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The courier sees you before you see the bag. He is practiced about it — no alarm, no confrontation, just a hand on the saddlebag flap and a second look at your face that lasts long enough to mean something. He remounts without stopping at the trough and takes the north fork at a pace that is not urgent enough to be reported but is not the pace of someone who forgot something either. By the time you reach the fork, the road ahead is empty and your presence at the staging post is a memory in someone else's account.`;
+        addJournal('Courier identified you at staging post — packet secured and routed north', 'complication', `shir-courier-fail-${G.dayCount}`);
+      } else {
+        G.flags.courier_intercept_done = true;
+        G.investigationProgress++;
+        G.lastResult = `You get two seconds at the saddlebag before the courier turns back from the trough. Enough: the outer wrapper's address notation matches the sub-registry exactly, and the date-of-action stamp is visible. Five days. You do not see the contents. The courier does not see you read it. Neither of you acknowledges the other when he passes on his way out.`;
+        addJournal('Northern courier packet confirms sub-registry address — action stamp: 5 days', 'intelligence', `shir-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A woman from Panim Haven arrived at the Bureau three days ago with testimony. She has not been seen inside since the first morning.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating Panim Haven witness');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.panim_witness_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `She is in the staging corridor of the transit hostel, still in road clothes, case beside her chair. Naret Osse, formerly a compliance archivist in Panim Haven — she says this quietly, the way people name things they no longer expect to mean anything. The Bureau intake officer told her the petition the glyph-affected ward sent was already adjudicated. She has the original petition in her bag. The adjudication date on the Bureau's copy predates the petition by eleven days. "Someone filed a resolution to something that hadn't been submitted yet." She already knew what this meant. She came anyway.`;
+        addJournal('Panim witness Naret Osse: Bureau adjudication predates petition by 11 days — pre-emptive closure', 'evidence', `shir-naret-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = `The transit hostel clerk directs you to the corridor and the corridor is empty — not cleared, just empty. Her case is gone, the chair is back against the wall, and the clerk on the next shift doesn't have a record of her name. Either she left voluntarily or someone moved her between shift changes. The Bureau's intake log for the day shows one external visitor admitted to the petition counter. No name. No outcome noted.`;
+        addJournal('Panim witness gone from transit hostel — Bureau log shows unnamed visitor, no outcome', 'complication', `shir-naret-fail-${G.dayCount}`);
+      } else {
+        G.flags.panim_witness_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Naret Osse is in the hostel staging corridor, road-tired and waiting for a return transit that doesn't exist yet. She won't give the full account — not here, not out loud — but she confirms the petition her ward sent was adjudicated before they sent it. She knows because she filed it herself. "I have the copy. I kept a copy." She presses her bag closer to her side. That's all she'll say in the corridor.`;
+        addJournal('Panim witness confirms petition adjudicated before submission — holds original copy', 'intelligence', `shir-naret-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Collegium sub-registry code appears in the Bureau's own charter amendments — someone embedded the routing authority years before it was used.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'tracing Collegium sub-registry in Bureau charter amendments');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.charter_amendment_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The charter amendment is in the Bureau's own public register — administrative language, the kind that passes without comment in annual filings. Section 14(c), amendment cycle seven years back: authority to route compliance-flagged cases to sub-registry for "expedited specialized review." The sub-registry address is specified verbatim. The amendment was filed under a Collegium administrative authority notation that predates the Bureau's current director by two administrations. Someone built the mechanism into the charter before they needed to use it. The suppression protocol is not improvised — it has a legal foundation no one has touched since the amendment was approved.`;
+        addJournal('Bureau charter amendment: sub-registry routing authority embedded 7 years ago under prior administration', 'evidence', `shir-charter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The charter amendment index requires staff-assisted access for records older than five years — procedure, not a block, except the staff assistant who handles the request notes the specific amendment cycle you named and excuses himself before pulling anything. He returns with a supervisor. The supervisor is polite and asks for credentials with the particular patience of someone who was briefed before arriving. The charter amendment is available upon formal request, which requires two business days and an originating authority signature. You will not be here in two business days.`;
+        addJournal('Charter amendment access flagged — supervisor briefed, formal request required', 'complication', `shir-charter-fail-${G.dayCount}`);
+      } else {
+        G.flags.charter_amendment_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Section 14(c) is in the register: sub-registry routing authority for expedited specialized review, filed seven years ago. The amendment is clean, formally ratified, no procedural anomalies visible on its face. What it means is that the override code Khalis identified has a legal home — the routing is authorized, not improvised. The authorization predates the current director. Whoever wrote the amendment knew what they were writing it for.`;
+        addJournal('Charter amendment confirms sub-registry routing is legally authorized — written before current administration', 'evidence', `shir-charter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Two of Tazren's supervisors are in the building today. One of them signed the original case closure order.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'confronting Bureau supervisors who closed Tazren case');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.supervisors_confronted = true;
+        G.investigationProgress++;
+        G.lastResult = `The one who signed the closure order — Vel Orath, name printed on the office placard — does not reach for anything when you set the charter amendment on his desk. He reads it without picking it up. Thirty seconds. "What you have there is a legal instrument." He says it like a man confirming the weather. Then: "The sub-registry is under Collegium authority. I cannot discuss it." He doesn't deny the case was closed on instruction. He doesn't confirm it either. He folds his hands and the interview ends. His second — younger, still learning the procedure — has left the room before he folded his hands.`;
+        addJournal('Supervisor Vel Orath confirms sub-registry is Collegium authority — did not deny closure on instruction', 'evidence', `shir-supervisors-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `Vel Orath has you escorted out of the building by a duty officer before you finish the first question. The duty officer is professional about it — walking pace, no contact, door held open. Outside, the officer notes your name on a clipboard entry and asks you to confirm your current address. The question is not hostile. The entry is already written before you answer it. The Bureau now has a formal record of your attempt to access a supervisor regarding a closed case, and the supervisors know you have the charter amendment.`;
+        addJournal('Escorted from Bureau — formal record made of supervisor contact attempt', 'complication', `shir-supervisors-fail-${G.dayCount}`);
+      } else {
+        G.flags.supervisors_confronted = true;
+        G.investigationProgress++;
+        G.lastResult = `Vel Orath grants you five minutes with the door open. He listens to the charter amendment angle without responding to it and says the case was closed under standard administrative review authority. "That is the record." The second supervisor has developed an urgent errand elsewhere in the building. Orath fills the remaining four minutes by describing the case closure procedure in procedural detail you cannot interrupt. When time is up, he stands. The door was already open.`;
+        addJournal('Supervisor Vel Orath: case closed under standard administrative review — gave no ground, timeline confirmed', 'intelligence', `shir-supervisors-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Shirshal finale — Tazren's suppressed case file and the compliance record inversion confirm coordinated evidence management. Present to the Bureau director or route around it.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
