@@ -38,7 +38,7 @@ var FAIRHAVEN_MEADOW_MILL_DISPLACEMENT = (function() {
       text: 'The rerouting order has a permit number. Permit numbers have origins.',
       tags: ['Confrontation'], plot: 'side',
       result: function() {
-        var r = rollD20('lore');
+        var r = rollD20('wits');
         if (r.total >= 12) {
           G.flags.mill_displacement_rung2 = true;
           G.lastResult = 'The permit batch reference leads to the civic land office filing room. The original batch is intact. The rerouting order is not in it — it was added to the batch index but not the physical file. The routing mark stamped on the order\'s corner matches the Twice-Sealed impression: two overlapping circles, the same as the harbor permit and the shadow ledger. The mill displacement is part of the same channel.';

@@ -565,14 +565,16 @@
   // BIOME_ENCOUNTER_POOLS — fast-pace extra encounter source by biome.
   // Keys must exist in window.ENEMY_STATS (data/bestiary_lookup.js).
   // ---------------------------------------------------------------------------
+  // Enemy keys remapped to valid ENEMY_TEMPLATES entries (road_bandit, hired_muscle,
+  // border_enforcer, patrol_guard, house_shelk_operative, village_thug, hostile_debtor)
   window.BIOME_ENCOUNTER_POOLS = {
-    plains:       ['principality_militia', 'roadwarden_sergeant', 'highland_route_patrol'],
-    highland:     ['highland_estate_guard', 'highland_route_patrol', 'principality_checkpoint_officer'],
-    coastal:      ['coastal_smuggler', 'sea_route_bandit', 'harbor_patrol_officer'],
-    mountain:     ['frontier_enforcer', 'quarry_guard', 'soreheim_outrider'],
-    forest:       ['principality_militia', 'highland_route_patrol', 'frontier_enforcer'],
-    'ash-zone':   ['volcanic_route_bandit', 'commune_enforcer', 'border_enforcer_roazian'],
-    'ice-locked': ['polar_route_bandit', 'dome_perimeter_patrol', 'sheresh_perimeter_guard']
+    plains:       ['patrol_guard', 'road_bandit', 'house_shelk_operative'],
+    highland:     ['border_enforcer', 'patrol_guard', 'road_bandit'],
+    coastal:      ['hired_muscle', 'road_bandit', 'patrol_guard'],
+    mountain:     ['border_enforcer', 'village_thug', 'road_bandit'],
+    forest:       ['road_bandit', 'village_thug', 'hired_muscle'],
+    'ash-zone':   ['road_bandit', 'border_enforcer', 'hostile_debtor'],
+    'ice-locked': ['road_bandit', 'border_enforcer', 'patrol_guard']
   };
 
   // ---------------------------------------------------------------------------

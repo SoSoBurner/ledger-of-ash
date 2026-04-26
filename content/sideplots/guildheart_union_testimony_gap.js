@@ -37,7 +37,7 @@ var GUILDHEART_UNION_TESTIMONY_GAP = (function() {
       text: 'Sela Vorn stopped appearing. She did not stop knowing what she knew.',
       tags: ['Investigation'], plot: 'side',
       result: function() {
-        var r = rollD20('persuasion');
+        var r = rollD20('charm');
         if (r.total >= 13) {
           G.flags.testimony_gap_rung2 = true;
           G.lastResult = 'Sela Vorn is still in Guildheart Hub — working a counter job at a transit broker three streets from the registry. She agrees to talk once, in a back room, with no record of the meeting. The labor grievance named a routing contractor who billed Twice-Sealed Transit for cargo clearances that never happened. The contractor paid the dispatch crews short and kept the clearance fee. When she filed the grievance, a union liaison told her the case had been reviewed. It had not been reviewed. It had been closed. She has the original documentation. She has been waiting for someone to ask.';

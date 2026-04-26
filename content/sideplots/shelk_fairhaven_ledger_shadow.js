@@ -38,7 +38,7 @@ var SHELK_FAIRHAVEN_LEDGER_SHADOW = (function() {
       text: 'The permit desk runs two sets of records. The second one is not filed here.',
       tags: ['Investigation'], plot: 'side',
       result: function() {
-        var r = rollD20('lore');
+        var r = rollD20('wits');
         if (r.total >= 12) {
           G.flags.shadow_ledger_rung2 = true;
           G.lastResult = 'The clerk\'s filing system has a gap — two drawers with different lock styles. The second drawer has a routing number that does not match the public registry. The entries inside are stamped with the same Twice-Sealed impression. Twenty-three companies. None of them appear in the open rolls.';

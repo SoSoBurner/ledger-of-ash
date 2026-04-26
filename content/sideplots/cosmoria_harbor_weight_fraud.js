@@ -34,7 +34,7 @@ var COSMORIA_HARBOR_WEIGHT_FRAUD = (function() {
       text: 'The weighmaster keeps two sets of records. The second is kept at the midnight check.',
       tags: ['Confrontation'], plot: 'side',
       result: function() {
-        var r = rollD20('stealth');
+        var r = rollD20('finesse');
         if (r.total >= 13) {
           G.flags.harbor_fraud_rung2 = true;
           G.lastResult = 'The midnight check happens at the end of the third shift when the dock is quietest. The weighmaster brings a second ledger — smaller, different binding. You watch from the crane housing. He enters numbers that don\'t match what you saw weighed. Someone meets him at the crane base. They exchange a sealed envelope. You have seen that seal before: Twice-Sealed.';

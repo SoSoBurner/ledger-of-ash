@@ -36,7 +36,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       gainXp(70, 'departing before Collegium inspection window');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         G.lastResult = `You are on the southern road before dawn. By mid-morning the traffic is already thickening — researchers, contractors, supply runs, all clearing out before the Collegium inspection teams arrive. You are one figure in a long string of departures. No one at the gate writes your name down. You are past the first waystation before the inspection window opens.`;
         G.flags.aurora_arc_clean_departure = true;
@@ -101,7 +101,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       gainXp(75, 'assessing whether Solind is following or parallel-tracking');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `You match your pace to hers over two days and watch her check-in rhythm. She stops at the same waystation intervals, produces a Collegium transit pass each time, and shows no variation in route or speed. She is not adjusting to your movements. She is heading to Shelkopolis on her own schedule for her own reasons. Those reasons are not yet clear. She will be there when you arrive.`;
         G.flags.aurora_arc_solind_parallel = true;
@@ -123,7 +123,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       gainXp(75, 'observing symptom cluster at roadside healer');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Three patients waiting on the healer's bench, all from outer settlements along the same road. They describe fatigue, intermittent throat irritation, a pressure behind the eyes that comes and goes. The healer is giving them willow-bark preparation and telling them to rest. That is the correct treatment for late-season fever. It is the wrong treatment for sub-threshold atmospheric compound exposure, which would not respond to it regardless. You ask where they came from. All three settlements fall within eight kilometres of Aurora Crown's dome infrastructure.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
@@ -151,7 +151,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The filtration access terminals along Shelkopolis's outer ring use the same pressure regulation chassis as Aurora Crown's — same generation, same maintenance access points, same additive input manifolds. The installation dates are staggered by two years but the specification is identical. What was done to Aurora Crown's atmospheric system can be done here using the same method. Based on the supply chain evidence from Craftspire and Ironhold, the material to do it is already moving south. Aurora Crown did not end anything. It demonstrated that the method works.`;
         G.flags.aurora_arc_shelk_dome_match = true;
@@ -174,7 +174,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       gainXp(80, 'making contact at Aurora Heights technical archive');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `The archivist works at a long table covered in dome specification sheets, some rolled, some pinned flat. His name is Doran and he has been building this comparison for two months. "Someone forwarded me the Glasswake shard amplification study," he says without looking up. "I read what it described. Then I pulled Shelkopolis's dome maintenance log." He turns a page toward you: the input manifolds have not been formally inspected in eleven months — four months past the required maintenance cycle. He taps the Aurora Crown specification. The chassis is identical. Aurora Crown was not a test run. It was a template in operation.`;
         G.flags.met_doran_aurora_heights = true;
