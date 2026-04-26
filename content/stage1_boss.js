@@ -130,6 +130,7 @@ function triggerStage1MainBoss() {
       text: 'Everything here is already in her files. Read what she has read.',
       tag: 'safe',
       skill: 'lore',
+      failResult: 'The room gives back nothing useful before she looks up. The desk is orderly, the lamp positioned toward the chair across from it — details that mean something, but not in time. She is already watching. The interview proceeds on her terms. The file she pulled before you arrived stays face-down on the corner of the desk where she put it.',
       action: function() {
         var roll = rollD20('wits');
         if (roll.total >= 10) {
@@ -200,6 +201,7 @@ function _stage1MainBossResolution() {
       text: 'Those files go with me. All of them.',
       tag: 'safe',
       skill: 'lore',
+      failResult: 'The stack resists — the files are bound under the desk lip by a registry cord you did not see. The ward lock begins its release cycle before you clear it. You take your own file and leave the rest. The desk looks orderly when you are done with it, but what was underneath stays underneath. The hall outside is already filling.',
       action: function() {
         addNarration('', 'You pull the stack and run a fast count: four files besides your own, each with the red notation, each covering a different locality and a different set of movements. The dates span eight months. Someone was running a long review. The files go inside your coat. The desk looks orderly when you are done with it — absent, but orderly.');
         addJournal('Secured four ORE intake files: each bearing a Tier 1 review notation in the same hand across eight months. This is a coordinated pattern, not individual enforcement.', 'evidence');
