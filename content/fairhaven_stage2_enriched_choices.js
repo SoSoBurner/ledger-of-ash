@@ -315,6 +315,158 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The Roadwarden checkpoint logs record the same three-day transit window every twelve days, no cargo declared.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-referencing Roadwarden checkpoint transit logs');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.roadwarden_logs_reviewed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The checkpoint log for the northern Fairhaven road shows a recurring transit pattern across fourteen weeks: three days of elevated passage activity, then nine days of nothing, then three again. The declared cargo field reads "correspondence — no contents declaration required" on every entry. The checkpoint warden's initials appear on the waved-through lines, but the initials are not consistent — different wardens, same waiver. Someone has embedded the waiver practice into the station's working culture. Nobody had to instruct the warden on duty. The pattern simply ran.`;
+        addJournal('Roadwarden checkpoint — recurring twelve-day transit window, blanket correspondence waiver across multiple wardens', 'evidence', `fair-rwlog-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The checkpoint log request goes to the district post, where it sits behind two pending audits from the Shelkopolis coordination office. The duty clerk marks it received and tells you to expect a response in the standard window. Standard window is fourteen days. Whatever the logs contain, they are not readable from here today.`;
+        addJournal('Roadwarden log request deferred — fourteen-day queue', 'complication', `fair-rwlog-fail-${G.dayCount}`);
+      } else {
+        G.flags.roadwarden_logs_reviewed = true;
+        G.investigationProgress++;
+        G.lastResult = `The transit logs cover twelve weeks. Every twelfth day, a cluster of three to four entries carries the correspondence waiver instead of a cargo declaration. The warden on shift rotates, but the waiver language is identical each time — copied, not written fresh. The pattern is consistent enough to predict the next transit window.`;
+        addJournal('Roadwarden checkpoint — correspondence waiver pattern identified, next window predictable', 'intelligence', `fair-rwlog-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The harbormistress signs the night clearances herself. She would have to know what she was waiving.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'confronting harbormistress Aldra Wennis on night clearance authorizations');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_aldra_wennis = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Aldra Wennis listens without expression. When you finish she sets both hands flat on the edge of her desk and looks at the harbor window for four seconds before answering. She did not write "night clearance" in the ledger. The phrase is her deputy's. She signed the authorizations under a standing agreement with the guild registry that she now states plainly she has come to doubt. She opens the side drawer, removes a folded letter, and places it face-up on the desk. The letter carries a sealed charter reference. She has been keeping it.`;
+        addJournal('Harbormistress Aldra Wennis — sealed charter letter retained, deputy added night clearance language without authorization', 'evidence', `fair-aldra-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The question lands wrong. Aldra's posture shifts by a degree before she speaks. "The night clearance protocol is a discretionary tool within the harbor registry's mandate. I'd recommend directing procedural questions through the correct administrative channel." She marks something in her duty log after you leave. Her pen does not pause.`;
+        addJournal('Harbormistress alerted — duty log entry made after questioning', 'complication', `fair-aldra-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_aldra_wennis = true;
+        G.investigationProgress++;
+        G.lastResult = `Aldra confirms her signature on the clearances. She chooses each word with the care of someone who has rehearsed the answer. "Emergency discretionary clearance is within the harbor registry's authority." She does not say the clearances were appropriate. She says they were authorized. The difference runs like a fault line under the conversation.`;
+        addJournal('Harbormistress confirmed signatures — no explanation given for credential gaps', 'intelligence', `fair-aldra-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The northern approach to Watchers Perch has a secondary path. Someone has used it recently.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracking secondary approach to Watchers Perch cave');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.northern_approach_tracked = true;
+        G.investigationProgress++;
+        G.lastResult = `The secondary path leaves the main road two hundred yards before the cave marker and cuts north through low scrub. It has been used at least four times in the past two months — the brush springs back but not completely, and the root exposure on one steep section shows a worn groove from repeated boot placement at the same angle. A flat shelf halfway up holds three anchor points for ropes: iron pins driven into the limestone, old rust at the collar but fresh marks at the eye. Someone runs equipment up this path. Not cargo. Tools.`;
+        addJournal('Secondary Watchers Perch approach — rope anchor points, equipment access route confirmed', 'evidence', `fair-path-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The secondary path is clearly used, but following it in poor light means your own passage leaves marks. Boot prints in the soft clay at the top of the shelf, a broken branch at mid-height — the kind of sign that announces someone was here and looking. You clear what you can, but not all of it.`;
+        addJournal('Secondary path approach — own presence marked at cave shelf', 'complication', `fair-path-fail-${G.dayCount}`);
+      } else {
+        G.flags.northern_approach_tracked = true;
+        G.investigationProgress++;
+        G.lastResult = `The scrub brush along the secondary path has been pushed aside repeatedly — the stems flex the wrong direction, bent and held, then released. The path leads to the limestone shelf below the cave mouth. Recent boot prints in the clay, more than one person, different sole weights. The access is being used, but the purpose isn't readable from the marks alone.`;
+        addJournal('Secondary approach to cave — multiple-person traffic confirmed', 'evidence', `fair-path-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Thalen's suppression compound supplier is not in Fairhaven. The delivery address traces back to Shelkopolis.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing suppression compound supply chain to Shelkopolis origin');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.shelkopolis_supply_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Cross-referencing Thalen's compound batch records against the guild's inter-locality supply register produces one match: a chartered supplier registered in Shelkopolis under a subsidiary name that resolves to the same sealed charter code that appears in the Panim memorial manifests and the dock clearance paperwork. The same charter entity is sourcing the compounds, routing them through Fairhaven, and waiving its own cargo inspection along the way. The supply chain and the distribution chain are the same organization.`;
+        addJournal('Suppression compound supply traced to Shelkopolis charter entity — same code across three document types', 'evidence', `fair-supply-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The inter-locality supply register requires a guild trace authorization to cross-reference charter codes across polity lines. The authorization form goes to the guild registry clerk who handles the Shelkopolis district. She is away from her post until the morning of the third day from now. The inquiry sits on her desk.`;
+        addJournal('Supply chain cross-reference blocked — guild authorization pending', 'complication', `fair-supply-fail-${G.dayCount}`);
+      } else {
+        G.flags.shelkopolis_supply_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The supplier delivering to Thalen operates under a Shelkopolis subsidiary registration. The subsidiary name appears in two other Fairhaven supply records from different vendors in different categories. Same entity, different faces. The pattern of a single supplier reaching into multiple Fairhaven businesses under different names is visible; the full scope of it isn't.`;
+        addJournal('Shelkopolis subsidiary supplier in multiple Fairhaven vendor records — full scope unclear', 'intelligence', `fair-supply-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The courier cycle runs on a tide schedule. The next window opens at the fourth hour tomorrow.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'timing courier cycle against tide schedule at Fairhaven dock');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_cycle_timed = true;
+        G.investigationProgress++;
+        G.lastResult = `The tide tables posted at the dock master's board confirm it. Low tide on the north channel — the one that runs past the equipment barn at the end of the western field road — occurs every twelve days at the fourth hour. At low tide, a flat-bottomed supply vessel can move through the shallows without logging a harbor entry. The courier cycle Vaelis described at the inn, the field road ruts, the dock clearances, and the glyph surge calendar all share the same twelve-day interval. The schedule is the system.`;
+        addJournal('Courier cycle runs on twelve-day tide window — north channel low tide enables unlisted vessel transit', 'evidence', `fair-tide-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `You are at the tide board long enough to be noticed. A dock hand two bollards down watches without moving for three minutes, then walks inland. The tide schedule is public information, but standing at it long enough to copy figures and match them against an inquiry notebook is not invisible behavior.`;
+        addJournal('Tide board observation — presence at dock noted', 'complication', `fair-tide-fail-${G.dayCount}`);
+      } else {
+        G.flags.courier_cycle_timed = true;
+        G.investigationProgress++;
+        G.lastResult = `The twelve-day interval between Vaelis's guest cycles matches the north channel low-tide window. At the fourth hour on those nights the channel shallows enough for small unlisted vessels to transit without harbor logging. The timing fits. What moves through it isn't visible from the tide board.`;
+        addJournal('Twelve-day tide window confirmed — fits inn courier cycle interval', 'intelligence', `fair-tide-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
