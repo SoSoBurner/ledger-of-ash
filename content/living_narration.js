@@ -97,7 +97,7 @@ var STATE_SUFFIXES = {
       'The door that required justification now opens on your standing alone.'
     ],
     neutral: [
-      'The stage two machinery operates at its usual steady rate; nothing flags your presence.',
+      'The city moves at its usual weight; nothing in the street marks you as anything other than transit.',
       'Institutional attention is elsewhere today; the path through is unremarkable.',
       'The administrative weight is present but not directed at you specifically.',
       'The counters are staffed, the records are current, and the process runs without incident.'
