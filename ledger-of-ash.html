@@ -1864,6 +1864,10 @@ input, button, select, textarea { font-family: inherit; }
           <span class="l-prog-key">Level</span>
           <span class="l-prog-val" id="hud-level">1</span>
         </div>
+        <div class="l-prog-row">
+          <span class="l-prog-key" id="hud-xp-label">XP</span>
+          <span class="l-prog-val" id="hud-xp">0 / 60</span>
+        </div>
         <div class="l-renown" id="hud-renown">0 &#x2014; Unknown</div>
       </div>
       <div class="l-divider"></div>
@@ -14717,6 +14721,23 @@ function updateHUD() {
   setText('hud-name',    G.name||'&#x2014;');
   setText('hud-class',   G.archetype?G.archetype.name:'&#x2014;');
   setText('hud-level',   G.level);
+  // XP display: "XP: N / M" or "Mastery: N" in gold at level cap
+  var _xpEl = document.getElementById('hud-xp');
+  var _xpLabelEl = document.getElementById('hud-xp-label');
+  if (_xpEl) {
+    var _lvlCap = (typeof STAGE_LEVEL_CAP !== 'undefined' && STAGE_LEVEL_CAP[G.stage]) || 5;
+    var _atCap = (G.level || 1) >= _lvlCap;
+    if (_atCap) {
+      if (_xpLabelEl) _xpLabelEl.textContent = '';
+      _xpEl.textContent = 'Mastery: ' + (G.masteryXP || 0);
+      _xpEl.style.color = 'var(--accent-gold)';
+    } else {
+      if (_xpLabelEl) _xpLabelEl.textContent = 'XP';
+      var _nextXp = (G.level || 1) * 60;
+      _xpEl.textContent = (G.xp || 0) + ' / ' + _nextXp;
+      _xpEl.style.color = '';
+    }
+  }
   setText('hud-renown',  (G.renown||0) + ' — ' + getRenownedTitle());
   setText('hud-hp',      G.hp+' / '+G.maxHp);
   setText('hud-gold',    G.gold);
