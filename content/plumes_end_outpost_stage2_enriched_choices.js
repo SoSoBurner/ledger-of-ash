@@ -85,7 +85,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal("Shrine traveler account: pressure management compound dispensing at cave + second cache confirmed — worker missing", 'evidence', `plumes-cysur-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `The shrine's traveler accounts are protected under Cysur's doctrinal confidentiality. The shrine is a place of sanctuary; its records are not investigative resources.`;
+        G.lastResult = `The shrine's traveler accounts are protected under Cysur's doctrinal confidentiality. The shrine is a place of sanctuary; what is spoken here is not for outside hands.`;
         addJournal('Shrine traveler accounts protected under Cysur doctrine — not investigative records', 'complication', `plumes-cysur-fail-${G.dayCount}`);
       } else {
         G.flags.met_shrine_keeper_cysur = true;
@@ -252,7 +252,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(112, "Plume's End Outpost Stage 2 resolution");
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Outpost investigation needs more evidence before approaching the staging location.`;
+        G.lastResult = `More evidence is needed before approaching the staging location. The threads are not tight enough yet.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

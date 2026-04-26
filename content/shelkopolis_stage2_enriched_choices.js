@@ -505,7 +505,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Operation authorization confirmed — institutional protection identified', 'evidence', `shelk-auth-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The trail runs into a wall at the third link: an intermediary layer with no registry anchor, no charter citation, no named officer. The absence is too clean. Someone built a dead end here on purpose — a gap that produces no trail and absorbs inquiry. This is not a private scheme that got careful. It's an operation with counter-investigation structure built in from the start.`;
+        G.lastResult = `The trail runs into a wall at the third link: an intermediary layer with no registry anchor, no charter citation, no named officer. The absence is too clean. Someone built a dead end here on purpose — a gap that produces no trail and absorbs inquiry. This is not a private scheme that got careful. It's an operation with counter-surveillance structure built in from the start.`;
         addJournal('Authorization trace professionally obscured', 'complication', `shelk-auth-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;

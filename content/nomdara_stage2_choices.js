@@ -33,7 +33,7 @@ const NOMDARA_STAGE2_CHOICES = [
         gainXp(30, 'Nomdara rare item trade');
         G.lastResult = `Lorn counts the coin with his thumb, drops it into a tin, and sets the ${item.name} on the counter without comment. He wraps it in oiled cloth before sliding it across. (${item.effect}) The transaction is logged in his ledger before you've picked it up.`;
         if (!G.nomdara_last_visit_locality) G.nomdara_last_visit_locality = locality;
-        addJournal('trade', `Nomdara: traded for ${item.name} — ${item.effect}`, `nom-trade-${G.dayCount}`);
+        addJournal(`Nomdara: traded for ${item.name} — ${item.effect}`, 'discovery', `nom-trade-${G.dayCount}`);
       } else {
         G.lastResult = `Lorn names the price for the ${item.name} and waits. You count what you have. You are ${item.cost - G.gold} coin short. Lorn puts the item back on the shelf behind him and returns to his work. He does not suggest another item.`;
       }
@@ -64,7 +64,7 @@ const NOMDARA_STAGE2_CHOICES = [
       else if (archGroup === 'support') skillGained = 'persuasion';
       G.skills[skillGained] = (G.skills[skillGained] || 0) + 1;
       G.lastResult = `Wren does not lecture. She demonstrates a thing, stops, watches you attempt it, adjusts your grip or your timing without speaking, and moves on. Two hours pass this way. When she dismisses you with a nod, the gap between what you know and what you can do with ${skillGained} is narrower than it was this morning. (+1 ${skillGained})`;
-      addJournal('training', `Nomdara: Wren training — +1 ${skillGained}`, `nom-train-${G.dayCount}`);
+      addJournal(`Nomdara: Wren training — +1 ${skillGained}`, 'discovery', `nom-train-${G.dayCount}`);
       G.recentOutcomeType = 'rest'; maybeStageAdvance();
     }
   },
@@ -94,11 +94,11 @@ const NOMDARA_STAGE2_CHOICES = [
       if (G.wounds.length > 0) {
         const removed = G.wounds.shift();
         G.lastResult = `Sable works in a deliberate order — preparation, treatment, binding, check. She narrates nothing. The ${removed} is addressed and dressed before she steps back. The joint or tissue moves without the catch it had before. She makes a note in her ledger and sets the pen down.`;
-        addJournal('healing', `Nomdara: Sable removed wound: ${removed}`, `nom-heal-wound-${G.dayCount}`);
+        addJournal(`Nomdara: Sable removed wound: ${removed}`, 'discovery', `nom-heal-wound-${G.dayCount}`);
       } else if (G.flags && G.flags.suppression_exposed) {
         G.flags.suppression_exposed = false;
         G.lastResult = `Sable smells your breath and presses two fingers beneath your jaw. "Compound residue," she says. "Three days, minimum exposure." She prepares a flush compound — two parts, mixed in sequence — and has you drink it at the workbench. The grey at the edge of your thinking thins and clears. She watches you for a minute before nodding. "Don't take anything from a stranger for a week."`;
-        addJournal('healing', 'Nomdara: Sable cleared suppression compound exposure', `nom-heal-curse-${G.dayCount}`);
+        addJournal('Nomdara: Sable cleared suppression compound exposure', 'discovery', `nom-heal-curse-${G.dayCount}`);
       }
       G.recentOutcomeType = 'rest'; maybeStageAdvance();
     }
@@ -141,7 +141,7 @@ const NOMDARA_STAGE2_CHOICES = [
       if (!G.nomdara_last_visit_locality) {
         G.nomdara_last_visit_locality = n ? n.attached_locality_id : 'unknown';
       }
-      addJournal('information', `Nomdara rumor: ${rumor}`, `nom-intel-${G.dayCount}`);
+      addJournal(`Nomdara rumor: ${rumor}`, 'rumor', `nom-intel-${G.dayCount}`);
       G.recentOutcomeType = 'rest'; maybeStageAdvance();
     }
   },

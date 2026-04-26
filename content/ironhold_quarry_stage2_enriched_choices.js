@@ -257,12 +257,12 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `Velka's injury logs, the mineral sample, and the extraction classification documents go to the Roadwarden post at Ithtananalor — delivered directly, bypassing the ORE command chain that owns the classification. The Roadwarden duty officer receives the package at the intake desk and reads the mineral assay first. The special extraction order at Ironhold is suspended pending supply chain review by end of the following day. Stage III opens with a Roadwarden investigation running parallel to whatever ORE command does next.`;
+        G.lastResult = `Velka's injury logs, the mineral sample, and the extraction classification documents go to the Roadwarden post at Ithtananalor — delivered directly, bypassing the ORE command chain that owns the classification. The Roadwarden duty officer receives the package at the intake desk and reads the mineral assay first. The special extraction order at Ironhold is suspended pending supply chain review by end of the following day. Stage III opens with a Roadwarden review running parallel to whatever ORE command does next.`;
         addJournal('Ironhold S2 finale: Roadwarden supply chain investigation — special extraction suspended', 'evidence', `iron-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `The mineral sample and Velka's documentation go out through the Verdant Row network and the glasswake research community at the same time — simultaneous distribution, no single point to suppress. Within forty-eight hours the mineral profile is matched publicly against the suppression compound formula. Ironhold's extraction is named as the source material in every investigative channel that matters. The Shadowhands can't contain what's already in circulation.`;
+        G.lastResult = `The mineral sample and Velka's documentation go out through the Verdant Row network and the glasswake research community at the same time — simultaneous distribution, no single point to suppress. Within forty-eight hours the mineral profile is matched publicly against the suppression compound formula. Ironhold's extraction is named as the source material in every channel that matters. The Shadowhands can't contain what's already in circulation.`;
         addJournal('Ironhold S2 finale: mineral identification published — supply chain source material public', 'evidence', `iron-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

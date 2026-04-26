@@ -226,7 +226,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The registry at night is unguarded but sealed. Your method bypasses the seals without triggering the alert mechanism. Inside: 31 suppressed inquest files, each connecting a phantom memorial contract to a specific coin destination in the northern districts. The investigation has a full transaction chain now.`;
+        G.lastResult = `The registry at night is unguarded but sealed. Your method bypasses the seals without triggering the alert mechanism. Inside: 31 suppressed inquest files, each connecting a phantom memorial contract to a specific coin destination in the northern districts. The transaction chain is complete.`;
         addJournal('Registry accessed — 31 suppressed files obtained', 'evidence', `panim-registry-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;

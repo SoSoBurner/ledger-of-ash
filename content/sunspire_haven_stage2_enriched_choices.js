@@ -52,7 +52,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_kael_emberthrone = true;
         G.investigationProgress++;
-        G.lastResult = `Kael's requisition records show custom-built container insulation equipment — specifically designed to mask chemical compound signatures during standard cargo inspection. The work was commissioned by a party using the same sealed charter reference that appears throughout the investigation. Sunspire's convoy infrastructure was used as a modification workshop for the transport containers.`;
+        G.lastResult = `Kael's requisition records show custom-built container insulation equipment — specifically designed to mask chemical compound signatures during standard cargo inspection. The work was commissioned by a party using the same sealed charter reference that appears throughout the record trail. Sunspire's convoy infrastructure was used as a modification workshop for the transport containers.`;
         addJournal('Sunspire convoy workshop used to build inspection-masking container insulation — same charter ref', 'evidence', `sun-kael-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Kael wipes his hands on a rag and sets it down before he turns. The logs are syndicate property under convoy commercial confidentiality — he says this before you finish the question, the phrasing ready-made, a sentence he has delivered before. Without a formal override order from the Adjudicator's office, he cannot open them to an outside party. He is not apologetic about it. He goes back to the bench. The caliper is already in his hand before he reaches the worktop.`;
