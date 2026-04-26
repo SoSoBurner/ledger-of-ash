@@ -1128,6 +1128,10 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn.combat-lv2 { border-left: 2px solid #d47517; }
 .choice-btn.combat-lv3 { border-left: 2px solid #be2828; }
 .choice-btn.deescalate { background: rgba(22,56,40,.10); }
+.choice-btn--plot   { border-left: 3px solid #3a6fc4; }
+.choice-btn--warn2  { border-left: 3px solid #b8860b; }
+.choice-btn--warn1  { border-left: 3px solid #c87020; }
+.choice-btn--combat { border-left: 3px solid var(--danger); }
 .npc-container.tension-warn, .npc-display.tension-warn { border-color: var(--gold, #c8a96e) !important; box-shadow: 0 0 6px rgba(200,169,110,0.35); }
 .npc-container.tension-hot, .npc-display.tension-hot   { border-color: var(--blood, #8b2020) !important; box-shadow: 0 0 8px rgba(139,32,32,0.45); animation: pulse-red 1.8s ease-in-out infinite; }
 @keyframes pulse-red { 0%,100% { box-shadow: 0 0 8px rgba(139,32,32,0.45); } 50% { box-shadow: 0 0 16px rgba(139,32,32,0.75); } }
@@ -10725,6 +10729,17 @@ function renderChoices(choices) {
     if (isLocked) btnClasses += ' fumble-locked';
     if (c.plot === 'main') btnClasses += ' plot-main';
     if (c.extraClass) btnClasses += ' ' + c.extraClass;
+    // Tag-inferred risk-tier border classes
+    var _tags = c.tags || [];
+    if (_tags.indexOf('Tactical') !== -1 || _tags.indexOf('Combat') !== -1 || _tags.indexOf('Boss') !== -1 || _tags.indexOf('CombatEntry') !== -1) {
+      btnClasses += ' choice-btn--combat';
+    } else if (_tags.indexOf('Confrontation') !== -1 || _tags.indexOf('Accusation') !== -1 || _tags.indexOf('Ambush') !== -1) {
+      btnClasses += ' choice-btn--warn1';
+    } else if (_tags.indexOf('Conflict') !== -1 || _tags.indexOf('Exposure') !== -1 || _tags.indexOf('Betrayal') !== -1) {
+      btnClasses += ' choice-btn--warn2';
+    } else if (_tags.indexOf('ArcDeparture') !== -1 || _tags.indexOf('ArcArrival') !== -1 || _tags.indexOf('ArcFinale') !== -1 || _tags.indexOf('ArcGate') !== -1 || _tags.indexOf('ArcDeepening') !== -1) {
+      btnClasses += ' choice-btn--plot';
+    }
     var npcEl = document.getElementById('npc-container') || document.getElementById('npc-display');
     if (npcEl) {
       npcEl.classList.toggle('tension-warn', (G.tensionLevel||0) >= 1);
