@@ -771,7 +771,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.flags.met_elder_cassian = true;
         G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." She wraps both hands around her cup and holds it without drinking — waiting for you to catch up with what she already decided. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
-        addJournal('contact', 'Elder Cassian: recognized compound substitution by smell, has original sample, knows the community is being managed', `fairhaven-cassian-${G.dayCount}`);
+        addJournal('Elder Cassian: recognized compound substitution by smell, has original sample, knows the community is being managed', 'intelligence');
       } else {
         G.lastResult = `Cassian is willing enough, but the conversation stalls at anything specific. She refills her cup without being asked and doesn't rush the silence. She watches you with the patience of someone who has waited out other people's urgency before and found it usually resolves on its own. The jar she mentioned is somewhere in that cabinet behind her. She'll speak plainly when she decides you're the person to speak plainly to. That decision hasn't landed yet.`;
       }
@@ -793,7 +793,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_nyse_garrison = true;
         G.lastResult = `Nyse leans against the post and glances up the square before she answers — left, right, the same sweep, habit worn into reflex. "Six of us stayed. All long-posting. I've been here four years." A beat. "They said they needed people who knew the local households. For continuity." She doesn't say it as a criticism. She's describing a thing she accepted without fully naming what it is. The six who stayed are the ones who'd recognize a face and know which household it belonged to.`;
-        addJournal('contact', 'Corporal Nyse: retained specifically for community knowledge — long-term soldiers being used as surveillance assets', `fairhaven-nyse-${G.dayCount}`);
+        addJournal('Corporal Nyse: retained specifically for community knowledge — long-term soldiers being used as surveillance assets', 'intelligence');
       } else {
         G.lastResult = `Nyse gives the shortest answer available. "Orders." She keeps her position against the post, arms loose, watching you to see if you'll push it. The square behind her is quiet — a market day that ended early. She waits long enough to make clear she hopes you won't. Whatever she knows about the six who stayed, she's decided this morning isn't the time to share it.`;
       }

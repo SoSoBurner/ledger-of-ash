@@ -783,10 +783,10 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Davel talks to his food at first, not to you. He's nineteen and working the evening shift alone. Three weeks ago his supervisor told him to stop dating records by locality — use a new numerical code instead. "I asked what the code maps to. He said it's being unified across the network." Davel hasn't been told what network. The documents he's filed since then go into a system he has no key to read. Someone above his supervisor does.`;
+        G.lastResult = `Davel talks to his food at first, not to you. He's nineteen and working the evening shift alone. Three weeks ago his supervisor told him to stop dating records by locality — use a new numerical code instead. "I asked what the code maps to. He said it's being unified across the network." He picks up a blank form from the stack beside him and sets it down again without looking at it — a habit, something to do with his hands when the answer he has is smaller than the question it belongs to. Davel hasn't been told what network. The documents he's filed since then go into a system he has no key to read. Someone above his supervisor does.`;
         if (!G.flags) G.flags = {};
         G.flags.met_davel_clerk = true;
-        addJournal('contact', 'Junior clerk Davel revealed new undecipherable dating system in records', `soreheim-davel-${G.dayCount}`);
+        addJournal('Junior clerk Davel revealed new undecipherable dating system in records', 'intelligence');
       } else {
         G.lastResult = `Davel takes the food and keeps his hands around the bowl. He was warned — his posture says so. The meal helps. He doesn't leave. He doesn't speak either, not yet. He chews slowly and watches the door. A second visit might be worth more than this one.`;
       }
@@ -811,7 +811,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_iron_compact_arbiter = true;
         G.factionHostility.iron_compact += 1;
-        addJournal('faction', 'Iron Compact arbiter Keln Vare made first contact — offered registry placement', `soreheim-iron-contact-${G.dayCount}`);
+        addJournal('Iron Compact arbiter Keln Vare made first contact — offered registry placement', 'contact_made');
       } else {
         G.lastResult = `The Iron Compact office door is closed. The secretary looks up, writes down your name without being asked for it, and tells you the arbiter is in quota review meetings. Even-numbered afternoons, shift administrators. The office runs a full schedule. Vare is accessible. He's just not available today.`;
         if (!G.flags) G.flags = {};
