@@ -13889,6 +13889,14 @@ function showCharSheet() {
 
     '<div style="margin-top:20px"><div class="char-section-title">Wounds</div>' + woundRows + '</div>' +
     '<div style="margin-top:20px"><div class="char-section-title">History</div>' + histRows + '</div>' +
+    (G.flags && G.flags.companion_gate_open ? (function() {
+      var _compNames = { vorath_gelden: 'Vorath Gelden', mira_calden: 'Mira Calden' };
+      var _activeComps = Object.values(G.companions || {}).filter(function(c) { return c && c.status === 'active'; });
+      var _compRows = _activeComps.length === 0
+        ? '<div style="font-size:12px;color:var(--ink-faint)">None active.</div>'
+        : _activeComps.map(function(c) { return '<div class="char-stat-row"><span class="char-stat-val">' + (c.name || _compNames[c.id] || c.id || '') + '</span></div>'; }).join('');
+      return '<div style="margin-top:20px"><div class="char-section-title">Companions</div>' + _compRows + '</div>';
+    })() : '') +
     '</div>' + // end identity pane
 
     '<div class="sheet-tab-pane" data-pane="equipment">' +
