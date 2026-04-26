@@ -11663,7 +11663,7 @@ function checkLevelUp() {
     G.xp = 0;
     if (G.stage === 'Stage I' && !G.flags.stage1_narrative_complete && !G.flags._s1cap_hint_shown) {
       G.flags._s1cap_hint_shown = true;
-      if (typeof addNarration === 'function') addNarration('', '<em style="color:var(--gold-dim)">You have reached the Stage I level cap. Advancement requires completing the stage arc — find and confront the source of the institutional pressure you have been tracing.</em>');
+      if (typeof addNarration === 'function') addNarration('', '<em style="color:var(--gold-dim)">You have reached the Stage I level cap. Advancement requires completing the stage arc \u2014 find and confront the source of the institutional pressure you have been tracing.</em>');
     }
     if (typeof updateHUD === 'function') updateHUD();
     return;
@@ -14944,7 +14944,14 @@ function updateStageProgressBar() {
   var progress  = (G.stageProgress && G.stageProgress[stageNum]) ? G.stageProgress[stageNum] : 0;
   fill.style.width = Math.min(100, Math.round((progress / threshold) * 100)) + '%';
   var _pLabel = document.getElementById('stage-progress-label');
-  if (_pLabel) _pLabel.textContent = progress + ' / ' + threshold;
+  if (_pLabel) {
+    _pLabel.textContent = 'Stage Progress: ' + progress;
+    _pLabel.style.fontFamily = 'var(--font-display)';
+    _pLabel.style.fontSize = '10px';
+    _pLabel.style.color = 'var(--ink-faint)';
+    _pLabel.style.letterSpacing = '1px';
+    _pLabel.style.marginTop = '2px';
+  }
 }
 
 function updateAlignmentHUD() {
@@ -14982,41 +14989,23 @@ function updateQuestHUD() {
 }
 
 function updateJournalHUD() {
-  var el = document.getElementById('journal-list'); if (!el) return;
-  var JLABELS = {
-    evidence: 'EVIDENCE',
-    intelligence: 'INTEL',
-    rumor: 'RUMOR',
-    discovery: 'FIND',
-    complication: 'COMPLICATION',
-    contact_made: 'CONTACT'
-  };
-  var JCOLORS = {
-    evidence: 'var(--accent-gold)',
-    intelligence: 'var(--jade-bright)',
-    rumor: 'var(--ember-hi)',
-    discovery: 'var(--jade-bright)',
-    complication: 'var(--danger)',
-    contact_made: 'var(--discovery)'
-  };
-  function renderJEntry(rec) {
-    var lbl = JLABELS[rec.category] || '';
-    var col = JCOLORS[rec.category] || '';
-    var prefix = lbl ? '<span style="font-family:var(--font-display);font-size:9px;letter-spacing:1px;color:' + col + ';margin-right:5px;">' + lbl + '</span>' : '';
-    return '<div class="journal-entry">' + prefix + rec.text + '</div>';
-  }
+  var el = document.getElementById('journal-list');
+  if (!el) return;
   var records = G.journalRecords || [];
-  var intelRecs = records.filter(function(r) { return r.category !== 'rumor'; }).slice(-6);
-  var rumorRecs = records.filter(function(r) { return r.category === 'rumor'; }).slice(-4);
-  el.innerHTML =
-    '<div class="journal-section-label">FIELD NOTES</div>' +
-    (intelRecs.length
-      ? intelRecs.map(renderJEntry).join('')
-      : '<div class="journal-entry">Your ledger awaits its first entry.</div>') +
-    '<div class="journal-section-label" style="margin-top:10px;">RUMORS</div>' +
-    (rumorRecs.length
-      ? rumorRecs.map(renderJEntry).join('')
-      : '<div class="journal-entry" style="color:var(--ink-faint);font-style:italic;">No rumors recorded.</div>');
+  var counts = { evidence: 0, intelligence: 0, rumor: 0, discovery: 0 };
+  records.forEach(function(r) { if (counts[r.category] !== undefined) counts[r.category]++; });
+  var total = counts.evidence + counts.intelligence + counts.rumor + counts.discovery;
+  var parts = [];
+  if (counts.evidence) parts.push(counts.evidence + ' ev');
+  if (counts.intelligence) parts.push(counts.intelligence + ' int');
+  if (counts.rumor) parts.push(counts.rumor + ' rum');
+  if (counts.discovery) parts.push(counts.discovery + ' disc');
+  var summaryHtml = total > 0
+    ? '<div style="font-family:var(--font-display);font-size:8px;letter-spacing:1px;color:var(--ink-faint);text-transform:uppercase;padding:4px 8px 6px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:4px;">' + parts.join(' · ') + '</div>'
+    : '';
+  el.innerHTML = summaryHtml +
+    ((G.journal||[]).slice(0,6).map(j=>'<div class="journal-entry">'+j+'</div>').join('') ||
+    '<div class="journal-entry">Your ledger awaits its first entry.</div>');
 }
 
 function setText(id,val) { const el=document.getElementById(id); if(el) el.innerHTML=String(val); }
