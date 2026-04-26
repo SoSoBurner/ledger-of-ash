@@ -601,7 +601,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The gate-book carries every route warden's hand — the clearance signatures on priority crossings belong to one warden on rotation.",
+    label: "One warden signed every priority crossing clearance in the gate-book.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -632,7 +632,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A commune council notice was taken down within hours of posting — the shelter keeper who pulled it remembers what it said.",
+    label: "The shelter keeper pulled a council notice within hours — she remembers what it said.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -661,7 +661,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The winter supply storeroom holds relief goods — the newest crates are heavier than the manifest says, and sealed differently.",
+    label: "The newest relief crates are heavier than the manifest allows and sealed differently.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -692,7 +692,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The mending circle maintains the bridge's rope gear — they haul weight every week and they know what the midspan planking has been holding.",
+    label: "The mending circle knows the midspan load pattern better than anyone.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -722,7 +722,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Stage 2 Whitebridge Commune finale — the bridge is both a transit point and evidence source. Use Nyra's samples and Aster's log to formally close the crossing or quietly document the next transfer.",
+    label: "Nyra's samples and Aster's log are enough. The crossing can be closed or documented.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {
