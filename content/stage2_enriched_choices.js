@@ -1813,6 +1813,150 @@
     }
   },
 
+  // ========== GLOBAL INVESTIGATION: Suppression Conspiracy Arc ==========
+
+  {
+    label: "The courier ledger has gaps. Someone pulled the delivery records before archiving.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing courier network gaps');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_ledger_gap_found = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The gap in the courier ledger runs six weeks: entries stop mid-column on a Tenthday and resume on a Tenthday exactly six weeks later, the ink color a half-shade lighter. Not omission — replacement. The binding edge shows ghost impressions from a prior page. Someone removed the original and sewed in a clean section. The new entries list routes that don't appear in the station's dispatch register at all.`;
+        addJournal('Courier ledger physically altered — six-week section replaced, routes unlisted in dispatch register', 'evidence', `s2global-courier-ledger-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The archive clerk notices the page comparison before you do. She doesn't say anything, but her hand goes to the counter bell. You step back and ask about general filing procedures instead. She answers politely and doesn't ring the bell. By the time you leave, the ledger is back under the counter. There are other ways to reach the same answer, but this path is closed.`;
+        addJournal('Archive access flagged — courier ledger review blocked by staff alertness', 'complication', `s2global-courier-ledger-fail-${G.dayCount}`);
+      } else {
+        G.flags.courier_ledger_gap_found = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The ledger covers three years of courier dispatches. The gap isn't obvious — you find it by running a finger down the entry numbers. A sequence jumps by forty-three. The clerk attributes it to a filing error during a clerical transition; the explanation comes too quickly, without looking at the book. Forty-three missing dispatches in a single clerical gap is not a filing error. It's a pattern.`;
+        addJournal('Courier ledger sequence gap — 43 missing dispatch entries during unexplained clerical transition', 'intelligence', `s2global-courier-ledger-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Three polities. Three different clerks. The same name crossed out in each intake log.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-polity name suppression pattern');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.suppressed_name_crosspolity = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The name crossed out in each intake log is the same: Pell Varas. A transit agent, based out of Shelk, operating under a provisional Guild charter that expired mid-Season Three. The strike-through isn't a correction — it's an erasure instruction. Someone sent it to each intake office separately, because each intake office uses a different form. The coordination required to do that doesn't come from a single clerk making a mistake.`;
+        addJournal('Pell Varas — transit agent name suppressed across three separate polity intake logs by coordinated erasure instruction', 'evidence', `s2global-name-cross-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The third intake office has a warden posted at the records desk today — unusual for a clerical station. He asks the purpose of your records review before the clerk can respond. Your explanation holds, but the warden writes your name into the duty log before returning to his post. The intake logs stay on the restricted shelf. The pattern you were tracking will have to be approached from a different direction.`;
+        addJournal('Warden presence at intake office — name search logged, access denied', 'complication', `s2global-name-cross-fail-${G.dayCount}`);
+      } else {
+        G.flags.suppressed_name_crosspolity = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `Two of the three intake logs show the same strike-through format — single horizontal line, double-initialed in a margin hand you don't recognize. The third log is missing its intake column entirely, replaced with a summary sheet. Whatever name appeared there was removed before the summary was written. The absence in the third log is its own kind of answer.`;
+        addJournal('Cross-polity intake logs — two matching strike-throughs, third log column removed entirely', 'intelligence', `s2global-name-cross-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Oversight Collegium has a liaison in every major locality. None of them file the same report.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'mapping Collegium liaison inconsistencies');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.collegium_liaison_divergence = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The liaison here speaks carefully, which is its own kind of data. She confirms that her quarterly report goes to a named address in the Collegium's outer administrative tier. When pressed for the receiving office's title, she pauses — genuinely unsure. She was given an address, not a department. The report she files monthly summarizes activity; the one she sends quarterly summarizes the monthly ones. She has never received a response to either.`;
+        addJournal('Collegium liaison files to address without department name — no responses received across monthly and quarterly reporting cycle', 'evidence', `s2global-collegium-liaison-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The liaison has dealt with people asking about report routing before — her posture shifts before you finish the question. She gives you the public Collegium address and a form number for general records inquiries. Both are correct and both are useless. She holds the door. The conversation ends before it started. Some avenues require a different kind of entry.`;
+        addJournal('Collegium liaison deflected reporting structure inquiry — public form provided, no further access', 'complication', `s2global-collegium-liaison-fail-${G.dayCount}`);
+      } else {
+        G.flags.collegium_liaison_divergence = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The liaison describes her reporting structure in general terms: monthly activity summaries, quarterly consolidated reports, a standing instruction to flag anything involving inter-polity transit anomalies. She has flagged two such anomalies in the past year. She does not know what happened to either flag after it left her desk. Her file copies show the outgoing stamps but no acknowledgment receipt.`;
+        addJournal('Collegium liaison flagged two transit anomalies — no acknowledgment receipts returned on either report', 'intelligence', `s2global-collegium-liaison-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Someone moved through this waystation without being logged. The dust says otherwise.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reading unlogged waystation transit');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.waystation_unlogged_transit = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The waystation log shows four travelers in the past week. The supply shelf shows six distinct hand-sizes in the dust, two of them reaching past the recorded inventory items into the gap behind the back panel. Behind the panel: a folded transit authorization blank, pre-stamped with a Collegium outer-tier seal, unsigned. Whoever passed through here had access to pre-authorized transit documents and didn't need to log the crossing at all.`;
+        addJournal('Waystation transit gap — pre-stamped Collegium authorization blanks stored behind supply panel, two unlogged travelers', 'evidence', `s2global-waystation-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The waystation keeper comes back while you're reading the dust patterns on the supply shelf. He doesn't say anything aggressive, but he plants himself in the doorway and asks what you're looking for. You name a supply item. He points to it — it's in the open section, not the area you were examining. He waits until you take it and leave. The back panel stays unexamined. There are other waystations on this route.`;
+        addJournal('Waystation supply area interrupted — keeper present, back panel section unexamined', 'complication', `s2global-waystation-fail-${G.dayCount}`);
+      } else {
+        G.flags.waystation_unlogged_transit = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The log and the dust don't match. Four entries in the log; six distinct disturbance patterns in the settled dust on the shelf — one at roughly the right height for a child, or a short adult moving carefully. The waystation keeper logs what travelers tell him, not what he observes. He mentions, without prompting, that the night visits don't usually require logging under the charter exception for provisional transit.`;
+        addJournal('Waystation dust-to-log discrepancy — keeper confirms charter exception allows unlogged night transit', 'intelligence', `s2global-waystation-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The supply manifest lists weights that don't match the cargo dimensions. Someone trained did this.",
+    tags: ['Stage2', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'detecting cargo manifest falsification');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.manifest_weight_fraud = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The discrepancy is consistent across fourteen manifests spanning two seasons: cargo listed as linen bales carries weights consistent with lead-lined containers. Whoever falsified these knew the standard bale weight tolerance — they stayed within it on each individual entry. The pattern only emerges across the full run. Someone with access to the full manifest record and the patience to read it against the loading ledger would find exactly what you found. No one did, or they chose not to.`;
+        addJournal('Systematic manifest weight fraud — 14 manifests, linen bale entries carry lead-container weights, within per-entry tolerance but pattern-detectable across full run', 'evidence', `s2global-manifest-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The cargo office clerk asks why you need the secondary loading ledger. Standard manifest access doesn't require it. You give a reason; it's not quite the right reason for this office's protocol and she knows the difference. She provides the public manifest summary and notes that cross-referencing against loading records requires a formal audit request through the Guild Oversight desk. The specific manifests you need are now one administrative layer further away.`;
+        addJournal('Cargo office protocol — loading ledger cross-reference requires formal audit request, access deferred', 'complication', `s2global-manifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.manifest_weight_fraud = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `Three manifests in the current season's batch list linen bales at weights that would require doubled loading crew, but the dispatch records show single-crew loads. The discrepancy in any one entry could be a recording error. Three in the same season, same route, same cargo descriptor — that's a method. Someone chose linen because the weight range is wide enough to absorb the variance without triggering a flag on individual review.`;
+        addJournal('Three current-season manifests with impossible linen bale weights relative to dispatch crew records — consistent method, not individual error', 'intelligence', `s2global-manifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
   // Faction 4: Red Hood Guild
   {
     cid: 'stage2_redhood_contact',
