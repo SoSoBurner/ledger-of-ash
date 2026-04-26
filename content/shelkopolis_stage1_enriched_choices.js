@@ -131,7 +131,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Learned real evidence — but Thom marked exactly what you found', 'complication', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. The routing numbers exist. The shipments do not. Behind him on the lower shelf, a drawer with a brass pull bears a wax seal pressed over the lock plate — the seal belongs to no registry office listed on the room's posted charter. There is still the matter of the routing entries.`;
+        G.lastResult = `Thom allows access but stays close. The pages for the autumn trade season show ghosts — the slight bowing of the binding where sheets once sat. Removed cleanly, not torn. He doesn't comment on it. When you point to the gap, he tilts his head as though he is seeing it for the first time, which he is not. The routing numbers exist. The shipments do not. Behind him on the lower shelf, a specific drawer in the cabinet — third row, second from the left — is sealed with red administrative wax pressed over the lock plate; the color and stamp are identical to the Collegium-issued seals on the room's filing cabinet above it, but the drawer itself appears on no cabinet index posted in the room. There is still the matter of the routing entries.`;
         addJournal('Clerk confirmed deliberate ledger removal pattern', 'evidence', `shelkopolis-ledger-removed-${G.dayCount}`);
       } else {
         G.lastResult = `Thom straightens a stack of already-straight papers and explains that registry access requires a stamped request from the Iron Accord, countersigned by a house advocate. He says it pleasantly. There's a lamplight smell of tallow and old ink in the room, and none of it belongs to you without the paperwork.`;
@@ -923,6 +923,22 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
+  // SUPPRESSION: MISSING SIGNATORY ON TRANSIT AUTHORIZATION
+  {
+    label: "The second signature line is blank. The stamp is there. The date is there. The name is not.",
+    tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(50, 'reading missing signatory on transit document');
+
+      G.lastResult = `The permit registry desk carries the flat smell of pressed wax and dry hemp fiber. A clerk works through the outbox tray at steady pace — stamping, dating, stacking. The third transit authorization in the row requires two signatories by Iron Accord procedure: a routing officer and a countersigning authority. The routing officer's name is present in clear, practiced script. The second signatory line is blank. Not crossed out. Not marked pending. The form has the date. It has the stamp. Only the second name is absent. The clerk who filed it is no longer posted to this office — the name placard on the desk behind hers has been removed, leaving a rectangular patch of less-faded wood where it sat.`;
+      addJournal('Transit authorization at Shelkopolis registry — second signatory absent on Iron Accord form. Clerk who filed it no longer posted here.', 'evidence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  },
+
   // SUPPRESSION: AUTHORIZATION COLUMN WITH NO SIGNATORY
   {
     label: "The authorization column is blank — not struck through, not initialed. Blank.",
