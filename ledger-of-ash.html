@@ -14022,6 +14022,169 @@ const SHOP_INVENTORY = {
     {id:'route_ledger',name:'Route Ledger Extract',desc:"One active route's waypoints and hazard notes. Survival for that route only.",cost:30,type:'tool',skillBonus:'survival',bonus:1},
     {id:'seal_kit',name:'Mobile Seal Kit',desc:"Bond clerk's personal kit. Craft for formal document verification.",cost:35,type:'tool',skillBonus:'craft',bonus:1},
   ],
+  // ── harvest_keep ──────────────────────────────────────────────────
+  harvest_keep:[
+    {id:'harvest_keep_grain_ledger',name:'Grain Ledger Supplement',desc:'Running tallies for the secondary granary. Lore for supply-chain research.',cost:14,type:'tool',skillBonus:'lore',bonus:1,site:'Harvest Keep Granary Steps'},
+    {id:'harvest_keep_field_blade',name:'Fieldhand Blade',desc:'Short, broad. Kept at the keep armory for night patrols. Combat +1.',cost:16,type:'weapon',skillBonus:'combat',bonus:1,site:'Harvest Keep Armory'},
+    {id:'harvest_keep_provision_pack',name:'Provision Pack',desc:'Three days of keep-rationed food. Survival +1 on overland routes.',cost:12,type:'consumable',skillBonus:'survival',bonus:1,site:'Harvest Keep Armory'},
+    {id:'harvest_keep_transit_seal',name:'Keep Transit Seal',desc:'Marks you as an authorized supply courier. Persuasion with route wardens.',cost:20,type:'tool',skillBonus:'persuasion',bonus:1,site:'Harvest Keep Granary Steps'},
+    {id:'harvest_keep_salve',name:'Field Wound Salve',desc:'Prepared at the keep infirmary. Two uses, 5 HP each.',cost:14,type:'consumable',healAmount:5,site:'Harvest Keep Armory'},
+  ],
+  // ── Quarter sub-districts (safety net for district navigation) ──
+  shelkopolis_high_quarter:[
+    {id:'shq_registry_copy',name:'Registry Copy',desc:'Certified extract. Lore for institutional and lineage research.',cost:28,type:'tool',skillBonus:'lore',bonus:1,site:'High Quarter Civic Hall'},
+    {id:'shq_court_blade',name:'Court Blade',desc:'Ceremonial but functional. Issued to High Quarter wardens. Combat +1.',cost:22,type:'weapon',skillBonus:'combat',bonus:1,site:'High Quarter Civic Hall'},
+    {id:'shq_formal_pass',name:'Formal Quarter Pass',desc:'Authorizes movement through restricted High Quarter precincts. Persuasion +1.',cost:35,type:'tool',skillBonus:'persuasion',bonus:1,site:'High Quarter Civic Hall'},
+  ],
+  shelkopolis_common_quarter:[
+    {id:'scq_market_salve',name:'Market Salve',desc:'Sold at the common market stalls. Three uses, 4 HP each.',cost:16,type:'consumable',healAmount:4,site:'Common Quarter Market'},
+    {id:'scq_road_kit',name:'Common Road Kit',desc:'Bandages, rope, and a meal. Survival +1.',cost:14,type:'tool',skillBonus:'survival',bonus:1,site:'Common Quarter Market'},
+    {id:'scq_short_blade',name:'Common Blade',desc:'Reliable and cheap. Combat +1.',cost:14,type:'weapon',skillBonus:'combat',bonus:1,site:'Common Quarter Market'},
+  ],
+  shelkopolis_low_ward:[
+    {id:'slw_tincture',name:'Low Ward Tincture',desc:'Brewed in the ward. Reliable if rough. Heals a wound.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Dispensary'},
+    {id:'slw_ward_map',name:'Ward Access Map',desc:'Shows patrol gaps and safe passages. Stealth +1 in the ward.',cost:12,type:'tool',skillBonus:'stealth',bonus:1,site:'Low Ward Dispensary'},
+  ],
+  soreheim_proper_high_quarter:[
+    {id:'sphq_alloc_pass',name:'Senior Allocation Pass',desc:'Consortium-authorized. Clears restricted engineering floors.',cost:40,type:'tool',skillBonus:'persuasion',bonus:1,site:'High Quarter Consortium Hall'},
+    {id:'sphq_precision_wrench',name:'Precision Adjusting Wrench',desc:'Giant-made, small-hand-compatible. Craft +2 on mechanisms.',cost:55,type:'tool',skillBonus:'craft',bonus:2,site:'High Quarter Consortium Hall'},
+    {id:'sphq_salve',name:'Engineering Recovery Compound',desc:'Used after shift injuries. Heals efficiently.',cost:18,type:'consumable',healAmount:10,site:'High Quarter Consortium Hall'},
+  ],
+  soreheim_proper_common_quarter:[
+    {id:'spcq_labor_blade',name:'Labor Blade',desc:'Standard issue. Combat +1 in industrial settings.',cost:18,type:'weapon',skillBonus:'combat',bonus:1,site:'Common Quarter Armory'},
+    {id:'spcq_ration_block',name:'Ration Block',desc:'Five-day compressed ration. Survival +1 on long routes.',cost:14,type:'consumable',skillBonus:'survival',bonus:1,site:'Common Quarter Armory'},
+    {id:'spcq_alloc_token',name:'Common Allocation Token',desc:'Standard worker credential. Clears basic checkpoints.',cost:22,type:'tool',skillBonus:'persuasion',bonus:1,site:'Common Quarter Armory'},
+  ],
+  soreheim_proper_low_ward:[
+    {id:'splw_compress',name:'Ward Injury Compress',desc:'Distributed at the low ward health post. Heals quickly.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Health Post'},
+    {id:'splw_salvage_blade',name:'Salvage Blade',desc:'Recovered and resharpened. Combat +1.',cost:14,type:'weapon',skillBonus:'combat',bonus:1,site:'Low Ward Health Post'},
+  ],
+  guildheart_hub_high_quarter:[
+    {id:'ghhq_arb_writ',name:'Arbitration Standing Writ',desc:'Signed at the High Quarter hall. Persuasion +2 in formal proceedings.',cost:60,type:'tool',skillBonus:'persuasion',bonus:2,site:'Arbitration Hall'},
+    {id:'ghhq_charter_extract',name:'Guild Charter Extract',desc:'A specific clause with annotation. Lore for contract and precedent research.',cost:30,type:'tool',skillBonus:'lore',bonus:1,site:'Arbitration Hall'},
+    {id:'ghhq_envoy_blade',name:'Envoy Blade',desc:'Issued to Guild envoys. Slim, well-balanced. Combat +1.',cost:22,type:'weapon',skillBonus:'combat',bonus:1,site:'Arbitration Hall'},
+  ],
+  guildheart_hub_common_quarter:[
+    {id:'ghcq_freight_pass',name:'Freight Quarter Pass',desc:'Clears the common freight exchange loading zones.',cost:18,type:'tool',skillBonus:'persuasion',bonus:1,site:'Freight Exchange'},
+    {id:'ghcq_market_salve',name:'Exchange Medic Salve',desc:'Kept at the exchange dispensary. Two uses, 5 HP each.',cost:16,type:'consumable',healAmount:5,site:'Freight Exchange'},
+    {id:'ghcq_cargo_ledger',name:'Cargo Ledger Form',desc:'Standard manifest format. Craft for document work.',cost:14,type:'tool',skillBonus:'craft',bonus:1,site:'Freight Exchange'},
+  ],
+  guildheart_hub_low_ward:[
+    {id:'ghlw_compound',name:'Ward Recovery Compound',desc:'Available at the low ward. Reliable healing.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Dispensary'},
+    {id:'ghlw_short_blade',name:'Ward Blade',desc:'Common issue. Combat +1.',cost:14,type:'weapon',skillBonus:'combat',bonus:1,site:'Low Ward Dispensary'},
+  ],
+  panim_haven_high_quarter:[
+    {id:'phhq_deep_registry',name:'Deep Registry Extract',desc:'Pre-Compact archive entry. Lore +2 on lineage and expunction research.',cost:65,type:'tool',skillBonus:'lore',bonus:2,site:'High Quarter Registry Hall'},
+    {id:'phhq_memorial_pass',name:'Memorial Quarter Pass',desc:'Access to the senior registry tiers. Persuasion +1 with registry clerks.',cost:35,type:'tool',skillBonus:'persuasion',bonus:1,site:'High Quarter Registry Hall'},
+    {id:'phhq_salve',name:'Memorial Salve',desc:'Prepared by the mortuary physicians. Two uses, 6 HP each.',cost:22,type:'consumable',healAmount:6,site:'High Quarter Registry Hall'},
+  ],
+  panim_haven_common_quarter:[
+    {id:'phcq_grief_kit',name:'Grief Mediation Supplies',desc:'Standard kit. Persuasion with bereaved families.',cost:16,type:'tool',skillBonus:'persuasion',bonus:1,site:'Common Quarter Mediation Office'},
+    {id:'phcq_ward_chalk',name:'Ritual Chalk Set',desc:'Used for boundary markings. Craft for ward and ritual work.',cost:12,type:'tool',skillBonus:'craft',bonus:1,site:'Common Quarter Mediation Office'},
+    {id:'phcq_tincture',name:'Afterlife Quarter Tincture',desc:'Circulated in the common quarter. Heals steadily.',cost:14,type:'consumable',healAmount:9,site:'Common Quarter Mediation Office'},
+  ],
+  panim_haven_low_ward:[
+    {id:'phlw_remedy',name:'Low Ward Remedy',desc:'Available at the ward dispensary. Reliable.',cost:10,type:'consumable',healAmount:7,site:'Low Ward Dispensary'},
+    {id:'phlw_census_slip',name:'Census Registry Slip',desc:'A ward-level record form. Lore for death-registry cross-referencing.',cost:12,type:'tool',skillBonus:'lore',bonus:1,site:'Low Ward Dispensary'},
+  ],
+  mimolot_academy_high_quarter:[
+    {id:'mahq_archive_pass',name:'Senior Archive Pass',desc:'Full collection access including sealed sections. Lore +2 on any scholarly research.',cost:95,type:'tool',skillBonus:'lore',bonus:2,site:'Academy High Quarter Archive'},
+    {id:'mahq_theory_text',name:'Foundational Theory Text',desc:'Core arcane law reference. Lore +1 on magic regulation.',cost:55,type:'tool',skillBonus:'lore',bonus:1,site:'Academy High Quarter Archive'},
+    {id:'mahq_clarity_draft',name:'Focus Draft',desc:'Used before examinations. Clears fatigue and sharpens.',cost:22,type:'consumable',healAmount:8,site:'Academy High Quarter Archive'},
+  ],
+  mimolot_academy_common_quarter:[
+    {id:'macq_tariff_slip',name:'Tariff Exemption Slip',desc:'One-use text transit clearance. Persuasion with tariff assessors.',cost:20,type:'tool',skillBonus:'persuasion',bonus:1,site:'Common Quarter Tariff Office'},
+    {id:'macq_lexicon',name:'Lexicon Fragment',desc:'Annotated. Lore for arcane institutional research.',cost:22,type:'tool',skillBonus:'lore',bonus:1,site:'Common Quarter Tariff Office'},
+    {id:'macq_salve',name:'Scholar Ward Salve',desc:'Available at the common quarter dispensary. Two uses, 4 HP each.',cost:14,type:'consumable',healAmount:4,site:'Common Quarter Tariff Office'},
+  ],
+  mimolot_academy_low_ward:[
+    {id:'malw_compound',name:'Study Ward Compound',desc:'Used by night-shift scribes. Heals and steadies.',cost:10,type:'consumable',healAmount:7,site:'Low Ward Study Hall'},
+    {id:'malw_cipher_tools',name:'Basic Cipher Tools',desc:'Entry-level decryption aids. Craft for encoded document work.',cost:18,type:'tool',skillBonus:'craft',bonus:1,site:'Low Ward Study Hall'},
+  ],
+  shirshal_high_quarter:[
+    {id:'shhq_precedent_file',name:'Sealed Precedent File',desc:'Three annotated rulings. Persuasion +2 in legal disputes.',cost:60,type:'tool',skillBonus:'persuasion',bonus:2,site:'High Quarter Law Archive'},
+    {id:'shhq_vault_token',name:'Vault Access Token',desc:'Temporary authorization for sealed archive sections. Lore +2 on legal records.',cost:65,type:'tool',skillBonus:'lore',bonus:2,site:'High Quarter Law Archive'},
+    {id:'shhq_court_blade',name:'Shirsh Court Blade',desc:'Ceremonial but functional. Combat +1.',cost:20,type:'weapon',skillBonus:'combat',bonus:1,site:'High Quarter Law Archive'},
+  ],
+  shirshal_common_quarter:[
+    {id:'shcq_legal_brief',name:'Legal Brief Copy',desc:'Standard form. Persuasion +1 in formal proceedings.',cost:20,type:'tool',skillBonus:'persuasion',bonus:1,site:'Common Quarter Inquiry Hall'},
+    {id:'shcq_evidence_kit',name:'Evidence Collection Kit',desc:'Lore +1 when gathering or presenting evidence.',cost:18,type:'tool',skillBonus:'lore',bonus:1,site:'Common Quarter Inquiry Hall'},
+    {id:'shcq_salve',name:'Warden Post Salve',desc:'Distributed at the common warden post. Two uses, 5 HP each.',cost:14,type:'consumable',healAmount:5,site:'Common Quarter Inquiry Hall'},
+  ],
+  shirshal_low_ward:[
+    {id:'shlw_tincture',name:'Low Ward Tincture',desc:'Available in the ward. Heals efficiently.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Dispensary'},
+    {id:'shlw_ward_map',name:'Warden Patrol Map',desc:'Shows checkpoint timings. Stealth +1 in ward.',cost:12,type:'tool',skillBonus:'stealth',bonus:1,site:'Low Ward Dispensary'},
+  ],
+  ithtananalor_high_quarter:[
+    {id:'ithq_accord_brief',name:'Iron Accord Brief',desc:'Certified enforcement documentation. Persuasion +2 with Roaz authority.',cost:55,type:'tool',skillBonus:'persuasion',bonus:2,site:'High Quarter Enforcement Office'},
+    {id:'ithq_heavy_blade',name:'Roaz Heavy Blade',desc:'Compact, reinforced. Combat +2 in confined settings.',cost:50,type:'weapon',skillBonus:'combat',bonus:2,site:'High Quarter Enforcement Office'},
+    {id:'ithq_ration',name:'Officer Ration',desc:'Higher grade. Survival +1 on long routes.',cost:16,type:'consumable',skillBonus:'survival',bonus:1,site:'High Quarter Enforcement Office'},
+  ],
+  ithtananalor_common_quarter:[
+    {id:'itcq_quarry_map',name:'Quarry Survey Map',desc:'Shows extraction levels and passage routes. Survival +1 in Roaz terrain.',cost:18,type:'tool',skillBonus:'survival',bonus:1,site:'Common Quarter Barracks'},
+    {id:'itcq_field_blade',name:'Quarry Field Blade',desc:'Practical. Combat +1.',cost:16,type:'weapon',skillBonus:'combat',bonus:1,site:'Common Quarter Barracks'},
+    {id:'itcq_salve',name:'Barracks Salve',desc:'Distributed at the common barracks. Two uses, 5 HP each.',cost:12,type:'consumable',healAmount:5,site:'Common Quarter Barracks'},
+  ],
+  ithtananalor_low_ward:[
+    {id:'itlw_remedy',name:'Low Ward Remedy',desc:'Available at the distribution hall. Heals adequately.',cost:8,type:'consumable',healAmount:7,site:'Low Ward Distribution Hall'},
+    {id:'itlw_ledger_slip',name:'Distribution Ledger Slip',desc:'Records ration anomalies. Lore for supply research.',cost:14,type:'tool',skillBonus:'lore',bonus:1,site:'Low Ward Distribution Hall'},
+  ],
+  cosmoria_high_quarter:[
+    {id:'cohq_deep_charts',name:'Full Offshore Grid',desc:'Complete Cosmouth offshore charts. Survival +2 on sea routes.',cost:50,type:'tool',skillBonus:'survival',bonus:2,site:'High Quarter Harbor Office'},
+    {id:'cohq_naval_blade',name:'Naval Boarding Sword',desc:'Balanced for close quarters. Combat +2.',cost:48,type:'weapon',skillBonus:'combat',bonus:2,site:'High Quarter Harbor Office'},
+    {id:'cohq_surgeon_salve',name:'Ship Surgeon Salve',desc:'Two uses, 6 HP each.',cost:22,type:'consumable',healAmount:6,site:'High Quarter Harbor Office'},
+  ],
+  cosmoria_common_quarter:[
+    {id:'cocq_maritime_chart',name:'Maritime Chart',desc:'Cosmouth coastal routes. Survival +1 at sea.',cost:20,type:'tool',skillBonus:'survival',bonus:1,site:'Common Quarter Shipwright Yards'},
+    {id:'cocq_cutlass',name:'Cosmouth Cutlass',desc:'Lightweight. Combat +1.',cost:18,type:'weapon',skillBonus:'combat',bonus:1,site:'Common Quarter Shipwright Yards'},
+    {id:'cocq_tide_kit',name:'Tide Kit',desc:'Barometer and rope sealant. Survival +1 at sea.',cost:16,type:'tool',skillBonus:'survival',bonus:1,site:'Common Quarter Shipwright Yards'},
+  ],
+  cosmoria_low_ward:[
+    {id:'colw_remedy',name:'Harbor Ward Remedy',desc:'Used by dock workers. Heals quickly.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Harbor Dispensary'},
+    {id:'colw_dock_map',name:'Dock Worker Map',desc:'Shows loading schedules and access gaps. Stealth +1 in harbor.',cost:12,type:'tool',skillBonus:'stealth',bonus:1,site:'Low Ward Harbor Dispensary'},
+  ],
+  craftspire_high_quarter:[
+    {id:'cshq_precision_caliper',name:'Master Caliper Set',desc:'Machined to the highest Spire tolerance. Craft +3 on precision work.',cost:90,type:'tool',skillBonus:'craft',bonus:3,site:'High Quarter Workshop Floor'},
+    {id:'cshq_refined_alloy',name:'Refined Alloy Bundle',desc:'Pre-sorted premium stock. Craft +2 on fabrication.',cost:55,type:'tool',skillBonus:'craft',bonus:2,site:'High Quarter Workshop Floor'},
+    {id:'cshq_artisan_blade',name:'Master Artisan Blade',desc:'Made in the Spire by senior hands. Combat +2.',cost:45,type:'weapon',skillBonus:'combat',bonus:2,site:'High Quarter Workshop Floor'},
+  ],
+  craftspire_common_quarter:[
+    {id:'cscq_workshop_kit',name:'Workshop Kit',desc:'Standard Craftspire issue. Craft +1 on fabrication.',cost:18,type:'tool',skillBonus:'craft',bonus:1,site:'Common Quarter Workshop'},
+    {id:'cscq_tonic',name:'Workshop Recovery Tonic',desc:'Used after long shifts. Two uses, 5 HP each.',cost:14,type:'consumable',healAmount:5,site:'Common Quarter Workshop'},
+    {id:'cscq_work_blade',name:'Work Blade',desc:'Spire-made. Reliable. Combat +1.',cost:18,type:'weapon',skillBonus:'combat',bonus:1,site:'Common Quarter Workshop'},
+  ],
+  craftspire_low_ward:[
+    {id:'cslw_forge_salve',name:'Forge Salve',desc:'Applied to burn and tool injuries. Heals well.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Forge Dispensary'},
+    {id:'cslw_supply_log',name:'Supply Log Entry',desc:'Lists material origins. Lore for tracing components.',cost:14,type:'tool',skillBonus:'lore',bonus:1,site:'Low Ward Forge Dispensary'},
+  ],
+  unity_square_high_quarter:[
+    {id:'ushq_charter_copy',name:'Guild Charter Copy',desc:'Formal. Lore +2 for Union precedent and contract law.',cost:45,type:'tool',skillBonus:'lore',bonus:2,site:'High Quarter Council Hall'},
+    {id:'ushq_trade_bond',name:'Senior Trade Bond',desc:'Establishes standing in premium Union markets. Persuasion +2.',cost:55,type:'tool',skillBonus:'persuasion',bonus:2,site:'High Quarter Council Hall'},
+    {id:'ushq_blade',name:'Council Guard Blade',desc:'Issued to High Quarter council security. Combat +1.',cost:22,type:'weapon',skillBonus:'combat',bonus:1,site:'High Quarter Council Hall'},
+  ],
+  unity_square_common_quarter:[
+    {id:'uscq_merchant_bond',name:'Merchant Bond Certificate',desc:'Establishes standing in common Union markets. Persuasion +1.',cost:26,type:'tool',skillBonus:'persuasion',bonus:1,site:'Common Quarter Market'},
+    {id:'uscq_compound',name:"Trader's Compound",desc:'Reliable healing. Circulates through merchant caravans.',cost:12,type:'consumable',healAmount:10,site:'Common Quarter Market'},
+    {id:'uscq_market_blade',name:'Market Enforcer Blade',desc:'Common issue. Combat +1.',cost:16,type:'weapon',skillBonus:'combat',bonus:1,site:'Common Quarter Market'},
+  ],
+  unity_square_low_ward:[
+    {id:'uslw_remedy',name:'Ward Remedy',desc:'Available at the square dispensary. Heals adequately.',cost:10,type:'consumable',healAmount:8,site:'Low Ward Dispensary'},
+    {id:'uslw_ledger_form',name:'Blank Ledger Form',desc:'Standard Union format. Craft for document work.',cost:12,type:'tool',skillBonus:'craft',bonus:1,site:'Low Ward Dispensary'},
+  ],
+  harvest_keep_high_quarter:[
+    {id:'hkhq_supply_manifest',name:'Senior Supply Manifest',desc:'Authorized keeper documentation. Lore for tracking supply chain anomalies.',cost:25,type:'tool',skillBonus:'lore',bonus:1,site:'Harvest Keep Granary Steps'},
+    {id:'hkhq_patrol_blade',name:'Keep Patrol Blade',desc:'Issued to senior keep wardens. Combat +1.',cost:20,type:'weapon',skillBonus:'combat',bonus:1,site:'Harvest Keep Armory'},
+    {id:'hkhq_provision_pack',name:'Senior Provision Pack',desc:'Higher-grade rations. Survival +1.',cost:16,type:'consumable',skillBonus:'survival',bonus:1,site:'Harvest Keep Armory'},
+  ],
+  harvest_keep_common_quarter:[
+    {id:'hkcq_field_ration',name:'Keep Field Ration',desc:'Three days at standard keep provision. Heals a small wound.',cost:10,type:'consumable',healAmount:8,site:'Harvest Keep Common Hall'},
+    {id:'hkcq_route_pass',name:'Keep Route Pass',desc:'Authorizes movement through supply corridors. Persuasion +1.',cost:16,type:'tool',skillBonus:'persuasion',bonus:1,site:'Harvest Keep Common Hall'},
+    {id:'hkcq_work_blade',name:'Common Keep Blade',desc:'Kept at the hall armory. Combat +1.',cost:14,type:'weapon',skillBonus:'combat',bonus:1,site:'Harvest Keep Common Hall'},
+  ],
+  harvest_keep_low_ward:[
+    {id:'hklw_tincture',name:'Keep Ward Tincture',desc:'Available at the low ward. Heals adequately.',cost:8,type:'consumable',healAmount:7,site:'Low Ward Dispensary'},
+    {id:'hklw_ledger_slip',name:'Supply Ledger Slip',desc:'Records anomalies in the keep supply. Lore for research.',cost:12,type:'tool',skillBonus:'lore',bonus:1,site:'Low Ward Dispensary'},
+  ],
 };
 
 // Soreheim shop social roll — once per in-game day per shop
