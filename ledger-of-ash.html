@@ -13881,7 +13881,7 @@ function showCharSheet() {
       return '<div class="char-stat-row" style="align-items:center">' +
         '<span class="char-stat-key">' + cap(slot) + '</span>' +
         '<span class="char-stat-val" style="flex:1">' + (item
-          ? item.name + ' <span style="color:var(--gold-dim);font-size:11px">(+' + (item.bonus||0) + ' ' + (item.skillBonus||'') + ')</span>'
+          ? item.name + ' <span style="color:var(--gold-dim);font-size:11px">(+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus||'') + ')</span>'
           : '<span style="color:var(--ink-faint)">&#x2014;</span>') + '</span>' +
         (item ? '<button class="btn btn-ghost btn-xs" onclick="unequipItem(\'' + slot + '\');showCharSheetTab(\'equipment\')" style="flex-shrink:0;margin-left:8px">Unequip</button>' : '') +
       '</div>';
@@ -13904,7 +13904,7 @@ function showCharSheet() {
               return '<div class="char-stat-row" style="align-items:center">' +
                 '<span class="char-stat-key" style="flex:1">' + item.name +
                 (item.equipped ? ' <span style="color:var(--jade-bright);font-size:9px;font-family:Cinzel,serif;letter-spacing:1px">EQUIPPED</span>' : '') +
-                (item.skillBonus ? ' <span style="color:var(--ink-faint);font-size:11px">+' + (item.bonus||0) + ' ' + item.skillBonus + '</span>' : '') +
+                (item.skillBonus ? ' <span style="color:var(--ink-faint);font-size:11px">+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus) + '</span>' : '') +
                 '</span>' + btn +
               '</div>';
             }).join('')) +
