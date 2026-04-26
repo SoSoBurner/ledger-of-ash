@@ -1785,7 +1785,7 @@ input, button, select, textarea { font-family: inherit; }
       <p class="create-subtitle">Your name, your class, your origin. The world will remember all three.</p>
       <div class="create-step">
         <div class="step-label">I &#x2014; Your Name</div>
-        <input type="text" class="name-input" id="char-name" placeholder="Enter your name..." maxlength="40" autocomplete="off">
+        <input type="text" class="name-input" id="char-name" placeholder="Enter your name..." maxlength="40" autocomplete="off" oninput="this.value=this.value.replace(/\b\w/g,function(c){return c.toUpperCase();})">
       </div>
       <div class="create-step" id="stat-boost-step" style="display:none">
         <div class="step-label">II &#x2014; Starting Advantage</div>
@@ -9609,6 +9609,23 @@ function _beginLegendCore() {
   const name = document.getElementById('char-name').value.trim();
   if (!name) { showToast('Enter your name first.'); return; }
   if (!G.archetype || !G.background) { showToast('Choose class and background.'); return; }
+  var _usedNames = [];
+  for (var _si = 1; _si <= 3; _si++) {
+    try { var _sd = JSON.parse(localStorage.getItem('ledger_save_' + _si) || 'null'); if (_sd && _sd.name) _usedNames.push(_sd.name.toLowerCase().trim()); } catch(e) {}
+  }
+  if (_usedNames.indexOf(name.toLowerCase().trim()) !== -1) {
+    var _nameErr = document.getElementById('char-name-error') || document.createElement('div');
+    _nameErr.id = 'char-name-error';
+    _nameErr.style.cssText = 'color:var(--danger);font-size:13px;margin-top:4px;';
+    _nameErr.textContent = 'A character named "' + name + '" already exists. Choose a different name.';
+    var _nameInput = document.getElementById('char-name');
+    if (_nameInput && _nameInput.parentNode && !document.getElementById('char-name-error')) {
+      _nameInput.parentNode.insertBefore(_nameErr, _nameInput.nextSibling);
+    }
+    return;
+  }
+  var _prevErr = document.getElementById('char-name-error');
+  if (_prevErr) _prevErr.remove();
   G.name = name;
   // New-run identity (spec: runId/caseCode/lastUsedSlot/choiceCount)
   G.runId = _generateUUID();
