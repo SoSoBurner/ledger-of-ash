@@ -9224,42 +9224,46 @@ function getAllLegends() {
   return out;
 }
 
+function getDefaultG() {
+  return {
+    name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
+    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
+    traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
+    stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
+    factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
+    inventory:[], equipped:{weapon:null,armor:null,tool:null},
+    wounds:[], fatigue:0, recoveryState:'stable',
+    npcMemory:{}, trainingDisadvantage:0,
+    unlockedAbilities:[], unlockedCombatAbilities:[],
+    companions:{}, tutorialFlags:{},
+    dead:false, rivalAdventurers:[],
+    marenRenown:0, marenRevealed:false,
+    stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
+    telemetry:{turns:0, actions:0},
+    worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0},
+    discoveries:{}, contacts:{},
+    investigationProgress:0, flags:{}, rivalId:null,
+    factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
+    stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
+    nomdara_last_visit_locality:null,
+    seenChoices:{},
+    startingLocality:'shelkopolis',
+    _campoutPenalty:0, campoutDay:-1,
+    trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
+    masteryXP:0, traitProgress:{}, unlockedTraits:[],
+    archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
+    shopCreditBoost:0, statCap:10,
+    restCount:0,
+    heat:{},
+    tempBonuses:{},
+    newNoticeCount:0,
+    schemaVersion:6
+  };
+}
+
 // ── CHARACTER CREATION ──────────────────────────────────
 function initCreate() {
-  G = { name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
-        skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
-        traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
-        stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
-        factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
-        inventory:[], equipped:{weapon:null,armor:null,tool:null},
-        wounds:[], fatigue:0, recoveryState:'stable',
-        npcMemory:{}, trainingDisadvantage:0,
-        unlockedAbilities:[], unlockedCombatAbilities:[],
-        companions:{}, tutorialFlags:{},
-        dead:false, rivalAdventurers:[],
-        marenRenown:0, marenRevealed:false,
-        // Stage progress bars + world clocks
-        stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
-        telemetry:{turns:0, actions:0},
-        worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0},
-        discoveries:{}, contacts:{},
-        // Stage 2 investigation + faction tracking
-        investigationProgress:0, flags:{}, rivalId:null,
-        factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
-        stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
-        nomdara_last_visit_locality:null,
-        seenChoices:{},
-        startingLocality:'shelkopolis',
-        _campoutPenalty:0, campoutDay:-1,
-        trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
-        masteryXP:0, traitProgress:{}, unlockedTraits:[],
-        archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
-        shopCreditBoost:0, statCap:10,
-        restCount:0,
-        heat:{},
-        tempBonuses:{},
-        newNoticeCount:0,
-        schemaVersion:6 };
+  G = getDefaultG();
   _awaitingLevelUp = false;
   _activeGroupId = null;
 
@@ -14686,7 +14690,7 @@ function loadFromSlot(slotKey) {
     try { d = JSON.parse(s); } catch(e) { showToast('Save data corrupted.'); return false; }
     if (!d || typeof d !== 'object') { showToast('Save format invalid.'); return false; }
     d = migrateState(d);
-    Object.assign(G, d);
+    Object.assign(G, getDefaultG(), d);
     if (!G.runId) G.runId = _generateUUID();
     if (!G.caseCode) G.caseCode = _makeCaseCode(G.runId);
     G.lastUsedSlot = slotKey;
