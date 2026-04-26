@@ -10149,7 +10149,7 @@ function priorityKey(g) {
 }
 
 function buildLivingDesc(locId, g) {
-  var _el = document.querySelector('.env-desc');
+  var _el = document.querySelector('#env-panel .env-desc');
   if (!_el) return;
   var _vIdx = (g.narrationUpdateCounter || 0) % 3;
   var _anchor = (window.LIVING_VARIANTS && window.LIVING_VARIANTS[locId] && window.LIVING_VARIANTS[locId][_vIdx])
@@ -10178,7 +10178,7 @@ function scheduleLivingDescUpdate() {
   if (_anyVisible) return;
   if (G._narrationFading) return;
   G._narrationFading = true;
-  var _el = document.querySelector('.env-desc');
+  var _el = document.querySelector('#env-panel .env-desc');
   if (!_el) { G._narrationFading = false; return; }
   _el.style.opacity = '0';
   setTimeout(function() {
@@ -10713,7 +10713,7 @@ function activateAbility(abilId) {
   var skillKey = ab.skillReq && ab.skillReq.skill ? ab.skillReq.skill : null;
   G._pendingAbilityBonus = 2;
   G._pendingAbilitySkill = skillKey;
-  addNarration(ab.name, '<p class="env-desc" style="font-style:italic">' + (ab.desc || ab.gameEffect || '') + '</p>', 'neutral');
+  addNarration(ab.name, '<p style="font-style:italic;color:var(--ink-dim)">' + (ab.desc || ab.gameEffect || '') + '</p>', 'neutral');
   renderChoices(_pendingChoices);
 }
 
@@ -10758,6 +10758,7 @@ function renderChoices(choices) {
     });
   }
 
+  var _escalInjected = false;
   choices.forEach((c, i) => {
     const alignSymbol = {lawful:'&#x2696;', chaotic:'&#x2605;', good:'&#x2665;', evil:'&#x2620;'}[c.align] || '';
     // Check fumble lock
@@ -10801,12 +10802,12 @@ function renderChoices(choices) {
       G.flags['taught_' + c.tag] = true;
       html += '<div class="choice-tutorial-hint" data-tier="' + c.tag + '">' + _tierHints[c.tag] + '</div>';
     }
-    // G1: instant-attack escalation injection after threatLevel:1 choices
-    if (c.threatLevel === 1) {
+    // G1: instant-attack escalation injection — only once per render, after the first threatLevel:1 choice
+    if (!_escalInjected && c.threatLevel === 1) {
       var _archFamG1 = typeof getArchetypeFamily === 'function' && G.archetype ? getArchetypeFamily(G.archetype.id) : null;
       var _benev = G.benevolence || 0;
       if (_archFamG1 === 'combat' || _benev < -20) {
-        var escIdx = _pendingChoices.length; // will be appended below
+        _escalInjected = true;
         html += '<button class="choice-btn combat-lv3" data-idx="__escal_' + i + '__">' +
           '<span class="choice-text">There\'s no reason to wait for them to start it.</span>' +
           '<span class="choice-meta"><span class="choice-skill">combat</span><span class="choice-tag risky">risky</span></span>' +
@@ -11291,7 +11292,10 @@ function handleChoice(choice) {
   if (compBonus) rollDisplay += ' + companion ' + compBonus;
   rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '');
 
-  addNarration('', '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">' + rollDisplay + '</span>');
+  var _critPrefix = '';
+  if (roll === 20) _critPrefix = '<span style="color:var(--accent-gold);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Success! </span>';
+  else if (roll === 1) _critPrefix = '<span style="color:var(--danger);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Failure! </span>';
+  addNarration('', _critPrefix + '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">' + rollDisplay + '</span>');
 
   // Alignment
   const alignShifts = {lawful:[0,5], chaotic:[0,-5], good:[8,0], evil:[-8,0]};
@@ -15010,7 +15014,7 @@ function updateCaseFileHUD() {
 }
 
 function updateEnvDesc(text) {
-  var el = document.querySelector('.env-desc');
+  var el = document.querySelector('#env-panel .env-desc');
   if (el) el.innerHTML = text ? '<p>' + text + '</p>' : '';
 }
 window.updateEnvDesc = updateEnvDesc;
