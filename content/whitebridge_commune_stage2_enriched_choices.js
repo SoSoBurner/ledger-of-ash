@@ -54,7 +54,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Bridge used as mid-transit exchange point — breaks cargo tracking chain, charter mark confirmed', 'evidence', `wb-aster-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Aster keeps her personal log in the inner pocket of her coat and keeps her hands there. She filed a report six weeks ago about unusual bridge activity at the second bell — it came back dismissed, and attached to the dismissal was a formal warning: "unauthorized observation outside circuit parameters." She holds the warning letter in her other hand. "I'm not sharing notes that cost me a formal mark on my record." She doesn't say she's afraid. The letter says it for her.`;
+        G.lastResult = `Aster keeps her personal log in the inner pocket of her coat and keeps her hands there. She filed a report six weeks ago about unusual bridge activity at the second bell — it came back dismissed, and attached to the dismissal was a formal warning: "unauthorized observation outside circuit parameters." She holds the warning letter in her other hand. "I'm not sharing notes that cost me a formal mark on my record." She doesn't say she's afraid. The letter says it for her. But the dismissed report still exists somewhere in the circuit log, filed and dated, and dismissals leave a record too.`;
         addJournal('Night inspector declined — previous report dismissed, formal warning received', 'complication', `wb-aster-fail-${G.dayCount}`);
       } else {
         G.flags.met_aster_starice = true;
@@ -265,7 +265,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Nine-hauler expedition vanished — declaration erased rather than logged as loss', 'evidence', `wb-expedition-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The elder does not pass you a cup, which is the shelter-hall signal that the bench is closed. Two haulers at the far end of the hall stand when you press the question a second time. Their movement is not threat — it is the commune's first correction, the one that precedes a formal notice. You withdraw. The story you were asking after stays inside the circle, and your asking of it has been marked on the attention of the hall.`;
+        G.lastResult = `The elder does not pass you a cup, which is the shelter-hall signal that the bench is closed. Two haulers at the far end of the hall stand when you press the question a second time. Their movement is not threat — it is the commune's first correction, the one that precedes a formal notice. You withdraw. The story you were asking after stays inside the circle, and your asking of it has been marked on the attention of the hall. The commune's bridge circuit log is a different door — one that doesn't require the elder's permission to read.`;
         addJournal('Shelter hall closed the bench — expedition inquiry marked', 'complication', `wb-expedition-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;

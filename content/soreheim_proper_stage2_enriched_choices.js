@@ -26,7 +26,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 2;
-        G.lastResult = `Decon looks up from his desk after the third word of your question. He doesn't let you finish. "Relic Strategy Wing operations are classified Alliance infrastructure. This conversation is now logged." He writes something on a card and places it face-down on the desk. A guard appears in the doorway. The card stays face-down. You're not shown what's on it.`;
+        G.lastResult = `Decon looks up from his desk after the third word of your question. He doesn't let you finish. "Relic Strategy Wing operations are classified Alliance infrastructure. This conversation is now logged." He writes something on a card and places it face-down on the desk. A guard appears in the doorway. The card stays face-down. The route through Decon is closed — but the Wing's supply manifests still run through civilian transit records that don't carry the same classification.`;
         addJournal('Relic Strategy Wing access attempt — Alliance intelligence watch list', 'complication', `sor-decon-fail-${G.dayCount}`);
       } else {
         G.flags.met_decon_von_reckshem = true;
@@ -87,7 +87,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 2;
-        G.lastResult = `Vorgul raises one hand and two Shield bloc guards step in from the corridor. "Council members are not subject to unscheduled interrogation." The detention hold lasts four hours in a room with no windows. You're released with a formal warning and a notation in the council security file. The notation is permanent.`;
+        G.lastResult = `Vorgul raises one hand and two Shield bloc guards step in from the corridor. "Council members are not subject to unscheduled interrogation." The detention hold lasts four hours in a room with no windows. You're released with a formal warning and a notation in the council security file. The notation is permanent — but the council's shipping exemptions run through a public transit index that doesn't require a council appointment to read.`;
         addJournal('Shield council detention order — 4-hour hold, formal warning issued', 'complication', `sor-vorgul-fail-${G.dayCount}`);
       } else {
         G.flags.met_vorgul_oxtend = true;

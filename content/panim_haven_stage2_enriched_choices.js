@@ -28,7 +28,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Panim ledger falsification confirmed — phantom memorial contracts', 'evidence', `panim-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `A shrine keeper notices you cross-referencing entries and leaves the room without speaking. Twenty minutes later the ledger access is revoked by written notice from mediation hall oversight. A formal review has been opened. You are excluded from it. The records are sealed while the review runs its course, which may take as long as whoever runs the review decides it should.`;
+        G.lastResult = `A shrine keeper notices you cross-referencing entries and leaves the room without speaking. Twenty minutes later the ledger access is revoked by written notice from mediation hall oversight. A formal review has been opened. You are excluded from it. The records are sealed while the review runs its course. The suppressed inquest files themselves were logged through the district registry — a different system, with a different keeper.`;
         addJournal('Ledger access revoked — oversight alerted', 'complication', `panim-ledger-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -170,7 +170,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Ithren has a porter's memory: he names three sealed containers that arrived under memorial service manifests but did not match standard offering weight profiles. Two were light. One was significantly heavy — heavy enough that he noted it in the unofficial cargo log he keeps for his own records.`;
         addJournal('Ithren cargo log — weight anomalies confirmed', 'evidence', `panim-ithren-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The answer arrives without hesitation, which means it was prepared. Processional gate protocols cover cargo details — he cannot discuss them. The practiced firmness in his voice is the kind that comes from a specific prior warning, not from general policy. He holds eye contact for a beat longer than the refusal required, then looks back at the gate register. What he knows is behind a door he has been told to keep closed.`;
+        G.lastResult = `The answer arrives without hesitation, which means it was prepared. Processional gate protocols cover cargo details — he cannot discuss them. The practiced firmness in his voice is the kind that comes from a specific prior warning, not from general policy. He holds eye contact for a beat longer than the refusal required, then looks back at the gate register. What he knows is behind a door he has been told to keep closed. The weight anomalies he logged still exist in the general cargo ledger, which runs on a different protocol.`;
         addJournal('Porter protocols invoked — Ithren warned off', 'complication', `panim-ithren-fail-${G.dayCount}`);
       } else {
         G.flags.met_ithren_sepulcher = true;
@@ -258,7 +258,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Merev has been keeping notes. Three guests in the past month used the inn as a meeting point and paid in memorial coin — an unusual denominator for secular transactions. Their conversations centered on "completion schedules" and "verification windows." Memorial language used for non-memorial logistics.`;
         addJournal('Memorial coin transaction pattern — Merev log', 'evidence', `panim-merev-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The question about guests lands and a particular stillness settles over the counter. Memorial facility innkeepers in Panim Haven carry the same confidentiality obligation as shrine attendants — it's a civic compact, not a personal choice. The decline is without apology and without softening. There is a cup of cold tea on the counter. It gets refilled without the conversation resuming.`;
+        G.lastResult = `The question about guests lands and a particular stillness settles over the counter. Memorial facility innkeepers in Panim Haven carry the same confidentiality obligation as shrine attendants — it's a civic compact, not a personal choice. The decline is without apology and without softening. There is a cup of cold tea on the counter. It gets refilled without the conversation resuming. The arrival and departure times are still visible in the public facing transit log posted outside the gate.`;
         addJournal('Memorial confidentiality invoked — no access', 'complication', `panim-merev-fail-${G.dayCount}`);
       } else {
         G.flags.met_merev_sepulcher = true;
@@ -395,7 +395,7 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Nemeia — four unsealed shipments cleared above foreman tier', 'evidence', `panim-nemeia-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Nemeia hears you out standing, arms crossed, and does not sit. "If I talk to every outsider who noticed something, I stop being a foreman and start being a witness. I already filed what I saw. The rest is not mine to give away." She turns back to the benches. The crew's rhythm does not break.`;
+        G.lastResult = `Nemeia hears you out standing, arms crossed, and does not sit. "If I talk to every outsider who noticed something, I stop being a foreman and start being a witness. I already filed what I saw. The rest is not mine to give away." She turns back to the benches. The crew's rhythm does not break. What she filed is in the foreman intake log — a public record that doesn't require her cooperation to read.`;
         addJournal('Nemeia declined — filings already on record, access closed', 'complication', `panim-nemeia-fail-${G.dayCount}`);
       } else {
         G.flags.met_nemeia_sepulcher = true;

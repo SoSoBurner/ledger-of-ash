@@ -145,7 +145,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Lady Isabella Shelk contact made', 'evidence', `shelk-isabella-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The gate staff takes your name, disappears inside for three minutes, and returns with the same expression they left with. Lady Isabella is unavailable to persons without standing in the Iron Accord registry. Your name goes into the household visitor log — the kind that gets shared with Roadwarden Command during courtesy briefings. You walk back down the hill more visible than you came up.`;
+        G.lastResult = `The gate staff takes your name, disappears inside for three minutes, and returns with the same expression they left with. Lady Isabella is unavailable to persons without standing in the Iron Accord registry. Your name goes into the household visitor log — the kind that gets shared with Roadwarden Command during courtesy briefings. You walk back down the hill more visible than you came up. Isabella's public record filing with the South Market Commerce House is another route — one that doesn't require an appointment.`;
         addJournal('Estate entry refused — flagged', 'complication', `shelk-isabella-fail-${G.dayCount}`);
       } else {
         G.flags.met_lady_isabella = true;
