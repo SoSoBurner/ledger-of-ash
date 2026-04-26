@@ -11389,7 +11389,37 @@ const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':
 // Keyed by original choice CID. Each backup is a different approach with reduced stageProgress yield (+1 vs +2).
 // Format: 'original_cid': { label: '...', result: '...', stageProgress: 1, skill: '...', tag: '...' }
 // Infrastructure active even when empty — populate per arc as main plot choices are authored.
-var BACKUP_CHOICES = {};
+var BACKUP_CHOICES = {
+  // Stage 2 faction contact recovery paths — fires on fumble (d20=1) for choices with matching cid
+
+  'stage2_collegium_contact': {
+    text: 'Seld left something behind. The third-week window is not the only window.',
+    result: 'The folder Seld declined to share had a reference number on the cover — visible for a moment before she tucked it away. That number exists in the public intake index. The intake clerk\'s log is not restricted. The suppressed filings are still suppressed, but their existence is now on record under your name, which is a different kind of leverage than the files themselves.',
+    skill: 'wits',
+    tag: 'risky'
+  },
+
+  'stage2_shadowhands_contact': {
+    text: 'The courier relay failed. The drop point itself is still active.',
+    result: 'The flour merchant\'s dock is not the only waypoint the Shadowhands use on that route. Two others are in the relay chain — a laundry press on the south market block and a chandler\'s supply room that stays open past bell. You have nothing to give them yet. But you know where to go when you do, and the "watched" warning means someone saw you looking, not that the thread is gone.',
+    skill: 'finesse',
+    tag: 'risky'
+  },
+
+  'stage2_wardens_contact': {
+    text: 'The complication report the Warden requires — I can file it myself.',
+    result: 'The Order requires a formal complication report before sharing monitored route data. That report can be filed by any transit party on record. Your name is already in the active monitoring log from a prior checkpoint stamp. The filing window is thirty days. You have the paperwork. The Warden\'s offer was procedural, not personal — file the report and the exchange can proceed on her terms.',
+    skill: 'wits',
+    tag: 'safe'
+  },
+
+  'stage2_redhood_contact': {
+    text: 'She named her price. Someone else in that market knows it too.',
+    result: 'The fence named a specific piece of institutional detail she wanted. That detail — a certified manifest entry from a particular week — is the same one two other traders referenced in separate conversations. It is circulating. Someone is buying it, and the fence is not the only buyer. The specific manifest entry is findable through the public routing archive if you know which week to pull. You do now.',
+    skill: 'wits',
+    tag: 'risky'
+  }
+};
 
 // Encounter rate modifier per stage (rateModifier applied as extra-encounter probability).
 // S1-2 tuned and active. S3-5: infrastructure only — bestiary tiers not yet authored.
