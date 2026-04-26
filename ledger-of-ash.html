@@ -1156,6 +1156,14 @@ input, button, select, textarea { font-family: inherit; }
 .trait-use-btn:hover { border-color: var(--gold-lo); color: var(--gold-bright); }
 .trait-pill { display: inline-block; padding: 2px 8px; border-radius: 2px; font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px; background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); margin-right: 5px; }
 .trait-pill.used { background: var(--border); border-color: var(--border-hi); color: var(--ink-faint); }
+.cs-section-label { font-family: var(--font-display); font-size: 9px; letter-spacing: 0.12em; color: var(--ink-faint); text-transform: uppercase; margin: 12px 0 4px; }
+.cs-stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 2px 0; }
+.cs-stat-label { font-family: var(--font-body); font-size: 12px; color: var(--ink-faint); }
+.cs-stat-val { font-family: var(--font-body); font-size: 12px; }
+.trait-row { margin-bottom: 8px; }
+.trait-name { font-family: var(--font-display); font-size: 12px; color: var(--accent-gold); }
+.trait-type-label { font-family: var(--font-body); font-size: 10px; color: var(--ink-faint); margin-bottom: 2px; }
+.trait-desc { font-family: var(--font-body); font-size: 12px; color: var(--ink); }
 
 /* Tutorial callout */
 .tutorial-callout {
@@ -1896,6 +1904,8 @@ input, button, select, textarea { font-family: inherit; }
           </div>
         </div>
       </div>
+      <div id="hud-fatigue" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
+      <div id="hud-trait-ready" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
       <div class="l-skills">
         <div class="l-section-cap">Stats</div>
         <div id="hud-skills"></div>
@@ -13492,7 +13502,7 @@ function showCharSheet() {
     '<div><div class="char-section-title">Vitals</div>' +
     row('HP',G.hp+' / '+G.maxHp) +
     row('Status',G.recoveryState||'stable') +
-    row('Fatigue',((G.fatigue||0)+'/10')) +
+    ((G.fatigue||0) > 0 ? '<div class="cs-stat-row"><span class="cs-stat-label">Fatigue</span><span class="cs-stat-val" style="color:' + ((G.fatigue||0)>=5?'var(--danger)':'var(--ink-faint)') + '">' + (G.fatigue||0) + '/10</span></div>' : '') +
     row('Gold',G.gold) +
     row('Axis',(G.axisInverted?'Inverted':'Normal')+' (Tick '+(G.axisTick||0)+')') +
     row('Time',TIME_NAMES[G.timeIndex||0]+' &middot; Day '+(G.dayCount||1)) +
@@ -13546,15 +13556,29 @@ function showCharSheet() {
       return '<div class="eq-summary" style="margin-top:14px"><div class="eq-summary-header">Equipped Bonuses</div>' + _eqLines.join('') + '</div>';
     })() +
 
-    '<div style="margin-top:20px"><div class="char-section-title">Trait</div>' +
-    (G.traits||[]).map(t => {
-      var useBtn = '';
-      if ((t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'utility' && !t.used) {
-        useBtn = '<button class="btn btn-ghost btn-xs" onclick="useUtilitySkill(\'' + t.id + '\')" style="margin-top:4px;font-size:11px;padding:2px 8px">Use</button>';
+    (function(){
+      var _html = '<div style="margin-top:20px"><div class="cs-section-label">TRAITS</div>';
+      if (!G.traits || G.traits.length === 0) {
+        _html += '<div style="font-family:var(--font-body);font-size:12px;color:var(--ink-faint);margin-bottom:8px;">No traits unlocked yet.</div>';
+      } else {
+        (G.traits||[]).forEach(function(t) {
+          var _typeLabel = t.traitType === 'passive' ? 'Passive' : t.traitType === 'active' ? 'Active \u2014 1/rest' : 'Investigation \u2014 1/scene';
+          var _usedLabel = (t.traitType !== 'passive' && t.used) ? ' <span style="color:var(--ink-faint)">(used)</span>' : '';
+          var _useBtn = '';
+          if ((t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'utility' && !t.used) {
+            _useBtn = '<button class="btn btn-ghost btn-xs" onclick="useUtilitySkill(\'' + t.id + '\')" style="margin-top:4px;font-size:11px;padding:2px 8px">Use</button>';
+          }
+          _html += '<div class="trait-row">';
+          _html += '<div class="trait-name">' + (t.name || t.id || 'Trait') + _usedLabel + '</div>';
+          _html += '<div class="trait-type-label">' + _typeLabel + '</div>';
+          _html += '<div class="trait-desc">' + (t.description || t.desc || '') + '</div>';
+          _html += _useBtn;
+          _html += '</div>';
+        });
       }
-      return '<div style="margin-bottom:10px"><span class="trait-pill'+(t.used?' used':'')+'">'+t.name+(t.used?' (used)':'')+'</span>' +
-        '<div style="font-size:12px;color:var(--ink-faint);margin-top:4px">'+t.desc+'</div>' + useBtn + '</div>';
-    }).join('') + '</div>' +
+      _html += '</div>';
+      return _html;
+    })() +
     (function(){
       var currentArch = G.archetype || null;
       return '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:1px;color:var(--accent-gold);margin:12px 0 5px;">BACKGROUND</div>' +
@@ -14292,6 +14316,27 @@ function updateHUD() {
   updateCaseFileHUD();
   updateWorldTab();
   updatePartyTab();
+  // Fatigue display
+  var _fatigue = G.fatigue || 0;
+  var _fatigueEl = document.getElementById('hud-fatigue');
+  if (_fatigueEl) {
+    _fatigueEl.textContent = _fatigue > 0 ? 'FATIGUE ' + _fatigue + '/10' : '';
+    _fatigueEl.style.display = _fatigue > 0 ? '' : 'none';
+    _fatigueEl.style.color = _fatigue >= 5 ? 'var(--danger)' : 'var(--ink-faint)';
+  }
+  // Active trait readiness indicator
+  var _nonPassive = (G.traits || []).filter(function(t){ return t.traitType !== 'passive'; });
+  var _ready = _nonPassive.filter(function(t){ return !t.used; }).length;
+  var _traitEl = document.getElementById('hud-trait-ready');
+  if (_traitEl) {
+    if (_nonPassive.length > 0) {
+      _traitEl.textContent = 'TRAITS ' + _ready + '/' + _nonPassive.length + ' READY';
+      _traitEl.style.display = '';
+      _traitEl.style.color = _ready > 0 ? 'var(--jade-bright)' : 'var(--ink-faint)';
+    } else {
+      _traitEl.style.display = 'none';
+    }
+  }
 }
 
 function updateSafeStreakHUD() {
