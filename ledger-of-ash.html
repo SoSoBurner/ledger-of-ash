@@ -10392,6 +10392,7 @@ function adaptEnrichedChoice(c) {
   return {
     text: c.label,
     tag: _derivedTag,
+    _isEnriched: true,
     align: c.align || 'neutral',
     cid: c.cid || c.id || undefined,
     plot: c.plot || undefined,
@@ -10401,6 +10402,15 @@ function adaptEnrichedChoice(c) {
         c.fn();
       } catch(e) { console.error('[enriched]', e); G._rivalDCPenalty = 0; throw e; } finally {
         G._rivalDCPenalty = 0;
+      }
+      if (G._lastRollInfo) {
+        var _ri = G._lastRollInfo;
+        G._lastRollInfo = null;
+        var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
+        var _riDC = (_derivedTag === 'safe' ? 8 : _derivedTag === 'bold' ? 16 : 13) + _stageBonus;
+        var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
+        var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
+        addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
       }
       const txt = G.lastResult || '';
       const _outcomeType = G.lastResultType || 'neutral';
@@ -11121,6 +11131,9 @@ function rollD20(skill, bonus) {
   var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (skill === 'might' || skill === 'vigor')) ? 1 : 0;
   var travelFatiguedMod = (G && G.flags && G.flags.travel_fatigued) ? 1 : 0;
   var total = roll + statValue + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod;
+  if (typeof G !== 'undefined' && G) {
+    G._lastRollInfo = { roll: roll, skill: skill, statValue: statValue, total: total };
+  }
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
 
@@ -11299,7 +11312,7 @@ function handleChoice(choice) {
 
     // Perform the auto-roll and check for failResult short-circuit
     var _autoRollFailed = false;
-    if (_autoRoll && _effectiveRoll) {
+    if (_autoRoll && _effectiveRoll && !choice._isEnriched) {
       var _arSkillVal = (G.skills && G.skills[_effectiveRoll.skill]) || 0;
       var _abilBonus = 0;
       if (G._pendingAbilityBonus > 0 && (!G._pendingAbilitySkill || G._pendingAbilitySkill === _effectiveRoll.skill)) {
