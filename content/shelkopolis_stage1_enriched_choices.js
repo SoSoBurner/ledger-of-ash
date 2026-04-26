@@ -353,7 +353,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Garrison commander personally aware of your inquiry', 'complication', `shelkopolis-commander-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The supply logs open to the autumn columns. Several transfer entries are marked "approved redistribution" with no destination listed — just a reference number that doesn't match any warehouse in the standard registry. The coal-smoke smell of the garrison office hangs flat in the air while you copy the reference numbers down. They mean something to someone. The entry above the last transfer is dated the fourteenth; the transfer itself is dated the ninth.`;
+        G.lastResult = `The supply logs open to the autumn columns. Several transfer entries are marked "approved redistribution" with no destination listed — just a reference number that doesn't match any warehouse in the standard registry. The coal-smoke smell of the garrison office hangs flat in the air while you copy the reference numbers down. They mean something to someone. The entry above the last transfer is dated the fourteenth; the transfer itself is dated the ninth. On the lower shelf behind the quartermaster's desk, the second drawer from the left carries an amber wax seal pressed flat over the latch — the same institutional stamp as the filing cabinet above it, though this drawer appears on no index posted in the room.`;
         addJournal('Supply logs show signs of deliberate obfuscation', 'evidence', `shelkopolis-supply-obfuscated-${G.dayCount}`);
       } else {
         G.lastResult = `The quartermaster's office smells of oiled steel and old leather strapping. He recites the access policy without looking up from the inventory sheet under his forearm: garrison officers only, countersigned request, three-day processing. The pen continues down the column while he speaks, marking tallies in a rhythm that does not break for the question. He's not hostile. He's a wall shaped like a man doing his job. Above his desk, a row of ring keys hangs on hooks. One is missing from its peg. The peg has no dust on it.`;
@@ -1003,6 +1003,24 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = "The room is narrow and the mattress is stuffed with something that isn't quite wool. The innkeeper — a man named Fessel who records everything in a small ledger — notes your arrival without comment. He does say the room above yours was vacated this morning, two days early. He says it the way you say things you want someone else to follow up on.";
       G.recentOutcomeType = 'neutral';
       addJournal('Fessel (innkeeper): room above vacated two days early this morning', 'intelligence');
+    }
+  },
+
+  // SUPPRESSION: DATE GAP IN REGISTRY LOG
+  {
+    label: "The registry log runs clean for eight months, then skips three weeks without explanation.",
+    tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
+    xpReward: 50,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(50, 'reading anomalous date gap in registry log');
+
+      G.lastResult = `The Shelkopolis transit registry log sits open on the reading ledge, its spine cracked flat from daily use. Eight months of entries run in tight columns — dates, reference codes, routing destinations, clerk initials — without a break. Then a gap: three weeks absent from the sequence, the surrounding pages undamaged, the ink on the entries before and after it equally faded. Not a torn section. Not a water stain. The dates resume as if nothing was skipped. The clerk at the far desk begins a new entry without looking up. The three empty weeks have no marking, no note, no asterisk. They are simply gone from the record.`;
+      addJournal('Transit registry at Shelkopolis: three-week gap in an otherwise continuous eight-month log — no damage, no notation, surrounding pages intact. Source: Shelkopolis registry reading room.', 'intelligence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
     }
   }
 ];
