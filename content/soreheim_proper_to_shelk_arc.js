@@ -347,6 +347,9 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       gainXp(100, 'arriving in Shelkopolis to begin Stage 2');
       if (!G.flags) G.flags = {};
       G.flags.arrived_from_soreheim_proper = true;
+      if ((G.investigationProgress || 0) < 5 && G.level >= 6) {
+        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'intelligence');
+      }
 
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
