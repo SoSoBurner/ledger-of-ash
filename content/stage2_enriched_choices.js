@@ -404,7 +404,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You decline without explaining yourself at length. The representative reads your posture and doesn't press. He says, after a pause, that he appreciates someone who knows their own limits — it makes you predictable in useful ways. The faction doesn't rescind the relationship. They recalibrate what they'll ask for next time.`;
-        addJournal('ethics', 'Moral boundary upheld', `moral-${G.dayCount}`);
+        addJournal('Moral boundary upheld', 'complication');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You hedge when you should be direct. The representative listens, nods, and asks if you need more time to consider. You say no. He says he'll pass that along. The way he says it makes clear that "passing it along" means something specific within the faction, and it isn't a compliment.`;
@@ -412,7 +412,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You propose a different task — same stakes, less irreversible. The faction representative writes it down without enthusiasm. He says someone will confirm whether it's acceptable. Neither party is satisfied, but the conversation ends without a broken door. That's a kind of success.`;
-        addJournal('compromise', 'Uneasy détente', `detente-${G.dayCount}`);
+        addJournal('Uneasy détente', 'complication');
       }
 
       G.recentOutcomeType = 'faction';
@@ -1115,7 +1115,7 @@
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You name your terms first: transit immunity for a defined period, documentation of your cooperation filed with two separate jurisdictions, and a sealed copy held outside the network's control. They agree to all three. The testimony you give is specific, documented, and submitted through channels that create a parallel paper trail. What you saw is now part of the record in a form that cannot be quietly withdrawn.`;
-        addJournal('legal', 'Protected witness status', `prot-wit-${G.dayCount}`);
+        addJournal('Protected witness status', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The testimony was supposed to be sealed. It wasn't. By the time you leave the meeting room, the summary of what you said has been routed to a duty officer whose name appears in the documents you were testifying about. Within two days, someone leaves a note at your lodging that says only: "We know what you said." The network's corruption runs deeper than the procedure that was supposed to protect you.`;
@@ -1123,7 +1123,7 @@
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You agree to testify in writing, with a one-week window before the document enters active proceedings. The protection is procedural rather than physical — your name is logged but not widely distributed. The testimony goes into the record. Whether it does anything useful depends on whether the process that receives it is cleaner than the one you're describing. You don't know that yet.`;
-        addJournal('legal', 'Conditional testimony', `cond-test-${G.dayCount}`);
+        addJournal('Conditional testimony', 'intelligence');
       }
 
       G.recentOutcomeType = 'intelligence';
