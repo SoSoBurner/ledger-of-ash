@@ -376,4 +376,10 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
 ];
 
+// Sideplot injection — cosmoria harbor weight fraud rung2 hook
+(function() {
+  var _fraudRung2 = (typeof COSMORIA_HARBOR_WEIGHT_FRAUD !== 'undefined') ? COSMORIA_HARBOR_WEIGHT_FRAUD.rung2Hook() : null;
+  if (_fraudRung2) COSMORIA_STAGE2_ENRICHED_CHOICES.push(_fraudRung2);
+})();
+
 window.COSMORIA_STAGE2_ENRICHED_CHOICES = COSMORIA_STAGE2_ENRICHED_CHOICES;

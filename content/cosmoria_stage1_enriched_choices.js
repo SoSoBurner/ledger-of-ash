@@ -905,4 +905,11 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// Sideplot injection — cosmoria harbor weight fraud opening hook
+(function() {
+  var _fraudHook = (typeof COSMORIA_HARBOR_WEIGHT_FRAUD !== 'undefined') ? COSMORIA_HARBOR_WEIGHT_FRAUD.openingHook() : null;
+  if (_fraudHook) COSMORIA_STAGE1_ENRICHED_CHOICES.push(_fraudHook);
+})();
+
 window.COSMORIA_STAGE1_ENRICHED_CHOICES = COSMORIA_STAGE1_ENRICHED_CHOICES;

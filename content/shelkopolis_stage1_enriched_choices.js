@@ -954,4 +954,11 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// Sideplot injection — shelk-fairhaven ledger shadow opening hook
+(function() {
+  var _shadowHook = (typeof SHELK_FAIRHAVEN_LEDGER_SHADOW !== 'undefined') ? SHELK_FAIRHAVEN_LEDGER_SHADOW.openingHook() : null;
+  if (_shadowHook) SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(_shadowHook);
+})();
+
 window.SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = SHELKOPOLIS_STAGE1_ENRICHED_CHOICES;

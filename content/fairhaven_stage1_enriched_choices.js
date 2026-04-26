@@ -904,4 +904,11 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// Sideplot injection — fairhaven meadow mill displacement opening hook
+(function() {
+  var _millHook = (typeof FAIRHAVEN_MEADOW_MILL_DISPLACEMENT !== 'undefined') ? FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.openingHook() : null;
+  if (_millHook) FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(_millHook);
+})();
+
 window.FAIRHAVEN_STAGE1_ENRICHED_CHOICES = FAIRHAVEN_STAGE1_ENRICHED_CHOICES;

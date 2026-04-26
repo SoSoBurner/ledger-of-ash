@@ -428,4 +428,12 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
 ];
 
+// Sideplot injection — guildheart union testimony gap (Stage II only)
+(function() {
+  var _gapHook = (typeof GUILDHEART_UNION_TESTIMONY_GAP !== 'undefined') ? GUILDHEART_UNION_TESTIMONY_GAP.openingHook() : null;
+  if (_gapHook) GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES.push(_gapHook);
+  var _gapRung2 = (typeof GUILDHEART_UNION_TESTIMONY_GAP !== 'undefined') ? GUILDHEART_UNION_TESTIMONY_GAP.rung2Hook() : null;
+  if (_gapRung2) GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES.push(_gapRung2);
+})();
+
 window.GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES;

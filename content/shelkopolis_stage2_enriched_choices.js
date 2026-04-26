@@ -744,4 +744,10 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
 ];
 
+// Sideplot injection — shelk-fairhaven ledger shadow rung2 hook
+(function() {
+  var _shadowRung2 = (typeof SHELK_FAIRHAVEN_LEDGER_SHADOW !== 'undefined') ? SHELK_FAIRHAVEN_LEDGER_SHADOW.rung2Hook() : null;
+  if (_shadowRung2) SHELKOPOLIS_STAGE2_ENRICHED_CHOICES.push(_shadowRung2);
+})();
+
 window.SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = SHELKOPOLIS_STAGE2_ENRICHED_CHOICES;
