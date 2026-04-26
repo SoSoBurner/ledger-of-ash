@@ -375,6 +375,8 @@ input, button, select, textarea { font-family: inherit; }
 .btn-danger:hover { filter: brightness(1.18); box-shadow: 0 4px 24px rgba(110,16,16,.5); }
 .btn-sm { padding: 8px 18px; font-size: 10px; }
 .btn-xs { padding: 5px 10px; font-size: 9px; letter-spacing: 1px; }
+.btn-use-item { font-size: 9px; padding: 2px 6px; margin-left: 6px; color: var(--jade-bright); border: 1px solid var(--jade); background: transparent; cursor: pointer; font-family: var(--font-display); letter-spacing: 1px; }
+.btn-use-item:hover { background: rgba(38,96,62,.2); }
 
 
 /* ═══ CHARACTER CREATION ══════════════════════════════════════════ */
@@ -9237,6 +9239,7 @@ function initCreate() {
         shopCreditBoost:0, statCap:10,
         restCount:0,
         heat:{},
+        tempBonuses:{},
         schemaVersion:6 };
   _awaitingLevelUp = false;
   _activeGroupId = null;
@@ -9605,16 +9608,32 @@ function _beginLegendCore() {
   G.inventory = [{ name:G.background.bonus, type:'background_bonus', equipped:false }];
   // Archetype starting gear (auto-equipped)
   const _archetypeGear = {
-    combat:  { name:'Iron Accord Standard Blade',  type:'weapon', skillBonus:'combat',   bonus:1, desc:'Standard issue. Keeps you alive.' },
-    magic:   { name:"Practitioner's Codex",         type:'tool',   skillBonus:'lore',     bonus:1, desc:'Annotated reference. Lore +1 for the scene.' },
-    stealth: { name:'Shadowhands Field Kit',         type:'tool',   skillBonus:'stealth',  bonus:1, desc:'Lock tools, dark cloth, chalk marks.' },
-    support: { name:'Field Medic Satchel',           type:'tool',   skillBonus:'survival', bonus:1, desc:'Bandages, reagents, tourniquet.' },
+    combat:  {
+      weapon: { name:'Iron Accord Standard Blade', type:'weapon', skillBonus:'combat',   bonus:1, desc:'Standard issue. Keeps you alive.' },
+      armor:  { name:'Warden Field Plate',          type:'armor',  skillBonus:'survival', bonus:1, desc:'Worn through checkpoints. Absorbs the first hit.' }
+    },
+    magic:   {
+      tool:   { name:"Practitioner's Codex",        type:'tool',   skillBonus:'lore',     bonus:1, desc:'Annotated reference. Lore +1 for the scene.' },
+      armor:  { name:'Warding Robe',                type:'armor',  skillBonus:'lore',     bonus:1, desc:'Warded fabric. Marginal protection, strong presence.' }
+    },
+    stealth: {
+      tool:   { name:'Shadowhands Field Kit',       type:'tool',   skillBonus:'stealth',  bonus:1, desc:'Lock tools, dark cloth, chalk marks.' },
+      armor:  { name:'Shadow-Weave Vest',           type:'armor',  skillBonus:'stealth',  bonus:1, desc:'Reduces silhouette. Fitted over anything.' }
+    },
+    support: {
+      tool:   { name:'Field Medic Satchel',         type:'tool',   skillBonus:'survival', bonus:1, desc:'Bandages, reagents, tourniquet.' },
+      armor:  { name:'Reinforced Work Coat',        type:'armor',  skillBonus:'survival', bonus:1, desc:'Practical. Takes a beating and keeps going.' }
+    },
   };
-  const _startGear = _archetypeGear[G.archetype.group];
-  if (_startGear) {
-    const _gi = Object.assign({}, _startGear, { equipped: true });
-    G.inventory.push(_gi);
-    G.equipped[_gi.type === 'weapon' ? 'weapon' : 'tool'] = _gi;
+  const _groupGear = _archetypeGear[G.archetype.group];
+  if (_groupGear) {
+    ['weapon','tool','armor'].forEach(function(slot) {
+      if (_groupGear[slot]) {
+        var gi = Object.assign({}, _groupGear[slot], { equipped: true });
+        G.inventory.push(gi);
+        G.equipped[slot] = gi;
+      }
+    });
   }
   // Seed rival adventurers
   G.rivalAdventurers = generateRivals();
@@ -10924,7 +10943,12 @@ function handleChoice(choice) {
   if (G.trainingDisadvantage > 0) G.trainingDisadvantage--;
 
   // Equipment bonuses
-  const eqBonus = getEquipmentBonus(choice.skill);
+  let eqBonus = getEquipmentBonus(choice.skill);
+  // Temp consumable bonuses (single-use, consumed on roll)
+  if (G.tempBonuses && G.tempBonuses[choice.skill]) {
+    eqBonus += G.tempBonuses[choice.skill];
+    delete G.tempBonuses[choice.skill];
+  }
   // Companion bonuses
   const compBonus = (typeof getCompanionRollBonus === 'function') ? getCompanionRollBonus(choice.skill) : 0;
 
@@ -13512,9 +13536,11 @@ function showCharSheet() {
           ? '<div style="font-size:12px;color:var(--ink-faint);padding:4px 0">Nothing carried.</div>'
           : inv.map(function(item, idx) {
               const isEquippable = item.type !== 'background_bonus' && item.type !== 'evidence' && item.type !== 'consumable';
+              const isConsumable = item.type === 'consumable';
               const btn = item.equipped
                 ? '<button class="btn btn-ghost btn-xs" onclick="unequipItem(\'' + (item.type === 'weapon' ? 'weapon' : item.type === 'armor' ? 'armor' : 'tool') + '\');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Unequip</button>'
-                : (isEquippable ? '<button class="btn btn-ghost btn-xs" onclick="equipItem(' + idx + ');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Equip</button>' : '');
+                : (isEquippable ? '<button class="btn btn-ghost btn-xs" onclick="equipItem(' + idx + ');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Equip</button>'
+                : (isConsumable ? '<button class="btn-use-item" onclick="useConsumable(' + idx + ')">USE</button>' : ''));
               return '<div class="char-stat-row" style="align-items:center">' +
                 '<span class="char-stat-key" style="flex:1">' + item.name +
                 (item.equipped ? ' <span style="color:var(--jade-bright);font-size:9px;font-family:Cinzel,serif;letter-spacing:1px">EQUIPPED</span>' : '') +
@@ -13567,6 +13593,9 @@ const SHOP_INVENTORY = {
     {id:'shelk_papers',name:'Shelk Transit Papers',desc:'Genuine. One checkpoint clears automatically.',cost:35,type:'tool',skillBonus:'persuasion',bonus:1,site:'House of Shelk Estate'},
     {id:'union_ward_token',name:'Union Ward Token',desc:'Marks the bearer as an authorized Compact agent. Persuasion +2 with Union officials.',cost:65,type:'tool',skillBonus:'persuasion',bonus:2,site:'House of Shelk Estate'},
     {id:'shelk_healing_poultice',name:'Medic Poultice',desc:'Three uses. Each restores 5 HP.',cost:25,type:'consumable',skillBonus:'survival',bonus:0,site:'Verdant Row District'},
+    {id:'iron_dagger',name:'Iron Dagger',desc:'Fits any hand. Combat or stealth — your call.',cost:25,type:'weapon',skillBonus:'combat',bonus:1,site:'Ironspool Ward'},
+    {id:'travelers_cloak',name:"Traveler's Cloak",desc:'Fits any build. Survival on the road.',cost:20,type:'armor',skillBonus:'survival',bonus:1,site:'Verdant Row District'},
+    {id:'observation_lens',name:'Observation Lens',desc:'Ground for fieldwork. Lore for evidence gathering.',cost:28,type:'tool',skillBonus:'lore',bonus:1,site:'Gilded Archives of Lore'},
   ],
   fairhaven:[
     {id:'farmers_blade',name:'Harvest Blade',desc:'Sturdy. Combat +1 in rural terrain.',cost:15,type:'weapon',skillBonus:'combat',bonus:1,site:'Fairhaven Market'},
@@ -13645,6 +13674,78 @@ const SHOP_INVENTORY = {
     {id:'sunspire_armor',name:'Frontier Work Armor',desc:'Layered leather and iron. Survival +1 in combat.',cost:45,type:'armor',skillBonus:'survival',bonus:1,site:'Frontier Company Office'},
     {id:'sunspire_rations',name:'Frontier Provisions',desc:'Five days at full ration. Survival +1 on long overland routes.',cost:22,type:'consumable',skillBonus:'survival',bonus:1,site:'Frontier Company Office'},
   ],
+  // ── Sub-locality shop entries (task 4.1) ─────────────────
+  soreheim_proper:[
+    {id:'quarry_brace',name:'Quarry Work Brace',desc:'Reinforced. Made for labor, useful in a fight.',cost:25,type:'armor',skillBonus:'survival',bonus:1},
+    {id:'giant_labor_stim',name:'Labor Stimulant',desc:'Keeps you working through pain. Clears a wound penalty for one scene.',cost:20,type:'consumable',healAmount:12},
+    {id:'iron_ledger_strip',name:'Iron Ledger Strip',desc:'Used by the council to verify accounts. Lore for institutional records.',cost:22,type:'tool',skillBonus:'lore',bonus:1},
+  ],
+  guildheart_hub:[
+    {id:'guild_reference',name:'Guild Reference Compendium',desc:'Exhaustive. Cross-references contract clauses and precedents.',cost:28,type:'tool',skillBonus:'lore',bonus:1},
+    {id:'arbitration_seal',name:'Trade Arbitration Seal',desc:'A copy of the Guild seal. Opens testimony lanes.',cost:40,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'contract_bond_kit',name:'Contract Bond Kit',desc:'Portable notary supplies. Craft for document work.',cost:22,type:'tool',skillBonus:'craft',bonus:1},
+  ],
+  panim_haven:[
+    {id:'offering_kit',name:'Certified Offering Kit',desc:'Registry-stamped. Moves through ritual checkpoints without delay.',cost:18,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'pale_tincture',name:'Memorial Tincture',desc:'Ritual compound. Heals and steadies the mind.',cost:16,type:'consumable',healAmount:12},
+    {id:'funerary_ledger',name:'Funerary Registry Extract',desc:'Names, dates, expunctions. Lore for death-registry research.',cost:25,type:'tool',skillBonus:'lore',bonus:1},
+  ],
+  mimolot_academy:[
+    {id:'exemption_slip',name:'Text Exemption Slip',desc:'Signed by a tariff assessor. One-time transit clearance for a text.',cost:20,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'annotated_lexicon',name:'Annotated Lexicon Fragment',desc:'Partial but dense. Lore for arcane institutional research.',cost:25,type:'tool',skillBonus:'lore',bonus:1},
+    {id:'mind_clarity_draft',name:'Mind Clarity Draft',desc:'Used by academy staff before examinations. Heals and sharpens.',cost:18,type:'consumable',healAmount:8},
+  ],
+  harvest_circle:[
+    {id:'yield_counter',name:'Calibrated Yield Counter',desc:'Standard issue. Survival for harvest and supply assessment.',cost:16,type:'tool',skillBonus:'survival',bonus:1},
+    {id:'field_ration',name:'Field Ration Bundle',desc:'Three days standard. Recovery for long travel.',cost:10,type:'consumable',healAmount:8},
+    {id:'grain_route_pass',name:'Grain Route Pass',desc:'Authorizes movement through supply corridors.',cost:20,type:'tool',skillBonus:'persuasion',bonus:1},
+  ],
+  glasswake_commune:[
+    {id:'dome_sealant',name:'Emergency Dome Sealant',desc:'Patches micro-breaches. Survival inside compromised dome sections.',cost:18,type:'tool',skillBonus:'survival',bonus:1},
+    {id:'cold_compress',name:'Dome Cold Pack',desc:'Reduces inflammation. Heals efficiently in cold conditions.',cost:12,type:'consumable',healAmount:9},
+    {id:'communal_token',name:'Commune Identification Token',desc:'Marks you as a registered dome resident. Persuasion within Aurora communes.',cost:24,type:'tool',skillBonus:'persuasion',bonus:1},
+  ],
+  aurora_crown_commune:[
+    {id:'aurora_salve',name:'Aurora Salve',desc:'Synthesized from dome condensate. Seals small wounds.',cost:14,type:'consumable',healAmount:10},
+    {id:'spectrum_reader',name:'Aurora Spectrum Reader',desc:'Reads dome flux readings. Lore for dome-science research.',cost:20,type:'tool',skillBonus:'lore',bonus:1},
+    {id:'commune_writ',name:'Commune Writ of Passage',desc:'Signed by the Aurora Crown council. Persuasion within dome polities.',cost:28,type:'tool',skillBonus:'persuasion',bonus:1},
+  ],
+  unity_square:[
+    {id:'guild_charter',name:'Guild Charter Copy',desc:'Formal. Lore for Union precedent and contract law.',cost:22,type:'tool',skillBonus:'lore',bonus:1},
+    {id:'trader_bond',name:'Trade Bond Certificate',desc:'Establishes standing in Union markets. Persuasion for merchant encounters.',cost:30,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'medicinal_compound',name:"Trader's Compound",desc:'Circulates through merchant caravans. Reliable healing.',cost:14,type:'consumable',healAmount:10},
+  ],
+  whitebridge_commune:[
+    {id:'bridge_toll_pass',name:'Bridge Authority Pass',desc:'Clears crossing checkpoints without delay.',cost:18,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'commune_salve',name:'Commune Medic Salve',desc:'Distributed at the commune hall. Standard recovery compound.',cost:12,type:'consumable',healAmount:9},
+    {id:'structural_survey',name:'Crossing Survey Notes',desc:'Cargo route data. Survival for bridge and transit navigation.',cost:16,type:'tool',skillBonus:'survival',bonus:1},
+  ],
+  craftspire:[
+    {id:'guild_tool_kit',name:'Craftspire Workshop Kit',desc:'Well-maintained. Craft for workshop and fabrication work.',cost:20,type:'tool',skillBonus:'craft',bonus:1},
+    {id:'forge_tonic',name:'Forge Recovery Tonic',desc:'Heat-treated. Used by workshop staff after long shifts.',cost:14,type:'consumable',healAmount:10},
+    {id:'workshop_manifest',name:'Workshop Supply Manifest',desc:'Lists suppliers. Lore for tracing material origins.',cost:18,type:'tool',skillBonus:'lore',bonus:1},
+  ],
+  ironhold_quarry:[
+    {id:'quarry_rope',name:'Ironhold Quarry Rope',desc:'Load-rated. Survival for quarry traversal and extraction.',cost:14,type:'tool',skillBonus:'survival',bonus:1},
+    {id:'dust_compress',name:'Quarry Dust Compress',desc:'Clears airways and closes rock-cut wounds.',cost:10,type:'consumable',healAmount:8},
+    {id:'extraction_log',name:'Extraction Log Entry',desc:'Records shipment anomalies. Lore for quarry supply research.',cost:20,type:'tool',skillBonus:'lore',bonus:1},
+  ],
+  plumes_end_outpost:[
+    {id:'frontier_patrol_kit',name:'Frontier Patrol Kit',desc:'Compact. Survival for open-road and outpost navigation.',cost:16,type:'tool',skillBonus:'survival',bonus:1},
+    {id:'outpost_ration',name:'Outpost Ration',desc:'Standard frontier issue. Heals a small wound.',cost:8,type:'consumable',healAmount:7},
+    {id:'patrol_dossier',name:'Patrol Route Dossier',desc:'Warden-marked. Stealth for moving through patrol corridors.',cost:20,type:'tool',skillBonus:'stealth',bonus:1},
+  ],
+  sunspire_haven:[
+    {id:'haven_salve',name:'Sunspire Haven Salve',desc:'Prepared at the haven. Reliable healing.',cost:12,type:'consumable',healAmount:10},
+    {id:'frontier_treaty',name:'Haven Passage Treaty',desc:'Sunspire endorsement. Persuasion for frontier authority encounters.',cost:25,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'wilderness_guide',name:'Wilderness Field Guide',desc:'Terrain and creature notes for the Soreheim frontier.',cost:18,type:'tool',skillBonus:'survival',bonus:1},
+  ],
+  nomdara_caravan:[
+    {id:'bonded_passage_writ',name:'Bonded Passage Writ',desc:'Registry-sealed. Clears checkpoint encounters in bonded polities.',cost:45,type:'tool',skillBonus:'persuasion',bonus:1},
+    {id:'caravan_remedy',name:'Caravan Remedy',desc:'Mixed on the road. Reliable but expensive.',cost:22,type:'consumable',healAmount:14},
+    {id:'route_ledger',name:'Route Ledger Extract',desc:"One active route's waypoints and hazard notes. Survival for that route only.",cost:30,type:'tool',skillBonus:'survival',bonus:1},
+    {id:'seal_kit',name:'Mobile Seal Kit',desc:"Bond clerk's personal kit. Craft for formal document verification.",cost:35,type:'tool',skillBonus:'craft',bonus:1},
+  ],
 };
 
 // Soreheim shop social roll — once per in-game day per shop
@@ -13674,6 +13775,23 @@ function trySorehimCreditBoost(shopId) {
     G.shopCreditBoost = 0;
     addNarration('', 'The clerk is courteous but the connection does not land. No discount available today.');
   }
+}
+
+function useConsumable(idx) {
+  var item = G.inventory && G.inventory[idx];
+  if (!item || item.type !== 'consumable') return;
+  if (item.healAmount && item.healAmount > 0) {
+    G.hp = Math.min(G.maxHp || 20, (G.hp || 0) + item.healAmount);
+    G.lastResult = 'You use the ' + item.name + '. ' + item.healAmount + ' HP recovered.';
+  } else if (item.skillBonus && item.bonus > 0) {
+    G.tempBonuses = G.tempBonuses || {};
+    G.tempBonuses[item.skillBonus] = (G.tempBonuses[item.skillBonus] || 0) + item.bonus;
+    G.lastResult = 'You use the ' + item.name + '. +' + item.bonus + ' to your next ' + item.skillBonus + ' roll.';
+  }
+  G.inventory.splice(idx, 1);
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof renderNarration === 'function') renderNarration();
+  if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
 }
 
 function showShop() {
