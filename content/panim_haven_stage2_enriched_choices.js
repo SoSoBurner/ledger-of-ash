@@ -586,6 +586,247 @@ const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Transit permits for memorial cargo require a signatory. The same name appears on every unsealed shipment.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'cross-referencing transit permit signatories');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transit_signatory_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The transit permit archive sits in the district annex open stack — public record, rarely consulted. Every unsealed memorial cargo shipment in the past eight months carries the same authorization signature: a scribe appointment at the oversight tier that issued each permit within hours of the cargo's arrival, never more than a day behind. The signature is Caldor Sepulcher's. The permits granted passage through the freight lane at the third hour — the same hour Velune documented the shrine visitor's departure. The authorization chain is a single person operating at the top of it.`;
+        addJournal('Transit permits signed by Caldor Sepulcher — oversight tier authorization chain closed', 'evidence', `panim-transit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The permit archive requires a secondary authorization code for records predating the current quarter. The code should be routine — a counter clerk walks you through the request form. The form routes the authorization request to the oversight tier before the clerk finishes explaining it. The request sits. By the time the session ends, the annex clerk has received a verbal instruction to defer further permit access until the ongoing district review concludes.`;
+        addJournal('Transit permit access deferred — oversight review block invoked', 'complication', `panim-transit-fail-${G.dayCount}`);
+      } else {
+        G.flags.transit_signatory_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The current quarter's permits are open stack. Four of the twelve sealed cargo shipments bear the same signatory in the oversight-tier authorization field — a name that does not appear on any other cargo permit category in the same period. The name itself is not yet readable from this position in the file; the signature's style is consistent and trained, the work of someone who authorizes documents as a regular function of their role.`;
+        addJournal('Memorial cargo permits share signatory — identity not yet confirmed', 'intelligence', `panim-transit-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The wrapping cloth on returned memorial containers has a residue. It is not incense.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'examining memorial wrapping residue');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wrapping_residue_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The returned wrapping cloth carries a mineral salt deposit along the fold lines — a preservation compound, not ritual. The specific combination is used in long-transit storage for materials that cannot be exposed to humidity. It requires a preparation step that takes twenty minutes and equipment not present in any of the memorial hall's registered service spaces. Whatever was stored in these containers was packed for a journey measured in days, not hours. The memorial service was transport cover, not ceremony.`;
+        addJournal('Memorial wrapping residue — long-transit preservation compound confirms transport use', 'evidence', `panim-residue-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The sample comes from a discarded wrapping in the coffin bench refuse — legitimate salvage. The bench foreman's deputy spots the retrieval and the inquiry that follows covers three minutes of documented conversation. The deputy's report to Nemeia is factual and brief: an outsider examining refuse materials for chemical residue. Nemeia files a bench incident log. The log reaches the oversight tier within the day under standing policy for unauthorized material sampling.`;
+        addJournal('Residue sampling logged — bench incident report filed to oversight', 'complication', `panim-residue-fail-${G.dayCount}`);
+      } else {
+        G.flags.wrapping_residue_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The fold lines carry a deposit that does not match incense residue in color or texture — it is dry, pale, and crystalline where incense ash is dark and oily. The compound is familiar in broad category: mineral salts used in storage. The specific formulation would require a reference text to narrow further. What is already clear is that ritual wrapping cloth should not carry this residue at all.`;
+        addJournal('Wrapping residue — mineral salt, non-ritual, storage category confirmed', 'intelligence', `panim-residue-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A family came to collect remains and was told the files showed no record of the service.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'speaking with family at intake counter');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.family_witness_testimony = true;
+        G.investigationProgress++;
+        G.lastResult = `The family is from the northern district and paid in advance — memorial coin, the exact denomination Merev noted in her inn records. Their receipt carries a reference number that traces to the phantom contract cluster in the afterlife ledger. They came to collect their father's remains and were told by a clerk that the service had not been completed. The clerk offered a refund form. The family refused and kept the receipt. It is in the eldest daughter's travel pouch right now. She hands it over without hesitation when the purpose is explained.`;
+        addJournal('Family receipt matches phantom contract cluster — direct link to ledger falsification', 'evidence', `panim-family-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The family's grief is real and the conversation is wrong from the first word — the framing lands as official interrogation rather than witness exchange. The eldest son asks for credentials and the intake clerk nearby turns to watch. The request cannot be met in a way that satisfies either party. The family withdraws with their receipt and their distrust. The clerk makes a note in the intake log. Whatever the family saw, it will not be available through this avenue again.`;
+        addJournal('Family approach failed — intake clerk logged interaction', 'complication', `panim-family-fail-${G.dayCount}`);
+      } else {
+        G.flags.family_witness_testimony = true;
+        G.investigationProgress++;
+        G.lastResult = `The family describes the transaction clearly: paid in advance, received a reference number, arrived to find no record. The clerk told them the file had been archived under a different classification and offered a refund. They are still deciding whether to accept. The reference number on their receipt is the kind that should trace back through the ledger system — it is worth cross-referencing against the phantom contract cluster.`;
+        addJournal('Family testimony — advance payment, record gap, reference number to trace', 'intelligence', `panim-family-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The chandler's shop is empty during business hours. The back room is not.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'entering chandler shop back room');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.chandler_back_room_searched = true;
+        G.investigationProgress++;
+        G.lastResult = `The back room holds a writing desk, a locked correspondence box, and a wall rack holding six sealed message tubes of the type used by oversight-tier administrators for internal distribution. The tubes are not opened — but two bear the House Panim oversight seal and a recipient code that matches the district archive annex. A third tube carries a date stamp from four days ago. None of these communications should be traveling through a chandler's shop.`;
+        addJournal('Chandler back room — oversight seal message tubes confirm administrative relay point', 'evidence', `panim-chandler-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The shuttered front gives way to an interior that is neither empty nor unwatched — a figure is seated at the back desk, face angled down toward paper, and the sound of the latch is enough. The figure stands without hurrying and the route to the street closes faster than expected. Out through the side passage, but the face at the desk had time to register the profile. The chandler's shop will not be accessible again in daylight hours.`;
+        addJournal('Chandler entry compromised — figure inside, profile registered', 'complication', `panim-chandler-fail-${G.dayCount}`);
+      } else {
+        G.flags.chandler_back_room_searched = true;
+        G.investigationProgress++;
+        G.lastResult = `The back room is in use as a correspondence staging point — writing supplies, a correspondence box, wall hooks for message tubes. Nothing currently present that names a party or purpose. The desk surface carries ink patterns from recent drafting: two documents, one shorter than the other, both produced with the same pen. The setup is administrative, not commercial. A chandler's back room furnished as a relay station.`;
+        addJournal('Chandler back room — correspondence relay point confirmed, no current contents', 'intelligence', `panim-chandler-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Caldor's notary chain has four names. Three of them signed the same month they were appointed.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'tracing Caldor notary appointment chain');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.notary_chain_documented = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Caldor's appointment as oversight scribe was authorized through a notary chain of four signatures. Three of the four notaries signed the authorization within four weeks of receiving their own appointments — a statistical impossibility under normal civic procedure, which requires six months of registered practice before a notary can authorize oversight-tier appointments. All three appointments were signed by the same pre-existing notary who has since retired to an address in the northern quarter. The entire authorization chain was constructed for this purpose.`;
+        addJournal('Caldor appointment chain fabricated — notaries appointed and deployed within same month', 'evidence', `panim-notary-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Notary appointment records require a civic certification number to access beyond the public summary. The certification number is issued by the district registry, which is the same body currently running the oversight review. The counter clerk is apologetic and specific: access to notary appointment chains is restricted for the review's duration. The restriction applies to the same records and the same time window needed to trace Caldor's chain.`;
+        addJournal('Notary appointment records blocked — district registry restriction active', 'complication', `panim-notary-fail-${G.dayCount}`);
+      } else {
+        G.flags.notary_chain_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `The public summary of Caldor's appointment lists four notary signatures and standard authorization dates. The dates themselves do not flag anything from the summary alone. The full appointment record — which would show each notary's own registration date — requires the restricted access level the current overview review controls. The summary contains enough to know the question is worth asking with proper authorization.`;
+        addJournal('Caldor appointment chain — four notaries, full records blocked pending review', 'intelligence', `panim-notary-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The archive annex delivery log is posted at the loading bay. No appointment required to read it.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'reading archive annex delivery log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.annex_log_cross_referenced = true;
+        G.investigationProgress++;
+        G.lastResult = `The loading bay log runs in two columns: scheduled deliveries on the left, actual arrivals on the right. For the past four months, three to five unscheduled arrivals per week appear in the right column without a corresponding left-column entry. Each unscheduled arrival carries a notation: "oversight authorization — no further logging required." The notation is handwritten, not printed, and the handwriting matches the transit permit signatures already on file. Caldor personally authorized deliveries to the archive annex and ensured they were not logged in the public system.`;
+        addJournal('Archive annex unscheduled deliveries — Caldor authorization notation, handwriting match', 'evidence', `panim-annex-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The loading bay log is posted, but the most recent two months have been replaced with a printed notice: log temporarily unavailable pending routine archive maintenance. The notice is dated yesterday. Someone moved faster than expected. The delivery pattern for the prior months is gone from the bay entirely — the physical log board has been cleared and the replacement notice is fresh enough that the paste at the corners is still tacky.`;
+        addJournal('Archive annex log cleared — notice posted day before access attempt', 'complication', `panim-annex-fail-${G.dayCount}`);
+      } else {
+        G.flags.annex_log_cross_referenced = true;
+        G.investigationProgress++;
+        G.lastResult = `The log shows unscheduled arrivals in the right column for the past quarter — more than the scheduled deliveries in some weeks. The notation field for these arrivals reads "OT auth" — an abbreviation that could mean oversight-tier authorization, but the full form is not defined on the log header. The volume of unscheduled arrivals at an archive annex is unusual enough to document. What went in has not been cross-referenced yet against what the annex officially holds.`;
+        addJournal('Archive annex — unscheduled arrivals exceed scheduled, OT auth notation', 'intelligence', `panim-annex-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The sanctuary list names trace to trade rosters. Not a single one appears in congregant records.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'cross-referencing sanctuary names against trade rosters');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sanctuary_roster_linked = true;
+        G.investigationProgress++;
+        G.lastResult = `All twenty-seven unclaimed sanctuary names appear in the northern district trade charter records as registered laborers under the same subsidiary entity Saryna flagged — the one connected to the ghost charter address. Every name carries a registration date within the past year. None appear in Panim Haven congregant rolls, family petition records, or transit intake logs at any point prior to the sanctuary filing. These are not real deceased. They are constructed identities used to hold sanctuary protections as a legal mechanism — each one a sustained claim on a custody status that prevents civic seizure.`;
+        addJournal('Sanctuary names are constructed identities from ghost charter roster — civic custody mechanism', 'evidence', `panim-roster-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The cross-reference requires pulling three separate archive sets simultaneously — congregant rolls, sanctuary filings, and trade charter records — which triggers a multi-access request that routes to the district registry for coordination. The registry logs the request under the ongoing review. Access to two of the three sets is suspended pending review completion. The attempt itself has now defined the specific record combination that someone would need to connect these threads. That combination is now being monitored.`;
+        addJournal('Sanctuary cross-reference attempt — multi-access request logged, two sets suspended', 'complication', `panim-roster-fail-${G.dayCount}`);
+      } else {
+        G.flags.sanctuary_roster_linked = true;
+        G.investigationProgress++;
+        G.lastResult = `The trade charter records are public. Of the twenty-seven sanctuary names, twelve appear in a northern district trade charter as registered laborers. The charter entity is not one you have seen before — a different name from the ghost subsidiary but with the same northern quarter address structure. The remaining fifteen names do not appear in any accessible record. Trade charter registration without congregant or transit history is unusual. The combination warrants further access.`;
+        addJournal('Twelve sanctuary names on northern charter roster — entity differs from known subsidiary', 'intelligence', `panim-roster-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The shrine water source runs under two buildings. One of them is the unregistered storage site.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing shrine water course to unregistered building');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.water_course_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `The shrine's ritual water source is a channeled spring that runs beneath the memorial district through a civic conduit system. The conduit's maintenance access points are mapped in the district waterworks record — a dry technical document available at the civic works office. The conduit runs directly beneath the unregistered building. One of the access hatches opens inside that building's foundation, which explains the sub-floor cavity: it is positioned directly above the conduit access point. Whatever was stored there was passed in and out through the waterworks channel, not the freight lane.`;
+        addJournal('Water conduit access point inside unregistered building — sub-floor cavity above hatch', 'evidence', `panim-water-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The waterworks office requires a district maintenance authorization to access the conduit map — standard policy for infrastructure records. The authorization is routed to the district registry, which is the same office managing the ongoing review. The request is received, logged, and deferred. On the walk back, the lane near the unregistered building has a new chalk mark on the wall that was not there this morning: a watch notation, the kind posted when a location is under observation. The approach has been anticipated.`;
+        addJournal('Conduit map access deferred — watch notation appeared near unregistered building', 'complication', `panim-water-fail-${G.dayCount}`);
+      } else {
+        G.flags.water_course_documented = true;
+        G.investigationProgress++;
+        G.lastResult = `The waterworks record is available at the civic works office and shows the conduit path through the memorial district. The route passes beneath a section of the district that includes the unregistered building's block. Whether the conduit has an access point directly under that building requires the maintenance map, which the counter clerk says is filed separately under infrastructure reference. That map is available but requires a half-day processing request through the district registry.`;
+        addJournal('Shrine conduit traced to unregistered building block — maintenance map pending', 'intelligence', `panim-water-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
