@@ -402,6 +402,255 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Researcher Orvaith left tools in his funded workspace. The tools are still there.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining Lenn Orvaith abandoned research workspace');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_orvaith_workspace_examined = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The funded workspace is a narrow stone room behind the Knowledge Registry's secondary reading hall — two benches, a slate board, a row of glass measuring vessels still clouded with dried reagent residue. The residue profile is specific: glyph pressure dispersal medium, the formulation Orvaith was authoring countermeasures for. On the slate board, half-erased: a pressure threshold number and the notation "container volume ~850 lbs." He calculated the container weight before he disappeared. His tools remain because nobody was authorized to remove them.`;
+        addJournal('Orvaith workspace: dispersal reagent residue + container weight calculation still on slate board', 'evidence', `sun-orvaith-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The workspace is locked — patron funding suspension triggers a standard access closure pending portfolio review. A junior archivist is cataloguing the room's contents through the door's glass pane without entering; he notes your presence and the time before you have finished reading the closure notice. The inventory is being conducted under Elyra Mossbane's patronage review authorization. Her name is at the top of the closure form.`;
+        addJournal('Orvaith workspace locked under patronage review — contents inventoried, presence noted', 'complication', `sun-orvaith-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_orvaith_workspace_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `The workspace door is unlocked — the closure paperwork has not caught up to the room yet. The slate board carries partial notation in a small, dense hand: threshold values for glyph pressure dispersal, a column of container weight estimates. The glass vessels on the bench are residue-clouded, not cleaned. Whatever Orvaith was building toward, he left in the middle of a working session rather than at a natural stopping point.`;
+        addJournal('Orvaith workspace: pressure threshold notation and container weight estimates — abandoned mid-session', 'intelligence', `sun-orvaith-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The north gate convoy log runs twelve days with no notation where there should be daily entries.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'examining north gate convoy exit log gap with road warden');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_north_gate_log_examined = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The warden — Pelsa, name stitched on the shoulder of his post coat — sets the convoy log flat and opens it to the gap without being asked. Twelve days of blank entry columns, each one bearing only a single stamp impression rather than the full transit record: convoy weight, cargo classification, charter reference. The stamp code used during those twelve days is a Roadwarden protocol override designation — used only when cargo is moving under sealed charter inspection exemption. The exemption code matches the 7-F diplomatic classification Bessa cited. It was applied to weight-range entries that should have been 400 to 900 pounds.`;
+        addJournal('North gate: 12-day 7-F override logs confirm heavy exempt cargo — same charter code as staging manifests', 'evidence', `sun-gate-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Pelsa closes the log before the spine opens fully. "Transit records under active charter exemption stay with the Adjudicator's office during the review window." His stamp is already in his hand. He is not hostile, but he has given this answer before, to people whose purposes he did not ask about. He logs the query with a date stamp before you have reached the bottom of the post steps.`;
+        addJournal('North gate log access blocked — active charter exemption review period', 'complication', `sun-gate-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_north_gate_log_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `Pelsa opens the log to the gap and keeps his thumb on the edge of the page rather than pointing directly at anything. "Protocol override stamp. Used when the Adjudicator's office has already logged the transit." He turns the page. "These entries have the stamp but no corresponding Adjudicator log number in the margin." He closes the log and sets it square with the desk corner. He does not say what that means because he does not want to be on record as saying it.`;
+        addJournal('North gate: override stamps with no Adjudicator log numbers — procedural gap confirmed', 'intelligence', `sun-gate-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The communal grain count and the storehouse physical stock are two different numbers.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'reconciling communal grain stock discrepancy with Jorva Helmrune');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_grain_stock_discrepancy = true;
+        G.flags.met_jorva_helmrune_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva squares the physical count sheet against her desk edge, corner to corner, before she holds it next to the registry total. A twelve-percent shortfall across six months. She sets both documents flat and keeps a hand on each. "The storehouse was used as testing infrastructure during the container calibration period. Floor space taken for the array means stack capacity reduced." She pauses. "The grain displacement was never logged as a temporary operational change. It was absorbed into the normal variance column." Twelve percent of Sunspire's communal grain reserve was displaced and not reported.`;
+        addJournal('Grain shortfall 12% over 6 months — storehouse calibration use displaced supply, absorbed into variance', 'evidence', `sun-grain-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Jorva squares the responsibility log before she looks up. "Stock variance review is a full communal audit process. An outside party flagging a variance number before a formal request has been filed creates a preliminary record." Her thumb does not move from the corner of the log. The preliminary record goes into the same chain as the handler payment file she was already managing. She does not tell you whether that makes things easier or harder.`;
+        addJournal('Grain variance flagged — preliminary communal audit record opened', 'complication', `sun-grain-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_grain_stock_discrepancy = true;
+        G.flags.met_jorva_helmrune_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva squares both documents against the desk edge before she compares them. Physical count is lower than the registry total — consistently, across the last two complete reporting cycles. She sets her hand flat on the count sheet. "A discrepancy this consistent is not measurement error." She pulls a separate form from the drawer: a communal resource displacement report, blank, date-ready. She has not yet decided whether to file it.`;
+        addJournal('Grain stock vs registry: consistent discrepancy across 2 cycles — Jorva has blank displacement report ready', 'intelligence', `sun-grain-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A handler who took the external payment has been avoiding the communal common house for a month.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating and speaking with avoiding convoy handler');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_handler_testimony_secured = true;
+        G.investigationProgress++;
+        G.lastResult = `His name is Tavar Brenn, and he eats at the secondary supply station now, away from the common house benches. He picks a loose thread from his sleeve hem before he speaks — works it between two fingers without pulling. "The work was loading. Lifting the containers onto the staging frames, nothing else." Then, after a pause: "The containers had a sound. When we moved them. Not liquid, not solid. More like packed powder settling." He drops the thread. "I did not ask what the powder was. I was told not to ask." He does not meet your eyes after that.`;
+        addJournal('Handler Tavar Brenn: containers held packed powder, not liquid — told not to ask about contents', 'evidence', `sun-handler-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Tavar Brenn sees the approach before it arrives. He sets his meal down and stands without finishing it, taking the secondary lane toward the textile yard — the route that stays away from the main market. Someone at the communal common house has noticed the exchange, noted the direction, and gone still in the way people go still when they are deciding whether to report what they observed. The handler does not look back.`;
+        addJournal('Handler Tavar Brenn evaded approach — observer noted, may report', 'complication', `sun-handler-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_handler_testimony_secured = true;
+        G.investigationProgress++;
+        G.lastResult = `Tavar Brenn picks a thread from his sleeve hem and works it without pulling while he decides what to say. "Loading work. Nothing I was not told to do." He sets the thread down. "The containers were heavier than the documentation said they were." He does not elaborate on how he knew what the documentation said. He finishes the meal and leaves without being dismissed, and the thread is still on the table.`;
+        addJournal('Handler confirms containers heavier than documentation declared — aware of documentation', 'intelligence', `sun-handler-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The night watch rotation during the container work ran four handlers instead of two.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'cross-checking night watch rotation against handler payment records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_watch_rotation_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `The watch rotation board hangs in the handlers' staging anteroom, updated in chalk. The six-week window of container modification work shows double staffing on every night shift, logged under a communal "facility inspection assistance" notation that does not correspond to any standard watch protocol. The four handlers listed during that window are the same three from Jorva's payment report plus one additional name — not in the payment file, not cross-referenced anywhere else. A fourth handler was involved who was not paid through the external party's charter documentation.`;
+        addJournal('Night watch: double-staffed under "facility inspection" label — 4th handler present not in payment record', 'evidence', `sun-watch-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The anteroom is handlers-only, and the door is not locked but it is closed, which carries the same weight here. A senior handler inside calls through the door before it opens — he has heard someone at the latch — and the question of who is asking and for what purpose precedes every other exchange. He writes something on the interior board before he steps into the doorway. The chalk sound is audible through the panel.`;
+        addJournal('Handlers anteroom access refused — presence logged before entry attempted', 'complication', `sun-watch-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_watch_rotation_examined = true;
+        G.investigationProgress++;
+        G.lastResult = `The rotation board shows the modification period as double-staffed night watch under a nonstandard notation. The names are in chalk and the board is a working document — they will be wiped when the next rotation cycle posts. Three of the four names are already in Jorva's payment file. The fourth is a staging hand whose name appears only in this six-week window and nowhere before or after it.`;
+        addJournal('Rotation board: 4th handler name appears only during container work window — not in payment file', 'intelligence', `sun-watch-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Elyra's logbook has pages she did not include in her official filings.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'reviewing Elyra Mossbane unsubmitted ecological field readings');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_elyra_unsubmitted_data = true;
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elyra's thumb stays on the logbook cover for a full breath before she opens it past the last submitted page. The unsubmitted section runs eight weeks. Glyph pressure readings taken at dawn, at the field perimeter, every three days — not a standard ecological metric, but she has a portable resonance gauge she adapted from a forestry instrument. The readings spike every time the night convoy movement logs show activity at the staging yard. She exhales through her nose, small and controlled. "I did not file these because filing them requires me to explain how I know what the spikes correspond to, and that explanation implicates the charter subsidiary."`;
+        addJournal('Mossbane: unsubmitted 8-week glyph pressure readings spike with convoy movement — she withheld to avoid implicating subsidiary', 'evidence', `sun-elyra2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Elyra's thumb does not move from the logbook cover, and after a moment she picks up the book and sets it on the shelf behind her rather than the desk. "Patron-family ecological records are not released to external parties without endorsement." Her exhale is small and controlled. She has decided something just now — the decision has made her posture more deliberate, not less. The logbook is behind her and she has not put her back to it.`;
+        addJournal('Elyra declined to open unsubmitted logbook section — moved it from desk', 'complication', `sun-elyra2-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_elyra_unsubmitted_data = true;
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Elyra opens the logbook past the last submitted entry and holds it open without narrating the contents. The entries visible are marked with small field-notation codes alongside the ecological data — a secondary column, not standard patrol format. Her thumb finds the spine. "I kept more than I filed." She does not say why, but the field notation codes appear in a consistent pattern alongside the dates of the container modification work.`;
+        addJournal('Mossbane logbook: secondary notation column alongside container work dates — unfiled field data confirmed', 'intelligence', `sun-elyra2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The suppression requests were drafted somewhere — Taldan's junior assistant remembers the handwriting.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'tracing suppression request authorship through Taldan junior assistant');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_suppression_author_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The junior assistant — Mirren, inked fingers, a stamp-callus ridge on her right ring finger — sets the first suppression request on the desk and reads it once before she speaks. "This hand slopes left. Not a Sunspire writing posture — we train right-forward here. This was written by someone schooled in a coastal registry style. Cosmouth, possibly Shirsh." She sets the next one beside it. "Same hand. All fourteen, same hand." She aligns them corner to corner on the desk, a precise row. "The 'Commission' letterhead was pressed, not stamped — a portable press. Not an institutional office."`;
+        addJournal('Suppression requests: coastal registry handwriting, portable press letterhead — author not locally based', 'evidence', `sun-author-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Mirren sets her stamp down and looks at the suppression file that Taldan has left visible on his desk. "Those files are under Taldan's review authority." She does not move toward them. "I log intake. I don't analyze correspondence from parties external to the registry." She pulls her own log toward her and enters the time of the query. Her ink is fresh and the entry is legible from where you are standing.`;
+        addJournal('Junior assistant declined suppression request analysis — query logged', 'complication', `sun-author-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_suppression_author_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `Mirren reads the first suppression request without touching it and tilts her head. "The slope is wrong for a local hand. We write right-forward here." She moves to the second request and the third. "Same person. Not from Sunspire, not trained here." She sets the stamp callus on her ring finger against the edge of the page without pressing it. "The letterhead looks pressed, not institutional. Portable equipment." She steps back and leaves the comparison to you.`;
+        addJournal('Suppression requests: non-local hand, portable press letterhead — external author confirmed', 'intelligence', `sun-author-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The charter subsidiary's local agent signed three documents in Sunspire before the modification work began.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing charter subsidiary local agent signature through Orvak Strone records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_local_agent_identified = true;
+        G.flags.met_orvak_strone = true;
+        G.investigationProgress++;
+        G.lastResult = `Orvak places three charter documents on the desk in sequence, each bearing the subsidiary code confirmed earlier and a secondary signature line below the principal's seal. The secondary signature is the same across all three — a local agent authorization, required under Sunspire's charter entry protocol. The name in the signature line: Dennov Cray. Not in any Sunspire family roll, not in the handler payment record, not connected to any of the named parties so far. Orvak slides a blank contact-report form across the desk. "The protocol requires me to log this conversation. It does not require me to prevent the next one."`;
+        addJournal('Charter subsidiary local agent: Dennov Cray — signed 3 pre-modification charter entries, no Sunspire affiliation', 'evidence', `sun-agent-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Orvak sets his quill down before you finish the phrasing. "Signatory identification from charter documents requires a formal compliance review filing." He folds his hands over the document stack. "A verbal inquiry about a named signatory on an active charter creates a notification obligation to that signatory's registered address." He has said the second sentence before you have processed the first. The filing is required. The notification goes out automatically. The conversation is the filing.`;
+        addJournal('Local agent inquiry triggers signatory notification — Adjudicator protocol invoked', 'complication', `sun-agent-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_local_agent_identified = true;
+        G.flags.met_orvak_strone = true;
+        G.investigationProgress++;
+        G.lastResult = `Orvak opens the charter entry file to the secondary signature line and sets a finger alongside it without covering the name. "An external agent is permitted to sign on behalf of a subsidiary principal under entry protocol." The name is legible. He closes the file and squares it with the desk edge. "I am not authorized to provide further biographical detail on charter signatories. The name is in the public entry record."`;
+        addJournal('Charter entry record: local agent name identified in public secondary signature — no further detail available', 'intelligence', `sun-agent-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Sunspire Haven finale — the convoy modification workshop and knowledge suppression campaign confirm Sunspire as an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
