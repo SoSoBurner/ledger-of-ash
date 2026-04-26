@@ -165,6 +165,61 @@ var LIVING_VARIANTS = {
     'The archive annex attaches to the hub\'s administrative building by a covered walkway that is always in shadow.',
     'The reading room smells of paper and preservation wax. A single archivist manages intake and reference from a desk surrounded by indexed containers.',
     'The shelves go further back than the building\'s exterior suggests they should. The intake log is current to this morning.'
+  ],
+  harvest_circle: [
+    'Patron-family quota boards run the length of the market wall. A field broker checks a tally roll against the board numbers, finds a discrepancy, and moves on without marking it.',
+    'The seasonal stalls shift position overnight as syndicate territories are renegotiated. The quota boards stay fixed; everything else adjusts around them.',
+    'Field output brokers move between stalls with seasonal tally rolls under their arms. The numbers on the rolls and the numbers on the boards do not always match.'
+  ],
+  ironhold_quarry: [
+    'The stone face has retreated into the hillside in horizontal bands. A marshal with a tally board stands at the transport junction; the count goes on a second board near the gate.',
+    'Quarry dust settles on every flat surface by mid-morning. The extraction crews work in silence — the kind that comes from having nothing worth saying where the foreman can hear.',
+    'Cart traffic through the junction runs heavier than the manifest numbers would suggest. The gate marshal records weight, not contents; nobody has asked him to change that.'
+  ],
+  ithtananalor: [
+    'The identity inspection station is the first structure inside the gate. Legal transit papers are checked against a secondary ledger before the inner checkpoint opens.',
+    'Two inspection officers work the corridor in relay, one asking questions, one recording. The questions are the same as yesterday; the recording is what changes.',
+    'The inner checkpoint has been staffed for longer shifts than usual. The officer at the secondary ledger does not explain why; the extended hours are recorded in the log.'
+  ],
+  panim_haven: [
+    'Funerary markers line the approach road — stone tablets, names only, no epitaphs. The shrine intermediary moves through dock traffic with a ledger.',
+    'The dock trade and the shrine traffic share the same road without acknowledging each other. Cargo handlers step around mourners; mourners step around cargo.',
+    'The shrine intermediary\'s ledger records names, dates, and amounts — the same information as any other ledger in the haven, applied to a different kind of transaction.'
+  ],
+  shelkopolis_harbor: [
+    'Crane-arms over the water, warehouses the size of civic buildings. A Collegium inspector makes notes near berth seven; two dockhands watch him without speaking.',
+    'The berth records and the cargo manifests are reconciled at the outer weighhouse. The inspector\'s notes and the weighhouse records are reconciled somewhere else, by someone else.',
+    'The dockhands at berth seven have been unloading the same vessel for three days. The Collegium inspector\'s notes grow longer each morning.'
+  ],
+  sheresh: [
+    'The commune sits inside a reinforced seawall, older than Collegium-built. An elder reads from the commune registry to children on the steps; she notes the time when you pass.',
+    'The seawall predates the Collegium\'s records of this coast. The commune\'s registry predates the seawall. Both are treated as founding documents; both are consulted daily.',
+    'The children on the steps have been listening to the elder read from the registry for an hour. The registry is not entertaining. They are listening because attendance is recorded.'
+  ],
+  shirshal: [
+    'Compliance inspectors work the entry corridor in pairs. Ward seals on the doorframes glow faintly where the magical-law inspections were most recent.',
+    'The ward seals are refreshed on a rotating schedule. The inspectors\' log tracks which seals were renewed and by whom; the renewal schedule itself is not publicly posted.',
+    'One of the compliance officers has been stationed at the same corridor position for four days. Her partner changes each shift; she does not.'
+  ],
+  soreheim_transit_post: [
+    'Manifest clerks work in parallel at long counters. The compliance office has no queue — which means it does either very little or very much.',
+    'The transit post processes outbound shipments faster than inbound ones. The imbalance has been consistent for three weeks; nobody at the long counters has remarked on it.',
+    'The compliance office door is open. Inside, a single clerk works at a desk covered in paper. He has not looked up since the last transit group came through.'
+  ],
+  sunspire_haven: [
+    'Grain contract boards bracket the crossroads entrance. Workshop syndicate marks are painted on the doorframes — each guild has its own color, its own stroke width.',
+    'The contract boards are updated twice a day. The morning numbers and the evening numbers diverge in ways that favor the patron families; the clerks who update them are syndicate employees.',
+    'Syndicate marks on the doorframes track territory precisely: the color changes mid-block, the stroke width shifts at the corner. The boundary has moved three times in the past month.'
+  ],
+  unity_square: [
+    'Color-coded guild awnings line the perimeter, territory marked and maintained. The inscription above the gate is partially obscured by a posted notice about cart-load fees.',
+    'The guild awnings are replaced when they fade — immediately, without delay. The inscription above the gate has been obscured by posted notices for eleven years.',
+    'Three guilds claim the same corner of the perimeter. Their awnings overlap by exactly the width of a hand. The corner dispute is documented in forty-two registry filings.'
+  ],
+  whitebridge_commune: [
+    'The stone is cold to the touch even in summer. Two people stand at the rail mid-bridge looking at the water; they are not talking to each other.',
+    'The bridge carries all through-traffic for this section of the route. The commune does not charge transit fees, but maintains a count of everyone who crosses.',
+    'The commune registry shows every crossing for the past sixty years. The number of crossings per day has been declining for four years. No reason is recorded.'
   ]
 };
 
