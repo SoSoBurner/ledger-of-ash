@@ -9357,6 +9357,7 @@ function initCreate() {
   // Populate stat boost grid
   const sbg = document.getElementById('stat-boost-grid');
   if (sbg) {
+    const _SKILL_DISPLAY = {combat:'Might',survival:'Vigor',persuasion:'Charm',lore:'Wits',stealth:'Finesse',craft:'Spirit'};
     const skills = ['combat','survival','persuasion','lore','stealth','craft'];
     sbg.innerHTML = '';
     skills.forEach(sk => {
@@ -9364,12 +9365,11 @@ function initCreate() {
       btn.className = 'card';
       btn.dataset.skill = sk;
       btn.style.textAlign = 'center';
-      btn.innerHTML = '<div class="card-name">' + sk + '</div><div class="card-tag">+1 starting</div>';
+      btn.innerHTML = '<div class="card-name">' + (_SKILL_DISPLAY[sk]||sk) + '</div><div class="card-tag">+1 starting</div>';
       btn.addEventListener('click', () => {
         document.querySelectorAll('#stat-boost-grid .card').forEach(c => c.classList.remove('selected'));
         btn.classList.add('selected');
         G._createStatBoost = sk;
-        document.getElementById('stat-boost-step').style.display = 'block';
         checkBeginReady();
       });
       sbg.appendChild(btn);
@@ -10219,6 +10219,15 @@ function updateEnvironmentPanel() {
       locBtns.querySelectorAll('.loc-site-btn').forEach(btn => btn.addEventListener('click', () => visitSite(btn.dataset.site)));
     } else {
       locBtns.innerHTML = '';
+    }
+    const _shopItems = window.SHOP_INVENTORY && window.SHOP_INVENTORY[G.location];
+    if (_shopItems && _shopItems.length) {
+      const _svcBtn = document.createElement('button');
+      _svcBtn.className = 'loc-site-btn';
+      _svcBtn.textContent = 'Services';
+      _svcBtn.style.cssText = 'margin-top:6px;color:var(--accent-gold);border-color:var(--accent-gold);width:100%;';
+      _svcBtn.onclick = function() { showShop(); };
+      locBtns.appendChild(_svcBtn);
     }
   }
 }
@@ -13909,6 +13918,20 @@ function showCharSheet() {
         ? '<div style="font-size:12px;color:var(--ink-faint)">None active.</div>'
         : _activeComps.map(function(c) { return '<div class="char-stat-row"><span class="char-stat-val">' + (c.name || _compNames[c.id] || c.id || '') + '</span></div>'; }).join('');
       return '<div style="margin-top:20px"><div class="char-section-title">Companions</div>' + _compRows + '</div>';
+    })() : '') +
+    (G.masteryXP > 0 ? '<div style="margin-top:20px"><div class="char-section-title">Mastery</div>' + row('Mastery XP', G.masteryXP) + '</div>' : '') +
+    (function(){
+      var _sn = typeof G.stage === 'number' ? G.stage : (parseInt(String(G.stage||'').replace(/\D/g,''))||1);
+      var _prog = (G.stageProgress && G.stageProgress[_sn]) || 0;
+      return '<div style="margin-top:20px"><div class="char-section-title">Progress</div>' + row('Stage Progress', _prog) + '</div>';
+    })() +
+    (G.quests && G.quests.length > 0 ? (function(){
+      var _qs = G.quests.slice(-5).slice().reverse();
+      var _qrows = _qs.map(function(q) {
+        var _t = typeof q === 'string' ? q : (q.msg || '');
+        return '<div style="font-size:13px;color:var(--ink);margin-bottom:4px;font-family:\'Crimson Pro\',serif;font-weight:300;">' + _t + '</div>';
+      }).join('');
+      return '<div style="margin-top:20px"><div class="char-section-title">Active Quests</div>' + _qrows + '</div>';
     })() : '') +
     '</div>' + // end identity pane
 
