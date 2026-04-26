@@ -418,6 +418,249 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The cold storage keeper logs every degree drop. The Compact's containers were never logged.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing cold storage access gap with the Harvest Circle keeper');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.cold_storage_gap_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The keeper, Brenn Saltash, keeps her temperature ledger on a hook beside the door, replaced every season. She pulls the last three without being asked and spreads them on the workbench. Every agricultural intake is logged: time in, temperature at entry, weight declaration, handler name. The Compact's containers appear on the intake dock register but not once in the temperature ledger. They moved through cold storage without a record being made. Brenn sets her finger on the gap date. "Someone let them in after my shift ended," she says. "And walked them out before I started."`;
+        addJournal('Cold storage temperature ledger: Compact containers bypassed intake logging across three seasons — off-shift access', 'evidence', `har-coldstorage-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Brenn Saltash is mid-shift and the cold storage door is sealed during active temperature regulation — entry would break the thermal cycle and spoil the current rotation. A commune enforcer standing at the far end of the corridor has already noted the approach. The ledger is inside. The door stays closed until the regulation cycle clears, and the enforcer does not move from the corridor while you wait.`;
+        addJournal('Cold storage access blocked mid-cycle — enforcer observed approach', 'complication', `har-coldstorage-fail-${G.dayCount}`);
+      } else {
+        G.flags.cold_storage_gap_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `Brenn pulls the current season's ledger and runs her thumb down the intake column until she finds the date range. Her thumb stops on a four-day gap between entries — nothing in, nothing out, for ninety-six hours during the period the Compact's shipment was documented on the dock. "We had a temperature regulator fault," she says. "I filed a maintenance note. The fault cleared fast." She does not say whether the fault was natural. Her thumb stays on the gap.`;
+        addJournal('Cold storage ledger: 4-day entry gap coincides with Compact shipment dock dates — regulator fault filed', 'intelligence', `har-coldstorage-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The commune's seed-keeper tracks every variety by name. Three varieties went missing last autumn without a spoilage report.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing missing seed varieties with the Harvest Circle seed-keeper');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.seed_keeper_evidence = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Oswin Tharpe, the seed-keeper, has maintained an unsanctioned parallel ledger since the first disappearance — three lines in a small waxed notebook he keeps inside the seed vault door, the spine pressed flat against the frame. Three autumn varieties: Pale Aldrik barley, Salt-Run rye, and a legume cultivar Harvest Circle developed internally. No spoilage. No transfer record. No commune council authorization. The varieties reseed poorly in isolation. Someone who wanted them would need the parent stock. Oswin has been waiting for someone to ask. "They took the seed," he says. "Not the grain. That's specific."`;
+        addJournal('Three seed varieties removed without record — parent stock targeted for isolation reseeding capability', 'evidence', `har-seedkeeper-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The seed vault door is sealed and the rotation key is with the commune's harvest committee, which meets in three days. Oswin Tharpe is present but he steps back when you name the missing varieties — a quick, careful step, the kind that comes after being corrected once for saying the same thing aloud. He says nothing and glances toward the committee offices. A commune enforcer two stalls over has turned to face the exchange.`;
+        addJournal('Seed vault access denied — keeper silenced, enforcer noted', 'complication', `har-seedkeeper-fail-${G.dayCount}`);
+      } else {
+        G.flags.seed_keeper_evidence = true;
+        G.investigationProgress++;
+        G.lastResult = `Oswin Tharpe names the three varieties without looking at any ledger — he has recited the list in his head enough times that it comes out flat and fast. He does not have documentation of the removal. What he has is the absence of documentation: no spoilage form, no transfer note, no signed release. The commune protocol requires all three for a variety transfer. None were filed. "I checked," he says. "Three times." He stops there and does not say what stopped him from checking a fourth.`;
+        addJournal('Three seed varieties unaccounted — no spoilage, transfer, or release forms filed', 'intelligence', `har-seedkeeper-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A night courier who runs the pre-dawn offerings route saw the Compact's handlers up close. He hasn't filed a report because no one asked.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'debriefing the pre-dawn offerings courier on Compact handler observations');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.courier_witness_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Fen Draal runs the pre-dawn route on foot, a lantern on a pole and a canvas bag of offering-bound parcels. He stops at each junction marker and logs arrival time in grease pencil on a strap around his wrist — transferred to the courier ledger each morning, worn away by noon. He saw four of the Compact's handlers at the Panim junction staging area before dawn: no commune insignia, no guild marks, work clothes that smelled of a chemical agent he recognized from the Soreheim processing districts — a smell that does not belong in an agricultural setting. He describes the handlers with the detail of someone who has spent years passing unnoticed: height, gait, which one held the manifest and which one never looked up.`;
+        addJournal('Courier Fen Draal witnessed Compact handlers at Panim junction — Soreheim processing-district chemical scent confirmed, handler descriptions recorded', 'evidence', `har-courier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Fen Draal is between routes and the commune's courier dispatch office keeps a tight arrival window. His supervisor is visible through the dispatch window, watch in hand. Fen shakes his head once — a short, clear motion — and picks up his canvas bag. He does not look back toward the supervisor when he does it. Whatever he saw, the timing to say it is not now, and the supervisor's presence is the reason.`;
+        addJournal('Courier unwilling to speak — supervisor present, timing refused', 'complication', `har-courier-fail-${G.dayCount}`);
+      } else {
+        G.flags.courier_witness_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Fen Draal tells it in the order he saw it, without editorializing. Four handlers, pre-dawn, working without lanterns. He smelled something chemical on the containers that he could not name. The manifest one of them held was not a standard commune form — wrong color, wrong size. He did not report it because there was no reporting channel for something he did not yet have words for. He has words now. He writes the junction location and timing on the back of his wrist strap without being asked.`;
+        addJournal('Courier sighted Compact handlers pre-dawn with non-standard manifest — chemical smell, non-commune paperwork', 'intelligence', `har-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The irrigation channel maintenance log runs through three seasons of sealed access windows nobody authorized.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing unauthorized irrigation channel access windows');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.irrigation_access_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The maintenance log is kept by the commune's water-works committee, a hand-ruled column book that records every access window: who opened the sluice gate, when, and for what declared purpose. Three sealed entries over twenty-two months show access codes that belong to a defunct maintenance sub-guild dissolved two years ago — but the codes were accepted by the lock mechanism. Someone retained functional copies of a dead authorization key and used them to access the eastern channel junction, which runs beneath the Panim offering storage corridor. The channel provides a transit route that bypasses the dock intake system entirely.`;
+        addJournal('Irrigation channel access via defunct sub-guild codes — 3 unauthorized entries bypassing dock intake via underground transit route', 'evidence', `har-irrigation-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The water-works committee log is cross-filed with the commune infrastructure archive, which is in a scheduled re-cataloguing process. The access log from the relevant period is boxed and labeled but not yet shelved into the accessible sequence. An infrastructure archivist notes the request in a queue register and says the re-cataloguing will clear within the week. The queue register is already three pages long.`;
+        addJournal('Irrigation access log in archive re-cataloguing queue — one week delay', 'complication', `har-irrigation-fail-${G.dayCount}`);
+      } else {
+        G.flags.irrigation_access_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The committee archivist finds the three sealed entries while searching for an unrelated maintenance record — he almost misses them because the access codes are formatted correctly, just for a guild that no longer exists. He reads the code prefix aloud and checks his sub-guild registry twice. The dissolved guild's code block should have been revoked and re-keyed at dissolution. It was not. Someone at the dissolution stage held the re-key. The archivist underlines the access dates without saying what he thinks it means.`;
+        addJournal('Irrigation log: defunct sub-guild codes active — revocation not completed at dissolution', 'intelligence', `har-irrigation-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The commune's ritual herbalist prepares every offering bundle. She noticed the weight had changed before the route even left.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'consulting commune ritual herbalist on offering bundle weight anomalies');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.herbalist_witness = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Meret Osk has assembled Harvest Circle's offering bundles for eleven years. She knows the weight of each component by hand — not by scale, but by the pressure against her palm as she lifts the finished bundle for the route stamp. She sets both hands flat on the preparation table when she describes the change: three months ago, bundles sealed after the preparation room closed overnight came back to the dock weighing more than she had assembled. The excess was consistent: always between eight and twelve units above her assembly weight. "I thought the scale was off," she says. "The scale was not off." She has kept a private tally in the back of her preparation ledger, column-ruled in her own hand.`;
+        addJournal('Herbalist Meret Osk: offering bundles gained 8-12 units overnight — private weight tally across three months, sealed room access after hours', 'evidence', `har-herbalist-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Meret Osk is in the preparation room with the door partially closed — a commune custom that means she is at a stage requiring unbroken focus. A commune helper at the outer bench shakes her head once and holds up four fingers: four stages remaining before the work can pause. Through the gap in the door, Meret's hands move over the preparation table without stopping. She does not look up. The helper closes the door the rest of the way with a quiet, practiced pull.`;
+        addJournal('Herbalist in preparation — uninterruptible, four-stage sequence in progress', 'complication', `har-herbalist-fail-${G.dayCount}`);
+      } else {
+        G.flags.herbalist_witness = true;
+        G.investigationProgress++;
+        G.lastResult = `Meret Osk names the weight discrepancy before you finish the question — she has been looking for someone to tell. Three months of bundles leaving the preparation room heavier than she assembled them. She found no damage, no contamination, no explanation from the handling crew. She sets the private tally on the preparation table: eight months of entries, each row marked with the bundle's final dock weight versus her assembly weight, the difference circled in red chalk. The circles are all in the same size range.`;
+        addJournal('Herbalist private tally: 8 months of offering bundle weight discrepancies — circled excess consistent at 8-12 units above assembly weight', 'intelligence', `har-herbalist-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The commune's seasonal timing records show the offering routes were rescheduled to match the Compact's arrival windows. That scheduling authority belongs to one office.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing offering route rescheduling authority through seasonal timing records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.schedule_authority_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The seasonal dispatch archive is cross-filed with the harvest committee's quarterly records — Farlan Inkshade keeps the master copy. The offering route schedule has been adjusted eleven times over eight months, each adjustment issued under the harvest committee's scheduling authority. The adjustments cluster within a three-day window before each Northern Provision Compact manifest entry in Valen Crestmark's records. One name appears on nine of eleven adjustment authorizations: a scheduling officer named Corra Delvitch, who has not appeared at her post for six weeks. Her last adjustment was issued the day after Valen noted the military-credential shipment.`;
+        addJournal('Offering route scheduling adjusted 11x to match Compact arrivals — scheduler Corra Delvitch absent 6 weeks, last action day after military shipment noted', 'evidence', `har-schedule-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The harvest committee's quarterly archive is under committee seal pending the upcoming annual assembly — standard pre-assembly review lock. The archive clerk confirms the lock was issued two days ago, the shortest possible window before the lock would normally apply. The committee chair signed the seal order. The archive clerk writes the request in the access log without making eye contact, and the pen moves slowly.`;
+        addJournal('Harvest committee archive sealed early — pre-assembly lock, chair-signed', 'complication', `har-schedule-fail-${G.dayCount}`);
+      } else {
+        G.flags.schedule_authority_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `Farlan pulls the scheduling adjustment log from the current quarter's archive binder. He does not have earlier quarters accessible today — those are in the committee's possession — but the current quarter shows four adjustments, each one shifting the offering route departure time earlier by two to three hours. He reads the authorization name for each: the same scheduling officer on every entry. He checks the active staff register. The name has been removed from it. "She's still listed as attached to the committee on the formal org chart," he says. "But she hasn't drawn wages in over a month."`;
+        addJournal('Route scheduling officer active on adjustments but removed from staff register — wages ceased over a month ago', 'intelligence', `har-schedule-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Denet Alvar relocated to the eastern stalls. He's still watching the routes he used to run.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'debriefing suppressed trader Denet Alvar on independent route observations');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.denet_alvar_debrief = true;
+        G.investigationProgress++;
+        G.lastResult = `Denet Alvar's eastern stall is positioned at an angle that gives him a direct sightline to his old route staging area. He has not moved the stall since he relocated. He names this without embarrassment — it is not nostalgia, it is habit refined into something more useful. Over eight months he has logged, in a personal notebook he does not show buyers, every shipment that moved through the staging area under the Northern Provision Compact manifest category. The arrival times, the handler count, the vehicle type. He identifies two handlers who appeared on multiple shipments and names one by a road-circuit nickname he overheard during a loading dispute. He sets the notebook on the counter between you. "I'm not going back to the route," he says. "But I'm not pretending I don't see it."`;
+        addJournal('Denet Alvar: 8-month personal log of Compact shipment patterns — handler identity and road-circuit nickname recorded', 'evidence', `har-alvar-debrief-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Denet Alvar is mid-transaction when you arrive and a Compact-affiliated buyer is two stalls over — close enough that a raised voice would carry. Alvar's expression does not change, but his hands stop moving over the grain weights. He shakes his head once, a small and practiced motion, then returns to the transaction. The buyer two stalls over has not looked up. Alvar does not look at you again while the buyer is present.`;
+        addJournal('Alvar refused contact — Compact-affiliated buyer in earshot', 'complication', `har-alvar-debrief-fail-${G.dayCount}`);
+      } else {
+        G.flags.denet_alvar_debrief = true;
+        G.investigationProgress++;
+        G.lastResult = `Alvar speaks in the register of a man who has already decided what he will and will not confirm. He names the staging area pattern: Compact shipments arrive in a two-to-three hour pre-dawn window, never during active market hours, always with handlers who do not interact with commune staff. He will not say where he recorded this. He will say that the vehicles used on the heaviest consignments are not standard agricultural transport — they run wider axles, the track marks in the mud beside the staging dock are two knuckle-widths wider than a grain cart.`;
+        addJournal('Alvar confirmed Compact pre-dawn pattern and non-standard wide-axle transport — heavier than agricultural load profile', 'intelligence', `har-alvar-debrief-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The commune's night patrol route passes within thirty meters of the cold storage corridor. The patrol log has two months of gap entries, no explanation filed.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'reviewing night patrol gap entries near cold storage corridor');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.patrol_log_gap_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The commune patrol logs are kept by the enforcer office — Jorva Helmrune has access to the relevant corridor's records. Two months of gap entries: nineteen nights where the cold storage corridor checkpoint shows no sign-in, no reason logged, no substitute patrol assignment. The gaps correspond exactly to the calendar dates of Brenn Saltash's temperature ledger gaps and the Compact's staging dock appearances in Valen's records. Jorva turns to the gap column and sets her palm flat on the page. "The enforcer assigned to that corridor during that period was seconded to a committee sub-assignment," she says. "The assignment was signed by the same scheduling officer who amended the offering route times." Her hand does not move.`;
+        addJournal('Patrol gaps match cold storage and Compact staging dates — corridor enforcer seconded by same scheduler who rerouted offerings', 'evidence', `har-patrol-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The enforcer office log desk is occupied by a duty supervisor who is not Jorva Helmrune, and who answers questions about gap entries with the procedural phrasing of someone who has been told to answer that way. Internal staffing records are under committee administrative review. The supervisor writes the request in the log register and caps the pen. "Jorva will be in on fifth-day," she says. "She handles the archive access." Fifth-day is three days away.`;
+        addJournal('Patrol log access delayed — duty supervisor only, Jorva absent until fifth-day', 'complication', `har-patrol-fail-${G.dayCount}`);
+      } else {
+        G.flags.patrol_log_gap_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva pulls the cold storage corridor log without being told which corridor. She already knows which one. The gap column runs nineteen entries deep across two months — each one missing a sign-in, none of them marked with a reason code or substitute assignment. She reads the date range aloud and stops. She does not say whether she has looked at these entries before. She turns the log to face you and takes her hand off it completely, leaving it open on the desk between you.`;
+        addJournal('19-night patrol gap in cold storage corridor — no reason codes, no substitute assignments, dates match Compact activity window', 'intelligence', `har-patrol-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Harvest Circle finale — the agricultural routing fraud and ghost supplier are confirmed. Report to the commune council or use the routing number data to intercept the next shipment.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
