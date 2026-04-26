@@ -795,6 +795,55 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── COLLEGIUM FACTION THREAD — Cadlen / amendment registry / sealed manifest ──
+
+  {
+    label: 'The factor saw the same pattern weeks before I did',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.flags) G.flags = {};
+      G.flags.met_guildheart_factor_cadlen = true;
+      G.flags.stage2_faction_contact_made = true;
+      gainXp(20, 'collegium thread contact');
+      G.lastResult = 'The factor\'s name is Cadlen. He has been with the transit desk eleven years. He pulls the same manifest you flagged — without being asked — and sets it on the edge of the desk facing you. "The authorization stamp is wrong. Third column." He says it the way someone says a thing they have been waiting to say to someone who would understand it. He does not say anything else.';
+      addJournal('A Guildheart factor named Cadlen pointed to a mismatched authorization stamp on a transit manifest — unprompted. He\'s been noting it for weeks. Source: Guildheart Hub factor office, Cadlen.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The amendment registry carries stamps from two different offices',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'amendment registry anomaly');
+      G.lastResult = 'The amendment log goes back four seasons. Through season three, one stamp: the local guild factor\'s mark, green ink, consistent. In season two, a second stamp appears alongside it — smaller, red, Collegium administrative font. In season one, only the red stamp. The local mark did not exist yet. Someone added the local authorization retroactively. Two column dates do not match the binding dates on the same entries.';
+      addJournal('The Guildheart Hub amendment registry shows two overlapping authorization stamps with mismatched dates — Collegium administrative and local guild marks applied out of sequence. Source: Guildheart Hub registry annex.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The freight manifest for that route is sealed at the bottom',
+    tags: ['Records', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'sealed manifest section');
+      G.lastResult = 'Three seasons of freight manifests for the northern corridor. The bottom third of the last page is sealed with red administrative wax — not the guild\'s amber, the Collegium\'s red. The seal is intact. The clerk does not offer to break it. She does not acknowledge it. She sets the rest of the manifest in front of you and waits while you read the unsealed portion, which tells you nothing.';
+      addJournal('A freight manifest at Guildheart Hub is sealed in the lower third with Collegium-red administrative wax. The clerk made no mention of it. Source: Guildheart Hub loading records desk.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 // Sideplot injection — guildheart union testimony gap (Stage II only)
