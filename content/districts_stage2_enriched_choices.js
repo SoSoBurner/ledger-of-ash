@@ -222,7 +222,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "Verdant Row network contact — the network that can distribute investigation findings is accessible here. Establish or strengthen the connection.",
+    label: "The Verdant Row distribution network reaches every allied healer and recorder in the region. They are waiting for something worth routing.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 64,
     fn: function() {
@@ -231,7 +231,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.verdant_row_contact = true;
-        G.lastResult = `The man across the table — grey-haired, ink on his left sleeve from a morning of copying — lays down the evidence summary and holds it flat with two fingers. He doesn't speak immediately. When he does, it's to a point on the wall above your shoulder. "The circuit moves on confirmation, not promise." He slides the summary back. The Verdant Row distribution network is committed: any findings routed through this channel reach every allied investigative and healer network in the region at once, with no single point of interception.`;
+        G.lastResult = `The man across the table — grey-haired, ink on his left sleeve from a morning of copying — lays down the evidence summary and holds it flat with two fingers. He doesn't speak immediately. When he does, it's to a point on the wall above your shoulder. "The circuit moves on confirmation, not promise." He slides the summary back. The Verdant Row distribution network is committed: any findings routed through this channel reach every allied healer and recorder network in the region at once, with no single point of interception.`;
         addJournal('Verdant Row distribution circuit committed — regional simultaneous distribution available', 'evidence', `vr-contact-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -412,7 +412,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
 
 const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The Scriptorium Steps' document copying circuit has a back-channel for scholarly correspondence that bypasses standard Academy mail — route investigation findings through it.",
+    label: "The Scriptorium Steps has a back-channel for scholarly correspondence that bypasses standard Academy mail. The evidence needs a route that doesn't get intercepted.",
     tags: ['Craft', 'Lore', 'Stage2'],
     xpReward: 64,
     fn: function() {
@@ -465,7 +465,7 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
 
 const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The settlement's high quarter formal records hall — request access to charter and contract records under investigative standing.",
+    label: "The high quarter records hall has charter and contract files. The access credentials may be enough to get through the gate.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 66,
     fn: function() {

@@ -8,7 +8,7 @@
 const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Review the ore account ledgers at the Iron Ledger Ward — three ghost accounts have been flagged but not investigated.",
+    label: "The Iron Ledger Ward has three ghost accounts that were flagged and then left alone.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -40,7 +40,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Approach Ivena Ironspike at the Licensed Goods Counter — she processes every registered transaction and will have seen the ghost account activity.",
+    label: "Ivena Ironspike processes every registered transaction. She has seen the ghost account activity and said nothing.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -84,12 +84,12 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_velden_ironspike = true;
         G.flags.stage2_faction_contact_made = true;
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `Velden receives you with the kind of careful attention that tells you he has already read your investigation file. He neither confirms nor denies Shadowhands involvement in the accounts. But he gives you one thing: the name of the duty officer who would have processed the original account registrations. That officer was transferred six months ago. To a posting with no public record.`;
+        G.lastResult = `Velden receives you with the kind of careful attention that tells you he has already read your file. He neither confirms nor denies Shadowhands involvement in the accounts. But he gives you one thing: the name of the duty officer who would have processed the original account registrations. That officer was transferred six months ago. To a posting with no public record.`;
         addJournal('Velden meeting — transferred officer name obtained', 'evidence', `ith-velden-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
-        G.lastResult = `Two steps inside the Shadowhands Wing, a pair of unit officers bracket the approach and redirect without touching anything. The meeting request was received; no meeting will occur. At the security desk, a formal note is written and signed — not a refusal on paper but a flag, routed upward within the hour. The Roazian enforcement apparatus has now classified the inquiry as a hostile operation, which changes every access point downstream.`;
+        G.lastResult = `Two steps inside the Shadowhands Wing, a pair of unit officers bracket the approach and redirect without touching anything. The meeting request was received; no meeting will occur. At the security desk, a formal note is written and signed — not a refusal on paper but a flag, routed upward within the hour. The Roazian enforcement apparatus has now classified the approach as a hostile operation, which changes every access point downstream.`;
         addJournal('Shadowhands — investigation classified as hostile', 'complication', `ith-velden-fail-${G.dayCount}`);
       } else {
         G.flags.met_velden_ironspike = true;
@@ -374,7 +374,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You present to Captain Roaz directly with the full chain of evidence. He receives it with the gravity it warrants. A formal internal affairs investigation opens under his command authority — which carries the weight to bypass the Shadowhands layer. Stage III opens with Roazian enforcement backing and maximum Shadowhands visibility.`;
+        G.lastResult = `You present to Captain Roaz directly with the full chain of evidence. He receives it with the gravity it warrants. A formal internal affairs review opens under his command authority — which carries the weight to bypass the Shadowhands layer. Stage III opens with Roazian enforcement backing and maximum Shadowhands visibility.`;
         addJournal('Ithtananalor S2 finale: Roaz enforcement path', 'evidence', `ith-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;

@@ -8,7 +8,7 @@
 const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Tazren Coilspire at the Investigation Bureau has an open case file that overlaps with every thread you've been pulling — compare notes.",
+    label: "Tazren Coilspire has an open case file that touches every thread I have been following. He has been pulling at this longer than I have.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -26,7 +26,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Bureau investigator Tazren — 8-month parallel case file shared, case was suppressed', 'evidence', `shir-tazren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Tazren listens to your first two sentences and reaches for his visitor log without looking up. "Knowing the specifics of a Bureau investigation thread without credentials is a concern I'm required to document." He copies your name in a neat hand and asks for origin papers with the flat efficiency of someone who has run this procedure before and does not enjoy it. A summary of the visit is on its way to his supervisory chain before the conversation has properly ended. Whatever goodwill this interview might have built has been spent on a protocol note.`;
+        G.lastResult = `Tazren listens to your first two sentences and reaches for his visitor log without looking up. "Knowing the specifics of a Bureau case thread without credentials is a concern I'm required to document." He copies your name in a neat hand and asks for origin papers with the flat efficiency of someone who has run this procedure before and does not enjoy it. A summary of the visit is on its way to his supervisory chain before the conversation has properly ended. Whatever goodwill this interview might have built has been spent on a protocol note.`;
         addJournal('Bureau visit logged — origin documentation requested', 'complication', `shir-tazren-fail-${G.dayCount}`);
       } else {
         G.flags.met_tazren_coilspire = true;
@@ -299,7 +299,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `The Director meeting doesn't happen — the supervisors who buried Tazren's case are between you and the Director's door. Instead you copy the file tonight and hand the copies to the Verdant Row network before dawn. The compliance record inversion goes with it, addressed to every node on the investigative chain. By midday, the suppression operation no longer has cover. The pressure will increase. The operation is now exposed and moving.`;
+        G.lastResult = `The Director meeting doesn't happen — the supervisors who buried Tazren's case are between you and the Director's door. Instead you copy the file tonight and hand the copies to the Verdant Row network before dawn. The compliance record inversion goes with it, addressed to every node in the distribution chain. By midday, the suppression operation no longer has cover. The pressure will increase. The operation is now exposed and moving.`;
         addJournal('Shirshal S2 finale: case file distributed through Verdant Row', 'evidence', `shir-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

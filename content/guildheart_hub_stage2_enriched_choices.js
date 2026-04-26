@@ -8,7 +8,7 @@
 const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Sable Ledgermere's Archive Scribing Hall contains the union freight charter records — the sealed charter pattern from the suppression investigation appears in three filed exemptions.",
+    label: "Sable Ledgermere's Archive Scribing Hall has union freight charter records. The sealed charter pattern appears in three filed exemptions.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {

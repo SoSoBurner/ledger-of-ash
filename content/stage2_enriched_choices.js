@@ -1,7 +1,7 @@
 ﻿const STAGE2_ENRICHED_CHOICES = [
   // ========== TRAVEL ENCOUNTERS: Mysterious Figures & Hazardous Routes ==========
   {
-    label: "You encounter a cloaked trader on the Ridgeway Pass offering strange maps. Investigate their origins and intentions.",
+    label: "The cloaked trader on the Ridgeway has maps she isn't selling to everyone.",
     tags: ['Travel', 'Mystery', 'Negotiation', 'Risk', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -33,7 +33,7 @@
     }
   },
   {
-    label: "A convoy of merchants warns you of bandits blocking the northern route. Choose: risk the bandits or take a longer detour through unstable terrain.",
+    label: "The northern route is blocked. The detour is unstable. Both cost something.",
     tags: ['Travel', 'Risk', 'Decision', 'Route', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -65,7 +65,7 @@
     }
   },
   {
-    label: "A ferry captain demands an unusual toll—either coin or a 'favor' you must complete. Negotiate or find another crossing.",
+    label: "The ferry captain's toll is not the listed one. The alternative is worse.",
     tags: ['Travel', 'Negotiation', 'Pressure', 'Choice', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -97,7 +97,7 @@
     }
   },
   {
-    label: "You find abandoned camp with fresh supplies. Do you camp here (risky—may be watched) or press forward into darkness?",
+    label: "The abandoned camp has fresh supplies. Someone planned to return to it.",
     tags: ['Travel', 'Survival', 'Risk', 'Decision', 'Meaningful'],
     xpReward: 68,
     stageProgress: 2,
@@ -129,7 +129,7 @@
     }
   },
   {
-    label: "A young messenger is being pursued by armed riders. Intervene, hide, or avoid involvement altogether.",
+    label: "The messenger is being run down. The riders are organized.",
     tags: ['Travel', 'Moral', 'Combat', 'Consequence', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -161,7 +161,7 @@
     }
   },
   {
-    label: "A traveling scholar offers to join your group, but their papers are forged. Trust them or report them to authorities?",
+    label: "The scholar's papers are forged. The research inside them is real.",
     tags: ['Travel', 'Trust', 'Deception', 'Risk', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -193,7 +193,7 @@
     }
   },
   {
-    label: "Strange lights appear on the horizon during night travel. Investigate, flee, or press onward and ignore them.",
+    label: "The lights on the horizon pulse at equal intervals. That regularity means something.",
     tags: ['Travel', 'Mystery', 'Danger', 'Investigation', 'Meaningful'],
     xpReward: 69,
     stageProgress: 2,
@@ -226,7 +226,7 @@
     failResult: 'This path is closed here, but warden-stone routes still run through the district network — and someone maintains them for a reason.'
   },
   {
-    label: "You discover a hidden trail that could shorten your journey by three days. But it's clearly marked as forbidden territory.",
+    label: "The forbidden trail saves three days. The prohibition markers don't say why.",
     tags: ['Travel', 'Route', 'Risk', 'Temptation', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -258,7 +258,7 @@
     }
   },
   {
-    label: "A fellow traveler from your hometown appears on the road. They seem nervous. Reconnect or keep distance?",
+    label: "Someone from home is on this road. They're nervous for a reason.",
     tags: ['Travel', 'Past', 'Connection', 'Caution', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -290,7 +290,7 @@
     }
   },
   {
-    label: "Your group encounters refugees from a disaster area. Do you help them, question them for information, or move past?",
+    label: "The refugees' stories don't match each other. Something was done to their district.",
     tags: ['Travel', 'Moral', 'Intelligence', 'Consequence', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -324,7 +324,7 @@
 
   // ========== FACTION PRESSURE: Negotiation & Alliance-Building ==========
   {
-    label: "A faction envoy meets you in a roadside inn. They want information or a small deed. Consider carefully before committing.",
+    label: "The faction envoy's offer is specific. What he wants in return is not fully stated.",
     tags: ['Faction', 'Negotiation', 'Pressure', 'Alliance', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -356,7 +356,7 @@
     }
   },
   {
-    label: "Two rival factions are competing for your allegiance. One offers wealth, one offers protection. Choose or refuse both.",
+    label: "Two factions want the same thing from me. They're watching which one I answer first.",
     tags: ['Faction', 'Choice', 'Power', 'Consequence', 'Meaningful'],
     xpReward: 74,
     stageProgress: 2,
@@ -388,7 +388,7 @@
     }
   },
   {
-    label: "A faction representative demands you eliminate a rival operative. Refuse, negotiate, or accept the contract.",
+    label: "The faction's request is not one I can walk back from if I say yes.",
     tags: ['Faction', 'Moral', 'Violence', 'Pressure', 'Meaningful'],
     xpReward: 75,
     stageProgress: 2,
@@ -420,7 +420,7 @@
     }
   },
   {
-    label: "You discover a faction safehouse during travels. Report it, infiltrate, or ignore it.",
+    label: "The faction safehouse is unguarded at the wrong hour. That might not be an accident.",
     tags: ['Faction', 'Discovery', 'Risk', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -452,7 +452,7 @@
     }
   },
   {
-    label: "A faction insider offers to defect and provide secrets, but they're likely being monitored. Assist them or avoid the liability?",
+    label: "The insider wants out. She's been watched long enough to know the gaps in the rotation.",
     tags: ['Faction', 'Risk', 'Defection', 'Moral', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -484,7 +484,7 @@
     }
   },
   {
-    label: "Faction leadership requests you as a mediator between their warring internal groups. This is a test of your loyalty.",
+    label: "The faction's internal split has reached the point where they need someone outside it.",
     tags: ['Faction', 'Politics', 'Trust', 'Authority', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -516,7 +516,7 @@
     }
   },
   {
-    label: "A faction operative was supposed to meet you. Instead, you find their body. Cover it up, investigate, or report it?",
+    label: "The operative didn't make the meeting. The body was left where I'd find it.",
     tags: ['Faction', 'Mystery', 'Danger', 'Moral', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -548,7 +548,7 @@
     }
   },
   {
-    label: "A faction wants you to spy on a neighboring region. Accept and build a network, or refuse and risk their displeasure?",
+    label: "The faction wants eyes in a region I don't know. Saying no has a cost too.",
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -580,7 +580,7 @@
     }
   },
   {
-    label: "Faction resources are stolen. You're suspected. Prove innocence or find the real thief to clear your name.",
+    label: "The faction's resources are gone and my name is on the access log.",
     tags: ['Faction', 'Suspicion', 'Investigation', 'Pressure', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -615,7 +615,7 @@
 
   // ========== COMPANION DYNAMICS: Loyalty Tests & Moral Stands ==========
   {
-    label: "A companion reveals they've been deceiving you about their past. Confront them, trust them anyway, or test their sincerity.",
+    label: "The companion's past isn't what they said. The deception was specific and sustained.",
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -647,7 +647,7 @@
     }
   },
   {
-    label: "A companion wants to leave the group to pursue a personal vendetta. Talk them down, let them go, or join them.",
+    label: "The companion's vendetta has a name now. Staying and leaving both have consequences.",
     tags: ['Companion', 'Choice', 'Loyalty', 'Consequence', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -679,7 +679,7 @@
     }
   },
   {
-    label: "A companion is injured and needs expensive medicine. Spend your resources freely or negotiate carefully?",
+    label: "The companion needs medicine that costs more than the road budget allows.",
     tags: ['Companion', 'Moral', 'Sacrifice', 'Care', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -711,7 +711,7 @@
     }
   },
   {
-    label: "Two companions have conflicting morals about an important decision. Mediate or side with one?",
+    label: "The two companions are at an impasse. Both are right about different things.",
     tags: ['Companion', 'Moral', 'Conflict', 'Leadership', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -743,7 +743,7 @@
     }
   },
   {
-    label: "A companion confesses they've fallen ill with a contagion. Risk staying, or leave them behind?",
+    label: "The companion is sick and knows what the contagion means for anyone near them.",
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 74,
     stageProgress: 2,
@@ -775,7 +775,7 @@
     }
   },
   {
-    label: "A companion's family member is imprisoned by authorities. Help rescue them, or convince companion to forget?",
+    label: "A companion's family member is inside a facility I can reach. The window will not stay open.",
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -839,7 +839,7 @@
     }
   },
   {
-    label: "A companion tests your trust by revealing they were hired to watch you initially. Forgive, distance, or retaliate?",
+    label: "The companion was hired to watch me. They stopped. The gap between those two facts is the only question.",
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -873,7 +873,7 @@
 
   // ========== ROUTE INTELLIGENCE: Scouts, Spies & Institutional Observation ==========
   {
-    label: "A scout brings intelligence of checkpoints ahead. Pay for detailed maps, interrogate them for free information, or use your network?",
+    label: "A scout has checkpoint maps. The price and what I offer in return are still undecided.",
     tags: ['Intelligence', 'Route', 'Information', 'Cost', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -905,7 +905,7 @@
     }
   },
   {
-    label: "You intercept messages between institutions discussing travel restrictions. Decode them or pass the intelligence to a faction?",
+    label: "Intercepted messages between institutions, discussing transit restrictions — the cipher is the first problem.",
     tags: ['Intelligence', 'Espionage', 'Information', 'Power', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -937,7 +937,7 @@
     }
   },
   {
-    label: "An institutional spy offers to trade information for protection. Provide shelter or turn them in for reward?",
+    label: "An institutional spy wants shelter. What they carry is worth more than what I gain turning them over.",
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -1002,7 +1002,7 @@
     failResult: 'This path is closed here, but the Collegium\'s outer office is not the only layer — the building at the administrative edge still has no public record.'
   },
   {
-    label: "A network of scouts offers to share their route intelligence network in exchange for protection. Accept or decline?",
+    label: "A scout network is offering access to their route data. The price is protection I may not be able to deliver.",
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -1034,7 +1034,7 @@
     }
   },
   {
-    label: "You find a dead messenger with encrypted documents. Decrypt them, sell them, or investigate the death?",
+    label: "A dead messenger. Encrypted documents still sealed. Someone needs these not to arrive.",
     tags: ['Intelligence', 'Investigation', 'Mystery', 'Consequence', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -1067,7 +1067,7 @@
     failResult: 'This path is closed here, but there is still the matter of the name that appears in four unconnected offices — the routing records and the Iron Ledger Ward are not finished with each other.'
   },
   {
-    label: "Institutional archives are breached. Access sensitive information before it's locked down or warn authorities?",
+    label: "The archive is breached. The secondary stacks are unguarded for a window that will not stay open.",
     tags: ['Intelligence', 'Opportunity', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -1099,7 +1099,7 @@
     }
   },
   {
-    label: "A corruption network wants you as a witness against institutional officials. Testify, refuse, or bargain for protection?",
+    label: "A corruption network needs my testimony against institutional officials. The protection they offer may not outlast my usefulness.",
     tags: ['Intelligence', 'Corruption', 'Legal', 'Risk', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
