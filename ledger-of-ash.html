@@ -9678,6 +9678,34 @@ function _beginLegendCore() {
       }
     });
   }
+  // Archetype family starting gear (family-level override, supplements group gear above)
+  (function assignFamilyStartingGear() {
+    var _fam = typeof getArchetypeFamily === 'function' ? getArchetypeFamily() : null;
+    var _archId = G.archetype ? G.archetype.id : '';
+    var _craftHeavy = ['artificer', 'engineer', 'alchemist'];
+    if (_fam === 'combat') {
+      // Combat family: light armor equipped (AC+1)
+      var _lightArmor = { name: 'Light Armor', type: 'armor', ac: 1, equipped: true, description: 'Standard issue protective gear.' };
+      if (!G.equipped.armor) {
+        G.inventory.push(_lightArmor);
+        G.equipped.armor = _lightArmor;
+      } else {
+        // Augment existing armor with explicit ac field
+        G.equipped.armor.ac = G.equipped.armor.ac || 1;
+      }
+    } else if (_craftHeavy.indexOf(_archId) !== -1) {
+      // Craft-heavy archetypes: craftsman tool equipped
+      var _craftsmanTools = { name: 'Craftsman Tools', type: 'tool', equipped: true, description: 'A set of well-maintained tools.' };
+      if (!G.equipped.tool) {
+        G.inventory.push(_craftsmanTools);
+        G.equipped.tool = _craftsmanTools;
+      }
+      // Support family (Healer, Tactician, Saint, Bard): no armor — remove group armor if assigned
+    } else if (_fam === 'support' && !_craftHeavy.includes(_archId)) {
+      G.equipped.armor = null;
+    }
+    // All other families (magic, stealth): no change — group gear stands
+  })();
   // Seed rival adventurers
   G.rivalAdventurers = generateRivals();
   if (typeof initWorldNotices === 'function') initWorldNotices();
