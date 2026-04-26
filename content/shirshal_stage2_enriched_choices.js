@@ -401,6 +401,249 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The transit post office keeps a field rotation log the Collegium never asked them to stop keeping.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing Collegium field rotation log at transit post');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transit_rotation_log_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The post office field rotation log is a hand-kept ledger the clerk maintains out of professional habit — never mandated, never collected. Seventeen months of courier registration entries, including six that carry a Collegium field coordination stamp matching the Oversight profile Mirae described. The registration dates correspond exactly to the three months preceding each of the seven petition dismissals Sivren found. The Collegium field agent arrived, the petitions closed, and the agent departed — every time. The clerk has never been asked about it. He does not understand what he has been recording.`;
+        addJournal('Transit post rotation log: Collegium field agent arrivals precede every petition dismissal — 7 for 7', 'evidence', `shir-transit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The clerk pulls the rotation log and starts paging backward to help with the date range. Halfway through, a Bureau compliance officer stops to collect the day's outbound mail and lingers — the log is visible on the counter, the date range visible, your interest visible. The clerk slides the log off the counter before anything is said. His expression when he looks at you is the expression of someone who has made a calculation and reached a result he doesn't like. He's still holding the log when you leave.`;
+        addJournal('Transit post rotation log — third-party observation interrupted access', 'complication', `shir-transit-fail-${G.dayCount}`);
+      } else {
+        G.flags.transit_rotation_log_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The clerk finds the Collegium field coordination stamps in his log without difficulty — he notices patterns, he says, it is the work. Six entries over seventeen months. He cannot say what those couriers were doing in Shirshal, only that they registered at the post and departed north, same as the visitors Mirae described. He writes the entry dates on a slip of paper before you ask him to.`;
+        addJournal('Transit post log: 6 Collegium field coordination entries over 17 months — north departure pattern confirmed', 'intelligence', `shir-transit-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A retired Bureau archivist lives near the compliance shrine. She left under circumstances the official record does not describe.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'speaking with retired Bureau archivist');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.retired_archivist_spoken = true;
+        G.investigationProgress++;
+        G.lastResult = `Her name is Orel Vasht. She pours tea before she speaks and lets the silence run long enough to mean something. Then: "The sub-registry notation was written into the charter amendment before I left. I recognized the format. I wrote a memo." She sets her cup down. The memo went to her division head and was returned to her three days later marked as outside her remit. Her retirement followed six weeks after. "I kept a copy of the memo. I was not certain it would matter. I am more certain now." She crosses the room to a locked drawer without being asked.`;
+        addJournal('Retired archivist Orel Vasht: wrote memo on sub-registry format before charter amendment passed — kept copy', 'evidence', `shir-orel-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = `Orel Vasht answers the door and reads the situation in the first five seconds — the question before the question, the approach that belongs to a particular kind of visitor. She says she left the Bureau for personal reasons and the record reflects that, and then she closes the door with the precise quietness of someone who has been practicing that answer for a long time. The tea on the shelf behind her is still steeping. She was not expecting to be home.`;
+        addJournal('Retired archivist Orel Vasht — refused to speak, door closed', 'complication', `shir-orel-fail-${G.dayCount}`);
+      } else {
+        G.flags.retired_archivist_spoken = true;
+        G.investigationProgress++;
+        G.lastResult = `Orel Vasht acknowledges the sub-registry notation when you name it — a small acknowledgment, a stillness in her hands over her cup. She says only that the notation format is not standard Bureau administrative language. "It belongs to a different drafting tradition." She will not say more than that, not today, not without more time to think it over. But she does not deny knowing what it means.`;
+        addJournal('Retired archivist confirms sub-registry notation is non-standard Bureau language — different drafting tradition', 'intelligence', `shir-orel-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The north road at the hour Mirae named. Someone on the ten-day cycle leaves from here.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'surveillance on north road departure — ten-day cycle contact');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.north_road_departure_witnessed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The departure happens at the hour Mirae described — third day of the ten-day cycle, before noon, north road. Two figures, not one. The second carries a sealed document tube marked with the sub-registry notation — visible only for the three seconds it takes him to slide it into a saddlebag and close the flap. They do not speak at the fork. The route they take north does not go to the Bureau's nearest provincial branch. It goes to the area the transit post rotation log places the northern staging district. The pattern is not incidental. This is a courier run with institutional cover.`;
+        addJournal('North road departure: two figures, sub-registry document tube, route confirms northern staging district', 'evidence', `shir-northwatch-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The figure at the fork turns before you expect. The look is brief and professional — the assessment of someone trained to notice surveillance and trained not to react to it visibly. He continues north without changing pace. When you return to the road twenty minutes later, a Bureau duty officer is asking the stable keeper at the north gate if anyone unusual had been waiting near the road at the hour of the departure. Your description is close enough.`;
+        addJournal('Surveillance burned — Bureau duty officer canvassing north gate stable', 'complication', `shir-northwatch-fail-${G.dayCount}`);
+      } else {
+        G.flags.north_road_departure_witnessed = true;
+        G.investigationProgress++;
+        G.lastResult = `One figure, north road, the hour Mirae gave. He carries a satchel and does not linger at the fork. You cannot read the markings on the satchel from the distance that keeps you out of sight. What you confirm: the timing, the route, the practiced indifference of someone who makes this trip regularly and has no reason to expect it matters. Mirae's description was precise.`;
+        addJournal('North road departure confirmed — timing and route match Mirae description, satchel markings unread', 'intelligence', `shir-northwatch-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The residue on the calibration stone is a compound, not a natural sediment. It has a specific formulation.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'analyzing residue on misaligned warding stone');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ward_stone_residue_analyzed = true;
+        G.investigationProgress++;
+        G.lastResult = `The residue samples from the stone's repositioned edge are crystalline, not particulate — applied deliberately, not accumulated. The compound profile matches the resonance-damping precursor Khalis identified at the Arcane Market Counter: the same material classified as ceremonial incense, the same mass that exceeded ceremonial thresholds by a factor of twelve. Someone used the precursor to lubricate the ward stone's rotation, leaving the residue as a byproduct. The same supply chain that runs through the market counter runs through this corridor wall.`;
+        addJournal('Ward stone residue matches Khalis market counter precursor — same supply chain, physical application confirmed', 'evidence', `shir-residue-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The maintenance notation on the stone is current, and a Bureau warden rounds the corridor before the sample can be collected cleanly. The warden examines your position near the stone with the particular attention of someone who was briefed to watch for unauthorized contact with calibration equipment. A formal notation goes in the inspection log. The residue remains unsampled and your access to the corridor is now subject to a prior-notice requirement.`;
+        addJournal('Ward stone sample collection blocked — corridor access now restricted', 'complication', `shir-residue-fail-${G.dayCount}`);
+      } else {
+        G.flags.ward_stone_residue_analyzed = true;
+        G.investigationProgress++;
+        G.lastResult = `The compound on the stone's edge is not maintenance oil and not natural accumulation. The crystal structure is consistent with a processed arcane precursor — the kind that requires a refining step before use. Without the reference samples from Khalis's flagged imports, an exact match is out of reach. But the formulation points toward the same general category. The stone was moved with chemical assistance, by someone who understood what that assistance would do to the warding pulse.`;
+        addJournal('Ward stone residue: processed arcane precursor, consistent with suppression compound category', 'intelligence', `shir-residue-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The glyph surge incident reports and the petition dismissal dates do not line up the way the official account requires.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'cross-referencing glyph surge incident dates against petition dismissals');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.surge_petition_timeline_cross_checked = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Incident report dates from three localities, petition filing dates from Sivren's archive, dismissal dates from the Collegium override. Laid side by side: the glyph surge incidents preceded the petitions, and the petitions were dismissed before the affected wards had submitted secondary evidence packages. The official account holds that petitions were assessed and found without merit. The dates show the merits were never examined — dismissal happened before the evidence cycle completed. Every locality affected by the surge was closed out on the same schedule, regardless of what their evidence showed.`;
+        addJournal('Surge incident → petition → dismissal timeline: dismissals precede full evidence submission in every case', 'evidence', `shir-timeline-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The incident reports sit in the Bureau's public records section, but the retrieval procedure requires a staff-facilitated pull for anything older than two months. The staff archivist pulls your request card and pauses before setting it in the queue — a pause of the sort that precedes a supervisor consultation. The queue position you are given is for end of day. When end of day arrives, the request has been reclassified as requiring credentials review. The incident reports will not be accessible today.`;
+        addJournal('Incident report access reclassified — credentials review required, day lost', 'complication', `shir-timeline-fail-${G.dayCount}`);
+      } else {
+        G.flags.surge_petition_timeline_cross_checked = true;
+        G.investigationProgress++;
+        G.lastResult = `The pattern across the three localities holds: surge incident, petition filed, dismissal within thirty days, secondary evidence never entered. The individual cases each look like expedient administration. Laid together, the thirty-day window is consistent to within forty-eight hours across all seven cases. Forty-eight hours of variation across seven separate jurisdictions and seven separate petition processes suggests the dismissal schedule was coordinated, not incidental.`;
+        addJournal('Petition dismissals across 7 localities — consistent 30-day window suggests coordinated schedule', 'intelligence', `shir-timeline-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Verdant Row network knows which localities received the suppressed materials. They track what the Bureau does not.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'contacting Verdant Row network on material distribution');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.verdant_row_map_obtained = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The Verdant Row coordinator — she gives no name, sits across the table with her hands flat and her posture unhurried — spreads a hand-drawn distribution map across the table without preamble. Eleven localities. The suppression compound moved through four staging points, routed to correspond with each of the seven glyph surge events and four additional locations that had no recorded surge. The four extras are localities with active compliance reform petitions. The compounds were placed as a precaution in localities that were planning to file, not only in localities that already had. The operation was running ahead of the petitions.`;
+        addJournal('Verdant Row map: suppression compound distributed to 11 localities — 4 pre-emptive placements in petition-pending areas', 'evidence', `shir-verdant-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = `The Verdant Row contact point is a message drop, not a person — a chalk mark on a specific post that indicates a willingness to meet. The mark is gone when you reach it: wiped, not expired. Either the timing was wrong or the network saw the Bureau duty officer who logged your corridor visit and decided not to surface. The distribution map exists. You have no path to it today.`;
+        addJournal('Verdant Row contact point pulled — network standing down after Bureau logging', 'complication', `shir-verdant-fail-${G.dayCount}`);
+      } else {
+        G.flags.verdant_row_map_obtained = true;
+        G.investigationProgress++;
+        G.lastResult = `The coordinator sketches the broad distribution shape without names or coordinates — seven localities, four staging points, a rough directional flow from the northern district south. She will not commit the specifics to paper in this meeting. What she confirms: the distribution was active during the same window as the petition dismissals, and at least one of the staging points is a locality that never filed a petition. "It wasn't reacting. It was positioned."`;
+        addJournal('Verdant Row: distribution active during petition dismissal window — at least one staging point pre-petition', 'intelligence', `shir-verdant-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The override code Khalis flagged appears in a second Bureau branch's intake log from three months before it appeared in Shirshal.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing override code appearance in a second Bureau branch');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.override_code_second_branch_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The second branch's intake log is kept at the transit registry — a public-facing record, accessible without staff facilitation. Three months before the Shirshal entries Khalis identified, the same override code appears clearing a materials flag in a Panim Haven branch intake record. A different branch, different material category, same code. The code clears the Panim flag without any named authorization source: just the code, a timestamp, and a cleared status. The override mechanism was tested before Shirshal. Shirshal was not the first locality.`;
+        addJournal('Override code appears in Panim Haven branch 3 months earlier — Shirshal was not the first deployment', 'evidence', `shir-override2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The transit registry clerk cross-checks the code format against the branch's filing index before pulling records — standard practice. The format triggers a Collegium administrative hold query, which requires confirmation from the originating authority. The originating authority is the sub-registry. The sub-registry does not respond to public inquiries. The transit registry clerk closes the index with genuine regret. The hold is automatic; he had no choice about it.`;
+        addJournal('Override code format triggered Collegium hold — registry access blocked', 'complication', `shir-override2-fail-${G.dayCount}`);
+      } else {
+        G.flags.override_code_second_branch_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The Panim Haven transit intake record shows the override code applied to a materials flag nine months ago. The log entry is standard — no unusual notation, no secondary authorization. The code clears the flag the same way it clears Shirshal flags: without a traceable source. The Panim entry predates Tazren's first suppressed flag by three months. The code was already in use before Tazren began logging inconsistencies.`;
+        addJournal('Panim Haven intake: same override code 9 months ago — predates Tazren first flag by 3 months', 'intelligence', `shir-override2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Ravel Coilspire's hidden transcripts name three glyph surge witnesses. One of those witnesses is still in Shirshal.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'locating glyph surge witness named in Ravel hidden transcripts');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.surge_witness_found = true;
+        G.investigationProgress++;
+        G.lastResult = `His name is Davan Mirest. He works the loading dock at the transit grain store and has a habit of arriving early enough to watch the road in both directions before anyone else is on it. When you name Ravel Coilspire, he does not deny knowing the name. He describes the surge event in the west ward without being asked: a sustained resonance failure lasting two nights, the lights in the lower registry going out in sequence, the particular smell of a ward burning out rather than fading. "It wasn't a malfunction. The ward was killed from outside its own boundary." He says it like someone reciting a thing he decided to say a long time ago, waiting for the right question.`;
+        addJournal('Surge witness Davan Mirest: west ward resonance killed from outside boundary — named in Ravel transcripts, still in Shirshal', 'evidence', `shir-witness-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The loading dock foreman watches you ask after the name for long enough to decide you are not routine. By the time you find the worker's shift schedule, he has been moved to a double shift at the north storage facility — a reassignment that happened within the hour. The foreman doesn't know why. He fills out the reassignment form while you are still standing there, which means the form will have today's date and yours as a contextual notation. The worker is no longer findable without making the search more visible than it has already become.`;
+        addJournal('Surge witness relocated mid-day — timing tied to inquiry, access lost', 'complication', `shir-witness-fail-${G.dayCount}`);
+      } else {
+        G.flags.surge_witness_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Davan Mirest confirms he spoke to Ravel — he doesn't deny it and doesn't elaborate. He will say the surge event in the west ward was not consistent with equipment failure. "Equipment failures are ragged. This was clean." He does not want to say more in the loading dock. He names a time and a location — the public garden bench near the compliance shrine, evening bell — and goes back to work before the conversation can be observed as unusual.`;
+        addJournal('Surge witness Davan Mirest: west ward surge "clean, not ragged" — meeting arranged for evening', 'intelligence', `shir-witness-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Shirshal finale — Tazren's suppressed case file and the compliance record inversion confirm coordinated evidence management. Present to the Bureau director or route around it.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
