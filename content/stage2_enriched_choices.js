@@ -11,7 +11,7 @@
       G.telemetry.actions++;
       gainXp(70, 'engaging mysterious traveler');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -43,7 +43,7 @@
       G.telemetry.actions++;
       gainXp(72, 'choosing dangerous route');
       
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 2));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 2));
       const target = 13;
 
       if (result.isCrit) {
@@ -75,7 +75,7 @@
       G.telemetry.actions++;
       gainXp(70, 'negotiating river crossing');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -107,7 +107,7 @@
       G.telemetry.actions++;
       gainXp(68, 'managing travel risks');
       
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -139,7 +139,7 @@
       G.telemetry.actions++;
       gainXp(73, 'making moral stand');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const target = 13;
 
       if (result.isCrit) {
@@ -171,7 +171,7 @@
       G.telemetry.actions++;
       gainXp(71, 'assessing companion trustworthiness');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -203,7 +203,7 @@
       G.telemetry.actions++;
       gainXp(69, 'pursuing mysterious phenomenon');
       
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const target = 13;
 
       if (result.isCrit) {
@@ -236,7 +236,7 @@
       G.telemetry.actions++;
       gainXp(72, 'navigating forbidden terrain');
       
-      const result = rollD20('survival', (G.skills.survival || 0) + Math.floor(G.level / 2));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 2));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -268,7 +268,7 @@
       G.telemetry.actions++;
       gainXp(70, 'reconnecting with past');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 11;
 
       if (result.isCrit) {
@@ -300,7 +300,7 @@
       G.telemetry.actions++;
       gainXp(71, 'encountering regional crisis');
       
-      const result = rollD20('lore', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -334,7 +334,7 @@
       G.telemetry.actions++;
       gainXp(72, 'engaging with faction politics');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -366,7 +366,7 @@
       G.telemetry.actions++;
       gainXp(74, 'navigating factional rivalry');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 13;
 
       if (result.isCrit) {
@@ -398,7 +398,7 @@
       G.telemetry.actions++;
       gainXp(75, 'dealing with dark faction requests');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -430,7 +430,7 @@
       G.telemetry.actions++;
       gainXp(70, 'discovering faction infrastructure');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -462,7 +462,7 @@
       G.telemetry.actions++;
       gainXp(73, 'managing factional defection');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 2));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 2));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -494,7 +494,7 @@
       G.telemetry.actions++;
       gainXp(72, 'mediating internal faction conflict');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const target = 13;
 
       if (result.isCrit) {
@@ -526,7 +526,7 @@
       G.telemetry.actions++;
       gainXp(71, 'discovering operative death');
       
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -558,7 +558,7 @@
       G.telemetry.actions++;
       gainXp(70, 'undertaking espionage assignment');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -590,7 +590,7 @@
       G.telemetry.actions++;
       gainXp(73, 'clearing factional suspicion');
       
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 2));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 2));
       const target = 13;
 
       if (result.isCrit) {
@@ -625,7 +625,7 @@
       G.telemetry.actions++;
       gainXp(72, 'navigating companion deception');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -657,7 +657,7 @@
       G.telemetry.actions++;
       gainXp(71, 'managing companion departure');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const target = 12;
 
       if (result.isCrit) {
@@ -689,7 +689,7 @@
       G.telemetry.actions++;
       gainXp(70, 'sacrificing for companion welfare');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 11;
 
       if (result.isCrit) {
@@ -721,7 +721,7 @@
       G.telemetry.actions++;
       gainXp(71, 'mediating companion conflicts');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const target = 13;
 
       if (result.isCrit) {
@@ -753,7 +753,7 @@
       G.telemetry.actions++;
       gainXp(74, 'facing companion illness crisis');
       
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const target = 13;
 
       if (result.isCrit) {
@@ -785,7 +785,7 @@
       G.telemetry.actions++;
       gainXp(73, 'managing companion family crisis');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -817,7 +817,7 @@
       G.telemetry.actions++;
       gainXp(72, 'discovering companion sacrifice');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const target = 12;
 
       if (result.isCrit) {
@@ -849,7 +849,7 @@
       G.telemetry.actions++;
       gainXp(70, 'processing companion betrayal revelation');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -883,7 +883,7 @@
       G.telemetry.actions++;
       gainXp(70, 'acquiring route intelligence');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 11;
 
       if (result.isCrit) {
@@ -915,7 +915,7 @@
       G.telemetry.actions++;
       gainXp(71, 'intercepting institutional communication');
       
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -947,7 +947,7 @@
       G.telemetry.actions++;
       gainXp(72, 'harboring institutional spy');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -979,7 +979,7 @@
       G.telemetry.actions++;
       gainXp(69, 'performing covert observation');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       const target = 13;
 
       if (result.isCrit) {
@@ -1012,7 +1012,7 @@
       G.telemetry.actions++;
       gainXp(70, 'building intelligence network');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const target = 12;
 
       if (result.isCrit) {
@@ -1044,7 +1044,7 @@
       G.telemetry.actions++;
       gainXp(71, 'investigating dead messenger');
       
-      const result = rollD20('lore', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -1077,7 +1077,7 @@
       G.telemetry.actions++;
       gainXp(73, 'breaching institutional archives');
       
-      const result = rollD20('stealth', (G.skills.stealth || 0) + Math.floor(G.level / 2));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 2));
       const target = 13;
 
       if (result.isCrit) {
@@ -1109,7 +1109,7 @@
       G.telemetry.actions++;
       gainXp(72, 'dealing with corruption testimony');
       
-      const result = rollD20('persuasion', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.isCrit) {
@@ -1140,7 +1140,7 @@
     tags: ['stage2', 'faction_contact', 'Faction', 'Collegium', 'Social'],
     xpReward: 60,
     fn: function() {
-      var roll = rollD20('lore', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         addNarration('Collegium Archive Access', 'Seld sets a folder on the table between you — not hers to share, technically. She opens it anyway. The cross-reference sheets inside are hand-annotated in two different inks: her notes layered over redactions that were made before she ever touched the file. She marks three suppressed filing numbers with her thumbnail and slides the folder toward you. Outside, the archive bell rings the close-of-day cycle. Neither of you moves until it stops.');
         addJournal('Collegium archivist provided suppressed filing cross-references from three registries.', 'intelligence');
@@ -1166,7 +1166,7 @@
     tags: ['stage2', 'faction_contact', 'Faction', 'Shadowhands', 'Stealth'],
     xpReward: 60,
     fn: function() {
-      var roll = rollD20('stealth', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {
         addNarration('Courier Relay — Drop Confirmed', 'The waypoint is a flour merchant\'s loading dock, which is either deliberate or convenient. The courier takes the unmarked packet without looking at it and hands you a wax-sealed tube in return. Inside: enforcement operation logs, dates, route designations, and a column of ledger shorthand you\'ll need time to decode. The courier is gone before you reseal your coat. The dock smells of milled grain and nothing else.');
         addJournal('Shadowhands courier relay yielded covert enforcement operation logs from Roazian-adjacent routes.', 'intelligence');
@@ -1192,7 +1192,7 @@
     tags: ['stage2', 'faction_contact', 'Faction', 'Wardens', 'Social'],
     xpReward: 60,
     fn: function() {
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         addNarration('Warden Route Exchange', 'The patrol leader walks you to a field desk at the edge of the checkpoint post and sets out three corridor maps. One has no public manifest notation — she points to it without comment. You file the complication report in your own name, which she witnesses and stamps. She gives you the maps in exchange. The transaction is entirely procedural. What she doesn\'t say is that your name is now in the Order\'s active monitoring log, and she knows you know that.');
         addJournal('Road Wardens Order provided route intelligence for three corridors, including one with no public manifest.', 'intelligence');
@@ -1219,7 +1219,7 @@
     plot: 'main',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'He touches each fingertip in sequence — thumb to little finger, then back — while he speaks about filing rotations, and the count doesn\'t match the words. He\'s tallying something else. When you meet his eyes he stops and glances toward the corridor. He says his name is Seld, that he works mornings in the secondary index, and that he has seen the same routing number appear in three separate suppression batches. He says it like a question. He leaves before you answer.';
         G.recentOutcomeType = 'discovery';
@@ -1245,7 +1245,7 @@
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 11) {
         G.lastResult = 'He counts to four again before he speaks — a habit he probably doesn\'t notice. The fragment is a quarter-sheet, torn along a ruled line, in administrative script. Three routing codes and a date stamp from fourteen months ago. He says the full record was pulled from the main index and the withdrawal slip was filed under a category that shouldn\'t exist: "Procedural Alignment." He has seen that category twice. Both times the record disappeared within a week.';
         G.recentOutcomeType = 'discovery';
@@ -1271,7 +1271,7 @@
     result: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.persuasion || 0);
+      var r = rollD20(G.skills.charm || 0);
       if (r.total >= 14) {
         G.lastResult = 'He sits across from you in the canteen and counts through all five fingers twice, both hands, before he says anything. Two Collegium readers have been logging his access requests for the past eight days. He knows because one of them left the notation sheet visible on the reading room desk — careless, or deliberate. He names what he needs from you: a route out of the building after dark, one night only. He is not asking to leave permanently. He is asking to move something.';
         G.recentOutcomeType = 'discovery';
@@ -1297,7 +1297,7 @@
     condition: function() { return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact; },
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.persuasion || 0);
+      var r = rollD20(G.skills.charm || 0);
       if (r.total >= 13) {
         G.lastResult = 'You bring both threads to the same table — not literally, but in sequence, same afternoon. Seld wants the routing records formally entered into the Collegium\'s suppression index so they can\'t be quietly withdrawn again. The Warden contact wants them kept out of any official record so nothing triggers a jurisdictional review. Seld counts through his fingers while you explain the Warden\'s position. He stops at three. He says he can work with a sealed filing — not public, but permanent. You carry that back. The Warden accepts it with the expression of someone who has learned not to argue about procedure.';
         G.recentOutcomeType = 'discovery';
@@ -1323,7 +1323,7 @@
     plot: 'main',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'She has your transit dates memorized — not from the sheet in her hand, from memory, which means she looked at this before you arrived. She asks about three specific route entries that don\'t follow a logical traveler\'s progression. She isn\'t accusing you. She is showing you that someone with access to route manifests has been tracking the same anomaly she has. She sets the transit record face-down between you and tells you her name is not important but her shift ends at dusk.';
         G.recentOutcomeType = 'discovery';
@@ -1349,7 +1349,7 @@
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.survival || 0);
+      var r = rollD20(G.skills.vigor || 0);
       if (r.total >= 11) {
         G.lastResult = 'The maps she spreads across the field desk are patrol-issue — the kind that get updated by the officers walking the corridors, not by administrative decree. Three routes show markings she made herself: cargo movement times, vehicle types, one notation that reads "non-manifest, recurring." She circles the Shelk transit junction with one finger and says it happens every nine days. No one has filed a report because filing a report creates a record and a record creates a review and a review would go to the same office that is managing the movement.';
         G.recentOutcomeType = 'discovery';
@@ -1376,7 +1376,7 @@
     result: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'She tells you without drama: Order command has attached a compliance observer to the patrol district for thirty days. No stated reason. The observer attends briefings and says nothing. She has seen this before — twice, in other postings — and both times it meant someone above the district level had decided the local record was unreliable. She can share what she has while the window stays open, but after thirty days she doesn\'t know what her access will look like. The observation log is already running. She knows because the observer logs everything, including who she speaks to on her breaks.';
         G.recentOutcomeType = 'discovery';
@@ -1402,7 +1402,7 @@
     condition: function() { return G.flags && G.flags.stage2_wardens_contact && G.flags.stage2_collegium_contact; },
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.persuasion || 0);
+      var r = rollD20(G.skills.charm || 0);
       if (r.total >= 13) {
         G.lastResult = 'She listens to the shape of what the Collegium archivist described without asking his name, which tells you she already knows there is someone on that side tracking the same thing. She says the Order\'s compliance observer is logging who files complication reports and who doesn\'t — which means a formal Collegium record could trigger an Order review she can\'t control the outcome of. She pauses. Then she says: if the filing goes into a sealed category, the compliance observer won\'t flag it. She gives you the category designation without being asked.';
         G.recentOutcomeType = 'discovery';
@@ -1428,7 +1428,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The column alignment is not accidental. Someone has been filing district expense authorizations against route codes in a format that makes the cross-reference invisible unless you lay both ledgers side by side. The shared column represents seven months of movements that appear in neither record individually. You copy the column headings and the date range by hand. The ink on the copies is your own. The originals go back on the shelf.';
         G.recentOutcomeType = 'discovery';
@@ -1453,7 +1453,7 @@
     result: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.stealth || 0);
+      var r = rollD20(G.skills.finesse || 0);
       if (r.total >= 13) {
         G.lastResult = 'You double back through the grain market where the stalls overlap and the sightlines are short. The figure behind you hesitates at the entrance — they\'re good, but not good enough with crowds. You watch from a vendor\'s alcove while they scan the stalls. When they move on, you follow them instead. They walk to a courier exchange office three streets over and go in. The building has a posting board outside. One of the notices lists a route summary — yours, from yesterday — posted as a query. Someone is paying for location updates on your transit.';
         G.recentOutcomeType = 'discovery';
@@ -1478,7 +1478,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The procedural appeal window is forty-eight hours and requires a filing number rather than a name — which means you can reference the restricted record by its administrative designation without triggering the personal access review. The intake clerk accepts the form without looking at what it references. The appeal goes into the system. Six hours later, a summary record is returned to the public index by automatic procedure: three pages of the document you couldn\'t reach directly, now technically available under appeal review. Enough to read. Enough to copy.';
         G.recentOutcomeType = 'discovery';
@@ -1502,7 +1502,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.persuasion || 0);
+      var r = rollD20(G.skills.charm || 0);
       if (r.total >= 12) {
         G.lastResult = 'You stop asking direct questions and start noting what he volunteers. He describes a shipping delay in language that implies he knew the route would be affected before the delay was announced. He mentions a district assessor by name, unprompted, the way you name a colleague rather than a threat. He tells you a cargo lot arrived "clean" — which is a specific reassurance no one asked him for. By the end of the conversation, you have three data points that don\'t fit the story he\'s telling. He notices you noticing and offers you tea.';
         G.recentOutcomeType = 'discovery';
@@ -1526,7 +1526,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 11) {
         G.lastResult = 'The name "Arven Pol" — a processing authority designation, not a personal name, which is why it survived multiple redaction passes — appears as signatory on four documents that have no stated connection to each other. Freight release in Shelk. Transit variance in the Roaz corridor. A cargo reclassification issued without physical inspection. An emergency route authorization that post-dates the route\'s closure. Every document moves something. The same authority signature approves it. No one in any of these offices is named Arven Pol.';
         G.recentOutcomeType = 'discovery';
@@ -1551,7 +1551,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.stealth || 0);
+      var r = rollD20(G.skills.finesse || 0);
       if (r.total >= 13) {
         G.lastResult = 'The public intake desk processes citizen queries and files summary reports — nothing suppressed, nothing cross-referenced. But the corridor behind the intake desk has a door that does not appear on the building\'s public layout. You spend an afternoon mapping foot traffic: who goes through it, at what hours, carrying what. Three people with Collegium marks. One without any mark at all. The one without a mark goes through twice and both times leaves with a smaller bag than they entered with. That door is where the documents go when they stop being public.';
         G.recentOutcomeType = 'discovery';
@@ -1575,7 +1575,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The suppression was applied to primary records and summary indices. But the subcategory cross-reference files — maintained separately, updated quarterly, and formatted for administrative review rather than public access — were not flagged. They\'re not public, but they\'re not restricted either. They sit in a procedural gap between suppression and disclosure. You pull the relevant quarter. Inside: cargo type codes, movement authorizations, and a column of inspection waivers, all referencing the same route cluster. The gap is probably deliberate. Someone left it.';
         G.recentOutcomeType = 'discovery';
@@ -1599,7 +1599,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.stealth || 0);
+      var r = rollD20(G.skills.finesse || 0);
       if (r.total >= 11) {
         G.lastResult = 'The night desk clerk is a different person from the day staff and operates under a separate register — one that does not record visitor names, only transaction codes. You come in as a transit inquiry and leave with access to the secondary manifest stack that the day staff redirects to the restricted counter. The night clerk processes the transaction by the code, not the category, and doesn\'t cross-check against the suppression list. Two hours of reading by lamplight. The secondary manifests cover routes the day counter says don\'t exist.';
         G.recentOutcomeType = 'discovery';
@@ -1623,7 +1623,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'Eleven inspection waivers across a four-month window, all for cargo originating from the same two transfer points. Each waiver cites a different procedural basis — weather delay, transit emergency, seasonal reclassification — but all eleven were processed by the same authorization desk within a forty-eight-hour window of each other. The procedural bases are real categories. The timing makes it impossible for them to be independent decisions. Someone requested them all at once, formatted them individually, and filed them over four months to avoid the bulk-processing flag.';
         G.recentOutcomeType = 'discovery';
@@ -1648,7 +1648,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 13) {
         G.lastResult = 'The reclassification entries move goods from the freight manifest into the "materials in transit" category — a classification used for institutional supplies that bypasses standard cargo inspection and customs declaration. Once reclassified, the goods disappear from the freight record entirely and reappear in a separate institutional ledger that isn\'t cross-referenced with customs. Six reclassifications over two years, all originating at the same loading dock, all arriving at a single institutional address in the inner district. You copy the address.';
         G.recentOutcomeType = 'discovery';
@@ -1672,7 +1672,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.survival || 0);
+      var r = rollD20(G.skills.vigor || 0);
       if (r.total >= 11) {
         G.lastResult = 'Three days of observation from the same rooftop position — a tanning shed roof, which means the smell is considerable, but the sightline is direct. The gap in the patrol rotation is fourteen minutes, appearing at the same hour each evening. No variation. Patrol rotations have natural drift unless someone is actively managing the clock. You mark the gap\'s location: a loading bay access on the eastern freight corridor, wide enough for a cart.';
         G.recentOutcomeType = 'discovery';
@@ -1696,7 +1696,7 @@
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 13) {
         G.lastResult = 'The date stamp is in the older format — a calendar notation that predates the current administrative system by six years. The Iron Ledger Ward was not established until four years after the current system began. The transaction it records should be impossible: a route authorization issued through an institution that didn\'t exist yet. The format is internally consistent and the seal is genuine. Someone created this record after the fact and backdated it. The transaction it authorizes is the origin point for the route cluster you\'ve been tracking.';
         G.recentOutcomeType = 'discovery';
@@ -1730,7 +1730,7 @@
     },
     result: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.lore || 0);
+      var r = rollD20(G.skills.wits || 0);
       if (r.total >= 11) {
         G.lastResult = 'The encoding is a variant of the standard administrative cipher used in institutional correspondence — a format you know because your training covered the index systems of four administrative bodies. The variant tells you which body generated it: a fiscal sub-registry that operates under the Compact\'s transit authority but files under the district government\'s identifier. That administrative overlap is not accidental. It allows the same record to be reported to two separate oversight bodies without either body knowing the other received it. The document\'s full content opens under that key.';
         G.recentOutcomeType = 'discovery';
@@ -1794,7 +1794,7 @@
     result: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.stealth || 0);
+      var r = rollD20(G.skills.finesse || 0);
       if (r.total >= 13) {
         G.lastResult = 'The service entrance is used by the building\'s laundry and supply intake — people moving things, always slightly loaded, never making eye contact with authority figures. You fit the pattern well enough. Inside: a utility corridor that runs behind the public reading room and connects to a records annex that has no door on the public side. The annex holds working files, not archive — current, active documents organized by processing date. What you find in the current week\'s batch: three route variance requests, two with "Arven Pol" as processing authority, all for the same corridor cluster.';
         G.recentOutcomeType = 'discovery';
@@ -1820,7 +1820,7 @@
     tags: ['stage2', 'faction_contact', 'Faction', 'RedHood', 'Stealth'],
     xpReward: 60,
     fn: function() {
-      var roll = rollD20('persuasion', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         addNarration('Guild Fence Exchange', 'The market stall is loud enough that no one nearby can track the conversation. She doesn\'t want gold — she names a specific piece of institutional detail and waits. You give it. She listens without writing anything down, then produces a folded manifest from somewhere inside her coat. The routes marked are not on any public ledger. One column lists cargo descriptors the Guild uses internally; another lists the operations they\'ve been running parallel to. The stall bell rings. She resumes haggling with the next customer before you\'ve pocketed the paper.');
         addJournal('Red Hood Guild fence provided black-market access routes and an underworld manifest tied to the same operation.', 'intelligence');

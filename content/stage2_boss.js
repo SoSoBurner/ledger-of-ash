@@ -70,7 +70,7 @@ function _pell_phase1() {
       tag: 'risky',
       skill: 'stealth',
       action: function() {
-        var roll = rollD20('stealth');
+        var roll = rollD20('finesse');
         var dc = DC_PELL_DISAPPEAR;
         if (roll.total >= dc) {
           addNarration('', 'You arrive with a thinned version of your materials — routes you have already closed, manifests with nothing live in them. Pell receives the stack without expression and lays it face-down on his desk before looking at it. He spends four minutes with the documents. Then he squares them and sets them aside. "I appreciate your cooperation. The materials were reviewed and found consistent with declared transit activity." His thumb presses the edge of the stack flush with the desk seam — twice, then a third time, checking an alignment already perfect. He says the sentence the way a person says something they will not believe later.');
@@ -89,7 +89,7 @@ function _pell_phase1() {
       tag: 'risky',
       skill: 'survival',
       action: function() {
-        var roll = rollD20('survival');
+        var roll = rollD20('vigor');
         var dc = DC_PELL_DISAPPEAR;
         if (roll.total >= dc) {
           addNarration('', 'You do not appear at the listed time. Three days pass — no follow-up form, no courier. On the fourth morning a revised notice arrives: the inquiry window has been extended by ten days, the room number changed. Pell gave you space deliberately. He is not running on your clock and he is letting you know it. But the ten days exist, and the routes are quieter while they run.');
@@ -149,7 +149,7 @@ function _pell_phase2() {
 
 // Resolution A — Expose the irregular assignment → triggers alarm, Dravn exits, Shadowhands rearguard
 function _pell_resolve_expose() {
-  var roll = rollD20('lore');
+  var roll = rollD20('wits');
   var dc = DC_PELL_EXPOSE_BOLD;
   if (roll.total >= dc) {
     // Player lands the discrepancy. Dravn doesn't argue — he activates suppression protocol and exits.
@@ -187,7 +187,7 @@ function _pell_resolve_expose() {
 
 // Resolution B — Negotiate a quiet closure
 function _pell_resolve_negotiate() {
-  var roll = rollD20('persuasion');
+  var roll = rollD20('charm');
   var dc = DC_PELL_NEGOTIATE;
   if (roll.total >= dc) {
     addNarration('A Filed Understanding', 'You give him the shape of a deal without calling it one. You will not enter the Division\'s restricted records sections. You will not file anything that names the Division as a party to the pattern you have been tracing. In return he will close the inquiry as inconclusive and remove the watchfulness notation from your transit file. He listens to all of it. He lays his pen flat before he answers — nib toward him — a small reset before every sentence that matters. "Pursuant to the terms you have outlined, I can confirm the inquiry will be filed as resolved." He will hold to it. He is a proceduralist — the agreement is now a procedure, and procedures are what he maintains.');
@@ -204,7 +204,7 @@ function _pell_resolve_negotiate() {
 
 // Resolution C — Leave and let the window expire
 function _pell_resolve_disappear() {
-  var roll = rollD20('survival');
+  var roll = rollD20('vigor');
   var dc = DC_PELL_DISAPPEAR;
   if (roll.total >= dc) {
     addNarration('Absent from the Record', 'You are outside Shelkopolis before the review window closes. A week in a transit post, two in a regional locality, work that does not touch the routes Pell is watching. When you return the inquiry has been logged as inactive — subject unavailable for interview, file suspended pending re-contact. Pell\'s name is still on it. He is still watching, in the way that a bureaucrat watches: patiently, at no personal cost, waiting for the subject to reappear in the manifest logs. But the window cost him something. He had to file a suspension. His supervisor will have read it.');
