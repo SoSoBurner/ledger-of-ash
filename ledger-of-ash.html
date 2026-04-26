@@ -15603,7 +15603,7 @@ function showHowToPlay() {
     if (typeof addNarration === 'function') {
       addNarration(loc.name, '<strong>' + loc.name + '</strong>.' + (loc.desc ? ' ' + loc.desc : ''));
     }
-    if (typeof buildLivingDesc === 'function') buildLivingDesc(G.location, G);
+    buildLivingDesc(G.location, G);
     if (typeof maybeFireArrivalScene === 'function') maybeFireArrivalScene(locId);
     G.history.push('Traveled to ' + loc.name + '.');
     if (typeof saveGame === 'function') saveGame();
