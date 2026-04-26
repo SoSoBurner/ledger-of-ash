@@ -13501,7 +13501,7 @@ function showTrainingMenu() {
   closeOverlay('overlay-camp');
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
 
-  const SKILL_LABELS = {might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit'};
+  const SKILL_LABELS = {combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit'};
   const day = G.dayCount || 0;
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
   const block = document.createElement('div');
