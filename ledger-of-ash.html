@@ -15130,6 +15130,8 @@ function loadFromSlot(slotKey) {
     G.lastUsedSlot = slotKey;
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
+    buildLivingDesc(G.location, G);
+    if (typeof loadStageChoices === 'function' && G.location) loadStageChoices(G.location);
     return true;
   } catch(e) { if (typeof showToast === 'function') showToast('Could not load save: ' + e.message); return false; }
 }
