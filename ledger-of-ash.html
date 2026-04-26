@@ -9543,9 +9543,9 @@ function _buildOnboardingPages() {
     },
     {
       title: 'Making Choices',
-      body:  '<p><strong>Every choice in this game involves a roll.</strong> Reading a public ledger is safe — DC 7, nearly certain to succeed. Confronting a warden directly is bold — DC 15, real chance of failure.</p>' +
+      body:  '<p><strong>Every choice in this game involves a roll.</strong> Reading a public ledger is safe — DC 8, low chance of failure. Confronting a warden directly is bold — DC 16, real chance of failure.</p>' +
              '<p>Safe, risky, and bold choices are color-coded. Safe choices have a low chance of going wrong, but they can. When they do, the path redirects rather than ends — there is always a thread to pull.</p>' +
-             '<p>The roll happens whether you see it or not.</p>'
+             '<p>A natural 20 is a Critical Success. A natural 1 is a Critical Failure — on main-plot choices, a backup path opens automatically.</p>'
     },
     {
       title: 'Three Things to Watch',
@@ -15662,14 +15662,14 @@ document.getElementById('howto-close').addEventListener('click', function() {
 
 <script>
 var HOWTO_SECTIONS = [
-  { heading: 'Risk Tiers', body: 'Every choice is tagged: <strong>Safe</strong> choices carry no roll — they always succeed at modest reward. <strong>Risky</strong> choices roll a d20 plus your relevant skill against a difficulty (DC). <strong>Bold</strong> choices are high-stakes — higher DC, higher reward on success, harder consequences on failure. A natural 20 is a critical success.' },
+  { heading: 'Risk Tiers', body: '<strong>Every choice involves a roll.</strong> Safe choices roll against DC 8 — low chance of failure, and when they fail the path redirects rather than ends. Risky choices roll against DC 13 — real risk, real reward. Bold choices roll against DC 16 — high stakes, harder consequences. A natural 20 is a Critical Success (shown in gold). A natural 1 is a Critical Failure — on main-plot choices, a backup path opens.' },
   { heading: 'World Clocks', body: '<ul><li><strong>Attention</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Watchfulness</strong> — marks how visible your movements have become. High watchfulness raises DCs and draws scrutiny.</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
   { heading: 'Stage Progression', body: 'Gathering evidence fills your case. Each stage requires a threshold of progress — bold and risky successes push it forward. Advancing stages unlocks new localities and plot threads. Your rival advances in parallel; fall too far behind and they reach key sources first.' },
   { heading: 'Rest Mechanics', body: 'Rest at camp to recover HP. You may rest at most twice per day — a third attempt is too exhausting. <strong>Lay Low</strong> reduces watchfulness at the cost of a day. <strong>Review Notes</strong> recovers from stall conditions when the case feels stuck.' },
   { heading: 'Travel', body: 'From the travel panel, you can move between localities. Each route costs time units and sometimes gold. Some routes are locked by stage or season. Arriving at a new locality resets local encounter options — what you find depends on when you arrive.' },
   { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The case always continues: a backup path appears for main-thread choices. Some side paths, once closed, are closed for good.' },
   { heading: 'Save System', body: 'Progress saves automatically after each choice. Your save code appears on the main screen — note it to resume later. Export Save is available in Settings for a full JSON backup.' },
-  { heading: 'Camp & Recovery', body: 'The <strong>Camp</strong> button opens the rest screen. Resting costs <strong>1 gold</strong> and advances time by one watch. It restores some HP and clears fatigue accumulated from travel and encounters. Active and investigation traits reset on rest — passive traits remain locked in. Companions check in at camp when available. You cannot rest without gold in hand.' },
+  { heading: 'Camp & Recovery', body: 'The <strong>Camp</strong> button rests outside settlements — it\'s free. Resting at an <strong>inn</strong> costs 1 gold and is available through locality choices. Both restore HP and clear travel fatigue. Active traits reset on rest; passive traits remain. Companions check in at camp when available.' },
   { heading: 'Mastery', body: 'When you reach your stage\'s level cap, experience converts to Mastery XP. Spend Mastery XP at training sessions to push your skills past the cap. Check the Training option when resting.' },
   { heading: 'Alignment', body: 'Your Benevolence and Order scores shift with your choices. Open the character sheet to see your current alignment bars. These affect how certain NPCs and factions respond to you at key moments.' },
   { heading: 'Companions', body: 'As your investigation deepens, allies may join you. Once unlocked, companions appear in your character sheet. They carry their own agendas and may assist or complicate your choices.' },
