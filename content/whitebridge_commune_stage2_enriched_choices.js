@@ -330,6 +330,156 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The commune's founding transit charter granted exemptions — the original carve-outs look nothing like what they have become.",
+    tags: ['Stage2', 'Lore', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'reading the founding transit charter exemption clauses');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_charter_exemption_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The founding charter sits in the crossing station's reference alcove, bound in oilskin and sealed under a glass case that Cadrin unlocks without being asked — he has been waiting for someone to read it. The diplomatic exemption clause is narrow: single-party transit, seasonal relief goods only, Compacts council approval required each cycle. Cadrin lays the current exemption register beside it. No council approvals on record for seven months. The clause has been applied without the approval mechanism for every single crossing. The exemption exists. The oversight that was supposed to constrain it does not.`;
+        addJournal('Whitebridge founding charter: diplomatic exemption applied without required Compacts council approval for 7 months', 'evidence', `wb-charter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The reference alcove requires a crossing station key that Cadrin does not have on his person — it lives in the Arbiter's office during active arbitration proceedings, which is current procedure for contested claim periods. Nyra's office holds the key. Nyra's office is occupied with a proceeding. The charter alcove stays locked and the exemption language stays unread. Someone in the chain of access made the reference materials difficult to reach without making them technically inaccessible.`;
+        addJournal('Charter alcove locked — key held by Arbiter during arbitration proceedings', 'complication', `wb-charter-fail-${G.dayCount}`);
+      } else {
+        G.flags.wb_charter_exemption_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Cadrin reads the exemption clause aloud from the register copy, not the original — the original is behind the glass and he doesn't have the alcove key. "Single-party transit. Relief goods only. Council approval required each cycle." He reads the current register. "No council approval on record since the spring session." He sets the register on the counter and does not pick it up again. He is not going to file anything. He is going to let someone else carry the document.`;
+        addJournal('Transit exemptions applied without council approval — confirmed from register copy', 'intelligence', `wb-charter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Thora filed her discrepancy reports — someone told her to stop. That person has a name.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'pressing Thora Snowveil on who suppressed the discrepancy filings');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_thora_suppression_named = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Thora sets her measurement ledger on the bench between you and her — not open, just there, a reminder that the work exists. She kept filing through four cycles of silence. The fifth cycle brought a written notice to her desk: agricultural board directive, measurement variance below threshold of material concern, further notation unnecessary. The directive was signed by a board liaison she doesn't recognize from any session she has attended. She pulls the notice from inside the back cover. The signature reads: Liaison-Inspector Harvel Crane, Northern Agricultural Compact. The Northern Provision Compact wears a different collar in the commune.`;
+        addJournal('Thora filing suppressed by Liaison-Inspector Harvel Crane — Northern Agricultural Compact front identity', 'evidence', `wb-thora-name-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Thora lifts the measurement ledger from the bench and holds it at her side. "I'm not naming anyone who can take my board standing." She does not say it is fear — she frames it as procedural caution. The distinction between those two things has been compressed into the same posture. The directive that stopped her filings stays inside the back cover, present and unshown, and she carries the ledger out of reach for the remainder of the conversation.`;
+        addJournal('Thora declined to name suppression source — directive present but unshown', 'complication', `wb-thora-name-fail-${G.dayCount}`);
+      } else {
+        G.flags.wb_thora_suppression_named = true;
+        G.investigationProgress++;
+        G.lastResult = `She opens the ledger to the back cover and tilts it so you can read the directive without her handing it over. "Northern Agricultural Compact liaison. I don't know the name from the sessions." The directive language is brief: variance below threshold, further notation unnecessary. She closes the cover. "I kept one copy. In the ledger. And a second copy in the barn." She does not look proud of this. She looks tired.`;
+        addJournal('Suppression directive from Northern Agricultural Compact liaison — Thora retained duplicate copies', 'evidence', `wb-thora-name-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The twelve-day courier does not vary his route. He does vary his company at the midspan.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tailing the recurring courier on the 12-day transit pattern');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_courier_tailed = true;
+        G.investigationProgress++;
+        G.lastResult = `The courier moves at a pace that suggests he knows the route's rhythm without needing to think about it — how long each warden holds a position, when the lantern circuit turns at the east bank. At the midspan he stops for three minutes, as if checking a boot-lace. A second figure materializes from the south rail shadow. The exchange is small: a sealed cylinder, hand to hand, neither party looking at the other's face. The second figure carries a lantern marked with the Night-Lantern Circuit badge. It is not Aster. The courier moves on without breaking stride. The circuit badge means the contact has standing to be there at any hour without logging a reason.`;
+        addJournal('Courier midspan exchange with Night-Lantern Circuit member — badge gives unlogged presence on bridge', 'evidence', `wb-courier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The courier pauses at the west gate longer than the twelve-day pattern should require. He turns twice before the midspan. The third turn catches you in open planking with no cover. He does not quicken his pace. He simply does not proceed — he stands at the midspan post and waits until the gate warden at the east bank raises the log flag, a signal that an undeclared transit is holding position. The twelve-day pattern breaks tonight. He turns back at the midspan and returns to the west bank. The gate log records a routine withdrawal.`;
+        addJournal('Courier aborted midspan exchange after detecting surveillance — pattern broken', 'complication', `wb-courier-fail-${G.dayCount}`);
+      } else {
+        G.flags.wb_courier_tailed = true;
+        G.investigationProgress++;
+        G.lastResult = `The midspan stop lasts ninety seconds — too short to read clearly from the east-rail shadow, long enough to confirm the shape of an exchange. Two figures, a transfer, both parties departing in the direction they arrived from. The second figure carries something that catches the brazier light: a lantern hook insignia, the Night-Lantern Circuit pattern. You note the timing. Aster's log entry from six weeks ago recorded the same midspan pause at the same evening-bell position.`;
+        addJournal('Courier midspan exchange confirmed — second party carries Night-Lantern Circuit insignia', 'intelligence', `wb-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A night on the bridge before the next twelve-day window — cold enough that no one expects anyone to be watching.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(2); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'overnight stakeout on the bridge in winter cold');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_overnight_stakeout = true;
+        G.investigationProgress++;
+        G.lastResult = `The cold by the second bell is structural — it settles into the planking and the iron banding both and stops moving. The bridge is silent. At the third bell, two convoys arrive without lanterns: one from each bank, halting at the midspan post. The transfer runs fourteen minutes. Four sealed cylinders and two flat-bound crates cross between the parties. One handler wears a transit-warden collar over a coat that is too fine for the duty. The convoy markings on both groups carry the same geometric cipher from the arbitration evidence sleeve. You record the duration, the count, and the collar detail. The cold becomes relevant later. Your hands stop shaking after sunrise.`;
+        addJournal('Whitebridge overnight stakeout: 4 cylinders and 2 crates transferred — transit-warden collar over fine coat, cipher mark on both convoys', 'evidence', `wb-stakeout-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The cold at the second bell is enough. The planking frosts over where the wind catches the south rail gap and the position becomes untenable before the third bell arrives. A shelter keeper doing a pre-dawn circuit finds you at the east pier alcove and logs the welfare check in the station record. The log entry now places you at the bridge overnight, which is the kind of notation that gets read during a formal proceeding. Nothing was seen. The cold spent two days of your margin and put your name in the gate record.`;
+        addJournal('Stakeout aborted — welfare check logged at east pier, name in station record', 'complication', `wb-stakeout-fail-${G.dayCount}`);
+      } else {
+        G.flags.wb_overnight_stakeout = true;
+        G.investigationProgress++;
+        G.lastResult = `The transfer happens. Two convoys, no lanterns, midspan. The cold is bad enough that you cannot hold a writing position for the full duration — the detail log is partial. Three sealed cylinders, one flat crate, duration approximately twelve minutes. Both parties carry the geometric cipher. The handler count is higher than Aster's earlier estimates suggested: five individuals on each side, not two or three. The operation has scaled.`;
+        addJournal('Bridge transfer confirmed at third bell — operation scaled, 5 handlers per side, cipher mark on both groups', 'evidence', `wb-stakeout-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The commune apothecary examined Nyra's vials — his notes went somewhere they weren't supposed to go.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the apothecary compound analysis through commune records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.wb_apothecary_notes_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The commune apothecary, Sev Holmark, keeps his analysis notes in a wax-sealed register behind the dispensary counter — each page numbered, each seal dated. He finds the entry for the vials without checking the index. His original analysis identified three components: a base binder, a volatile solvent, and a stabilizing compound he could not source to any plant or mineral extract in his reference tables. He wrote that. Then a copy of his notes left the dispensary register — the page is present but the seal date on the facing page is two days ahead of when the copy should have been made. Someone accessed the analysis before he filed it. The compound profile was read before Nyra received it.`;
+        addJournal('Apothecary analysis accessed before filing — compound profile read by outside party in advance of Arbiter receipt', 'evidence', `wb-apothecary-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Sev Holmark closes the dispensary register before the question is finished. An analysis conducted under Arbiter commission is confidential to the arbitration proceeding — he cannot discuss it, share the register, or confirm the scope of the examination without Nyra's written release. He says this calmly, without apology. He then adds, quieter: "Ask the Arbiter. Ask specifically about the seal dates." He turns back to the dispensary bench before you can ask what he means.`;
+        addJournal('Apothecary declined to share analysis — directed to ask Arbiter about seal dates', 'complication', `wb-apothecary-fail-${G.dayCount}`);
+      } else {
+        G.flags.wb_apothecary_notes_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Sev opens the register to the entry and shows the page without lifting it from the counter. Three components, one unidentifiable. He points to the seal on the facing page without speaking — the date runs two days ahead of the analysis entry beside it. He closes the register. "The seal date is the filing date. The analysis date is on the other side." Both dates are visible. The gap between them is not an administrative error.`;
+        addJournal('Apothecary register: seal date 2 days before analysis date — notes accessed before formal filing', 'intelligence', `wb-apothecary-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Whitebridge Commune finale — the bridge is both a transit point and evidence source. Use Nyra's samples and Aster's log to formally close the crossing or quietly document the next transfer.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
