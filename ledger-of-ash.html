@@ -10349,15 +10349,16 @@ function _getAuthorityEncounterChoice(polity) {
   return pool[polity];
 }
 
-function prioritizeChoices(choices) {
+function prioritizeChoices(choices, maxCount) {
   if (!Array.isArray(choices)) return choices;
+  var cap = (typeof maxCount === 'number' && maxCount > 0) ? maxCount : 8;
   var TIERS = { 'main': 1, 'side': 2, 'enriched': 3, 'utility': 4 };
   var sorted = choices.slice().sort(function(a, b) {
     var ta = TIERS[a.plot] || (a.isUtility ? 4 : 3);
     var tb = TIERS[b.plot] || (b.isUtility ? 4 : 3);
     return ta - tb;
   });
-  return sorted.slice(0, 5);
+  return sorted.slice(0, cap);
 }
 
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
@@ -10454,7 +10455,7 @@ function loadStageChoices(locId) {
         }
       });
     }
-    renderChoices(_injectBossSeedChoices(prioritizeChoices(adapted)));
+    renderChoices(_injectBossSeedChoices(prioritizeChoices(adapted, 8)));
     return;
   }
 
@@ -10494,7 +10495,7 @@ function loadStageChoices(locId) {
   // Inject authority encounter at top if heat threshold met
   var authChoiceFallback = _getAuthorityEncounterChoice(G._currentPolity || '');
   if (authChoiceFallback) base.unshift(authChoiceFallback);
-  if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(prioritizeChoices(base)));
+  if (typeof renderChoices === 'function') renderChoices(_injectBossSeedChoices(prioritizeChoices(base, 8)));
 }
 
 function renderNavChoices() {
