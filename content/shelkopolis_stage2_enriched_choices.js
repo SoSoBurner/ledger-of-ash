@@ -591,6 +591,236 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW INVESTIGATION BEATS (Oversight Collegium arc — 8 fresh angles) ───────
+
+  {
+    label: "The Panim mediator's courier arrived three days ago and has not left Shelkopolis.",
+    tags: ['Stage2', 'NPC', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracking the Panim mediator courier');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.panim_courier_located = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = `The courier is staying at a boarding house near the civic records quarter — not the Ironspool district, where a trade courier would normally lodge. He has been visiting the Registry twice daily, carrying nothing out either time. When you approach at the corner of the lane he stops and names the Panim Deputy Civic Underwriter's office without being asked, the way someone names a thing they've been holding as leverage and have decided to spend. He wants out of the arrangement he was sent here to complete. He has one document he hasn't delivered yet: a conditional co-sign endorsement that makes the charter amendment's Panim authorization conditional on a second party's approval. That second party is not named in the amendment text.`;
+        addJournal('Panim courier located — undelivered conditional co-sign endorsement; anonymous second approval required', 'evidence', `shelk-panim-courier-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        G.lastResult = `The boarding house registers you in its visitor log before allowing you to inquire about current guests. The courier's room number is not shared. The house manager sends a note up and waits. The response comes down as a sealed slip: no meeting, no name given, and a Panim trade authority mark pressed into the wax that carries consular weight. The visitor log with your name in it will be available for review by any Roadwarden conducting a trade inquiry in this district. The courier stays unreachable.`;
+        addJournal('Panim courier — consular protection invoked, visitor log entry made', 'complication', `shelk-panim-courier-fail-${G.dayCount}`);
+      } else {
+        G.flags.panim_courier_located = true;
+        G.investigationProgress++;
+        G.lastResult = `The courier agrees to a brief exchange in the boarding house common room. He confirms he carries a Panim co-sign document and that delivery has been delayed pending instructions from his principal. He does not name the principal. When you describe the charter amendment, his jaw tightens once and then releases. He says: "The co-sign is conditional. I was not told the condition until I arrived here." He finishes his tea and goes back upstairs.`;
+        addJournal('Panim courier confirms conditional co-sign — condition disclosed after arrival, principal unnamed', 'intelligence', `shelk-panim-courier-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Forren Dass signs off the south dock rotation thirty minutes early. Every time. Without fail.",
+    tags: ['Stage2', 'Investigation', 'Stealth'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'surveilling Roadwarden aide Forren Dass at the south dock');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.forren_dass_movement_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `Dass signs off the rotation log at the third bell minus thirty — a variance he's maintained for eleven months without a supervisor flag, which means the supervisor knows. He walks the south lane to a storage factor's office that carries no Ironspool signage, enters through the side door, and is out in under four minutes. You are in position at the alley junction when he exits. He carries nothing in. He carries a folded receipt out. The storage factor's office trade registration is four years old and lists a principal who died two years after it was filed. The office is running on a dead man's charter.`;
+        addJournal('Forren Dass early sign-off maps to dead-charter storage office — receipt transfer confirmed', 'evidence', `shelk-forren-dass-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        G.lastResult = `Dass clocks you on the second pass through the south lane. He doesn't break stride, doesn't signal anyone, doesn't change his route. He simply doesn't go to the storage factor's office. He completes his full rotation log, signs off at the correct time for the first recorded instance in eleven months, and walks toward the Roadwarden barracks without looking back. The pattern is broken. It will resume when his tail is gone. That means the next window is after you've moved on.`;
+        addJournal('Forren Dass — surveillance detected, pattern broken for this window', 'complication', `shelk-forren-dass-fail-${G.dayCount}`);
+      } else {
+        G.flags.forren_dass_movement_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `Dass's early sign-off is consistent to the minute — thirty minutes before the posted end of rotation, logged under a discretionary relief clause the Roadwardens extend to overnight aides. The clause is legitimate. What it covers is a thirty-minute window where no oversight applies. You follow him two lanes south before losing the angle at a covered market junction. The destination is somewhere in the factor district. The route is established.`;
+        addJournal('Forren Dass early sign-off confirmed — route toward factor district, destination not yet reached', 'intelligence', `shelk-forren-dass-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Director of Civic Charter Integrity has a physical office. It appears in no directory.",
+    tags: ['Stage2', 'Investigation', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating the unpublished Director of Civic Charter Integrity office');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.charter_integrity_office_located = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = `City maintenance records route a heating coal delivery to a Collegium annex building that does not appear in the civic directory — the delivery is logged under a room number the directory omits entirely. You find the building: a narrow three-story structure wedged between the civic records chamber and the guild mediation hall, its entrance set back from the lane by four feet and unmarked. The nameplate slot beside the door is present but empty. Inside the slot, still visible against the backing: the adhesive shadow of removed letters, long enough for a two-line title. The coal delivery log names the recipient: D.C.C.I. The office exists. It operates. It signs suppression orders. Nobody in the published record is supposed to know where it is.`;
+        addJournal('Director of Civic Charter Integrity office located — unmarked annex, nameplate removed, coal deliveries ongoing', 'evidence', `shelk-dcci-office-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The maintenance ledger is filed correctly in the public utilities archive, but the entry you need — a coal delivery to the Collegium annex wing — has been amended. The original recipient line is struck through and replaced with a generic entry: Collegium Administrative Services. The amendment is dated two days ago. Someone checked the maintenance record after Orveth's fourth case surfaced and cleaned the trail before it became a trail.`;
+        addJournal('DCCI coal delivery record amended two days ago — trail cleaned preemptively', 'complication', `shelk-dcci-office-fail-${G.dayCount}`);
+      } else {
+        G.flags.charter_integrity_office_located = true;
+        G.investigationProgress++;
+        G.lastResult = `The maintenance record gives you a building address but not a room. The address resolves to a Collegium annex structure that is listed in the city's property register under a forty-year-old civic preservation designation — a designation that exempts it from the standard directory update cycle. The building is real. The exemption is what keeps it out of the published civic directory. Someone chose that building for a reason.`;
+        addJournal('DCCI annex building address confirmed — directory exemption via historic preservation classification', 'intelligence', `shelk-dcci-office-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Two names from the suppressed docket complaints are still in the city. Both went quiet the same week.",
+    tags: ['Stage2', 'Investigation', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating suppressed docket complainants still in Shelkopolis');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.suppressed_complainants_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Both names are still in the city. The first — a south-market stall operator named Erren Volsch — receives you in his back room and speaks without preamble: he filed a complaint about supply route interference and received, three days later, an unannounced visit from a Roadwarden aide he did not recognize. The aide left a single document: a trade penalty notice citing a procedural infraction that Volsch cannot locate in any code book. He paid it. The second complainant, a manifest clerk named Dura Wess, confirms the same pattern — complaint filed, penalty notice arrived, case went quiet. The penalty notices carry different infraction codes but the same issuing officer stamp. The stamp is Forren Dass.`;
+        addJournal('Two suppressed complainants: penalty notices issued by Forren Dass after filing — same intimidation pattern, different codes', 'evidence', `shelk-complainants-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        G.lastResult = `Erren Volsch opens his back room door, looks at you for three seconds, and closes it. The sound of a bolt going home follows. Dura Wess is not at her registered address. Her neighbor says she moved her work materials out last week and did not say where. Both complainants had their cases suppressed. They've been living with the awareness that whoever suppressed the cases knows who they are. They were not going to talk to a stranger who arrived without a name they recognized.`;
+        addJournal('Suppressed complainants unreachable — both in active avoidance, one relocated', 'complication', `shelk-complainants-fail-${G.dayCount}`);
+      } else {
+        G.flags.suppressed_complainants_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Erren Volsch agrees to talk but keeps the conversation to two minutes. He confirms he filed a complaint, received a penalty notice shortly after, and chose not to pursue the matter further. He will not name who delivered the penalty notice. When you describe a Roadwarden aide with an overnight south dock rotation, he looks at the wall behind you for a moment before saying: "I don't know the name." The pause before the denial carries the name inside it.`;
+        addJournal('Suppressed complainant Volsch confirms penalty notice — aide identity withheld under duress', 'intelligence', `shelk-complainants-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The charter amendment's ratification window closes in five days. The Panim co-sign is the brake.",
+    tags: ['Stage2', 'Faction', 'Investigation'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'assessing the charter amendment ratification deadline');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.amendment_deadline_known = true;
+        G.flags.amendment_panim_brake_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The Collegium procedural secretary receives you because you carry Inquisitor Orveth's informal endorsement — a single sentence written on his card. She confirms the ratification window: five days from the current date, after which the amendment lapses and must be re-submitted through full committee review, a process of four to six months. The Panim co-sign is the only missing element. She lowers her voice when she names who holds the Panim authorization block: not the courier, not the Deputy Underwriter — a Panim senior mediator named Odel Farris who has not responded to two formal requests. Farris has seen the conditional clause and is waiting for the condition to be met. The condition is not in the amendment text.`;
+        addJournal('Amendment lapses in 5 days — Panim senior mediator Odel Farris holds co-sign, condition unnamed in amendment text', 'evidence', `shelk-deadline-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The Collegium procedural office is staffed by two clerks, neither of whom acknowledges amendment timelines as a subject for external inquiry. One of them sets a form on the counter: a request for procedural information, requiring a charter standing citation to process. You do not have standing. Your name goes into the inquiry log as a matter of standard procedure. The log is reviewed by the Collegium administrative Arbiter every three days.`;
+        addJournal('Collegium procedural inquiry refused — name in review log', 'complication', `shelk-deadline-fail-${G.dayCount}`);
+      } else {
+        G.flags.amendment_deadline_known = true;
+        G.investigationProgress++;
+        G.lastResult = `The Collegium's posted procedural schedule lists charter amendment ratification windows in the public notice column. The current amendment's window is marked with a notation you've seen once before in the cross-polity suppression order records: a blue ink bracket around the deadline date. The bracket is a Collegium administrative convention for active high-priority tracking. Someone inside the Collegium is watching this deadline closely enough to mark it by hand.`;
+        addJournal('Amendment deadline confirmed via public notice — blue ink priority bracket added by hand', 'intelligence', `shelk-deadline-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The south market ward grid has a maintenance node in the archival quarter. The channel ran through it.",
+    tags: ['Stage2', 'Investigation', 'Craft'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the glyph surge channel through the maintenance node');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.surge_channel_node_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = `The maintenance node is a brass-capped junction box set into the archival quarter's west retaining wall — the kind of infrastructure point that appears in city schematics but not in any walkable directory. The wax seal on the inspection cap has been replaced recently: the original seal was fired clay, the replacement is pressed wax over a different backing compound, and it's been set with a tool that left a faint spiral mark the original installation wouldn't have made. Inside, the routing plate has been repositioned ninety degrees off its grounded orientation — the position required to channel a surge outward rather than contain it. Someone with working knowledge of Shelkopolis ward grid infrastructure made this modification. That is a credential-gated skill. The registry of persons holding it has fewer than fourteen entries.`;
+        addJournal('Ward maintenance node modified — routing plate repositioned for outward surge channeling, fourteen credentialed persons in registry', 'evidence', `shelk-node-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The maintenance node is in a bonded access zone managed by the city's ward infrastructure office. Entry without a maintenance certification produces a formal infraction notice — the kind that goes to the Roadwarden records desk and flags your name for any subsequent access inquiry in that district. You get close enough to see the inspection cap is sealed and recent. That is all you get.`;
+        addJournal('Ward node access refused — infraction notice issued, name flagged with Roadwardens', 'complication', `shelk-node-fail-${G.dayCount}`);
+      } else {
+        G.flags.surge_channel_node_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The inspection cap on the maintenance node has been resealed recently — the wax compound doesn't match the surrounding infrastructure's original material. You can't open it without a maintenance certification, but the cap itself tells you something was done here after the last official inspection. The city's ward maintenance schedule logs its last visit to this node as fourteen months ago. The fresh seal is newer than fourteen months.`;
+        addJournal('Ward maintenance node resealed post-last-inspection — unauthorized access confirmed, contents inaccessible', 'intelligence', `shelk-node-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The shell subsidiary's founding signatory died eighteen months after filing. The proxy name still draws.",
+    tags: ['Stage2', 'Investigation', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the dead-proxy shell subsidiary authorization chain');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.shell_proxy_chain_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The founding signatory's estate was settled through probate two years ago and carries no active trading authorization — his registry standing was formally retired at the time of settlement. The subsidiary, however, continues drawing against a commercial credit line issued under his name, which means someone is making authorized signatory representations on behalf of a dead man's estate. Doing so requires either a fraudulent estate proxy or a living co-signatory whose name was added to the charter after the original filing. You find the co-signatory addendum, filed four months after the original charter and one week after the founding signatory's death: a name entered in a different ink from the original document. The name is a Shelkopolis notarial office — the same office that certified the cross-polity suppression order.`;
+        addJournal('Shell subsidiary co-signatory addendum: Shelkopolis notarial office — same office certified cross-polity suppression order', 'evidence', `shelk-proxy-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The probate records for the founding signatory's estate are held in the civil succession archive, which requires a family standing petition or a magistrate's review order to access. Neither is available on the current day. The archive clerk notes your name and your stated purpose in the request queue. Succession records inquiries are shared with the estate's registered notarial office as a courtesy notification. That office will receive a summary of this request within two business days.`;
+        addJournal('Probate record access refused — notarial office courtesy notification will be sent', 'complication', `shelk-proxy-fail-${G.dayCount}`);
+      } else {
+        G.flags.shell_proxy_chain_confirmed = true;
+        G.investigationProgress++;
+        G.lastResult = `The probate settlement is a matter of civic record. The founding signatory is deceased, his registry standing retired. What's less clear is how the subsidiary continues operating under his charter authorization: the registry should have flagged the standing retirement. You pull the subsidiary's current registry entry and find the flag present — marked, noted, and then cleared under an administrative override notation with no citing authority. The override is what's keeping the subsidiary alive. Someone cleared the flag on purpose.`;
+        addJournal('Shell subsidiary registry flag cleared by administrative override — citing authority absent', 'intelligence', `shelk-proxy-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Ironspool factor who replaced the night foreman was transferred in from Panim six weeks ago.",
+    tags: ['Stage2', 'Investigation', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the Ironspool factor Panim transfer record');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.ironspool_factor_panim_link = true;
+        G.investigationProgress++;
+        G.lastResult = `The Ironspool transfer record is public — trade company personnel movements file with the guild commerce registry. The factor arrived six weeks ago from the Panim Mediation Oversight commercial affiliate office, listed under a standard operational secondment. The timing is five days after the cross-polity suppression order was co-signed. The factor's previous role at the Panim affiliate was Commercial Liaison to Civic Charter Administration — a role whose responsibilities include coordinating with Collegium-adjacent offices on trade authorization matters. He was placed at Ironspool specifically over the south dock operations. The foreman who knew the bypass crates by name was moved to a warehouse interior role the same week the transfer was finalized.`;
+        addJournal('Ironspool factor: Panim affiliate — charter admin liaison background; placed over south dock same week foreman sidelined', 'evidence', `shelk-factor-panim-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        G.lastResult = `The guild commerce registry clerk pulls the transfer file and begins reading out the summary. Two sentences in, a senior clerk at the adjacent desk stands and crosses the floor to look at the record. The senior clerk takes the file without explanation and returns to his desk. The junior clerk says: "That record is under an active trade inquiry hold." The hold was placed this morning. The transfer record is visible to whoever monitors new inquiry holds — which is, at minimum, the person who placed this one.`;
+        addJournal('Ironspool factor transfer record placed under inquiry hold this morning — access sealed', 'complication', `shelk-factor-panim-fail-${G.dayCount}`);
+      } else {
+        G.flags.ironspool_factor_panim_link = true;
+        G.investigationProgress++;
+        G.lastResult = `The transfer record confirms a Panim origin and a six-week-old arrival date. The factor's previous posting is listed as a Panim commercial affiliate — a vague classification that covers several types of institutional relationship. The previous role description is a single line: Trade Coordination. The timing of his arrival relative to the suppression order is visible in the dates. The connection between the two events is probable, not yet documentable.`;
+        addJournal('Ironspool factor Panim transfer confirmed — timing aligns with suppression order, prior role vaguely described', 'intelligence', `shelk-factor-panim-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
   {
     label: "The evidence is complete. The choice about how to use it doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent', 'Meaningful'],
