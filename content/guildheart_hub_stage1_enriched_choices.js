@@ -198,7 +198,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Selain steps between two loaded carts and speaks toward the wall. "Standard hold is three days before transit. Bay Seven has had the same four crates for—" She stops. Her eyes move to the covered walkway above, where a tariff clerk crosses without pausing. She resumes. "The morning routing sheet doesn't show everything that moves." She names Bay Seven without looking at it. "Diversion orders arrive already signed. I don't add my name." She moves back into the main flow of the yard before the next cart passes.`;
+        G.lastResult = `Selain steps between two loaded carts and speaks toward the wall. "Standard hold is three days before transit. Bay Seven has had the same four crates for—" She stops. Her gaze goes past your shoulder — to the covered walkway above, where a passage door has just swung open. She starts again: "The yard rotation has been irregular this season." A pause. The door above closes. She looks back at you. "The morning routing sheet doesn't show everything that moves." She names Bay Seven without looking at it. "Diversion orders arrive already signed. I don't add my name." The interrupted sentence is never finished. She moves back into the main flow of the yard before the next cart passes.`;
         G.stageProgress[1]++;
         addJournal('Broker revealed warehouse diversion coordination', 'evidence', `guildheart-broker-diversion-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -929,21 +929,19 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
-  // 29. SUPPRESSION SIGNAL: OVERHEARD FRAGMENT
+  // 29. SUPPRESSION SIGNAL: OVERHEARD FRAGMENT AT FREIGHT COUNTER
   {
-    label: "Two clerks in the registry corridor stopped the moment they saw me",
+    label: "Two officials at the freight counter — one said a number, the other looked at me. They stopped.",
     tags: ['Suppression', 'Observation', 'Stage1'],
     xpReward: 55,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(55, 'overhearing registry corridor exchange');
+      gainXp(55, 'overhearing freight counter exchange');
 
-      const corridorDetail = `The registry tower's ground corridor smells of ink and damp stone. Two tariff clerks stand near the posted arbitration schedule — one holding a folded routing sheet, the other with a ledger open against his forearm. The first clerk says: "Directive 7-Cassia runs through the fourteenth, same as the Eastgate hold." The second glances toward the doorway where you've stopped. The folded sheet drops to his side. Neither clerk speaks again. They separate — one toward the north annexe, one toward the stairs — without acknowledging your presence.`;
-
-      G.lastResult = corridorDetail;
-      addJournal('Overheard in the Guildheart registry tower ground corridor: two tariff clerks cut short — "Directive 7-Cassia runs through the fourteenth, same as the Eastgate hold." Conversation ended when a third party entered. Source: registry-level administrative staff.', 'intelligence');
+      G.lastResult = `The Guildheart freight counter runs along the east wall of the hub yard, open on one side to the loading bays. Late morning: the yard noise fills in around conversations. Two officials stand at the far end of the counter — one with a routing folio open against his forearm, one with both hands on the counter edge. The one with the folio says: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." The other glances toward where you are standing. It is a single look, no expression behind it, lasting less than a second. The folio closes. Neither official speaks again. Neither leaves. They stand where they were and do not resume the conversation. The yard noise continues. They simply stop.`;
+      addJournal('Overheard at Guildheart Hub freight counter, mid-morning: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." Conversation ended when second party noted observer. Neither official left — they stopped in place.', 'intelligence');
 
       G.recentOutcomeType = 'observe';
       maybeStageAdvance();
