@@ -245,6 +245,148 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The outpost smithy repairs field equipment — the smith has seen what the northern crews bring in for maintenance.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'speaking with outpost smith Brann Veld about northern equipment repairs');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_smith_brann_veld = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Brann Veld sets down his hammer when you ask about the northern crews, and the deliberateness of it is notable — a man who stops working to talk has decided something. Over the past year he has repaired three different pumping assemblies brought down from the northern structure, each one corroded in the same way: a chemical byproduct residue that eats brass fittings from the inside. He pulled the same residue from a compressor housing two months ago. He saved a sample in a tin on the shelf above the forge. He pushes it across the bench to you without being asked.`;
+        addJournal('Smith Brann Veld: chemical corrosion residue from northern pump repairs — physical sample recovered', 'evidence', `plumes-smith-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Brann Veld is midway through a bearing replacement when you approach and does not slow down. His answers are short and angled away from anything specific: he repairs what comes in, he doesn't ask where it's been. A Roadwarden auxiliary sitting by the door eating midday rations is watching the exchange with the patience of a man with nothing else to do. The smith's posture closes. "Work to finish." He turns back to the bench.`;
+        addJournal('Smith declined — Roadwarden auxiliary presence closed conversation', 'complication', `plumes-smith-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_smith_brann_veld = true;
+        G.investigationProgress++;
+        G.lastResult = `Brann Veld confirms he has repaired equipment from the northern structure across several visits — pumping assemblies and valve housings, all showing the same unusual wear pattern. Corrosion on internal brass surfaces from something moving through the lines that wasn't water. He doesn't name the compound but shows you the fittings still in the bin: the metal has a greenish cast where the erosion is deepest, the color even, not rust.`;
+        addJournal('Smith confirms chemical erosion in northern pump fittings — unusual internal corrosion pattern', 'intelligence', `plumes-smith-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The outpost's supply depot clerk has a discrepancy she flagged and then was told to un-flag.",
+    tags: ['Stage2', 'Archive'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing supply depot discrepancy with clerk Pella Orn');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_clerk_pella_orn = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Pella Orn pulls the original flag from a personal ledger she keeps separate from the official intake record — a habit, she says, from six years of watching corrections arrive after the fact. The discrepancy: eleven months ago, a consignment of sixty sealed canisters passed through under a Roadwarden transit pass that listed their contents as "atmospheric calibration equipment." The weight on the weigh ticket was wrong for the declared contents by a factor of three. She flagged it. A senior Roadwarden countersigned a correction the next day and told her the weight difference was permitted under a Warden Order charter clause she had never heard of. She wrote it down verbatim.`;
+        addJournal('Clerk Pella Orn: canister consignment weight falsified — Warden Order charter clause invoked to override flag', 'evidence', `plumes-clerk-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Pella Orn is at the intake window when you arrive and the queue behind you makes a private conversation impossible. When you ask about discrepancies on northern transit passes, her expression stays neutral with the practiced stillness of someone who has learned not to react at the wrong moment. She hands you a standard intake form. "Fill that out if you have a formal goods query." The window slides closed.`;
+        addJournal('Depot clerk closed intake window — wrong setting for inquiry, watchfulness elevated', 'complication', `plumes-clerk-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_clerk_pella_orn = true;
+        G.investigationProgress++;
+        G.lastResult = `Pella Orn confirms the discrepancy exists in her personal notes. A consignment of sealed canisters — declared as atmospheric calibration equipment — had a weight-ticket anomaly she reported and was told to correct. The correction came fast, from above her chain. "When corrections arrive the same day, someone is watching the intake logs." She doesn't say more than that but slides her personal ledger an inch closer to your side of the counter.`;
+        addJournal('Depot clerk: canister weight discrepancy corrected same-day from above — intake logs under active watch', 'intelligence', `plumes-clerk-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The northern tree line holds a camp marker from a survey team that stopped returning reports six weeks ago.",
+    tags: ['Stage2', 'Scouting'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'locating abandoned survey camp marker on northern tree line');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.survey_camp_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The marker is still standing — a survey stake with a blue flag that has gone brittle in the weather. Thirty meters behind it, in the shallow of a spruce stand, the camp: two collapsed lean-tos, a fire ring cold for weeks, and a survey kit left open on its side. Inside the kit's waterproof inner case, wrapped in oilskin, a half-completed map. The map shows the northern structure in elevation detail, annotated with measurements. A note in the margin, in a cramped hand: "Sub-floor access confirmed via service hatch, north face. Guard rotation 8-minute gap, dusk only." The map is dated five weeks ago.`;
+        addJournal('Abandoned survey camp: elevation map of staging structure with sub-floor access note — 5 weeks old', 'evidence', `plumes-survey-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The tree line is dense enough that the marker could be anywhere in a quarter-mile stretch. You spend the better part of the afternoon ranging through wet spruce and emerge at the road with nothing but scratches and the particular exhaustion of searching for something that may have already been cleared. A staging structure patrol passes on the road while you are emerging from the trees. They note the direction and keep moving.`;
+        addJournal('Survey camp not located — staging structure patrol observed your tree line emergence', 'complication', `plumes-survey-fail-${G.dayCount}`);
+      } else {
+        G.flags.survey_camp_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The camp is there, abandoned in the disarray of a fast departure: food stores left open, one lean-to still standing, the fire ring scattered as though kicked out in a hurry. The survey kit is gone, but a single stake map remains tacked to the standing lean-to — a rough elevation sketch of the northern structure showing three above-ground levels. No annotations. The survey team left in a hurry and left this behind.`;
+        addJournal('Abandoned survey camp found: structure elevation sketch recovered — team departed fast, kit gone', 'discovery', `plumes-survey-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Letha Dawnsilk's instrument housing holds a calibration record that predates her assignment by eight months.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'examining pre-assignment calibration record in Letha Dawnsilk hazard station');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.letha_early_record_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The calibration record is in a different hand than Letha's — her predecessor, a hazard reader named Aldec Sorn, posted here before her. Sorn's records show normal baseline pressure for the region until a specific date: eighteen months ago, the baseline shifts upward by a measurable increment and holds at the new level permanently. Sorn flagged it, labeled it "anthropogenic source — awaiting Warden Order assessment," and was transferred out of the post three weeks later. There is no assessment in the file. Letha never knew the baseline had changed.`;
+        addJournal('Letha station: predecessor Aldec Sorn flagged pressure baseline shift 18 months ago — transferred 3 weeks later, no assessment on record', 'evidence', `plumes-letha2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The instrument housing is a sealed unit — the calibration record inside is accessible only with the hazard reader's maintenance key. Letha keeps it on her person. When you reach past the housing to examine the back mounting bracket, she moves to stand between you and the instrument without saying anything. Her hand rests on the housing latch. "The instruments are calibrated by me and by me only."`;
+        addJournal('Hazard station calibration record inaccessible — Letha guards housing access', 'complication', `plumes-letha2-fail-${G.dayCount}`);
+      } else {
+        G.flags.letha_early_record_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Letha opens the calibration record herself when you describe what you are looking for — she has been curious about the same question. Her predecessor's entries end abruptly. The final entry is dated eighteen months ago: a pressure baseline notation marked "review required," with a Warden Order referral number that corresponds to no document she has ever received. The referral line stops there.`;
+        addJournal('Letha station: predecessor baseline review and Warden Order referral number — no corresponding document received', 'intelligence', `plumes-letha2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A supply runner who works the northern route knows the structure by its cargo — she has been inside.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'speaking with northern supply runner Destin Var about staging structure interior');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_runner_destin_var = true;
+        G.investigationProgress++;
+        G.lastResult = `Destin Var agrees to talk only after you find her outside the main waystation, checking her pack straps alone. She has been inside the structure's loading bay three times. The loading bay connects to a lower level via a grated floor hatch she passed over during the second delivery — the grate was open, and she looked down. Below: a chamber with two large copper tanks connected by a piping manifold, both tanks marked with a symbol she describes precisely: a circle with a horizontal bar, the bar crossed at the center. She does not know what the tanks hold. The symbol is a Warden Order materials classification mark for pressurized chemical compound.`;
+        addJournal('Runner Destin Var: sub-floor copper tanks with Warden Order pressurized-compound mark — loading bay grate access confirmed', 'evidence', `plumes-runner-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `You approach Destin Var at the waystation bench while two other runners are within clear earshot. She reads the situation immediately and looks away. When you persist, she picks up her pack and walks to the posting board, takes her next assignment slip, and leaves the waystation without further eye contact. She is gone before you reach the door. The runners at the bench watched all of it.`;
+        addJournal('Runner contact failed — wrong setting, witnessed approach, Destin Var departed', 'complication', `plumes-runner-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_runner_destin_var = true;
+        G.investigationProgress++;
+        G.lastResult = `Destin Var keeps her voice at a level that carries maybe a meter. She has been inside the loading bay twice for standard cargo drops. The bay is larger than necessary for the declared supply function — the floor space is clear except for racking along the far wall, and the racking holds sealed containers with Warden Order markings. She saw the grated hatch in the floor on the second visit but the guard positioned near it made clear it was not for runners. "You deliver and you go. That's the arrangement."`;
+        addJournal('Runner: loading bay holds Warden Order sealed containers, sub-floor hatch guarded during deliveries', 'intelligence', `plumes-runner-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Plume's End Outpost finale — the staging location is physically located. Scout it formally with Patrol Leader backup or use Letha's map to infiltrate quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
