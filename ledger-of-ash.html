@@ -10489,6 +10489,14 @@ function prioritizeChoices(choices, maxCount) {
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
   checkHeatConsequences();
+  var _heatPolity = G._currentPolity || '';
+  var _heatTickFlag = '_auth_check_' + _heatPolity + '_' + (G.dayCount || 0);
+  if (_heatPolity && getHeat(_heatPolity) >= 3 && !(G.flags && G.flags[_heatTickFlag])) {
+    if (!G.flags) G.flags = {};
+    G.flags[_heatTickFlag] = true;
+    enterAuthorityConfrontation(_heatPolity + '_patrol', { source: 'heat_threshold' });
+    return;
+  }
   const loc = locId || G.location || '';
   // Derive polity key from WORLD_LOCATIONS config for authority encounter injection
   var _wlData = (window.WORLD_LOCATIONS && window.WORLD_LOCATIONS[loc]) || {};
