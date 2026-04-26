@@ -10636,7 +10636,12 @@ function renderNavChoices() {
 /** Renders choice buttons. Overridden to call weightChoicesForArchetype() first. Clears pending debounce. @param {Object[]} choices */
 function renderChoices(choices) {
   if (_renderChoicesPending) { clearTimeout(_renderChoicesPending); _renderChoicesPending = null; }
-  if (!choices || choices.length === 0) { renderNavChoices(); return; }
+  if (!Array.isArray(choices) || choices.length === 0) {
+    choices = [{
+      text: 'Wait for a better moment.',
+      skill: 'survival', tag: 'safe', align: 'neutral', cid: 'universal_wait_fallback'
+    }];
+  }
   _pendingChoices = choices;
   // Fumble backup notice (one-time) + drain pending backup choices into this render
   if (G._pendingBackupChoices && G._pendingBackupChoices.length > 0) {
