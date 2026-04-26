@@ -1362,6 +1362,7 @@ input, button, select, textarea { font-family: inherit; }
 .ca-icon { font-size: 19.8px; margin-bottom: 9px; color: var(--gold-lo); }
 .ca-title { font-family: var(--font-display); font-size: 12.1px; font-weight: 700; color: var(--gold-bright); letter-spacing: 1px; margin-bottom: 5px; }
 .ca-desc  { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
+.camp-group-label { font-family: var(--font-body); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin: 8px 0 4px; grid-column: 1/-1; }
 .camp-footer { margin-top: 18px; text-align: center; }
 
 .camp-talk-line { background: linear-gradient(135deg, var(--coal), var(--char)); border-left: 3px solid var(--gold-lo); padding: 11px 14px; margin-bottom: 10px; line-height: 1.6; border-radius: 1px; }
@@ -1818,7 +1819,7 @@ input, button, select, textarea { font-family: inherit; }
       <button class="tnav-btn" id="btn-party">Party</button>
       <button class="tnav-btn" id="btn-camp">Camp</button>
       <button class="tnav-btn" id="btn-charsheet">Sheet</button>
-      <button class="tnav-btn" id="btn-howto">How to Play</button>
+      <button class="tnav-btn" id="btn-howto" onclick="showHowToPlay()">How to Play</button>
       <button class="tnav-btn" id="btn-save" onclick="showSaveModal('save')">Save</button>
       <button class="tnav-btn" id="btn-load" onclick="showSaveModal('load')">Load</button>
       <button class="tnav-btn" id="btn-export-save" onclick="exportSave()">Export</button>
@@ -1974,13 +1975,16 @@ input, button, select, textarea { font-family: inherit; }
     <div class="overlay-body">
       <p class="camp-intro">The fire is low. The road can wait.</p>
       <div class="camp-grid">
-        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x263D;</div><div class="ca-title">Rest</div><div class="ca-desc">Recover HP. Advances Watchfulness by 1. Limit 2 per day.</div></button>
-        <button class="camp-action" data-camp="talk"><div class="ca-icon">&#x25C8;</div><div class="ca-title">Companions</div><div class="ca-desc">Reveal companion opinions and unlock their choices. Requires Level 3.</div></button>
-        <button class="camp-action" data-camp="train"><div class="ca-icon">&#x2694;</div><div class="ca-title">Train</div><div class="ca-desc">Improve one stat. 3 sessions per point. Gold cost scales with current rank.</div></button>
-        <button class="camp-action" data-camp="recover"><div class="ca-icon">&#x2726;</div><div class="ca-title">Seek Care</div><div class="ca-desc">Pay a healer to remove wound penalties. Costs gold.</div></button>
-        <button class="camp-action" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare rations, tools, and materials. Requires Level 2.</div></button>
-        <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion. More members improve success.</div></button>
+        <div class="camp-group-label">Recover</div>
+        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x2665;</div><div class="ca-title">Rest</div><div class="ca-desc">Recover HP. Advances Watchfulness by 1. Limit 2 per day.</div></button>
         <button class="camp-action" data-camp="sleep"><div class="ca-icon">&#x263D;</div><div class="ca-title">Sleep</div><div class="ca-desc">Find a place to rest for the night. Settlements offer inn lodging — cheap or comfortable.</div></button>
+        <button class="camp-action" data-camp="recover"><div class="ca-icon">&#x2726;</div><div class="ca-title">Seek Care</div><div class="ca-desc">Pay a healer to remove wound penalties. Costs gold.</div></button>
+        <div class="camp-group-label">Act</div>
+        <button class="camp-action" data-camp="train"><div class="ca-icon">&#x2694;</div><div class="ca-title">Train</div><div class="ca-desc">Improve one stat. 3 sessions per point. Gold cost scales with current rank.</div></button>
+        <button class="camp-action" id="btn-craft" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare rations, tools, and materials. Requires Level 2.</div></button>
+        <button class="camp-action" id="btn-talk" data-camp="talk"><div class="ca-icon">&#x25C8;</div><div class="ca-title">Companions</div><div class="ca-desc">Reveal companion opinions and unlock their choices. Requires Level 3.</div></button>
+        <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion.</div></button>
+        <div class="camp-group-label">Investigate</div>
         <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
         <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness by 1. Costs a day.</div></button>
         <button class="camp-action" id="btn-review-notes" data-camp="review_notes" style="display:none"><div class="ca-icon">&#x2393;</div><div class="ca-title">Review Notes</div><div class="ca-desc">Go back to the beginning. A lost thread may still hold. Costs a day.</div></button>
@@ -11820,16 +11824,40 @@ function showLevelUpScreen() {
 
 function _finalizeLevelUp(statKey, trait) {
   _awaitingLevelUp = false;
+  var hpGain = (G.archetype && G.archetype.group === 'support') ? 12 : 8;
+  G.maxHp = (G.maxHp || 20) + hpGain;
+  G.hp = Math.min(G.maxHp, (G.hp || 0) + hpGain);
   saveGame(); updateHUD();
   const STAT_NAMES = {might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit'};
   let desc = (STAT_NAMES[statKey] || statKey) + ' improved to ' + (G.skills[statKey] || 0) + '/10.';
   if (trait) desc += ' Trait gained: ' + trait.name + '.';
+  desc += ' +' + hpGain + ' max HP.';
   addNarration('Level ' + G.level, desc, 'success');
   addJournal('Level ' + G.level + ': ' + desc);
   G.history.push('Level ' + G.level + ' \u2014 ' + desc);
-  renderChoices([
-    {text:'Continue the investigation.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'},
-    {text:'Apply your new capabilities.', skill:statKey, tag:'safe', align:'neutral', cid:'market_intel'}
+  G.lastResult = 'Level ' + G.level + '. The path ahead is clearer — or the stakes are higher. Either way, you are more capable of meeting them.';
+  if (typeof renderNarration === 'function') renderNarration();
+  (window._rawRenderChoices || window.renderChoices)([
+    {
+      id: 'levelup_continue_investigation',
+      text: 'The new capability changes how you approach what\'s ahead.',
+      tag: 'safe',
+      action: function() {
+        G.recentOutcomeType = 'discovery';
+        addJournal('Level ' + G.level + ' reached. Capabilities expanded.', 'intelligence');
+        if (typeof loadStageChoices === 'function') loadStageChoices();
+      }
+    },
+    {
+      id: 'levelup_review_situation',
+      text: 'Take stock before the next move.',
+      tag: 'safe',
+      action: function() {
+        G.recentOutcomeType = 'intelligence';
+        addJournal('Level ' + G.level + '. Reviewing the current situation.', 'intelligence');
+        if (typeof loadStageChoices === 'function') loadStageChoices();
+      }
+    }
   ]);
 }
 
@@ -12275,13 +12303,27 @@ function seekProfessionalCare() {
     return;
   }
 
+  var SHRINE_FLAVOR = {
+    shelkopolis: 'The shrine here serves the four clerical institutions — Cysur, Cyfoes, Felujitas, and Felelem. The healer moves between stations, each one a different order\'s corner.',
+    fairhaven: 'The chapel beside the fountain is Felujitas — the one with the grain-door relief. The healer works from the back room, where the candles are allowed to stay lit.',
+    panim_haven: 'This is a place of careful obligation. The healer here is a mediator of the divine balance — what she takes from you in coin becomes an offering registered against your name in the afterlife ledger.',
+    soreheim_proper: 'The tower shrine here does not offer comfort. It offers assessment. The healer consults the merit record before she decides what care you have earned.',
+  };
+  var shrineText = SHRINE_FLAVOR[locId] || 'The healer works from a small shrine. The coin goes toward the work of this place.';
+  var isHealerArchetype = G.archetype && G.archetype.group === 'support';
+  var tithingCost = isHealerArchetype ? Math.floor(cost / 2) : cost;
+  var tithingLabel = (locId === 'panim_haven') ? 'offering registered to your name' : 'donation to the shrine';
+  var healerNarration = isHealerArchetype
+    ? shrineText + ' They put you to work first — carrying water, sorting linens, restocking the poultice shelf. An hour passes. Then they look at your wounds. The ' + tithingLabel + ' comes to ' + tithingCost + ' gold.'
+    : shrineText + ' The healer examines your wounds in order, saying nothing until the last one. The ' + tithingLabel + ' comes to ' + tithingCost + ' gold.';
+
   const healer = healerNPC || { name: 'Local Healer', role: 'healer' };
 
-  addNarration('Recovery — ' + healer.name, healer.name + ' (' + healer.role + ') examines your condition. Professional care will cost ' + cost + ' gold.');
+  addNarration('Recovery — ' + healer.name, healerNarration);
 
   const choices = [];
-  if (G.gold >= cost) {
-    choices.push({text:'Pay for treatment. (' + cost + ' gold)', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_service'});
+  if (G.gold >= tithingCost) {
+    choices.push({text:'Pay for treatment. (' + tithingCost + ' gold)', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_service'});
   }
   choices.push({text:'Ask for partial treatment you can afford.', skill:'persuasion', tag:'risky', align:'neutral', cid:'shrine_contact'});
   if ((G.skills.charm||0) >= 3) {
@@ -12604,9 +12646,9 @@ function doSleepScene() {
     choices.push({ text: 'The allocation hall has a billet assigned to consortium members.', skill: 'survival', tag: 'safe', align: 'neutral',
       action: function() { doSleep(0, innData.comfortable, true); } });
   } else {
-    choices.push({ text: innData.cheap + ' — cheap, loud, and serviceable.', skill: 'survival', tag: 'safe', align: 'neutral',
+    choices.push({ text: innData.cheap + ' — cheap, loud, and serviceable. (1 gold)', skill: 'survival', tag: 'safe', align: 'neutral',
       action: function() { doSleep(1, innData.cheap, false); } });
-    choices.push({ text: innData.comfortable + ' — quiet, private, worth the cost.', skill: 'persuasion', tag: 'safe', align: 'neutral',
+    choices.push({ text: innData.comfortable + ' — quiet, private, worth the cost. (3 gold)', skill: 'persuasion', tag: 'safe', align: 'neutral',
       action: function() { doSleep(3, innData.comfortable, true); } });
   }
   choices.push({ text: 'Push through. Sleep is a luxury.', skill: 'survival', tag: 'risky', align: 'neutral',
@@ -14402,14 +14444,47 @@ function showOverlay(id) { document.getElementById(id)?.classList.add('active');
 function closeOverlay(id) { document.getElementById(id)?.classList.remove('active'); }
 function showCamp() {
   const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
+  // Post Watches: only show when companions present
   const pw = document.getElementById('btn-post-watches');
-  if (pw) pw.style.display = (INN_NAMES && INN_NAMES[loc]) ? 'none' : '';
+  if (pw) pw.style.display = (G.companions && G.companions.length > 0) ? '' : 'none';
+  // Sleep: show at night
   const sleepBtn = document.querySelector('[data-camp="sleep"]');
   if (sleepBtn) sleepBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
+  // Lay Low: show at high watchfulness
   const layLowBtn = document.getElementById('btn-lay-low');
   if (layLowBtn) layLowBtn.style.display = ((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 ? '' : 'none';
+  // Review Notes: show when thread available
   const reviewNotesBtn = document.getElementById('btn-review-notes');
   if (reviewNotesBtn) reviewNotesBtn.style.display = (G.flags && G.flags.recovery_thread_available) ? '' : 'none';
+  // Camp Outside: show only outside settlements
+  const campoutBtn = document.getElementById('btn-campout');
+  if (campoutBtn) campoutBtn.style.display = G.inSettlement ? 'none' : '';
+  // Craft: level gate
+  const craftBtn = document.getElementById('btn-craft');
+  if (craftBtn) {
+    if ((G.level || 1) < 2) {
+      craftBtn.disabled = true;
+      var craftDesc = craftBtn.querySelector('.ca-desc');
+      if (craftDesc) craftDesc.textContent = 'Craft — Level 2 required.';
+    } else {
+      craftBtn.disabled = false;
+      var craftDesc2 = craftBtn.querySelector('.ca-desc');
+      if (craftDesc2) craftDesc2.textContent = 'Prepare rations, tools, and materials. Requires Level 2.';
+    }
+  }
+  // Companions/Talk: level gate
+  const talkBtn = document.getElementById('btn-talk');
+  if (talkBtn) {
+    if ((G.level || 1) < 3) {
+      talkBtn.disabled = true;
+      var talkDesc = talkBtn.querySelector('.ca-desc');
+      if (talkDesc) talkDesc.textContent = 'Companions — Level 3 required.';
+    } else {
+      talkBtn.disabled = false;
+      var talkDesc2 = talkBtn.querySelector('.ca-desc');
+      if (talkDesc2) talkDesc2.textContent = 'Reveal companion opinions and unlock their choices. Requires Level 3.';
+    }
+  }
   showOverlay('overlay-camp');
 }
 
