@@ -929,7 +929,13 @@ input, button, select, textarea { font-family: inherit; }
 }
 .env-desc {
   font-family: 'Crimson Pro', serif; font-size: 15px; font-weight: 300; font-style: normal;
-  color: var(--ink-dim); line-height: 1.85; margin-bottom: 9px;
+  color: var(--ink-dim); line-height: 1.85; margin-bottom: 9px; transition: opacity 0.15s ease;
+}
+.env-echo {
+  font-style: italic;
+  color: var(--ink-faint);
+  display: block;
+  margin-bottom: 4px;
 }
 .env-status { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
 .env-pill {
@@ -8871,6 +8877,9 @@ let G = {
   supplyTier: 'light',
   journeyFatigue: 0,
   recentOutcomeType: null,
+  narrationEcho: '',
+  narrationUpdateCounter: 0,
+  _narrationFading: false,
   district: null,
   consecutiveSleepless: 0,
   watchPosted: false,
@@ -10076,6 +10085,62 @@ function buildEnvPanelText() {
   return [base, reactive, timeFlav, axis, wound, weatherDesc].filter(Boolean).join(' ');
 }
 
+function priorityKey(g) {
+  var _polityKeys = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+  var _maxHeat = 0;
+  for (var _pk = 0; _pk < _polityKeys.length; _pk++) {
+    var _h = getHeat ? getHeat(_polityKeys[_pk]) : 0;
+    if (_h > _maxHeat) { _maxHeat = _h; }
+  }
+  if (_maxHeat >= 8) return 'heat_critical';
+  var _wc = g.worldClocks || {};
+  if ((_wc.pressure || 0) >= 5) return 'pressure_high';
+  if ((_wc.rival || 0) >= 3) return 'rival_active';
+  var _ot = g.recentOutcomeType || '';
+  if (_ot === 'complication' || _ot === 'fumble') return 'complication';
+  if (_ot === 'success' || _ot === 'crit') return 'success';
+  return 'neutral';
+}
+
+function buildLivingDesc(locId, g) {
+  var _el = document.querySelector('.env-desc');
+  if (!_el) return;
+  var _ot = g.recentOutcomeType || '';
+  var _vIdx = (!_ot || _ot === 'neutral' || _ot === 'partial') ? 0
+    : (_ot === 'success' || _ot === 'crit') ? 1 : 2;
+  var _anchor = (window.LIVING_VARIANTS && window.LIVING_VARIANTS[locId] && window.LIVING_VARIANTS[locId][_vIdx])
+    || (window.LOCALITY_ANCHORS && window.LOCALITY_ANCHORS[locId])
+    || (window.LOCALITY_NARRATIONS && window.LOCALITY_NARRATIONS[locId] ? window.LOCALITY_NARRATIONS[locId].split('. ')[0] : '')
+    || '';
+  var _stage = g.stage || 1;
+  var _tier = _stage <= 1 ? 's1' : 's2';
+  var _key = priorityKey(g);
+  var _suffixes = window.STATE_SUFFIXES && window.STATE_SUFFIXES[_tier] && window.STATE_SUFFIXES[_tier][_key];
+  var _suffix = _suffixes ? _suffixes[(g.dayCount || 0) % 4] : '';
+  var _echoHtml = '';
+  var _echo = g.narrationEcho || '';
+  if (_echo && (_ot === 'success' || _ot === 'complication' || _ot === 'crit' || _ot === 'fumble')) {
+    _echoHtml = '<span class="env-echo">' + _echo.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
+  }
+  _el.innerHTML = _echoHtml + _anchor + (_suffix ? ' ' + _suffix : '');
+}
+
+function scheduleLivingDescUpdate() {
+  var _anyOverlay = document.querySelector('.overlay');
+  if (_anyOverlay && _anyOverlay.style && _anyOverlay.style.display !== 'none') return;
+  if (G._narrationFading) return;
+  G._narrationFading = true;
+  var _el = document.querySelector('.env-desc');
+  if (!_el) { G._narrationFading = false; return; }
+  _el.style.opacity = '0';
+  setTimeout(function() {
+    buildLivingDesc(G.location, G);
+    _el.style.opacity = '1';
+    G._narrationFading = false;
+    G.narrationEcho = null;
+  }, 150);
+}
+
 function updateEnvironmentPanel() {
   // Support LOCALITY_MATRIX districts + Nomdara; fallback to WORLD_LOCATIONS
   const lm = window.LOCALITY_MATRIX || {};
@@ -10104,7 +10169,7 @@ function updateEnvironmentPanel() {
   el.innerHTML =
     '<div class="env-location">' + locationLabel + '</div>' +
     '<div class="env-region">' + regionLabel + (regionSecond ? '<br><span style="font-size:11px;color:var(--ink-faint)">' + regionSecond + '</span>' : '') + '</div>' +
-    '<div class="env-desc">' + buildEnvPanelText() + '</div>' +
+    '<div class="env-desc"></div>' +
     '<div class="env-status">' +
       '<span class="env-pill">' + timeStr + ' &middot; Day ' + (G.dayCount||1) + '</span>' +
       '<span class="env-pill' + (G.axisInverted ? ' inverted' : '') + '">' + axisStr + '</span>' +
@@ -10113,6 +10178,7 @@ function updateEnvironmentPanel() {
       (G.trainingDisadvantage > 0 ? '<span class="env-pill warn">Training fatigue (' + G.trainingDisadvantage + ')</span>' : '') +
       (weatherSev >= 3 ? '<span class="env-pill warn">' + (weatherSev >= 4 ? 'Severe' : 'Rough') + ' Weather</span>' : '') +
     '</div>';
+  buildLivingDesc(G.location, G);
 
   const locBtns = document.getElementById('local-locations');
   if (locBtns) {
@@ -10285,11 +10351,21 @@ function adaptEnrichedChoice(c) {
           _display += '<br><em style="color:var(--ink-faint);font-size:13px">The trail here has been worked recently.</em>';
         }
         addNarration('', _display, _outcomeType);
+        G.narrationUpdateCounter = (G.narrationUpdateCounter || 0) + 1;
+        if (_outcomeType === 'success' || _outcomeType === 'complication' || _outcomeType === 'crit' || _outcomeType === 'fumble' || G.narrationUpdateCounter >= 3) {
+          G.narrationUpdateCounter = 0;
+          scheduleLivingDescUpdate();
+        }
       }
       // Soreheim plot currency: increment on enriched choice execution in Soreheim territory
       const _soreLocs = ['soreheim','sunspire'];
       if (_soreLocs.indexOf(G.location) !== -1) {
         G.sorePlotCredits = Math.min(30, (G.sorePlotCredits || 0) + 1);
+      }
+      var _outcomeForEcho = (typeof _outcomeType !== 'undefined') ? _outcomeType : (G.recentOutcomeType || '');
+      if (G.lastResult && (_outcomeForEcho === 'success' || _outcomeForEcho === 'complication' || _outcomeForEcho === 'crit')) {
+        var _rawEcho = ('' + G.lastResult).replace(/<[^>]+>/g, '');
+        G.narrationEcho = _rawEcho.split('. ')[0] || '';
       }
       G.lastResult = null;
       G.lastResultType = null;
@@ -15029,6 +15105,7 @@ function loadFromSlot(slotKey) {
     if (!d || typeof d !== 'object') { showToast('Save format invalid.'); return false; }
     d = migrateState(d);
     Object.assign(G, getDefaultG(), d);
+    G._narrationFading = false;
     if (!G.runId) G.runId = _generateUUID();
     if (!G.caseCode) G.caseCode = _makeCaseCode(G.runId);
     G.lastUsedSlot = slotKey;
@@ -15461,6 +15538,7 @@ function showHowToPlay() {
 <script src="content/sideplots/guildheart_union_testimony_gap.js"></script>
 <!-- ── SCENE MODULES ── -->
 <script src='content/locality_narrations.js'></script>
+<script src="content/living_narration.js"></script>
 <script src='content/locality_arrival_narrations.js'></script>
 <script src='content/npc_lookup.js'></script>
 <script src='content/scope_reveal.js'></script>
@@ -15512,6 +15590,7 @@ function showHowToPlay() {
     if (typeof addNarration === 'function') {
       addNarration(loc.name, '<strong>' + loc.name + '</strong>.' + (loc.desc ? ' ' + loc.desc : ''));
     }
+    if (typeof buildLivingDesc === 'function') buildLivingDesc(G.location, G);
     if (typeof maybeFireArrivalScene === 'function') maybeFireArrivalScene(locId);
     G.history.push('Traveled to ' + loc.name + '.');
     if (typeof saveGame === 'function') saveGame();
