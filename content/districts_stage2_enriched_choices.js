@@ -732,6 +732,203 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The dome terminal's intake ledger records every container by volume — three entries list the same routing code twice.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'cross-checking dome terminal intake ledger for duplicate routing codes');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_dome_ledger_dupes = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The intake ledger at the dome terminal's freight counter runs three columns: routing code, declared volume, and intake clerk initials. Three entries carry the same routing code as a load processed the previous week. The declared volumes differ by exactly the weight of a standard sealed container rack. The clerk initials on the duplicate entries are the same — a single character pressed hard enough to leave an impression on the page below. Two loads moved through this terminal under a single routing code, on different days, by the same hand. The second load does not appear in the outgoing transit log at all.`;
+        addJournal('Dome terminal intake ledger: duplicate routing codes on 3 entries — second load unlogged in transit out, same clerk initials', 'evidence', `dist-dome-ledger-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The freight counter's intake ledger is kept behind the counter, not on the public shelf. The terminal supervisor appears before the question is half-formed — he was notified by the dock hand near the main gate, who noticed the angle of attention before it was conscious. The ledger goes under the counter. A routing inquiry form is produced instead: fill it in, submit it, expect a response within ten working days. The form has no address for the response to reach.`;
+        addJournal('Dome terminal freight ledger access blocked — supervisor notification flagged inquiry', 'complication', `dist-dome-ledger-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_dome_ledger_dupes = true;
+        G.investigationProgress++;
+        G.lastResult = `The visible section of the ledger — open on the counter for active intake — shows two entries sharing a routing code from five days apart. The clerk behind the counter pauses when the duplication is pointed out, then runs her finger along the row without committing to an explanation. "Transit code recycling. It happens." The declared volumes on both entries are different, which is not consistent with recycled codes. She closes the ledger before the third column can be read.`;
+        addJournal('Dome terminal: duplicate routing codes visible in open ledger, clerk deflected volume discrepancy', 'intelligence', `dist-dome-ledger-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The district Warden faction is split — the junior officers resent the patrol re-routing orders they were never given a reason for.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'working a rift in the Warden junior officer cohort over unexplained patrol orders');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_warden_faction_split = true;
+        G.flags.stage2_faction_wardens = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The junior Warden — Ostet Prule, two years into his posting, still carrying the posture of someone who expected the work to make more sense by now — names his patrol supervisor and the specific authorization code that grounded three watch rotations. He memorized it because it cost him a citation for missing his beat. The code is a Reckoning Quarter magistrate's block, which has no standing to re-route district watch assignments. Ostet knows that. He filed a protocol complaint. The complaint was resolved the same day with a note that read: "authorized through executive provision." He kept the note. He produces it.`;
+        addJournal('Warden Ostet Prule: supervisor re-routing code traced to Reckoning Quarter magistrate block — executive provision override note secured', 'evidence', `dist-warden-split-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The junior Warden's expression closes off mid-sentence — not hostile, just the practiced stillness of someone who has learned to recognize a conversation that could land in a report. He straightens the front of his coat and uses the phrase Wardens use when they need to end something without admitting it: "That's an internal matter." The meeting is over. Somewhere in the watch station's notation log, this visit is being recorded by the duty officer who has been watching from the far corridor.`;
+        addJournal('Warden junior officer contact: internal matter deflection, watch notation recorded', 'complication', `dist-warden-split-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_warden_faction_split = true;
+        G.investigationProgress++;
+        G.lastResult = `The junior Warden confirms the re-routing orders without producing documentation — he doesn't have it, and he's not sure his supervisor does either. "The code came through the administrative channel, not the watch channel. That's not standard." He says it carefully, the way someone chooses words when they expect the conversation to be reported. The re-routing on those specific nights pulled three watch rotations off the low ward boundary simultaneously. He notices the coincidence. He hasn't officially noticed it.`;
+        addJournal('Warden junior officer: three simultaneous low ward patrol re-routes confirmed via non-standard admin channel', 'intelligence', `dist-warden-split-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The civic hall night archivist works without witnesses — she has seen what gets filed after hours and what gets pulled before morning.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'approaching the civic hall night archivist for off-hours filing intelligence');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_night_archivist_turned = true;
+        G.investigationProgress++;
+        G.lastResult = `The night archivist — she gives a surname only, Weth — sets her lamp on the shelf above the cart she's sorting and keeps her voice at a level designed for empty corridors. Three times in the past two months, items have been filed after the day office closed and removed before it opened. She knows because she logs everything that comes in on the night shift, and three of those logs have been cut from the binding. She kept copies. The copies are folded into the spine of a reference volume she shelved four days ago, third shelf from the left in the eastern annex. She will not retrieve them herself. She tells you where they are.`;
+        addJournal('Night archivist Weth: three after-hours filings removed before morning, log pages excised — copies hidden in eastern annex reference volume', 'evidence', `dist-night-arch-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The civic hall's night entrance is a narrow door at the east end of the building, staffed by a single duty clerk whose job is to receive documents, not conversation. The archivist is not available for informal questions during night operations — those are the duty clerk's words, recited at the pace of a notice board posting. The night visit is logged in the entry book by time, by appearance description, and by purpose declared. The purpose declared and the actual purpose are not identical. The log entry is already made.`;
+        addJournal('Civic hall night entrance: archivist unavailable, visit logged with appearance description', 'complication', `dist-night-arch-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_night_archivist_turned = true;
+        G.investigationProgress++;
+        G.lastResult = `Weth doesn't stop sorting while she speaks. She uses the same flat tone for the information as for the call numbers she reads aloud to herself as she works. Something gets filed after hours once a week on average — routine enough. What isn't routine: three nights when the morning opening log showed fewer items than her intake record. The difference was small, two or three documents each time. She filed a discrepancy note. It was acknowledged and closed without any notation of what had been removed.`;
+        addJournal('Civic hall night archivist: three after-hours document removals logged, discrepancy notes closed without explanation', 'intelligence', `dist-night-arch-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "An Ithtananalor trading post ledger shows the ghost entity accepting commodity receipts it has no warehouse to hold.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing ghost entity commodity receipts in Ithtananalor trading post ledger');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_ghost_commodity_receipts = true;
+        G.investigationProgress++;
+        G.lastResult = `The trading post ledger lists the Northern Provision Compact as the accepting party for four commodity receipts over six months — grain, dried stores, one consignment of sealed chemical transport canisters. Every commodity receipt requires a warehouse registration number. The Compact's number does not match any warehouse registered with the port authority, the Iron Ledger Ward records office, or the Ithtananalor civic goods registry. The canisters receipt is stamped with a weight that corresponds exactly to the shadow manifest loads found at the transit weight station. The Compact accepted and moved them through a storage address that does not exist.`;
+        addJournal('Ithtananalor trading post: Northern Provision Compact commodity receipts on unregistered warehouse — canister weight matches transit weight station shadow manifests', 'evidence', `dist-trading-post-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The trading post factor — a careful man who keeps his ledgers in a locked cabinet behind his chair rather than the open shelf — listens to the framing of the question and reads something in it that closes him off completely. He runs a bonded post and every transaction in his ledger is already accessible through the Iron Ledger Ward commercial registry. He suggests starting there. He says it pleasantly. The cabinet does not open.`;
+        addJournal('Ithtananalor trading post factor: directed to commercial registry, ledger access refused', 'complication', `dist-trading-post-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_ghost_commodity_receipts = true;
+        G.investigationProgress++;
+        G.lastResult = `The open ledger section — visible to registered traders — shows the Northern Provision Compact accepting three commodity receipts in the past six months. The factor confirms the entity's warehouse registration number without looking it up: he had to look it up the first time because it didn't appear in his standard reference. He found it eventually in a provisional registry extension that hadn't been rolled into the main file. He thought that was administrative lag. Provisional extensions expire after ninety days. These receipts are older than that.`;
+        addJournal('Ithtananalor trading post: ghost entity warehouse in expired provisional registry, three receipts confirmed', 'intelligence', `dist-trading-post-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The healer collective's apothecary supplier kept delivery records — the supply volumes tell a different story than the treatment logs.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'cross-referencing apothecary supply volumes against Verdant Row treatment logs');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_apothecary_supply_gap = true;
+        G.investigationProgress++;
+        G.lastResult = `The apothecary supplier's delivery record for the past eight months shows two distinct purchasing patterns arriving at the healer collective: the collective's standard restocking orders — documented, variable, consistent with patient load — and a separate monthly delivery of two items, fixed quantity, not correlated with any treatment spike. The second delivery is billed to a collective sub-account that the senior healer doesn't appear in the signed authorization ledger for. Someone opened a sub-account in the collective's name and has been running a monthly compound delivery through it. The supplier confirms the sub-account was opened with a collective seal impression.`;
+        addJournal('Apothecary supplier: unauthorized sub-account under collective seal — monthly fixed-quantity deliveries, not linked to patient caseload', 'evidence', `dist-apothecary-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The apothecary supplier is a private business and his client records are not public. He says this without apology, setting his pen down and folding his hands over his order book. He has a relationship with the healer collective and he values it enough not to have outside parties reviewing their purchasing history. The refusal is businesslike. Before the day ends, the collective's senior healer will likely hear that someone came asking about the supply account. That conversation will be uncomfortable in ways that close other doors.`;
+        addJournal('Apothecary supplier: client records refused, likely notification to collective', 'complication', `dist-apothecary-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_apothecary_supply_gap = true;
+        G.investigationProgress++;
+        G.lastResult = `The apothecary supplier pages through his delivery ledger and stops at two consecutive entries, eight months apart, both marked with a sub-account code he points to but does not read aloud. "Same quantity each month. Not tied to any treatment run I was told about." He closes the ledger to the spine before the account code resolves. He won't confirm the account name, but he counts the deliveries on his fingers: eight. Eight months of fixed-quantity deliveries to a sub-account he was told was for research restocking. Research restocking is variable. This was not.`;
+        addJournal('Apothecary: 8 months of fixed-quantity sub-account deliveries to collective, described as research restocking', 'intelligence', `dist-apothecary-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A disgraced courier route supervisor was removed after filing a manifest discrepancy report — he kept a copy of what he found.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating the disgraced courier supervisor and his discrepancy report copy');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_courier_supervisor_turned = true;
+        G.investigationProgress++;
+        G.lastResult = `Harvan Coss finds you before you finish looking — he has been in the ward long enough to hear when someone else is asking about the courier route. He produces the copy from an oilskin sleeve inside his coat without being asked. The manifest discrepancy report documents three loads that were logged as delivered to addresses that, when he checked, did not accept deliveries on those dates. The receiving signatures on two of them are in the same hand. His original report was filed with the route supervisor's office. His termination notice arrived four days later, citing poor performance. The copy of his termination notice is also in the oilskin sleeve.`;
+        addJournal('Courier supervisor Harvan Coss: discrepancy report on 3 undelivered loads, forged receiving signatures — terminated 4 days after filing, copy secured', 'evidence', `dist-courier-sup-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The courier route supervisor's former address in the low ward is a room above a laundry, currently occupied by a different tenant who moved in six weeks ago. The laundry owner below confirms Harvan Coss left the ward but does not know where. He left quickly and did not say goodbye. Two men came the day before he left; they waited outside the building for two hours and then left when he didn't come back. He took everything with him that fit in a single satchel and has not been seen since.`;
+        addJournal('Courier supervisor Harvan Coss: left ward suddenly 6 weeks ago after surveillance, location unknown', 'complication', `dist-courier-sup-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_courier_supervisor_turned = true;
+        G.investigationProgress++;
+        G.lastResult = `Harvan Coss is still in the ward and confirms the meeting, though he names a time and a place that requires a two-hour wait. When he arrives he keeps his coat on and his back to a wall. He describes the discrepancy: loads logged as delivered to addresses he physically visited afterward — none of them showed a receiving record, one of them was a vacant commercial unit. He does not have the copy with him. He confirms it exists and that he is not ready to hand it to anyone he hasn't had time to assess. He'll meet again in two days.`;
+        addJournal('Harvan Coss: confirmed discrepancies on 3 courier loads, copy of report exists — second meeting in 2 days', 'intelligence', `dist-courier-sup-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Aurora Heights estate solicitor mentioned the charter holder family once — she chose not to finish the sentence.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'pressing the Aurora Heights estate solicitor on her incomplete statement about the charter holder family');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dist_solicitor_second_pass = true;
+        G.investigationProgress++;
+        G.lastResult = `The solicitor — Mave Orren, independent adviser, works from a room in the Pale Annex of Aurora Heights — sets her pen down the moment the unfinished sentence is mentioned. She remembers it. "I stopped because the name was sufficient and anything further would have been assessment." She completes it now: the dissolved house held the charter through a surviving son who was formally adjudicated incompetent seven years ago. Legal incompetence means the charter transferred to a court-appointed administrator. No public record names the administrator. She filed a query to the estate registry three years ago and received a sealed response citing administrative confidentiality. She kept the letter.`;
+        addJournal('Aurora Heights solicitor Mave Orren: dissolved house charter held by incompetency-adjudicated heir, court administrator unnamed — sealed registry response confirmed', 'evidence', `dist-solicitor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Mave Orren is not available — her door is answered by a junior clerk who takes the name and the request and closes the door while writing it down. Within the hour, a message arrives at the counter of wherever the day was spent: professional obligations prevent further discussion of matters related to that area of inquiry. The phrasing is precise and attorney-registered. Whatever Orren is protecting by not finishing that sentence, she has now formally protected it.`;
+        addJournal('Aurora Heights solicitor: formal professional non-contact notice issued', 'complication', `dist-solicitor-fail-${G.dayCount}`);
+      } else {
+        G.flags.dist_solicitor_second_pass = true;
+        G.investigationProgress++;
+        G.lastResult = `Mave Orren agrees to the meeting and sits across from you with her hands flat on her own file. She will confirm what is already a matter of public record: the house that held the charter was dissolved, and dissolution does not automatically extinguish a registered legal charter. The charter transferred. To whom is sealed. She did not finish the sentence the first time because finishing it would have been an opinion, and she operates in facts. The sealed transfer is a fact. The identity of the receiving party is, technically, also a fact — just not one she has access to.`;
+        addJournal('Aurora Heights solicitor: charter transfer confirmed on dissolution, receiving party sealed — solicitor has no access', 'intelligence', `dist-solicitor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Low ward's labor underground — workers who handled off-books cargo for extra pay know more than they told their handlers.",
     tags: ['Combat', 'Stealth', 'Stage2'],
     xpReward: 58,
