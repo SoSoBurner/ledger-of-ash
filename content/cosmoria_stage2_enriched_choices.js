@@ -375,6 +375,245 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The harbor pilot licensing board keeps approach charts for every registered vessel — Pallmark Reach has one.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing Pallmark Reach approach chart in harbor pilot licensing board records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.pallmark_pilot_chart_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The approach chart filed for the Pallmark Reach lists a pilot certification dated three months before the vessel's original commissioning date — the chart was registered before the ship existed. The licensing board clerk sets both documents side by side without being asked and reads the dates twice. The certifying pilot's name has not appeared on any active licensing roll for eleven years. Someone backdated the chart using an expired certification that no longer had a living holder to contradict it.`;
+        addJournal('Pallmark Reach pilot chart predates vessel commissioning — certifying pilot license expired 11 years prior, holder untraceable', 'evidence', `cos-pilotchart-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The licensing board's intake desk requires a vessel owner authorization or a Harbor Captain countersignature before releasing approach charts for review. The clerk produces the authorization form before the request is complete — a pre-positioned reflex. Marrow Tideglass's administrative office receives the countersignature request within the hour. The inquiry is now cross-referenced between two offices and logged in both.`;
+        addJournal('Pilot chart access blocked — Harbor Captain countersignature requested, cross-logged', 'complication', `cos-pilotchart-fail-${G.dayCount}`);
+      } else {
+        G.flags.pallmark_pilot_chart_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The approach chart is in the board's archive without any access restriction — approach charts are not flagged as sensitive records. The Pallmark Reach chart lists a certifying pilot and a certification date. The clerk checks the active licensing roll without being asked. "That name isn't on the current roll." He pulls the lapsed roll for the relevant year. The name is there, marked inactive. Inactive certifications can't authorize new approach charts. This one did.`;
+        addJournal('Pallmark Reach approach chart certified by lapsed pilot license — inactive on board roll at time of filing', 'intelligence', `cos-pilotchart-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The cargo insurance broker on Quay Row underwrites every sealed container shipment — the policy holder is not a shipping company.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'pressing cargo insurance broker on sealed container policy holder identity');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.cargo_insurer_policy_holder_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The broker opens the policy file with the manner of someone who has been waiting for permission to open it. The policy holder for every sealed container in the past eight months is a single registered entity: the Cosmouth Administrative Continuity Trust — a semi-public body with no trade function, no public address, and no licensing requirement under current maritime law. The Trust doesn't ship cargo. It holds insurance on cargo it has no legal relationship to. The premium payments route through a Shelkopolis-domiciled accounts office. The broker has flagged the account three times internally. None of the flags were escalated.`;
+        addJournal('Sealed container insurance held by Cosmouth Administrative Continuity Trust — non-trading entity, 3 internal flags unescalated, premiums from Shelkopolis accounts', 'evidence', `cos-insurer-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The broker listens politely and then explains that policy holder details are commercially privileged. "That's not a Cosmoria Harbor Authority category. That's private commercial law." He is correct. He is also visibly relieved to be correct. His hands rest flat on the desk and stay there while he explains, which is a posture that takes effort. The conversation ends without anything useful and with the broker's name now on a list of people who were asked.`;
+        addJournal('Cargo insurer declined to disclose policy holder — commercial privilege cited', 'complication', `cos-insurer-fail-${G.dayCount}`);
+      } else {
+        G.flags.cargo_insurer_policy_holder_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The broker confirms the policy holder is a registered administrative entity rather than a shipping company or private merchant — unusual for cargo insurance, which typically names the shipper directly. He does not give the entity's name without further prompting, but he opens the filing index to show that all eight months of sealed container policies fall under a single policy number. One account, one holder, eight months of coverage. The premiums have never lapsed.`;
+        addJournal('All sealed container policies under single account — administrative entity holder, continuous premiums over 8 months', 'intelligence', `cos-insurer-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The quayside labor guild keeps a roster of every stevedore who worked the night platform — the same crew, every time.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'cross-referencing quayside labor guild night platform crew rosters');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.night_platform_crew_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The guild roster for night platform assignments reads like a rotation schedule — normally the crew list varies week to week as members cycle through shifts. For every sealed container departure over eight months, the same six names appear. The guild payroll clerk shows the overtime records without being asked: the six are paid at standard rate, not night-shift premium. That rate requires a special exemption signed by the Harbor Captain's administrative office. The exemption paperwork is missing from the file. Someone removed it after the payroll was processed.`;
+        addJournal('Night platform crew: same 6 members for every sealed departure — night premium waived, exemption paperwork removed from guild payroll file', 'evidence', `cos-laborguild-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The guild hall's intake desk serves members first. Non-members requesting roster records require a labor dispute filing or a formal Harbor Authority referral. Neither applies here. The clerk writes down the name and purpose in a contact log that sits open on the desk — visible, deliberate. One of the stevedores on the floor near the far wall has stopped coiling rope and is watching the desk. He finishes the knot without looking at his hands.`;
+        addJournal('Labor guild roster access denied — non-member inquiry logged, dock worker observation noted', 'complication', `cos-laborguild-fail-${G.dayCount}`);
+      } else {
+        G.flags.night_platform_crew_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The night platform roster for sealed container departures shows a pattern in the crew assignments — the same names cluster around those dates. The payroll clerk notices it when the dates are laid out in sequence. "That's a lot of voluntary night shifts for the same group. Most members rotate away from nights after a few months." The crew members are all in good standing with the guild. None have filed complaints. None have requested assignment changes.`;
+        addJournal('Same night platform crew assigned to all sealed container departures — no complaints or transfer requests filed', 'intelligence', `cos-laborguild-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The customs bond broker holds surety for every waived sealed container — the bond has never been called.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'reviewing customs bond records for sealed container surety with bond broker');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.customs_bond_surety_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The bond record covers every sealed container shipped under the trade exemption waiver. Forty-one bonds, eight months, all issued against the same surety account — and none have been called, which means no container has ever triggered a customs enforcement action. The bond holder is the same Cosmouth Administrative Continuity Trust that holds the cargo insurance. One entity on both sides of every transaction: it insures the cargo and posts surety against its own customs risk. The broker's face goes still when this is pointed out. He reads both documents again, side by side, before he says anything.`;
+        addJournal('Customs bonds for all 41 sealed containers held by same entity as cargo insurance — Cosmouth Administrative Continuity Trust self-bonding own shipments', 'evidence', `cos-bond-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Customs bond records are available for public audit in principle — the bond register is a public instrument. In practice the bond register is administered by a Cosmouth regional trade office, and accessing records from a Cosmoria intermediary requires a written referral. The broker explains this clearly, in language that suggests he has explained it to people with sharper questions than this one before. The referral form is two pages and asks for institutional affiliation. The blank field for institutional affiliation is the one that ends this conversation.`;
+        addJournal('Customs bond register access requires Cosmouth trade office referral — institutional affiliation blank blocks inquiry', 'complication', `cos-bond-fail-${G.dayCount}`);
+      } else {
+        G.flags.customs_bond_surety_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The broker confirms the bond record without difficulty — customs bonds are public instruments. Forty-one bonds, all against sealed containers, all against the same surety account. "No calls in eight months is unusual. Most shipments under the trade exemption category generate at least one customs query." He runs his finger down the enforcement column. It is empty. A bond that is never called means either the cargo was legitimate or the enforcement mechanism was already managed before the cargo crossed the dock.`;
+        addJournal('41 sealed container bonds with zero enforcement calls — same surety account, enforcement column blank across 8 months', 'intelligence', `cos-bond-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The airship company's route ledger at the Cosmoria station office has a departure category that does not appear in the public tariff schedule.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing airship company route ledger for unlisted departure categories');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.airship_unlisted_category_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The station office ledger uses seven cargo categories. The public tariff schedule published at the Harbor Authority intake desk lists six. The seventh — "Administrative Transit, Category T" — does not appear in any public document. Category T departures carry a flat rate that is three times the highest standard cargo tier. They are logged in the route ledger but do not generate a receipt in the standard ticketing series. The station manager locates the Category T entries for the past eight months without assistance: seventeen departures, all night airship, all listed with a Shelkopolis administrative address as the receiving destination.`;
+        addJournal('Airship route ledger: Category T — unlisted in public tariff, 3x standard rate, no ticketing receipts, 17 night departures to Shelkopolis admin address', 'evidence', `cos-airshipcat-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The station office keeps its route ledger in an internal operations category — available to contracted cargo agents but not open to general inquiry. The station clerk checks the counter register for an active agency credential before pulling anything from the ledger shelf. There is no agency credential. The counter register gets a notation: inquiry type, date, physical description in four words. The ledger stays on the shelf and the station door has a bell on it that sounds when it opens or closes.`;
+        addJournal('Airship station route ledger access denied — agency credential required, inquiry noted in counter register', 'complication', `cos-airshipcat-fail-${G.dayCount}`);
+      } else {
+        G.flags.airship_unlisted_category_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The station manager allows a review of the departure ledger — it is technically an operational document, not a restricted one. The cargo categories visible in the ledger include one labeled Category T that does not match anything on the public tariff schedule posted at the counter. "That's an administrative billing category," the manager says. He does not explain further. The Category T entries appear seventeen times over eight months, clustered around night departures.`;
+        addJournal('Airship station ledger contains Category T — absent from public tariff schedule, 17 appearances on night departures', 'intelligence', `cos-airshipcat-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The harbor weighmaster's log records cargo weight at intake — the sealed containers are logged at zero.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'reviewing harbor weighmaster intake log for sealed container weight entries');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.weighmaster_zero_entries_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The weighmaster pulls the intake log from a peg on the wall above his scale — it hangs there, open to the current month. Every cargo arrival gets a weight in stone, recorded in the weighmaster's hand. The sealed containers are logged at zero. Not estimated, not flagged as unweighed — zero, in a column that cannot legally read zero for physical goods. The weighmaster's initials appear next to each zero entry. He reads the entries without speaking for a long moment, then turns the log around to face you. He has been initialing zeroes for eight months. He did not refuse because he does not know what was in the containers, and zero seemed safer than asking.`;
+        addJournal('Harbor weighmaster log: sealed containers entered at zero weight for 8 months — weighmaster initialed entries without weighing, chose zero over inquiry', 'evidence', `cos-weighmaster-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The weighmaster's intake area is active staging during pre-departure hours — a foreman redirects before the log is reached. The foreman is the same one who manages the night platform, and he uses the same patient, practiced tone to explain why this area is not accessible. He notes the time in the pocket ledger clipped to his belt without breaking eye contact. The note takes three seconds. He writes quickly.`;
+        addJournal('Weighmaster area blocked during pre-departure — same night foreman, time logged in pocket ledger', 'complication', `cos-weighmaster-fail-${G.dayCount}`);
+      } else {
+        G.flags.weighmaster_zero_entries_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The weighmaster shows the intake log without being asked twice. The sealed container entries stand out immediately: the weight column reads zero where every other entry carries a figure in stone. "Trade exemption category C — waiver says no secondary inspection. I logged them through." He points to the waiver authorization notation beside each zero. The notation is correct procedure. The zero weight is not. Cargo passing through a harbor station cannot legally weigh nothing.`;
+        addJournal('Weighmaster log: sealed containers logged at zero weight per waiver — weight zero notation not legally valid for physical goods', 'intelligence', `cos-weighmaster-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The warehouse night watchman has been signing the same shift log for eight months — the entries are not in his hand.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'examining warehouse night watchman shift log for signature irregularities');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.warehouse_watchman_log_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The watchman is not difficult to find — he is sitting at his post at the bonded warehouse entrance, shift log open on the table in front of him. When the log is laid flat and compared page to page, the signature on the sealed container arrival nights is a convincing forgery of his name but does not match the hand he uses to sign every other shift. He looks at both signatures for a long moment without speaking. "I was told my logs would be administered on those nights." He does not say who told him. His hands are steady. He has been waiting to say this to someone who was not his employer.`;
+        addJournal('Warehouse watchman shift log: arrival nights signed in different hand — watchman confirms logs were "administered" on those nights by unnamed party', 'evidence', `cos-watchman-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The bonded warehouse entrance has two people at it during daylight hours and the watchman is not one of them. A warehouse administrator in a guild-marked coat asks for business purpose before allowing past the gate. The purpose given does not match any of the categories on the visitor register form she produces. She fills in the date and a physical description while explaining that non-bonded visitors require a cargo agent escort. The form goes into a tray that is not the standard log.`;
+        addJournal('Bonded warehouse access denied — non-bonded visitor form completed by administrator, description recorded', 'complication', `cos-watchman-fail-${G.dayCount}`);
+      } else {
+        G.flags.warehouse_watchman_log_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The shift log covers fourteen months at the bonded warehouse. Compared across the full run, the signature on a specific cluster of nights — every night a sealed container arrived — is slightly different in the lowercase letters from the watchman's standard hand. Not dramatically different. Different enough that looking for it finds it. The watchman, when shown the comparison, closes the log carefully and says the shift records are administered by the warehouse manager and he signs what is given to him to sign.`;
+        addJournal('Warehouse shift log signatures inconsistent on sealed container arrival nights — watchman states records administered by warehouse manager', 'intelligence', `cos-watchman-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dock factor who coordinates cargo transfers between sea vessels and airship manifests keeps a correspondence ledger — one agent's letters always arrive sealed with wax, not paper tape.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'reviewing dock factor correspondence ledger for sealed-wax agent letters');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dock_factor_wax_seal_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The dock factor keeps a correspondence ledger as a professional habit — incoming letters logged by sender, date, and method of seal, because seal method indicates the sender's expectation of confidentiality. One agent has sent forty-one letters over eight months, all sealed with wax rather than paper tape, all arriving two to three days before a sealed container departure. The factor opens the last three letters in the file — he kept them, which is unusual; most correspondence gets returned or destroyed after action. The return address on each letter is a Shelkopolis administrative post box registered to the Cosmouth Administrative Continuity Trust.`;
+        addJournal('Dock factor ledger: 41 wax-sealed letters from agent, all pre-dating sealed departures — return address: Cosmouth Administrative Continuity Trust, Shelkopolis post box', 'evidence', `cos-dockfactor-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The dock factor listens to the question and then picks up the correspondence ledger and moves it to the shelf behind him before he answers. "Correspondence between a factor and their clients is privileged to the same degree as legal correspondence under the Maritime Trade Code." He says this like someone reading from a document he has memorized in advance. The ledger goes spine-out on the shelf. He keeps his hand near it while he talks.`;
+        addJournal('Dock factor refused correspondence ledger access — Maritime Trade Code privilege cited', 'complication', `cos-dockfactor-fail-${G.dayCount}`);
+      } else {
+        G.flags.dock_factor_wax_seal_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The dock factor shows the correspondence ledger without strong objection — the ledger records method of seal as a professional notation, not content. One agent's entries stand out immediately: forty-one letters, all wax-sealed, spanning eight months. "Wax seal means they expect it not to be opened in transit," the factor says. "Paper tape means they don't much care either way." He notes the dates without being asked. Every wax-sealed letter precedes a sealed container departure by two to three days.`;
+        addJournal('Dock factor correspondence: 41 wax-sealed letters from single agent, each 2-3 days before sealed container departure', 'intelligence', `cos-dockfactor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Cosmoria finale — the maritime transit laundering route and tidal surge mechanics are confirmed. Report to House Cosmouth authority or expose through the airship network.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
