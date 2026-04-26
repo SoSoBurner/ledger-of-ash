@@ -222,6 +222,148 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The provisional registration for the mystery broker renews monthly — the clerks processing it don't read the attached rider.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing monthly provisional registration renewal at Guildheart Hub');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_provisional_reg_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The registration clerk responsible for the monthly renewals has a rotation schedule pinned above her desk. The mystery broker's renewal always arrives the first working day of the month — typed, pre-stamped with a Shelkopolis notary cipher, and accompanied by a single page rider that the renewal form doesn't require. She's been setting the rider in the supplementary file without reading it. When she opens the file now and reads it, her posture changes. The rider waives liability for any goods transiting under the registration's charter umbrella. Every charter-exempt load moved through this registration without the Hub assuming freight liability. Someone wrote that exemption two years ago and has been renewing it silently ever since.`;
+        addJournal('Provisional registration rider: blanket freight liability waiver on charter-exempt cargo — 2 years of silent renewal', 'evidence', `guild-provreg-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The registration counter is staffed by a duty clerk who handles walk-up inquiries. Provisional registration records are administrative — they route through a separate access tier that requires a Guild Review Board credential or a filed data-access petition with a seven-day window. The duty clerk takes a copy of the petition form from the rack and sets it on the counter. The form's reference number is different from the standard series posted on the wall. Someone reprinted the forms recently.`;
+        addJournal('Provisional registration access blocked — petition form numbering inconsistent with wall reference series', 'complication', `guild-provreg-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_provisional_reg_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The registration renewal is confirmed as monthly, same clerk, same arrival day. "I process what comes in. Riders go in the supplementary file." She pulls the supplementary file. The rider is one page — dense legalese. She reads the first clause and stops. "This exempts the registrant from freight liability under charter umbrella coverage." A pause. "Standard registrations don't carry charter umbrella coverage at all."`;
+        addJournal('Provisional registration rider exempts registrant from freight liability — non-standard charter umbrella coverage', 'intelligence', `guild-provreg-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Shelk notary cipher on the renewal rider should match an active notarial seal — it doesn't.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'cross-referencing Shelk notary cipher against active seal registry');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_notary_cipher_exposed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The Guildheart Hub keeps a bound register of active cross-polity notarial seals for document verification. The Shelk cipher on the registration rider is number four digits short of the current active sequence — it predates the Shelkopolis Notarial Reform by three years. The notary whose name it carries died before the reform. Every monthly renewal for two years has been authenticated with a dead man's seal. The document is technically valid under a pre-reform window that Guildheart Hub never formally closed. Someone knew that window existed and has been feeding documents through it. The register clerk marks the entry in red and does not look up.`;
+        addJournal('Shelk notary cipher is pre-reform dead-notary seal — valid only through unclosed Guildheart procedural window', 'evidence', `guild-notary-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Cross-polity seal verification requires a formal authentication request routed through the Shelkopolis Consular Bureau at Guildheart Hub. The request window is open Tuesday and Thursday mornings. The duty clerk takes the inquiry and logs the date and time. The Consular Bureau log is shared with the Shelk Roadwarden coordination desk. Asking this question officially is putting the question where the Roadwarden captain Nyra described can see it.`;
+        addJournal('Notary seal verification request logged — Shelk Consular Bureau shares log with Roadwarden coordination desk', 'complication', `guild-notary-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_notary_cipher_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `The active seal register goes back six years. The cipher on the rider isn't in it. "Pre-reform seals aren't in this register — they're in the legacy index, back cabinet." The legacy index is found after ten minutes of searching. The cipher matches a notary who retired before the reform. The entry is marked INACTIVE in the legacy index. "Pre-reform instruments are still technically operable if the receiving institution never formally closed the acceptance window." She looks at the legacy index entry. "Guildheart Hub never closed it."`;
+        addJournal('Shelk notary cipher pre-dates reform — Guildheart Hub acceptance window never formally closed', 'intelligence', `guild-notary-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The northeast waypoint on Luthen's manifest doesn't appear in the Union route registry — it appears in a private Shelk charter annex.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'locating northeast waypoint in Shelk charter annex');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_shelk_waypoint_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The Union route registry has no record of the northeast waypoint. The Shelk charter annex — a supplementary volume shelved behind the standard registry, spine unmarked — has it listed under a Shelk private freight covenant from before consolidation: a designated hand-off point for sealed Shelk government cargo transiting Union territory without inspection rights. The covenant was supposed to lapse at consolidation. The annex page has a pencil notation in the margin: ACTIVE PER RIDER. Someone checked this page recently. The pencil is still sharp.`;
+        addJournal('Northeast waypoint in Shelk private freight covenant — pre-consolidation inspection exemption, pencil notation reads ACTIVE PER RIDER', 'evidence', `guild-waypoint-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The supplementary annex volumes are in a restricted reference bay behind the main registry. A senior clerk intercepts the approach before the bay is reached. "Supplementary annexes require a research credential filed twenty-four hours in advance." The credential form is taken from the rack. It asks for institutional affiliation and the specific annex number — which requires knowing which annex to request. The form is asking for the answer to the question being asked. The senior clerk waits.`;
+        addJournal('Shelk charter annex access blocked — credential form requires specific annex number as prerequisite', 'complication', `guild-waypoint-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_shelk_waypoint_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The northeast waypoint isn't in the Union registry. A registry clerk suggests the supplementary annex volumes — pre-consolidation instruments that weren't transferred into the main registry. The relevant annex is found on the third attempt. The waypoint is listed under a Shelk private freight covenant, marked as a government-designated hand-off point with an inspection exemption clause. The covenant page carries a margin note in pencil: ACTIVE PER RIDER. The handwriting matches nothing else in the volume.`;
+        addJournal('Northeast waypoint: pre-consolidation Shelk government hand-off point with penciled ACTIVE PER RIDER margin note', 'intelligence', `guild-waypoint-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Guild Arbiter who was supposed to review the tariff exemption at month three is still on staff — he filed the review as complete without doing it.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'confronting Guild Arbiter over fraudulent review completion');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_arbiter_compromised = true;
+        G.investigationProgress++;
+        G.lastResult = `Arbiter Rellick Dunmore has an office at the end of the corridor that gets no traffic. He's been watching the door from the moment it opened. The review form he filed is produced without being asked — he has it ready, which means he has been waiting for this. The completion stamp is his, dated the same week the exemption hit the audit threshold. He hasn't touched the file since. "I was told the review had been handled through the charter desk and that a completion form was a procedural courtesy." He was told by a name he writes on a slip and doesn't say aloud. He slides the slip across. "I kept a copy."`;
+        addJournal('Arbiter Dunmore filed fraudulent review completion — directed by named party, kept copy of instruction', 'evidence', `guild-arbiter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Arbiter Dunmore closes his office door before the question is two sentences long. Through the glass panel he shakes his head once. Not aggressive — exhausted. The corridor outside his office smells of old paper and nervous sweat. He is not going to help, and whatever he knows has already cost him something. The door stays closed.`;
+        addJournal('Arbiter Dunmore refused approach — appears aware and frightened, door closed', 'complication', `guild-arbiter-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_arbiter_compromised = true;
+        G.investigationProgress++;
+        G.lastResult = `Arbiter Dunmore doesn't deny it. "The completion form was filed because someone told me the audit had been resolved through a separate channel. I filed the completion to close the administrative loop." He doesn't look at the review form. "I didn't ask what channel. That was my error." He knows it's worse than an error. He will not name who instructed him without a formal protection filing in place first. "Put that on record for me and I'll answer every question you have."`;
+        addJournal('Arbiter Dunmore admits filing false completion on instruction — will cooperate under formal protection filing', 'intelligence', `guild-arbiter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Panim memorial import classification is stamped by a Panim cultural attaché who hasn't been stationed at Guildheart Hub in three years.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'tracing Panim cultural attaché stamp on memorial import classification');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_panim_stamp_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The Guildheart Hub polity attaché registry goes back twelve years. The Panim cultural attaché whose seal appears on the memorial import classification — a circular stamp with a twin-vessel motif — left her post three years ago and was not replaced. The seal itself was returned to the Panim consulate at departure; the Hub received a formal seal-retirement record. Someone reproduced it. The ink on the memorial import stamp has a faint blue-green tint that doesn't match the original seal's iron-based compound. Derris Ledgermere, who handles the tariff classification, has never met the attaché. The stamp was already on the form when it arrived.`;
+        addJournal('Panim attaché seal on memorial import classification is forgery — departed 3 years ago, seal retired, ink compound mismatch', 'evidence', `guild-panim-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Polity attaché records are diplomatic channel material — not accessible through standard registry inquiry. The Hub liaison officer for polity affairs takes the request and marks it for routing through the formal diplomatic correspondence queue, which runs on a monthly review cycle. The current cycle closed yesterday. The inquiry sits in the diplomatic queue where it will be visible to every polity liaison who reviews outbound correspondence. That includes the Panim desk.`;
+        addJournal('Panim attaché registry access routed to diplomatic queue — visible to Panim desk on monthly review', 'complication', `guild-panim-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_panim_stamp_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The attaché registry shows a departure record for the Panim cultural position three years ago with no replacement filed. The stamp on the zero-rated import classification carries that departed attaché's seal designation. "The seal retirement record is here — we received it at departure. Retired seals are not supposed to be in circulation." The registry clerk compares the seal on file against the impression on the import form. "The motif is right. The ink is wrong. Ours used an iron-based compound. This one didn't."`;
+        addJournal('Panim attaché seal: retired 3 years ago, reproduced with incorrect ink compound on zero-rated import forms', 'intelligence', `guild-panim-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Guildheart Hub finale — the pre-Union charter, zero-rated imports, and shrine document exchange form a complete financing chain. Move through guild channels or route it informally.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
