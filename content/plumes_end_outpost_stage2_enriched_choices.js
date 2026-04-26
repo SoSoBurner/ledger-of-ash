@@ -387,6 +387,233 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The outpost apothecary has been asked about a chemical smell drifting from the north on still mornings.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'questioning outpost apothecary Wend Sallor about northern chemical odor');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_apothecary_wend_sallor = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Wend Sallor keeps her compound identification cards in a flat tin behind the mixing counter — she has been through them twice since the smell started arriving. She narrows it to two candidates: a sulfate reduction byproduct used in atmospheric glyph suppression work, or a compound used in cave-treatment operations to neutralize spore bloom. Either way, the concentration she estimates from the drift accounts is not ambient. "That smell comes from active processing, not storage. Someone is running a reaction up there." She writes the compound names on a scrap and slides it across.`;
+        addJournal('Apothecary Wend Sallor identifies northern chemical drift as active suppression compound processing — not storage', 'evidence', `plumes-apoth-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `A Roadwarden auxiliary is at the apothecary counter when you arrive, picking up a wound dressing order. Wend Sallor serves him with the deliberate focus of someone who has learned that the fastest way to end a visit is to finish it. When you ask about northern odor reports, she keeps her eyes on the packaging. "I hear all kinds of things from travelers. I'm not a registry." The auxiliary leaves, and so does the window for the conversation.`;
+        addJournal('Apothecary visit closed — Roadwarden auxiliary presence, Wend Sallor declined to discuss odor accounts', 'complication', `plumes-apoth-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_apothecary_wend_sallor = true;
+        G.investigationProgress++;
+        G.lastResult = `Wend Sallor confirms she has heard the odor described by four travelers over the past three months — always on still mornings after nights with a north wind. She describes it the same way each traveler did: copper-sharp with something heavier underneath, like a mineral reduction. She hasn't reported it because odor reports don't have a filing category. "It's not a complaint. It's not a symptom. It's just a smell nobody can explain."`;
+        addJournal('Apothecary: four independent odor accounts over 3 months — copper-sharp mineral reduction, no filing category exists', 'intelligence', `plumes-apoth-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A gap in the patrol log covers three days when the northern road was supposedly clear — no entries, no annotation.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'tracing three-day gap in outpost northern patrol log');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.patrol_log_gap_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The three-day gap is not blank — it has been excised. The binding shows cut edges where two leaves were removed cleanly, not torn. The log entries immediately before and after the gap both reference road conditions in normal terms, as though the gap never existed. The dates match the week a second major chemical delivery was logged in Osset Halvarn's private road record. Someone with physical access to the patrol log removed the documentation of that week's northern road activity.`;
+        addJournal('Patrol log: two leaves excised — gap dates match Halvarn chemical delivery week, physical access required', 'evidence', `plumes-logpurge-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Patrol logs are a chain-of-custody document under Roadwarden administrative law — access requires a formal audit request. The duty officer at the records desk checks your credentials against the request form and finds no matching authority. He makes a notation in the access log. "That's twice this week someone has asked about northern road patrol records." He doesn't say who else asked.`;
+        addJournal('Patrol log access denied — duty officer notated second northern road inquiry this week', 'complication', `plumes-logpurge-fail-${G.dayCount}`);
+      } else {
+        G.flags.patrol_log_gap_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The patrol log for the period in question has no entries — three days of northern road coverage simply absent. The surrounding entries are normal in their density: two to three per day, each initialed by the patrol leader on duty. The gap has no initialed annotation, no weather notation, no administrative suspension marker. Three days of a patrolled road went undocumented, and nobody added an explanation after the fact.`;
+        addJournal('Northern patrol log gap: 3 days undocumented, no administrative marker — unexplained absence in chain of custody', 'intelligence', `plumes-logpurge-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A traveler laid up at the waystation infirmary came down from the northern hills with symptoms the outpost medic doesn't recognize.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'speaking with infirmary traveler Molk Breyen about northern exposure symptoms');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_traveler_molk_breyen = true;
+        G.investigationProgress++;
+        G.lastResult = `Molk Breyen is sitting up but his hands shake slightly and the skin below his eyes has a yellowish cast the medic has been writing notes about. He camped two nights in the spruce stand near the staging structure six days ago — the smell woke him both nights. By the second morning his eyes were burning and the shaking had started. He describes the smell in terms that match Wend Sallor's identification exactly, without knowing her name. He also describes something he saw from the tree line on the second night: a low-roofed annex attached to the structure's north face that isn't visible from the road — venting pipes, three of them, cycling steam at intervals.`;
+        addJournal('Traveler Molk Breyen: chemical exposure from northern camp — annex with cycling vent pipes on structure north face confirmed', 'evidence', `plumes-infirm-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The medic intercepts you at the infirmary threshold. "He's not fit for visitors." She holds the door with one hand and her case notes with the other. "Whatever he knows about the northern hills, it'll keep until he's not running a fever." The door closes. You can hear her talking to him through the wood but not the words.`;
+        addJournal('Infirmary traveler access denied — medic blocking visitors pending fever resolution', 'complication', `plumes-infirm-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_traveler_molk_breyen = true;
+        G.investigationProgress++;
+        G.lastResult = `Molk Breyen describes two nights camped near the northern structure before the smell got bad enough to drive him back. Burning eyes on the second morning, hands unsteady since. He doesn't know what caused it. He mentions the venting pipes on the north face of the structure — three of them, positioned low, near ground level — because the steam from them was the first sign he had that anyone was inside.`;
+        addJournal('Infirmary traveler: chemical exposure near staging structure, ground-level vent pipes observed on north face', 'intelligence', `plumes-infirm-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The outpost night-watch keeps a private account — things seen on the northern road after the gate closes.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing night-watch account from guard Ferret Ondal about after-hours northern traffic');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_nightwatch_ferret_ondal = true;
+        G.investigationProgress++;
+        G.lastResult = `Ferret Ondal is a small man who has worked the outpost night-watch for eleven years and has a guard's habit of noticing things he doesn't mention in reports. He keeps a personal tally in a stained notebook: unlogged vehicles, unlisted departures, anything that moves past the gate after curfew without using the standard transit bell. Over the past fourteen months, thirty-six after-hours northern departures — all wagons, all with outriders, none ringing the bell, all passing through a gate that was unlocked from the inside. He names the Roadwarden auxiliary who unlatched the gate each time. It is the same person.`;
+        addJournal('Night-watch Ferret Ondal: 36 after-hours unlogged northern wagon departures — same Roadwarden auxiliary unlatching each time', 'evidence', `plumes-watch-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Ferret Ondal's relief rotation arrives twenty minutes early and the hand-off conversation takes place with three people present. Whatever Ondal was about to say, he wraps up before the end of his first sentence and sets his notebook in his coat pocket. His replacement is chatty and doesn't notice. Ondal nods once on his way out the gate without looking back.`;
+        addJournal('Night-watch meeting interrupted by early relief — Ondal closed conversation, notebook pocketed', 'complication', `plumes-watch-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_nightwatch_ferret_ondal = true;
+        G.investigationProgress++;
+        G.lastResult = `Ondal describes a pattern he noticed seven months in and has tracked since: wagons moving north after curfew, no bell, no transit log entry, passing through the gate on what he assumes is prior authorization he was never briefed on. He has seen it happen on roughly the same weekly cycle. He didn't file a report because the gate was being opened by someone above his pay grade. "If it was wrong, they'd have asked me to look the other way. Nobody asked."`;
+        addJournal('Night-watch: weekly after-hours northern wagons, no transit log, gate opened internally — senior authorization implied', 'intelligence', `plumes-watch-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A waymarker post on the northern road has been repositioned — the original socket is still visible in the ground ten meters back.",
+    tags: ['Stage2', 'Scouting'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'examining repositioned northern road waymarker for route alteration evidence');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.waymarker_alteration_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The original socket is packed with fresh gravel, recently tamped — someone moved the post within the last six weeks and tried to conceal the relocation. The new position points the road bearing three degrees east of where the carved directional face indicates. Three degrees over two miles puts the effective route forty meters east of the staging structure — close enough to hear its activity on a still night, far enough that travelers would miss the structure entirely behind the tree line. The waymarker was moved to route traffic away from a sightline, not to improve the road.`;
+        addJournal('Northern waymarker repositioned 6 weeks ago — new bearing routes traffic 40m from staging structure, original socket recently packed', 'evidence', `plumes-waymark-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `You spend a quarter-hour in the open road examining the post when a two-horse express courier comes around the bend at speed and pulls up short to avoid you. The courier logs the obstruction and your description in his transit record — standard procedure for a blocked waypoint. Your presence on this stretch of road is now in the courier system.`;
+        addJournal('Waymarker examination interrupted by courier — presence logged in courier transit record at northern waypoint', 'complication', `plumes-waymark-fail-${G.dayCount}`);
+      } else {
+        G.flags.waymarker_alteration_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The waymarker post is newer than the surrounding posts — the base is untarred softwood instead of the hardwood used for the rest of the route markers. The carved directional face points north-northeast, but the original road line cut visible in the turf runs a few degrees west of the post's current heading. The post was moved. You can't determine precisely when, but the turf around the original socket has grown back enough to suggest weeks rather than days.`;
+        addJournal('Northern waymarker replacement confirmed — softwood base, original road cut visible, turf regrowth suggests weeks', 'discovery', `plumes-waymark-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Roadwarden duty roster has a standing northern assignment that cycles through a single auxiliary — the same name, every week, unrotated.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'examining Roadwarden duty roster for unrotated northern assignment');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.roster_anomaly_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The roster covers fourteen months. The northern road assignment column shows a name — Auxiliary Creal Voss — every single week without rotation break. Standard Roadwarden procedure rotates northern assignments every three weeks to prevent route familiarity from becoming a vulnerability to bribery. Creal Voss has been on permanent northern assignment for over a year. The schedule has been authorized by a senior Roadwarden whose countersignature appears on no other duty entry in the roster. Ferret Ondal's name for the night-gate opener matches.`;
+        addJournal('Roster: Creal Voss on unrotated northern assignment 14 months — authorized by off-roster senior Roadwarden, matches night-gate name', 'evidence', `plumes-roster-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The duty roster is pinned behind the Roadwarden desk on a clipboard that never leaves the room. The duty officer follows your eyes to it. "That's a staffing document. Not public." He moves the clipboard to the lower drawer with the practiced ease of someone who has had to do it before. "Is there a transit matter I can help you with?"`;
+        addJournal('Duty roster access blocked — officer moved document to drawer, second deflection on northern staffing query', 'complication', `plumes-roster-fail-${G.dayCount}`);
+      } else {
+        G.flags.roster_anomaly_found = true;
+        G.investigationProgress++;
+        G.lastResult = `You get a look at the duty roster during a shift change when the board is briefly unattended. One name repeats in the northern road column with a regularity that stands out — most columns cycle through three or four auxiliaries. This column has two entries, and one of them dominates the last year of entries. Unrotated northern assignments run against standard procedure, but nobody in the room seems to find it notable.`;
+        addJournal('Duty roster: single auxiliary dominant on northern road column for one year — unrotated against standard procedure', 'intelligence', `plumes-roster-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A trapper who works the northern spruce line stopped using his best territory eight months ago — the reason matters.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'speaking with trapper Aldus Ferch about territorial displacement from northern spruce line');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_trapper_aldus_ferch = true;
+        G.investigationProgress++;
+        G.lastResult = `Aldus Ferch is in no hurry to explain why he stopped working the northern line. He fills a pipe and lights it before he speaks. Eight months ago his catch rate in the northern spruce dropped to nothing over three weeks — not seasonal, not predator pressure, the animals simply moved out of a three-mile radius around the staging structure's position. He went looking for why and found two dead pine martens near the structure's drainage line, no visible injury, fur intact. He left and didn't go back. He still has one of the martens, preserved in a crock under his workbench. He brings it out without being asked.`;
+        addJournal('Trapper Aldus Ferch: fauna displacement 3-mile radius around staging structure — two preserved dead martens from drainage line, no external injury', 'evidence', `plumes-trapper-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Aldus Ferch is not a man who explains himself to strangers. He gives you a long look, picks up his pack, and takes a different route out of the waystation yard. The trapper community at the outpost is small enough that by the next morning he will have mentioned the conversation to someone who knows someone.`;
+        addJournal('Trapper declined — brief exchange, departure noted, small-community ripple likely', 'complication', `plumes-trapper-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_trapper_aldus_ferch = true;
+        G.investigationProgress++;
+        G.lastResult = `Aldus Ferch confirms the northern spruce line went dead eight months ago. His traps came up empty for three straight weeks and then he stopped checking. He found the drainage line from the staging structure on his last run — an outflow channel that hadn't been there the season before, cutting east through the timber toward a seasonal creek. "Whatever they're putting down the drain, the animals smelled it before I did."`;
+        addJournal('Trapper: northern fauna displacement 8 months ago, new drainage outflow channel from staging structure toward seasonal creek', 'intelligence', `plumes-trapper-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The woodcutter's yard at the outpost edge has been supplying fuel loads to the north — the delivery records name a structure that doesn't appear on any register.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'examining woodcutter fuel delivery records for staging structure supply entries');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.woodcutter_records_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The woodcutter, a compact woman named Doss Halvart, keeps delivery records in a ledger hung on a nail by the splitting block. Sixteen fuel deliveries to a northern destination recorded over the past year — each delivery twice the volume of a normal residential order. The destination name on every receipt is "Northern Atmospheric Station, Warden Order Charter Account." The fuel loads include a category she marks as "kiln-grade hardwood" — fuel for sustained high-temperature burning, not heating. Compressor operation, or chemical processing at temperature, would require exactly this grade.`;
+        addJournal('Woodcutter Doss Halvart: 16 kiln-grade fuel deliveries to Warden Order atmospheric station — sustained-temperature processing implied', 'evidence', `plumes-wood-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Doss Halvart is mid-split on a large birch round when you arrive and doesn't stop. "Delivery records are between me and the buyer." She flips the round and sets up the next strike. "Same as any other trade." The axe comes down. The conversation is finished before it starts.`;
+        addJournal('Woodcutter declined delivery record access — trade privacy, conversation closed', 'complication', `plumes-wood-fail-${G.dayCount}`);
+      } else {
+        G.flags.woodcutter_records_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Doss Halvart mentions the northern deliveries without prompting when you ask about volume patterns — they stand out because the order size is large and the destination is a long haul. She won't show the ledger, but she confirms the recipient name from memory: "Atmospheric station, something northern, Warden Order account." The kiln-grade specification on the order has stuck with her because she doesn't usually stock that grade for outpost customers.`;
+        addJournal('Woodcutter confirms kiln-grade northern delivery to Warden Order atmospheric station — unusual grade for outpost customers', 'intelligence', `plumes-wood-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Plume's End Outpost finale — the staging location is physically located. Scout it formally with Patrol Leader backup or use Letha's map to infiltrate quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
