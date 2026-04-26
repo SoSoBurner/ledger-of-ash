@@ -931,11 +931,6 @@ input, button, select, textarea { font-family: inherit; }
   font-family: 'Crimson Pro', serif; font-size: 15px; font-weight: 300; font-style: normal;
   color: var(--ink-dim); line-height: 1.85; margin-bottom: 9px; transition: opacity 0.15s ease;
 }
-.env-echo {
-  font-style: italic;
-  color: var(--ink-faint);
-  margin-bottom: 2px;
-}
 .env-desc p {
   margin: 0 0 6px 0;
 }
@@ -8882,7 +8877,6 @@ let G = {
   supplyTier: 'light',
   journeyFatigue: 0,
   recentOutcomeType: null,
-  narrationEcho: '',
   narrationUpdateCounter: 0,
   _narrationFading: false,
   district: null,
@@ -10111,9 +10105,7 @@ function priorityKey(g) {
 function buildLivingDesc(locId, g) {
   var _el = document.querySelector('.env-desc');
   if (!_el) return;
-  var _ot = g.recentOutcomeType || '';
-  var _vIdx = (!_ot || _ot === 'neutral' || _ot === 'partial') ? 0
-    : (_ot === 'success' || _ot === 'crit') ? 1 : 2;
+  var _vIdx = (g.narrationUpdateCounter || 0) % 3;
   var _anchor = (window.LIVING_VARIANTS && window.LIVING_VARIANTS[locId] && window.LIVING_VARIANTS[locId][_vIdx])
     || (window.LOCALITY_ANCHORS && window.LOCALITY_ANCHORS[locId])
     || (window.LOCALITY_NARRATIONS && window.LOCALITY_NARRATIONS[locId] ? window.LOCALITY_NARRATIONS[locId].split('. ')[0] : '')
@@ -10124,10 +10116,6 @@ function buildLivingDesc(locId, g) {
   var _suffixes = window.STATE_SUFFIXES && window.STATE_SUFFIXES[_tier] && window.STATE_SUFFIXES[_tier][_key];
   var _suffix = _suffixes ? _suffixes[(g.dayCount || 0) % 4] : '';
   var _parts = [];
-  var _echo = g.narrationEcho || '';
-  if (_echo) {
-    _parts.push('<p class="env-echo">' + _echo.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</p>');
-  }
   if (_anchor) _parts.push('<p>' + _anchor + '</p>');
   if (_suffix) _parts.push('<p>' + _suffix + '</p>');
   _el.innerHTML = _parts.join('');
@@ -10151,7 +10139,6 @@ function scheduleLivingDescUpdate() {
     buildLivingDesc(G.location, G);
     _el.style.opacity = '1';
     G._narrationFading = false;
-    G.narrationEcho = null;
   }, 150);
 }
 
@@ -10375,11 +10362,6 @@ function adaptEnrichedChoice(c) {
       const _soreLocs = ['soreheim','sunspire'];
       if (_soreLocs.indexOf(G.location) !== -1) {
         G.sorePlotCredits = Math.min(30, (G.sorePlotCredits || 0) + 1);
-      }
-      var _outcomeForEcho = (typeof _outcomeType !== 'undefined') ? _outcomeType : (G.recentOutcomeType || '');
-      if (G.lastResult && (_outcomeForEcho === 'success' || _outcomeForEcho === 'complication' || _outcomeForEcho === 'crit')) {
-        var _rawEcho = ('' + G.lastResult).replace(/<[^>]+>/g, '');
-        G.narrationEcho = _rawEcho.split('. ')[0] || '';
       }
       G.lastResult = null;
       G.lastResultType = null;
