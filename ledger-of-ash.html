@@ -11565,7 +11565,7 @@ function showTransitionBanner(text) {
 /** Stage gate: S1→S2 when stage1_narrative_complete flag set (Sera Ironveil defeated); S2→S3 via canAdvanceToStage3(). Also triggers Maren, antechamber, climax in order. Called by checkLevelUp(). */
 function checkStageAdvance() {
   if (typeof SCOPE_REVEAL !== 'undefined' && SCOPE_REVEAL.trigger) SCOPE_REVEAL.trigger();
-  if (!G.flags) G.flags = {};
+  G.flags = G.flags || {};
   // Companion gate — unlocks Vorath and Mira at mid-Stage 1
   if (!G.flags.companion_gate_open && (G.stageProgress && G.stageProgress[1] || 0) >= 5) {
     G.flags.companion_gate_open = true;

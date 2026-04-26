@@ -8,7 +8,7 @@ describe('checkStageAdvance G.flags guard', () => {
       'utf8'
     );
     // The guard must appear between function checkStageAdvance() and the companion_gate_open read
-    const guardPresent = /function checkStageAdvance\(\)[\s\S]{0,300}if\s*\(!G\.flags\)\s*G\.flags\s*=\s*\{\}[\s\S]{0,300}companion_gate_open/.test(src);
+    const guardPresent = /function checkStageAdvance\(\)[\s\S]{0,300}G\.flags\s*=\s*G\.flags\s*\|\|\s*\{\}[\s\S]{0,300}companion_gate_open/.test(src);
     expect(guardPresent).toBe(true);
   });
 });
