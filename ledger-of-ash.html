@@ -9382,7 +9382,8 @@ function initCreate() {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#stat-boost-grid .card').forEach(c => c.classList.remove('selected'));
         btn.classList.add('selected');
-        G._createStatBoost = sk;
+        // Store display key (matches archetype.skills format) so prevBoost comparison works after archetype select
+        G._createStatBoost = ({combat:'might',survival:'vigor',persuasion:'charm',lore:'wits',stealth:'finesse',craft:'spirit'})[sk] || sk;
         checkBeginReady();
       });
       sbg.appendChild(btn);
@@ -9434,7 +9435,8 @@ function selectArchetype(id) {
       btn.className = 'card' + (prevBoost === sk ? ' selected' : '');
       btn.dataset.skill = sk;
       btn.style.textAlign = 'center';
-      btn.innerHTML = '<div class="card-name">' + sk + '</div>' +
+      var _archDisplay = {might:'Might',vigor:'Vigor',charm:'Charm',wits:'Wits',finesse:'Finesse',spirit:'Spirit'};
+      btn.innerHTML = '<div class="card-name">' + (_archDisplay[sk] || sk) + '</div>' +
         '<div class="card-tag">' + base + ' &rarr; ' + (base + 1) + '</div>';
       btn.addEventListener('click', () => {
         sbg2.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
