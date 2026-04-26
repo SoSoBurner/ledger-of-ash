@@ -201,7 +201,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Meth sets his pen down. "Labor flows are placement business. Not public business." He stands up from behind the desk, which puts him between you and the ledgers on the wall shelf. "I'd recommend taking your questions somewhere else." He doesn't sit back down. He stays standing until you leave, and the door to the street closes firmly behind you.`;
         G.worldClocks.watchfulness++;
-        addJournal('Labor brokers now aware of your investigation', 'complication', `soreheim-broker-alert-${G.dayCount}`);
+        addJournal('Labor brokers now aware of your inquiry', 'complication', `soreheim-broker-alert-${G.dayCount}`);
       } else {
         G.lastResult = `The placement office is narrow, lit by a single oil sconce that leaves the far shelf of ledgers in shadow. Meth shrugs one shoulder. "Personnel moves are normal. Seasonal variation, quota adjustments." He says it to the middle distance, not to you. The ledger on his desk is open to a page dense with crossed-out names, four deep in the last column. He doesn't offer to show it. His pen rests across the binding, nib still wet. The name he was writing when you walked in stays half-finished under his forearm.`;
         addJournal('Broker confirmed workforce transfers but minimized their scale', 'evidence', `soreheim-broker-evasive-${G.dayCount}`);
@@ -479,7 +479,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `The same afternoon, the two workers who spoke with you are both pulled for "performance review." One sends a message asking you to stop asking questions near her. The other doesn't send anything. Your presence in this part of the city now carries a cost for anyone who stands close enough to talk.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation causing worker retaliation acceleration', 'complication', `soreheim-suppression-caught-${G.dayCount}`);
+        addJournal('Inquiry causing worker retaliation acceleration', 'complication', `soreheim-suppression-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `In the common housing block, no one eats near the door. Groups of three or more don't stay together after the meal. Anyone who meets your eyes looks away and doesn't look back. The space between people is practiced — wide enough to not be part of whatever conversation you're about to have.`;
         addJournal('Worker suppression confirmed through behavioral patterns', 'evidence', `soreheim-suppression-confirmed-${G.dayCount}`);
@@ -554,7 +554,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Management aware of narrative structure analysis', 'complication', `soreheim-narrative-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The three different posted notices about quota changes hang side by side on the administration hall's pinboard, each stamped and dated within the last two weeks. They all end the same way: "per Alliance operational standards." The handwriting varies — one hand is slanted, one upright, one pressed hard enough to cut the paper — but the closing phrase is identical in all three, down to the dash and the spacing before "standards." Someone gave them that phrase to use. The pinboard's older notices, underneath, close with different language. The change came together.`;
-        addJournal('Official narrative structured justification confirmed', 'evidence', `soreheim-narrative-structured-${G.dayCount}`);
+        addJournal('Quota notices share identical scripted closing phrase across three hands', 'evidence', `soreheim-narrative-structured-${G.dayCount}`);
       } else {
         G.lastResult = `The administration office has a printed language guide on the front counter — a laminated card, finger-smudged at the edges from daily handling. Approved terminology for shift supervisors when discussing quota targets with workers. Three phrases on one side, three on the other; each with an annotation indicating what the older phrasing used to be. "Layoff" has been replaced with "transition allocation." "Deadline" with "compliance window." It's a small thing, a card. It is not a small thing. The supervisor on duty sees you reading it and turns the card face-down.`;
         addJournal('Narrative structure analysis incomplete without management documents', 'evidence', `soreheim-narrative-blocked-${G.dayCount}`);
@@ -683,7 +683,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Two steps from the archive cabinet, someone takes your arm. "This area is not open to you." He doesn't raise his voice. There are two more people in the hall. You leave. On the way out, a notice has been pinned to the gate: a general restriction on archive access, dated today, with a timeframe of indefinite. It was already printed when you arrived.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation interrupted by external coordination operators', 'complication', `soreheim-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry interrupted by external coordination operators', 'complication', `soreheim-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The courier routing stamps in the dispatch log reference an intermediary station that doesn't appear in Soreheim's standard trade network — a northern relay point. Three separate documents carry a header mark that doesn't match any Soreheim Alliance bureau. Something is signing orders here that didn't originate here.`;
         addJournal('External coordination of Soreheim displacement confirmed', 'discovery', `soreheim-origin-external-${G.dayCount}`);
@@ -921,7 +921,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent figure confirmed following investigation trail in Soreheim', `soreheim-rival-shadow-${G.dayCount}`);
+      addJournal('warning', 'Rival-adjacent figure confirmed following the inquiry trail in Soreheim', `soreheim-rival-shadow-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

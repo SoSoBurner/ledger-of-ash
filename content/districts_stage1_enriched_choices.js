@@ -558,7 +558,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Doss uses the Scriptorium Steps as his working space — he doesn't have an institutional affiliation here, but the library's open access policy lets him use the reference section indefinitely. He's cautious but once he knows you're connected to the investigation network, he opens his notes. "The formula fragments describe a compound that becomes something different under shard amplification," he says. "It crosses a toxicological threshold. The study that explains that threshold is the Iceveil study. Both were suppressed for the same reason."`;
+        G.lastResult = `Doss uses the Scriptorium Steps as his working space — he doesn't have an institutional affiliation here, but the library's open access policy lets him use the reference section indefinitely. He's cautious but once he knows you're connected to the inquiry network, he opens his notes. "The formula fragments describe a compound that becomes something different under shard amplification," he says. "It crosses a toxicological threshold. The study that explains that threshold is the Iceveil study. Both were suppressed for the same reason."`;
         G.flags.met_doss_scriptorium = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
@@ -763,7 +763,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Someone in the Low Ward is selling information about the investigation to whoever wants it. Find them before they sell anything about you.",
+    label: "Someone in the Low Ward is selling word about the inquiry to whoever wants it. Find them before they sell anything about you.",
     tags: ['District', 'Combat', 'Stealth'],
     xpReward: 75,
     fn: function() {

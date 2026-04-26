@@ -568,7 +568,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `You're in the middle of cross-referencing the third document when someone sits across from you that you've never seen before. No introduction. They look at what's on the table. "You should stop this." Not a threat — or rather, a threat delivered the way Aurora Crown does everything: through process. "A formal review of your access privileges has been opened." They leave before you can respond. The documents on the table are still yours. For now. The evidence isn't complete, and now someone knows how close you were getting.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation directly noticed by conspiracy operators', 'complication', `aurora-proof-caught-${G.dayCount}`);
+        addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `aurora-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `Three contradictions, documented and side-by-side: what the maintenance policy says must happen, and what the work order record shows didn't. What the contamination protocol requires, and what the event log shows was done instead. What the resource allocation states, and what the ledger shows was moved. Each one could be error. Three in the same direction, affecting the same systems, starts to look like a shape rather than noise.`;
         addJournal('Compelling contradiction evidence found', 'evidence', `aurora-proof-partial-${G.dayCount}`);
@@ -638,7 +638,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `The relay room is empty except for one person you haven't seen before, sitting at the secondary channel station. When you step inside, they stand. Not hostile — blocking. "This room is restricted." You back out before anything escalates, but they follow you far enough into the corridor to make the point. You didn't see what was on the station screen. They saw what you were trying to reach. Whatever the correspondence batch contains, someone is here specifically to prevent it from being read.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation interrupted by conspiracy operators', 'complication', `aurora-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry interrupted by conspiracy operators', 'complication', `aurora-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The secondary relay logs reference "external interests" and "strategic timeline" in two messages you can read before the access is cut. No origin address. No names. The language is administrative — dry, procedural — but the context it sits in makes it legible: Aurora Crown is not the primary concern of whoever wrote this. It's a scheduled outcome. Someone beyond the commune's borders has timetabled what's happening here, and the local administrators are executing against that schedule without knowing — or without acknowledging — its real authorship.`;
         addJournal('External coordination of Aurora Crown sabotage confirmed', 'discovery', `aurora-origin-external-${G.dayCount}`);
@@ -904,7 +904,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"Asked about the commune's security response to the dome degradation. Not the engineering — the community response. How organized. How coordinated." Someone was assessing whether Aurora Crown could mount a coordinated defense of its own investigation.`;
+        G.lastResult = `"Asked about the commune's security response to the dome degradation. Not the engineering — the community response. How organized. How coordinated." Someone was assessing whether Aurora Crown could mount a coordinated defense of its own internal records.`;
       } else if (arch === 'magic') {
         G.lastResult = `"Claimed to be from a material sciences faculty. But her questions were about the additive compound specifically — not the failure pattern, not the dome design. She knew what compound to ask about before she'd seen the records." Someone already has the technical answer. They were verifying it.`;
       } else if (arch === 'stealth') {

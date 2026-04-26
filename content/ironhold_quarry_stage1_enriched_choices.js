@@ -147,7 +147,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_iron_compact_ironhold = true;
         G.factionHostility.iron_compact += 1;
-        addJournal('faction', 'Iron Compact authority Kess: off-calendar extraction is financial violation, reactive precursor elevates category — Compact investigation opened', `ironhold-iron-${G.dayCount}`);
+        addJournal('faction', 'Iron Compact authority Kess: off-calendar extraction is financial violation, reactive precursor elevates category — Compact inquiry opened', `ironhold-iron-${G.dayCount}`);
       } else {
         G.lastResult = `Kess is at the assay station with a tally register open and gives you two minutes before her next run. The description of schedule discrepancies doesn't move her expression. "I need the production calendar laid against the operations board entries — show me the specific dates where they diverge." She taps her register with one finger. Without documentation, informal description sits as hearsay in the Compact's process and goes nowhere. Velka's log has fourteen months of eastern face dates laid against the official production calendar. That's the document Kess needs.`;
         if (!G.flags) G.flags = {};

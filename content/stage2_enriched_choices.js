@@ -988,7 +988,7 @@
         addJournal('Institutional objective revealed', 'intelligence', `obj-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `One of the group doubles back through a side lane — a counter-surveillance maneuver that works exactly as intended. You're standing still when they come around the corner behind you. They look at you with the particular attention of someone who is paid to notice people following them. Nobody says anything. They continue on. But the official party now knows their route had a tail.`;
+        G.lastResult = `One of the group doubles back through a side lane — a counter-surveillance maneuver that works exactly as intended. You're standing still when they come around the corner behind you. They look at you with the particular attention of someone who is paid to notice people following them. Nobody says anything. They continue on. But the surveillance party now knows their route had a tail.`;
         addJournal('threat', 'Observation discovered', `obs-disc-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -1504,7 +1504,7 @@
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.persuasion || 0);
       if (r.total >= 12) {
-        G.lastResult = 'You stop asking direct questions and start noting what he volunteers. He describes a shipping delay in language that implies he knew the route would be affected before the delay was announced. He mentions a district assessor by name, unprompted, in a way that suggests familiarity not displeasure. He tells you a cargo lot arrived "clean" — which is a specific reassurance no one asked him for. By the end of the conversation, you have three data points that don\'t fit the story he\'s telling. He notices you noticing and offers you tea.';
+        G.lastResult = 'You stop asking direct questions and start noting what he volunteers. He describes a shipping delay in language that implies he knew the route would be affected before the delay was announced. He mentions a district assessor by name, unprompted, the way you name a colleague rather than a threat. He tells you a cargo lot arrived "clean" — which is a specific reassurance no one asked him for. By the end of the conversation, you have three data points that don\'t fit the story he\'s telling. He notices you noticing and offers you tea.';
         G.recentOutcomeType = 'discovery';
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;

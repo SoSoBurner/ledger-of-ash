@@ -388,17 +388,17 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `The administrative access logs aren't locked — they're just stored in a section visitors rarely use. Working through three months of entries: scholars accessing materials on institutional history are flagged with a secondary notation. Those who request documents related to administrative decisions receive a follow-up review entry within twenty-four hours. One name appears in reassignment records six weeks after a cluster of flagged document requests. The monitoring doesn't announce itself. It just produces consequences, quietly, weeks later.`;
         G.stageProgress[1]++;
-        addJournal('Investigation analysis revealed systematic scholar surveillance', 'evidence', `mimolot-investigation-${G.dayCount}`);
+        addJournal('Inquiry analysis revealed systematic scholar surveillance', 'evidence', `mimolot-inquiry-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `An administrator arrives at your reading desk before you've finished pulling the second set of access logs. They know exactly which documents you've been requesting. "Your research pattern has triggered a review," they say — not hostile, procedural. Further access to administrative logs is suspended pending a clarification interview. You've confirmed the monitoring exists by becoming its subject.`;
         G.worldClocks.pressure++;
-        addJournal('Administration directly warned you against monitoring inquiry', 'complication', `mimolot-investigation-alert-${G.dayCount}`);
+        addJournal('Administration directly warned you against monitoring inquiry', 'complication', `mimolot-inquiry-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Working through the access records available at the general desk, correlations appear: document requests in certain subject areas are followed by additional log entries that standard library access doesn't explain. The pattern is visible. What it links to at the administrative end — who receives those secondary notations, what they do with them — that part isn't in the public-facing records.`;
-        addJournal('Monitoring patterns show topic-based scrutiny correlation', 'evidence', `mimolot-investigation-monitored-${G.dayCount}`);
+        addJournal('Monitoring patterns show topic-based scrutiny correlation', 'evidence', `mimolot-inquiry-monitored-${G.dayCount}`);
       } else {
         G.lastResult = `Administrative access records are maintained by the registrar's office, not the library — a detail the desk clerk explains with the practiced patience of someone who redirects this question regularly. Access log data requires a faculty standing request to review. Without that standing, the records showing which scholars are flagged and for what subject areas are simply unavailable. The right door has been located. The key requires a faculty endorsement, which requires a faculty relationship, which requires time that the investigation hasn't yet produced.`;
-        addJournal('Scholar monitoring analysis inconclusive', 'evidence', `mimolot-investigation-unclear-${G.dayCount}`);
+        addJournal('Scholar monitoring analysis inconclusive', 'evidence', `mimolot-inquiry-unclear-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -562,7 +562,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Midway through laying out the documents, someone comes through the door who wasn't invited. Not an administrator — someone with no institutional designation visible. They take in the documents on the table without looking at you directly, then speak one sentence: stop. They don't explain or threaten further. They don't need to. The evidence goes back into its scattered sources. The work you've done can't be undone, but whatever you've been building toward is going to be harder now.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation directly noticed by conspiracy operators', 'complication', `mimolot-proof-caught-${G.dayCount}`);
+        addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `mimolot-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The contradictions between the Academy's stated charter commitments and the documented administrative actions are clear enough to establish that the two are not operating in the same direction. This is no longer a question of mismanagement or institutional drift. The actions are too deliberate and too concentrated. Someone has been running a different institution inside the official one.`;
         addJournal('Compelling institutional conspiracy evidence found', 'evidence', `mimolot-proof-partial-${G.dayCount}`);
@@ -632,7 +632,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Two people are waiting outside the administrative vault room before you reach it. They don't produce credentials. They ask you to leave the wing and not return. One of them is watching the door behind you while the other speaks. You are not going to reach what's in that room today. What you've already gathered remains yours, but you've announced yourself to whoever is watching this end of the operation. They know what you're building toward.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation interrupted by conspiracy operators', 'complication', `mimolot-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry interrupted by conspiracy operators', 'complication', `mimolot-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `Several of the administrative directives reference authorization from outside the Academy's governance structure — a source designation that doesn't match any institutional title in the regional directory. The restriction orders are being issued by someone external to Mimolot, implemented by internal administrators treating those orders as binding. The specific identity of the external party isn't in the documents available here. The external hand exists. Its name is in a sealed file you haven't reached.`;
         addJournal('External coordination of Mimolot knowledge suppression confirmed', 'discovery', `mimolot-origin-external-${G.dayCount}`);

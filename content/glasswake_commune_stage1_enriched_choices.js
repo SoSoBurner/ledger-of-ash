@@ -217,7 +217,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'making evidence decision');
       if (!G.flags) G.flags = {};
 
-      G.lastResult = `Toman's question is direct. "If you take this data to Shelkopolis, it will enter the investigation there and I lose control of how it's used. If you keep it here, it stays safe but it doesn't move the investigation forward. I've protected this data for over a year. I need to know who I'm giving it to." The choice is real: trust him with your plan and get everything, or maintain investigative compartmentalization and get only what he's willing to give a stranger.`;
+      G.lastResult = `Toman's question is direct. "If you take this data to Shelkopolis, it will enter the inquiry there and I lose control of how it's used. If you keep it here, it stays safe but it doesn't move the inquiry forward. I've protected this data for over a year. I need to know who I'm giving it to." The choice is real: trust him with your plan and get everything, or keep your sources compartmented and get only what he's willing to give a stranger.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Toman Iceveil';
       addJournal('consequence', 'Toman Iceveil\'s evidence decision required — share your plan or maintain compartmentalization', `glasswake-evidence-decision-${G.dayCount}`);
@@ -446,7 +446,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'protecting source decision');
       if (!G.flags) G.flags = {};
 
-      G.lastResult = `Toman's data is the keystone of the Glasswake evidence chain. If his name enters the investigation record, the committee has grounds to challenge his employment status and potentially seize his equipment. If his name stays out, the evidence is weaker but he remains operational. The choice affects both the case and the person who built it. He's asked you to make the call.`;
+      G.lastResult = `Toman's data is the keystone of the Glasswake evidence chain. If his name enters the formal record, the committee has grounds to challenge his employment status and potentially seize his equipment. If his name stays out, the evidence is weaker but he remains operational. The choice affects both the case and the person who built it. He's asked you to make the call.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Toman Iceveil';
       addJournal('consequence', 'Toman source protection decision pending — name in record strengthens case but endangers researcher', `glasswake-source-decision-${G.dayCount}`);

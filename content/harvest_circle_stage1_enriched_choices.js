@@ -64,7 +64,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Varik puts his pen down. "Who sent you?" He's not accusing — he's assessing. By the end of the afternoon, the market row has heard that someone came to the broker asking questions about festival pricing on behalf of unnamed parties. Your business here now has a reputation attached to it.`;
         G.worldClocks.watchfulness++;
-        addJournal('Market Broker spreading suspicion about price investigation', 'complication', `harvest-prices-alert-${G.dayCount}`);
+        addJournal('Market Broker spreading suspicion about your price inquiry', 'complication', `harvest-prices-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `Varik calls it a complicated season. "Pricing reflects a lot of variables." He doesn't enumerate the variables. The price sheets stay in the drawer — he pats its edge once, a habit, then catches himself doing it. His answers are technically responsive and practically empty, built to close the subject without appearing to. The pen goes back in his hand. The conversation is over by his reckoning.`;
         addJournal('Market Broker confirmed non-standard pricing practices', 'evidence', `harvest-prices-evasive-${G.dayCount}`);
@@ -136,7 +136,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `"Storage records are not for external review." The Storage Keeper doesn't elaborate further and doesn't move. They stay positioned between you and the inventory ledger until you leave. Within the hour the storage authority supervisor has been informed that someone came asking about inventory management.`;
         G.worldClocks.watchfulness++;
-        addJournal('Storage authorities warned about grain inventory investigation', 'complication', `harvest-storage-alert-${G.dayCount}`);
+        addJournal('Storage authorities warned about your grain inventory inquiry', 'complication', `harvest-storage-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The keeper allows that allocation has been complicated this cycle. "Inventory prioritization shifts with need." They don't specify whose need or by whose determination. The ledger stays closed under both hands, spine toward you. The answer is accurate enough to be technically true and empty enough to say nothing useful — the grain store's smell of dried husks and timber fills the silence where elaboration would have gone.`;
         addJournal('Storage Keeper confirmed non-standard inventory practices', 'evidence', `harvest-storage-evasive-${G.dayCount}`);
@@ -613,7 +613,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
       const npc = npcOptions[Math.floor(Math.random() * npcOptions.length)];
 
-      G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're trapped, complicit, and frightened. You must decide: Do you protect them and maintain your investigation quietly? Do you expose them to stop the corruption system? Your choice determines whether this person becomes an informant or enemy — and whether Harvest Circle's corruption can be challenged from within or continues unchecked.`;
+      G.lastResult = `You confront ${npc.name}. They crumble under pressure. "${npc.fear}" They're trapped, complicit, and frightened. You must decide: Do you protect them and keep your inquiry quiet? Do you expose them to stop the corruption system? Your choice determines whether this person becomes an informant or enemy — and whether Harvest Circle's corruption can be challenged from within or continues unchecked.`;
 
       if (!G.flags) G.flags = {};
       G.flags.stage1_evidence_decision = 'pending';
@@ -648,7 +648,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `As you approach evidence of external coordination, you're intercepted directly. Someone stops you and makes clear that pursuing this further will result in your removal from Harvest Circle or worse. You've discovered pieces, but full external coordination remains hidden — and now you're marked as direct threat.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation intercepted by external coordination operators', 'complication', `harvest-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry intercepted by external coordination operators', 'complication', `harvest-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Harvest Circle. Courier route manifests reference "northern family authorities." Resource orders carry external authorization marks that don't correspond to any Harvest Circle charter body. The scale of what's here is larger than a local family dispute. The exact source isn't confirmed — too many nodes still obscured — but the direction is legible: the coordination is coming from outside Harvest Circle's borders, and it has been for some time.`;
         addJournal('External coordination of Harvest Circle confirmed', 'discovery', `harvest-origin-external-${G.dayCount}`);

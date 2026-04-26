@@ -64,7 +64,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Coralyn's expression closes like a hatch. "Supply records are under Cosmouth administrative hold pending seasonal audit. Access requires a charter warrant." She covers the hold-stamp line with her thumb while she reads the form aloud, then sets the ledger down without lifting her hand from it. A document in the stack behind her bears a red ADMINISTRATIVE HOLD stamp in narrow Collegium block lettering — she shifts to block it. By evening the docks are quieter than they were this morning.`;
         G.worldClocks.watchfulness++;
-        addJournal('Quartermaster spreading suspicion about supply chain investigation', 'complication', `cosmoria-supplies-alert-${G.dayCount}`);
+        addJournal('Quartermaster spreading suspicion about supply chain inquiry', 'complication', `cosmoria-supplies-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking. The correction appears across three consecutive pages; whoever adjusted these figures is still working through the ledger. Someone was cleaning the record ahead of you. They are still doing it.`;
         addJournal('Quartermaster confirmed supply allocation ambiguity — record being cleaned ahead of inquiry', 'evidence', `cosmoria-supplies-unclear-${G.dayCount}`);
@@ -100,7 +100,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Maris draws herself up and says the rituals of the sea shrine are matters of doctrine, not public record. She says it firmly but her hands are shaking. By afternoon a harbor warden stops you on the upper street and asks your business at the shrine. Someone reported the visit within the hour. The shrine's exterior door is now latched when you pass again at dusk.`;
         G.worldClocks.reverence++;
-        addJournal('Shrine Caretaker banned from faith investigation access', 'complication', `cosmoria-rituals-hostile-${G.dayCount}`);
+        addJournal('Shrine Caretaker barred you from faith record access', 'complication', `cosmoria-rituals-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Maris says the communion form was updated at the start of this tide cycle — new language in the tide-oath, a different sequence for the water-sealing at the end. "Doctrine evolves," she says. She recites it like something she rehearsed. When you ask who authorized the change she names a Cosmouth administrative body you haven't heard of before.`;
         addJournal('Shrine Caretaker confirmed recent ritual modifications', 'evidence', `cosmoria-rituals-changed-${G.dayCount}`);
@@ -136,7 +136,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Tideon stops writing and looks at your hands, not your face. "Arrival records are Cosmouth administrative property. Requests go through the harbor registry office, third floor, Tuesdays and Thursdays." He goes back to writing before you finish the sentence. The clerk at the next desk has already stopped working. An hour later, your name appears in the harbor office's visitor log — entered by someone who wasn't you.`;
         G.worldClocks.watchfulness++;
-        addJournal('Archive clerks warned about record investigation access', 'complication', `cosmoria-records-alert-${G.dayCount}`);
+        addJournal('Archive clerks warned about your record access', 'complication', `cosmoria-records-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `Tideon puts down his pen and says record management has been "under revision." New categories were added two months ago — bonded transit, delayed-manifest, provisional entry. He explains each one without meeting your eyes. When you ask for examples, he opens the wrong ledger first. In the stack of documents behind him, partially visible between two bound volumes, a single loose sheet bears a red stamp across its upper third — the words ADMINISTRATIVE HOLD in block characters. He does not acknowledge it. He does not look at it. He knows where the anomalies are. He's not ready to show them to you yet.`;
         addJournal('Clerk of Arrivals confirmed non-standard record practices', 'evidence', `cosmoria-records-evasive-${G.dayCount}`);
@@ -280,7 +280,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `The shipwright sets his mallet down slowly. "Quality inspection isn't a public process." He says it watching your hands. By the time you leave the dry dock the other builders have gone quiet — tools still running but eyes tracking you down the walk. The pitch smell and salt air follow you up to the commercial street. Before evening one of the younger workers has asked another shipyard who you were.`;
         G.worldClocks.watchfulness++;
-        addJournal('Shipwright community warned about quality investigation', 'complication', `cosmoria-shipwright-alert-${G.dayCount}`);
+        addJournal('Shipwright community warned about your quality inquiry', 'complication', `cosmoria-shipwright-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The shipwright admits inspection timelines have been "inconsistent." She points at two vessels in adjacent berths — one approved in a day, one delayed for nine. She doesn't say which house flags they're carrying, but she doesn't have to. You can read the pennants yourself. "Standards evolve," she says. She picks up her adze.`;
         addJournal('Shipwright confirmed inconsistent quality standard application', 'evidence', `cosmoria-shipwright-evasive-${G.dayCount}`);
@@ -684,7 +684,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `You get close enough to see the courier manifest exists. Then a Cosmouth warden steps into the reading room, takes the arrival log from the table without explanation, and informs you that the harbor registry has requested the return of administrative materials currently outside their custody. He doesn't threaten. He doesn't need to. He just takes the log. You have what you remembered reading before he arrived. The manifest destination is gone with the book.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation intercepted by external coordination operators', 'complication', `cosmoria-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry intercepted by external coordination operators', 'complication', `cosmoria-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The financial transfer records show an external origin — a northern harbor address appearing in three separate documents across different institutions. Whether those transfers purchased the charter amendments, the supply diversions, or something else isn't yet clear. The address exists. The payments were made. Whatever is being done to Cosmoria was funded from somewhere that is not Cosmoria.`;
         addJournal('External coordination of Cosmoria confirmed', 'discovery', `cosmoria-origin-external-${G.dayCount}`);

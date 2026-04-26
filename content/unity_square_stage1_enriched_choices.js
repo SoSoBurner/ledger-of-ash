@@ -195,7 +195,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Sevv has a junior arbiter's table near the archive door — close enough to the register that corrections can be filed quickly. "Brokerwell sends the correction notes through the internal routing sheet. I enter them into the public record." She looks at the table. "He calls it interpretive alignment — updating the summary to reflect current doctrine." She stops. "I never read the original outcomes before entering the corrections. I was entering the corrections, not reading the cases." She isn't pretending she didn't do it. She's worked out that the administrative framing was designed for her. She wants to know what comes next, specifically for her.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Arbiter Sevv';
-      addJournal('consequence', 'Junior arbiter Sevv: unwitting participant in record alteration, fears consequences if formal investigation begins', `unity-sevv-decision-${G.dayCount}`);
+      addJournal('consequence', 'Junior arbiter Sevv: unwitting participant in record alteration, fears consequences if a formal inquiry begins', `unity-sevv-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -467,7 +467,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative submitted fabricated evidence to Oversight Collegium — actively poisoning investigation channel', `unity-rival-${G.dayCount}`);
+      addJournal('warning', 'Rival-adjacent operative submitted fabricated evidence to Oversight Collegium — actively poisoning the inquiry channel', `unity-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

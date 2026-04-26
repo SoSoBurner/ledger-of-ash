@@ -265,7 +265,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Veth pulls the case register and puts his finger on a column without speaking first. "Merchant disputes: northern trader wins, every time, past two months. Inheritance cases: property transfers to outside buyers. Family mediations where reconciliation was the likely outcome — they end in separation." He closes the register. "I can't prove a directive exists. But the pattern across forty cases doesn't happen by accident. The mediation system is producing someone else's preferred outcomes."`;
         G.stageProgress[1]++;
-        addJournal('Official revealed systematic mediation bias pattern', 'evidence', `panim_haven-mediation-${G.dayCount}`);
+        addJournal('Mediator Veth revealed systematic outcome-bias pattern across 40 cases', 'evidence', `panim_haven-mediation-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Veth's posture changes before you finish the question. "Mediation records are sealed. You have no standing to review them." He writes the date at the top of a notation form. "This inquiry will be reported to the ritual authority." He doesn't look up while he writes. The formal note is already being drafted while you're still in the room.`;
         G.worldClocks.pressure++;
@@ -828,7 +828,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative interviewed Tazren before you — expert social engineering, preceded your investigation', `panim-rival-${G.dayCount}`);
+      addJournal('warning', 'Rival-adjacent operative interviewed Tazren before you — expert social engineering, preceded your inquiry', `panim-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

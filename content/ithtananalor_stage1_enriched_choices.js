@@ -355,7 +355,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `The tracking draws attention before the destination is reached. Two soldiers in unmarked coats intercept at the edge of the third supply route — no garrison insignia, no identification offered. The taller one speaks once: "This route doesn't concern you." They stay between you and the route until you move. They don't follow. The shadow force knows it's being tracked and chose to show itself rather than let the tracking continue. They want the message delivered, not a confrontation logged.`;
         G.worldClocks.pressure += 2;
-        addJournal('Shadow force directly warned you away from investigation', 'complication', `ithtananalor-shadow-caught-${G.dayCount}`);
+        addJournal('Shadow force directly warned you away from the inquiry', 'complication', `ithtananalor-shadow-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The supply trace points the disappeared soldiers toward a single delivery cluster — three addresses, close enough to be one operational zone, outside the garrison's administrative boundary. What the zone is used for isn't visible from the supply record alone. The soldiers are there. The command structure above them isn't documented anywhere this search has reached.`;
         addJournal('Shadow military deployment zone identified but purpose unclear', 'evidence', `ithtananalor-shadow-deployed-${G.dayCount}`);
@@ -465,7 +465,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Soldiers reported your morale assessment as suspicious', 'complication', `ithtananalor-morale-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The garrison commons is quieter than a functioning unit this size should be. Soldiers eat without conversation. At shift change, the handover is correct in form and empty of any informal exchange between incoming and outgoing watch. Whether this represents a garrison under exceptional operational pressure or a garrison whose internal bonds have been deliberately broken isn't readable from a single observation session.`;
+        G.lastResult = `The garrison commons is quieter than a functioning unit this size should be. Soldiers eat without conversation. At shift change, the handover is correct in form and empty of any informal exchange between incoming and outgoing watch. Whether the garrison is under exceptional operational pressure or has had its internal bonds deliberately broken isn't readable from a single observation session.`;
         addJournal('Military morale observed as lower than expected', 'evidence', `ithtananalor-morale-low-${G.dayCount}`);
       } else {
         G.lastResult = `The garrison shows the baseline signs of operational stress — short responses, fatigue visible at end of shift, officers working past standard hours. Whether the stress is proportionate to the actual operational load or has been engineered beyond it requires baseline data from prior periods or comparative garrison data that isn't available from this vantage point.`;
@@ -561,7 +561,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `The evidence assembly draws attention before it's complete. Three shadow force operatives appear at the records station — not to detain, to interrupt. The documents in hand are taken. Not all of them, only the ones that connect multiple systems together. The pieces that remain are individually dismissible. What's been removed was the connective tissue. The conspiracy has read the assembly in progress and made a surgical cut. The picture has gaps now that weren't there an hour ago, and the people who created those gaps know you were close.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation directly noticed by conspiracy operators', 'complication', `ithtananalor-proof-caught-${G.dayCount}`);
+        addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `ithtananalor-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The contradictions between external command authentication, oath record modifications, and shadow roster maintenance are significant enough in combination to move past "something is wrong" toward "the garrison command structure has been systematically replaced." Not all the links are fully documented, but the pattern is compelling. The pieces that remain missing are the specific external authority and the final deployment purpose.`;        addJournal('Compelling military conspiracy evidence found', 'evidence', `ithtananalor-proof-partial-${G.dayCount}`);
       } else {
@@ -630,7 +630,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `The command records room has a guard that wasn't present yesterday. He doesn't let you reach the directory ledger. Two more appear before the question is asked. The sealed pouch — wherever it is — stays sealed. You're walked out of the command block without a formal charge and without a formal record. The origin source hasn't been reached. But the shadow command knows you came looking for it, and they've closed the room.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation interrupted by conspiracy operators', 'complication', `ithtananalor-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry interrupted by conspiracy operators', 'complication', `ithtananalor-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `Three directives from the partial access carry authentication marks from outside Ithtananalor's command hierarchy. The external authority isn't named in what's accessible — the signatures use a classification code rather than a named office. But the routing is unmistakable: orders for the garrison's internal restructuring are originating from somewhere that isn't the garrison. Ithtananalor isn't being corrupted from within. It's being directed from outside.`;
         addJournal('External coordination of Ithtananalor military conspiracy confirmed', 'discovery', `ithtananalor-origin-external-${G.dayCount}`);
@@ -889,7 +889,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `"Military posture," Maret says. "Sat like someone who'd spent time in formal dress uniform. Asked about the accounts, then asked if any garrison officers had accessed the ledger recently. Not financial questions — threat-mapping questions. They were cross-referencing financial anomalies with military access patterns."`;
       } else if (arch === 'magic') {
-        G.lastResult = `"The credentials were from the Northern Archive Research Consortium," Maret says. "Real institution, real format. But the questions weren't archival — they were audit-level. Whoever sent them knows the difference between research and investigation and deliberately used research as cover." Professional institutional camouflage.`;
+        G.lastResult = `"The credentials were from the Northern Archive Research Consortium," Maret says. "Real institution, real format. But the questions weren't archival — they were audit-level. Whoever sent them knows the difference between research and audition and deliberately used research as cover." Professional institutional camouflage.`;
       } else if (arch === 'stealth') {
         G.lastResult = `"They never asked about the ghost accounts directly," Maret says. "They asked whether anyone else had asked about them. Specifically, whether any inquiry had been logged. They were checking if there was a paper trail of other investigators before proceeding." A counter-surveillance check. They're clean of records and they want to stay that way.`;
       } else {

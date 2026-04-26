@@ -809,7 +809,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "The Oversight Collegium has had an observer here for sixty-two days. That's a monitoring phase, not an investigation.",
+    label: "The Oversight Collegium has had an observer here for sixty-two days. That's a monitoring phase, not an inquiry.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: 'This path is closed here, but the formal submission channel Trent described — written, signed, specific — is still open.',
@@ -925,7 +925,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative confirmed actively surveilling your Guildheart investigation', `guildheart-rival-${G.dayCount}`);
+      addJournal('warning', 'Rival-adjacent operative confirmed actively surveilling your Guildheart inquiry', `guildheart-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

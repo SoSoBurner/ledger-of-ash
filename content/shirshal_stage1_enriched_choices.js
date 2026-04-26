@@ -129,14 +129,14 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Brother Tam pulls a file from the resolved stack and opens it on the counter. "Witness follow-up: blank. Final evidence summary: blank. Notified families: no entries." The magistrate's closure signature is dated three days after the case was filed. "I track the docket by hand. I watch these cases. This one wasn't resolved — it was ended." He closes the file and slides it back. "They're stopping proceedings, not completing them. Families haven't been told."  `;
         G.stageProgress[1]++;
-        addJournal('Record keeper revealed investigation termination pattern', 'evidence', `shirshal-closure-${G.dayCount}`);
+        addJournal('Record keeper revealed case-termination pattern', 'evidence', `shirshal-closure-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Brother Tam straightens and sets down his pen. "Outside inquiry into closure proceedings isn't appropriate. I need to speak to a magistrate before this goes further." He walks toward the inner passage before you've finished your sentence. A door closes. The hall stays empty for longer than it should.`;
         G.worldClocks.pressure++;
         addJournal('Record keeper immediately alerts magistrate to inquiry', 'complication', `shirshal-closure-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The resolved stack runs twice the usual depth for this quarter. Cases that should carry months of documentation close in a week, two weeks. The verification steps — witness confirmation, final evidence log, family notification — appear on the form template but the boxes beneath them are empty. The signature at the bottom is always there. Everything above it is missing.`;
-        addJournal('Record review confirmed investigation closure acceleration', 'evidence', `shirshal-closure-accelerated-${G.dayCount}`);
+        addJournal('Record review confirmed case-closure acceleration', 'evidence', `shirshal-closure-accelerated-${G.dayCount}`);
       } else {
         G.lastResult = `The closure records are dense with cross-references you'd need the procedural code index to parse. Patterns are in there — you can see the acceleration in the dates — but matching them to violations requires a reference guide Brother Tam keeps locked in the inner office.`;
         addJournal('Closure pattern analysis inconclusive', 'evidence', `shirshal-closure-unclear-${G.dayCount}`);
@@ -831,7 +831,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative interviewed Magistrate Corin two weeks before you — further along Shirshal investigation', `shirshal-rival-${G.dayCount}`);
+      addJournal('warning', 'Rival-adjacent operative interviewed Magistrate Corin two weeks before you — further along the Shirshal trail', `shirshal-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

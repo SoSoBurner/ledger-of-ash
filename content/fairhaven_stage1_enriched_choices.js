@@ -557,7 +557,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `You crouch to look at the fragments and three people stop what they're doing to watch. "Why are you picking at it?" one of them asks. It isn't hostile — it's the question of a community that has learned not to draw attention to its own problems. Someone carries word to the mill road before the afternoon is out.`;
         G.worldClocks.watchfulness++;
-        addJournal('Your investigation of tool failure reported as suspicious', 'complication', `fairhaven-failure-suspicious-${G.dayCount}`);
+        addJournal('Your inquiry into tool failure reported as suspicious', 'complication', `fairhaven-failure-suspicious-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The break is too clean for impact fracture — no radiating cracks, no compression deformation at the stress point, no lateral spread through the metal. The rune seam separated along its own line, as if the binding between the enchantment and the tool face simply stopped holding. Whether the enchantment was incomplete from production or degraded since installation, the fragments don't carry enough of the original anchor sequence to say. The failure is documented, the pattern is specific, and the cause needs a comparison against the production formula to close the gap.`;
         addJournal('Tool failure analysis suggests intentional defect', 'evidence', `fairhaven-failure-intentional-${G.dayCount}`);
@@ -629,7 +629,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Someone delivers the message in person — not a letter, not a runner. A man you haven't spoken to stands at the edge of the market square and waits for you to notice him. When you do, he says three words: "Stop. Final warning." Then he walks away without looking back. Whoever is running this operation knows you've been compiling.`;
         G.worldClocks.pressure++;
-        addJournal('Conspiracy operators directly threaten your investigation', 'complication', `fairhaven-conspiracy-threat-${G.dayCount}`);
+        addJournal('Conspiracy operators directly threaten your inquiry', 'complication', `fairhaven-conspiracy-threat-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The evidence points consistently in one direction. Laid against each other on the manifest table, the institutional changes take on a shape: doctrine revision first, supply rerouting a week later, garrison reduction following the doctrine's circulation in households. The timing is too precise for drift. There is a sequence here, and the sequence was authored. The final link — what ties the coordination to a specific originating source — is still missing. Everything else is present and pointing at the gap where that answer should be.`;
         addJournal('Substantial weaponization evidence compiled', 'evidence', `fairhaven-conspiracy-substantial-${G.dayCount}`);
@@ -732,7 +732,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_fairhaven = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium correspondent Avel Prenn: monitoring Fairhaven, needs hard evidence to trigger investigation', `fairhaven-collegium-${G.dayCount}`);
+        addJournal('faction', 'Oversight Collegium correspondent Avel Prenn: monitoring Fairhaven, needs hard evidence to trigger formal inquiry', `fairhaven-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `The civic registry lists a Collegium address on the east lane — handwritten addition, the ink slightly different from the surrounding entries, added some time after the original filing. The building is a cooperage. Barrel staves stacked along the front wall, the smell of new-cut oak. The owner hasn't heard of anyone by that description and doesn't look like he's being careful when he says so. Either the listing is out of date, or the person it points to doesn't want to be found through that route.`;
         if (!G.flags) G.flags = {};

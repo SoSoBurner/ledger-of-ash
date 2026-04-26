@@ -64,7 +64,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Lysander's expression settles into practiced neutrality. "Obligation systems are internal family matters. I don't take them outside." He doesn't raise his voice or show offense. But by the next morning, two family heads have heard that an outsider was asking about obligation enforcement. The family network moves faster than the wagon routes.`;
         G.worldClocks.watchfulness++;
-        addJournal('Family brokers warned about your investigation', 'complication', `sunspire-broker-alert-${G.dayCount}`);
+        addJournal('Family brokers warned about your inquiry', 'complication', `sunspire-broker-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `Lysander grants you that, folding his hands on the table. "Obligations are being standardized — more uniformly enforced now." He doesn't volunteer why, or by whom, or what uniformity means for the families on the short end of it. The obligation board behind the registry desk has been repainted recently; the old chalk categories are still visible beneath the new coat in certain light — different headings, different columns. The categories changed, not just the names inside them.`;
         addJournal('Broker confirmed recent obligation system changes', 'evidence', `sunspire-broker-unclear-${G.dayCount}`);
@@ -273,7 +273,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Varen turns the log face-down. "Enforcement decisions aren't for outside discussion. It's sensitive to ongoing market proceedings." He's not hostile — just flat. Three other inspectors in the room have stopped moving. The market inspection department has been briefed to be careful, and Varen has just demonstrated he received that briefing.`;
         G.worldClocks.isolation++;
-        addJournal('Market inspector refused further investigation', 'complication', `sunspire-inspector-hostile-${G.dayCount}`);
+        addJournal('Market inspector refused further inquiry', 'complication', `sunspire-inspector-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Varen allows that much. "Enforcement has been applied with contextual flexibility recently." He doesn't define context. The enforcement log's open page shows two stall closures from the same family name in the past month — both for minor variance — and three clearances for a different family name that the standards would have caught.`;
         addJournal('Inspector confirmed inconsistent enforcement practices', 'evidence', `sunspire-inspector-confirmed-${G.dayCount}`);
@@ -413,7 +413,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `A message arrives at the waystation before you return to it — unsigned, hand-delivered, one sentence. Continued documentation of family difficulties in Sunspire Haven will result in removal from the haven's access registry. The wording is administrative. The speed of delivery is not. Whoever wrote it knew where you'd been asking and got ahead of you before you finished.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation drawing direct coercion consequences', 'complication', `sunspire-coercion-caught-${G.dayCount}`);
+        addJournal('Inquiry drawing direct coercion consequences', 'complication', `sunspire-coercion-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Two families decline to answer in the same way — not evasively, but with a particular practiced brevity that has been rehearsed. A third family's eldest keeps glancing at the syndicate administrator's window across the market lane. The threats aren't visible in what people say. They're visible in the distance people keep between themselves and the subject when anyone else might be watching.`;
         addJournal('Family intimidation confirmed through behavioral patterns', 'evidence', `sunspire-coercion-confirmed-${G.dayCount}`);
@@ -686,7 +686,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `As you approach the evidence of external coordination, you're intercepted. Someone stops you directly and makes it clear that pursuing this further will result in your removal from Sunspire Haven or worse. You've discovered pieces, but the full external coordination remains hidden — and now you're marked as a direct threat.`;
         G.worldClocks.pressure += 2;
-        addJournal('Investigation interrupted by external coordination operators', 'complication', `sunspire-origin-caught-${G.dayCount}`);
+        addJournal('Inquiry interrupted by external coordination operators', 'complication', `sunspire-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
         G.lastResult = `The evidence points beyond Sunspire Haven. Courier routes reference "northern resource authorities." Extraction orders show external signature. The conspiracy is larger than the community itself. You don't know the exact source yet, but you know the resource extraction is being directed from outside Sunspire Haven's borders.`;
         addJournal('External coordination of Sunspire Haven extraction confirmed', 'discovery', `sunspire-origin-external-${G.dayCount}`);
