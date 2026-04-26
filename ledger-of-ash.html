@@ -1906,6 +1906,12 @@ input, button, select, textarea { font-family: inherit; }
       </div>
       <div id="hud-fatigue" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
       <div id="hud-trait-ready" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
+      <div id="hud-stage-progress-wrap" style="display:none;padding:0 14px 6px;">
+        <div style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;margin-bottom:3px;">
+          <span>INVESTIGATION</span><span id="hud-stage-progress-val"></span>
+        </div>
+        <div class="pressure-bar-track"><div id="hud-stage-progress" class="pressure-bar-fill" style="background:var(--discovery);width:0%"></div></div>
+      </div>
       <div class="l-skills">
         <div class="l-section-cap">Stats</div>
         <div id="hud-skills"></div>
@@ -14279,6 +14285,16 @@ function updateHUD() {
       _progEl.style.display = '';
     } else { _progEl.style.display = 'none'; }
   }
+  // Investigation progress bar
+  var spKey = G.stage === 'Stage I' ? 1 : 2;
+  var spVal = (G.stageProgress && G.stageProgress[spKey]) || 0;
+  var spMax = G.stage === 'Stage I' ? 10 : 15;
+  var spEl = document.getElementById('hud-stage-progress');
+  var spWrap = document.getElementById('hud-stage-progress-wrap');
+  var spValEl = document.getElementById('hud-stage-progress-val');
+  if (spEl) spEl.style.width = Math.min(100, (spVal / spMax) * 100) + '%';
+  if (spValEl) spValEl.textContent = spVal;
+  if (spWrap) spWrap.style.display = spVal > 0 ? 'block' : 'none';
   // Alliance credits overlay (Soreheim/Sunspire only)
   var _inSore = G.location === 'soreheim' || G.location === 'soreheim_proper' || G.location === 'sunspire' || G.location === 'sunspire_haven';
   var _pcEl = document.getElementById('hud-plotcredits');
