@@ -10233,6 +10233,8 @@ function adaptEnrichedChoice(c) {
     text: c.label,
     tag: _derivedTag,
     align: c.align || 'neutral',
+    cid: c.cid || c.id || undefined,
+    plot: c.plot || undefined,
     action: function() {
       try {
         if (_rivalMod > 0) G._rivalDCPenalty = _rivalMod;
@@ -11418,6 +11420,63 @@ var BACKUP_CHOICES = {
     result: 'The fence named a specific piece of institutional detail she wanted. That detail — a certified manifest entry from a particular week — is the same one two other traders referenced in separate conversations. It is circulating. Someone is buying it, and the fence is not the only buyer. The specific manifest entry is findable through the public routing archive if you know which week to pull. You do now.',
     skill: 'wits',
     tag: 'risky'
+  },
+
+  // Stage 2 plot-main recovery paths — fires on fumble for id-keyed choices (cid preserved via adaptEnrichedChoice patch)
+  's2_collegium_1': {
+    text: 'Seld stopped counting when he saw me looking. The number he reached is still there.',
+    result: 'The index rotation Seld referenced — thumb to little finger, four then back — matches the suppression batch cadence in the secondary archive intake log. That log is not restricted. The count is documented there as a filing anomaly, unresolved. The path Seld could not walk you through directly is walkable from the intake end. You know which shelf.',
+    skill: 'lore',
+    tag: 'risky'
+  },
+
+  's2_collegium_2': {
+    text: 'The fragment Seld had was not the only copy. Copies exist because someone was worried.',
+    result: 'Document fragments at that level are produced in triplicate before suppression — one for the suppressing authority, one for the institutional record, one filed under a holding code pending review. The holding-code register is public. The fragment Seld held is traceable through it. You do not have Seld\'s copy. You have something better: the filing trail that proves the original existed.',
+    skill: 'lore',
+    tag: 'risky'
+  },
+
+  's2_collegium_3': {
+    text: 'Seld came despite being watched. That means the window is still open somewhere.',
+    result: 'If the observation on Seld were total, he would not have been allowed to approach at all. The watcher is logging, not blocking — which means the information Seld carries has not yet been flagged as actionable. That gap will close. But while it is open, Seld\'s secondary index access is still live. The meeting that failed can be rerouted through the intake bell schedule, where staff movement is not logged individually.',
+    skill: 'wits',
+    tag: 'risky'
+  },
+
+  's2_collegium_4': {
+    text: 'Process and force are incompatible. That incompatibility is a gap I can move through.',
+    result: 'The Collegium documents. The Wardens enforce. Between those two functions is a coordination delay — mandatory under Order protocol — where neither body has jurisdiction and both assume the other is acting. That gap runs approximately four days per filing cycle. You know the cycle. The next gap opens in two days. Both threads stay alive if you use the window correctly.',
+    skill: 'lore',
+    tag: 'bold'
+  },
+
+  's2_wardens_1': {
+    text: 'She pulled my transit record. That record has a stamp she cannot explain away.',
+    result: 'The checkpoint pull on your transit record surfaces a routing stamp from three weeks prior — a corridor that is currently under the same monitoring order the Warden declined to discuss. Your presence in that corridor is documented. That documentation creates a procedural obligation for the Order to acknowledge your transit as a matter of record. The Warden cannot close the file without noting the stamp. The file stays open.',
+    skill: 'wits',
+    tag: 'risky'
+  },
+
+  's2_wardens_2': {
+    text: 'The unfiled corridor data has to be logged somewhere. The absence is its own record.',
+    result: 'Route data that has not been filed with any district office still passes through the Order\'s own internal transit summary — a weekly dispatch that circulates only within the patrol chain. That summary is not public. But the absence of a filing notation for the corridor in question appears in the district reconciliation report, which is. The gap between what the Order logged internally and what reached the district office is documentable from the outside.',
+    skill: 'lore',
+    tag: 'risky'
+  },
+
+  's2_wardens_3': {
+    text: 'Oversight from above their own chain means the chain itself is the record I need.',
+    result: 'An observation order attached above the patrol chain creates a parallel log — the observer\'s own report, filed separately from Order records. That report goes to a coordinating body with its own intake process. The coordinating body\'s intake log is not restricted. The observation order\'s existence is therefore documentable without Order cooperation. You know which coordinating body. You know where their intake log sits.',
+    skill: 'lore',
+    tag: 'risky'
+  },
+
+  's2_wardens_4': {
+    text: 'Neither thread ends here. The records exist. The path to them just changed.',
+    result: 'The Collegium documents what the Wardens act on. Both threads are incomplete individually. But the junction — the moment when a Collegium filing triggers an Order enforcement record — creates a corroborating document in both systems simultaneously. That corroborating moment is findable in the district reconciliation archive even when the underlying filings are suppressed. The approach changes. The destination does not.',
+    skill: 'wits',
+    tag: 'bold'
   }
 };
 
@@ -12441,7 +12500,7 @@ function campAction(type) {
     if (G.supplyTier === 'plentiful') healed += Math.floor(G.maxHp * 0.10);
     G.hp = Math.min(G.maxHp, G.hp + healed);
     tickAxis(1); advanceTime(2);
-    if (G.traits) { G.traits.forEach(function(t) { if (t.traitType !== 'passive') t.used = false; }); }
+    if (G.traits) { G.traits.forEach(function(t) { if (t && t.passive !== true) t.used = false; }); }
     updateRecoveryState();
     G.restCount = (G.restCount || 0) + 1;
     addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success');
@@ -12769,6 +12828,11 @@ function doSleep(cost, placeName, comfortable) {
   G.consecutiveSleepless = 0;
   G.flags['_slept_day_' + (G.dayCount || 0)] = 'slept';
   G.watchPosted = false;
+  if (G.traits) {
+    G.traits.forEach(function(t) {
+      if (t && t.passive !== true) t.used = false;
+    });
+  }
   const hpGain = comfortable ? Math.floor(G.maxHp * 0.35) : Math.floor(G.maxHp * 0.2);
   G.hp = Math.min(G.maxHp, G.hp + hpGain);
   G.fatigue = Math.max(0, (G.fatigue||0) - (comfortable ? 3 : 2));
