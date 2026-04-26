@@ -10134,8 +10134,14 @@ function buildLivingDesc(locId, g) {
 }
 
 function scheduleLivingDescUpdate() {
-  var _anyOverlay = document.querySelector('.overlay');
-  if (_anyOverlay && _anyOverlay.style && _anyOverlay.style.display !== 'none') return;
+  var _overlayList = document.querySelectorAll('.overlay');
+  var _anyVisible = false;
+  for (var _oi = 0; _oi < _overlayList.length; _oi++) {
+    if (_overlayList[_oi].style.display !== 'none' && _overlayList[_oi].style.display !== '') {
+      _anyVisible = true; break;
+    }
+  }
+  if (_anyVisible) return;
   if (G._narrationFading) return;
   G._narrationFading = true;
   var _el = document.querySelector('.env-desc');
