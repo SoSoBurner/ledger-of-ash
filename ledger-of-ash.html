@@ -14585,16 +14585,6 @@ function updateHUD() {
   if (document.getElementById('hud-heat-val')) document.getElementById('hud-heat-val').textContent = _maxHeat;
   if (document.getElementById('hud-heat-fill')) document.getElementById('hud-heat-fill').style.width = Math.min(100, _maxHeat*10) + '%';
   if (_pBars) _pBars.classList.toggle('has-values', _watch > 0 || _maxHeat > 0);
-  // Stage progress investigation bar
-  var _spKey = G.stage === 'Stage I' ? 1 : 2;
-  var _spVal = (G.stageProgress && G.stageProgress[_spKey]) || 0;
-  var _spMax = G.stage === 'Stage I' ? 15 : 20;
-  var _spEl = document.getElementById('hud-stage-progress');
-  var _spWrap = document.getElementById('hud-stage-progress-wrap');
-  var _spValEl = document.getElementById('hud-stage-progress-val');
-  if (_spEl) _spEl.style.width = Math.min(100, (_spVal / _spMax) * 100) + '%';
-  if (_spValEl) _spValEl.textContent = _spVal;
-  if (_spWrap) _spWrap.style.display = _spVal > 0 ? 'block' : 'none';
   // Consumable count
   var _consumCount = (G.inventory || []).filter(function(i){ return i.type === 'consumable'; }).length;
   var _consumEl = document.getElementById('hud-consumable-count');
