@@ -244,6 +244,156 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Hoven Draske works the night materials dock — he moves things that do not appear in the morning shift's intake log.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'pressing Hoven Draske on night-dock off-manifest transfers');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_hoven_draske = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Hoven is a large man who sits very still when he's weighing something. He sits still for a long time. Then he takes a folded receipt from inside his coat and sets it on the crate between you without speaking. The receipt is for a sealed reagent crate, Fairhaven provenance, night-docked four months ago — no intake number, no faculty co-sign, just a charter mark he did not recognize and a weight notation in a hand that matches the compressed entries in Leth's ledger. He has been holding it because nobody asked before. Nobody looked like they could do anything about it before.`;
+        addJournal('Night-dock Fairhaven reagent receipt — matches compressed ledger hand, no intake number', 'evidence', `mim-hoven-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Hoven listens with his arms folded and his weight back — the posture of a man who has heard the question before in different words. He says he unloads what the dock bill says and logs what the intake form requires. He does not elaborate. Before you reach the dock gate on your way out, a proctor is already walking toward the night materials station from the main corridor. The timing is not coincidental. Someone on the dock has a faster line to the compliance office than the morning shift does.`;
+        addJournal('Night dock — proctor response triggered, Hoven protected by protocol', 'complication', `mim-hoven-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_hoven_draske = true;
+        G.investigationProgress++;
+        G.lastResult = `Hoven confirms the night-dock receives transfers that do not go through the morning intake process — a separate authorization channel, he explains, for materials under faculty regent codes. He has logged everything in his own shift register, which is not the same document the day supervisor reviews. He can show the shift register. The regent codes on the night-dock entries are the same ones Sarith could not match against the official exemption registry.`;
+        addJournal('Night-dock shift register: regent codes match Sarith tariff anomalies — separate auth channel', 'intelligence', `mim-hoven-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Pellin Ost audits faculty expenditures — he stopped filing anomaly reports six weeks ago and has not explained why.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'drawing out Pellin Ost on suspended anomaly reporting');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_pellin_ost = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Pellin closes his office door before he speaks, and then he speaks quickly. Six weeks ago he filed an anomaly report on a recurring expenditure line coded to "theoretical infrastructure maintenance" — a budget category that does not exist in the Academy's approved expenditure schedule. The report came back from the Dean's office with a single annotation: "Reclassified. No further inquiry required." The annotation was not in the Dean's handwriting. He stopped filing because the next anomaly he found was larger, and the annotation on the first one told him where that report would go.`;
+        addJournal('Pellin Ost: expenditure anomaly reclassified by unknown annotator — Dean handwriting absent', 'evidence', `mim-pellin-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Pellin's door is open but his body language closes it: chair angled toward the window, pen moving across unrelated paperwork before you finish the first sentence. He says anomaly reporting procedures are an internal faculty matter and refers you to the public-facing audit charter summary, which is posted in the rotunda. His pen does not stop moving. The paperwork he is writing is a duty-log entry. You are in it.`;
+        addJournal('Pellin Ost — referral to public charter, duty log entry confirmed', 'complication', `mim-pellin-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_pellin_ost = true;
+        G.investigationProgress++;
+        G.lastResult = `Pellin confirms he suspended anomaly reporting without elaborating on the reason. He opens a drawer, retrieves a single sheet, and sets it face-down on the desk between you. The sheet is the returned anomaly report — the reclassification annotation visible through the paper when held to the window light. He does not turn it over. "The process functioned as designed," he says, which is a precise and deliberate way to describe a process that did not function as intended.`;
+        addJournal('Pellin Ost: anomaly report returned reclassified — process described as "functioning as designed"', 'intelligence', `mim-pellin-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Fairhaven courier route has a regular stop at the Academy that does not appear in the public delivery schedule.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing Draith Calver Fairhaven courier off-schedule Academy stop');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_draith_calver = true;
+        G.investigationProgress++;
+        G.lastResult = `The courier is Draith Calver, and he arrives at the Academy's east service gate every twelve days — not on the posted schedule, which lists Fairhaven deliveries as monthly. The east service gate is not staffed by regular dock workers. The same two faces appear on every off-schedule arrival, drawn from a short roster Myra's shift log does not account for. Draith's route manifest for these stops shows a single line entry: "Academic reagent exchange — pre-cleared." The pre-clearance code resolves to the same external charter mark Hoven pulled from his coat.`;
+        addJournal('Draith Calver 12-day courier cycle: same charter mark as Hoven dock receipt', 'evidence', `mim-draith-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The east service gate is staffed when it should be unstaffed — two workers in nondescript work coats who clock you from thirty meters and do not move toward the gate. The courier does not arrive during the window. A different delivery comes through the main dock instead, routine and logged, and the two workers are gone when you check the gate again an hour later. The pattern closed before it opened.`;
+        addJournal('East gate surveillance — off-schedule stop did not occur, workers present and watchful', 'complication', `mim-draith-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_draith_calver = true;
+        G.investigationProgress++;
+        G.lastResult = `The east service gate shows irregular traffic in Myra's cargo log — entries logged under a "pre-cleared academic exchange" category that runs on a twelve-day cycle, not the monthly schedule posted publicly. The courier name on these entries is partially redacted, but the route origin — Fairhaven — is intact. The twelve-day interval matches the surge event spacing Myra circled in her log.`;
+        addJournal('East gate 12-day Fairhaven exchange cycle matches Myra surge event intervals', 'intelligence', `mim-draith-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The glyph resonance theory papers in the archive are cited by research that does not exist in the Academy's own catalog.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing phantom citation network in glyph resonance theory archive');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_phantom_citations_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `Fourteen papers in the glyph resonance theory stack cite a source titled "Distributed Pressure Regulation: Applied Architecture" — a monograph that does not appear in the Academy catalog, the Collegium registry, or any public acquisition record. The citation format uses a Fairhaven institutional prefix. All fourteen papers were authored in the two years preceding the classification directive. The monograph's existence was known to the Academy's faculty before the theoretical work here was completed. Someone gave the faculty this text through a channel that left no acquisition record.`;
+        addJournal('Phantom monograph: 14 papers cite Fairhaven source absent from all registries', 'evidence', `mim-citations-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The catalog access system requires a reader registration current within sixty days. The registration clerk is not at the desk; the stand-in does not have authorization to process external reader renewals. The stand-in writes the request in the duty log and marks it pending faculty review. The glyph resonance stack is available to registered readers only. The pending flag on a lapsed registration is now in the same system as the quarterly audit queue.`;
+        addJournal('Catalog access blocked — lapsed registration flagged in audit queue', 'complication', `mim-citations-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_phantom_citations_mapped = true;
+        G.investigationProgress++;
+        G.lastResult = `The citation discrepancy is systematic: a single source appears in multiple papers in the glyph resonance stack but resolves to nothing in the catalog. The papers themselves are available to read. The source they cite is not. This is not a cataloging error — each paper uses the same citation format, the same institutional prefix, and the same publication date. The source was real and known to these authors. It simply does not exist in any record the Academy is willing to show.`;
+        addJournal('Systematic phantom citation: single Fairhaven source, same format across 14 papers — deliberate omission', 'intelligence', `mim-citations-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The reagent storage manifest uses a weighing notation that does not match Academy standard — the discrepancy is a craft tell, not a clerical error.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'decoding non-standard reagent weighing notation in storage manifest');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_reagent_notation_decoded = true;
+        G.investigationProgress++;
+        G.lastResult = `The notation is a field-craft weighing shorthand used in extraction operations — not a workshop system, not an academic one. Someone trained in applied field extraction filled in these manifests. The weights themselves are significant: the quantities logged for three reagent entries correspond to batch sizes for suppression compound production at a scale that would supply a distributed deployment, not a contained test. The manifest is signed off as routine Academy reagent storage. The quantities are not routine. Not even close.`;
+        addJournal('Reagent manifest: field-extraction notation, batch sizes indicate distributed suppression deployment', 'evidence', `mim-reagent-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The storage manifest is behind the materials desk in a locked binder. The clerk on duty is new to the desk and is not certain whether external access to storage manifests falls under the general reader exemption or the faculty-restricted materials protocol. She decides, correctly, that she does not know, and escalates to a senior clerk who does. The senior clerk applies the restricted protocol. The manifest goes into the locked drawer. The escalation is logged.`;
+        addJournal('Storage manifest access escalated — restricted protocol applied, logged', 'complication', `mim-reagent-fail-${G.dayCount}`);
+      } else {
+        G.flags.mim_reagent_notation_decoded = true;
+        G.investigationProgress++;
+        G.lastResult = `The weighing notation is not Academy standard — that much is clear from the unit abbreviations, which don't match the faculty measurement guide on the wall behind the desk. The shorthand is from outside the academic system: a practical extraction notation used in applied field work, not theoretical research. Someone with field training filled in these manifests. The Academy's storage records have been maintained by someone who has never worked inside an academy.`;
+        addJournal('Storage manifest notation: field-craft shorthand — non-academic author confirmed', 'intelligence', `mim-reagent-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Mimolot Academy finale — the Academy's classified research was the theoretical foundation for the entire suppression operation. Expose or contain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
