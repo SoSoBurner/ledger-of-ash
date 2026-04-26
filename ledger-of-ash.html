@@ -1048,8 +1048,8 @@ input, button, select, textarea { font-family: inherit; }
 
 /* ── ROLL DISPLAY LINE ── */
 .roll-result, .roll-line {
-  font-family: var(--font-display); font-size: 11px; letter-spacing: .5px;
-  color: var(--ink-faint); padding: 8px 14px; margin: 8px 0 4px;
+  font-family: var(--font-display); font-size: 15px; letter-spacing: 0.04em;
+  color: var(--accent-gold); padding: 8px 14px; margin: 8px 0 4px;
   background: rgba(0,0,0,.35);
   border-left: 2px solid var(--storm);
   border-radius: 1px;
@@ -11029,7 +11029,7 @@ function handleChoice(choice) {
     const _rRoll = Math.floor(Math.random() * 20) + 1;
     const _rDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 12 : 15;
     const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
-    addNarration('', '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs ' + _rDiff + '</span>');
+    addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
     resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
     return;
   }
@@ -11142,7 +11142,8 @@ function handleChoice(choice) {
       var _arRoll = Math.floor(Math.random() * 20) + 1;
       var _arTotal = _arRoll + _arSkillVal;
       _autoRollFailed = _arTotal < _effectiveRoll.dc;
-      addNarration('', '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + '</span>');
+      var _rollClass = 'roll-result ' + (_autoRollFailed ? 'failure' : 'success');
+      addNarration('', '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
