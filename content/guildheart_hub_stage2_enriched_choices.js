@@ -364,6 +364,233 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The freight insurance ledger at the Union bonding house shows three charter-exempt loads were never insured — the broker signed a waiver he can't explain.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing uninsured charter-exempt loads at Union bonding house');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_bonding_waiver_exposed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Broker Fen Callard runs the bonding desk out of a narrow office with a window that faces the canal lock gates rather than the street. He doesn't wait for the full question. The waiver forms are already on the desk — he pulled them this morning. "The three loads came through with a pre-signed waiver of bonding obligation, authorized under a Union freight council instrument I've never seen before or since." He smooths one corner of the topmost form. "If those loads were lost or seized, nobody was going to pay for them. Not the Hub, not the shipper, not my office. The instrument designated liability to a party whose name on it is a guild mark rather than a person." He taps the mark. It matches the subsidiary notation Sable flagged in the charter exemption files.`;
+        addJournal('Bonding house: charter-exempt loads carried pre-signed liability waiver — guild mark matches Sable charter subsidiary notation', 'evidence', `guild-bonding-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Callard's desk faces the door, which means he sees the approach before any word is said. "Bonding records are client-privileged. I don't discuss specific freight accounts without an Arbiter review order." The canal lock outside runs through a full cycle while the silence holds. His hand rests on the closed ledger in a way that has nothing to do with keeping it shut and everything to do with not moving it.`;
+        addJournal('Bonding house inquiry refused — client privilege cited, broker visibly on alert', 'complication', `guild-bonding-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_bonding_waiver_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `Callard confirms the three loads went through without standard insurance bonding. "Pre-signed liability waiver — not my form, not the Hub's form. Something I hadn't seen before." He shows the instrument: a Union freight council authorization, countersigned by a guild mark. "I asked about it at the time. I was told to process and file." He filed. He kept a duplicate in a separate cabinet. "Bonding brokers always keep duplicates. That's what brokers do."`;
+        addJournal('Union bonding waiver on charter-exempt loads — unfamiliar instrument form, guild mark counter-signature, broker kept duplicate', 'intelligence', `guild-bonding-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Guild Watchers duty roster shows a gap in coverage during the three off-hours loading windows — the same shift supervisor signed off on all three.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'examining Guild Watchers duty roster for coverage gaps');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_watchers_gap_exposed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The Watchers' duty roster is posted in the gatehouse log, open to anyone with a transit pass. The three loading windows each fall in a ninety-minute gap between patrol sweeps — the kind of gap that appears when a patrol route is shortened rather than rescheduled. Shift Supervisor Orren Tavel signed the route modifications on all three nights. Each modification carries an annotation: MAINTENANCE OBSTACLE — REROUTE. There is no corresponding maintenance report for any of those nights. Tavel's initials appear on the shortfall log too: ROUTE DEVIATION SELF-CLEARED. He wrote both the problem and the resolution. Nobody countersigned.`;
+        addJournal('Watchers gap: Supervisor Tavel self-certified three maintenance reroutes matching charter-load windows — no countersignature, no maintenance reports', 'evidence', `guild-watchers-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The gatehouse clerk on duty clips the roster against the wall peg before anyone gets a second look at it. Duty schedules are internal Watchers material — the posted version is the public summary, not the operational log. "Operational logs require a formal patrol audit request, filed through the Watcher Captain's office." The clerk writes down the inquiry. The Watcher Captain's office is on the same floor as Shift Supervisor Tavel's duty station.`;
+        addJournal('Watchers duty roster access blocked — operational log filed to Watcher Captain, same floor as Supervisor Tavel', 'complication', `guild-watchers-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_watchers_gap_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `The posted roster shows three ninety-minute gaps across different weeks — each one inside the window Luthen described for the off-hours loads. The same supervisor's initials mark the route change on each. The annotation is identical across all three: MAINTENANCE OBSTACLE. No maintenance report is pinned alongside. The gatehouse log has a column for countersignatures on route deviations. All three are blank.`;
+        addJournal('Watchers roster: three matching patrol gaps, same supervisor initials — countersignature column blank on all three', 'intelligence', `guild-watchers-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The supply register cross-references Ithtananalor as a secondary transit node — but the volume assigned to it exceeds the node's declared capacity by a factor of four.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'cross-referencing Ithtananalor transit node capacity against assigned volume');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_ithtan_volume_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `The supply register's transit node index lists Ithtananalor with a declared throughput ceiling — a figure set during the last infrastructure survey, which was conducted four years ago. The volume assigned to it across the charter-exempt routes exceeds that ceiling by a factor of four. A secondary column in the index tracks excess-volume flags: Ithtananalor's row has been manually cleared on each of the three relevant months, same approval mark, no name attached. The approval mark format matches the Shelk freight council instrument Callard showed at the bonding desk. The same instrument is authorizing volume overrides at the transit node.`;
+        addJournal('Ithtananalor node: 4x capacity exceeded — excess-volume flags manually cleared with Shelk freight council mark matching bonding waiver instrument', 'evidence', `guild-ithtan-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The supply register is managed through the transit coordination desk, which is currently under a consolidation review — all external access suspended for the duration. The clerk at the window slides a review notice across without looking at the request. The notice is dated three days ago. Someone opened the consolidation review recently enough that the ink on the stamp is still raised.`;
+        addJournal('Supply register access suspended — transit consolidation review opened 3 days ago', 'complication', `guild-ithtan-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_ithtan_volume_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `The declared throughput ceiling for Ithtananalor is right at the top of the node index — clear enough to check in thirty seconds. The assigned volume across the three charter-exempt months runs four times that figure. "Node capacity is a guideline unless the excess flag is triggered." The index column for excess flags is consulted. All three months show the flag cleared. "Cleared flags need an approval mark." The approval mark is there. No name beside it.`;
+        addJournal('Ithtananalor: 4x capacity overage, excess flags cleared by unnamed approval mark — index confirms systematic override', 'intelligence', `guild-ithtan-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Union ink-seal press used to authenticate charter documents shows residue from a non-standard compound — it's been used to print something other than official charter marks.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'examining Union ink-seal press for non-standard compound residue');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_seal_press_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `The press room keeper, a methodical woman named Voss who cleans the press beds twice daily, has been setting aside lint cloths that come away with off-color residue since the second month of the charter-exempt routing. She kept them in a sealed clay pot under the intake bench — not filed, not reported, just kept. The residue is blue-green: a Shelkopolis-origin iron compound used in private notarial seals, distinct from the Hub's standard black iron ink. The Hub's press was used to print a Shelk-style seal at least seventeen times. The lint cloths are still in the clay pot. Voss sets the pot on the bench without a word.`;
+        addJournal('Hub seal press: 17+ uses of Shelk notarial compound — press keeper Voss preserved residue cloths in clay pot', 'evidence', `guild-sealpress-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Press room access requires a charter authentication credential or a filed press-inspection request countersigned by the Hub document director. The keeper outside the press room door recites this and does not step aside. Through the small press room window, the bench surface is visible and recently cleaned — still wet at the edges in the late afternoon light. Something was cleared from it recently.`;
+        addJournal('Press room access denied — bench surface recently cleaned, timing notable', 'complication', `guild-sealpress-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_seal_press_exposed = true;
+        G.investigationProgress++;
+        G.lastResult = `The press keeper shows the current ink compound in use: Hub-standard black iron. The press beds are clean. But the backing roller, which receives ink bleed during runs, carries a faint blue-green tinge along one edge that the standard compound does not produce. "I clean the beds. The roller gets cleaned quarterly." She looks at the roller. "Quarterly cleaning was two weeks ago." The tinge is fresh.`;
+        addJournal('Hub seal press roller: blue-green Shelk compound residue post-quarterly cleaning — recent non-standard use confirmed', 'intelligence', `guild-sealpress-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A fire report from the archive subroom was reclassified as a routine maintenance incident — the original report described smoke damage to the charter exemption files.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'locating reclassified archive fire report for the charter exemption subroom');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_fire_report_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The original fire report is filed under the incident's reclassified code — maintenance, sublevel two — not under the archive incident queue where it belongs. The Hub incident custodian, a deliberate man who does not volunteer anything but does not withhold what is asked directly, pulls it after a three-minute search through the maintenance sublevel index. Smoke damage to the charter exemption subroom, three file cabinets affected. The original report lists eleven specific documents by file reference that were damaged beyond reading. Cross-referencing those references against Sable's charter archive index: seven of the eleven are the pre-Union rider's source documents — the very instruments that would establish who authorized the original charter exemption. The smoke found the right files.`;
+        addJournal('Archive fire report: 7 of 11 smoke-damaged documents are pre-Union rider source instruments — reclassified to maintenance to suppress', 'evidence', `guild-fire-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The incident registry is organized by classification code, not by date or location. Without the reclassified maintenance code, the fire report does not surface under any archive or charter search. The incident custodian is willing to run a date-range query but the query takes eight minutes and requires a formal access log entry. The entry goes to the same weekly summary that the Arbiter's office and the Hub document director receive. The search would announce what is being looked for before anything is found.`;
+        addJournal('Archive fire report search logged — date-range query routes to Arbiter and document director weekly summary', 'complication', `guild-fire-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_fire_report_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The reclassified maintenance incident report is found after working backward through the maintenance sublevel index by date. The original language is still in the document — smoke damage, charter exemption subroom, eleven file references. The reclassification stamp sits over the top right corner: ROUTINE MAINTENANCE INCIDENT — NO FURTHER ACTION. The stamp used a different ink than the rest of the document. It was applied after the fact.`;
+        addJournal('Archive fire report reclassified post-hoc — smoke damage to charter exemption subroom, 11 file references listed', 'intelligence', `guild-fire-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dockside labor guild posted a grievance about the off-hours loading crews — it was withdrawn the following week with no resolution recorded.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracing withdrawn labor guild grievance about off-hours loading crews');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_labor_grievance_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The labor guild's grievance record is kept by a shop steward named Morwick Pen who maintains it in a worn canvas-covered book rather than the official registry, because the official registry is reviewed by the Hub charter desk. The grievance described six loading crews that were not guild-registered, working at night on the charter-exempt bays, handling cargo that matched none of the standard categories. Pen filed it. Six days later the grievance was marked withdrawn. Pen did not withdraw it. "Someone signed it with a union grievance waiver code that I've never used." He opens the book to the page. The waiver code is in a different hand. "I looked up that code afterward. It's reserved for inter-guild arbitration settlements. We never had an arbitration. There's no settlement on record." He does not close the book.`;
+        addJournal('Labor grievance withdrawn with false arbitration waiver code — steward Morwick Pen confirms no settlement, foreign handwriting', 'evidence', `guild-labor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The labor guild hall is between shifts — the posted hours put the steward in at the third bell. A runner at the door takes the inquiry and writes the name and topic on a slip that goes into the steward's message box. The message box is visible through the hall window. Another slip is already in it, newer paper, set on top. Someone else asked about the same grievance this morning. The hall runner looks at the slip and does not look back up.`;
+        addJournal('Labor guild inquiry logged — steward already contacted today by unknown party', 'complication', `guild-labor-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_labor_grievance_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Morwick Pen remembers the grievance without being prompted — it was withdrawn under circumstances he describes as irregular. "Code used to close it isn't one our chapter uses." He shows the entry in his own book: the filing, the withdrawal, the foreign code. He won't speculate on what it means, but he makes a copy of the page on his own initiative and slides it across the desk. "Copies stay with the claimant. That's in the charter." He keeps the book open until the copy is in hand.`;
+        addJournal('Labor grievance closed with unfamiliar waiver code — steward provided copy, records withdrawal as irregular', 'intelligence', `guild-labor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The formal Sanction Board record lists one witness as present at the charter exemption hearing — the witness says she was never called.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'locating uncontacted witness named in Sanction Board charter hearing record');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_phantom_witness_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Clerk Fenara Sivault is listed in the Sanction Board formal hearing record as a witness to the procedural review that approved the charter exemption — her name, her title, and a notation that she provided testimony confirming the exemption's legal standing. She works on the tariff adjudication floor, one level below Derris Ledgermere. She is direct: she was never called to any hearing. Her name appears on no summons. Her signature appears on no testimony form. The notation in the formal record is fabricated. She has been a named witness to a proceeding that did not happen, which means if the exemption is ever challenged, her name is the procedural anchor. "If this goes to formal review, I am the evidence that it was legitimate." She has known this for three months. She does not know what to do about it.`;
+        addJournal('Phantom witness Fenara Sivault: named in formal charter hearing record, never summoned — fabricated testimony anchors exemption legitimacy', 'evidence', `guild-witness-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The Sanction Board formal hearing records are archived by session number, not by witness name. Without the session number for the charter exemption hearing, a name search requires a full-index query that takes a minimum of two days and produces a written access log. The log is distributed to the Board chair's office and the relevant charter desk at the end of each week. The search puts the question where the charter desk can see it before any answer arrives.`;
+        addJournal('Sanction Board witness search requires formal index query — access log routes to charter desk weekly', 'complication', `guild-witness-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_phantom_witness_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The Sanction Board record lists the witness by name and title, with a testimony notation. Sivault, when found on the tariff floor, recognizes her own name in the record and says nothing for a moment. "I was not called to any hearing on this." She reads the notation again. "That is not my testimony. I have not provided testimony on charter exemptions." She asks to see the session date. She was working a double shift that day — her own time log would confirm it. She was never in the Board chambers.`;
+        addJournal('Sanction Board witness notation fabricated — Sivault confirmed absent on session date, own time log as alibi', 'intelligence', `guild-witness-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The hub registry has a standing amendment to the charter exemption category that nobody signed — it was filed as a clerical correction, not a policy change.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'examining unsigned standing amendment in charter exemption category registry');
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guild_registry_amendment_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The standing amendment is a single paragraph inserted into the charter exemption category definition — changing the scope of what qualifies for exemption from "diplomatic and ceremonial materials" to "diplomatic, ceremonial, and designated transit materials." Three words added. Filed as a clerical correction to resolve an ambiguity. Clerical corrections don't require a policy-level signatory. They require only a registry clerk's stamp. The stamp is there. The clerk whose number appears on it transferred to the coastal office in Cosmouth eleven months ago. The category scope change enabled every load that has moved under the charter umbrella since the amendment was filed. Three words. Unsigned at the policy level. Invisible.`;
+        addJournal('Charter category amendment: 3 words added under cover of clerical correction — expands exemption scope to all designated transit, no policy signatory required', 'evidence', `guild-amendment-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Registry amendment records are in the administrative archive, accessed through a reader's permit issued at the front desk. The permit requires an institutional affiliation listed in the Union register. The desk clerk checks the affiliation register while writing down the inquiry and the time of request. The inquiry is logged before the permit question is answered. No permit is issued without a logged request. The log goes to the Hub's administrative review panel.`;
+        addJournal('Registry amendment access logged before permit issued — administrative review panel receives inquiry log', 'complication', `guild-amendment-fail-${G.dayCount}`);
+      } else {
+        G.flags.guild_registry_amendment_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The amendment sits between two routine category updates — visible only if someone reads the registry in sequence rather than by keyword search. "Designated transit materials" is the added phrase. The filing category is clerical correction. "Clerical corrections don't go to policy review. They close an ambiguity, they don't change scope." The clerk reading it looks up. "This changes scope." The registry stamp at the bottom carries a number for a clerk who is no longer at this Hub.`;
+        addJournal('Charter category clerical amendment: "designated transit materials" added — scope change filed without policy review, stamping clerk transferred out', 'intelligence', `guild-amendment-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Guildheart Hub finale — the pre-Union charter, zero-rated imports, and shrine document exchange form a complete financing chain. Move through guild channels or route it informally.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
