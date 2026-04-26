@@ -721,6 +721,53 @@
     }
   ];
 
+  // ---------------------------------------------------------------------------
+  // TRAVEL COMBAT WIRING
+  // Inject a bold combat option into every corridor/pool encounter that has choices.
+  // ---------------------------------------------------------------------------
+  function _makeCombatChoice(biome) {
+    return {
+      id: 'enc_fight',
+      text: 'Step into the open. If they want a fight, they\'ll get one.',
+      tag: 'bold',
+      action: function(ctx) {
+        var b = (ctx && ctx.biome) || biome || 'plains';
+        var pool = (typeof BIOME_ENCOUNTER_POOLS !== 'undefined' && window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[b]) || ['road_bandit'];
+        var enemy = pool[Math.floor(Math.random() * pool.length)];
+        if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
+      }
+    };
+  }
+
+  // Inject combat choice into CORRIDOR_ENCOUNTERS
+  (function() {
+    var tiers = ['short', 'medium', 'long'];
+    tiers.forEach(function(tier) {
+      var encounters = window.CORRIDOR_ENCOUNTERS && window.CORRIDOR_ENCOUNTERS[tier];
+      if (!encounters) return;
+      encounters.forEach(function(enc) {
+        if (!enc.choices) return;
+        var alreadyHasFight = enc.choices.some(function(c) { return c.id === 'enc_fight'; });
+        if (!alreadyHasFight) enc.choices.push(_makeCombatChoice('plains'));
+      });
+    });
+  })();
+
+  // Inject into TRAVEL_ENCOUNTER_POOLS after they are all defined (called below)
+  function _injectCombatIntoTravelPools() {
+    var pools = window.TRAVEL_ENCOUNTER_POOLS;
+    if (!pools) return;
+    Object.keys(pools).forEach(function(biome) {
+      var encounters = pools[biome];
+      if (!Array.isArray(encounters)) return;
+      encounters.forEach(function(enc) {
+        if (!enc.choices) return;
+        var alreadyHasFight = enc.choices.some(function(c) { return c.id === 'enc_fight'; });
+        if (!alreadyHasFight) enc.choices.push(_makeCombatChoice(biome));
+      });
+    });
+  }
+
   // Fast-pace extra encounter: when G.pace === 'fast', the corridor controller calls this
   // to add one additional encounter roll from the biome pool.
   window._travelFastPaceExtraEncounter = function(biome) {
@@ -734,5 +781,8 @@
     if (typeof addNarration === 'function') addNarration(enc.title, enc.text);
     if (typeof renderChoices === 'function') setTimeout(function() { renderChoices(enc.choices); }, 300);
   };
+
+  // Inject combat choices into travel pools now that all pools are defined
+  _injectCombatIntoTravelPools();
 
 })();
