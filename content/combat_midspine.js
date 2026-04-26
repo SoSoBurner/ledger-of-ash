@@ -25,7 +25,7 @@ const COMBAT_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('might', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
       const target = 12;
 
       if (result.total >= target) {
@@ -64,7 +64,7 @@ const COMBAT_MIDSPINE_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('might', (G.skills.combat || 0) + (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('combat', (G.skills.combat || 0) + (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const target = 14;
 
       if (result.isCrit) {

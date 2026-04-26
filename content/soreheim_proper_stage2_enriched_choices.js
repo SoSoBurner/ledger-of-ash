@@ -77,7 +77,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'confronting Councillor Vorgul Oxtend on military transport passes');
-      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vorgul_oxtend = true;
         G.investigationProgress++;

@@ -79,7 +79,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.factionHostility) G.factionHostility = {};
       if (!G.rivalId) G.rivalId = 'warden_captain';
-      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_velden_ironspike = true;
         G.flags.stage2_faction_contact_made = true;
@@ -749,7 +749,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/2));
+      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

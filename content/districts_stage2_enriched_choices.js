@@ -935,7 +935,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'pressing low ward off-books cargo workers');
-      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A worker with a crooked jaw and hands that haven't quite healed right leans back in his chair and stares at the ceiling while he talks. One container seal blew during transit — a dry failure, not a chemical one, but it pulled the lid up for a few seconds. "Racks inside. Padded. Rows of vials, each one labeled." He taps his forearm where the label would have been. The notation was a dosage figure. Below it, a Soreheim military classification stamp in standard command red. He closed the lid and said nothing to anyone for four months.`;

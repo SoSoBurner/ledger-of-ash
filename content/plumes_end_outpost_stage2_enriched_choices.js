@@ -46,7 +46,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'questioning Patrol Leader about unmapped northern structure');
 
 
-      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_patrol_leader = true;
         G.investigationProgress++;

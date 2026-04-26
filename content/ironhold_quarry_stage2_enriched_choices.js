@@ -14,7 +14,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'investigating special mineral assessment logs with Darian Ironspike');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('might', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
         G.investigationProgress++;

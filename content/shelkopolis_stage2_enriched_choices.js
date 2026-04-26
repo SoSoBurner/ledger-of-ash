@@ -261,7 +261,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Multiple sources have confirmed the same description: someone asking the same questions, at the same addresses, one day behind your movements. You haven't shared the same room yet. The gap is real but hasn't closed. The moment to act or avoid hasn't arrived — but it's been scheduled by someone else's timeline.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('might', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stage2_rival_status = 'negotiated';
@@ -299,7 +299,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.warden_invitation_seen = true;
         G.recentOutcomeType = 'faction'; maybeStageAdvance(); return;
       }
-      const result = rollD20('might', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.warden_invitation_seen = true;
         G.flags.warden_interest_declared = true;
