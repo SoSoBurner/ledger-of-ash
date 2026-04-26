@@ -467,6 +467,247 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The equipment barn at the field road's end has a false floor. The smell coming up through the boards is not grain.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining equipment barn at western field road terminus');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.equipment_barn_searched = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The false floor sits under the northeast corner, hinged at the wall stud. Below it: a staging cavity four feet deep, lime-washed to kill residue smell, with three ceramic amphorae still in transit racking. The rack itself is purpose-built — fitted slots at the exact diameter of the suppression compound containers Serin described. The cavity is empty now but recently used; the lime wash is still tacky at the seams. Someone cleared this ahead of the tide window.`;
+        addJournal('Equipment barn false floor — compound staging cavity, purpose-built amphorae racking, recently cleared', 'evidence', `fair-barn-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The barn door is not latched. It swings open too easily and the interior smells of something sharp underneath the familiar must of old straw. But the floor boards are thick and close-fitted and there is no obvious seam or hinge. You are still crouched at the corner when a figure appears in the barn doorway behind you — a field hand, or someone dressed as one — who says nothing and does not move until you do.`;
+        addJournal('Equipment barn entry noticed — watched departure, search incomplete', 'complication', `fair-barn-fail-${G.dayCount}`);
+      } else {
+        G.flags.equipment_barn_searched = true;
+        G.investigationProgress++;
+        G.lastResult = `The barn floor near the northeast wall has been relaid recently — the boards are slightly lighter where the clay dust hasn't settled fully into the grain. Tapping the section returns a hollow register. The cavity is sealed and there is no handle visible from above, but the access mechanism is there. Whatever's inside isn't accessible quickly or quietly.`;
+        addJournal('Equipment barn — hollow floor section confirmed at northeast wall, access sealed', 'intelligence', `fair-barn-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Fairhaven physic has been treating a recurring rash pattern. The same compound exposure, different patients, same window.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'consulting Fairhaven physic on compound exposure cases');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_physic_orra_seld = true;
+        G.investigationProgress++;
+        G.lastResult = `Orra Seld keeps a symptom calendar on the back of her dispensing ledger — a row of symbols she devised herself, one per patient visit, dated. Three patients over four months presented the same contact dermatitis pattern: skin at the wrists and lower forearms, resolving in ten days. The first two she treated as unrelated accidents. The third, six weeks ago, came in the same week as the cart ruts on the field road. She points to the calendar row. The dates align with the twelve-day courier cycle.`;
+        addJournal('Physic Orra Seld — three compound-exposure patients, dates match twelve-day courier cycle', 'evidence', `fair-physic-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Orra Seld is precise about patient confidentiality in a way that closes every angle before you finish asking. "Treatment records belong to the patient and to the chapel dispensary register. They are not cross-referenced with external inquiries." She leans on the word external. Her hands are clasped on the counter and do not move.`;
+        addJournal('Physic records access refused — patient confidentiality, chapel dispensary register cited', 'complication', `fair-physic-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_physic_orra_seld = true;
+        G.investigationProgress++;
+        G.lastResult = `Orra confirms she has seen a skin presentation pattern she associates with chemical handling — base-grade suppression compound residue, by profile. More than once, from different patients. She won't share dates or names but she draws the symptom distribution on a scrap of paper and slides it across the counter: wrist-to-forearm, lateral edge, consistent with a container seal that leaks on the left side during transport.`;
+        addJournal('Physic confirms compound-exposure presentation in multiple patients — container leak pattern identified', 'intelligence', `fair-physic-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Cyfoes shrine attendant logs every visitor who touches the ward mark. The log goes somewhere Serin doesn't see.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'examining Cyfoes shrine visitor log held by attendant Brael');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.shrine_visitor_log_read = true;
+        G.investigationProgress++;
+        G.lastResult = `Brael's log is a cloth-bound pocket record, not a formal chapel document. He has been noting visitors who enter via the side door — the entrance that bypasses the chapel's public register — for seven months. Fourteen entries, each with a brief physical description and the charter seal color they carried. Six entries share the same seal description: dark wax, no visible guild mark, folded ribbon closure. The last entry is dated three days before the most recent cave surge. Brael holds the log by the spine. "I was told the Cyfoes practice requires witness." He was told by Serin. Serin does not know the log exists.`;
+        addJournal('Shrine attendant private log — 14 unregistered visitors, six with matching dark-wax sealed charter, timing links to cave surge', 'evidence', `fair-shrine-log-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Brael is behind the offering basin when you enter and he watches the approach with the particular stillness of someone who has watched many approaches. He does not produce a log. He does not deny a log. He says the shrine's visitor records are a Cyfoes internal practice and not available to review. His thumb finds the chalk edge of the ward mark in the doorframe without him seeming to notice it. The conversation is over before it begins.`;
+        addJournal('Shrine attendant declined — visitor log not confirmed, Cyfoes internal practice cited', 'complication', `fair-shrine-log-fail-${G.dayCount}`);
+      } else {
+        G.flags.shrine_visitor_log_read = true;
+        G.investigationProgress++;
+        G.lastResult = `Brael shows the log without the dates — he folds the right edge of each page to cover the calendar column before turning it. What remains visible: physical descriptions and charter seal colors. Three entries share a matching dark-wax seal with no guild mark. He does not explain why he keeps the record. He does not explain why he has agreed to show it.`;
+        addJournal('Shrine attendant log — three matching dark-wax unsealed charter visitors, dates withheld', 'intelligence', `fair-shrine-log-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The cartwright who built sealed-compartment crates remembers the commission. The order came in writing. He kept the letter.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing sealed-compartment crate commission with local cartwright Pell Orvast');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_cartwright_orvast = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Pell Orvast retrieves the letter from a flat tin box he keeps under the wheel-iron rack. He received the commission eight months ago: six crates with fitted ceramic-diameter slots, hinged false-bottom panels, and lime-wash coating on the interior. The specification is precise enough that he copied it twice to make sure he'd read it right. The letter carries no name, but the seal at the base matches the dark-wax description from the shrine log — no guild mark, folded ribbon closure. At the bottom, a delivery address: the equipment barn at the western field road terminus.`;
+        addJournal('Cartwright Pell Orvast — commission letter for six compound crates, dark-wax unsealed charter, equipment barn delivery address', 'evidence', `fair-cart-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Pell listens to the description of the crates and his expression goes careful in a way that is not hostility. "I build what I'm contracted to build. The commission was paid in advance and the work was done to spec." He doesn't say he kept no paperwork. He says "commission was paid," twice, and looks at the door. Somewhere between those two statements the conversation has ended.`;
+        addJournal('Cartwright declined — commission confirmed but not described, payment terms deflection', 'complication', `fair-cart-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_cartwright_orvast = true;
+        G.investigationProgress++;
+        G.lastResult = `Pell built six crates to a specification he describes from memory: sealed interior panels, ceramic-fit slot brackets, lime-wash interior coat. He confirms he received the commission by letter, not in person. He no longer has the letter — he cleaned his order files last month — but he remembers the delivery address was on the western side of town. His description of the crates matches the suppression compound amphorae profile.`;
+        addJournal('Cartwright confirms six sealed compound crates, western delivery address, commission received by letter', 'intelligence', `fair-cart-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The deputy harbormistress added 'night clearance' to the standing protocol. Nobody authorized her to write that language.",
+    tags: ['Stage2', 'NPC'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'pressing deputy harbormistress Sava on night clearance protocol authorship');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.deputy_harbor_confronted = true;
+        G.investigationProgress++;
+        G.lastResult = `Sava holds eye contact for three seconds after you lay out what Aldra told you, then looks at the ledger surface to her left. The night clearance language was added at the request of a guild registry contact who approached her privately, not through the harbor authority's standard amendment process. The contact brought a written draft. She copied it into the standing protocol because the guild registry seal on the draft looked legitimate. She did not check the seal against the registry's current issue list. Her hands are very still. She has been waiting for this conversation.`;
+        addJournal('Deputy Sava — night clearance protocol written by guild registry contact, seal legitimacy not verified', 'evidence', `fair-sava-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Sava does not wait for the question to land before answering. "Harbor protocol amendments are recorded in the amendment log, available at the registry desk during operating hours." She is already at the door to the inner office. The door has a latch. The latch is engaged before you reach the counter edge.`;
+        addJournal('Deputy harbormistress closed interview — alerted, amendment log reference only', 'complication', `fair-sava-fail-${G.dayCount}`);
+      } else {
+        G.flags.deputy_harbor_confronted = true;
+        G.investigationProgress++;
+        G.lastResult = `Sava confirms she wrote the night clearance language into the standing protocol, and that it was drafted from an external source she received in written form. She chooses not to describe that source further. What she does say: the draft arrived without going through the harbor authority's normal amendment review. She initialed the change. Aldra's signature followed.`;
+        addJournal('Deputy confirms external draft source for night clearance language — amendment review bypassed', 'intelligence', `fair-sava-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Roadwarden post commander keeps a personal notation ledger separate from the official log. It shows two entries he never filed.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing Roadwarden commander Veth Olan personal notation ledger');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.commander_notation_read = true;
+        G.investigationProgress++;
+        G.lastResult = `Veth Olan's notation ledger is narrow-ruled and written in a hand smaller than his official log — the compression of someone working with limited page space and intent on keeping the volume portable. Two entries are marked with a double-strike through the date: incidents he observed but did not formally report. The first: a sealed-charter convoy passing the checkpoint at third-hour night with two Roadwarden escorts he did not dispatch and cannot account for. The second: a rider delivering a document to his own post that bypassed the standard routing slip. Both entries align with the correspondent's twelve-day cycle. He shows the ledger without being asked to. He has been waiting for the right person to show it to.`;
+        addJournal('Commander Veth Olan personal ledger — two unfiled incidents: phantom escort convoy and unrouted post delivery, both in twelve-day cycle', 'evidence', `fair-cmdr-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Veth Olan runs a post that reports upward to the Shelkopolis coordination office on a quarterly basis. He says this early in the conversation in a way that is not incidental. "Anything you bring to me that goes into the official record goes to coordination." He does not say he has a personal record. His hand rests on a narrow-ruled ledger in the desk drawer, which he does not open.`;
+        addJournal('Post commander deferred — upward reporting chain cited, personal notation not disclosed', 'complication', `fair-cmdr-fail-${G.dayCount}`);
+      } else {
+        G.flags.commander_notation_read = true;
+        G.investigationProgress++;
+        G.lastResult = `Veth confirms two incidents he recorded outside the official log: a checkpoint transit he could not account for and a post delivery that bypassed standard routing. He is willing to describe them but not to transfer the notation ledger or make copies. His posture says he has carried these entries for months without knowing what to do with them.`;
+        addJournal('Post commander confirms two unlogged incidents matching twelve-day cycle — notation not transferable', 'intelligence', `fair-cmdr-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A traveling factor passed through Fairhaven twice in the last quarter and signed the same sealed charter at both stops.",
+    tags: ['Stage2', 'Stealth'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'tracking traveling factor Deen Ashwick across two Fairhaven charter stops');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.factor_ashwick_tracked = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Deen Ashwick's pattern is visible in the market exchange's voluntary trader register — two sign-ins, six weeks apart, under the same trade factor authorization code. Both entries carry the dark-wax sealed charter mark in the secondary verification column. Between the two Fairhaven visits, the same authorization code appears in the Roadwarden checkpoint log under the correspondence waiver. Ashwick is the human face on a sealed-charter route. He is not the architect — he carries a sealed case and a memorized cover story and he does not know what's in the amphorae.`;
+        addJournal('Factor Deen Ashwick — dark-wax charter traced across two Fairhaven visits and checkpoint log, route courier identified', 'evidence', `fair-factor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The market exchange voluntary register is open on the counter desk, but watching it too obviously draws the desk clerk's attention. She takes the register off the counter before you finish, citing the two-minute handling rule for unsupervised external review. The register closes. The clerk's pen is already moving on a contact-slip.`;
+        addJournal('Market exchange register closed under handling rule — desk clerk filed contact-slip', 'complication', `fair-factor-fail-${G.dayCount}`);
+      } else {
+        G.flags.factor_ashwick_tracked = true;
+        G.investigationProgress++;
+        G.lastResult = `The voluntary trader register shows two sign-ins under the same factor authorization code, six weeks apart. Both entries include the dark-wax secondary verification mark. The code itself is in the correct format for a licensed trade factor but does not appear in the main guild registry when cross-referenced. The factor is real; the authorization behind them is not.`;
+        addJournal('Factor authorization code in two Fairhaven register entries — valid format, no guild registry match', 'intelligence', `fair-factor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The guild certification inspector stopped coming to Fairhaven eighteen months ago. No reassignment was filed.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'tracing lapsed guild certification inspector route for Fairhaven district');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.certification_lapse_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The guild certification office in Fairhaven holds a route calendar going back four years. Eighteen months ago, the inspector assigned to the Fairhaven-northwest circuit simply stopped appearing on the monthly schedule. There is no reassignment record, no route transfer, no coverage appointment. The certification stamps that should have been issued in the gap period were issued anyway — Naevys's archive gap, the empty column she pointed to, is the visible mark of inspections that happened on paper but not in person. The gap is not administrative failure. It was cleared deliberately to let uninspected workshops operate under a credentialing cover.`;
+        addJournal('Guild certification inspector route lapsed 18 months ago — stamps issued without inspection, Naevys gap confirmed as deliberate cover', 'evidence', `fair-cert-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The certification office clerk looks at the route calendar request with the practiced neutrality of someone who has been told what to say about schedule gaps. "Inspector routes are managed at the district coordination level. Route inquiries go through the district post." The district post is the Roadwarden post. The Roadwarden post reports to Shelkopolis coordination. The loop closes before you've left the counter.`;
+        addJournal('Certification route inquiry redirected to Roadwarden post — jurisdictional loop closed', 'complication', `fair-cert-fail-${G.dayCount}`);
+      } else {
+        G.flags.certification_lapse_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `The route calendar shows an eighteen-month gap in Fairhaven inspector visits. The clerk confirms no reassignment was filed for the gap period. The stamps that should appear in Naevys's archive during those months were issued from a district-level blanket authorization rather than individual inspector visits. Blanket authorization requires a district coordinator signature. The clerk does not know whose signature that is.`;
+        addJournal('Certification gap — district blanket authorization used for 18 months, authorizing signatory unknown', 'intelligence', `fair-cert-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
