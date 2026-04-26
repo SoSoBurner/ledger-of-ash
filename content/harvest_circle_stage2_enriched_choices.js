@@ -290,6 +290,134 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Valen Crestmark's personal logbook sits in a locked drawer he doesn't think anyone noticed.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'reviewing Valen Crestmark personal logbook tonnage discrepancies');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_valen_crestmark = true;
+        G.flags.valen_logbook_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Valen pulls the logbook himself after you name the discrepancy years — he stopped waiting for someone to ask. Three harvests of entries, each marked with a symbol he invented himself: a small square next to shipments he could not verify but lacked grounds to hold. The tonnage on the memorial offering routes runs forty percent above certified grain weight for the same crate count. His notation on the most recent entry reads: "compound-adjacent density profile. Not my domain to report. Logged for record."`;
+        addJournal('Valen Crestmark logbook: 3-year memorial offering tonnage discrepancy — density profile flagged as compound-adjacent', 'evidence', `har-valen-logbook-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The drawer is locked. Valen sees you looking at it and sets both hands flat on the desktop — a full stop. "Assessment office records are subject to annual review," he says. His voice is steady, but the knuckle on his left thumb goes white against the desk edge. He does not say which year the current review covers, and he does not ask why you were looking at the drawer.`;
+        addJournal('Valen logbook access refused — watchfulness raised', 'complication', `har-valen-logbook-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_valen_crestmark = true;
+        G.flags.valen_logbook_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Valen unlocks the drawer slowly, as though deciding something while his hand is on the key. The logbook covers two previous harvests. The memorial offering route entries are marked with a small square he does not explain, and the tonnage columns for those routes do not match the certified grain weight for the same crate count. He turns to the most recent marked page and sets the book down without comment, facing you.`;
+        addJournal('Valen Crestmark logbook: memorial offering route tonnage mismatch across two harvests', 'evidence', `har-valen-logbook-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The silo operator near the Panim junction weighs everything. He doesn't open offering crates. He weighs them.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'examining silo weight records at Panim transit junction');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.silo_weight_records_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `The operator spreads three seasons of weight logs across the loading bench without being asked — he has been waiting for someone with grounds to look. The flagged crates measure between forty-two and forty-seven kilos per standard crate volume. Certified grain runs twenty-eight to thirty-one. He circles the columns himself with a grease pencil. "Too dense for grain. Too light for stone. I log it because I log everything." He has the transit dates, the crate count, and the Panim route confirmation stamp for each consignment.`;
+        addJournal('Silo weight records: memorial offering crates 40-47kg per unit vs 28-31kg grain standard — three seasons documented', 'evidence', `har-silo-weight-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The operator shuts the weight register when you reach for it. "Offering-exemption cargo is third-party sealed. I log the platform number, not the weight — that's the exemption condition." He is not wrong: the agricultural offering exemption explicitly waives weight verification. Someone designed that waiver to work exactly here. The register goes back under the counter and he crosses his arms in a way that means the conversation is finished.`;
+        addJournal('Offering exemption waives weight verification — exemption terms were designed for this gap', 'complication', `har-silo-weight-fail-${G.dayCount}`);
+      } else {
+        G.flags.silo_weight_records_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The operator pulls two seasons of records. He does not circle anything — he is careful about what his signature will and will not be near. But he reads the flagged column aloud in a flat tone: forty-four kilos, forty-three, forty-six. Then he reads the grain standard from the posted rate card on the wall: twenty-nine kilos, standard crate. He sets both pages next to each other and steps back from the bench. He does not say anything else.`;
+        addJournal('Silo operator confirmed density mismatch on Panim offering route — two seasons of records', 'intelligence', `har-silo-weight-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A grain trader stopped his independent routes the week after the Compact filed against him. He's still here.",
+    tags: ['Stage2', 'Charm'],
+    xpReward: 64,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(64, 'tracing suppressed complaint against independent grain trader');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_jorva_helmrune = true;
+        G.flags.grain_trader_suppressed = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva squares the closed complaint file against the desk edge before she speaks. The trader was Denet Alvar — independent routes from Harvest Circle to three eastern localities, running ahead of the Compact's consolidated schedule. The complaint accused him of underselling certified grain. Settlement terms were sealed. Jorva turns one page of her own notes and slides it to the edge of the desk. The settlement date and Alvar's last route filing are four days apart. "He relocated to the eastern stalls," she says. "Still here." She does not say whether he agreed or was told.`;
+        addJournal('Grain trader Denet Alvar: independent routes halted 4 days after sealed Compact complaint settlement — Jorva has the dates', 'evidence', `har-trader-suppress-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Jorva squares the file against the desk edge and does not open it. "Settlement terms are sealed under communal arbitration protocol. The involved parties agreed to finality." Her hand stays on the cover. Someone in the outer corridor stops walking at the sound of your conversation, and the pause is long enough to notice. Jorva looks toward the door once. She does not continue.`;
+        addJournal('Compact complaint settlement sealed — corridor observer noted', 'complication', `har-trader-suppress-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_jorva_helmrune = true;
+        G.flags.grain_trader_suppressed = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva gives you the trader's name — Denet Alvar — and the settlement date without opening the file. The specific terms stay sealed, but she confirms the complaint was filed by a Northern Provision Compact representative and resolved before a hearing was scheduled. She does not say what Alvar received in exchange for ending his routes. Her hand rests on the file without pressure, and she looks at the wall instead of at you while she speaks.`;
+        addJournal('Denet Alvar complaint filed by Northern Provision Compact — settled without hearing, routes ceased immediately', 'intelligence', `har-trader-suppress-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Academic transit orders for compound materials are going to distribution sites, not research facilities.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing Mimolot Academy transit orders through Farlan Inkshade records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_farlan_inkshade = true;
+        G.flags.mimolot_transit_orders_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Farlan has already marked the anomalous orders with a folded paper tab — a researcher's instinct. Eleven agricultural research transit orders over eight months, all filed under Mimolot Academy's institutional classification. The filer's name appears on no Academy staff list Farlan can access. The transit destinations are market consolidation points: Verdant Row staging area, the Panim junction silo, a handling depot registered to no recognized guild. Farlan's handwriting on the tab reads: "destination mismatch — research classification, distribution endpoint."`;
+        addJournal('Mimolot Academy transit orders: 11 filings, filer not on Academy staff list, destinations are distribution points not research sites', 'evidence', `har-mimolot-transit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The academic records office is under a quarterly cross-institutional audit that began two days ago. Farlan cannot pull transit orders that fall under active audit scope without flagging the record as accessed during review — which triggers an automatic hold and a notification to the auditing body. He names this plainly and without apology. His pen stays capped on the desk. He does not say who requested the audit or when it was scheduled.`;
+        addJournal('Academic transit records under active audit — access triggers notification to auditing body', 'complication', `har-mimolot-transit-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_farlan_inkshade = true;
+        G.flags.mimolot_transit_orders_found = true;
+        G.investigationProgress++;
+        G.lastResult = `Farlan pulls seven of the eleven orders — the ones filed outside the current audit window. Mimolot Academy classification, all eight months. He checks the filer's name against the staff register twice, finger running down the column both times. The name does not appear. He turns to the destination column and reads the first three aloud. His voice does not change, but he sets the pen down and folds his hands before the fourth.`;
+        addJournal('Mimolot Academy transit orders: 7 pulled, filer absent from staff registry, distribution-point destinations confirmed', 'intelligence', `har-mimolot-transit-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "Stage 2 Harvest Circle finale — the agricultural routing fraud and ghost supplier are confirmed. Report to the commune council or use the routing number data to intercept the next shipment.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
