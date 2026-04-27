@@ -10845,7 +10845,7 @@ function loadStageChoices(locId) {
     // Inject NPC choices for this locality
     if (typeof buildNPCChoices === 'function') {
       var npcChoices = buildNPCChoices(G.location);
-      if (npcChoices && npcChoices.length) adapted.push.apply(adapted, npcChoices);
+      if (npcChoices && npcChoices.length) adapted.push.apply(adapted, npcChoices.map(function(c){ return (c.text == null && c.label != null) ? Object.assign({}, c, {text: c.label}) : c; }));
     }
     // Inject authority encounter at top if heat threshold met
     var authChoice = _getAuthorityEncounterChoice(G._currentPolity || '');
@@ -10942,7 +10942,7 @@ function loadStageChoices(locId) {
   // Inject NPC choices for this locality
   if (typeof buildNPCChoices === 'function') {
     var npcChoicesFallback = buildNPCChoices(G.location);
-    if (npcChoicesFallback && npcChoicesFallback.length) base.push.apply(base, npcChoicesFallback);
+    if (npcChoicesFallback && npcChoicesFallback.length) base.push.apply(base, npcChoicesFallback.map(function(c){ return (c.text == null && c.label != null) ? Object.assign({}, c, {text: c.label}) : c; }));
   }
   // Inject authority encounter at top if heat threshold met
   var authChoiceFallback = _getAuthorityEncounterChoice(G._currentPolity || '');
