@@ -6821,7 +6821,7 @@ const C = {
       xp:0, effects:[],
       next:[
         {text:'Apologize and introduce yourself anyway.', skill:'persuasion', tag:'risky', align:'neutral', cid:'inn_arrival'},
-        {text:'Retreat.', skill:'stealth', tag:'safe', align:'neutral', cid:'rest_recover'}
+        {text:'Retreat.', skill:'stealth', tag:'safe', align:'neutral', cid:'__arrive__'}
       ]
     }
   },
@@ -10830,7 +10830,10 @@ function loadStageChoices(locId) {
       const j = Math.floor(Math.random() * (i + 1));
       const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
     }
-    const picked = pool.slice(0, 4);
+    // Guarantee at least 1 plot:main choice per render (blue border = stage progress signal)
+    const _plotMain = pool.filter(function(c){ return c.plot === 'main'; });
+    const _nonPlot  = pool.filter(function(c){ return c.plot !== 'main'; });
+    const picked = (_plotMain.length ? [_plotMain[0]] : []).concat(_nonPlot).slice(0, 4);
     picked.forEach(function(c) { seen[c.label] = true; });
     const adapted = picked.map(adaptEnrichedChoice);
     if ((G.timeIndex || 0) >= 2) {
