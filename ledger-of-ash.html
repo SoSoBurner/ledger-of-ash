@@ -1890,6 +1890,7 @@ input, button, select, textarea { font-family: inherit; }
         <div id="hud-day" data-clock="day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-heat" data-clock="heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
+        <div id="hud-watch" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center;font-family:var(--font-body)">WATCH: <span id="hud-watch-val">0</span></div>
         <div id="hud-progress" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:3px;text-align:center;font-family:var(--font-body);letter-spacing:0.04em"></div>
       </div>
       <div id="hud-stage-progress-wrap" class="pressure-bar-row" style="display:none;padding:0 14px 6px;">
@@ -15223,13 +15224,17 @@ function updateHUD() {
     if (_rivalMax > 0) { _rivalEl.textContent = 'rival: ' + _rivalMax; _rivalEl.style.display = ''; }
     else { _rivalEl.style.display = 'none'; }
   }
-  // Heat — suppress old plain-text div
+  // Heat — show highest active polity heat in plain-text div
   var _heatEl = document.getElementById('hud-heat');
-  if (_heatEl) { _heatEl.style.display = 'none'; }
+  var _maxHeat = 0; var _maxHeatPolity = '';
+  var _heatPolities = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+  _heatPolities.forEach(function(pk){ var hv = (G.heat && G.heat[pk]) || 0; if (hv > _maxHeat) { _maxHeat = hv; _maxHeatPolity = pk; } });
+  if (_heatEl) {
+    if (_maxHeat > 0) { _heatEl.textContent = _maxHeatPolity.toUpperCase() + ' ' + _maxHeat + '/10'; _heatEl.style.display = ''; }
+    else { _heatEl.style.display = 'none'; }
+  }
   // Pressure bars — watchfulness and heat
   var _watch = (G.worldClocks && G.worldClocks.watchfulness) || 0;
-  var _maxHeat = 0;
-  if (G.heat) Object.values(G.heat).forEach(function(v){ if(v>_maxHeat) _maxHeat=v; });
   var _watchRow = document.getElementById('hud-watch-row');
   var _heatRow = document.getElementById('hud-heat-row');
   var _pBars = document.getElementById('hud-pressure-bars');
@@ -15240,6 +15245,14 @@ function updateHUD() {
   if (document.getElementById('hud-heat-val')) document.getElementById('hud-heat-val').textContent = _maxHeat;
   if (document.getElementById('hud-heat-fill')) document.getElementById('hud-heat-fill').style.width = Math.min(100, _maxHeat*10) + '%';
   if (_pBars) _pBars.classList.add('has-values');
+  // Watchfulness simple row
+  var _watchVal = (G && G.worldClocks && G.worldClocks.watchfulness) || 0;
+  var _watchEl = document.getElementById('hud-watch');
+  if (_watchEl) {
+    _watchEl.style.display = _watchVal > 0 ? '' : 'none';
+    var _wv = document.getElementById('hud-watch-val');
+    if (_wv) _wv.textContent = _watchVal;
+  }
   // Consumable count
   var _consumCount = (G.inventory || []).filter(function(i){ return i.type === 'consumable'; }).length;
   var _consumEl = document.getElementById('hud-consumable-count');
