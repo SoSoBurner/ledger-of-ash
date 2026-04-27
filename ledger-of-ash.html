@@ -11861,11 +11861,6 @@ function checkLevelUp() {
     _awaitingLevelUp = true;
     G.xp -= needed;
     G.level++;
-    var vigorBonus = Math.floor(((G.skills && G.skills.vigor) || 0) / 2);
-    var archetypeHpBonus = (G.archetype && G.archetype.family === 'Support') ? 3 : 0;
-    var hpGain = 4 + vigorBonus + archetypeHpBonus;
-    G.maxHp = (G.maxHp || 20) + hpGain;
-    G.hp = Math.min((G.hp || G.maxHp), G.maxHp);
     checkStageAdvance();
     updateHUD();
     showLevelUpScreen();
@@ -12337,7 +12332,7 @@ function showLevelUpScreen() {
 
 function _finalizeLevelUp(statKey, trait) {
   _awaitingLevelUp = false;
-  var hpGain = (G.archetype && G.archetype.group === 'support') ? 12 : 8;
+  var hpGain = (G.archetype && G.archetype.family === 'Support') ? 12 : 8;
   G.maxHp = (G.maxHp || 20) + hpGain;
   G.hp = Math.min(G.maxHp, (G.hp || 0) + hpGain);
   saveGame(); updateHUD();
