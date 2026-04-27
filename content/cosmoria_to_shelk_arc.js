@@ -10,7 +10,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The maritime transit laundering template from Cosmoria's registry explains how the ghost vessel operation maintained legal cover. Carry this framework inland to Shelkopolis.",
+    label: "The Cosmoria laundering template matches what the Shelkopolis port charter obscures.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
