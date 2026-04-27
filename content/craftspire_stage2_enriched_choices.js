@@ -510,6 +510,68 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  ,
+
+  {
+    label: "The same item carries two certification stamps from different seasons",
+    tags: ['Records', 'Evidence', 'Stage2'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'dual certification stamp');
+      G.lastResult = 'The certification log shows the piece by item number — a standard finished-goods entry, spring season mark, guild inspector stamp. Two pages later, the same item number appears again under autumn, with a different inspector stamp. Items do not get certified twice. Either the same piece passed through the system twice with different paperwork, or someone is using valid item numbers to certify things that were never inspected.';
+      addJournal('A Craftspire certification log shows the same item number certified twice under different seasons by different inspectors. Source: Craftspire guild certification office.', 'evidence', `craft-dualstamp-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The master knows the materials are wrong. She's known for months",
+    tags: ['NPC', 'Intelligence', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'master craftsperson supply chain');
+      G.lastResult = 'She runs her thumb along the edge of the sample piece — a gesture so automatic it belongs to her hands, not her attention. "The temper is wrong." She sets it down. The supply manifest says the same grade it always said. The pieces are not the same grade. She has been working around it since last winter, adjusting her process, not filing. Filing would mean naming who supplied it.';
+      addJournal('A Craftspire master craftsperson confirmed supply materials have been substandard since winter — has been adjusting process rather than filing a supplier complaint. Source: Craftspire workshop, master\'s bench.', 'intelligence', `craft-master-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A quality mark dispute that traces back to one administrative decision",
+    tags: ['Records', 'Intelligence', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'quality mark origin trace');
+      G.lastResult = 'Three workshops appealing the same quality classification change. Different items, different masters, different seasons — all pointing to one administrative memo from eight months ago that reclassified a material grade downward without a formal review. The workshops were never notified. They found out when their pieces failed certification under the new standard. The memo carries a Collegium filing reference, not a guild one.';
+      addJournal('Three Craftspire quality mark disputes trace back to one Collegium administrative memo that reclassified a material grade without formal review or workshop notification. Source: Craftspire certification appeals archive.', 'intelligence', `craft-qualitymemo-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The rejected certification appeals all reference the same filing code",
+    tags: ['Records', 'Evidence', 'Stage2'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'appeals archive pattern');
+      G.lastResult = 'A full season of rejected certification appeals. Each rejection letter cites a different reason — material standards, process deviation, inspector availability. But in the administrative reference column at the bottom of each letter, the same filing code appears on every one. The code format is Collegium procedural, not guild. Whatever that filing contains, it is the actual reason every one of these appeals failed.';
+      addJournal('Craftspire certification rejection letters from the past season all share the same Collegium administrative filing code, despite citing varied rejection reasons. Source: Craftspire appeals archive.', 'evidence', `craft-appeals-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = CRAFTSPIRE_STAGE2_ENRICHED_CHOICES;

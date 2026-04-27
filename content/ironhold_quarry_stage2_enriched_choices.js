@@ -644,6 +644,68 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  ,
+
+  {
+    label: "The output tally and the quota sheet do not match by a large number",
+    tags: ['Records', 'Evidence', 'Stage2'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'quota discrepancy');
+      G.lastResult = 'The quota sheet is on the supervisor board — stone weight expected per crew, per shift. The output tally hangs beside it. They should match within tolerance. They are off by enough that it cannot be rounding. Someone has been recording the quota as met when it was not, or recording output that did not go through the main yard. The supervisor initials are on both sheets.';
+      addJournal('Ironhold Quarry quota sheet and output tally show a significant discrepancy — both signed by the same supervisor. Source: Ironhold Quarry floor, supervisor\'s board.', 'evidence', `iron-quota-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The worker knows something. He adjusts his grip before every sentence",
+    tags: ['NPC', 'Intelligence', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'quarry worker NPC');
+      G.lastResult = 'He is not unfriendly. Every time he is about to say something that costs him, his hands reset on the maul — grip, release, grip again — and then the sentence comes out shorter than it started. He knows the gap in the tally sheets. He knows which shift it runs on. He will not say either thing while the floor supervisor is in sight. He adjusts his grip. He goes back to the stone.';
+      addJournal('An Ironhold Quarry worker appears to know about the quota discrepancy — spoke carefully, with shift supervisor in view. Source: Ironhold Quarry extraction floor, afternoon shift.', 'intelligence', `iron-worker-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The inspection record on the supervisor's board is sealed",
+    tags: ['Records', 'Intelligence', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'sealed inspection record');
+      G.lastResult = 'The most recent safety inspection record should be posted open for crew review — guild requirement, posted quarterly. The one on the board is sealed. Red wax, Collegium administrative stamp, applied over the staple holes so the document cannot be opened without breaking it. The supervisor explains that the seal came with the document, already applied. He says this without looking at the board.';
+      addJournal('The Ironhold Quarry safety inspection record is sealed with Collegium wax — not open for crew review as required. Supervisor offered no explanation. Source: Ironhold Quarry floor, supervisor\'s board.', 'intelligence', `iron-sealed-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A safety check means leaving before I finish",
+    tags: ['Complication', 'Stage2'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'safety check complication');
+      if (!G.worldClocks) G.worldClocks = {};
+      G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+      G.lastResult = 'A horn from the upper shaft — three short, one long. Safety evacuation pattern. The floor clears in under a minute; these workers know the signal. The supervisor gestures toward the gate before the secondary tally is done. Outside, the crew waits in the yard. The all-clear takes twenty minutes. When the floor reopens, the supervisor board has been reorganized. The quota sheets are stacked face-down.';
+      addJournal('A safety evacuation at Ironhold Quarry interrupted records access — upon return, the supervisor\'s board had been reorganized with quota sheets face-down. Source: Ironhold Quarry, extraction floor.', 'complication', `iron-evacuation-${G.dayCount}`);
+      G.recentOutcomeType = 'complication';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES;

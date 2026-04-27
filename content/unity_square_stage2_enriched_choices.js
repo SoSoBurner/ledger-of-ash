@@ -503,6 +503,65 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  ,
+
+  {
+    label: "The notice board has a gap where something was taken down",
+    tags: ['Records', 'Observation', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'notice board gap');
+      G.lastResult = 'The board is full except for one section — four pins still in the wood, a faint rectangle where the paper absorbed less weather. Something was posted there long enough to leave a mark, then pulled. The surrounding notices are dated this week. The gap is older. A clerk from the hall passes without glancing at the board. She knows what was there.';
+      addJournal('A section of the Unity Square notice board shows evidence of a recently removed posting — four pins remain, weathering marks intact. Source: Unity Square public board, morning.', 'intelligence', `unity-noticeboard-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A civic official answers a procedural question with the wrong procedure",
+    tags: ['NPC', 'Intelligence', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'procedural inconsistency');
+      G.lastResult = 'He gives you the form. Standard process, he says: three copies, stamp from the hall, submit at the eastern window. He says it the way someone who has said it a thousand times says it — but the eastern window has been handling cargo appeals for two seasons. Administrative submissions moved to the northern annex last year. He either does not know or is directing you somewhere that will not process what you are bringing.';
+      addJournal('A Unity Square civic official gave outdated processing instructions — directing to a window that no longer handles that category. Source: Unity Square hall, morning duty officer.', 'intelligence', `unity-procedure-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Two guild reps, one square, and they are not speaking",
+    tags: ['Social', 'Observation', 'Stage2'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'faction friction observation');
+      G.lastResult = 'Both are in the square at the same time. One handles transport contracts, the other arbitration filings — they used to coordinate on disputed shipments. Now one is at the fountain, one at the hall steps, and neither has looked in the other direction. The usual handoff point between their roles is empty. Whatever split them has left a gap in the square administrative rhythm that everyone else is working around.';
+      addJournal('Two Unity Square guild representatives who normally coordinate are visibly not speaking. Their usual handoff point was unmanned. Source: Unity Square, afternoon observation.', 'intelligence', `unity-guildreps-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A street crier's route ends earlier than it used to",
+    tags: ['Rumor', 'Observation', 'Stage2'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'crier route change');
+      G.lastResult = 'The morning crier cuts his circuit short at the square northern edge. He used to continue through the registry lane — you can tell by the wear pattern on the cobblestones and the hooks for announcement boards that are now bare. A stall vendor nearby says the crier route changed "a few months back." She does not know why. She does not think it is strange. It is strange.';
+      addJournal('The Unity Square morning crier\'s route ends before the registry lane — his circuit was shortened at some point in the past few months. Source: Unity Square, stall vendor near the northern edge.', 'rumor', `unity-crier-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = UNITY_SQUARE_STAGE2_ENRICHED_CHOICES;
