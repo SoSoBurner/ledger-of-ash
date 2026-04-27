@@ -14,6 +14,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'Kess finishes her gauge check without looking up. The maintenance corridor smells of sealant and old pressure lines. She replaces the cap and moves down the hall before you finish — not hostile, just done. The rotation schedule is posted on the board outside the coordinator\'s office. That\'s the open route.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Check the repair coordinator\'s work order queue instead.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -51,6 +57,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'The archive room is locked for the morning consolidation cycle. A handwritten notice on the door lists the open hours — two windows each day, neither of which is now. The celestial observation logs are referenced in the registry hall\'s public index. That index is always open.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Check the registry hall public index for the observation records.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -87,6 +99,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Logistics', 'Survival', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'Thass is in a handoff meeting — two colleagues, ledgers open, voices low. The allocation room door stands half-open but the desk is occupied. Supply distribution summaries are posted weekly on the commons board outside the grain stores. That board is public.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the weekly supply summary posted in the commons.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -123,6 +141,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'Yani\'s office door is closed, a "review in progress" card slotted into the frame. The work order queue summary — not the full log, just open items — is tacked to the corridor board outside her door. It\'s been there long enough for the corner to curl.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the open work order summary in the corridor.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -160,6 +184,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'The observation room is dark — morning cycle complete, afternoon cycle not yet begun. The high windows carry amber light from the dome panels. A single readings sheet from last week is pinned to the corkboard outside: baseline figures, unsigned. The archive carries four weeks of comparison data.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Review the publicly posted celestial readings in the archive index.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -197,6 +227,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Contamination', 'Safety', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'Kael is in the sealed monitoring section — the amber light above the door means no entry. The outer reading area holds event logs: dates, cell codes, response flags. Not the full picture, but a place to start. The dates cluster.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Review the contamination event logs in the outer reading area.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -234,6 +270,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Communications', 'Information', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'Both relay operators are running an active transmission — the board shows a live channel open, amber indicator lit. The routing log summary from last month is posted in the corridor outside the relay room, part of the commune\'s transparency protocol. The secondary channel appears there as a line item.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the relay routing summary posted in the corridor.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -271,6 +313,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Emergency', 'Protocol', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'The survival planner\'s office is locked and dark — she works early shifts and is long gone. The public version of the emergency protocol is posted on the registry hall board, as required by commune charter. The recent revision stamp is visible from three paces.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the publicly posted emergency protocol revision on the registry board.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -310,6 +358,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Structure', 'Engineering', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'The structural records section is locked for a quarterly inventory. A sign gives the reopen window: tomorrow, first light. The maintenance log summary — open items only — is in the registry hall technical room, no authorization required. The northeast quadrant appears there by section code.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Review the open maintenance log summary in the registry hall.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -346,6 +400,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Craft', 'Barrier', 'Materials', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'The barrier access panel requires a maintenance certification card — the slot is right there, waiting for a card you don\'t carry. The filtration installation records from eighteen months ago are in the open archive. That\'s where the specification baseline lives.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find the filtration installation records in the open archive.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -382,6 +442,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Survival', 'Economics', 'Resources', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'The communal records room is in use — a training session running long, tables covered. The posted supply summary outside the grain stores carries consumption figures by week. The numbers have been running in the same direction for two months.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the posted supply figures at the grain stores.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -418,6 +484,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Silence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'The morning commons is empty — the early shift ate an hour ago and the midday shift hasn\'t arrived. The communal tables stand clean and bare. The posted decision board near the entrance carries three recent directives, none of them contested. The silence is visible in the absence of any counter-signatures.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the recent directives posted on the commons decision board.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -454,6 +526,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Insight', 'Psychology', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'The commons is too active right now — a scheduled assembly in progress, every seat taken, voices overlapping. The amber light through the dome panels gives the room a warmth the faces don\'t match. The founding stone at the dome\'s anchor point is quieter. What was built here is written on it.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a quieter vantage point to observe the commune\'s social fabric.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -490,6 +568,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'The org chart posted in the registry hall entrance is current — names, departments, reporting lines. The three administrators whose decisions you want to cross-reference are all listed. Their signature blocks appear on the public decision log. That log is always open.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Review the administrative decision log in the registry hall.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -528,6 +612,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
+    failResult: {
+      text: 'The maintenance corridor is empty — shift change just ended and nobody lingers. The amber smell of dome sealant hangs without anyone to breathe it. The commons will fill again at midday. Fragments travel at mealtimes, between people who don\'t know they\'re passing the same one.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for the midday commons gathering to listen for what moves.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -552,6 +642,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Proof', 'Systematic', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: 'The communal records room closes for the afternoon inventory. A clerk carries the day\'s active files to the locked section without meeting your eyes. The registry hall\'s public index stays open. Each of the documents you need appears there by title. The route is slower but it\'s open.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Access the documents through the registry hall public index.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -586,8 +682,15 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "They didn't design the trap. They're just standing in it with everyone else.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: 'The person you\'re looking for isn\'t in the commons or the work corridor — their shift ended early and the roster shows them signed out. The maintenance division\'s door is open. Someone who works alongside them will know the same thing they know. It moves between people who work together.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find someone in the maintenance division who works alongside the source.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -622,6 +725,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: 'The relay room is staffed and the door is closed. Through the narrow window you can see both operators at their stations. The external correspondence log — outgoing traffic summaries, no content — is posted in the registry hall as required. The secondary channel appears there as a routing entry. The log is public.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find the external correspondence log in the registry hall.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -658,6 +767,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Pattern', 'Analysis', 'Connection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: 'The records room table you need is occupied — a commune auditor running her own tally, files spread in both directions. She\'ll be there until evening. The registry hall keeps a timeline board showing system status updates: barrier, maintenance, resources, protocol. The dates are public. The pattern is in the spacing.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Review the system status timeline on the registry hall board.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -694,6 +809,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: 'The synthesis requires a table and uninterrupted time — neither is available right now. The dome anchor is quiet in the early afternoon. The founding stone sits at its base. Sometimes the shape of a thing becomes visible when you stop reading documents and look at what was built.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Walk the dome perimeter and let the pattern settle before returning to the records.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -731,6 +852,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The filtration log from eighteen months ago has a two-word margin note. Those two words are the answer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
+    failResult: {
+      text: 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the dome panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Review the filtration specification in the open reference section while waiting.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'reading filtration system documentation');
@@ -759,6 +886,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The northeast quadrant reading should have tripped an alarm. The alarm wire has been bypassed.",
     tags: ['Investigation', 'Evidence', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The dome\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Walk the outer perimeter to observe the northeast quadrant face.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'measuring dome pressure gradient');
@@ -787,6 +920,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Walk Aurora Crown's central commons at midday — read what the assembled commune members are actually communicating through their behavior.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: {
+      text: 'The central commons is packed — a scheduled assembly running over, people standing in the doorways. There\'s no vantage point in the crowd. The outer corridor runs the commons\' full length with a row of small windows. The same behavior is visible from outside the glass, without the noise.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Observe the commons from the outer corridor windows instead.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading commune social fabric');
@@ -811,6 +950,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The Oversight Collegium's name is in the external correspondence log. Someone in the commune already tried this route.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: 'The external correspondence room is locked — Merav Solind receives visitors by appointment only, and none are scheduled today. Her name appears in the registry hall\'s external liaison log alongside the complaint reference number. The log is public. The complaint was formally filed. That\'s enough to begin.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find the complaint reference in the registry hall external liaison log.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Oversight Collegium contact');
@@ -837,6 +982,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Study the founding stone at the dome's original anchor point — read what Aurora Crown was built for.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
+    failResult: {
+      text: 'The dome anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find the founding marks in the commons tile while waiting for the anchor corridor to clear.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading founding memorial');
@@ -874,6 +1025,12 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The complaint was filed. The engineer who filed it was reassigned three days later.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
+    failResult: {
+      text: 'Orren\'s reassignment posting shows him in the residential maintenance block — but the block is locked for a scheduled inspection. The sealed document case he carries was stamped with an engineering certification mark. The NE quadrant inspection report in the public registry hall carries the same stamp. That report is accessible without him.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find the NE quadrant inspection report in the public registry hall.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'hearing engineer account');
@@ -896,6 +1053,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Orren mentions that someone else came asking about the dome a week ago — a researcher with credentials that didn't quite add up.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
