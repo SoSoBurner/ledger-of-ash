@@ -10418,6 +10418,7 @@ function buildLivingDesc(locId, g) {
   var _anchor = (window.LIVING_VARIANTS && window.LIVING_VARIANTS[locId] && window.LIVING_VARIANTS[locId][_vIdx])
     || (window.LOCALITY_ANCHORS && window.LOCALITY_ANCHORS[locId])
     || (window.LOCALITY_NARRATIONS && window.LOCALITY_NARRATIONS[locId] ? window.LOCALITY_NARRATIONS[locId].split('. ')[0] : '')
+    || (window.WORLD_LOCATIONS && window.WORLD_LOCATIONS[locId] ? (window.WORLD_LOCATIONS[locId].name || '') : '')
     || '';
   var _stage = g.stage || 1;
   var _tier = _stage <= 1 ? 's1' : 's2';
@@ -10427,7 +10428,7 @@ function buildLivingDesc(locId, g) {
   var _parts = [];
   if (_anchor) _parts.push('<p>' + _anchor + '</p>');
   if (_suffix) _parts.push('<p>' + _suffix + '</p>');
-  _el.innerHTML = _parts.join('');
+  if (_parts.length > 0) _el.innerHTML = _parts.join('');
 }
 
 function scheduleLivingDescUpdate() {
