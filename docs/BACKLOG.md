@@ -1,6 +1,6 @@
 # Ledger of Ash — Feature Backlog
 
-**Last updated:** 2026-04-27 (session 3 — V1.0 master plan execution)
+**Last updated:** 2026-04-27 (session 4 — text RPG packets complete)
 **Source:** Audited across 10+ plan files + verified against live codebase. Check this before re-planning any feature.
 
 ## Status codes
@@ -12,9 +12,9 @@
 ## Summary counts
 | Status | Count |
 |--------|-------|
-| DONE | 79 |
-| PARTIAL | 5 |
-| NOT BUILT | 12 |
+| DONE | 80 |
+| PARTIAL | 4 |
+| NOT BUILT | 11 |
 | UNKNOWN | 20 |
 
 ---
@@ -54,7 +54,7 @@
 | Feature | Status | Notes |
 |---------|--------|-------|
 | Arrival scenes (locality first-arrival narration, all localities) | DONE | locality_arrival_narrations.js covers all 22 Stage 1 localities; helper fns wired |
-| Text RPG flavor packets (9 of 14 localities missing packets) | PARTIAL | Only ~5 localities have text_rpg_packets data |
+| Text RPG flavor packets (all 14+ localities) | DONE | All 11 missing Stage 1 packets authored and committed (bcf7ad22) |
 | Enemy scaling — tiered stat variants (L1-3/L4-7/L8-10) | DONE | getEnemyStats(key, level) + getEnemyTier(level) wired |
 | Group combat (Stage II+: 2-3 enemies per encounter, 35% chance) | DONE | enemyGroupCount computed; group fight rendering wired |
 | Training redesign (gold cost, 3-session point, 30-day cooldown) | DONE | flat 20g cost, 3-session +1 point, 30-day cooldown; commit ac68c6ba |
