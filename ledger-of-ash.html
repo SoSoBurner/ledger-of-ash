@@ -12933,7 +12933,7 @@ function campAction(type) {
     }
     var _doCraft = function(recipe) {
       var roll = rollD20('spirit', (G.skills.spirit || 0) + Math.floor((G.level || 1) / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('spirit') : 0) + (typeof getTraitBonus === 'function' ? getTraitBonus('spirit') : 0));
-      var itemDef = ITEM_DEFS[recipe.output] || {};
+      var itemDef = (typeof ITEM_DEFS !== 'undefined' && ITEM_DEFS[recipe.output]) ? ITEM_DEFS[recipe.output] : {};
       var itemName = itemDef.name || recipe.name;
       if (roll.isFumble) {
         consumeMaterials(recipe);

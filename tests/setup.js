@@ -194,6 +194,7 @@ function createGameContext(gOverrides) {
     adaptEnrichedChoice: ctx.adaptEnrichedChoice,
     applyWound:          ctx.applyWound,
     confirmDeath:        ctx.confirmDeath,
+    getEquipmentBonus:   ctx.getEquipmentBonus,
   };
 }
 
