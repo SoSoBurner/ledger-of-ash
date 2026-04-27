@@ -1,5 +1,5 @@
 # Content Review — guildheart_hub_stage1_enriched_choices.js
-Date: 2026-04-25
+Date: 2026-04-27
 
 > ✅ Automated gate passed — proceed to human review
 
@@ -9,21 +9,21 @@ Date: 2026-04-25
 - (none)
 
 ### Warnings (17)
-- WARN: A6 [choice 1 "Question the guild arbitrator about rece…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 2 "Consult with merchant representatives ab…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 4 "Question the guild hall keeper about rec…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 5 "Access the guild's financial and trading…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 6 "Question warehouse brokers about merchan…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 7 "Speak with the initiation overseer about…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 8 "Consult with the apprentice master about…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 9 "Analyze the guild's organizational hiera…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 10 "Map the active merchants in Guildheart H…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 11 "Track how information flows through Guil…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 12 "Document the specific threats and conseq…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 13 "Trace resource flows from Guildheart Hub…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 14 "Document the breakdown of merchant confi…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 15 "Document individual merchant economic vu…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
-- WARN: A6 [choice 16 "Analyze who's making key guild decisions…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 1 "The arbitrator's rulings have been going…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 2 "The merchants who lost agreements last m…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 4 "The hall keeps turning away the same kin…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 5 "The ledger master handles every guild ac…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 6 "Bay Seven has had the same crates sittin…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 7 "The new initiation oath asks about house…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 8 "Weight assessment and independent arbitr…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 9 "Three department head positions are vaca…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 10 "Seventeen merchants dropped from the ros…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 11 "Two merchants at opposite ends of the qu…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 12 "Every merchant who filed a complaint los…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 13 "Nineteen percent of total intake went to…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 14 "The common bench is empty at midday. Mer…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 15 "The recent arbitration rulings cluster o…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
+- WARN: A6 [choice 16 "The rulings cite 'coordinating directive…"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
 - WARN: A6 [choice 19 "Compile documented evidence that proves …"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
 - WARN: A6 [choice 21 "Find the evidence that proves the guild …"]: worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)
 
