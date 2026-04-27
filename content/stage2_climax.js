@@ -153,6 +153,7 @@ var STAGE2_CLIMAX = (function() {
 
     G.flags.stage2_climax_complete = true;
     G.flags.maren_oss_resolved = true;
+    G.flags.companion_gate_open = true;
     // Acknowledge unchosen paths as intelligence, not loss
     if (G.flags.stage2_climax_resolution === 'expose') {
       G.lastResult += ' The names still held in the Collegium\'s deep files remain there, for now — and Orveth\'s offer of a more careful approach remains open.';
