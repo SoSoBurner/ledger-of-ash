@@ -14,6 +14,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Observation', 'Intelligence'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: "Marta is mid-pour when you approach, and she stays mid-pour until the cup is full. The Amber Fountain is busy this hour — someone needs change, someone needs a second lamp. When the counter finally quiets, the moment has closed. She doesn't refuse; she simply has no opening to offer. The harbor smell drifts through the door. The clerk's row near the registry buildings opens early — paperwork has its own patience.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -48,6 +49,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Evidence', 'Mystery'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: "Brother Aldwin is mid-blessing when you arrive, the chapel entry full of morning petitioners. He acknowledges you with a nod that means later, and later does not come before Sext bells ring and the chapel empties in the direction of the market. The letter alcove is visible from the nave — Thursday deposits run after vespers, which gives the rest of the day for other approaches.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -81,6 +83,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Trade'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: "Sereth has a client in the fitting alcove when you arrive, pins in hand, a complicated hem requiring all his attention. The fish-salt smell of the harbor comes through the open back window. He waves you toward the counter ledger — browse the open commission records, come back when the fitting is done. The book is there. The abandoned order slips are in it.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -113,6 +116,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Records', 'Bureaucracy'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: "The reading room is occupied — two estate advocates with a stack of folios that will keep the desk clerk busy until midday. The ledger you want sits on the closed-access shelf behind the counter. The tallow-and-ink smell of the room is patient. The garrison quartermaster's office holds parallel supply columns; that route stays open.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -149,6 +153,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Records', 'Bureaucracy'],
     xpReward: 15,
     stageProgress: 0,
+    failResult: "The registry desk is closed for the morning audit — a clerk posts the notice without looking up, and the stamp window goes dark. The transit authorizations sit in the outbox tray behind the counter, visible but out of reach. The dock manifest board near the harbor gate carries similar authorization codes. That board is public.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -168,6 +173,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Divine', 'Ritual'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Sister Velda is mid-ceremony when you arrive — a full ward renewal, her back to the nave, hands pressed flat to the floor stone. The wax smell of the chapel is heavy and close. The ceremony runs long. When it ends, two families waiting for private blessings step forward before you can, and Velda moves to them without pausing. The chapel records her renewal schedule in an open ledger on the reading stand near the entrance. The dates are there. The intervals between them tell a story of their own.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Read the ward renewal schedule in the open ledger.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -201,6 +212,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Commerce', 'Economics'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Kaen is mid-transaction when you reach his stall — two estate stewards with a price dispute and a ledger spread between them, a conversation that will not yield its space. The fish-salt of the harbor hangs over Verdant Row. His tally board is visible from where you stand: three blank supplier lines in the northern column, no names, no quantity marks. He does not look up. The manifest board near the harbor gate posts the same commodity codes. That board does not require a conversation.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Check the harbor gate manifest board for northern commodity codes.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -234,6 +251,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Enforcement', 'Authority'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Captain Thorne is at the garrison's duty desk when you arrive, signing off a rotation change with two clerks waiting on him. The coal-smoke smell of the precinct carries through the open side door. He does not look up. The duty clerk beside him moves to intercept — standard procedure, officer engaged, come back the following watch. The patrol rotation board is visible from the corridor outside, mounted on the wall beside the dispatch window. The Ironspool column's recent crossings-out are legible from the public side of the counter.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Read the patrol rotation board from the corridor.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -267,6 +290,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Faith', 'Psychology'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "Brother Aldwin is leading the morning petitioners through the nave when you arrive — a full public observance, the chapel doors open, the wax-and-stone smell carrying into the street. It runs long. When it closes, a family requiring a private blessing takes his attention next, and then a shrine novice with a scheduling question he cannot defer. The morning is gone. The confession register sits open on the reading stand at the nave entrance. It does not contain confessions — it contains the weekly attendance count, and the numbers since autumn have a pattern of their own.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Read the weekly attendance register at the nave entrance.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -512,6 +541,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Support', 'Community', 'Social'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The square near the chapel is busy — a market day, stalls open, rope-and-fish smell from the harbor end mixing with the coal smoke from Ironspool. The people here are moving, not gathering. The short conversations you try to join close naturally, no one rude, no one willing to slow down. The Amber Fountain's notice board carries two new postings this week. A notice board speaks when people don't.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Read the Amber Fountain's notice board.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -583,6 +618,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Rumor', 'Social', 'Gossip'],
     xpReward: 65,
     stageProgress: 1,
+    failResult: {
+      text: "The market is loud this hour — brass clanging from the tinsmith's row, a harbor crier running a shipping announcement past the salt stalls. The fish-smell from the eastern end is sharp. The conversations you can reach are about prices and weather and a wedding two streets over. Nothing with a lowered voice. The quieter end of Verdant Row — cloth brokers, the small herbalist — tends toward patience. That end of the market talks after the crowd thins.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Wait for the market crowd to thin, then try the cloth broker end.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -641,6 +682,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The complicit witness is waiting to see what you do with what they just told you.",
     tags: ['Moral', 'Choice', 'Pressure'],
+    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -739,6 +781,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "Ward failures started at Ironspool's northwest edge. They spread inward from there.",
     tags: ['Lore', 'Stage1'],
     xpReward: 68,
+    failResult: {
+      text: "The Ironspool district ward markers are visible from the street — chalk and pressed wax on the corner stones, each one dated in shrine notation at the lower margin. Most of the markers here are still within their normal renewal window; the anomalies are further in, past the junction where the northwest road meets the commercial lane. The outer markers tell you where to look next. The direction is clear.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Follow the ward marker dates inward toward the northwest junction.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'mapping ward failure zones');
@@ -778,6 +826,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "A Warden Order officer is working the same evidence trail. They let you know it.",
     tags: ['NPC', 'Faction', 'Stage1'],
     xpReward: 60,
+    failResult: {
+      text: "Verdant Row is crowded this hour — cloth buyers from the harbor estates, two guild stewards with a dispute about a commission deadline. The officer you were told to look for is not on the Row today, or not visible. The coal-smoke smell from Ironspool drifts over. Warden Order officers in a working city rarely stand still. The garrison precinct notice board posts visiting authority credentials by district. That board is public.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Check the garrison precinct notice board for Warden Order credentials.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'identifying parallel trail');
@@ -799,7 +853,14 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone was here before you, asking the same questions. They wrote down the answers.",
     tags: ['NPC', 'Warning', 'Stage1'],
+    plot: 'main',
     xpReward: 55,
+    failResult: {
+      text: "The merchant you were told to find has his stall closed — a slip of paper tacked to the frame says back at the second bell, which is two hours off. The fish-salt of the harbor drifts down Verdant Row. Other stall holders nearby heard the same questions being asked over the past week; one of them is still thinking about what he saw. He is not the person you came to find, but the harbor end of the Row knows what its neighbors know.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Ask the neighboring stall holder what they observed.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'learning of prior operative');
@@ -823,6 +884,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "Stay the evening at the Amber Fountain. Let the regulars decide what to say.",
     tags: ['Social', 'Rest', 'Stage1'],
     xpReward: 30,
+    failResult: {
+      text: "The Amber Fountain's evening crowd is thin — a cold night, or just a quiet stretch in the week's rhythm. The handful of regulars present sit separately and nurse their cups with the focused attention of people who came to be alone in company. Marta moves between them without pause. The common room does not open tonight. The notice board near the door has two new postings. That much is available.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Read the notice board by the door before leaving.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'building community trust');
@@ -841,6 +908,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The blessing records read differently when you align the dates with the supply shifts.",
     tags: ['Lore', 'Stage1'],
     xpReward: 65,
+    failResult: {
+      text: "The chapel reading room is occupied — a petitioner with a genealogy request and a novice working through the archive bins with a quill and a slow hand. The blessing record book sits on the closed-access shelf. The wax-and-stone smell of the room is thick and patient. The chapel posts a summary of blessing dates by ward district on the public notice board outside the nave entrance. That summary carries enough of the date column to begin the comparison.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Use the public ward blessing summary to start the date comparison.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'decoding blessing record communication pattern');
@@ -864,6 +937,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The night-watch commander files reports that come back amended. She stopped asking why.",
     tags: ['NPC', 'Combat', 'Stage1'],
     xpReward: 58,
+    failResult: {
+      text: "The night-watch commander is not at her desk — the duty clerk says she is making rounds, expected back at the third bell. The garrison precinct smells of coal smoke and oiled leather. The watch dispatch board near the corridor window posts the current shift assignments: Ironspool district's night column has a different officer's name this month than last. The board is public-facing. The change in assignment is there to read.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Note the Ironspool night assignment change on the dispatch board.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'gathering night-watch intelligence');
@@ -973,6 +1052,12 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The barkeep remembers faces. She hasn't forgotten mine.",
     tags: ['Tavern', 'Social', 'NPC'],
     xpReward: 50,
+    failResult: {
+      text: "The Amber Fountain is running at full press — a guild dinner in the back room, three extra tables of harbor workers in from the late shift, and Maret moving between them at a pace that leaves no opening. She catches your eye once across the bar and gives the small nod that means later, which means not now. The notice board by the door has two new postings from this week. The room will thin by the second bell.",
+      xp: 0,
+      effects: [],
+      next: [{text: "Check the notice board and come back when the room clears.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
