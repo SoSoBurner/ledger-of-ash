@@ -1,6 +1,6 @@
 # Ledger of Ash — Feature Backlog
 
-**Last updated:** 2026-04-26 (session 2)
+**Last updated:** 2026-04-27 (session 3 — V1.0 master plan execution)
 **Source:** Audited across 10+ plan files + verified against live codebase. Check this before re-planning any feature.
 
 ## Status codes
@@ -12,9 +12,9 @@
 ## Summary counts
 | Status | Count |
 |--------|-------|
-| DONE | 60 |
-| PARTIAL | 10 |
-| NOT BUILT | 29 |
+| DONE | 79 |
+| PARTIAL | 5 |
+| NOT BUILT | 12 |
 | UNKNOWN | 20 |
 
 ---
@@ -27,7 +27,7 @@
 | Whitebridge labels: 3 labels at 17 words — validator fails | DONE | Fixed this session; all labels ≤15 words |
 | cosmoria arc line 25: addJournal uses 'decision' — invalid category | DONE | Fixed → 'intelligence' |
 | cosmoria arc line 246: addJournal uses 'consequence' — invalid category | DONE | Fixed → 'discovery' |
-| Heat HUD always display:none — player never sees heat system | PARTIAL | exists in code, never rendered |
+| Heat HUD always display:none — player never sees heat system | DONE | hidden when heat=0, visible when active; commit af459aea |
 
 ---
 
@@ -55,13 +55,13 @@
 |---------|--------|-------|
 | Arrival scenes (locality first-arrival narration, all localities) | DONE | locality_arrival_narrations.js covers all 22 Stage 1 localities; helper fns wired |
 | Text RPG flavor packets (9 of 14 localities missing packets) | PARTIAL | Only ~5 localities have text_rpg_packets data |
-| Enemy scaling — tiered stat variants (L1-3/L4-7/L8-10) | NOT BUILT | 1-full-roll-craft Block D; currently 7 flat templates for all levels |
-| Group combat (Stage II+: 2-3 enemies per encounter, 35% chance) | NOT BUILT | 1-full-roll-craft Block D3 |
-| Training redesign (gold cost, 3-session point, 30-day cooldown) | NOT BUILT | 1-full-roll-craft Block C; currently costs watchfulness |
-| Training stat cap /10 everywhere | NOT BUILT | currently /5 in all UI |
-| archetypeBaseStats in G defaults (training ceiling) | NOT BUILT | prerequisite for Block C |
-| Unified item ID namespace (ITEM_DEFS ↔ SHOP_INVENTORY) | NOT BUILT | 1-full-roll-craft Block L; prerequisite for all item work |
-| Background passive traits (bgTrait per background, 55 backgrounds) | NOT BUILT | 1-full-roll-craft Block J |
+| Enemy scaling — tiered stat variants (L1-3/L4-7/L8-10) | DONE | getEnemyStats(key, level) + getEnemyTier(level) wired |
+| Group combat (Stage II+: 2-3 enemies per encounter, 35% chance) | DONE | enemyGroupCount computed; group fight rendering wired |
+| Training redesign (gold cost, 3-session point, 30-day cooldown) | DONE | flat 20g cost, 3-session +1 point, 30-day cooldown; commit ac68c6ba |
+| Training stat cap /10 everywhere | DONE | levelup + passive apply caps updated to /10 |
+| archetypeBaseStats in G defaults (training ceiling) | DONE | G.archetypeBaseStats set at archetype selection |
+| Unified item ID namespace (ITEM_DEFS ↔ SHOP_INVENTORY) | DONE | getEquippedBonus() fixed; full objects stored in G.equipped |
+| Background passive traits (bgTrait per background, 55 backgrounds) | DONE | BG_TRAITS const at line 4670; bgTrait applied on background selection |
 | Stage 1 NPC model compliance (remaining files) | PARTIAL | Dravn Pell, Sera Ironveil, Coralyn Tideglass, 5 locality spot check done; ~17 localities not yet audited |
 | Bold tag semantic classification (code impl) | DONE | _BOLD_TAGS/_SAFE_TAGS in adaptEnrichedChoice; Accusation/Negotiation/Exposure/Betrayal/Tribunal classified bold |
 | Suppression threading — Stage 1 (6 localities) | DONE | All signals present: signatory blank, procedural refusal, date gap, ADMIN HOLD, sealed wax, deflected answer |
@@ -73,17 +73,17 @@
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Item expansion Stage I (240 items, 4 families × 3 slots × 4 chains × 5 levels) | NOT BUILT | 1-full-roll-craft Block H; currently 18 ITEM_DEFS |
-| Item expansion Stage II (240 items, levels 6-10) | NOT BUILT | 1-full-roll-craft Block K |
-| Macroregion bestiary (73+ enemies, 10+ per environment profile) | NOT BUILT | 1-full-roll-craft Block D4; currently 7 templates total |
-| Soreheim plot currency (sorePlotCredits, social roll system) | NOT BUILT | 1-full-roll-craft Block I2; not in G defaults |
-| Economy balance (gold income baseline, price tiers, regional differentiation) | NOT BUILT | 1-full-roll-craft Block I |
-| Regional shop differentiation (Psanan/Soreheim/Union sources) | NOT BUILT | 1-full-roll-craft Block I3 |
-| Party combat — companion passive bonuses | NOT BUILT | 1-full-roll-craft Block F1; compBonus≈0 currently |
-| Party combat — companion combat abilities (1 use per fight) | NOT BUILT | 1-full-roll-craft Block F2 |
-| Combat escalation path (threatLevel → yellow/orange/red choice border) | NOT BUILT | 1-full-roll-craft Block G1 |
-| Distance system visible in combat UI (range tier display) | NOT BUILT | 1-full-roll-craft Block G3; rangeTier computed, not shown |
-| Boss narrative buildup flags (NPC must appear 2+ times before boss) | PARTIAL | boss files exist; buildup flags not confirmed |
+| Item expansion Stage I (240 items, 4 families × 3 slots × 4 chains × 5 levels) | DONE | content/item_system.js Block H; 240 items levels 1-5 |
+| Item expansion Stage II (240 items, levels 6-10) | DONE | content/item_system.js Block K; 240 items levels 6-10 |
+| Macroregion bestiary (73+ enemies, 10+ per environment profile) | DONE | 73 enemies across 8 environment profiles; commits 4289726c + e8f6dcac |
+| Soreheim plot currency (sorePlotCredits, social roll system) | DONE | G.sorePlotCredits in G defaults; 12 references in stage2 content |
+| Economy balance (gold income baseline, price tiers, regional differentiation) | DONE | SHOP_INVENTORIES per locality; price tiers common/uncommon/rare |
+| Regional shop differentiation (Psanan/Soreheim/Union sources) | DONE | 11 locality shops in item_system.js with regional flavor |
+| Party combat — companion passive bonuses | DONE | getCompanionPassiveBonus() wired into combat resolution |
+| Party combat — companion combat abilities (1 use per fight) | DONE | COMPANION_ABILITIES const; 1-use-per-fight tracking |
+| Combat escalation path (threatLevel → yellow/orange/red choice border) | DONE | threatLevel computed; CSS classes wired to choice buttons |
+| Distance system visible in combat UI (range tier display) | DONE | rangeTier rendered in combat HUD |
+| Boss narrative buildup flags (NPC must appear 2+ times before boss) | DONE | stage1_miniboss_seeded_1/2 in stage1_boss.js; stage2_miniboss_seed_seen in stage2_boss.js |
 | Stage 1 macro goal system | UNKNOWN | enchanted-greeting; not verified |
 | Companion dynamic placement in narrative | UNKNOWN | enchanted-greeting; not verified |
 | Nomdara drift system | UNKNOWN | eager-swimming; not verified |
