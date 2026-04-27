@@ -14996,7 +14996,7 @@ function updateHUD() {
   if (_watchRow) { _watchRow.style.display = ''; _watchRow.style.opacity = _watch === 0 ? '0.35' : '1'; }
   if (document.getElementById('hud-watch-val')) document.getElementById('hud-watch-val').textContent = _watch;
   if (document.getElementById('hud-watch-fill')) document.getElementById('hud-watch-fill').style.width = Math.min(100, _watch*10) + '%';
-  if (_heatRow) { _heatRow.style.display = ''; _heatRow.style.opacity = _maxHeat === 0 ? '0.35' : '1'; }
+  if (_heatRow) { _heatRow.style.display = _maxHeat > 0 ? '' : 'none'; _heatRow.style.opacity = '1'; }
   if (document.getElementById('hud-heat-val')) document.getElementById('hud-heat-val').textContent = _maxHeat;
   if (document.getElementById('hud-heat-fill')) document.getElementById('hud-heat-fill').style.width = Math.min(100, _maxHeat*10) + '%';
   if (_pBars) _pBars.classList.add('has-values');
