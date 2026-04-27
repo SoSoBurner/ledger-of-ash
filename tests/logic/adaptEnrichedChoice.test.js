@@ -87,3 +87,46 @@ describe('adaptEnrichedChoice — tag classification', () => {
     expect(choice.tag).toBe('bold');
   });
 });
+
+describe('adaptEnrichedChoice — failResult forwarding', () => {
+  const noop = function() {};
+
+  test('failResult field is preserved on adapted enriched choice', () => {
+    const choice = ctx.adaptEnrichedChoice({
+      label: 'Test',
+      fn: noop,
+      failResult: 'The path is blocked. You turn back.'
+    });
+    expect(choice.failResult).toBe('The path is blocked. You turn back.');
+    expect(choice._isEnriched).toBe(true);
+  });
+
+  test('enriched choice without failResult has undefined failResult', () => {
+    const choice = ctx.adaptEnrichedChoice({
+      label: 'Test',
+      fn: noop
+    });
+    expect(choice.failResult).toBeUndefined();
+    expect(choice._isEnriched).toBe(true);
+  });
+});
+
+describe('handleChoice — failResult guard allows enriched choices', () => {
+  test('failResult guard does not exclude enriched choices when failResult is present', () => {
+    const html = require('fs').readFileSync(
+      require('path').join(__dirname, '../../ledger-of-ash.html'), 'utf8'
+    );
+    // The guard must NOT be: !choice._isEnriched && choice.failResult
+    // It must allow enriched choices through when failResult is set.
+    // Correct form: (!choice._isEnriched || choice.failResult) — or just choice.failResult alone.
+    const badGuard = /!\s*choice\._isEnriched\s*&&\s*choice\.failResult/;
+    expect(badGuard.test(html)).toBe(false);
+  });
+
+  test('failResult short-circuit block exists in handleChoice', () => {
+    const html = require('fs').readFileSync(
+      require('path').join(__dirname, '../../ledger-of-ash.html'), 'utf8'
+    );
+    expect(html).toMatch(/_autoRollFailed && choice\.failResult/);
+  });
+});
