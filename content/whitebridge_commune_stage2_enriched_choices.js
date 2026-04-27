@@ -751,6 +751,66 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: 'A toll category stopped appearing in the records',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'toll category disappearance');
+      G.lastResult = 'Toll records run by crossing type — foot, cart, livestock, commercial cargo. One category was logged regularly through the early records, with its own column and collection rate. Then the column stops. The crossings in that category did not stop — the bridge infrastructure that handles them is still in use. The category was reclassified or the collection was moved off the toll record. Neither change appears in the administrative log.';
+      addJournal('Whitebridge toll records show a crossing category that ceased being logged — infrastructure still in active use. Source: Whitebridge Commune toll archive.', 'evidence', `wb-toll-gap-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The bridge keeper answers carefully. She keeps the commune connected',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'bridge keeper agenda');
+      G.lastResult = 'She is helpful in every direction except the one that matters. She knows the toll records, the crossing schedules, the flood management agreements with upstream and downstream settlements. She answers questions about procedure and history with precision. But any question that touches on which crossing arrangements fall outside the commune\'s own authority gets a procedural redirect — she names the right body to ask, which is not here, which means not answering.';
+      addJournal('Whitebridge bridge keeper answered all procedural questions precisely while redirecting any question about external-authority crossing arrangements. Source: Whitebridge Commune bridge keeper\'s station.', 'intelligence', `wb-keeper-agenda-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The flood log does not match the weather records for that period',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'flood log mismatch');
+      G.lastResult = 'The flood management log records water levels and bridge closure periods. The weather records from the regional archive record the same dates. They do not agree. The flood log shows a closure period with no corresponding weather event in the regional record. Either the closure was administrative rather than weather-driven, or the regional record was amended. The bridge closure was recorded as flood management. It was not flood management.';
+      addJournal('Whitebridge flood management log shows a bridge closure with no corresponding weather event in the regional record — closure classified as flood management, apparently administrative. Source: Whitebridge Commune flood archive.', 'evidence', `wb-flood-mismatch-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'Someone recognized me and left before I could approach',
+    tags: ['Complication', 'Observation'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'recognized complication');
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+      G.lastResult = 'Near the north approach. A figure by the toll station — not a regular keeper, the posture is wrong. She sees you at the same moment you see her, and the calculation happens in under a second. By the time you reach the station she is across the bridge and into the market side. The keeper at the window says she did not give her name. The toll book shows only the crossing type: administrative passage. No name required.';
+      addJournal('An unidentified figure at Whitebridge departed on sight — toll record shows administrative passage classification, no name required. Source: Whitebridge Commune north approach toll station.', 'complication', `wb-recognized-${G.dayCount}`);
+      G.recentOutcomeType = 'complication';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES;

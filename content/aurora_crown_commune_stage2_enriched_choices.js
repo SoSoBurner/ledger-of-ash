@@ -712,6 +712,65 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: 'The ritual calendar has a gap. An observance period that never happened',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'calendar gap anomaly');
+      G.lastResult = 'The ritual calendar is maintained in the dome archive — precise, continuous, going back fifteen cycles. Every observance period is logged: preparation, peak, close. One period is absent entirely. The surrounding entries continue without notation. There is no cancellation record, no postponement, no explanation. The gap is the right duration for the period that should be there. The calendar simply skips it, as if the observance never existed.';
+      addJournal('Aurora Crown Commune ritual calendar shows a missing observance period — no cancellation or postponement recorded, surrounding entries uninterrupted. Source: Aurora Crown dome archive.', 'evidence', `aur-cal-gap-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The dome keeper deflects questions about the missing period',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'dome keeper deflection');
+      G.lastResult = 'She knows which period you mean before you finish naming it. Her answer is about the dome\'s light-indexing system — how the apertures are calibrated, how each cycle\'s records feed the next cycle\'s alignment. It is accurate and detailed and has nothing to do with what you asked. She does not say there is nothing unusual. She does not say the period existed. She answers the question she prefers you to have asked.';
+      addJournal('Aurora Crown dome keeper gave a detailed deflection about light-indexing when asked about the missing observance period. Source: Aurora Crown dome archive, keeper\'s office.', 'intelligence', `aur-keeper-deflect-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'Celestial observation records have a gap that matches the calendar',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'observation gap correlation');
+      G.lastResult = 'The dome\'s observational records and the ritual calendar are kept separately, cross-referenced by date. The observation records for the missing period are there — nightly entries, aperture readings, alignment notes. But they are not cross-referenced to any ritual entry. The observation continued. The ritual did not. Whatever happened during that period was observed but not marked. The dome was watching. The calendar was told to look away.';
+      addJournal('Aurora Crown celestial observation records continue through the missing calendar period with no ritual cross-reference — the dome observed, but the period was not marked. Source: Aurora Crown observation archive.', 'evidence', `aur-obs-gap-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'Administrative filings cite the dome calendar as their timing reference',
+    tags: ['Discovery', 'Evidence'],
+    xpReward: 25,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(25, 'dome calendar timing reference');
+      G.lastResult = 'The dome calendar is public — the commune uses it for everything. Cross-referencing dates: an administrative filing elsewhere cites an Aurora Crown observance date as its effective date. Not a guild date. Not a seasonal date. A specific light-calendar observance from the dome. Someone used Aurora Crown\'s ritual calendar as the timing mechanism for an administrative action taken somewhere else. The missing observance period corresponds to a filing that has no effective date recorded.';
+      addJournal('An external administrative filing uses Aurora Crown dome calendar dates as timing reference — the missing observance period corresponds to a filing with no effective date. Source: Aurora Crown archive, cross-reference research.', 'evidence', `aur-cal-timing-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES;

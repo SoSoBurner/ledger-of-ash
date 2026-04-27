@@ -690,6 +690,65 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: 'The yield records show an allocation not in the commune\'s own ledger',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'diverted yield allocation');
+      G.lastResult = 'Harvest Circle maintains two ledgers: internal allocation and submission to the guild. Cross-checking them: a consistent entry in the guild submission that does not appear in the internal allocation. A portion of the yield has been reported to the guild as allocated to a specific destination, while the commune\'s own records show that portion as submitted without destination. It has been running for three seasons. The internal ledger does not acknowledge it exists.';
+      addJournal('Harvest Circle yield records show an allocation listed in guild submissions but absent from internal records — running for three seasons. Source: Harvest Circle commune ledger office.', 'evidence', `har-yield-alloc-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The elder knows about the diversion. She speaks only in crop terms',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'elder crop language');
+      G.lastResult = 'She talks about soil conditions, about what the eastern fields yielded against what was expected, about how a wet season changes the allocation calculus. She is not talking about soil conditions. The timing of what she describes matches the discrepancy in the ledgers exactly. She is explaining how the diversion works — what pressure causes it, what the cost is — entirely in agricultural language. Nothing she says can be written as an admission. She knows that.';
+      addJournal('A Harvest Circle elder described the yield discrepancy entirely in agricultural terms — timing and detail match the ledger anomaly precisely. Source: Harvest Circle commune, elder meeting.', 'intelligence', `har-elder-crop-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'A work period with no yield record attached to it',
+    tags: ['Records', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'unattributed work period');
+      G.lastResult = 'The labor schedule logs crew assignments by field and task. One period shows full crew deployment — everyone accounted for, full labor hours logged — with no corresponding yield entry. The work happened. The fields and tasks are recorded. Whatever was produced during that period was not entered into the yield ledger. Either it was harvested and moved without being recorded, or the work was for something that does not produce a yield entry.';
+      addJournal('A Harvest Circle labor schedule period shows full crew deployment with no corresponding yield record — work documented, output unrecorded. Source: Harvest Circle labor archive.', 'intelligence', `har-work-gap-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'What the diverted yield was used for is implied by what came back',
+    tags: ['Discovery', 'Evidence'],
+    xpReward: 25,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(25, 'return shipment implication');
+      G.lastResult = 'The commune receives regular supply inputs from outside. Reading the inbound manifests against the diversion timeline: the inputs increased in the same period the diversion began, and scaled proportionally as the diversion grew. The commune is receiving goods in exchange for yield that its own records do not acknowledge sending. The arrangement is not documented as a trade. It is documented as a grant — from an administrative body that does not typically grant agricultural communes material inputs.';
+      addJournal('Harvest Circle inbound supply manifests show inputs scaling proportionally with the yield diversion — received as a grant from a non-typical administrative source. Source: Harvest Circle commune supply records.', 'evidence', `har-return-shipment-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES;
