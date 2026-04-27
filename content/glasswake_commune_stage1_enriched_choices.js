@@ -155,7 +155,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. SOCIAL: THE JUNIOR RESEARCHER
   {
-    label: "Speak to the newest researcher in Toman's former study group — someone who hasn't yet learned what they're not supposed to discuss.",
+    label: "She hasn't learned yet what she's not supposed to say.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: {

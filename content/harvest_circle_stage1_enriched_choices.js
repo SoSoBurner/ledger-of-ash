@@ -907,7 +907,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: IRON COMPACT PROVISION CONTACT
   {
-    label: "Speak to the Iron Compact's Provision Compact liaison stationed at Harvest Circle's distribution center.",
+    label: "The Iron Compact liaison tracks what the distribution records don't explain.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: 'This path is closed here, but documented evidence of a compliance issue affecting Iron Compact interests — the routing number anomaly — would open a different conversation with the liaison.',
