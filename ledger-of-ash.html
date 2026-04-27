@@ -9137,8 +9137,17 @@ function getHeat(polity) {
 }
 function addHeat(polity, amount) {
   if (!G.heat) G.heat = {};
-  G.heat[polity] = Math.min(10, Math.max(0, (G.heat[polity] || 0) + amount));
+  var _prev = G.heat[polity] || 0;
+  G.heat[polity] = Math.min(10, Math.max(0, _prev + amount));
+  var _new = G.heat[polity];
   if (typeof flashStatRow === 'function') { flashStatRow('heat'); flashStatRow('heat-' + polity); }
+  // Queue authority encounter when heat crosses threshold for first time (fires on next loadStageChoices)
+  [3, 5, 8].forEach(function(t) {
+    if (_prev < t && _new >= t) {
+      if (!G._pendingHeatEncounter || G._pendingHeatEncounter.level < t)
+        G._pendingHeatEncounter = { polity: polity, level: _new };
+    }
+  });
 }
 
 // ── AUTHORITY CONFRONTATION SYSTEM ────────────────────
@@ -10659,6 +10668,30 @@ function adaptEnrichedChoice(c) {
     plot: c.plot || undefined,
     failResult: c.failResult || undefined,
     action: function() {
+      // failResult gate: pre-roll before fn executes, keeping one consistent roll display
+      var _gateShown = false;
+      if (c.failResult) {
+        var _KEY_NORM_G = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+        var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'lore';
+        var _gStage = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
+        var _gDC = (_derivedTag === 'safe' ? 7 : _derivedTag === 'bold' ? 16 : 13) + _gStage;
+        var _gVal = (G.skills && G.skills[_gSk]) || 0;
+        var _gRoll = Math.floor(Math.random() * 20) + 1;
+        var _gTotal = _gRoll + _gVal;
+        var _gFailed = _gTotal < _gDC;
+        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSk + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
+        _gateShown = true;
+        if (_gFailed) {
+          var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : String(c.failResult));
+          G.recentOutcomeType = 'complication';
+          addNarration('', _frTxt, 'complication');
+          addJournal(_frTxt, 'complication');
+          if (typeof updateHUD === 'function') updateHUD();
+          if (typeof saveGame === 'function') saveGame();
+          setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
+          return;
+        }
+      }
       try {
         if (_rivalMod > 0) G._rivalDCPenalty = _rivalMod;
         c.fn();
@@ -10668,11 +10701,13 @@ function adaptEnrichedChoice(c) {
       if (G._lastRollInfo) {
         var _ri = G._lastRollInfo;
         G._lastRollInfo = null;
-        var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-        var _riDC = (_derivedTag === 'safe' ? 8 : _derivedTag === 'bold' ? 16 : 13) + _stageBonus;
-        var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
-        var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
-        addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
+        if (!_gateShown) {
+          var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
+          var _riDC = (_derivedTag === 'safe' ? 8 : _derivedTag === 'bold' ? 16 : 13) + _stageBonus;
+          var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
+          var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
+          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
+        }
       }
       const txt = G.lastResult || '';
       const _outcomeType = G.lastResultType || 'neutral';
@@ -11576,8 +11611,9 @@ function handleChoice(choice) {
     var _effectiveRoll = choice.roll || _autoRoll;
 
     // Perform the auto-roll and check for failResult short-circuit
+    // Enriched choices gate inside their own action wrapper — skip pre-roll here
     var _autoRollFailed = false;
-    if (_autoRoll && _effectiveRoll && (!choice._isEnriched || choice.failResult)) {
+    if (_autoRoll && _effectiveRoll && !choice._isEnriched) {
       var _arSkillVal = (G.skills && G.skills[_effectiveRoll.skill]) || 0;
       var _abilBonus = 0;
       if (G._pendingAbilityBonus > 0 && (!G._pendingAbilitySkill || G._pendingAbilitySkill === _effectiveRoll.skill)) {
@@ -11631,7 +11667,7 @@ function handleChoice(choice) {
 
   const roll = Math.floor(Math.random() * 20) + 1;
   const total = roll + skillVal + traitBonus + oneTime + disadvantage + eqBonus + compBonus;
-  const baseDiff = choice.tag === 'safe' ? 8 : choice.tag === 'risky' ? 13 : 16;
+  const baseDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 13 : 16;
   // Stage DC scaling: +1 per stage to keep challenges meaningful as stats grow
   const _stageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
   // Axis flip DC modifier: +2 for days 0-3, +1 for days 4-6 after flip
@@ -11651,7 +11687,6 @@ function handleChoice(choice) {
   if (_dcReduce > 0) G._pendingDcReduce = 0;
   const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0) - _dcReduce;
   const success = total >= diff;
-  const partial = !success && total >= diff - 4;
 
   // Roll display
   let rollDisplay = 'd20: ' + roll;
@@ -15381,14 +15416,23 @@ function updateHUD() {
     if (_rivalMax > 0) { _rivalEl.textContent = 'rival: ' + _rivalMax; _rivalEl.style.display = ''; }
     else { _rivalEl.style.display = 'none'; }
   }
-  // Heat — show highest active polity heat in plain-text div
+  // Heat — show all active polity heat
   var _heatEl = document.getElementById('hud-heat');
-  var _maxHeat = 0; var _maxHeatPolity = '';
+  var _maxHeat = 0;
   var _heatPolities = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
-  _heatPolities.forEach(function(pk){ var hv = (G.heat && G.heat[pk]) || 0; if (hv > _maxHeat) { _maxHeat = hv; _maxHeatPolity = pk; } });
+  var _heatNames = {shelk:'Shelkopolis',roaz:'Roaz',shirsh:'Shirshal',mimolot:'Mimolot',panim:'Panim Haven',cosmouth:'Cosmouth',zootia:'Zootia',union:'Union',sheresh:'Sheresh',soreheim:'Soreheim',nomdara:'Nomdara'};
+  var _activeHeat = [];
+  _heatPolities.forEach(function(pk){ var hv = (G.heat && G.heat[pk]) || 0; if (hv > _maxHeat) _maxHeat = hv; if (hv > 0) _activeHeat.push(pk); });
   if (_heatEl) {
-    if (_maxHeat > 0) { _heatEl.textContent = _maxHeatPolity.toUpperCase() + ' ' + _maxHeat + '/10'; _heatEl.style.display = ''; }
-    else { _heatEl.style.display = 'none'; }
+    if (_activeHeat.length > 0) {
+      _heatEl.style.display = '';
+      _heatEl.innerHTML = '<div style="font-size:10px;color:var(--ink-faint);letter-spacing:1px;margin-bottom:2px;">HEAT</div>' +
+        _activeHeat.map(function(pk){
+          var hv = G.heat[pk] || 0;
+          var color = hv >= 8 ? 'var(--danger)' : hv >= 5 ? '#d47517' : '#b8860b';
+          return '<div style="display:flex;justify-content:space-between;color:'+color+';font-size:11px;"><span>'+_heatNames[pk]+'</span><span>'+hv+'</span></div>';
+        }).join('');
+    } else { _heatEl.style.display = 'none'; }
   }
   // Pressure bars — watchfulness and heat
   var _watch = (G.worldClocks && G.worldClocks.watchfulness) || 0;
@@ -15432,12 +15476,12 @@ function updateHUD() {
   // Investigation progress bar
   var spKey = G.stage === 'Stage I' ? 1 : 2;
   var spVal = (G.stageProgress && G.stageProgress[spKey]) || 0;
-  var spMax = G.stage === 'Stage I' ? 10 : 15;
+  var spMax = G.stage === 'Stage I' ? 10 : 12;
   var spEl = document.getElementById('hud-stage-progress');
   var spWrap = document.getElementById('hud-stage-progress-wrap');
   var spValEl = document.getElementById('hud-stage-progress-val');
   if (spEl) spEl.style.width = Math.min(100, (spVal / spMax) * 100) + '%';
-  if (spValEl) spValEl.textContent = spVal;
+  if (spValEl) spValEl.textContent = spVal + ' / ' + spMax;
   if (spWrap) spWrap.style.display = spVal > 0 ? 'block' : 'none';
   // Alliance credits overlay (Soreheim/Sunspire only)
   var _inSore = G.location === 'soreheim' || G.location === 'soreheim_proper' || G.location === 'sunspire' || G.location === 'sunspire_haven';
