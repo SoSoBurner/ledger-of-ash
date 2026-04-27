@@ -14322,7 +14322,7 @@ function showJournal() {
         '<span class="jov-frep">' + bar + '</span></div>';
     }).join('');
 
-  const questRows = (G.quests||[]).map(q => '<div class="jov-quest">&#x25B6; ' + q + '</div>').join('') ||
+  const questRows = (G.quests||[]).map(q => '<div class="jov-quest">&#x25B6; ' + (typeof q === 'object' ? (q.msg||'') : q) + '</div>').join('') ||
     '<div style="color:var(--ink-faint);font-style:italic;font-size:13px">No active quests.</div>';
 
   const loreRows = (G.journal||[]).slice(0,20).map(j => '<div class="jov-entry">' + j + '</div>').join('') ||

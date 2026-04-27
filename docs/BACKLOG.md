@@ -1,6 +1,6 @@
 # Ledger of Ash — Feature Backlog
 
-**Last updated:** 2026-04-27 (session 4 — text RPG packets complete)
+**Last updated:** 2026-04-27 (session 5 — BACKLOG verification pass)
 **Source:** Audited across 10+ plan files + verified against live codebase. Check this before re-planning any feature.
 
 ## Status codes
@@ -12,8 +12,8 @@
 ## Summary counts
 | Status | Count |
 |--------|-------|
-| DONE | 80 |
-| PARTIAL | 4 |
+| DONE | 79 |
+| PARTIAL | 5 |
 | NOT BUILT | 11 |
 | UNKNOWN | 20 |
 
@@ -28,6 +28,7 @@
 | cosmoria arc line 25: addJournal uses 'decision' — invalid category | DONE | Fixed → 'intelligence' |
 | cosmoria arc line 246: addJournal uses 'consequence' — invalid category | DONE | Fixed → 'discovery' |
 | Heat HUD always display:none — player never sees heat system | DONE | hidden when heat=0, visible when active; commit af459aea |
+| Journal overlay quest rows render [object Object] | PARTIAL | updateQuestHUD() (line 15644) and showCharSheet() (line 14572) both handle object quests correctly. Journal overview at line 14325 does NOT: `map(q => '...' + q + '...')` concatenates raw object. Quests stored as {msg,questId} objects will show [object Object] in journal page quest list. |
 
 ---
 
@@ -40,7 +41,7 @@
 | __rival__ routing in handleChoice | DONE | line 11201 |
 | advanceRivals() forEach needs index (r, i) for encounter trigger | DONE | wired with encounter trigger |
 | Rival lay-low drain mechanic | DONE | r.layLow=true → drain 1 renown, reset; test in rivals.test.js |
-| Rival DC pressure (+1 per threshold 3/6/9) | PARTIAL | threshold notices wired (G._rivalNoticeCount); dcPenalty not yet added to roll calc |
+| Rival DC pressure (+1 per threshold 3/6/9) | PARTIAL | rollD20 reads G._rivalDCPenalty (line 11390) but it is never persistently set from rival renown thresholds — only set transiently inside adaptEnrichedChoice and immediately cleared in finally block (lines 10662/10665). Net effect: zero persistent DC pressure from rival growth. |
 | Rival clock world notice at threshold 3/6/9 | DONE | all three thresholds fire addWorldNotice |
 | Universal roll DC 7 for safe choices | DONE | handleChoice: `_tier==='safe' ? 7`; test in dc-safe.test.js |
 | Universal roll — every choice auto-rolls | PARTIAL | safe auto-roll at DC 7 documented; risky/bold not all wired |
