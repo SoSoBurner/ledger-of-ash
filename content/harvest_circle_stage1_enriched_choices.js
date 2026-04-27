@@ -628,8 +628,8 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
-    label: "Find the evidence that proves Harvest Circle's corruption is being coordinated from outside — discover the external hand orchestrating family power consolidation.",
-    tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
+    label: "The family consolidation at Harvest Circle has an external hand behind it.",
+    tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -838,8 +838,8 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE QUOTA WORKER WITH A MEMORY
   {
-    label: "Find a worker who has been at Harvest Circle long enough to remember the pre-quota-change era — speak to them about what changed.",
-    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    label: "Someone who was here before the quota change would know what shifted.",
+    tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 65,
     failResult: 'This path is closed here, but the long-tenure workers remember what the central scale showed before the section leads took over — a second visit once trust has accumulated may open it.',
     fn: function() {

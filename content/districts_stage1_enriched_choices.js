@@ -231,7 +231,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Ask at the Verdant Row healer's collective about unusual symptoms they've been treating in the past three months.",
+    label: "The Verdant Row healers are treating something they haven't named publicly.",
     tags: ['District', 'Persuasion', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -297,7 +297,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Talk to the Granary Steps receiving clerk about manifest irregularities in the past six months.",
+    label: "The Granary Steps clerk has been countersigning manifests that don't add up.",
     tags: ['District', 'Persuasion', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -675,7 +675,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Find the informal information broker who operates from the corner table at the Common Quarter's main tavern.",
+    label: "The corner table at the Common Quarter tavern has regular ears for hire.",
     tags: ['District', 'Stealth', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -697,7 +697,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Check the Common Quarter community board — the informal announcements and warnings posted by residents.",
+    label: "The Common Quarter community board has warnings posted between the ordinary notices.",
     tags: ['District', 'Survival', 'Atmosphere'],
     xpReward: 55,
     fn: function() {

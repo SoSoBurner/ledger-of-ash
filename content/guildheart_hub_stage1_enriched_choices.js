@@ -690,8 +690,8 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
-    label: "Find the evidence that proves the guild arbitration corruption is being coordinated from outside Guildheart — discover the external hand orchestrating guild capture.",
-    tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
+    label: "The corruption in guild arbitration runs through an external hand nobody has named.",
+    tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {

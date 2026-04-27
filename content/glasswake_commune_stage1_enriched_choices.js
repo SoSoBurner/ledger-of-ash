@@ -392,8 +392,8 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INVESTIGATION: THE PREDECESSOR STUDY
   {
-    label: "Find the predecessor study that Toman's work built on — determine whether earlier researchers noticed the amplification effect.",
-    tags: ['Investigation', 'Lore', 'Stage1', 'Meaningful'],
+    label: "Toman's work built on an earlier study. Someone noticed the amplification first.",
+    tags: ['Investigation', 'Lore', 'Stage1'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

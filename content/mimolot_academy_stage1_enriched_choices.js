@@ -845,8 +845,8 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: THE SCHOLAR ON LEAVE
   {
-    label: "Find one of the three suppressed faculty members currently on 'academic leave' and hear what happened to them.",
-    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    label: "Three faculty members are on academic leave. None of them left willingly.",
+    tags: ['PersonalArc', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

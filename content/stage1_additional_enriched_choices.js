@@ -190,7 +190,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   // ========== PERSONAL RECOVERY ==========
   {
-    label: "Take time for yourself — rest, reflection, journal your thoughts — process what you've learned",
+    label: "The case needs distance before the next step becomes clear.",
     tags: ['Safe', 'Recovery', 'Personal'],
     xpReward: 30,
     stageProgress: 1,
