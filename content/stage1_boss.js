@@ -58,7 +58,9 @@ function triggerStage1MiniBoss() {
         var roll = rollD20('charm');
         var dc = 13 + Math.floor(((G.level||1)-1)/2);
         if (roll.total >= dc) {
-          addNarration('', 'The buckle-tracing stops. You name the pressure directly — the re-stitched insignia, the doubled registry entries, the debt or promise or fear that is driving a roadwarden lieutenant to do something a roadwarden lieutenant should not be doing. His jaw tightens. Then loosens. He does not deny it. He tells you the name of who sent him, which is more than he intended, and steps back. The alley opens. He turns and walks north without looking back.');
+          var _gleamFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
+          var _gleamDetail = _gleamFam === 'combat' ? ' Before he goes, he takes one more look at you — the specific appraisal of someone recalculating a threat estimate.' : _gleamFam === 'stealth' ? ' He leaves without looking back, but he turns his head once at the alley mouth — checking not the lane behind him but the roofline above you.' : _gleamFam === 'support' ? ' He pauses at the alley edge, starts to say something, decides against it. Whatever he weighed in that pause, he kept it.' : '';
+          addNarration('', 'The buckle-tracing stops. You name the pressure directly — the re-stitched insignia, the doubled registry entries, the debt or promise or fear that is driving a roadwarden lieutenant to do something a roadwarden lieutenant should not be doing. His jaw tightens. Then loosens. He does not deny it. He tells you the name of who sent him, which is more than he intended, and steps back. The alley opens. He turns and walks north without looking back.' + _gleamDetail);
           addJournal('Gleam confirmed he was dispatched by someone above his station to track my movements. He named the authority behind it before he left.', 'intelligence');
           G.flags.stage1_miniboss_talked = true;
           G.flags.stage1_miniboss_complete = true;
@@ -134,7 +136,9 @@ function triggerStage1MainBoss() {
       action: function() {
         var roll = rollD20('wits');
         if (roll.total >= 10) {
-          addNarration('', 'The desk tells you what the room means. The document she set squarely at the corner when you walked in is a detainment notice, unsigned. The lamp is angled toward the chair across from her, not toward her own work. The shelf behind her has a gap where a file should be — a file she pulled before you arrived. She has been preparing for this longer than you have.');
+          var _arcFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
+          var _arcDetail = _arcFam === 'combat' ? ' She has not looked at your hands since you entered. She already clocked them at the door.' : _arcFam === 'stealth' ? ' The intake log on the corner of her desk has a fresh entry in her own hand — timestamped six minutes before you arrived.' : _arcFam === 'support' ? ' The case file tab on the top of the pulled stack is labeled in a category she doesn\'t use for wardens or merchants. She\'s been building this for a specific kind of person.' : '';
+          addNarration('', 'The desk tells you what the room means. The document she set squarely at the corner when you walked in is a detainment notice, unsigned. The lamp is angled toward the chair across from her, not toward her own work. The shelf behind her has a gap where a file should be — a file she pulled before you arrived. She has been preparing for this longer than you have.' + _arcDetail);
           G.flags.stage1_mainboss_assessed = true;
           setTimeout(function() { _stage1MainBossPhase2(); }, 800);
         } else {
