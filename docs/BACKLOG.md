@@ -239,3 +239,31 @@
 | `docs/superpowers/plans/2026-04-26-p1-dc-fix.md` | DC safe=7 — DONE |
 | `docs/superpowers/plans/2026-04-26-p1-equipment-bonus-audit.md` | Equipment bonus pipeline — DONE |
 | `docs/superpowers/plans/2026-04-26-p1-failresult-validator.md` | Validator rule A7 — DONE |
+
+---
+
+## LABEL VIOLATIONS (Apr 27 2026 audit — log only, do not rewrite frozen Stage 1 content)
+
+**Scanned:** All Stage 1 enriched choice files + stage2_enriched_choices.js
+
+| Type | Count | Notes |
+|------|-------|-------|
+| Over 15 words | 359 | Pre-existing debt; matches known 838-violation baseline. Majority in Stage 1 investigation chains. |
+| Infinitive starts | 2 | `glasswake_commune_stage1_enriched_choices.js:158` — "Speak to the newest researcher..."; `harvest_circle_stage1_enriched_choices.js:910` — "Speak to the Iron Compact's..." |
+| Question marks | 0 | Clean |
+
+**Action:** Do not rewrite Stage 1 labels (stage is frozen). Apply label standard to all new Stage 2+ choices before commit.
+
+---
+
+## STAGE 2 CONTENT DENSITY GAP (NOT BUILT — high priority)
+
+**Stage 1 total labeled choices:** ~776 across 20 files (avg 35/locality)
+**Stage 2 total labeled choices:** 56 (stage2_enriched_choices.js: 52, stage2_shadowhands_arc.js: 4)
+
+Stage 2 has ~7% of Stage 1's content volume. Per the World Expansion Rule, Stage 2 must EXCEED Stage 1 total content. This is the largest single content gap in the V1.0 build.
+
+**What exists:** stage2_enriched_choices.js (52 choices, global pool), stage2_shadowhands_arc.js (4 arc choices), stage2_antechamber.js (gate scene), stage2_boss.js, stage2_climax.js
+**What's missing:** Per-locality Stage 2 enriched choice files equivalent to the 20 Stage 1 locality files — each locality needs a dedicated Stage 2 choice set (target: ≥35 choices/locality × 20 localities = 700+ choices)
+
+**Status:** NOT BUILT — requires a dedicated Stage 2 content authoring plan before V1.0 release

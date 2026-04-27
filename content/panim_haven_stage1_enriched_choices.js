@@ -677,6 +677,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    plot: 'main',
     failResult: {
       text: "The assembled evidence still has gaps in the mechanism layer — individual pieces are documented, but the connective thread between them remains circumstantial. A single strong source willing to describe the coordination would convert pattern into proof. Tazren holds the pre-reform doctrine text and has been watching this unfold from the outside for two years. His framing of where each piece fits may be the missing structure.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
@@ -884,6 +885,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Tazren mentions a visitor came to see him last month — someone who claimed to be researching Bureau reform history.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
+    plot: 'main',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(57, 'receiving rival warning');
