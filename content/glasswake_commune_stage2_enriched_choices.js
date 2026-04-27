@@ -619,6 +619,66 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+
+  {
+    label: 'The allocation records show water going somewhere not on the map',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'water allocation diversion');
+      G.lastResult = 'The allocation ledger lists disbursement points by grid reference. All but one match a location on the commune\'s posted infrastructure map. The last entry — consistent, seasonal, a significant volume — references a grid point that does not correspond to any listed infrastructure, distribution point, or storage basin. It has been there for four seasons. The steward who pulls the ledger for you does not comment on it.';
+      addJournal('Glasswake Commune water allocation records show regular disbursements to an unlisted grid reference — four seasons of entries, no infrastructure match. Source: Glasswake Commune allocation office.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The steward answers carefully. Her job requires outside relationships',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'steward NPC agenda');
+      G.lastResult = 'She does not lie. She is precise about what she says and what she does not say. Every answer describes Glasswake\'s position relative to external bodies — what the commune owes, what it has agreed to, what the review schedule requires. She is protecting the relationships that keep the commune functioning. Anything that threatens those relationships does not get a direct answer. She confirms what is already documented. She does not add to it.';
+      addJournal('The Glasswake Commune steward answered questions carefully — only confirming documented positions, deflecting anything that could affect external relationships. Source: Glasswake Commune steward office.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The allocation anomaly predates the current steward by two seasons',
+    tags: ['Records', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'pre-steward anomaly');
+      G.lastResult = 'The current steward took her post six seasons ago. The unlisted allocation entry begins eight seasons ago. She did not create it. She inherited it. Which means she found it, evaluated it, and chose to leave it in place — or was told to. The entry is in the same handwriting as the surrounding entries for its first two seasons, then shifts to the current steward\'s notation style. She updated it. She knows exactly what it is.';
+      addJournal('The Glasswake allocation anomaly predates the current steward by two seasons — she subsequently updated the notation style, confirming awareness. Source: Glasswake Commune allocation records, handwriting comparison.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The commune knows about the upstream supply issue. They haven\'t reported it',
+    tags: ['Discovery', 'Evidence'],
+    xpReward: 25,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(25, 'unreported upstream discovery');
+      G.lastResult = 'The upstream measurement posts report flow volume to the guild on a quarterly schedule. Glasswake keeps its own measurements daily — internal only, not submitted. The internal logs show volume consistently lower than the guild\'s posted upstream figures for the past three seasons. The commune is receiving less than the guild\'s records show. Either the guild\'s upstream measurements are wrong or the difference is going somewhere. No discrepancy report has been filed.';
+      addJournal('Glasswake Commune internal water measurements show consistent shortfall versus guild upstream figures for three seasons — no discrepancy report filed. Source: Glasswake internal measurement logs.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES;

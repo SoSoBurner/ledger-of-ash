@@ -643,6 +643,67 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+
+  {
+    label: 'Transit records sealed. Not the usual kind',
+    tags: ['Records', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'sealed transit records');
+      G.lastResult = 'Three months of checkpoint transit logs available for review. The fourth month — the one you need — is there, but sealed along the spine with red administrative wax. The warden checks the requisition form you\'ve filled out. He stamps PENDING on it without opening the log. He files the stamp copy. He does not explain what the seal means or when it might come off.';
+      addJournal('A month of Plumes End checkpoint transit logs is sealed with Collegium-red administrative wax — pending status applied without explanation. Source: Plumes End Outpost records station.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The warden taps the document twice before handing it back',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'warden pattern observation');
+      G.lastResult = 'He looks at the document longer than its contents require. His right index finger taps the lower corner — twice, always twice — before he hands it back. "Routine," he says. The routing code in the corner is not routine. It is a Collegium administrative prefix on a checkpoint document, which should only carry guild transit codes. He has seen this before. He is deciding what he is allowed to say about it.';
+      addJournal('A Plumes End checkpoint warden showed recognition of an unusual routing code — tapped the document twice before returning it, said "routine" without making eye contact. Source: Plumes End Outpost checkpoint desk.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The traveler ahead was turned back. No reason given',
+    tags: ['Observation', 'Complication'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'unexplained traveler refusal');
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+      G.lastResult = 'The traveler in front of you has a transit pass. You can see the stamp from here — standard guild issue, current season, correct route. The warden examines it for thirty seconds, returns it, and says: "Not today." No citation. No hold number. No appeal process offered. The traveler asks twice and gets the same answer. She turns around. You step forward with your own papers. The warden\'s expression does not change.';
+      addJournal('Witnessed a valid transit pass refused at Plumes End Outpost without explanation or appeal process — warden gave no citation. Source: Plumes End checkpoint line, observed.', 'complication');
+      G.recentOutcomeType = 'complication';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'A log category stopped appearing six months ago',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'missing log category');
+      G.lastResult = 'The outpost log uses category codes in the left margin — transit type, cargo classification, route authorization. Through the early pages: a regular pattern of one code that appears every few days, then stops. The date it stops is precise. From that date forward, the category simply does not appear. The volume of crossings didn\'t change. Whatever was crossing in that category did not stop — it stopped being recorded as that category.';
+      addJournal('Plumes End Outpost logs show a transit category code that ceased appearing six months ago — crossings continued at the same volume, suggesting reclassification rather than halt. Source: Plumes End Outpost records station.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES;

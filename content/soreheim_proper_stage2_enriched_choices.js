@@ -748,6 +748,68 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+
+  {
+    label: 'A union procedural filing with a non-union authority hold on it',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'union filing authority hold');
+      G.lastResult = 'Union procedural filings are processed by union registrars — that is what union procedure means. This one has an external hold applied to it. The hold stamp is Collegium administrative format. The union registrar who pulls it for you sets it on the desk without comment, which means she either cannot explain it or has been told not to. The union\'s own process is suspended pending the outcome of a process from outside the union\'s authority.';
+      addJournal('A Soreheim Proper union procedural filing carries a Collegium administrative hold — union registrar offered no explanation. Source: Soreheim Proper union registry.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'The merchant factor calls it market variance. He\'s wrong and he knows it',
+    tags: ['NPC', 'Intelligence'],
+    xpReward: 15,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(15, 'merchant factor framing');
+      G.lastResult = 'He frames everything as normal trade fluctuation — seasonal pressure, route adjustments, buyer preference shifts. He has the vocabulary for it and he uses it precisely. But the numbers he\'s describing don\'t behave like market variance. They behave like administered pressure: consistent direction, consistent magnitude, no correlation with the commodity indices he\'s citing. He knows this. The framing is what he\'s been told to use.';
+      addJournal('A Soreheim Proper merchant factor described economic anomalies as market variance — but the pattern is inconsistent with natural market behavior. Source: Soreheim Proper factor exchange, afternoon session.', 'intelligence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'Pre-Decommodification pressure records follow the same shape as now',
+    tags: ['Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'decommodification era pattern');
+      G.lastResult = 'The archive holds economic records from before the Decommodification. The pressure pattern in those records — consistent directional force on specific trade categories, administrative holds on appeals, procedural delays concentrated on the same guild sectors — is recognizable. The current pattern is not identical. But it uses the same structure. Someone built the current mechanism by studying what worked before. The Decommodification did not end the method. It interrupted it.';
+      addJournal('Pre-Decommodification economic records in Soreheim Proper show pressure patterns structurally identical to current anomalies — same sectors, same hold mechanisms. Source: Soreheim Proper civic archive.', 'evidence');
+      G.recentOutcomeType = 'investigate';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    label: 'An authority representative is watching me pull these records',
+    tags: ['Complication', 'Observation'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'monitored records access');
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+      G.lastResult = 'The figure near the reading room door is not a regular archivist. The posture is wrong — too still, facing the room rather than the shelves. He has been there since you requested the third volume. He has not asked who you are. He does not need to — he has the request forms. He is noting which volumes you pull, in what order, and how long you spend on each. You finish what you can and leave the rest.';
+      addJournal('Records access at Soreheim Proper civic archive was monitored — non-archivist observer present from the third volume request. Source: Soreheim Proper civic archive reading room.', 'complication');
+      G.recentOutcomeType = 'complication';
+      maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES;
