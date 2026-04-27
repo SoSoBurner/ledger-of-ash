@@ -9,7 +9,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: CADRIN
   {
-    label: "The bridge keeper has been keeping a second log. His count and the official count disagree on the same three nights each month.",
+    label: "Cadrin's second log. Three nights repeat. The counts don't agree.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -57,7 +57,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: CHARTER MARK CONTAINER
   {
-    label: "The containers that crossed on the last anomalous night had a charter mark Cadrin didn't recognize.",
+    label: "That charter mark doesn't belong to any route on record.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -83,7 +83,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: MIDNIGHT CARGO TIMING
   {
-    label: "The midnight cargo runs follow a pattern timed to the watch rotation gap. Someone walked the patrol schedule first.",
+    label: "The timing follows the watch gap. Someone mapped the patrol first.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -111,7 +111,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. ARCHETYPE-GATED: READING THE BRIDGE
   {
-    label: "Stand at the bridge at the hour when the anomalous crossings happen — read what the space tells you.",
+    label: "The bridge at that hour. What it looks like without watchers.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -135,7 +135,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. INVESTIGATION: WHO ALTERED THE REGISTRY
   {
-    label: "The registry access log shows entries from a role title that doesn't exist in the commune's organizational chart.",
+    label: "That role title isn't in the commune's organizational chart.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -157,7 +157,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. FACTION SEED: IRON COMPACT CROSSING AUTHORITY
   {
-    label: "The Iron Compact handles transit compliance. A land-only license used on a river crossing is a clear violation.",
+    label: "Land-only license on a river crossing. The Compact will have records.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -183,7 +183,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. SOCIAL: THE DUTY WALKER
   {
-    label: "The duty walker's tally comes out higher than Cadrin's on the same nights. He reported it twice. They told him he miscounted.",
+    label: "The duty walker reported the discrepancy twice. They told him he miscounted.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -205,7 +205,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. MORAL PRESSURE: CADRIN'S POSITION
   {
-    label: "Cadrin asks if you're going to make this official — he needs to know before he shares everything he has.",
+    label: "Cadrin needs to know what this becomes before he talks.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -224,7 +224,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. INVESTIGATION: CARGO WEIGHT ANALYSIS
   {
-    label: "The eastern span flagstones show compression fractures. The load is heavier than any manifest on record accounts for.",
+    label: "The eastern flagstones are cracked. Nothing on the manifests explains the load.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -248,7 +248,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. ATMOSPHERE: THE COMMUNE AT DAWN
   {
-    label: "Watch Whitebridge Commune wake up — observe how the bridge crossing is integrated into daily life.",
+    label: "How the commune moves around the crossing. What belongs and what doesn't.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -263,7 +263,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. INVESTIGATION: THE COMMUNE ADMINISTRATION'S KNOWLEDGE
   {
-    label: "The bridge director filed an inquiry into the new-moon discrepancies. It was closed by the ghost account.",
+    label: "The director filed an inquiry. The ghost account closed it.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -287,7 +287,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. PERSONAL ARC: SECURE CADRIN'S LOG
   {
-    label: "Cadrin's six months of crossing records need to leave Whitebridge before someone decides to take them.",
+    label: "Cadrin's records can't stay here. Someone will notice he kept them.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -309,7 +309,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. RUMOR LAYER
   {
-    label: "The bridge-side inn collects what the crossing moves through. Some of it doesn't dissolve into general complaint.",
+    label: "The inn hears what crosses. Some of it stays as more than rumor.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     fn: function() {
@@ -332,7 +332,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SOCIAL: THE FORMER BRIDGE DIRECTOR
   {
-    label: "The former bridge director filed the original inquiry. She lives across the bridge now and won't look at it from her window.",
+    label: "The former director lives across the bridge. She won't look at it.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -353,7 +353,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INVESTIGATION: WHAT'S BEING TRANSPORTED
   {
-    label: "The staging area off the main road. New moon tonight. The watch rotation gap is forty minutes.",
+    label: "New moon. The staging area. Forty minutes in the watch gap.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -383,7 +383,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. WORLD COLOR: THE BRIDGE AT DAWN
   {
-    label: "Watch the bridge through the transition from night to morning — observe how Whitebridge Commune marks the passage of time.",
+    label: "The bridge at the night-to-morning shift. How Whitebridge marks time.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 48,
     fn: function() {
@@ -398,7 +398,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INVESTIGATION: EXTERNAL AUTHORIZATION SOURCE
   {
-    label: "The ghost account credentials trace to a body that isn't in any public registry for this district.",
+    label: "The ghost account traces to someone not in any public registry here.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -420,7 +420,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. WORLD COLOR: CADRIN'S RECORD KEEPING
   {
-    label: "Cadrin has been keeping a personal log since his first posting. His father did the same for thirty years.",
+    label: "Cadrin's father kept the same log for thirty years.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -435,7 +435,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "Someone was here last week asking Terris specific questions about the crossing. More specific than yours.",
+    label: "Someone asked Terris the same questions last week. More specific than mine.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -479,7 +479,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ARCHETYPE GATE (Bard/Healer — Support family)
   {
-    label: "The crossing workers talk differently to travelers who seem trustworthy than to those who seem official.",
+    label: "Crossing workers read trust differently from authority. Worth seeing which I read as.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
     fn: function() {
@@ -502,7 +502,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BACKGROUND FLAVOR
   {
-    label: "The bridge crossing fee schedule was last revised two years ago — but certain cargo classes pay rates from a different document.",
+    label: "Three cargo classes pay from a second rate document. No posting date.",
     tags: ['Pressure', 'Background', 'Stage1'],
     xpReward: 55,
     fn: function() {
@@ -521,7 +521,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — RISKY
   {
-    label: "The bridge director's administrative log has a regular notation that reads 'authorized under operational continuity' — a phrase that doesn't appear anywhere in the commune's charter.",
+    label: "'Authorized under operational continuity.' The commune's charter contains no such phrase.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -542,7 +542,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BOLD
   {
-    label: "The cargo manifests for the midnight crossings are filed in a different administrative category than standard crossing records.",
+    label: "The midnight crossing manifests are filed where no one looks by default.",
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     fn: function() {
@@ -563,7 +563,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — SAFE/SOCIAL
   {
-    label: "The commune's elder council hasn't convened a full session in four months — the last three meetings were closed without quorum.",
+    label: "Four months without a quorum. Two members keep filing conflicts.",
     tags: ['Pressure', 'Safe', 'Social', 'Stage1'],
     xpReward: 55,
     fn: function() {
@@ -577,7 +577,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — RISKY/NPC
   {
-    label: "The night-shift crossing assistant has been keeping her own count of the midnight cargo crossings — separately from the official log.",
+    label: "Sali has been keeping her own count. Separately from the official log.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -598,7 +598,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ATMOSPHERE
   {
-    label: "The bridge-side inn keeps a book of travelers who pass through — a tradition, not a requirement.",
+    label: "The inn's traveler book goes back forty years. The last eight months are sparse.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     fn: function() {
@@ -611,7 +611,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BOLD/LORE
   {
-    label: "The crossing authority's founding compact gives the keeper authority to halt crossing operations under specific conditions — conditions that currently apply.",
+    label: "The founding compact gives Cadrin authority to halt crossings. He doesn't know.",
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
     xpReward: 75,
     fn: function() {
