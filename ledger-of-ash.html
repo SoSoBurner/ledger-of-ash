@@ -9842,9 +9842,15 @@ function advanceRivals() {
     if (r._resolved || !r.active) return;
     // Each major choice advances rivals
     const roll = Math.floor(Math.random() * 10);
-    if (roll >= 8) {
+    if (r.layLow) {
+      r.renown = Math.max(1, r.renown - 1);
+      r.layLow = false;
+    } else if (roll >= 8) {
       r.renown++;
-      if (r.renown >= 5) { r.active = false; r.lastSeen = 'Completed their work and moved on.'; }
+      if (r.renown === 3) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' is gaining a reputation in ' + (r.lastSeen || 'the region') + '.'); }
+      if (r.renown === 6) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' has become a significant force. Their influence is being felt.'); }
+      if (r.renown === 9) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' is now a dominant presence. They are beyond easy opposition.'); }
+      if (r.renown >= 10) { r.active = false; r.lastSeen = 'Completed their work and moved on.'; }
     } else if (roll === 0) {
       r.active = false;
       r.lastSeen = 'Disappeared. Reason unknown.';

@@ -113,7 +113,7 @@ function buildSandbox(gOverrides) {
     saveGame:              () => {},
     showTransitionBanner:  () => {},
     addQuest:              () => {},
-    addWorldNotice:        () => {},
+    addWorldNotice:        function(msg) { this._toasts.push(msg); },
     loadStageChoices:      () => {},
     renderChoices:         () => {},
     maybeStageAdvance:     () => {},
@@ -195,6 +195,7 @@ function createGameContext(gOverrides) {
     applyWound:          ctx.applyWound,
     confirmDeath:        ctx.confirmDeath,
     getEquipmentBonus:   ctx.getEquipmentBonus,
+    advanceRivals:       ctx.advanceRivals,
   };
 }
 
