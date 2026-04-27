@@ -12376,7 +12376,7 @@ function _finalizeLevelUp(statKey, trait) {
 
 function applyLevelUpChoice(opt) {
   if (opt.kind === 'skill') {
-    if ((G.skills[opt.sk]||0) < 5) G.skills[opt.sk]++;
+    if ((G.skills[opt.sk]||0) < 10) G.skills[opt.sk]++;
   } else if (opt.kind === 'ability') {
     if (!G.unlockedAbilities) G.unlockedAbilities = [];
     G.unlockedAbilities.push(opt.ab.id);
@@ -12397,11 +12397,11 @@ function applyPassiveAbility(ab) {
   if (effect.includes('Permanent +1 to')) {
     const m = effect.match(/Permanent \+1 to (\w+)/i);
     if (m && G.skills[m[1].toLowerCase()] !== undefined) {
-      if (G.skills[m[1].toLowerCase()] < 5) G.skills[m[1].toLowerCase()]++;
+      if (G.skills[m[1].toLowerCase()] < 10) G.skills[m[1].toLowerCase()]++;
     }
   }
   if (effect.includes('Craft +2 permanently')) {
-    if ((G.skills.spirit||0) < 5) G.skills.spirit++;
+    if ((G.skills.spirit||0) < 10) G.skills.spirit++;
   }
   if (effect.includes('Lore gains +2')) {
     // Handled by getTraitBonus at roll time
@@ -13532,14 +13532,14 @@ function showTrainingMenu() {
   }
 
   let html = '<div class="choice-label">Train which stat?</div>';
-  html += '<div style="color:var(--ink-dim);font-size:11px;margin-bottom:10px">3 sessions per point &middot; Gold cost scales with rank &middot; 30-day cooldown between sessions</div>';
+  html += '<div style="color:var(--ink-dim);font-size:11px;margin-bottom:10px">3 sessions per point &middot; 20 gold per session &middot; 30-day cooldown between sessions</div>';
   html += '<div class="choices">';
 
   Object.entries(G.skills || {}).forEach(([sk, val]) => {
     const base = G.archetypeBaseStats[sk] || 0;
     const ceiling = Math.min(base + 3, 10);
     const atCeiling = val >= ceiling;
-    const cost = (val + 1) * 15;
+    const cost = 20;
     const sessions = G.trainingSessionsUsed[sk] || 0;
     const lastDay = G.trainingCooldowns[sk] || -999;
     const cooldownRemaining = 30 - (day - lastDay);
@@ -13613,7 +13613,7 @@ function showTrainingMenu() {
     btn.addEventListener('click', () => {
       const sk = btn.dataset.skill;
       const val = G.skills[sk] || 0;
-      const cost = (val + 1) * 15;
+      const cost = 20;
       const ceiling = Math.min((G.archetypeBaseStats[sk] || 0) + 3, 10);
 
       if ((G.gold || 0) < cost) {
