@@ -4295,13 +4295,12 @@ function applyWound(damage, source) {
     }
   }
   if (G.hp <= 0) {
-    G.hp = 1;
-    G.recoveryState = 'critical';
-    var _goldLost = Math.max(1, Math.floor((G.gold || 0) * 0.1));
-    G.gold = Math.max(0, (G.gold || 0) - _goldLost);
-    G.dayCount = (G.dayCount || 0) + 1; G.restCount = 0;
+    G.hp = 0;
+    G.dead = true;
     if (CS) CS.playerFell = true;
-    addNarration('', '<em style="color:var(--blood-bright)">The fight goes out of you before the ground does. When awareness returns, the light has shifted — hours, maybe more. Your hands are empty of what they had. You have not won this. But you are still breathing, and that is where the next attempt begins.</em>');
+    saveGame();
+    confirmDeath();
+    return;
   }
   updateHUD();
 }

@@ -122,6 +122,7 @@ function buildSandbox(gOverrides) {
     gainXp:                () => {},
     getRivalDCMod:         () => 0,
     getArchetypeFamily:    () => 'support',   // overwritten after eval
+    confirmDeath:          () => {},
   };
 
   // Make window point to the sandbox itself so window.foo = ... works
@@ -191,6 +192,8 @@ function createGameContext(gOverrides) {
     getActiveCompanions:ctx.getActiveCompanions,
     gainXp:            ctx.gainXp,
     adaptEnrichedChoice: ctx.adaptEnrichedChoice,
+    applyWound:          ctx.applyWound,
+    confirmDeath:        ctx.confirmDeath,
   };
 }
 
