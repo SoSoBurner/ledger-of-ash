@@ -11299,7 +11299,7 @@ function handleChoice(choice) {
     var _autoRoll = null;
     if (!choice.roll) {
       var _tier = choice.tag || 'risky';
-      var _dc = _tier === 'safe' ? 8 : _tier === 'bold' ? 16 : 13;
+      var _dc = _tier === 'safe' ? 7 : _tier === 'bold' ? 16 : 13;
       // Stage modifier: +1 per stage above Stage I
       var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
       _dc += _stageBonus;
