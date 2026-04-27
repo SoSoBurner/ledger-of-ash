@@ -11696,7 +11696,7 @@ function handleChoice(choice) {
   if (disadvantage) rollDisplay += ' ' + disadvantage + ' (training fatigue)';
   if (eqBonus) rollDisplay += ' + gear ' + eqBonus;
   if (compBonus) rollDisplay += ' + companion ' + compBonus;
-  rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '');
+  rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '') + ' — ' + (success ? 'Success' : 'Failure');
 
   var _critPrefix = '';
   if (roll === 20) _critPrefix = '<span style="color:var(--accent-gold);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Success! </span>';
@@ -11781,7 +11781,7 @@ function handleChoice(choice) {
       G.stageProgress[_critSK] = (G.stageProgress[_critSK]||0)+1;
     }
 
-    resolveConsequence(choice.cid, success, partial);
+    resolveConsequence(choice.cid, success, false);
 
     // Archetype confirmation beat — track skill roll count on primary skill
     if (G.archetype && choice.skill && !G.flags.archetype_confirmed) {
