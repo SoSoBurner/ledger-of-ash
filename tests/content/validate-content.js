@@ -107,6 +107,10 @@ function validateChoice(file, choice) {
     if (r6) warn(file, label, r6.msg);
   }
 
+  // A7: safe choices must have failResult
+  const r7 = checkRuleA7(choice);
+  if (r7) fail(file, label, r7);
+
   checked++;
 }
 
@@ -321,6 +325,16 @@ function checkNpcFlagTiming(fnSrc) {
   return violations;
 }
 
+// ─── A7 — Safe choices must have failResult ──────────────────────────────────
+
+function checkRuleA7(choice) {
+  if (choice.tag !== 'safe') return null;
+  if (!choice.failResult || typeof choice.failResult !== 'string' || choice.failResult.trim().length === 0) {
+    return 'safe choice missing failResult field (required for DC 7 auto-roll failure path)';
+  }
+  return null;
+}
+
 // ─── A6 — World Clock Transparency ───────────────────────────────────────────
 
 const CONSEQUENCE_WORDS = ['attention', 'pressure', 'harder', 'watchful', 'noticed', 'tracked', 'scrutin'];
@@ -339,4 +353,4 @@ function checkWorldClockTransparency(fnSrc) {
 
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency, loadChoicesFromFile };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency, checkRuleA7, loadChoicesFromFile };

@@ -1,5 +1,5 @@
 'use strict';
-const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency } = require('./validate-content');
+const { extractResultStrings, checkResultWordCount, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency, checkRuleA7 } = require('./validate-content');
 
 describe('extractResultStrings', () => {
   test('extracts single-quote result from addNarration call', () => {
@@ -145,6 +145,33 @@ describe('checkNpcFlagTiming (A5)', () => {
       G.flags.met_elior = true;
     }`;
     expect(checkNpcFlagTiming(src)).toHaveLength(0);
+  });
+});
+
+describe('checkRuleA7 — safe choices must have failResult', () => {
+  test('passes when tag is safe and failResult is present', () => {
+    const choice = { label: 'Quiet path.', tag: 'safe', result: 'ok', failResult: 'Closed here, but another way exists.' };
+    expect(checkRuleA7(choice)).toBeNull();
+  });
+
+  test('fails when tag is safe and failResult is missing', () => {
+    const choice = { label: 'Quiet path.', tag: 'safe', result: 'ok' };
+    expect(checkRuleA7(choice)).toMatch(/failResult/);
+  });
+
+  test('fails when tag is safe and failResult is empty string', () => {
+    const choice = { label: 'Quiet path.', tag: 'safe', result: 'ok', failResult: '' };
+    expect(checkRuleA7(choice)).toMatch(/failResult/);
+  });
+
+  test('passes when tag is risky (not safe) without failResult', () => {
+    const choice = { label: 'Risky path.', tag: 'risky', result: 'ok' };
+    expect(checkRuleA7(choice)).toBeNull();
+  });
+
+  test('passes when tags is array (semantic tags) without failResult', () => {
+    const choice = { label: 'Array tag path.', tags: ['NPC', 'Stage1'], xpReward: 65, fn: function() {} };
+    expect(checkRuleA7(choice)).toBeNull();
   });
 });
 
