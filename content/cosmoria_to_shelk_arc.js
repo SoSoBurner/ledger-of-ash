@@ -22,7 +22,7 @@ const COSMORIA_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The template runs on three manifest categories: maintenance transit, emergency supply, and safety inspection response. Each triggers automatic port clearance — no secondary review required. The ghost vessels rotated between the three on consecutive voyages, keeping each category's usage low enough to avoid frequency flags. No single vessel appeared twice under the same category within any sixty-day window. This was not a workaround that developed through practice. Someone designed it specifically for the purpose of moving cargo through maritime checkpoints without it being opened. Somewhere behind you, a record of your departure has already been made.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Cosmoria with transit laundering template — three-category rotation designed to avoid flagging', `cosmoria-arc-departure-${G.dayCount}`);
+      addJournal('Left Cosmoria with transit laundering template — three-category rotation designed to avoid flagging', 'intelligence');
     }
   },
 
@@ -243,7 +243,7 @@ const COSMORIA_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Cosmoria — Stage 2 begins', `cosmoria-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Cosmoria — Stage 2 begins', 'discovery');
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }
