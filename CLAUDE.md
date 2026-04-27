@@ -166,6 +166,18 @@ Rule: use the semantic role variable (`--danger`, `--discovery`, `--accent-gold`
 
 Boss encounters: pass `{isBoss: true}` in context to `enterCombat()` — applies `.encounter--boss` class (danger border).
 
+## Choice Border Color Rules
+
+Choice button left-borders carry semantic meaning — do not reassign colors across roles:
+
+| Border color | Hex | Class | Meaning |
+|---|---|---|---|
+| Blue (storm) | `#4a7ab5` | `.choice-btn.plot-main` | Main quest / plot-critical choice |
+| Yellow→Red ramp | (planned) | `.choice-btn.threat-*` | Combat escalation threat level (NOT YET BUILT) |
+| None | — | default | Standard choice |
+
+Blue is intentionally distinct from the gold/danger/discovery palette so it doesn't conflict with the escalation ramp (yellow/orange/red). Do not change `.plot-main` to gold — gold signals reward/renown, not narrative criticality.
+
 ---
 
 # Narrative Project Rules
