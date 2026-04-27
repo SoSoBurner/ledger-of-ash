@@ -12,6 +12,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "A mine overseer has been here twenty years. She's been keeping a private operations log for fourteen months. The official record is wrong on purpose.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: {
+      text: `Velka is mid-count at the production checkpoint, tally board raised, two fingers up — not now. A foreman in a grey coat moves between you and the board line without speaking, ledger tucked under one arm, face turned just enough to close the angle. The shift whistle has her pinned to the checkpoint until the count clears. The end-of-shift wind-down, when the face goes quiet and the supervisors move to the equipment shed, is the only window she keeps for herself.`,
+      xp: 0, effects: [],
+      next: [{text: 'Wait for the wind-down window', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'meeting Velka Ironspike');
@@ -35,6 +40,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The eastern face produces something that gets classified as disposal. The disposal schedule doesn't match the shipping calendar.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
+    failResult: {
+      text: `The disposal records at the equipment shed are clipped to a board inside the foreman's window — visible through the glass, not accessible without his say-so. He's at the window now, running his daily count in a ruled ledger, marking each line with a flat stroke. The access path for eastern face documentation runs through Velka, who has been keeping independent records for fourteen months and holds standing access to the shed line. She takes her break at the end-of-shift wind-down.`,
+      xp: 0, effects: [],
+      next: [{text: 'Find Velka at the wind-down', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'reading eastern face extraction records');
@@ -60,6 +70,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The extraction runs on days the official calendar leaves blank. Someone read the inspection timetable before building it.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: {
+      text: `The management shed door stays closed during active shift hours — stone dust protocol, keeps the paperwork legible. The schedule board is visible through the window but the angle is wrong for reading specific dates. Two foremen cross the yard between sheds, ledgers under their arms, without glancing over. The window opens at shift change, when supervisors move to the equipment shed for the daily count and the management building empties for twelve minutes. Velka uses that window to sign her production reports.`,
+      xp: 0, effects: [],
+      next: [{text: 'Time the shift-change window', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'comparing operations schedules');
@@ -86,6 +101,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The official sheet calls it geological waste. The color banding is wrong for waste. Something specific is in that discard pile.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 74,
+    failResult: {
+      text: `The fragment in hand is limestone on three sides and something else on the fourth — a faint reactive smell when it warms in the sun, a color that doesn't belong to the surrounding rock. But naming it precisely needs a testing kit or a specialist. Neither is at the quarry. The sample is worth keeping. Kess, the Iron Compact authority at the assay station, runs a registered material identification service and has access to the Compact's mineral reference catalog.`,
+      xp: 0, effects: [],
+      next: [{text: 'Bring the sample to Kess at the assay station', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'identifying secondary mineral');
@@ -112,6 +132,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The quarry runs at peak production and the workforce knows what it's doing. So does everyone watching it.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
+    failResult: {
+      text: `The quarry floor during active shift is noise and dust and purposeful movement — nothing stands still long enough to read. Workers move between station markers at a pace the shift whistle enforces, foremen counting output against their ledger lines, equipment checks running in fixed sequence. The quarry at dawn, before the first bell, is a different thing. The crews aren't on the clock yet. The patterns between tasks are visible before the day covers them. First light is the window.`,
+      xp: 0, effects: [],
+      next: [{text: 'Return at first light before the first bell', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'reading quarry operations');
@@ -136,6 +161,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The Iron Compact's mining authority has a representative here. This needs to go somewhere with enforcement standing.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: `Kess is at the assay station with a tally register open and two minutes on the clock before her next run. The description of schedule discrepancies doesn't move her expression. She sets one finger on the register. "Show me the specific dates where the operations board diverges from the production calendar. I need documentation, not description." Without that, informal claims sit as hearsay in the Compact's process and go nowhere. Velka's fourteen-month log has exactly those dates.`,
+      xp: 0, effects: [],
+      next: [{text: "Get Velka's documentation first", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Iron Compact contact');
@@ -162,6 +192,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Darian arrived as operations lead eighteen months ago. His predecessor is still at Ironhold, doing different work.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: {
+      text: `Darian's employment record is in a closed cabinet in the administration building, accessible only to site administration or through a formal Compact audit request. The Compact's public registry shows licensing structure and ownership filings, not individual histories. One detail is public without an audit: the appointment date — eighteen months ago, the same month the eastern face reached the secondary mineral layer. The timing is the information. Kess at the assay station has standing to request the full personnel file under audit protocol.`,
+      xp: 0, effects: [],
+      next: [{text: 'Request an audit through Kess', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'researching Darian\'s background');
@@ -183,6 +218,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Velka has been doing the quiet version for fourteen months. She needs to know if that's still the right call.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -202,6 +238,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Unmarked containers leave the eastern face on days the official calendar shows no shipments. They go somewhere.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
+    failResult: {
+      text: `The secondary guard places himself between you and the service track access without a word, ledger under one arm, hands at his sides. He holds the position until the window has passed, then walks back to his rotation point. Your presence near the track is registered. The night contractor delivers equipment to the eastern face in the early hours — two to four in the morning on irregular dates, when the guard pattern changes. Velka's private log marks the delivery windows. The track is accessible then.`,
+      xp: 0, effects: [],
+      next: [{text: 'Wait for the night delivery window', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'tracking container destination');
@@ -232,6 +273,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Arrive at Ironhold at first light — observe the quarry as it begins the production day.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
+    failResult: {
+      text: `The gate board is already full when you arrive — workers clocked in before first light, tally pegs in their slots, the shift sequence settled and closed. The foreman at the gate marks latecomers in a separate column without looking up. The quarry's rhythm doesn't wait. The eastern face shifts start tighter than the standard face, arrival time enforced by a secondary count that runs before the main bell. Tomorrow, the gate board opens thirty minutes before first light.`,
+      xp: 0, effects: [],
+      next: [{text: 'Come back thirty minutes before first light', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'observing quarry dawn operations');
@@ -247,6 +293,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Darian reports to management. Management reports to someone. The ownership structure above them doesn't appear in any public filing.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: `The Compact's registry at the assay station holds current operating licenses and a five-year indexed ledger of affiliate filings. The surface layer reads quickly: Ironhold's license under the Compact's quarrying affiliate. Below that, the affiliate structure runs through registration layers requiring cross-reference to separate volumes. The assay station copy lacks those volumes. Kess has cross-reference access to the full affiliate structure in the Compact's working files and runs documentation queries through her audit authority.`,
+      xp: 0, effects: [],
+      next: [{text: 'Route the ownership query through Kess', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'mapping quarry ownership structure');
@@ -295,6 +346,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The end-of-shift gathering is when the face goes quiet and the supervisors move to the equipment shed. That's when workers talk.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
+    failResult: {
+      text: `The end-of-shift gathering hasn't formed yet — the face is still running, the shift whistle not down, foremen moving between station markers with their ledgers open. Workers at active stations don't take eyes off their work when management is visible on the floor. The count has to close and the supervisors have to clear to the equipment shed before conversation opens up. That takes another forty minutes. The water barrel near the main face is where the workers collect first.`,
+      xp: 0, effects: [],
+      next: [{text: 'Wait at the water barrel after the count clears', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'gathering quarry worker rumors');
@@ -318,6 +374,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "One of the eastern face crew has been on that rotation long enough to know what the official sheet isn't recording.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
+    failResult: {
+      text: `The worker checks your face twice before answering, then steps back toward the face without a word. Eastern face rotation workers signed a supplementary contract clause — she won't say what it covers, but the way she looks toward the equipment shed says it includes conversations with outsiders. Velka placed three of those workers on their first rotation herself. They trust her in a way they won't extend to a visitor. An introduction through Velka at the end-of-shift wind-down is the path that opens.`,
+      xp: 0, effects: [],
+      next: [{text: 'Get Velka to make the introduction', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing eastern face worker');
@@ -340,6 +401,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Velka's fourteen-month log has enough volume data to calculate how far along the operation is. The number matters.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: {
+      text: `The stratum depth is in Velka's personal notation — she mapped it herself over fourteen months, layer by layer, without the quarry's sanction. Without that depth figure, an extraction rate is a speed without a distance. The calculation requires her data, not a workaround. The eastern face itself gives no reliable indication from the terrace. Velka takes her break at the end-of-shift wind-down, when the face goes quiet and she can work through the numbers without a foreman looking over her shoulder.`,
+      xp: 0, effects: [],
+      next: [{text: "Work through the numbers with Velka at wind-down", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'estimating extraction quota completion');
@@ -370,6 +436,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Velka has twenty years at this face. The question isn't what she knows — it's what twenty years costs a person to keep quiet.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 48,
+    failResult: {
+      text: `Velka is mid-production count at the main terrace checkpoint, pen moving down the tally board in the fast, flat strokes of someone who has done this ten thousand times. She doesn't look up. The count is a closed ritual — twenty years of it, and she doesn't break the sequence for anyone during active shift hours. The western terrace wall, where she goes to look at the cut lines she approved a decade ago, is her space at the end of the day when the face goes quiet.`,
+      xp: 0, effects: [],
+      next: [{text: "Find Velka at the western terrace after shift", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(48, 'understanding Velka\'s perspective');
@@ -385,6 +456,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The same mineral class appearing at Craftspire and here means both operations are moving toward the same point. That point isn't Ironhold.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: `The container route runs north from Ironhold toward Whitebridge and the trail goes cold there. On hand: two origin points and a partially legible charter mark on the containers. What's missing is the final leg — the documentation that places the combined material at a specific Shelkopolis destination. The charter mark is registered with the Compact. Kess has access to the Compact's freight charter registry and can run a mark-to-registrant search without a formal audit trigger.`,
+      xp: 0, effects: [],
+      next: [{text: 'Ask Kess to run the charter mark', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'connecting Ironhold to central investigation');
@@ -411,6 +487,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Stand at the active quarry face during extraction — observe what industrial-scale mineral extraction actually looks like.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 48,
+    failResult: {
+      text: `The production floor during an active extraction run is off-limits to non-credentialed visitors — the foreman at the face access marker makes that clear with a single raised hand and a look toward the gate. Stone dust coats everything within fifty meters; the vibration from deep blasting travels through the ground before the sound arrives. The terrace above the main face gives a clean sightline without crossing the access boundary. Velka approved those cut lines personally. She reads the face from there.`,
+      xp: 0, effects: [],
+      next: [{text: 'Observe from the terrace above the face', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(48, 'observing active quarry extraction');
@@ -426,6 +507,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The extraction is 4-6 weeks from completion. What the accumulated material does after collection is the question no one has answered yet.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: {
+      text: `The deployment logic turns on a compound stability window — how long from final collection before the material degrades below useful concentration. Without that figure, the extraction timeline marks an end point but not what follows it. That number is specialist knowledge. Jorin worked with this material category at Craftspire and had access to synthesis studies before they were suppressed. The studies exist somewhere outside the quarry. The answer to the question is not at Ironhold.`,
+      xp: 0, effects: [],
+      next: [{text: 'Track down the synthesis studies through Jorin', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'assessing post-extraction timeline');
@@ -481,6 +567,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The quarry face at noon sounds different from the quarry face at dawn.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: {
+      text: `The quarry is in full production — extraction percussion running off the stone walls and returning half a second late, the air too thick with dust and vibration for anything subtle to register. The acoustic difference between dawn and noon only comes through after the face quiets. The shift whistle marks the midpoint, but the real quiet comes at end-of-day when the equipment shuts down and the supervisors move to the count shed. That's when the quarry's own voice is audible again.`,
+      xp: 0, effects: [],
+      next: [{text: 'Return when the equipment shuts down', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing quarry acoustic change');
@@ -578,6 +669,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Ironhold's original extraction license covers seventeen material categories — the current operation adds an eighteenth, unnamed.",
     tags: ['Discovery', 'Safe', 'Records', 'Stage1'],
     xpReward: 55,
+    failResult: {
+      text: `The administration building entry is closed between shifts — dust protocol, keeps the display cases clean. The framed license copy is visible through the entry glass but the addendum notation at the bottom runs in smaller type, too small to read from the door. The building opens at the start of the afternoon shift when the administrative clerk runs the day's filing. That window is twenty minutes long before the supervisors arrive for their own paperwork.`,
+      xp: 0, effects: [],
+      next: [{text: 'Come back when the admin building opens', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'reviewing Ironhold extraction license');
@@ -613,6 +709,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The carved depth markers on the quarry's oldest sections still carry the original surveyors' initials.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
+    failResult: {
+      text: `The oldest quarry sections are across the main equipment road, behind the drainage berm — accessible in principle, but the path runs within thirty meters of the eastern perimeter guard rotation. During production hours the guards have a sightline over that stretch. The access is clean at the shift change, when the guard rotation moves to the eastern face for the container count and the berm path empties for twelve minutes. The depth markers have been in the stone for decades. They'll still be there.`,
+      xp: 0, effects: [],
+      next: [{text: 'Cross during the guard rotation gap', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(35, 'reading original quarry depth markers');
@@ -646,6 +747,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: {
+    text: `The notice board outside the equipment shed is covered — a foreman's shift summary pinned over the top half, a new work-order sheet tacked over the lower section. Whatever was posted this morning is under two layers of today's operational paperwork. The board clears at end-of-shift when the foreman pulls the day's sheets for the count log. The postings beneath will be visible again then, assuming nobody replaces them with tomorrow's run sheet before the morning bell.`,
+    xp: 0, effects: [],
+    next: [{text: 'Check the board after the count log runs', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

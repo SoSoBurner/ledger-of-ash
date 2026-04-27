@@ -27,6 +27,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.located_letha_dawnsilk = true;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Letha's posted schedule is law here — the checkpoint board lists her available times, and this isn't one of them. The duty clerk at the supply station takes your name without expression and posts it in the visitor log. Outside, the wind pushes in from the northeast. You can wait until her scheduled period, or find another way into the records before you find your way to her.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Check the patrol board for other leads', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -57,6 +63,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Letha's desk holds six months of pressure records, but access to them runs through her alone. The suppression order pulled the reports from the official distribution chain — no copies at central coordination, no duplicate filed with the patrol station's intake register. What exists is in this room, on those shelves, behind a commander who hasn't decided yet whether you're someone she can trust with them.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Letha's records are accessible only through Letha. The suppression pulled every copy out of the official chain — no duplicates, no archive deposit, no patrol copies. Without her authorization, the column of dates and readings on that desk stays closed. The outpost's oilcloth curtain shifts in the draft from the northeast door. The data is there. The path to it runs through her trust.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find another way to earn Letha\'s confidence', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -83,6 +95,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The suppression order arrived in standard formatting — header, reference number, issuing body name — and passed the intake clerk's verification. The issuing body is unfamiliar, but the regional authority directory is a bound volume behind Letha's desk, not a document you can access independently. Without it, the name could be legitimate and obscure, or fabricated to read as legitimate. The difference requires a directory you don't have.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The suppression order's language is deliberately broad, and the name on it reads as legitimate enough that without a regional authority directory — which sits locked in Letha's office — you can't confirm it's fabricated. The outpost supply station smells of cook-fire and oilcloth. The answer is in that directory. The directory is behind a door that requires her clearance.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Work through Letha to access the directory', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -109,6 +127,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The rangers have documented movement changes in their patrol logs — fewer animals along the northeast corridors, grazing pressure shifting south — but the patrol debrief notes call it seasonal variation. One ranger mentions it's been running long for a season shift, then stops himself. Without Letha's directional pressure data to set beside the patrol observations, the pattern stays inconclusive; the rangers have no framework to measure what they've been watching.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The rangers' patrol logs record the route changes but flag them as seasonal variation — without Letha's directional pressure data beside the observation notes, the pattern stays inconclusive. The log room is open during the administrative period. You have the information in front of you and not enough framework to make it mean something yet. The data needs a different anchor before it speaks.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Return to Letha\'s pressure records for the anchor point', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -133,6 +157,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       }
       addJournal('Frontier edge: defensive blind spot aligned with gradient origin, compound chemistry detected, wildlife corridors show advance direction, human exodus from NE', 'evidence', `plumes-perimeter-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The perimeter walk gives you wind and a view. The northeastern quadrant looks like the other three until it doesn't — but whatever difference is there won't resolve without Letha's six months of readings beside you as a reference point. The frontier edge without the data is just edge. The thread picks up again at her desk.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Return to Letha\'s records before reading the perimeter again', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -159,6 +189,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.located_warden_order_plumes = true;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The Warden Order's inquiry process loops back through the regional coordination channel — the same one the suppression order closed. The coordinator is polite about it. The supply station is quiet at this hour, the oilcloth over the window lifting in the draft from the northeast. An inquiry requires documentation the suppression made unavailable. The path is blocked at the source.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a way around the compromised channel', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -181,6 +217,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The ranger keeps his eyes on the patrol board when you ask about the northeast routes. The suppression order circulated to all outpost personnel — measurements under review, not for informal discussion. He straightens a posting on the board that doesn't need straightening. "I don't have anything to add to the official record." He says it carefully, the way someone says something they've been told to say and have been practicing.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The suppression order circulated to all outpost personnel and Ranger Coss absorbed it. He's not going to speak against the official record to a stranger passing through. The patrol board needs straightening; he straightens it. The northeast route assignments are posted there in his handwriting. The evidence of what he knows is on the board. He won't speak it aloud.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the patrol board instead of the ranger', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -188,6 +230,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The official channels are compromised. Letha knows it. She's waiting to see if I do.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -225,6 +268,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The outpost's field equipment is calibrated for patrol conditions — wide-area presence detection, not compound-class isolation. The sample registers something: a reading above baseline, a minor variance in the ambient trace signature. But the instruments can't narrow it further than that. Whether this matches the class Jorin described at Craftspire, the data won't say. Presence confirmed. Identity of what's present: unresolved. The frontier station was never equipped to answer the harder question.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The outpost's field equipment needs a skilled hand to run at more than patrol-grade resolution. The instruments sit in the eastern supply cache, calibrated for presence detection. Whoever last serviced them left a notation about compound-class isolation being beyond spec. The data exists in the air. The tools to read it precisely are one step above what's available here.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find better analytical equipment or a better approach', skill: 'craft', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -240,6 +289,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `From the watchtower, the northeast horizon is slightly different from the other directions. Not visible to the eye — more like a quality of light that doesn't quite settle the same way. Letha comes up to check the morning instruments and stands next to you for a moment. "I've been watching it change for six months," she says. "Most people don't notice until I point it out. But once you've seen it, you can't stop seeing it." She goes back to her instruments. You keep watching. She's right.`;
       addJournal('Plumes End watchtower: NE horizon atmospheric difference visible once noticed — Letha has been watching it change for 6 months', 'discovery', `plumes-dawn-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The watchtower access requires a patrol authorization during Letha's scheduled quiet periods — a procedure the overnight watch enforces without exception. The supply station below smells of cook-fire and old oilcloth. The northeast horizon is visible from ground level too, but from this angle the quality Letha describes won't resolve. The view you need is one flight of stairs and one authorization away.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Request Letha\'s authorization for tower access', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -264,6 +319,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The archive room holds forty years of outpost records in bound seasonal volumes, organized by quarter on open shelving. Forty years is as far as the current archive goes — the preface notes a prior records system that wasn't transferred when the outpost was rebuilt. Whatever gradient events predated the current archive's opening are referenced only in the aggregate, not documented. The earlier period is a gap in the record, not a gap in the history.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The archive room's older volumes are in a condition that needs careful handling — the seasonal records from thirty years back are still legible, but reading across the full forty-year run for a single type of entry requires more time than the administrative period allows. The archive closes at the posted hour. The historical comparison is there; finding it is a full session's work.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Return during the next administrative period with a clearer search target', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -309,6 +370,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `The supply traders work the frontier circuit in long loops — Plumes End is one of six stops, and they talk to everyone at each one. Over a cup at the outpost's supply desk, the account surfaces: ${selected}. The traders don't know what to make of it. They're not paid to make sense of what they hear. But they remember it, because this stretch of the frontier has been producing more things worth remembering lately.`;
       addJournal(`Plumes End frontier trader rumor: "${selected}"`, 'evidence', `plumes-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The supply traders are between runs — the current circuit doesn't reach Plumes End until the next resupply, and the outpost's last trader contact was four days ago. The notice board has their scheduled return posted in pencil. What they've heard on the northeastern circuit will keep until then. The frontier runs on a schedule and the rumors travel on it.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Check the notice board for other current leads', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -331,6 +398,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The frontier supply traders know there were farmers moving south from the northeast holdings last season — they carried some of them on cart beds — but where those people settled afterward, none of the traders tracked. Displaced families don't announce a destination. They move until they find a place willing to take them, then go quiet. Finding specific individuals among that scatter requires someone with outpost-level network reach across all the way stations between here and the interior.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The displaced families from the northeast holdings scattered south and went quiet — no recorded destinations, no filed claims, no addresses at any way station along the supply circuit. The traders carried some of them but didn't track where they stopped. The people you need are somewhere between here and the interior and the trail is four months cold. Letha's patrol network has wider reach. This requires her cooperation before it requires your legwork.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Ask Letha to use her patrol network to locate the displaced farmers', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -361,6 +434,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The zone mapping can't be built without Letha's six months of directional readings. Everything else — the wildlife displacement, the farmer accounts, the patrol observations — points toward a general direction. Precise radius calculation requires a station log from a fixed point, with consistent measurement intervals and a dated baseline. That log is Letha's. The work at this desk starts with the work at hers.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The radius calculation needs Letha's directional anchor — without a fixed station log at consistent intervals, the displacement corridors and farmer accounts can suggest a direction but not a boundary. The oilcloth over the north window shifts in a draft from outside. The math is available. The foundation it requires is in Letha's records, behind her authorization.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Secure Letha\'s records before attempting the radius calculation', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -376,6 +455,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `After dark, the northeast horizon has a faint luminescence — not light from settlements, the wrong color for that. A diffuse glow that pulses very slowly. Letha has been documenting it for two months. "The glasswake shard amplification effect," she says quietly. "That's what it looks like when the compound interacts with a shard-dense area. I've never seen it in the open atmosphere before." She looks at it for a moment. "Someone has made Aurora Crown's dome into a source for this." She sounds like someone who has been hoping they were wrong.`;
       addJournal('Plumes End night sky: NE atmospheric glow consistent with shard amplification effect — Aurora Crown dome converted to atmospheric release point', 'discovery', `plumes-night-sky-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `After-dark observation at the perimeter requires overnight patrol authorization — the watch rotation doesn't allow unaccompanied access to the northeast edge past the supply station after the second bell. Letha's name on a pass would solve it. The glow Wess has mentioned on his routes is documented in his own patrol notes; those are available through the duty station during the administrative period.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Request overnight perimeter access through Letha', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -396,6 +481,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The suppression order blocked the reports, but what that blocking actually prevented requires knowledge of central coordination's response thresholds — the specific anomaly scale that triggers an automatic environmental hazard assessment, and how quickly that process moves. The outpost's protocol manual doesn't include coordination-level procedures. Whatever the suppression bought in time, the calculation sits behind a document you don't have access to here.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Central coordination's response thresholds are in a coordination-level protocol manual that isn't posted at frontier outposts. Letha's protocol references them by section number without quoting the criteria. The calculation requires a document that lives at a higher access level than this supply station carries. The answer exists — it's in a binder in a coordination office you haven't reached yet.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'File this thread for when you reach a coordination-level archive', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -411,6 +502,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `Letha has three volumes of atmospheric chemistry texts she's been reading since the gradient appeared. She checks the window before she answers — not the street outside, the reflection in the glass. "I'm an operations commander, not a chemist," she says. "But if my reports are going to be taken seriously, I need to understand what I'm measuring well enough to defend the data." She's been educating herself specifically so she can argue for her own observations. The suppression has turned a frontier commander into a self-taught atmospheric scientist. The work she's doing is beyond her job description and she knows it. "Someone needs to understand this," she says simply.`;
       addJournal('Letha self-educating in atmospheric chemistry to defend suppressed data — command competence in response to institutional suppression', 'discovery', `plumes-letha-books-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Letha's desk is closed during the briefing period — the books are visible through the window in the door, three volumes spine-out on the left side. The clerk says she'll be available at the posted time. The titles on those spines are readable from where you stand in the corridor: atmospheric chemistry, filtration mechanics, compound-class toxicology. She ordered them herself.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Return at Letha\'s posted available time', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -432,6 +529,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.flags.synthesized_plumes_picture = true;
       addJournal('Full synthesis: multi-locality operation to amplify Aurora Crown atmospheric release — suppression, shard data, additive substitution, compound accumulation all connected', 'discovery', `plumes-synthesis-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The threads are present but won't connect yet — the Glasswake data, the Aurora Crown additive substitution, the ghost institutions, Plumes End's readings. Something in the chain is still missing. The cook-fire at the overnight hearth fills the supply station with the smell of woodsmoke and oilcloth. The picture assembles when you have all the pieces. One of them is still somewhere in this outpost.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Keep gathering before attempting the full synthesis', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -580,6 +683,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       addJournal('Patrol recruit Wess: sweet-wrong air quality shift on northeast route, boundary moving south each patrol for 3 months', 'evidence', `plumes-wess-${G.dayCount}`);
       G.lastResult += ' The boundary has moved south on every patrol for three months. The thread points the same direction it has been pointing.';
       G.recentOutcomeType = 'social'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Recruit Wess is out on the current rotation — his name is on the northeast circuit posting, which means he won't be back until the evening changeover. The patrol board shows his return time penciled in below the route assignment. The supply station has his annotated route markers from last week mounted on the wall behind the duty clerk's desk, but interpreting them without him explaining the boundary shifts requires a familiarity with patrol notation you'd need to develop first.`,
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for Wess at the evening changeover', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -650,6 +759,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     }
     G.flags[key] = true;
     drawLocalityRumor(G.location);
+  },
+  failResult: {
+    text: `The notice board is there but the postings are from three days ago — supply schedule updates, a patrol assignment change, a note about oilcloth requisitions. Nothing that wasn't already general knowledge. The wind comes in from the northeast when the supply station door opens. The board will have something worth reading when the next supply circuit arrives.`,
+    xp: 0,
+    effects: [],
+    next: [{text: 'Check back when the next supply run posts', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
   }
 }
 ];
