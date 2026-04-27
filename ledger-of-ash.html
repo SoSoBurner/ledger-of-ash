@@ -11772,6 +11772,14 @@ function getTraitBonus(skill) {
     if (!t) return sum;
     // Format A: {skillBonus:{combat:1}} — background passive traits
     if (t.skillBonus) return sum + (t.skillBonus[_sk] || 0);
+    // Format C: {bonusSkill:'might', bonus:1} — archetype definitions (display key, bonusSkill alias)
+    if (t.bonusSkill) {
+      var _csk = _KEY_NORM[t.bonusSkill] || t.bonusSkill;
+      if (_csk !== _sk || !t.bonus) return sum;
+      if (t.condition === 'hp_low' && G.hp > Math.floor((G.maxHp || 20) * 0.4)) return sum;
+      if (t.condition === 'hp_critical' && G.hp > Math.floor((G.maxHp || 20) * 0.2)) return sum;
+      return sum + t.bonus;
+    }
     // Format B: {skill:'combat', bonus:1, condition?} — archetype/item traits
     var _tsk = _KEY_NORM[t.skill] || t.skill;
     if (_tsk !== _sk || !t.bonus) return sum;
