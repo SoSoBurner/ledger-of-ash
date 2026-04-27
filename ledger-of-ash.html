@@ -13643,6 +13643,14 @@ function doSleepScene() {
 
   addNarration('Lodging', 'It is ' + TIME_NAMES[G.timeIndex||0] + '. You need somewhere to sleep.');
 
+  // Companion acknowledgment — text only, no interactive choice
+  if (G.flags && G.flags.maren_oss_resolved && G.companions && Object.keys(G.companions).length > 0) {
+    var _compList = Object.values(G.companions).map(function(c){ return c.name || ''; }).filter(Boolean);
+    if (_compList.length > 0) {
+      addNarration('', (_compList.length === 1 ? _compList[0] + ' settles' : _compList.join(' and ') + ' settle') + ' nearby for the night.', 'neutral');
+    }
+  }
+
   const choices = [];
   if (sorehimFree) {
     choices.push({ text: 'The allocation hall has a billet assigned to consortium members.', skill: 'survival', tag: 'safe', align: 'neutral',
