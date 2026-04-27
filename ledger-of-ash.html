@@ -9552,12 +9552,43 @@ function initCreate() {
       if (!a) return;
       const d = document.createElement('div');
       d.className = 'card'; d.dataset.id = a.id;
+      var _SKILL_DISPLAY = {might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit'};
+      var _COND_LABEL = {hp_low:'low HP',hp_critical:'critical HP'};
+      // Starting skill distribution (always present on archetype object)
+      var _statsHtml = '';
+      if (a.skills) {
+        var _statOrder = ['might','finesse','vigor','wits','charm','spirit'];
+        var _statParts = _statOrder.filter(function(k){ return (a.skills[k] || 0) > 0; }).map(function(k){
+          return '+' + a.skills[k] + ' ' + _SKILL_DISPLAY[k];
+        });
+        if (_statParts.length) {
+          _statsHtml = '<div style="margin-top:8px;font-family:var(--font-body);font-size:11px;color:var(--ink-dim);line-height:1.6;">' +
+            _statParts.join(' &nbsp;&middot;&nbsp; ') +
+          '</div>';
+        }
+      }
+      // Passive trait bonuses unlocked via ARCHETYPE_TRAIT_POOLS (preview future growth)
+      var _poolTraits = (typeof ARCHETYPE_TRAIT_POOLS !== 'undefined' && ARCHETYPE_TRAIT_POOLS[a.id]) || [];
+      var _passiveBonuses = _poolTraits.filter(function(t){ return t.bonusSkill && t.bonus; });
+      var _bonusHtml = '';
+      if (_passiveBonuses.length) {
+        _bonusHtml = '<div style="margin-top:4px;font-family:var(--font-body);font-size:11px;color:var(--ink-dim);line-height:1.6;">' +
+          _passiveBonuses.map(function(t){
+            var lvl = t.minLevel ? ' <span style="color:var(--ink-faint)">(Lv ' + t.minLevel + ')</span>' : '';
+            var label = '+' + t.bonus + ' ' + (_SKILL_DISPLAY[t.bonusSkill] || t.bonusSkill) + lvl;
+            if (t.condition && _COND_LABEL[t.condition]) label += ' <span style="color:var(--ink-faint)">(' + _COND_LABEL[t.condition] + ')</span>';
+            return label;
+          }).join(' &nbsp;&middot;&nbsp; ') +
+        '</div>';
+      }
+      _bonusHtml = _statsHtml + _bonusHtml;
       d.innerHTML = '<div class="card-name">' + a.name + '</div>' +
         '<div style="font-family:\'Crimson Pro\',serif;font-weight:300;font-size:14px;color:var(--ink-faint);margin-top:6px;line-height:1.5;">' + (a.archDesc||'') + '</div>' +
         '<div class="card-tag">' + a.tag + '</div>' +
         '<div class="card-desc" style="margin-top:8px">' + a.desc + '</div>' +
         '<div class="card-trait" style="margin-top:8px">&#x2736; ' + a.trait + '</div>' +
-        (a.mechNote ? '<p class="archetype-mechanic-note">' + a.mechNote + '</p>' : '');
+        (a.mechNote ? '<p class="archetype-mechanic-note">' + a.mechNote + '</p>' : '') +
+        _bonusHtml;
       d.addEventListener('click', () => selectArchetype(a.id));
       row.appendChild(d);
     });
@@ -15107,7 +15138,7 @@ function showTutorial(flag, message) {
 function maybeShowTutorial(event) {
   if (!G.tutorialFlags) G.tutorialFlags = {};
   const msgs = {
-    first_choice: '<strong>Making choices:</strong> Each choice uses a skill and a tag. <em>Safe</em> checks are easier. <em>Bold</em> and <em>Risky</em> need higher rolls. Your <strong>d20 roll + skill level</strong> determines the outcome.',
+    first_choice: '<strong>Making choices:</strong> Each choice uses a skill and a tag. <em>Safe</em> checks are easier. <em>Bold</em> and <em>Risky</em> need higher rolls. Your <strong>d20 roll + skill level</strong> determines the outcome. <em>Every path carries risk — even a careful step rolls the dice.</em>',
     first_levelup: '<strong>Level up:</strong> Choose one advancement — a skill increase or an archetype ability. <em>Passive</em> abilities apply automatically. <em>Active</em> abilities must be triggered from the sheet.',
     first_camp: '<strong>Camp:</strong> Rest restores HP and refreshes your trait. Train costs an axis tick and improves one skill — but leaves you fatigued for 5 choices. Seek Care finds a healer NPC nearby.',
     first_journal: '<strong>Journal:</strong> The Ledger tracks your quests, wounds, inventory, faction relations, rival adventurers, and all journal entries. Open it from the topbar.',
