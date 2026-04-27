@@ -123,7 +123,7 @@ function _stage1MiniBossFight() {
 function triggerStage1MainBoss() {
   if (!G || G.flags.stage1_mainboss_complete) return;
 
-  addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She sets her pen parallel to the desk edge before she speaks. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
+  addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She reaches to the desk edge, picks up a short marking rod — bone-handled, the kind used to underline registry entries — and holds it in her left hand without looking at it. She does not write anything. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
 
   var setupChoices = [
     {
@@ -158,7 +158,7 @@ function triggerStage1MainBoss() {
 }
 
 function _stage1MainBossPhase2() {
-  addNarration('', 'She sets the pen down parallel to the desk edge — a reset she does before every sentence that carries weight. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you without looking at your reaction. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a red notation beside the Iron Ledger Ward entry: Tier 1 review pending. "This escalates today. Unless you give me a reason to hold the flag." Her index finger has come to rest on the red notation — not pointing at it, covering it, as if she does not want to read the word again. The lamp angle has not changed. She does not need you to be guilty — she needs the file to close.');
+  addNarration('', 'The marking rod is still in her left hand — she has been holding it since the door closed, unused. She sets it down parallel to the desk edge now, a deliberate release before she speaks. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you without looking at your reaction. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a red notation beside the Iron Ledger Ward entry: Tier 1 review pending. "This escalates today. Unless you give me a reason to hold the flag." Her index finger has come to rest on the red notation — not pointing at it, covering it, as if she does not want to read the word again. The lamp angle has not changed. She does not need you to be guilty — she needs the file to close.');
   setTimeout(function() { _stage1MainBossCombat(false); }, 1000);
 }
 
@@ -194,7 +194,7 @@ function _stage1MainBossCombat(aggressive) {
 }
 
 function _stage1MainBossResolution() {
-  addNarration('After the Hall', 'The lamp is still burning — still angled at the chair across from the desk, not at the work surface. She positioned it for an interview that is now over. The intake desk is undisturbed except for the file, which is still open to your name. Three other files are visible beneath it in the pulled stack — different names, same red notation. Tier 1 review pending, in the same hand, dated weeks apart. The detainment notice on the floor has no signature. She never intended to sign it. The ward lock will hold for another few minutes before the automatic release cycles. The room smells of hot lamp oil and wax.');
+  addNarration('After the Hall', 'The lamp is still burning — still angled at the chair across from the desk, not at the work surface. She positioned it for an interview that is now over. The marking rod is on the floor near the desk, dropped or knocked loose — she was still holding it when the fight started. The intake desk is undisturbed except for the file, which is still open to your name. Three other files are visible beneath it in the pulled stack — different names, same red notation. Tier 1 review pending, in the same hand, dated weeks apart. The detainment notice on the floor has no signature. She never intended to sign it. The ward lock will hold for another few minutes before the automatic release cycles.');
 
   var resChoices = [
     {
