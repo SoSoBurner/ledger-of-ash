@@ -10182,8 +10182,16 @@ function resolveRivalOutcome(idx, outcome, success) {
       addNarration('', name + ' listens, gives nothing back. Better at this than you expected. You walk away with a general sense that you have just been read.', 'failure');
     }
   } else if (outcome === 'standoff') {
-    addNarration('', 'You pass without incident. ' + name + ' lets you go. You do not know if that was a concession or a calculation.', 'success');
-    if (typeof addWorldNotice === 'function') addWorldNotice('Brief contact with ' + name + '. No exchange. Status: watching.');
+    if (success) {
+      addNarration('', 'You pass without incident. ' + name + ' lets you go. You do not know if that was a concession or a calculation.', 'success');
+      if (typeof addWorldNotice === 'function') addWorldNotice('Brief contact with ' + name + '. No exchange. Status: watching.');
+    } else {
+      addNarration('', name + ' watches you go. You feel the moment she decides to file it away rather than act on it. The gap between you is smaller than it was.', 'failure');
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+      if (typeof flashStatRow === 'function') flashStatRow('watchfulness');
+      if (typeof addWorldNotice === 'function') addWorldNotice(name + ' clocked your exit. Watchfulness +1.');
+    }
   } else if (outcome === 'probe') {
     if (success) {
       addNarration('', 'You pull enough from the reaction to understand the shape of what they have. Not the detail — the shape. They know you did it and look briefly annoyed before recovering.', 'success');
@@ -11502,7 +11510,7 @@ function handleChoice(choice) {
     addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     const _rSkill = G.skills[choice.skill] || 0;
     const _rRoll = Math.floor(Math.random() * 20) + 1;
-    const _rDiff = choice.tag === 'safe' ? 8 : choice.tag === 'risky' ? 13 : 16;
+    const _rDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 13 : 16;
     const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
     addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
     resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
