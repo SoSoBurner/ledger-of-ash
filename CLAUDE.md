@@ -67,6 +67,8 @@ Every plan phase that adds content must expand the total content of the stage it
 
 - Run logic tests: `npx jest` (not `npm test` if jest not in PATH globally)
 - Run content validators: `node tests/content/validate-content.js && node tests/content/validate-flags.js && node tests/content/validate-structure.js`
+- **vm context mocking gotcha**: Function declarations in `ledger-of-ash.html` are hoisted into the vm context at eval time, overriding sandbox stubs. Reassigning `ctx.funcName` after eval has no effect on compiled closures. Assert observable G state (e.g. `G.dead`, `G.hp`) instead of spying on internal function calls.
+- **Backlog violation counts are estimates**: Always run `node tests/content/validate-content.js 2>&1 | grep <filename>` to get the real count before starting a fix pass — BACKLOG.md snapshots drift.
 - Run E2E: `npx playwright test`
 - `locality_voice_guide.js` and `npc_dossiers.js` are reference-only — not loaded by HTML, whitelisted in validate-structure.js `REFERENCE_ONLY` set
 - `content/` has subdirectories — all `fs.readdirSync` scans must use `.filter(f => fs.statSync(...).isFile())`
