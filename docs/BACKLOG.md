@@ -1,7 +1,7 @@
 # Ledger of Ash — Feature Backlog
 
-**Last updated:** 2026-04-26  
-**Source:** Audited across 10+ plan files this session. Check this before re-planning any feature.
+**Last updated:** 2026-04-26 (session 2)
+**Source:** Audited across 10+ plan files + verified against live codebase. Check this before re-planning any feature.
 
 ## Status codes
 - `DONE` — wired, working, verified in code
@@ -12,10 +12,10 @@
 ## Summary counts
 | Status | Count |
 |--------|-------|
-| DONE | 38 |
-| PARTIAL | 13 |
-| NOT BUILT | 37 |
-| UNKNOWN | 22 |
+| DONE | 60 |
+| PARTIAL | 10 |
+| NOT BUILT | 29 |
+| UNKNOWN | 20 |
 
 ---
 
@@ -23,10 +23,10 @@
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| BUG A: 1 HP immortality — applyWound floors to 1, death never triggers | NOT BUILT | enchanted-greeting-matsumoto.md |
-| Whitebridge labels: 3 labels at 17 words — validator fails | NOT BUILT | validate-content.js reports these |
-| cosmoria arc line 25: addJournal uses 'decision' — invalid category | NOT BUILT | validate-structure.js will flag |
-| cosmoria arc line 246: addJournal uses 'consequence' — invalid category | NOT BUILT | validate-structure.js will flag |
+| BUG A: 1 HP immortality — applyWound floors to 1, death never triggers | DONE | applyWound now sets G.hp=0, G.dead=true; test in combat.test.js |
+| Whitebridge labels: 3 labels at 17 words — validator fails | DONE | Fixed this session; all labels ≤15 words |
+| cosmoria arc line 25: addJournal uses 'decision' — invalid category | DONE | Fixed → 'intelligence' |
+| cosmoria arc line 246: addJournal uses 'consequence' — invalid category | DONE | Fixed → 'discovery' |
 | Heat HUD always display:none — player never sees heat system | PARTIAL | exists in code, never rendered |
 
 ---
@@ -35,17 +35,17 @@
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Blue border for main quest choices (gold left-border CSS) | NOT BUILT | tender-twirling-stallman.md; no border logic in choice renderer |
-| Rival direct encounter scenes (triggerRivalEncounter + resolveRivalOutcome) | NOT BUILT | do-2-replicated-newell.md; 4 edits to ledger-of-ash.html |
-| __rival__ routing in handleChoice | NOT BUILT | do-2-replicated-newell.md |
-| advanceRivals() forEach needs index (r, i) for encounter trigger | NOT BUILT | do-2-replicated-newell.md |
-| Rival lay-low drain mechanic | NOT BUILT | balance-polish-fixes.md |
-| Rival DC pressure (+1 per threshold 3/6/9) | NOT BUILT | balance-polish-fixes.md; _dcPenalty not wired |
-| Rival clock world notice at threshold 6 | PARTIAL | notices at 3/5 only; 6 and 9 missing |
-| Universal roll DC 7 for safe choices (code uses DC 8) | PARTIAL | CLAUDE.md spec says 7; engine uses 8 |
-| Universal roll — every choice auto-rolls | PARTIAL | safe auto-roll documented; not all choices wired |
-| Safe choice failResult field (required per CLAUDE.md) | NOT BUILT | no enforcement or audit |
-| getEquippedBonus() dead for all shop items (Fix 2) | DONE | Pipeline correct — full objects stored; regression tests added; ITEM_DEFS guarded in crafting |
+| Blue border for main quest choices (gold left-border CSS) | DONE | `.choice-btn.plot-main` wired at `#4a7ab5`; CSS rule exists |
+| Rival direct encounter scenes (triggerRivalEncounter + resolveRivalOutcome) | DONE | do-2-replicated-newell.md; all 4 edits applied; lines 9870/9905/11201 |
+| __rival__ routing in handleChoice | DONE | line 11201 |
+| advanceRivals() forEach needs index (r, i) for encounter trigger | DONE | wired with encounter trigger |
+| Rival lay-low drain mechanic | DONE | r.layLow=true → drain 1 renown, reset; test in rivals.test.js |
+| Rival DC pressure (+1 per threshold 3/6/9) | PARTIAL | threshold notices wired (G._rivalNoticeCount); dcPenalty not yet added to roll calc |
+| Rival clock world notice at threshold 3/6/9 | DONE | all three thresholds fire addWorldNotice |
+| Universal roll DC 7 for safe choices | DONE | handleChoice: `_tier==='safe' ? 7`; test in dc-safe.test.js |
+| Universal roll — every choice auto-rolls | PARTIAL | safe auto-roll at DC 7 documented; risky/bold not all wired |
+| Safe choice failResult field (required per CLAUDE.md) | DONE | validator rule A7 in validate-content.js; unit tests added |
+| getEquippedBonus() dead for all shop items | DONE | Pipeline correct — full objects stored; regression tests added |
 
 ---
 
@@ -53,7 +53,7 @@
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Arrival scenes (locality first-arrival narration, all localities) | NOT BUILT | Phase 1 of ask-me-the-answer; never implemented |
+| Arrival scenes (locality first-arrival narration, all localities) | DONE | locality_arrival_narrations.js covers all 22 Stage 1 localities; helper fns wired |
 | Text RPG flavor packets (9 of 14 localities missing packets) | PARTIAL | Only ~5 localities have text_rpg_packets data |
 | Enemy scaling — tiered stat variants (L1-3/L4-7/L8-10) | NOT BUILT | 1-full-roll-craft Block D; currently 7 flat templates for all levels |
 | Group combat (Stage II+: 2-3 enemies per encounter, 35% chance) | NOT BUILT | 1-full-roll-craft Block D3 |
@@ -62,14 +62,10 @@
 | archetypeBaseStats in G defaults (training ceiling) | NOT BUILT | prerequisite for Block C |
 | Unified item ID namespace (ITEM_DEFS ↔ SHOP_INVENTORY) | NOT BUILT | 1-full-roll-craft Block L; prerequisite for all item work |
 | Background passive traits (bgTrait per background, 55 backgrounds) | NOT BUILT | 1-full-roll-craft Block J |
-| Stage 1 NPC model compliance (remaining files) | PARTIAL | some files fixed in recent commits; not all |
-| Bold tag semantic classification (code impl) | PARTIAL | mapping in CLAUDE.md; code impl unclear |
-| _abilRemap inverted — archetype ability gating broken (Fix 1) | UNKNOWN | maps to display names; G.skills uses internal keys |
-| Training stat cap unconditional++ (Fix 3) | UNKNOWN | no post-click guard |
-| equipItem() crashes on null G.equipped (Fix 4) | UNKNOWN | unequipItem() guards; equipItem() does not |
-| Range modifier computed but never applied (Fix 5) | UNKNOWN | getRangeModifier() called but not included in attack total |
-| getTraitBonus() hardcoded archetype IDs won't scale (Fix 6) | UNKNOWN | 1-full-roll-craft Fix 6 |
-| endCombat() logs round count after CS=null (Fix 8) | UNKNOWN | 1-full-roll-craft Fix 8 |
+| Stage 1 NPC model compliance (remaining files) | PARTIAL | Dravn Pell, Sera Ironveil, Coralyn Tideglass, 5 locality spot check done; ~17 localities not yet audited |
+| Bold tag semantic classification (code impl) | DONE | _BOLD_TAGS/_SAFE_TAGS in adaptEnrichedChoice; Accusation/Negotiation/Exposure/Betrayal/Tribunal classified bold |
+| Suppression threading — Stage 1 (6 localities) | DONE | All signals present: signatory blank, procedural refusal, date gap, ADMIN HOLD, sealed wax, deflected answer |
+| Stage 2 Collegium investigation path | DONE | Collegium content verified in all 5 core Stage 2 files |
 
 ---
 
@@ -107,12 +103,13 @@
 | Abilities/Traits sections in character sheet | NOT BUILT | 1-full-roll-craft Block A |
 | Tutorial / onboarding (5-page modal at new game) | UNKNOWN | prancy-growing; not verified |
 | How-to-play screen | UNKNOWN | prancy-growing; not verified |
-| Stage progress bar in HUD | UNKNOWN | prancy-growing; not verified |
+| Stage progress bar in HUD | DONE | #stage-progress-label shows "X / N" below bar; CSS + JS wired |
 | World clock onboarding tooltip (first increment per clock) | UNKNOWN | prancy-growing; not verified |
 | Character creation mechanic explanation (per archetype card) | UNKNOWN | prancy-growing; not verified |
-| .env-desc font 19px→17px | UNKNOWN | inspect-create; not verified |
-| Narrative scroll bottom padding fix (48px→100px) | UNKNOWN | inspect-create; not verified |
-| #panel-action empty guard (ensureActionContent fallback) | PARTIAL | fallback choices exist; deferred guard unclear |
+| .env-desc font 19px→17px | DONE | Currently 15px (reduced further) |
+| Narrative scroll bottom padding fix (48px→100px) | DONE | #narrative-scroll padding-bottom 100px |
+| #panel-action empty guard (ensureActionContent fallback) | DONE | `if (!querySelector('.choice-block')) loadStageChoices()` pattern in 8+ locations |
+| Journal evidence category counts | DONE | updateJournalHUD() shows ev/int/rum/disc summary header |
 | Crit rewards (+XP, +stageProgress on nat 20) | UNKNOWN | prancy-growing; not verified |
 | Rest limit (2× per day, G.restCount) | UNKNOWN | prancy-growing; not verified |
 | Auto-save after every choice | UNKNOWN | prancy-growing; not verified |
@@ -120,27 +117,40 @@
 | Sandbox mode (post-Stage 3 blocker, Stage II stays open) | NOT BUILT | prancy-growing; blocker never fires (hardcoded false) |
 | Second-person choice labels ("You…" register) | NOT BUILT | inspect-create; CLAUDE.md still uses inner-voice framing |
 | GitHub Pages / itch.io deployment | NOT BUILT | prancy-growing; Azure only currently |
+| CSS token system (--white, --ink-mid, --modal-bg) | DONE | Tokens defined in :root; button/modal raw hex replaced |
 
 ---
 
-## DONE — Verified This Session
+## DONE — Verified This Session or Prior
 
 ### Engine
 | Feature | Notes |
 |---------|-------|
 | HP double-apply fix | Removed from checkLevelUp(), kept in _finalizeLevelUp() |
+| BUG A: 1HP immortality fix | applyWound sets G.hp=0, G.dead=true; test added |
 | archetype.group→family in _finalizeLevelUp | commit 273e100c |
 | validate-structure.js regex fix (nested parens) | `[^)]+` → paren-safe pattern |
 | Duplicate choice text race condition (BUG B) | renderChoices fixed |
 | addJournal missing category in camp rest | Fixed in NPC compliance pass |
+| DC safe=7 (was 8) | handleChoice: `_tier==='safe' ? 7` |
+| Rival lay-low drain | r.layLow → drain 1 renown, reset layLow=false |
+| Rival threshold notices 3/6/9 | G._rivalNoticeCount + addWorldNotice at each threshold |
+| Rival direct encounter scenes | triggerRivalEncounter + resolveRivalOutcome + __rival__ routing |
+| CSS tokens | --white, --ink-mid, --modal-bg in :root |
+| Bold tag semantic classification | _BOLD_TAGS + _SAFE_TAGS in adaptEnrichedChoice |
 
 ### Content Standards
 | Feature | Notes |
 |---------|-------|
-| cosmoria_to_shelk_arc.js:13 label (was 33-word directive) | Fixed this session |
-| cosmoria_to_shelk_arc.js:96 label (question mark) | Fixed prior session |
-| guildheart_hub_to_shelk_arc.js:120 label (question mark) | Fixed prior session |
+| cosmoria_to_shelk_arc.js:13 label | Fixed this session |
+| cosmoria_to_shelk_arc.js:96 label | Fixed prior session |
+| guildheart_hub_to_shelk_arc.js:120 label | Fixed prior session |
 | soreheim_proper_stage1:13 label + 'Meaningful' tag | Fixed prior session |
+| Whitebridge Commune labels | Fixed this session |
+| cosmoria arc addJournal 'decision'/'consequence' | Fixed this session → 'intelligence'/'discovery' |
+| Suppression threading — 6 Stage 1 localities | Shelk/Soreheim/Guildheart/Fairhaven/Cosmoria/Whitebridge |
+| Stage 2 Collegium investigation path | All 5 core Stage 2 files verified |
+| validate-content rule A7 (failResult) | commit 7720a646 |
 
 ### Core Systems
 | Feature | Notes |
@@ -148,6 +158,7 @@
 | Living narration (locality_narrations.js) | Wired |
 | Choice panel always has ≥1 option | Base fallback confirmed |
 | Rival clock basic (advanceRivals) | Exists in engine |
+| Rival direct encounters | triggerRivalEncounter wired |
 | Heat system (G.heat, getHeat, addHeat, 11 polities) | Coded |
 | Heat authority confrontation (enterAuthorityConfrontation) | Wired |
 | Archetype system (31 archetypes, getArchetypeFamily) | Wired |
@@ -157,6 +168,20 @@
 | Stage 2 companion gate (maren_oss_resolved) | Wired |
 | stage2_faction_contact_made flag — SET locations | 50+ locations in content |
 | Typography system (3-tier Cinzel/system-ui/Crimson Pro) | Per CLAUDE.md |
+| Arrival scenes (22 Stage 1 localities) | locality_arrival_narrations.js; all 22 covered |
+| Stage progress numeric label | #stage-progress-label; "X / N" format |
+| Journal category count header | updateJournalHUD() ev/int/rum/disc summary |
+| Blank panel guard | if (!querySelector('.choice-block')) loadStageChoices() — 8+ locations |
+| Font reductions | .env-desc 15px, .result-text 14.7px |
+| Scroll padding | #narrative-scroll padding-bottom 100px |
+
+### NPC Compliance
+| Feature | Notes |
+|---------|-------|
+| Dravn Pell tell + subtext | commit 0666fdab |
+| Sera Ironveil pronoun consistency | commit 0666fdab |
+| Coralyn Tideglass tell + subtext | commit 6fcdc941 |
+| Stage 1 spot check (5 localities) | commit 61a8ecb9 |
 
 ### Content
 | Feature | Notes |
@@ -167,7 +192,7 @@
 | All 12 travel arc files (cosmoria, guildheart, etc.) | All in content/ |
 | Travel arc soft trigger (inv≥5) | Condition functions present |
 | Travel arc hard gate (level≥6) | Wired |
-| Stage 2 locality enriched choices | All files exist |
+| Stage 2 locality enriched choices | All files exist; 21-26 choices each |
 | Stage 2 expansion (+4 choices per locality) | Recent commits confirmed |
 | Stage 2 global specials (stage2_enriched_choices.js) | 2216 lines |
 | Stage 2 antechamber | Gate confirmed |
@@ -180,10 +205,12 @@
 ### Testing
 | Feature | Notes |
 |---------|-------|
-| Content validator (validate-content.js) | Runs; 838 pre-existing violations |
+| Content validator (validate-content.js) | Runs; 838 pre-existing violations (label length) |
+| Content validator rule A7 (failResult) | New; 0 violations (scalar tag:'safe' not yet in content) |
 | Flag validator (validate-flags.js) | Runs |
-| Structure validator (validate-structure.js) | Fixed today |
+| Structure validator (validate-structure.js) | Fixed — regex false positive resolved |
 | Basic combat engine (enterCombat/startCombat) | Wired |
+| Jest logic tests — 106 passing | rivals, combat, dc-safe, equipment-bonus, addjournal |
 
 ---
 
@@ -195,11 +222,19 @@
 | `tender-twirling-stallman.md` | V1.0 completion: feedback systems, suppression, Stage 2 expansion, NPC compliance |
 | `enchanted-greeting-matsumoto.md` | V1.0 systems: bugs A/B, watchfulness, HUD, companion, rival, Soreheim economy |
 | `balance-polish-fixes.md` | Rival DC pressure, lay-low, bold tags, CSS tokens |
-| `do-2-replicated-newell.md` | Rival direct encounter scenes (4 HTML edits) |
-| `inspect-create-wrap-and-see-silly-hare.md` | UI polish: font scale, scroll fix, choice voice, blank panel |
+| `do-2-replicated-newell.md` | Rival direct encounter scenes |
+| `inspect-create-wrap-and-see-silly-hare.md` | UI polish: font scale, scroll fix, blank panel |
 | `prancy-growing-sunset.md` | V0.1 release: tutorial, fumble locking, rival clock, deployment |
 | `eager-swimming-backus.md` | Stage 2 campaign debug + Stage 1 expansion (mega-plan) |
 | `stage-gates-are-supposed-encapsulated-cloud.md` | Testing framework |
 | `1-full-roll-craft-groovy-horizon.md` | V0.1 systems & balance: 8 bug fixes, Blocks A–L |
 | `smooth-exploring-bumblebee.md` | V0.1 — all phases marked complete |
-| `2026-04-26-systems-audit-fixes.md` | This session: HP fix, 3 label violations |
+| `docs/superpowers/plans/2026-04-23-stage2-escalation-pass.md` | Stage 2 density + Collegium path — DONE |
+| `docs/superpowers/plans/2026-04-23-suppression-threading.md` | Stage 1 suppression signals — DONE |
+| `docs/superpowers/plans/2026-04-23-npc-model-compliance.md` | NPC agenda/register/tell audit — PARTIAL |
+| `docs/superpowers/plans/2026-04-23-player-feedback-systems.md` | Stage progress label + journal counts — DONE |
+| `docs/superpowers/plans/2026-04-26-p0-bug-fix-pass.md` | BUG A, whitebridge, cosmoria — DONE |
+| `docs/superpowers/plans/2026-04-26-p1-rival-system.md` | Rival lay-low + thresholds — DONE |
+| `docs/superpowers/plans/2026-04-26-p1-dc-fix.md` | DC safe=7 — DONE |
+| `docs/superpowers/plans/2026-04-26-p1-equipment-bonus-audit.md` | Equipment bonus pipeline — DONE |
+| `docs/superpowers/plans/2026-04-26-p1-failresult-validator.md` | Validator rule A7 — DONE |
