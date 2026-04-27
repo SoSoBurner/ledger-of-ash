@@ -117,7 +117,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "The pre-Union charter's registration record: when was it last renewed, and who renewed it?",
+    label: "The pre-Union charter was renewed after the consolidation. Someone signed for it.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {

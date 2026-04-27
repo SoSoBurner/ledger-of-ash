@@ -10,8 +10,8 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FOREMAN: QUOTA ESCALATION PATTERN
   {
-    label: "Ask the shift foreman about recent quota changes — are targets increasing unnaturally, and has pressure from above intensified?",
-    tags: ['Investigation', 'NPC', 'Labor', 'Pressure', 'Meaningful'],
+    label: "The quota numbers shifted. The foreman watched it happen.",
+    tags: ['NPC', 'Labor', 'Pressure'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {

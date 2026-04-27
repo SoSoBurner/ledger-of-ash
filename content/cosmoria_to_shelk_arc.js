@@ -93,7 +93,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Cross-reference the ghost vessel registry with the Shelkopolis port authority's inbound manifest records. What arrived in Shelkopolis that matches what departed Cosmoria?",
+    label: "The ghost vessel registry numbers and the Shelkopolis manifests don't reconcile.",
     tags: ['ArcDeepening', 'Lore', 'Craft'],
     xpReward: 75,
     fn: function() {
