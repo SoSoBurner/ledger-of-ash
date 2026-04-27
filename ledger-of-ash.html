@@ -3212,6 +3212,27 @@ const ENEMY_TEMPLATES = {
     desc:'Left Roaz service under circumstances that weren\'t recorded. Volatile.',
     region:['roaz','fairhaven','soreheim'],
     loot:{gold:9, materials:[{id:'cold_iron',qty:1,chance:0.5},{id:'rope_coil',qty:1,chance:0.4}]}, fleeThreshold:0.6
+  },
+  // ── Zootia / Delta Region ──
+  delta_enforcer:{
+    name:'Delta Enforcer', hp:16, maxHp:16, attack:5, defense:4, morale:7,
+    desc:'Patrols the Zootia waterways. Slow on land, fast in a narrow boat channel.',
+    region:['zootia','delta','lantern_docket'],
+    loot:{gold:11, materials:[{id:'rope_coil',qty:1,chance:0.5}]}, fleeThreshold:0.4
+  },
+  // ── Panim / Cosmouth Region ──
+  cosmouth_blocker:{
+    name:'Cosmouth Blocker', hp:17, maxHp:17, attack:6, defense:3, morale:6,
+    desc:'Holds a position on behalf of someone who paid. Doesn\'t negotiate.',
+    region:['cosmouth','panim','plumes_end_outpost'],
+    loot:{gold:13, materials:[{id:'salt_cloth',qty:1,chance:0.4}]}, fleeThreshold:0.5
+  },
+  // ── Sheresh / Aurora Region ──
+  commune_adjudicator:{
+    name:'Commune Adjudicator', hp:14, maxHp:14, attack:4, defense:5, morale:9,
+    desc:'Enforces internal commune law. Will not pursue outside commune bounds — but notes everything.',
+    region:['sheresh','aurora_crown_commune','whitebridge_commune','glasswake_commune'],
+    loot:{gold:7, materials:[{id:'parchment_roll',qty:1,chance:0.6}]}, fleeThreshold:0.7
   }
 };
 
