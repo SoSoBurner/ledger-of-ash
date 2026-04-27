@@ -401,8 +401,8 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `A study published thirty years ago by a Glasswake founder describes observing "unexpected atmospheric interaction with shard-adjacent processing compounds." The observation was listed as an anomaly requiring future study. No follow-up was funded for twenty years. When Toman finally followed up, the committee suppressed his findings. The anomaly has been known for three decades. It's been deliberately under-investigated, then suppressed when finally studied.`;
-        addJournal('Predecessor study: anomaly known for 30 years, deliberately under-investigated, suppressed when finally studied', 'evidence', `glasswake-predecessor-${G.dayCount}`);
+        G.lastResult = `A study published thirty years ago by a Glasswake founder describes observing "unexpected atmospheric interaction with shard-adjacent processing compounds." The observation was listed as an anomaly requiring future study. No follow-up was funded for twenty years. When Toman finally followed up, the committee suppressed his findings. The anomaly has been known for three decades. It was deliberately left unexamined, then suppressed when someone finally looked.`;
+        addJournal('Predecessor study: anomaly known for 30 years, left unexamined, suppressed when finally studied', 'evidence', `glasswake-predecessor-${G.dayCount}`);
       } else {
         G.lastResult = `The founder's study is in the archive under standard classification — not restricted, not reclassified. You find the volume at a reading table near the estuary window, pages smelling of old binding and mineral dust. The anomaly observation is in a supplementary appendix, footnoted in a smaller hand than the rest of the document, never referenced in the main body. Thirty years of subsequent research passed over it. The observation was always there. No one was looking for it until Toman's work made it relevant.`;
       }

@@ -9,7 +9,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 1: THE CONFRONTATION ———
   {
-    label: "A Warden Order patrol has been following your investigation. Their commander requests a formal meeting. Attend — or refuse.",
+    label: "A Warden Order patrol has been tracking the same thread. Their commander wants a formal meeting.",
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 85,
     condition: function() {
@@ -33,7 +33,7 @@ const COMBAT_MIDSPINE_CHOICES = [
         G.flags.combat_midspine_warden_respected = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       } else {
-        G.lastResult = `Edvar listens to your account and says nothing for a long moment. He picks up a pen, writes something in his field log, and caps it. "Your movements in the northern supply district are noted." He closes the log. "If the Order's investigation overlaps yours, we will not be asking permission to proceed." He doesn't raise his voice. The two Warden officers at the door haven't moved, but they've stopped pretending to look elsewhere.`;
+        G.lastResult = `Edvar listens to your account and says nothing for a long moment. He picks up a pen, writes something in his field log, and caps it. "Your movements in the northern supply district are noted." He closes the log. "If the Order's work overlaps yours, we will not be asking permission to proceed." He doesn't raise his voice. The two Warden officers at the door haven't moved, but they've stopped pretending to look elsewhere.`;
         G.flags.combat_midspine_warden_hostile = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
         if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
@@ -91,7 +91,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 3: THE OFFER ———
   {
-    label: "Captain Edvar contacts you again — this time with an offer. The Warden Order wants to fold your investigation into their official structure. Consider it carefully.",
+    label: "Edvar contacts you again with an offer. The Warden Order wants to fold your work into their official structure.",
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 95,
     condition: function() {
