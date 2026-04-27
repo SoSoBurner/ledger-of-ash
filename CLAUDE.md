@@ -355,6 +355,33 @@ All of the following are permanently authorized. Use them proactively without as
 
 **Bug (pre-existing):** Stage 1 enriched choices use semantic tags (`['Investigation','NPC','Maritime']`) that don't match `BOLD_TAGS`/`SAFE_TAGS` — all default to 'risky'. **Fix approach:** Add semantic mapping to tag lookup: `Investigation/NPC/Social/Lore/Maritime/Archive/Observation` → safe; `Confrontation/Accusation/Exposure/Betrayal/Tribunal/Ambush` → bold. Also support explicit scalar `tag` field: `tag:'safe'`/`'risky'`/`'bold'` bypasses semantic lookup entirely. Do not change choice content to fix this — fix the classification logic.
 
+## G.traits Dual Format (Critical)
+
+Background traits stored as `{skillBonus:{combat:1}, passive:true, source:'background'}`. Archetype/item traits stored as `{skill:'combat', bonus:1, condition?}`. Any function reading `G.traits` must handle BOTH formats. `getTraitBonus()` fixed Apr 2026 to handle both. Never assume one format. Never add a third format.
+
+## Skill Key Normalization (Critical)
+
+`G.skills` always uses OLD internal keys: `combat/stealth/survival/lore/persuasion/craft`. Some call sites pass NEW display keys: `might/finesse/vigor/wits/charm/spirit`. All functions reading `G.skills[skill]` or comparing `skillBonus` must normalize first:
+`var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'}; var _sk = _KEY_NORM[skill] || skill;`
+`rollD20`, `getTraitBonus`, `getEquipmentBonus` all fixed Apr 2026. Apply same pattern to any new roll helper.
+
+## Choice Border Semantics (locked Apr 2026)
+
+- Blue `#4a7ab5` / `.plot-main`: `plot:'main'` property on choice object — main quest advancement only. Do NOT assign to arc tags.
+- Orange `#d47517` / `.choice-btn--warn1`: Confrontation/Accusation/Ambush tags.
+- Dark amber `#7a5c1e` / `.choice-btn--warn2`: Conflict/Exposure/Betrayal tags.
+- Red / `.choice-btn--combat`: Combat/Tactical/Boss/CombatEntry tags.
+- Arc tags (ArcDeparture/ArcFinale/etc) have NO border — removed Apr 2026.
+- Stage 1 main quest choices currently have NO `plot:'main'` — needs a pass to add it.
+
+## Living Narration / env-desc
+
+`buildLivingDesc()` writes to `#env-panel .env-desc` — the environment sidebar above the narrative scroll, NOT the story text area. Fallback chain: `LIVING_VARIANTS[locId]` (not built) → `LOCALITY_ANCHORS[locId]` (not built) → `LOCALITY_NARRATIONS[locId].split('. ')[0]` (first sentence, 18 of 22+ localities covered). Locations without a `LOCALITY_NARRATIONS` entry show blank — silent, not an error. `content/living_narration.js` never existed; removed as dead script tag Apr 2026.
+
+## BACKLOG Verification Rule
+
+Do not mark a feature DONE in `docs/BACKLOG.md` based on code existence alone. A feature is DONE only when verified to produce correct player-facing output. Silent failures (wrong key lookups, empty fallbacks, dead script tags, mismatched property names) routinely pass code-existence checks and appear DONE while broken.
+
 ## Universal Roll Rule
 
 **Every choice must roll.** Safe choices auto-roll at DC 7 if no explicit `choice.roll` is specified. Mechanical wire: derive roll at call time in `handleChoice` — do not mutate choice data. DC derivation: safe=7, risky=12, bold=15 (plus stage modifier from DC Reference). Content requirement: every safe choice must have a `failResult` field — failure redirects rather than dead-ends. Safe failure register: "This path is closed here, but [forward thread]." This affects all 19 Stage 1 files, Stage 2 files, and the tutorial (which must explain that all choices involve a roll).
