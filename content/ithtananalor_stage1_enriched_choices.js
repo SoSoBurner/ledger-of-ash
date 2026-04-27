@@ -14,6 +14,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Observation', 'Military', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Commander Torvin's office door is closed. The duty clerk at the outer desk marks the visit log without looking up and says the Commander is in closed session — no exceptions, no estimated duration. The iron-banded door carries the garrison's seal in wax, fresh enough that the impression is still sharp. Command business runs on authorization windows. This one hasn't opened. The garrison adjutant handles scheduling; a formal appointment filed through the standard channel would carry more weight than an unscheduled approach.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -51,6 +55,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Oaths', 'Binding', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The honor guard rotation has changed since morning — two soldiers at the ceremonial gate who weren't there an hour ago, their posture suggesting a briefing has passed between shifts. Elira isn't visible at her usual post near the armory annex. The garrison's ceremonial schedule posts on the pillar board at the main court entrance; the next open rotation window is two days out. The oath records office sits adjacent to the armory. A separate approach through the records system wouldn't require going through the guard line directly.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -87,6 +95,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The records annex door is locked — a hand-lettered card in the frame reads CLOSED FOR ADMINISTRATIVE REVIEW, the ink too fresh to have been there long. Mordain's desk is visible through the narrow window beside the door, papers stacked and weighted, no sign of him in the room. The garrison's records access procedure requires a formal request form submitted to the command secretariat. The current access window reopens at the next garrison administrative hour. Elira at the armory annex has seen the current and archive oath copies side by side.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -122,6 +134,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Training', 'Discipline', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The training yard gate is closed and chained at the observer post — a new addition to the bracket, the chain links still bright. A posted notice states that observer access requires written authorization from the garrison training directorate, submitted no less than one day in advance. Through the gap in the gate boards the yard is audible: impact rhythm, count calls, the flat sound of a rest bell. What's happening is accessible by sound. What it means requires eyes on the schedule board outside Kross's office, which faces the public corridor near the east barracks entrance.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -158,6 +174,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Personnel', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Helix isn't at his desk — a paper card taped to the inkwell reads RETURNED AFTER MORNING MUSTER, no other detail. The roster ledgers sit visible on the shelf through the open door, their spines marked by year and quarter. Garrison administrative hours run in two windows; the afternoon window opens at the third bell. The general audit right that allows public access to the main roster doesn't require Helix's presence — it requires a written access request submitted to the command secretariat by the second bell. That path is still open.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -193,6 +213,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Supply', 'Weaponry', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The supply depot's intake gate is processing an inbound cart — two soldiers checking manifests against a clipboard, the inventory board rotated to face the wall during active intake per standard protocol. Sarn is visible at the far end of the depot floor, chalk moving down a column, his back to the entrance. Intake hours close this access route until the cart is logged and cleared. The depot's public manifest summary is posted in the garrison's administrative annex — accessible during the standard audit window, no depot authorization required.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -229,6 +253,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Ritual', 'Sacred', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The ceremonial archive is closed for the ritual preparation period — a sanctioned window before the next binding ceremony, during which the texts are held in sequestration per sacred protocol. The outer hall is empty except for a single lamp burning at the preparation table, the archive door sealed with a ceremonial cord. The texts won't be accessible until after the ceremony completes. Garrison civic records maintain a public summary of the current binding formulas for administrative reference; that summary is held in the administrative annex and doesn't require archive access.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -265,6 +293,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Authority', 'Legitimacy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The authority chamber's outer vestibule is occupied — two aides working at the preparation table, the inner door closed and the curtain drawn across its window, indicating a session in progress. Daven isn't accessible until the chamber clears. Validation ceremonies are public events by garrison custom; the public documentation record kept in the civic records annex logs ceremony times and durations without requiring chamber access. That record would show how long recent validation ceremonies have run against prior-period entries.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -303,6 +335,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Combat', 'Fortification', 'Defense', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The public approach to the eastern wall terminates at a new barrier rope — a recent addition, the wooden stakes still pale where they were driven. A handwritten sign announces that the walkway is under maintenance restriction until further notice. The fortification is still visible from the outer plaza, but the useful observation angles are on the wrong side of the rope. The garrison's architectural maintenance records log all fortification modification projects by quarter; that ledger is held in the administrative annex and available under general public review.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -339,6 +375,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Combat', 'Hidden-Force', 'Command', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The supply trace hits a dead end at the second address — a locked gate in a commercial district block, no signage, no bell pull, no activity visible through the gate bars. The address is registered to a logistics clearinghouse in the garrison's delivery manifest, but the physical location doesn't match any operating business on that street. The manifest summary available in the administrative annex lists the delivery category and volume without the specific address. Cross-referencing the category against other garrison supply records would narrow what's flowing to this district.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -375,6 +415,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Law', 'Precedent', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The precedent council's archive access window closed two hours ago — a locked iron-bound cabinet at the back of the civic records room, a small printed card slotted into the door bracket noting the next access window by day. The current oath texts are available without appointment through the ceremonial record shelf in the same room; the precedent archive requires the separate window. The council's recent ruling summaries are distributed as public notices to garrison administration — the annex board may carry the most recent ones without requiring archive access.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -411,6 +455,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Oath-Breaking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The garrison commons is quiet — end of a rotation block, the room occupied by soldiers in that particular state of alertness that isn't rest. Three separate table groups close their conversations before an approach closes the distance. The silence isn't hostile; it's practiced. Whatever is circulating between the tables has a shape that doesn't survive a newcomer stepping into it. The displaced officer still at Ithtananalor hasn't been told to leave. She isn't bound by a current supplementary oath. Her room is above the chandler's shop on the east commercial street.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -447,6 +495,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Insight', 'Morale', 'Trust', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The garrison commons rotation ends early — a senior officer appears at the entrance and says something that empties the room in two minutes, soldiers moving toward the barracks corridor without conversation, the meal boards still half-occupied. Whatever period was available for observation has closed. The commons will reopen at the next meal rotation. The garrison's public notice board in the outer plaza carries administrative postings, including duty schedules; cross-referencing the schedule against what's visible in the yard would confirm whether the rotation patterns match what command is publicly claiming.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -483,6 +535,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Perception', 'Conspiracy', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The records corridor is occupied — a garrison archivist moving files between the open shelves and a cart, the systematic clearing that happens before a formal records audit. It isn't possible to cross-reference multiple command communication files in a room being actively reorganized; the archivist has a process, and the process doesn't include pausing for secondary access. The next administrative hour opens this corridor to general access again. The command communication logs that carry the external authentication marks are in the upper-tier filing cabinet on the east wall — visible, dated, waiting.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -521,6 +577,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
+    failResult: {
+      text: "The garrison commons is empty — rotation over, the next meal block not yet begun, the long benches cleared and the serving counter shuttered. The smell of salt ration and boiled grain lingers in the low-ceilinged room but no one is in it. The timing missed the window. The evening meal rotation opens the commons again at the fourth bell; the end-of-rotation overlap is when the most informal exchanges happen, before the off-duty soldiers move back to the barracks corridor.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -545,6 +605,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: "The reading table in the civic records room is occupied — a garrison legal aide with a full case spread across the surface, the kind of formal review that doesn't yield table space until it's finished. No secondary surface is available for a multi-document comparison. The aide doesn't look up. The access window for the annex reading tables runs until the closing bell; returning after the table clears would allow the document assembly to proceed without interruption. The command records room holds directive pouches with external authentication marks — that is the connective thread.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -581,6 +645,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The approach doesn't land. Whichever garrison figure is visible at this hour closes the distance between practiced neutrality and a clear end to the conversation in two sentences — not hostile, simply sealed. The garrison's internal culture has taught its participants how to terminate contact without incident. The structure protects itself through manners as much as through authority. Whoever it is will be in the commons at the next rotation end, away from their official post, in the informal overlap where the official register stops applying.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -615,6 +683,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: "The command records room is locked — a heavy iron bracket across the door, the kind fitted at the end of formal business hours rather than improvised. The duty guard at the far end of the corridor doesn't engage with questions about the room's schedule. Command records access runs through a formal authorization request submitted to the garrison secretariat, with a minimum two-day processing window. The intermediary designation that routes through Shelkopolis financial channels has surfaced in the Iron Ledger Ward — that thread is still accessible.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -651,6 +723,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Pattern', 'Analysis', 'Command', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The civic records room closes before the pattern analysis is complete — a clerk announces the access window end and begins returning files to the locked cabinet systematically, without reference to what any visitor is doing at the reading table. Documents in hand are still in hand; documents still on the shelf are no longer accessible today. The window reopens at the morning access bell. The pieces that are in hand are documentable individually. The connective thread between the authorization sources requires the next access window and a clearer strategy for the filing cabinet on the east wall.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -687,6 +763,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Occupation', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: "The final thread doesn't resolve. The how is documented well enough across the gathered materials; the why requires the one document that hasn't surfaced — something that names the purpose the converted garrison is being positioned to serve. Every access route that reaches far enough into the command structure has a protocol in front of it. The administrative annex reading room opens at the morning bell. The same authentication marks appearing in Ithtananalor's directives have surfaced in at least two other garrison jurisdictions — that thread leads outward, not deeper into this one.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -724,6 +804,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "The Iron Ledger Ward's public records terminal shows six months of transaction summaries. Something in those numbers has been moving on a schedule.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
+    failResult: {
+      text: "The public records terminal is occupied — a queue of three, each working through the standard access protocol with the clerk at the window. The terminal rotates on a fifteen-minute session limit per party; the current session hasn't expired. The ledger ward's public summary is also available in printed form at the administrative annex notice board, updated at the end of each working week. That copy won't carry individual transaction detail, but it will confirm which account categories show volume anomalies. Maret Voss handles disputed account resolution; flagged transaction histories are her jurisdiction.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'scanning Iron Ledger anomalies');
@@ -750,6 +834,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "Three garrison officers were displaced in the same month. Someone holds their outstanding obligations. That's not coincidence.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: {
+      text: "The debt registry office is processing a formal arbitration — a clerk visible through the window glass managing a thick correspondence folder, the outer door locked during active proceedings per standard protocol. The registry's public summary of recent obligation transfers is posted at the ledger ward notice board without requiring office access; that summary won't name the acquiring party but will confirm the transfer dates. A confirmed simultaneous transfer window would be enough to bring directly to Maret Voss, whose jurisdiction covers disputed account resolution and external acquisition patterns.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'mapping debt leverage trail');
@@ -771,6 +859,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "Change of watch is when the command structure shows its seams. Who defers to whom, who doesn't make eye contact, who's watching the gate.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: "The watch change happens late — the incoming rotation delayed by something happening in the command block, the outgoing soldiers standing at their posts past the scheduled handover, no explanation given. Without the transition overlap, the behavioral data the watch change produces isn't there to read. The next scheduled change is posted on the garrison duty board in the outer plaza. Returning at the posted time, from the plaza observation point rather than the inner corridor, would give a wider view of the full transition pattern without requiring garrison access.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reading garrison command structure');
@@ -795,6 +887,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "The Warden Order has a financial attaché at the Iron Ledger Ward. Debt leverage used against garrison officers falls in his jurisdiction.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: "Attaché Calver's office door is closed — a Warden Order procedural seal on the bracket, the kind posted during active case review when external contact isn't permitted. No schedule posted, no deputy clerk at the outer desk. The Warden Order's public contact protocol for non-urgent matters is a written inquiry submitted through the ledger ward administrative window, standard two-day response window. Maret Voss and Calver share institutional territory on disputed account matters; an approach through Voss that includes a named question about external obligation acquisitions would reach him without going through the sealed-case protocol.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Warden Order contact');
@@ -859,6 +955,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "Three officers were displaced in the same month. One of them is still at Ithtananalor and hasn't been told to leave.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: {
+      text: "The room above the chandler's shop is locked, the shutters pulled. A neighbor on the landing says she left before midday — no indication of when she'd return. Captain Lysel keeps irregular hours since her retirement; there's no schedule to work against. The debt registry's public summary would confirm whether her outstanding obligation is still held by the external acquisition entity. That record is accessible at the ledger ward notice board without an appointment, and it would give the conversation a concrete anchor for the next attempt.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'interviewing displaced officer');
@@ -914,6 +1014,10 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: {
+    text: "The notice board's frame is empty — the day's postings have been taken down and the replacement batch hasn't gone up yet. The gap between cycles runs an hour or two at most. The board sits at the main garrison court entrance, visible from the outer plaza; it will have new postings by the next bell. The garrison duty schedule and public administrative notices are also available through the annex window during standard access hours.",
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

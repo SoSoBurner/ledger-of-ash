@@ -25,7 +25,9 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Theron sets his pen down. "The restriction decree didn't come from the scholarly council. It came through administrative channels — someone claiming knowledge security." He says the words like they taste bad. "What's being secured is not knowledge. Scholars who approach certain topics get redirected. Those who push are reassigned to cataloging." He taps the desk once. "We can't explain the boundaries to each other because explaining them would cross them."`;
+        var _theronFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
+        var _theronDetail = _theronFam === 'combat' ? ' He looks at you steadily when he finishes — the look of someone measuring whether the person across from him will go through a door or knock it down.' : _theronFam === 'stealth' ? ' He taps the desk once, then looks at the gap beneath the archive door. He wants to know if you came alone. He does not ask.' : _theronFam === 'support' ? ' After a pause, he adds: "The scholars who got reassigned — they\'re still here. Still watching. They\'d speak to someone who came in the right way." He is telling you who to find next.' : '';
+        G.lastResult = `Theron sets his pen down. "The restriction decree didn't come from the scholarly council. It came through administrative channels — someone claiming knowledge security." He says the words like they taste bad. "What's being secured is not knowledge. Scholars who approach certain topics get redirected. Those who push are reassigned to cataloging." He taps the desk once. "We can't explain the boundaries to each other because explaining them would cross them."` + _theronDetail;
         G.stageProgress[1]++;
         addJournal('Librarian flagged unauthorized research restriction authority', 'evidence', `mimolot-librarian-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -42,6 +44,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The senior librarian straightens at your approach, pen still in hand. "Research inquiries require a formal access request submitted to the registry desk before the morning bell." He doesn't raise his voice. The archive hush does the work for him. His ledger closes. A desk clerk near the entrance has already noted your direction. The reading rooms on the upper floor are open to credentialed scholars — that endorsement is available through the faculty registry, one corridor over and one authorization form away.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -78,6 +84,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The upper reading room requires a current research permit, and yours doesn't cover the materials relevant to institutional history. A clerk behind the desk says this without apology — the permit tiers are clearly posted, she adds, gesturing to a board beside the door. The scholars visible through the glass door keep working, unbothered. The research permit for restricted subject areas is issued by the scholarly council on the first and third day of each week. That queue starts before the morning bell.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -113,6 +123,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `Sevik stops you at the eastern stack boundary. The sealed section begins here, and visitor access to the sealed section requires a written petition to the chief archivist, reviewed on a five-day cycle. He points to a notice fixed to the end-cap of the last open shelf. The petition form is at the registry desk — two floors up, left off the main stair. The petition requires a faculty sponsor. Dalmir in the upper reading room has been here long enough to know which faculty would consider signing one.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -132,7 +146,9 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Kensa lays two versions of the same document side by side — current and manuscript original — and points at the differences without speaking first. In the current version, an administrative overreach from forty years ago is described as a "procedural adjustment." The original calls it a sanction, names the officials, describes the harm. "The changes preserve surface consistency," she says. "A casual reader won't catch it. But the substance is gone." She's been documenting the alterations for four months. She has a list.`;
+        var _kensaFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
+        var _kensaDetail = _kensaFam === 'combat' ? ' She watches your hands while you read the documents — not guarded, just noting. She\'s decided you\'re here to do something with what she gives you, not only to file it away.' : _kensaFam === 'stealth' ? ' She keeps the manuscript original face-down until you ask for it. Then she turns it over and stays quiet while you read, her back to the door.' : _kensaFam === 'support' ? ' "The scholars who were reassigned knew this too," she says, before you leave. "Four of them. If you need witnesses, they\'re still on the grounds." She does not press it further.' : '';
+        G.lastResult = `Kensa lays two versions of the same document side by side — current and manuscript original — and points at the differences without speaking first. In the current version, an administrative overreach from forty years ago is described as a "procedural adjustment." The original calls it a sanction, names the officials, describes the harm. "The changes preserve surface consistency," she says. "A casual reader won't catch it. But the substance is gone." She's been documenting the alterations for four months. She has a list.` + _kensaDetail;
         G.stageProgress[1]++;
         addJournal('Archivist revealed systematic historical record falsification', 'evidence', `mimolot-archivist-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -149,6 +165,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `Kensa returns the documents to their case before you finish. "Manuscript access is restricted to scholars with active collection review credentials." She doesn't look up from the latch. The current-edition records are available to any registered visitor in the open reading room — those are two floors below. The manuscript originals require a separate authorization form and a faculty endorsement. Maris in the student administration office handles the endorsement registry. She processes requests on alternating mornings.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -185,6 +205,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `Maris closes the ledger and folds her hands on top of it. "Student guidance records are not available to external visitors under the Academy's confidentiality charter." The summary registers — distribution by track and year — are publicly posted in the main hallway. Individual placement data is not. Enrollment guidance appointments are logged separately and require a formal data access request, which the faculty council reviews quarterly. The aggregate board is a start. The individual records come through a different door.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -221,6 +245,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `Vorin puts his pen down without capping it — a deliberate pause. "Classification records are administrative documents. Visitor access requires standing authorization from a senior faculty member." The public-facing catalogue is available at the reference desk in the main reading room; it lists current material availability but not classification rationale. The classification criteria and assignment logs are held in the administrative registry. That registry is one floor up and requires a faculty endorsement to enter. The senior librarian Theron processes endorsement requests in the morning hours.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -257,6 +285,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `Aldis retrieves the acquisition ledgers from the table in a single movement and returns them to the cabinet. "Acquisition policy is reviewed internally on a faculty council cycle. The public-facing summary registers are posted in the main reference hall." The summary registers show totals and track distribution — not the criteria that shaped them. The acquisition criteria documents, which would show who ordered what stopped, are held by the faculty council and aren't available without a formal research credential. The reference hall is two corridors back and open until the evening bell.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -293,6 +325,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The senior scribe sets her quill down and turns from the desk. "The verification process and the documents produced under it are internal records. External parties do not have access to certified document histories." Her voice carries the particular flatness of someone stating a policy they've stated many times. The scriptorium floor continues without pause behind her. The scribes who have been reassigned out of the verification hall are no longer bound by the same confidentiality structure — and they're not hard to find.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -331,6 +367,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The methodology section is available to registered visitors, but the standards appendix and revision history documents require a current scholarly research credential. The desk clerk explains this without looking up. Foundational charter documents and annual faculty council minutes are in the open reading room — available to anyone, organized by year. The revision history that would show what changed and when is one authorization tier up. A faculty endorsement from a sitting council member clears that threshold.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -367,6 +407,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The arcane research section requires a current practitioner credential or a sponsored visitor permit for the materials classified beyond the general tier. The reading room clerk indicates the permit window — second floor, administrative hall, open on alternate mornings. The general catalogue is available without credentials and lists current holdings by subject area. The catalogue gaps are readable from there even if the restricted contents are not. That is a place to start.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -403,6 +447,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The administrative access logs are held by the registrar's office and are not available to external visitors without a faculty standing request on file. The desk clerk in the registrar's anteroom explains the procedure: the request form takes three days to process, and it requires a faculty sponsor. The public-facing reading room logs — which show document request totals by subject area but not individual names — are available without restriction in the main library hall. That aggregate view doesn't name anyone. It maps the pattern.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -439,6 +487,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `An afternoon in the reading halls doesn't open anything that was shut. The scholars are working, the lamp oil is being used, the chalk boards are marked. None of it is legible from outside the relationships that give it meaning. What's present and what's been removed look identical to an unacquainted observer. The older scholars who've been here through curriculum changes have the comparative baseline — they know what used to be discussed that isn't now. One of them takes lunch alone at the far end of the refectory, most days, near the east window.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -475,6 +527,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The administrative decision registry is not accessible through the general reading room. A clerk in the main hall confirms that administrative records — including any personnel decisions and access change orders — are held in the registry office and require a faculty endorsement to review. The founding charter and annual council minutes are in the public collection. Charter documents name the formal governance structure. What the structure has actually been doing requires the registry. The charter is a start, and it's available without credentials.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -511,6 +567,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The sealed correspondence wing is locked, and the register visible through the window is not one available to external visitors. The administrative duty clerk explains that sealed correspondence records require a senior faculty authorization to access and are reviewed only through formal petition. The public-facing external correspondence log — showing institutional exchanges but not their content — is available in the main reading room. That log names the channels and their categories. What's in the sealed channel is a different question, and it has a different door.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -537,6 +597,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The lower reading room is nearly empty and nobody is inclined to speak. The scholars who remain after hours have chosen the specific privacy of late work, and an unfamiliar presence circling their tables doesn't invite conversation. Fragments travel through the Academy in the spaces between official hours — the queue outside the registry desk in the morning, the corridor between the refectory and the side stairs at midday. Different time, different approach. The talk moves when the right people are moving with it.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -573,6 +637,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The documents spread across the table are each individually sourced from public-accessible records, and each individually inconclusive. Without the connective documents — implementation dates, authorization signatures, cross-system correspondence — the pattern stays ambiguous enough to be dismissed. The evidence exists. The structure needed to make it indisputable is in the administrative vault and the sealed correspondence wing. Those are open problems, not closed ones. The pieces already gathered will hold.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -608,6 +676,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The confrontation lands wrong — the NPC withdraws before anything is established. Institutional complicity doesn't open under direct pressure; it requires time and the specific kind of trust built through smaller exchanges first. The name is noted. The willingness to talk is not gone, only deferred. A different approach — starting with what they know rather than what they've done — leaves the door open. They're still here, and the administration hasn't moved them yet.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -644,6 +716,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The administrative vault is not accessible today. The corridor leading to it has two people in it who were not there this morning and who watch the approach without moving. The evidence already gathered remains intact. The vault is one location, not the only one. The Memory Hall's off-catalogue section holds formal council requests to reclassify research — implementation dates and authorization names, organized by year. That section requires a senior faculty endorsement, not a confrontation. That is still an open path.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -680,6 +756,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The threads are present but the connections between them aren't closing. Each system failure is documented but independent — the pattern is visible in shape, not in cause. What's missing is the implementation record: when the external authorization began arriving, which administrator received it first, what the initial directive said. The Memory Hall's off-catalogue section holds formal reclassification requests with dates and signatories. That is the connective tissue, and it has a door that can still be opened.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -716,6 +796,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: `The evidence threads don't yet converge into a single coherent account. Restriction, revision, verification pressure, enrollment steering — each documented, none yet linked to a common authorization source. The shape of the operation is visible. Its full architecture requires one more layer: the implementation dates and authorization signatures that place all four systems under the same directing hand. The administrative vault and the Memory Hall off-catalogue section both hold that layer. Neither is closed permanently.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -746,6 +830,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The Restricted Holdings alcove requires a current research credential for materials under classification review. The desk clerk confirms this while pointing to the posted access tiers near the entrance. The movement log for the alcove is visible from the desk: recent transfers are documented by call number and receiving office. That log is public-facing. The documents themselves are gone, but the paper trail of where they went is still open to any visitor. A call number cross-referenced against the administrative transfer registry shows which office is holding them.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -776,6 +864,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The Memory Hall corridor requires a senior faculty endorsement before the door opens, and the endorsement isn't in place. A faculty member intercepts the approach before the reading room comes into view and escorts the way back toward the main library floor with practiced courtesy. The off-catalogue section's location is confirmed: two left turns from the main hall. The endorsement is the obstacle. Warden Order liaison Brevard Ashe has been present at the Academy long enough to know which faculty members would consider signing one.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -800,6 +892,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       }
       addJournal('Academy lecture: knowledge suppression active — auditors present, curriculum has structural gaps, instructors self-censoring', 'evidence', `mimolot-lecture-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `The open lecture fills its scheduled hour without yielding anything not already in the posted syllabus. The room is present, attentive, unrevealing. Lectures are performances of the permitted curriculum — the gaps aren't visible until there's a prior version to compare against. Student Tavin has a pre-revision edition from a used book stall outside the Academy walls. That comparison is available outside the institution's walls, without its walls listening. He goes to the stall regularly.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -826,6 +922,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.flags.located_warden_order_mimolot = true;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Brevard Ashe closes his volume and directs the conversation toward the formal appointment procedure before anything substantive is reached. He keeps one finger between the pages the entire time — a man intending to return. The Warden Order's liaison function is not available without paperwork on file. His presence at the annexe is established. The administrative registry desk handles appointment submissions between the first and second bells of the morning. A known name attached to the request — Archivist Doss's, for instance — would shorten the procedural distance considerably.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -885,6 +985,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Tavin watches you approach and shortens his stride before you reach him. His lecture notes are tucked under one arm, chalk dust still on his left sleeve. A stranger, after a lecture, wanting to talk — this is precisely the kind of interaction the current academic climate has taught students to close down quickly. He answers in single sentences and keeps walking. The culture here has done the work of maintaining distance without anyone needing to issue instructions. He never stopped moving from the moment he saw you. He found his pre-revision edition at a used book stall outside the Academy walls. He still goes there. That's a less guarded conversation than this one.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
+    },
+    failResult: {
+      text: `Tavin doesn't stop walking. The current academic climate has trained students to close down unfamiliar conversations quickly, and he's had enough practice that the closing happens before a sentence is finished. He still goes to the used book stall outside the Academy walls — the one where he found his pre-revision edition. That's a different setting, without the Academy's corridors and its particular quality of being watched. The stall is open in the morning hours, before the first lecture bell.`,
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -934,6 +1038,10 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     }
     G.flags[key] = true;
     drawLocalityRumor(G.location);
+  },
+  failResult: {
+    text: `The notice board outside the main registry has been cleared since the morning posting — the pins are still in place but the papers are gone, which happens when the administration pulls notices it has reconsidered. A fresh posting cycle begins at the morning bell tomorrow. The bulletin board at the refectory entrance runs on a separate posting schedule and is maintained by student organizations rather than the administration. That one is usually still current in the afternoon.`,
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
   }
 }
 ];

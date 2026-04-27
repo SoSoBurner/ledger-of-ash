@@ -14,6 +14,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Evidence', 'Records', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Sorren's window shutter is pulled halfway down — the clerk's sign for closed business. The hall's outer corridor smells of morning fish oil and wet rope from the channel below. A notice on the glass reads 'Records access: hall hours only, magistrate sponsorship required for active files.' The path through Sorren is closed until the hall's rhythm opens him again. The harbor market runs until dusk — word moves there before it reaches any ledger.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -48,6 +52,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Magic', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The evidence archive shutter is locked mid-morning — a schedule change posted three days ago limits outside access to two designated windows per week. The announcement is handwritten, recent enough that the ink hasn't fully set on the damp salt air. Thyn is visible through the glass, working. He does not look up. The procedural path through the evidence room is closed for now; the record keeper in the main hall keeps cross-referenced closure logs that are still publicly accessible.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -84,6 +92,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Process', 'Justice', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The assignment window is staffed by a substitute today — Kess is on hall duty until late afternoon, not available for outside queries. The substitute knows nothing useful and says so plainly. Shirshal's outer posting board lists the weekly public docket; magistrate assignment patterns are visible there for anyone patient enough to compare names across successive weeks. The channel smells of low tide. The day's second session starts after the midday bell.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -117,6 +129,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Procedure', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "Brother Tam's post is empty — the inner hall schedule shows him assigned to an inventory review through midday. The resolved case stack sits behind the counter, visible but unreachable without his authorization. A notice in the clerk's window lists the procedural index guide as publicly available at the reading bench near the south entrance. The guide cross-references case status categories and is as close as you can get to the closure records without a keeper present.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -153,6 +169,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Information', 'Obstruction', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The investigators' workroom is locked — field rotation day, the hall runs short-staffed through midmorning. A duty board outside lists the active investigators by case assignment, all of them out. The community notice board near the harbor fishmonger stalls carries recent postings from citizens whose cases were recently closed; the pattern of what's publicly visible there may lead somewhere the sealed workroom cannot.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -186,6 +206,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Witness', 'Intimidation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "Marsh's coordination office is marked closed for a witness scheduling session — closed to outside visitors, the notation says, for the duration of active pre-hearing preparation. The harbor-side community knows which families have cases pending; the fish-smoking sheds where workers take their morning break carry word of absent neighbors more freely than any hall office. That's where the thread continues.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -222,6 +246,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The inn's common room is packed with the midday catch crowd — dock workers and net-menders filling every bench, Noss moving fast between the counter and the back passage without pausing. This isn't the hour she talks. The east channel walkway empties after the late-afternoon bell when the boats are tied and the workers have gone home; the innkeeper sometimes sits outside then, watching the water. That's the hour for a quieter conversation.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -255,6 +283,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Authority', 'Pressure', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "Verek's antechamber is locked — his schedule board shows him assigned to closed session for the remainder of the day. The hall's public schedule window lists session types but never participants. In a town this small, the people who supply the hall — salt merchants, the lamp-oil keeper, the woman who delivers the morning rolls — know more about which magistrate keeps what hours than any posted schedule does. Their stalls open at dawn.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -293,6 +325,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stealth', 'Surveillance', 'Hidden', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The east corridor is occupied today — a maintenance crew relaying the channel drainage channel has blocked both access points, their work authorizations posted on the hall's outer board. The passage won't clear until tomorrow. The main hall's public gallery remains open for scheduled hearings; observation from the gallery seats is unrestricted and the magistrates' movements between sessions are visible from the upper bench tier.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -329,6 +365,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stealth', 'Documents', 'Secrets', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The packets are in transit today — a courier run to the archive annex, under escort. The handling protocol has tightened; they're never left in a single room long enough to approach. The case evidence handler keeps duplicated administrative logs that cross-reference packet arrival dates against case status changes; those secondary logs sit in the public-access section of the records room and carry enough metadata to map the delivery pattern without touching the sealed contents themselves.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -365,6 +405,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Law', 'Procedure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The archive reading room is reserved through the afternoon — a magistrate training session, the door notice says, restricted to hall personnel. The procedural index guide is left on the public reading bench outside the locked room. It cross-references amendment dates without quoting the revised text, but the dates alone are enough to confirm when the changes occurred. The doctrine volumes will be accessible again tomorrow morning when the hall opens at the first bell.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -401,6 +445,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Philosophy', 'Justice', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The foundational text volumes have been moved to restricted access since yesterday — no posted reason, just a new classification marker on the shelf. The founding charter is carved into the entrance stone outside; the original text is public and permanent. The gap between what's carved in the entrance and what the current teaching materials say is legible to anyone who reads both. The teaching documents are still displayed at the reading tables in the outer hall.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -437,6 +485,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The evidence room's public access window is closed for the morning — a logged-access-only session, the warden says, no outside examinations until the afternoon shift. The hall's posted public docket lists the case numbers and closure dates for completed proceedings without the attached documentation; the dates alone, compared against the procedural calendar, can show which closures were anomalously fast. That comparison is available at the clerk's public window right now.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -473,6 +525,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Craft', 'Forgery', 'Authority', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The correspondence is secured in a transit sleeve today, moving between offices under a handling protocol that has no gap. It won't sit unattended until the evening filing session, if then. The import duty office near the harbor keeps its own records of sealed correspondence moving through Shirshal's channels — arrival dates, originating marks, bearer names — a parallel paper trail that exists because harbor customs requires it, not because the hall sanctions it.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -511,6 +567,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
+    failResult: {
+      text: "The market stalls are shuttered — a harbor-wide rest day, one of Shirshal's communal off-hours built around the fishing fleet's return schedule. The channel walkways are quiet, fishers mending nets privately in their yards. The community closes to outsiders on these mornings. Word still moves, but through families and neighbors, not at open stalls. The afternoon market reopens when the fleet's catch is sorted and priced.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -541,6 +601,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The dock is empty at this hour — the merchant families whose cases were closed keep to the interior market and the covered fish sheds through the midday heat, not the open pier. Shirshal's working community is cautious about strangers asking questions near where their livelihoods are visible. The community meeting hall near the salt warehouse holds an open grievance board; posted notices there name case numbers and closure dates without naming the parties directly.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -577,6 +641,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The eastern walkway is occupied tonight — a chandler working late repairing a hull lantern, a couple of dock hands finishing off a bottle at the channel edge. Too many people, too little cover for a conversation that needs to go unobserved. Shirshal's investigators rotate through an early morning coffee spot near the hall's north entrance before first session; one of them arrives alone, twenty minutes before the others. That's the window.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -613,6 +681,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: "The pieces are gathered but the final link — the connection between the directive packets and the specific case outcomes they produced — sits behind a records access level you don't have. Two case numbers are still locked in the restricted archive, and without them the chain has a gap that undermines the whole. The Oversight Collegium's liaison keeps an office near the harbor master; she's reviewed the re-adjudication patterns independently and may already hold the missing link.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -650,6 +722,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "Fourteen cases cite the Tazren precedent. Six have been re-adjudicated. All six reversed.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
+    failResult: {
+      text: "The archive citation index is being audited today — a scheduled review that has closed the Tazren-era case shelf to outside access until end of week. The public docket board in the main hall still lists the re-adjudicated cases by number and closing date; the dates cluster in a pattern visible to anyone who looks at three months of entries in sequence. That board is accessible right now, no authorization required.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'searching Tazren case precedents');
@@ -676,6 +752,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "Eight visitors signed the log with no corresponding case. Three visited on Tazren erasure days.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: "The visitor log is kept at the front desk — and the front desk is staffed by a substitute today who has been told not to allow log access without a written request form submitted in advance. The form processing takes two working days. The harbor master's office maintains its own arrival ledger for institutional visitors entering through the waterway gate; it's a duplicate of part of the hall's log, kept for harbor customs reasons, and it's publicly accessible.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'identifying Bureau ghost visitors');
@@ -698,6 +778,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "Sit in the public gallery during an open hearing — read what the proceeding is actually doing.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: {
+      text: "The public gallery is closed today — all scheduled hearings moved to closed session without advance notice, a door notice in fresh ink reading 'restricted proceedings, authorized parties only.' The hall's exterior lamp burns at midday as always, signaling open access while the interior runs sealed. The case clerk's public window is still open; the closure decision itself will be logged in the session-type column of the weekly docket, visible to anyone who knows to look for it.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading justice hall hearing');
@@ -722,6 +806,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "The Oversight Collegium has an observer here. She's ready to escalate if the data is there.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: "The Collegium's reception office is locked through midday — the schedule board shows Parro attending a regional compliance review session with no public access until tomorrow's first bell. The Collegium does not receive informal drop-ins; the front procedure exists specifically to manage outside contact on its terms. The case clerk's docket lists Parro's name as a compliance observer on three recent hearing records — those records are publicly accessible and show which proceedings she has already flagged.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'making Oversight Collegium contact');
@@ -785,6 +873,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "The law changed after he registered the vessel. They applied it retroactively.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: {
+      text: "Wend isn't at the pier today — the impoundment notice moved him to the harbor master's dispute queue, where he spends mornings waiting for a clerk who doesn't come. In a working harbor this size, the other vessel owners know his situation. The net-menders working the south dock have watched every impoundment proceeding from fifty feet away and have opinions about all of them. They talk more freely than someone whose livelihood is still at stake.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'speaking to dispossessed shipowner');
@@ -895,6 +987,10 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: {
+    text: "The board is empty this morning — notices cleared at dawn as part of the weekly rotation, new postings not yet pinned. The harbor master's board near the south dock gate runs on a different schedule and is still current. What gets posted there reflects the fishing community's concerns more directly than the hall's official board does.",
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

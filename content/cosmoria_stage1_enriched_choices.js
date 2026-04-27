@@ -25,7 +25,9 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Aurek leans against the counting-house rail so his back is to the crane operators below. His voice drops under the chain noise. "Scheduling used to follow tides and declared cargo. Now I receive a list — berth two goes to Halvern's brig, berth seven stays empty until Cosmouth's factor authorizes. Independent captains sit at anchor until the tide turns against them. I've filed three complaints. Two went missing. One came back stamped 'reviewed.'" He stops talking when a stevedore passes with a ledger under his arm. The two complaints that disappeared were filed at the harbor registry. Whatever reviewed them left a trail.`;
+        var _aurekFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
+        var _aurekDetail = _aurekFam === 'combat' ? ' His eyes go to your hands once — then back to the cranes. He files you under \'not a merchant\' and decides that\'s fine.' : _aurekFam === 'stealth' ? ' He speaks without turning his head, his voice never carrying past the chain noise. He has had this kind of conversation before.' : _aurekFam === 'support' ? ' He glances sidelong after he\'s finished, calibrating whether you\'ll use what he said to help or only to know.' : '';
+        G.lastResult = `Aurek leans against the counting-house rail so his back is to the crane operators below. His voice drops under the chain noise. "Scheduling used to follow tides and declared cargo. Now I receive a list — berth two goes to Halvern's brig, berth seven stays empty until Cosmouth's factor authorizes. Independent captains sit at anchor until the tide turns against them. I've filed three complaints. Two went missing. One came back stamped 'reviewed.'" He stops talking when a stevedore passes with a ledger under his arm. The two complaints that disappeared were filed at the harbor registry. Whatever reviewed them left a trail.` + _aurekDetail;
         G.stageProgress[1]++;
         addJournal('Stable Factor revealed corrupted maritime trade route system', 'evidence', `cosmoria-trade-routes-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -39,6 +41,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The counting-house gate is latched when you return — the scheduling window Aurek cited ran out while you were gathering your approach. A stevedore at the lower gate says the stable factor keeps irregular hours during high-tide allocation cycles; the next open window is posted at the harbor gate board each morning before the first bell. Tideon at the arrivals desk works the same building and keeps a parallel record of berth assignments. His post has no scheduling restriction.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -75,6 +81,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The supply counter closes at the third bell — the warrant procedure Coralyn cited takes three days minimum and the window you had is gone. The salt smell off the lower harbor is stronger in the afternoon, when the wind shifts. The clerk of arrivals, Tideon, files carbon copies of supply receipts as part of the manifest chain; his copies don't require the same warrant. His desk is open until the evening tide.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -111,6 +121,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The water gate closes at low tide and Maris is gone by the time you reach the threshold — a caretaker apprentice says she won't return until the morning ceremony. The ritual text you need is written on a board inside the gate, visible from the threshold on the morning approach. The ward mediator's district hearings cite the same recent ritual amendments in three of her case summaries; those summaries are in the public index.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -130,7 +144,9 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Tideon unlocks a side drawer and pulls out a folded page — a carbon copy of an arrivals log that doesn't match the primary registry on the shelf beside it. He sets them side by side on the counter without speaking. The primary log shows the Thornwall Passage arrived on the eighteenth. The carbon shows the seventeenth. "Someone corrected the primary after the carbon was filed," he says. "I have nine of these. The carbons are in my coat pocket every morning when I leave. I don't trust the drawer anymore." He refolks the copy and tucks it away.`;
+        var _tideonFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
+        var _tideonDetail = _tideonFam === 'combat' ? ' He hands over the carbon without comment, but he tracks the room over your shoulder the whole time — checking who is watching, not whether you can handle what he just said.' : _tideonFam === 'stealth' ? ' He slides the carbon across with two fingers, not passing it directly. No hand-to-hand. He has thought about this moment.' : _tideonFam === 'support' ? ' When he refolds the copy, his hands are steady. He has been waiting for someone to show up for this. He is relieved you did.' : '';
+        G.lastResult = `Tideon unlocks a side drawer and pulls out a folded page — a carbon copy of an arrivals log that doesn't match the primary registry on the shelf beside it. He sets them side by side on the counter without speaking. The primary log shows the Thornwall Passage arrived on the eighteenth. The carbon shows the seventeenth. "Someone corrected the primary after the carbon was filed," he says. "I have nine of these. The carbons are in my coat pocket every morning when I leave. I don't trust the drawer anymore." He refolks the copy and tucks it away.` + _tideonDetail;
         G.stageProgress[1]++;
         addJournal('Clerk of Arrivals revealed archive record falsification system', 'evidence', `cosmoria-records-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -147,6 +163,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The registry office closes on Tuesdays and Thursdays — you arrived on a Wednesday. Tideon's desk is unoccupied; a clerk's aide says the credential process runs through the harbor authority, which means the path circles back. The public summary board at the harbor gate lists vessel names and arrival dates without detail, but the summary alone shows three manifests with identical cargo descriptions across different dates. That much doesn't require a credential.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -183,6 +203,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The district clerk's office has already closed for the afternoon session — the party-of-interest certification Nerissa described requires in-person filing before the second bell. She wrote down the address in precise handwriting; the office opens at first light. One independent merchant who held mooring rights in the dispute she described would qualify as a party of interest, and the case summary index is public. The harbour front runs with working merchants from dawn.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -219,6 +243,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The public health warrant process runs through the harbor registry — same building, same queue, same administrative hold. The clinic closes before the fourth bell. Sevrin's notebook stays behind the salt-compress jar. The harbor health rolls are a separate filing from the patient records; they go to the district summary board as aggregated categories. The board is outside the clinic, not behind it, and nobody controls who reads it.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -255,6 +283,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The reading room closes an hour before the evening tide and the permanent research credential takes four to six weeks through the harbor authority — the circular path runs back to the same administration that holds the restricted records. The public catalogue still smells of salt-stiffened paper. The appeal log for the correction review on the independent vessel's case is in the public guild record; the archive keeper is not the only route to what's been removed.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -291,6 +323,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The guild inspection office closes at the third bell — the build commission requirement runs through the same panel that issued the approvals you're questioning. The appeal log for the independent vessel's correction review is in the public guild record; that filing doesn't require a commission or a credential. Two adjacent berths are visible from the public walk without setting foot past the dry-dock barrier, and the join tolerances at the waterline tell the story without the paperwork.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -326,6 +362,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The public charter file closes with the archive at the fourth bell — the session where the warden arrived ended before you reached the fifth amendment. The ward charter amendments are filed by date in the public record; the emergency maritime stability provision cited in each one requires a formal emergency declaration, and that declaration is in the harbor registry as a matter of record. The registry is open until the morning tide.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -362,6 +402,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The harbor registry closes the historical roster access under administrative review before you complete the request — the Cosmouth trade officer's name goes in a log you can't see. The current public trader registry shows who is active today; two independent merchants on the lower docks name the dock allocation denials that preceded each departure by a fellow merchant. Dock allocation decisions are logged by berth date in the stable factor's public scheduling record.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -395,6 +439,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The senior archivist is gone before the end of the reading session — your seat number is in a separate register and the access list you receive on the next request is shorter. Several categories bear the new red-border stamp: administrative hold, pending review, no listed completion date. The archive keeper works the early morning shift before the board convenes; that window exists outside the monitoring that follows the public reading hours.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -431,6 +479,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The Cosmouth security clerk's note arrives at your lodging address before you return — a reminder that harbor administrative records are protected under governance charter. The three new names in the appointment record are listed there because their positions were newly created and publicly filed; each appointment record shows the issuing office. That part is in the public registry and doesn't require an internal request.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -467,6 +519,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "A Cosmouth compliance clerk arrives at the counting house before the third merchant finishes — the fourth leaves mid-sentence when the clerk appears in the doorway. The pattern of pressure is visible in who goes quiet and how quickly. The independent merchants on the lower docks won't name incidents today, but the harbor front before dawn runs differently; early morning is before the compliance rounds begin.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -503,6 +559,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The warehouse is under fleet audit — allocation records temporarily restricted, quarter fathoms unaccounted for in the public summary. The Iron Compact's cargo projections include inbound supplier manifests as part of their routing data; the same documents the harbor warehouse controls appear in the Compact's commercial intake log as a separate filing. Sull Crenn's office is accessible by appointment; the intake log itself is open to commercial parties.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -539,6 +599,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The secondary shrine gate is staffed by a new warden who wasn't there yesterday — the harbor faith registry inquiry runs through the same administrative apparatus as every other restricted channel. The morning ceremony at the water gate is observable from the upper harbor walk without entering the water gate area; the fisher crews who were turned away gather at the lower pier wall afterward. They're there most mornings.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -565,6 +629,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The lower docks are quiet at this hour — the stevedores on break have cleared out and the net-menders have gone in ahead of the weather. The harbor current runs on a different schedule before the morning load; the barge captains linger at the berth-side tavern between tides. What the docks absorb as fact is still circulating — the timing just needs adjusting.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -589,6 +657,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The reading room is closed for the afternoon — the scholars who share things between shelves are gone until the evening lamp session. The archive holds the same current, but it runs slower when the room is empty. The scholars return after the harbor bells; the archivist's office light goes dark before they arrive, which is when the reading room operates without supervision.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -625,6 +697,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The Cosmouth clerk waits while you reassemble the documents — the ones that were given to you go back in order; the ones that weren't are catalogued in the misappropriation notice he's already drafting. The counting house is empty by the time he leaves. The pattern you assembled is real, but it needs a location that isn't a borrowed table visible from the street. The archive keeper's back room, the Iron Compact intake office, and the stable factor's counting house all have private workspaces accessible by appointment.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -660,6 +736,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The NPC's hands go still at your question and stay there — they're not ready. The brine smell off the lower harbor drifts up through the window. The decision that keeps them silent is theirs to make, not yours to force. The archive keeper, the Iron Compact agent, and the ward mediator each hold pieces of the same picture; any of them can be approached again when the pressure of the moment has settled.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -696,6 +776,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
+    },
+    failResult: {
+      text: "The warden takes the arrival log and the courier manifest page with it — the administrative hold covers the full volume, not just the flagged entries. The financial transfer records reference an account number without a registered owner; that registration gap is a public filing discrepancy, logged with the harbor commerce board when any account opens. The commerce board's discrepancy log is accessible without a credential.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -724,6 +808,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The departure registry shows vessels without return entries — that much is in the public log. The clearance records that explain why no follow-up was issued are in the harbor administration files, restricted to maritime inspector credential holders. You can see the gap in the registry. You can't yet see who filled it in.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: "The maritime inspector credential that controls the clearance records is issued through the harbor authority — the same administration that cleared the flags. The public departure log shows the gap but not the hand that filled it. The administrator's duty schedule is posted at the harbor gate office; the flag clearances occurred on irregular days that don't align with any posted rotation. That discrepancy is in the public record.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -745,6 +833,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       G.flags.found_template_manifests = true;
       addJournal('Transit chain: identical template manifests filed seven times — systematic laundering via bureaucratic camouflage', 'evidence', `cosmoria-manifest-chain-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: "The manifest comparison requires pulling departure records across four months — the secondary review queue is closed until the morning tide. Seven identical documents laid side by side are compelling; right now they're in different administrative sections. The public departure board at the harbor gate lists cargo category codes by vessel; all seven entries share the same category code. That's visible from the walkway.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -769,6 +861,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       }
       addJournal('Harbor analysis: suspicious berths use military loading sequence, peak-hour cover timing, administrator supervision, compensated workers', 'evidence', `cosmoria-harbor-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: "The berth observation requires a window the current loading schedule doesn't provide — crane noise peaks at mid-morning and the crew rotations close the useful gap. The harbor administrator's office window has a sightline to berths four and six; the departure schedule board is visible through that window from the upper corridor. The pattern the schedule shows doesn't require being present at the berths themselves.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -795,6 +891,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.flags.located_iron_compact_cosmoria = true;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    },
+    failResult: {
+      text: "The Iron Compact office is mid-transaction when you arrive and the clerk holds the door — appointments only, purpose in writing. The departure schedule board on the wall behind Crenn is visible through the office window; seven ghost vessel dates are noted in different ink than the surrounding entries. He is tracking them already. A written purpose submitted before the fourth bell goes into the morning appointment queue.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -855,6 +955,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The harbor is quieter than yesterday in certain pockets — the tavern by berth three, the rope-mender's bench near the lower gate, the usual spots. A net-mender says the crews from berths four and six haven't been around since midmorning. Word moves fast in a working harbor. Someone on those crews knows questions are circulating and has decided today isn't a good day to be findable. The empty stools do the answering for them.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
+    },
+    failResult: {
+      text: "The harbor is quiet in all the wrong pockets — the tavern by berth three, the rope-mender's bench, the usual spots where the returning crews linger after a run. Word travels fast in a working harbor and today isn't a good day to be findable. The barge captains at the lower pier wall work a different circuit; they're not crew and not dock labor, which means the warning hasn't reached them yet.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
 
@@ -924,6 +1028,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = "The barman is polite and uninformative. The dockworkers aren't talking where a stranger can hear. The round costs more than it should.";
         G.recentOutcomeType = 'neutral';
       }
+    },
+    failResult: {
+      text: "The barman is polite and uninformative, counting coin between each exchange. The dockworkers aren't talking where a stranger can hear — the round costs more than it should and returns nothing. The net-menders at the lower berth wall run a separate social circuit from the tavern regulars; they work through the meal hours when the barman's crowd thins and the wharf goes quiet enough to actually talk.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   }
 ];

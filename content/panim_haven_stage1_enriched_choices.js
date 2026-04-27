@@ -14,6 +14,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Ritual', 'Offerings', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Soria is already occupied with a delegation from the northern quarter, and the offering preparation window has closed for the morning — the custodian marks the rack sealed and turns the key before you reach the threshold. The shrine attendants move through the hall with the focused purpose of people who have no time for side conversations until the mid-afternoon interval. The main shrine entry stays open; the preparation hall sign reads appointments only until the third bell.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -49,6 +53,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Mediation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The archive anteroom is locked — Brother Thenim has taken the key to the ritual authority's morning review and won't return until well after midday. A handwritten notice on the door gives the authorization procedure: written request, two-day processing window, signature from the shrine master. The mediation court's public case summary board in the main corridor is open now without authorization and carries date stamps going back eighteen months.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -85,6 +93,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Grief', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Kaelas is not at his counseling room — a posted card says he's accompanying a family through the processional circuit until the late afternoon. The memorial hall anteroom holds a waiting bench and a ledger of appointments. The families who have passed through Panim Haven's grief services are visible in that ledger by first name and case date, a record that doesn't require Kaelas at all.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -118,6 +130,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Process', 'Routes', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "Elder Fareth left before dawn with the early processional and won't return until evening. The route coordination office is unstaffed; the door is unlocked but the duty roster on the wall is last week's. The route diagram board outside the main shrine entry is publicly posted and updated each morning — the current map shows which paths are active today and which waystations are staffed.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -151,6 +167,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Divine', 'Protection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The chapel is closed for the morning blessing preparation — Meryl's work schedule runs against the visiting window today. The outer hall has a returns ledger where parishioners note when a blessing renewal is needed; it's open on the lectern and several recent entries describe the same concern: renewed sooner than the blessing cycle was supposed to require. The ledger is unsigned and publicly placed.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -184,6 +204,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Authority', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "Master Thiren's office is closed for a hierarchy review session that runs through the midday interval — the door carries a sealed notice, the kind that means no interruptions regardless of stated urgency. The shrine secretary confirms the next open visitor window is tomorrow morning. The public doctrine bulletin board outside the assembly hall is updated weekly; the most recent posting is dated three weeks ago and lists which ritual changes have been ratified.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -220,6 +244,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The inn common room is empty at this hour — Joseline runs the morning shift alone and the breakfast service has the full attention of everyone on staff. The guest register sits open on the counter, facing outward the way it always does at transit inns; names, departure dates, and stated origin by region are standard entries. The northern arrivals from the past two weeks are there in plain ink.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -253,6 +281,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Justice', 'Corruption', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The mediation office is formally closed — a scheduled training period that runs until tomorrow, the notice says, signed by the ritual authority. Veth is not in. The public outcome summary board in the main corridor posts case type and outcome category without party names; it's updated each week and the last six months of entries are still pinned. Pattern analysis across those entries doesn't require Veth's cooperation.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -291,6 +323,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Magic', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The archive reading room is locked for the afternoon — a scheduled cataloging session that requires the stacks to be off-limits to outside visitors. The public doctrine reference shelf in the main shrine entry hall holds printed copies of the current ritual formulas, stamped with this year's ratification date. Comparing those to the pre-reform volumes Tazren mentioned would require finding those volumes first.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -327,6 +363,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Philosophy', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The theological reading collection is checked out in full to a shrine study group that has it until tomorrow evening. The librarian confirms no available copies today. The doctrine commentary section does have a publicly accessible pamphlet series — brief summaries of each revision issued over the past three years, distributed to parishioners at each change announcement. The language in those summaries may carry its own evidence.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -363,6 +403,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Craft', 'Materials', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The offering preparation hall is locked — a scheduled purification interval that closes it to all outside access until the next morning service. The supply manifest posted outside the door lists current stock categories and their approved sources by vendor name. Those vendor names, cross-referenced against the transit records at the harbor office, would show whether the sources match what Panim Haven's shrine charter approves.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -399,6 +443,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The mediation archive is staffed today by a duty clerk who won't allow the ledger volumes off the reference shelf without written authorization — the same two-day processing window as always. The court's public summary board in the corridor holds case outcome records without the underlying documents. But the summary board is dated and sortable by case type, and the date clusters around the ghost closure period are visible without needing the ledger at all.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -435,6 +483,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Survival', 'Routes', 'Movement', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: {
+      text: "The messenger traffic has moved to a different schedule today — the route workers at the waystation junction say the northern courier ran at dawn, hours before the usual window. The secondary paths to the waystations are publicly accessible on foot without authorization; the physical route itself doesn't close even when the messenger timing shifts. Walking the path at a traveler's pace would show what the route passes through and what structures it uses.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -471,6 +523,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Survival', 'Supplies', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The second waystation is staffed today and the maintenance path is watched — a route worker is doing repairs on the outer wall and has a clear view of the access point. The waystation's supply requisition notices are pinned to the exterior board as a standard transparency measure; they list what was ordered, from whom, and in what quantity. Requisitions for document materials at a rest facility would show up against the expected supply categories.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -508,6 +564,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
+    failResult: {
+      text: "The offering hall empties quickly this morning — a scheduled blessing distribution draws most of the foot traffic to the chapel and leaves the hall nearly silent. The notice board near the exit still has postings: a service complaint, an unsigned note about a delayed case, a prayer request that describes a property dispute in enough detail to suggest who filed it. The hall may be empty, but the board hasn't been cleared since last week.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -538,6 +598,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "Every shrine worker you can reach today gives the same practiced non-answer before you finish the question — the hierarchy session this morning apparently covered what to say to outside visitors. One worker, waiting near the side entrance for the session to end, glances at you without speaking and then looks at the memorial waystation down the street. Not hostile. Just the shape of a direction, given without words.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -573,6 +637,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: {
+      text: "The families most likely to talk are already gone — transit through Panim Haven means people leave when their business closes, and those who lost property cases mostly left within days of the ruling. The guesthouse register from the past three months names several who noted their home locality; writing ahead of them to a waystation along their route back would reach them before memory fades and without the risk of being overheard in the haven itself.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -609,6 +677,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: {
+      text: "The assembled evidence still has gaps in the mechanism layer — individual pieces are documented, but the connective thread between them remains circumstantial. A single strong source willing to describe the coordination would convert pattern into proof. Tazren holds the pre-reform doctrine text and has been watching this unfold from the outside for two years. His framing of where each piece fits may be the missing structure.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -672,6 +744,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Three vessels departed under Bureau escort during the ghost case windows. The cargo has left this jurisdiction.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: {
+      text: "The harbor master's office is locked — the morning vessel departures happened before dawn and the office won't reopen until after midday. The public docking manifest is posted on the harbor notice board by regulation; it lists vessel names, escort classifications, and cargo categories by departure date. Bureau-classified escort designations appear as a distinct stamp in the manifest column, and the dates are searchable against the ghost case windows without needing the harbor master at all.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing coastal passage records');
@@ -693,6 +769,10 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The queue outside the Bureau hasn't moved in three hours. The wait is the answer — not a delay, a mechanism.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: {
+      text: "The Reckoning Quarter is closed off this morning — a scheduled maintenance closure of the main corridor has redirected foot traffic around the Bureau block entirely. The alternate approach runs past the rear entrance and the waystation annex, both of which see the same Bureau-adjacent traffic. The people waiting on the south steps are still visible from the annex corner, and the wait length from that angle tells the same story the main entrance would.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading Reckoning Quarter');
