@@ -806,6 +806,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone else visited Magistrate Corin two weeks ago. They knew she had kept copies.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

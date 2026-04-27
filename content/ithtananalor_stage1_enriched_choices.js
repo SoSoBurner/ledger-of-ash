@@ -578,6 +578,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One of them is participating in the conspiracy. They know it. The choice is whether they're the kind of person who can be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -879,6 +880,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone was here yesterday asking about the same formatting codes. Their credentials were from a northern archive. Maret remembers faces.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

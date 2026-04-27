@@ -580,6 +580,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One of them is complicit and knows it. The question is whether they're the kind of person who can be turned, or only the kind who can be used.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -891,6 +892,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Archivist Doss mentions someone else came asking about the suppressed papers — they claimed to be from a northern scholarly institution.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

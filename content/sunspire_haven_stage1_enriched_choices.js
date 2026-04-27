@@ -634,6 +634,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The family leader cooperated. The question is whether they had any other choice.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -863,6 +864,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The waystation innkeeper mentions a traveler asking about the convoy disruption — their description of events was more detailed than any official report.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

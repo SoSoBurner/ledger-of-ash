@@ -10,6 +10,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 1. INNKEEPER: GUEST PATTERNS
   {
+    plot: 'main',
     label: "The innkeeper notices things she doesn't write down. Three guests, same careful question.",
     tags: ['NPC', 'Observation', 'Intelligence'],
     xpReward: 70,
@@ -45,6 +46,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 2. INNKEEPER: SEALED LETTERS
   {
+    plot: 'main',
     label: "The sealed letters at Silkweaver's Chapel run on a schedule. Twice a week, no names.",
     tags: ['NPC', 'Evidence', 'Mystery'],
     xpReward: 75,

@@ -632,6 +632,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "They've been waiting for someone to ask for months. Now someone is here and they don't know if it makes things better or worse.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -861,6 +862,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A maritime insurance broker mentions someone visited them last week asking about the same ghost vessels — claiming to be a cargo verification specialist.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

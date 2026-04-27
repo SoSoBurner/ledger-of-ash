@@ -207,6 +207,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cadrin needs to know what this becomes before he talks.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
