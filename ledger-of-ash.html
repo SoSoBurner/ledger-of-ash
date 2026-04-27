@@ -13162,6 +13162,127 @@ function seekProfessionalCare() {
   renderChoices(choices);
 }
 
+// ── CRAFT SYSTEM ──────────────────────────────────────────
+
+/** Material display names keyed by material ID (used in loot drops and UI). */
+var MATERIAL_DEFS = {
+  patrol_insignia:     { name: 'Patrol Insignia' },
+  stamped_paper:       { name: 'Stamped Paper' },
+  house_crest_brass:   { name: 'House Crest (Brass)' },
+  enforcement_resin:   { name: 'Enforcement Resin' },
+  iron_shard:          { name: 'Iron Shard' },
+  shadow_residue:      { name: 'Shadow Residue' },
+  contract_fragment:   { name: 'Contract Fragment' },
+  frontier_fiber:      { name: 'Frontier Fiber' },
+  carved_seal:         { name: 'Carved Seal' },
+  debt_ledger_scraps:  { name: 'Debt Ledger Scraps' },
+  ash_compound:        { name: 'Ash Compound' }
+};
+
+/** Craftable item output definitions keyed by item ID. */
+var ITEM_DEFS = {
+  field_repair_kit: {
+    id: 'field_repair_kit', name: 'Field Repair Kit',
+    type: 'tool', skillBonus: 'survival', bonus: 1,
+    desc: 'Improvised repair tools. Survival +1 for one journey.'
+  },
+  iron_enforcer: {
+    id: 'iron_enforcer', name: 'Iron Enforcer',
+    type: 'weapon', skillBonus: 'combat', bonus: 1,
+    desc: 'A shard-weighted bludgeon. Reliable close-quarters.'
+  },
+  shadow_draft: {
+    id: 'shadow_draft', name: 'Shadow Draft',
+    type: 'tool', skillBonus: 'stealth', bonus: 1,
+    desc: 'A compound that deadens sound and diffuses light. Finesse +1.'
+  },
+  forged_transit: {
+    id: 'forged_transit', name: 'Forged Transit Papers',
+    type: 'tool', skillBonus: 'persuasion', bonus: 1,
+    desc: 'Convincing copies of Union transit documentation. Charm +1 at checkpoints.'
+  },
+  ash_poultice: {
+    id: 'ash_poultice', name: 'Ash Poultice',
+    type: 'tool', skillBonus: 'survival', bonus: 1,
+    desc: 'Draws out infection. Survival +1 on recovery rolls.'
+  },
+  wire_trap: {
+    id: 'wire_trap', name: 'Wire Trap',
+    type: 'tool', skillBonus: 'craft', bonus: 1,
+    desc: 'A concealed snare. Spirit +1 when deploying field devices.'
+  }
+};
+
+/** All craft recipes. recipe.materials: [{id, qty}]. recipe.output must match an ITEM_DEFS key. */
+var CRAFT_RECIPES = [
+  {
+    id: 'field_repair_kit', name: 'Field Repair Kit', tier: 'basic',
+    output: 'field_repair_kit', dc: 10, levelReq: 2,
+    materials: [{ id: 'frontier_fiber', qty: 2 }, { id: 'iron_shard', qty: 1 }]
+  },
+  {
+    id: 'iron_enforcer', name: 'Iron Enforcer', tier: 'basic',
+    output: 'iron_enforcer', dc: 12, levelReq: 2,
+    materials: [{ id: 'iron_shard', qty: 3 }, { id: 'enforcement_resin', qty: 1 }]
+  },
+  {
+    id: 'shadow_draft', name: 'Shadow Draft', tier: 'standard',
+    output: 'shadow_draft', dc: 14, levelReq: 3,
+    materials: [{ id: 'shadow_residue', qty: 2 }, { id: 'ash_compound', qty: 1 }]
+  },
+  {
+    id: 'forged_transit', name: 'Forged Transit Papers', tier: 'standard',
+    output: 'forged_transit', dc: 14, levelReq: 3,
+    materials: [{ id: 'stamped_paper', qty: 2 }, { id: 'carved_seal', qty: 1 }]
+  },
+  {
+    id: 'ash_poultice', name: 'Ash Poultice', tier: 'basic',
+    output: 'ash_poultice', dc: 10, levelReq: 2,
+    materials: [{ id: 'ash_compound', qty: 2 }, { id: 'frontier_fiber', qty: 1 }]
+  },
+  {
+    id: 'wire_trap', name: 'Wire Trap', tier: 'standard',
+    output: 'wire_trap', dc: 13, levelReq: 2,
+    materials: [{ id: 'iron_shard', qty: 2 }, { id: 'frontier_fiber', qty: 1 }, { id: 'enforcement_resin', qty: 1 }]
+  }
+];
+
+/** Returns all available recipes. */
+function getAllRecipes() {
+  return CRAFT_RECIPES;
+}
+
+/** Returns true if G.materials has at least the required qty of every ingredient. */
+function hasMaterials(recipe) {
+  if (!G.materials) return false;
+  return recipe.materials.every(function(m) {
+    return (G.materials[m.id] || 0) >= m.qty;
+  });
+}
+
+/** Adds qty of a material to G.materials. Called on combat loot and scavenge drops. */
+function addMaterial(id, qty) {
+  if (!G.materials) G.materials = {};
+  G.materials[id] = (G.materials[id] || 0) + qty;
+}
+
+/** Deducts the full ingredient cost for a recipe from G.materials. */
+function consumeMaterials(recipe) {
+  if (!G.materials) G.materials = {};
+  recipe.materials.forEach(function(m) {
+    G.materials[m.id] = Math.max(0, (G.materials[m.id] || 0) - m.qty);
+  });
+}
+
+/** Deducts half the ingredient cost (rounded up) for a partial craft failure. */
+function consumeHalfMaterials(recipe) {
+  if (!G.materials) G.materials = {};
+  recipe.materials.forEach(function(m) {
+    var half = Math.ceil(m.qty / 2);
+    G.materials[m.id] = Math.max(0, (G.materials[m.id] || 0) - half);
+  });
+}
+
 // ── CAMP ─────────────────────────────────────────────────
 /** @param {'post_watches'|'craft'|'review_notes'} type — post_watches requires >=1 active companion; review_notes requires recovery_thread_available flag. */
 function campAction(type) {
