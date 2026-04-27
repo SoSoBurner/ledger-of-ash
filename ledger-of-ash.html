@@ -929,7 +929,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 .env-desc {
   font-family: 'Crimson Pro', serif; font-size: 15px; font-weight: 300; font-style: normal;
-  color: var(--ink-dim); line-height: 1.85; margin-bottom: 9px; transition: opacity 0.15s ease;
+  color: var(--ink); line-height: 1.85; margin-bottom: 9px; transition: opacity 0.15s ease;
 }
 .env-desc p {
   margin: 0 0 6px 0;
@@ -1129,7 +1129,7 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn.combat-lv3 { border-left: 2px solid #be2828; }
 .choice-btn.deescalate { background: rgba(22,56,40,.10); }
 .choice-btn--plot   { border-left: 3px solid #3a6fc4; }
-.choice-btn--warn2  { border-left: 3px solid #b8860b; }
+.choice-btn--warn2  { border-left: 3px solid #7a5c1e; }
 .choice-btn--warn1  { border-left: 3px solid #c87020; }
 .choice-btn--combat { border-left: 3px solid var(--danger); }
 .ability-btn { border: 1px solid var(--accent-gold); color: var(--accent-gold); background: rgba(216,154,44,0.07); margin-top: 4px; font-family: var(--font-display); font-size: 13px; padding: 6px 14px; cursor: pointer; width: 100%; text-align: left; }
@@ -11105,8 +11105,6 @@ function renderChoices(choices) {
       btnClasses += ' choice-btn--warn1';
     } else if (_tags.indexOf('Conflict') !== -1 || _tags.indexOf('Exposure') !== -1 || _tags.indexOf('Betrayal') !== -1) {
       btnClasses += ' choice-btn--warn2';
-    } else if (_tags.indexOf('ArcDeparture') !== -1 || _tags.indexOf('ArcArrival') !== -1 || _tags.indexOf('ArcFinale') !== -1 || _tags.indexOf('ArcGate') !== -1 || _tags.indexOf('ArcDeepening') !== -1) {
-      btnClasses += ' choice-btn--plot';
     }
     var npcEl = document.getElementById('npc-container') || document.getElementById('npc-display');
     if (npcEl) {
@@ -11352,11 +11350,13 @@ function pickNightEncounterKey() {
 }
 
 function rollD20(skill, bonus) {
+  var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _sk = _KEY_NORM[skill] || skill;
   var roll = Math.floor(Math.random() * 20) + 1;
-  var statValue = (typeof G !== 'undefined' && G && G.skills && typeof G.skills[skill] === 'number') ? G.skills[skill] : 0;
+  var statValue = (typeof G !== 'undefined' && G && G.skills && typeof G.skills[_sk] === 'number') ? G.skills[_sk] : 0;
   var penalty = (typeof G !== 'undefined' && G && G._rivalDCPenalty) ? G._rivalDCPenalty : 0;
   var sleepless = (typeof G !== 'undefined' && G && G.consecutiveSleepless) ? Math.min(G.consecutiveSleepless, 3) : 0;
-  var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (skill === 'might' || skill === 'vigor')) ? 1 : 0;
+  var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (_sk === 'combat' || _sk === 'survival')) ? 1 : 0;
   var travelFatiguedMod = (G && G.flags && G.flags.travel_fatigued) ? 1 : 0;
   var total = roll + statValue + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod;
   if (typeof G !== 'undefined' && G) {
@@ -11766,8 +11766,15 @@ function handleChoice(choice) {
 
 function getTraitBonus(skill) {
   if (!G || !G.traits) return 0;
+  var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _sk = _KEY_NORM[skill] || skill;
   return G.traits.reduce(function(sum, t) {
-    if (!t || t.skill !== skill || !t.bonus) return sum;
+    if (!t) return sum;
+    // Format A: {skillBonus:{combat:1}} — background passive traits
+    if (t.skillBonus) return sum + (t.skillBonus[_sk] || 0);
+    // Format B: {skill:'combat', bonus:1, condition?} — archetype/item traits
+    var _tsk = _KEY_NORM[t.skill] || t.skill;
+    if (_tsk !== _sk || !t.bonus) return sum;
     if (t.condition === 'hp_low' && G.hp > Math.floor((G.maxHp || 20) * 0.4)) return sum;
     if (t.condition === 'hp_critical' && G.hp > Math.floor((G.maxHp || 20) * 0.2)) return sum;
     return sum + t.bonus;
@@ -11775,10 +11782,12 @@ function getTraitBonus(skill) {
 }
 
 function getEquipmentBonus(skill) {
+  var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _sk = _KEY_NORM[skill] || skill;
   let bonus = 0;
-  if (G.equipped && G.equipped.weapon && G.equipped.weapon.skillBonus === skill) bonus += G.equipped.weapon.bonus || 0;
-  if (G.equipped && G.equipped.armor && G.equipped.armor.skillBonus === skill) bonus += G.equipped.armor.bonus || 0;
-  if (G.equipped && G.equipped.tool && G.equipped.tool.skillBonus === skill) bonus += G.equipped.tool.bonus || 0;
+  if (G.equipped && G.equipped.weapon && G.equipped.weapon.skillBonus === _sk) bonus += G.equipped.weapon.bonus || 0;
+  if (G.equipped && G.equipped.armor && G.equipped.armor.skillBonus === _sk) bonus += G.equipped.armor.bonus || 0;
+  if (G.equipped && G.equipped.tool && G.equipped.tool.skillBonus === _sk) bonus += G.equipped.tool.bonus || 0;
   return bonus;
 }
 
