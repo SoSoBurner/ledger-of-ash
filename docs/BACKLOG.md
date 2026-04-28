@@ -1,6 +1,6 @@
 # Ledger of Ash — Feature Backlog
 
-**Last updated:** 2026-04-27 (session 5 — BACKLOG verification pass)
+**Last updated:** 2026-04-27 (session 5 — Phases B/C/D/E applied)
 **Source:** Audited across 10+ plan files + verified against live codebase. Check this before re-planning any feature.
 
 ## Status codes
@@ -12,10 +12,10 @@
 ## Summary counts
 | Status | Count |
 |--------|-------|
-| DONE | 79 |
-| PARTIAL | 5 |
-| NOT BUILT | 11 |
-| UNKNOWN | 20 |
+| DONE | 84 |
+| PARTIAL | 4 |
+| NOT BUILT | 10 |
+| UNKNOWN | 19 |
 
 ---
 
@@ -28,7 +28,7 @@
 | cosmoria arc line 25: addJournal uses 'decision' — invalid category | DONE | Fixed → 'intelligence' |
 | cosmoria arc line 246: addJournal uses 'consequence' — invalid category | DONE | Fixed → 'discovery' |
 | Heat HUD always display:none — player never sees heat system | DONE | hidden when heat=0, visible when active; commit af459aea |
-| Journal overlay quest rows render [object Object] | PARTIAL | updateQuestHUD() (line 15644) and showCharSheet() (line 14572) both handle object quests correctly. Journal overview at line 14325 does NOT: `map(q => '...' + q + '...')` concatenates raw object. Quests stored as {msg,questId} objects will show [object Object] in journal page quest list. |
+| Journal overlay quest rows render [object Object] | DONE | All three render paths (updateQuestHUD, showCharSheet, journal overview) verified to handle {msg,questId} object shape correctly — Phase A audit found no fix needed. |
 
 ---
 
@@ -41,7 +41,7 @@
 | __rival__ routing in handleChoice | DONE | line 11201 |
 | advanceRivals() forEach needs index (r, i) for encounter trigger | DONE | wired with encounter trigger |
 | Rival lay-low drain mechanic | DONE | r.layLow=true → drain 1 renown, reset; test in rivals.test.js |
-| Rival DC pressure (+1 per threshold 3/6/9) | PARTIAL | rollD20 reads G._rivalDCPenalty (line 11390) but it is never persistently set from rival renown thresholds — only set transiently inside adaptEnrichedChoice and immediately cleared in finally block (lines 10662/10665). Net effect: zero persistent DC pressure from rival growth. |
+| Rival DC pressure (+1 per threshold 3/6/9) | DONE | getRivalDCMod() updated to thresholds 3/6/9; _rivalMod added to gate DC in adaptEnrichedChoice; roll display shows "(rival +N)" annotation. Phase B this session. |
 | Rival clock world notice at threshold 3/6/9 | DONE | all three thresholds fire addWorldNotice |
 | Universal roll DC 7 for safe choices | DONE | handleChoice: `_tier==='safe' ? 7`; test in dc-safe.test.js |
 | Universal roll — every choice auto-rolls | PARTIAL | safe auto-roll at DC 7 documented; risky/bold not all wired |
@@ -90,7 +90,7 @@
 | Nomdara drift system | UNKNOWN | eager-swimming; not verified |
 | districts_stage1_enriched_choices.js | UNKNOWN | eager-swimming; not verified |
 | nomdara_stage1_choices.js | UNKNOWN | eager-swimming; not verified |
-| Fumble locking (main plot locks + backup injection) | NOT BUILT | prancy-growing; js/loa-enriched-bridge.js is dead |
+| Fumble locking (main plot locks + backup injection) | PARTIAL | adaptEnrichedChoice checks fumble_locked flag correctly, but no choice in any content file ever sets it — feature is code-complete but inert. Set `{type:'flag', key:'fumble_locked', value:true}` in a choice effect to activate. |
 | Archetype confirmation screen | UNKNOWN | enchanted-greeting; not verified |
 
 ---
@@ -112,7 +112,7 @@
 | #panel-action empty guard (ensureActionContent fallback) | DONE | `if (!querySelector('.choice-block')) loadStageChoices()` pattern in 8+ locations |
 | Journal evidence category counts | DONE | updateJournalHUD() shows ev/int/rum/disc summary header |
 | Crit rewards (+XP, +stageProgress on nat 20) | UNKNOWN | prancy-growing; not verified |
-| Rest limit (2× per day, G.restCount) | UNKNOWN | prancy-growing; not verified |
+| Rest limit (2× per day, G.restCount) | DONE | Enforced at line 13342: `if ((G.restCount||0) >= 2)` blocks third rest. G.restCount resets to 0 on day advance. Phase E2 verified this session. |
 | Auto-save after every choice | UNKNOWN | prancy-growing; not verified |
 | Save export / JSON download | UNKNOWN | prancy-growing; not verified |
 | Sandbox mode (post-Stage 3 blocker, Stage II stays open) | NOT BUILT | prancy-growing; blocker never fires (hardcoded false) |
@@ -157,6 +157,9 @@
 | Feature | Notes |
 |---------|-------|
 | Living narration (locality_narrations.js) | Wired |
+| Heat HUD immediate update on addHeat() | updateHeatHUD() extracted from updateHUD(); called from addHeat() so panel updates without waiting for next full HUD refresh. Phase C this session. |
+| Heat encounter queue in addHeat() | G._pendingHeatEncounter set when heat crosses 3/5/8; loadStageChoices() already consumes it via checkHeatConsequences() + heat patrol check. Phase C verified. |
+| applyEffect() missing cases: xp/flag/stat/heat | All four cases added to switch. `flag` supports set/clear via value field. `stat` normalises display→internal skill keys. Phase D this session. |
 | Choice panel always has ≥1 option | Base fallback confirmed |
 | Rival clock basic (advanceRivals) | Exists in engine |
 | Rival direct encounters | triggerRivalEncounter wired |

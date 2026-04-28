@@ -9148,6 +9148,27 @@ function addHeat(polity, amount) {
         G._pendingHeatEncounter = { polity: polity, level: _new };
     }
   });
+  updateHeatHUD();
+}
+
+function updateHeatHUD() {
+  var _heatEl = document.getElementById('hud-heat');
+  var _maxHeat = 0;
+  var _heatPolities = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+  var _heatNames = {shelk:'Shelkopolis',roaz:'Roaz',shirsh:'Shirshal',mimolot:'Mimolot',panim:'Panim Haven',cosmouth:'Cosmouth',zootia:'Zootia',union:'Union',sheresh:'Sheresh',soreheim:'Soreheim',nomdara:'Nomdara'};
+  var _activeHeat = [];
+  _heatPolities.forEach(function(pk){ var hv = (G.heat && G.heat[pk]) || 0; if (hv > _maxHeat) _maxHeat = hv; if (hv > 0) _activeHeat.push(pk); });
+  if (_heatEl) {
+    if (_activeHeat.length > 0) {
+      _heatEl.style.display = '';
+      _heatEl.innerHTML = '<div style="font-size:10px;color:var(--ink-faint);letter-spacing:1px;margin-bottom:2px;">HEAT</div>' +
+        _activeHeat.map(function(pk){
+          var hv = G.heat[pk] || 0;
+          var color = hv >= 8 ? 'var(--danger)' : hv >= 5 ? '#d47517' : '#b8860b';
+          return '<div style="display:flex;justify-content:space-between;color:'+color+';font-size:11px;"><span>'+_heatNames[pk]+'</span><span>'+hv+'</span></div>';
+        }).join('');
+    } else { _heatEl.style.display = 'none'; }
+  }
 }
 
 // ── AUTHORITY CONFRONTATION SYSTEM ────────────────────
@@ -10157,11 +10178,13 @@ function triggerRivalEncounter(idx) {
 function getRivalDCMod(locId) {
   var mod = 0;
   (G.rivalAdventurers || []).forEach(function(r, i) {
+    if (!r || !r.active) return;
+    var rn = r.renown || 0;
+    var rivalMod = rn >= 9 ? 3 : rn >= 6 ? 2 : rn >= 3 ? 1 : 0;
+    // Location claim adds 1 additional tier of pressure
     var claimed = (G.flags && G.flags['rival_claimed_' + locId + '_' + i]) || 0;
-    if (claimed >= 4) mod = Math.max(mod, 2);
-    else if (claimed >= 3) mod = Math.max(mod, 1);
-    // Rival pressure at renown 6: applies dcPenalty:1 globally regardless of location claim
-    if ((r.renown || 0) >= 6) mod = Math.max(mod, 1);
+    if (claimed >= 3) rivalMod = Math.min(3, rivalMod + 1);
+    mod = Math.max(mod, rivalMod);
   });
   return mod;
 }
@@ -10682,12 +10705,12 @@ function adaptEnrichedChoice(c) {
         var _KEY_NORM_G = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
         var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'lore';
         var _gStage = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-        var _gDC = (_derivedTag === 'safe' ? 7 : _derivedTag === 'bold' ? 16 : 13) + _gStage;
+        var _gDC = (_derivedTag === 'safe' ? 7 : _derivedTag === 'bold' ? 16 : 13) + _gStage + _rivalMod;
         var _gVal = (G.skills && G.skills[_gSk]) || 0;
         var _gRoll = Math.floor(Math.random() * 20) + 1;
         var _gTotal = _gRoll + _gVal;
         var _gFailed = _gTotal < _gDC;
-        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSk + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
+        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSk + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
         _gateShown = true;
         if (_gFailed) {
           var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : String(c.failResult));
@@ -10711,10 +10734,10 @@ function adaptEnrichedChoice(c) {
         G._lastRollInfo = null;
         if (!_gateShown) {
           var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-          var _riDC = (_derivedTag === 'safe' ? 8 : _derivedTag === 'bold' ? 16 : 13) + _stageBonus;
+          var _riDC = (_derivedTag === 'safe' ? 7 : _derivedTag === 'bold' ? 16 : 13) + _stageBonus + _rivalMod;
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
           var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
-          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
+          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
         }
       }
       const txt = G.lastResult || '';
@@ -11918,6 +11941,15 @@ function applyEffect(fx) {
     case 'history':   G.history.push(fx.msg); break;
     case 'stage2':    checkStage2Unlock(); break;
     case 'travel':    G.location = fx.dest; if (typeof updateHUD === 'function') updateHUD(); if (typeof updateEnvironmentPanel === 'function') { updateEnvironmentPanel(); buildLivingDesc(G.location, G); } break;
+    case 'xp':        gainXp(fx.n || fx.amount || 0); break;
+    case 'flag':      G.flags = G.flags || {}; G.flags[fx.key] = fx.value !== undefined ? fx.value : true; break;
+    case 'stat': {
+      var _KEY_EFX = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+      var _sk = _KEY_EFX[fx.skill] || fx.skill;
+      G.skills[_sk] = Math.min(10, (G.skills[_sk] || 0) + (fx.n || 0));
+      break;
+    }
+    case 'heat':      addHeat(fx.polity || fx.key, fx.n || fx.amount || 0); break;
   }
 }
 
@@ -15432,24 +15464,8 @@ function updateHUD() {
     if (_rivalMax > 0) { _rivalEl.textContent = 'rival: ' + _rivalMax; _rivalEl.style.display = ''; }
     else { _rivalEl.style.display = 'none'; }
   }
-  // Heat — show all active polity heat
-  var _heatEl = document.getElementById('hud-heat');
-  var _maxHeat = 0;
-  var _heatPolities = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
-  var _heatNames = {shelk:'Shelkopolis',roaz:'Roaz',shirsh:'Shirshal',mimolot:'Mimolot',panim:'Panim Haven',cosmouth:'Cosmouth',zootia:'Zootia',union:'Union',sheresh:'Sheresh',soreheim:'Soreheim',nomdara:'Nomdara'};
-  var _activeHeat = [];
-  _heatPolities.forEach(function(pk){ var hv = (G.heat && G.heat[pk]) || 0; if (hv > _maxHeat) _maxHeat = hv; if (hv > 0) _activeHeat.push(pk); });
-  if (_heatEl) {
-    if (_activeHeat.length > 0) {
-      _heatEl.style.display = '';
-      _heatEl.innerHTML = '<div style="font-size:10px;color:var(--ink-faint);letter-spacing:1px;margin-bottom:2px;">HEAT</div>' +
-        _activeHeat.map(function(pk){
-          var hv = G.heat[pk] || 0;
-          var color = hv >= 8 ? 'var(--danger)' : hv >= 5 ? '#d47517' : '#b8860b';
-          return '<div style="display:flex;justify-content:space-between;color:'+color+';font-size:11px;"><span>'+_heatNames[pk]+'</span><span>'+hv+'</span></div>';
-        }).join('');
-    } else { _heatEl.style.display = 'none'; }
-  }
+  updateHeatHUD();
+  var _maxHeat = Object.values(G.heat || {}).reduce(function(m,v){return Math.max(m,v);},0);
   // Pressure bars — watchfulness and heat
   var _watch = (G.worldClocks && G.worldClocks.watchfulness) || 0;
   var _watchRow = document.getElementById('hud-watch-row');
