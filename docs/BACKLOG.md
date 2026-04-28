@@ -12,10 +12,10 @@
 ## Summary counts
 | Status | Count |
 |--------|-------|
-| DONE | 84 |
-| PARTIAL | 4 |
+| DONE | 96 |
+| PARTIAL | 5 |
 | NOT BUILT | 10 |
-| UNKNOWN | 19 |
+| UNKNOWN | 6 |
 
 ---
 
@@ -85,13 +85,13 @@
 | Combat escalation path (threatLevel → yellow/orange/red choice border) | DONE | threatLevel computed; CSS classes wired to choice buttons |
 | Distance system visible in combat UI (range tier display) | DONE | rangeTier rendered in combat HUD |
 | Boss narrative buildup flags (NPC must appear 2+ times before boss) | DONE | stage1_miniboss_seeded_1/2 in stage1_boss.js; stage2_miniboss_seed_seen in stage2_boss.js |
-| Stage 1 macro goal system | UNKNOWN | enchanted-greeting; not verified |
-| Companion dynamic placement in narrative | UNKNOWN | enchanted-greeting; not verified |
-| Nomdara drift system | UNKNOWN | eager-swimming; not verified |
-| districts_stage1_enriched_choices.js | UNKNOWN | eager-swimming; not verified |
-| nomdara_stage1_choices.js | UNKNOWN | eager-swimming; not verified |
+| Stage 1 macro goal system | DONE | _macroGoals object defined ~line 9977; G.quests.unshift() loads macro goal from archetype.group at stage start |
+| Companion dynamic placement in narrative | DONE | G.companions tracked; getActiveCompanions() maps companions into narration strings; lines 2369-2384 |
+| Nomdara drift system | DONE | driftNomdara() function wired; G.nomdara_visited + G.nomdara_last_visit_locality tracked; drift_interval_time_units property |
+| districts_stage1_enriched_choices.js | DONE | file exists; script tag at line 16304 |
+| nomdara_stage1_choices.js | DONE | file exists; script tag at line 16305 |
 | Fumble locking (main plot locks + backup injection) | PARTIAL | adaptEnrichedChoice checks fumble_locked flag correctly, but no choice in any content file ever sets it — feature is code-complete but inert. Set `{type:'flag', key:'fumble_locked', value:true}` in a choice effect to activate. |
-| Archetype confirmation screen | UNKNOWN | enchanted-greeting; not verified |
+| Archetype confirmation screen | DONE | doSleepScene() checks G.flags.archetype_confirmed; shows confirmation choice at first rest; grants +1 renown; lines 13618-13643 |
 
 ---
 
@@ -102,19 +102,19 @@
 | DC recalibration (level-scaling: baseDC + floor((level-1)/2)) | NOT BUILT | 1-full-roll-craft Block B |
 | Skills→Stats terminology in player-facing UI | NOT BUILT | 1-full-roll-craft Block A; internal G.skills keys unchanged |
 | Abilities/Traits sections in character sheet | NOT BUILT | 1-full-roll-craft Block A |
-| Tutorial / onboarding (5-page modal at new game) | UNKNOWN | prancy-growing; not verified |
-| How-to-play screen | UNKNOWN | prancy-growing; not verified |
+| Tutorial / onboarding (5-page modal at new game) | DONE | #onboarding-modal with page system (_onboardingPage), showOnboarding(), skip option; lines 1642-1696, 8889-8941 |
+| How-to-play screen | DONE | #howto-modal with .active state, h2/h3 headers, close button; lines 1721-1731 |
 | Stage progress bar in HUD | DONE | #stage-progress-label shows "X / N" below bar; CSS + JS wired |
-| World clock onboarding tooltip (first increment per clock) | UNKNOWN | prancy-growing; not verified |
-| Character creation mechanic explanation (per archetype card) | UNKNOWN | prancy-growing; not verified |
+| World clock onboarding tooltip (first increment per clock) | DONE | G.tutorialFlags['first_watchfulness/pressure/reverence'] checked at lines 15368-15374; one-shot notices wired |
+| Character creation mechanic explanation (per archetype card) | PARTIAL | mechNote field defined in archetype objects but not rendered in archetype card selection UI |
 | .env-desc font 19px→17px | DONE | Currently 15px (reduced further) |
 | Narrative scroll bottom padding fix (48px→100px) | DONE | #narrative-scroll padding-bottom 100px |
 | #panel-action empty guard (ensureActionContent fallback) | DONE | `if (!querySelector('.choice-block')) loadStageChoices()` pattern in 8+ locations |
 | Journal evidence category counts | DONE | updateJournalHUD() shows ev/int/rum/disc summary header |
-| Crit rewards (+XP, +stageProgress on nat 20) | UNKNOWN | prancy-growing; not verified |
+| Crit rewards (+XP, +stageProgress on nat 20) | DONE | Implemented at line 11807; was calling nonexistent addXP — fixed to gainXp(1); stageProgress +1 wired |
 | Rest limit (2× per day, G.restCount) | DONE | Enforced at line 13342: `if ((G.restCount||0) >= 2)` blocks third rest. G.restCount resets to 0 on day advance. Phase E2 verified this session. |
-| Auto-save after every choice | UNKNOWN | prancy-growing; not verified |
-| Save export / JSON download | UNKNOWN | prancy-growing; not verified |
+| Auto-save after every choice | DONE | saveGame() called at line 10765 (enriched path) and line 10721 (gate path) after every resolved choice |
+| Save export / JSON download | DONE | btn-export-save + exportSave() creates JSON blob download 'loa-save-*.json'; lines 1847, 15987-15990 |
 | Sandbox mode (post-Stage 3 blocker, Stage II stays open) | NOT BUILT | prancy-growing; blocker never fires (hardcoded false) |
 | Second-person choice labels ("You…" register) | NOT BUILT | inspect-create; CLAUDE.md still uses inner-voice framing |
 | GitHub Pages / itch.io deployment | NOT BUILT | prancy-growing; Azure only currently |

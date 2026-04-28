@@ -11806,7 +11806,7 @@ function handleChoice(choice) {
 
     // Crit rewards: natural 20 → +1 XP + +1 stageProgress
     if (roll === 20) {
-      if (typeof addXP === 'function') addXP(1); else G.xp = (G.xp||0)+1;
+      if (typeof gainXp === 'function') gainXp(1); else G.xp = (G.xp||0)+1;
       var _critSK = G.stage==='Stage II'?2:G.stage==='Stage III'?3:1;
       G.stageProgress = G.stageProgress||{1:0,2:0,3:0,4:0,5:0};
       G.stageProgress[_critSK] = (G.stageProgress[_critSK]||0)+1;
