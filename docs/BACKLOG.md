@@ -44,7 +44,7 @@
 | Rival DC pressure (+1 per threshold 3/6/9) | DONE | getRivalDCMod() updated to thresholds 3/6/9; _rivalMod added to gate DC in adaptEnrichedChoice; roll display shows "(rival +N)" annotation. Phase B this session. |
 | Rival clock world notice at threshold 3/6/9 | DONE | all three thresholds fire addWorldNotice |
 | Universal roll DC 7 for safe choices | DONE | handleChoice: `_tier==='safe' ? 7`; test in dc-safe.test.js |
-| Universal roll — every choice auto-rolls | PARTIAL | safe auto-roll at DC 7 documented; risky/bold not all wired |
+| Universal roll — every choice auto-rolls | DONE | verified L11628–11672: safe=DC7, risky=DC13, bold=DC16, stage modifier applied; all tiers auto-roll when choice.roll absent |
 | Safe choice failResult field (required per CLAUDE.md) | DONE | validator rule A7 in validate-content.js; unit tests added |
 | getEquippedBonus() dead for all shop items | DONE | Pipeline correct — full objects stored; regression tests added |
 
