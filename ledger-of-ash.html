@@ -15154,6 +15154,7 @@ function showShop() {
       '<div class="shop-item-info">' +
         '<div class="shop-item-name">' + item.name + '</div>' +
         '<div class="shop-item-desc">' + item.desc + ' &middot; ' + item.site + '</div>' +
+        (item.skillBonus && item.bonus > 0 ? '<div style="font-size:11px;color:var(--gold-dim);margin-top:2px">+' + item.bonus + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus) + '</div>' : '') +
       '</div>' +
       '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">' +
         '<div class="shop-item-cost">' + costLabel + '</div>' +
