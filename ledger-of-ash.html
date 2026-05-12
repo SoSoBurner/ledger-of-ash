@@ -9142,7 +9142,7 @@ function addHeat(polity, amount) {
   var _new = G.heat[polity];
   if (typeof flashStatRow === 'function') { flashStatRow('heat'); flashStatRow('heat-' + polity); }
   // Queue authority encounter when heat crosses threshold for first time (fires on next loadStageChoices)
-  [3, 5, 8].forEach(function(t) {
+  [5, 8].forEach(function(t) {
     if (_prev < t && _new >= t) {
       if (!G._pendingHeatEncounter || G._pendingHeatEncounter.level < t)
         G._pendingHeatEncounter = { polity: polity, level: _new };
@@ -9830,7 +9830,7 @@ function _buildOnboardingPages() {
     },
     {
       title: 'Making Choices',
-      body:  '<p><strong>Every choice in this game involves a roll.</strong> Reading a public ledger is safe — DC 8, low chance of failure. Confronting a warden directly is bold — DC 16, real chance of failure.</p>' +
+      body:  '<p><strong>Every choice in this game involves a roll.</strong> Reading a public ledger is safe — DC 7, low chance of failure. Confronting a warden directly is bold — DC 16, real chance of failure.</p>' +
              '<p>Safe, risky, and bold choices are color-coded. Safe choices have a low chance of going wrong, but they can. When they do, the path redirects rather than ends — there is always a thread to pull.</p>' +
              '<p>A natural 20 is a Critical Success. A natural 1 is a Critical Failure — on main-plot choices, a backup path opens automatically.</p>'
     },
@@ -10724,7 +10724,6 @@ function adaptEnrichedChoice(c) {
         }
       }
       try {
-        if (_rivalMod > 0) G._rivalDCPenalty = _rivalMod;
         c.fn();
       } catch(e) { console.error('[enriched]', e); G._rivalDCPenalty = 0; throw e; } finally {
         G._rivalDCPenalty = 0;
@@ -10803,7 +10802,7 @@ function _injectBossSeedChoices(choices) {
 
 /** Evaluates G.heat thresholds and applies world-state consequences. Call on locality load. */
 function checkHeatConsequences() {
-  const heat = G.heat || 0;
+  const heat = (G.heat && typeof G.heat === 'object') ? Math.max(0, ...Object.values(G.heat)) : 0;
   // Heat 3: world notice — NPCs become guarded
   if (heat >= 3 && !G.flags.heat3_noticed) {
     G.flags.heat3_noticed = true;
@@ -11468,7 +11467,6 @@ function rollD20(skill, bonus) {
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
 
-/** @param {number} amount — XP to add. Applies stage multiplier (S1=1x, S2=1.5x, S3=2x). Calls checkLevelUp() → checkStageAdvance(). */
 function gainXp(amount) {
   G.xp = (G.xp || 0) + amount;
   checkLevelUp();
@@ -11804,12 +11802,17 @@ function handleChoice(choice) {
       }
     }
 
-    // Crit rewards: natural 20 → +1 XP + +1 stageProgress
+    // Crit rewards: natural 20 → +1 XP + +1 stageProgress (capped at 3 per stage from crits)
     if (roll === 20) {
       if (typeof gainXp === 'function') gainXp(1); else G.xp = (G.xp||0)+1;
       var _critSK = G.stage==='Stage II'?2:G.stage==='Stage III'?3:1;
       G.stageProgress = G.stageProgress||{1:0,2:0,3:0,4:0,5:0};
-      G.stageProgress[_critSK] = (G.stageProgress[_critSK]||0)+1;
+      G.flags = G.flags||{};
+      var _critSpKey = '_crit_sp_stage' + _critSK;
+      if ((G.flags[_critSpKey]||0) < 3) {
+        G.stageProgress[_critSK] = (G.stageProgress[_critSK]||0)+1;
+        G.flags[_critSpKey] = (G.flags[_critSpKey]||0)+1;
+      }
     }
 
     resolveConsequence(choice.cid, success, false);
@@ -12087,11 +12090,7 @@ function modHP(n) {
 
 // ── XP AND LEVEL UP ──────────────────────────────────────
 function gainXP(n) {
-  const stageMultipliers = { 'Stage I': 1.0, 'Stage II': 1.5, 'Stage III': 2.0 };
-  const mult = stageMultipliers[G.stage] || 1.0;
-  n = Math.min(Math.round(n * mult), 68);
-  G.xp = (G.xp || 0) + n;
-  checkLevelUp();
+  gainXp(n);
 }
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
@@ -12927,7 +12926,7 @@ function tickAxis(n) {
 function addJournal(text, category, dedupeKey) {
   if (!G.journal) G.journal = [];
   if (!G.journalRecords) G.journalRecords = [];
-  category = category || 'field_note';
+  category = category || 'discovery';
   dedupeKey = dedupeKey || text.slice(0, 40);
 
   // Dedupe
@@ -16247,7 +16246,7 @@ document.getElementById('howto-close').addEventListener('click', function() {
 
 <script>
 var HOWTO_SECTIONS = [
-  { heading: 'Risk Tiers', body: '<strong>Every choice involves a roll.</strong> Safe choices roll against DC 8 — low chance of failure, and when they fail the path redirects rather than ends. Risky choices roll against DC 13 — real risk, real reward. Bold choices roll against DC 16 — high stakes, harder consequences. A natural 20 is a Critical Success (shown in gold). A natural 1 is a Critical Failure — on main-plot choices, a backup path opens.' },
+  { heading: 'Risk Tiers', body: '<strong>Every choice involves a roll.</strong> Safe choices roll against DC 7 — low chance of failure, and when they fail the path redirects rather than ends. Risky choices roll against DC 13 — real risk, real reward. Bold choices roll against DC 16 — high stakes, harder consequences. A natural 20 is a Critical Success (shown in gold). A natural 1 is a Critical Failure — on main-plot choices, a backup path opens.' },
   { heading: 'World Clocks', body: '<ul><li><strong>Attention</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Watchfulness</strong> — marks how visible your movements have become. High watchfulness raises DCs and draws scrutiny.</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
   { heading: 'Stage Progression', body: 'Gathering evidence fills your case. Each stage requires a threshold of progress — bold and risky successes push it forward. Advancing stages unlocks new localities and plot threads. Your rival advances in parallel; fall too far behind and they reach key sources first.' },
   { heading: 'Rest Mechanics', body: 'Rest at camp to recover HP. You may rest at most twice per day — a third attempt is too exhausting. <strong>Lay Low</strong> reduces watchfulness at the cost of a day. <strong>Review Notes</strong> recovers from stall conditions when the case feels stuck.' },
