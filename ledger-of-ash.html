@@ -1056,6 +1056,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 .roll-result.success { border-left-color: var(--jade-bright); }
 .roll-result.failure { border-left-color: var(--blood-mid); }
+.roll-summary { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); margin-bottom: 6px; padding: 4px 14px; }
 
 /* ═══════════════════════════════════════════════════════════════
    CHOICE BUTTONS — the decisive moment in the Crucible
@@ -2063,7 +2064,9 @@ input, button, select, textarea { font-family: inherit; }
     <div class="overlay-header"><span class="overlay-title" style="color:var(--blood-bright)">Your Legend Ends</span><button class="overlay-close" data-close="overlay-death">&#x00D7;</button></div>
     <div class="overlay-body overlay-death-body">
       <p class="death-text">Here ends the tale. The Ledger will remember what you were.</p>
+      <p id="death-location-text" style="font-size:13px;color:var(--ink-faint);margin:0;"></p>
       <button class="btn btn-danger" id="btn-confirm-end">Record My End</button>
+      <div id="death-load-save-wrap"></div>
       <button class="btn btn-ghost btn-sm" data-close="overlay-death">Not yet.</button>
     </div>
   </div>
@@ -11655,7 +11658,10 @@ function handleChoice(choice) {
       _autoRollFailed = _arTotal < _effectiveRoll.dc;
       var _rollClass = 'roll-result ' + (_autoRollFailed ? 'failure' : 'success');
       var _abilStr = _abilBonus > 0 ? ' + ability ' + _abilBonus : '';
-      addNarration('', '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
+      var _SKILL_DISPLAY_MAP = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      var _skillLabel = _SKILL_DISPLAY_MAP[_effectiveRoll.skill] || _effectiveRoll.skill;
+      var _rollSummary = '<div class="roll-summary">' + _skillLabel + ' ' + _arRoll + ' + ' + _arSkillVal + (_abilBonus > 0 ? ' + ' + _abilBonus : '') + ' = ' + _arTotal + ' vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'FAIL' : 'SUCCESS') + '</div>';
+      addNarration('', _rollSummary + '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
@@ -14408,7 +14414,14 @@ function showJournal() {
         '<span class="jov-frep">' + bar + '</span></div>';
     }).join('');
 
-  const questRows = (G.quests||[]).map(q => '<div class="jov-quest">&#x25B6; ' + (typeof q === 'object' ? (q.msg||'') : q) + '</div>').join('') ||
+  const questRows = (G.quests||[]).map(q => {
+    var _qtext = typeof q === 'object' ? (q.msg || q.text || JSON.stringify(q)) : q;
+    var _qid = typeof q === 'object' ? (q.questId || q.id || '') : '';
+    var _hint = (_qid && G.questHints && G.questHints[_qid]) ? G.questHints[_qid] : '';
+    return '<div class="jov-quest" style="border-left:2px solid var(--accent-gold);padding-left:6px;margin-bottom:4px;">&#x25B6; ' + _qtext +
+      (_hint ? '<div style="font-size:11px;color:var(--ink-faint);font-style:italic;margin-top:2px">' + _hint + '</div>' : '') +
+      '</div>';
+  }).join('') ||
     '<div style="color:var(--ink-faint);font-style:italic;font-size:13px">No active quests.</div>';
 
   const loreRows = (G.journal||[]).slice(0,20).map(j => '<div class="jov-entry">' + j + '</div>').join('') ||
@@ -14475,7 +14488,6 @@ function showJournal() {
     '<div class="jov-section"><div class="jov-title">&#x25A0; Wounds &amp; Recovery</div>' +
     '<div class="jov-entry">State: <strong>' + (G.recoveryState||'stable') + '</strong> &middot; Fatigue: ' + (G.fatigue||0) + '/10</div>' +
     woundRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Inventory</div>' + invRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Materials</div>' + matRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Faction Relations</div>' + factionRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Rival Adventurers</div>' + rivalRows + '</div>' +
@@ -15802,7 +15814,20 @@ function showCamp() {
   showOverlay('overlay-camp');
 }
 
-function confirmDeath() { showOverlay('overlay-death'); }
+function confirmDeath() {
+  showOverlay('overlay-death');
+  var _locName = (typeof WORLD_LOCATIONS !== 'undefined' && WORLD_LOCATIONS && G.location && WORLD_LOCATIONS[G.location]) ? WORLD_LOCATIONS[G.location].name : (G.location || 'the road');
+  var _locEl = document.getElementById('death-location-text');
+  if (_locEl) _locEl.textContent = 'Your legend ended in ' + _locName + '.';
+  var _saveWrap = document.getElementById('death-load-save-wrap');
+  if (_saveWrap) {
+    if (localStorage.getItem('ledger-save')) {
+      _saveWrap.innerHTML = '<button class="btn btn-ghost btn-sm" style="margin-top:4px" onclick="loadGame();closeOverlay(\'overlay-death\')">Load Last Save</button>';
+    } else {
+      _saveWrap.innerHTML = '<p style="font-size:12px;color:var(--ink-faint);margin:4px 0">No save found.</p>';
+    }
+  }
+}
 function endLegend() {
   const legends = (function(){ try { return JSON.parse(localStorage.getItem('loa_legends')||'[]'); } catch(e) { return []; } })();
   const topFaction = (G.factions||[]).sort((a,b)=>b.rep-a.rep)[0];
@@ -16260,6 +16285,15 @@ var HOWTO_SECTIONS = [
   { heading: 'Companions', body: 'As your investigation deepens, allies may join you. Once unlocked, companions appear in your character sheet. They carry their own agendas and may assist or complicate your choices.' },
   { heading: 'Journal', body: 'The journal records evidence, intelligence, contacts, and discoveries automatically. Open it to review what you know. The investigation advances when your evidence reaches thresholds — check your progress in the stage bar.' },
   { heading: 'Shops & Services', body: 'Localities offer shops, inns, and services through the choice panel. When in a settlement, look for choices that lead to vendors, rest, or local services. Your inventory and equipment are in the character sheet.' },
+  { heading: 'Choice Colors', body: '<strong>Blue border</strong>: Main quest — advances the central story. <strong>Orange border</strong>: Confrontation or accusation — high consequence. <strong>Dark amber border</strong>: Conflict, betrayal, or exposure. <strong>Red border</strong>: Combat action. Choices with no border are standard.' },
+  { heading: 'Roll System', body: 'Every choice involves a d20 roll. Your skill modifier is added to the result and compared to a Difficulty Class (DC). Safe choices use DC 7, risky choices DC 13, bold choices DC 16. Rolling a natural 20 gives a bonus; rolling a natural 1 is always a critical failure regardless of modifiers. Higher skills make difficult DCs more reliably passable — but the dice are never fully tamed.' },
+  { heading: 'Heat & Authority', body: 'Each polity tracks your heat (0–10). At heat 3, local authority takes notice and you may face an encounter. At heat 5, all checks in that polity cost +1 DC. At heat 8, a warrant is issued and armed responses become likely. Heat fades slowly on its own or faster by avoiding that polity. Different polities have different tolerance thresholds — border settlements are more permissive than capitals.' },
+  { heading: 'Rival Pressure', body: 'Your rivals operate on their own clock, accumulating renown while you work. High rival renown adds +1 to +3 DC to contested rolls — they have resources and allies you do not. The rival clock advances with each stage transition and major story beat. You can slow them by directly disrupting their operations, but outpacing them requires pushing into bold choices consistently.' },
+  { heading: 'Travel', body: 'Move between localities by opening the map. On foot is free but slow. Horse, cart, and boat cost gold per leg but cover more ground. Your pace (fast, normal, slow) affects encounter chance — fast pace risks complications; slow pace reduces them. Supplies deplete each day of travel. Running out of supplies imposes penalties to Vigor rolls until you resupply at the next settlement.' },
+  { heading: 'Camp & Rest', body: 'Rest at camp to recover HP. The amount healed scales with your Vigor skill. Crafting at camp uses a Spirit roll against the recipe difficulty — success produces the item, failure consumes materials. If you have companions, posting watches overnight converts potential ambushes into warned encounters where you act first. Camp is also where companion-specific events can trigger.' },
+  { heading: 'Companions', body: 'Companions join after you resolve the Maren Oss encounter in Stage I. Vorath Gelden provides combat bonuses and intimidation presence. Mira Calden provides skill bonuses to lore and stealth. Each companion has an agenda that can create friction — they are not tools, they have opinions. Companion bonuses apply passively to relevant rolls. Losing a companion mid-stage has lasting narrative consequences.' },
+  { heading: 'Stage Progress', body: 'The investigation bar in your HUD tracks your stage progress. Risky and bold choices advance it; safe choices do not. The bar must reach 3 for the stage miniboss to unlock, and 8 or higher to face the stage boss. Completing the boss encounter clears the way to advance. You cannot skip stages — the investigation must be developed before the confrontation becomes possible.' },
+  { heading: 'Alignment', body: 'Two hidden axes track your moral character: Benevolence (-50 to +50) and Order (-50 to +50). Choices that help others at personal cost raise benevolence; choices that harm others lower it. Choices that uphold law and structure raise order; lawbreaking lowers it. At plus or minus 10, alignment badges appear on your character sheet. NPCs in later stages react to your alignment — some paths close, others open.' },
 ];
 
 function showHowToPlay() {
