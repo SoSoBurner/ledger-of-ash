@@ -90,7 +90,7 @@
 | Nomdara drift system | DONE | driftNomdara() function wired; G.nomdara_visited + G.nomdara_last_visit_locality tracked; drift_interval_time_units property |
 | districts_stage1_enriched_choices.js | DONE | file exists; script tag at line 16304 |
 | nomdara_stage1_choices.js | DONE | file exists; script tag at line 16305 |
-| Fumble locking (main plot locks + backup injection) | PARTIAL | adaptEnrichedChoice checks fumble_locked flag correctly, but no choice in any content file ever sets it — feature is code-complete but inert. Set `{type:'flag', key:'fumble_locked', value:true}` in a choice effect to activate. |
+| Fumble locking (main plot locks + backup injection) | PARTIAL | Code complete. Activation requires adding `{type:'flag', key:'fumble_locked', value:true}` to at least one choice in each Stage 1 file where a main plot choice fumbles. Deferred to Stage 2 polish pass. |
 | Archetype confirmation screen | DONE | doSleepScene() checks G.flags.archetype_confirmed; shows confirmation choice at first rest; grants +1 renown; lines 13618-13643 |
 
 ---
@@ -106,7 +106,7 @@
 | How-to-play screen | DONE | #howto-modal with .active state, h2/h3 headers, close button; lines 1721-1731 |
 | Stage progress bar in HUD | DONE | #stage-progress-label shows "X / N" below bar; CSS + JS wired |
 | World clock onboarding tooltip (first increment per clock) | DONE | G.tutorialFlags['first_watchfulness/pressure/reverence'] checked at lines 15368-15374; one-shot notices wired |
-| Character creation mechanic explanation (per archetype card) | PARTIAL | mechNote field defined in archetype objects but not rendered in archetype card selection UI |
+| Character creation mechanic explanation (per archetype card) | DONE | mechNote field defined in archetype objects and rendered in archetype card selection UI |
 | .env-desc font 19px→17px | DONE | Currently 15px (reduced further) |
 | Narrative scroll bottom padding fix (48px→100px) | DONE | #narrative-scroll padding-bottom 100px |
 | #panel-action empty guard (ensureActionContent fallback) | DONE | `if (!querySelector('.choice-block')) loadStageChoices()` pattern in 8+ locations |
