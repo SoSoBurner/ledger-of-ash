@@ -688,7 +688,6 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The complicit witness is waiting to see what you do with what they just told you.",
     tags: ['Moral', 'Choice', 'Pressure'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -721,6 +720,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 20. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
+    plot: 'main',
     label: "The letters name people by function, not name. They're orders, not correspondence.",
     tags: ['Origin', 'Discovery', 'Climax'],
     xpReward: 80,
@@ -859,7 +859,6 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone was here before you, asking the same questions. They wrote down the answers.",
     tags: ['NPC', 'Warning', 'Stage1'],
-    plot: 'main',
     xpReward: 55,
     failResult: {
       text: "The merchant you were told to find has his stall closed — a slip of paper tacked to the frame says back at the second bell, which is two hours off. The fish-salt of the harbor drifts down Verdant Row. Other stall holders nearby heard the same questions being asked over the past week; one of them is still thinking about what he saw. He is not the person you came to find, but the harbor end of the Row knows what its neighbors know.",

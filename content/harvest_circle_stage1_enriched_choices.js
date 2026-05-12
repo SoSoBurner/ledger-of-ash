@@ -10,6 +10,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. GRAIN MEASURER: QUOTA MANIPULATION
   {
+    plot: 'main',
     label: "Connected families: log light. Independent farmers: extra review, lower count than the scale shows. Instructions, not guidelines.",
     tags: ['Investigation', 'NPC', 'Grain', 'Quotas', 'Meaningful'],
     xpReward: 70,
@@ -92,6 +93,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. PROTECTOR OF MAGICAL FORESTS: LAND CORRUPTION
   {
+    plot: 'main',
     label: "Fields are now maintained by family standing, not agricultural condition. The Halversen family's blight risk has been real for six weeks.",
     tags: ['Investigation', 'NPC', 'Land', 'Protection', 'Meaningful'],
     xpReward: 70,
@@ -698,7 +700,6 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Confront a Harvest Circle official who's complicit in system corruption — demand explanation and decide whether to protect them or expose their role.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -737,6 +738,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
+    plot: 'main',
     label: "The family consolidation at Harvest Circle has an external hand behind it.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
@@ -1002,7 +1004,6 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A Provision Compact transport driver mentions a researcher traveled with his convoy last week asking questions about routing documentation.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

@@ -9,6 +9,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: LETHA DAWNSILK
   {
+    plot: 'main',
     label: "The outpost commander's pressure logs were reclassified. She's still here.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
@@ -38,6 +39,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: PRESSURE GRADIENT RECORDS
   {
+    plot: 'main',
     label: "Letha's six months of pressure records are sitting on that desk.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
@@ -230,7 +232,6 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The official channels are compromised. Letha knows it. She's waiting to see if I do.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -513,6 +514,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: THE FULL PICTURE
   {
+    plot: 'main',
     label: "Plumes End is detecting the leading edge. The operation is already in progress.",
     tags: ['Investigation', 'Synthesis', 'Stage1', 'Meaningful'],
     xpReward: 76,

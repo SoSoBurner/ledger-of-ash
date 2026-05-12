@@ -10,6 +10,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 1. MARTIAL COMMANDER: COMMAND STRUCTURE FRACTURING
   {
+    plot: 'main',
     label: "Orders are contradicting each other. The hierarchy is losing coherence and no one up the chain will say why.",
     tags: ['Investigation', 'NPC', 'Observation', 'Military', 'Meaningful'],
     xpReward: 70,
@@ -91,6 +92,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 3. OATH KEEPER: OATH RECORDS FALSIFIED
   {
+    plot: 'main',
     label: "The oath records show new bindings replacing old ones. Someone is overwriting commitments that were meant to be permanent.",
     tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
     xpReward: 70,
@@ -642,7 +644,6 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One of them is participating in the conspiracy. They know it. The choice is whether they're the kind of person who can be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -679,6 +680,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
+    plot: 'main',
     label: "There's a document somewhere that names who is directing this from outside. The garrison's own records point toward it.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
@@ -980,7 +982,6 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone was here yesterday asking about the same formatting codes. Their credentials were from a northern archive. Maret remembers faces.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

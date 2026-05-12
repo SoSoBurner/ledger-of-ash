@@ -23,6 +23,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Aurora Heights courts run formal session this morning — property disputes, access hearings, pre-Union charter arguments.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 65,
@@ -51,6 +52,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Aurora Heights archive reading room. Maintenance records go back years. Something changed eleven months ago.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 70,
@@ -849,7 +851,6 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone in the Low Ward is selling word about the inquiry to whoever wants it. Find them before they sell anything about you.",
     tags: ['District', 'Combat', 'Stealth'],
-    plot: 'main',
     xpReward: 75,
     fn: function() {
       advanceTime(1);

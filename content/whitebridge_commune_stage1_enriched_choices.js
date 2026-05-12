@@ -9,6 +9,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: CADRIN
   {
+    plot: 'main',
     label: "Cadrin's second log. Three nights repeat. The counts don't agree.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
@@ -36,6 +37,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: BRIDGE CARGO TRACKING BREAK
   {
+    plot: 'main',
     label: "Cadrin's personal log and the commune registry side by side. The new-moon entries don't match.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
@@ -239,7 +241,6 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cadrin needs to know what this becomes before he talks.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -459,6 +460,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INVESTIGATION: EXTERNAL AUTHORIZATION SOURCE
   {
+    plot: 'main',
     label: "The ghost account traces to someone not in any public registry here.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 73,

@@ -10,6 +10,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 1. GUILD ARBITRATOR: DISPUTE RESOLUTION FAILURES
   {
+    plot: 'main',
     label: "The arbitrator's rulings have been going the same direction for weeks. Someone upstream is setting the outcome.",
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
     xpReward: 70,
@@ -50,6 +51,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 2. MERCHANT REPRESENTATIVE: TRADE AGREEMENT CHANGES
   {
+    plot: 'main',
     label: "The merchants who lost agreements last month all trade the same goods. That's not coincidence.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Agreements', 'Meaningful'],
     xpReward: 75,
@@ -772,7 +774,6 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Confront a guild official who's complicit in arbitration corruption — demand explanation and decide whether to protect them or expose them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     failResult: {
       text: `The official is in session — the anteroom clerk says it will be two hours, possibly three. The wait bench is narrow and faces the corridor, where everyone who passes can see who is sitting and for how long. Waiting here is its own kind of visibility. The evidence you've gathered is already assembled; the confrontation is a matter of timing. Coming back at close of hall, when the corridors are thinner and the session doors open of their own accord, would find the official alone with the folder still on the table.`,
@@ -811,6 +812,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
+    plot: 'main',
     label: "The corruption in guild arbitration runs through an external hand nobody has named.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
@@ -1050,7 +1052,6 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A dockside factor quietly passes you a note — someone has been asking about you specifically, and their questions are detailed.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 58,
     failResult: {
       text: `The dockside factor is in conversation with a hall clerk when you approach — a formal exchange, ledger open between them, nothing to interrupt. She clocks your approach without acknowledging it and keeps her attention on the clerk. The note she meant to pass stays in her apron. When the clerk leaves she moves directly to her next stall. The passage for it will come later — she'll look for you at the freight counter's east end during the slow hour before close of yard, which is where she handles anything that shouldn't be handed over in a crowd.`,

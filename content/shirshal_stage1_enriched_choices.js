@@ -10,6 +10,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 1. CASE CLERK: WITNESS STATEMENTS DISAPPEARING
   {
+    plot: 'main',
     label: "The case clerk has been filing statements for eight years. He knows when one goes missing.",
     tags: ['Investigation', 'NPC', 'Evidence', 'Records', 'Meaningful'],
     xpReward: 70,
@@ -48,6 +49,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 2. EVIDENCE HANDLER: MAGICAL ANOMALY RECORDS FALSIFIED
   {
+    plot: 'main',
     label: "The evidence handler filed what he observed. What's in the log now is not what he filed.",
     tags: ['Investigation', 'NPC', 'Magic', 'Evidence', 'Meaningful'],
     xpReward: 75,
@@ -677,6 +679,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 18. CONSPIRACY EXPOSURE: SYSTEMATIC JUSTICE WEAPONIZATION
   {
+    plot: 'main',
     label: "The thread runs clean from external directive to forged authorization to falsified outcome.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
@@ -898,7 +901,6 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone else visited Magistrate Corin two weeks ago. They knew she had kept copies.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

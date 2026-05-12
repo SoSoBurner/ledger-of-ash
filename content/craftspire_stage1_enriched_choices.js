@@ -9,6 +9,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: JORIN
   {
+    plot: 'main',
     label: "An unofficial complaint about chemical input anomalies was filed four months ago. The master who filed it is still at his bench.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The workshop is running at full pace — a press cycle turning, two apprentices logging tolerance marks, the air sharp with flux. Jorin is at the calibration bench with both hands occupied and a queue of three behind you. He doesn't look up. The break schedule is posted on the door: second bell, sixth bell. The analysis sheets are visible on the back table. Come back when the bench is clear.",
@@ -32,6 +33,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: CHEMICAL INPUT RECORDS
   {
+    plot: 'main',
     label: "The manifests say one concentration. The delivered samples test at another. Someone in the supply chain is doing the math.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "The records office clerk closes the window at the third bell — midday processing, back at the fourth. The analysis sheets are filed under Jorin's member number and require his signature for outside access. The data exists. The route to it runs through Jorin, who takes his break at the second and sixth bell. Neither window has passed yet.",
@@ -89,6 +91,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE SUPPLY CHAIN ORIGIN
   {
+    plot: 'main',
     label: "The compound leaves the production facility at full concentration. It arrives here short. Something happens in between.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     failResult: "The production facility's output records come back clean — full concentration at source, well-documented. The gap sits somewhere in the middle. The waystation intake records are under the supply contractor's internal administration, not publicly filed. Two clean endpoints establish the problem. What sits between them is still closed. The contractor's guild registration has a contact office with a public address.",
@@ -193,7 +196,6 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Jorin has been doing the quiet version for four months. He needs to know if that's still the right call.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

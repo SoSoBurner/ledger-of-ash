@@ -10,6 +10,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 1. STABLE FACTOR: TRADE ROUTES MANIPULATION
   {
+    plot: 'main',
     label: "Three brigs are riding at anchor with idle cranes above them. The berths they're waiting for are occupied by Cosmouth vessels that arrived after them.",
     tags: ['Investigation', 'NPC', 'Maritime', 'Commerce', 'Meaningful'],
     xpReward: 70,
@@ -50,6 +51,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 2. QUARTERMASTER: SUPPLY CHAIN DIVERSION
   {
+    plot: 'main',
     label: "The ledger shows forty bolts for independent merchants. The correction shows twenty. Cosmouth brig crews show forty. The corrections are in someone else's hand.",
     tags: ['Investigation', 'NPC', 'Resources', 'Supply', 'Meaningful'],
     xpReward: 75,
@@ -90,6 +92,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 3. SHRINE CARETAKER: RITUAL CORRUPTION
   {
+    plot: 'main',
     label: "The morning blessing list is handed to the caretaker before the tide. Some crews get the full communion. Others get a shorter rite.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     xpReward: 70,
@@ -708,7 +711,6 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "They've been waiting for someone to ask for months. Now someone is here and they don't know if it makes things better or worse.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -745,6 +747,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
+    plot: 'main',
     label: "The money came first. The charter amendments followed. Cosmoria's institutions didn't change from inside.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
@@ -966,7 +969,6 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A maritime insurance broker mentions someone visited them last week asking about the same ghost vessels — claiming to be a cargo verification specialist.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

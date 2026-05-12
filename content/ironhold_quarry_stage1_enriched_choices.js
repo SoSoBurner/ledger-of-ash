@@ -9,6 +9,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: VELKA IRONSPIKE
   {
+    plot: 'main',
     label: "A mine overseer has been here twenty years. She's been keeping a private operations log for fourteen months. The official record is wrong on purpose.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
@@ -37,6 +38,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: THE EASTERN FACE EXTRACTION
   {
+    plot: 'main',
     label: "The eastern face produces something that gets classified as disposal. The disposal schedule doesn't match the shipping calendar.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
@@ -218,7 +220,6 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Velka has been doing the quiet version for fourteen months. She needs to know if that's still the right call.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -504,7 +505,8 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: TIMELINE URGENCY
   {
-    label: "The extraction is 4-6 weeks from completion. What the accumulated material does after collection is the question no one has answered yet.",
+    plot: 'main',
+    label: "The extraction is 4-6 weeks from completion. What the accumulated material doesafter collection is the question no one has answered yet.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {

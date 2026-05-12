@@ -10,6 +10,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 1. SHRINE HELPER: OFFERING PATTERNS CORRUPTED
   {
+    plot: 'main',
     label: "The offering standards changed. Copper mixed with iron is being accepted now. That was always sent back before.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Offerings', 'Meaningful'],
     xpReward: 70,
@@ -49,6 +50,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 2. LEDGER KEEPER: MEDIATION RECORDS TAMPERED
   {
+    plot: 'main',
     label: "The mediation ledger entries from six weeks ago use newer ink than the dates claim.",
     tags: ['Investigation', 'NPC', 'Records', 'Mediation', 'Meaningful'],
     xpReward: 75,
@@ -673,11 +675,11 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 18. LAYERED REVELATION: MEDIATION AS INSTRUMENT
   {
+    plot: 'main',
     label: "The system isn't broken. It's been reoriented. Everything points the same direction and always to the same beneficiaries.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
-    plot: 'main',
     failResult: {
       text: "The assembled evidence still has gaps in the mechanism layer — individual pieces are documented, but the connective thread between them remains circumstantial. A single strong source willing to describe the coordination would convert pattern into proof. Tazren holds the pre-reform doctrine text and has been watching this unfold from the outside for two years. His framing of where each piece fits may be the missing structure.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
@@ -885,7 +887,6 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Tazren mentions a visitor came to see him last month — someone who claimed to be researching Bureau reform history.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
-    plot: 'main',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(57, 'receiving rival warning');

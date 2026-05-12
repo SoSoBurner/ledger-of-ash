@@ -10,6 +10,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 1. SYNDICATE YARD MASTER: CONVOY ROUTE CHANGES
   {
+    plot: 'main',
     label: "The yard master signs off on routes he didn't write. The convoys go where he isn't told they go.",
     tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics', 'Meaningful'],
     xpReward: 70,
@@ -48,6 +49,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 2. FAMILY BROKER: OBLIGATION ENFORCEMENT
   {
+    plot: 'main',
     label: "Family obligations used to be mutual. Something changed who decides what the obligation means.",
     tags: ['Investigation', 'NPC', 'Family', 'Coercion', 'Meaningful'],
     xpReward: 75,
@@ -702,7 +704,6 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The family leader cooperated. The question is whether they had any other choice.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -735,6 +736,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
+    plot: 'main',
     label: "The syndicate takes orders from someone outside Sunspire. The courier receipts came from somewhere north.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
@@ -932,7 +934,6 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The waystation innkeeper mentions a traveler asking about the convoy disruption — their description of events was more detailed than any official report.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

@@ -9,6 +9,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: VALE BROKERWELL
   {
+    plot: 'main',
     label: "Vale Brokerwell's decisions have been reshaping who controls these routes. He knows someone is looking.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
@@ -37,6 +38,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: ARBITRATION RECORD ALTERATION
   {
+    plot: 'main',
     label: "The public register and the parties' private outcome copies don't say the same thing.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
@@ -221,7 +223,6 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The junior arbiter near the archive door is the one who enters Brokerwell's corrections into the public record.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -497,6 +498,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: SHELKOPOLIS CONNECTION
   {
+    plot: 'main',
     label: "Routing rights captured here feed supply lines that run directly into Shelkopolis's market. This isn't isolated.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 70,

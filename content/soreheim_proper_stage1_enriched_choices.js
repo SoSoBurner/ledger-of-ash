@@ -653,7 +653,6 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "They're waiting to learn what this conversation costs them. Expose them and they lose everything. Protect them and they owe you.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     failResult: 'This path is closed here, but the NPC\'s name is already in the displacement log — approaching them through the documented record rather than direct confrontation removes the personal threat and gives them a different kind of opening.',
@@ -687,6 +686,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
+    plot: 'main',
     label: "The orders predate the first quota increase by three weeks. Soreheim wasn't reacting to a problem. Soreheim was the plan.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
@@ -924,7 +924,6 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A veteran labor organizer warns you — someone matching an unusual description has been following your line of inquiry by one day.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 60,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

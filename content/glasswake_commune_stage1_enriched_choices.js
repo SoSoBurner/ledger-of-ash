@@ -9,6 +9,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: TOMAN ICEVEIL
   {
+    plot: 'main',
     label: "A researcher's work is cited in suppressed documents. He's still here. He's been waiting for someone to ask.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
@@ -38,6 +39,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. CLUE: SUPPRESSED SHARD STUDY
   {
+    plot: 'main',
     label: "Sections of the shard study are marked 'pending administrative review.' The review was filed fourteen months ago. No review entry exists.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
@@ -247,7 +249,6 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Toman Iceveil asks what you plan to do with his data — he needs to know before he risks giving you everything he has.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -465,6 +466,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INVESTIGATION: THE PREDECESSOR STUDY
   {
+    plot: 'main',
     label: "Toman's work built on an earlier study. Someone noticed the amplification first.",
     tags: ['Investigation', 'Lore', 'Stage1'],
     xpReward: 68,

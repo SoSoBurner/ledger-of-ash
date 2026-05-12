@@ -10,6 +10,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. DOME TECHNICIAN: MAINTENANCE ROTATIONS DISRUPTED
   {
+    plot: 'main',
     label: "The emergency rotations have increased. Fewer people are being assigned to the repairs that need them most.",
     tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure', 'Meaningful'],
     xpReward: 70,
@@ -53,6 +54,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. RESEARCH ARCHIVIST: CELESTIAL RECORDS REMOVAL
   {
+    plot: 'main',
     label: "The celestial observation logs have been moved. Someone authorized it. The authorization isn't on the board.",
     tags: ['Investigation', 'NPC', 'Records', 'Knowledge', 'Meaningful'],
     xpReward: 75,
@@ -682,7 +684,6 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "They didn't design the trap. They're just standing in it with everyone else.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -721,6 +722,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
+    plot: 'main',
     label: "The instruction chain passes through the relay and terminates somewhere the commune doesn't have a name for.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
@@ -1053,7 +1055,6 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Orren mentions that someone else came asking about the dome a week ago — a researcher with credentials that didn't quite add up.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

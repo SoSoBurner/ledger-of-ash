@@ -10,6 +10,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 1. CHAPEL WORKER: BLESSING EFFICIENCY DEMANDS
   {
+    plot: 'main',
     label: "The ritual words are the same. The time given them is not.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     xpReward: 70,
@@ -50,6 +51,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 2. MARKET BROKER: SUPPLY DIVERSIONS AND PRICE INFLATION
   {
+    plot: 'main',
     label: "Prices have climbed. The broker knows where the gap started.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Supply', 'Meaningful'],
     xpReward: 75,
@@ -711,6 +713,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL WEAPONIZATION: DOCTRINE SERVES SABOTAGE
   {
+    plot: 'main',
     label: "Laid out together, they stop being coincidences. Every institution bent the same direction, same window.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
@@ -955,7 +958,6 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone left Fairhaven before arrival with a supply sample case. They weren't nervous about carrying it.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 55,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

@@ -10,6 +10,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 1. SENIOR LIBRARIAN: RESEARCH RESTRICTIONS TIGHTENING
   {
+    plot: 'main',
     label: "The senior librarian knows which research topics were accessible last year and aren't now. He also knows he wasn't the one who changed them.",
     tags: ['Investigation', 'NPC', 'Observation', 'Knowledge', 'Meaningful'],
     xpReward: 70,
@@ -53,6 +54,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 2. RESEARCH SCHOLAR: RESEARCH SUPPRESSION
   {
+    plot: 'main',
     label: "Scholars who were working on institutional critique have been reassigned to cataloging. Their projects still exist. They don't.",
     tags: ['Investigation', 'NPC', 'Records', 'Research', 'Meaningful'],
     xpReward: 75,
@@ -648,7 +650,6 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One of them is complicit and knows it. The question is whether they're the kind of person who can be turned, or only the kind who can be used.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
-    plot: 'main',
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -685,6 +686,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
+    plot: 'main',
     label: "There's a document somewhere that names who is directing this from outside. The administrative vault is one door further than anyone has asked about.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
@@ -996,7 +998,6 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Archivist Doss mentions someone else came asking about the suppressed papers — they claimed to be from a northern scholarly institution.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    plot: 'main',
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
