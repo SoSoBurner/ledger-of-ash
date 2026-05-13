@@ -585,7 +585,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         'witnesses are being paid to leave town',
         'magistrates are working for someone outside Shirshal',
         'justice is being sold to the highest bidder',
-        'the investigation system is being dismantled from inside'
+        'the justice system is being dismantled from inside'
       ];
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
@@ -640,7 +640,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 17. INSTITUTIONAL BREAKDOWN: INVESTIGATOR DEFECTION
   {
     label: "One investigator has been keeping personal notes. She's leaving Shirshal at dawn.",
-    tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -672,6 +672,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         addJournal('Investigators remain publicly loyal', 'evidence', `shirshal-defection-blocked-${G.dayCount}`);
       }
 
+      addHeat('shirsh', 1);
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
@@ -681,7 +682,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The thread runs clean from external directive to forged authorization to falsified outcome.",
-    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
+    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
     failResult: {
@@ -713,6 +714,8 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         addJournal('Conspiracy pattern visible but evidence incomplete', 'evidence', `shirshal-conspiracy-partial-${G.dayCount}`);
       }
 
+      addHeat('shirsh', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
@@ -767,11 +770,11 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      G.lastResult = `Eight visitors signed the log with institutional affiliations but have no corresponding case filings, hearing appearances, or witness registrations. They visited and were received, but left no official trace of why. Three of the eight signed in on the same days as the re-adjudications that erased Tazren precedent cases. Someone authorized by the institution is directing the re-adjudications without appearing in any case record. They visit, direct, and leave. The visits are the instruction chain.`;
+      G.lastResult = `Eight visitors signed the log with institutional affiliations but have no corresponding case filings, hearing appearances, or witness registrations. They visited and were received, but left no sanctioned trace of why. Three of the eight signed in on the same days as the re-adjudications that erased Tazren precedent cases. Someone authorized by the institution is directing the re-adjudications without appearing in any case record. They visit, direct, and leave. The visits are the instruction chain.`;
       if (!G.flags) G.flags = {};
       G.flags.found_bureau_ghost_visitors = true;
       addJournal('Bureau ghost visitors: eight untraced institutional visits, three coincide with Tazren erasure re-adjudications', 'evidence', `shirshal-ghost-visitors-${G.dayCount}`);
-      G.lastResult += ' The name that keeps appearing in the visit log is not in any official list.';
+      G.lastResult += ' The name that keeps appearing in the visit log is not in any sanctioned list.';
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -977,7 +980,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const bg = G.background || '';
       let result = `The posted magistrate session schedule lists fourteen public hearings for last month. The court's interior proceeding log — accessible at the clerk's public window — records eleven sessions held. Three sessions on the public schedule produced no interior record. For those three dates, the clerk's window was closed and the hearing room was locked. The gap is documented in both directions: the public schedule says sessions happened; the interior record shows the building was unstaffed.`;
       if (bg === 'investigator' || bg === 'lawkeeper' || bg === 'official') {
-        result = `Ghost sessions on a magistrate schedule — listed publicly, no interior record — are a mechanism for creating unaccountable time windows in a justice system. Three sessions last month with no interior record. During unrecorded sessions, the building was accessible to those with keys, proceedings could occur, evidence could be handled, and none of it would exist in any official timeline. Whatever happens in Shirshal's justice building during those three-per-month gaps runs without a record that anyone will ever be able to subpoena.`;
+        result = `Ghost sessions on a magistrate schedule — listed publicly, no interior record — are a mechanism for creating unaccountable time windows in a justice system. Three sessions last month with no interior record. During unrecorded sessions, the building was accessible to those with keys, proceedings could occur, evidence could be handled, and none of it would exist in any sanctioned timeline. Whatever happens in Shirshal's justice building during those three-per-month gaps runs without a record that anyone will ever be able to subpoena.`;
       }
       G.lastResult = result;
       addJournal('Shirshal magistrate schedule: 3 ghost sessions — listed publicly, no interior proceeding record, building closed during listed hours', 'evidence', `shirshal-ghost-sessions-${G.dayCount}`);
@@ -990,7 +993,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   tags: ['social'],
   xpReward: 5,
   failResult: {
-    text: "The board is empty this morning — notices cleared at dawn as part of the weekly rotation, new postings not yet pinned. The harbor master's board near the south dock gate runs on a different schedule and is still current. What gets posted there reflects the fishing community's concerns more directly than the hall's official board does.",
+    text: "The board is empty this morning — notices cleared at dawn as part of the weekly rotation, new postings not yet pinned. The harbor master's board near the south dock gate runs on a different schedule and is still current. What gets posted there reflects the fishing community's concerns more directly than the hall's sanctioned board does.",
     next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
   },
   fn: function() {

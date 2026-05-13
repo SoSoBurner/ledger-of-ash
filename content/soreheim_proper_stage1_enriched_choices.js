@@ -615,7 +615,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 18. INSTITUTIONAL CRACK: QUOTA SYSTEM FAILURE PROOF
   {
     label: "The workforce hits ninety-two percent of sustainable maximum every day. They fail quota every day. The target was designed to produce documented failure.",
-    tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
     failResult: 'This path is closed here, but the two-year-old capacity survey was submitted to the guild council as part of a public works assessment — that report is bound and filed at the council clerk office, available on request without labor administration authorization.',
@@ -644,6 +644,8 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         addJournal('Quota system proof incomplete without capacity documentation', 'evidence', `soreheim-proof-incomplete-${G.dayCount}`);
       }
 
+      addHeat('soreheim', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
@@ -652,7 +654,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 19. MORAL PRESSURE: COMPLICITY AND PARTICIPATION CHOICE
   {
     label: "They're waiting to learn what this conversation costs them. Expose them and they lose everything. Protect them and they owe you.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
     failResult: 'This path is closed here, but the NPC\'s name is already in the displacement log — approaching them through the documented record rather than direct confrontation removes the personal threat and gives them a different kind of opening.',
@@ -677,7 +679,8 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about displacement system participation`, `soreheim-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about displacement system participation`, 'complication', `soreheim-moral-${G.dayCount}`);
+      addHeat('soreheim', 1);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -878,7 +881,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 12) {
         G.lastResult = `Three locations, none adjacent. The quota records go into a shrine alcove behind the candle supply shelf — low traffic after midday. The displacement log rolls tight and slides inside a wall-mounted tool bracket in the coopering workshop, behind two mallets nobody has moved in weeks. The courier receipt copies go into a false-bottom crate on the bottom shelf of the same workshop. A search that finds one location stops there.`;
         G.flags.evidence_secured_soreheim = true;
-        addJournal('consequence', 'Evidence distributed across three secure caches in Soreheim', `soreheim-cache-${G.dayCount}`);
+        addJournal('Evidence distributed across three secure caches in Soreheim', 'evidence', `soreheim-cache-${G.dayCount}`);
       } else {
         G.lastResult = `One location: a loose stone behind the meal hall hearth, dry and recessed enough to hold a folded bundle. Not ideal — a single cache is one search away from gone. But it's tonight's answer and tonight is what matters. The documentation is out of your hands and off your person.`;
         G.flags.evidence_secured_soreheim = true;

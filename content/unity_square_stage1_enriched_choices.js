@@ -136,7 +136,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
-      text: `The public appointment record at the coordination registry shows Brokerwell's name and date, as expected. The deliberation materials — council meeting minutes, confirmation correspondence, the review notes — are filed under sealed session protocol. Reading them requires council authorization that isn't available through open inquiry. The stamp is official. What produced the stamp is behind a door that opens for registered parties only. The appointment stands on its own, for now.`,
+      text: `The public appointment record at the coordination registry shows Brokerwell's name and date, as expected. The deliberation materials — council meeting minutes, confirmation correspondence, the review notes — are filed under sealed session protocol. Reading them requires council authorization that isn't available through open inquiry. The stamp is sanctioned. What produced the stamp is behind a door that opens for registered parties only. The appointment stands on its own, for now.`,
       xp: 0, effects: [],
       next: [{text: 'The predecessor may still be reachable.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
@@ -208,7 +208,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Rell keeps her private outcome document in a flat leather case she carries with her. "Seventeen months ago. I walked out of the arbitration hall with that in my hand." When the northern bloc's carts started using the restricted routes, she went back to Brokerwell's office. "He opened the register. No record. Told me my copy was unofficial documentation — no legal standing without the public register entry." She sets the leather case on the table between you. "I have the arbiter's signature, the date stamp, the case number. He told me that wasn't enough." She's been trying to enforce a decision that has been made to not exist. She knows she's not the first.`;
+        G.lastResult = `Rell keeps her private outcome document in a flat leather case she carries with her. "Seventeen months ago. I walked out of the arbitration hall with that in my hand." When the northern bloc's carts started using the restricted routes, she went back to Brokerwell's office. "He opened the register. No record. Told me my copy was unsanctioned documentation — no legal standing without the public register entry." She sets the leather case on the table between you. "I have the arbiter's signature, the date stamp, the case number. He told me that wasn't enough." She's been trying to enforce a ruling that has been made to not exist. She knows she's not the first.`;
         if (!G.flags) G.flags = {};
         G.flags.met_rell_routing = true;
         addJournal('contact', 'Factor Rell: won routing rights case, decision deleted, told private copy is unofficial — legal limbo enforced by deletion', `unity-rell-${G.dayCount}`);
@@ -222,7 +222,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   // 8. MORAL PRESSURE: THE ARBITER BELOW VALE
   {
     label: "The junior arbiter near the archive door is the one who enters Brokerwell's corrections into the public record.",
-    tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -232,7 +232,9 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Sevv has a junior arbiter's table near the archive door — close enough to the register that corrections can be filed quickly. "Brokerwell sends the correction notes through the internal routing sheet. I enter them into the public record." She looks at the table. "He calls it interpretive alignment — updating the summary to reflect current doctrine." She stops. "I never read the original outcomes before entering the corrections. I was entering the corrections, not reading the cases." She isn't pretending she didn't do it. She's worked out that the administrative framing was designed for her. She wants to know what comes next, specifically for her.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Arbiter Sevv';
-      addJournal('consequence', 'Junior arbiter Sevv: unwitting participant in record alteration, fears consequences if a formal inquiry begins', `unity-sevv-decision-${G.dayCount}`);
+      addJournal('Junior arbiter Sevv: unwitting participant in record alteration, fears consequences if a formal audit begins', 'complication', `unity-sevv-decision-${G.dayCount}`);
+      addHeat('union', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -337,7 +339,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 10) {
         G.lastResult = `A visiting factor from a settlement two localities north is passing through for a single day's trade business — no affiliations with Unity Square, no reason for anyone to track who he speaks to. He takes the sealed document package without asking what it contains and hands it to Tarn at her desk while making an unrelated inquiry about the public board. Tarn receives it, signs nothing, and continues the conversation without breaking stride. The Collegium has the comparison documents. The transfer has no visible record.`;
         G.flags.unity_evidence_transferred = true;
-        addJournal('consequence', 'Private outcome documents transferred to Oversight Collegium — formal record created through independent institutional channel', `unity-evidence-transfer-${G.dayCount}`);
+        addJournal('Private outcome documents transferred to Oversight Collegium — institutional record created through independent channel', 'evidence', `unity-evidence-transfer-${G.dayCount}`);
       } else {
         G.lastResult = `Every carrier who works the square regularly passes through the coordination hub's administrative orbit at some point — registered trade routes, mail station, factor lodging. Tarn's desk is visible from three directions. Getting documents to her without Brokerwell's network noting the exchange requires a carrier with no established Unity Square connection, moving through on private business. No such person is here today.`;
       }
@@ -379,7 +381,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
-      text: `The forwarding address on Polt's retirement record leads to a rented room, vacated. The neighbor at that address says he left without notice a few weeks after arriving — no forwarding, no explanation. Two moves in eight months, nothing left behind at either address. Whether someone was tracking him or he simply expected them to, the result is the same: he's somewhere the official record can't reach. The trail from Unity Square ends at the second empty room.`,
+      text: `The forwarding address on Polt's retirement record leads to a rented room, vacated. The neighbor at that address says he left without notice a few weeks after arriving — no forwarding, no explanation. Two moves in eight months, nothing left behind at either address. Whether someone was tracking him or he simply expected them to, the result is the same: he's somewhere the sanctioned record can't reach. The trail from Unity Square ends at the second empty room.`,
       xp: 0, effects: [],
       next: [{text: 'Someone who knew him here may have a better lead.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
@@ -439,7 +441,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'observing arbitration session');
 
-        G.lastResult = `Brokerwell runs the session from a raised seat at the room's center, equidistant from both parties. He reads the question, hears responses, takes notes in a small notebook rather than the official ledger. His questions are precise. He interrupts twice to correct procedural framing — not the substance of arguments, just the form. The decision he reads at the end is balanced, citing both parties' positions before naming the outcome. The parties leave without appealing. From the gallery, the process is impeccable. Whatever happens to the record in the archive afterward happens somewhere else, under different hands, in a room nobody watches.`;
+        G.lastResult = `Brokerwell runs the session from a raised seat at the room's center, equidistant from both parties. He reads the question, hears responses, takes notes in a small notebook rather than the formal ledger. His questions are precise. He interrupts twice to correct procedural framing — not the substance of arguments, just the form. The decision he reads at the end is balanced, citing both parties' positions before naming the outcome. The parties leave without appealing. From the gallery, the process is impeccable. Whatever happens to the record in the archive afterward happens somewhere else, under different hands, in a room nobody watches.`;
       addJournal('Arbitration session: publicly impeccable process, corruption operates entirely post-session in record alteration — appearance launders outcomes', 'discovery', `unity-session-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
@@ -500,7 +502,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Routing rights captured here feed supply lines that run directly into Shelkopolis's market. This isn't isolated.",
-    tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Networks', 'Exposure', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
       text: `The connection between Unity Square's arbitration outcomes and Shelkopolis's commercial conditions is visible in outline — shared parties, overlapping routes, contracts that reference Shelkopolis district access. Making the downstream implications specific requires reading the contracts in detail and cross-referencing against Shelkopolis trade data from the other end. That work requires access and time that aren't available at this end of the route. The outline is there. The proof stays in Shelkopolis.`,
@@ -524,6 +526,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `The connection between Unity Square's arbitration outcomes and Shelkopolis's commercial conditions is visible in outline — shared parties, overlapping routes, contracts that reference Shelkopolis district access. Mapping the downstream implications of specific decisions requires reading the contracts in detail and cross-referencing against Shelkopolis trade data. That work takes time and access that isn't available here.`;
       }
+      addHeat('union', 1);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -704,7 +707,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(35, 'observing coordination seal degradation');
-      G.lastResult = `The official coordination seal at Unity Square — the stamp applied to every outcome document — has worn thin enough that the impression it leaves is legible only under direct light held at an angle. The outer ring detail is gone. The center device, which is supposed to show the Union's interlocking mark, now reads as an undifferentiated oval. The stamp has been in this condition long enough for the degradation to become familiar: clerks press harder to compensate, which is why the outer edge has worn further than the center. A replacement stamp is a standard administrative request. No replacement has been ordered.`;
+      G.lastResult = `The coordination seal at Unity Square — the stamp applied to every outcome document — has worn thin enough that the impression it leaves is legible only under direct light held at an angle. The outer ring detail is gone. The center device, which is supposed to show the Union's interlocking mark, now reads as an undifferentiated oval. The stamp has been in this condition long enough for the degradation to become familiar: clerks press harder to compensate, which is why the outer edge has worn further than the center. A replacement stamp is a routine administrative request. No replacement has been ordered.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
   },

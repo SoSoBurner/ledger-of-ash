@@ -22,7 +22,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `The stockade wall throws its morning shadow across the checkpoint barrier at the track junction — the eastern track already gone soft at the shoulder, less maintained than the road in. Letha Dawnsilk has the reports stacked on the left side of her desk — a six-month column of paper, organized by date. She doesn't offer you a seat. She checks the window before she answers. Not the street outside — the reflection in the glass. "I've been sending pressure anomaly readings to central coordination for six months. Three months ago they stopped acknowledging receipt. Two months ago I was told the measurements were under review and not to share them externally." She taps the stack. She never stopped writing the reports. "If they won't use them, at least they exist."  `;
         G.flags.met_letha_dawnsilk = true;
-        addJournal('contact', 'Commander Letha Dawnsilk met: 6 months of suppressed pressure anomaly reports, still maintaining records despite official silence', `plumes-letha-${G.dayCount}`);
+        addJournal('Commander Letha Dawnsilk met: 6 months of suppressed pressure anomaly reports, still maintaining records despite institutional silence', 'contact_made', `plumes-letha-${G.dayCount}`);
       } else {
         G.lastResult = `The outpost runs on a posted schedule — Letha Dawnsilk's available periods are listed on the board by the supply cache, and she's currently in a briefing with the patrol rotation. The clerk at the supply desk is polite and unhelpful. Come back at the posted time. She runs this place to a clock and she keeps to it.`;
         G.flags.located_letha_dawnsilk = true;
@@ -62,12 +62,12 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
           G.lastResult = `The pressure records show a clear trend in the columns, but the numbers resist easy interpretation — units specific to atmospheric dynamics, reference ranges Letha has to look up in a technical manual she ordered three months ago. "I know what I measured," she says. "I can't tell you what it means at a systems level." The data exists. The framework to defend it in formal review is still being assembled.`;
         }
       } else {
-        G.lastResult = `Letha's desk holds six months of pressure records, but access to them runs through her alone. The suppression order pulled the reports from the official distribution chain — no copies at central coordination, no duplicate filed with the patrol station's intake register. What exists is in this room, on those shelves, behind a commander who hasn't decided yet whether you're someone she can trust with them.`;
+        G.lastResult = `Letha's desk holds six months of pressure records, but access to them runs through her alone. The suppression order pulled the reports from the sanctioned distribution chain — no copies at central coordination, no duplicate filed with the patrol station's intake register. What exists is in this room, on those shelves, behind a commander who hasn't decided yet whether you're someone she can trust with them.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: {
-      text: `Letha's records are accessible only through Letha. The suppression pulled every copy out of the official chain — no duplicates, no archive deposit, no patrol copies. Without her authorization, the column of dates and readings on that desk stays closed. The outpost's oilcloth curtain shifts in the draft from the northeast door. The data is there. The path to it runs through her trust.`,
+      text: `Letha's records are accessible only through Letha. The suppression pulled every copy out of the sanctioned chain — no duplicates, no archive deposit, no patrol copies. Without her authorization, the column of dates and readings on that desk stays closed. The outpost's oilcloth curtain shifts in the draft from the northeast door. The data is there. The path to it runs through her trust.`,
       xp: 0,
       effects: [],
       next: [{text: 'Find another way to earn Letha\'s confidence', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -214,14 +214,14 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Ranger Coss has been patrolling this frontier for eleven years. "The air here used to be clean. We'd go days without needing the patrol's environmental gear." He pauses. "Now I wear it for extended northeast patrols. Not orders — just habit. I don't feel right without it in that direction anymore." He hasn't been formally told to wear protective equipment on northeast routes. He started doing it himself three months ago because his body told him to. His nervous system is picking up what the instruments are measuring.`;
         if (!G.flags) G.flags = {};
         G.flags.met_coss_ranger = true;
-        addJournal('contact', 'Veteran ranger Coss: wearing protective equipment on NE routes voluntarily for 3 months — body-level detection of atmospheric change preceding formal orders', `plumes-coss-${G.dayCount}`);
+        addJournal('Veteran ranger Coss: wearing protective equipment on NE routes voluntarily for 3 months — body-level detection of atmospheric change preceding formal orders', 'contact_made', `plumes-coss-${G.dayCount}`);
       } else {
-        G.lastResult = `The ranger keeps his eyes on the patrol board when you ask about the northeast routes. The suppression order circulated to all outpost personnel — measurements under review, not for informal discussion. He straightens a posting on the board that doesn't need straightening. "I don't have anything to add to the official record." He says it carefully, the way someone says something they've been told to say and have been practicing.`;
+        G.lastResult = `The ranger keeps his eyes on the patrol board when you ask about the northeast routes. The suppression order circulated to all outpost personnel — measurements under review, not for informal discussion. He straightens a posting on the board that doesn't need straightening. "I don't have anything to add to the sanctioned record." He says it carefully, the way someone says something they've been told to say and have been practicing.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     },
     failResult: {
-      text: `The suppression order circulated to all outpost personnel and Ranger Coss absorbed it. He's not going to speak against the official record to a stranger passing through. The patrol board needs straightening; he straightens it. The northeast route assignments are posted there in his handwriting. The evidence of what he knows is on the board. He won't speak it aloud.`,
+      text: `The suppression order circulated to all outpost personnel and Ranger Coss absorbed it. He's not going to speak against the sanctioned record to a stranger passing through. The patrol board needs straightening; he straightens it. The northeast route assignments are posted there in his handwriting. The evidence of what he knows is on the board. He won't speak it aloud.`,
       xp: 0,
       effects: [],
       next: [{text: 'Read the patrol board instead of the ranger', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -230,18 +230,20 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: LETHA'S POSITION
   {
-    label: "The official channels are compromised. Letha knows it. She's waiting to see if I do.",
-    tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    label: "The formal channels are compromised. Letha knows it. She's waiting to see if I do.",
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'Letha escalation decision');
       if (!G.flags) G.flags = {};
 
-      G.lastResult = `"If I go through official channels and they're compromised, I'm just feeding information to the people suppressing it," Letha says. She checks the window before she continues — not the street outside, the reflection in the glass. "If I go around them, I'm potentially violating my chain of command in a way that would give them grounds to dismiss my reports as unauthorized." She has six months of valid, documented data about an atmospheric event that's affecting people's ability to live in the affected zone. And she's been structurally blocked from sharing it. She's asking how to move without losing the authority that makes her reports credible.`;
+      G.lastResult = `"If I go through formal channels and they're compromised, I'm just feeding information to the people suppressing it," Letha says. She checks the window before she continues — not the street outside, the reflection in the glass. "If I go around them, I'm potentially violating my chain of command in a way that would give them grounds to dismiss my reports as unauthorized." She has six months of valid, documented data about an atmospheric event that's affecting people's ability to live in the affected zone. And she's been structurally blocked from sharing it. She's asking how to move without losing the authority that makes her reports credible.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Letha Dawnsilk';
-      addJournal('consequence', 'Letha Dawnsilk escalation decision: official channels compromised, unofficial channels risk authority — structural trap', `plumes-letha-decision-${G.dayCount}`);
+      addJournal('Letha Dawnsilk escalation decision: formal channels compromised, unofficial channels risk authority — structural trap', 'complication', `plumes-letha-decision-${G.dayCount}`);
+      addHeat('zootia', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -332,7 +334,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   // 12. PERSONAL ARC: LETHA'S REPORTS OFFSITE
   {
     label: "Letha's six months of records can't stay here. The suppression knows where to look.",
-    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['PersonalArc', 'Evidence', 'Exposure', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -341,9 +343,10 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Letha prepares a secondary copy of the six months of reports — formatted as standard patrol documentation, which is what they officially are. A patrol supply run to Shelkopolis carries the copy inside a standard patrol dispatch bag. The suppression order was applied to the official reporting channel. The patrol dispatch channel runs separately. Letha found the gap in the suppression and used it. The reports are on their way to Shelkopolis.`;
+        G.lastResult = `Letha prepares a secondary copy of the six months of reports — formatted as standard patrol documentation, which is what they formally are. A patrol supply run to Shelkopolis carries the copy inside a standard patrol dispatch bag. The suppression order was applied to the sanctioned reporting channel. The patrol dispatch channel runs separately. Letha found the gap in the suppression and used it. The reports are on their way to Shelkopolis.`;
         G.flags.letha_reports_secured = true;
-        addJournal('consequence', 'Letha\'s 6-month pressure reports secured via patrol dispatch channel — gap in suppression order exploited', `plumes-reports-secure-${G.dayCount}`);
+        addJournal('Letha\'s 6-month pressure reports secured via patrol dispatch channel — gap in suppression order exploited', 'evidence', `plumes-reports-secure-${G.dayCount}`);
+        addHeat('zootia', 1);
       } else {
         G.lastResult = `The suppression order arrived through the standard reporting channel and the outpost's communications handler took it as covering everything that goes out. Every category of outgoing report is now staged for review before transmission. The language of the order is broad enough that challenging its scope would require someone willing to put their name to the challenge — and Letha's people can't afford that visibility. Finding an exempt path means identifying which categories the order didn't name, and whether any of them fit what Letha documented.`;
       }
@@ -556,7 +559,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'magic') {
         G.lastResult = `"Carried sealed tubes," the runner says. "Heavy ones, the kind you use for atmospheric sample transport. But not labeled — no collection markings. Samples taken without formal collection protocol." Someone has been collecting material from the affected zone for their own analysis. The samples they're carrying could confirm everything Letha has measured, or reveal something additional.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"They asked what I'd seen on the northeast route," the runner says. "I told them about the air quality. They listened carefully, didn't take notes in front of me. When they thought I wasn't watching, they made a single mark on a document they kept folded inside their coat." A field intelligence collection operation using casual conversation. They're building a picture from multiple source contacts without any one contact knowing they're being used.`;
+        G.lastResult = `"They asked what I'd seen on the northeast route," the runner says. "I told them about the air quality. They listened carefully, didn't take notes in front of me. When they thought I wasn't watching, they made a single mark on a document they kept folded inside their coat." A field intelligence collection operation using casual conversation. They're building a picture from multiple sources without any one informant knowing they're being used.`;
       } else {
         G.lastResult = `"They were troubled," the runner says. "Not frightened — troubled. Like someone who has seen something they didn't want to see and is now deciding what to do about it." Someone was in the northeast zone personally. They saw what's happening at source. And they're now moving toward Shelkopolis with that knowledge.`;
       }
@@ -581,7 +584,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'learning the frontier wind name');
-      G.lastResult = `The patrol at Plumes End calls the northeast wind "the push" — named for what it does to the pressure readings, which reliably spike when the wind turns northeast for more than two consecutive days. It's not in any official meteorological record; the name lives in patrol hand-off notes and verbal briefings and the shorthand entries in Letha's personal log. The meteorological charts the outpost files use compass bearings and seasonal designations. "The push" is a local invention, precise in meaning to anyone stationed here long enough to know what it predicts. Letha uses it without explanation in six months of notes, expecting whoever reads them to know what it means.`;
+      G.lastResult = `The patrol at Plumes End calls the northeast wind "the push" — named for what it does to the pressure readings, which reliably spike when the wind turns northeast for more than two consecutive days. It's not in any sanctioned meteorological record; the name lives in patrol hand-off notes and verbal briefings and the shorthand entries in Letha's personal log. The meteorological charts the outpost files use compass bearings and seasonal designations. "The push" is a local invention, precise in meaning to anyone stationed here long enough to know what it predicts. Letha uses it without explanation in six months of notes, expecting whoever reads them to know what it means.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
   },
@@ -602,10 +605,10 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       }
       gainXp(70, 'analyzing patrol route reduction');
       G.stageProgress[1]++;
-      G.lastResult = `The amended patrol maps cut the northeast circuit at the ridge line — stopping three leagues short of where the pre-amendment maps showed the boundary. For mounted patrol, three leagues is forty minutes of coverage. The reduction leaves the affected zone unmonitored without removing it from the patrol jurisdiction record: the outpost still officially covers the area, it simply no longer sends patrols there. Whatever is producing the pressure anomalies in the northeast is now in a monitored-but-unvisited zone. The amendment created that status deliberately.`;
+      G.lastResult = `The amended patrol maps cut the northeast circuit at the ridge line — stopping three leagues short of where the pre-amendment maps showed the boundary. For mounted patrol, three leagues is forty minutes of coverage. The reduction leaves the affected zone unmonitored without removing it from the patrol jurisdiction record: the outpost still formally covers the area, it simply no longer sends patrols there. Whatever is producing the pressure anomalies in the northeast is now in a monitored-but-unvisited zone. The amendment created that status deliberately.`;
       if (!G.flags) G.flags = {};
       G.flags.plumes_route_reduction = true;
-      addJournal('Patrol route amendment: northeast circuit shortened to ridge line 3 months ago — affected zone officially covered but no longer visited', 'evidence', `plumes-routes-${G.dayCount}`);
+      addJournal('Patrol route amendment: northeast circuit shortened to ridge line 3 months ago — affected zone formally covered but no longer visited', 'evidence', `plumes-routes-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -644,7 +647,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.plumes_comms_gap = true;
         addJournal('Communications log gap: 16 days of unanswered dispatches during peak pressure anomaly period — silence at the moment data was most significant', 'evidence', `plumes-comms-${G.dayCount}`);
       } else {
-        G.lastResult = `The communications log lives in the duty station, which runs on Letha's posted schedule — the log is accessible during the daily administrative period, which closed forty minutes ago and won't reopen until the morning rotation. The gap Letha mentioned informally is in that log. It's also in her personal records, which she's offered to share. The official log version is one day away.`;
+        G.lastResult = `The communications log lives in the duty station, which runs on Letha's posted schedule — the log is accessible during the daily administrative period, which closed forty minutes ago and won't reopen until the morning rotation. The gap Letha mentioned informally is in that log. It's also in her personal records, which she's offered to share. The formal log version is one day away.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -738,10 +741,10 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'checking northeast boundary cairn positions');
       const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
-        G.lastResult = `The first boundary cairn on the northeast approach sits thirty meters south of where the patrol map marks it. The second sits forty meters south of its marked position. Both cairns are solid, weathered, look long-established — but the ground around the base of each shows faint disturbance, the kind that comes from moving a heavy stone and resetting the earth to erase the evidence of movement. The boundary of the "unsafe zone" has been physically contracted. Whatever is actually producing the atmospheric anomaly now sits outside the marked boundary, in territory that looks unmapped and unclaimed on any official document.`;
+        G.lastResult = `The first boundary cairn on the northeast approach sits thirty meters south of where the patrol map marks it. The second sits forty meters south of its marked position. Both cairns are solid, weathered, look long-established — but the ground around the base of each shows faint disturbance, the kind that comes from moving a heavy stone and resetting the earth to erase the evidence of movement. The boundary of the "unsafe zone" has been physically contracted. Whatever is actually producing the atmospheric anomaly now sits outside the marked boundary, in territory that looks unmapped and unclaimed on any sanctioned document.`;
         if (!G.flags) G.flags = {};
         G.flags.plumes_cairns_moved = true;
-        addJournal('Northeast boundary cairns: both moved south 30-40m from map positions — anomaly source now lies outside the officially marked danger zone', 'evidence', `plumes-cairns-${G.dayCount}`);
+        addJournal('Northeast boundary cairns: both moved south 30-40m from map positions — anomaly source now lies outside the formally marked danger zone', 'evidence', `plumes-cairns-${G.dayCount}`);
       } else {
         G.lastResult = `The northeast route past the boundary cairns puts you in territory where Wess marks the air quality shift. Reaching the cairn positions for comparison against the map requires passing through that threshold — which is manageable with preparation, less manageable unannounced. The patrol gear at the outpost includes the heavier protection Wess uses. Borrowing it before the approach is the difference between a survivable comparison and a miserable one.`;
       }

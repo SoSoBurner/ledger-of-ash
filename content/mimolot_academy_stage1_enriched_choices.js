@@ -150,7 +150,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         var _kensaFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
         var _kensaDetail = _kensaFam === 'combat' ? ' She watches your hands while you read the documents — not guarded, just noting. She\'s decided you\'re here to do something with what she gives you, not only to file it away.' : _kensaFam === 'stealth' ? ' She keeps the manuscript original face-down until you ask for it. Then she turns it over and stays quiet while you read, her back to the door.' : _kensaFam === 'support' ? ' "The scholars who were reassigned knew this too," she says, before you leave. "Four of them. If you need witnesses, they\'re still on the grounds." She does not press it further.' : '';
-        G.lastResult = `Kensa lays two versions of the same document side by side — current and manuscript original — and points at the differences without speaking first. In the current version, an administrative overreach from forty years ago is described as a "procedural adjustment." The original calls it a sanction, names the officials, describes the harm. "The changes preserve surface consistency," she says. "A casual reader won't catch it. But the substance is gone." She's been documenting the alterations for four months. She has a list.` + _kensaDetail;
+        G.lastResult = `Kensa lays two versions of the same document side by side — current and manuscript original — and points at the differences without speaking first. In the current version, an administrative overreach from forty years ago is described as a "procedural adjustment." The original calls it a sanction, names the administrators, describes the harm. "The changes preserve surface consistency," she says. "A casual reader won't catch it. But the substance is gone." She's been documenting the alterations for four months. She has a list.` + _kensaDetail;
         G.stageProgress[1]++;
         addJournal('Archivist revealed systematic historical record falsification', 'evidence', `mimolot-archivist-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -591,7 +591,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'parsing scholarly anxiety narratives');
       G.stageProgress[1]++;
 
-      const rumor = ['certain research topics have become forbidden and nobody officially said why', 'scholars who ask wrong questions get quietly reassigned to archival work', 'the sealed archives are growing and nobody knows what\'s being locked away', 'someone is rewriting history and calling it documentation correction', 'the verification system has been corrupted and false information is being certified as true'];
+      const rumor = ['certain research topics have become forbidden and nobody formally said why', 'scholars who ask wrong questions get quietly reassigned to archival work', 'the sealed archives are growing and nobody knows what\'s being locked away', 'someone is rewriting history and calling it documentation correction', 'the verification system has been corrupted and false information is being certified as true'];
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
       G.lastResult = `In the lower reading room, between shifts, it goes: "${selected}." It moves in fragments — a phrase between two colleagues over a shared lamp, a sentence left half-finished when a third person enters. No one who repeats it claims to know the source. The Academy's carved lintel lists founding principles in old script above the main entrance. Someone's pasted a student broadsheet over the bottom half. Nobody has taken it down.`;
@@ -601,7 +601,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: {
-      text: `The lower reading room is nearly empty and nobody is inclined to speak. The scholars who remain after hours have chosen the specific privacy of late work, and an unfamiliar presence circling their tables doesn't invite conversation. Fragments travel through the Academy in the spaces between official hours — the queue outside the registry desk in the morning, the corridor between the refectory and the side stairs at midday. Different time, different approach. The talk moves when the right people are moving with it.`,
+      text: `The lower reading room is nearly empty and nobody is inclined to speak. The scholars who remain after hours have chosen the specific privacy of late work, and an unfamiliar presence circling their tables doesn't invite conversation. Fragments travel through the Academy in the spaces between formal hours — the queue outside the registry desk in the morning, the corridor between the refectory and the side stairs at midday. Different time, different approach. The talk moves when the right people are moving with it.`,
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
@@ -609,7 +609,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: PROOF OF KNOWLEDGE CONSPIRACY
   {
     label: "Restriction decrees, altered records, compromised verification, enrollment steering — each piece has an innocent explanation. Together they don't.",
-    tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -618,6 +618,8 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'exposing knowledge suppression conspiracy');
       G.stageProgress[1]++;
+      addHeat('mimolot', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
@@ -630,7 +632,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `mimolot-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The contradictions between the Academy's stated charter commitments and the documented administrative actions are clear enough to establish that the two are not operating in the same direction. This is no longer a question of mismanagement or institutional drift. The actions are too deliberate and too concentrated. Someone has been running a different institution inside the official one.`;
+        G.lastResult = `The contradictions between the Academy's stated charter commitments and the documented administrative actions are clear enough to establish that the two are not operating in the same direction. This is no longer a question of mismanagement or institutional drift. The actions are too deliberate and too concentrated. Someone has been running a different institution inside the sanctioned one.`;
         addJournal('Compelling institutional conspiracy evidence found', 'evidence', `mimolot-proof-partial-${G.dayCount}`);
       } else {
         G.lastResult = `The evidence pieces are each individually ambiguous. A restriction decree could be administrative caution. A historical revision could be scholarly correction. A verification pressure complaint could be a personnel dispute. To establish that these are connected, you need more of them and a clearer line between them. What you have says something is wrong. It doesn't yet say it's deliberate. The administrative vault in the correspondence wing holds sealed directives. The connective tissue is in there, not here.`;
@@ -649,7 +651,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
     label: "One of them is complicit and knows it. The question is whether they're the kind of person who can be turned, or only the kind who can be used.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -658,6 +660,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(70, 'making moral commitment to truth');
       G.stageProgress[1]++;
+      addHeat('mimolot', 1);
 
       const npcOptions = [
         { name: 'Kensa', role: 'knowledge archivist', fear: 'I was told to alter historical records or lose my position. I altered them.' },
@@ -673,7 +676,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity in knowledge suppression`, `mimolot-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about complicity in knowledge suppression`, 'complication', `mimolot-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -917,7 +920,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_mimolot = true;
         G.factionHostility.warden_order += 1;
-        addJournal('faction', 'Warden Order liaison Brevard Ashe: institutional interest in suppression, provided secondary scholar contact', `mimolot-warden-${G.dayCount}`);
+        addJournal('Warden Order liaison Brevard Ashe: institutional interest in suppression, provided secondary scholar source', 'intelligence', `mimolot-warden-${G.dayCount}`);
       } else {
         G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that substantive engagement with the Warden Order's liaison function requires a formal appointment submitted through the Academy's administrative registry. He keeps one finger between the pages while he speaks, intending to return. He's not unfriendly — he's procedural, which is more durable. Nothing will be said without paperwork in place first. His presence here is established. Getting past the procedure requires a different approach and probably a known name as introduction. A named introduction from Archivist Doss would clear that threshold.`;
         if (!G.flags) G.flags = {};
@@ -933,14 +936,14 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE SCRIPTORIUM STEPS AT NIGHT
   {
-    label: "Sit on the Scriptorium Steps at dusk and observe who comes and goes when the Academy officially closes.",
+    label: "Sit on the Scriptorium Steps at dusk and observe who comes and goes when the Academy closes for the day.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'observing Academy after hours');
 
-      G.lastResult = `After the evening bell, three faculty leave through the side gate and don't come back. A fourth stays — a light moves between second-floor windows for two hours. The Memory Hall stays lit until midnight. At the tenth bell, a courier arrives at the administrative wing's rear entrance and departs carrying a sealed case, moving at the pace of someone with a specific destination. The Academy's official close is a change in what's visible, not a change in what's happening.`;
+      G.lastResult = `After the evening bell, three faculty leave through the side gate and don't come back. A fourth stays — a light moves between second-floor windows for two hours. The Memory Hall stays lit until midnight. At the tenth bell, a courier arrives at the administrative wing's rear entrance and departs carrying a sealed case, moving at the pace of someone with a specific destination. The Academy's formal close is a change in what's visible, not a change in what's happening.`;
       addJournal('Scriptorium Steps: real Academy activity runs after closing hours — Memory Hall, courier exchange', 'discovery', `mimolot-steps-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }

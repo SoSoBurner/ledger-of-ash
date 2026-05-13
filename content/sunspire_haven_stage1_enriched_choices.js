@@ -663,7 +663,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: SYNDICATE CONTROL PROOF
   {
     label: "The diversion, the scarcity, the family pressure — these aren't separate problems. They're one apparatus.",
-    tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -691,6 +691,8 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         addJournal('Syndicate proof incomplete without external coordination records', 'evidence', `sunspire-proof-incomplete-${G.dayCount}`);
       }
 
+      addHeat('zootia', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
@@ -703,7 +705,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: FAMILY COMPLICITY CHOICE
   {
     label: "The family leader cooperated. The question is whether they had any other choice.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -727,7 +729,8 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about syndicate extraction participation`, `sunspire-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about syndicate extraction participation`, 'complication', `sunspire-moral-${G.dayCount}`);
+      addHeat('zootia', 1);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -812,7 +815,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      G.lastResult = `Filed route: eastern trade road, standard checkpoint stops. Actual route: a two-hour deviation northwest, avoiding the Warden Order post at Milegate. The convoy wasn't disrupted on its filed path — it was disrupted on a detour that was never officially logged. Whoever organized this knew the route, arranged the deviation, and arranged the interception at a point where no Warden checkpoint would have record of the convoy passing.`;
+      G.lastResult = `Filed route: eastern trade road, standard checkpoint stops. Actual route: a two-hour deviation northwest, avoiding the Warden Order post at Milegate. The convoy wasn't disrupted on its filed path — it was disrupted on a detour that was never formally logged. Whoever organized this knew the route, arranged the deviation, and arranged the interception at a point where no Warden checkpoint would have record of the convoy passing.`;
       if (!G.flags) G.flags = {};
       G.flags.found_convoy_route_deviation = true;
       addJournal('Convoy route deviation: off-record detour avoided Warden checkpoint at Milegate', 'evidence', `sunspire-route-${G.dayCount}`);
@@ -822,7 +825,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE AFTERMATH
   {
-    label: "The official report describes a raid. The site tells a different story.",
+    label: "The formal report describes a raid. The site tells a different story.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -831,7 +834,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The positions of the guards when they fell tell you this wasn't a surprise attack — they were already moving into defensive formation when contact happened. They knew something was wrong before the interception began. The convoy security was compromised from inside. Someone on the convoy itself signaled the moment.`;
+        G.lastResult = `The positions of the guards when they fell tell you this wasn't a surprise attack — they were already moving into defensive formation when the interception happened. They knew something was wrong before the interception began. The convoy security was compromised from inside. Someone on the convoy itself signaled the moment.`;
       } else if (arch === 'magic') {
         G.lastResult = `Residue on the ground near the container position suggests the damping material had been activated before the convoy stopped. The container was already shielded before the disruption happened. This wasn't an ambush on a moving target — it was a scheduled handoff staged to look like a hijacking.`;
       } else if (arch === 'stealth') {
@@ -839,7 +842,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Two supply crates are still at the site, undisturbed. The disruption was selective — the sealed container was taken; everything else was left. This wasn't a raid on the convoy. It was retrieval of one specific item. The rest of the cargo was never the point.`;
       }
-      addJournal('Convoy disruption site: selective retrieval confirmed, scene-cleared, inside contact suspected', 'evidence', `sunspire-site-read-${G.dayCount}`);
+      addJournal('Convoy disruption site: selective retrieval confirmed, scene-cleared, inside source suspected', 'evidence', `sunspire-site-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -899,7 +902,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 10) {
         G.lastResult = `Your sketch captures dimensions, material layering, and the craftmark precisely — enough that a fabricator could identify the manufacture source from the drawing alone. You copy it twice and cache the second in your personal kit. Whatever happens to the physical container, you have its record.`;
         G.flags.container_documentation = true;
-        addJournal('consequence', 'Container documentation completed and secured — craftmark recorded for later identification', `sunspire-document-${G.dayCount}`);
+        addJournal('Container documentation completed and secured — craftmark recorded for later identification', 'evidence', `sunspire-document-${G.dayCount}`);
       } else {
         G.lastResult = `The sketch captures dimensions and general construction — the layered wall depth, the weight distribution, the composite interior surface noted in cross-section. The craftmark on the base is already partially obscured by handling: fingers, a rough surface somewhere in transit. Two of the three digits are clear; the third reads as either a four or a nine. The municipal stamp beside it is legible enough to narrow the district. What's recorded is useful without being complete.`;
         G.flags.container_documentation = true;
@@ -932,7 +935,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "The waystation innkeeper mentions a traveler asking about the convoy disruption — their description of events was more detailed than any official report.",
+    label: "The waystation innkeeper mentions a traveler asking about the convoy disruption — their description of events was more detailed than any sanctioned report.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {

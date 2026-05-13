@@ -68,7 +68,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Brother Aldwin receives your questions with the full warmth of the chapel's public face. He walks you to the door himself, offers a traveling blessing, wishes you safe passage. The wax-and-stone smell of the chapel follows you out. You're three streets away before you remember: there was a novice at a writing desk in the side alcove the entire time. You don't know what was recorded. The chapel didn't need to ask you to leave. It simply wrote down that you came.`;
         G.worldClocks.watchfulness++;
-        addJournal('Chapel clerk logged your inquiry — visit officially noted', 'complication', `shelkopolis-chapel-alert-${G.dayCount}`);
+        addJournal('Chapel clerk logged your inquiry — visit formally noted', 'complication', `shelkopolis-chapel-alert-${G.dayCount}`);
       } else {
         G.lastResult = `Brother Aldwin confirms letters pass through the chapel — private correspondence for traveling merchants, he says, a service the chapel has offered for generations. His hands stay folded when he says it. He doesn't look at the alcove. He doesn't need to. Whatever the full arrangement is, he's decided the public version is the only one you'll hear today.`;
         addJournal('Chapel involved in letter routing but details refused', 'evidence', `shelkopolis-letters-blocked-${G.dayCount}`);
@@ -651,7 +651,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   // 18. INSTITUTIONAL CRACK: PROOF OF INTENTIONAL MISALIGNMENT
   {
     label: "Garrison orders, chapel ledger, trade registry. Same eight-week window. Same hand.",
-    tags: ['Evidence', 'Proof', 'Systematic'],
+    tags: ['Evidence', 'Proof', 'Systematic', 'Exposure'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -679,6 +679,8 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Evidence fragments found but incomplete', 'evidence', `shelkopolis-proof-incomplete-${G.dayCount}`);
       }
 
+      addHeat('shelk', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
@@ -687,7 +689,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   // 19. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
     label: "The complicit witness is waiting to see what you do with what they just told you.",
-    tags: ['Moral', 'Choice', 'Pressure'],
+    tags: ['Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -711,7 +713,8 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity`, `shelkopolis-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about complicity`, 'complication', `shelkopolis-moral-${G.dayCount}`);
+      addHeat('shelk', 1);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();

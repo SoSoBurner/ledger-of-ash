@@ -57,7 +57,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (G.flags.met_cadrin) {
         G.lastResult = `Cadrin's handwritten columns and the commune's registry sit side by side on the crossing station desk. New-moon nights: Cadrin logs two to four additional crossings each time. The registry shows none of them. Worse — the registry entries around those gaps show ink coverage slightly different from the surrounding pages. The deletions were filed after the original, then smoothed over. You'd miss it reading either document alone.`;
         G.flags.found_bridge_discrepancy = true;
-        addJournal('Bridge records: new-moon crossings systematically removed from official registry after filing — alteration professional', 'evidence', `whitebridge-discrepancy-${G.dayCount}`);
+        addJournal('Bridge records: new-moon crossings systematically removed from sanctioned registry after filing — alteration professional', 'evidence', `whitebridge-discrepancy-${G.dayCount}`);
       } else {
         G.lastResult = `The commune registry reads clean — neat columns, consistent hand, nothing struck through or corrected. The crossing station smells of river damp and old ink. Without Cadrin's personal log laid alongside it, the deletions leave no trace: the registry has been amended with a care that accounts for exactly this kind of single-document review. The ink coverage on three new-moon entries is slightly heavier than the surrounding pages, but only slightly, the kind of difference that vanishes under anything less than direct comparison. The document answers only the questions it hasn't already erased.`;
       }
@@ -150,7 +150,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Two bridge workers arrive at the east abutment before their shift begins. One checks something low on the stone face — a crevice, or a mark — then steps back. The second worker does the same, independently, without speaking to the first. Both leave their shift notes untouched. Whatever they're reading in that stone isn't in any log. They check it every morning, the way you check a wound.`;
       }
-      addJournal('Bridge at night: modified cover points, anomalous stone stress, mapped blind spots, unofficial worker monitoring', 'evidence', `whitebridge-bridge-read-${G.dayCount}`);
+      addJournal('Bridge at night: modified cover points, anomalous stone stress, mapped blind spots, unsanctioned worker monitoring', 'evidence', `whitebridge-bridge-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -240,7 +240,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 9. MORAL PRESSURE: CADRIN'S POSITION
   {
     label: "Cadrin needs to know what this becomes before he talks.",
-    tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -251,7 +251,9 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Cadrin';
-      addJournal('consequence', 'Cadrin bridge keeper evidence decision — share approach or maintain deniability', `whitebridge-cadrin-decision-${G.dayCount}`);
+      addJournal('Cadrin bridge keeper evidence decision — share approach or maintain deniability', 'complication', `whitebridge-cadrin-decision-${G.dayCount}`);
+      addHeat('shelk', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -306,7 +308,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 12. INVESTIGATION: THE COMMUNE ADMINISTRATION'S KNOWLEDGE
   {
     label: "The director filed an inquiry. The ghost account closed it.",
-    tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Authority', 'Exposure', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
       text: "Internal inquiry logs and closed review records are not public documents — they're held in the commune's administrative archive, accessible only with authorization from the bridge director's office. The bridge director's current authorization posture toward outside inquiries is unknown. A formal introduction through Cadrin, who holds a standing relationship with the director's office, would establish the grounds for access that a cold request cannot.",
@@ -327,6 +329,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `Every public-facing statement from the commune administration describes crossing operations as routine. Whether anyone inside believes that, or whether there's a decision not to look, isn't visible from the outside. That distinction lives in the internal files — the inquiry logs, the memos, the closed review records — none of which are accessible without administrative authorization.`;
       }
+      addHeat('shelk', 1);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -345,7 +348,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 10) {
         G.lastResult = `Cadrin spends two hours copying six months of entries by lamplight — date, bell-time, apparent cargo weight, number of handlers. His handwriting is identical to the original; he's been trained for exact duplication since his first posting. The copy goes into a sealed correspondence pouch addressed to a trade house in Shelkopolis, carried by a traveling advocate who takes commercial post as a side income. The original stays in Cadrin's desk. The copy is already past the bridge before dawn.`;
         G.flags.cadrin_log_secured = true;
-        addJournal('consequence', 'Cadrin\'s crossing log secured offsite via traveling advocate — six months of discrepancy evidence preserved', `whitebridge-log-secure-${G.dayCount}`);
+        addJournal('Cadrin\'s crossing log secured offsite via traveling advocate — six months of discrepancy evidence preserved', 'evidence', `whitebridge-log-secure-${G.dayCount}`);
       } else {
         G.lastResult = `The commune's mail station handles all regular courier traffic, and the bridge director's office reviews outgoing commercial post as part of the crossing authority's administrative remit. Any courier who works this route knows the station. Getting the log out means finding a carrier moving on personal business — no station stop, no manifest, no review. That person isn't at the bridge today.`;
       }
@@ -498,7 +501,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'understanding Cadrin\'s motivation');
 
-        G.lastResult = `"My father worked the Soreheim crossing for thirty years. Kept his own log the whole time." Cadrin straightens the current log's spine against his palm, a habitual gesture. "He told me: official records get corrected. Personal records don't — they're yours alone. When the two start diverging, the personal one is the one that tells you something's wrong." He doesn't frame it as suspicion or vigilance. He frames it as maintenance. He's been maintaining his father's habit.`;
+        G.lastResult = `"My father worked the Soreheim crossing for thirty years. Kept his own log the whole time." Cadrin straightens the current log's spine against his palm, a habitual gesture. "He told me: sanctioned records get corrected. Personal records don't — they're yours alone. When the two start diverging, the personal one is the one that tells you something's wrong." He doesn't frame it as suspicion or vigilance. He frames it as maintenance. He's been maintaining his father's habit.`;
       addJournal('Cadrin motivation: personal log practice inherited from father — institutional records can be corrected, personal ones remain', 'discovery', `whitebridge-cadrin-why-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
@@ -580,12 +583,12 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'comparing crossing fee schedules');
       const bg = G.background || '';
-      let result = `The posted crossing fee schedule runs to twelve cargo categories with rates by weight class. At the keeper's station, a second document sits below the posted schedule — same format, different rates for three specific cargo designations. Those three categories pay at the lower rate from the secondary document. Nobody announces this. If you know to check the secondary schedule, the clerk applies it without comment. The secondary schedule has no official posting date.`;
+      let result = `The posted crossing fee schedule runs to twelve cargo categories with rates by weight class. At the keeper's station, a second document sits below the posted schedule — same format, different rates for three specific cargo designations. Those three categories pay at the lower rate from the secondary document. Nobody announces this. If you know to check the secondary schedule, the clerk applies it without comment. The secondary schedule has no formal posting date.`;
       if (bg === 'merchant' || bg === 'trader') {
         result = `The secondary crossing rate document is a practice you recognize from toll roads with informal preferred-partner arrangements — certain cargo designations get a lower rate as a matter of policy that isn't publicized because formalizing it would require explaining who qualifies and why. The rates themselves aren't the problem. The problem is what the three discounted cargo classes have in common: they don't appear in any standard commercial classification guide. Someone created three new cargo designations specifically to capture the discounted rate, and no one asked what those designations contain.`;
       }
       G.lastResult = result;
-      addJournal('Whitebridge crossing fees: secondary rate document covers three unclassified cargo designations at reduced rates — unofficial preferred classification', 'evidence', `whitebridge-fees-${G.dayCount}`);
+      addJournal('Whitebridge crossing fees: secondary rate document covers three unclassified cargo designations at reduced rates — unsanctioned preferred classification', 'evidence', `whitebridge-fees-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -652,7 +655,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — RISKY/NPC
   {
-    label: "Sali has been keeping her own count. Separately from the official log.",
+    label: "Sali has been keeping her own count. Separately from the sanctioned log.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {

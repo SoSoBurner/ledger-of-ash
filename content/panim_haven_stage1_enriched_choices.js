@@ -481,7 +481,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 13. SURVIVAL TIER 1: ROUTE NETWORK ANALYSIS
   {
-    label: "The messenger routes don't align with any official shrine business destination. Same paths, same timings, different messengers.",
+    label: "The messenger routes don't align with any formal shrine business destination. Same paths, same timings, different messengers.",
     tags: ['Investigation', 'Survival', 'Routes', 'Movement', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -499,7 +499,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `The messenger patterns map to a network. Documents exit Panim Haven northward — not by the main road but through secondary routes connecting the memorial waystations and offering halls, places where foot traffic reads as shrine business and attracts no additional scrutiny. Route workers name three locations that messengers visit on a regular schedule that doesn't appear in any official shrine documentation. Someone built a communication network using Panim Haven's sacred infrastructure as the cover layer.`;
+        G.lastResult = `The messenger patterns map to a network. Documents exit Panim Haven northward — not by the main road but through secondary routes connecting the memorial waystations and offering halls, places where foot traffic reads as shrine business and attracts no additional scrutiny. Route workers name three locations that messengers visit on a regular schedule that doesn't appear in any sanctioned shrine documentation. Someone built a communication network using Panim Haven's sacred infrastructure as the cover layer.`;
         G.stageProgress[1]++;
         addJournal('Survival analysis mapped hidden messenger network', 'evidence', `panim_haven-survival-routes-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -507,7 +507,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Messenger surveillance reported to shrine hierarchy', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The messenger routes don't align with official shrine business destinations. Main roads are consistently avoided in favor of secondary paths between the waystations. The avoidance is practiced, not incidental — same paths, same timings, across different messengers. Whatever is being moved through these routes is being moved carefully.`;
+        G.lastResult = `The messenger routes don't align with formal shrine business destinations. Main roads are consistently avoided in favor of secondary paths between the waystations. The avoidance is practiced, not incidental — same paths, same timings, across different messengers. Whatever is being moved through these routes is being moved carefully.`;
         addJournal('Survival analysis noted unusual messenger route patterns', 'evidence', `panim_haven-survival-pattern-${G.dayCount}`);
       } else {
         G.lastResult = `The messengers move without pattern observable from a single position — route variation, timing variation, delivery window spread across the full day. Tracking them would require more positions than you can hold simultaneously, or a longer sustained observation period than today's window allows. The waystation network the messengers use is a fixed structure — the back rooms are accessible through the maintenance path the route workers use.`;
@@ -597,7 +597,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: SHRINE WORKER DEFECTION
   {
     label: "One of the shrine workers knows the blessings changed. The fear in how they describe it is specific, not general.",
-    tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -610,6 +610,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(75, 'turning institutional witness');
       G.stageProgress[1]++;
+      addHeat('panim', 1);
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
 
@@ -677,7 +678,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The system isn't broken. It's been reoriented. Everything points the same direction and always to the same beneficiaries.",
-    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
+    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
     failResult: {
@@ -690,6 +691,8 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(80, 'exposing mediation conspiracy');
       G.stageProgress[1]++;
+      addHeat('panim', 1);
+      G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
@@ -759,7 +762,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      G.lastResult = `Three vessels in six months departed under Bureau escort classification — the designation reserved for transporting material evidence under active mediation. The case numbers assigned to those vessels are among the forty-three ghost cases: no records, no resolution, no parties named. The vessels left Panim Haven carrying something under official Bureau protection. Whatever it was has moved beyond this jurisdiction and outside any recoverable evidence chain.`;
+      G.lastResult = `Three vessels in six months departed under Bureau escort classification — the designation reserved for transporting material evidence under active mediation. The case numbers assigned to those vessels are among the forty-three ghost cases: no records, no resolution, no parties named. The vessels left Panim Haven carrying something under formal Bureau protection. Whatever it was has moved beyond this jurisdiction and outside any recoverable evidence chain.`;
       if (!G.flags) G.flags = {};
       G.flags.found_coastal_passage_records = true;
       addJournal('Harbor logs: three Bureau-escorted vessels departed during ghost case windows — cargo unknown, jurisdiction transferred', 'evidence', `panim-harbor-${G.dayCount}`);
@@ -786,11 +789,11 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'magic') {
         G.lastResult = `The quarter's architecture channels sound toward the Bureau's upper windows — designed for public transparency, so proceedings could carry to the street. The windows are shuttered today. The acoustic geometry still works; there's simply nothing coming through it. The building was built to be heard. Someone decided it shouldn't be anymore and closed it from within.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau guards. The pattern is a patrol. Civilian watchers running surveillance coverage outside the official perimeter, on a rotation that someone scheduled. The informal layer and the formal layer are being run separately.`;
+        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau guards. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. The informal layer and the formal layer are being run separately.`;
       } else {
         G.lastResult = `The queue outside the Bureau hasn't moved in three hours. People sit on the steps or stand against the wall with the posture of people who have stopped expecting to be called. No one exits. No clerk appears. The wait is the answer — not a delay, a mechanism. People who come here enough times without result eventually stop coming. The Bureau's accessibility is managed through attrition.`;
       }
-      addJournal('Reckoning Quarter: Bureau functioning as deterrent rather than service, unofficial surveillance active', 'evidence', `panim-quarter-read-${G.dayCount}`);
+      addJournal('Reckoning Quarter: Bureau functioning as deterrent rather than service, unsanctioned surveillance active', 'evidence', `panim-quarter-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -851,7 +854,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `Tazren answers the door before you knock twice. He lives two streets from the Bureau and doesn't ask who you are or how you found him. He steps back to let you in. "The doctrine revision wasn't a reform. It was a transfer of ownership. I don't know to whom." He sets a cup down in front of you. "I left when I stopped recognizing the system I'd built." He keeps a copy of the pre-reform doctrine text on the shelf behind him — he touches the spine when he mentions it. He'll help. On his own terms. With his own limits, which he'll name when he reaches them.`;
         G.flags.met_tazren = true;
-        addJournal('contact', 'Tazren found: former Bureau head, has pre-reform doctrine, willing to assist conditionally', `panim-tazren-found-${G.dayCount}`);
+        addJournal('Tazren found: former Bureau head, has pre-reform doctrine, willing to assist conditionally', 'contact_made', `panim-tazren-found-${G.dayCount}`);
       } else {
         G.lastResult = `Tazren's neighbors confirm he's in the quarter but say he doesn't receive strangers. One of them says it the way people say things they've been asked to say. He's there. He's not accessible without an introduction — someone from the Bureau era who can place you as trustworthy. That introduction needs to be found first.`;
       }
@@ -874,7 +877,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Sera is still at the guesthouse — she hasn't processed what happened yet. She describes it in short sentences: land dispute, six weeks in the Bureau queue, yesterday she received a sealed letter and a small payment. "Resolved per supplementary doctrine. The case is closed." She holds the letter without opening it. When you ask, she hands it across. Release of claim form, signed in her name. She watches you read it. "I didn't sign that." Her handwriting is close but not hers — the loop on the final letter of her surname goes the wrong direction.`;
         if (!G.flags) G.flags = {};
         G.flags.met_sera_complainant = true;
-        addJournal('contact', 'Complainant Sera: Bureau forged her signature on a release of claim form, case closed without her consent', `panim-sera-${G.dayCount}`);
+        addJournal('Complainant Sera: Bureau forged her signature on a release of claim form, case closed without her consent', 'contact_made', `panim-sera-${G.dayCount}`);
       } else {
         G.lastResult = `The address takes time to locate, and the time matters. By the time you reach it, Sera is gone — she left Panim Haven the same morning the letter was delivered. The Bureau's closure process was fast enough to close the window before you or anyone else could reach her. She's outside the jurisdiction now. So is her testimony.`;
       }
