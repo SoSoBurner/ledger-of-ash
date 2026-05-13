@@ -56,9 +56,9 @@ def build():
         'sunspire_haven_to_shelk_arc.js',
         'harvest_circle_to_shelk_arc.js',
         'panim_haven_to_shelk_arc.js',
-        'aurora_crown_to_shelk_arc.js',
-        'glasswake_to_shelk_arc.js',
-        'whitebridge_to_shelk_arc.js',
+        'aurora_crown_commune_to_shelk_arc.js',
+        'glasswake_commune_to_shelk_arc.js',
+        'whitebridge_commune_to_shelk_arc.js',
         'ithtananalor_to_shelk_arc.js',
         'mimolot_academy_to_shelk_arc.js',
         'guildheart_hub_to_shelk_arc.js',
@@ -88,19 +88,32 @@ def build():
         'nomdara_stage2_choices.js',
         # Scene modules: narrations, sideplots, reveals
         'locality_narrations.js',
+        'locality_arrival_narrations.js',
+        'locality_rumors.js',
         'scope_reveal.js',
         'soreheim_stage1.js',
         'sheresh_stage1.js',
         'shadow_ledger_hints.js',
         'maren_oss_encounter.js',
+        'stage1_boss.js',
         'stage2_antechamber.js',
+        'stage2_boss.js',
         'stage2_climax.js',
-        # Stage 3: 60 choices (institutional investigation)
+        'stage2_shadowhands_arc.js',
+        # Stage 2 faction arc modules
+        'collegium_faction_arc.js',
+        'shadowhands_faction_arc.js',
+        'roadwarden_faction_arc.js',
+        'redhood_faction_arc.js',
+        # Support systems
+        'authority_encounters.js',
+        'item_system.js',
+        'npc_lookup.js',
+        'public_complication_pool.js',
+        'social_misstep_pool.js',
+        'travel_corridors.js',
+        # Stage 3: stub only (content not yet authored)
         'stage3_enriched_choices.js',
-        # Stage 4: 50 choices (moral/ethical branches)
-        'stage4_enriched_choices.js',
-        # Stage 5: 45 choices (consequence/payoff)
-        'stage5_enriched_choices.js'
     ]
 
     enriched_parts = []
