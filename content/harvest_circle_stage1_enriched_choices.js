@@ -699,9 +699,13 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 18. MORAL PRESSURE: FAMILY LOYALTY COMPROMISE CHOICE
   {
     label: "Confront a Harvest Circle official who's complicit in system corruption — demand explanation and decide whether to protect them or expose their role.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    effects: [
+      { type: 'heat', polity: 'sheresh', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     failResult: {
       text: 'The official is not alone — a harvest authority representative is stationed at the end of the threshing floor, clipboard in hand, glancing at nothing in particular with the practiced frequency of someone listening for their name. A direct confrontation here would have an audience. The same official works earlier in the morning, before the authority representative\'s shift begins, when the weighing station smells only of grain dust and the tally boards are still blank for the day. An empty morning has different odds.',
       xp: 0,

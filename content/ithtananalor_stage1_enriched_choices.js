@@ -643,9 +643,13 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
     label: "One of them is participating in the conspiracy. They know it. The choice is whether they're the kind of person who can be turned.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    effects: [
+      { type: 'heat', polity: 'roaz', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     failResult: {
       text: "The approach doesn't land. Whichever garrison figure is visible at this hour closes the distance between practiced neutrality and a clear end to the conversation in two sentences — not hostile, simply sealed. The garrison's internal culture has taught its participants how to terminate contact without incident. The structure protects itself through manners as much as through authority. Whoever it is will be in the commons at the next rotation end, away from their official post, in the informal overlap where the official register stops applying.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
@@ -671,7 +675,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity in military conspiracy`, `ithtananalor-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about complicity in military conspiracy`, 'complication', `ithtananalor-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();

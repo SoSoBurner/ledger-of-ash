@@ -683,9 +683,13 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
     label: "They didn't design the trap. They're just standing in it with everyone else.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    effects: [
+      { type: 'heat', polity: 'sheresh', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     failResult: {
       text: 'The person you\'re looking for isn\'t in the commons or the work corridor — their shift ended early and the roster shows them signed out. The maintenance division\'s door is open. Someone who works alongside them will know the same thing they know. It moves between people who work together.',
       xp: 0,
@@ -713,7 +717,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about complicity in sabotage`, `aurora-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about complicity in sabotage`, 'complication', `aurora-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -1014,7 +1018,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `She travels between Aurora Crown and three outer settlements on a regular supply run — predictable enough that a sealed tube in her pack draws no particular attention. She doesn't ask what's in it. She'll drop it at the transit depot in the second settlement, marked for pickup. The filtration records leave the dome in a supply pack alongside preserves and replacement seals. Whatever happens to the archive copy, this one is outside anyone's reach here.`;
         G.flags.aurora_evidence_secured = true;
-        addJournal('consequence', 'Filtration anomaly data secured via commune traveler — offsite copy created', `aurora-evidence-${G.dayCount}`);
+        addJournal('Filtration anomaly data secured via commune traveler — offsite copy created', 'evidence', `aurora-evidence-${G.dayCount}`);
       } else {
         G.lastResult = `Every outgoing package through official transit channels is logged and subject to inspection — the same administrative structure that controls the archive controls the outgoing manifest. A sealed document tube in a standard pack would get opened. The commune traveler who runs the regular supply run between Aurora Crown and the outer settlements doesn't route through the official station. She has her own arrangement with the second waypoint.`;
       }

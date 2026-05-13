@@ -710,9 +710,13 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 19. MORAL PRESSURE: INSTITUTION LOYALTY COMPROMISE
   {
     label: "They've been waiting for someone to ask for months. Now someone is here and they don't know if it makes things better or worse.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    effects: [
+      { type: 'heat', polity: 'cosmouth', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -734,7 +738,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about institutional corruption participation`, `cosmoria-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about institutional corruption participation`, 'complication', `cosmoria-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -930,7 +934,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 12) {
         G.lastResult = `The appointment log is a bound book, each entry in the administrator's own hand. Seven entries on the flag-clearance days: "internal compliance review — 15 min." No counterparty. No case reference. No secondary signature. A flag clearance that requires harbor authority confirmation and registry update resolved in fifteen minutes with no documentation trail. The administrator wrote it down because a blank in the log would be more conspicuous than a vague entry. They created their own cover by recording just enough to fill the space.`;
         G.flags.obtained_administrator_log = true;
-        addJournal('consequence', 'Administrator appointment log secured: seven ghost vessel clearances documented as unauthorized 15-minute compliance reviews', `cosmoria-admin-log-${G.dayCount}`);
+        addJournal('Administrator appointment log secured: seven ghost vessel clearances documented as unauthorized 15-minute compliance reviews', 'evidence', `cosmoria-admin-log-${G.dayCount}`);
       } else {
         G.lastResult = `The appointment log stays on the administrator's desk, not on the public-access shelving. Getting to it requires either the administrator's absence or a reason to be in the office that the administrator accepts. Right now you have neither. The office window faces the harbor and the administrator is at their desk, positioned where they can watch the berths while they work. The log is in plain sight from the corridor. So is everyone who approaches it.`;
       }

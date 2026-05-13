@@ -850,7 +850,10 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "Someone in the Low Ward is selling word about the inquiry to whoever wants it. Find them before they sell anything about you.",
-    tags: ['District', 'Combat', 'Stealth'],
+    tags: ['District', 'Combat', 'Stealth', 'Confrontation'],
+    effects: [
+      { type: 'heat', polity: 'shelk', amount: 1 }
+    ],
     xpReward: 75,
     fn: function() {
       advanceTime(1);

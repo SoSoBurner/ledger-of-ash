@@ -715,9 +715,13 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Laid out together, they stop being coincidences. Every institution bent the same direction, same window.",
-    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Meaningful'],
+    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Confrontation', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
+    effects: [
+      { type: 'heat', polity: 'sheresh', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     failResult: {
       text: "The pieces are present but not yet speaking to each other clearly. Supply failure at the provisioner, formula change at the workshop, doctrine revision from the shrine — each one has an explanation available in isolation. A bad season, a sourcing adjustment, a theological refinement. The pattern that connects them into something coordinated requires one more link. The garrison reduction orders were each dated seven days after a doctrine supplement went out. That timing record is filed with the shrine administration.",
       xp: 0,

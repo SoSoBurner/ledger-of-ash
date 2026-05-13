@@ -195,8 +195,12 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 8. MORAL PRESSURE: JORIN'S CHOICE
   {
     label: "Jorin has been doing the quiet version for four months. He needs to know if that's still the right call.",
-    tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    effects: [
+      { type: 'heat', polity: 'union', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'Jorin evidence decision');
@@ -205,7 +209,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `Jorin sets his notebook on the bench and asks the question flatly, like a technical specification. "Formal complaint: my documentation enters the guild record. The guild record runs through the same administration that created the transit variance category. Quiet continuation: I keep logging, the extraction continues, no institutional response." He picks up a component, turns it, sets it down. "Four months I've been doing the quiet version. I need to know if that's still the right call." He's not asking for reassurance. He's asking for a decision framework from someone who can see the whole picture.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Jorin';
-      addJournal('consequence', 'Jorin formal complaint decision pending — guild system may absorb or suppress his records', `craftspire-jorin-decision-${G.dayCount}`);
+      addJournal('Jorin formal complaint decision pending — guild system may absorb or suppress his records', 'complication', `craftspire-jorin-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -298,7 +302,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 10) {
         G.lastResult = `Jorin's records are dense with chemical notation — readable to a guild chemist, dense enough to look like routine analysis documentation to anyone else. You carry a copy out in plain sight in a supply manifest folder. Nobody stops you. The six months of compound discrepancy analysis is now outside the guild's administrative reach.`;
         G.flags.jorin_records_secured = true;
-        addJournal('consequence', 'Jorin\'s six-month chemical analysis secured offsite — compound discrepancy data preserved outside guild administration', `craftspire-records-secure-${G.dayCount}`);
+        addJournal('Jorin\'s six-month chemical analysis secured offsite — compound discrepancy data preserved outside guild administration', 'evidence', `craftspire-records-secure-${G.dayCount}`);
       } else {
         G.lastResult = `The guild's outgoing review desk sits at the main exit — a table with a stamps tray and a clerk who checks outgoing documentation against a manifest checklist. Jorin's analysis sheets are the right format for guild records; the problem is that anyone who reads them will recognize what they are. Getting them past that desk means either a carrier the desk knows and doesn't inspect closely, or a document format that passes a visual check without inviting a second look. Jorin's assistant Lev makes a regular run to the materials depot — he carries guild documentation without going through the review desk.`;
       }
@@ -451,7 +455,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `You have: Jorin's chemical analysis, the accumulation volume estimate, the transit variance log origin, the waystation modification point, and the staging yard location. What you don't have: the identity of the compound's destination, the authorization chain behind the regional materials coordination body, and whether the accumulation is complete or ongoing. More time in Craftspire fills those gaps. But every day here is a day the accumulation continues and reaches its endpoint faster.`;
       G.flags.craftspire_travel_decision_reached = true;
-      addJournal('consequence', 'Travel decision point: sufficient evidence assembled, accumulation ongoing — proceed to Shelkopolis or continue gathering', `craftspire-travel-decision-${G.dayCount}`);
+      addJournal('Travel decision point: sufficient evidence assembled, accumulation ongoing — proceed to Shelkopolis or continue gathering', 'complication', `craftspire-travel-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

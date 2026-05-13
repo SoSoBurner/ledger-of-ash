@@ -219,8 +219,11 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   // 8. MORAL PRESSURE: VELKA'S DILEMMA
   {
     label: "Velka has been doing the quiet version for fourteen months. She needs to know if that's still the right call.",
-    tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    effects: [
+      { type: 'heat', polity: 'soreheim', amount: 1 }
+    ],
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'Velka evidence decision');

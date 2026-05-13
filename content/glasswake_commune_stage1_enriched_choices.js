@@ -248,8 +248,12 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 9. MORAL PRESSURE: THE EVIDENCE DECISION
   {
     label: "Toman Iceveil asks what you plan to do with his data — he needs to know before he risks giving you everything he has.",
-    tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    effects: [
+      { type: 'heat', polity: 'sheresh', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'making evidence decision');
@@ -258,7 +262,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `Toman's question is direct. "If you take this data to Shelkopolis, it will enter the inquiry there and I lose control of how it's used. If you keep it here, it stays safe but it doesn't move the inquiry forward. I've protected this data for over a year. I need to know who I'm giving it to." The choice is real: trust him with your plan and get everything, or keep your sources compartmented and get only what he's willing to give a stranger.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Toman Iceveil';
-      addJournal('consequence', 'Toman Iceveil\'s evidence decision required — share your plan or maintain compartmentalization', `glasswake-evidence-decision-${G.dayCount}`);
+      addJournal('Toman Iceveil\'s evidence decision required — share your plan or maintain compartmentalization', 'complication', `glasswake-evidence-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -326,7 +330,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `A mineral trader who moves between Glasswake and Shelkopolis monthly agrees to carry a sealed document case. The case is inside a sample kit — unremarkable in her cargo. Toman's amplification data is now in transit to Shelkopolis without passing through the commune's administrative channels. Whatever happens to Toman or the archive, the data survives.`;
         G.flags.glasswake_data_secured = true;
-        addJournal('consequence', 'Shard amplification data secured via mineral trader — offsite copy en route to Shelkopolis', `glasswake-data-secure-${G.dayCount}`);
+        addJournal('Shard amplification data secured via mineral trader — offsite copy en route to Shelkopolis', 'evidence', `glasswake-data-secure-${G.dayCount}`);
       } else {
         G.lastResult = `Every trader who moves goods out of Glasswake has been informally assessed by the administrative committee — most of them don't know it happened. The canal gate logs, the sluice authority's cargo records, the timing notes kept by the water allocation clerk: together they form a complete picture of who leaves and when. Finding a channel that isn't covered requires someone new to the route entirely, or someone who carries things without knowing what they carry.`;
       }
@@ -530,7 +534,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.lastResult = `Toman's data is the keystone of the Glasswake evidence chain. If his name enters the formal record, the committee has grounds to challenge his employment status and potentially seize his equipment. If his name stays out, the evidence is weaker but he remains operational. The choice affects both the case and the person who built it. He's asked you to make the call.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Toman Iceveil';
-      addJournal('consequence', 'Toman source protection decision pending — name in record strengthens case but endangers researcher', `glasswake-source-decision-${G.dayCount}`);
+      addJournal('Toman source protection decision pending — name in record strengthens case but endangers researcher', 'complication', `glasswake-source-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

@@ -773,8 +773,12 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 19. MORAL PRESSURE: GUILD ROLE COMPROMISE CHOICE
   {
     label: "Confront a guild official who's complicit in arbitration corruption — demand explanation and decide whether to protect them or expose them.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
+    effects: [
+      { type: 'heat', polity: 'union', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
     failResult: {
       text: `The official is in session — the anteroom clerk says it will be two hours, possibly three. The wait bench is narrow and faces the corridor, where everyone who passes can see who is sitting and for how long. Waiting here is its own kind of visibility. The evidence you've gathered is already assembled; the confrontation is a matter of timing. Coming back at close of hall, when the corridors are thinner and the session doors open of their own accord, would find the official alone with the folder still on the table.`,
       xp: 0,
@@ -803,7 +807,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about arbitration corruption participation`, `guildheart-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about arbitration corruption participation`, 'complication', `guildheart-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
