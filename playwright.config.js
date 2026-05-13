@@ -1,12 +1,16 @@
 const { defineConfig, devices } = require('@playwright/test');
-const path = require('path');
 
 module.exports = defineConfig({
   testDir: './tests/e2e',
   timeout: 30000,
   use: {
-    baseURL: 'file://' + path.resolve(__dirname, 'ledger-of-ash.html'),
+    baseURL: 'http://localhost:8080',
     headless: true,
+  },
+  webServer: {
+    command: 'npx http-server . -p 8080 --silent -c-1',
+    port: 8080,
+    reuseExistingServer: !process.env.CI,
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
