@@ -16185,6 +16185,14 @@ function useUtilitySkill(skillId) {
 /** Narrative combat entry. Shows enemy intent, renders Press/Defend/Talk/Retreat. Use for all story-driven fights. @param {string} enemyKey @param {{isBoss?:boolean, bossKeys?:string[]}} [context] */
 function enterCombat(enemyKey, context) {
   context = context || {};
+  // Wire authority combat victory back to the authority consequence chain (heat, watchfulness, warrant)
+  if (context._authorityFight && context._authorityPolity) {
+    G.pendingVictoryCallback = function() {
+      if (typeof _authorityResolveCombatVictory === 'function') {
+        _authorityResolveCombatVictory(context._authorityKey, context._authorityPolity);
+      }
+    };
+  }
   const enemy = (context && context.customEnemy) ? context.customEnemy : (ENEMY_TEMPLATES[enemyKey] || null);
   if (!enemy) { startCombat(enemyKey, context); return; }
 
