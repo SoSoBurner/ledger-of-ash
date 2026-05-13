@@ -12100,7 +12100,6 @@ function gainXP(n) {
 }
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
-
 // Fumble backup choices for main plot CIDs.
 // Keyed by original choice CID. Each backup is a different approach with reduced stageProgress yield (+1 vs +2).
 // Format: 'original_cid': { label: '...', result: '...', stageProgress: 1, skill: '...', tag: '...' }
@@ -12197,12 +12196,12 @@ var BACKUP_CHOICES = {
 // Encounter rate modifier per stage (rateModifier applied as extra-encounter probability).
 // S1-2 tuned and active. S3-5: infrastructure only — bestiary tiers not yet authored.
 const COMBAT_SCALING_TABLE = {
-  'Stage I':   { rateModifier: 1.00, bestiaryTier: 1 },
-  'Stage II':  { rateModifier: 1.12, bestiaryTier: 1 },
+  'Stage I':   { rateModifier: 1.00, encounter_rate_mod: 1.00, dc_mod: 0, bestiaryTier: 1 },
+  'Stage II':  { rateModifier: 1.12, encounter_rate_mod: 1.15, dc_mod: 1, bestiaryTier: 1 },
   // FUTURE: Stage 3-5 combat scaling — see memory/COMBAT_SCALING.md
-  'Stage III': { rateModifier: 1.22, bestiaryTier: 2 },
-  'Stage IV':  { rateModifier: 1.40, bestiaryTier: 3 },
-  'Stage V':   { rateModifier: 1.60, bestiaryTier: 4 }
+  'Stage III': { rateModifier: 1.22, encounter_rate_mod: 1.30, dc_mod: 2, bestiaryTier: 2 },
+  'Stage IV':  { rateModifier: 1.40, encounter_rate_mod: 1.45, dc_mod: 3, bestiaryTier: 3 },
+  'Stage V':   { rateModifier: 1.60, encounter_rate_mod: 1.60, dc_mod: 4, bestiaryTier: 4 }
 };
 window.COMBAT_SCALING_TABLE = COMBAT_SCALING_TABLE;
 
@@ -12400,6 +12399,14 @@ function checkStageAdvance() {
     if (typeof addWorldNotice === 'function') addWorldNotice('Something is being deliberately obscured. The pattern has a shape, even if you cannot name it yet.');
     addQuest('The anomalies are part of a pattern.', 'Keep following the institutional record — the shape becomes clearer with each locality.', 'q_s1_pattern');
   }
+  // Stage 1 boss: Marshal Sera Ironveil fires at stageProgress[1] >= 15
+  if (!G.flags.stage1_narrative_complete && !G.flags.stage1_boss_started
+      && _sp1n >= 15
+      && typeof STAGE1_BOSS_MODULE !== 'undefined'
+      && STAGE1_BOSS_MODULE.shouldTrigger && STAGE1_BOSS_MODULE.shouldTrigger()) {
+    STAGE1_BOSS_MODULE.trigger();
+    return;
+  }
   if (G.flags.stage1_narrative_complete && G.stage === 'Stage I') {
     if (!G.flags.stage1_bridge_shown) {
       addWorldNotice('The work has accumulated into something. The anomalies you have been following are not isolated — they are part of a single operation moving through the city\'s institutional record. You do not know who runs it or why. But you know it exists. That is more than you knew when you arrived.');
@@ -12427,6 +12434,11 @@ function checkStageAdvance() {
     }
     if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
+    // Stage 2 faction arcs
+    if (typeof COLLEGIUM_FACTION_MODULE !== 'undefined' && COLLEGIUM_FACTION_MODULE.shouldTrigger && COLLEGIUM_FACTION_MODULE.shouldTrigger()) { COLLEGIUM_FACTION_MODULE.trigger(); return; }
+    if (typeof ROADWARDEN_FACTION_MODULE !== 'undefined' && ROADWARDEN_FACTION_MODULE.shouldTrigger && ROADWARDEN_FACTION_MODULE.shouldTrigger()) { ROADWARDEN_FACTION_MODULE.trigger(); return; }
+    if (typeof SHADOWHANDS_FACTION_MODULE !== 'undefined' && SHADOWHANDS_FACTION_MODULE.shouldTrigger && SHADOWHANDS_FACTION_MODULE.shouldTrigger()) { SHADOWHANDS_FACTION_MODULE.trigger(); return; }
+    if (typeof REDHOOD_FACTION_MODULE !== 'undefined' && REDHOOD_FACTION_MODULE.shouldTrigger && REDHOOD_FACTION_MODULE.shouldTrigger()) { REDHOOD_FACTION_MODULE.trigger(); return; }
     if ((G.stageProgress[2] || 0) === 10 && !G.flags.antechamber_signal_shown) {
       addWorldNotice('The pattern is starting to resolve. Someone at the center of it is still moving.');
       G.flags.antechamber_signal_shown = true;
@@ -16404,13 +16416,15 @@ function showHowToPlay() {
 <script src='content/stage2_boss.js'></script>
 <script src='content/stage2_climax.js'></script>
 <script src='content/stage2_shadowhands_arc.js'></script>
+<script src='content/collegium_faction_arc.js'></script>
+<script src='content/shadowhands_faction_arc.js'></script>
+<script src='content/roadwarden_faction_arc.js'></script>
+<script src='content/redhood_faction_arc.js'></script>
 <!-- ── STAGE 2 GENERIC FALLBACK + STAGE 3+ ── -->
 <script src='content/stage2_enriched_choices.js'></script>
 <script src='content/stage3_enriched_choices.js'></script>
 <script src='content/stage3_climax.js'></script>
 <script src='content/authority_encounters.js'></script>
-<script src='content/stage4_enriched_choices.js'></script>
-<script src='content/stage5_enriched_choices.js'></script>
 <!-- ── ENRICHED CHOICE BRIDGE ── -->
 <script src='js/loa-enriched-bridge.js'></script>
 
@@ -16448,6 +16462,8 @@ function showHowToPlay() {
     if (G.pace === 'fast') {
       var _encounterChance = 0.2;
       if (G.travelMode === 'horse' && G.archetype === 'knight') _encounterChance = 0.1;
+      var _cst = COMBAT_SCALING_TABLE[G.stage] || COMBAT_SCALING_TABLE['Stage I'];
+      _encounterChance *= _cst.encounter_rate_mod;
       if (Math.random() < _encounterChance) {
         var _biome = (typeof window.getBiomeForRoute === 'function') ? window.getBiomeForRoute(locId, prevLocation) : null;
         if (_biome) {
