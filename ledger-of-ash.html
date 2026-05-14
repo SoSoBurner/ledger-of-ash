@@ -4545,6 +4545,7 @@ function endCombat(victory) {
   const enemy = CS.enemy;
   const finalRound = CS.round;
   CS = null;
+  G.spentAbilities = {};
 
   if (victory) {
     const xpGain = Math.min(8, Math.floor(Math.random() * 4) + 4);
@@ -9160,6 +9161,11 @@ function addHeat(polity, amount) {
         G._pendingHeatEncounter = { polity: polity, level: _new };
     }
   });
+  if (!G.tutorialFlags) G.tutorialFlags = {};
+  if (!G.tutorialFlags.heat_explained) {
+    G.tutorialFlags.heat_explained = true;
+    addNarration('', '<em>Heat rises in ' + polity + '.</em> At 3, authorities take notice. At 5, encounters become mandatory. At 8, a warrant is issued.', 'notice');
+  }
   updateHeatHUD();
 }
 
@@ -13002,7 +13008,8 @@ function addJournal(text, category, dedupeKey) {
   G.journal = G.journalRecords.slice(0,30).map(e => e.text);
   updateJournalHUD();
 }
-function addQuest(text, hint, questId) {
+function addQuest(msg, hint, questId) {
+  var text = (typeof msg === 'object' && msg !== null) ? (msg.msg || msg.text || JSON.stringify(msg)) : String(msg);
   if (!G.quests) G.quests = [];
   var already = G.quests.some(function(q) { return (typeof q === 'string' ? q : q.msg) === text; });
   if (!already) {
@@ -16280,6 +16287,32 @@ function useUtilitySkill(skillId) {
   if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
 }
 
+// ── COMBAT ABILITY CHOICES ─────────────────────────────
+function getCombatAbilityChoices(enemyKey) {
+  var choices = [];
+  var allAbilities = [];
+  if (G.archetype && Array.isArray(G.archetype.abilities)) {
+    G.archetype.abilities.filter(function(a){ return a.type === 'active'; }).forEach(function(a){ allAbilities.push(a); });
+  }
+  (G.unlockedTraits || []).filter(function(t){ return t.traitType === 'active' || t.type === 'active'; }).forEach(function(t){ allAbilities.push(t); });
+
+  allAbilities.forEach(function(a){
+    if ((G.level || 1) < (a.levelMin || 1)) return;
+    var spent = !!(G.spentAbilities && G.spentAbilities[a.id]);
+    choices.push({
+      text: a.name + (spent ? ' [spent]' : ''),
+      disabled: spent,
+      skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'combat'),
+      tag: 'combat',
+      cid: '__combat_ability__' + (enemyKey || '') + '__' + a.id,
+      result: a.successEffect || 'The ability fires.',
+      failResult: a.failEffect || 'The ability misfires.',
+      dc: 12
+    });
+  });
+  return choices;
+}
+
 // ── COMBAT ENTRY — FIRST-CLASS ENCOUNTER SETUP ────────
 /** Narrative combat entry. Shows enemy intent, renders Press/Defend/Talk/Retreat. Use for all story-driven fights. @param {string} enemyKey @param {{isBoss?:boolean, bossKeys?:string[]}} [context] */
 function enterCombat(enemyKey, context) {
@@ -16328,12 +16361,8 @@ function enterCombat(enemyKey, context) {
     {text:'Defend and read them. Let them come to you.', skill:'combat', tag:'safe', align:'neutral', cid:'__combat_defend__'+enemyKey},
     {text:'Try to talk this down before it escalates.', skill:'persuasion', tag:'risky', align:'lawful', cid:'__combat_talk__'+enemyKey},
     {text:'Retreat now. This fight is not worth the cost.', skill:'stealth', tag:'safe', align:'chaotic', cid:'__combat_retreat__'}
-  ];
-  if (archCombatAbs.length > 0) {
-    const ab = archCombatAbs[0];
-    choices.splice(1, 0, {text:'[' + ab.name + '] ' + ab.effect.split('.')[0] + '.', skill:ab.skillReq||'combat', tag:'bold', align:'neutral', cid:'__combat_ability__'+enemyKey+'__'+ab.id});
-  }
-  setTimeout(() => renderChoices(choices.slice(0,5)), 300);
+  ].concat(getCombatAbilityChoices(enemyKey));
+  setTimeout(() => renderChoices(choices.slice(0,6)), 300);
 }
 
 function resolveCombatEntry(mode, enemyKey, abilityId) {
