@@ -1484,6 +1484,14 @@ input, button, select, textarea { font-family: inherit; }
 .ability-card-name { font-family: var(--font-display); font-size: 12.1px; font-weight: 700; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: .5px; }
 .ability-card-type { font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-display); color: var(--ember-hi); margin-bottom: 4px; }
 .ability-card-effect { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
+.trait-section { margin-top: 18px; }
+.trait-section-title { font-family: var(--font-display); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px; }
+.trait-card { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--border); padding: 10px; border-radius: 2px; margin-bottom: 6px; }
+.trait-card-name { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--gold-bright); margin-bottom: 2px; }
+.trait-card-type { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; font-family: var(--font-display); margin-bottom: 4px; }
+.trait-card-type.active { color: var(--ember-hi); }
+.trait-card-type.passive { color: var(--jade-bright); }
+.trait-card-effect { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; }
 .card-trait { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--storm); padding: 10px; border-radius: 2px; margin-bottom: 6px; }
 .eq-summary { padding: 8px 0 4px; }
 .eq-summary-header { font-family: var(--font-display); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
@@ -9551,7 +9559,7 @@ function getDefaultG() {
     startingLocality:'shelkopolis',
     _campoutPenalty:0, campoutDay:-1,
     trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
-    masteryXP:0, traitProgress:{}, unlockedTraits:[],
+    masteryXP:0, traitProgress:{}, unlockedTraits:[], spentAbilities:{},
     archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
     shopCreditBoost:0, statCap:10,
     restCount:0,
@@ -10680,6 +10688,15 @@ function applyTensionModifier(npcRole) {
 
 // Stage-aware arrival choices after travel — replaces hardcoded generic three
 
+// Skill display names — internal key → player-facing label
+const SKILL_DISPLAY = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+const _KEY_NORM_GLOBAL = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+/** Return player-facing skill label for any key (internal or display). */
+function skillDisplay(key) {
+  var _sk = _KEY_NORM_GLOBAL[key] || key;
+  return SKILL_DISPLAY[_sk] || (_sk.charAt(0).toUpperCase() + _sk.slice(1));
+}
+
 // Semantic tag sets for DC tier classification (Stage 1 enriched choices use these tag arrays)
 const SEMANTIC_SAFE_TAGS = new Set(['Investigation','NPC','Social','Lore','Maritime','Archive','Observation','Rumor','Trade','Civic','Rest','Stealth','Craft','Study','Retreat','Gather','Intelligence','Discovery','Survey','Records','Inquiry']);
 const SEMANTIC_BOLD_TAGS = new Set(['Confrontation','Accusation','Exposure','Betrayal','Tribunal','Ambush','Boss','Combat','Espionage','CombatEntry','Tactical','Violence','Assault']);
@@ -11678,8 +11695,7 @@ function handleChoice(choice) {
       _autoRollFailed = _arTotal < _effectiveRoll.dc;
       var _rollClass = 'roll-result ' + (_autoRollFailed ? 'failure' : 'success');
       var _abilStr = _abilBonus > 0 ? ' + ability ' + _abilBonus : '';
-      var _SKILL_DISPLAY_MAP = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
-      var _skillLabel = _SKILL_DISPLAY_MAP[_effectiveRoll.skill] || _effectiveRoll.skill;
+      var _skillLabel = skillDisplay(_effectiveRoll.skill);
       var _rollSummary = '<div class="roll-summary">' + _skillLabel + ' ' + _arRoll + ' + ' + _arSkillVal + (_abilBonus > 0 ? ' + ' + _abilBonus : '') + ' = ' + _arTotal + ' vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'FAIL' : 'SUCCESS') + '</div>';
       addNarration('', _rollSummary + '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _skillLabel + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
       if (_autoRollFailed && choice.failResult) {
@@ -14531,6 +14547,65 @@ function showJournal() {
   showOverlay('overlay-journal');
 }
 
+// ── CHARACTER SHEET HELPERS ─────────────────────────────────
+function buildTraitsSectionHTML() {
+  var actives = [], passives = [];
+
+  // Archetype active abilities
+  if (G.archetype && Array.isArray(G.archetype.abilities)) {
+    G.archetype.abilities.filter(function(a){ return a.type === 'active'; }).forEach(function(a){
+      actives.push({ id: a.id, name: a.name || a.id, desc: a.desc || a.effect || '', levelMin: a.levelMin || 1, spent: !!(G.spentAbilities && G.spentAbilities[a.id]) });
+    });
+  }
+
+  // Unlocked traits
+  (G.unlockedTraits || []).forEach(function(t){
+    if (t.traitType === 'active' || t.type === 'active') {
+      actives.push({ id: t.id, name: t.name || t.id, desc: t.desc || '', levelMin: t.levelMin || 1, spent: !!(G.spentAbilities && G.spentAbilities[t.id]) });
+    } else {
+      passives.push({ name: t.name || t.id, desc: t.desc || t.effect || '' });
+    }
+  });
+
+  // Background passives from G.traits (dual format)
+  (G.traits || []).forEach(function(t){
+    if (t.passive && t.source === 'background') {
+      passives.push({ name: (G.background && G.background.name) || 'Background', desc: t.desc || '' });
+    }
+  });
+
+  var html = '<div class="trait-section"><div class="trait-section-title">Abilities &amp; Traits</div>';
+  if (actives.length === 0 && passives.length === 0) {
+    html += '<div style="color:var(--ink-faint);font-size:12px;font-family:var(--font-body);padding:6px 0">No abilities or traits unlocked yet.</div>';
+  }
+  actives.forEach(function(a){
+    var canUse = (G.level || 1) >= a.levelMin;
+    var btnLabel = a.spent ? 'Used this encounter' : 'Activate';
+    html += '<div class="trait-card">'
+      + '<div class="trait-card-name">' + a.name + '</div>'
+      + '<div class="trait-card-type active">Active &middot; Requires Level ' + a.levelMin + '</div>'
+      + '<div class="trait-card-effect">' + a.desc + '</div>'
+      + (canUse ? '<button class="ability-btn' + (a.spent ? ' ability-btn--spent' : '') + '" onclick="activateAbilityFromSheet(\'' + a.id + '\')" ' + (a.spent ? 'disabled' : '') + '>' + btnLabel + '</button>' : '')
+      + '</div>';
+  });
+  passives.forEach(function(p){
+    html += '<div class="trait-card">'
+      + '<div class="trait-card-name">' + p.name + '</div>'
+      + '<div class="trait-card-type passive">Passive</div>'
+      + '<div class="trait-card-effect">' + p.desc + '</div>'
+      + '</div>';
+  });
+  return html + '</div>';
+}
+
+function activateAbilityFromSheet(abilityId) {
+  if (!G.spentAbilities) G.spentAbilities = {};
+  if (G.spentAbilities[abilityId]) return;
+  G.spentAbilities[abilityId] = true;
+  addNarration('', '<em style="color:var(--accent-gold)">Ability activated.</em>', 'success');
+  showCharSheet();
+}
+
 // ── CHARACTER SHEET ────────────────────────────────────────
 function showCharSheet() {
   setText('sheet-title', G.name || 'Character');
@@ -14600,8 +14675,7 @@ function showCharSheet() {
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">' +
     Object.entries(G.skills||{}).map(([k,v]) => {
       const pct=Math.round((v/20)*100);
-      var _SD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
-      return '<div class="char-skill-row"><span class="char-skill-name">'+(_SD[k]||cap(k))+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
+      return '<div class="char-skill-row"><span class="char-skill-name">'+skillDisplay(k)+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
     }).join('') + '</div></div>' +
 
     (function(){
@@ -14708,6 +14782,7 @@ function showCharSheet() {
       }).join('');
       return '<div style="margin-top:20px"><div class="char-section-title">Active Quests</div>' + _qrows + '</div>';
     })() : '') +
+    buildTraitsSectionHTML() +
     '</div>' + // end identity pane
 
     '<div class="sheet-tab-pane" data-pane="equipment">' +
