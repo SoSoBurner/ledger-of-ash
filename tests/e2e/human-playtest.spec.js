@@ -1050,7 +1050,7 @@ test.describe('Human Playtest — Visible Warrior Pass', () => {
     await page.waitForTimeout(10000);
 
     // Title screenshot before game starts
-    await page.goto('/');
+    await page.goto('/ledger-of-ash.html');
     await page.waitForSelector('#btn-new-legend', { state: 'visible', timeout: 15000 });
     await takeScreenshot('01-title');
 
@@ -1091,26 +1091,25 @@ test.describe('Human Playtest — Visible Warrior Pass', () => {
 async function recordClip(browser, name, setupFn, demoFn) {
   const destPath = path.join(CLIPS_DIR, name + '.webm');
   const ctx = await browser.newContext({
-    video: { mode: 'on', size: { width: 1280, height: 800 } },
+    recordVideo: { dir: CLIPS_DIR, size: { width: 1280, height: 800 } },
     baseURL: 'http://localhost:8080',
   });
+  let page;
   try {
-    const page = await ctx.newPage();
+    page = await ctx.newPage();
     await setupFn(page);
     await demoFn(page);
-    await page.waitForTimeout(500); // short tail so last frame is visible
+    await page.waitForTimeout(500);
   } finally {
-    await ctx.close(); // triggers video save to temp path
+    await ctx.close(); // triggers video finalization
   }
-  // Move saved video to named destination
-  const pages = ctx.pages ? ctx.pages() : [];
-  const savedPath = await ctx.video ? ctx.video().path().catch(() => null) : null;
+  // page.video().path() is available after ctx.close()
+  const savedPath = page?.video ? await page.video().path().catch(() => null) : null;
   if (savedPath && fs.existsSync(savedPath)) {
-    fs.copyFileSync(savedPath, destPath);
+    if (savedPath !== destPath) fs.renameSync(savedPath, destPath);
     console.log(`[clip] Saved ${name}.webm`);
   } else {
-    // Playwright saves video per-page; find the video on the closed context differently
-    console.log(`[clip] ${name}.webm — video path not retrieved (may still be saved by Playwright)`);
+    console.log(`[clip] ${name}.webm — video not captured`);
   }
 }
 
@@ -1151,7 +1150,7 @@ test.describe('Feature Clips — Short screen recordings per feature', () => {
 
     // 01 — Character creation flow
     await recordClip(browser, '01-character-creation',
-      async (page) => { await page.goto('/'); await page.waitForSelector('#btn-new-legend', { timeout: 15000 }); },
+      async (page) => { await page.goto('/ledger-of-ash.html'); await page.waitForSelector('#btn-new-legend', { timeout: 15000 }); },
       async (page) => {
         await page.click('#btn-new-legend');
         await page.waitForSelector('#name-input, input[placeholder*="name" i]', { timeout: 5000 }).catch(() => {});
@@ -1201,7 +1200,14 @@ test.describe('Feature Clips — Short screen recordings per feature', () => {
         await injectG(page, { xp: 118, level: 1 });
       },
       async (page) => {
-        await page.evaluate(() => { if (typeof gainXp === 'function') gainXp(5); else if (typeof addXP === 'function') addXP(5); });
+        await page.evaluate(() => {
+          // Bypass gainXP/gainXp bridge recursion — set XP directly and trigger level check
+          if (typeof G !== 'undefined') {
+            G.xp = (G.xp || 0) + 10;
+            if (typeof checkLevelUp === 'function') checkLevelUp();
+            else if (typeof updateHUD === 'function') updateHUD();
+          }
+        });
         await page.waitForSelector('.level-up-modal, .levelup-modal, [class*="level"]', { timeout: 5000 }).catch(() => {});
         await page.waitForTimeout(4000);
       }

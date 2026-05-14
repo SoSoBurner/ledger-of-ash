@@ -12096,7 +12096,8 @@ function modHP(n) {
 
 // ── XP AND LEVEL UP ──────────────────────────────────────
 function gainXP(n) {
-  gainXp(n);
+  G.xp = (G.xp || 0) + n;
+  checkLevelUp();
 }
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
