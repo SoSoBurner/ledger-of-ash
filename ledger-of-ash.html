@@ -14526,14 +14526,6 @@ function showJournal() {
     : '';
   const rivalRows = (rivalClockRow + marenRow + genericRivalRows) || '<div style="color:var(--ink-faint);font-size:13px">No known rivals yet.</div>';
 
-  const invRows = (G.inventory||[]).map((item,i) =>
-    '<div class="jov-item">' + item.name + ' <span style="color:var(--ink-faint);font-size:11px">(' + item.type + ')</span>' +
-    (!item.equipped && item.skillBonus ?
-      '<button class="btn btn-ghost btn-xs" style="margin-left:8px" onclick="equipItem(' + i + ');showJournal()">Equip</button>' : '') +
-    (item.equipped ? ' <span style="color:var(--jade-bright);font-size:10px;font-family:Cinzel,serif">EQUIPPED</span>' : '') +
-    '</div>'
-  ).join('') || '<div style="color:var(--ink-faint);font-size:13px">Nothing in inventory.</div>';
-
   const matRows = Object.entries(G.materials||{}).filter(function(e){ return e[1] > 0; }).map(function(e) {
     var id = e[0], qty = e[1];
     var def = (typeof MATERIAL_DEFS !== 'undefined' && MATERIAL_DEFS[id]) ? MATERIAL_DEFS[id] : null;
@@ -16291,20 +16283,32 @@ function useUtilitySkill(skillId) {
 function getCombatAbilityChoices(enemyKey) {
   var choices = [];
   var allAbilities = [];
+  var seenIds = {};
+
+  // Source 1: G.archetype.abilities (active type)
   if (G.archetype && Array.isArray(G.archetype.abilities)) {
     G.archetype.abilities.filter(function(a){ return a.type === 'active'; }).forEach(function(a){ allAbilities.push(a); });
   }
+  // Source 2: G.unlockedTraits (active type)
   (G.unlockedTraits || []).filter(function(t){ return t.traitType === 'active' || t.type === 'active'; }).forEach(function(t){ allAbilities.push(t); });
+  // Source 3: G.traits where passive===false OR traitType==='active' OR type==='active'
+  (G.traits || []).filter(function(t){
+    return t.passive === false || t.traitType === 'active' || t.type === 'active';
+  }).forEach(function(t){ allAbilities.push(t); });
 
   allAbilities.forEach(function(a){
+    var abilityId = a.id || a.abilityId;
+    if (!abilityId) return;
+    if (seenIds[abilityId]) return;
+    seenIds[abilityId] = true;
     if ((G.level || 1) < (a.levelMin || 1)) return;
-    var spent = !!(G.spentAbilities && G.spentAbilities[a.id]);
+    var spent = !!(G.spentAbilities && G.spentAbilities[abilityId]);
     choices.push({
       text: a.name + (spent ? ' [spent]' : ''),
       disabled: spent,
       skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'combat'),
       tag: 'combat',
-      cid: '__combat_ability__' + (enemyKey || '') + '__' + a.id,
+      cid: '__combat_ability__' + (enemyKey || '') + '__' + abilityId,
       result: a.successEffect || 'The ability fires.',
       failResult: a.failEffect || 'The ability misfires.',
       dc: 12
@@ -16362,7 +16366,7 @@ function enterCombat(enemyKey, context) {
     {text:'Try to talk this down before it escalates.', skill:'persuasion', tag:'risky', align:'lawful', cid:'__combat_talk__'+enemyKey},
     {text:'Retreat now. This fight is not worth the cost.', skill:'stealth', tag:'safe', align:'chaotic', cid:'__combat_retreat__'}
   ].concat(getCombatAbilityChoices(enemyKey));
-  setTimeout(() => renderChoices(choices.slice(0,6)), 300);
+  setTimeout(() => renderChoices(choices), 300);
 }
 
 function resolveCombatEntry(mode, enemyKey, abilityId) {
