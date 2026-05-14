@@ -10678,21 +10678,42 @@ function applyTensionModifier(npcRole) {
 }
 
 // Stage-aware arrival choices after travel — replaces hardcoded generic three
+
+// Semantic tag sets for DC tier classification (Stage 1 enriched choices use these tag arrays)
+const SEMANTIC_SAFE_TAGS = new Set(['Investigation','NPC','Social','Lore','Maritime','Archive','Observation','Rumor','Trade','Civic','Rest','Stealth','Craft','Study','Retreat','Gather','Intelligence','Discovery','Survey','Records','Inquiry']);
+const SEMANTIC_BOLD_TAGS = new Set(['Confrontation','Accusation','Exposure','Betrayal','Tribunal','Ambush','Boss','Combat','Espionage','CombatEntry','Tactical','Violence','Assault','Negotiation']);
+
+/** Resolve safe/risky/bold tier from a choice object. Explicit choice.tag scalar wins; then semantic tag array. */
+function getChoiceTier(choice) {
+  if (choice.tag === 'safe') return 'safe';
+  if (choice.tag === 'bold') return 'bold';
+  if (choice.tag === 'risky') return 'risky';
+  var tags = Array.isArray(choice.tags) ? choice.tags : [];
+  for (var i = 0; i < tags.length; i++) {
+    if (SEMANTIC_BOLD_TAGS.has(tags[i])) return 'bold';
+  }
+  for (var i = 0; i < tags.length; i++) {
+    if (SEMANTIC_SAFE_TAGS.has(tags[i])) return 'safe';
+  }
+  return 'risky';
+}
+
+/** Compute final DC for a choice, including stage and level scaling. */
+function getChoiceDC(choice, rivalMod) {
+  var tier = getChoiceTier(choice);
+  var baseDC = tier === 'safe' ? 7 : tier === 'bold' ? 16 : 13;
+  var stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
+  var levelBonus = Math.floor(((G.level || 1) - 1) / 2);
+  return (choice.dc || baseDC) + stageBonus + levelBonus + (rivalMod || 0);
+}
+
 /** Wraps enriched choice fn() in try/catch — errors are silently swallowed. Missing G defaults are the #1 cause of silent failures. @param {Object} c — enriched choice object @returns {Object} standard choice */
 function adaptEnrichedChoice(c) {
   var _rivalMod = (typeof getRivalDCMod === 'function') ? getRivalDCMod(G.location) : 0;
   var _coreInvest = c.fn && /addJournal\(.*(?:'evidence'|'intelligence'|"evidence"|"intelligence")/.test(c.fn.toString());
   if (_coreInvest) _rivalMod = 0;
-  // Derive tag from c.tag (explicit) or c.tags array; default 'risky'
-  var _BOLD_TAGS  = ['Combat','Violence','Accusation','Negotiation','Betrayal','Exposure','Tribunal','Confrontation','Assault','Ambush'];
-  var _SAFE_TAGS  = ['Rest','Stealth','Craft','Study','Observation','Lore','Trade','Retreat','Gather','Investigation','NPC','Social','Maritime','Archive','Intelligence','Rumor','Discovery','Survey','Records','Inquiry'];
-  var _derivedTag = 'risky';
-  if (c.tag && (c.tag === 'bold' || c.tag === 'risky' || c.tag === 'safe')) {
-    _derivedTag = c.tag;
-  } else if (Array.isArray(c.tags)) {
-    if (c.tags.some(function(t){ return _BOLD_TAGS.indexOf(t) !== -1; })) _derivedTag = 'bold';
-    else if (c.tags.some(function(t){ return _SAFE_TAGS.indexOf(t) !== -1; })) _derivedTag = 'safe';
-  }
+  // Derive tag using shared getChoiceTier (handles explicit scalar, semantic tag arrays, legacy arrays)
+  var _derivedTag = getChoiceTier(c);
   return {
     text: c.label,
     tag: _derivedTag,
@@ -10707,8 +10728,7 @@ function adaptEnrichedChoice(c) {
       if (c.failResult) {
         var _KEY_NORM_G = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
         var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'lore';
-        var _gStage = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-        var _gDC = (_derivedTag === 'safe' ? 7 : _derivedTag === 'bold' ? 16 : 13) + _gStage + _rivalMod;
+        var _gDC = getChoiceDC(c, _rivalMod);
         var _gVal = (G.skills && G.skills[_gSk]) || 0;
         var _gRoll = Math.floor(Math.random() * 20) + 1;
         var _gTotal = _gRoll + _gVal;
@@ -10735,8 +10755,7 @@ function adaptEnrichedChoice(c) {
         var _ri = G._lastRollInfo;
         G._lastRollInfo = null;
         if (!_gateShown) {
-          var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-          var _riDC = (_derivedTag === 'safe' ? 7 : _derivedTag === 'bold' ? 16 : 13) + _stageBonus + _rivalMod;
+          var _riDC = getChoiceDC(c, _rivalMod);
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
           var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
           addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
@@ -11534,7 +11553,7 @@ function handleChoice(choice) {
     addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     const _rSkill = G.skills[choice.skill] || 0;
     const _rRoll = Math.floor(Math.random() * 20) + 1;
-    const _rDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 13 : 16;
+    const _rDiff = getChoiceDC(choice);
     const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
     addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
     resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
@@ -11631,11 +11650,8 @@ function handleChoice(choice) {
     // Universal roll: auto-derive DC if no explicit roll defined on the choice
     var _autoRoll = null;
     if (!choice.roll) {
-      var _tier = choice.tag || 'risky';
-      var _dc = _tier === 'safe' ? 7 : _tier === 'bold' ? 16 : 13;
-      // Stage modifier: +1 per stage above Stage I
-      var _stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-      _dc += _stageBonus;
+      var _tier = getChoiceTier(choice);
+      var _dc = getChoiceDC(choice);
       var _autoSkill = choice.skill || (G.archetype && G.archetype.primarySkill) || 'lore';
       _autoRoll = { skill: _autoSkill, dc: _dc };
       console.debug('[auto-roll]', choice.id || choice.cid || choice.text, _tier, 'DC', _dc, _autoSkill);
@@ -11702,7 +11718,9 @@ function handleChoice(choice) {
 
   const roll = Math.floor(Math.random() * 20) + 1;
   const total = roll + skillVal + traitBonus + oneTime + disadvantage + eqBonus + compBonus;
-  const baseDiff = choice.tag === 'safe' ? 7 : choice.tag === 'risky' ? 13 : 16;
+  // Use getChoiceTier for semantic tag resolution; baseDiff excludes stage+level (applied separately below)
+  const _resolvedTier = getChoiceTier(choice);
+  const baseDiff = _resolvedTier === 'safe' ? 7 : _resolvedTier === 'bold' ? 16 : 13;
   // Stage DC scaling: +1 per stage to keep challenges meaningful as stats grow
   const _stageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
   // Axis flip DC modifier: +2 for days 0-3, +1 for days 4-6 after flip

@@ -196,6 +196,8 @@ function createGameContext(gOverrides) {
     confirmDeath:        ctx.confirmDeath,
     getEquipmentBonus:   ctx.getEquipmentBonus,
     advanceRivals:       ctx.advanceRivals,
+    getChoiceTier:       ctx.getChoiceTier,
+    getChoiceDC:         ctx.getChoiceDC,
   };
 }
 
