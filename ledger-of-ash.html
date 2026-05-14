@@ -10760,7 +10760,9 @@ function adaptEnrichedChoice(c) {
           var _riDC = getChoiceDC(c, _rivalMod);
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
           var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
-          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _ri.skill + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
+          var _riSKD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+          var _riSkillLabel = _riSKD[_ri.skill] || _ri.skill;
+          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _riSkillLabel + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
         }
       }
       const txt = G.lastResult || '';
@@ -11679,7 +11681,7 @@ function handleChoice(choice) {
       var _SKILL_DISPLAY_MAP = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
       var _skillLabel = _SKILL_DISPLAY_MAP[_effectiveRoll.skill] || _effectiveRoll.skill;
       var _rollSummary = '<div class="roll-summary">' + _skillLabel + ' ' + _arRoll + ' + ' + _arSkillVal + (_abilBonus > 0 ? ' + ' + _abilBonus : '') + ' = ' + _arTotal + ' vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'FAIL' : 'SUCCESS') + '</div>';
-      addNarration('', _rollSummary + '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _effectiveRoll.skill + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
+      addNarration('', _rollSummary + '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _skillLabel + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
