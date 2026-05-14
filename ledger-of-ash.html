@@ -4336,7 +4336,7 @@ function resolveCombatAction(action, abilityId) {
     enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
     enemyDamage = Math.max(0, enemyDamage);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + combat ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + Might ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
 
     if (hit) {
       CS.enemy.hp = Math.max(0, CS.enemy.hp - baseDmg);
@@ -4363,7 +4363,7 @@ function resolveCombatAction(action, abilityId) {
     const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
     enemyDamage = defended ? Math.max(0, Math.floor(eBase * 0.4)) : Math.max(0, eBase);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + survival ' + survSkill + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + Vigor ' + survSkill + ' = <strong>' + total + '</strong><br>';
     resultText += defended ? 'You take a defensive stance. ' : 'Your guard is pushed.';
     if (enemyDamage > 0) {
       resultText += ' You take ' + enemyDamage + ' damage.';
@@ -4382,7 +4382,8 @@ function resolveCombatAction(action, abilityId) {
       const total = roll + sk;
       const success = total >= 10;
 
-      resultText = '<strong>' + ab.name + '</strong>: d20 roll ' + roll + ' + ' + ab.skillReq + ' ' + sk + ' = ' + total + '<br>';
+      var _ABL_SD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      resultText = '<strong>' + ab.name + '</strong>: d20 roll ' + roll + ' + ' + (_ABL_SD[ab.skillReq]||ab.skillReq) + ' ' + sk + ' = ' + total + '<br>';
 
       if (success) {
         // Apply ability effects
@@ -4436,7 +4437,7 @@ function resolveCombatAction(action, abilityId) {
     const total = roll + survSkill;
     const success = total >= 12;
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + survival ' + survSkill + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + Vigor ' + survSkill + ' = <strong>' + total + '</strong><br>';
 
     if (success) {
       resultText += 'You break from the fight. The ' + CS.enemy.name + ' does not pursue.';
@@ -10704,7 +10705,8 @@ function getChoiceDC(choice, rivalMod) {
   var baseDC = tier === 'safe' ? 7 : tier === 'bold' ? 16 : 13;
   var stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
   var levelBonus = Math.floor(((G.level || 1) - 1) / 2);
-  return (choice.dc || baseDC) + stageBonus + levelBonus + (rivalMod || 0);
+  var effectiveDC = (choice.dc != null) ? choice.dc : baseDC;
+  return effectiveDC + stageBonus + levelBonus + (rivalMod || 0);
 }
 
 /** Wraps enriched choice fn() in try/catch — errors are silently swallowed. Missing G defaults are the #1 cause of silent failures. @param {Object} c — enriched choice object @returns {Object} standard choice */
@@ -14596,7 +14598,8 @@ function showCharSheet() {
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">' +
     Object.entries(G.skills||{}).map(([k,v]) => {
       const pct=Math.round((v/20)*100);
-      return '<div class="char-skill-row"><span class="char-skill-name">'+cap(k)+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
+      var _SD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      return '<div class="char-skill-row"><span class="char-skill-name">'+(_SD[k]||cap(k))+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
     }).join('') + '</div></div>' +
 
     (function(){
@@ -15581,7 +15584,7 @@ function updateHUD() {
   const sk = document.getElementById('hud-skills');
   if (sk) {
     sk.innerHTML = '';
-    var _SKILL_LABELS = { might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit' };
+    var _SKILL_LABELS = { might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit', combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit' };
     Object.entries(G.skills||{}).forEach(([k,v]) => {
       const r = document.createElement('div'); r.className='skill-item';
       const pct=Math.round((v/20)*100);
