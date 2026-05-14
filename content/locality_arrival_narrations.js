@@ -159,7 +159,7 @@ function buildArrivalChoice(locality) {
     stageProgress: 0,
     fn: function() {
       markArrivalComplete(locality);
-      showResultText(scene.narration);
+      addNarration('', scene.narration);
     }
   };
 }
