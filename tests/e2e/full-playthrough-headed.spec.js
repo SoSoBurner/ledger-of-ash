@@ -1,61 +1,47 @@
 // @ts-check
 /**
- * full-playthrough.spec.js
- * Two-mode QA harness for Ledger of Ash
+ * full-playthrough-headed.spec.js
+ * Headed QA harness — 4 families, 8 hr ceiling, autonomous repair loop.
  *
- * TEST 1 — Headless (1 hr cap):
- *   3 families (combat / stealth / support). Random archetype+bg per attempt.
- *   Hard-kills after 60 min and reports whatever was found.
+ * Shares all utility functions with full-playthrough.spec.js (copy-owned here
+ * to avoid a runtime require() dependency across Playwright workers).
  *
- * TEST 2 — Headed (8 hr ceiling, autonomous repair):
- *   4 families: classic-combat / magic-spellcasting / stealth-precision / support-leadership.
- *   Fixed deterministic first attempt per family, then random retry from same family pool.
- *   Full human-player simulation: every menu/overlay exercised on schedule.
- *   Autonomous repair loop: dead ends, stalled progress, and known JS failures are
- *   recovered at runtime. No user input needed for up to 8 hours.
+ * Run after the headless spec:
+ *   npx playwright test tests/e2e/full-playthrough-headed.spec.js
  */
 
 const { test } = require('@playwright/test');
 const fs   = require('fs');
 const path = require('path');
 
+// Headed mode — must be top-level for Playwright to honour it
+test.use({ launchOptions: { headless: false } });
+
 // ---------------------------------------------------------------------------
 // Output dirs
 // ---------------------------------------------------------------------------
-const TEST_RESULTS    = path.resolve(__dirname, '../../test-results');
-const SCREENSHOT_DIR  = path.join(TEST_RESULTS, 'playthrough-screenshots');
-const VIDEO_DIR       = path.join(TEST_RESULTS, 'videos');
-const LOG_PATH        = path.join(TEST_RESULTS, 'full-playthrough-log.md');
+const TEST_RESULTS   = path.resolve(__dirname, '../../test-results');
+const SCREENSHOT_DIR = path.join(TEST_RESULTS, 'playthrough-screenshots');
+const VIDEO_DIR      = path.join(TEST_RESULTS, 'videos');
 
 // ---------------------------------------------------------------------------
-// 3-family pools (headless)
-// ---------------------------------------------------------------------------
-const HEADLESS_FAMILY_ORDER = ['combat', 'stealth', 'support'];
-
-const HEADLESS_FAMILY_POOLS = {
-  combat:  ['warrior','knight','ranger','paladin','archer','berserker','warden','warlord','death_knight'],
-  stealth: ['rogue','assassin','spellthief','scout_c','thief','trickster','beastmaster'],
-  support: ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
-};
-
-// ---------------------------------------------------------------------------
-// 4-family pools (headed)
+// 4-family pools
 // ---------------------------------------------------------------------------
 const HEADED_FAMILY_ORDER = ['classic-combat', 'magic-spellcasting', 'stealth-precision', 'support-leadership'];
 
 const HEADED_FAMILY_POOLS = {
-  'classic-combat':       ['warrior','knight','berserker','warlord','warden','death_knight','archer'],
-  'magic-spellcasting':   ['paladin','spellthief','ranger'],
-  'stealth-precision':    ['rogue','assassin','scout_c','thief','trickster','beastmaster'],
-  'support-leadership':   ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
+  'classic-combat':     ['warrior','knight','berserker','warlord','warden','death_knight','archer'],
+  'magic-spellcasting': ['paladin','spellthief','ranger'],
+  'stealth-precision':  ['rogue','assassin','scout_c','thief','trickster','beastmaster'],
+  'support-leadership': ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
 };
 
-// Fixed first attempt per headed family — most canonical/stable archetype+bg
+// Fixed first attempt per family
 const HEADED_FIRST_ATTEMPT = {
-  'classic-combat':     { archetypeId: 'warrior',  backgroundId: 'w_garrison' },
-  'magic-spellcasting': { archetypeId: 'paladin',  backgroundId: 'p_cysur'    },
-  'stealth-precision':  { archetypeId: 'rogue',    backgroundId: 'ro_shelk'   },
-  'support-leadership': { archetypeId: 'healer',   backgroundId: 'hl_shelk'   },
+  'classic-combat':     { archetypeId: 'warrior', backgroundId: 'w_garrison' },
+  'magic-spellcasting': { archetypeId: 'paladin', backgroundId: 'p_cysur'    },
+  'stealth-precision':  { archetypeId: 'rogue',   backgroundId: 'ro_shelk'   },
+  'support-leadership': { archetypeId: 'healer',  backgroundId: 'hl_shelk'   },
 };
 
 // ---------------------------------------------------------------------------
@@ -100,28 +86,27 @@ const ARCHETYPE_NAMES = {
 // Pacing
 // ---------------------------------------------------------------------------
 const PACE = {
-  afterResult:    1500,
-  beforePanel:     800,
-  betweenCombat:   700,
-  afterLevelup:    500,
-  short:           300,
-  waitChoices:    3500,
-  panelDwell:     1200,
+  afterResult:   1500,
+  beforePanel:    800,
+  betweenCombat:  700,
+  afterLevelup:   500,
+  short:          300,
+  waitChoices:   3500,
+  panelDwell:    1200,
 };
 
-const MAX_PICKS         = 350;
-const PROBE_EVERY       = 20;   // panel probe interval
-const CAMP_EVERY        = 60;
-const SCREENSHOT_EVERY  = 20;
+const MAX_PICKS        = 350;
+const PROBE_EVERY      = 20;
+const CAMP_EVERY       = 60;
+const SCREENSHOT_EVERY = 20;
 
 // ---------------------------------------------------------------------------
-// Log — written incrementally so kills don't lose data
+// Log — incremental writes
 // ---------------------------------------------------------------------------
-let _logPath = LOG_PATH;
-function initLog(runLabel) {
+let _logPath = path.join(TEST_RESULTS, 'full-playthrough-log-headed.md');
+function initLog() {
   [SCREENSHOT_DIR, VIDEO_DIR, TEST_RESULTS].forEach(d => fs.mkdirSync(d, { recursive: true }));
-  _logPath = path.join(TEST_RESULTS, `full-playthrough-log-${runLabel}.md`);
-  fs.writeFileSync(_logPath, `# Ledger of Ash — QA Run (${runLabel})\nStarted: ${new Date().toISOString()}\n\n`, 'utf8');
+  fs.writeFileSync(_logPath, `# Ledger of Ash — Headed QA Run\nStarted: ${new Date().toISOString()}\n\n`, 'utf8');
 }
 function log(entry) {
   console.log(entry);
@@ -140,9 +125,9 @@ function shuffle(arr) {
   return a;
 }
 
-function buildPool(family, pools) {
+function buildPool(family) {
   const combos = [];
-  for (const archId of (pools[family] || [])) {
+  for (const archId of (HEADED_FAMILY_POOLS[family] || [])) {
     for (const bgId of (ARCHETYPE_BACKGROUNDS[archId] || [])) {
       combos.push({ archetypeId: archId, backgroundId: bgId });
     }
@@ -213,7 +198,7 @@ async function isSuccess(page) {
   return page.evaluate(() => {
     try {
       if (typeof G === 'undefined') return false;
-      const sp2       = (G.stageProgress && G.stageProgress[2]) || 0;
+      const sp2        = (G.stageProgress && G.stageProgress[2]) || 0;
       const climaxDone = !!(G.flags && (G.flags.stage2_climax_complete || G.flags.maren_oss_resolved));
       return G.stage === 'Stage III' || (climaxDone && sp2 >= 12);
     } catch (_) { return false; }
@@ -225,9 +210,6 @@ async function isDead(page) {
   catch (_) { return false; }
 }
 
-// ---------------------------------------------------------------------------
-// Overlay management
-// ---------------------------------------------------------------------------
 async function closeOverlay(page) {
   try {
     await page.evaluate(() => {
@@ -272,7 +254,6 @@ async function createCharacter(page, archetypeId, backgroundId) {
   await page.waitForSelector('#screen-game', { timeout: 10000 });
   await page.waitForTimeout(500);
 
-  // Dismiss onboarding
   for (let i = 0; i < 15; i++) {
     const btn = page.locator(
       'button:has-text("Skip"),button:has-text("Got it"),button:has-text("Continue"),button:has-text("Begin"),.onboarding-skip'
@@ -291,18 +272,19 @@ async function createCharacter(page, archetypeId, backgroundId) {
 // ---------------------------------------------------------------------------
 async function handleLevelup(page, tag) {
   try {
-    const block = page.locator('.levelup-block:visible,.level-up-block:visible,#levelup-modal.active').first();
-    if (await block.isVisible({ timeout: 400 })) {
-      // Try modal pick button first
-      const pickBtn = page.locator('#levelup-options .lu-option,#levelup-modal .lu-option').first();
-      if (await pickBtn.isVisible({ timeout: 500 }).catch(() => false)) {
-        await pickBtn.click();
+    const modal = page.locator('#levelup-modal.active').first();
+    if (await modal.isVisible({ timeout: 400 }).catch(() => false)) {
+      const pick = modal.locator('.lu-option').first();
+      if (await pick.isVisible({ timeout: 500 }).catch(() => false)) {
+        await pick.click();
         await page.waitForTimeout(PACE.afterLevelup);
         const g = await readG(page);
         log(`[panel:level-up ${tag}] lvl=${g.level} modal-pick — PASS`);
         return true;
       }
-      // Fallback: legacy levelup-option button
+    }
+    const block = page.locator('.levelup-block:visible').first();
+    if (await block.isVisible({ timeout: 400 }).catch(() => false)) {
       const optBtn = block.locator('.levelup-option button,.levelup-btn').first();
       if (await optBtn.isVisible({ timeout: 400 }).catch(() => false)) {
         await optBtn.click();
@@ -328,49 +310,34 @@ async function pickChoice(page, pickNum, forcePlotMain) {
   const meta = async (loc) => {
     const txt = await loc.evaluate(b => (b.querySelector('.choice-text') || b).textContent.trim()).catch(() => '');
     const cls = await loc.evaluate(b => b.className).catch(() => '');
-    const tag = await loc.evaluate(b => { const t = b.querySelector('.choice-tag'); return t ? t.textContent.trim() : ''; }).catch(() => '');
-    return { text: txt, isPlotMain: cls.includes('plot-main'), isCombat: cls.includes('combat-btn'), tag };
+    return { text: txt, isPlotMain: cls.includes('plot-main'), isCombat: cls.includes('combat-btn') };
   };
 
-  // 1) plot-main always first
   const pm = page.locator('.choice-btn.plot-main:visible').first();
   if (await pm.isVisible({ timeout: 400 }).catch(() => false)) {
-    const m = await meta(pm);
-    await pm.click();
-    return { clicked: true, ...m };
+    const m = await meta(pm); await pm.click(); return { clicked: true, ...m };
   }
-
   if (forcePlotMain) {
     await page.waitForTimeout(200);
     const pm2 = page.locator('.choice-btn.plot-main').first();
     if (await pm2.isVisible({ timeout: 600 }).catch(() => false)) {
-      const m = await meta(pm2);
-      await pm2.click();
-      return { clicked: true, ...m };
+      const m = await meta(pm2); await pm2.click(); return { clicked: true, ...m };
     }
   }
-
-  // 2) random every 5th pick
   if (pickNum % 5 === 0) {
     const idx = Math.floor(Math.random() * count);
     const btn = buttons.nth(idx);
-    const m   = await meta(btn);
-    await btn.click();
-    return { clicked: true, ...m };
+    const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
   }
-
-  // 3) longest label
   const snap = await snapshotChoices(page);
   let bestIdx = 0, bestLen = -1;
   snap.forEach((s, i) => { if (s.text.length > bestLen) { bestLen = s.text.length; bestIdx = i; } });
   const btn = buttons.nth(bestIdx);
-  const m   = await meta(btn);
-  await btn.click();
-  return { clicked: true, ...m };
+  const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
 }
 
 // ---------------------------------------------------------------------------
-// Panel probes — basic (headless + headed)
+// Panel probes — full simulation
 // ---------------------------------------------------------------------------
 async function probeCharSheet(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
@@ -379,13 +346,11 @@ async function probeCharSheet(page, tag, g) {
     await page.waitForSelector('#overlay-charsheet', { state: 'visible', timeout: 4000 });
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_charsheet_lvl${g.level}`);
-
-    const sheetText = await page.locator('#overlay-charsheet').innerText().catch(() => '');
-    const traits    = await page.locator('#overlay-charsheet .traits,[class*="trait"]').first().isVisible({ timeout: 1000 }).catch(() => false);
-    const names     = /Might|Finesse|Vigor|Wits|Charm|Spirit/i.test(sheetText);
-    const xpOk      = g.level !== 1 || /120/.test(sheetText);
-    const objObj    = sheetText.includes('[object Object]');
-
+    const txt    = await page.locator('#overlay-charsheet').innerText().catch(() => '');
+    const traits = await page.locator('#overlay-charsheet .traits,[class*="trait"]').first().isVisible({ timeout: 1000 }).catch(() => false);
+    const names  = /Might|Finesse|Vigor|Wits|Charm|Spirit/i.test(txt);
+    const xpOk   = g.level !== 1 || /120/.test(txt);
+    const objObj = txt.includes('[object Object]');
     log(`[panel:char-sheet ${tag}] lvl=${g.level} — ${(traits && names && xpOk && !objObj) ? 'PASS' : 'WARN'}: traits=${traits} names=${names} xp=${xpOk} objObj=${objObj}`);
     await closeOverlay(page);
   } catch (err) {
@@ -401,7 +366,6 @@ async function probeJournal(page, tag, g) {
     await page.waitForSelector('#overlay-journal,[id*="journal"]', { state: 'visible', timeout: 4000 });
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_journal_day${g.day}`);
-
     const txt    = await page.locator('[id*="journal"]').first().innerText().catch(() => '');
     const objObj = txt.includes('[object Object]');
     const hasInv = /iron blade|courier satchel|field kit/i.test(txt);
@@ -428,21 +392,15 @@ async function probeCamp(page, tag, g) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Panel probes — headed only (full simulation)
-// ---------------------------------------------------------------------------
 async function probeInventory(page, tag) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    const invBtn = page.locator('#btn-inventory,button:has-text("Inventory"),.hud-btn[title*="nventor"]').first();
-    if (!await invBtn.isVisible({ timeout: 800 }).catch(() => false)) {
-      log(`[panel:inventory ${tag}] SKIP: button not found`);
-      return;
-    }
-    await invBtn.click();
+    const btn = page.locator('#btn-inventory,button:has-text("Inventory")').first();
+    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:inventory ${tag}] SKIP`); return; }
+    await btn.click();
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_inventory`);
-    const txt = await page.locator('.overlay.active,[id*="inventory"],[id*="Inventory"]').first().innerText().catch(() => '');
+    const txt = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
     log(`[panel:inventory ${tag}] — ${txt ? 'PASS' : 'WARN'}: chars=${txt.length}`);
     await closeOverlay(page);
   } catch (err) {
@@ -454,17 +412,13 @@ async function probeInventory(page, tag) {
 async function probeShop(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    const shopBtn = page.locator('#btn-shop,button:has-text("Shop"),button:has-text("Market"),.hud-btn[title*="hop"]').first();
-    if (!await shopBtn.isVisible({ timeout: 800 }).catch(() => false)) {
-      log(`[panel:shop ${tag}] SKIP: button not found`);
-      return;
-    }
-    await shopBtn.click();
+    const btn = page.locator('#btn-shop,button:has-text("Shop"),button:has-text("Market")').first();
+    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:shop ${tag}] SKIP`); return; }
+    await btn.click();
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_shop_${g.location}`);
-    const txt = await page.locator('.overlay.active,[id*="shop"],[id*="Shop"]').first().innerText().catch(() => '');
-    const hasItems = txt.length > 20;
-    log(`[panel:shop ${tag}] loc=${g.location} — ${hasItems ? 'PASS' : 'WARN'}: chars=${txt.length}`);
+    const txt = await page.locator('.overlay.active,[id*="shop"]').first().innerText().catch(() => '');
+    log(`[panel:shop ${tag}] loc=${g.location} — ${txt.length > 20 ? 'PASS' : 'WARN'}: chars=${txt.length}`);
     await closeOverlay(page);
   } catch (err) {
     log(`[panel:shop ${tag}] WARN: ${err.message}`);
@@ -474,59 +428,41 @@ async function probeShop(page, tag, g) {
 
 async function probeQuestHUD(page, tag) {
   try {
-    const questEl = page.locator('#quest-hud,#hud-quest,[id*="quest"]').first();
-    if (!await questEl.isVisible({ timeout: 600 }).catch(() => false)) {
-      log(`[panel:quest-hud ${tag}] SKIP: element not visible`);
-      return;
-    }
-    const txt    = await questEl.innerText().catch(() => '');
-    const objObj = txt.includes('[object Object]');
-    log(`[panel:quest-hud ${tag}] — ${!objObj ? 'PASS' : 'FAIL'}: objObj=${objObj} text="${txt.slice(0,60)}"`);
-  } catch (err) {
-    log(`[panel:quest-hud ${tag}] WARN: ${err.message}`);
-  }
+    const el  = page.locator('#quest-hud,#hud-quest,[id*="quest"]').first();
+    if (!await el.isVisible({ timeout: 600 }).catch(() => false)) { log(`[panel:quest-hud ${tag}] SKIP`); return; }
+    const txt = await el.innerText().catch(() => '');
+    log(`[panel:quest-hud ${tag}] — ${!txt.includes('[object Object]') ? 'PASS' : 'FAIL'}: "${txt.slice(0,60)}"`);
+  } catch (err) { log(`[panel:quest-hud ${tag}] WARN: ${err.message}`); }
 }
 
 async function probeHeatHUD(page, tag, g) {
   try {
-    const heatEl = page.locator('#heat-hud,#hud-heat,[id*="heat"],[class*="heat"]').first();
-    const visible = await heatEl.isVisible({ timeout: 600 }).catch(() => false);
-    const totalHeat = Object.values(g.heat || {}).reduce((a, b) => a + b, 0);
-    if (!visible && totalHeat > 0) {
-      log(`[panel:heat-hud ${tag}] WARN: heat=${totalHeat} but HUD not visible`);
-    } else if (visible) {
-      const txt = await heatEl.innerText().catch(() => '');
-      log(`[panel:heat-hud ${tag}] — PASS: visible heat=${totalHeat} "${txt.slice(0,40)}"`);
-    } else {
-      log(`[panel:heat-hud ${tag}] — PASS: no heat, HUD hidden`);
-    }
-  } catch (err) {
-    log(`[panel:heat-hud ${tag}] WARN: ${err.message}`);
-  }
+    const el         = page.locator('#heat-hud,#hud-heat,[id*="heat"]').first();
+    const visible    = await el.isVisible({ timeout: 600 }).catch(() => false);
+    const totalHeat  = Object.values(g.heat || {}).reduce((a, b) => a + b, 0);
+    if (!visible && totalHeat > 0) log(`[panel:heat-hud ${tag}] WARN: heat=${totalHeat} but HUD hidden`);
+    else if (visible) { const txt = await el.innerText().catch(() => ''); log(`[panel:heat-hud ${tag}] PASS heat=${totalHeat} "${txt.slice(0,40)}"`); }
+    else log(`[panel:heat-hud ${tag}] PASS: no heat`);
+  } catch (err) { log(`[panel:heat-hud ${tag}] WARN: ${err.message}`); }
 }
 
 async function probeAlignmentBars(page, tag) {
   try {
-    const alignEl = page.locator('[id*="alignment"],[class*="alignment"],[id*="benevolence"],[class*="benevolence"]').first();
-    const visible = await alignEl.isVisible({ timeout: 600 }).catch(() => false);
-    log(`[panel:alignment ${tag}] — ${visible ? 'PASS: bars visible' : 'SKIP: not rendered yet'}`);
-  } catch (err) {
-    log(`[panel:alignment ${tag}] WARN: ${err.message}`);
-  }
+    const el      = page.locator('[class*="alignment"],[id*="benevolence"]').first();
+    const visible = await el.isVisible({ timeout: 600 }).catch(() => false);
+    log(`[panel:alignment ${tag}] — ${visible ? 'PASS: bars visible' : 'SKIP'}`);
+  } catch (err) { log(`[panel:alignment ${tag}] WARN: ${err.message}`); }
 }
 
 async function probeHowToPlay(page, tag) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
     const btn = page.locator('button:has-text("How to Play"),button:has-text("HOW TO PLAY"),#btn-howto').first();
-    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) {
-      log(`[panel:howtoplay ${tag}] SKIP: button not found`);
-      return;
-    }
+    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:howtoplay ${tag}] SKIP`); return; }
     await btn.click();
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_howtoplay`);
-    log(`[panel:howtoplay ${tag}] — PASS`);
+    log(`[panel:howtoplay ${tag}] PASS`);
     await page.keyboard.press('Escape');
     await closeOverlay(page);
   } catch (err) {
@@ -535,36 +471,28 @@ async function probeHowToPlay(page, tag) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Dead-end recovery — standard (headless)
-// ---------------------------------------------------------------------------
-async function handleDeadEnd(page, tag, pickNum) {
-  const g    = await readG(page);
-  const html = await actionHTML(page);
-  await screenshot(page, `${tag}_deadend_p${pickNum}`);
-  log(`[dead-end ${tag}] pick=${pickNum} loc=${g.location} tension=${g.tensionLevel} sp=${JSON.stringify(g.stageProgress)} html="${html.slice(0,200)}"`);
-
-  await page.keyboard.press('Escape');
-  await page.waitForTimeout(1000);
-  if (await waitForChoices(page, 1000) > 0) { log(`[recovery ${tag}] Escape worked`); return true; }
-
-  try { await page.click('#btn-camp'); await page.waitForTimeout(2000); await closeOverlay(page); } catch (_) {}
-  if (await waitForChoices(page, 1000) > 0) { log(`[recovery ${tag}] camp worked`); return true; }
-
-  try {
-    await page.evaluate(() => {
-      if (typeof loadStageChoices === 'function' && typeof G !== 'undefined' && G.location)
-        loadStageChoices(G.location);
-    });
-    await page.waitForTimeout(1500);
-  } catch (_) {}
-  if (await waitForChoices(page, 1000) > 0) { log(`[recovery ${tag}] loadStageChoices worked`); return true; }
-
-  return false;
+async function runFullPanelSimulation(page, tag, g, picks) {
+  if (picks > 0 && picks % PROBE_EVERY === 0) {
+    await probeCharSheet(page, tag, g);
+    await probeJournal(page, tag, g);
+    await probeQuestHUD(page, tag);
+    await probeHeatHUD(page, tag, g);
+    await probeAlignmentBars(page, tag);
+  }
+  if (picks > 0 && picks % CAMP_EVERY === 0) {
+    await probeCamp(page, tag, g);
+    await probeInventory(page, tag);
+  }
+  if (picks > 0 && picks % 80 === 0) {
+    await probeShop(page, tag, g);
+  }
+  if (picks === 5) {
+    await probeHowToPlay(page, tag);
+  }
 }
 
 // ---------------------------------------------------------------------------
-// Dead-end recovery — repair mode (headed, more aggressive)
+// Dead-end repair — 6-strategy autonomous recovery
 // ---------------------------------------------------------------------------
 async function handleDeadEndRepair(page, tag, pickNum) {
   const g    = await readG(page);
@@ -591,7 +519,7 @@ async function handleDeadEndRepair(page, tag, pickNum) {
   } catch (_) {}
   if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R3-loadStageChoices worked`); return true; }
 
-  // R4: Runtime patch — blank-panel guard inject
+  // R4: Blank-panel guard inject
   try {
     await page.evaluate(() => {
       const panel = document.getElementById('action-content');
@@ -604,7 +532,7 @@ async function handleDeadEndRepair(page, tag, pickNum) {
   } catch (_) {}
   if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R4-blank-panel-inject worked`); return true; }
 
-  // R5: If tension combat dead end, patch patrol_guard fallback at runtime
+  // R5: Tension combat dead end — reset tensionLevel
   try {
     await page.evaluate(() => {
       if (typeof G !== 'undefined' && G.tensionLevel >= 2) {
@@ -617,59 +545,29 @@ async function handleDeadEndRepair(page, tag, pickNum) {
   } catch (_) {}
   if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R5-tension-reset worked`); return true; }
 
-  // R6: Navigate to a new location via G if possible
+  // R6: Navigate to a random Stage 1 locality
   try {
     await page.evaluate(() => {
       if (typeof G === 'undefined') return;
-      const locs = Object.keys(window.STAGE_LOCALITY_POOL && window.STAGE_LOCALITY_POOL[1] || {});
-      if (locs.length > 0) {
-        G.location = locs[Math.floor(Math.random() * locs.length)];
-        if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
-      }
+      const pool = window.STAGE_LOCALITY_POOL && window.STAGE_LOCALITY_POOL[1];
+      const locs = pool ? Object.keys(pool) : ['shelkopolis'];
+      G.location = locs[Math.floor(Math.random() * locs.length)];
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     });
     await page.waitForTimeout(1500);
   } catch (_) {}
   if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R6-location-change worked`); return true; }
 
-  log(`[repair ${tag}] ALL recovery strategies exhausted pick=${pickNum}`);
+  log(`[repair ${tag}] ALL strategies exhausted pick=${pickNum}`);
   return false;
 }
 
 // ---------------------------------------------------------------------------
-// Full panel simulation schedule (headed only)
-// Each probe category runs on its own cadence
+// Single playthrough
 // ---------------------------------------------------------------------------
-async function runFullPanelSimulation(page, tag, g, pickNum) {
-  // Char sheet + journal every PROBE_EVERY picks
-  if (pickNum > 0 && pickNum % PROBE_EVERY === 0) {
-    await probeCharSheet(page, tag, g);
-    await probeJournal(page, tag, g);
-    await probeQuestHUD(page, tag);
-    await probeHeatHUD(page, tag, g);
-    await probeAlignmentBars(page, tag);
-  }
-  // Camp + inventory every CAMP_EVERY picks
-  if (pickNum > 0 && pickNum % CAMP_EVERY === 0) {
-    await probeCamp(page, tag, g);
-    await probeInventory(page, tag);
-  }
-  // Shop every 80 picks
-  if (pickNum > 0 && pickNum % 80 === 0) {
-    await probeShop(page, tag, g);
-  }
-  // How-to-play once at pick 5
-  if (pickNum === 5) {
-    await probeHowToPlay(page, tag);
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Single playthrough — mode: 'headless' | 'headed'
-// ---------------------------------------------------------------------------
-async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode) {
-  const tag      = `${family}_${archetypeId}_a${attemptNum}`;
-  const isHeaded = mode === 'headed';
-  log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family} mode=${mode}`);
+async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors) {
+  const tag = `${family}_${archetypeId}_a${attemptNum}`;
+  log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family}`);
 
   let pageIsClosed = false;
   page.on('close',     () => { pageIsClosed = true; log(`[run:${tag}] PAGE CLOSED`); });
@@ -688,12 +586,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   log(`[run:${tag}] game-started level=${g.level} location=${g.location}`);
   await screenshot(page, `${tag}_start`);
 
-  let picks          = 0;
-  let deadStreak     = 0;
-  let lastSP1        = 0;
-  let noProgress     = 0;
-  let forcePlotMain  = 0;
-  let lastLoggedSP1  = -1;
+  let picks         = 0;
+  let deadStreak    = 0;
+  let lastSP1       = 0;
+  let noProgress    = 0;
+  let forcePlotMain = 0;
+  let lastLoggedSP1 = -1;
 
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
@@ -713,27 +611,14 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       }
 
       await handleLevelup(page, tag);
-
       g = await readG(page);
 
-      // Panel probes
-      if (isHeaded) {
-        await runFullPanelSimulation(page, tag, g, picks);
-      } else {
-        if (picks > 0 && picks % PROBE_EVERY === 0) {
-          await probeCharSheet(page, tag, g);
-          await probeJournal(page, tag, g);
-        }
-        if (picks > 0 && picks % CAMP_EVERY === 0) {
-          await probeCamp(page, tag, g);
-        }
-      }
+      await runFullPanelSimulation(page, tag, g, picks);
 
       if (picks % SCREENSHOT_EVERY === 0) {
         await screenshot(page, `${tag}_p${picks}_sp${(g.stageProgress && g.stageProgress[1]) || 0}`);
       }
 
-      // Wait for result text to settle
       try {
         await Promise.race([
           page.waitForSelector('.result-text:visible',    { timeout: 2000 }),
@@ -744,13 +629,10 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
 
-      // Dead-end detection
       if (choiceCount === 0) {
         deadStreak++;
         if (deadStreak >= 3) {
-          const recovered = isHeaded
-            ? await handleDeadEndRepair(page, tag, picks)
-            : await handleDeadEnd(page, tag, picks);
+          const recovered = await handleDeadEndRepair(page, tag, picks);
           if (!recovered) {
             log(`[run:${tag}] BLOCKED pick=${picks} — no recovery`);
             return { success: false, reason: 'blocked', picks, g };
@@ -763,7 +645,6 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       }
       deadStreak = 0;
 
-      // stageProgress tracking
       g = await readG(page);
       const sp1 = (g.stageProgress && g.stageProgress[1]) || 0;
       if (sp1 !== lastLoggedSP1) {
@@ -776,19 +657,18 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[run:${tag}] pick=${picks} sp1=${sp1} — stalled, forcing plot-main x5`);
       }
 
-      // Headed repair: if sp1 stuck for 40+ picks and truly no plot-main available, nudge
-      if (isHeaded && noProgress >= 40 && sp1 < 3) {
+      // Autonomous repair: nudge sp1 if truly stuck for 40+ picks
+      if (noProgress >= 40 && sp1 < 3) {
         try {
           await page.evaluate(() => {
             if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 3)
               G.stageProgress[1] += 1;
           });
-          log(`[repair ${tag}] pick=${picks} — sp1 nudge (was ${sp1}, stuck ${noProgress} picks)`);
+          log(`[repair ${tag}] pick=${picks} sp1 nudge (was ${sp1}, stuck ${noProgress} picks)`);
           noProgress = 0;
         } catch (_) {}
       }
 
-      // Choice slate every 10 picks
       if (picks % 10 === 0) {
         const snap = await snapshotChoices(page);
         const pm   = snap.filter(s => s.cls.includes('plot-main')).length;
@@ -796,11 +676,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[choices ${tag}] pick=${picks} total=${snap.length} plotMain=${pm} combat=${cb}`);
       }
 
-      const inCombat = await page.locator('.choice-btn.combat-btn:visible').count().then(n => n > 0).catch(() => false);
-      if (inCombat) log(`[combat ${tag}] pick=${picks} — combat UI active`);
-
       await dismissOverlays(page);
-
       const result = await pickChoice(page, picks, picks < forcePlotMain);
       if (!result.clicked) { await page.waitForTimeout(600); continue; }
       log(`[pick ${tag}] #${picks + 1} plotMain=${result.isPlotMain} combat=${result.isCombat} "${result.text.slice(0, 60)}"`);
@@ -822,100 +698,86 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   return { success: false, reason: 'max-picks', picks, g };
 }
 
-// ---------------------------------------------------------------------------
-// Helper: run a family loop and return { success, familyResult }
-// ---------------------------------------------------------------------------
-async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOverride, familyCeiling) {
-  const START = Date.now();
-  let success    = false;
-  let attemptNum = 0;
-  let pool       = buildPool(family, pools);
-  let poolIdx    = 0;
-  let result;
-
-  while (!success) {
-    if (familyCeiling && (Date.now() - START) > familyCeiling) {
-      log(`[family:${family}] CEILING HIT — stopping after ${Math.round((Date.now()-START)/60000)} min`);
-      return { success: false, attempts: attemptNum, reason: 'ceiling' };
-    }
-
-    attemptNum++;
-    let archetypeId, backgroundId;
-    if (attemptNum === 1 && firstAttemptOverride) {
-      ({ archetypeId, backgroundId } = firstAttemptOverride);
-    } else {
-      if (poolIdx >= pool.length) { pool = buildPool(family, pools); poolIdx = 0; }
-      ({ archetypeId, backgroundId } = pool[poolIdx++]);
-    }
-
-    log(`[family:${family}] attempt ${attemptNum} → ${archetypeId}/${backgroundId}`);
-
-    const videoRunDir = path.join(VIDEO_DIR, `${family}_a${attemptNum}_${archetypeId}`);
-    fs.mkdirSync(videoRunDir, { recursive: true });
-    const context = await browser.newContext({
-      recordVideo: { dir: videoRunDir, size: { width: 1280, height: 720 } },
-    });
-    const page = await context.newPage();
-
-    result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode);
-
-    try { await page.close(); }    catch (_) {}
-    try { await context.close(); } catch (_) {}
-
-    log(`[family:${family}] attempt ${attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
-
-    if (result.success) {
-      success = true;
-      return { success: true, archetypeId, backgroundId, attempts: attemptNum, picks: result.picks };
-    }
-  }
-
-  return { success: false, attempts: attemptNum };
-}
-
 // ===========================================================================
-// TEST 1 — HEADLESS (3 families, 1 hour hard cap)
+// TEST — HEADED 4-family, 8hr ceiling
 // ===========================================================================
-test.describe('Headless QA — 3 families', () => {
-  test.setTimeout(62 * 60 * 1000); // 62 min outer ceiling
+test.describe('Headed QA — 4 families', () => {
+  test.setTimeout(8.5 * 60 * 60 * 1000);
 
-  test('headless 3-family playtest', async ({ browser }) => {
-    initLog('headless');
+  test('headed 4-family playtest with repair', async ({ browser }) => {
+    initLog();
     const jsErrors      = [];
     const familyResults = {};
-    const HEADLESS_CAP  = 60 * 60 * 1000; // 1 hour
+    const HEADED_CAP    = 8 * 60 * 60 * 1000;
     const suiteStart    = Date.now();
 
-    for (const family of HEADLESS_FAMILY_ORDER) {
-      if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
-        log(`[suite:headless] 1hr cap reached — stopping before family:${family}`);
+    for (const family of HEADED_FAMILY_ORDER) {
+      if ((Date.now() - suiteStart) >= HEADED_CAP) {
+        log(`[suite:headed] 8hr cap — stopping before family:${family}`);
         break;
       }
 
       log(`\n${'='.repeat(60)}`);
-      log(`[family:${family}] starting (headless)`);
+      log(`[family:${family}] starting (headed)`);
       log('='.repeat(60));
 
-      const remaining = HEADLESS_CAP - (Date.now() - suiteStart);
-      const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, remaining);
-      familyResults[family] = r;
-      if (r.success) {
-        log(`[family:${family}] DONE after ${r.attempts} attempt(s) — ${r.archetypeId}/${r.backgroundId} ${r.picks} picks`);
+      let success    = false;
+      let attemptNum = 0;
+      let pool       = buildPool(family);
+      let poolIdx    = 0;
+
+      while (!success) {
+        if ((Date.now() - suiteStart) >= HEADED_CAP) {
+          log(`[family:${family}] ceiling hit mid-family`);
+          break;
+        }
+
+        attemptNum++;
+        let archetypeId, backgroundId;
+        if (attemptNum === 1 && HEADED_FIRST_ATTEMPT[family]) {
+          ({ archetypeId, backgroundId } = HEADED_FIRST_ATTEMPT[family]);
+        } else {
+          if (poolIdx >= pool.length) { pool = buildPool(family); poolIdx = 0; }
+          ({ archetypeId, backgroundId } = pool[poolIdx++]);
+        }
+
+        log(`[family:${family}] attempt ${attemptNum} → ${archetypeId}/${backgroundId}`);
+
+        const videoDir = path.join(VIDEO_DIR, `${family}_a${attemptNum}_${archetypeId}`);
+        fs.mkdirSync(videoDir, { recursive: true });
+        const context = await browser.newContext({
+          recordVideo: { dir: videoDir, size: { width: 1280, height: 720 } },
+        });
+        const page = await context.newPage();
+
+        const result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors);
+
+        try { await page.close(); }    catch (_) {}
+        try { await context.close(); } catch (_) {}
+
+        log(`[family:${family}] attempt ${attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
+
+        if (result.success) {
+          success = true;
+          familyResults[family] = { archetypeId, backgroundId, attempts: attemptNum, picks: result.picks };
+        }
+      }
+
+      if (!familyResults[family]) {
+        familyResults[family] = { success: false, attempts: attemptNum };
       }
     }
 
-    // Summary
+    // Final summary
     log('\n' + '='.repeat(60));
-    log('[suite:headless] COMPLETE (1hr cap or all 3 families done)');
+    log('[suite:headed] COMPLETE');
     for (const [fam, r] of Object.entries(familyResults)) {
-      log(`  ${fam}: ${r.success ? `SUCCESS ${r.archetypeId}/${r.backgroundId} ${r.attempts} attempts ${r.picks} picks` : `incomplete (${r.attempts} attempts)`}`);
+      log(`  ${fam}: ${r.success !== false ? `SUCCESS ${r.archetypeId}/${r.backgroundId} ${r.attempts} attempts ${r.picks} picks` : `incomplete (${r.attempts} attempts)`}`);
     }
     if (jsErrors.length) {
       log(`\n[js-errors] ${jsErrors.length} total:`);
-      jsErrors.slice(0, 20).forEach(e => log(`  [${e.tag}] ${e.msg}`));
+      jsErrors.slice(0, 30).forEach(e => log(`  [${e.tag}] ${e.msg}`));
     }
     log('='.repeat(60));
   });
 });
-
-// TEST 2 (headed) lives in full-playthrough-headed.spec.js
