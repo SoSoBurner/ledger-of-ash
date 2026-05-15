@@ -188,6 +188,34 @@ async function snapshotChoices(page) {
   } catch (_) { return []; }
 }
 
+async function readNarrativeText(page) {
+  try {
+    return await page.evaluate(() => {
+      const selectors = ['.result-text', '.narrative-text', '.env-desc', '#narrative-text'];
+      for (const sel of selectors) {
+        const el = document.querySelector(sel);
+        if (el && el.textContent.trim()) return el.textContent.trim().slice(0, 200);
+      }
+      return '';
+    });
+  } catch (_) { return ''; }
+}
+
+// Checks choice labels for CLAUDE.md content standard violations — logs but does not throw
+function auditChoiceLabels(snap, tag, picks) {
+  const INFINITIVE_STARTS = /^(To |Ask |Tell |Go |Find |Report |Speak |Look |Check |Examine |Take |Give |Use |Try |Get |Make |Help |Stop |Push |Pull |Open |Close |Enter |Leave |Follow |Wait |Watch |Return |Walk |Run )/i;
+  const violations = [];
+  snap.forEach((s, i) => {
+    const words = s.text.trim().split(/\s+/).length;
+    if (words > 15) violations.push(`label[${i}] ${words}w (>15): "${s.text.slice(0,60)}"`);
+    if (s.text.trim().endsWith('?')) violations.push(`label[${i}] ends-?: "${s.text.slice(0,60)}"`);
+    if (INFINITIVE_STARTS.test(s.text.trim())) violations.push(`label[${i}] infinitive: "${s.text.slice(0,60)}"`);
+  });
+  if (violations.length > 0) {
+    violations.forEach(v => log(`[label-audit ${tag}] pick=${picks} VIOLATION: ${v}`));
+  }
+}
+
 async function waitForChoices(page, ms) {
   try { await page.waitForSelector('.choice-btn:visible', { timeout: ms || PACE.waitChoices }); }
   catch (_) {}
@@ -335,8 +363,16 @@ async function pickChoice(page, pickNum, forcePlotMain) {
     const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
   }
   const snap = await snapshotChoices(page);
-  let bestIdx = 0, bestLen = -1;
-  snap.forEach((s, i) => { if (s.text.length > bestLen) { bestLen = s.text.length; bestIdx = i; } });
+  // Score each choice: prefer inner-voice labels (no infinitives, no ?), prefer longer text
+  const INFINITIVE_STARTS = /^(To |Ask |Tell |Go |Find |Report |Speak |Look |Check |Examine |Take |Give |Use |Try |Get |Make |Help |Stop |Push |Pull |Open |Close |Enter |Leave |Follow |Wait |Watch |Return |Walk |Run )/i;
+  let bestIdx = 0, bestScore = -Infinity;
+  snap.forEach((s, i) => {
+    let score = s.text.length;
+    if (s.text.trim().endsWith('?')) score -= 30;
+    if (INFINITIVE_STARTS.test(s.text.trim())) score -= 20;
+    if (s.cls.includes('choice-btn--warn') || s.cls.includes('combat-btn')) score -= 10; // avoid pure combat spirals
+    if (score > bestScore) { bestScore = score; bestIdx = i; }
+  });
   const btn = buttons.nth(bestIdx);
   const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
 }
@@ -703,11 +739,16 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         } catch (_) {}
       }
 
+      // Read narrative text and log what the player sees before picking
+      const narrativeText = await readNarrativeText(page);
+      if (narrativeText) log(`[narrative ${tag}] pick=${picks}: "${narrativeText.slice(0, 120)}"`);
+
       if (picks % 10 === 0) {
         const snap = await snapshotChoices(page);
         const pm   = snap.filter(s => s.cls.includes('plot-main')).length;
         const cb   = snap.filter(s => s.cls.includes('combat-btn')).length;
         log(`[choices ${tag}] pick=${picks} total=${snap.length} plotMain=${pm} combat=${cb}`);
+        auditChoiceLabels(snap, tag, picks);
       }
 
       await dismissOverlays(page);
