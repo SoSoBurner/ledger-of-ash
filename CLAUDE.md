@@ -374,6 +374,25 @@ Success = all 4 families reach `climaxDone && sp2 >= 18` or Stage III.
 If sp2 is stuck below 18: treat as content bug — invoke Stage II content expansion plan, add choices, commit, re-run. Up to 5 fix-retry cycles.
 Corridor encounters: `G.flags.corridor_encounters_enabled = true` — set this before running headed spec so full travel flow is tested.
 
+### Step 3a — UI/UX review pass (both during and after spec)
+Run concurrently with Step 3 and again after it passes. Two layers:
+
+**During spec (milestone screenshots + text reading):**
+- At each `pickChoice`, read DOM content via `page.evaluate()` — extract narrative text and all visible choice labels. Make an informed pick based on content (prefer plot-advancing choices; apply line-editor check: ≤15 words, inner voice, no infinitives, no question marks).
+- Capture milestone screenshots via `page.screenshot()` at: character creation complete, first choice render, first result, combat entry, Stage II unlock banner, death screen, each menu open. Also capture periodic random screenshots throughout the run.
+- Apply skills to each screenshot before continuing: `game-design:polish-review` (visual), `game-design:feedback-loop-review` (HUD/progress signals), `game-design:balance-review` (combat/choices), `game-design:fun-review` (engagement), `line-editor` (choice labels and result text).
+- Full menu cycle once per family: open journal → cycle all tabs → close; open character sheet → check all sections → close; open inventory → equip first available item → close; open quest log → close. Screenshot each.
+
+**After spec (dedicated review pass):**
+- Invoke `game-design:polish-review` on character creation screen, main play surface, and all overlay screens.
+- Invoke `game-design:feedback-loop-review` on HUD layout, stage progress bar, XP/renown display.
+- Invoke `line-editor` on a sample of choice labels and result text from the run.
+- Any skill appropriate to what is visible — use judgment, do not skip.
+
+**Findings triage:**
+- High-severity (broken rendering, unreadable text, wrong color role, missing UI element): fix inline during run, commit with description.
+- Low-severity (label could be tighter, panel alignment, minor color drift): log to `docs/BACKLOG.md` with P1/P2 tag.
+
 ### Stage lock = done
 Deliberate stage gate reached → playtest complete.
 Run `claude-md-management:revise-claude-md` to capture any new gotchas.
