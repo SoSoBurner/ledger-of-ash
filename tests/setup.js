@@ -29,7 +29,8 @@ function defaultG() {
     dead: false,
     rivalAdventurers: [],
     marenRenown: 0, marenRevealed: false,
-    travelMode: 'foot', pace: 'normal', supplyTier: 'light', journeyFatigue: 0,
+    day: 0,
+    travelMode: 'foot', travelPace: 'normal', pace: 'normal', supplyTier: 'light', journeyFatigue: 0,
     flags: {},
     masteryXP: 0, masteryPurchased: [], masteryBonuses: {},
     unlockedTraits: [], spentAbilities: {},
@@ -178,6 +179,7 @@ function createGameContext(gOverrides) {
 
   return {
     G:                 liveG,
+    window:            sandbox,   // vm sandbox — set window.FOO here to expose globals to game functions
     STAGE_LEVEL_CAP:   ctx.__STAGE_LEVEL_CAP || ctx.STAGE_LEVEL_CAP || { 'Stage I':5,'Stage II':10,'Stage III':15,'Stage IV':18,'Stage V':20 },
     narrations:        sandbox._narrations,
     toasts:            sandbox._toasts,
@@ -197,6 +199,7 @@ function createGameContext(gOverrides) {
     confirmDeath:        ctx.confirmDeath,
     getEquipmentBonus:   ctx.getEquipmentBonus,
     advanceRivals:       ctx.advanceRivals,
+    startTravel:         ctx.startTravel,
     getChoiceTier:       ctx.getChoiceTier,
     getChoiceDC:         ctx.getChoiceDC,
     renderMasterySection:    ctx.renderMasterySection,

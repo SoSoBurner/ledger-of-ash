@@ -9125,6 +9125,7 @@ let G = {
   rivalAdventurers:[],
   marenRenown:0, marenRevealed:false,
   travelMode: 'foot',
+  travelPace: 'normal',
   pace: 'normal',
   supplyTier: 'light',
   journeyFatigue: 0,
@@ -14041,6 +14042,40 @@ function doJourneyStart(destId) {
   }
   addNarration('Depart', 'How will you travel from ' + (G.location || 'here') + '?', 'neutral');
   setTimeout(function() { renderChoices(modeChoices); }, 300);
+}
+
+var TRAVEL_MODE_SPEED = { foot:1, horse:2, cart:1, boat:3 };
+var TRAVEL_PACE_MOD   = { fast:1.5, normal:1, slow:0.75 };
+
+/** Travel to destinationKey using G.travelMode + G.travelPace. Uses LOCALITY_TRAVEL_NETWORK edges. */
+function startTravel(destinationKey) {
+  var network = window.LOCALITY_TRAVEL_NETWORK;
+  if (!network) { addNarration('', 'Travel data not loaded.', 'notice'); return; }
+  var edge = network.edges && network.edges.find(function(e) {
+    return (e.from === G.location && e.to === destinationKey) ||
+           (e.to === G.location && e.from === destinationKey);
+  });
+  if (!edge) { addNarration('', 'No known route to that destination.', 'notice'); return; }
+
+  var speed   = TRAVEL_MODE_SPEED[G.travelMode || 'foot'] || 1;
+  var paceMod = TRAVEL_PACE_MOD[G.travelPace || 'normal'] || 1;
+  var days    = Math.ceil(edge.distance / (speed * paceMod));
+
+  addNarration('', 'The road to ' + destinationKey + ' takes ' + days + ' day' + (days > 1 ? 's' : '') + ' by ' + (G.travelMode || 'foot') + '.', 'notice');
+
+  for (var d = 0; d < days; d++) {
+    if (typeof advanceTime === 'function') advanceTime(4);
+    else G.dayCount = (G.dayCount || 0) + 1;
+    G.day = G.dayCount;
+    var complications = window.TRAVEL_COMPLICATIONS && window.TRAVEL_COMPLICATIONS[edge.corridor];
+    if (complications && complications.length && Math.random() < 0.35) {
+      var comp = complications[Math.floor(Math.random() * complications.length)];
+      if (comp) addNarration('', comp.text || comp, 'encounter');
+    }
+  }
+  G.location = destinationKey;
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof loadStageChoices === 'function') loadStageChoices();
 }
 
 /** Executes multi-day journey to destId using G.travelMode and G.pace. Applies journey fatigue. @param {string} destId */
