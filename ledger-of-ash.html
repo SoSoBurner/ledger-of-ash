@@ -11025,7 +11025,7 @@ function loadStageChoices(locId) {
       }).map(adaptEnrichedChoice);
       if (_shadowArc.length) adapted.unshift.apply(adapted, _shadowArc);
     }
-    const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8);
+    const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8).filter(function(c){ return passesAlignGate(c); });
     renderChoices(choices);
     return;
   }
@@ -11196,6 +11196,16 @@ function activateAbility(abilId) {
 
   addNarration(ab.name, '<p style="font-style:italic;color:var(--ink-dim)">' + (ab.desc || ab.gameEffect || '') + '</p>', 'neutral');
   renderChoices(_pendingChoices);
+}
+
+function passesAlignGate(choice) {
+  if (!choice.alignGate) return true;
+  var g = choice.alignGate;
+  if (g === 'benevolent') return (G.benevolence || 0) >= 25;
+  if (g === 'cruel')      return (G.benevolence || 0) <= -25;
+  if (g === 'order')      return (G.orderAxis || 0) >= 25;
+  if (g === 'anarchy')    return (G.orderAxis || 0) <= -25;
+  return true;
 }
 
 function renderChoices(choices) {

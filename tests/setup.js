@@ -206,6 +206,7 @@ function createGameContext(gOverrides) {
     buyMasteryUpgrade:       ctx.buyMasteryUpgrade,
     buildTraitsSectionHTML:  ctx.buildTraitsSectionHTML,
     activateAbilityFromSheet:ctx.activateAbilityFromSheet,
+    passesAlignGate:         ctx.passesAlignGate,
   };
 }
 
