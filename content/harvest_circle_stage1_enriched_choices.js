@@ -51,7 +51,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 2. MARKET BROKER: PRICE MANIPULATION
   {
-    label: "Festival pricing used to be fixed by the elder council. Now it comes from quota administration and arrives pre-circulated to buyers.",
+    label: "Festival pricing used to be the elder council's. Now it arrives pre-circulated to buyers.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Prices', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -94,7 +94,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 3. PROTECTOR OF MAGICAL FORESTS: LAND CORRUPTION
   {
     plot: 'main',
-    label: "Fields are now maintained by family standing, not agricultural condition. The Halversen family's blight risk has been real for six weeks.",
+    label: "Fields maintained by family standing now. The Halversen blight risk has been real six weeks.",
     tags: ['Investigation', 'NPC', 'Land', 'Protection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -136,7 +136,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. STORAGE KEEPER: GRAIN DIVERSION
   {
-    label: "Festival allocation — forty tonnes. Private transfer — forty tonnes, same date. The numbers are identical.",
+    label: "Festival allocation: forty tonnes. Private transfer: forty tonnes, same date.",
     tags: ['Investigation', 'NPC', 'Storage', 'Resources', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -178,7 +178,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. FESTIVAL COORDINATOR: CELEBRATION MANIPULATION
   {
-    label: "Premium offering for patron-aligned families. Standard share for independents. The draft arrived from quota administration, not the elder council.",
+    label: "Premium offering for patron families. Standard share for independents. The draft isn't from the council.",
     tags: ['Investigation', 'NPC', 'Festival', 'Distribution', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -220,7 +220,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. RECORD KEEPER: DOCUMENT FALSIFICATION
   {
-    label: "The delivery figure on the record is higher than the summary confirms. The ink shade is different. He has six like this.",
+    label: "Delivery figure higher than the summary confirms. Ink shade different. He has six like this.",
     tags: ['Investigation', 'NPC', 'Records', 'Documents', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -262,7 +262,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INSPECTOR: QUALITY SUPPRESSION
   {
-    label: "He marks the grain. He files the mark. Two days later the mark is gone from the record — passed, no note.",
+    label: "He marks the grain, files the mark. Two days later it's gone from the record — passed.",
     tags: ['Investigation', 'NPC', 'Quality', 'Inspection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -304,7 +304,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. DISPUTE MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
-    label: "He received the outcome note before the hearing. He ruled as instructed. The Halversen family lost storage they'd held for eleven years.",
+    label: "He got the outcome note before the hearing. The Halversen family lost eleven years of storage.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Conflicts', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -348,7 +348,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. GRAIN SYSTEM HIERARCHY: AUTHORITY REORGANIZATION
   {
-    label: "Three independent steward positions absorbed over eighteen months. The elder council still meets. Its rulings are now labeled advisory.",
+    label: "Three steward positions absorbed in eighteen months. The council's rulings are now advisory.",
     tags: ['Investigation', 'Structure', 'Hierarchy', 'Authority', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -387,7 +387,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. FARMING NETWORKS: FAMILY DISPLACEMENT
   {
-    label: "Fourteen independent families on old records, gone from current ones. Seven left in the same eight-week window. Nine patron-aligned families entered during the same period.",
+    label: "Fourteen families gone from current records. Seven left in the same eight-week window.",
     tags: ['Investigation', 'Networks', 'Farming', 'Displacement', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -429,7 +429,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. SPOILAGE SYSTEM: DEGRADATION ACCELERATION
   {
-    label: "Same harvest, same commune, same season — stored two different ways. The gap between the annexes is forty feet and one administrative decision.",
+    label: "Same harvest, same season — stored two different ways. The gap is one administrative decision.",
     tags: ['Investigation', 'Spoilage', 'Degradation', 'Analysis', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -468,7 +468,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. FAMILY POWER TRACKING: WHO'S RISING
   {
-    label: "Two families appear in the governance record for the first time fourteen months ago. Both rose through appointments ratified in the same three-week session.",
+    label: "Two families in governance for the first time fourteen months ago — same three-week session.",
     tags: ['Investigation', 'Power', 'Ambition', 'Tracking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -510,7 +510,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. QUOTA DEPENDENCY: CONTROL SYSTEM
   {
-    label: "Every farmer is threaded through dependencies that make non-compliance catastrophic. The system was adjusted to be this way.",
+    label: "Every farmer threaded through dependencies that make non-compliance catastrophic. By design.",
     tags: ['Investigation', 'Quotas', 'Dependency', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -552,7 +552,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. FESTIVAL MANIPULATION: UNITY WEAPONIZATION
   {
-    label: "The opening address used to name the harvest as belonging to the commune. The new draft names covenant families first. That category didn't exist before.",
+    label: "The new draft names covenant families first. That category didn't exist before.",
     tags: ['Investigation', 'Festival', 'Unity', 'Division', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -596,7 +596,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FIELD RUMOR: FARMER WHISPERS
   {
-    label: "Walking the field rows at midday, the murmur is consistent. One farmer says it eyes down. His neighbor nods — the nod of someone who stopped arguing with it.",
+    label: "The murmur in the field rows is consistent. One farmer says it eyes down. His neighbor nods.",
     tags: ['Investigation', 'Rumor', 'Farming', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -626,7 +626,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. MARKET RUMOR: MERCHANT WHISPERS
   {
-    label: "The cloth trader says it at normal volume to his customer. No lowered voice, no looking around. Whatever caution applied six months ago has worn thin.",
+    label: "The cloth trader says it at normal volume. Whatever caution applied six months ago has worn thin.",
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -656,7 +656,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INSTITUTIONAL CRACK: CORRUPTION PROOF COMPILATION
   {
-    label: "Compile documented evidence that proves grain and festival systems are being systematically corrupted — show the paper trail linking corruption to coordinated family strategy.",
+    label: "The paper trail linking grain and festival corruption to coordinated family strategy exists.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -698,7 +698,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. MORAL PRESSURE: FAMILY LOYALTY COMPROMISE CHOICE
   {
-    label: "Confront a Harvest Circle official who's complicit in system corruption — demand explanation and decide whether to protect them or expose their role.",
+    label: "A Harvest Circle official is complicit. Protect them or expose their role.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -785,7 +785,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. CONSPIRACY COMPLETE: EXTERNAL INFLUENCE CONFIRMATION
   {
-    label: "Confirm the full scope of external influence over Harvest Circle — document how northern interests are systematically controlling grain resources through corrupted local systems.",
+    label: "Northern interests are controlling grain resources through corrupted local systems. Confirm the scope.",
     tags: ['Investigation', 'Origin', 'Conspiracy', 'External', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -829,7 +829,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: ROUTING NUMBER ANOMALY
   {
-    label: "Examine the Northern Provision Compact's routing records — check for grain shipments that don't match Harvest Circle's logged output.",
+    label: "The Compact's routing records may show shipments Harvest Circle never logged.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     failResult: 'This path is closed here, but the charter-marked container bearing the northern merchant consortium stamp may be reachable through the outbound staging area directly.',
@@ -856,7 +856,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: CHARTER MARK CONTAINER
   {
-    label: "Track down the charter-marked storage container that was reported in the routing anomaly — find where it went.",
+    label: "The charter-marked container in the routing anomaly. Find where it went.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -883,7 +883,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING HARVEST CIRCLE
   {
-    label: "Walk the harvest fields at dawn — read what the labor patterns tell you about what Harvest Circle is actually producing.",
+    label: "The labor patterns at dawn say what the records don't about actual production.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
@@ -940,7 +940,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE GRANARY STEPS AT MIDDAY
   {
-    label: "Sit at the Granary Steps during the distribution hour — observe how food reaches the community.",
+    label: "The Granary Steps at distribution hour show how food actually reaches the community.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -961,7 +961,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: THE INDEPENDENT COUNTER
   {
-    label: "Commission an independent count of a full harvest section — compare it against the official production log entry.",
+    label: "The numbers only match if no one counts twice.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -1006,7 +1006,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "A Provision Compact transport driver mentions a researcher traveled with his convoy last week asking questions about routing documentation.",
+    label: "A transport driver says someone traveled with his convoy last week asking about routing.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
