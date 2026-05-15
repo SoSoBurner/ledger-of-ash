@@ -157,7 +157,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "An artisan is blocking the copy window. A crowd is watching. The Warden isn't here yet.",
+    label: "An artisan blocks the copy window. A crowd is watching. The Warden isn't here yet.",
     tags: ['Stage2', 'Social', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -357,7 +357,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The sealed archive predates the charter. It names institutions that were never supposed to exist here.",
+    label: "The sealed archive predates the charter. It names institutions never supposed to exist here.",
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -385,7 +385,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Craftspire is the production facility. Guild authority or supply chain — one path closes the other.",
+    label: "Craftspire is the production facility. Guild authority or supply chain — one path ends here.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
     fn: function() {
