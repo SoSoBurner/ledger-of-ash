@@ -71,7 +71,11 @@ Every plan phase that adds content must expand the total content of the stage it
 - **Headless pacing = 0**: No human watching → set all `waitForTimeout` pacing constants to 0. Only `waitForChoices` needs a real timeout (1500ms) for DOM to render.
 - **Background task output files**: Written to a Windows temp path. Read via PowerShell `Get-Content` or the `Read` tool — bash `cat`/`tail` on those paths fails silently.
 - **Never pipe Playwright background runs through `Select-Object -First N`**: PowerShell closes the pipe after N items, silently killing the test process. Run with no piping.
-- **Kill node/chrome via PowerShell, not bash**: `taskkill /F /IM node.exe` from Git bash mangles `/F` and `/T` as paths. Use: `Get-Process node,chrome -ErrorAction SilentlyContinue | Stop-Process -Force`
+- **Kill only Playwright processes, not all Chrome**: `Stop-Process -Force` on all chrome kills the user's regular browser. Use WMI to filter by command line instead:
+  ```powershell
+  Get-WmiObject Win32_Process -Filter "Name='chrome.exe'" | Where-Object { $_.CommandLine -match '--headless|--remote-debugging' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+  Get-WmiObject Win32_Process -Filter "Name='node.exe'" | Where-Object { $_.CommandLine -match 'playwright' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+  ```
 - **Run Playwright from PowerShell, not background bash**: background bash tasks from `legacy/` fail exit 127 (npx not in PATH). Use: `Set-Location "C:\Users\CEO\ledger-of-ash"; cmd /c "npx playwright test tests/e2e/FILE.spec.js --timeout=N --reporter=line"`
 - **`shiftTension` never raises tension**: nothing in content files increments it. If tension locks at 2, add `shiftTension(-1)` to choice resolution paths in `handleChoice`.
 - **Location teleport in spec**: use `resolveArrival(loc)` not `loadStageChoices()` — `resolveArrival` triggers arrival narration + fresh render; `loadStageChoices` re-renders same location silently.
