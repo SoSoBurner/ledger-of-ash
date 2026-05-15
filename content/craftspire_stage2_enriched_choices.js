@@ -255,7 +255,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.flags.certification_backlog_exposed = true;
         G.investigationProgress++;
         G.stageProgress[2]++;
-        G.lastResult = 'The inspector's tray holds sixty-three unsigned forms. She certified each batch on the master ledger the same day it arrived — but the intake log shows the materials entered the building two hours before the testing lab opened. The certification precedes the test. She looks at the stack without moving. "I sign what the allocation sheet tells me passed." The allocation sheet column for lab technician reads the same initials across three months: a name that does not appear on any active staff roster.';
+        G.lastResult = `The inspector's tray holds sixty-three unsigned forms. She certified each batch on the master ledger the same day it arrived — but the intake log shows the materials entered the building two hours before the testing lab opened. The certification precedes the test. She looks at the stack without moving. "I sign what the allocation sheet tells me passed." The allocation sheet column for lab technician reads the same initials across three months: a name that does not appear on any active staff roster.`;
         addJournal('Certification inspector signing without testing — lab tech initials on forms belong to no active staff member', 'evidence', `craft-inspector-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -284,7 +284,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.flags.ghost_shift_operator_traced = true;
         G.investigationProgress++;
         G.stageProgress[2]++;
-        G.lastResult = 'The furnace operator's name is Dervel. He has worked the pre-dawn shift for eleven months. The guild payroll shows no record of him — but the furnace heat logs show his shift every third night with the precision of someone who runs the same temperature sequence each time. His wages draw from an account flagged in the material ledger as a Collegium operational disbursement. The Collegium does not operate furnaces. Someone is paying Dervel to run a furnace the guild pretends is cold.';
+        G.lastResult = `The furnace operator's name is Dervel. He has worked the pre-dawn shift for eleven months. The guild payroll shows no record of him — but the furnace heat logs show his shift every third night with the precision of someone who runs the same temperature sequence each time. His wages draw from an account flagged in the material ledger as a Collegium operational disbursement. The Collegium does not operate furnaces. Someone is paying Dervel to run a furnace the guild pretends is cold.`;
         addJournal('Ghost-shift furnace operator paid from Collegium disbursement account — shift runs every third pre-dawn', 'evidence', `craft-furnace-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -312,16 +312,16 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.transit_manifest_amended = true;
         G.investigationProgress++;
-        G.lastResult = 'The amendment overwrites the destination with a routing code that resolves to a bonded holding depot outside Craftspire's jurisdiction — a depot whose registration lists a trade entity that shares an administrative address with the ghost workshop. The original destination, barely legible under the correction, is the Guild Council's own precision instruments archive. Someone redirected a tools shipment bound for the Guild's own records office. The amendment ink is Oversight Collegium standard issue.';
+        G.lastResult = `The amendment overwrites the destination with a routing code that resolves to a bonded holding depot outside Craftspire's jurisdiction — a depot whose registration lists a trade entity that shares an administrative address with the ghost workshop. The original destination, barely legible under the correction, is the Guild Council's own precision instruments archive. Someone redirected a tools shipment bound for the Guild's own records office. The amendment ink is Oversight Collegium standard issue.`;
         addJournal('Transit manifest amended in Collegium ink — tools redirected from Guild archive to ghost-entity depot', 'evidence', `craft-manifest-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The transit office clerk pulls the manifest copy from the outbound file and holds it at an angle that keeps the amendment line out of your direct view. "Manifest amendments are a carrier-side function. We hold the originating copy. The amended version is with the carrier." The carrier's contact information on the form is a trade post address three localities away. The clerk does not offer to forward an inquiry.';
+        G.lastResult = `The transit office clerk pulls the manifest copy from the outbound file and holds it at an angle that keeps the amendment line out of your direct view. "Manifest amendments are a carrier-side function. We hold the originating copy. The amended version is with the carrier." The carrier's contact information on the form is a trade post address three localities away. The clerk does not offer to forward an inquiry.`;
         addJournal('Transit amendment copy withheld — carrier-side version inaccessible from Craftspire', 'complication', `craft-manifest-fail-${G.dayCount}`);
       } else {
         G.flags.transit_manifest_amended = true;
         G.investigationProgress++;
-        G.lastResult = 'The amendment is visible in natural light: darker strokes over lighter ones, the earlier destination still legible at the right margin where the correction did not fully cover it. The new routing code sends the shipment outside Craftspire's trade district. You copy both codes before returning the manifest. The transit clerk does not stop you, but she notes the time of your visit in the access log beside the filing shelf.';
+        G.lastResult = `The amendment is visible in natural light: darker strokes over lighter ones, the earlier destination still legible at the right margin where the correction did not fully cover it. The new routing code sends the shipment outside Craftspire's trade district. You copy both codes before returning the manifest. The transit clerk does not stop you, but she notes the time of your visit in the access log beside the filing shelf.`;
         addJournal('Redirected tools manifest — original destination partially visible under amendment, outside-district routing code copied', 'intelligence', `craft-manifest-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -340,7 +340,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.audit_report_impossibility_confirmed = true;
         G.investigationProgress++;
-        G.lastResult = 'The defect rate in the report is 0.003 percent across forty-two inspection rounds — a figure that would require every component to arrive pre-graded, pre-selected, and pre-certified before entering the workshop floor. That is not a manufacturing process. It is a documentation process. Comparing the report's component batch codes to the no-PO chemical inputs in Jorin's ledger, three batch codes overlap: the "zero defect" materials are the same materials with no purchase orders. The audit report is covering for unverified inputs by recording them as flawless outputs.';
+        G.lastResult = `The defect rate in the report is 0.003 percent across forty-two inspection rounds — a figure that would require every component to arrive pre-graded, pre-selected, and pre-certified before entering the workshop floor. That is not a manufacturing process. It is a documentation process. Comparing the report's component batch codes to the no-PO chemical inputs in Jorin's ledger, three batch codes overlap: the "zero defect" materials are the same materials with no purchase orders. The audit report is covering for unverified inputs by recording them as flawless outputs.`;
         addJournal('Impossible audit report: zero-defect batches match no-PO chemical inputs — audit laundering undocumented materials', 'evidence', `craft-audit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -349,7 +349,7 @@ const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.audit_report_impossibility_confirmed = true;
         G.investigationProgress++;
-        G.lastResult = 'The historical comparison takes an hour in the reference stacks. Craftspire's workshop defect rates average between 2 and 6 percent across every recorded cycle — the variance is consistent with material quality and operator experience. The report in question shows 0.003 percent. Either this workshop operates at a precision level no Craftspire facility has ever achieved, or the number was chosen rather than measured. You copy the batch codes from the report before the reading room closes.';
+        G.lastResult = `The historical comparison takes an hour in the reference stacks. Craftspire's workshop defect rates average between 2 and 6 percent across every recorded cycle — the variance is consistent with material quality and operator experience. The report in question shows 0.003 percent. Either this workshop operates at a precision level no Craftspire facility has ever achieved, or the number was chosen rather than measured. You copy the batch codes from the report before the reading room closes.`;
         addJournal('Audit defect rate 0.003% — statistically impossible against all Craftspire historical baselines, batch codes copied', 'intelligence', `craft-audit-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
