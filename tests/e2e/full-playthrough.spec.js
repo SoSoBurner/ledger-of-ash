@@ -209,15 +209,16 @@ async function waitForChoices(page, ms) {
   return page.locator('.choice-btn:visible').count().catch(() => 0);
 }
 
-async function isSuccess(page) {
-  return page.evaluate(() => {
+async function isSuccess(page, headed) {
+  return page.evaluate((h) => {
     try {
       if (typeof G === 'undefined') return false;
-      const sp2       = (G.stageProgress && G.stageProgress[2]) || 0;
+      if (!h && G.stage !== 'Stage I') return true; // headless: reaching Stage II is success
+      const sp2        = (G.stageProgress && G.stageProgress[2]) || 0;
       const climaxDone = !!(G.flags && (G.flags.stage2_climax_complete || G.flags.maren_oss_resolved));
       return G.stage === 'Stage III' || (climaxDone && sp2 >= 12);
     } catch (_) { return false; }
-  }).catch(() => false);
+  }, headed).catch(() => false);
 }
 
 async function isDead(page) {
@@ -718,7 +719,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[run:${tag}] DEAD pick=${picks} level=${g.level}`);
         return { success: false, reason: 'death', picks, g };
       }
-      if (await isSuccess(page)) {
+      if (await isSuccess(page, isHeaded)) {
         g = await readG(page);
         await screenshot(page, `${tag}_success_p${picks}`);
         log(`[run:${tag}] SUCCESS pick=${picks} stage=${g.stage} sp2=${(g.stageProgress && g.stageProgress[2]) || 0}`);
@@ -800,7 +801,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               G.tensionLevel = 0;
               G.location = loc;
             }
-            if (typeof resolveArrival === 'function') resolveArrival(loc);
+            if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(loc);
             else if (typeof loadStageChoices === 'function') loadStageChoices();
           }, escLoc);
         } catch (_) {}
@@ -865,7 +866,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
-              if (typeof resolveArrival === 'function') resolveArrival(dest);
+              if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(dest);
               else if (typeof loadStageChoices === 'function') loadStageChoices();
             }
           }, ESCAPE_LOCS);

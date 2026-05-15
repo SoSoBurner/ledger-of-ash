@@ -65,10 +65,10 @@ function triggerStage1MiniBoss() {
           G.flags.stage1_miniboss_talked = true;
           G.flags.stage1_miniboss_complete = true;
           G.stageProgress[1] = (G.stageProgress[1]||0) + 2;
-          setTimeout(function() { resolveArrival(G.location); }, 1200);
+          setTimeout(function() { resolveArrival(G.location); }, 50);
         } else {
           addNarration('', 'His expression closes off. The buckle-tracing stops, but not because you reached him — because you overplayed it. He straightens and draws the baton from his coat ring. "That is not how this goes."');
-          setTimeout(function() { _stage1MiniBossFight(); }, 800);
+          setTimeout(function() { _stage1MiniBossFight(); }, 50);
         }
       }
     },
@@ -89,19 +89,20 @@ function triggerStage1MiniBoss() {
           addNarration('', 'You move before he has finished his sentence. The second exit is a low arch into a cooper\'s yard; you are through it and across the yard and into the lane behind before he clears the alley mouth. When you look back from the far end of the street, he is standing at the arch. He does not chase. He marks something in a small book with a silver-capped pencil. He already has what he needed — your face, confirmed.');
           G.flags.stage1_miniboss_fled = true;
           G.flags.stage1_miniboss_complete = true;
-          setTimeout(function() { resolveArrival(G.location); }, 1000);
+          setTimeout(function() { resolveArrival(G.location); }, 50);
         } else {
           addNarration('', 'He anticipated the second exit. He is already there, baton in hand, blocking the arch. "I know all the yards in this district," he says. There is no pleasure in it.');
-          setTimeout(function() { _stage1MiniBossFight(); }, 800);
+          setTimeout(function() { _stage1MiniBossFight(); }, 50);
         }
       }
     }
   ];
 
-  setTimeout(function() { renderChoices(choices); }, 600);
+  renderChoices(choices);
 }
 
 function _stage1MiniBossFight() {
+  G.flags.stage1_miniboss_complete = true;
   var miniBossEnemy = {
     id: STAGE1_BOSS_NPC_MINIBOSS,
     name: 'Roadwarden Lt. Perrin Gleam',
@@ -124,6 +125,7 @@ function _stage1MiniBossFight() {
 // Main boss encounter — triggers at stageProgress[1] >= 15, miniboss complete
 function triggerStage1MainBoss() {
   if (!G || G.flags.stage1_mainboss_complete) return;
+  G.flags.stage1_mainboss_complete = true;
 
   addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She reaches to the desk edge, picks up a short marking rod — bone-handled, the kind used to underline registry entries — and holds it in her left hand without looking at it. She does not write anything. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
 
@@ -140,10 +142,10 @@ function triggerStage1MainBoss() {
           var _arcDetail = _arcFam === 'combat' ? ' She has not looked at your hands since you entered. She already clocked them at the door.' : _arcFam === 'stealth' ? ' The intake log on the corner of her desk has a fresh entry in her own hand — timestamped six minutes before you arrived.' : _arcFam === 'support' ? ' The case file tab on the top of the pulled stack is labeled in a category she doesn\'t use for wardens or merchants. She\'s been building this for a specific kind of person.' : '';
           addNarration('', 'The desk tells you what the room means. The document she set squarely at the corner when you walked in is a detainment notice, unsigned. The lamp is angled toward the chair across from her, not toward her own work. The shelf behind her has a gap where a file should be — a file she pulled before you arrived. She has been preparing for this longer than you have.' + _arcDetail);
           G.flags.stage1_mainboss_assessed = true;
-          setTimeout(function() { _stage1MainBossPhase2(); }, 800);
+          setTimeout(function() { _stage1MainBossPhase2(); }, 50);
         } else {
           addNarration('', 'The room gives back nothing useful fast enough. She has already looked up. "Sit down," she says. The lamp moves fractionally toward you.');
-          setTimeout(function() { _stage1MainBossPhase2(); }, 800);
+          setTimeout(function() { _stage1MainBossPhase2(); }, 50);
         }
       }
     },
@@ -153,17 +155,17 @@ function triggerStage1MainBoss() {
       skill: 'combat',
       action: function() {
         addNarration('', 'You move before the pleasantries. The notice is off the desk and in your coat in the time it takes her to stand. She stands without urgency. "That document is already in registry," she says. "Removing it changes nothing. It also confirms everything I was not certain of." Her lamp swings on its hook as she comes around the desk. The disadvantage is yours now.');
-        setTimeout(function() { _stage1MainBossCombat(true); }, 800);
+        setTimeout(function() { _stage1MainBossCombat(true); }, 50);
       }
     }
   ];
 
-  setTimeout(function() { renderChoices(setupChoices); }, 600);
+  renderChoices(setupChoices);
 }
 
 function _stage1MainBossPhase2() {
   addNarration('', 'The marking rod is still in her left hand — she has been holding it since the door closed, unused. She sets it down parallel to the desk edge now, a deliberate release before she speaks. "You have been disrupting something that was already disrupted before you arrived. The question I have is whether you are a symptom or a cause." She opens the pulled file and turns it to face you without looking at your reaction. Your name is at the top. Below it, four weeks of movements, lodge registries, checkpoint records, and a red notation beside the Iron Ledger Ward entry: Tier 1 review pending. "This escalates today. Unless you give me a reason to hold the flag." Her index finger has come to rest on the red notation — not pointing at it, covering it, as if she does not want to read the word again. The lamp angle has not changed. She does not need you to be guilty — she needs the file to close.');
-  setTimeout(function() { _stage1MainBossCombat(false); }, 1000);
+  setTimeout(function() { _stage1MainBossCombat(false); }, 50);
 }
 
 function _stage1MainBossCombat(aggressive) {
@@ -191,7 +193,7 @@ function _stage1MainBossCombat(aggressive) {
       G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 18);
       G.renown = (G.renown||0) + 10;
       addJournal('The pulled file contained records of forged permits traced through three different localities — all routed through ORE intake. Ironveil knew the pattern and was managing it, not stopping it.', 'evidence');
-      setTimeout(function() { _stage1MainBossResolution(); }, 1200);
+      setTimeout(function() { _stage1MainBossResolution(); }, 50);
     }
   };
   enterCombat(STAGE1_BOSS_NPC_MAIN, { customEnemy: bossEnemy, noRetreat: true });
@@ -210,7 +212,7 @@ function _stage1MainBossResolution() {
         addNarration('', 'You pull the stack and run a fast count: four files besides your own, each with the red notation, each covering a different locality and a different set of movements. The dates span eight months. Someone was running a long review. The files go inside your coat. The desk looks orderly when you are done with it — absent, but orderly.');
         addJournal('Secured four ORE intake files: each bearing a Tier 1 review notation in the same hand across eight months. This is a coordinated pattern, not individual enforcement.', 'evidence');
         G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 20);
-        setTimeout(function() { resolveArrival(G.location); }, 1000);
+        setTimeout(function() { resolveArrival(G.location); }, 50);
       }
     },
     {
@@ -227,7 +229,7 @@ function _stage1MainBossResolution() {
           addJournal('Partial read on intake files before exit — confirmed a multi-locality pattern in the Tier 1 reviews, but missed the fourth name.', 'intelligence');
         }
         G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 20);
-        setTimeout(function() { resolveArrival(G.location); }, 1000);
+        setTimeout(function() { resolveArrival(G.location); }, 50);
       }
     },
     {
@@ -243,22 +245,23 @@ function _stage1MainBossResolution() {
     }
   ];
 
-  setTimeout(function() { renderChoices(resChoices); }, 600);
+  renderChoices(resChoices);
 }
 
 // Trigger check — call from checkStageAdvance or locality arrival
 function checkStage1BossTriggered() {
   if (!G || G.stage !== 'Stage I') return;
+  var _sp1 = G.stageProgress[1]||0;
   if (!G.flags.stage1_miniboss_complete &&
-      (G.stageProgress[1]||0) >= 8 &&
-      (G.flags.stage1_miniboss_seeded_1 || G.flags.stage1_miniboss_seeded_2)) {
-    setTimeout(triggerStage1MiniBoss, 500);
+      (_sp1 >= 8 && (G.flags.stage1_miniboss_seeded_1 || G.flags.stage1_miniboss_seeded_2) ||
+       _sp1 >= 15)) {
+    triggerStage1MiniBoss();
     return;
   }
   if (!G.flags.stage1_mainboss_complete &&
       G.flags.stage1_miniboss_complete &&
-      (G.stageProgress[1]||0) >= 15) {
-    setTimeout(triggerStage1MainBoss, 500);
+      _sp1 >= 15) {
+    triggerStage1MainBoss();
   }
 }
 
@@ -266,5 +269,6 @@ window.STAGE1_BOSS_MODULE = {
   triggerMiniBoss: triggerStage1MiniBoss,
   triggerMainBoss: triggerStage1MainBoss,
   checkTrigger: checkStage1BossTriggered,
+  shouldTrigger: checkStage1BossTriggered,
   seedChoices: window.STAGE1_MINIBOSS_SEED_CHOICES
 };

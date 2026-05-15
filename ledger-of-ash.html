@@ -11088,7 +11088,7 @@ function renderNavChoices() {
     const childId = child.id || child;
     const childName = childEntry ? (childEntry.display_name_raw || childEntry.name) : childId;
     return { text: childName, tag: 'nav', action: function() {
-      if (window._travelCoreTravelTo) window._travelCoreTravelTo(childId);
+      if (typeof travelTo === 'function') travelTo(childId);
     }};
   });
   if (navChoices.length > 0) {
@@ -12492,6 +12492,10 @@ function checkStageAdvance() {
     STAGE1_BOSS_MODULE.trigger();
     return;
   }
+  if (G.flags.stage1_mainboss_complete && !G.flags.stage1_narrative_complete) {
+    G.stageProgress[1] = Math.max(_sp1n, 18);
+    G.flags.stage1_narrative_complete = true;
+  }
   if (G.flags.stage1_narrative_complete && G.stage === 'Stage I') {
     if (!G.flags.stage1_bridge_shown) {
       addWorldNotice('The work has accumulated into something. The anomalies you have been following are not isolated — they are part of a single operation moving through the city\'s institutional record. You do not know who runs it or why. But you know it exists. That is more than you knew when you arrived.');
@@ -13322,6 +13326,8 @@ function resolveArrival(locId) {
         { text: 'The local authority will know what has changed here.', skill: 'persuasion', tag: 'bold', align: 'lawful', cid: 'garrison_contact' }
       ]);
     }
+    if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
+    if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }, 400);
 }
 
