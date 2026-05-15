@@ -3134,6 +3134,61 @@ const ENEMY_TEMPLATES = {
     region:['roaz','soreheim','fairhaven'],
     loot:{gold:8, materials:[{id:'cold_iron',qty:1,chance:0.5},{id:'highland_cloth',qty:1,chance:0.3}]}, fleeThreshold:0.55
   },
+  city_thug:{
+    name:'City Thug', hp:13, maxHp:13, attack:4, defense:2, morale:6,
+    desc:'Works the lower wards. Knows which faces belong and which don\'t.',
+    region:['shelk','cosmouth','guildheart'],
+    loot:{gold:9, materials:[{id:'allocation_chit',qty:1,chance:0.3}]}, fleeThreshold:0.5
+  },
+  ratcatcher:{
+    name:'Ratcatcher', hp:11, maxHp:11, attack:3, defense:2, morale:5,
+    desc:'Scavenger with tools that cut. Works the margins of the city.',
+    region:['shelk','cosmouth','nomdara'],
+    loot:{gold:5, materials:[{id:'rope_coil',qty:1,chance:0.4}]}, fleeThreshold:0.6
+  },
+  bandit:{
+    name:'Bandit', hp:13, maxHp:13, attack:4, defense:2, morale:6,
+    desc:'Opportunist. Works isolated roads and transit gaps.',
+    region:['soreheim','roaz','psanan'],
+    loot:{gold:10, materials:[{id:'rope_coil',qty:1,chance:0.5}]}, fleeThreshold:0.5
+  },
+  border_wolf:{
+    name:'Border Wolf', hp:18, maxHp:18, attack:6, defense:2, morale:8,
+    desc:'Large pack predator from the Soreheim frontier. Coordinated and patient.',
+    region:['soreheim'],
+    loot:{gold:0, materials:[{id:'highland_cloth',qty:1,chance:0.4}]}, fleeThreshold:0.3,
+    abilities:[{name:'Pack Tactics', effect:'+2 attack when another wolf is present'}]
+  },
+  marsh_creature:{
+    name:'Marsh Creature', hp:15, maxHp:15, attack:5, defense:3, morale:7,
+    desc:'Native to Sheresh wetlands. Slow until it isn\'t.',
+    region:['sheresh'],
+    loot:{gold:0, materials:[{id:'swamp_resin',qty:1,chance:0.6}]}, fleeThreshold:0.4
+  },
+  swamp_stalker:{
+    name:'Swamp Stalker', hp:12, maxHp:12, attack:5, defense:2, morale:6,
+    desc:'Ambush predator. Uses the water as cover until the last moment.',
+    region:['sheresh'],
+    loot:{gold:0, materials:[{id:'swamp_resin',qty:1,chance:0.5}]}, fleeThreshold:0.45
+  },
+  feral_hound:{
+    name:'Feral Hound', hp:10, maxHp:10, attack:4, defense:1, morale:5,
+    desc:'Abandoned or bred for aggression. Fast and difficult to discourage.',
+    region:['sheresh','cosmouth','shelk'],
+    loot:{gold:0, materials:[]}, fleeThreshold:0.6
+  },
+  plains_predator:{
+    name:'Plains Predator', hp:16, maxHp:16, attack:6, defense:2, morale:7,
+    desc:'Open terrain hunter from the Psanan flats. Relies on speed over concealment.',
+    region:['psanan'],
+    loot:{gold:0, materials:[{id:'rope_coil',qty:1,chance:0.3}]}, fleeThreshold:0.35
+  },
+  dust_crawler:{
+    name:'Dust Crawler', hp:9, maxHp:9, attack:3, defense:3, morale:8,
+    desc:'Armored scavenger from the dry flats. Hard to damage, slow to give up.',
+    region:['psanan'],
+    loot:{gold:0, materials:[]}, fleeThreshold:0.2
+  },
   caravan_raider:{
     name:'Caravan Raider', hp:17, maxHp:17, attack:5, defense:3, morale:8,
     desc:'Organized. Hits supply lines and vanishes into transit corridors.',
