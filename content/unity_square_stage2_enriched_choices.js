@@ -92,7 +92,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A second shadow ledger he didn't build. The handwriting isn't his. Someone else inside the registry.",
+    label: "A second shadow ledger he didn't build. The handwriting isn't his.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {

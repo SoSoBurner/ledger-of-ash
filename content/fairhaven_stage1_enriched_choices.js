@@ -993,7 +993,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: PRESSURE — WORLD COLOR VIGNETTE
   {
-    label: "Boats come in at the same hour they always did. The dock records don't reflect it.",
+    label: "Boats still come at the same hour. The dock records don't reflect it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {

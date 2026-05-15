@@ -363,7 +363,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The deviation notes are in a second book at the pylon base, not the containment office.",
+    label: "The deviation notes are in a second book at the pylon base.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {

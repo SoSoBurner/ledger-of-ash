@@ -103,7 +103,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared vents. The schematic shows it.",
+    label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared vents.",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
     fn: function() {
@@ -583,7 +583,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Warden Order liaison joined the Scriptorium review board. Eleven studies classified since. One per decade before.",
+    label: "A Warden Order liaison joined the Scriptorium review board. Eleven studies classified since.",
     tags: ['District', 'Persuasion', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -802,7 +802,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
 const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Low Ward dock workers move freight the manifests don't fully describe. Find who remembers specific loads.",
+    label: "Low Ward dock workers move freight the manifests don't fully describe.",
     tags: ['District', 'Combat', 'Persuasion'],
     xpReward: 65,
     fn: function() {

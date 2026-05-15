@@ -10,7 +10,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: JORIN
   {
     plot: 'main',
-    label: "An unofficial complaint about chemical anomalies was filed four months ago. He's still at his bench.",
+    label: "An unofficial complaint about chemical anomalies was filed four months ago. He's still here.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The workshop is running at full pace — a press cycle turning, two apprentices logging tolerance marks, the air sharp with flux. Jorin is at the calibration bench with both hands occupied and a queue of three behind you. He doesn't look up. The break schedule is posted on the door: second bell, sixth bell. The analysis sheets are visible on the back table. Come back when the bench is clear.",
     xpReward: 68,
@@ -144,7 +144,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: WARDEN ORDER INDUSTRIAL COMPLIANCE
   {
-    label: "The Warden Order's compliance officer is at the guild registry. This needs to go somewhere official.",
+    label: "The Warden Order's compliance officer is at the guild registry. This needs to go there.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The compliance officer takes the written summary, stamps it received, and adds it to a tray with twelve other items. No questions asked. The compound class code is in the documentation — if he read it, the intake category would shift from standard supply fraud to material interference. The tray moves on a weekly review cycle. Naming the compound class explicitly in person, rather than in a filed form, changes who processes the response.",
     xpReward: 70,
@@ -194,7 +194,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: JORIN'S CHOICE
   {
-    label: "Jorin's been quiet for four months. He needs to know if that's still the right call.",
+    label: "Jorin's been quiet for four months. He needs to know if that still holds.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     effects: [
@@ -312,7 +312,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "Something changed here recently. The workers know it. They haven't said it in front of the wrong person yet.",
+    label: "The workers know something changed. They haven't said it in front of the wrong person yet.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     failResult: "The common area is busy between shifts — workers at the water basin, two apprentices running a manifest to the next workshop, the smell of cooling metal following everyone in. Conversations cut short when someone unfamiliar sits too close. The afternoon break runs longer and looser. Come back when the district has its rhythm back and the faces at the table recognize yours.",
     xpReward: 60,
@@ -336,7 +336,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. INVESTIGATION: THE OTHER AFFECTED GUILDS
   {
-    label: "Jorin isn't the only master on this chain. The other workshops receive from the same source.",
+    label: "Jorin isn't the only master on this chain. The others receive from the same source.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     failResult: "Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data is registered guild information — sharing it with an outside party requires formal authorization or a personal reason to trust. One master says nothing and tilts his head toward Jorin's workshop across the district. His endorsement is what opens this door.",
     xpReward: 70,
@@ -429,7 +429,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. WORLD COLOR: CRAFTSPIRE'S FOUNDING GUILD CHARTER
   {
-    label: "The founding charter is on display. What the guild was built for may not match what it does now.",
+    label: "The founding charter is on display. What the guild was built for may not match now.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The main hall is occupied with a certification review — three masters at the central table, a stack of portfolios, an apprentice standing at the edge of the room trying not to look like she's counting the minutes. The founding charter hangs in its frame on the far wall, readable from here at a distance: the opening line begins 'We make things that work.' The hall clears after the review panel concludes.",
     xpReward: 48,
@@ -462,7 +462,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "Someone came here six weeks ago asking the same questions. Their questions had the answers built in.",
+    label: "Someone came six weeks ago asking the same questions. The answers were already built in.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {

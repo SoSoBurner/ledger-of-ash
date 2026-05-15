@@ -591,7 +591,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The charter, the imports, the shrine exchange — a complete financing chain. Guild or informal route.",
+    label: "The charter, the imports, the shrine exchange — a complete financing chain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
     fn: function() {

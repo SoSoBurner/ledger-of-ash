@@ -562,7 +562,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 22. SHADOW RIVAL INTRO
   {
-    label: "Two months ago someone came claiming to help. Toman didn't trust them. He still doesn't know who.",
+    label: "Two months ago someone came claiming to help. Toman didn't trust them.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {

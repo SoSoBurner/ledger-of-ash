@@ -480,7 +480,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The diplomatic exemptions left a gap in the tithe ledger. Someone was meant to fill it.",
+    label: "The diplomatic exemptions left a gap in the tithe ledger. No one filled it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
