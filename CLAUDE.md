@@ -89,6 +89,13 @@ Every plan phase that adds content must expand the total content of the stage it
 - **Probe dedup in spec loops**: Any `picks % N === 0` condition inside a `while` loop with `continue` fires N times on the same pick during stalls. Guard with a `lastFiredAtPick` variable: `if (picks !== _lastFiredAtPick) { _lastFiredAtPick = picks; ... }`.
 - **`readNarrativeText` reads ambient text**: Returns persistent `.narrative-text` (locality desc), not per-pick result. To capture result text for review, also query `.result-text` after `waitForChoices()` resolves.
 - **Skill review scope**: Apply all applicable skills (polish-review, feedback-loop-review, balance-review, line-editor) to BOTH screenshots AND log/report output — screenshots alone miss logic failures; logs alone miss visual/UX issues.
+- **Journal DOM structure**: Categories are `quest, field_note, faction, rival, companion, fact` — NOT evidence/intelligence/rumor/discovery. Rendered as `.jov-section` / `.jov-entry` divs by `showJournal()`, not clickable tabs. `#journal-overlay-body` holds all sections at once.
+- **Camp/Notice/Shop selectors**: Camp = `button.camp-action[data-camp="rest/sleep/train/craft"]` (overlay stays open after click). Notices = `.notice-card`, `.notice-card:not(.seen)`, `.notice-text`. Shop = `.shop-buy-btn[data-shop-idx]`, `.shop-item` — no `#overlay-shop`, rendered dynamically into location context.
+- **Char sheet DOM sections**: `.char-skill-row` (skill values), `.ability-card` (abilities), `.trait-section` (traits). No sub-tabs — all sections render at once in `#sheet-body`.
+- **HUD element IDs**: `#hud-hp`, `#hud-level`, `#hud-gold`, `#hud-renown`, `#hud-day`, `#hud-location`, `#topbar-stage`, `#hud-stage-progress-val`, `#hud-xp`, `#hud-heat-row`. Extend `readG()` to include gold/xp/renown/maxHp/benevolence/orderAxis before writing HUD integrity probes.
+- **Kill playwright before restart**: Always `Stop-Process` all playwright node.exe and headless chrome.exe before starting a new spec run. Output is buffered until process end — check `test-results/playthrough-screenshots/` sorted by LastWriteTime to gauge mid-run progress.
+- **Safe/Risky/Bold tag lists** (lines ~10684-10685): BOLD_TAGS = Combat, Violence, Accusation, Negotiation, Betrayal, Exposure, Tribunal, Confrontation, Assault, Ambush. SAFE_TAGS = Rest, Stealth, Craft, Study, Observation, Lore, Trade, Retreat, Gather, Investigation, NPC, Social, Maritime, Archive, Intelligence, Rumor, Discovery, Survey, Records, Inquiry. Anything else → risky.
+- **Alignment bars threshold**: Benevolence/order bars only render when `|G.benevolence| >= 10` or `|G.orderAxis| >= 10`. Absent bars are NOT a bug — log current axis values for reference instead.
 
 ## Testing Infrastructure
 
