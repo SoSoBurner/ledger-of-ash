@@ -31,7 +31,8 @@ function defaultG() {
     marenRenown: 0, marenRevealed: false,
     travelMode: 'foot', pace: 'normal', supplyTier: 'light', journeyFatigue: 0,
     flags: {},
-    masteryXP: 0,
+    masteryXP: 0, masteryPurchased: [], masteryBonuses: {},
+    unlockedTraits: [], spentAbilities: {},
     investigationProgress: 0,
     worldClocks: { watchfulness: 0, pressure: 0, reverence: 0 },
     telemetry: { turns: 0, actions: 0 },
@@ -198,6 +199,8 @@ function createGameContext(gOverrides) {
     advanceRivals:       ctx.advanceRivals,
     getChoiceTier:       ctx.getChoiceTier,
     getChoiceDC:         ctx.getChoiceDC,
+    renderMasterySection: ctx.renderMasterySection,
+    buyMasteryUpgrade:   ctx.buyMasteryUpgrade,
   };
 }
 
