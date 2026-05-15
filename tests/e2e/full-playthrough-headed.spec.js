@@ -161,9 +161,17 @@ async function readG(page) {
         day:           G.dayCount,
         dead:          G.dead,
         hp:            G.hp,
+        maxHp:         G.maxHp || G.hp,
+        xp:            G.xp || 0,
+        gold:          G.gold || 0,
+        supply:        G.supply || 0,
+        renown:        G.renown || 0,
+        benevolence:   G.benevolence || 0,
+        orderAxis:     G.orderAxis || 0,
         heat:          G.heat ? { ...G.heat } : {},
         masteryXP:     G.masteryXP || 0,
         companions:    (G.companions || []).length,
+        flags:         G.flags ? { ...G.flags } : {},
       };
     } catch (_) { return {}; }
   }).catch(() => ({}));
@@ -404,19 +412,100 @@ async function openOverlay(page, btnId, overlayId, timeout) {
   } catch (_) { return false; }
 }
 
+// ---------------------------------------------------------------------------
+// Canon compliance constants
+// ---------------------------------------------------------------------------
+const FORBIDDEN_WORDS = [
+  /\binvestigat(e|ion|ing)\b/i, /\bmeaningful\b/i,
+  /\byou feel\b/i, /\byou realize\b/i, /\byou sense\b/i,
+  /in a way that suggests/i, /precisely as .{0,20} as /i,
+  /\bledger of ash\b/i,
+];
+const STAGE_LEVEL_CAPS = { 'Stage I': 5, 'Stage II': 10, 'Stage III': 15, 'Stage IV': 18, 'Stage V': 20 };
+
+function probeCanonText(txt, tag, context) {
+  if (!txt) return;
+  for (const re of FORBIDDEN_WORDS) {
+    const m = txt.match(re);
+    if (m) {
+      const severity = /ledger of ash/i.test(m[0]) ? 'CRITICAL VIOLATION' : 'VIOLATION';
+      const sentence = txt.slice(Math.max(0, txt.indexOf(m[0]) - 30), txt.indexOf(m[0]) + 80).replace(/\n/g, ' ');
+      log(`[canon ${tag}] ${severity}: "${m[0]}" in ${context} — "...${sentence}..."`);
+    }
+  }
+}
+
+async function probeHUD(page, tag, g) {
+  try {
+    const hudText = async (sel) => (await page.locator(sel).first().innerText().catch(() => '')).trim();
+    const hudHP     = await hudText('#hud-hp');
+    const hudLevel  = await hudText('#hud-level');
+    const hudGold   = await hudText('#hud-gold');
+    const hudRenown = await hudText('#hud-renown');
+    const hudDay    = await hudText('#hud-day');
+    const hudLoc    = await hudText('#hud-location');
+    const hudStage  = await hudText('#topbar-stage');
+    const hudSPVal  = await hudText('#hud-stage-progress-val');
+    const hudXP     = await hudText('#hud-xp');
+
+    // Cross-check G state vs HUD
+    const hudHPNum   = parseInt(hudHP) || 0;
+    const hudLvlNum  = parseInt(hudLevel) || 0;
+    if (g.hp !== undefined && hudHPNum !== 0 && Math.abs(hudHPNum - g.hp) > 2)
+      log(`[hud-integrity ${tag}] VIOLATION: HUD hp="${hudHP}" vs G.hp=${g.hp}`);
+    if (g.level !== undefined && hudLvlNum !== 0 && hudLvlNum !== g.level)
+      log(`[hud-integrity ${tag}] VIOLATION: HUD level="${hudLevel}" vs G.level=${g.level}`);
+    if (g.stage && hudStage && !hudStage.includes(g.stage.replace('Stage ', '')))
+      log(`[hud-integrity ${tag}] WARN: HUD stage="${hudStage}" vs G.stage=${g.stage}`);
+
+    // Level cap check
+    const cap = STAGE_LEVEL_CAPS[g.stage];
+    if (cap && g.level > cap)
+      log(`[hud-integrity ${tag}] VIOLATION: level ${g.level} exceeds ${g.stage} cap ${cap}`);
+
+    // HP bounds
+    if (g.hp < 0) log(`[hud-integrity ${tag}] VIOLATION: G.hp=${g.hp} is negative`);
+    if (g.maxHp && g.hp > g.maxHp) log(`[hud-integrity ${tag}] VIOLATION: G.hp=${g.hp} > G.maxHp=${g.maxHp}`);
+
+    // Gold/supply bounds
+    if (g.gold < 0) log(`[hud-integrity ${tag}] VIOLATION: G.gold=${g.gold} is negative`);
+    if (g.supply < 0) log(`[hud-integrity ${tag}] VIOLATION: G.supply=${g.supply} is negative`);
+
+    log(`[hud-integrity ${tag}] hp="${hudHP}" lvl="${hudLevel}" gold="${hudGold}" renown="${hudRenown}" day="${hudDay}" loc="${hudLoc}" stage="${hudStage}" sp="${hudSPVal}" xp="${hudXP}"`);
+  } catch (err) { log(`[hud-integrity ${tag}] WARN: ${err.message}`); }
+}
+
+async function probeChoiceBorders(page, tag) {
+  try {
+    const plotMain   = await page.locator('.choice-btn.plot-main').count().catch(() => 0);
+    const warn1      = await page.locator('.choice-btn--warn1').count().catch(() => 0);
+    const warn2      = await page.locator('.choice-btn--warn2').count().catch(() => 0);
+    const combatBtn  = await page.locator('.choice-btn--combat').count().catch(() => 0);
+    log(`[choice-borders ${tag}] plot-main=${plotMain} warn1=${warn1} warn2=${warn2} combat=${combatBtn}`);
+  } catch (err) { log(`[choice-borders ${tag}] WARN: ${err.message}`); }
+}
+
 async function probeCharSheet(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
     if (!await openOverlay(page, '#btn-charsheet', '#overlay-charsheet')) { log(`[panel:char-sheet ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_charsheet_lvl${g.level}`);
-    const txt     = await page.locator('#sheet-body,#overlay-charsheet').first().innerText().catch(() => '');
-    const skills  = /Might|Finesse|Vigor|Wits|Charm|Spirit/i.test(txt);
-    const traits  = /Abilities|Traits|Active|Passive/i.test(txt);
-    const hasNums = /\d/.test(txt);
-    const objObj  = txt.includes('[object Object]');
-    // Log all visible text for review
-    log(`[panel:char-sheet ${tag}] lvl=${g.level} skills=${skills} traits=${traits} nums=${hasNums} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
-    if (objObj) log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in char sheet`);
+    const txt       = await page.locator('#sheet-body,#overlay-charsheet').first().innerText().catch(() => '');
+    const objObj    = txt.includes('[object Object]');
+    // Read actual section content
+    const skillRows = await page.locator('.char-skill-row').allInnerTexts().catch(() => []);
+    const abilities = await page.locator('.ability-card').allInnerTexts().catch(() => []);
+    const traits    = await page.locator('.trait-section').allInnerTexts().catch(() => []);
+    const hasSkills = skillRows.length > 0;
+    const hasAbils  = abilities.length > 0;
+    const hasTraits = traits.length > 0;
+    log(`[panel:char-sheet ${tag}] lvl=${g.level} skillRows=${skillRows.length} abilities=${abilities.length} traits=${traits.length} objObj=${objObj}`);
+    if (skillRows.length) log(`[panel:char-sheet ${tag}] skills: ${skillRows.map(s=>s.replace(/\n/g,' ')).join(' | ').slice(0,200)}`);
+    if (abilities.length) log(`[panel:char-sheet ${tag}] abilities: ${abilities.slice(0,3).map(a=>a.slice(0,40)).join(', ')}`);
+    if (!hasSkills) log(`[panel:char-sheet ${tag}] WARN: no .char-skill-row found`);
+    if (!hasAbils)  log(`[panel:char-sheet ${tag}] WARN: no .ability-card found`);
+    if (objObj)     log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in char sheet`);
+    probeCanonText(txt, tag, 'char-sheet');
     await closeSpecificOverlay(page, 'overlay-charsheet');
   } catch (err) {
     log(`[panel:char-sheet ${tag}] FAIL: ${err.message}`);
@@ -429,14 +518,21 @@ async function probeJournal(page, tag, g) {
   try {
     if (!await openOverlay(page, '#btn-journal', '#overlay-journal,[id*="journal"]')) { log(`[panel:journal ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_journal_day${g.day}`);
-    const txt     = await page.locator('#journal-overlay-body,[id*="journal"]').first().innerText().catch(() => '');
-    const objObj  = txt.includes('[object Object]');
-    const hasInv  = /iron blade|courier satchel|field kit/i.test(txt);
-    // Check for journal categories in text
-    const hasCats = /evidence|intelligence|rumor|discovery|complication/i.test(txt);
-    log(`[panel:journal ${tag}] day=${g.day} objObj=${objObj} invLeak=${hasInv} categories=${hasCats} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
-    if (objObj)  log(`[panel:journal ${tag}] VIOLATION: [object Object] in journal`);
-    if (hasInv)  log(`[panel:journal ${tag}] VIOLATION: inventory item leaked into journal`);
+    const body   = page.locator('#journal-overlay-body,[id*="journal"]').first();
+    const txt    = await body.innerText().catch(() => '');
+    const objObj = txt.includes('[object Object]');
+    const hasInv = /iron blade|courier satchel|field kit/i.test(txt);
+    // Correct journal categories: quest, field_note, faction, rival, companion, fact
+    const sections = await page.locator('.jov-section').allInnerTexts().catch(() => []);
+    const catHits = { quest: 0, field_note: 0, faction: 0, rival: 0, companion: 0, fact: 0 };
+    sections.forEach(s => { Object.keys(catHits).forEach(k => { if (s.toLowerCase().includes(k.replace('_',' '))) catHits[k]++; }); });
+    const entryCount = await page.locator('.jov-entry').count().catch(() => 0);
+    log(`[panel:journal ${tag}] day=${g.day} entries=${entryCount} sections=${sections.length} cats=${JSON.stringify(catHits)} objObj=${objObj} invLeak=${hasInv}`);
+    if (sections.length === 0 && g.day > 1) log(`[panel:journal ${tag}] WARN: no .jov-section found after day ${g.day}`);
+    if (objObj) log(`[panel:journal ${tag}] VIOLATION: [object Object] in journal`);
+    if (hasInv) log(`[panel:journal ${tag}] VIOLATION: inventory item leaked into journal`);
+    if (entryCount > 0) log(`[panel:journal ${tag}] sample: "${txt.slice(0,200).replace(/\n/g,' ')}"`);
+    probeCanonText(txt, tag, 'journal');
     await closeSpecificOverlay(page, 'overlay-journal');
   } catch (err) {
     log(`[panel:journal ${tag}] FAIL: ${err.message}`);
@@ -449,18 +545,22 @@ async function probeCamp(page, tag, g) {
   try {
     if (!await openOverlay(page, '#btn-camp', '#overlay-camp,[id*="camp"]')) { log(`[panel:camp ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_camp_day${g.day}`);
-    const txt     = await page.locator('#overlay-camp,[id*="camp"]').first().innerText().catch(() => '');
-    // Check all camp action buttons exist
-    const rest    = await page.locator('[data-camp="rest"]').isVisible({ timeout: 600 }).catch(() => false);
-    const sleep   = await page.locator('[data-camp="sleep"]').isVisible({ timeout: 600 }).catch(() => false);
-    const train   = await page.locator('[data-camp="train"]').isVisible({ timeout: 600 }).catch(() => false);
-    const craft   = await page.locator('[data-camp="craft"],#btn-craft').isVisible({ timeout: 600 }).catch(() => false);
-    const recover = /Recover|Rest|Sleep/i.test(txt);
-    const act     = /Act|Train|Craft/i.test(txt);
-    log(`[panel:camp ${tag}] day=${g.day} rest=${rest} sleep=${sleep} train=${train} craft=${craft} recover=${recover} act=${act}`);
-    if (!rest || !sleep) log(`[panel:camp ${tag}] WARN: missing core camp actions`);
-    // Screenshot full camp text for review
-    log(`[panel:camp ${tag}] text="${txt.slice(0,150).replace(/\n/g,' ')}"`);
+    const txt    = await page.locator('#overlay-camp,[id*="camp"]').first().innerText().catch(() => '');
+    const rest   = await page.locator('button.camp-action[data-camp="rest"],[data-camp="rest"]').isVisible({ timeout: 600 }).catch(() => false);
+    const sleep  = await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').isVisible({ timeout: 600 }).catch(() => false);
+    const train  = await page.locator('button.camp-action[data-camp="train"],[data-camp="train"]').isVisible({ timeout: 600 }).catch(() => false);
+    const craft  = await page.locator('button.camp-action[data-camp="craft"],[data-camp="craft"],#btn-craft').isVisible({ timeout: 600 }).catch(() => false);
+    log(`[panel:camp ${tag}] day=${g.day} rest=${rest} sleep=${sleep} train=${train} craft=${craft} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    if (!rest || !sleep) log(`[panel:camp ${tag}] WARN: missing core camp actions (rest=${rest} sleep=${sleep})`);
+    // Actually click rest to verify it works
+    if (rest) {
+      const restBtn = page.locator('button.camp-action[data-camp="rest"],[data-camp="rest"]').first();
+      await restBtn.click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_rest_result`);
+      const postTxt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] rest-result: "${postTxt.slice(0,100).replace(/\n/g,' ')}"`);
+    }
     await closeSpecificOverlay(page, 'overlay-camp');
   } catch (err) {
     log(`[panel:camp ${tag}] WARN: ${err.message}`);
@@ -476,18 +576,20 @@ async function probeInventory(page, tag) {
     await btn.click();
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_inventory_open`);
-    const txt = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
-    log(`[panel:inventory ${tag}] chars=${txt.length} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
-    // Try to equip the first available item
+    const txt      = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
+    const itemCount = await page.locator('.inv-item,.inventory-item,.item-card').count().catch(() => 0);
+    log(`[panel:inventory ${tag}] items=${itemCount} chars=${txt.length} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
     const equipBtn = page.locator('button:has-text("Equip"),button:has-text("equip"),.equip-btn').first();
     if (await equipBtn.isVisible({ timeout: 800 }).catch(() => false)) {
       await equipBtn.click();
       await page.waitForTimeout(PACE.short);
       await screenshot(page, `${tag}_inventory_equip`);
-      log(`[panel:inventory ${tag}] equip-attempt: clicked first equip button`);
+      const postTxt = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
+      log(`[panel:inventory ${tag}] post-equip: "${postTxt.slice(0,80).replace(/\n/g,' ')}"`);
     } else {
-      log(`[panel:inventory ${tag}] equip: no equip buttons visible`);
+      log(`[panel:inventory ${tag}] equip: no equip buttons visible (${itemCount} items shown)`);
     }
+    probeCanonText(txt, tag, 'inventory');
     await closeOverlay(page);
   } catch (err) {
     log(`[panel:inventory ${tag}] WARN: ${err.message}`);
@@ -501,9 +603,11 @@ async function probeMap(page, tag, g) {
     if (!await openOverlay(page, '#btn-map', '#overlay-map')) { log(`[panel:map ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_map_loc${g.location}`);
     const txt      = await page.locator('#map-body,#overlay-map').first().innerText().catch(() => '');
-    const hasLocs  = await page.locator('#map-body button,[data-locid]').count().catch(() => 0);
+    // Read all location button names (do NOT click — would change game state)
+    const locBtns  = await page.locator('#map-body button,[data-locid]').allInnerTexts().catch(() => []);
     const objObj   = txt.includes('[object Object]');
-    log(`[panel:map ${tag}] loc=${g.location} locButtons=${hasLocs} objObj=${objObj} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
+    log(`[panel:map ${tag}] loc=${g.location} destinations=${locBtns.length} objObj=${objObj} locs="${locBtns.slice(0,6).join(', ')}"`);
+    if (locBtns.length === 0) log(`[panel:map ${tag}] WARN: no destination buttons found`);
     await closeSpecificOverlay(page, 'overlay-map');
   } catch (err) {
     log(`[panel:map ${tag}] WARN: ${err.message}`);
@@ -516,9 +620,17 @@ async function probeNotices(page, tag) {
   try {
     if (!await openOverlay(page, '#btn-notices', '#overlay-notices')) { log(`[panel:notices ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_notices`);
-    const txt    = await page.locator('#notices-overlay-body,#overlay-notices').first().innerText().catch(() => '');
-    const objObj = txt.includes('[object Object]');
-    log(`[panel:notices ${tag}] objObj=${objObj} chars=${txt.length} text="${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    const cards    = await page.locator('.notice-card').count().catch(() => 0);
+    const txt      = await page.locator('#notices-overlay-body,#overlay-notices').first().innerText().catch(() => '');
+    const objObj   = txt.includes('[object Object]');
+    log(`[panel:notices ${tag}] cards=${cards} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    // Click first unseen notice card to verify interaction
+    const unseenCard = page.locator('.notice-card:not(.seen),.notice-card').first();
+    if (cards > 0 && await unseenCard.isVisible({ timeout: 600 }).catch(() => false)) {
+      const cardTxt = await unseenCard.innerText().catch(() => '');
+      log(`[panel:notices ${tag}] notice-text: "${cardTxt.slice(0,120).replace(/\n/g,' ')}"`);
+      probeCanonText(cardTxt, tag, 'notice');
+    }
     await closeSpecificOverlay(page, 'overlay-notices');
   } catch (err) {
     log(`[panel:notices ${tag}] WARN: ${err.message}`);
@@ -531,9 +643,12 @@ async function probeContacts(page, tag) {
   try {
     if (!await openOverlay(page, '#btn-npcs', '#overlay-npcs')) { log(`[panel:contacts ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_contacts`);
-    const txt    = await page.locator('#npc-overlay-body,#overlay-npcs').first().innerText().catch(() => '');
-    const objObj = txt.includes('[object Object]');
-    log(`[panel:contacts ${tag}] objObj=${objObj} chars=${txt.length} text="${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    const txt      = await page.locator('#npc-overlay-body,#overlay-npcs').first().innerText().catch(() => '');
+    const objObj   = txt.includes('[object Object]');
+    const npcNames = await page.locator('#npc-overlay-body .npc-name,.npc-entry .npc-name,.contact-name').allInnerTexts().catch(() => []);
+    log(`[panel:contacts ${tag}] contacts=${npcNames.length} objObj=${objObj} names="${npcNames.slice(0,5).join(', ')}"`);
+    if (txt.length > 10) log(`[panel:contacts ${tag}] text: "${txt.slice(0,150).replace(/\n/g,' ')}"`);
+    probeCanonText(txt, tag, 'contacts');
     await closeSpecificOverlay(page, 'overlay-npcs');
   } catch (err) {
     log(`[panel:contacts ${tag}] WARN: ${err.message}`);
@@ -546,9 +661,11 @@ async function probeParty(page, tag) {
   try {
     if (!await openOverlay(page, '#btn-party', '#overlay-party')) { log(`[panel:party ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_party`);
-    const txt    = await page.locator('#party-overlay-body,#overlay-party').first().innerText().catch(() => '');
-    const objObj = txt.includes('[object Object]');
-    log(`[panel:party ${tag}] objObj=${objObj} chars=${txt.length} text="${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    const txt       = await page.locator('#party-overlay-body,#overlay-party').first().innerText().catch(() => '');
+    const objObj    = txt.includes('[object Object]');
+    const members   = await page.locator('#party-overlay-body .companion-name,.party-member,.companion-card').count().catch(() => 0);
+    log(`[panel:party ${tag}] members=${members} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    probeCanonText(txt, tag, 'party');
     await closeSpecificOverlay(page, 'overlay-party');
   } catch (err) {
     log(`[panel:party ${tag}] WARN: ${err.message}`);
@@ -564,8 +681,24 @@ async function probeShop(page, tag, g) {
     await btn.click();
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_shop_${g.location}`);
-    const txt = await page.locator('.overlay.active,[id*="shop"]').first().innerText().catch(() => '');
-    log(`[panel:shop ${tag}] loc=${g.location} chars=${txt.length} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
+    const txt       = await page.locator('.overlay.active,[id*="shop"]').first().innerText().catch(() => '');
+    const itemCount = await page.locator('.shop-item').count().catch(() => 0);
+    log(`[panel:shop ${tag}] loc=${g.location} items=${itemCount} gold=${g.gold} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
+    // Attempt to buy first affordable item
+    const buyBtns = await page.locator('.shop-buy-btn').all().catch(() => []);
+    let bought = false;
+    for (const buyBtn of buyBtns.slice(0, 3)) {
+      const isEnabled = await buyBtn.isEnabled({ timeout: 400 }).catch(() => false);
+      if (isEnabled) {
+        const itemLabel = await buyBtn.innerText().catch(() => '');
+        await buyBtn.click();
+        await page.waitForTimeout(PACE.short);
+        await screenshot(page, `${tag}_shop_buy`);
+        log(`[panel:shop ${tag}] buy-attempt: "${itemLabel.slice(0,40)}" — post-gold=${g.gold}`);
+        bought = true; break;
+      }
+    }
+    if (!bought && itemCount > 0) log(`[panel:shop ${tag}] WARN: ${itemCount} items but no enabled buy buttons (gold=${g.gold})`);
     await closeOverlay(page);
   } catch (err) {
     log(`[panel:shop ${tag}] WARN: ${err.message}`);
@@ -575,34 +708,36 @@ async function probeShop(page, tag, g) {
 
 async function probeQuestHUD(page, tag) {
   try {
-    const el  = page.locator('#quest-hud,#hud-quest,[id*="quest"]').first();
+    const el  = page.locator('#quest-list,#quest-hud,[id*="quest"]').first();
     if (!await el.isVisible({ timeout: 600 }).catch(() => false)) { log(`[panel:quest-hud ${tag}] SKIP`); return; }
-    const txt = await el.innerText().catch(() => '');
+    const txt    = await el.innerText().catch(() => '');
     const objObj = txt.includes('[object Object]');
     log(`[panel:quest-hud ${tag}] — ${!objObj ? 'PASS' : 'FAIL'}: "${txt.slice(0,80)}"`);
+    probeCanonText(txt, tag, 'quest-hud');
   } catch (err) { log(`[panel:quest-hud ${tag}] WARN: ${err.message}`); }
 }
 
 async function probeHeatHUD(page, tag, g) {
   try {
-    const el         = page.locator('#heat-hud,#hud-heat,[id*="heat"]').first();
-    const visible    = await el.isVisible({ timeout: 600 }).catch(() => false);
-    const totalHeat  = Object.values(g.heat || {}).reduce((a, b) => a + b, 0);
+    const el        = page.locator('#hud-heat-row,#hud-heat,[id*="heat"]').first();
+    const visible   = await el.isVisible({ timeout: 600 }).catch(() => false);
+    const totalHeat = Object.values(g.heat || {}).reduce((a, b) => a + b, 0);
     if (!visible && totalHeat > 0) log(`[panel:heat-hud ${tag}] WARN: heat=${totalHeat} but HUD hidden`);
     else if (visible) { const txt = await el.innerText().catch(() => ''); log(`[panel:heat-hud ${tag}] PASS heat=${totalHeat} "${txt.slice(0,60)}"`); }
     else log(`[panel:heat-hud ${tag}] PASS: no heat`);
   } catch (err) { log(`[panel:heat-hud ${tag}] WARN: ${err.message}`); }
 }
 
-async function probeAlignmentBars(page, tag) {
+async function probeAlignmentBars(page, tag, g) {
   try {
-    const el      = page.locator('[class*="alignment"],[id*="benevolence"]').first();
+    const el      = page.locator('[class*="alignment"],[id*="benevolence"],[id*="orderAxis"]').first();
     const visible = await el.isVisible({ timeout: 600 }).catch(() => false);
     if (visible) {
       const txt = await el.innerText().catch(() => '');
-      log(`[panel:alignment ${tag}] PASS: "${txt.slice(0,60)}"`);
+      log(`[panel:alignment ${tag}] PASS: "${txt.slice(0,60)}" benevolence=${g.benevolence} order=${g.orderAxis}`);
     } else {
-      log(`[panel:alignment ${tag}] SKIP`);
+      // Alignment bars only show at threshold ±10 — log current values
+      log(`[panel:alignment ${tag}] benevolence=${g.benevolence} order=${g.orderAxis} (bars hidden — threshold ±10 not reached)`);
     }
   } catch (err) { log(`[panel:alignment ${tag}] WARN: ${err.message}`); }
 }
@@ -616,10 +751,11 @@ async function probeHowToPlay(page, tag) {
     await page.waitForSelector('#howto-modal', { state: 'visible', timeout: 4000 }).catch(() => {});
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_howtoplay`);
-    const txt      = await page.locator('#howto-modal').innerText().catch(() => '');
-    const hasH2    = await page.locator('#howto-modal h2,#howto-modal h3').count().catch(() => 0);
-    const objObj   = txt.includes('[object Object]');
-    log(`[panel:howtoplay ${tag}] headers=${hasH2} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    const txt    = await page.locator('#howto-modal').innerText().catch(() => '');
+    const hasH2  = await page.locator('#howto-modal h2,#howto-modal h3').count().catch(() => 0);
+    const objObj = txt.includes('[object Object]');
+    log(`[panel:howtoplay ${tag}] headers=${hasH2} objObj=${objObj} chars=${txt.length} text="${txt.slice(0,200).replace(/\n/g,' ')}"`);
+    if (!hasH2) log(`[panel:howtoplay ${tag}] WARN: no section headers in How to Play`);
     const closeBtn = page.locator('#howto-close,[data-close="howto-modal"],#howto-modal button').first();
     if (await closeBtn.isVisible({ timeout: 600 }).catch(() => false)) await closeBtn.click();
     else { await page.keyboard.press('Escape'); await closeOverlay(page); }
@@ -634,11 +770,13 @@ async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks > 0 && picks % PROBE_EVERY === 0 && picks !== _lastProbedAtPick) {
     _lastProbedAtPick = picks;
     await dismissOverlays(page);
+    await probeHUD(page, tag, g);
+    await probeChoiceBorders(page, tag);
     await probeCharSheet(page, tag, g);
     await probeJournal(page, tag, g);
     await probeQuestHUD(page, tag);
     await probeHeatHUD(page, tag, g);
-    await probeAlignmentBars(page, tag);
+    await probeAlignmentBars(page, tag, g);
     await probeMap(page, tag, g);
     await probeNotices(page, tag);
     await probeContacts(page, tag);
@@ -867,7 +1005,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       // Read narrative text and log what the player sees before picking
       const narrativeText = await readNarrativeText(page);
-      if (narrativeText) log(`[narrative ${tag}] pick=${picks}: "${narrativeText.slice(0, 120)}"`);
+      if (narrativeText) {
+        log(`[narrative ${tag}] pick=${picks}: "${narrativeText.slice(0, 120)}"`);
+        probeCanonText(narrativeText, tag, `narrative pick=${picks}`);
+      }
+      // Also read result text (post-pick) for canon compliance
+      const resultText = await page.locator('.result-text').first().innerText().catch(() => '');
+      if (resultText) probeCanonText(resultText, tag, `result pick=${picks}`);
 
       if (picks % 10 === 0) {
         const snap = await snapshotChoices(page);
@@ -875,6 +1019,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         const cb   = snap.filter(s => s.cls.includes('combat-btn')).length;
         log(`[choices ${tag}] pick=${picks} total=${snap.length} plotMain=${pm} combat=${cb}`);
         auditChoiceLabels(snap, tag, picks);
+        // Scan choice labels for canon violations too
+        snap.forEach(s => probeCanonText(s.text, tag, `choice-label pick=${picks}`));
       }
 
       await dismissOverlays(page);
