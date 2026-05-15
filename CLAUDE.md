@@ -384,8 +384,35 @@ Run concurrently with Step 3 and again after it passes. Two layers:
 **During spec (milestone screenshots + text reading):**
 - At each `pickChoice`, read DOM content via `page.evaluate()` — extract narrative text and all visible choice labels. Make an informed pick based on content (prefer plot-advancing choices; apply line-editor check: ≤15 words, inner voice, no infinitives, no question marks).
 - Capture milestone screenshots via `page.screenshot()` at: character creation complete, first choice render, first result, combat entry, Stage II unlock banner, death screen, each menu open. Also capture periodic random screenshots throughout the run.
-- Apply skills to each screenshot before continuing: `game-design:polish-review` (visual), `game-design:feedback-loop-review` (HUD/progress signals), `game-design:balance-review` (combat/choices), `game-design:fun-review` (engagement), `line-editor` (choice labels and result text).
-- Full menu cycle once per family: open journal → cycle all tabs → close; open character sheet → check all sections → close; open inventory → equip first available item → close; open quest log → close. Screenshot each.
+- Apply skills to each screenshot AND to each log/report before continuing: `game-design:polish-review` (visual), `game-design:feedback-loop-review` (HUD/progress signals), `game-design:balance-review` (combat/choices), `game-design:fun-review` (engagement), `line-editor` (choice labels and result text).
+- Full menu cycle once per family — every overlay, every sub-action, every section:
+  - **Journal**: open → read all 6 category sections (quest, field_note, faction, rival, companion, fact) → screenshot each → close
+  - **Character sheet**: open → read `.char-skill-row` values vs HUD → read `.ability-card` names → read `.trait-section` → screenshot → close
+  - **Camp**: open → click rest → screenshot result → close (rest is safe; it heals HP and advances day)
+  - **Inventory**: open → equip first item → screenshot before/after → unequip → close
+  - **Map**: open → read all location button names → screenshot → close (do NOT click a location — changes game state)
+  - **Notices**: open → read all `.notice-card` text → click first unseen card → screenshot → close
+  - **Shop**: open → read all `.shop-item` names and prices → attempt `.shop-buy-btn` on first affordable item → screenshot → close
+  - **Contacts/Party**: open → read all names and text → screenshot → close
+  - **How to Play**: open → scroll through all sections → screenshot → close
+
+**HUD integrity check** (every PROBE_EVERY picks):
+- Read every HUD element and cross-check against `G` state: HP bar vs `G.hp`/`G.maxHp`, XP vs `G.xp`, level vs `G.level`, stage label vs `G.stage`, gold vs `G.gold`, supply vs `G.supply`, renown vs `G.renown`, day vs `G.day`, location name vs `G.location`.
+- Log any mismatch as VIOLATION. HUD showing wrong value = engine bug.
+- Verify level cap: Stage I capped at 5, Stage II at 10 — log VIOLATION if level exceeds cap.
+- Verify choice border colors match semantic role: `.plot-main` = blue only, `.choice-btn--warn1` = orange (Confrontation/Accusation/Ambush), `.choice-btn--combat` = red.
+
+**Mechanics validation** (after each pick):
+- Track XP delta: log if XP did not increase after a successful non-combat choice.
+- Track HP bounds: log VIOLATION if `G.hp > G.maxHp` or `G.hp < 0`.
+- Track gold/supply: log VIOLATION if either goes negative unexpectedly.
+- Track stageProgress: log if sp1 or sp2 decreases (should only ever increase).
+
+**V33_2 canon compliance** (every narrative text read):
+- Scan for forbidden player-facing words: "investigation", "investigate", "meaningful", "you feel", "you realize", "you sense", "in a way that suggests", "precisely as". Log any hit as VIOLATION with full sentence.
+- Check NPC names appearing in text against V33_2 named_npcs — any name not in canon = log WARNING.
+- Check locality names in narration match the 53-locality V33_2 list.
+- "Ledger of Ash" must NOT appear in any Stage I or Stage II text — log as CRITICAL VIOLATION if found.
 
 **After spec (dedicated review pass):**
 - Invoke `game-design:polish-review` on character creation screen, main play surface, and all overlay screens.
@@ -394,6 +421,7 @@ Run concurrently with Step 3 and again after it passes. Two layers:
 - Any skill appropriate to what is visible — use judgment, do not skip.
 
 **Findings triage:**
+- Critical (canon violation, "Ledger of Ash" named early, HUD/G mismatch, level cap breach): fix immediately, block next family.
 - High-severity (broken rendering, unreadable text, wrong color role, missing UI element): fix inline during run, commit with description.
 - Low-severity (label could be tighter, panel alignment, minor color drift): log to `docs/BACKLOG.md` with P1/P2 tag.
 
@@ -415,6 +443,9 @@ Deliver: one-paragraph summary — stages completed, bugs fixed (commit SHAs), p
 | Narrative / NPC bug | Invoke `superpowers:writing-skills` + `humanizer` (strip AI prose patterns); agents: `continuity-auditor`, `narration-surface-scanner`, `line-editor` | Index V33_2 locality+NPC packet for affected location |
 | Polish / itch release bug | Invoke `game-design:polish-review` + `game-design:fun-review` | — |
 | Tutorial bug | Invoke `game-design:tutorial-review` | — |
+| Canon compliance bug | Invoke `continuity-auditor` + `narration-surface-scanner`; check `data/reference/V33_2_extracted/V33_2_DnD_Repository/02_CANON_BASELINE/named_npcs/` for NPC names; check `03_LOCALITY_ENGINE/locality_packets/` for locality list | V33_2 NPC JSON, locality JSON |
+| HUD/G mismatch bug | Invoke `superpowers:systematic-debugging`; trace HUD render function (updateHUD ~line 10862) vs G state | `updateHUD`, `renderCharacterSheet` both must be updated |
+| Mechanics violation | Invoke `game-design:balance-review` + `game-design:economy-review`; trace `modHP`, `addGold`, `addSupply` call sites | G defaults object, level cap table |
 
 Before committing any fix: invoke `superpowers:verification-before-completion`.
 
