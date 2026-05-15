@@ -303,7 +303,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A survey camp marker in the northern tree line. The team stopped reporting six weeks ago.",
+    label: "A survey marker in the tree line. The team stopped reporting six weeks ago.",
     tags: ['Stage2', 'Scouting'],
     xpReward: 72,
     fn: function() {

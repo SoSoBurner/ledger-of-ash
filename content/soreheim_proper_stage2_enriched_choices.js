@@ -460,7 +460,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The herald runs extra routes when Decon is absent. The destinations don't match any posted address.",
+    label: "Extra routes when Decon is absent. The destinations don't match any posted address.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {

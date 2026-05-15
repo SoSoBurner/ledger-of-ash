@@ -534,7 +534,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The courier hits the cold hold and the foundry dock on the same circuit every morning.",
+    label: "The courier runs the cold hold and the foundry dock every morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
