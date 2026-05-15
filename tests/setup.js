@@ -199,8 +199,10 @@ function createGameContext(gOverrides) {
     advanceRivals:       ctx.advanceRivals,
     getChoiceTier:       ctx.getChoiceTier,
     getChoiceDC:         ctx.getChoiceDC,
-    renderMasterySection: ctx.renderMasterySection,
-    buyMasteryUpgrade:   ctx.buyMasteryUpgrade,
+    renderMasterySection:    ctx.renderMasterySection,
+    buyMasteryUpgrade:       ctx.buyMasteryUpgrade,
+    buildTraitsSectionHTML:  ctx.buildTraitsSectionHTML,
+    activateAbilityFromSheet:ctx.activateAbilityFromSheet,
   };
 }
 
