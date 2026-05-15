@@ -243,7 +243,9 @@ async function closeOverlay(page) {
     await page.evaluate(() => {
       document.querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'));
     });
-    await page.waitForTimeout(200);
+    // Wait for overlays to fully hide (CSS transition) before returning
+    await page.waitForSelector('.overlay.active', { state: 'hidden', timeout: 1000 }).catch(() => {});
+    await page.waitForTimeout(100);
   } catch (_) {}
 }
 
@@ -514,6 +516,7 @@ async function probeHowToPlay(page, tag) {
 
 async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks > 0 && picks % PROBE_EVERY === 0) {
+    await dismissOverlays(page); // ensure no overlay is blocking HUD buttons
     await probeCharSheet(page, tag, g);
     await probeJournal(page, tag, g);
     await probeQuestHUD(page, tag);
@@ -573,11 +576,12 @@ async function handleDeadEndRepair(page, tag, pickNum) {
   } catch (_) {}
   if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R4-blank-panel-inject worked`); return true; }
 
-  // R5: Tension combat dead end — reset tensionLevel
+  // R5: Tension/combat dead end — reset tensionLevel and clear CS
   try {
     await page.evaluate(() => {
-      if (typeof G !== 'undefined' && G.tensionLevel >= 2) {
+      if (typeof G !== 'undefined') {
         G.tensionLevel = 0;
+        try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
         if (typeof loadStageChoices === 'function' && G.location)
           loadStageChoices(G.location);
       }
@@ -769,6 +773,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           await page.evaluate((escLocs) => {
             if (typeof G !== 'undefined') {
               G.tensionLevel = 0;
+              // Clear combat state so combat choices don't re-render after teleport
+              try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
