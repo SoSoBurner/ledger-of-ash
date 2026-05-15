@@ -468,8 +468,8 @@ function getEquippedBonus(type) {
   const slot = type === 'atk' ? G.equipped.weapon : G.equipped.armor;
   if (!slot) return 0;
   const def = ITEM_DEFS[slot.id];
-  if (type === 'atk') return def?.effect?.atk_bonus ?? slot.effect?.atk_bonus ?? slot.atk_bonus ?? 0;
-  return def?.effect?.def_bonus ?? slot.effect?.def_bonus ?? slot.def_bonus ?? 0;
+  if (type === 'atk') return (def && def.effect && def.effect.atk_bonus != null ? def.effect.atk_bonus : (slot.effect && slot.effect.atk_bonus != null ? slot.effect.atk_bonus : (slot.atk_bonus != null ? slot.atk_bonus : 0)));
+  return (def && def.effect && def.effect.def_bonus != null ? def.effect.def_bonus : (slot.effect && slot.effect.def_bonus != null ? slot.effect.def_bonus : (slot.def_bonus != null ? slot.def_bonus : 0)));
 }
 
 // ─── Block H: Stage I Item Expansion — 240 items (4 families × 3 slots × 4 chains × 5 levels) ───
