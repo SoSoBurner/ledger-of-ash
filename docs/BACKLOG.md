@@ -255,6 +255,17 @@
 | Infinitive starts | 2 | `glasswake_commune_stage1_enriched_choices.js:158` — "Speak to the newest researcher..."; `harvest_circle_stage1_enriched_choices.js:910` — "Speak to the Iron Compact's..." |
 | Question marks | 0 | Clean |
 
+**May 15 2026 headed spec audit — 6 additional infinitive violations detected at runtime:**
+
+| Label | File (approx) | Stage |
+|-------|--------------|-------|
+| "Walk toward the garrison" | Stage 1 locality | 1 |
+| "Find a quiet corner" | Stage 1 locality | 1 |
+| "Find the local inn" | Stage 1 locality | 1 |
+| "Walk the settlement" | Stage 1 locality | 1 |
+| "Try to talk this down" | Stage 1 locality | 1 |
+| "Find a healer in the settlement" | Stage 1 locality | 1 |
+
 **Action:** Do not rewrite Stage 1 labels (stage is frozen). Apply label standard to all new Stage 2+ choices before commit.
 
 ---

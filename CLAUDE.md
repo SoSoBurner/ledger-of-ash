@@ -85,6 +85,10 @@ Every plan phase that adds content must expand the total content of the stage it
 - **Location teleport in spec**: stall/escape teleports use `_travelCoreTravelTo(dest)` (fires corridor encounters, no mode-select UI). `resolveArrival(loc)` for in-place re-renders only. `loadStageChoices` re-renders same location silently — do not use for teleports.
 - **`dismissOverlays` selector scope**: Only `.overlay.active` misses modals that don't use `.active` (e.g. `#how-to-play-modal`, `#notice-board-modal`). Extend to `.overlay.active, [id$="-modal"]:visible, .modal:visible` and add a DOM-fallback `querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'))` after the loop.
 - **Travel mode buttons in spec**: `.choice-btn:visible` matches the disabled `selectTravelMode` buttons. Always use `.choice-btn:visible:not([disabled])` in `pickChoice`.
+- **`resolveCombatAction` null guard**: Always has `if (!CS) return;` as first line. Loop-detect sets `CS = null`; click handlers on already-rendered combat buttons fire after that, crashing on `CS.enemyDefMod`.
+- **Probe dedup in spec loops**: Any `picks % N === 0` condition inside a `while` loop with `continue` fires N times on the same pick during stalls. Guard with a `lastFiredAtPick` variable: `if (picks !== _lastFiredAtPick) { _lastFiredAtPick = picks; ... }`.
+- **`readNarrativeText` reads ambient text**: Returns persistent `.narrative-text` (locality desc), not per-pick result. To capture result text for review, also query `.result-text` after `waitForChoices()` resolves.
+- **Skill review scope**: Apply all applicable skills (polish-review, feedback-loop-review, balance-review, line-editor) to BOTH screenshots AND log/report output — screenshots alone miss logic failures; logs alone miss visual/UX issues.
 
 ## Testing Infrastructure
 
