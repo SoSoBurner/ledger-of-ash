@@ -9565,7 +9565,7 @@ function getDefaultG() {
     startingLocality:'shelkopolis',
     _campoutPenalty:0, campoutDay:-1,
     trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
-    masteryXP:0, traitProgress:{}, unlockedTraits:[], spentAbilities:{},
+    masteryXP:0, masteryPurchased:[], masteryBonuses:{}, traitProgress:{}, unlockedTraits:[], spentAbilities:{},
     archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
     shopCreditBoost:0, statCap:10,
     restCount:0,
@@ -12145,6 +12145,16 @@ function gainXP(n) {
 }
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
+
+var MASTERY_UPGRADES = [
+  { id:'m_hp', name:'Hardened', desc:'+8 max HP.', cost:40, effect:{type:'stat', stat:'maxHp', n:8} },
+  { id:'m_roll', name:'Practiced Hand', desc:'+1 to all skill checks for the remainder of this stage.', cost:40 },
+  { id:'m_gold', name:'Resourceful', desc:'Gold rewards increased by +3 per encounter for the remainder of this stage.', cost:40 },
+  { id:'m_heat', name:'Low Profile', desc:'Heat gains reduced by 1 (minimum 0) for the remainder of this stage.', cost:60 },
+  { id:'m_craft', name:'Master Crafter', desc:'All craft DCs reduced by 2 for the remainder of this stage.', cost:60 },
+  { id:'m_renown', name:'Reputation', desc:'+10 renown immediately.', cost:80, effect:{type:'renown', n:10} }
+];
+
 // Fumble backup choices for main plot CIDs.
 // Keyed by original choice CID. Each backup is a different approach with reduced stageProgress yield (+1 vs +2).
 // Format: 'original_cid': { label: '...', result: '...', stageProgress: 1, skill: '...', tag: '...' }
@@ -14628,6 +14638,43 @@ function showJournal() {
 }
 
 // ── CHARACTER SHEET HELPERS ─────────────────────────────────
+function renderMasterySection() {
+  var mxp = G.masteryXP || 0;
+  if (mxp === 0) return '';
+  var purchased = G.masteryPurchased || [];
+  var available = MASTERY_UPGRADES.filter(function(u){ return purchased.indexOf(u.id) === -1; }).slice(0,3);
+  if (available.length === 0) return '<div class="trait-section"><div class="trait-section-title">Mastery \u2014 All upgrades purchased</div></div>';
+  var html = '<div class="trait-section"><div class="trait-section-title">Mastery \u2014 ' + mxp + ' MXP available</div>';
+  available.forEach(function(u){
+    var canAfford = mxp >= u.cost;
+    html += '<div class="trait-card">'
+      + '<div class="trait-card-name">' + u.name + ' <span style="color:var(--gold-dim);font-size:11px">(' + u.cost + ' MXP)</span></div>'
+      + '<div class="trait-card-effect">' + u.desc + '</div>'
+      + '<button class="ability-btn' + (canAfford ? '' : ' ability-btn--spent') + '" '
+      + (canAfford ? 'onclick="buyMasteryUpgrade(\'' + u.id + '\')"' : 'disabled')
+      + '>' + (canAfford ? 'Purchase' : 'Need ' + u.cost + ' MXP') + '</button>'
+      + '</div>';
+  });
+  return html + '</div>';
+}
+
+function buyMasteryUpgrade(id) {
+  var upgrade = MASTERY_UPGRADES.filter(function(u){ return u.id === id; })[0];
+  if (!upgrade) return;
+  var mxp = G.masteryXP || 0;
+  if (mxp < upgrade.cost) return;
+  G.masteryXP = mxp - upgrade.cost;
+  if (!G.masteryPurchased) G.masteryPurchased = [];
+  G.masteryPurchased.push(id);
+  if (upgrade.effect) applyEffect(upgrade.effect);
+  if (id === 'm_roll') { if (!G.masteryBonuses) G.masteryBonuses = {}; G.masteryBonuses.rollBonus = (G.masteryBonuses.rollBonus || 0) + 1; }
+  if (id === 'm_gold') { if (!G.masteryBonuses) G.masteryBonuses = {}; G.masteryBonuses.goldBonus = (G.masteryBonuses.goldBonus || 0) + 3; }
+  if (id === 'm_heat') { if (!G.masteryBonuses) G.masteryBonuses = {}; G.masteryBonuses.heatReduction = (G.masteryBonuses.heatReduction || 0) + 1; }
+  if (id === 'm_craft') { if (!G.masteryBonuses) G.masteryBonuses = {}; G.masteryBonuses.craftDCReduction = (G.masteryBonuses.craftDCReduction || 0) + 2; }
+  addNarration('', '<em style="color:var(--accent-gold)">' + upgrade.name + ' purchased.</em> ' + upgrade.desc, 'success');
+  showCharSheet();
+}
+
 function buildTraitsSectionHTML() {
   var actives = [], passives = [];
 
@@ -14849,6 +14896,7 @@ function showCharSheet() {
       return '<div style="margin-top:20px"><div class="char-section-title">Companions</div>' + _compRows + '</div>';
     })() : '') +
     (G.masteryXP > 0 ? '<div style="margin-top:20px"><div class="char-section-title">Mastery</div>' + row('Mastery XP', G.masteryXP) + '</div>' : '') +
+    renderMasterySection() +
     (function(){
       var _sn = typeof G.stage === 'number' ? G.stage : (parseInt(String(G.stage||'').replace(/\D/g,''))||1);
       var _prog = (G.stageProgress && G.stageProgress[_sn]) || 0;
