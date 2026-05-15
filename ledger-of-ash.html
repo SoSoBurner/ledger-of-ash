@@ -12454,10 +12454,12 @@ function _showStage3BlockerLegacy() {
 }
 
 function showTransitionBanner(text) {
+  var container = document.getElementById('game') || document.body;
+  if (!container) return;
   var el = document.createElement('div');
   el.className = 'stage-transition-banner';
   el.textContent = text;
-  document.getElementById('game').appendChild(el);
+  container.appendChild(el);
   setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 3000);
 }
 
