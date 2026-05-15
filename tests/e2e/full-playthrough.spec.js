@@ -100,19 +100,19 @@ const ARCHETYPE_NAMES = {
 // Pacing
 // ---------------------------------------------------------------------------
 const PACE = {
-  afterResult:    1500,
-  beforePanel:     800,
-  betweenCombat:   700,
-  afterLevelup:    500,
-  short:           300,
-  waitChoices:    3500,
-  panelDwell:     1200,
+  afterResult:      0,  // no reading delay — headless, DOM just needs to settle
+  beforePanel:      0,
+  betweenCombat:    0,
+  afterLevelup:    50,  // tiny settle for level-up DOM
+  short:            0,
+  waitChoices:   1500,  // real wait — choices must actually render
+  panelDwell:       0,
 };
 
 const MAX_PICKS         = 350;
-const PROBE_EVERY       = 20;   // panel probe interval
-const CAMP_EVERY        = 60;
-const SCREENSHOT_EVERY  = 20;
+const PROBE_EVERY       = 50;   // less frequent in headless — speed over coverage
+const CAMP_EVERY        = 100;
+const SCREENSHOT_EVERY  = 50;
 
 // ---------------------------------------------------------------------------
 // Log — written incrementally so kills don't lose data
@@ -694,11 +694,21 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let noProgress     = 0;
   let forcePlotMain  = 0;
   let lastLoggedSP1  = -1;
+  let lastPickLabels = [];
+  let lastPickTime   = Date.now();
 
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
     try {
+      // 60-second stall guard — no successful pick in 60s = stuck loop → failed run
+      if (Date.now() - lastPickTime > 60000) {
+        g = await readG(page);
+        await screenshot(page, `${tag}_stall_p${picks}`);
+        log(`[run:${tag}] STALL pick=${picks} — no progress in 60s, counting as failed run`);
+        return { success: false, reason: 'stall-timeout', picks, g };
+      }
+
       if (await isDead(page)) {
         g = await readG(page);
         await screenshot(page, `${tag}_death_p${picks}`);
@@ -805,7 +815,23 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       if (!result.clicked) { await page.waitForTimeout(600); continue; }
       log(`[pick ${tag}] #${picks + 1} plotMain=${result.isPlotMain} combat=${result.isCombat} "${result.text.slice(0, 60)}"`);
       picks++;
+      lastPickTime = Date.now();
       await page.waitForTimeout(PACE.betweenCombat);
+
+      // Same-label loop detection: 3 identical picks in a row = stuck in tension loop
+      const pickLabel = result.text.slice(0, 60);
+      lastPickLabels.push(pickLabel);
+      if (lastPickLabels.length > 3) lastPickLabels.shift();
+      if (lastPickLabels.length === 3 && lastPickLabels.every(l => l === lastPickLabels[0])) {
+        log(`[loop-detect ${tag}] pick=${picks} same label 3x: "${pickLabel}" — forcing tension reset + location reload`);
+        try {
+          await page.evaluate(() => {
+            if (typeof G !== 'undefined') { G.tensionLevel = 0; }
+            if (typeof loadStageChoices === 'function') loadStageChoices();
+          });
+        } catch (_) {}
+        lastPickLabels = [];
+      }
 
     } catch (loopErr) {
       if (pageIsClosed || String(loopErr).includes('Target page') || String(loopErr).includes('context or browser')) {
