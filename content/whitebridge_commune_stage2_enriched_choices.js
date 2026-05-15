@@ -125,7 +125,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Nyra has seen this container mark before. Her Loss Ledger reaches back further than any crossing log.",
+    label: "Nyra's Loss Ledger reaches back further than any crossing log.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -229,7 +229,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The gate warden flagged my pack before I said a word. He knows I haven't declared a route.",
+    label: "The gate warden flagged my pack before I said a word.",
     tags: ['stage2', 'whitebridge_commune'],
     xpReward: 30,
     fn: function() {
@@ -421,7 +421,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A night on the bridge before the next twelve-day window. Cold enough no one expects a watcher.",
+    label: "Cold enough no one expects a watcher at the twelve-day window.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -480,7 +480,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The diplomatic exemptions left a credit gap in the tithe ledger. Someone was meant to offset it.",
+    label: "The diplomatic exemptions left a gap in the tithe ledger. Someone was meant to fill it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -541,7 +541,7 @@ const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A surveyor back from the ice shelf. She crossed the bridge during one of the flagged windows.",
+    label: "A surveyor back from the ice shelf crossed during one of the flagged windows.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {

@@ -89,7 +89,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A regular arbiter guest. She's been working on a contract for months. She won't name it.",
+    label: "A regular arbiter guest, working on something for months. She won't name it.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -197,7 +197,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Sanction Board queue moves on strict rotation. Cutting it resolves this faster. The room notices.",
+    label: "The Sanction Board queue runs on strict rotation. Cutting it resolves this. The room notices.",
     tags: ['stage2', 'guildheart_hub'],
     xpReward: 30,
     fn: function() {
@@ -280,7 +280,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The manifest waypoint isn't in the Union route registry. It's in a private Shelk charter annex.",
+    label: "The manifest waypoint isn't in the Union registry. It's in a private Shelk charter annex.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -506,7 +506,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The labor guild posted a grievance about the off-hours crews. Withdrawn the following week. No resolution.",
+    label: "The labor guild grievance about the off-hours crews was withdrawn. No resolution.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -591,7 +591,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The charter, the zero-rated imports, the shrine exchange — a complete financing chain. Guild channels or informal route.",
+    label: "The charter, the imports, the shrine exchange — a complete financing chain. Guild or informal route.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
     fn: function() {

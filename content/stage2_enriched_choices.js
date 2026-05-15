@@ -548,7 +548,7 @@
     }
   },
   {
-    label: "The faction wants eyes in a region I don't know. Saying no carries its own cost.",
+    label: "The faction wants eyes in a region I don't know. Saying no has a cost.",
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -775,7 +775,7 @@
     }
   },
   {
-    label: "A companion's family member inside a facility I can reach. The window won't stay open long.",
+    label: "A companion's family inside a facility I can reach. The window won't stay open.",
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -873,7 +873,7 @@
 
   // ========== ROUTE INTELLIGENCE: Scouts, Spies & Institutional Observation ==========
   {
-    label: "A scout with checkpoint maps. The price and what I offer in return are still undecided.",
+    label: "A scout with checkpoint maps. The price is still undecided.",
     tags: ['Intelligence', 'Route', 'Information', 'Cost', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -937,7 +937,7 @@
     }
   },
   {
-    label: "An institutional spy wants shelter. What they carry outweighs what I gain by turning them in.",
+    label: "An institutional spy wants shelter. What they carry outweighs turning them in.",
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -1002,7 +1002,7 @@
     failResult: 'This path is closed here, but the Collegium\'s outer office is not the only layer — the building at the administrative edge still has no public record.'
   },
   {
-    label: "A scout network offers route data. The price is protection I may not be able to deliver.",
+    label: "A scout network offers route data. The price is protection I may not deliver.",
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,

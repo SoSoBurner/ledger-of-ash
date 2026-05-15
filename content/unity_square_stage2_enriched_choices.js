@@ -123,7 +123,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "An unlogged arrival with a consignment weight matching no known cargo class. The staging point is traceable.",
+    label: "Unlogged arrival, consignment weight matching no known cargo class. The staging point is traceable.",
     tags: ['Stage2', 'Registry'],
     xpReward: 68,
     fn: function() {
@@ -153,7 +153,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The mediation spills into the open court. One party assumes I'm here to document proceedings against them.",
+    label: "The mediation spills into the open court. One party thinks I'm here to document them.",
     tags: ['Stage2', 'Social'],
     xpReward: 66,
     fn: function() {
@@ -379,7 +379,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The coordination hub is confirmed. Expose the shadow register or use it to intercept the final meeting.",
+    label: "The hub is confirmed. Expose the shadow register or intercept the final meeting.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
     fn: function() {
@@ -473,7 +473,7 @@ const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A street physician's supply order rerouted through a bonding house the same week the exposure cluster began.",
+    label: "A street physician's supply order rerouted through a bonding house. Same week the cluster began.",
     tags: ['NPC', 'Stage2', 'Social'],
     xpReward: 67,
     fn: function() {

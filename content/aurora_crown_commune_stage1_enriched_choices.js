@@ -11,7 +11,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 1. DOME TECHNICIAN: MAINTENANCE ROTATIONS DISRUPTED
   {
     plot: 'main',
-    label: "The emergency rotations have increased. Fewer people are being assigned to the repairs that need them most.",
+    label: "The rotations increased. The repairs that matter most have fewer hands.",
     tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -55,7 +55,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 2. RESEARCH ARCHIVIST: CELESTIAL RECORDS REMOVAL
   {
     plot: 'main',
-    label: "The celestial observation logs have been moved. Someone authorized it. The authorization isn't on the board.",
+    label: "The observation logs have been moved. The authorization isn't on the board.",
     tags: ['Investigation', 'NPC', 'Records', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -182,7 +182,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. CELESTIAL OBSERVER: AURORA PATTERNS CORRUPTED
   {
-    label: "The celestial observer's charts have been running irregular for three weeks. He hasn't filed a notice.",
+    label: "The observer's charts ran irregular for three weeks. No notice filed.",
     tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -356,7 +356,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE/INVESTIGATION TIER 1: DOME STRUCTURAL ANALYSIS
   {
-    label: "Three stress points appear in the maintenance log fourteen times. None of them have repair authorizations.",
+    label: "Three stress points appear fourteen times in the log. None have repair authorizations.",
     tags: ['Investigation', 'Lore', 'Structure', 'Engineering', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -524,7 +524,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSIGHT TIER 1: PSYCHOLOGICAL PRESSURE DOCUMENTED
   {
-    label: "The communal tables are empty at the hours they should be full. Nobody reads the decision boards.",
+    label: "The tables empty at hours they should be full. Nobody reads the boards.",
     tags: ['Investigation', 'Insight', 'Psychology', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -566,7 +566,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: ADMINISTRATIVE COORDINATION DISCOVERED
   {
-    label: "Three directives, three administrators, three timing windows that match the secondary relay traffic. Someone outside is running this.",
+    label: "Three directives, three timing windows, all matching the relay traffic. Outside coordination.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -727,7 +727,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
-    label: "The instruction chain passes through the relay and terminates somewhere the commune doesn't have a name for.",
+    label: "The instruction chain passes through the relay and ends somewhere unnamed.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -811,7 +811,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
-    label: "The degradation is calibrated. Not fast enough to trigger outside response. Not slow enough to be natural.",
+    label: "The degradation is calibrated. Too slow to trigger response. Too precise to be natural.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -855,7 +855,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: FILTRATION SYSTEM DOCUMENTATION
   {
-    label: "The filtration log from eighteen months ago has a two-word margin note. Those two words are the answer.",
+    label: "Eighteen months ago, the service log has a two-word margin note. That's the answer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     failResult: {
@@ -923,7 +923,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE COMMUNE
   {
-    label: "Walk Aurora Crown's central commons at midday — read what the assembled commune members are actually communicating through their behavior.",
+    label: "The commons at midday shows what the commune can't say out loud.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -953,7 +953,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "The Oversight Collegium's name is in the external correspondence log. Someone in the commune already tried this route.",
+    label: "The Collegium's name is in the correspondence log. Someone tried this route already.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -985,7 +985,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE COMMUNE MEMORIAL STONE
   {
-    label: "Study the founding stone at the dome's original anchor point — read what Aurora Crown was built for.",
+    label: "The founding stone says what the commune was built for. Worth reading now.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -1006,7 +1006,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: SECURE THE FILTRATION DATA
   {
-    label: "Make copies of the filtration anomaly data and get them to someone outside Aurora Crown's compromised archive.",
+    label: "The filtration data needs to leave this archive before it disappears too.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -1057,7 +1057,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "Orren mentions that someone else came asking about the dome a week ago — a researcher with credentials that didn't quite add up.",
+    label: "Someone else came asking about the dome. The credentials didn't add up.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
