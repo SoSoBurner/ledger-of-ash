@@ -52,7 +52,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 2. HONOR GUARD: OATH-BINDING COMPROMISED
   {
-    label: "Soldiers are bound to commands they know are wrong. The oath mechanism has been turned against them.",
+    label: "Soldiers follow commands they know are wrong. The oath mechanism is turned against them.",
     tags: ['Investigation', 'NPC', 'Oaths', 'Binding', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -413,7 +413,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 11. LORE TIER 1: OATH BINDING LEGAL ANALYSIS
   {
-    label: "The oath corruption uses historical precedent as cover. The loophole was found before the trap was built.",
+    label: "Historical precedent as cover. The loophole was found before the trap was built.",
     tags: ['Investigation', 'Lore', 'Law', 'Precedent', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -453,7 +453,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSUASION TIER 2: COERCION THROUGH OATH
   {
-    label: "Soldiers are being forced to swear oaths they can't refuse. Breaking them is documented and punished.",
+    label: "Oaths they can't refuse. Breaking them is documented and punished.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Oath-Breaking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -685,7 +685,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
-    label: "There's a document that names who is directing this from outside. The records point toward it.",
+    label: "A document names who is directing this from outside. The records point there.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -807,7 +807,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: IRON LEDGER ANOMALY
   {
-    label: "Six months of transaction summaries at the Iron Ledger Ward. Something in those numbers moves on a schedule.",
+    label: "Six months of summaries at the Iron Ledger Ward. Something moves on a schedule.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: {

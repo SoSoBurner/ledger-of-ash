@@ -10,7 +10,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: VELKA IRONSPIKE
   {
     plot: 'main',
-    label: "Velka has kept her own logs for fourteen months. The official record is wrong on purpose.",
+    label: "Velka has kept her own logs for fourteen months. The official record is wrong.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -69,7 +69,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: DARIAN'S OPERATIONS SCHEDULE
   {
-    label: "The extraction runs on days the calendar leaves blank. Someone built it around the inspection schedule.",
+    label: "Extraction runs on calendar days left blank — built around the inspection schedule.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -218,7 +218,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: VELKA'S DILEMMA
   {
-    label: "Velka has been keeping quiet for fourteen months. She wants to know if that was right.",
+    label: "Velka kept quiet for fourteen months. She wants to know if that was right.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     effects: [
@@ -274,7 +274,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ATMOSPHERE: THE QUARRY AT DAWN
   {
-    label: "The quarry at first light, before the shift whistle — a different operation than at noon.",
+    label: "The quarry before the shift whistle — a different operation than at noon.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -375,7 +375,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SOCIAL: THE RETURNING EASTERN FACE WORKER
   {
-    label: "One eastern face worker has been on the rotation long enough to know what isn't recorded.",
+    label: "One eastern face worker has been on rotation long enough to know what's missing.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {

@@ -591,7 +591,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ARCHETYPE GATE (Knight archetype / mounted)
   {
-    label: "The northeast patrol routes were shortened three months ago. The traders still have the old maps.",
+    label: "Patrol routes shortened three months ago. The traders still have the old maps.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
     fn: function() {
