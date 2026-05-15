@@ -11,7 +11,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 1. GUILD ARBITRATOR: DISPUTE RESOLUTION FAILURES
   {
     plot: 'main',
-    label: "The arbitrator's rulings have gone the same direction for weeks. Someone upstream is setting the outcome.",
+    label: "The arbitrator's rulings have gone the same direction for weeks.",
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -174,7 +174,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 5. LEDGER MASTER: RECORD FALSIFICATION
   {
-    label: "The ledger master handles every guild account. If numbers are wrong, he was told to write them wrong.",
+    label: "The ledger master handles every account. Wrong numbers means someone told him.",
     tags: ['Investigation', 'NPC', 'Records', 'Finance', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -216,7 +216,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 6. WAREHOUSE BROKER: GOODS DIVERSION
   {
-    label: "Bay Seven has had the same crates sitting there for days. The broker knows it's not an accident.",
+    label: "Bay Seven has the same crates for days. The broker knows it's not an accident.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -422,7 +422,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INFORMATION CONTROL TIER 1: RUMOR SUPPRESSION
   {
-    label: "Two merchants at opposite ends of the quarter used the same phrase for the same event. They don't know each other.",
+    label: "Two merchants, opposite ends of the quarter, the same phrase. They don't know each other.",
     tags: ['Investigation', 'Information', 'Communication', 'Control', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -503,7 +503,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 13. EXTERNAL MOVEMENT TIER 1: RESOURCE REDIRECTION
   {
-    label: "Nineteen percent of intake went to 'administrative coordination, external' last quarter. No service contract for that line.",
+    label: "Nineteen percent to 'administrative coordination, external.' No service contract for that line.",
     tags: ['Investigation', 'Resources', 'Flow', 'Redirection', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -584,7 +584,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 15. MERCHANT VULNERABILITY TIER 1: ECONOMIC EXPOSURE
   {
-    label: "The arbitration rulings cluster on merchants with one route and no backup suppliers. Someone mapped their exposure first.",
+    label: "Rulings cluster on merchants with one route, no backup suppliers. Someone mapped them first.",
     tags: ['Investigation', 'Vulnerability', 'Economics', 'Exposure', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -626,7 +626,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 16. DECISION OPACITY TIER 2: UNEXPLAINED AUTHORITY SHIFTS
   {
-    label: "The rulings cite 'coordinating directive' with no number, no issuing body. The arbitrator's name is on the outcome, not the origin.",
+    label: "Rulings cite 'coordinating directive' — no number, no issuing body. His name is on the outcome.",
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -772,7 +772,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: GUILD ROLE COMPROMISE CHOICE
   {
-    label: "A guild official is complicit. Confront them and decide whether to protect them or expose them.",
+    label: "A guild official is complicit. Protect them or expose them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     effects: [
@@ -861,7 +861,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: PRE-UNION CHARTER FRAGMENT
   {
-    label: "The pre-Union charter is in the basement. The current mandate cites authority the charter doesn't contain.",
+    label: "The current mandate cites authority the pre-Union charter doesn't contain.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -893,7 +893,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: OFF-CHANNEL ARBITER CONTACT
   {
-    label: "The senior arbiter's schedule ends at close of hall. Where he goes after isn't filed anywhere.",
+    label: "The senior arbiter's schedule ends at close of hall. Where he goes after is unfiled.",
     tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -929,7 +929,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE GUILD FLOOR
   {
-    label: "The guild floor has a second accounting running beneath the first. The second one is what matters.",
+    label: "The guild floor has a second accounting beneath the first. That one is what matters.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -960,7 +960,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "The Oversight Collegium observer has been here sixty-two days. That's a monitoring phase, not an inquiry.",
+    label: "The Collegium observer has been here sixty-two days. That's monitoring, not an inquiry.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: 'This path is closed here, but the formal submission channel Trent described — written, signed, specific — is still open.',
@@ -1054,7 +1054,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "A dockside factor passes a note. Someone has been asking about me specifically. The questions are detailed.",
+    label: "A factor passes a note. Someone has been asking about me. The questions are detailed.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     failResult: {
@@ -1094,7 +1094,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   },
   // 29. SUPPRESSION SIGNAL: OVERHEARD FRAGMENT AT FREIGHT COUNTER
   {
-    label: "Two officials at the freight counter. One said a number, the other looked at me. They stopped.",
+    label: "Two officials at the freight counter. One said a number. The other looked at me.",
     tags: ['Suppression', 'Observation', 'Stage1'],
     xpReward: 55,
     failResult: {
