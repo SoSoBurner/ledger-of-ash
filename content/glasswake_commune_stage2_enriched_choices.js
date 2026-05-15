@@ -65,7 +65,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The unpublished research and the suppression order together form a complete package. It needs a protected channel.",
+    label: "The research and suppression order form a complete package. It needs a protected channel.",
     tags: ['Investigation', 'Craft', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -131,7 +131,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The pylons go dark at low-observation hours. The glyph gradient is readable from the trench edge.",
+    label: "The pylons go dark at low-observation hours. The glyph gradient is readable from the trench.",
     tags: ['Stage2', 'Survival'],
     xpReward: 80,
     fn: function() {
@@ -249,7 +249,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The disposal schedule changed six months ago. New hours run when no assessor is on shift.",
+    label: "The disposal schedule changed. New hours run when no assessor is on shift.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -278,7 +278,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Four years of glyph readings. The last six months don't resemble anything in the earlier record.",
+    label: "Four years of glyph readings. The last six months don't resemble the earlier record.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -306,7 +306,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Formula notes in an unrecognized hand inside a returned text. Lenna hasn't decided what to do.",
+    label: "Formula notes in an unrecognized hand inside a returned text. Lenna hasn't decided yet.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -335,7 +335,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Mimolot researcher arrived, then left abruptly two weeks later. Four words in the visitor log.",
+    label: "A Mimolot researcher arrived and left abruptly. Four words in the visitor log.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -363,7 +363,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The route deviation notes are in a second book at the pylon base, not the containment office.",
+    label: "The deviation notes are in a second book at the pylon base, not the containment office.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -392,7 +392,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The board voted to restrict glyph research eight months ago. The record names who proposed it.",
+    label: "The board restricted glyph research eight months ago. The record names who proposed it.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -449,7 +449,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The pylon circuit board is exposed during maintenance. The timing config isn't from the commune's spec.",
+    label: "The pylon circuit board is exposed. The timing config isn't from the commune's spec.",
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -562,7 +562,7 @@ const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The residue in the trench soil is readable at the surface. The gradient points toward the source.",
+    label: "Trench soil residue readable at the surface. The gradient points toward the source.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {

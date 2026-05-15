@@ -381,7 +381,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 10. SURVIVAL TIER 2: HIDDEN WAYSTATION DISCOVERY
   {
-    label: "Something is being stored past the perimeter. The drainage channel in the floor was cut on purpose.",
+    label: "Something stored past the perimeter. The drainage channel was cut on purpose.",
     tags: ['Investigation', 'Survival', 'Supply', 'Hidden', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -593,7 +593,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: SUPPLIES DISAPPEARING AND FAITH FAILING
   {
-    label: "The same complaint at every bench at the Sunflower Market, said just below a raised voice.",
+    label: "The same complaint at every bench in the Sunflower Market, said below a raised voice.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -671,7 +671,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. SUPPLY CRISIS: COMMUNITY APPROACHING SCARCITY
   {
-    label: "Every household is carrying the same problem. None of them is calling it the same thing.",
+    label: "Every household carries the same problem. None of them names it the same way.",
     tags: ['Investigation', 'Evidence', 'Crisis', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -762,7 +762,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 19. CLUE: FORMULA SUBSTITUTION RECORD
   {
-    label: "The order and the delivery receipt cite the same authorization. Only one of them is real.",
+    label: "The order and receipt cite the same authorization. Only one of them is real.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -883,7 +883,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ATMOSPHERE: THE SHRINE AT DUSK
   {
-    label: "Eight people stayed after the official gathering cleared. They worked from memory, no text in hand.",
+    label: "Eight people stayed after the gathering cleared. Working from memory, no text.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -960,7 +960,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 26. SHADOW RIVAL INTRO
   {
-    label: "Someone left Fairhaven before arrival with a supply sample case. They weren't nervous about carrying it.",
+    label: "Someone left before arrival carrying a supply sample case. Not nervous about it.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 55,
     fn: function() {
@@ -993,7 +993,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: PRESSURE — WORLD COLOR VIGNETTE
   {
-    label: "The fishing boats come in at the same hour they always did. The dock records don't reflect it.",
+    label: "Boats come in at the same hour they always did. The dock records don't reflect it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {
@@ -1006,7 +1006,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ARCHETYPE GATE (Healer — Support family)
   {
-    label: "The community's children show a specific nutritional pattern that only develops over sustained months of inadequate provision.",
+    label: "The children show a nutritional pattern that takes months of inadequate provision to develop.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
     fn: function() {
@@ -1029,7 +1029,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BACKGROUND FLAVOR
   {
-    label: "The harbor master's logbook has two numbering systems — one for public records, one for something else.",
+    label: "The harbor master's logbook has two numbering systems. One is for something else.",
     tags: ['Pressure', 'Background', 'Stage1'],
     xpReward: 55,
     fn: function() {

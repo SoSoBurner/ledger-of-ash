@@ -96,7 +96,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Three guests with no names on record. Sealed cases. Every ten to twelve days, north to south.",
+    label: "Three unnamed guests. Sealed cases. Every ten to twelve days, north to south.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -237,7 +237,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Fresh cart ruts on the western field road. Nothing west of the marker ships bulk goods.",
+    label: "Fresh cart ruts on the western field road. Nothing ships bulk goods out there.",
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -467,7 +467,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The equipment barn has a false floor. The smell coming up through the boards is not grain.",
+    label: "The equipment barn has a false floor. The smell through the boards is not grain.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -617,7 +617,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The post commander's personal ledger has two entries that never made it to the official log.",
+    label: "The post commander's personal ledger has two entries absent from the official log.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -647,7 +647,7 @@ const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A factor passed through twice last quarter and signed the same sealed charter at both stops.",
+    label: "A factor passed through twice last quarter, signing the same sealed charter each time.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
     fn: function() {

@@ -10,7 +10,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: TOMAN ICEVEIL
   {
     plot: 'main',
-    label: "A researcher's work is cited in suppressed documents. He's still here. He's been waiting for someone to ask.",
+    label: "A researcher cited in suppressed documents is still here. Waiting for someone to ask.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -40,7 +40,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 2. CLUE: SUPPRESSED SHARD STUDY
   {
     plot: 'main',
-    label: "Sections of the shard study are marked 'pending administrative review.' The review was filed fourteen months ago. No review entry exists.",
+    label: "Sections marked 'pending administrative review.' Filed fourteen months ago. No review entry exists.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     failResult: {
@@ -71,7 +71,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: SHARD AMPLIFICATION DATA
   {
-    label: "The reclassified sections describe a mechanism. Toman has the numbers behind it. He has them in a locked drawer.",
+    label: "The reclassified sections describe a mechanism. Toman has the numbers in a locked drawer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -97,7 +97,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE COMMITTEE'S AUTHORITY
   {
-    label: "Three of the five committee members were appointed eighteen months ago. The reclassification was filed that same month.",
+    label: "Three of five committee members appointed eighteen months ago. Reclassification filed that month.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -185,7 +185,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "The Oversight Collegium has a liaison at the administrative hall. Toman's complaint to them was acknowledged fourteen months ago.",
+    label: "The Collegium has a liaison here. Toman's complaint was acknowledged fourteen months ago.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -217,7 +217,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. INVESTIGATION: EXTERNAL CORRESPONDENCE
   {
-    label: "Three committee members receive weekly sealed letters from a northern address. The letters arrive before each major suppression decision.",
+    label: "Three committee members receive sealed letters from the north before each suppression decision.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
     fn: function() {
@@ -247,7 +247,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. MORAL PRESSURE: THE EVIDENCE DECISION
   {
-    label: "Toman Iceveil asks what you plan to do with his data — he needs to know before he risks giving you everything he has.",
+    label: "Toman needs to know what I plan to do before he risks giving me everything.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 68,
     effects: [
@@ -269,7 +269,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. INVESTIGATION: THE SUPPRESSED PUBLICATION
   {
-    label: "Toman submitted to the Regional Science Review fourteen months ago. The submission was deferred. The deferral was requested by someone else.",
+    label: "Toman's submission was deferred fourteen months ago. The deferral was requested by someone else.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -297,7 +297,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. ATMOSPHERE: THE SHARD GALLERY
   {
-    label: "Visit the commune's public shard gallery — observe what the curated display tells visitors about glasswake.",
+    label: "The public shard gallery shows visitors a curated version of glasswake.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -318,7 +318,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL ARC: SECURE THE DATA OFFSITE
   {
-    label: "Help Toman arrange for a copy of the complete amplification data to leave Glasswake through a secure route.",
+    label: "The amplification data needs to leave Glasswake through a secure route.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -340,7 +340,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INVESTIGATION: THE COMMITTEE VOTE RECORD
   {
-    label: "Two researchers voted against the reclassification. Three voted for it. The vote record is buried with the classified research.",
+    label: "Two voted against reclassification. Three voted for it. The vote record is buried.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -368,7 +368,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. INVESTIGATION: THE CONSORTIUM BENEFIT
   {
-    label: "The Northern Materials Consortium holds licensing rights to the additive class Toman's study would implicate. That's not coincidence.",
+    label: "The Consortium holds licensing rights to what Toman's study would implicate. Not coincidence.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -392,7 +392,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SOCIAL: THE DISSENTING COMMITTEE MEMBER
   {
-    label: "One of the two researchers who voted against reclassification stayed on the committee. She's been building a written record ever since.",
+    label: "One researcher who voted against reclassification stayed. She's been building a written record.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -420,7 +420,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. RUMOR LAYER
   {
-    label: "The commune knows something is wrong with the research situation. They just don't have the full shape of it yet.",
+    label: "The commune knows something is wrong. They don't have the full shape of it yet.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 62,
     failResult: {
@@ -497,7 +497,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. INVESTIGATION: THE CONSORTIUM'S GLASSWAKE PRESENCE
   {
-    label: "The Northern Materials Consortium has a registered address in Glasswake's northern quarter. It looks like a mineral trading office.",
+    label: "The Consortium has a registered address here. It looks like a mineral trading office.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -523,7 +523,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. MORAL: PROTECT OR EXPOSE TOMAN
   {
-    label: "Toman's data is the keystone. Naming him strengthens the case. It also gives the committee grounds to move against him.",
+    label: "Naming Toman strengthens the case. It also gives the committee grounds to move against him.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -541,7 +541,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 21. WORLD COLOR: GLASSWAKE DAWN
   {
-    label: "Wake before sunrise and walk to the shard field at the commune's edge — observe glasswake shards in natural light.",
+    label: "The shard field at first light, before anyone else is there to watch.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 48,
     failResult: {
@@ -562,7 +562,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 22. SHADOW RIVAL INTRO
   {
-    label: "Two months ago someone came to Toman claiming to want to help. He didn't trust them. He still doesn't know who they were.",
+    label: "Two months ago someone came claiming to help. Toman didn't trust them. He still doesn't know who.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {
@@ -595,7 +595,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: INFORMATION — WORLD COLOR VIGNETTE
   {
-    label: "The sluice channels at Glasswake were built to move water and light at the same time.",
+    label: "The sluice channels were built to move water and light simultaneously.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {
@@ -609,7 +609,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — ARCHETYPE GATE (Alchemist — Craft-heavy)
   {
-    label: "The shard samples Toman stores show a chemical reaction profile that shouldn't be possible under known material science.",
+    label: "Toman's shard samples show a reaction profile that shouldn't be possible under known material science.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     fn: function() {
@@ -632,7 +632,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — BACKGROUND FLAVOR
   {
-    label: "The administrative committee's composition changed three years ago — a majority arrived in the same appointment cycle.",
+    label: "The committee's composition changed three years ago. A majority arrived in the same cycle.",
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
     fn: function() {
@@ -651,7 +651,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — RISKY
   {
-    label: "The commune's archive holds the original shard observation records from its founding generation — they contradict the current suppression rationale.",
+    label: "The archive holds founding-generation shard records. They contradict the suppression rationale.",
     tags: ['Information', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -672,7 +672,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — BOLD
   {
-    label: "The committee's correspondence with the regional authority contains a reference to a specific study outcome they needed prevented.",
+    label: "The committee's correspondence names a specific study outcome they needed prevented.",
     tags: ['Information', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     fn: function() {
@@ -693,7 +693,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — SAFE LORE
   {
-    label: "The shard field at the commune's edge is larger now than when the settlement was founded — the shards grow.",
+    label: "The shard field is larger now than when the settlement was founded. The shards grow.",
     tags: ['Information', 'Safe', 'Lore', 'Stage1'],
     xpReward: 52,
     failResult: {
@@ -713,7 +713,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — SOCIAL RISKY
   {
-    label: "The two committee members who voted against the suppression still attend meetings — and they take notes on everything.",
+    label: "Two members who voted against the suppression still attend. They take notes on everything.",
     tags: ['Information', 'Risky', 'NPC', 'Stage1'],
     xpReward: 65,
     failResult: {
