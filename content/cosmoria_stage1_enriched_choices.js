@@ -11,7 +11,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 1. STABLE FACTOR: TRADE ROUTES MANIPULATION
   {
     plot: 'main',
-    label: "Three brigs at anchor, idle cranes above them. The berths are occupied by Cosmouth vessels that arrived after.",
+    label: "Three brigs at anchor, idle cranes. Cosmouth vessels have their berths.",
     tags: ['Investigation', 'NPC', 'Maritime', 'Commerce', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -52,7 +52,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 2. QUARTERMASTER: SUPPLY CHAIN DIVERSION
   {
     plot: 'main',
-    label: "Ledger shows forty for independents. Correction shows twenty. Cosmouth brig crews show forty. Different hand wrote the corrections.",
+    label: "Forty for Cosmouth crews. Twenty for independents. Different hand wrote the correction.",
     tags: ['Investigation', 'NPC', 'Resources', 'Supply', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -93,7 +93,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 3. SHRINE CARETAKER: RITUAL CORRUPTION
   {
     plot: 'main',
-    label: "The morning blessing list goes to the caretaker before the tide. Some crews get the full rite. Others don't.",
+    label: "Some crews get the full rite. Others get turned away. The list decides.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -133,7 +133,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 4. CLERK OF ARRIVALS: RECORD TAMPERING
   {
-    label: "Three vessels in the arrival record have identical manifests, word for word. Different ships, different dates.",
+    label: "Three vessels, identical manifests word for word. Different ships, different dates.",
     tags: ['Investigation', 'NPC', 'Archives', 'Records', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -175,7 +175,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 5. WARD MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
-    label: "A sealed document arrived before her hearing with the preferred ruling already written. She ruled differently. Her credentials were reviewed the following week.",
+    label: "The ruling arrived before the hearing. She ruled differently. Her credentials were reviewed.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Districts', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -215,7 +215,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 6. STREET PHYSICIAN: HEALTH RECORDS FALSIFICATION
   {
-    label: "His own record says acute respiratory. The harbor health roll says seasonal minor. Different date, different severity.",
+    label: "His record says acute. The health roll says seasonal minor. Different date, different severity.",
     tags: ['Investigation', 'NPC', 'Health', 'Records', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -255,7 +255,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 7. ARCHIVIST: DOCUMENT DESTRUCTION
   {
-    label: "A gap on the archive shelf — dust-free at the edges, older dust in the center. That level didn't exist six months ago.",
+    label: "A gap on the archive shelf — dust-free at the edges. That level is new.",
     tags: ['Investigation', 'NPC', 'Archives', 'History', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -295,7 +295,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 8. SHIPWRIGHT FOREMAN: QUALITY STANDARDS CORRUPTION
   {
-    label: "The Cosmouth vessel's joins pass inspection. The independent builder's identical joins have been under review for eleven days.",
+    label: "Cosmouth joins: approved. Identical independent joins: eleven days under review.",
     tags: ['Investigation', 'NPC', 'Craft', 'Quality', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -337,7 +337,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 9. MARITIME HIERARCHY: FLOATING DISTRICT REORGANIZATION
   {
-    label: "Five charter amendments in eight months. Each adds a Cosmouth oversight clause to a previously independent function.",
+    label: "Five amendments in eight months. Each one adds a Cosmouth clause.",
     tags: ['Investigation', 'Structure', 'Organization', 'Maritime', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -414,7 +414,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 11. ARCHIVE INTEGRITY: DOCUMENTATION SYSTEM ANALYSIS
   {
-    label: "The public access list was three pages a year ago. One page now. Every removed category covers the period before Cosmouth consolidated harbor authority.",
+    label: "Three pages of public access last year. One page now. The gap covers everything before.",
     tags: ['Investigation', 'Archives', 'System', 'Information', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -491,7 +491,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSTITUTIONAL LEVERAGE: DEPENDENCY SYSTEM
   {
-    label: "The coercion arrives as process, delay, paperwork — until the person at the center works out what it wants.",
+    label: "Process, delay, paperwork — until the person at the center understands what it wants.",
     tags: ['Investigation', 'Institutions', 'Dependency', 'Power', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -531,7 +531,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SUPPLY MANIPULATION: RESOURCE SCARCITY CREATION
   {
-    label: "Full deliveries arrive. Independent builders get sixty percent. The rest sits reserved for Cosmouth fleet maintenance, nothing scheduled.",
+    label: "Full deliveries arrive. Independents get sixty percent. The rest is reserved, nothing scheduled.",
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -571,7 +571,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FAITH WEAPONIZATION: RITUAL AS CONTROL
   {
-    label: "Cosmouth brig crews get the full morning ceremony. Independent fishing crews are turned away. They've been turned away before.",
+    label: "Cosmouth crews get the full rite. Independent crews are turned away — again.",
     tags: ['Investigation', 'Faith', 'Ritual', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -613,7 +613,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 16. HARBOR RUMOR: DOCKWORKER WHISPERS
   {
-    label: "Three people in an hour, all treating it the same way — quietly, without asking why.",
+    label: "Three people in an hour, all treating it the same way — quietly.",
     tags: ['Investigation', 'Rumor', 'Maritime', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -641,7 +641,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 17. ARCHIVE RUMOR: SCHOLAR WHISPERS
   {
-    label: "The reading room above the harbor has its own current. Scholars share things quietly — plausibly deniable, already accepted.",
+    label: "The reading room has its own current. Scholars share things quietly — already accepted.",
     tags: ['Investigation', 'Rumor', 'Archives', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -709,7 +709,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: INSTITUTION LOYALTY COMPROMISE
   {
-    label: "They've been waiting for someone to ask for months. They don't know if it makes things better or worse.",
+    label: "They've been waiting for someone to ask. They don't know if it helps.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -794,7 +794,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: GHOST VESSEL EVIDENCE
   {
-    label: "Seven vessels departed without return manifests. All seven cleared by the same administrator on irregular days.",
+    label: "Seven vessels, no return manifests. Same administrator cleared all seven on irregular days.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     fn: function() {
@@ -849,7 +849,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE HARBOR
   {
-    label: "Berths four and six load during the noisiest window of the day. Those departures were scheduled to be invisible.",
+    label: "Berths four and six load at the noisiest hour. Scheduled to disappear in the noise.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -877,7 +877,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: IRON COMPACT MARITIME CONTACT
   {
-    label: "The Iron Compact tracks cargo routing. Seven ghost vessels appear as a gap in their projections.",
+    label: "The Iron Compact's projections have a gap. Seven ghost vessels fit it exactly.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -907,7 +907,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE TIDE MARKER
   {
-    label: "The last name on the harbor tide markers is two years old. The tradition just stopped. No sign, no explanation.",
+    label: "The last name on the tide markers is two years old. The tradition just stopped.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -922,7 +922,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: THE HARBOR ADMINISTRATOR'S RECORD
   {
-    label: "The administrator created their own cover by recording just enough to fill the space. The log is on the desk.",
+    label: "The log is on the desk. Just enough written to fill the space.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -944,7 +944,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE RETURNING SAILOR
   {
-    label: "One crew came back. Private mooring, sealed cases, men who moved like they'd offloaded there before. No return manifest.",
+    label: "One crew came back. Private mooring, sealed cases, no return manifest.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -971,7 +971,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "A maritime broker mentions someone visited last week asking about the same ghost vessels — claiming to be a cargo specialist.",
+    label: "Someone visited last week asking about the same ghost vessels. Claimed to be a cargo specialist.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
