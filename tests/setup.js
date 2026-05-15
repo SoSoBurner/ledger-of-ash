@@ -151,10 +151,12 @@ function createGameContext(gOverrides) {
   code = code.replace(/^const\s+ENEMY_TEMPLATES/m, 'var ENEMY_TEMPLATES');
   code = code.replace(/^const\s+COMPANION_DEFS/m,  'var COMPANION_DEFS');
   code = code.replace(/^const\s+BACKGROUNDS\b/m,   'var BACKGROUNDS');
+  code = code.replace(/^var\s+LOCALITY_SHOPS\b/m,  'var LOCALITY_SHOPS');
 
   // Append: expose key let/const under a known name so tests can grab them
   code += '\ntry { this.__STAGE_LEVEL_CAP = STAGE_LEVEL_CAP; } catch(_) {}';
   code += '\ntry { this.__G = G; } catch(_) {}';
+  code += '\ntry { this.__LOCALITY_SHOPS = LOCALITY_SHOPS; } catch(_) {}';
 
   const sandbox = buildSandbox(gOverrides);
   const ctx     = vm.createContext(sandbox);
@@ -208,6 +210,9 @@ function createGameContext(gOverrides) {
     activateAbilityFromSheet:ctx.activateAbilityFromSheet,
     passesAlignGate:         ctx.passesAlignGate,
     buildCompanionHudHTML:   ctx.buildCompanionHudHTML,
+    renderShop:              ctx.renderShop,
+    buyShopItem:             ctx.buyShopItem,
+    LOCALITY_SHOPS:          ctx.__LOCALITY_SHOPS || ctx.LOCALITY_SHOPS,
   };
 }
 
