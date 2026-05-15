@@ -229,24 +229,11 @@ async function createCharacter(page, archetypeId, backgroundId, family) {
   const name = ARCHETYPE_NAMES[archetypeId] || 'Traveller';
   await page.fill('#char-name', name);
 
-  // Cards live in collapsed .card-grid rows — wait for DOM attachment then force-click
-  // (force bypasses visibility check; selectArchetype fires via the card's click listener)
-  const card = page.locator(`#archetype-grid .card[data-id="${archetypeId}"]`).first();
-  await card.waitFor({ state: 'attached', timeout: 8000 });
-  await card.click({ force: true });
-
-  // Select specific background card
+  // Call game functions directly — card rows are collapsed (display:none) so DOM clicks are unreliable
+  await page.waitForFunction(() => typeof selectArchetype === 'function', { timeout: 8000 });
+  await page.evaluate((id) => selectArchetype(id), archetypeId);
   await page.waitForSelector('#bg-step', { state: 'visible', timeout: 5000 });
-  const bgCard = page.locator(`#background-grid .card[data-id="${backgroundId}"]`).first();
-  if (await bgCard.isVisible({ timeout: 2000 }).catch(() => false)) {
-    await bgCard.click();
-  } else {
-    // Fallback: first available background
-    const firstBg = page.locator('#background-grid .card').first();
-    await firstBg.waitFor({ state: 'visible', timeout: 4000 });
-    await firstBg.click();
-    log(`[create] background ${backgroundId} not visible — used first available`);
-  }
+  await page.evaluate(({bgId, archId}) => selectBackground(bgId, archId), {bgId: backgroundId, archId: archetypeId});
 
   // Begin
   await page.waitForSelector('#begin-btn:not([style*="display:none"])', { timeout: 5000 });
