@@ -220,16 +220,21 @@ async function closeOverlay(page) {
 }
 
 async function dismissOverlays(page) {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 8; i++) {
     try {
-      const ov = page.locator('.overlay.active').first();
+      // Catch both .overlay.active and any modal/panel that has a close button but no .active class
+      const ov = page.locator('.overlay.active, #how-to-play-modal, #notice-board-modal, [id$="-modal"]:visible, .modal:visible').first();
       if (!await ov.isVisible({ timeout: 300 }).catch(() => false)) break;
-      const btn = ov.locator('button.overlay-close,.overlay-close,button:has-text("×"),button:has-text("Close")').first();
+      const btn = ov.locator('button.overlay-close,.overlay-close,button:has-text("×"),button:has-text("Close"),button:has-text("Done"),button:has-text("OK")').first();
       if (await btn.isVisible({ timeout: 300 }).catch(() => false)) await btn.click();
       else await page.keyboard.press('Escape');
       await page.waitForTimeout(PACE.short);
     } catch (_) { break; }
   }
+  // Fallback: remove active class from any remaining overlays
+  await page.evaluate(() => {
+    document.querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'));
+  }).catch(() => {});
 }
 
 // ---------------------------------------------------------------------------
@@ -303,7 +308,7 @@ async function handleLevelup(page, tag) {
 // Choice picker
 // ---------------------------------------------------------------------------
 async function pickChoice(page, pickNum, forcePlotMain) {
-  const buttons = page.locator('.choice-btn:visible');
+  const buttons = page.locator('.choice-btn:visible:not([disabled])');
   const count   = await buttons.count();
   if (count === 0) return { clicked: false };
 
