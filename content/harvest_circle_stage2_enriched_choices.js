@@ -39,7 +39,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A shipment from the north six weeks ago. No recognized manifest category. No record of what it was.",
+    label: "A northern shipment six weeks ago. No recognized manifest category. No record of contents.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -96,7 +96,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A northern supplier claims dealings with Harvest Circle. Elyra knows it doesn't appear in any contract.",
+    label: "A northern supplier claims dealings with Harvest Circle. Elyra's never seen the contract.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -127,7 +127,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A sealed cargo handling fee dispute. The accounting irregularity it exposes is more than the dispute.",
+    label: "A sealed cargo handling fee dispute. The irregularity it exposes is more than the dispute.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 64,
     fn: function() {
@@ -480,7 +480,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The pre-dawn courier saw the Compact's handlers up close. No one asked him what he saw.",
+    label: "The pre-dawn courier saw the Compact's handlers up close. No one has asked him.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -601,7 +601,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Denet Alvar moved to the eastern stalls. He still watches the routes he used to run.",
+    label: "Denet Alvar moved to the eastern stalls. He still watches his old routes.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -631,7 +631,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two months of gap entries in the night patrol log near cold storage. No explanation filed.",
+    label: "Two months of gap entries in the night patrol log near cold storage.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -661,7 +661,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The routing fraud and ghost supplier are confirmed. Report to council or intercept the next shipment.",
+    label: "Routing fraud and ghost supplier confirmed. Report to council or intercept the next shipment.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {
