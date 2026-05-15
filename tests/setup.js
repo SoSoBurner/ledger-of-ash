@@ -207,6 +207,7 @@ function createGameContext(gOverrides) {
     buildTraitsSectionHTML:  ctx.buildTraitsSectionHTML,
     activateAbilityFromSheet:ctx.activateAbilityFromSheet,
     passesAlignGate:         ctx.passesAlignGate,
+    buildCompanionHudHTML:   ctx.buildCompanionHudHTML,
   };
 }
 

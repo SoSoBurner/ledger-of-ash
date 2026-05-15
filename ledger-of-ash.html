@@ -1411,6 +1411,8 @@ input, button, select, textarea { font-family: inherit; }
 .combat-location { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
 .combat-intent { font-family: 'Crimson Pro', serif; font-size: 16.5px; color: var(--ink); line-height: 1.65; font-style: italic; margin-bottom: 8px; }
 .combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: var(--font-display); letter-spacing: 1px; }
+.hud-companion-name { font-family: var(--font-display); font-size: 10px; color: var(--gold-dim, #a07020); letter-spacing: 1px; margin-bottom: 2px; }
+.hud-companion-passive { font-size: 11px; color: var(--ink-faint, #5a5570); font-family: var(--font-body); margin-bottom: 4px; }
 .combat-actions-label { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
 .combat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
 .combat-title { font-family: var(--font-display); font-size: 15.4px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; text-transform: uppercase; }
@@ -1901,6 +1903,7 @@ input, button, select, textarea { font-family: inherit; }
         <div id="hud-heat" data-clock="heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-watch" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center;font-family:var(--font-body)">WATCH: <span id="hud-watch-val">0</span></div>
         <div id="hud-progress" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:3px;text-align:center;font-family:var(--font-body);letter-spacing:0.04em"></div>
+        <div id="hud-companions" style="display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--char)"></div>
       </div>
       <div id="hud-stage-progress-wrap" class="pressure-bar-row" style="display:none;padding:0 14px 6px;">
         <div class="pressure-bar-label" style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;">
@@ -15720,6 +15723,17 @@ function flashStatRow(key) {
   });
 }
 
+function buildCompanionHudHTML(companions) {
+  if (!companions || companions.length === 0) return '';
+  var _cdefs = (typeof window !== 'undefined' && window.COMPANION_DEFS) || (typeof COMPANION_DEFS !== 'undefined' && COMPANION_DEFS) || {};
+  return companions.map(function(c) {
+    var def = _cdefs[c.id] || {};
+    var passive = def.passive || '';
+    return '<div class="hud-companion-name">' + (def.name || c.id || '').toUpperCase() + '</div>'
+      + (passive ? '<div class="hud-companion-passive">' + passive.substr(0, 60) + (passive.length > 60 ? '\u2026' : '') + '</div>' : '');
+  }).join('');
+}
+
 function updateHUD() {
   setText('hud-name',    G.name||'&#x2014;');
   setText('hud-class',   G.archetype?G.archetype.name:'&#x2014;');
@@ -15788,6 +15802,17 @@ function updateHUD() {
   if (_consumEl) {
     _consumEl.textContent = _consumCount > 0 ? _consumCount + ' CONSUMABLE' + (_consumCount > 1 ? 'S' : '') : '';
     _consumEl.style.display = _consumCount > 0 ? '' : 'none';
+  }
+  // Companion HUD
+  var $comps = document.getElementById('hud-companions');
+  if ($comps) {
+    var _compList = G.companions ? (Array.isArray(G.companions) ? G.companions : Object.values(G.companions).filter(function(c){ return c && c.status === 'active'; })) : [];
+    if (_compList.length > 0) {
+      $comps.style.display = 'block';
+      $comps.innerHTML = buildCompanionHudHTML(_compList);
+    } else {
+      $comps.style.display = 'none';
+    }
   }
   // Investigation thread progress
   var _progEl = document.getElementById('hud-progress');
