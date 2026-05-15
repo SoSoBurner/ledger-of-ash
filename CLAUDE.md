@@ -83,6 +83,8 @@ Every plan phase that adds content must expand the total content of the stage it
 - **Run Playwright from PowerShell, not background bash**: background bash tasks from `legacy/` fail exit 127 (npx not in PATH). Use: `Set-Location "C:\Users\CEO\ledger-of-ash"; cmd /c "npx playwright test tests/e2e/FILE.spec.js --timeout=N --reporter=line"`
 - **`shiftTension` never raises tension**: nothing in content files increments it. If tension locks at 2, add `shiftTension(-1)` to choice resolution paths in `handleChoice`.
 - **Location teleport in spec**: stall/escape teleports use `_travelCoreTravelTo(dest)` (fires corridor encounters, no mode-select UI). `resolveArrival(loc)` for in-place re-renders only. `loadStageChoices` re-renders same location silently — do not use for teleports.
+- **`dismissOverlays` selector scope**: Only `.overlay.active` misses modals that don't use `.active` (e.g. `#how-to-play-modal`, `#notice-board-modal`). Extend to `.overlay.active, [id$="-modal"]:visible, .modal:visible` and add a DOM-fallback `querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'))` after the loop.
+- **Travel mode buttons in spec**: `.choice-btn:visible` matches the disabled `selectTravelMode` buttons. Always use `.choice-btn:visible:not([disabled])` in `pickChoice`.
 
 ## Testing Infrastructure
 
@@ -162,6 +164,7 @@ Base DCs: safe=7, risky=13, bold=16. Stage modifier: +1 per stage (Stage I=+0 �
 - `enterCombat(enemyKey, ctx)` — narrative encounter: shows NPC intent, renders Press/Defend/Talk/Retreat choices. Use for story-driven fights.
 - `startCombat(enemyKey, ctx)` — low-level engine entry. Only call directly for non-narrative triggers.
 - Legacy CIDs routed through `handleChoice` → `enterCombat` via `legacyCombatCids` array.
+- **`loadStageChoices` death guard**: Must check `if (G.dead) { confirmDeath(); return; }` at entry. Without it, enriched-choice HP reduction via `modHP` can set `G.dead` and leave player with no choices and no death screen. `applyWound` (combat) handles death correctly via its own `confirmDeath()` call — the vulnerable path is `modHP` in enriched choices.
 
 ## Typography System (three tiers — enforce strictly)
 
