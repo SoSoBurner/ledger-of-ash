@@ -14,8 +14,8 @@ const { test } = require('@playwright/test');
 const fs   = require('fs');
 const path = require('path');
 
-// Headed mode — must be top-level for Playwright to honour it
-test.use({ launchOptions: { headless: false } });
+// Headed mode — top-level, uses top-level key to override playwright.config.js's headless:true
+test.use({ headless: false });
 
 // ---------------------------------------------------------------------------
 // Output dirs
@@ -678,7 +678,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         try {
           await page.evaluate((loc) => {
             if (typeof G !== 'undefined') { G.tensionLevel = 0; G.location = loc; }
-            if (typeof resolveArrival === 'function') resolveArrival(loc);
+            if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(loc);
             else if (typeof loadStageChoices === 'function') loadStageChoices();
           }, escLoc);
         } catch (_) {}
@@ -726,7 +726,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
-              if (typeof resolveArrival === 'function') resolveArrival(dest);
+              if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(dest);
               else if (typeof loadStageChoices === 'function') loadStageChoices();
             }
           }, ESCAPE_LOCS);

@@ -4,7 +4,7 @@
  * Two-mode QA harness for Ledger of Ash
  *
  * TEST 1 — Headless (1 hr cap):
- *   3 families (combat / stealth / support). Random archetype+bg per attempt.
+ *   4 families (classic-combat / magic-spellcasting / stealth-precision / support-leadership). Random archetype+bg per attempt.
  *   Hard-kills after 60 min and reports whatever was found.
  *
  * TEST 2 — Headed (8 hr ceiling, autonomous repair):
@@ -28,14 +28,15 @@ const VIDEO_DIR       = path.join(TEST_RESULTS, 'videos');
 const LOG_PATH        = path.join(TEST_RESULTS, 'full-playthrough-log.md');
 
 // ---------------------------------------------------------------------------
-// 3-family pools (headless)
+// 4-family pools (headless) — matches character creation screen categories
 // ---------------------------------------------------------------------------
-const HEADLESS_FAMILY_ORDER = ['combat', 'stealth', 'support'];
+const HEADLESS_FAMILY_ORDER = ['classic-combat', 'magic-spellcasting', 'stealth-precision', 'support-leadership'];
 
 const HEADLESS_FAMILY_POOLS = {
-  combat:  ['warrior','knight','ranger','paladin','archer','berserker','warden','warlord','death_knight'],
-  stealth: ['rogue','assassin','spellthief','scout_c','thief','trickster','beastmaster'],
-  support: ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
+  'classic-combat':     ['warrior','knight','berserker','warlord','warden','death_knight','archer'],
+  'magic-spellcasting': ['paladin','spellthief','ranger'],
+  'stealth-precision':  ['rogue','assassin','scout_c','thief','trickster','beastmaster'],
+  'support-leadership': ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
 };
 
 // ---------------------------------------------------------------------------

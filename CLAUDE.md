@@ -59,12 +59,15 @@ Every plan phase that adds content must expand the total content of the stage it
 
 ## Stage Gate Logic
 
-- Stage I → II: `stage1_narrative_complete` flag only — `checkStageAdvance()` ~line 8777. Level cap (5) stops XP but does NOT auto-advance stage.
+- Stage I → II: `stage1_narrative_complete` flag only — `checkStageAdvance()` line 12465. Level cap (5) stops XP but does NOT auto-advance stage. **`checkStageAdvance` must be called from `resolveArrival`** — at level cap, `checkLevelUp` never fires, so it's the only reliable call site.
+- Stage I→II full chain: `STAGE1_BOSS_MODULE.shouldTrigger()` → boss fires → `stage1_narrative_complete` set (`stage1_boss.js:191`) → next `resolveArrival` call → `checkStageAdvance()` unlocks Stage II. `checkStageAdvance` handles both boss trigger AND stage advance.
+- `STAGE1_BOSS_MODULE` export **must** include `shouldTrigger: checkStage1BossTriggered` — engine checks this property; if absent (`undefined`), boss never fires, Stage II never unlocks. `checkTrigger` is a separate alias and is NOT what the engine calls.
 - Stage II → III: `canAdvanceToStage3()` ~line 8786 — **V1.0 stub: hardcoded `return false`**. Flags/conditions documented in plan but not yet active.
 - `G.stageProgress` is `{1:0, 2:0, 3:0, 4:0, 5:0}` — all 5 stages declared, 3–5 not yet authored
 
 ## Playwright E2E — Critical Gotchas
 
+- **E2E stall guards (full-playthrough.spec.js)**: 60s wall-clock stall → counted as failed run; 3x same-label pick → `_travelCoreTravelTo(dest)` teleport to `ESCAPE_LOCS`; 30-pick same-location → teleport. Do not remove these guards or reduce the 60s threshold.
 - **No pipes or redirects in playwright commands**: `Bash(npx playwright test *)` in settings.json won't match `npx playwright test ... | tail` or `... > file`. Run bare: `npx playwright test tests/e2e/foo.spec.js --reporter=line` — no pipes, no output redirection.
 - **`/tmp/` doesn't exist on Windows**: Never redirect output there. Use `run_in_background:true` and let the task capture output, or redirect to an absolute Windows path.
 - **`test.use({ launchOptions })` must be file-level**: Can't use inside `test.describe()` — Playwright rejects it. Headed vs headless = separate spec files.
@@ -78,7 +81,7 @@ Every plan phase that adds content must expand the total content of the stage it
   ```
 - **Run Playwright from PowerShell, not background bash**: background bash tasks from `legacy/` fail exit 127 (npx not in PATH). Use: `Set-Location "C:\Users\CEO\ledger-of-ash"; cmd /c "npx playwright test tests/e2e/FILE.spec.js --timeout=N --reporter=line"`
 - **`shiftTension` never raises tension**: nothing in content files increments it. If tension locks at 2, add `shiftTension(-1)` to choice resolution paths in `handleChoice`.
-- **Location teleport in spec**: use `resolveArrival(loc)` not `loadStageChoices()` — `resolveArrival` triggers arrival narration + fresh render; `loadStageChoices` re-renders same location silently.
+- **Location teleport in spec**: stall/escape teleports use `_travelCoreTravelTo(dest)` (fires corridor encounters, no mode-select UI). `resolveArrival(loc)` for in-place re-renders only. `loadStageChoices` re-renders same location silently — do not use for teleports.
 
 ## Testing Infrastructure
 
@@ -334,6 +337,71 @@ Before writing any prework question, check whether the code already answers it. 
 3. Explore subagent — only for deep feature traces that require multi-file tracing
 
 **Rule:** If a question can be answered by reading existing code, read it first and don't ask. Only surface genuinely ambiguous *design decisions* — things the code cannot answer — to the user. Prioritize reusing existing mechanics over proposing new ones.
+
+## Playtest Protocol — Triggered by "Playtest"
+
+When the user says "Playtest" (or any equivalent one-word trigger), run this full loop autonomously without further prompting. Stop only when hitting a deliberate stage gate (e.g. `canAdvanceToStage3()` hardcoded `return false`).
+
+### Pre-flight (always, before Step 0)
+Load pinned core skills:
+1. Invoke `superpowers:subagent-driven-development`
+2. Invoke `superpowers:dispatching-parallel-agents`
+3. Run `less-permission-prompts`
+4. Invoke `game-design:playtest-plan` + `game-design:playtesting-strategy`
+5. Read `memory/ACTIVE_PLANS_INDEX.md` (plan alignment reference for all fixes)
+
+### Step 0 — Validators
+Run: `node tests/content/validate-content.js && node tests/content/validate-flags.js && node tests/content/validate-structure.js`
+Fix all failures. Each fix = commit. Re-run until clean. Blocks Step 1.
+
+### Step 1 — Headless spec
+Run: `npx playwright test tests/e2e/full-playthrough.spec.js --reporter=line`
+4 families: Classic Combat / Magic and Spellcasting / Stealth and Precision / Support and Leadership.
+Success = all 4 families reach the highest intentionally-unlocked stage.
+Up to 5 fix-retry cycles. Single-file fix → commit → re-run. 3+ files → pause and ask.
+
+### Step 2 — Triage + Fix loop
+Parse headless log. Classify each failure (engine bug / content bug / spec bug / narrative bug).
+Load reactive resources by type, then dispatch fix sub-agent with full context brief.
+Re-run headless after each batch of fixes until green.
+
+### Step 3 — Headed spec
+Run: `npx playwright test tests/e2e/full-playthrough-headed.spec.js --reporter=line`
+4 families, same order. Each retry picks a random archetype + background within the family.
+Same success criteria and retry limit as Step 1.
+
+### Stage lock = done
+Deliberate stage gate reached → playtest complete.
+Run `claude-md-management:revise-claude-md` to capture any new gotchas.
+Deliver: one-paragraph summary — stages completed, bugs fixed (commit SHAs), plan conflicts noted, stage lock reason.
+
+### Reactive resource loading by bug type
+
+| Bug type | Skills/agents to invoke | Reference files |
+|---|---|---|
+| Validator / content violation | `branch-drift-auditor`, `narration-surface-scanner`, `continuity-auditor` agents | Index matching V33_2 locality/NPC packet via context-mode |
+| Engine / JS logic bug | Invoke `superpowers:systematic-debugging` + `karpathy-skills:karpathy-guidelines` + `fullstack-dev-skills:spec-miner` (undocumented logic) + `fullstack-dev-skills:debugging-wizard`; agents: `typescript-reviewer`, `silent-failure-hunter`, `incident-response:debugger` | — |
+| Playwright spec / test bug | Invoke `fullstack-dev-skills:playwright-expert`; `e2e-runner` agent | Screenshot path + log excerpt |
+| Combat / encounter bug | Invoke `game-design:balance-review` + `game-design:mechanics-review` + `karpathy-skills:karpathy-guidelines`; `code-reviewer` agent | `data/bestiary_lookup.js`, relevant boss file |
+| Progression / stage-advance bug | Invoke `game-design:feedback-loop-review` | Stage gate code, stageProgress log |
+| Economy / supply bug | Invoke `game-design:economy-review` | `data/bestiary_lookup.js`, G.gold/G.supply paths |
+| Narrative / NPC bug | Invoke `superpowers:writing-skills` + `humanizer` (strip AI prose patterns); agents: `continuity-auditor`, `narration-surface-scanner`, `line-editor` | Index V33_2 locality+NPC packet for affected location |
+| Polish / itch release bug | Invoke `game-design:polish-review` + `game-design:fun-review` | — |
+| Tutorial bug | Invoke `game-design:tutorial-review` | — |
+
+Before committing any fix: invoke `superpowers:verification-before-completion`.
+
+### Fix sub-agent brief (every fix)
+Include: bug description, log excerpt around failure, screenshot path if available, applicable CLAUDE.md rules, V33_2 reference data (content bugs), active plan direction from ACTIVE_PLANS_INDEX.md. Two-stage review after each fix (spec compliance → code quality).
+
+### Plan conflict handling
+Before fixing: check ACTIVE_PLANS_INDEX.md. If fix conflicts with an active plan, try to align if trivial. Always fix regardless. Log the conflict in the playtest summary.
+
+### Archetype families (match character creation screen)
+- Classic Combat: warrior, knight, berserker, warlord, warden, death_knight, archer
+- Magic and Spellcasting: paladin, spellthief, ranger
+- Stealth and Precision: rogue, assassin, scout_c, thief, trickster, beastmaster
+- Support and Leadership: healer, artificer, engineer, tactician, alchemist, saint, bard
 
 ## Session Startup — MANDATORY, NO EXCEPTIONS
 
