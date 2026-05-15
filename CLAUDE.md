@@ -63,6 +63,19 @@ Every plan phase that adds content must expand the total content of the stage it
 - Stage II → III: `canAdvanceToStage3()` ~line 8786 — **V1.0 stub: hardcoded `return false`**. Flags/conditions documented in plan but not yet active.
 - `G.stageProgress` is `{1:0, 2:0, 3:0, 4:0, 5:0}` — all 5 stages declared, 3–5 not yet authored
 
+## Playwright E2E — Critical Gotchas
+
+- **No pipes or redirects in playwright commands**: `Bash(npx playwright test *)` in settings.json won't match `npx playwright test ... | tail` or `... > file`. Run bare: `npx playwright test tests/e2e/foo.spec.js --reporter=line` — no pipes, no output redirection.
+- **`/tmp/` doesn't exist on Windows**: Never redirect output there. Use `run_in_background:true` and let the task capture output, or redirect to an absolute Windows path.
+- **`test.use({ launchOptions })` must be file-level**: Can't use inside `test.describe()` — Playwright rejects it. Headed vs headless = separate spec files.
+- **Headless pacing = 0**: No human watching → set all `waitForTimeout` pacing constants to 0. Only `waitForChoices` needs a real timeout (1500ms) for DOM to render.
+- **Background task output files**: Written to a Windows temp path. Read via PowerShell `Get-Content` or the `Read` tool — bash `cat`/`tail` on those paths fails silently.
+- **Never pipe Playwright background runs through `Select-Object -First N`**: PowerShell closes the pipe after N items, silently killing the test process. Run with no piping.
+- **Kill node/chrome via PowerShell, not bash**: `taskkill /F /IM node.exe` from Git bash mangles `/F` and `/T` as paths. Use: `Get-Process node,chrome -ErrorAction SilentlyContinue | Stop-Process -Force`
+- **Run Playwright from PowerShell, not background bash**: background bash tasks from `legacy/` fail exit 127 (npx not in PATH). Use: `Set-Location "C:\Users\CEO\ledger-of-ash"; cmd /c "npx playwright test tests/e2e/FILE.spec.js --timeout=N --reporter=line"`
+- **`shiftTension` never raises tension**: nothing in content files increments it. If tension locks at 2, add `shiftTension(-1)` to choice resolution paths in `handleChoice`.
+- **Location teleport in spec**: use `resolveArrival(loc)` not `loadStageChoices()` — `resolveArrival` triggers arrival narration + fresh render; `loadStageChoices` re-renders same location silently.
+
 ## Testing Infrastructure
 
 - Run logic tests: `npx jest` (not `npm test` if jest not in PATH globally)
