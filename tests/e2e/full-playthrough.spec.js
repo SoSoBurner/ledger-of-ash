@@ -229,22 +229,11 @@ async function createCharacter(page, archetypeId, backgroundId, family) {
   const name = ARCHETYPE_NAMES[archetypeId] || 'Traveller';
   await page.fill('#char-name', name);
 
-  // Open only the group that contains this archetype (accordion collapses others on click)
-  await page.evaluate((aid) => {
-    const card = document.querySelector(`#archetype-grid .card[data-id="${aid}"]`);
-    if (!card) return;
-    const row = card.closest('.card-grid');
-    if (!row) return;
-    const groupId = row.dataset.groupId;
-    const header = document.querySelector(`#archetype-grid .group-header[data-group-id="${groupId}"]`);
-    if (header) header.click();
-  }, archetypeId);
-  await page.waitForTimeout(300);
-
-  // Select specific archetype card
+  // Cards live in collapsed .card-grid rows — wait for DOM attachment then force-click
+  // (force bypasses visibility check; selectArchetype fires via the card's click listener)
   const card = page.locator(`#archetype-grid .card[data-id="${archetypeId}"]`).first();
-  await card.waitFor({ state: 'visible', timeout: 8000 });
-  await card.click();
+  await card.waitFor({ state: 'attached', timeout: 8000 });
+  await card.click({ force: true });
 
   // Select specific background card
   await page.waitForSelector('#bg-step', { state: 'visible', timeout: 5000 });
