@@ -923,6 +923,7 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
       recordVideo: { dir: videoRunDir, size: { width: 1280, height: 720 } },
     });
     const page = await context.newPage();
+    page.setDefaultTimeout(10000); // prevent evaluate/locator from hanging indefinitely
 
     result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode);
 

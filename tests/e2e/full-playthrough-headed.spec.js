@@ -801,6 +801,7 @@ test.describe('Headed QA — 4 families', () => {
           recordVideo: { dir: videoDir, size: { width: 1280, height: 720 } },
         });
         const page = await context.newPage();
+        page.setDefaultTimeout(10000); // prevent evaluate/locator from hanging indefinitely
 
         const result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors);
 
