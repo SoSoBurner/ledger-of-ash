@@ -11,7 +11,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 1. GUILD ARBITRATOR: DISPUTE RESOLUTION FAILURES
   {
     plot: 'main',
-    label: "The arbitrator's rulings have been going the same direction for weeks. Someone upstream is setting the outcome.",
+    label: "The arbitrator's rulings have gone the same direction for weeks. Someone upstream is setting the outcome.",
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -94,7 +94,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 3. QUALITY INSPECTOR: STANDARDS DETERIORATION
   {
-    label: "The inspection stamps don't match what's coming off the dock. Someone is passing what shouldn't pass.",
+    label: "The inspection stamps don't match what's coming off the dock. Things are passing that shouldn't.",
     tags: ['Investigation', 'NPC', 'Quality', 'Standards', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -174,7 +174,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 5. LEDGER MASTER: RECORD FALSIFICATION
   {
-    label: "The ledger master handles every guild account. If numbers are wrong, he's been told to write them wrong.",
+    label: "The ledger master handles every guild account. If numbers are wrong, he was told to write them wrong.",
     tags: ['Investigation', 'NPC', 'Records', 'Finance', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -216,7 +216,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 6. WAREHOUSE BROKER: GOODS DIVERSION
   {
-    label: "Bay Seven has had the same crates sitting there for days. The broker knows they're not moving by accident.",
+    label: "Bay Seven has had the same crates sitting there for days. The broker knows it's not an accident.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -341,7 +341,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 9. GUILD STRUCTURE TIER 1: HIERARCHY REORGANIZATION
   {
-    label: "Three department head positions are vacant and the merchant council is now 'advisory.' That change wasn't announced.",
+    label: "Three department heads gone, merchant council now 'advisory.' That change wasn't announced.",
     tags: ['Investigation', 'Structure', 'Organization', 'Power', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -380,7 +380,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 10. TRADE NETWORK TIER 2: MERCHANT DISPLACEMENT
   {
-    label: "Seventeen merchants dropped from the roster in eight months. Fifteen replaced by names sharing one endorsing signature.",
+    label: "Seventeen merchants dropped in eight months. Fifteen replaced by names sharing one endorsing signature.",
     tags: ['Investigation', 'Networks', 'Commerce', 'Displacement', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -422,7 +422,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INFORMATION CONTROL TIER 1: RUMOR SUPPRESSION
   {
-    label: "Two merchants at opposite ends of the quarter used the same phrase to describe the same event. They don't know each other.",
+    label: "Two merchants at opposite ends of the quarter used the same phrase for the same event. They don't know each other.",
     tags: ['Investigation', 'Information', 'Communication', 'Control', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -503,7 +503,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 13. EXTERNAL MOVEMENT TIER 1: RESOURCE REDIRECTION
   {
-    label: "Nineteen percent of total intake went to 'administrative coordination, external' last quarter. That line has no service contract.",
+    label: "Nineteen percent of intake went to 'administrative coordination, external' last quarter. No service contract for that line.",
     tags: ['Investigation', 'Resources', 'Flow', 'Redirection', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -542,7 +542,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 14. TRUST EROSION TIER 2: INSTITUTIONAL FAITH COLLAPSE
   {
-    label: "The common bench is empty at midday. Merchants who arrived together are standing at separate walls.",
+    label: "The common bench is empty at midday. Merchants who arrived together stand at separate walls.",
     tags: ['Investigation', 'Trust', 'Institutions', 'Faith', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -584,7 +584,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 15. MERCHANT VULNERABILITY TIER 1: ECONOMIC EXPOSURE
   {
-    label: "The recent arbitration rulings cluster on merchants with one trade route and no backup suppliers. Someone mapped their exposure first.",
+    label: "The arbitration rulings cluster on merchants with one route and no backup suppliers. Someone mapped their exposure first.",
     tags: ['Investigation', 'Vulnerability', 'Economics', 'Exposure', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -626,7 +626,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 16. DECISION OPACITY TIER 2: UNEXPLAINED AUTHORITY SHIFTS
   {
-    label: "The rulings cite 'coordinating directive' with no number and no issuing body. The arbitrator's name is on the outcome, not the origin.",
+    label: "The rulings cite 'coordinating directive' with no number, no issuing body. The arbitrator's name is on the outcome, not the origin.",
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -670,7 +670,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: MERCHANT WHISPERS
   {
-    label: "The merchant quarter is running a story that doesn't need to be accurate — just possible.",
+    label: "The merchant quarter is running a story that doesn't need to be accurate. Just possible.",
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     failResult: {
@@ -730,7 +730,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL CRACK: ARBITRATION CORRUPTION PROOF
   {
-    label: "Compile documented evidence that proves arbitration decisions are being made externally — show the paper trail of corruption.",
+    label: "The paper trail of arbitration corruption is assembling. Time to compile and show it.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Corruption', 'Meaningful'],
     xpReward: 80,
     failResult: {
@@ -772,7 +772,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: GUILD ROLE COMPROMISE CHOICE
   {
-    label: "Confront a guild official who's complicit in arbitration corruption — demand explanation and decide whether to protect them or expose them.",
+    label: "A guild official is complicit. Confront them and decide whether to protect them or expose them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     effects: [
@@ -861,7 +861,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: PRE-UNION CHARTER FRAGMENT
   {
-    label: "The pre-Union charter is in the basement. The current mandate cites authority that isn't in it.",
+    label: "The pre-Union charter is in the basement. The current mandate cites authority the charter doesn't contain.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -893,7 +893,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: OFF-CHANNEL ARBITER CONTACT
   {
-    label: "The senior arbiter's posted schedule ends at close of hall. The route he takes after that isn't filed anywhere.",
+    label: "The senior arbiter's schedule ends at close of hall. Where he goes after isn't filed anywhere.",
     tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -929,7 +929,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE GUILD FLOOR
   {
-    label: "The guild floor has a second accounting running beneath the first. The second one is the one that matters.",
+    label: "The guild floor has a second accounting running beneath the first. The second one is what matters.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -960,7 +960,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "The Oversight Collegium has had an observer here for sixty-two days. That's a monitoring phase, not an inquiry.",
+    label: "The Oversight Collegium observer has been here sixty-two days. That's a monitoring phase, not an inquiry.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: 'This path is closed here, but the formal submission channel Trent described — written, signed, specific — is still open.',
@@ -1008,7 +1008,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC SETUP: COURIER NETWORK
   {
-    label: "Everything that goes out of Guildheart gets logged at the guild desk. That's been mandatory for a year.",
+    label: "Everything that leaves Guildheart gets logged at the guild desk. Mandatory for a year now.",
     tags: ['PersonalArc', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: 'This path is closed here, but the wool merchant who makes the outlying settlement run three times a week may operate differently than the registry couriers.',
@@ -1054,7 +1054,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "A dockside factor quietly passes you a note — someone has been asking about you specifically, and their questions are detailed.",
+    label: "A dockside factor passes a note. Someone has been asking about me specifically. The questions are detailed.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     failResult: {
@@ -1094,7 +1094,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   },
   // 29. SUPPRESSION SIGNAL: OVERHEARD FRAGMENT AT FREIGHT COUNTER
   {
-    label: "Two officials at the freight counter — one said a number, the other looked at me. They stopped.",
+    label: "Two officials at the freight counter. One said a number, the other looked at me. They stopped.",
     tags: ['Suppression', 'Observation', 'Stage1'],
     xpReward: 55,
     failResult: {

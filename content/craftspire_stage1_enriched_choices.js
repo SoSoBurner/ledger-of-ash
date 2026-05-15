@@ -312,7 +312,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "The workers know something changed. They haven't said it in front of the wrong person yet.",
+    label: "The workers know something changed. They haven't said it in front of the wrong person.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     failResult: "The common area is busy between shifts — workers at the water basin, two apprentices running a manifest to the next workshop, the smell of cooling metal following everyone in. Conversations cut short when someone unfamiliar sits too close. The afternoon break runs longer and looser. Come back when the district has its rhythm back and the faces at the table recognize yours.",
     xpReward: 60,
@@ -429,7 +429,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. WORLD COLOR: CRAFTSPIRE'S FOUNDING GUILD CHARTER
   {
-    label: "The founding charter is on display. What the guild was built for may not match now.",
+    label: "The founding charter is on display. What the guild was built for may not match.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The main hall is occupied with a certification review — three masters at the central table, a stack of portfolios, an apprentice standing at the edge of the room trying not to look like she's counting the minutes. The founding charter hangs in its frame on the far wall, readable from here at a distance: the opening line begins 'We make things that work.' The hall clears after the review panel concludes.",
     xpReward: 48,

@@ -704,7 +704,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The stamping tool was ordered from a copy house. The order slip is in the log.",
+    label: "The stamping tool was ordered from a copy house. The order slip survives.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
