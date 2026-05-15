@@ -1081,63 +1081,76 @@ test.describe('Headed QA — 4 families', () => {
     const jsErrors      = [];
     const familyResults = {};
     const HEADED_CAP    = 8 * 60 * 60 * 1000;
+    const MAX_ATTEMPTS  = 3;
     const suiteStart    = Date.now();
 
+    // Per-family state for round-robin
+    const familyState = {};
     for (const family of HEADED_FAMILY_ORDER) {
+      familyState[family] = { success: false, attemptNum: 0, pool: buildPool(family), poolIdx: 0 };
+    }
+
+    // Round-robin: one attempt per pending family per round, max 3 attempts each
+    let round = 0;
+    while (true) {
+      round++;
+      const pending = HEADED_FAMILY_ORDER.filter(f => !familyState[f].success && familyState[f].attemptNum < MAX_ATTEMPTS);
+      if (pending.length === 0) break;
       if ((Date.now() - suiteStart) >= HEADED_CAP) {
-        log(`[suite:headed] 8hr cap — stopping before family:${family}`);
+        log(`[suite:headed] 8hr cap at round ${round}`);
         break;
       }
 
       log(`\n${'='.repeat(60)}`);
-      log(`[family:${family}] starting (headed)`);
+      log(`[suite:headed] round ${round} — pending: ${pending.join(', ')}`);
       log('='.repeat(60));
 
-      let success    = false;
-      let attemptNum = 0;
-      let pool       = buildPool(family);
-      let poolIdx    = 0;
-
-      while (!success) {
+      for (const family of pending) {
         if ((Date.now() - suiteStart) >= HEADED_CAP) {
-          log(`[family:${family}] ceiling hit mid-family`);
-          break;
+          log(`[family:${family}] 8hr cap hit`); break;
         }
 
-        attemptNum++;
+        const state = familyState[family];
+        state.attemptNum++;
+
         let archetypeId, backgroundId;
-        if (attemptNum === 1 && HEADED_FIRST_ATTEMPT[family]) {
+        if (state.attemptNum === 1 && HEADED_FIRST_ATTEMPT[family]) {
           ({ archetypeId, backgroundId } = HEADED_FIRST_ATTEMPT[family]);
         } else {
-          if (poolIdx >= pool.length) { pool = buildPool(family); poolIdx = 0; }
-          ({ archetypeId, backgroundId } = pool[poolIdx++]);
+          if (state.poolIdx >= state.pool.length) { state.pool = buildPool(family); state.poolIdx = 0; }
+          ({ archetypeId, backgroundId } = state.pool[state.poolIdx++]);
         }
 
-        log(`[family:${family}] attempt ${attemptNum} → ${archetypeId}/${backgroundId}`);
+        log(`\n[family:${family}] round ${round} attempt ${state.attemptNum}/${MAX_ATTEMPTS} → ${archetypeId}/${backgroundId}`);
 
-        const videoDir = path.join(VIDEO_DIR, `${family}_a${attemptNum}_${archetypeId}`);
+        const videoDir = path.join(VIDEO_DIR, `${family}_a${state.attemptNum}_${archetypeId}`);
         fs.mkdirSync(videoDir, { recursive: true });
         const context = await browser.newContext({
           recordVideo: { dir: videoDir, size: { width: 1280, height: 720 } },
         });
         const page = await context.newPage();
-        page.setDefaultTimeout(10000); // prevent evaluate/locator from hanging indefinitely
+        page.setDefaultTimeout(10000);
 
-        const result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors);
+        const result = await runPlaythrough(page, archetypeId, backgroundId, family, state.attemptNum, jsErrors);
 
         try { await page.close(); }    catch (_) {}
         try { await context.close(); } catch (_) {}
 
-        log(`[family:${family}] attempt ${attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
+        log(`[family:${family}] round ${round} attempt ${state.attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
 
         if (result.success) {
-          success = true;
-          familyResults[family] = { archetypeId, backgroundId, attempts: attemptNum, picks: result.picks };
+          state.success = true;
+          familyResults[family] = { archetypeId, backgroundId, attempts: state.attemptNum, picks: result.picks };
+        } else if (state.attemptNum >= MAX_ATTEMPTS) {
+          log(`[family:${family}] exhausted ${MAX_ATTEMPTS} attempts — moving on`);
         }
       }
+    }
 
+    // Collect results for families that never passed
+    for (const family of HEADED_FAMILY_ORDER) {
       if (!familyResults[family]) {
-        familyResults[family] = { success: false, attempts: attemptNum };
+        familyResults[family] = { success: false, attempts: familyState[family].attemptNum };
       }
     }
 
