@@ -594,6 +594,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let lastLoggedSP1 = -1;
   let lastPickLabels = [];
   let lastPickTime   = Date.now();
+  let lastLocation   = '';
+  let stuckAtLoc     = 0;
+  const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
 
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
@@ -667,6 +670,22 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[run:${tag}] pick=${picks} sp1=${sp1} — stalled, forcing plot-main x5`);
       }
 
+      // Stuck-location guard: same location for 30+ picks → escape
+      if (g.location === lastLocation) { stuckAtLoc++; } else { stuckAtLoc = 0; lastLocation = g.location; }
+      if (stuckAtLoc >= 30) {
+        const escLoc = ESCAPE_LOCS.find(l => l !== g.location) || 'shelkopolis';
+        log(`[escape ${tag}] pick=${picks} stuck at "${g.location}" for ${stuckAtLoc} picks — teleporting to ${escLoc}`);
+        try {
+          await page.evaluate((loc) => {
+            if (typeof G !== 'undefined') { G.tensionLevel = 0; G.location = loc; }
+            if (typeof resolveArrival === 'function') resolveArrival(loc);
+            else if (typeof loadStageChoices === 'function') loadStageChoices();
+          }, escLoc);
+        } catch (_) {}
+        stuckAtLoc = 0;
+        lastPickLabels = [];
+      }
+
       // Autonomous repair: nudge sp1 if truly stuck for 40+ picks
       if (noProgress >= 40 && sp1 < 3) {
         try {
@@ -699,14 +718,21 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       lastPickLabels.push(pickLabel);
       if (lastPickLabels.length > 3) lastPickLabels.shift();
       if (lastPickLabels.length === 3 && lastPickLabels.every(l => l === lastPickLabels[0])) {
-        log(`[loop-detect ${tag}] pick=${picks} same label 3x: "${pickLabel}" — forcing tension reset + location reload`);
+        log(`[loop-detect ${tag}] pick=${picks} same label 3x: "${pickLabel}" — forcing tension reset + escape`);
         try {
-          await page.evaluate(() => {
-            if (typeof G !== 'undefined') { G.tensionLevel = 0; }
-            if (typeof loadStageChoices === 'function') loadStageChoices();
-          });
+          await page.evaluate((escLocs) => {
+            if (typeof G !== 'undefined') {
+              G.tensionLevel = 0;
+              const cur = G.location || '';
+              const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
+              G.location = dest;
+              if (typeof resolveArrival === 'function') resolveArrival(dest);
+              else if (typeof loadStageChoices === 'function') loadStageChoices();
+            }
+          }, ESCAPE_LOCS);
         } catch (_) {}
         lastPickLabels = [];
+        stuckAtLoc = 0;
       }
 
     } catch (loopErr) {
