@@ -11795,7 +11795,11 @@ function handleChoice(choice) {
     if ((G.tensionLevel||0) >= 2 && choice.id !== '_tension_combat_flip') {
       if (typeof shiftTension === 'function') shiftTension(-1);
     }
-    choice.action();
+    try {
+      choice.action();
+    } catch(e) {
+      console.error('[choice error]', e.message || e);
+    }
     setTimeout(function() { if (!document.querySelector('.choice-block,.levelup-block,.move-block')) loadStageChoices(G.location); }, 700);
     return;
   }
