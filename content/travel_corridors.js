@@ -196,8 +196,7 @@
             cid: 'corridor_scavenge_short_pass',
             action: function() {
               setTimeout(function() {
-                if (typeof _travelNextEncounter === 'function') _travelNextEncounter();
-                else if (typeof loadStageChoices === 'function') loadStageChoices(G ? G.currentLocation : '');
+                window.TRAVEL_CORRIDOR.nextEncounter();
               }, 200);
             }
           }
@@ -452,15 +451,23 @@
   window.TRAVEL_CORRIDOR = {
 
     triggerEncounters: function(routeTier, fromId, toId) {
-      // Gate: corridor encounters require authored result text before going live
-      if (!G || !G.flags || !G.flags.corridor_encounters_enabled) {
-        if (typeof loadStageChoices === 'function') loadStageChoices(toId || fromId);
-        return;
-      }
-
       var tier = routeTier || 'short';
       var from = fromId || '';
-      var to   = toId   || '';
+      // toId is the destination locality — G.location is already set to it when called.
+      // We must capture it so every downstream path calls resolveArrival(dest).
+      var dest = toId || from;
+
+      // Gate: if no encounters pool or flag not enabled, go straight to arrival
+      var encountersEnabled = G && G.flags && G.flags.corridor_encounters_enabled;
+      var pool = window.CORRIDOR_ENCOUNTERS && (window.CORRIDOR_ENCOUNTERS[tier] || window.CORRIDOR_ENCOUNTERS['short']);
+      if (!encountersEnabled || !pool || !pool.length) {
+        if (typeof resolveArrival === 'function') {
+          resolveArrival(dest);
+        } else if (typeof loadStageChoices === 'function') {
+          loadStageChoices(dest);
+        }
+        return;
+      }
 
       // Determine encounter count by tier, modified by stage scaling (Stage I-II active)
       var encounterCount = tier === 'long' ? 3 : (tier === 'medium' ? 2 : 1);
@@ -469,45 +476,52 @@
         encounterCount = Math.min(encounterCount + 1, 4);
       }
 
-      // Pick encounters for this tier
-      var pool = window.CORRIDOR_ENCOUNTERS[tier] || window.CORRIDOR_ENCOUNTERS['short'];
       var selected = pickRandom(pool, encounterCount);
 
       // Fast pace: +1 encounter chance — roll one extra biome encounter if pace is fast
       // Knight Mounted Discipline skips this extra roll (handled inside _travelFastPaceExtraEncounter)
       if (G && G.pace === 'fast' && Math.random() < 0.5) {
-        var _biome = window.getBiomeForRoute ? window.getBiomeForRoute(to, from) : null;
+        var _biome = window.getBiomeForRoute ? window.getBiomeForRoute(dest, from) : null;
         if (typeof window._travelFastPaceExtraEncounter === 'function') {
           setTimeout(function() { window._travelFastPaceExtraEncounter(_biome || 'road'); }, 1200);
         }
       }
 
-      // Store remaining encounters for chaining
+      // Store state for chaining — capture dest so nextEncounter can resolveArrival
       if (G && G.flags) {
         G.flags._corridor_encounters_remaining = selected.length - 1;
         G.flags._corridor_encounters_queue     = selected.slice(1).map(function(e){ return e.id; });
         G.flags._corridor_from                 = from;
-        G.flags._corridor_to                   = to;
+        G.flags._corridor_to                   = dest;
+        G.flags._corridor_dest                 = dest;
         G.flags._corridor_tier                 = tier;
       }
 
       // Show macroregion narration
-      var region = resolveMacroregion(from, to);
+      var region = resolveMacroregion(from, dest);
       var narrations = window.MACROREGION_NARRATIONS[region] || window.MACROREGION_NARRATIONS['principalities'];
       var narText = narrations[Math.floor(Math.random() * narrations.length)];
       if (typeof addNarration === 'function') {
         addNarration('On the Road', narText);
       }
 
-      // Render first encounter
+      // If no encounters were selected after all, go straight to arrival
       var first = selected[0];
-      if (!first) return;
+      if (!first) {
+        if (typeof resolveArrival === 'function') resolveArrival(dest);
+        else if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+        return;
+      }
+
+      // Wrap encounter choices so each action ends with resolveArrival(dest)
+      var _wrappedChoices = _wrapEncounterChoices(first.choices, dest);
+
       if (typeof addNarration === 'function') {
         addNarration(first.title, first.text);
       }
       if (typeof renderChoices === 'function') {
         setTimeout(function() {
-          renderChoices(first.choices);
+          renderChoices(_wrappedChoices);
         }, 300);
       }
     },
@@ -516,16 +530,26 @@
     nextEncounter: function() {
       if (!G || !G.flags) return;
       var remaining = G.flags._corridor_encounters_remaining || 0;
-      if (remaining <= 0) return;
+      var dest = G.flags._corridor_dest || G.location || '';
+
+      if (remaining <= 0) {
+        // No more encounters — proceed to arrival
+        if (typeof resolveArrival === 'function') resolveArrival(dest);
+        else if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+        return;
+      }
 
       var queue = G.flags._corridor_encounters_queue || [];
-      if (!queue.length) return;
+      if (!queue.length) {
+        if (typeof resolveArrival === 'function') resolveArrival(dest);
+        else if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+        return;
+      }
 
       var nextId = queue.shift();
       G.flags._corridor_encounters_queue     = queue;
       G.flags._corridor_encounters_remaining = remaining - 1;
 
-      var tier = G.flags._corridor_tier || 'short';
       var allTiers = [].concat(
         window.CORRIDOR_ENCOUNTERS.short || [],
         window.CORRIDOR_ENCOUNTERS.medium || [],
@@ -535,18 +559,62 @@
       for (var i = 0; i < allTiers.length; i++) {
         if (allTiers[i].id === nextId) { encounter = allTiers[i]; break; }
       }
-      if (!encounter) return;
+      if (!encounter) {
+        if (typeof resolveArrival === 'function') resolveArrival(dest);
+        else if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+        return;
+      }
+
+      var _wrappedChoices = _wrapEncounterChoices(encounter.choices, dest);
 
       if (typeof addNarration === 'function') {
         addNarration(encounter.title, encounter.text);
       }
       if (typeof renderChoices === 'function') {
         setTimeout(function() {
-          renderChoices(encounter.choices);
+          renderChoices(_wrappedChoices);
         }, 300);
       }
     }
   };
+
+  // ---------------------------------------------------------------------------
+  // Helper: wrap encounter choices so each action concludes with resolveArrival(dest).
+  // Choices with an existing action() get it called first; then the chain continues.
+  // Choices without an action get a default action that calls nextEncounter / arrival.
+  // A closure captures dest so it's always correct even if G.flags changes.
+  // ---------------------------------------------------------------------------
+  function _wrapEncounterChoices(choices, dest) {
+    if (!choices || !choices.length) return choices;
+    return choices.map(function(c) {
+      var original = c.action;
+      // Return a shallow clone with action replaced
+      var wrapped = {};
+      for (var k in c) { if (Object.prototype.hasOwnProperty.call(c, k)) wrapped[k] = c[k]; }
+      wrapped.action = (function(_orig, _dest) {
+        return function(ctx) {
+          if (typeof _orig === 'function') {
+            // Original action handles its own narration/roll; it must NOT call
+            // loadStageChoices/resolveArrival itself — we handle that via nextEncounter.
+            // Patch the fallback references inside legacy closures by temporarily
+            // overriding _travelNextEncounter to point at corridor nextEncounter.
+            var _prevNext = window._travelNextEncounter;
+            window._travelNextEncounter = function() {
+              window._travelNextEncounter = _prevNext;
+              window.TRAVEL_CORRIDOR.nextEncounter();
+            };
+            _orig.call(this, ctx);
+            // If the original did NOT call _travelNextEncounter synchronously,
+            // restore and let the timeout inside the original fire as normal.
+          } else {
+            // No original action: just advance the encounter chain
+            window.TRAVEL_CORRIDOR.nextEncounter();
+          }
+        };
+      })(original, dest);
+      return wrapped;
+    });
+  }
 
   // ---------------------------------------------------------------------------
   // Wire the hook — override _travelStartEncounter
