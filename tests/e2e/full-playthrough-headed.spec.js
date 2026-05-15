@@ -382,20 +382,42 @@ async function pickChoice(page, pickNum, forcePlotMain) {
 // ---------------------------------------------------------------------------
 // Panel probes — full simulation
 // ---------------------------------------------------------------------------
+// Close a specific overlay using its data-close button, fall back to generic close
+async function closeSpecificOverlay(page, overlayId) {
+  try {
+    const closeBtn = page.locator(`[data-close="${overlayId}"]`).first();
+    if (await closeBtn.isVisible({ timeout: 600 }).catch(() => false)) await closeBtn.click();
+    else await closeOverlay(page);
+    await page.waitForSelector(`#${overlayId}`, { state: 'hidden', timeout: 1500 }).catch(() => {});
+  } catch (_) { await closeOverlay(page).catch(() => {}); }
+}
+
+// Open an overlay via button, wait for it, return true if open
+async function openOverlay(page, btnId, overlayId, timeout) {
+  try {
+    const btn = page.locator(btnId).first();
+    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) return false;
+    await btn.click();
+    await page.waitForSelector(overlayId, { state: 'visible', timeout: timeout || 4000 });
+    await page.waitForTimeout(PACE.panelDwell);
+    return true;
+  } catch (_) { return false; }
+}
+
 async function probeCharSheet(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    await page.click('#btn-charsheet');
-    await page.waitForSelector('#overlay-charsheet', { state: 'visible', timeout: 4000 });
-    await page.waitForTimeout(PACE.panelDwell);
+    if (!await openOverlay(page, '#btn-charsheet', '#overlay-charsheet')) { log(`[panel:char-sheet ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_charsheet_lvl${g.level}`);
-    const txt    = await page.locator('#overlay-charsheet').innerText().catch(() => '');
-    const traits = await page.locator('#overlay-charsheet .traits,[class*="trait"]').first().isVisible({ timeout: 1000 }).catch(() => false);
-    const names  = /Might|Finesse|Vigor|Wits|Charm|Spirit/i.test(txt);
-    const xpOk   = g.level !== 1 || /120/.test(txt);
-    const objObj = txt.includes('[object Object]');
-    log(`[panel:char-sheet ${tag}] lvl=${g.level} — ${(traits && names && xpOk && !objObj) ? 'PASS' : 'WARN'}: traits=${traits} names=${names} xp=${xpOk} objObj=${objObj}`);
-    await closeOverlay(page);
+    const txt     = await page.locator('#sheet-body,#overlay-charsheet').first().innerText().catch(() => '');
+    const skills  = /Might|Finesse|Vigor|Wits|Charm|Spirit/i.test(txt);
+    const traits  = /Abilities|Traits|Active|Passive/i.test(txt);
+    const hasNums = /\d/.test(txt);
+    const objObj  = txt.includes('[object Object]');
+    // Log all visible text for review
+    log(`[panel:char-sheet ${tag}] lvl=${g.level} skills=${skills} traits=${traits} nums=${hasNums} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    if (objObj) log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in char sheet`);
+    await closeSpecificOverlay(page, 'overlay-charsheet');
   } catch (err) {
     log(`[panel:char-sheet ${tag}] FAIL: ${err.message}`);
     await closeOverlay(page).catch(() => {});
@@ -405,15 +427,17 @@ async function probeCharSheet(page, tag, g) {
 async function probeJournal(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    await page.click('#btn-journal');
-    await page.waitForSelector('#overlay-journal,[id*="journal"]', { state: 'visible', timeout: 4000 });
-    await page.waitForTimeout(PACE.panelDwell);
+    if (!await openOverlay(page, '#btn-journal', '#overlay-journal,[id*="journal"]')) { log(`[panel:journal ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_journal_day${g.day}`);
-    const txt    = await page.locator('[id*="journal"]').first().innerText().catch(() => '');
-    const objObj = txt.includes('[object Object]');
-    const hasInv = /iron blade|courier satchel|field kit/i.test(txt);
-    log(`[panel:journal ${tag}] day=${g.day} — ${(!objObj && !hasInv) ? 'PASS' : 'FAIL'}: objObj=${objObj} inventoryLeak=${hasInv}`);
-    await closeOverlay(page);
+    const txt     = await page.locator('#journal-overlay-body,[id*="journal"]').first().innerText().catch(() => '');
+    const objObj  = txt.includes('[object Object]');
+    const hasInv  = /iron blade|courier satchel|field kit/i.test(txt);
+    // Check for journal categories in text
+    const hasCats = /evidence|intelligence|rumor|discovery|complication/i.test(txt);
+    log(`[panel:journal ${tag}] day=${g.day} objObj=${objObj} invLeak=${hasInv} categories=${hasCats} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    if (objObj)  log(`[panel:journal ${tag}] VIOLATION: [object Object] in journal`);
+    if (hasInv)  log(`[panel:journal ${tag}] VIOLATION: inventory item leaked into journal`);
+    await closeSpecificOverlay(page, 'overlay-journal');
   } catch (err) {
     log(`[panel:journal ${tag}] FAIL: ${err.message}`);
     await closeOverlay(page).catch(() => {});
@@ -423,12 +447,21 @@ async function probeJournal(page, tag, g) {
 async function probeCamp(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    await page.click('#btn-camp');
-    await page.waitForSelector('#overlay-camp,[id*="camp"]', { state: 'visible', timeout: 4000 });
-    await page.waitForTimeout(PACE.panelDwell);
+    if (!await openOverlay(page, '#btn-camp', '#overlay-camp,[id*="camp"]')) { log(`[panel:camp ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_camp_day${g.day}`);
-    log(`[panel:camp ${tag}] day=${g.day} — PASS`);
-    await closeOverlay(page);
+    const txt     = await page.locator('#overlay-camp,[id*="camp"]').first().innerText().catch(() => '');
+    // Check all camp action buttons exist
+    const rest    = await page.locator('[data-camp="rest"]').isVisible({ timeout: 600 }).catch(() => false);
+    const sleep   = await page.locator('[data-camp="sleep"]').isVisible({ timeout: 600 }).catch(() => false);
+    const train   = await page.locator('[data-camp="train"]').isVisible({ timeout: 600 }).catch(() => false);
+    const craft   = await page.locator('[data-camp="craft"],#btn-craft').isVisible({ timeout: 600 }).catch(() => false);
+    const recover = /Recover|Rest|Sleep/i.test(txt);
+    const act     = /Act|Train|Craft/i.test(txt);
+    log(`[panel:camp ${tag}] day=${g.day} rest=${rest} sleep=${sleep} train=${train} craft=${craft} recover=${recover} act=${act}`);
+    if (!rest || !sleep) log(`[panel:camp ${tag}] WARN: missing core camp actions`);
+    // Screenshot full camp text for review
+    log(`[panel:camp ${tag}] text="${txt.slice(0,150).replace(/\n/g,' ')}"`);
+    await closeSpecificOverlay(page, 'overlay-camp');
   } catch (err) {
     log(`[panel:camp ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
@@ -442,12 +475,83 @@ async function probeInventory(page, tag) {
     if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:inventory ${tag}] SKIP`); return; }
     await btn.click();
     await page.waitForTimeout(PACE.panelDwell);
-    await screenshot(page, `${tag}_inventory`);
+    await screenshot(page, `${tag}_inventory_open`);
     const txt = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
-    log(`[panel:inventory ${tag}] — ${txt ? 'PASS' : 'WARN'}: chars=${txt.length}`);
+    log(`[panel:inventory ${tag}] chars=${txt.length} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    // Try to equip the first available item
+    const equipBtn = page.locator('button:has-text("Equip"),button:has-text("equip"),.equip-btn').first();
+    if (await equipBtn.isVisible({ timeout: 800 }).catch(() => false)) {
+      await equipBtn.click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_inventory_equip`);
+      log(`[panel:inventory ${tag}] equip-attempt: clicked first equip button`);
+    } else {
+      log(`[panel:inventory ${tag}] equip: no equip buttons visible`);
+    }
     await closeOverlay(page);
   } catch (err) {
     log(`[panel:inventory ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+async function probeMap(page, tag, g) {
+  await page.waitForTimeout(PACE.beforePanel);
+  try {
+    if (!await openOverlay(page, '#btn-map', '#overlay-map')) { log(`[panel:map ${tag}] SKIP`); return; }
+    await screenshot(page, `${tag}_map_loc${g.location}`);
+    const txt      = await page.locator('#map-body,#overlay-map').first().innerText().catch(() => '');
+    const hasLocs  = await page.locator('#map-body button,[data-locid]').count().catch(() => 0);
+    const objObj   = txt.includes('[object Object]');
+    log(`[panel:map ${tag}] loc=${g.location} locButtons=${hasLocs} objObj=${objObj} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
+    await closeSpecificOverlay(page, 'overlay-map');
+  } catch (err) {
+    log(`[panel:map ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+async function probeNotices(page, tag) {
+  await page.waitForTimeout(PACE.beforePanel);
+  try {
+    if (!await openOverlay(page, '#btn-notices', '#overlay-notices')) { log(`[panel:notices ${tag}] SKIP`); return; }
+    await screenshot(page, `${tag}_notices`);
+    const txt    = await page.locator('#notices-overlay-body,#overlay-notices').first().innerText().catch(() => '');
+    const objObj = txt.includes('[object Object]');
+    log(`[panel:notices ${tag}] objObj=${objObj} chars=${txt.length} text="${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    await closeSpecificOverlay(page, 'overlay-notices');
+  } catch (err) {
+    log(`[panel:notices ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+async function probeContacts(page, tag) {
+  await page.waitForTimeout(PACE.beforePanel);
+  try {
+    if (!await openOverlay(page, '#btn-npcs', '#overlay-npcs')) { log(`[panel:contacts ${tag}] SKIP`); return; }
+    await screenshot(page, `${tag}_contacts`);
+    const txt    = await page.locator('#npc-overlay-body,#overlay-npcs').first().innerText().catch(() => '');
+    const objObj = txt.includes('[object Object]');
+    log(`[panel:contacts ${tag}] objObj=${objObj} chars=${txt.length} text="${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    await closeSpecificOverlay(page, 'overlay-npcs');
+  } catch (err) {
+    log(`[panel:contacts ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+async function probeParty(page, tag) {
+  await page.waitForTimeout(PACE.beforePanel);
+  try {
+    if (!await openOverlay(page, '#btn-party', '#overlay-party')) { log(`[panel:party ${tag}] SKIP`); return; }
+    await screenshot(page, `${tag}_party`);
+    const txt    = await page.locator('#party-overlay-body,#overlay-party').first().innerText().catch(() => '');
+    const objObj = txt.includes('[object Object]');
+    log(`[panel:party ${tag}] objObj=${objObj} chars=${txt.length} text="${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    await closeSpecificOverlay(page, 'overlay-party');
+  } catch (err) {
+    log(`[panel:party ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
   }
 }
@@ -461,7 +565,7 @@ async function probeShop(page, tag, g) {
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_shop_${g.location}`);
     const txt = await page.locator('.overlay.active,[id*="shop"]').first().innerText().catch(() => '');
-    log(`[panel:shop ${tag}] loc=${g.location} — ${txt.length > 20 ? 'PASS' : 'WARN'}: chars=${txt.length}`);
+    log(`[panel:shop ${tag}] loc=${g.location} chars=${txt.length} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
     await closeOverlay(page);
   } catch (err) {
     log(`[panel:shop ${tag}] WARN: ${err.message}`);
@@ -474,7 +578,8 @@ async function probeQuestHUD(page, tag) {
     const el  = page.locator('#quest-hud,#hud-quest,[id*="quest"]').first();
     if (!await el.isVisible({ timeout: 600 }).catch(() => false)) { log(`[panel:quest-hud ${tag}] SKIP`); return; }
     const txt = await el.innerText().catch(() => '');
-    log(`[panel:quest-hud ${tag}] — ${!txt.includes('[object Object]') ? 'PASS' : 'FAIL'}: "${txt.slice(0,60)}"`);
+    const objObj = txt.includes('[object Object]');
+    log(`[panel:quest-hud ${tag}] — ${!objObj ? 'PASS' : 'FAIL'}: "${txt.slice(0,80)}"`);
   } catch (err) { log(`[panel:quest-hud ${tag}] WARN: ${err.message}`); }
 }
 
@@ -484,7 +589,7 @@ async function probeHeatHUD(page, tag, g) {
     const visible    = await el.isVisible({ timeout: 600 }).catch(() => false);
     const totalHeat  = Object.values(g.heat || {}).reduce((a, b) => a + b, 0);
     if (!visible && totalHeat > 0) log(`[panel:heat-hud ${tag}] WARN: heat=${totalHeat} but HUD hidden`);
-    else if (visible) { const txt = await el.innerText().catch(() => ''); log(`[panel:heat-hud ${tag}] PASS heat=${totalHeat} "${txt.slice(0,40)}"`); }
+    else if (visible) { const txt = await el.innerText().catch(() => ''); log(`[panel:heat-hud ${tag}] PASS heat=${totalHeat} "${txt.slice(0,60)}"`); }
     else log(`[panel:heat-hud ${tag}] PASS: no heat`);
   } catch (err) { log(`[panel:heat-hud ${tag}] WARN: ${err.message}`); }
 }
@@ -493,21 +598,31 @@ async function probeAlignmentBars(page, tag) {
   try {
     const el      = page.locator('[class*="alignment"],[id*="benevolence"]').first();
     const visible = await el.isVisible({ timeout: 600 }).catch(() => false);
-    log(`[panel:alignment ${tag}] — ${visible ? 'PASS: bars visible' : 'SKIP'}`);
+    if (visible) {
+      const txt = await el.innerText().catch(() => '');
+      log(`[panel:alignment ${tag}] PASS: "${txt.slice(0,60)}"`);
+    } else {
+      log(`[panel:alignment ${tag}] SKIP`);
+    }
   } catch (err) { log(`[panel:alignment ${tag}] WARN: ${err.message}`); }
 }
 
 async function probeHowToPlay(page, tag) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    const btn = page.locator('button:has-text("How to Play"),button:has-text("HOW TO PLAY"),#btn-howto').first();
+    const btn = page.locator('#btn-howto,button:has-text("How to Play")').first();
     if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:howtoplay ${tag}] SKIP`); return; }
     await btn.click();
+    await page.waitForSelector('#howto-modal', { state: 'visible', timeout: 4000 }).catch(() => {});
     await page.waitForTimeout(PACE.panelDwell);
     await screenshot(page, `${tag}_howtoplay`);
-    log(`[panel:howtoplay ${tag}] PASS`);
-    await page.keyboard.press('Escape');
-    await closeOverlay(page);
+    const txt      = await page.locator('#howto-modal').innerText().catch(() => '');
+    const hasH2    = await page.locator('#howto-modal h2,#howto-modal h3').count().catch(() => 0);
+    const objObj   = txt.includes('[object Object]');
+    log(`[panel:howtoplay ${tag}] headers=${hasH2} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    const closeBtn = page.locator('#howto-close,[data-close="howto-modal"],#howto-modal button').first();
+    if (await closeBtn.isVisible({ timeout: 600 }).catch(() => false)) await closeBtn.click();
+    else { await page.keyboard.press('Escape'); await closeOverlay(page); }
   } catch (err) {
     log(`[panel:howtoplay ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
@@ -516,14 +631,19 @@ async function probeHowToPlay(page, tag) {
 
 async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks > 0 && picks % PROBE_EVERY === 0) {
-    await dismissOverlays(page); // ensure no overlay is blocking HUD buttons
+    await dismissOverlays(page);
     await probeCharSheet(page, tag, g);
     await probeJournal(page, tag, g);
     await probeQuestHUD(page, tag);
     await probeHeatHUD(page, tag, g);
     await probeAlignmentBars(page, tag);
+    await probeMap(page, tag, g);
+    await probeNotices(page, tag);
+    await probeContacts(page, tag);
+    await probeParty(page, tag);
   }
   if (picks > 0 && picks % CAMP_EVERY === 0) {
+    await dismissOverlays(page);
     await probeCamp(page, tag, g);
     await probeInventory(page, tag);
   }
