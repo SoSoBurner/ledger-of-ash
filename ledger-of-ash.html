@@ -12813,7 +12813,7 @@ function showLevelUpScreen() {
           description: ab.desc || '',
           type: ab.type || ab.traitType || 'active',
           traitType: ab.traitType || ab.type || 'active',
-          passive: false,
+          passive: (ab.type === 'passive' || ab.traitType === 'passive'),
           levelMin: ab.levelMin || ab.minLevel || 1,
           desc: ab.desc || '',
           activeSkillType: ab.activeSkillType || null,
