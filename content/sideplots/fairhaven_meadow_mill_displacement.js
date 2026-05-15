@@ -56,7 +56,7 @@ var FAIRHAVEN_MEADOW_MILL_DISPLACEMENT = (function() {
           (window._rawRenderChoices || window.renderChoices)([
             { id: 'mill_confront_foreman', text: 'The foreman is outside. He\'s been waiting for someone to come looking.', tag: 'bold',
               action: function() {
-                if (typeof enterCombat === 'function') enterCombat('border_enforcer', { isBoss: false, context: 'mill_foreman_confrontation' });
+                if (typeof enterAuthorityConfrontation === 'function') enterAuthorityConfrontation('harvest_measures_board', { context: 'mill_foreman_confrontation' });
               }
             },
             { id: 'mill_withdraw', text: 'Pull back. The routing mark is enough for now.', tag: 'safe',

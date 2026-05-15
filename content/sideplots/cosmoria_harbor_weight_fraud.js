@@ -52,7 +52,7 @@ var COSMORIA_HARBOR_WEIGHT_FRAUD = (function() {
           (window._rawRenderChoices || window.renderChoices)([
             { id: 'harbor_confront_guard', text: 'The dock guard has seen your face. He\'s coming back with someone.', tag: 'bold',
               action: function() {
-                if (typeof enterCombat === 'function') enterCombat('hired_muscle', { isBoss: false, context: 'harbor_guard_confrontation' });
+                if (typeof enterAuthorityConfrontation === 'function') enterAuthorityConfrontation('cosmouth_archives', { context: 'harbor_guard_confrontation' });
               }
             },
             { id: 'harbor_withdraw', text: 'Pull back. The ledger isn\'t worth a dock fight.', tag: 'safe',
