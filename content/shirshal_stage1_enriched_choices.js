@@ -11,7 +11,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 1. CASE CLERK: WITNESS STATEMENTS DISAPPEARING
   {
     plot: 'main',
-    label: "The case clerk has been filing statements for eight years. He knows when one goes missing.",
+    label: "Eight years of filing statements. He knows when one goes missing.",
     tags: ['Investigation', 'NPC', 'Evidence', 'Records', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -50,7 +50,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 2. EVIDENCE HANDLER: MAGICAL ANOMALY RECORDS FALSIFIED
   {
     plot: 'main',
-    label: "The evidence handler filed what he observed. What's in the log now is not what he filed.",
+    label: "He filed what he observed. What's in the log now is not what he filed.",
     tags: ['Investigation', 'NPC', 'Magic', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -244,7 +244,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INNKEEPER: MESSAGE TRAFFIC AND SEALED COURIERS
   {
-    label: "Sealed couriers, different faces, same back room. The innkeeper keeps track of what she's not supposed to notice.",
+    label: "Different couriers, same back room. She tracks what she's not supposed to notice.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -281,7 +281,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MAGISTRATE (RELUCTANT): AUTHORITY PRESSURE FROM ABOVE
   {
-    label: "One magistrate checks his rulings against what arrived in the morning packet. He knows whose law it is.",
+    label: "One magistrate checks his rulings against the morning packet. He knows whose law it is.",
     tags: ['Investigation', 'NPC', 'Authority', 'Pressure', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -523,7 +523,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 14. CRAFT TIER 2: SEALED CORRESPONDENCE FORGERY
   {
-    label: "The magistrates are executing directives from an authority that doesn't exist in the form it claims.",
+    label: "The magistrates are executing directives from an authority that doesn't exist as claimed.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Authority', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -565,7 +565,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: CASES DISAPPEARING AND JUSTICE FAILING
   {
-    label: "People have stopped repeating what they know because no one acted on it the first time.",
+    label: "People stopped repeating what they know. No one acted on it the first time.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -599,7 +599,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 16. VICTIM TESTIMONY: CASE ABANDONED WITHOUT RESOLUTION
   {
-    label: "An investigator worked his case for three weeks. He's not permitted to know what they found.",
+    label: "Three weeks on his own case. He's not permitted to know what they found.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -781,7 +781,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 21. ARCHETYPE-GATED: READING THE JUSTICE HALL
   {
-    label: "Sit in the public gallery during an open hearing — read what the proceeding is actually doing.",
+    label: "Sit in the public gallery and read what the proceeding is actually doing.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -809,7 +809,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 22. FACTION SEED: OVERSIGHT COLLEGIUM LIAISON
   {
-    label: "The Oversight Collegium has an observer here. She's ready to escalate if the data is there.",
+    label: "The Collegium's observer is ready to escalate if the data is there.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -839,7 +839,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ATMOSPHERE: THE HARBOR AT NIGHT
   {
-    label: "The harbor holds what the justice hall took. Former owners watch their impounded vessels at night.",
+    label: "The harbor holds what the justice hall took. Former owners watch their vessels at night.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     fn: function() {
@@ -935,7 +935,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: INFORMATION — WORLD COLOR VIGNETTE
   {
-    label: "The Shirshal courthouse keeps its exterior lamps burning through the day — a procedural statement, not a practical one.",
+    label: "The courthouse lamps burn through the day. A procedural statement, not a practical one.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {

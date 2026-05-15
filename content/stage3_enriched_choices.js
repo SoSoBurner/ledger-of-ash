@@ -788,7 +788,7 @@ const STAGE3_ENRICHED_CHOICES = [
 
 // D6: Two Stage 2 NPCs in conflict — Darian and Cysur
 {
-  label: 'Darian and Cysur both have the same piece. One of them will count back to me.',
+  label: 'Darian and Cysur both have the same piece. One counts back to me.',
   tags: ['stage3', 'npc_darian', 'npc_cysur', 'relationship_damage', 'jeopardy'],
   xpReward: 70,
   fn: function() {

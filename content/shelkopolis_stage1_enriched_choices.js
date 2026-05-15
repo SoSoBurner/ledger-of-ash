@@ -114,7 +114,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 4. CLERK/RECORD KEEPER: LEDGER DISCREPANCIES
   {
-    label: "The autumn entries in the commodity ledger stop mid-column. The ink around the gap is clean.",
+    label: "Autumn entries stop mid-column. The ink around the gap is clean.",
     tags: ['NPC', 'Records', 'Bureaucracy'],
     xpReward: 75,
     stageProgress: 1,
@@ -688,7 +688,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
-    label: "The complicit witness is waiting to see what you do with what they just told you.",
+    label: "The complicit witness is watching to see what I do with what they said.",
     tags: ['Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
     stageProgress: 1,
@@ -1012,7 +1012,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   },
   // SUPPRESSION: MISSING SIGNATORY ON TRANSIT AUTHORIZATION
   {
-    label: "The second signature line is blank. The stamp is there. The date is there. The name is not.",
+    label: "The second signature line is blank. Stamp and date are there. The name is not.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 50,
     fn: function() {

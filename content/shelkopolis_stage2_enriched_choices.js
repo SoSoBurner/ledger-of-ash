@@ -680,7 +680,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two names from suppressed docket complaints still in the city. Both went quiet the same week.",
+    label: "Two names from suppressed docket complaints, still in the city. Both went quiet together.",
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
     fn: function() {

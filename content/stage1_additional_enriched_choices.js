@@ -16,7 +16,7 @@
 const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== PERSONAL CONNECTION PATHS (Non-investigation) ==========
   {
-    label: "Spend time at a local gathering place — markets, taverns, or public squares — just listening and being present",
+    label: "Sit at the edge of a market or tavern and listen without asking anything.",
     tags: ['Safe', 'Social', 'Observation', 'Passive'],
     xpReward: 30,
     stageProgress: 1,
@@ -34,7 +34,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Offer help to a local in need — repair work, heavy lifting, or simple assistance — no questions asked",
+    label: "Someone nearby needs a hand. Offer it without asking questions.",
     tags: ['Good', 'Safe', 'Community', 'Action'],
     xpReward: 30,
     stageProgress: 1,
@@ -54,7 +54,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Share a meal with someone you've met — offer to pay, or cook together — build a real connection",
+    label: "Share a meal with someone. Offer to pay. See what builds from that.",
     tags: ['Social', 'Safe', 'Relationship', 'Good'],
     xpReward: 30,
     stageProgress: 1,
@@ -75,7 +75,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   // ========== SAFE HAVEN ESTABLISHMENT ==========
   {
-    label: "Establish a regular pattern — same bed, same tavern corner, same time each day — become a fixture",
+    label: "Same corner, same hour, same face. Become a fixture before asking anything.",
     tags: ['Safe', 'Routine', 'Establishment'],
     xpReward: 30,
     stageProgress: 1,
@@ -93,7 +93,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Learn the local customs — greetings, taboos, local superstitions — respect the place as it is",
+    label: "The greetings, the taboos, the superstitions. Learn the place before moving through it.",
     tags: ['Safe', 'Cultural', 'Observation'],
     xpReward: 30,
     stageProgress: 1,
@@ -152,7 +152,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   // ========== LOCAL DISCOVERY (Not investigation, just stumbling across things) ==========
   {
-    label: "Explore somewhere you haven't been yet — a side street, a neighborhood corner, just wander and notice",
+    label: "A side street not yet walked. A corner not yet seen. Just wander.",
     tags: ['Safe', 'Exploration', 'Discovery'],
     xpReward: 30,
     stageProgress: 1,
@@ -171,7 +171,7 @@ const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Watch how people move through the location — crowd patterns, traffic flows, how people avoid each other",
+    label: "Watch how people move — the crowd patterns, what gets avoided, what doesn't.",
     tags: ['Safe', 'Observation', 'Tactical'],
     xpReward: 30,
     stageProgress: 1,

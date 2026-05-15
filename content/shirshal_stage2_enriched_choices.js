@@ -8,7 +8,7 @@
 const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Tazren's open case file touches every thread I've followed. He's been pulling at this longer than I have.",
+    label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -96,7 +96,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The innkeeper has watched Bureau patterns for years. She knows who doesn't belong on the active roster.",
+    label: "She's watched Bureau patterns for years. She knows who doesn't belong on the roster.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -156,7 +156,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two sets of interview transcripts. One filed, one hidden. The gap is where real testimony went.",
+    label: "Two sets of transcripts. One filed, one hidden. The gap is where real testimony went.",
     tags: ['stage2', 'shirshal'],
     xpReward: 30,
     fn: function() {
@@ -199,7 +199,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Eris controls who enters restricted sections. The wrong question ends up in a Magistratus incident log.",
+    label: "Eris controls restricted sections. The wrong question ends up in a Magistratus incident log.",
     tags: ['stage2', 'shirshal'],
     xpReward: 30,
     fn: function() {
@@ -340,7 +340,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Collegium sub-registry code is in the Bureau's own charter amendments. Embedded years before it was used.",
+    label: "The sub-registry code is in the Bureau's own charter. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {
@@ -401,7 +401,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transit post office kept a field rotation log. The Collegium never asked them to stop.",
+    label: "The transit post kept a field rotation log. The Collegium never asked them to stop.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -492,7 +492,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The residue on the calibration stone is a compound, not sediment. It has a specific formulation.",
+    label: "The residue on the calibration stone is a compound, not sediment. Specific formulation.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -522,7 +522,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The surge incident reports and the petition dismissal dates don't line up the way the official account requires.",
+    label: "The surge reports and dismissal dates don't match the official account.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {
@@ -553,7 +553,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Verdant Row network knows which localities received the suppressed materials. They track what the Bureau doesn't.",
+    label: "The Verdant Row network tracks which localities received the suppressed materials.",
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
     fn: function() {
@@ -584,7 +584,7 @@ const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The override code appeared in a second Bureau branch three months before it showed up here.",
+    label: "The override code appeared in a second Bureau branch three months before here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
