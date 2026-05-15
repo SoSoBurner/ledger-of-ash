@@ -9,7 +9,7 @@
 const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Read the notice board outside the Aurora Heights civic hall — formal announcements for the district's residents.",
+    label: "The Aurora Heights notice board carries formal announcements. Worth reading.",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 55,
     fn: function() {
@@ -24,7 +24,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The Aurora Heights courts run formal session this morning — property disputes, access hearings, pre-Union charter arguments.",
+    label: "The Aurora Heights courts run formal session this morning. The docket is worth attending.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 65,
     fn: function() {
@@ -53,7 +53,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The Aurora Heights archive reading room. Maintenance records go back years. Something changed eleven months ago.",
+    label: "The archive reading room. Maintenance records go back years. Something changed eleven months ago.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 70,
     fn: function() {
@@ -81,7 +81,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A high-ranking official leaves the civic hall with a sealed letter — their posture suggests urgency they're trying not to show.",
+    label: "A sealed letter, carried out quickly. The posture says the contents matter.",
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -103,7 +103,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared pressure equalization vents. The lobby schematic shows this.",
+    label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared vents. The schematic shows it.",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
     fn: function() {
@@ -121,7 +121,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Walk through the Ironspool Ward at the shift change — workers moving between stations, informal conversations.",
+    label: "The Ironspool shift change. Workers moving between stations, talking without guards around.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 60,
     fn: function() {
@@ -148,7 +148,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Four cargo entries in two months, all filed under 'dome maintenance.' No part numbers. No contractor references.",
+    label: "Four cargo entries filed under 'dome maintenance.' No part numbers. No contractor references.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -176,7 +176,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Everyone in the Ironspool Ward knows roughly where the contraband exchange point is. Nobody says directly.",
+    label: "Everyone in the Ironspool Ward knows where the exchange point is. Nobody says it directly.",
     tags: ['District', 'Stealth', 'Combat'],
     xpReward: 70,
     fn: function() {
@@ -198,7 +198,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Forty years in the Ironspool Ward. The dome terminal started getting late-night deliveries three months ago.",
+    label: "Forty years in Ironspool. The dome terminal started getting late-night deliveries three months ago.",
     tags: ['District', 'Persuasion', 'NPC'],
     xpReward: 65,
     fn: function() {
@@ -285,7 +285,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Sit in the Verdant Row community garden and observe who passes through — the informal social center of the district.",
+    label: "The Verdant Row garden is where the district's real conversations happen.",
     tags: ['District', 'Survival', 'Atmosphere'],
     xpReward: 55,
     fn: function() {
@@ -303,7 +303,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
 const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Walk the Granary Steps distribution floor during the morning intake — where Harvest Circle's supply chain terminates.",
+    label: "The Granary Steps distribution floor at morning intake. Where Harvest Circle's chain ends.",
     tags: ['District', 'Survival', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -384,7 +384,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
 const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "The Iron Ledger Ward's transaction registry. Three shell entities, each one below the audit threshold on its own.",
+    label: "Three shell entities in the transaction registry, each below the audit threshold on its own.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -412,7 +412,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Three creditor entities, one structural template. The exit clauses are written to trap regardless of performance.",
+    label: "Three creditors, one template. The exit clauses trap regardless of performance.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 65,
     fn: function() {
@@ -438,7 +438,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Maret Voss flagged the ghost account methodology first. She's been tracing it for three months. She's hit a wall.",
+    label: "Maret Voss flagged the ghost account methodology first. Three months in. She's hit a wall.",
     tags: ['District', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -472,7 +472,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
 const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Three cases against northern bloc aliases in the public docket — all transferred to administrative review, all frozen.",
+    label: "Three cases against northern bloc aliases. Transferred to administrative review. All frozen.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 60,
     fn: function() {
@@ -500,7 +500,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A former Bureau adjudicator sits at the café outside the justice hall — she's been outside official positions for two months.",
+    label: "A former Bureau adjudicator, outside official positions for two months, still at the same café.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 70,
     fn: function() {
@@ -529,7 +529,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The administrative review office is where frozen cases go. Someone with Collegium credentials walks out of it regularly.",
+    label: "The administrative review office is where frozen cases go. Collegium credentials walk out regularly.",
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -556,7 +556,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "The Scriptorium Steps atmospheric science section. One text has a pencil annotation: 'See Iceveil for updated findings.'",
+    label: "One text in the atmospheric section has a pencil note: 'See Iceveil for updated findings.'",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
     fn: function() {
@@ -583,7 +583,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Warden Order liaison was added to the Scriptorium classification review board. Eleven studies classified since. One per decade before that.",
+    label: "A Warden Order liaison joined the Scriptorium review board. Eleven studies classified since. One per decade before.",
     tags: ['District', 'Persuasion', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -609,7 +609,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Doss uses the Scriptorium Steps as his working space. He was suppressed at Mimolot Academy. He knows why.",
+    label: "Doss works at the Scriptorium now. He was suppressed at Mimolot Academy and knows why.",
     tags: ['District', 'Social', 'NPC'],
     xpReward: 75,
     fn: function() {
@@ -643,7 +643,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Attend the formal administrative hearing in the High Quarter — a dispute over district authority and resource allocation.",
+    label: "The High Quarter administrative hearing. District authority and resource allocation in dispute.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 60,
     fn: function() {
@@ -670,7 +670,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The pre-Union charter was renewed through the High Quarter library as a sub-registry — below the threshold of formal monitoring.",
+    label: "The pre-Union charter was renewed as a sub-registry. Below the threshold of formal monitoring.",
     tags: ['District', 'Lore', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -698,7 +698,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two people called themselves 'coordinating association representatives' before me. The charter entity type is exactly that.",
+    label: "Two people called themselves 'coordinating association representatives.' That's exactly the charter entity type.",
     tags: ['District', 'Persuasion', 'NPC'],
     xpReward: 65,
     fn: function() {
@@ -730,7 +730,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
 const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "Walk the Common Quarter market — open stalls, loud, the genuine economic center of the district.",
+    label: "The Common Quarter market. Open stalls, loud, the genuine center of the district.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 55,
     fn: function() {
@@ -802,7 +802,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
 const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
-    label: "The Low Ward's dock workers move the heavy freight that official manifests don't fully describe. Find the ones who remember specific loads.",
+    label: "Low Ward dock workers move freight the manifests don't fully describe. Find who remembers specific loads.",
     tags: ['District', 'Combat', 'Persuasion'],
     xpReward: 65,
     fn: function() {
@@ -826,7 +826,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Low Ward's enforcement contractor patrols the freight areas. Their patrol schedule has a gap — find it.",
+    label: "The enforcement contractor's patrol schedule has a gap. Find it before someone else does.",
     tags: ['District', 'Stealth', 'Survival'],
     xpReward: 70,
     fn: function() {
@@ -849,7 +849,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Someone in the Low Ward is selling word about the inquiry to whoever wants it. Find them before they sell anything about you.",
+    label: "Someone is selling word about the inquiry. Find them before they sell anything about me.",
     tags: ['District', 'Combat', 'Stealth', 'Confrontation'],
     effects: [
       { type: 'heat', polity: 'shelk', amount: 1 }

@@ -222,7 +222,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "Every allied healer and recorder in the region is connected. They're waiting for something worth routing.",
+    label: "Every allied healer and recorder here is connected. Waiting for something worth routing.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 64,
     fn: function() {
@@ -273,7 +273,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
 
 const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
-    label: "The routing number theft is happening in the manifests right now. Catch it before it clears.",
+    label: "The routing number theft is in the manifests right now. Catch it before it clears.",
     tags: ['Investigation', 'Craft', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -704,7 +704,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The charter subsidiary stamping tool was ordered from a copy house. The order slip is in the bindery log.",
+    label: "The stamping tool was ordered from a copy house. The order slip is in the bindery log.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -791,7 +791,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The night archivist works alone. She has seen what gets filed after hours and pulled before morning.",
+    label: "The night archivist works alone. She has seen what gets filed and pulled before morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
