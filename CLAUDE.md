@@ -71,6 +71,7 @@ Every plan phase that adds content must expand the total content of the stage it
 - **No pipes or redirects in playwright commands**: `Bash(npx playwright test *)` in settings.json won't match `npx playwright test ... | tail` or `... > file`. Run bare: `npx playwright test tests/e2e/foo.spec.js --reporter=line` — no pipes, no output redirection.
 - **`/tmp/` doesn't exist on Windows**: Never redirect output there. Use `run_in_background:true` and let the task capture output, or redirect to an absolute Windows path.
 - **`test.use({ launchOptions })` must be file-level**: Can't use inside `test.describe()` — Playwright rejects it. Headed vs headless = separate spec files.
+- **`playwright.config.js` headless override**: `use.headless: true` in config beats `test.use({ launchOptions: { headless: false } })` in spec. Use `test.use({ headless: false })` (top-level key) to override it correctly.
 - **Headless pacing = 0**: No human watching → set all `waitForTimeout` pacing constants to 0. Only `waitForChoices` needs a real timeout (1500ms) for DOM to render.
 - **Background task output files**: Written to a Windows temp path. Read via PowerShell `Get-Content` or the `Read` tool — bash `cat`/`tail` on those paths fails silently.
 - **Never pipe Playwright background runs through `Select-Object -First N`**: PowerShell closes the pipe after N items, silently killing the test process. Run with no piping.
@@ -303,22 +304,20 @@ Caps: if there are more than 100 total unanswered questions across all open topi
 
 ## Prework Questions Format
 
-When asking clarifying questions before a task, always use this numbered format:
+When asking clarifying questions before a task, **always use the `AskUserQuestion` tool** — not plain numbered text. This applies everywhere in the project, not just during Playtest.
 
-**N. Short title**
-One sentence explaining what the issue or ambiguity is and why it matters.
-*Recommendation A: first concrete option with brief rationale.*
-*Recommendation B: second concrete option with brief rationale.*
-*(Additional options if genuinely distinct approaches exist.)*
+Each question in the AskUserQuestion call must:
+- Have a short `header` (≤12 chars)
+- State the ambiguity clearly in the question text — never a bare question
+- Provide 2–4 concrete options, with the recommended one listed first and labeled "(Recommended)"
+- Use `multiSelect: true` only when choices are genuinely non-exclusive
 
-Rules:
-- Number every question
-- Explain the issue — never ask a bare question without context
-- Provide recommendations only when there are genuinely distinct options worth choosing between — do not pad to meet a quota
-- If only one approach makes sense, state it and move on rather than manufacturing a false alternative
-- Mark your preferred recommendation clearly if one is stronger
-- Group related sub-questions under one number rather than splitting them
-- Use this format for prework, not mid-task clarifications
+All other clarification rules remain:
+- Do research first — if the code answers it, don't ask
+- Max 15 questions per pre-task check (cap still enforced)
+- Group related sub-questions under one AskUserQuestion call (up to 4 per call, chain calls if more needed)
+- If only one approach makes sense, state it and move on — don't manufacture false options
+- Save a memory checkpoint before asking 5+ questions
 
 ## Memory Save Points
 
@@ -357,8 +356,8 @@ Fix all failures. Each fix = commit. Re-run until clean. Blocks Step 1.
 ### Step 1 — Headless spec
 Run: `npx playwright test tests/e2e/full-playthrough.spec.js --reporter=line`
 4 families: Classic Combat / Magic and Spellcasting / Stealth and Precision / Support and Leadership.
-Success = all 4 families reach the highest intentionally-unlocked stage.
-Up to 5 fix-retry cycles. Single-file fix → commit → re-run. 3+ files → pause and ask.
+Success = all 4 families reach Stage II (headless accepts `G.stage !== 'Stage I'`).
+Up to 5 fix-retry cycles. Single-file fix → commit → re-run. 3+ files → pause and ask via AskUserQuestion.
 
 ### Step 2 — Triage + Fix loop
 Parse headless log. Classify each failure (engine bug / content bug / spec bug / narrative bug).
@@ -368,7 +367,9 @@ Re-run headless after each batch of fixes until green.
 ### Step 3 — Headed spec
 Run: `npx playwright test tests/e2e/full-playthrough-headed.spec.js --reporter=line`
 4 families, same order. Each retry picks a random archetype + background within the family.
-Same success criteria and retry limit as Step 1.
+Success = all 4 families reach `climaxDone && sp2 >= 18` or Stage III.
+If sp2 is stuck below 18: treat as content bug — invoke Stage II content expansion plan, add choices, commit, re-run. Up to 5 fix-retry cycles.
+Corridor encounters: `G.flags.corridor_encounters_enabled = true` — set this before running headed spec so full travel flow is tested.
 
 ### Stage lock = done
 Deliberate stage gate reached → playtest complete.
@@ -402,6 +403,12 @@ Before fixing: check ACTIVE_PLANS_INDEX.md. If fix conflicts with an active plan
 - Magic and Spellcasting: paladin, spellthief, ranger
 - Stealth and Precision: rogue, assassin, scout_c, thief, trickster, beastmaster
 - Support and Leadership: healer, artificer, engineer, tactician, alchemist, saint, bard
+
+## Skills and Plugins
+
+- **Local skills**: `~/.claude/skills/` is separate from `~/.claude/plugins/cache/`. If a skill isn't found in plugins, check the local skills dir. Example: `humanizer` lives at `~/.claude/skills/humanizer/SKILL.md`.
+- **Game design skills**: `claude-game-studiokit` plugin has `game-design:balance-review`, `game-design:mechanics-review`, `game-design:fun-review`, `game-design:feedback-loop-review`, `game-design:playtest-plan`, `game-design:playtesting-strategy`, `game-design:polish-review`, `game-design:economy-review`, `game-design:tutorial-review` — use for game-specific bug triage.
+- **Reverse-engineering skill**: `fullstack-dev-skills:spec-miner` — extracts specs from undocumented code. Use when tracing unknown engine behavior in `ledger-of-ash.html`.
 
 ## Session Startup — MANDATORY, NO EXCEPTIONS
 

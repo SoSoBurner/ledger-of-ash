@@ -200,7 +200,7 @@ async function isSuccess(page) {
       if (typeof G === 'undefined') return false;
       const sp2        = (G.stageProgress && G.stageProgress[2]) || 0;
       const climaxDone = !!(G.flags && (G.flags.stage2_climax_complete || G.flags.maren_oss_resolved));
-      return G.stage === 'Stage III' || (climaxDone && sp2 >= 12);
+      return G.stage === 'Stage III' || (climaxDone && sp2 >= 18);
     } catch (_) { return false; }
   }).catch(() => false);
 }
